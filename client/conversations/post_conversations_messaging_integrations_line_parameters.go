@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsMessagingIntegrationsLineParams creates a new PostConversationsMessagingIntegrationsLineParams object
-// with the default values initialized.
+// NewPostConversationsMessagingIntegrationsLineParams creates a new PostConversationsMessagingIntegrationsLineParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsMessagingIntegrationsLineParams() *PostConversationsMessagingIntegrationsLineParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsLineParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsMessagingIntegrationsLineParamsWithTimeout creates a new PostConversationsMessagingIntegrationsLineParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsMessagingIntegrationsLineParamsWithTimeout(timeout time.Duration) *PostConversationsMessagingIntegrationsLineParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsLineParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsMessagingIntegrationsLineParamsWithContext creates a new PostConversationsMessagingIntegrationsLineParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsMessagingIntegrationsLineParamsWithContext(ctx context.Context) *PostConversationsMessagingIntegrationsLineParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsLineParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsMessagingIntegrationsLineParamsWithHTTPClient creates a new PostConversationsMessagingIntegrationsLineParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsMessagingIntegrationsLineParamsWithHTTPClient(client *http.Client) *PostConversationsMessagingIntegrationsLineParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsLineParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsMessagingIntegrationsLineParams contains all the parameters to send to the API endpoint
-for the post conversations messaging integrations line operation typically these are written to a http.Request
+/*
+PostConversationsMessagingIntegrationsLineParams contains all the parameters to send to the API endpoint
+
+	for the post conversations messaging integrations line operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsMessagingIntegrationsLineParams struct {
 
-	/*Body
-	  LineIntegrationRequest
+	/* Body.
 
+	   LineIntegrationRequest
 	*/
 	Body *models.LineIntegrationRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations messaging integrations line params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessagingIntegrationsLineParams) WithDefaults() *PostConversationsMessagingIntegrationsLineParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations messaging integrations line params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessagingIntegrationsLineParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations messaging integrations line params
@@ -124,7 +140,6 @@ func (o *PostConversationsMessagingIntegrationsLineParams) WriteToRequest(r runt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

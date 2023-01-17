@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsMessagingIntegrationsTwitterParams creates a new PostConversationsMessagingIntegrationsTwitterParams object
-// with the default values initialized.
+// NewPostConversationsMessagingIntegrationsTwitterParams creates a new PostConversationsMessagingIntegrationsTwitterParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsMessagingIntegrationsTwitterParams() *PostConversationsMessagingIntegrationsTwitterParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsTwitterParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsMessagingIntegrationsTwitterParamsWithTimeout creates a new PostConversationsMessagingIntegrationsTwitterParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsMessagingIntegrationsTwitterParamsWithTimeout(timeout time.Duration) *PostConversationsMessagingIntegrationsTwitterParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsTwitterParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsMessagingIntegrationsTwitterParamsWithContext creates a new PostConversationsMessagingIntegrationsTwitterParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsMessagingIntegrationsTwitterParamsWithContext(ctx context.Context) *PostConversationsMessagingIntegrationsTwitterParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsTwitterParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsMessagingIntegrationsTwitterParamsWithHTTPClient creates a new PostConversationsMessagingIntegrationsTwitterParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsMessagingIntegrationsTwitterParamsWithHTTPClient(client *http.Client) *PostConversationsMessagingIntegrationsTwitterParams {
-	var ()
 	return &PostConversationsMessagingIntegrationsTwitterParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsMessagingIntegrationsTwitterParams contains all the parameters to send to the API endpoint
-for the post conversations messaging integrations twitter operation typically these are written to a http.Request
+/*
+PostConversationsMessagingIntegrationsTwitterParams contains all the parameters to send to the API endpoint
+
+	for the post conversations messaging integrations twitter operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsMessagingIntegrationsTwitterParams struct {
 
-	/*Body
-	  TwitterIntegrationRequest
+	/* Body.
 
+	   TwitterIntegrationRequest
 	*/
 	Body *models.TwitterIntegrationRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations messaging integrations twitter params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessagingIntegrationsTwitterParams) WithDefaults() *PostConversationsMessagingIntegrationsTwitterParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations messaging integrations twitter params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessagingIntegrationsTwitterParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations messaging integrations twitter params
@@ -124,7 +140,6 @@ func (o *PostConversationsMessagingIntegrationsTwitterParams) WriteToRequest(r r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

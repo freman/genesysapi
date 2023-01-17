@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -21,6 +23,11 @@ type DomainOrganizationProduct struct {
 
 // Validate validates this domain organization product
 func (m *DomainOrganizationProduct) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this domain organization product based on context it is used
+func (m *DomainOrganizationProduct) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

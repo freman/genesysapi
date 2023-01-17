@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetKnowledgeKnowledgebaseLanguageCategoryParams creates a new GetKnowledgeKnowledgebaseLanguageCategoryParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseLanguageCategoryParams creates a new GetKnowledgeKnowledgebaseLanguageCategoryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseLanguageCategoryParams() *GetKnowledgeKnowledgebaseLanguageCategoryParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLanguageCategoryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseLanguageCategoryParamsWithTimeout creates a new GetKnowledgeKnowledgebaseLanguageCategoryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseLanguageCategoryParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseLanguageCategoryParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLanguageCategoryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseLanguageCategoryParamsWithContext creates a new GetKnowledgeKnowledgebaseLanguageCategoryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseLanguageCategoryParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseLanguageCategoryParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLanguageCategoryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseLanguageCategoryParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseLanguageCategoryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseLanguageCategoryParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseLanguageCategoryParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLanguageCategoryParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageCategoryParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase language category operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseLanguageCategoryParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase language category operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseLanguageCategoryParams struct {
 
-	/*CategoryID
-	  Category ID
+	/* CategoryID.
 
+	   Category ID
 	*/
 	CategoryID string
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LanguageCode
-	  Language code, format: iso2-LOCALE
 
+	/* LanguageCode.
+
+	   Language code, format: iso2-LOCALE
 	*/
 	LanguageCode string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase language category params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseLanguageCategoryParams) WithDefaults() *GetKnowledgeKnowledgebaseLanguageCategoryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase language category params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseLanguageCategoryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase language category params

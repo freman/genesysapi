@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWebchatDeploymentParams creates a new GetWebchatDeploymentParams object
-// with the default values initialized.
+// NewGetWebchatDeploymentParams creates a new GetWebchatDeploymentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWebchatDeploymentParams() *GetWebchatDeploymentParams {
-	var ()
 	return &GetWebchatDeploymentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWebchatDeploymentParamsWithTimeout creates a new GetWebchatDeploymentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWebchatDeploymentParamsWithTimeout(timeout time.Duration) *GetWebchatDeploymentParams {
-	var ()
 	return &GetWebchatDeploymentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWebchatDeploymentParamsWithContext creates a new GetWebchatDeploymentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWebchatDeploymentParamsWithContext(ctx context.Context) *GetWebchatDeploymentParams {
-	var ()
 	return &GetWebchatDeploymentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWebchatDeploymentParamsWithHTTPClient creates a new GetWebchatDeploymentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWebchatDeploymentParamsWithHTTPClient(client *http.Client) *GetWebchatDeploymentParams {
-	var ()
 	return &GetWebchatDeploymentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWebchatDeploymentParams contains all the parameters to send to the API endpoint
-for the get webchat deployment operation typically these are written to a http.Request
+/*
+GetWebchatDeploymentParams contains all the parameters to send to the API endpoint
+
+	for the get webchat deployment operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWebchatDeploymentParams struct {
 
-	/*DeploymentID
-	  Deployment Id
+	/* DeploymentID.
 
+	   Deployment Id
 	*/
 	DeploymentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get webchat deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebchatDeploymentParams) WithDefaults() *GetWebchatDeploymentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get webchat deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebchatDeploymentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get webchat deployment params

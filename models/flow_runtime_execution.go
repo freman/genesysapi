@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -100,7 +101,6 @@ func (m *FlowRuntimeExecution) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FlowRuntimeExecution) validateConversation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversation) { // not required
 		return nil
 	}
@@ -109,6 +109,8 @@ func (m *FlowRuntimeExecution) validateConversation(formats strfmt.Registry) err
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}
@@ -118,7 +120,6 @@ func (m *FlowRuntimeExecution) validateConversation(formats strfmt.Registry) err
 }
 
 func (m *FlowRuntimeExecution) validateDateCompleted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCompleted) { // not required
 		return nil
 	}
@@ -144,7 +145,6 @@ func (m *FlowRuntimeExecution) validateDateLaunched(formats strfmt.Registry) err
 }
 
 func (m *FlowRuntimeExecution) validateFlowErrorInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlowErrorInfo) { // not required
 		return nil
 	}
@@ -153,6 +153,8 @@ func (m *FlowRuntimeExecution) validateFlowErrorInfo(formats strfmt.Registry) er
 		if err := m.FlowErrorInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flowErrorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flowErrorInfo")
 			}
 			return err
 		}
@@ -171,6 +173,8 @@ func (m *FlowRuntimeExecution) validateFlowVersion(formats strfmt.Registry) erro
 		if err := m.FlowVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flowVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flowVersion")
 			}
 			return err
 		}
@@ -180,7 +184,6 @@ func (m *FlowRuntimeExecution) validateFlowVersion(formats strfmt.Registry) erro
 }
 
 func (m *FlowRuntimeExecution) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -241,6 +244,89 @@ func (m *FlowRuntimeExecution) validateStatus(formats strfmt.Registry) error {
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", *m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this flow runtime execution based on the context it is used
+func (m *FlowRuntimeExecution) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFlowErrorInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFlowVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FlowRuntimeExecution) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowRuntimeExecution) contextValidateFlowErrorInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FlowErrorInfo != nil {
+		if err := m.FlowErrorInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flowErrorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flowErrorInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowRuntimeExecution) contextValidateFlowVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FlowVersion != nil {
+		if err := m.FlowVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flowVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flowVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowRuntimeExecution) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

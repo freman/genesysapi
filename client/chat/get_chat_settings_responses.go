@@ -95,7 +95,6 @@ func (o *GetChatSettingsReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetChatSettingsOK() *GetChatSettingsOK {
 	return &GetChatSettingsOK{}
 }
 
-/*GetChatSettingsOK handles this case with default header values.
+/*
+GetChatSettingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetChatSettingsOK struct {
 	Payload *models.ChatSettings
 }
 
+// IsSuccess returns true when this get chat settings o k response has a 2xx status code
+func (o *GetChatSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get chat settings o k response has a 3xx status code
+func (o *GetChatSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get chat settings o k response has a 4xx status code
+func (o *GetChatSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get chat settings o k response has a 5xx status code
+func (o *GetChatSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get chat settings o k response a status code equal to that given
+func (o *GetChatSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetChatSettingsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetChatSettingsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetChatSettingsBadRequest() *GetChatSettingsBadRequest {
 	return &GetChatSettingsBadRequest{}
 }
 
-/*GetChatSettingsBadRequest handles this case with default header values.
+/*
+GetChatSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetChatSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get chat settings bad request response has a 2xx status code
+func (o *GetChatSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get chat settings bad request response has a 3xx status code
+func (o *GetChatSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get chat settings bad request response has a 4xx status code
+func (o *GetChatSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get chat settings bad request response has a 5xx status code
+func (o *GetChatSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get chat settings bad request response a status code equal to that given
+func (o *GetChatSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetChatSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetChatSettingsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetChatSettingsUnauthorized() *GetChatSettingsUnauthorized {
 	return &GetChatSettingsUnauthorized{}
 }
 
-/*GetChatSettingsUnauthorized handles this case with default header values.
+/*
+GetChatSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetChatSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get chat settings unauthorized response has a 2xx status code
+func (o *GetChatSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get chat settings unauthorized response has a 3xx status code
+func (o *GetChatSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get chat settings unauthorized response has a 4xx status code
+func (o *GetChatSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get chat settings unauthorized response has a 5xx status code
+func (o *GetChatSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get chat settings unauthorized response a status code equal to that given
+func (o *GetChatSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetChatSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetChatSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetChatSettingsForbidden() *GetChatSettingsForbidden {
 	return &GetChatSettingsForbidden{}
 }
 
-/*GetChatSettingsForbidden handles this case with default header values.
+/*
+GetChatSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetChatSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get chat settings forbidden response has a 2xx status code
+func (o *GetChatSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get chat settings forbidden response has a 3xx status code
+func (o *GetChatSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get chat settings forbidden response has a 4xx status code
+func (o *GetChatSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get chat settings forbidden response has a 5xx status code
+func (o *GetChatSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get chat settings forbidden response a status code equal to that given
+func (o *GetChatSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetChatSettingsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetChatSettingsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetChatSettingsNotFound() *GetChatSettingsNotFound {
 	return &GetChatSettingsNotFound{}
 }
 
-/*GetChatSettingsNotFound handles this case with default header values.
+/*
+GetChatSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetChatSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get chat settings not found response has a 2xx status code
+func (o *GetChatSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get chat settings not found response has a 3xx status code
+func (o *GetChatSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get chat settings not found response has a 4xx status code
+func (o *GetChatSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get chat settings not found response has a 5xx status code
+func (o *GetChatSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get chat settings not found response a status code equal to that given
+func (o *GetChatSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetChatSettingsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetChatSettingsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetChatSettingsRequestTimeout() *GetChatSettingsRequestTimeout {
 	return &GetChatSettingsRequestTimeout{}
 }
 
-/*GetChatSettingsRequestTimeout handles this case with default header values.
+/*
+GetChatSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetChatSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get chat settings request timeout response has a 2xx status code
+func (o *GetChatSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get chat settings request timeout response has a 3xx status code
+func (o *GetChatSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get chat settings request timeout response has a 4xx status code
+func (o *GetChatSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get chat settings request timeout response has a 5xx status code
+func (o *GetChatSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get chat settings request timeout response a status code equal to that given
+func (o *GetChatSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetChatSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetChatSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetChatSettingsRequestEntityTooLarge() *GetChatSettingsRequestEntityTooL
 	return &GetChatSettingsRequestEntityTooLarge{}
 }
 
-/*GetChatSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+GetChatSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetChatSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get chat settings request entity too large response has a 2xx status code
+func (o *GetChatSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get chat settings request entity too large response has a 3xx status code
+func (o *GetChatSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get chat settings request entity too large response has a 4xx status code
+func (o *GetChatSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get chat settings request entity too large response has a 5xx status code
+func (o *GetChatSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get chat settings request entity too large response a status code equal to that given
+func (o *GetChatSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetChatSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetChatSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetChatSettingsUnsupportedMediaType() *GetChatSettingsUnsupportedMediaTy
 	return &GetChatSettingsUnsupportedMediaType{}
 }
 
-/*GetChatSettingsUnsupportedMediaType handles this case with default header values.
+/*
+GetChatSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetChatSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get chat settings unsupported media type response has a 2xx status code
+func (o *GetChatSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get chat settings unsupported media type response has a 3xx status code
+func (o *GetChatSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get chat settings unsupported media type response has a 4xx status code
+func (o *GetChatSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get chat settings unsupported media type response has a 5xx status code
+func (o *GetChatSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get chat settings unsupported media type response a status code equal to that given
+func (o *GetChatSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetChatSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetChatSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetChatSettingsTooManyRequests() *GetChatSettingsTooManyRequests {
 	return &GetChatSettingsTooManyRequests{}
 }
 
-/*GetChatSettingsTooManyRequests handles this case with default header values.
+/*
+GetChatSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetChatSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get chat settings too many requests response has a 2xx status code
+func (o *GetChatSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get chat settings too many requests response has a 3xx status code
+func (o *GetChatSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get chat settings too many requests response has a 4xx status code
+func (o *GetChatSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get chat settings too many requests response has a 5xx status code
+func (o *GetChatSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get chat settings too many requests response a status code equal to that given
+func (o *GetChatSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetChatSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetChatSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetChatSettingsInternalServerError() *GetChatSettingsInternalServerError
 	return &GetChatSettingsInternalServerError{}
 }
 
-/*GetChatSettingsInternalServerError handles this case with default header values.
+/*
+GetChatSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetChatSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get chat settings internal server error response has a 2xx status code
+func (o *GetChatSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get chat settings internal server error response has a 3xx status code
+func (o *GetChatSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get chat settings internal server error response has a 4xx status code
+func (o *GetChatSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get chat settings internal server error response has a 5xx status code
+func (o *GetChatSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get chat settings internal server error response a status code equal to that given
+func (o *GetChatSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetChatSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetChatSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetChatSettingsServiceUnavailable() *GetChatSettingsServiceUnavailable {
 	return &GetChatSettingsServiceUnavailable{}
 }
 
-/*GetChatSettingsServiceUnavailable handles this case with default header values.
+/*
+GetChatSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetChatSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get chat settings service unavailable response has a 2xx status code
+func (o *GetChatSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get chat settings service unavailable response has a 3xx status code
+func (o *GetChatSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get chat settings service unavailable response has a 4xx status code
+func (o *GetChatSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get chat settings service unavailable response has a 5xx status code
+func (o *GetChatSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get chat settings service unavailable response a status code equal to that given
+func (o *GetChatSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetChatSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetChatSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetChatSettingsGatewayTimeout() *GetChatSettingsGatewayTimeout {
 	return &GetChatSettingsGatewayTimeout{}
 }
 
-/*GetChatSettingsGatewayTimeout handles this case with default header values.
+/*
+GetChatSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetChatSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get chat settings gateway timeout response has a 2xx status code
+func (o *GetChatSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get chat settings gateway timeout response has a 3xx status code
+func (o *GetChatSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get chat settings gateway timeout response has a 4xx status code
+func (o *GetChatSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get chat settings gateway timeout response has a 5xx status code
+func (o *GetChatSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get chat settings gateway timeout response a status code equal to that given
+func (o *GetChatSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetChatSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetChatSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/chat/settings][%d] getChatSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

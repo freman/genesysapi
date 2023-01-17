@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -54,6 +55,9 @@ type Queue struct {
 
 	// The queue description.
 	Description string `json:"description,omitempty"`
+
+	// The Direct Routing settings for the queue
+	DirectRouting *DirectRouting `json:"directRouting,omitempty"`
 
 	// The division to which this entity belongs.
 	Division *Division `json:"division,omitempty"`
@@ -126,9 +130,6 @@ type Queue struct {
 	// Read Only: true
 	UserMemberCount int32 `json:"userMemberCount,omitempty"`
 
-	// The VIP Routing settings for the queue
-	VipRouting *VipRouting `json:"vipRouting,omitempty"`
-
 	// The prompt used for whisper on the queue, if configured.
 	WhisperPrompt *DomainEntityRef `json:"whisperPrompt,omitempty"`
 }
@@ -158,6 +159,10 @@ func (m *Queue) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateDefaultScripts(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDirectRouting(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -209,10 +214,6 @@ func (m *Queue) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateVipRouting(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateWhisperPrompt(formats); err != nil {
 		res = append(res, err)
 	}
@@ -224,7 +225,6 @@ func (m *Queue) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateAcwSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AcwSettings) { // not required
 		return nil
 	}
@@ -233,6 +233,8 @@ func (m *Queue) validateAcwSettings(formats strfmt.Registry) error {
 		if err := m.AcwSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("acwSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("acwSettings")
 			}
 			return err
 		}
@@ -242,7 +244,6 @@ func (m *Queue) validateAcwSettings(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateAgentOwnedRouting(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AgentOwnedRouting) { // not required
 		return nil
 	}
@@ -251,6 +252,8 @@ func (m *Queue) validateAgentOwnedRouting(formats strfmt.Registry) error {
 		if err := m.AgentOwnedRouting.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("agentOwnedRouting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agentOwnedRouting")
 			}
 			return err
 		}
@@ -260,7 +263,6 @@ func (m *Queue) validateAgentOwnedRouting(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateBullseye(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Bullseye) { // not required
 		return nil
 	}
@@ -269,6 +271,8 @@ func (m *Queue) validateBullseye(formats strfmt.Registry) error {
 		if err := m.Bullseye.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("bullseye")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bullseye")
 			}
 			return err
 		}
@@ -278,7 +282,6 @@ func (m *Queue) validateBullseye(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -291,7 +294,6 @@ func (m *Queue) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -304,7 +306,6 @@ func (m *Queue) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateDefaultScripts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DefaultScripts) { // not required
 		return nil
 	}
@@ -316,6 +317,11 @@ func (m *Queue) validateDefaultScripts(formats strfmt.Registry) error {
 		}
 		if val, ok := m.DefaultScripts[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("defaultScripts" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("defaultScripts" + "." + k)
+				}
 				return err
 			}
 		}
@@ -325,8 +331,26 @@ func (m *Queue) validateDefaultScripts(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Queue) validateDivision(formats strfmt.Registry) error {
+func (m *Queue) validateDirectRouting(formats strfmt.Registry) error {
+	if swag.IsZero(m.DirectRouting) { // not required
+		return nil
+	}
 
+	if m.DirectRouting != nil {
+		if err := m.DirectRouting.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("directRouting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("directRouting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Queue) validateDivision(formats strfmt.Registry) error {
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -335,6 +359,8 @@ func (m *Queue) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -344,7 +370,6 @@ func (m *Queue) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateEmailInQueueFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EmailInQueueFlow) { // not required
 		return nil
 	}
@@ -353,6 +378,8 @@ func (m *Queue) validateEmailInQueueFlow(formats strfmt.Registry) error {
 		if err := m.EmailInQueueFlow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("emailInQueueFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emailInQueueFlow")
 			}
 			return err
 		}
@@ -362,7 +389,6 @@ func (m *Queue) validateEmailInQueueFlow(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateMediaSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaSettings) { // not required
 		return nil
 	}
@@ -374,6 +400,11 @@ func (m *Queue) validateMediaSettings(formats strfmt.Registry) error {
 		}
 		if val, ok := m.MediaSettings[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mediaSettings" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mediaSettings" + "." + k)
+				}
 				return err
 			}
 		}
@@ -384,7 +415,6 @@ func (m *Queue) validateMediaSettings(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateMemberGroups(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MemberGroups) { // not required
 		return nil
 	}
@@ -402,6 +432,8 @@ func (m *Queue) validateMemberGroups(formats strfmt.Registry) error {
 			if err := m.MemberGroups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("memberGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("memberGroups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -413,7 +445,6 @@ func (m *Queue) validateMemberGroups(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateMessageInQueueFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageInQueueFlow) { // not required
 		return nil
 	}
@@ -422,6 +453,8 @@ func (m *Queue) validateMessageInQueueFlow(formats strfmt.Registry) error {
 		if err := m.MessageInQueueFlow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messageInQueueFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messageInQueueFlow")
 			}
 			return err
 		}
@@ -431,7 +464,6 @@ func (m *Queue) validateMessageInQueueFlow(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateOnHoldPrompt(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OnHoldPrompt) { // not required
 		return nil
 	}
@@ -440,6 +472,8 @@ func (m *Queue) validateOnHoldPrompt(formats strfmt.Registry) error {
 		if err := m.OnHoldPrompt.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("onHoldPrompt")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("onHoldPrompt")
 			}
 			return err
 		}
@@ -449,7 +483,6 @@ func (m *Queue) validateOnHoldPrompt(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateOutboundEmailAddress(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OutboundEmailAddress) { // not required
 		return nil
 	}
@@ -458,6 +491,8 @@ func (m *Queue) validateOutboundEmailAddress(formats strfmt.Registry) error {
 		if err := m.OutboundEmailAddress.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outboundEmailAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outboundEmailAddress")
 			}
 			return err
 		}
@@ -467,7 +502,6 @@ func (m *Queue) validateOutboundEmailAddress(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateOutboundMessagingAddresses(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OutboundMessagingAddresses) { // not required
 		return nil
 	}
@@ -476,6 +510,8 @@ func (m *Queue) validateOutboundMessagingAddresses(formats strfmt.Registry) erro
 		if err := m.OutboundMessagingAddresses.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outboundMessagingAddresses")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outboundMessagingAddresses")
 			}
 			return err
 		}
@@ -485,7 +521,6 @@ func (m *Queue) validateOutboundMessagingAddresses(formats strfmt.Registry) erro
 }
 
 func (m *Queue) validateQueueFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.QueueFlow) { // not required
 		return nil
 	}
@@ -494,6 +529,8 @@ func (m *Queue) validateQueueFlow(formats strfmt.Registry) error {
 		if err := m.QueueFlow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queueFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queueFlow")
 			}
 			return err
 		}
@@ -503,7 +540,6 @@ func (m *Queue) validateQueueFlow(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateRoutingRules(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingRules) { // not required
 		return nil
 	}
@@ -517,6 +553,8 @@ func (m *Queue) validateRoutingRules(formats strfmt.Registry) error {
 			if err := m.RoutingRules[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("routingRules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingRules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -528,7 +566,6 @@ func (m *Queue) validateRoutingRules(formats strfmt.Registry) error {
 }
 
 func (m *Queue) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -573,7 +610,6 @@ func (m *Queue) validateSkillEvaluationMethodEnum(path, location string, value s
 }
 
 func (m *Queue) validateSkillEvaluationMethod(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SkillEvaluationMethod) { // not required
 		return nil
 	}
@@ -586,26 +622,7 @@ func (m *Queue) validateSkillEvaluationMethod(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Queue) validateVipRouting(formats strfmt.Registry) error {
-
-	if swag.IsZero(m.VipRouting) { // not required
-		return nil
-	}
-
-	if m.VipRouting != nil {
-		if err := m.VipRouting.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("vipRouting")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
 func (m *Queue) validateWhisperPrompt(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WhisperPrompt) { // not required
 		return nil
 	}
@@ -614,6 +631,409 @@ func (m *Queue) validateWhisperPrompt(formats strfmt.Registry) error {
 		if err := m.WhisperPrompt.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("whisperPrompt")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("whisperPrompt")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this queue based on the context it is used
+func (m *Queue) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAcwSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAgentOwnedRouting(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateBullseye(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDefaultScripts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDirectRouting(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmailInQueueFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateJoinedMemberCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMediaSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMemberCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMemberGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessageInQueueFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOnHoldPrompt(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutboundEmailAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutboundMessagingAddresses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueueFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutingRules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserMemberCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWhisperPrompt(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Queue) contextValidateAcwSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AcwSettings != nil {
+		if err := m.AcwSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("acwSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("acwSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateAgentOwnedRouting(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AgentOwnedRouting != nil {
+		if err := m.AgentOwnedRouting.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("agentOwnedRouting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agentOwnedRouting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateBullseye(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Bullseye != nil {
+		if err := m.Bullseye.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("bullseye")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bullseye")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateDefaultScripts(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.DefaultScripts {
+
+		if val, ok := m.DefaultScripts[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateDirectRouting(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DirectRouting != nil {
+		if err := m.DirectRouting.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("directRouting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("directRouting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateEmailInQueueFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EmailInQueueFlow != nil {
+		if err := m.EmailInQueueFlow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("emailInQueueFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emailInQueueFlow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateJoinedMemberCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "joinedMemberCount", "body", int32(m.JoinedMemberCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateMediaSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.MediaSettings {
+
+		if val, ok := m.MediaSettings[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateMemberCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "memberCount", "body", int32(m.MemberCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateMemberGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MemberGroups); i++ {
+
+		if m.MemberGroups[i] != nil {
+			if err := m.MemberGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("memberGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("memberGroups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateMessageInQueueFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessageInQueueFlow != nil {
+		if err := m.MessageInQueueFlow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messageInQueueFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messageInQueueFlow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateOnHoldPrompt(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OnHoldPrompt != nil {
+		if err := m.OnHoldPrompt.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("onHoldPrompt")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("onHoldPrompt")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateOutboundEmailAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OutboundEmailAddress != nil {
+		if err := m.OutboundEmailAddress.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outboundEmailAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outboundEmailAddress")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateOutboundMessagingAddresses(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OutboundMessagingAddresses != nil {
+		if err := m.OutboundMessagingAddresses.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outboundMessagingAddresses")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outboundMessagingAddresses")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateQueueFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.QueueFlow != nil {
+		if err := m.QueueFlow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("queueFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queueFlow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateRoutingRules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RoutingRules); i++ {
+
+		if m.RoutingRules[i] != nil {
+			if err := m.RoutingRules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("routingRules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingRules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateUserMemberCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "userMemberCount", "body", int32(m.UserMemberCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Queue) contextValidateWhisperPrompt(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WhisperPrompt != nil {
+		if err := m.WhisperPrompt.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("whisperPrompt")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("whisperPrompt")
 			}
 			return err
 		}

@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostProcessautomationTriggersParams creates a new PostProcessautomationTriggersParams object
-// with the default values initialized.
+// NewPostProcessautomationTriggersParams creates a new PostProcessautomationTriggersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostProcessautomationTriggersParams() *PostProcessautomationTriggersParams {
-	var ()
 	return &PostProcessautomationTriggersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostProcessautomationTriggersParamsWithTimeout creates a new PostProcessautomationTriggersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostProcessautomationTriggersParamsWithTimeout(timeout time.Duration) *PostProcessautomationTriggersParams {
-	var ()
 	return &PostProcessautomationTriggersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostProcessautomationTriggersParamsWithContext creates a new PostProcessautomationTriggersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostProcessautomationTriggersParamsWithContext(ctx context.Context) *PostProcessautomationTriggersParams {
-	var ()
 	return &PostProcessautomationTriggersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostProcessautomationTriggersParamsWithHTTPClient creates a new PostProcessautomationTriggersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostProcessautomationTriggersParamsWithHTTPClient(client *http.Client) *PostProcessautomationTriggersParams {
-	var ()
 	return &PostProcessautomationTriggersParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostProcessautomationTriggersParams contains all the parameters to send to the API endpoint
-for the post processautomation triggers operation typically these are written to a http.Request
+/*
+PostProcessautomationTriggersParams contains all the parameters to send to the API endpoint
+
+	for the post processautomation triggers operation.
+
+	Typically these are written to a http.Request.
 */
 type PostProcessautomationTriggersParams struct {
 
-	/*Body
-	  Input used to create a Trigger.
+	/* Body.
 
+	   Input used to create a Trigger.
 	*/
 	Body *models.CreateTriggerRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post processautomation triggers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostProcessautomationTriggersParams) WithDefaults() *PostProcessautomationTriggersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post processautomation triggers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostProcessautomationTriggersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post processautomation triggers params
@@ -124,7 +140,6 @@ func (o *PostProcessautomationTriggersParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

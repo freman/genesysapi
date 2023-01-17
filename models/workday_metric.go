@@ -6,11 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // WorkdayMetric workday metric
@@ -62,7 +64,6 @@ func (m *WorkdayMetric) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WorkdayMetric) validateMetric(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metric) { // not required
 		return nil
 	}
@@ -71,6 +72,8 @@ func (m *WorkdayMetric) validateMetric(formats strfmt.Registry) error {
 		if err := m.Metric.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metric")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metric")
 			}
 			return err
 		}
@@ -80,7 +83,6 @@ func (m *WorkdayMetric) validateMetric(formats strfmt.Registry) error {
 }
 
 func (m *WorkdayMetric) validateObjective(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Objective) { // not required
 		return nil
 	}
@@ -89,6 +91,8 @@ func (m *WorkdayMetric) validateObjective(formats strfmt.Registry) error {
 		if err := m.Objective.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("objective")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("objective")
 			}
 			return err
 		}
@@ -98,7 +102,6 @@ func (m *WorkdayMetric) validateObjective(formats strfmt.Registry) error {
 }
 
 func (m *WorkdayMetric) validatePunctualityEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PunctualityEvents) { // not required
 		return nil
 	}
@@ -112,11 +115,117 @@ func (m *WorkdayMetric) validatePunctualityEvents(formats strfmt.Registry) error
 			if err := m.PunctualityEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("punctualityEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("punctualityEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this workday metric based on the context it is used
+func (m *WorkdayMetric) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMetric(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateObjective(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePoints(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePunctualityEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateValue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WorkdayMetric) contextValidateMetric(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metric != nil {
+		if err := m.Metric.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metric")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metric")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WorkdayMetric) contextValidateObjective(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Objective != nil {
+		if err := m.Objective.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("objective")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("objective")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WorkdayMetric) contextValidatePoints(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "points", "body", int32(m.Points)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WorkdayMetric) contextValidatePunctualityEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "punctualityEvents", "body", []*PunctualityEvent(m.PunctualityEvents)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.PunctualityEvents); i++ {
+
+		if m.PunctualityEvents[i] != nil {
+			if err := m.PunctualityEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("punctualityEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("punctualityEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WorkdayMetric) contextValidateValue(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "value", "body", float64(m.Value)); err != nil {
+		return err
 	}
 
 	return nil

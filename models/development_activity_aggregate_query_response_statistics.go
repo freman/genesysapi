@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -30,6 +32,11 @@ type DevelopmentActivityAggregateQueryResponseStatistics struct {
 
 // Validate validates this development activity aggregate query response statistics
 func (m *DevelopmentActivityAggregateQueryResponseStatistics) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this development activity aggregate query response statistics based on context it is used
+func (m *DevelopmentActivityAggregateQueryResponseStatistics) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

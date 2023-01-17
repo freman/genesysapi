@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -63,7 +64,6 @@ func (m *SubjectDivisionGrants) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SubjectDivisionGrants) validateDivisions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Divisions) { // not required
 		return nil
 	}
@@ -77,6 +77,8 @@ func (m *SubjectDivisionGrants) validateDivisions(formats strfmt.Registry) error
 			if err := m.Divisions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("divisions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("divisions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -88,7 +90,6 @@ func (m *SubjectDivisionGrants) validateDivisions(formats strfmt.Registry) error
 }
 
 func (m *SubjectDivisionGrants) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -142,13 +143,72 @@ func (m *SubjectDivisionGrants) validateTypeEnum(path, location string, value st
 }
 
 func (m *SubjectDivisionGrants) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this subject division grants based on the context it is used
+func (m *SubjectDivisionGrants) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDivisions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SubjectDivisionGrants) contextValidateDivisions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Divisions); i++ {
+
+		if m.Divisions[i] != nil {
+			if err := m.Divisions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("divisions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("divisions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SubjectDivisionGrants) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SubjectDivisionGrants) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

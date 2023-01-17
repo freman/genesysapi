@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteTelephonyProvidersEdgesExtensionpoolParams creates a new DeleteTelephonyProvidersEdgesExtensionpoolParams object
-// with the default values initialized.
+// NewDeleteTelephonyProvidersEdgesExtensionpoolParams creates a new DeleteTelephonyProvidersEdgesExtensionpoolParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteTelephonyProvidersEdgesExtensionpoolParams() *DeleteTelephonyProvidersEdgesExtensionpoolParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgesExtensionpoolParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteTelephonyProvidersEdgesExtensionpoolParamsWithTimeout creates a new DeleteTelephonyProvidersEdgesExtensionpoolParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteTelephonyProvidersEdgesExtensionpoolParamsWithTimeout(timeout time.Duration) *DeleteTelephonyProvidersEdgesExtensionpoolParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgesExtensionpoolParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteTelephonyProvidersEdgesExtensionpoolParamsWithContext creates a new DeleteTelephonyProvidersEdgesExtensionpoolParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteTelephonyProvidersEdgesExtensionpoolParamsWithContext(ctx context.Context) *DeleteTelephonyProvidersEdgesExtensionpoolParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgesExtensionpoolParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteTelephonyProvidersEdgesExtensionpoolParamsWithHTTPClient creates a new DeleteTelephonyProvidersEdgesExtensionpoolParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteTelephonyProvidersEdgesExtensionpoolParamsWithHTTPClient(client *http.Client) *DeleteTelephonyProvidersEdgesExtensionpoolParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgesExtensionpoolParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteTelephonyProvidersEdgesExtensionpoolParams contains all the parameters to send to the API endpoint
-for the delete telephony providers edges extensionpool operation typically these are written to a http.Request
+/*
+DeleteTelephonyProvidersEdgesExtensionpoolParams contains all the parameters to send to the API endpoint
+
+	for the delete telephony providers edges extensionpool operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteTelephonyProvidersEdgesExtensionpoolParams struct {
 
-	/*ExtensionPoolID
-	  Extension pool ID
+	/* ExtensionPoolID.
 
+	   Extension pool ID
 	*/
 	ExtensionPoolID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete telephony providers edges extensionpool params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteTelephonyProvidersEdgesExtensionpoolParams) WithDefaults() *DeleteTelephonyProvidersEdgesExtensionpoolParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete telephony providers edges extensionpool params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteTelephonyProvidersEdgesExtensionpoolParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete telephony providers edges extensionpool params

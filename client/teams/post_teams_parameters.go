@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTeamsParams creates a new PostTeamsParams object
-// with the default values initialized.
+// NewPostTeamsParams creates a new PostTeamsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTeamsParams() *PostTeamsParams {
-	var ()
 	return &PostTeamsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTeamsParamsWithTimeout creates a new PostTeamsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTeamsParamsWithTimeout(timeout time.Duration) *PostTeamsParams {
-	var ()
 	return &PostTeamsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTeamsParamsWithContext creates a new PostTeamsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTeamsParamsWithContext(ctx context.Context) *PostTeamsParams {
-	var ()
 	return &PostTeamsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTeamsParamsWithHTTPClient creates a new PostTeamsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTeamsParamsWithHTTPClient(client *http.Client) *PostTeamsParams {
-	var ()
 	return &PostTeamsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTeamsParams contains all the parameters to send to the API endpoint
-for the post teams operation typically these are written to a http.Request
+/*
+PostTeamsParams contains all the parameters to send to the API endpoint
+
+	for the post teams operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTeamsParams struct {
 
-	/*Body
-	  Team
+	/* Body.
 
+	   Team
 	*/
 	Body *models.Team
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post teams params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTeamsParams) WithDefaults() *PostTeamsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post teams params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTeamsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post teams params
@@ -124,7 +140,6 @@ func (o *PostTeamsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

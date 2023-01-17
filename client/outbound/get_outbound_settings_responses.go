@@ -95,7 +95,6 @@ func (o *GetOutboundSettingsReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOutboundSettingsOK() *GetOutboundSettingsOK {
 	return &GetOutboundSettingsOK{}
 }
 
-/*GetOutboundSettingsOK handles this case with default header values.
+/*
+GetOutboundSettingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOutboundSettingsOK struct {
 	Payload *models.OutboundSettings
 }
 
+// IsSuccess returns true when this get outbound settings o k response has a 2xx status code
+func (o *GetOutboundSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get outbound settings o k response has a 3xx status code
+func (o *GetOutboundSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound settings o k response has a 4xx status code
+func (o *GetOutboundSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound settings o k response has a 5xx status code
+func (o *GetOutboundSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound settings o k response a status code equal to that given
+func (o *GetOutboundSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOutboundSettingsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOutboundSettingsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOutboundSettingsBadRequest() *GetOutboundSettingsBadRequest {
 	return &GetOutboundSettingsBadRequest{}
 }
 
-/*GetOutboundSettingsBadRequest handles this case with default header values.
+/*
+GetOutboundSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOutboundSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound settings bad request response has a 2xx status code
+func (o *GetOutboundSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound settings bad request response has a 3xx status code
+func (o *GetOutboundSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound settings bad request response has a 4xx status code
+func (o *GetOutboundSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound settings bad request response has a 5xx status code
+func (o *GetOutboundSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound settings bad request response a status code equal to that given
+func (o *GetOutboundSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOutboundSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOutboundSettingsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOutboundSettingsUnauthorized() *GetOutboundSettingsUnauthorized {
 	return &GetOutboundSettingsUnauthorized{}
 }
 
-/*GetOutboundSettingsUnauthorized handles this case with default header values.
+/*
+GetOutboundSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOutboundSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound settings unauthorized response has a 2xx status code
+func (o *GetOutboundSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound settings unauthorized response has a 3xx status code
+func (o *GetOutboundSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound settings unauthorized response has a 4xx status code
+func (o *GetOutboundSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound settings unauthorized response has a 5xx status code
+func (o *GetOutboundSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound settings unauthorized response a status code equal to that given
+func (o *GetOutboundSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOutboundSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOutboundSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOutboundSettingsForbidden() *GetOutboundSettingsForbidden {
 	return &GetOutboundSettingsForbidden{}
 }
 
-/*GetOutboundSettingsForbidden handles this case with default header values.
+/*
+GetOutboundSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOutboundSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound settings forbidden response has a 2xx status code
+func (o *GetOutboundSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound settings forbidden response has a 3xx status code
+func (o *GetOutboundSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound settings forbidden response has a 4xx status code
+func (o *GetOutboundSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound settings forbidden response has a 5xx status code
+func (o *GetOutboundSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound settings forbidden response a status code equal to that given
+func (o *GetOutboundSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOutboundSettingsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOutboundSettingsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOutboundSettingsNotFound() *GetOutboundSettingsNotFound {
 	return &GetOutboundSettingsNotFound{}
 }
 
-/*GetOutboundSettingsNotFound handles this case with default header values.
+/*
+GetOutboundSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOutboundSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound settings not found response has a 2xx status code
+func (o *GetOutboundSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound settings not found response has a 3xx status code
+func (o *GetOutboundSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound settings not found response has a 4xx status code
+func (o *GetOutboundSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound settings not found response has a 5xx status code
+func (o *GetOutboundSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound settings not found response a status code equal to that given
+func (o *GetOutboundSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOutboundSettingsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOutboundSettingsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOutboundSettingsRequestTimeout() *GetOutboundSettingsRequestTimeout {
 	return &GetOutboundSettingsRequestTimeout{}
 }
 
-/*GetOutboundSettingsRequestTimeout handles this case with default header values.
+/*
+GetOutboundSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOutboundSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound settings request timeout response has a 2xx status code
+func (o *GetOutboundSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound settings request timeout response has a 3xx status code
+func (o *GetOutboundSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound settings request timeout response has a 4xx status code
+func (o *GetOutboundSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound settings request timeout response has a 5xx status code
+func (o *GetOutboundSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound settings request timeout response a status code equal to that given
+func (o *GetOutboundSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOutboundSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOutboundSettingsRequestEntityTooLarge() *GetOutboundSettingsRequestEn
 	return &GetOutboundSettingsRequestEntityTooLarge{}
 }
 
-/*GetOutboundSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+GetOutboundSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOutboundSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound settings request entity too large response has a 2xx status code
+func (o *GetOutboundSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound settings request entity too large response has a 3xx status code
+func (o *GetOutboundSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound settings request entity too large response has a 4xx status code
+func (o *GetOutboundSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound settings request entity too large response has a 5xx status code
+func (o *GetOutboundSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound settings request entity too large response a status code equal to that given
+func (o *GetOutboundSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOutboundSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOutboundSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOutboundSettingsUnsupportedMediaType() *GetOutboundSettingsUnsupporte
 	return &GetOutboundSettingsUnsupportedMediaType{}
 }
 
-/*GetOutboundSettingsUnsupportedMediaType handles this case with default header values.
+/*
+GetOutboundSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOutboundSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound settings unsupported media type response has a 2xx status code
+func (o *GetOutboundSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound settings unsupported media type response has a 3xx status code
+func (o *GetOutboundSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound settings unsupported media type response has a 4xx status code
+func (o *GetOutboundSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound settings unsupported media type response has a 5xx status code
+func (o *GetOutboundSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound settings unsupported media type response a status code equal to that given
+func (o *GetOutboundSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOutboundSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOutboundSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOutboundSettingsTooManyRequests() *GetOutboundSettingsTooManyRequests
 	return &GetOutboundSettingsTooManyRequests{}
 }
 
-/*GetOutboundSettingsTooManyRequests handles this case with default header values.
+/*
+GetOutboundSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOutboundSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound settings too many requests response has a 2xx status code
+func (o *GetOutboundSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound settings too many requests response has a 3xx status code
+func (o *GetOutboundSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound settings too many requests response has a 4xx status code
+func (o *GetOutboundSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound settings too many requests response has a 5xx status code
+func (o *GetOutboundSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound settings too many requests response a status code equal to that given
+func (o *GetOutboundSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOutboundSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOutboundSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOutboundSettingsInternalServerError() *GetOutboundSettingsInternalSer
 	return &GetOutboundSettingsInternalServerError{}
 }
 
-/*GetOutboundSettingsInternalServerError handles this case with default header values.
+/*
+GetOutboundSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOutboundSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound settings internal server error response has a 2xx status code
+func (o *GetOutboundSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound settings internal server error response has a 3xx status code
+func (o *GetOutboundSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound settings internal server error response has a 4xx status code
+func (o *GetOutboundSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound settings internal server error response has a 5xx status code
+func (o *GetOutboundSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound settings internal server error response a status code equal to that given
+func (o *GetOutboundSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOutboundSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOutboundSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOutboundSettingsServiceUnavailable() *GetOutboundSettingsServiceUnava
 	return &GetOutboundSettingsServiceUnavailable{}
 }
 
-/*GetOutboundSettingsServiceUnavailable handles this case with default header values.
+/*
+GetOutboundSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOutboundSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound settings service unavailable response has a 2xx status code
+func (o *GetOutboundSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound settings service unavailable response has a 3xx status code
+func (o *GetOutboundSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound settings service unavailable response has a 4xx status code
+func (o *GetOutboundSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound settings service unavailable response has a 5xx status code
+func (o *GetOutboundSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound settings service unavailable response a status code equal to that given
+func (o *GetOutboundSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOutboundSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOutboundSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOutboundSettingsGatewayTimeout() *GetOutboundSettingsGatewayTimeout {
 	return &GetOutboundSettingsGatewayTimeout{}
 }
 
-/*GetOutboundSettingsGatewayTimeout handles this case with default header values.
+/*
+GetOutboundSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOutboundSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound settings gateway timeout response has a 2xx status code
+func (o *GetOutboundSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound settings gateway timeout response has a 3xx status code
+func (o *GetOutboundSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound settings gateway timeout response has a 4xx status code
+func (o *GetOutboundSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound settings gateway timeout response has a 5xx status code
+func (o *GetOutboundSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound settings gateway timeout response a status code equal to that given
+func (o *GetOutboundSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOutboundSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOutboundSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/settings][%d] getOutboundSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -57,7 +58,6 @@ func (m *AuthzSubject) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AuthzSubject) validateGrants(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Grants) { // not required
 		return nil
 	}
@@ -71,6 +71,8 @@ func (m *AuthzSubject) validateGrants(formats strfmt.Registry) error {
 			if err := m.Grants[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("grants" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("grants" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -82,12 +84,71 @@ func (m *AuthzSubject) validateGrants(formats strfmt.Registry) error {
 }
 
 func (m *AuthzSubject) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this authz subject based on the context it is used
+func (m *AuthzSubject) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateGrants(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AuthzSubject) contextValidateGrants(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Grants); i++ {
+
+		if m.Grants[i] != nil {
+			if err := m.Grants[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("grants" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("grants" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AuthzSubject) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AuthzSubject) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

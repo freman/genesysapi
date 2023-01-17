@@ -95,7 +95,6 @@ func (o *PostWorkforcemanagementManagementunitTimeoffrequestsReader) ReadRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsOK() *PostWorkforcem
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsOK{}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffrequestsOK handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsOK struct {
 	Payload *models.TimeOffRequestList
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit timeoffrequests o k response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit timeoffrequests o k response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit timeoffrequests o k response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit timeoffrequests o k response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit timeoffrequests o k response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsBadRequest() *PostWo
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest{}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit timeoffrequests bad request response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit timeoffrequests bad request response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit timeoffrequests bad request response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit timeoffrequests bad request response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit timeoffrequests bad request response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized() *Post
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized{}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit timeoffrequests unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit timeoffrequests unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit timeoffrequests unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit timeoffrequests unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit timeoffrequests unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsForbidden() *PostWor
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsForbidden{}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffrequestsForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit timeoffrequests forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit timeoffrequests forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit timeoffrequests forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit timeoffrequests forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit timeoffrequests forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsNotFound() *PostWork
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsNotFound{}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffrequestsNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit timeoffrequests not found response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit timeoffrequests not found response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit timeoffrequests not found response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit timeoffrequests not found response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit timeoffrequests not found response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout() *Po
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout{}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit timeoffrequests request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit timeoffrequests request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit timeoffrequests request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit timeoffrequests request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit timeoffrequests request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarg
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit timeoffrequests request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit timeoffrequests request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit timeoffrequests request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit timeoffrequests request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit timeoffrequests request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit timeoffrequests unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit timeoffrequests unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit timeoffrequests unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit timeoffrequests unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit timeoffrequests unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests() *P
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests{}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit timeoffrequests too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit timeoffrequests too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit timeoffrequests too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit timeoffrequests too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit timeoffrequests too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError(
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError{}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit timeoffrequests internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit timeoffrequests internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit timeoffrequests internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit timeoffrequests internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement managementunit timeoffrequests internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable()
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit timeoffrequests service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit timeoffrequests service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit timeoffrequests service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit timeoffrequests service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement managementunit timeoffrequests service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout() *Po
 	return &PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit timeoffrequests gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit timeoffrequests gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit timeoffrequests gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit timeoffrequests gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement managementunit timeoffrequests gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffrequests][%d] postWorkforcemanagementManagementunitTimeoffrequestsGatewayTimeout  %+v", 504, o.Payload)
 }
 

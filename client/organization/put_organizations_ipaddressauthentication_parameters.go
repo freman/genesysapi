@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOrganizationsIpaddressauthenticationParams creates a new PutOrganizationsIpaddressauthenticationParams object
-// with the default values initialized.
+// NewPutOrganizationsIpaddressauthenticationParams creates a new PutOrganizationsIpaddressauthenticationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOrganizationsIpaddressauthenticationParams() *PutOrganizationsIpaddressauthenticationParams {
-	var ()
 	return &PutOrganizationsIpaddressauthenticationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOrganizationsIpaddressauthenticationParamsWithTimeout creates a new PutOrganizationsIpaddressauthenticationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOrganizationsIpaddressauthenticationParamsWithTimeout(timeout time.Duration) *PutOrganizationsIpaddressauthenticationParams {
-	var ()
 	return &PutOrganizationsIpaddressauthenticationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOrganizationsIpaddressauthenticationParamsWithContext creates a new PutOrganizationsIpaddressauthenticationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOrganizationsIpaddressauthenticationParamsWithContext(ctx context.Context) *PutOrganizationsIpaddressauthenticationParams {
-	var ()
 	return &PutOrganizationsIpaddressauthenticationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOrganizationsIpaddressauthenticationParamsWithHTTPClient creates a new PutOrganizationsIpaddressauthenticationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOrganizationsIpaddressauthenticationParamsWithHTTPClient(client *http.Client) *PutOrganizationsIpaddressauthenticationParams {
-	var ()
 	return &PutOrganizationsIpaddressauthenticationParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOrganizationsIpaddressauthenticationParams contains all the parameters to send to the API endpoint
-for the put organizations ipaddressauthentication operation typically these are written to a http.Request
+/*
+PutOrganizationsIpaddressauthenticationParams contains all the parameters to send to the API endpoint
+
+	for the put organizations ipaddressauthentication operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOrganizationsIpaddressauthenticationParams struct {
 
-	/*Body
-	  IP address Whitelist settings
+	/* Body.
 
+	   IP address Whitelist settings
 	*/
 	Body *models.IPAddressAuthentication
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put organizations ipaddressauthentication params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOrganizationsIpaddressauthenticationParams) WithDefaults() *PutOrganizationsIpaddressauthenticationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put organizations ipaddressauthentication params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOrganizationsIpaddressauthenticationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put organizations ipaddressauthentication params
@@ -124,7 +140,6 @@ func (o *PutOrganizationsIpaddressauthenticationParams) WriteToRequest(r runtime
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -110,7 +111,6 @@ func (m *WfmUserNotification) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WfmUserNotification) validateAdherenceExplanation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AdherenceExplanation) { // not required
 		return nil
 	}
@@ -119,6 +119,8 @@ func (m *WfmUserNotification) validateAdherenceExplanation(formats strfmt.Regist
 		if err := m.AdherenceExplanation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("adherenceExplanation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adherenceExplanation")
 			}
 			return err
 		}
@@ -155,7 +157,6 @@ func (m *WfmUserNotification) validateMutableGroupID(formats strfmt.Registry) er
 }
 
 func (m *WfmUserNotification) validateOtherNotificationIdsInGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OtherNotificationIdsInGroup) { // not required
 		return nil
 	}
@@ -168,7 +169,6 @@ func (m *WfmUserNotification) validateOtherNotificationIdsInGroup(formats strfmt
 }
 
 func (m *WfmUserNotification) validateShiftTrade(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShiftTrade) { // not required
 		return nil
 	}
@@ -177,6 +177,8 @@ func (m *WfmUserNotification) validateShiftTrade(formats strfmt.Registry) error 
 		if err := m.ShiftTrade.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("shiftTrade")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shiftTrade")
 			}
 			return err
 		}
@@ -186,7 +188,6 @@ func (m *WfmUserNotification) validateShiftTrade(formats strfmt.Registry) error 
 }
 
 func (m *WfmUserNotification) validateTimeOffRequest(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TimeOffRequest) { // not required
 		return nil
 	}
@@ -195,6 +196,8 @@ func (m *WfmUserNotification) validateTimeOffRequest(formats strfmt.Registry) er
 		if err := m.TimeOffRequest.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("timeOffRequest")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeOffRequest")
 			}
 			return err
 		}
@@ -204,7 +207,6 @@ func (m *WfmUserNotification) validateTimeOffRequest(formats strfmt.Registry) er
 }
 
 func (m *WfmUserNotification) validateTimestamp(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Timestamp) { // not required
 		return nil
 	}
@@ -249,13 +251,134 @@ func (m *WfmUserNotification) validateTypeEnum(path, location string, value stri
 }
 
 func (m *WfmUserNotification) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this wfm user notification based on the context it is used
+func (m *WfmUserNotification) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAdherenceExplanation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAgentNotification(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOtherNotificationIdsInGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShiftTrade(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTimeOffRequest(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTimestamp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WfmUserNotification) contextValidateAdherenceExplanation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AdherenceExplanation != nil {
+		if err := m.AdherenceExplanation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("adherenceExplanation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adherenceExplanation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WfmUserNotification) contextValidateAgentNotification(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "agentNotification", "body", m.AgentNotification); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WfmUserNotification) contextValidateOtherNotificationIdsInGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "otherNotificationIdsInGroup", "body", []string(m.OtherNotificationIdsInGroup)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WfmUserNotification) contextValidateShiftTrade(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ShiftTrade != nil {
+		if err := m.ShiftTrade.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("shiftTrade")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shiftTrade")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WfmUserNotification) contextValidateTimeOffRequest(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TimeOffRequest != nil {
+		if err := m.TimeOffRequest.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("timeOffRequest")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeOffRequest")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WfmUserNotification) contextValidateTimestamp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "timestamp", "body", strfmt.DateTime(m.Timestamp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WfmUserNotification) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "type", "body", string(m.Type)); err != nil {
 		return err
 	}
 

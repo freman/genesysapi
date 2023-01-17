@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -71,7 +72,6 @@ func (m *BuCurrentAgentScheduleSearchResponse) Validate(formats strfmt.Registry)
 }
 
 func (m *BuCurrentAgentScheduleSearchResponse) validateAgentSchedules(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AgentSchedules) { // not required
 		return nil
 	}
@@ -85,6 +85,8 @@ func (m *BuCurrentAgentScheduleSearchResponse) validateAgentSchedules(formats st
 			if err := m.AgentSchedules[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("agentSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agentSchedules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -96,7 +98,6 @@ func (m *BuCurrentAgentScheduleSearchResponse) validateAgentSchedules(formats st
 }
 
 func (m *BuCurrentAgentScheduleSearchResponse) validateEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndDate) { // not required
 		return nil
 	}
@@ -109,7 +110,6 @@ func (m *BuCurrentAgentScheduleSearchResponse) validateEndDate(formats strfmt.Re
 }
 
 func (m *BuCurrentAgentScheduleSearchResponse) validatePublishedSchedules(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PublishedSchedules) { // not required
 		return nil
 	}
@@ -123,6 +123,8 @@ func (m *BuCurrentAgentScheduleSearchResponse) validatePublishedSchedules(format
 			if err := m.PublishedSchedules[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("publishedSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("publishedSchedules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -134,7 +136,6 @@ func (m *BuCurrentAgentScheduleSearchResponse) validatePublishedSchedules(format
 }
 
 func (m *BuCurrentAgentScheduleSearchResponse) validateStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDate) { // not required
 		return nil
 	}
@@ -147,7 +148,6 @@ func (m *BuCurrentAgentScheduleSearchResponse) validateStartDate(formats strfmt.
 }
 
 func (m *BuCurrentAgentScheduleSearchResponse) validateUpdates(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Updates) { // not required
 		return nil
 	}
@@ -161,6 +161,90 @@ func (m *BuCurrentAgentScheduleSearchResponse) validateUpdates(formats strfmt.Re
 			if err := m.Updates[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("updates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("updates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu current agent schedule search response based on the context it is used
+func (m *BuCurrentAgentScheduleSearchResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgentSchedules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePublishedSchedules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUpdates(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuCurrentAgentScheduleSearchResponse) contextValidateAgentSchedules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AgentSchedules); i++ {
+
+		if m.AgentSchedules[i] != nil {
+			if err := m.AgentSchedules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("agentSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agentSchedules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuCurrentAgentScheduleSearchResponse) contextValidatePublishedSchedules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PublishedSchedules); i++ {
+
+		if m.PublishedSchedules[i] != nil {
+			if err := m.PublishedSchedules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("publishedSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("publishedSchedules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuCurrentAgentScheduleSearchResponse) contextValidateUpdates(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Updates); i++ {
+
+		if m.Updates[i] != nil {
+			if err := m.Updates[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("updates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("updates" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

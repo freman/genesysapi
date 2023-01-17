@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteLanguageParams creates a new DeleteLanguageParams object
-// with the default values initialized.
+// NewDeleteLanguageParams creates a new DeleteLanguageParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteLanguageParams() *DeleteLanguageParams {
-	var ()
 	return &DeleteLanguageParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteLanguageParamsWithTimeout creates a new DeleteLanguageParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteLanguageParamsWithTimeout(timeout time.Duration) *DeleteLanguageParams {
-	var ()
 	return &DeleteLanguageParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteLanguageParamsWithContext creates a new DeleteLanguageParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteLanguageParamsWithContext(ctx context.Context) *DeleteLanguageParams {
-	var ()
 	return &DeleteLanguageParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteLanguageParamsWithHTTPClient creates a new DeleteLanguageParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteLanguageParamsWithHTTPClient(client *http.Client) *DeleteLanguageParams {
-	var ()
 	return &DeleteLanguageParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteLanguageParams contains all the parameters to send to the API endpoint
-for the delete language operation typically these are written to a http.Request
+/*
+DeleteLanguageParams contains all the parameters to send to the API endpoint
+
+	for the delete language operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteLanguageParams struct {
 
-	/*LanguageID
-	  Language ID
+	/* LanguageID.
 
+	   Language ID
 	*/
 	LanguageID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete language params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteLanguageParams) WithDefaults() *DeleteLanguageParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete language params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteLanguageParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete language params

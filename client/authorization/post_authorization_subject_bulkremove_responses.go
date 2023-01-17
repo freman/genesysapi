@@ -95,7 +95,6 @@ func (o *PostAuthorizationSubjectBulkremoveReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostAuthorizationSubjectBulkremoveNoContent() *PostAuthorizationSubjectB
 	return &PostAuthorizationSubjectBulkremoveNoContent{}
 }
 
-/*PostAuthorizationSubjectBulkremoveNoContent handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkremoveNoContent describes a response with status code 204, with default header values.
 
 Bulk Grants Deleted
 */
 type PostAuthorizationSubjectBulkremoveNoContent struct {
 }
 
+// IsSuccess returns true when this post authorization subject bulkremove no content response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkremoveNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post authorization subject bulkremove no content response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkremoveNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkremove no content response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkremoveNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization subject bulkremove no content response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkremoveNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkremove no content response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkremoveNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PostAuthorizationSubjectBulkremoveNoContent) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveNoContent ", 204)
+}
+
+func (o *PostAuthorizationSubjectBulkremoveNoContent) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewPostAuthorizationSubjectBulkremoveBadRequest() *PostAuthorizationSubject
 	return &PostAuthorizationSubjectBulkremoveBadRequest{}
 }
 
-/*PostAuthorizationSubjectBulkremoveBadRequest handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkremoveBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostAuthorizationSubjectBulkremoveBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkremove bad request response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkremoveBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkremove bad request response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkremoveBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkremove bad request response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkremoveBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkremove bad request response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkremoveBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkremove bad request response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkremoveBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAuthorizationSubjectBulkremoveBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkremoveBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostAuthorizationSubjectBulkremoveUnauthorized() *PostAuthorizationSubje
 	return &PostAuthorizationSubjectBulkremoveUnauthorized{}
 }
 
-/*PostAuthorizationSubjectBulkremoveUnauthorized handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkremoveUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostAuthorizationSubjectBulkremoveUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkremove unauthorized response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkremoveUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkremove unauthorized response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkremoveUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkremove unauthorized response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkremoveUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkremove unauthorized response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkremoveUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkremove unauthorized response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkremoveUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAuthorizationSubjectBulkremoveUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkremoveUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostAuthorizationSubjectBulkremoveForbidden() *PostAuthorizationSubjectB
 	return &PostAuthorizationSubjectBulkremoveForbidden{}
 }
 
-/*PostAuthorizationSubjectBulkremoveForbidden handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkremoveForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostAuthorizationSubjectBulkremoveForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkremove forbidden response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkremoveForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkremove forbidden response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkremoveForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkremove forbidden response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkremoveForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkremove forbidden response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkremoveForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkremove forbidden response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkremoveForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAuthorizationSubjectBulkremoveForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkremoveForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostAuthorizationSubjectBulkremoveNotFound() *PostAuthorizationSubjectBu
 	return &PostAuthorizationSubjectBulkremoveNotFound{}
 }
 
-/*PostAuthorizationSubjectBulkremoveNotFound handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkremoveNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostAuthorizationSubjectBulkremoveNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkremove not found response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkremoveNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkremove not found response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkremoveNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkremove not found response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkremoveNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkremove not found response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkremoveNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkremove not found response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkremoveNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAuthorizationSubjectBulkremoveNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkremoveNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostAuthorizationSubjectBulkremoveRequestTimeout() *PostAuthorizationSub
 	return &PostAuthorizationSubjectBulkremoveRequestTimeout{}
 }
 
-/*PostAuthorizationSubjectBulkremoveRequestTimeout handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkremoveRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostAuthorizationSubjectBulkremoveRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkremove request timeout response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkremoveRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkremove request timeout response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkremoveRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkremove request timeout response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkremoveRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkremove request timeout response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkremoveRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkremove request timeout response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkremoveRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAuthorizationSubjectBulkremoveRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkremoveRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostAuthorizationSubjectBulkremoveRequestEntityTooLarge() *PostAuthoriza
 	return &PostAuthorizationSubjectBulkremoveRequestEntityTooLarge{}
 }
 
-/*PostAuthorizationSubjectBulkremoveRequestEntityTooLarge handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkremoveRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostAuthorizationSubjectBulkremoveRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkremove request entity too large response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkremoveRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkremove request entity too large response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkremoveRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkremove request entity too large response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkremoveRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkremove request entity too large response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkremoveRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkremove request entity too large response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkremoveRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAuthorizationSubjectBulkremoveRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkremoveRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostAuthorizationSubjectBulkremoveUnsupportedMediaType() *PostAuthorizat
 	return &PostAuthorizationSubjectBulkremoveUnsupportedMediaType{}
 }
 
-/*PostAuthorizationSubjectBulkremoveUnsupportedMediaType handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkremoveUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostAuthorizationSubjectBulkremoveUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkremove unsupported media type response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkremoveUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkremove unsupported media type response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkremoveUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkremove unsupported media type response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkremoveUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkremove unsupported media type response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkremoveUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkremove unsupported media type response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkremoveUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAuthorizationSubjectBulkremoveUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkremoveUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostAuthorizationSubjectBulkremoveTooManyRequests() *PostAuthorizationSu
 	return &PostAuthorizationSubjectBulkremoveTooManyRequests{}
 }
 
-/*PostAuthorizationSubjectBulkremoveTooManyRequests handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkremoveTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostAuthorizationSubjectBulkremoveTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkremove too many requests response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkremoveTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkremove too many requests response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkremoveTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkremove too many requests response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkremoveTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization subject bulkremove too many requests response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkremoveTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization subject bulkremove too many requests response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkremoveTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAuthorizationSubjectBulkremoveTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkremoveTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostAuthorizationSubjectBulkremoveInternalServerError() *PostAuthorizati
 	return &PostAuthorizationSubjectBulkremoveInternalServerError{}
 }
 
-/*PostAuthorizationSubjectBulkremoveInternalServerError handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkremoveInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostAuthorizationSubjectBulkremoveInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkremove internal server error response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkremoveInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkremove internal server error response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkremoveInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkremove internal server error response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkremoveInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization subject bulkremove internal server error response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkremoveInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization subject bulkremove internal server error response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkremoveInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAuthorizationSubjectBulkremoveInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkremoveInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostAuthorizationSubjectBulkremoveServiceUnavailable() *PostAuthorizatio
 	return &PostAuthorizationSubjectBulkremoveServiceUnavailable{}
 }
 
-/*PostAuthorizationSubjectBulkremoveServiceUnavailable handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkremoveServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostAuthorizationSubjectBulkremoveServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkremove service unavailable response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkremoveServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkremove service unavailable response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkremoveServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkremove service unavailable response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkremoveServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization subject bulkremove service unavailable response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkremoveServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization subject bulkremove service unavailable response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkremoveServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAuthorizationSubjectBulkremoveServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkremoveServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostAuthorizationSubjectBulkremoveGatewayTimeout() *PostAuthorizationSub
 	return &PostAuthorizationSubjectBulkremoveGatewayTimeout{}
 }
 
-/*PostAuthorizationSubjectBulkremoveGatewayTimeout handles this case with default header values.
+/*
+PostAuthorizationSubjectBulkremoveGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostAuthorizationSubjectBulkremoveGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization subject bulkremove gateway timeout response has a 2xx status code
+func (o *PostAuthorizationSubjectBulkremoveGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization subject bulkremove gateway timeout response has a 3xx status code
+func (o *PostAuthorizationSubjectBulkremoveGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization subject bulkremove gateway timeout response has a 4xx status code
+func (o *PostAuthorizationSubjectBulkremoveGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization subject bulkremove gateway timeout response has a 5xx status code
+func (o *PostAuthorizationSubjectBulkremoveGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization subject bulkremove gateway timeout response a status code equal to that given
+func (o *PostAuthorizationSubjectBulkremoveGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAuthorizationSubjectBulkremoveGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAuthorizationSubjectBulkremoveGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/subjects/{subjectId}/bulkremove][%d] postAuthorizationSubjectBulkremoveGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -59,6 +61,42 @@ func (m *AssessmentQuestionScore) Validate(formats strfmt.Registry) error {
 func (m *AssessmentQuestionScore) validateQuestionID(formats strfmt.Registry) error {
 
 	if err := validate.Required("questionId", "body", m.QuestionID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this assessment question score based on the context it is used
+func (m *AssessmentQuestionScore) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFailedKillQuestion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AssessmentQuestionScore) contextValidateFailedKillQuestion(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "failedKillQuestion", "body", m.FailedKillQuestion); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionScore) contextValidateScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "score", "body", int32(m.Score)); err != nil {
 		return err
 	}
 

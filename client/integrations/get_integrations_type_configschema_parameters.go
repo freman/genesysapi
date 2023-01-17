@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIntegrationsTypeConfigschemaParams creates a new GetIntegrationsTypeConfigschemaParams object
-// with the default values initialized.
+// NewGetIntegrationsTypeConfigschemaParams creates a new GetIntegrationsTypeConfigschemaParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntegrationsTypeConfigschemaParams() *GetIntegrationsTypeConfigschemaParams {
-	var ()
 	return &GetIntegrationsTypeConfigschemaParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntegrationsTypeConfigschemaParamsWithTimeout creates a new GetIntegrationsTypeConfigschemaParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntegrationsTypeConfigschemaParamsWithTimeout(timeout time.Duration) *GetIntegrationsTypeConfigschemaParams {
-	var ()
 	return &GetIntegrationsTypeConfigschemaParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntegrationsTypeConfigschemaParamsWithContext creates a new GetIntegrationsTypeConfigschemaParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntegrationsTypeConfigschemaParamsWithContext(ctx context.Context) *GetIntegrationsTypeConfigschemaParams {
-	var ()
 	return &GetIntegrationsTypeConfigschemaParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntegrationsTypeConfigschemaParamsWithHTTPClient creates a new GetIntegrationsTypeConfigschemaParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntegrationsTypeConfigschemaParamsWithHTTPClient(client *http.Client) *GetIntegrationsTypeConfigschemaParams {
-	var ()
 	return &GetIntegrationsTypeConfigschemaParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIntegrationsTypeConfigschemaParams contains all the parameters to send to the API endpoint
-for the get integrations type configschema operation typically these are written to a http.Request
+/*
+GetIntegrationsTypeConfigschemaParams contains all the parameters to send to the API endpoint
+
+	for the get integrations type configschema operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntegrationsTypeConfigschemaParams struct {
 
-	/*ConfigType
-	  Config schema type
+	/* ConfigType.
 
+	   Config schema type
 	*/
 	ConfigType string
-	/*TypeID
-	  Integration Type Id
 
+	/* TypeID.
+
+	   Integration Type Id
 	*/
 	TypeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get integrations type configschema params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsTypeConfigschemaParams) WithDefaults() *GetIntegrationsTypeConfigschemaParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get integrations type configschema params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsTypeConfigschemaParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get integrations type configschema params

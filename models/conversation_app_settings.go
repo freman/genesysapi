@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -73,7 +74,6 @@ func (m *ConversationAppSettings) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ConversationAppSettings) validateAutoStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AutoStart) { // not required
 		return nil
 	}
@@ -82,6 +82,8 @@ func (m *ConversationAppSettings) validateAutoStart(formats strfmt.Registry) err
 		if err := m.AutoStart.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("autoStart")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("autoStart")
 			}
 			return err
 		}
@@ -120,7 +122,6 @@ func (m *ConversationAppSettings) validateAutoStartTypeEnum(path, location strin
 }
 
 func (m *ConversationAppSettings) validateAutoStartType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AutoStartType) { // not required
 		return nil
 	}
@@ -134,7 +135,6 @@ func (m *ConversationAppSettings) validateAutoStartType(formats strfmt.Registry)
 }
 
 func (m *ConversationAppSettings) validateConversationDisconnect(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationDisconnect) { // not required
 		return nil
 	}
@@ -143,6 +143,8 @@ func (m *ConversationAppSettings) validateConversationDisconnect(formats strfmt.
 		if err := m.ConversationDisconnect.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversationDisconnect")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationDisconnect")
 			}
 			return err
 		}
@@ -152,7 +154,6 @@ func (m *ConversationAppSettings) validateConversationDisconnect(formats strfmt.
 }
 
 func (m *ConversationAppSettings) validateHumanize(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Humanize) { // not required
 		return nil
 	}
@@ -161,6 +162,8 @@ func (m *ConversationAppSettings) validateHumanize(formats strfmt.Registry) erro
 		if err := m.Humanize.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("humanize")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("humanize")
 			}
 			return err
 		}
@@ -170,7 +173,6 @@ func (m *ConversationAppSettings) validateHumanize(formats strfmt.Registry) erro
 }
 
 func (m *ConversationAppSettings) validateMarkdown(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Markdown) { // not required
 		return nil
 	}
@@ -179,6 +181,98 @@ func (m *ConversationAppSettings) validateMarkdown(formats strfmt.Registry) erro
 		if err := m.Markdown.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("markdown")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("markdown")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation app settings based on the context it is used
+func (m *ConversationAppSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAutoStart(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationDisconnect(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHumanize(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMarkdown(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConversationAppSettings) contextValidateAutoStart(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AutoStart != nil {
+		if err := m.AutoStart.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("autoStart")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("autoStart")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationAppSettings) contextValidateConversationDisconnect(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConversationDisconnect != nil {
+		if err := m.ConversationDisconnect.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversationDisconnect")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationDisconnect")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationAppSettings) contextValidateHumanize(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Humanize != nil {
+		if err := m.Humanize.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("humanize")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("humanize")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationAppSettings) contextValidateMarkdown(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Markdown != nil {
+		if err := m.Markdown.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("markdown")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("markdown")
 			}
 			return err
 		}

@@ -17,94 +17,112 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetConversationRecordingsParams creates a new GetConversationRecordingsParams object
-// with the default values initialized.
+// NewGetConversationRecordingsParams creates a new GetConversationRecordingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationRecordingsParams() *GetConversationRecordingsParams {
-	var (
-		formatIDDefault  = string("WEBM")
-		maxWaitMsDefault = int32(5000)
-	)
 	return &GetConversationRecordingsParams{
-		FormatID:  &formatIDDefault,
-		MaxWaitMs: &maxWaitMsDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationRecordingsParamsWithTimeout creates a new GetConversationRecordingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationRecordingsParamsWithTimeout(timeout time.Duration) *GetConversationRecordingsParams {
-	var (
-		formatIDDefault  = string("WEBM")
-		maxWaitMsDefault = int32(5000)
-	)
 	return &GetConversationRecordingsParams{
-		FormatID:  &formatIDDefault,
-		MaxWaitMs: &maxWaitMsDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationRecordingsParamsWithContext creates a new GetConversationRecordingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationRecordingsParamsWithContext(ctx context.Context) *GetConversationRecordingsParams {
-	var (
-		formatIdDefault  = string("WEBM")
-		maxWaitMsDefault = int32(5000)
-	)
 	return &GetConversationRecordingsParams{
-		FormatID:  &formatIdDefault,
-		MaxWaitMs: &maxWaitMsDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationRecordingsParamsWithHTTPClient creates a new GetConversationRecordingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationRecordingsParamsWithHTTPClient(client *http.Client) *GetConversationRecordingsParams {
-	var (
-		formatIdDefault  = string("WEBM")
-		maxWaitMsDefault = int32(5000)
-	)
 	return &GetConversationRecordingsParams{
-		FormatID:   &formatIdDefault,
-		MaxWaitMs:  &maxWaitMsDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationRecordingsParams contains all the parameters to send to the API endpoint
-for the get conversation recordings operation typically these are written to a http.Request
+/*
+GetConversationRecordingsParams contains all the parameters to send to the API endpoint
+
+	for the get conversation recordings operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationRecordingsParams struct {
 
-	/*ConversationID
-	  Conversation ID
+	/* ConversationID.
 
+	   Conversation ID
 	*/
 	ConversationID string
-	/*FormatID
-	  The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE.
 
+	/* FormatID.
+
+	   The desired media format. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3,NONE.
+
+	   Default: "WEBM"
 	*/
 	FormatID *string
-	/*MaxWaitMs
-	  The maximum number of milliseconds to wait for the recording to be ready. Must be a positive value.
 
+	/* MaxWaitMs.
+
+	   The maximum number of milliseconds to wait for the recording to be ready. Must be a positive value.
+
+	   Format: int32
+	   Default: 5000
 	*/
 	MaxWaitMs *int32
-	/*MediaFormats
-	  All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3.
 
+	/* MediaFormats.
+
+	   All acceptable media formats. Overrides formatId. Valid values:WAV,WEBM,WAV_ULAW,OGG_VORBIS,OGG_OPUS,MP3.
 	*/
 	MediaFormats []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversation recordings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationRecordingsParams) WithDefaults() *GetConversationRecordingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversation recordings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationRecordingsParams) SetDefaults() {
+	var (
+		formatIDDefault = string("WEBM")
+
+		maxWaitMsDefault = int32(5000)
+	)
+
+	val := GetConversationRecordingsParams{
+		FormatID:  &formatIDDefault,
+		MaxWaitMs: &maxWaitMsDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get conversation recordings params
@@ -201,44 +219,66 @@ func (o *GetConversationRecordingsParams) WriteToRequest(r runtime.ClientRequest
 
 		// query param formatId
 		var qrFormatID string
+
 		if o.FormatID != nil {
 			qrFormatID = *o.FormatID
 		}
 		qFormatID := qrFormatID
 		if qFormatID != "" {
+
 			if err := r.SetQueryParam("formatId", qFormatID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.MaxWaitMs != nil {
 
 		// query param maxWaitMs
 		var qrMaxWaitMs int32
+
 		if o.MaxWaitMs != nil {
 			qrMaxWaitMs = *o.MaxWaitMs
 		}
 		qMaxWaitMs := swag.FormatInt32(qrMaxWaitMs)
 		if qMaxWaitMs != "" {
+
 			if err := r.SetQueryParam("maxWaitMs", qMaxWaitMs); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesMediaFormats := o.MediaFormats
+	if o.MediaFormats != nil {
 
-	joinedMediaFormats := swag.JoinByFormat(valuesMediaFormats, "multi")
-	// query array param mediaFormats
-	if err := r.SetQueryParam("mediaFormats", joinedMediaFormats...); err != nil {
-		return err
+		// binding items for mediaFormats
+		joinedMediaFormats := o.bindParamMediaFormats(reg)
+
+		// query array param mediaFormats
+		if err := r.SetQueryParam("mediaFormats", joinedMediaFormats...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetConversationRecordings binds the parameter mediaFormats
+func (o *GetConversationRecordingsParams) bindParamMediaFormats(formats strfmt.Registry) []string {
+	mediaFormatsIR := o.MediaFormats
+
+	var mediaFormatsIC []string
+	for _, mediaFormatsIIR := range mediaFormatsIR { // explode []string
+
+		mediaFormatsIIV := mediaFormatsIIR // string as string
+		mediaFormatsIC = append(mediaFormatsIC, mediaFormatsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	mediaFormatsIS := swag.JoinByFormat(mediaFormatsIC, "multi")
+
+	return mediaFormatsIS
 }

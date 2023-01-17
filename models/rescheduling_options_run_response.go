@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -84,7 +85,6 @@ func (m *ReschedulingOptionsRunResponse) Validate(formats strfmt.Registry) error
 }
 
 func (m *ReschedulingOptionsRunResponse) validateActivityCodeIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActivityCodeIds) { // not required
 		return nil
 	}
@@ -97,7 +97,6 @@ func (m *ReschedulingOptionsRunResponse) validateActivityCodeIds(formats strfmt.
 }
 
 func (m *ReschedulingOptionsRunResponse) validateEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndDate) { // not required
 		return nil
 	}
@@ -110,7 +109,6 @@ func (m *ReschedulingOptionsRunResponse) validateEndDate(formats strfmt.Registry
 }
 
 func (m *ReschedulingOptionsRunResponse) validateExistingSchedule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExistingSchedule) { // not required
 		return nil
 	}
@@ -119,6 +117,8 @@ func (m *ReschedulingOptionsRunResponse) validateExistingSchedule(formats strfmt
 		if err := m.ExistingSchedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("existingSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("existingSchedule")
 			}
 			return err
 		}
@@ -128,7 +128,6 @@ func (m *ReschedulingOptionsRunResponse) validateExistingSchedule(formats strfmt
 }
 
 func (m *ReschedulingOptionsRunResponse) validateManagementUnits(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ManagementUnits) { // not required
 		return nil
 	}
@@ -142,6 +141,8 @@ func (m *ReschedulingOptionsRunResponse) validateManagementUnits(formats strfmt.
 			if err := m.ManagementUnits[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("managementUnits" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("managementUnits" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -153,13 +154,66 @@ func (m *ReschedulingOptionsRunResponse) validateManagementUnits(formats strfmt.
 }
 
 func (m *ReschedulingOptionsRunResponse) validateStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDate) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("startDate", "body", "date-time", m.StartDate.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this rescheduling options run response based on the context it is used
+func (m *ReschedulingOptionsRunResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateExistingSchedule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateManagementUnits(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ReschedulingOptionsRunResponse) contextValidateExistingSchedule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExistingSchedule != nil {
+		if err := m.ExistingSchedule.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("existingSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("existingSchedule")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ReschedulingOptionsRunResponse) contextValidateManagementUnits(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ManagementUnits); i++ {
+
+		if m.ManagementUnits[i] != nil {
+			if err := m.ManagementUnits[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("managementUnits" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("managementUnits" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

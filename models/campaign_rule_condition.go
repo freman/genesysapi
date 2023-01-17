@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -103,6 +104,38 @@ func (m *CampaignRuleCondition) validateParameters(formats strfmt.Registry) erro
 		if err := m.Parameters.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parameters")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parameters")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this campaign rule condition based on the context it is used
+func (m *CampaignRuleCondition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateParameters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CampaignRuleCondition) contextValidateParameters(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Parameters != nil {
+		if err := m.Parameters.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parameters")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parameters")
 			}
 			return err
 		}

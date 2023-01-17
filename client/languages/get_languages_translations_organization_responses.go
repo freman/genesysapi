@@ -95,7 +95,6 @@ func (o *GetLanguagesTranslationsOrganizationReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetLanguagesTranslationsOrganizationOK() *GetLanguagesTranslationsOrgani
 	return &GetLanguagesTranslationsOrganizationOK{}
 }
 
-/*GetLanguagesTranslationsOrganizationOK handles this case with default header values.
+/*
+GetLanguagesTranslationsOrganizationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetLanguagesTranslationsOrganizationOK struct {
 	Payload map[string]interface{}
 }
 
+// IsSuccess returns true when this get languages translations organization o k response has a 2xx status code
+func (o *GetLanguagesTranslationsOrganizationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get languages translations organization o k response has a 3xx status code
+func (o *GetLanguagesTranslationsOrganizationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations organization o k response has a 4xx status code
+func (o *GetLanguagesTranslationsOrganizationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languages translations organization o k response has a 5xx status code
+func (o *GetLanguagesTranslationsOrganizationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations organization o k response a status code equal to that given
+func (o *GetLanguagesTranslationsOrganizationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLanguagesTranslationsOrganizationOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationOK  %+v", 200, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsOrganizationOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetLanguagesTranslationsOrganizationBadRequest() *GetLanguagesTranslatio
 	return &GetLanguagesTranslationsOrganizationBadRequest{}
 }
 
-/*GetLanguagesTranslationsOrganizationBadRequest handles this case with default header values.
+/*
+GetLanguagesTranslationsOrganizationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetLanguagesTranslationsOrganizationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations organization bad request response has a 2xx status code
+func (o *GetLanguagesTranslationsOrganizationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations organization bad request response has a 3xx status code
+func (o *GetLanguagesTranslationsOrganizationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations organization bad request response has a 4xx status code
+func (o *GetLanguagesTranslationsOrganizationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations organization bad request response has a 5xx status code
+func (o *GetLanguagesTranslationsOrganizationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations organization bad request response a status code equal to that given
+func (o *GetLanguagesTranslationsOrganizationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLanguagesTranslationsOrganizationBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsOrganizationBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetLanguagesTranslationsOrganizationUnauthorized() *GetLanguagesTranslat
 	return &GetLanguagesTranslationsOrganizationUnauthorized{}
 }
 
-/*GetLanguagesTranslationsOrganizationUnauthorized handles this case with default header values.
+/*
+GetLanguagesTranslationsOrganizationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetLanguagesTranslationsOrganizationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations organization unauthorized response has a 2xx status code
+func (o *GetLanguagesTranslationsOrganizationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations organization unauthorized response has a 3xx status code
+func (o *GetLanguagesTranslationsOrganizationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations organization unauthorized response has a 4xx status code
+func (o *GetLanguagesTranslationsOrganizationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations organization unauthorized response has a 5xx status code
+func (o *GetLanguagesTranslationsOrganizationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations organization unauthorized response a status code equal to that given
+func (o *GetLanguagesTranslationsOrganizationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetLanguagesTranslationsOrganizationUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsOrganizationUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetLanguagesTranslationsOrganizationForbidden() *GetLanguagesTranslation
 	return &GetLanguagesTranslationsOrganizationForbidden{}
 }
 
-/*GetLanguagesTranslationsOrganizationForbidden handles this case with default header values.
+/*
+GetLanguagesTranslationsOrganizationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetLanguagesTranslationsOrganizationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations organization forbidden response has a 2xx status code
+func (o *GetLanguagesTranslationsOrganizationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations organization forbidden response has a 3xx status code
+func (o *GetLanguagesTranslationsOrganizationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations organization forbidden response has a 4xx status code
+func (o *GetLanguagesTranslationsOrganizationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations organization forbidden response has a 5xx status code
+func (o *GetLanguagesTranslationsOrganizationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations organization forbidden response a status code equal to that given
+func (o *GetLanguagesTranslationsOrganizationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLanguagesTranslationsOrganizationForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsOrganizationForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetLanguagesTranslationsOrganizationNotFound() *GetLanguagesTranslations
 	return &GetLanguagesTranslationsOrganizationNotFound{}
 }
 
-/*GetLanguagesTranslationsOrganizationNotFound handles this case with default header values.
+/*
+GetLanguagesTranslationsOrganizationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetLanguagesTranslationsOrganizationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations organization not found response has a 2xx status code
+func (o *GetLanguagesTranslationsOrganizationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations organization not found response has a 3xx status code
+func (o *GetLanguagesTranslationsOrganizationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations organization not found response has a 4xx status code
+func (o *GetLanguagesTranslationsOrganizationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations organization not found response has a 5xx status code
+func (o *GetLanguagesTranslationsOrganizationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations organization not found response a status code equal to that given
+func (o *GetLanguagesTranslationsOrganizationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLanguagesTranslationsOrganizationNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsOrganizationNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetLanguagesTranslationsOrganizationRequestTimeout() *GetLanguagesTransl
 	return &GetLanguagesTranslationsOrganizationRequestTimeout{}
 }
 
-/*GetLanguagesTranslationsOrganizationRequestTimeout handles this case with default header values.
+/*
+GetLanguagesTranslationsOrganizationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetLanguagesTranslationsOrganizationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations organization request timeout response has a 2xx status code
+func (o *GetLanguagesTranslationsOrganizationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations organization request timeout response has a 3xx status code
+func (o *GetLanguagesTranslationsOrganizationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations organization request timeout response has a 4xx status code
+func (o *GetLanguagesTranslationsOrganizationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations organization request timeout response has a 5xx status code
+func (o *GetLanguagesTranslationsOrganizationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations organization request timeout response a status code equal to that given
+func (o *GetLanguagesTranslationsOrganizationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetLanguagesTranslationsOrganizationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsOrganizationRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetLanguagesTranslationsOrganizationRequestEntityTooLarge() *GetLanguage
 	return &GetLanguagesTranslationsOrganizationRequestEntityTooLarge{}
 }
 
-/*GetLanguagesTranslationsOrganizationRequestEntityTooLarge handles this case with default header values.
+/*
+GetLanguagesTranslationsOrganizationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetLanguagesTranslationsOrganizationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations organization request entity too large response has a 2xx status code
+func (o *GetLanguagesTranslationsOrganizationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations organization request entity too large response has a 3xx status code
+func (o *GetLanguagesTranslationsOrganizationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations organization request entity too large response has a 4xx status code
+func (o *GetLanguagesTranslationsOrganizationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations organization request entity too large response has a 5xx status code
+func (o *GetLanguagesTranslationsOrganizationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations organization request entity too large response a status code equal to that given
+func (o *GetLanguagesTranslationsOrganizationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetLanguagesTranslationsOrganizationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsOrganizationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetLanguagesTranslationsOrganizationUnsupportedMediaType() *GetLanguages
 	return &GetLanguagesTranslationsOrganizationUnsupportedMediaType{}
 }
 
-/*GetLanguagesTranslationsOrganizationUnsupportedMediaType handles this case with default header values.
+/*
+GetLanguagesTranslationsOrganizationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetLanguagesTranslationsOrganizationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations organization unsupported media type response has a 2xx status code
+func (o *GetLanguagesTranslationsOrganizationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations organization unsupported media type response has a 3xx status code
+func (o *GetLanguagesTranslationsOrganizationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations organization unsupported media type response has a 4xx status code
+func (o *GetLanguagesTranslationsOrganizationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations organization unsupported media type response has a 5xx status code
+func (o *GetLanguagesTranslationsOrganizationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations organization unsupported media type response a status code equal to that given
+func (o *GetLanguagesTranslationsOrganizationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetLanguagesTranslationsOrganizationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsOrganizationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetLanguagesTranslationsOrganizationTooManyRequests() *GetLanguagesTrans
 	return &GetLanguagesTranslationsOrganizationTooManyRequests{}
 }
 
-/*GetLanguagesTranslationsOrganizationTooManyRequests handles this case with default header values.
+/*
+GetLanguagesTranslationsOrganizationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetLanguagesTranslationsOrganizationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations organization too many requests response has a 2xx status code
+func (o *GetLanguagesTranslationsOrganizationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations organization too many requests response has a 3xx status code
+func (o *GetLanguagesTranslationsOrganizationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations organization too many requests response has a 4xx status code
+func (o *GetLanguagesTranslationsOrganizationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations organization too many requests response has a 5xx status code
+func (o *GetLanguagesTranslationsOrganizationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations organization too many requests response a status code equal to that given
+func (o *GetLanguagesTranslationsOrganizationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLanguagesTranslationsOrganizationTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsOrganizationTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetLanguagesTranslationsOrganizationInternalServerError() *GetLanguagesT
 	return &GetLanguagesTranslationsOrganizationInternalServerError{}
 }
 
-/*GetLanguagesTranslationsOrganizationInternalServerError handles this case with default header values.
+/*
+GetLanguagesTranslationsOrganizationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetLanguagesTranslationsOrganizationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations organization internal server error response has a 2xx status code
+func (o *GetLanguagesTranslationsOrganizationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations organization internal server error response has a 3xx status code
+func (o *GetLanguagesTranslationsOrganizationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations organization internal server error response has a 4xx status code
+func (o *GetLanguagesTranslationsOrganizationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languages translations organization internal server error response has a 5xx status code
+func (o *GetLanguagesTranslationsOrganizationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get languages translations organization internal server error response a status code equal to that given
+func (o *GetLanguagesTranslationsOrganizationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLanguagesTranslationsOrganizationInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsOrganizationInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetLanguagesTranslationsOrganizationServiceUnavailable() *GetLanguagesTr
 	return &GetLanguagesTranslationsOrganizationServiceUnavailable{}
 }
 
-/*GetLanguagesTranslationsOrganizationServiceUnavailable handles this case with default header values.
+/*
+GetLanguagesTranslationsOrganizationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetLanguagesTranslationsOrganizationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations organization service unavailable response has a 2xx status code
+func (o *GetLanguagesTranslationsOrganizationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations organization service unavailable response has a 3xx status code
+func (o *GetLanguagesTranslationsOrganizationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations organization service unavailable response has a 4xx status code
+func (o *GetLanguagesTranslationsOrganizationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languages translations organization service unavailable response has a 5xx status code
+func (o *GetLanguagesTranslationsOrganizationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get languages translations organization service unavailable response a status code equal to that given
+func (o *GetLanguagesTranslationsOrganizationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetLanguagesTranslationsOrganizationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsOrganizationServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetLanguagesTranslationsOrganizationGatewayTimeout() *GetLanguagesTransl
 	return &GetLanguagesTranslationsOrganizationGatewayTimeout{}
 }
 
-/*GetLanguagesTranslationsOrganizationGatewayTimeout handles this case with default header values.
+/*
+GetLanguagesTranslationsOrganizationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetLanguagesTranslationsOrganizationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations organization gateway timeout response has a 2xx status code
+func (o *GetLanguagesTranslationsOrganizationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations organization gateway timeout response has a 3xx status code
+func (o *GetLanguagesTranslationsOrganizationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations organization gateway timeout response has a 4xx status code
+func (o *GetLanguagesTranslationsOrganizationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languages translations organization gateway timeout response has a 5xx status code
+func (o *GetLanguagesTranslationsOrganizationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get languages translations organization gateway timeout response a status code equal to that given
+func (o *GetLanguagesTranslationsOrganizationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetLanguagesTranslationsOrganizationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsOrganizationGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/organization][%d] getLanguagesTranslationsOrganizationGatewayTimeout  %+v", 504, o.Payload)
 }
 

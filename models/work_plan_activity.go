@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -66,6 +68,11 @@ type WorkPlanActivity struct {
 
 // Validate validates this work plan activity
 func (m *WorkPlanActivity) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this work plan activity based on context it is used
+func (m *WorkPlanActivity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

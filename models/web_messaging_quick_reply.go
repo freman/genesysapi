@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -84,7 +85,6 @@ func (m *WebMessagingQuickReply) validateActionEnum(path, location string, value
 }
 
 func (m *WebMessagingQuickReply) validateAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Action) { // not required
 		return nil
 	}
@@ -112,6 +112,11 @@ func (m *WebMessagingQuickReply) validateText(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this web messaging quick reply based on context it is used
+func (m *WebMessagingQuickReply) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

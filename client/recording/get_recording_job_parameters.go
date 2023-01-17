@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRecordingJobParams creates a new GetRecordingJobParams object
-// with the default values initialized.
+// NewGetRecordingJobParams creates a new GetRecordingJobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRecordingJobParams() *GetRecordingJobParams {
-	var ()
 	return &GetRecordingJobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRecordingJobParamsWithTimeout creates a new GetRecordingJobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRecordingJobParamsWithTimeout(timeout time.Duration) *GetRecordingJobParams {
-	var ()
 	return &GetRecordingJobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRecordingJobParamsWithContext creates a new GetRecordingJobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRecordingJobParamsWithContext(ctx context.Context) *GetRecordingJobParams {
-	var ()
 	return &GetRecordingJobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRecordingJobParamsWithHTTPClient creates a new GetRecordingJobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRecordingJobParamsWithHTTPClient(client *http.Client) *GetRecordingJobParams {
-	var ()
 	return &GetRecordingJobParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRecordingJobParams contains all the parameters to send to the API endpoint
-for the get recording job operation typically these are written to a http.Request
+/*
+GetRecordingJobParams contains all the parameters to send to the API endpoint
+
+	for the get recording job operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRecordingJobParams struct {
 
-	/*JobID
-	  jobId
+	/* JobID.
 
+	   jobId
 	*/
 	JobID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get recording job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingJobParams) WithDefaults() *GetRecordingJobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get recording job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingJobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get recording job params

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteAuthorizationRoleParams creates a new DeleteAuthorizationRoleParams object
-// with the default values initialized.
+// NewDeleteAuthorizationRoleParams creates a new DeleteAuthorizationRoleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteAuthorizationRoleParams() *DeleteAuthorizationRoleParams {
-	var ()
 	return &DeleteAuthorizationRoleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteAuthorizationRoleParamsWithTimeout creates a new DeleteAuthorizationRoleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteAuthorizationRoleParamsWithTimeout(timeout time.Duration) *DeleteAuthorizationRoleParams {
-	var ()
 	return &DeleteAuthorizationRoleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteAuthorizationRoleParamsWithContext creates a new DeleteAuthorizationRoleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteAuthorizationRoleParamsWithContext(ctx context.Context) *DeleteAuthorizationRoleParams {
-	var ()
 	return &DeleteAuthorizationRoleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteAuthorizationRoleParamsWithHTTPClient creates a new DeleteAuthorizationRoleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteAuthorizationRoleParamsWithHTTPClient(client *http.Client) *DeleteAuthorizationRoleParams {
-	var ()
 	return &DeleteAuthorizationRoleParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteAuthorizationRoleParams contains all the parameters to send to the API endpoint
-for the delete authorization role operation typically these are written to a http.Request
+/*
+DeleteAuthorizationRoleParams contains all the parameters to send to the API endpoint
+
+	for the delete authorization role operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteAuthorizationRoleParams struct {
 
-	/*RoleID
-	  Role ID
+	/* RoleID.
 
+	   Role ID
 	*/
 	RoleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete authorization role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteAuthorizationRoleParams) WithDefaults() *DeleteAuthorizationRoleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete authorization role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteAuthorizationRoleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete authorization role params

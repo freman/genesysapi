@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -107,7 +108,6 @@ func (m *MessageMediaPolicyConditions) validateCustomerParticipationEnum(path, l
 }
 
 func (m *MessageMediaPolicyConditions) validateCustomerParticipation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CustomerParticipation) { // not required
 		return nil
 	}
@@ -121,7 +121,6 @@ func (m *MessageMediaPolicyConditions) validateCustomerParticipation(formats str
 }
 
 func (m *MessageMediaPolicyConditions) validateForQueues(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ForQueues) { // not required
 		return nil
 	}
@@ -135,6 +134,8 @@ func (m *MessageMediaPolicyConditions) validateForQueues(formats strfmt.Registry
 			if err := m.ForQueues[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("forQueues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forQueues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -146,7 +147,6 @@ func (m *MessageMediaPolicyConditions) validateForQueues(formats strfmt.Registry
 }
 
 func (m *MessageMediaPolicyConditions) validateForUsers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ForUsers) { // not required
 		return nil
 	}
@@ -160,6 +160,8 @@ func (m *MessageMediaPolicyConditions) validateForUsers(formats strfmt.Registry)
 			if err := m.ForUsers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("forUsers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forUsers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -171,7 +173,6 @@ func (m *MessageMediaPolicyConditions) validateForUsers(formats strfmt.Registry)
 }
 
 func (m *MessageMediaPolicyConditions) validateLanguages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Languages) { // not required
 		return nil
 	}
@@ -185,6 +186,8 @@ func (m *MessageMediaPolicyConditions) validateLanguages(formats strfmt.Registry
 			if err := m.Languages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("languages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("languages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -196,7 +199,6 @@ func (m *MessageMediaPolicyConditions) validateLanguages(formats strfmt.Registry
 }
 
 func (m *MessageMediaPolicyConditions) validateTimeAllowed(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TimeAllowed) { // not required
 		return nil
 	}
@@ -205,6 +207,8 @@ func (m *MessageMediaPolicyConditions) validateTimeAllowed(formats strfmt.Regist
 		if err := m.TimeAllowed.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("timeAllowed")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeAllowed")
 			}
 			return err
 		}
@@ -214,7 +218,6 @@ func (m *MessageMediaPolicyConditions) validateTimeAllowed(formats strfmt.Regist
 }
 
 func (m *MessageMediaPolicyConditions) validateWrapupCodes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WrapupCodes) { // not required
 		return nil
 	}
@@ -228,6 +231,134 @@ func (m *MessageMediaPolicyConditions) validateWrapupCodes(formats strfmt.Regist
 			if err := m.WrapupCodes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("wrapupCodes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("wrapupCodes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this message media policy conditions based on the context it is used
+func (m *MessageMediaPolicyConditions) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateForQueues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateForUsers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLanguages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTimeAllowed(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapupCodes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MessageMediaPolicyConditions) contextValidateForQueues(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ForQueues); i++ {
+
+		if m.ForQueues[i] != nil {
+			if err := m.ForQueues[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("forQueues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forQueues" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessageMediaPolicyConditions) contextValidateForUsers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ForUsers); i++ {
+
+		if m.ForUsers[i] != nil {
+			if err := m.ForUsers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("forUsers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forUsers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessageMediaPolicyConditions) contextValidateLanguages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Languages); i++ {
+
+		if m.Languages[i] != nil {
+			if err := m.Languages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("languages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("languages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessageMediaPolicyConditions) contextValidateTimeAllowed(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TimeAllowed != nil {
+		if err := m.TimeAllowed.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("timeAllowed")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeAllowed")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessageMediaPolicyConditions) contextValidateWrapupCodes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.WrapupCodes); i++ {
+
+		if m.WrapupCodes[i] != nil {
+			if err := m.WrapupCodes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("wrapupCodes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("wrapupCodes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

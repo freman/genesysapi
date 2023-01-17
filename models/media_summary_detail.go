@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -24,6 +26,11 @@ type MediaSummaryDetail struct {
 
 // Validate validates this media summary detail
 func (m *MediaSummaryDetail) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this media summary detail based on context it is used
+func (m *MediaSummaryDetail) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

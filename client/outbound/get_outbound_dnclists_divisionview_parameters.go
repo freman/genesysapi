@@ -17,89 +17,101 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetOutboundDnclistsDivisionviewParams creates a new GetOutboundDnclistsDivisionviewParams object
-// with the default values initialized.
+// NewGetOutboundDnclistsDivisionviewParams creates a new GetOutboundDnclistsDivisionviewParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundDnclistsDivisionviewParams() *GetOutboundDnclistsDivisionviewParams {
-	var (
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-	)
 	return &GetOutboundDnclistsDivisionviewParams{
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundDnclistsDivisionviewParamsWithTimeout creates a new GetOutboundDnclistsDivisionviewParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundDnclistsDivisionviewParamsWithTimeout(timeout time.Duration) *GetOutboundDnclistsDivisionviewParams {
-	var (
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-	)
 	return &GetOutboundDnclistsDivisionviewParams{
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundDnclistsDivisionviewParamsWithContext creates a new GetOutboundDnclistsDivisionviewParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundDnclistsDivisionviewParamsWithContext(ctx context.Context) *GetOutboundDnclistsDivisionviewParams {
-	var (
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-	)
 	return &GetOutboundDnclistsDivisionviewParams{
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundDnclistsDivisionviewParamsWithHTTPClient creates a new GetOutboundDnclistsDivisionviewParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundDnclistsDivisionviewParamsWithHTTPClient(client *http.Client) *GetOutboundDnclistsDivisionviewParams {
-	var (
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-	)
 	return &GetOutboundDnclistsDivisionviewParams{
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-		HTTPClient:          client,
+		HTTPClient: client,
 	}
 }
 
-/*GetOutboundDnclistsDivisionviewParams contains all the parameters to send to the API endpoint
-for the get outbound dnclists divisionview operation typically these are written to a http.Request
+/*
+GetOutboundDnclistsDivisionviewParams contains all the parameters to send to the API endpoint
+
+	for the get outbound dnclists divisionview operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundDnclistsDivisionviewParams struct {
 
-	/*DncListID
-	  Dnclist ID
+	/* DncListID.
 
+	   Dnclist ID
 	*/
 	DncListID string
-	/*IncludeImportStatus
-	  Include import status
 
+	/* IncludeImportStatus.
+
+	   Include import status
 	*/
 	IncludeImportStatus *bool
-	/*IncludeSize
-	  Include size
 
+	/* IncludeSize.
+
+	   Include size
 	*/
 	IncludeSize *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound dnclists divisionview params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundDnclistsDivisionviewParams) WithDefaults() *GetOutboundDnclistsDivisionviewParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound dnclists divisionview params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundDnclistsDivisionviewParams) SetDefaults() {
+	var (
+		includeImportStatusDefault = bool(false)
+
+		includeSizeDefault = bool(false)
+	)
+
+	val := GetOutboundDnclistsDivisionviewParams{
+		IncludeImportStatus: &includeImportStatusDefault,
+		IncludeSize:         &includeSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get outbound dnclists divisionview params
@@ -185,32 +197,34 @@ func (o *GetOutboundDnclistsDivisionviewParams) WriteToRequest(r runtime.ClientR
 
 		// query param includeImportStatus
 		var qrIncludeImportStatus bool
+
 		if o.IncludeImportStatus != nil {
 			qrIncludeImportStatus = *o.IncludeImportStatus
 		}
 		qIncludeImportStatus := swag.FormatBool(qrIncludeImportStatus)
 		if qIncludeImportStatus != "" {
+
 			if err := r.SetQueryParam("includeImportStatus", qIncludeImportStatus); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeSize != nil {
 
 		// query param includeSize
 		var qrIncludeSize bool
+
 		if o.IncludeSize != nil {
 			qrIncludeSize = *o.IncludeSize
 		}
 		qIncludeSize := swag.FormatBool(qrIncludeSize)
 		if qIncludeSize != "" {
+
 			if err := r.SetQueryParam("includeSize", qIncludeSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

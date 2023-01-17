@@ -17,125 +17,141 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetArchitectPromptsParams creates a new GetArchitectPromptsParams object
-// with the default values initialized.
+// NewGetArchitectPromptsParams creates a new GetArchitectPromptsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetArchitectPromptsParams() *GetArchitectPromptsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("id")
-		sortOrderDefault  = string("asc")
-	)
 	return &GetArchitectPromptsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetArchitectPromptsParamsWithTimeout creates a new GetArchitectPromptsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetArchitectPromptsParamsWithTimeout(timeout time.Duration) *GetArchitectPromptsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("id")
-		sortOrderDefault  = string("asc")
-	)
 	return &GetArchitectPromptsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetArchitectPromptsParamsWithContext creates a new GetArchitectPromptsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetArchitectPromptsParamsWithContext(ctx context.Context) *GetArchitectPromptsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("id")
-		sortOrderDefault  = string("asc")
-	)
 	return &GetArchitectPromptsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetArchitectPromptsParamsWithHTTPClient creates a new GetArchitectPromptsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetArchitectPromptsParamsWithHTTPClient(client *http.Client) *GetArchitectPromptsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("id")
-		sortOrderDefault  = string("asc")
-	)
 	return &GetArchitectPromptsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetArchitectPromptsParams contains all the parameters to send to the API endpoint
-for the get architect prompts operation typically these are written to a http.Request
+/*
+GetArchitectPromptsParams contains all the parameters to send to the API endpoint
+
+	for the get architect prompts operation.
+
+	Typically these are written to a http.Request.
 */
 type GetArchitectPromptsParams struct {
 
-	/*Description
-	  Description
+	/* Description.
 
+	   Description
 	*/
 	Description *string
-	/*Name
-	  Name
 
+	/* Name.
+
+	   Name
 	*/
 	Name []string
-	/*NameOrDescription
-	  Name or description
 
+	/* NameOrDescription.
+
+	   Name or description
 	*/
 	NameOrDescription *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
+
+	   Default: "id"
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "asc"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get architect prompts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectPromptsParams) WithDefaults() *GetArchitectPromptsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get architect prompts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectPromptsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("id")
+
+		sortOrderDefault = string("asc")
+	)
+
+	val := GetArchitectPromptsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get architect prompts params
@@ -260,108 +276,134 @@ func (o *GetArchitectPromptsParams) WriteToRequest(r runtime.ClientRequest, reg 
 
 		// query param description
 		var qrDescription string
+
 		if o.Description != nil {
 			qrDescription = *o.Description
 		}
 		qDescription := qrDescription
 		if qDescription != "" {
+
 			if err := r.SetQueryParam("description", qDescription); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesName := o.Name
+	if o.Name != nil {
 
-	joinedName := swag.JoinByFormat(valuesName, "multi")
-	// query array param name
-	if err := r.SetQueryParam("name", joinedName...); err != nil {
-		return err
+		// binding items for name
+		joinedName := o.bindParamName(reg)
+
+		// query array param name
+		if err := r.SetQueryParam("name", joinedName...); err != nil {
+			return err
+		}
 	}
 
 	if o.NameOrDescription != nil {
 
 		// query param nameOrDescription
 		var qrNameOrDescription string
+
 		if o.NameOrDescription != nil {
 			qrNameOrDescription = *o.NameOrDescription
 		}
 		qNameOrDescription := qrNameOrDescription
 		if qNameOrDescription != "" {
+
 			if err := r.SetQueryParam("nameOrDescription", qNameOrDescription); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetArchitectPrompts binds the parameter name
+func (o *GetArchitectPromptsParams) bindParamName(formats strfmt.Registry) []string {
+	nameIR := o.Name
+
+	var nameIC []string
+	for _, nameIIR := range nameIR { // explode []string
+
+		nameIIV := nameIIR // string as string
+		nameIC = append(nameIC, nameIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	nameIS := swag.JoinByFormat(nameIC, "multi")
+
+	return nameIS
 }

@@ -95,7 +95,6 @@ func (o *DeleteOutboundSchedulesSequenceReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteOutboundSchedulesSequenceOK() *DeleteOutboundSchedulesSequenceOK {
 	return &DeleteOutboundSchedulesSequenceOK{}
 }
 
-/*DeleteOutboundSchedulesSequenceOK handles this case with default header values.
+/*
+DeleteOutboundSchedulesSequenceOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteOutboundSchedulesSequenceOK struct {
 }
 
+// IsSuccess returns true when this delete outbound schedules sequence o k response has a 2xx status code
+func (o *DeleteOutboundSchedulesSequenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete outbound schedules sequence o k response has a 3xx status code
+func (o *DeleteOutboundSchedulesSequenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules sequence o k response has a 4xx status code
+func (o *DeleteOutboundSchedulesSequenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound schedules sequence o k response has a 5xx status code
+func (o *DeleteOutboundSchedulesSequenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules sequence o k response a status code equal to that given
+func (o *DeleteOutboundSchedulesSequenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteOutboundSchedulesSequenceOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceOK ", 200)
+}
+
+func (o *DeleteOutboundSchedulesSequenceOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteOutboundSchedulesSequenceBadRequest() *DeleteOutboundSchedulesSequ
 	return &DeleteOutboundSchedulesSequenceBadRequest{}
 }
 
-/*DeleteOutboundSchedulesSequenceBadRequest handles this case with default header values.
+/*
+DeleteOutboundSchedulesSequenceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteOutboundSchedulesSequenceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules sequence bad request response has a 2xx status code
+func (o *DeleteOutboundSchedulesSequenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules sequence bad request response has a 3xx status code
+func (o *DeleteOutboundSchedulesSequenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules sequence bad request response has a 4xx status code
+func (o *DeleteOutboundSchedulesSequenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules sequence bad request response has a 5xx status code
+func (o *DeleteOutboundSchedulesSequenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules sequence bad request response a status code equal to that given
+func (o *DeleteOutboundSchedulesSequenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOutboundSchedulesSequenceBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesSequenceBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteOutboundSchedulesSequenceUnauthorized() *DeleteOutboundSchedulesSe
 	return &DeleteOutboundSchedulesSequenceUnauthorized{}
 }
 
-/*DeleteOutboundSchedulesSequenceUnauthorized handles this case with default header values.
+/*
+DeleteOutboundSchedulesSequenceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteOutboundSchedulesSequenceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules sequence unauthorized response has a 2xx status code
+func (o *DeleteOutboundSchedulesSequenceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules sequence unauthorized response has a 3xx status code
+func (o *DeleteOutboundSchedulesSequenceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules sequence unauthorized response has a 4xx status code
+func (o *DeleteOutboundSchedulesSequenceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules sequence unauthorized response has a 5xx status code
+func (o *DeleteOutboundSchedulesSequenceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules sequence unauthorized response a status code equal to that given
+func (o *DeleteOutboundSchedulesSequenceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOutboundSchedulesSequenceUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesSequenceUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteOutboundSchedulesSequenceForbidden() *DeleteOutboundSchedulesSeque
 	return &DeleteOutboundSchedulesSequenceForbidden{}
 }
 
-/*DeleteOutboundSchedulesSequenceForbidden handles this case with default header values.
+/*
+DeleteOutboundSchedulesSequenceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteOutboundSchedulesSequenceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules sequence forbidden response has a 2xx status code
+func (o *DeleteOutboundSchedulesSequenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules sequence forbidden response has a 3xx status code
+func (o *DeleteOutboundSchedulesSequenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules sequence forbidden response has a 4xx status code
+func (o *DeleteOutboundSchedulesSequenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules sequence forbidden response has a 5xx status code
+func (o *DeleteOutboundSchedulesSequenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules sequence forbidden response a status code equal to that given
+func (o *DeleteOutboundSchedulesSequenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOutboundSchedulesSequenceForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesSequenceForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteOutboundSchedulesSequenceNotFound() *DeleteOutboundSchedulesSequen
 	return &DeleteOutboundSchedulesSequenceNotFound{}
 }
 
-/*DeleteOutboundSchedulesSequenceNotFound handles this case with default header values.
+/*
+DeleteOutboundSchedulesSequenceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteOutboundSchedulesSequenceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules sequence not found response has a 2xx status code
+func (o *DeleteOutboundSchedulesSequenceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules sequence not found response has a 3xx status code
+func (o *DeleteOutboundSchedulesSequenceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules sequence not found response has a 4xx status code
+func (o *DeleteOutboundSchedulesSequenceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules sequence not found response has a 5xx status code
+func (o *DeleteOutboundSchedulesSequenceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules sequence not found response a status code equal to that given
+func (o *DeleteOutboundSchedulesSequenceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOutboundSchedulesSequenceNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesSequenceNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteOutboundSchedulesSequenceRequestTimeout() *DeleteOutboundSchedules
 	return &DeleteOutboundSchedulesSequenceRequestTimeout{}
 }
 
-/*DeleteOutboundSchedulesSequenceRequestTimeout handles this case with default header values.
+/*
+DeleteOutboundSchedulesSequenceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteOutboundSchedulesSequenceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules sequence request timeout response has a 2xx status code
+func (o *DeleteOutboundSchedulesSequenceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules sequence request timeout response has a 3xx status code
+func (o *DeleteOutboundSchedulesSequenceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules sequence request timeout response has a 4xx status code
+func (o *DeleteOutboundSchedulesSequenceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules sequence request timeout response has a 5xx status code
+func (o *DeleteOutboundSchedulesSequenceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules sequence request timeout response a status code equal to that given
+func (o *DeleteOutboundSchedulesSequenceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOutboundSchedulesSequenceRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesSequenceRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteOutboundSchedulesSequenceRequestEntityTooLarge() *DeleteOutboundSc
 	return &DeleteOutboundSchedulesSequenceRequestEntityTooLarge{}
 }
 
-/*DeleteOutboundSchedulesSequenceRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOutboundSchedulesSequenceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteOutboundSchedulesSequenceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules sequence request entity too large response has a 2xx status code
+func (o *DeleteOutboundSchedulesSequenceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules sequence request entity too large response has a 3xx status code
+func (o *DeleteOutboundSchedulesSequenceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules sequence request entity too large response has a 4xx status code
+func (o *DeleteOutboundSchedulesSequenceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules sequence request entity too large response has a 5xx status code
+func (o *DeleteOutboundSchedulesSequenceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules sequence request entity too large response a status code equal to that given
+func (o *DeleteOutboundSchedulesSequenceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOutboundSchedulesSequenceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesSequenceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteOutboundSchedulesSequenceUnsupportedMediaType() *DeleteOutboundSch
 	return &DeleteOutboundSchedulesSequenceUnsupportedMediaType{}
 }
 
-/*DeleteOutboundSchedulesSequenceUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOutboundSchedulesSequenceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteOutboundSchedulesSequenceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules sequence unsupported media type response has a 2xx status code
+func (o *DeleteOutboundSchedulesSequenceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules sequence unsupported media type response has a 3xx status code
+func (o *DeleteOutboundSchedulesSequenceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules sequence unsupported media type response has a 4xx status code
+func (o *DeleteOutboundSchedulesSequenceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules sequence unsupported media type response has a 5xx status code
+func (o *DeleteOutboundSchedulesSequenceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules sequence unsupported media type response a status code equal to that given
+func (o *DeleteOutboundSchedulesSequenceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOutboundSchedulesSequenceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesSequenceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteOutboundSchedulesSequenceTooManyRequests() *DeleteOutboundSchedule
 	return &DeleteOutboundSchedulesSequenceTooManyRequests{}
 }
 
-/*DeleteOutboundSchedulesSequenceTooManyRequests handles this case with default header values.
+/*
+DeleteOutboundSchedulesSequenceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteOutboundSchedulesSequenceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules sequence too many requests response has a 2xx status code
+func (o *DeleteOutboundSchedulesSequenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules sequence too many requests response has a 3xx status code
+func (o *DeleteOutboundSchedulesSequenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules sequence too many requests response has a 4xx status code
+func (o *DeleteOutboundSchedulesSequenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules sequence too many requests response has a 5xx status code
+func (o *DeleteOutboundSchedulesSequenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules sequence too many requests response a status code equal to that given
+func (o *DeleteOutboundSchedulesSequenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOutboundSchedulesSequenceTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesSequenceTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteOutboundSchedulesSequenceInternalServerError() *DeleteOutboundSche
 	return &DeleteOutboundSchedulesSequenceInternalServerError{}
 }
 
-/*DeleteOutboundSchedulesSequenceInternalServerError handles this case with default header values.
+/*
+DeleteOutboundSchedulesSequenceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteOutboundSchedulesSequenceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules sequence internal server error response has a 2xx status code
+func (o *DeleteOutboundSchedulesSequenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules sequence internal server error response has a 3xx status code
+func (o *DeleteOutboundSchedulesSequenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules sequence internal server error response has a 4xx status code
+func (o *DeleteOutboundSchedulesSequenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound schedules sequence internal server error response has a 5xx status code
+func (o *DeleteOutboundSchedulesSequenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound schedules sequence internal server error response a status code equal to that given
+func (o *DeleteOutboundSchedulesSequenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOutboundSchedulesSequenceInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesSequenceInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteOutboundSchedulesSequenceServiceUnavailable() *DeleteOutboundSched
 	return &DeleteOutboundSchedulesSequenceServiceUnavailable{}
 }
 
-/*DeleteOutboundSchedulesSequenceServiceUnavailable handles this case with default header values.
+/*
+DeleteOutboundSchedulesSequenceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteOutboundSchedulesSequenceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules sequence service unavailable response has a 2xx status code
+func (o *DeleteOutboundSchedulesSequenceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules sequence service unavailable response has a 3xx status code
+func (o *DeleteOutboundSchedulesSequenceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules sequence service unavailable response has a 4xx status code
+func (o *DeleteOutboundSchedulesSequenceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound schedules sequence service unavailable response has a 5xx status code
+func (o *DeleteOutboundSchedulesSequenceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound schedules sequence service unavailable response a status code equal to that given
+func (o *DeleteOutboundSchedulesSequenceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOutboundSchedulesSequenceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesSequenceServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteOutboundSchedulesSequenceGatewayTimeout() *DeleteOutboundSchedules
 	return &DeleteOutboundSchedulesSequenceGatewayTimeout{}
 }
 
-/*DeleteOutboundSchedulesSequenceGatewayTimeout handles this case with default header values.
+/*
+DeleteOutboundSchedulesSequenceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteOutboundSchedulesSequenceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules sequence gateway timeout response has a 2xx status code
+func (o *DeleteOutboundSchedulesSequenceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules sequence gateway timeout response has a 3xx status code
+func (o *DeleteOutboundSchedulesSequenceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules sequence gateway timeout response has a 4xx status code
+func (o *DeleteOutboundSchedulesSequenceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound schedules sequence gateway timeout response has a 5xx status code
+func (o *DeleteOutboundSchedulesSequenceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound schedules sequence gateway timeout response a status code equal to that given
+func (o *DeleteOutboundSchedulesSequenceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOutboundSchedulesSequenceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesSequenceGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/sequences/{sequenceId}][%d] deleteOutboundSchedulesSequenceGatewayTimeout  %+v", 504, o.Payload)
 }
 

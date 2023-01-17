@@ -95,7 +95,6 @@ func (o *PostConversationsCallParticipantMonitorReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostConversationsCallParticipantMonitorCreated() *PostConversationsCallP
 	return &PostConversationsCallParticipantMonitorCreated{}
 }
 
-/*PostConversationsCallParticipantMonitorCreated handles this case with default header values.
+/*
+PostConversationsCallParticipantMonitorCreated describes a response with status code 201, with default header values.
 
 Created
 */
 type PostConversationsCallParticipantMonitorCreated struct {
 }
 
+// IsSuccess returns true when this post conversations call participant monitor created response has a 2xx status code
+func (o *PostConversationsCallParticipantMonitorCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations call participant monitor created response has a 3xx status code
+func (o *PostConversationsCallParticipantMonitorCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant monitor created response has a 4xx status code
+func (o *PostConversationsCallParticipantMonitorCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations call participant monitor created response has a 5xx status code
+func (o *PostConversationsCallParticipantMonitorCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant monitor created response a status code equal to that given
+func (o *PostConversationsCallParticipantMonitorCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostConversationsCallParticipantMonitorCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorCreated ", 201)
+}
+
+func (o *PostConversationsCallParticipantMonitorCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorCreated ", 201)
 }
 
@@ -127,7 +156,8 @@ func NewPostConversationsCallParticipantMonitorBadRequest() *PostConversationsCa
 	return &PostConversationsCallParticipantMonitorBadRequest{}
 }
 
-/*PostConversationsCallParticipantMonitorBadRequest handles this case with default header values.
+/*
+PostConversationsCallParticipantMonitorBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostConversationsCallParticipantMonitorBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant monitor bad request response has a 2xx status code
+func (o *PostConversationsCallParticipantMonitorBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant monitor bad request response has a 3xx status code
+func (o *PostConversationsCallParticipantMonitorBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant monitor bad request response has a 4xx status code
+func (o *PostConversationsCallParticipantMonitorBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant monitor bad request response has a 5xx status code
+func (o *PostConversationsCallParticipantMonitorBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant monitor bad request response a status code equal to that given
+func (o *PostConversationsCallParticipantMonitorBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsCallParticipantMonitorBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantMonitorBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostConversationsCallParticipantMonitorUnauthorized() *PostConversations
 	return &PostConversationsCallParticipantMonitorUnauthorized{}
 }
 
-/*PostConversationsCallParticipantMonitorUnauthorized handles this case with default header values.
+/*
+PostConversationsCallParticipantMonitorUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostConversationsCallParticipantMonitorUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant monitor unauthorized response has a 2xx status code
+func (o *PostConversationsCallParticipantMonitorUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant monitor unauthorized response has a 3xx status code
+func (o *PostConversationsCallParticipantMonitorUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant monitor unauthorized response has a 4xx status code
+func (o *PostConversationsCallParticipantMonitorUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant monitor unauthorized response has a 5xx status code
+func (o *PostConversationsCallParticipantMonitorUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant monitor unauthorized response a status code equal to that given
+func (o *PostConversationsCallParticipantMonitorUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsCallParticipantMonitorUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantMonitorUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostConversationsCallParticipantMonitorForbidden() *PostConversationsCal
 	return &PostConversationsCallParticipantMonitorForbidden{}
 }
 
-/*PostConversationsCallParticipantMonitorForbidden handles this case with default header values.
+/*
+PostConversationsCallParticipantMonitorForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostConversationsCallParticipantMonitorForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant monitor forbidden response has a 2xx status code
+func (o *PostConversationsCallParticipantMonitorForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant monitor forbidden response has a 3xx status code
+func (o *PostConversationsCallParticipantMonitorForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant monitor forbidden response has a 4xx status code
+func (o *PostConversationsCallParticipantMonitorForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant monitor forbidden response has a 5xx status code
+func (o *PostConversationsCallParticipantMonitorForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant monitor forbidden response a status code equal to that given
+func (o *PostConversationsCallParticipantMonitorForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsCallParticipantMonitorForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantMonitorForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostConversationsCallParticipantMonitorNotFound() *PostConversationsCall
 	return &PostConversationsCallParticipantMonitorNotFound{}
 }
 
-/*PostConversationsCallParticipantMonitorNotFound handles this case with default header values.
+/*
+PostConversationsCallParticipantMonitorNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostConversationsCallParticipantMonitorNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant monitor not found response has a 2xx status code
+func (o *PostConversationsCallParticipantMonitorNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant monitor not found response has a 3xx status code
+func (o *PostConversationsCallParticipantMonitorNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant monitor not found response has a 4xx status code
+func (o *PostConversationsCallParticipantMonitorNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant monitor not found response has a 5xx status code
+func (o *PostConversationsCallParticipantMonitorNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant monitor not found response a status code equal to that given
+func (o *PostConversationsCallParticipantMonitorNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsCallParticipantMonitorNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantMonitorNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostConversationsCallParticipantMonitorRequestTimeout() *PostConversatio
 	return &PostConversationsCallParticipantMonitorRequestTimeout{}
 }
 
-/*PostConversationsCallParticipantMonitorRequestTimeout handles this case with default header values.
+/*
+PostConversationsCallParticipantMonitorRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostConversationsCallParticipantMonitorRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant monitor request timeout response has a 2xx status code
+func (o *PostConversationsCallParticipantMonitorRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant monitor request timeout response has a 3xx status code
+func (o *PostConversationsCallParticipantMonitorRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant monitor request timeout response has a 4xx status code
+func (o *PostConversationsCallParticipantMonitorRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant monitor request timeout response has a 5xx status code
+func (o *PostConversationsCallParticipantMonitorRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant monitor request timeout response a status code equal to that given
+func (o *PostConversationsCallParticipantMonitorRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsCallParticipantMonitorRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantMonitorRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostConversationsCallParticipantMonitorRequestEntityTooLarge() *PostConv
 	return &PostConversationsCallParticipantMonitorRequestEntityTooLarge{}
 }
 
-/*PostConversationsCallParticipantMonitorRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsCallParticipantMonitorRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostConversationsCallParticipantMonitorRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant monitor request entity too large response has a 2xx status code
+func (o *PostConversationsCallParticipantMonitorRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant monitor request entity too large response has a 3xx status code
+func (o *PostConversationsCallParticipantMonitorRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant monitor request entity too large response has a 4xx status code
+func (o *PostConversationsCallParticipantMonitorRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant monitor request entity too large response has a 5xx status code
+func (o *PostConversationsCallParticipantMonitorRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant monitor request entity too large response a status code equal to that given
+func (o *PostConversationsCallParticipantMonitorRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsCallParticipantMonitorRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantMonitorRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostConversationsCallParticipantMonitorUnsupportedMediaType() *PostConve
 	return &PostConversationsCallParticipantMonitorUnsupportedMediaType{}
 }
 
-/*PostConversationsCallParticipantMonitorUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsCallParticipantMonitorUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostConversationsCallParticipantMonitorUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant monitor unsupported media type response has a 2xx status code
+func (o *PostConversationsCallParticipantMonitorUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant monitor unsupported media type response has a 3xx status code
+func (o *PostConversationsCallParticipantMonitorUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant monitor unsupported media type response has a 4xx status code
+func (o *PostConversationsCallParticipantMonitorUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant monitor unsupported media type response has a 5xx status code
+func (o *PostConversationsCallParticipantMonitorUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant monitor unsupported media type response a status code equal to that given
+func (o *PostConversationsCallParticipantMonitorUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsCallParticipantMonitorUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantMonitorUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostConversationsCallParticipantMonitorTooManyRequests() *PostConversati
 	return &PostConversationsCallParticipantMonitorTooManyRequests{}
 }
 
-/*PostConversationsCallParticipantMonitorTooManyRequests handles this case with default header values.
+/*
+PostConversationsCallParticipantMonitorTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostConversationsCallParticipantMonitorTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant monitor too many requests response has a 2xx status code
+func (o *PostConversationsCallParticipantMonitorTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant monitor too many requests response has a 3xx status code
+func (o *PostConversationsCallParticipantMonitorTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant monitor too many requests response has a 4xx status code
+func (o *PostConversationsCallParticipantMonitorTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant monitor too many requests response has a 5xx status code
+func (o *PostConversationsCallParticipantMonitorTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant monitor too many requests response a status code equal to that given
+func (o *PostConversationsCallParticipantMonitorTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsCallParticipantMonitorTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantMonitorTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostConversationsCallParticipantMonitorInternalServerError() *PostConver
 	return &PostConversationsCallParticipantMonitorInternalServerError{}
 }
 
-/*PostConversationsCallParticipantMonitorInternalServerError handles this case with default header values.
+/*
+PostConversationsCallParticipantMonitorInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostConversationsCallParticipantMonitorInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant monitor internal server error response has a 2xx status code
+func (o *PostConversationsCallParticipantMonitorInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant monitor internal server error response has a 3xx status code
+func (o *PostConversationsCallParticipantMonitorInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant monitor internal server error response has a 4xx status code
+func (o *PostConversationsCallParticipantMonitorInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations call participant monitor internal server error response has a 5xx status code
+func (o *PostConversationsCallParticipantMonitorInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations call participant monitor internal server error response a status code equal to that given
+func (o *PostConversationsCallParticipantMonitorInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsCallParticipantMonitorInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantMonitorInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostConversationsCallParticipantMonitorServiceUnavailable() *PostConvers
 	return &PostConversationsCallParticipantMonitorServiceUnavailable{}
 }
 
-/*PostConversationsCallParticipantMonitorServiceUnavailable handles this case with default header values.
+/*
+PostConversationsCallParticipantMonitorServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostConversationsCallParticipantMonitorServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant monitor service unavailable response has a 2xx status code
+func (o *PostConversationsCallParticipantMonitorServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant monitor service unavailable response has a 3xx status code
+func (o *PostConversationsCallParticipantMonitorServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant monitor service unavailable response has a 4xx status code
+func (o *PostConversationsCallParticipantMonitorServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations call participant monitor service unavailable response has a 5xx status code
+func (o *PostConversationsCallParticipantMonitorServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations call participant monitor service unavailable response a status code equal to that given
+func (o *PostConversationsCallParticipantMonitorServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsCallParticipantMonitorServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantMonitorServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostConversationsCallParticipantMonitorGatewayTimeout() *PostConversatio
 	return &PostConversationsCallParticipantMonitorGatewayTimeout{}
 }
 
-/*PostConversationsCallParticipantMonitorGatewayTimeout handles this case with default header values.
+/*
+PostConversationsCallParticipantMonitorGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostConversationsCallParticipantMonitorGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant monitor gateway timeout response has a 2xx status code
+func (o *PostConversationsCallParticipantMonitorGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant monitor gateway timeout response has a 3xx status code
+func (o *PostConversationsCallParticipantMonitorGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant monitor gateway timeout response has a 4xx status code
+func (o *PostConversationsCallParticipantMonitorGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations call participant monitor gateway timeout response has a 5xx status code
+func (o *PostConversationsCallParticipantMonitorGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations call participant monitor gateway timeout response a status code equal to that given
+func (o *PostConversationsCallParticipantMonitorGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsCallParticipantMonitorGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantMonitorGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/monitor][%d] postConversationsCallParticipantMonitorGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -95,7 +96,6 @@ func (m *ShiftTradeSettings) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ShiftTradeSettings) validateActivityCategoryRules(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActivityCategoryRules) { // not required
 		return nil
 	}
@@ -109,6 +109,8 @@ func (m *ShiftTradeSettings) validateActivityCategoryRules(formats strfmt.Regist
 			if err := m.ActivityCategoryRules[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("activityCategoryRules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activityCategoryRules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -152,7 +154,6 @@ func (m *ShiftTradeSettings) validateOneSidedEnum(path, location string, value s
 }
 
 func (m *ShiftTradeSettings) validateOneSided(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OneSided) { // not required
 		return nil
 	}
@@ -198,7 +199,6 @@ func (m *ShiftTradeSettings) validateUnequalPaidEnum(path, location string, valu
 }
 
 func (m *ShiftTradeSettings) validateUnequalPaid(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UnequalPaid) { // not required
 		return nil
 	}
@@ -244,7 +244,6 @@ func (m *ShiftTradeSettings) validateWeeklyMaxPaidViolationsEnum(path, location 
 }
 
 func (m *ShiftTradeSettings) validateWeeklyMaxPaidViolations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WeeklyMaxPaidViolations) { // not required
 		return nil
 	}
@@ -290,7 +289,6 @@ func (m *ShiftTradeSettings) validateWeeklyMinPaidViolationsEnum(path, location 
 }
 
 func (m *ShiftTradeSettings) validateWeeklyMinPaidViolations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WeeklyMinPaidViolations) { // not required
 		return nil
 	}
@@ -298,6 +296,40 @@ func (m *ShiftTradeSettings) validateWeeklyMinPaidViolations(formats strfmt.Regi
 	// value enum
 	if err := m.validateWeeklyMinPaidViolationsEnum("weeklyMinPaidViolations", "body", m.WeeklyMinPaidViolations); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this shift trade settings based on the context it is used
+func (m *ShiftTradeSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActivityCategoryRules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ShiftTradeSettings) contextValidateActivityCategoryRules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ActivityCategoryRules); i++ {
+
+		if m.ActivityCategoryRules[i] != nil {
+			if err := m.ActivityCategoryRules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("activityCategoryRules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activityCategoryRules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

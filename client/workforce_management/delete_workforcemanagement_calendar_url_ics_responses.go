@@ -95,7 +95,6 @@ func (o *DeleteWorkforcemanagementCalendarURLIcsReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteWorkforcemanagementCalendarURLIcsNoContent() *DeleteWorkforcemanag
 	return &DeleteWorkforcemanagementCalendarURLIcsNoContent{}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsNoContent handles this case with default header values.
+/*
+DeleteWorkforcemanagementCalendarURLIcsNoContent describes a response with status code 204, with default header values.
 
 Operation was successful.
 */
 type DeleteWorkforcemanagementCalendarURLIcsNoContent struct {
 }
 
+// IsSuccess returns true when this delete workforcemanagement calendar Url ics no content response has a 2xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete workforcemanagement calendar Url ics no content response has a 3xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement calendar Url ics no content response has a 4xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete workforcemanagement calendar Url ics no content response has a 5xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement calendar Url ics no content response a status code equal to that given
+func (o *DeleteWorkforcemanagementCalendarURLIcsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteWorkforcemanagementCalendarURLIcsNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsNoContent ", 204)
+}
+
+func (o *DeleteWorkforcemanagementCalendarURLIcsNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteWorkforcemanagementCalendarURLIcsBadRequest() *DeleteWorkforcemana
 	return &DeleteWorkforcemanagementCalendarURLIcsBadRequest{}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsBadRequest handles this case with default header values.
+/*
+DeleteWorkforcemanagementCalendarURLIcsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteWorkforcemanagementCalendarURLIcsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement calendar Url ics bad request response has a 2xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement calendar Url ics bad request response has a 3xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement calendar Url ics bad request response has a 4xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement calendar Url ics bad request response has a 5xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement calendar Url ics bad request response a status code equal to that given
+func (o *DeleteWorkforcemanagementCalendarURLIcsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteWorkforcemanagementCalendarURLIcsBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementCalendarURLIcsBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteWorkforcemanagementCalendarURLIcsUnauthorized() *DeleteWorkforcema
 	return &DeleteWorkforcemanagementCalendarURLIcsUnauthorized{}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsUnauthorized handles this case with default header values.
+/*
+DeleteWorkforcemanagementCalendarURLIcsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteWorkforcemanagementCalendarURLIcsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement calendar Url ics unauthorized response has a 2xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement calendar Url ics unauthorized response has a 3xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement calendar Url ics unauthorized response has a 4xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement calendar Url ics unauthorized response has a 5xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement calendar Url ics unauthorized response a status code equal to that given
+func (o *DeleteWorkforcemanagementCalendarURLIcsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteWorkforcemanagementCalendarURLIcsUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementCalendarURLIcsUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteWorkforcemanagementCalendarURLIcsForbidden() *DeleteWorkforcemanag
 	return &DeleteWorkforcemanagementCalendarURLIcsForbidden{}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsForbidden handles this case with default header values.
+/*
+DeleteWorkforcemanagementCalendarURLIcsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteWorkforcemanagementCalendarURLIcsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement calendar Url ics forbidden response has a 2xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement calendar Url ics forbidden response has a 3xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement calendar Url ics forbidden response has a 4xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement calendar Url ics forbidden response has a 5xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement calendar Url ics forbidden response a status code equal to that given
+func (o *DeleteWorkforcemanagementCalendarURLIcsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteWorkforcemanagementCalendarURLIcsForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementCalendarURLIcsForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteWorkforcemanagementCalendarURLIcsNotFound() *DeleteWorkforcemanage
 	return &DeleteWorkforcemanagementCalendarURLIcsNotFound{}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsNotFound handles this case with default header values.
+/*
+DeleteWorkforcemanagementCalendarURLIcsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteWorkforcemanagementCalendarURLIcsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement calendar Url ics not found response has a 2xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement calendar Url ics not found response has a 3xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement calendar Url ics not found response has a 4xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement calendar Url ics not found response has a 5xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement calendar Url ics not found response a status code equal to that given
+func (o *DeleteWorkforcemanagementCalendarURLIcsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteWorkforcemanagementCalendarURLIcsNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementCalendarURLIcsNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteWorkforcemanagementCalendarURLIcsRequestTimeout() *DeleteWorkforce
 	return &DeleteWorkforcemanagementCalendarURLIcsRequestTimeout{}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsRequestTimeout handles this case with default header values.
+/*
+DeleteWorkforcemanagementCalendarURLIcsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteWorkforcemanagementCalendarURLIcsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement calendar Url ics request timeout response has a 2xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement calendar Url ics request timeout response has a 3xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement calendar Url ics request timeout response has a 4xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement calendar Url ics request timeout response has a 5xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement calendar Url ics request timeout response a status code equal to that given
+func (o *DeleteWorkforcemanagementCalendarURLIcsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteWorkforcemanagementCalendarURLIcsRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementCalendarURLIcsRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteWorkforcemanagementCalendarURLIcsRequestEntityTooLarge() *DeleteWo
 	return &DeleteWorkforcemanagementCalendarURLIcsRequestEntityTooLarge{}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteWorkforcemanagementCalendarURLIcsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteWorkforcemanagementCalendarURLIcsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement calendar Url ics request entity too large response has a 2xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement calendar Url ics request entity too large response has a 3xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement calendar Url ics request entity too large response has a 4xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement calendar Url ics request entity too large response has a 5xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement calendar Url ics request entity too large response a status code equal to that given
+func (o *DeleteWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteWorkforcemanagementCalendarURLIcsUnsupportedMediaType() *DeleteWor
 	return &DeleteWorkforcemanagementCalendarURLIcsUnsupportedMediaType{}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsUnsupportedMediaType handles this case with default header values.
+/*
+DeleteWorkforcemanagementCalendarURLIcsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteWorkforcemanagementCalendarURLIcsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement calendar Url ics unsupported media type response has a 2xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement calendar Url ics unsupported media type response has a 3xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement calendar Url ics unsupported media type response has a 4xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement calendar Url ics unsupported media type response has a 5xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement calendar Url ics unsupported media type response a status code equal to that given
+func (o *DeleteWorkforcemanagementCalendarURLIcsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteWorkforcemanagementCalendarURLIcsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementCalendarURLIcsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteWorkforcemanagementCalendarURLIcsTooManyRequests() *DeleteWorkforc
 	return &DeleteWorkforcemanagementCalendarURLIcsTooManyRequests{}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsTooManyRequests handles this case with default header values.
+/*
+DeleteWorkforcemanagementCalendarURLIcsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteWorkforcemanagementCalendarURLIcsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement calendar Url ics too many requests response has a 2xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement calendar Url ics too many requests response has a 3xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement calendar Url ics too many requests response has a 4xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement calendar Url ics too many requests response has a 5xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement calendar Url ics too many requests response a status code equal to that given
+func (o *DeleteWorkforcemanagementCalendarURLIcsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteWorkforcemanagementCalendarURLIcsTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementCalendarURLIcsTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteWorkforcemanagementCalendarURLIcsInternalServerError() *DeleteWork
 	return &DeleteWorkforcemanagementCalendarURLIcsInternalServerError{}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsInternalServerError handles this case with default header values.
+/*
+DeleteWorkforcemanagementCalendarURLIcsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteWorkforcemanagementCalendarURLIcsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement calendar Url ics internal server error response has a 2xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement calendar Url ics internal server error response has a 3xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement calendar Url ics internal server error response has a 4xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete workforcemanagement calendar Url ics internal server error response has a 5xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete workforcemanagement calendar Url ics internal server error response a status code equal to that given
+func (o *DeleteWorkforcemanagementCalendarURLIcsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteWorkforcemanagementCalendarURLIcsInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementCalendarURLIcsInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteWorkforcemanagementCalendarURLIcsServiceUnavailable() *DeleteWorkf
 	return &DeleteWorkforcemanagementCalendarURLIcsServiceUnavailable{}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsServiceUnavailable handles this case with default header values.
+/*
+DeleteWorkforcemanagementCalendarURLIcsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteWorkforcemanagementCalendarURLIcsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement calendar Url ics service unavailable response has a 2xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement calendar Url ics service unavailable response has a 3xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement calendar Url ics service unavailable response has a 4xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete workforcemanagement calendar Url ics service unavailable response has a 5xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete workforcemanagement calendar Url ics service unavailable response a status code equal to that given
+func (o *DeleteWorkforcemanagementCalendarURLIcsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteWorkforcemanagementCalendarURLIcsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementCalendarURLIcsServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteWorkforcemanagementCalendarURLIcsGatewayTimeout() *DeleteWorkforce
 	return &DeleteWorkforcemanagementCalendarURLIcsGatewayTimeout{}
 }
 
-/*DeleteWorkforcemanagementCalendarURLIcsGatewayTimeout handles this case with default header values.
+/*
+DeleteWorkforcemanagementCalendarURLIcsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteWorkforcemanagementCalendarURLIcsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement calendar Url ics gateway timeout response has a 2xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement calendar Url ics gateway timeout response has a 3xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement calendar Url ics gateway timeout response has a 4xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete workforcemanagement calendar Url ics gateway timeout response has a 5xx status code
+func (o *DeleteWorkforcemanagementCalendarURLIcsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete workforcemanagement calendar Url ics gateway timeout response a status code equal to that given
+func (o *DeleteWorkforcemanagementCalendarURLIcsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteWorkforcemanagementCalendarURLIcsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementCalendarURLIcsGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/calendar/url/ics][%d] deleteWorkforcemanagementCalendarUrlIcsGatewayTimeout  %+v", 504, o.Payload)
 }
 

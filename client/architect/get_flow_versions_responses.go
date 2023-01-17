@@ -101,7 +101,6 @@ func (o *GetFlowVersionsReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetFlowVersionsOK() *GetFlowVersionsOK {
 	return &GetFlowVersionsOK{}
 }
 
-/*GetFlowVersionsOK handles this case with default header values.
+/*
+GetFlowVersionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type GetFlowVersionsOK struct {
 	Payload *models.FlowVersionEntityListing
 }
 
+// IsSuccess returns true when this get flow versions o k response has a 2xx status code
+func (o *GetFlowVersionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get flow versions o k response has a 3xx status code
+func (o *GetFlowVersionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions o k response has a 4xx status code
+func (o *GetFlowVersionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flow versions o k response has a 5xx status code
+func (o *GetFlowVersionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow versions o k response a status code equal to that given
+func (o *GetFlowVersionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetFlowVersionsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetFlowVersionsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewGetFlowVersionsBadRequest() *GetFlowVersionsBadRequest {
 	return &GetFlowVersionsBadRequest{}
 }
 
-/*GetFlowVersionsBadRequest handles this case with default header values.
+/*
+GetFlowVersionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type GetFlowVersionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow versions bad request response has a 2xx status code
+func (o *GetFlowVersionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow versions bad request response has a 3xx status code
+func (o *GetFlowVersionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions bad request response has a 4xx status code
+func (o *GetFlowVersionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow versions bad request response has a 5xx status code
+func (o *GetFlowVersionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow versions bad request response a status code equal to that given
+func (o *GetFlowVersionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetFlowVersionsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetFlowVersionsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewGetFlowVersionsUnauthorized() *GetFlowVersionsUnauthorized {
 	return &GetFlowVersionsUnauthorized{}
 }
 
-/*GetFlowVersionsUnauthorized handles this case with default header values.
+/*
+GetFlowVersionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type GetFlowVersionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow versions unauthorized response has a 2xx status code
+func (o *GetFlowVersionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow versions unauthorized response has a 3xx status code
+func (o *GetFlowVersionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions unauthorized response has a 4xx status code
+func (o *GetFlowVersionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow versions unauthorized response has a 5xx status code
+func (o *GetFlowVersionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow versions unauthorized response a status code equal to that given
+func (o *GetFlowVersionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetFlowVersionsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetFlowVersionsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewGetFlowVersionsForbidden() *GetFlowVersionsForbidden {
 	return &GetFlowVersionsForbidden{}
 }
 
-/*GetFlowVersionsForbidden handles this case with default header values.
+/*
+GetFlowVersionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type GetFlowVersionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow versions forbidden response has a 2xx status code
+func (o *GetFlowVersionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow versions forbidden response has a 3xx status code
+func (o *GetFlowVersionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions forbidden response has a 4xx status code
+func (o *GetFlowVersionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow versions forbidden response has a 5xx status code
+func (o *GetFlowVersionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow versions forbidden response a status code equal to that given
+func (o *GetFlowVersionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetFlowVersionsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetFlowVersionsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewGetFlowVersionsNotFound() *GetFlowVersionsNotFound {
 	return &GetFlowVersionsNotFound{}
 }
 
-/*GetFlowVersionsNotFound handles this case with default header values.
+/*
+GetFlowVersionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type GetFlowVersionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow versions not found response has a 2xx status code
+func (o *GetFlowVersionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow versions not found response has a 3xx status code
+func (o *GetFlowVersionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions not found response has a 4xx status code
+func (o *GetFlowVersionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow versions not found response has a 5xx status code
+func (o *GetFlowVersionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow versions not found response a status code equal to that given
+func (o *GetFlowVersionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetFlowVersionsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetFlowVersionsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewGetFlowVersionsRequestTimeout() *GetFlowVersionsRequestTimeout {
 	return &GetFlowVersionsRequestTimeout{}
 }
 
-/*GetFlowVersionsRequestTimeout handles this case with default header values.
+/*
+GetFlowVersionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type GetFlowVersionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow versions request timeout response has a 2xx status code
+func (o *GetFlowVersionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow versions request timeout response has a 3xx status code
+func (o *GetFlowVersionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions request timeout response has a 4xx status code
+func (o *GetFlowVersionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow versions request timeout response has a 5xx status code
+func (o *GetFlowVersionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow versions request timeout response a status code equal to that given
+func (o *GetFlowVersionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetFlowVersionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFlowVersionsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewGetFlowVersionsGone() *GetFlowVersionsGone {
 	return &GetFlowVersionsGone{}
 }
 
-/*GetFlowVersionsGone handles this case with default header values.
+/*
+GetFlowVersionsGone describes a response with status code 410, with default header values.
 
 Gone
 */
@@ -318,7 +498,36 @@ type GetFlowVersionsGone struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow versions gone response has a 2xx status code
+func (o *GetFlowVersionsGone) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow versions gone response has a 3xx status code
+func (o *GetFlowVersionsGone) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions gone response has a 4xx status code
+func (o *GetFlowVersionsGone) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow versions gone response has a 5xx status code
+func (o *GetFlowVersionsGone) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow versions gone response a status code equal to that given
+func (o *GetFlowVersionsGone) IsCode(code int) bool {
+	return code == 410
+}
+
 func (o *GetFlowVersionsGone) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsGone  %+v", 410, o.Payload)
+}
+
+func (o *GetFlowVersionsGone) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsGone  %+v", 410, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewGetFlowVersionsRequestEntityTooLarge() *GetFlowVersionsRequestEntityTooL
 	return &GetFlowVersionsRequestEntityTooLarge{}
 }
 
-/*GetFlowVersionsRequestEntityTooLarge handles this case with default header values.
+/*
+GetFlowVersionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type GetFlowVersionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow versions request entity too large response has a 2xx status code
+func (o *GetFlowVersionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow versions request entity too large response has a 3xx status code
+func (o *GetFlowVersionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions request entity too large response has a 4xx status code
+func (o *GetFlowVersionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow versions request entity too large response has a 5xx status code
+func (o *GetFlowVersionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow versions request entity too large response a status code equal to that given
+func (o *GetFlowVersionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetFlowVersionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetFlowVersionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewGetFlowVersionsUnsupportedMediaType() *GetFlowVersionsUnsupportedMediaTy
 	return &GetFlowVersionsUnsupportedMediaType{}
 }
 
-/*GetFlowVersionsUnsupportedMediaType handles this case with default header values.
+/*
+GetFlowVersionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type GetFlowVersionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow versions unsupported media type response has a 2xx status code
+func (o *GetFlowVersionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow versions unsupported media type response has a 3xx status code
+func (o *GetFlowVersionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions unsupported media type response has a 4xx status code
+func (o *GetFlowVersionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow versions unsupported media type response has a 5xx status code
+func (o *GetFlowVersionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow versions unsupported media type response a status code equal to that given
+func (o *GetFlowVersionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetFlowVersionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetFlowVersionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewGetFlowVersionsTooManyRequests() *GetFlowVersionsTooManyRequests {
 	return &GetFlowVersionsTooManyRequests{}
 }
 
-/*GetFlowVersionsTooManyRequests handles this case with default header values.
+/*
+GetFlowVersionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type GetFlowVersionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow versions too many requests response has a 2xx status code
+func (o *GetFlowVersionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow versions too many requests response has a 3xx status code
+func (o *GetFlowVersionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions too many requests response has a 4xx status code
+func (o *GetFlowVersionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow versions too many requests response has a 5xx status code
+func (o *GetFlowVersionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow versions too many requests response a status code equal to that given
+func (o *GetFlowVersionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetFlowVersionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetFlowVersionsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewGetFlowVersionsInternalServerError() *GetFlowVersionsInternalServerError
 	return &GetFlowVersionsInternalServerError{}
 }
 
-/*GetFlowVersionsInternalServerError handles this case with default header values.
+/*
+GetFlowVersionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type GetFlowVersionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow versions internal server error response has a 2xx status code
+func (o *GetFlowVersionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow versions internal server error response has a 3xx status code
+func (o *GetFlowVersionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions internal server error response has a 4xx status code
+func (o *GetFlowVersionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flow versions internal server error response has a 5xx status code
+func (o *GetFlowVersionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flow versions internal server error response a status code equal to that given
+func (o *GetFlowVersionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetFlowVersionsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetFlowVersionsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewGetFlowVersionsServiceUnavailable() *GetFlowVersionsServiceUnavailable {
 	return &GetFlowVersionsServiceUnavailable{}
 }
 
-/*GetFlowVersionsServiceUnavailable handles this case with default header values.
+/*
+GetFlowVersionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type GetFlowVersionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow versions service unavailable response has a 2xx status code
+func (o *GetFlowVersionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow versions service unavailable response has a 3xx status code
+func (o *GetFlowVersionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions service unavailable response has a 4xx status code
+func (o *GetFlowVersionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flow versions service unavailable response has a 5xx status code
+func (o *GetFlowVersionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flow versions service unavailable response a status code equal to that given
+func (o *GetFlowVersionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetFlowVersionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetFlowVersionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewGetFlowVersionsGatewayTimeout() *GetFlowVersionsGatewayTimeout {
 	return &GetFlowVersionsGatewayTimeout{}
 }
 
-/*GetFlowVersionsGatewayTimeout handles this case with default header values.
+/*
+GetFlowVersionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type GetFlowVersionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow versions gateway timeout response has a 2xx status code
+func (o *GetFlowVersionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow versions gateway timeout response has a 3xx status code
+func (o *GetFlowVersionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow versions gateway timeout response has a 4xx status code
+func (o *GetFlowVersionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flow versions gateway timeout response has a 5xx status code
+func (o *GetFlowVersionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flow versions gateway timeout response a status code equal to that given
+func (o *GetFlowVersionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetFlowVersionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetFlowVersionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/versions][%d] getFlowVersionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

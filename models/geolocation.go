@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -75,7 +76,6 @@ func (m *Geolocation) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Geolocation) validateLocations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Locations) { // not required
 		return nil
 	}
@@ -89,6 +89,8 @@ func (m *Geolocation) validateLocations(formats strfmt.Registry) error {
 			if err := m.Locations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("locations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("locations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -100,12 +102,71 @@ func (m *Geolocation) validateLocations(formats strfmt.Registry) error {
 }
 
 func (m *Geolocation) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this geolocation based on the context it is used
+func (m *Geolocation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLocations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Geolocation) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Geolocation) contextValidateLocations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Locations); i++ {
+
+		if m.Locations[i] != nil {
+			if err := m.Locations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("locations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("locations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Geolocation) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

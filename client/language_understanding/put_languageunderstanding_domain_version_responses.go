@@ -101,7 +101,6 @@ func (o *PutLanguageunderstandingDomainVersionReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutLanguageunderstandingDomainVersionOK() *PutLanguageunderstandingDomai
 	return &PutLanguageunderstandingDomainVersionOK{}
 }
 
-/*PutLanguageunderstandingDomainVersionOK handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionOK describes a response with status code 200, with default header values.
 
 Updated the specified NLU Domain Version
 */
@@ -120,7 +120,36 @@ type PutLanguageunderstandingDomainVersionOK struct {
 	Payload *models.NluDomainVersion
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version o k response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version o k response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version o k response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put languageunderstanding domain version o k response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put languageunderstanding domain version o k response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutLanguageunderstandingDomainVersionOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionOK  %+v", 200, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutLanguageunderstandingDomainVersionBadRequest() *PutLanguageunderstand
 	return &PutLanguageunderstandingDomainVersionBadRequest{}
 }
 
-/*PutLanguageunderstandingDomainVersionBadRequest handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutLanguageunderstandingDomainVersionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version bad request response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version bad request response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version bad request response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put languageunderstanding domain version bad request response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put languageunderstanding domain version bad request response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutLanguageunderstandingDomainVersionBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutLanguageunderstandingDomainVersionUnauthorized() *PutLanguageundersta
 	return &PutLanguageunderstandingDomainVersionUnauthorized{}
 }
 
-/*PutLanguageunderstandingDomainVersionUnauthorized handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutLanguageunderstandingDomainVersionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version unauthorized response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version unauthorized response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version unauthorized response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put languageunderstanding domain version unauthorized response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put languageunderstanding domain version unauthorized response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutLanguageunderstandingDomainVersionUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutLanguageunderstandingDomainVersionForbidden() *PutLanguageunderstandi
 	return &PutLanguageunderstandingDomainVersionForbidden{}
 }
 
-/*PutLanguageunderstandingDomainVersionForbidden handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutLanguageunderstandingDomainVersionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version forbidden response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version forbidden response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version forbidden response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put languageunderstanding domain version forbidden response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put languageunderstanding domain version forbidden response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutLanguageunderstandingDomainVersionForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutLanguageunderstandingDomainVersionNotFound() *PutLanguageunderstandin
 	return &PutLanguageunderstandingDomainVersionNotFound{}
 }
 
-/*PutLanguageunderstandingDomainVersionNotFound handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutLanguageunderstandingDomainVersionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version not found response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version not found response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version not found response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put languageunderstanding domain version not found response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put languageunderstanding domain version not found response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutLanguageunderstandingDomainVersionNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutLanguageunderstandingDomainVersionRequestTimeout() *PutLanguageunders
 	return &PutLanguageunderstandingDomainVersionRequestTimeout{}
 }
 
-/*PutLanguageunderstandingDomainVersionRequestTimeout handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutLanguageunderstandingDomainVersionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version request timeout response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version request timeout response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version request timeout response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put languageunderstanding domain version request timeout response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put languageunderstanding domain version request timeout response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutLanguageunderstandingDomainVersionRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutLanguageunderstandingDomainVersionConflict() *PutLanguageunderstandin
 	return &PutLanguageunderstandingDomainVersionConflict{}
 }
 
-/*PutLanguageunderstandingDomainVersionConflict handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PutLanguageunderstandingDomainVersionConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version conflict response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version conflict response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version conflict response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put languageunderstanding domain version conflict response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put languageunderstanding domain version conflict response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutLanguageunderstandingDomainVersionConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutLanguageunderstandingDomainVersionRequestEntityTooLarge() *PutLanguag
 	return &PutLanguageunderstandingDomainVersionRequestEntityTooLarge{}
 }
 
-/*PutLanguageunderstandingDomainVersionRequestEntityTooLarge handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PutLanguageunderstandingDomainVersionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version request entity too large response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version request entity too large response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version request entity too large response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put languageunderstanding domain version request entity too large response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put languageunderstanding domain version request entity too large response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutLanguageunderstandingDomainVersionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutLanguageunderstandingDomainVersionUnsupportedMediaType() *PutLanguage
 	return &PutLanguageunderstandingDomainVersionUnsupportedMediaType{}
 }
 
-/*PutLanguageunderstandingDomainVersionUnsupportedMediaType handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PutLanguageunderstandingDomainVersionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version unsupported media type response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version unsupported media type response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version unsupported media type response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put languageunderstanding domain version unsupported media type response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put languageunderstanding domain version unsupported media type response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutLanguageunderstandingDomainVersionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutLanguageunderstandingDomainVersionTooManyRequests() *PutLanguageunder
 	return &PutLanguageunderstandingDomainVersionTooManyRequests{}
 }
 
-/*PutLanguageunderstandingDomainVersionTooManyRequests handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutLanguageunderstandingDomainVersionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version too many requests response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version too many requests response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version too many requests response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put languageunderstanding domain version too many requests response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put languageunderstanding domain version too many requests response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutLanguageunderstandingDomainVersionTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutLanguageunderstandingDomainVersionInternalServerError() *PutLanguageu
 	return &PutLanguageunderstandingDomainVersionInternalServerError{}
 }
 
-/*PutLanguageunderstandingDomainVersionInternalServerError handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutLanguageunderstandingDomainVersionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version internal server error response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version internal server error response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version internal server error response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put languageunderstanding domain version internal server error response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put languageunderstanding domain version internal server error response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutLanguageunderstandingDomainVersionInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutLanguageunderstandingDomainVersionServiceUnavailable() *PutLanguageun
 	return &PutLanguageunderstandingDomainVersionServiceUnavailable{}
 }
 
-/*PutLanguageunderstandingDomainVersionServiceUnavailable handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutLanguageunderstandingDomainVersionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version service unavailable response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version service unavailable response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version service unavailable response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put languageunderstanding domain version service unavailable response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put languageunderstanding domain version service unavailable response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutLanguageunderstandingDomainVersionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutLanguageunderstandingDomainVersionGatewayTimeout() *PutLanguageunders
 	return &PutLanguageunderstandingDomainVersionGatewayTimeout{}
 }
 
-/*PutLanguageunderstandingDomainVersionGatewayTimeout handles this case with default header values.
+/*
+PutLanguageunderstandingDomainVersionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutLanguageunderstandingDomainVersionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put languageunderstanding domain version gateway timeout response has a 2xx status code
+func (o *PutLanguageunderstandingDomainVersionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put languageunderstanding domain version gateway timeout response has a 3xx status code
+func (o *PutLanguageunderstandingDomainVersionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put languageunderstanding domain version gateway timeout response has a 4xx status code
+func (o *PutLanguageunderstandingDomainVersionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put languageunderstanding domain version gateway timeout response has a 5xx status code
+func (o *PutLanguageunderstandingDomainVersionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put languageunderstanding domain version gateway timeout response a status code equal to that given
+func (o *PutLanguageunderstandingDomainVersionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutLanguageunderstandingDomainVersionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutLanguageunderstandingDomainVersionGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] putLanguageunderstandingDomainVersionGatewayTimeout  %+v", 504, o.Payload)
 }
 

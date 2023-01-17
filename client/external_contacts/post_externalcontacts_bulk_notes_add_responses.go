@@ -101,7 +101,6 @@ func (o *PostExternalcontactsBulkNotesAddReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostExternalcontactsBulkNotesAddOK() *PostExternalcontactsBulkNotesAddOK
 	return &PostExternalcontactsBulkNotesAddOK{}
 }
 
-/*PostExternalcontactsBulkNotesAddOK handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostExternalcontactsBulkNotesAddOK struct {
 	Payload *models.BulkNotesResponse
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add o k response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add o k response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add o k response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add o k response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add o k response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostExternalcontactsBulkNotesAddOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddOK  %+v", 200, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostExternalcontactsBulkNotesAddBadRequest() *PostExternalcontactsBulkNo
 	return &PostExternalcontactsBulkNotesAddBadRequest{}
 }
 
-/*PostExternalcontactsBulkNotesAddBadRequest handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostExternalcontactsBulkNotesAddBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add bad request response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add bad request response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add bad request response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add bad request response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add bad request response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostExternalcontactsBulkNotesAddBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostExternalcontactsBulkNotesAddUnauthorized() *PostExternalcontactsBulk
 	return &PostExternalcontactsBulkNotesAddUnauthorized{}
 }
 
-/*PostExternalcontactsBulkNotesAddUnauthorized handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostExternalcontactsBulkNotesAddUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add unauthorized response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add unauthorized response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add unauthorized response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add unauthorized response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add unauthorized response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostExternalcontactsBulkNotesAddUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostExternalcontactsBulkNotesAddForbidden() *PostExternalcontactsBulkNot
 	return &PostExternalcontactsBulkNotesAddForbidden{}
 }
 
-/*PostExternalcontactsBulkNotesAddForbidden handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostExternalcontactsBulkNotesAddForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add forbidden response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add forbidden response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add forbidden response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add forbidden response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add forbidden response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostExternalcontactsBulkNotesAddForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostExternalcontactsBulkNotesAddNotFound() *PostExternalcontactsBulkNote
 	return &PostExternalcontactsBulkNotesAddNotFound{}
 }
 
-/*PostExternalcontactsBulkNotesAddNotFound handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostExternalcontactsBulkNotesAddNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add not found response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add not found response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add not found response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add not found response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add not found response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostExternalcontactsBulkNotesAddNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostExternalcontactsBulkNotesAddRequestTimeout() *PostExternalcontactsBu
 	return &PostExternalcontactsBulkNotesAddRequestTimeout{}
 }
 
-/*PostExternalcontactsBulkNotesAddRequestTimeout handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostExternalcontactsBulkNotesAddRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add request timeout response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add request timeout response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add request timeout response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add request timeout response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add request timeout response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostExternalcontactsBulkNotesAddRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostExternalcontactsBulkNotesAddRequestEntityTooLarge() *PostExternalcon
 	return &PostExternalcontactsBulkNotesAddRequestEntityTooLarge{}
 }
 
-/*PostExternalcontactsBulkNotesAddRequestEntityTooLarge handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -318,7 +498,36 @@ type PostExternalcontactsBulkNotesAddRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add request entity too large response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add request entity too large response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add request entity too large response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add request entity too large response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add request entity too large response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostExternalcontactsBulkNotesAddRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostExternalcontactsBulkNotesAddUnsupportedMediaType() *PostExternalcont
 	return &PostExternalcontactsBulkNotesAddUnsupportedMediaType{}
 }
 
-/*PostExternalcontactsBulkNotesAddUnsupportedMediaType handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -351,7 +561,36 @@ type PostExternalcontactsBulkNotesAddUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add unsupported media type response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add unsupported media type response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add unsupported media type response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add unsupported media type response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add unsupported media type response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostExternalcontactsBulkNotesAddUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostExternalcontactsBulkNotesAddUnprocessableEntity() *PostExternalconta
 	return &PostExternalcontactsBulkNotesAddUnprocessableEntity{}
 }
 
-/*PostExternalcontactsBulkNotesAddUnprocessableEntity handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddUnprocessableEntity describes a response with status code 422, with default header values.
 
 PostExternalcontactsBulkNotesAddUnprocessableEntity post externalcontacts bulk notes add unprocessable entity
 */
@@ -384,7 +624,36 @@ type PostExternalcontactsBulkNotesAddUnprocessableEntity struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add unprocessable entity response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddUnprocessableEntity) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add unprocessable entity response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddUnprocessableEntity) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add unprocessable entity response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddUnprocessableEntity) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add unprocessable entity response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddUnprocessableEntity) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add unprocessable entity response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddUnprocessableEntity) IsCode(code int) bool {
+	return code == 422
+}
+
 func (o *PostExternalcontactsBulkNotesAddUnprocessableEntity) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddUnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddUnprocessableEntity) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddUnprocessableEntity  %+v", 422, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostExternalcontactsBulkNotesAddTooManyRequests() *PostExternalcontactsB
 	return &PostExternalcontactsBulkNotesAddTooManyRequests{}
 }
 
-/*PostExternalcontactsBulkNotesAddTooManyRequests handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostExternalcontactsBulkNotesAddTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add too many requests response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add too many requests response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add too many requests response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add too many requests response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add too many requests response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostExternalcontactsBulkNotesAddTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostExternalcontactsBulkNotesAddInternalServerError() *PostExternalconta
 	return &PostExternalcontactsBulkNotesAddInternalServerError{}
 }
 
-/*PostExternalcontactsBulkNotesAddInternalServerError handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostExternalcontactsBulkNotesAddInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add internal server error response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add internal server error response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add internal server error response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add internal server error response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add internal server error response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostExternalcontactsBulkNotesAddInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostExternalcontactsBulkNotesAddServiceUnavailable() *PostExternalcontac
 	return &PostExternalcontactsBulkNotesAddServiceUnavailable{}
 }
 
-/*PostExternalcontactsBulkNotesAddServiceUnavailable handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostExternalcontactsBulkNotesAddServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add service unavailable response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add service unavailable response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add service unavailable response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add service unavailable response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add service unavailable response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostExternalcontactsBulkNotesAddServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostExternalcontactsBulkNotesAddGatewayTimeout() *PostExternalcontactsBu
 	return &PostExternalcontactsBulkNotesAddGatewayTimeout{}
 }
 
-/*PostExternalcontactsBulkNotesAddGatewayTimeout handles this case with default header values.
+/*
+PostExternalcontactsBulkNotesAddGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostExternalcontactsBulkNotesAddGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk notes add gateway timeout response has a 2xx status code
+func (o *PostExternalcontactsBulkNotesAddGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk notes add gateway timeout response has a 3xx status code
+func (o *PostExternalcontactsBulkNotesAddGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk notes add gateway timeout response has a 4xx status code
+func (o *PostExternalcontactsBulkNotesAddGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts bulk notes add gateway timeout response has a 5xx status code
+func (o *PostExternalcontactsBulkNotesAddGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post externalcontacts bulk notes add gateway timeout response a status code equal to that given
+func (o *PostExternalcontactsBulkNotesAddGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostExternalcontactsBulkNotesAddGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkNotesAddGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/notes/add][%d] postExternalcontactsBulkNotesAddGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *GetConversationsMessagingIntegrationsOpenReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConversationsMessagingIntegrationsOpenOK() *GetConversationsMessaging
 	return &GetConversationsMessagingIntegrationsOpenOK{}
 }
 
-/*GetConversationsMessagingIntegrationsOpenOK handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsOpenOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetConversationsMessagingIntegrationsOpenOK struct {
 	Payload *models.OpenIntegrationEntityListing
 }
 
+// IsSuccess returns true when this get conversations messaging integrations open o k response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsOpenOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversations messaging integrations open o k response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsOpenOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations open o k response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsOpenOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations open o k response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsOpenOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations open o k response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsOpenOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationsMessagingIntegrationsOpenOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsOpenOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetConversationsMessagingIntegrationsOpenBadRequest() *GetConversationsM
 	return &GetConversationsMessagingIntegrationsOpenBadRequest{}
 }
 
-/*GetConversationsMessagingIntegrationsOpenBadRequest handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsOpenBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetConversationsMessagingIntegrationsOpenBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations open bad request response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsOpenBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations open bad request response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsOpenBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations open bad request response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsOpenBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations open bad request response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsOpenBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations open bad request response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsOpenBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationsMessagingIntegrationsOpenBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsOpenBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetConversationsMessagingIntegrationsOpenUnauthorized() *GetConversation
 	return &GetConversationsMessagingIntegrationsOpenUnauthorized{}
 }
 
-/*GetConversationsMessagingIntegrationsOpenUnauthorized handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsOpenUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetConversationsMessagingIntegrationsOpenUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations open unauthorized response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsOpenUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations open unauthorized response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsOpenUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations open unauthorized response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsOpenUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations open unauthorized response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsOpenUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations open unauthorized response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsOpenUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationsMessagingIntegrationsOpenUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsOpenUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetConversationsMessagingIntegrationsOpenForbidden() *GetConversationsMe
 	return &GetConversationsMessagingIntegrationsOpenForbidden{}
 }
 
-/*GetConversationsMessagingIntegrationsOpenForbidden handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsOpenForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetConversationsMessagingIntegrationsOpenForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations open forbidden response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsOpenForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations open forbidden response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsOpenForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations open forbidden response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsOpenForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations open forbidden response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsOpenForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations open forbidden response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsOpenForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationsMessagingIntegrationsOpenForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsOpenForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetConversationsMessagingIntegrationsOpenNotFound() *GetConversationsMes
 	return &GetConversationsMessagingIntegrationsOpenNotFound{}
 }
 
-/*GetConversationsMessagingIntegrationsOpenNotFound handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsOpenNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetConversationsMessagingIntegrationsOpenNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations open not found response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsOpenNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations open not found response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsOpenNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations open not found response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsOpenNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations open not found response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsOpenNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations open not found response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsOpenNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationsMessagingIntegrationsOpenNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsOpenNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetConversationsMessagingIntegrationsOpenRequestTimeout() *GetConversati
 	return &GetConversationsMessagingIntegrationsOpenRequestTimeout{}
 }
 
-/*GetConversationsMessagingIntegrationsOpenRequestTimeout handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsOpenRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetConversationsMessagingIntegrationsOpenRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations open request timeout response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsOpenRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations open request timeout response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsOpenRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations open request timeout response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsOpenRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations open request timeout response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsOpenRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations open request timeout response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsOpenRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationsMessagingIntegrationsOpenRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsOpenRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetConversationsMessagingIntegrationsOpenRequestEntityTooLarge() *GetCon
 	return &GetConversationsMessagingIntegrationsOpenRequestEntityTooLarge{}
 }
 
-/*GetConversationsMessagingIntegrationsOpenRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsOpenRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetConversationsMessagingIntegrationsOpenRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations open request entity too large response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsOpenRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations open request entity too large response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsOpenRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations open request entity too large response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsOpenRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations open request entity too large response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsOpenRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations open request entity too large response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsOpenRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationsMessagingIntegrationsOpenRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsOpenRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetConversationsMessagingIntegrationsOpenUnsupportedMediaType() *GetConv
 	return &GetConversationsMessagingIntegrationsOpenUnsupportedMediaType{}
 }
 
-/*GetConversationsMessagingIntegrationsOpenUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsOpenUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetConversationsMessagingIntegrationsOpenUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations open unsupported media type response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsOpenUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations open unsupported media type response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsOpenUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations open unsupported media type response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsOpenUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations open unsupported media type response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsOpenUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations open unsupported media type response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsOpenUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationsMessagingIntegrationsOpenUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsOpenUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetConversationsMessagingIntegrationsOpenTooManyRequests() *GetConversat
 	return &GetConversationsMessagingIntegrationsOpenTooManyRequests{}
 }
 
-/*GetConversationsMessagingIntegrationsOpenTooManyRequests handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsOpenTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetConversationsMessagingIntegrationsOpenTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations open too many requests response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsOpenTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations open too many requests response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsOpenTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations open too many requests response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsOpenTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations open too many requests response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsOpenTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations open too many requests response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsOpenTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationsMessagingIntegrationsOpenTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsOpenTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetConversationsMessagingIntegrationsOpenInternalServerError() *GetConve
 	return &GetConversationsMessagingIntegrationsOpenInternalServerError{}
 }
 
-/*GetConversationsMessagingIntegrationsOpenInternalServerError handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsOpenInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetConversationsMessagingIntegrationsOpenInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations open internal server error response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsOpenInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations open internal server error response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsOpenInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations open internal server error response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsOpenInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations open internal server error response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsOpenInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging integrations open internal server error response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsOpenInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationsMessagingIntegrationsOpenInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsOpenInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetConversationsMessagingIntegrationsOpenServiceUnavailable() *GetConver
 	return &GetConversationsMessagingIntegrationsOpenServiceUnavailable{}
 }
 
-/*GetConversationsMessagingIntegrationsOpenServiceUnavailable handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsOpenServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetConversationsMessagingIntegrationsOpenServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations open service unavailable response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsOpenServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations open service unavailable response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsOpenServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations open service unavailable response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsOpenServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations open service unavailable response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsOpenServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging integrations open service unavailable response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsOpenServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationsMessagingIntegrationsOpenServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsOpenServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetConversationsMessagingIntegrationsOpenGatewayTimeout() *GetConversati
 	return &GetConversationsMessagingIntegrationsOpenGatewayTimeout{}
 }
 
-/*GetConversationsMessagingIntegrationsOpenGatewayTimeout handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsOpenGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetConversationsMessagingIntegrationsOpenGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations open gateway timeout response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsOpenGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations open gateway timeout response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsOpenGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations open gateway timeout response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsOpenGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations open gateway timeout response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsOpenGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging integrations open gateway timeout response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsOpenGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationsMessagingIntegrationsOpenGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsOpenGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/open][%d] getConversationsMessagingIntegrationsOpenGatewayTimeout  %+v", 504, o.Payload)
 }
 

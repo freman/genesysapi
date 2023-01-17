@@ -95,7 +95,6 @@ func (o *PostArchitectSystempromptHistoryReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostArchitectSystempromptHistoryOK() *PostArchitectSystempromptHistoryOK
 	return &PostArchitectSystempromptHistoryOK{}
 }
 
-/*PostArchitectSystempromptHistoryOK handles this case with default header values.
+/*
+PostArchitectSystempromptHistoryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostArchitectSystempromptHistoryOK struct {
 	Payload *models.Operation
 }
 
+// IsSuccess returns true when this post architect systemprompt history o k response has a 2xx status code
+func (o *PostArchitectSystempromptHistoryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post architect systemprompt history o k response has a 3xx status code
+func (o *PostArchitectSystempromptHistoryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt history o k response has a 4xx status code
+func (o *PostArchitectSystempromptHistoryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect systemprompt history o k response has a 5xx status code
+func (o *PostArchitectSystempromptHistoryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt history o k response a status code equal to that given
+func (o *PostArchitectSystempromptHistoryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostArchitectSystempromptHistoryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostArchitectSystempromptHistoryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostArchitectSystempromptHistoryBadRequest() *PostArchitectSystempromptH
 	return &PostArchitectSystempromptHistoryBadRequest{}
 }
 
-/*PostArchitectSystempromptHistoryBadRequest handles this case with default header values.
+/*
+PostArchitectSystempromptHistoryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostArchitectSystempromptHistoryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt history bad request response has a 2xx status code
+func (o *PostArchitectSystempromptHistoryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt history bad request response has a 3xx status code
+func (o *PostArchitectSystempromptHistoryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt history bad request response has a 4xx status code
+func (o *PostArchitectSystempromptHistoryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt history bad request response has a 5xx status code
+func (o *PostArchitectSystempromptHistoryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt history bad request response a status code equal to that given
+func (o *PostArchitectSystempromptHistoryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostArchitectSystempromptHistoryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostArchitectSystempromptHistoryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostArchitectSystempromptHistoryUnauthorized() *PostArchitectSystempromp
 	return &PostArchitectSystempromptHistoryUnauthorized{}
 }
 
-/*PostArchitectSystempromptHistoryUnauthorized handles this case with default header values.
+/*
+PostArchitectSystempromptHistoryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostArchitectSystempromptHistoryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt history unauthorized response has a 2xx status code
+func (o *PostArchitectSystempromptHistoryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt history unauthorized response has a 3xx status code
+func (o *PostArchitectSystempromptHistoryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt history unauthorized response has a 4xx status code
+func (o *PostArchitectSystempromptHistoryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt history unauthorized response has a 5xx status code
+func (o *PostArchitectSystempromptHistoryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt history unauthorized response a status code equal to that given
+func (o *PostArchitectSystempromptHistoryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostArchitectSystempromptHistoryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostArchitectSystempromptHistoryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostArchitectSystempromptHistoryForbidden() *PostArchitectSystempromptHi
 	return &PostArchitectSystempromptHistoryForbidden{}
 }
 
-/*PostArchitectSystempromptHistoryForbidden handles this case with default header values.
+/*
+PostArchitectSystempromptHistoryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostArchitectSystempromptHistoryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt history forbidden response has a 2xx status code
+func (o *PostArchitectSystempromptHistoryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt history forbidden response has a 3xx status code
+func (o *PostArchitectSystempromptHistoryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt history forbidden response has a 4xx status code
+func (o *PostArchitectSystempromptHistoryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt history forbidden response has a 5xx status code
+func (o *PostArchitectSystempromptHistoryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt history forbidden response a status code equal to that given
+func (o *PostArchitectSystempromptHistoryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostArchitectSystempromptHistoryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostArchitectSystempromptHistoryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostArchitectSystempromptHistoryNotFound() *PostArchitectSystempromptHis
 	return &PostArchitectSystempromptHistoryNotFound{}
 }
 
-/*PostArchitectSystempromptHistoryNotFound handles this case with default header values.
+/*
+PostArchitectSystempromptHistoryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostArchitectSystempromptHistoryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt history not found response has a 2xx status code
+func (o *PostArchitectSystempromptHistoryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt history not found response has a 3xx status code
+func (o *PostArchitectSystempromptHistoryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt history not found response has a 4xx status code
+func (o *PostArchitectSystempromptHistoryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt history not found response has a 5xx status code
+func (o *PostArchitectSystempromptHistoryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt history not found response a status code equal to that given
+func (o *PostArchitectSystempromptHistoryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostArchitectSystempromptHistoryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostArchitectSystempromptHistoryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostArchitectSystempromptHistoryRequestTimeout() *PostArchitectSystempro
 	return &PostArchitectSystempromptHistoryRequestTimeout{}
 }
 
-/*PostArchitectSystempromptHistoryRequestTimeout handles this case with default header values.
+/*
+PostArchitectSystempromptHistoryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostArchitectSystempromptHistoryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt history request timeout response has a 2xx status code
+func (o *PostArchitectSystempromptHistoryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt history request timeout response has a 3xx status code
+func (o *PostArchitectSystempromptHistoryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt history request timeout response has a 4xx status code
+func (o *PostArchitectSystempromptHistoryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt history request timeout response has a 5xx status code
+func (o *PostArchitectSystempromptHistoryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt history request timeout response a status code equal to that given
+func (o *PostArchitectSystempromptHistoryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostArchitectSystempromptHistoryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostArchitectSystempromptHistoryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostArchitectSystempromptHistoryRequestEntityTooLarge() *PostArchitectSy
 	return &PostArchitectSystempromptHistoryRequestEntityTooLarge{}
 }
 
-/*PostArchitectSystempromptHistoryRequestEntityTooLarge handles this case with default header values.
+/*
+PostArchitectSystempromptHistoryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostArchitectSystempromptHistoryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt history request entity too large response has a 2xx status code
+func (o *PostArchitectSystempromptHistoryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt history request entity too large response has a 3xx status code
+func (o *PostArchitectSystempromptHistoryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt history request entity too large response has a 4xx status code
+func (o *PostArchitectSystempromptHistoryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt history request entity too large response has a 5xx status code
+func (o *PostArchitectSystempromptHistoryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt history request entity too large response a status code equal to that given
+func (o *PostArchitectSystempromptHistoryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostArchitectSystempromptHistoryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostArchitectSystempromptHistoryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostArchitectSystempromptHistoryUnsupportedMediaType() *PostArchitectSys
 	return &PostArchitectSystempromptHistoryUnsupportedMediaType{}
 }
 
-/*PostArchitectSystempromptHistoryUnsupportedMediaType handles this case with default header values.
+/*
+PostArchitectSystempromptHistoryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostArchitectSystempromptHistoryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt history unsupported media type response has a 2xx status code
+func (o *PostArchitectSystempromptHistoryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt history unsupported media type response has a 3xx status code
+func (o *PostArchitectSystempromptHistoryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt history unsupported media type response has a 4xx status code
+func (o *PostArchitectSystempromptHistoryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt history unsupported media type response has a 5xx status code
+func (o *PostArchitectSystempromptHistoryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt history unsupported media type response a status code equal to that given
+func (o *PostArchitectSystempromptHistoryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostArchitectSystempromptHistoryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostArchitectSystempromptHistoryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostArchitectSystempromptHistoryTooManyRequests() *PostArchitectSystempr
 	return &PostArchitectSystempromptHistoryTooManyRequests{}
 }
 
-/*PostArchitectSystempromptHistoryTooManyRequests handles this case with default header values.
+/*
+PostArchitectSystempromptHistoryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostArchitectSystempromptHistoryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt history too many requests response has a 2xx status code
+func (o *PostArchitectSystempromptHistoryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt history too many requests response has a 3xx status code
+func (o *PostArchitectSystempromptHistoryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt history too many requests response has a 4xx status code
+func (o *PostArchitectSystempromptHistoryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt history too many requests response has a 5xx status code
+func (o *PostArchitectSystempromptHistoryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt history too many requests response a status code equal to that given
+func (o *PostArchitectSystempromptHistoryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostArchitectSystempromptHistoryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostArchitectSystempromptHistoryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostArchitectSystempromptHistoryInternalServerError() *PostArchitectSyst
 	return &PostArchitectSystempromptHistoryInternalServerError{}
 }
 
-/*PostArchitectSystempromptHistoryInternalServerError handles this case with default header values.
+/*
+PostArchitectSystempromptHistoryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostArchitectSystempromptHistoryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt history internal server error response has a 2xx status code
+func (o *PostArchitectSystempromptHistoryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt history internal server error response has a 3xx status code
+func (o *PostArchitectSystempromptHistoryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt history internal server error response has a 4xx status code
+func (o *PostArchitectSystempromptHistoryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect systemprompt history internal server error response has a 5xx status code
+func (o *PostArchitectSystempromptHistoryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post architect systemprompt history internal server error response a status code equal to that given
+func (o *PostArchitectSystempromptHistoryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostArchitectSystempromptHistoryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostArchitectSystempromptHistoryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostArchitectSystempromptHistoryServiceUnavailable() *PostArchitectSyste
 	return &PostArchitectSystempromptHistoryServiceUnavailable{}
 }
 
-/*PostArchitectSystempromptHistoryServiceUnavailable handles this case with default header values.
+/*
+PostArchitectSystempromptHistoryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostArchitectSystempromptHistoryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt history service unavailable response has a 2xx status code
+func (o *PostArchitectSystempromptHistoryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt history service unavailable response has a 3xx status code
+func (o *PostArchitectSystempromptHistoryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt history service unavailable response has a 4xx status code
+func (o *PostArchitectSystempromptHistoryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect systemprompt history service unavailable response has a 5xx status code
+func (o *PostArchitectSystempromptHistoryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post architect systemprompt history service unavailable response a status code equal to that given
+func (o *PostArchitectSystempromptHistoryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostArchitectSystempromptHistoryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostArchitectSystempromptHistoryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostArchitectSystempromptHistoryGatewayTimeout() *PostArchitectSystempro
 	return &PostArchitectSystempromptHistoryGatewayTimeout{}
 }
 
-/*PostArchitectSystempromptHistoryGatewayTimeout handles this case with default header values.
+/*
+PostArchitectSystempromptHistoryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostArchitectSystempromptHistoryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt history gateway timeout response has a 2xx status code
+func (o *PostArchitectSystempromptHistoryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt history gateway timeout response has a 3xx status code
+func (o *PostArchitectSystempromptHistoryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt history gateway timeout response has a 4xx status code
+func (o *PostArchitectSystempromptHistoryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect systemprompt history gateway timeout response has a 5xx status code
+func (o *PostArchitectSystempromptHistoryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post architect systemprompt history gateway timeout response a status code equal to that given
+func (o *PostArchitectSystempromptHistoryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostArchitectSystempromptHistoryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostArchitectSystempromptHistoryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/history][%d] postArchitectSystempromptHistoryGatewayTimeout  %+v", 504, o.Payload)
 }
 

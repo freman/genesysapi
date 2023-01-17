@@ -95,7 +95,6 @@ func (o *PutIntegrationsSpeechTtsSettingsReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutIntegrationsSpeechTtsSettingsOK() *PutIntegrationsSpeechTtsSettingsOK
 	return &PutIntegrationsSpeechTtsSettingsOK{}
 }
 
-/*PutIntegrationsSpeechTtsSettingsOK handles this case with default header values.
+/*
+PutIntegrationsSpeechTtsSettingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutIntegrationsSpeechTtsSettingsOK struct {
 	Payload *models.TtsSettings
 }
 
+// IsSuccess returns true when this put integrations speech tts settings o k response has a 2xx status code
+func (o *PutIntegrationsSpeechTtsSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put integrations speech tts settings o k response has a 3xx status code
+func (o *PutIntegrationsSpeechTtsSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations speech tts settings o k response has a 4xx status code
+func (o *PutIntegrationsSpeechTtsSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integrations speech tts settings o k response has a 5xx status code
+func (o *PutIntegrationsSpeechTtsSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations speech tts settings o k response a status code equal to that given
+func (o *PutIntegrationsSpeechTtsSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutIntegrationsSpeechTtsSettingsOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsOK  %+v", 200, o.Payload)
+}
+
+func (o *PutIntegrationsSpeechTtsSettingsOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutIntegrationsSpeechTtsSettingsBadRequest() *PutIntegrationsSpeechTtsSe
 	return &PutIntegrationsSpeechTtsSettingsBadRequest{}
 }
 
-/*PutIntegrationsSpeechTtsSettingsBadRequest handles this case with default header values.
+/*
+PutIntegrationsSpeechTtsSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutIntegrationsSpeechTtsSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations speech tts settings bad request response has a 2xx status code
+func (o *PutIntegrationsSpeechTtsSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations speech tts settings bad request response has a 3xx status code
+func (o *PutIntegrationsSpeechTtsSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations speech tts settings bad request response has a 4xx status code
+func (o *PutIntegrationsSpeechTtsSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations speech tts settings bad request response has a 5xx status code
+func (o *PutIntegrationsSpeechTtsSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations speech tts settings bad request response a status code equal to that given
+func (o *PutIntegrationsSpeechTtsSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutIntegrationsSpeechTtsSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutIntegrationsSpeechTtsSettingsBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutIntegrationsSpeechTtsSettingsUnauthorized() *PutIntegrationsSpeechTts
 	return &PutIntegrationsSpeechTtsSettingsUnauthorized{}
 }
 
-/*PutIntegrationsSpeechTtsSettingsUnauthorized handles this case with default header values.
+/*
+PutIntegrationsSpeechTtsSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutIntegrationsSpeechTtsSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations speech tts settings unauthorized response has a 2xx status code
+func (o *PutIntegrationsSpeechTtsSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations speech tts settings unauthorized response has a 3xx status code
+func (o *PutIntegrationsSpeechTtsSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations speech tts settings unauthorized response has a 4xx status code
+func (o *PutIntegrationsSpeechTtsSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations speech tts settings unauthorized response has a 5xx status code
+func (o *PutIntegrationsSpeechTtsSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations speech tts settings unauthorized response a status code equal to that given
+func (o *PutIntegrationsSpeechTtsSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutIntegrationsSpeechTtsSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutIntegrationsSpeechTtsSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutIntegrationsSpeechTtsSettingsForbidden() *PutIntegrationsSpeechTtsSet
 	return &PutIntegrationsSpeechTtsSettingsForbidden{}
 }
 
-/*PutIntegrationsSpeechTtsSettingsForbidden handles this case with default header values.
+/*
+PutIntegrationsSpeechTtsSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutIntegrationsSpeechTtsSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations speech tts settings forbidden response has a 2xx status code
+func (o *PutIntegrationsSpeechTtsSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations speech tts settings forbidden response has a 3xx status code
+func (o *PutIntegrationsSpeechTtsSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations speech tts settings forbidden response has a 4xx status code
+func (o *PutIntegrationsSpeechTtsSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations speech tts settings forbidden response has a 5xx status code
+func (o *PutIntegrationsSpeechTtsSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations speech tts settings forbidden response a status code equal to that given
+func (o *PutIntegrationsSpeechTtsSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutIntegrationsSpeechTtsSettingsForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutIntegrationsSpeechTtsSettingsForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutIntegrationsSpeechTtsSettingsNotFound() *PutIntegrationsSpeechTtsSett
 	return &PutIntegrationsSpeechTtsSettingsNotFound{}
 }
 
-/*PutIntegrationsSpeechTtsSettingsNotFound handles this case with default header values.
+/*
+PutIntegrationsSpeechTtsSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutIntegrationsSpeechTtsSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations speech tts settings not found response has a 2xx status code
+func (o *PutIntegrationsSpeechTtsSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations speech tts settings not found response has a 3xx status code
+func (o *PutIntegrationsSpeechTtsSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations speech tts settings not found response has a 4xx status code
+func (o *PutIntegrationsSpeechTtsSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations speech tts settings not found response has a 5xx status code
+func (o *PutIntegrationsSpeechTtsSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations speech tts settings not found response a status code equal to that given
+func (o *PutIntegrationsSpeechTtsSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutIntegrationsSpeechTtsSettingsNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutIntegrationsSpeechTtsSettingsNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutIntegrationsSpeechTtsSettingsRequestTimeout() *PutIntegrationsSpeechT
 	return &PutIntegrationsSpeechTtsSettingsRequestTimeout{}
 }
 
-/*PutIntegrationsSpeechTtsSettingsRequestTimeout handles this case with default header values.
+/*
+PutIntegrationsSpeechTtsSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutIntegrationsSpeechTtsSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations speech tts settings request timeout response has a 2xx status code
+func (o *PutIntegrationsSpeechTtsSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations speech tts settings request timeout response has a 3xx status code
+func (o *PutIntegrationsSpeechTtsSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations speech tts settings request timeout response has a 4xx status code
+func (o *PutIntegrationsSpeechTtsSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations speech tts settings request timeout response has a 5xx status code
+func (o *PutIntegrationsSpeechTtsSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations speech tts settings request timeout response a status code equal to that given
+func (o *PutIntegrationsSpeechTtsSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutIntegrationsSpeechTtsSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIntegrationsSpeechTtsSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutIntegrationsSpeechTtsSettingsRequestEntityTooLarge() *PutIntegrations
 	return &PutIntegrationsSpeechTtsSettingsRequestEntityTooLarge{}
 }
 
-/*PutIntegrationsSpeechTtsSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+PutIntegrationsSpeechTtsSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutIntegrationsSpeechTtsSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations speech tts settings request entity too large response has a 2xx status code
+func (o *PutIntegrationsSpeechTtsSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations speech tts settings request entity too large response has a 3xx status code
+func (o *PutIntegrationsSpeechTtsSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations speech tts settings request entity too large response has a 4xx status code
+func (o *PutIntegrationsSpeechTtsSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations speech tts settings request entity too large response has a 5xx status code
+func (o *PutIntegrationsSpeechTtsSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations speech tts settings request entity too large response a status code equal to that given
+func (o *PutIntegrationsSpeechTtsSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutIntegrationsSpeechTtsSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutIntegrationsSpeechTtsSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutIntegrationsSpeechTtsSettingsUnsupportedMediaType() *PutIntegrationsS
 	return &PutIntegrationsSpeechTtsSettingsUnsupportedMediaType{}
 }
 
-/*PutIntegrationsSpeechTtsSettingsUnsupportedMediaType handles this case with default header values.
+/*
+PutIntegrationsSpeechTtsSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutIntegrationsSpeechTtsSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations speech tts settings unsupported media type response has a 2xx status code
+func (o *PutIntegrationsSpeechTtsSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations speech tts settings unsupported media type response has a 3xx status code
+func (o *PutIntegrationsSpeechTtsSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations speech tts settings unsupported media type response has a 4xx status code
+func (o *PutIntegrationsSpeechTtsSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations speech tts settings unsupported media type response has a 5xx status code
+func (o *PutIntegrationsSpeechTtsSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations speech tts settings unsupported media type response a status code equal to that given
+func (o *PutIntegrationsSpeechTtsSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutIntegrationsSpeechTtsSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutIntegrationsSpeechTtsSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutIntegrationsSpeechTtsSettingsTooManyRequests() *PutIntegrationsSpeech
 	return &PutIntegrationsSpeechTtsSettingsTooManyRequests{}
 }
 
-/*PutIntegrationsSpeechTtsSettingsTooManyRequests handles this case with default header values.
+/*
+PutIntegrationsSpeechTtsSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutIntegrationsSpeechTtsSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations speech tts settings too many requests response has a 2xx status code
+func (o *PutIntegrationsSpeechTtsSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations speech tts settings too many requests response has a 3xx status code
+func (o *PutIntegrationsSpeechTtsSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations speech tts settings too many requests response has a 4xx status code
+func (o *PutIntegrationsSpeechTtsSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations speech tts settings too many requests response has a 5xx status code
+func (o *PutIntegrationsSpeechTtsSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations speech tts settings too many requests response a status code equal to that given
+func (o *PutIntegrationsSpeechTtsSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutIntegrationsSpeechTtsSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutIntegrationsSpeechTtsSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutIntegrationsSpeechTtsSettingsInternalServerError() *PutIntegrationsSp
 	return &PutIntegrationsSpeechTtsSettingsInternalServerError{}
 }
 
-/*PutIntegrationsSpeechTtsSettingsInternalServerError handles this case with default header values.
+/*
+PutIntegrationsSpeechTtsSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutIntegrationsSpeechTtsSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations speech tts settings internal server error response has a 2xx status code
+func (o *PutIntegrationsSpeechTtsSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations speech tts settings internal server error response has a 3xx status code
+func (o *PutIntegrationsSpeechTtsSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations speech tts settings internal server error response has a 4xx status code
+func (o *PutIntegrationsSpeechTtsSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integrations speech tts settings internal server error response has a 5xx status code
+func (o *PutIntegrationsSpeechTtsSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put integrations speech tts settings internal server error response a status code equal to that given
+func (o *PutIntegrationsSpeechTtsSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutIntegrationsSpeechTtsSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutIntegrationsSpeechTtsSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutIntegrationsSpeechTtsSettingsServiceUnavailable() *PutIntegrationsSpe
 	return &PutIntegrationsSpeechTtsSettingsServiceUnavailable{}
 }
 
-/*PutIntegrationsSpeechTtsSettingsServiceUnavailable handles this case with default header values.
+/*
+PutIntegrationsSpeechTtsSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutIntegrationsSpeechTtsSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations speech tts settings service unavailable response has a 2xx status code
+func (o *PutIntegrationsSpeechTtsSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations speech tts settings service unavailable response has a 3xx status code
+func (o *PutIntegrationsSpeechTtsSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations speech tts settings service unavailable response has a 4xx status code
+func (o *PutIntegrationsSpeechTtsSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integrations speech tts settings service unavailable response has a 5xx status code
+func (o *PutIntegrationsSpeechTtsSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put integrations speech tts settings service unavailable response a status code equal to that given
+func (o *PutIntegrationsSpeechTtsSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutIntegrationsSpeechTtsSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutIntegrationsSpeechTtsSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutIntegrationsSpeechTtsSettingsGatewayTimeout() *PutIntegrationsSpeechT
 	return &PutIntegrationsSpeechTtsSettingsGatewayTimeout{}
 }
 
-/*PutIntegrationsSpeechTtsSettingsGatewayTimeout handles this case with default header values.
+/*
+PutIntegrationsSpeechTtsSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutIntegrationsSpeechTtsSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations speech tts settings gateway timeout response has a 2xx status code
+func (o *PutIntegrationsSpeechTtsSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations speech tts settings gateway timeout response has a 3xx status code
+func (o *PutIntegrationsSpeechTtsSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations speech tts settings gateway timeout response has a 4xx status code
+func (o *PutIntegrationsSpeechTtsSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integrations speech tts settings gateway timeout response has a 5xx status code
+func (o *PutIntegrationsSpeechTtsSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put integrations speech tts settings gateway timeout response a status code equal to that given
+func (o *PutIntegrationsSpeechTtsSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutIntegrationsSpeechTtsSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutIntegrationsSpeechTtsSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/speech/tts/settings][%d] putIntegrationsSpeechTtsSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -44,7 +46,6 @@ func (m *VMPairingInfo) Validate(formats strfmt.Registry) error {
 }
 
 func (m *VMPairingInfo) validateMetaData(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MetaData) { // not required
 		return nil
 	}
@@ -53,6 +54,38 @@ func (m *VMPairingInfo) validateMetaData(formats strfmt.Registry) error {
 		if err := m.MetaData.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta-data")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta-data")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this Vm pairing info based on the context it is used
+func (m *VMPairingInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMetaData(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *VMPairingInfo) contextValidateMetaData(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MetaData != nil {
+		if err := m.MetaData.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("meta-data")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta-data")
 			}
 			return err
 		}

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundSequenceParams creates a new GetOutboundSequenceParams object
-// with the default values initialized.
+// NewGetOutboundSequenceParams creates a new GetOutboundSequenceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundSequenceParams() *GetOutboundSequenceParams {
-	var ()
 	return &GetOutboundSequenceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundSequenceParamsWithTimeout creates a new GetOutboundSequenceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundSequenceParamsWithTimeout(timeout time.Duration) *GetOutboundSequenceParams {
-	var ()
 	return &GetOutboundSequenceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundSequenceParamsWithContext creates a new GetOutboundSequenceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundSequenceParamsWithContext(ctx context.Context) *GetOutboundSequenceParams {
-	var ()
 	return &GetOutboundSequenceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundSequenceParamsWithHTTPClient creates a new GetOutboundSequenceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundSequenceParamsWithHTTPClient(client *http.Client) *GetOutboundSequenceParams {
-	var ()
 	return &GetOutboundSequenceParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundSequenceParams contains all the parameters to send to the API endpoint
-for the get outbound sequence operation typically these are written to a http.Request
+/*
+GetOutboundSequenceParams contains all the parameters to send to the API endpoint
+
+	for the get outbound sequence operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundSequenceParams struct {
 
-	/*SequenceID
-	  Campaign Sequence ID
+	/* SequenceID.
 
+	   Campaign Sequence ID
 	*/
 	SequenceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound sequence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundSequenceParams) WithDefaults() *GetOutboundSequenceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound sequence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundSequenceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get outbound sequence params

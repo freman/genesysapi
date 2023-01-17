@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConversationsMessagingThreadingtimelineParams creates a new GetConversationsMessagingThreadingtimelineParams object
-// with the default values initialized.
+// NewGetConversationsMessagingThreadingtimelineParams creates a new GetConversationsMessagingThreadingtimelineParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationsMessagingThreadingtimelineParams() *GetConversationsMessagingThreadingtimelineParams {
-
 	return &GetConversationsMessagingThreadingtimelineParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationsMessagingThreadingtimelineParamsWithTimeout creates a new GetConversationsMessagingThreadingtimelineParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationsMessagingThreadingtimelineParamsWithTimeout(timeout time.Duration) *GetConversationsMessagingThreadingtimelineParams {
-
 	return &GetConversationsMessagingThreadingtimelineParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationsMessagingThreadingtimelineParamsWithContext creates a new GetConversationsMessagingThreadingtimelineParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationsMessagingThreadingtimelineParamsWithContext(ctx context.Context) *GetConversationsMessagingThreadingtimelineParams {
-
 	return &GetConversationsMessagingThreadingtimelineParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationsMessagingThreadingtimelineParamsWithHTTPClient creates a new GetConversationsMessagingThreadingtimelineParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationsMessagingThreadingtimelineParamsWithHTTPClient(client *http.Client) *GetConversationsMessagingThreadingtimelineParams {
-
 	return &GetConversationsMessagingThreadingtimelineParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationsMessagingThreadingtimelineParams contains all the parameters to send to the API endpoint
-for the get conversations messaging threadingtimeline operation typically these are written to a http.Request
+/*
+GetConversationsMessagingThreadingtimelineParams contains all the parameters to send to the API endpoint
+
+	for the get conversations messaging threadingtimeline operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationsMessagingThreadingtimelineParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversations messaging threadingtimeline params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsMessagingThreadingtimelineParams) WithDefaults() *GetConversationsMessagingThreadingtimelineParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversations messaging threadingtimeline params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsMessagingThreadingtimelineParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get conversations messaging threadingtimeline params

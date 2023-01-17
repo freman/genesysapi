@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetExternalcontactsOrganizationsSchemaParams creates a new GetExternalcontactsOrganizationsSchemaParams object
-// with the default values initialized.
+// NewGetExternalcontactsOrganizationsSchemaParams creates a new GetExternalcontactsOrganizationsSchemaParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetExternalcontactsOrganizationsSchemaParams() *GetExternalcontactsOrganizationsSchemaParams {
-	var ()
 	return &GetExternalcontactsOrganizationsSchemaParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetExternalcontactsOrganizationsSchemaParamsWithTimeout creates a new GetExternalcontactsOrganizationsSchemaParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetExternalcontactsOrganizationsSchemaParamsWithTimeout(timeout time.Duration) *GetExternalcontactsOrganizationsSchemaParams {
-	var ()
 	return &GetExternalcontactsOrganizationsSchemaParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetExternalcontactsOrganizationsSchemaParamsWithContext creates a new GetExternalcontactsOrganizationsSchemaParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetExternalcontactsOrganizationsSchemaParamsWithContext(ctx context.Context) *GetExternalcontactsOrganizationsSchemaParams {
-	var ()
 	return &GetExternalcontactsOrganizationsSchemaParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetExternalcontactsOrganizationsSchemaParamsWithHTTPClient creates a new GetExternalcontactsOrganizationsSchemaParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetExternalcontactsOrganizationsSchemaParamsWithHTTPClient(client *http.Client) *GetExternalcontactsOrganizationsSchemaParams {
-	var ()
 	return &GetExternalcontactsOrganizationsSchemaParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetExternalcontactsOrganizationsSchemaParams contains all the parameters to send to the API endpoint
-for the get externalcontacts organizations schema operation typically these are written to a http.Request
+/*
+GetExternalcontactsOrganizationsSchemaParams contains all the parameters to send to the API endpoint
+
+	for the get externalcontacts organizations schema operation.
+
+	Typically these are written to a http.Request.
 */
 type GetExternalcontactsOrganizationsSchemaParams struct {
 
-	/*SchemaID
-	  Schema ID
+	/* SchemaID.
 
+	   Schema ID
 	*/
 	SchemaID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get externalcontacts organizations schema params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsOrganizationsSchemaParams) WithDefaults() *GetExternalcontactsOrganizationsSchemaParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get externalcontacts organizations schema params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsOrganizationsSchemaParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get externalcontacts organizations schema params

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -80,7 +81,7 @@ func (m *RecipientAdditionalIdentifier) validateTypeEnum(path, location string, 
 
 func (m *RecipientAdditionalIdentifier) validateType(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("type", "body", string(m.Type)); err != nil {
+	if err := validate.RequiredString("type", "body", m.Type); err != nil {
 		return err
 	}
 
@@ -94,7 +95,43 @@ func (m *RecipientAdditionalIdentifier) validateType(formats strfmt.Registry) er
 
 func (m *RecipientAdditionalIdentifier) validateValue(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("value", "body", string(m.Value)); err != nil {
+	if err := validate.RequiredString("value", "body", m.Value); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this recipient additional identifier based on the context it is used
+func (m *RecipientAdditionalIdentifier) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateValue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RecipientAdditionalIdentifier) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "type", "body", string(m.Type)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecipientAdditionalIdentifier) contextValidateValue(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "value", "body", string(m.Value)); err != nil {
 		return err
 	}
 

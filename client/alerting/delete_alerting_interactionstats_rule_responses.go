@@ -95,7 +95,6 @@ func (o *DeleteAlertingInteractionstatsRuleReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteAlertingInteractionstatsRuleNoContent() *DeleteAlertingInteraction
 	return &DeleteAlertingInteractionstatsRuleNoContent{}
 }
 
-/*DeleteAlertingInteractionstatsRuleNoContent handles this case with default header values.
+/*
+DeleteAlertingInteractionstatsRuleNoContent describes a response with status code 204, with default header values.
 
 Interaction stats rule deleted
 */
 type DeleteAlertingInteractionstatsRuleNoContent struct {
 }
 
+// IsSuccess returns true when this delete alerting interactionstats rule no content response has a 2xx status code
+func (o *DeleteAlertingInteractionstatsRuleNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete alerting interactionstats rule no content response has a 3xx status code
+func (o *DeleteAlertingInteractionstatsRuleNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete alerting interactionstats rule no content response has a 4xx status code
+func (o *DeleteAlertingInteractionstatsRuleNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete alerting interactionstats rule no content response has a 5xx status code
+func (o *DeleteAlertingInteractionstatsRuleNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete alerting interactionstats rule no content response a status code equal to that given
+func (o *DeleteAlertingInteractionstatsRuleNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteAlertingInteractionstatsRuleNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleNoContent ", 204)
+}
+
+func (o *DeleteAlertingInteractionstatsRuleNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteAlertingInteractionstatsRuleBadRequest() *DeleteAlertingInteractio
 	return &DeleteAlertingInteractionstatsRuleBadRequest{}
 }
 
-/*DeleteAlertingInteractionstatsRuleBadRequest handles this case with default header values.
+/*
+DeleteAlertingInteractionstatsRuleBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteAlertingInteractionstatsRuleBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete alerting interactionstats rule bad request response has a 2xx status code
+func (o *DeleteAlertingInteractionstatsRuleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete alerting interactionstats rule bad request response has a 3xx status code
+func (o *DeleteAlertingInteractionstatsRuleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete alerting interactionstats rule bad request response has a 4xx status code
+func (o *DeleteAlertingInteractionstatsRuleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete alerting interactionstats rule bad request response has a 5xx status code
+func (o *DeleteAlertingInteractionstatsRuleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete alerting interactionstats rule bad request response a status code equal to that given
+func (o *DeleteAlertingInteractionstatsRuleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteAlertingInteractionstatsRuleBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteAlertingInteractionstatsRuleBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteAlertingInteractionstatsRuleUnauthorized() *DeleteAlertingInteract
 	return &DeleteAlertingInteractionstatsRuleUnauthorized{}
 }
 
-/*DeleteAlertingInteractionstatsRuleUnauthorized handles this case with default header values.
+/*
+DeleteAlertingInteractionstatsRuleUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteAlertingInteractionstatsRuleUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete alerting interactionstats rule unauthorized response has a 2xx status code
+func (o *DeleteAlertingInteractionstatsRuleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete alerting interactionstats rule unauthorized response has a 3xx status code
+func (o *DeleteAlertingInteractionstatsRuleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete alerting interactionstats rule unauthorized response has a 4xx status code
+func (o *DeleteAlertingInteractionstatsRuleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete alerting interactionstats rule unauthorized response has a 5xx status code
+func (o *DeleteAlertingInteractionstatsRuleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete alerting interactionstats rule unauthorized response a status code equal to that given
+func (o *DeleteAlertingInteractionstatsRuleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteAlertingInteractionstatsRuleUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteAlertingInteractionstatsRuleUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteAlertingInteractionstatsRuleForbidden() *DeleteAlertingInteraction
 	return &DeleteAlertingInteractionstatsRuleForbidden{}
 }
 
-/*DeleteAlertingInteractionstatsRuleForbidden handles this case with default header values.
+/*
+DeleteAlertingInteractionstatsRuleForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteAlertingInteractionstatsRuleForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete alerting interactionstats rule forbidden response has a 2xx status code
+func (o *DeleteAlertingInteractionstatsRuleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete alerting interactionstats rule forbidden response has a 3xx status code
+func (o *DeleteAlertingInteractionstatsRuleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete alerting interactionstats rule forbidden response has a 4xx status code
+func (o *DeleteAlertingInteractionstatsRuleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete alerting interactionstats rule forbidden response has a 5xx status code
+func (o *DeleteAlertingInteractionstatsRuleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete alerting interactionstats rule forbidden response a status code equal to that given
+func (o *DeleteAlertingInteractionstatsRuleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteAlertingInteractionstatsRuleForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteAlertingInteractionstatsRuleForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteAlertingInteractionstatsRuleNotFound() *DeleteAlertingInteractions
 	return &DeleteAlertingInteractionstatsRuleNotFound{}
 }
 
-/*DeleteAlertingInteractionstatsRuleNotFound handles this case with default header values.
+/*
+DeleteAlertingInteractionstatsRuleNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteAlertingInteractionstatsRuleNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete alerting interactionstats rule not found response has a 2xx status code
+func (o *DeleteAlertingInteractionstatsRuleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete alerting interactionstats rule not found response has a 3xx status code
+func (o *DeleteAlertingInteractionstatsRuleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete alerting interactionstats rule not found response has a 4xx status code
+func (o *DeleteAlertingInteractionstatsRuleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete alerting interactionstats rule not found response has a 5xx status code
+func (o *DeleteAlertingInteractionstatsRuleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete alerting interactionstats rule not found response a status code equal to that given
+func (o *DeleteAlertingInteractionstatsRuleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteAlertingInteractionstatsRuleNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteAlertingInteractionstatsRuleNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteAlertingInteractionstatsRuleRequestTimeout() *DeleteAlertingIntera
 	return &DeleteAlertingInteractionstatsRuleRequestTimeout{}
 }
 
-/*DeleteAlertingInteractionstatsRuleRequestTimeout handles this case with default header values.
+/*
+DeleteAlertingInteractionstatsRuleRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteAlertingInteractionstatsRuleRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete alerting interactionstats rule request timeout response has a 2xx status code
+func (o *DeleteAlertingInteractionstatsRuleRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete alerting interactionstats rule request timeout response has a 3xx status code
+func (o *DeleteAlertingInteractionstatsRuleRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete alerting interactionstats rule request timeout response has a 4xx status code
+func (o *DeleteAlertingInteractionstatsRuleRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete alerting interactionstats rule request timeout response has a 5xx status code
+func (o *DeleteAlertingInteractionstatsRuleRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete alerting interactionstats rule request timeout response a status code equal to that given
+func (o *DeleteAlertingInteractionstatsRuleRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteAlertingInteractionstatsRuleRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteAlertingInteractionstatsRuleRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteAlertingInteractionstatsRuleRequestEntityTooLarge() *DeleteAlertin
 	return &DeleteAlertingInteractionstatsRuleRequestEntityTooLarge{}
 }
 
-/*DeleteAlertingInteractionstatsRuleRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteAlertingInteractionstatsRuleRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteAlertingInteractionstatsRuleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete alerting interactionstats rule request entity too large response has a 2xx status code
+func (o *DeleteAlertingInteractionstatsRuleRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete alerting interactionstats rule request entity too large response has a 3xx status code
+func (o *DeleteAlertingInteractionstatsRuleRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete alerting interactionstats rule request entity too large response has a 4xx status code
+func (o *DeleteAlertingInteractionstatsRuleRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete alerting interactionstats rule request entity too large response has a 5xx status code
+func (o *DeleteAlertingInteractionstatsRuleRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete alerting interactionstats rule request entity too large response a status code equal to that given
+func (o *DeleteAlertingInteractionstatsRuleRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteAlertingInteractionstatsRuleRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteAlertingInteractionstatsRuleRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteAlertingInteractionstatsRuleUnsupportedMediaType() *DeleteAlerting
 	return &DeleteAlertingInteractionstatsRuleUnsupportedMediaType{}
 }
 
-/*DeleteAlertingInteractionstatsRuleUnsupportedMediaType handles this case with default header values.
+/*
+DeleteAlertingInteractionstatsRuleUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteAlertingInteractionstatsRuleUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete alerting interactionstats rule unsupported media type response has a 2xx status code
+func (o *DeleteAlertingInteractionstatsRuleUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete alerting interactionstats rule unsupported media type response has a 3xx status code
+func (o *DeleteAlertingInteractionstatsRuleUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete alerting interactionstats rule unsupported media type response has a 4xx status code
+func (o *DeleteAlertingInteractionstatsRuleUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete alerting interactionstats rule unsupported media type response has a 5xx status code
+func (o *DeleteAlertingInteractionstatsRuleUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete alerting interactionstats rule unsupported media type response a status code equal to that given
+func (o *DeleteAlertingInteractionstatsRuleUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteAlertingInteractionstatsRuleUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteAlertingInteractionstatsRuleUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteAlertingInteractionstatsRuleTooManyRequests() *DeleteAlertingInter
 	return &DeleteAlertingInteractionstatsRuleTooManyRequests{}
 }
 
-/*DeleteAlertingInteractionstatsRuleTooManyRequests handles this case with default header values.
+/*
+DeleteAlertingInteractionstatsRuleTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteAlertingInteractionstatsRuleTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete alerting interactionstats rule too many requests response has a 2xx status code
+func (o *DeleteAlertingInteractionstatsRuleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete alerting interactionstats rule too many requests response has a 3xx status code
+func (o *DeleteAlertingInteractionstatsRuleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete alerting interactionstats rule too many requests response has a 4xx status code
+func (o *DeleteAlertingInteractionstatsRuleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete alerting interactionstats rule too many requests response has a 5xx status code
+func (o *DeleteAlertingInteractionstatsRuleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete alerting interactionstats rule too many requests response a status code equal to that given
+func (o *DeleteAlertingInteractionstatsRuleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteAlertingInteractionstatsRuleTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteAlertingInteractionstatsRuleTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteAlertingInteractionstatsRuleInternalServerError() *DeleteAlertingI
 	return &DeleteAlertingInteractionstatsRuleInternalServerError{}
 }
 
-/*DeleteAlertingInteractionstatsRuleInternalServerError handles this case with default header values.
+/*
+DeleteAlertingInteractionstatsRuleInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteAlertingInteractionstatsRuleInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete alerting interactionstats rule internal server error response has a 2xx status code
+func (o *DeleteAlertingInteractionstatsRuleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete alerting interactionstats rule internal server error response has a 3xx status code
+func (o *DeleteAlertingInteractionstatsRuleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete alerting interactionstats rule internal server error response has a 4xx status code
+func (o *DeleteAlertingInteractionstatsRuleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete alerting interactionstats rule internal server error response has a 5xx status code
+func (o *DeleteAlertingInteractionstatsRuleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete alerting interactionstats rule internal server error response a status code equal to that given
+func (o *DeleteAlertingInteractionstatsRuleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteAlertingInteractionstatsRuleInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteAlertingInteractionstatsRuleInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteAlertingInteractionstatsRuleServiceUnavailable() *DeleteAlertingIn
 	return &DeleteAlertingInteractionstatsRuleServiceUnavailable{}
 }
 
-/*DeleteAlertingInteractionstatsRuleServiceUnavailable handles this case with default header values.
+/*
+DeleteAlertingInteractionstatsRuleServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteAlertingInteractionstatsRuleServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete alerting interactionstats rule service unavailable response has a 2xx status code
+func (o *DeleteAlertingInteractionstatsRuleServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete alerting interactionstats rule service unavailable response has a 3xx status code
+func (o *DeleteAlertingInteractionstatsRuleServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete alerting interactionstats rule service unavailable response has a 4xx status code
+func (o *DeleteAlertingInteractionstatsRuleServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete alerting interactionstats rule service unavailable response has a 5xx status code
+func (o *DeleteAlertingInteractionstatsRuleServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete alerting interactionstats rule service unavailable response a status code equal to that given
+func (o *DeleteAlertingInteractionstatsRuleServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteAlertingInteractionstatsRuleServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteAlertingInteractionstatsRuleServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteAlertingInteractionstatsRuleGatewayTimeout() *DeleteAlertingIntera
 	return &DeleteAlertingInteractionstatsRuleGatewayTimeout{}
 }
 
-/*DeleteAlertingInteractionstatsRuleGatewayTimeout handles this case with default header values.
+/*
+DeleteAlertingInteractionstatsRuleGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteAlertingInteractionstatsRuleGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete alerting interactionstats rule gateway timeout response has a 2xx status code
+func (o *DeleteAlertingInteractionstatsRuleGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete alerting interactionstats rule gateway timeout response has a 3xx status code
+func (o *DeleteAlertingInteractionstatsRuleGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete alerting interactionstats rule gateway timeout response has a 4xx status code
+func (o *DeleteAlertingInteractionstatsRuleGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete alerting interactionstats rule gateway timeout response has a 5xx status code
+func (o *DeleteAlertingInteractionstatsRuleGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete alerting interactionstats rule gateway timeout response a status code equal to that given
+func (o *DeleteAlertingInteractionstatsRuleGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteAlertingInteractionstatsRuleGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteAlertingInteractionstatsRuleGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/alerting/interactionstats/rules/{ruleId}][%d] deleteAlertingInteractionstatsRuleGatewayTimeout  %+v", 504, o.Payload)
 }
 

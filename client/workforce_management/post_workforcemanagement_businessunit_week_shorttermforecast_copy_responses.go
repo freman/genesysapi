@@ -107,7 +107,6 @@ func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyReader) Rea
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -118,7 +117,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK() *PostWo
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -126,7 +126,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK struct {
 	Payload *models.AsyncForecastOperationResult
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy o k response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy o k response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy o k response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy o k response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy o k response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyOK  %+v", 200, o.Payload)
 }
 
@@ -151,7 +180,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated() *P
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated describes a response with status code 201, with default header values.
 
 The forecast was created
 */
@@ -159,7 +189,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated struct 
 	Payload *models.AsyncForecastOperationResult
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy created response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy created response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy created response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy created response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy created response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyCreated  %+v", 201, o.Payload)
 }
 
@@ -184,7 +243,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted() *
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted describes a response with status code 202, with default header values.
 
 The request was accepted and the result will be sent asynchronously via notification
 */
@@ -192,7 +252,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted struct
 	Payload *models.AsyncForecastOperationResult
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy accepted response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy accepted response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy accepted response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy accepted response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy accepted response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyAccepted  %+v", 202, o.Payload)
 }
 
@@ -217,7 +306,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -225,7 +315,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy bad request response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy bad request response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy bad request response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy bad request response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy bad request response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyBadRequest  %+v", 400, o.Payload)
 }
 
@@ -250,7 +369,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -258,7 +378,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -283,7 +432,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden() 
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -291,7 +441,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyForbidden  %+v", 403, o.Payload)
 }
 
@@ -316,7 +495,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound() *
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -324,7 +504,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy not found response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy not found response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy not found response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy not found response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy not found response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyNotFound  %+v", 404, o.Payload)
 }
 
@@ -349,7 +558,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeo
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -357,7 +567,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -382,7 +621,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntit
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -390,7 +630,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTo
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -415,7 +684,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedM
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -423,7 +693,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMedi
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -448,7 +747,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyReque
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -456,7 +756,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -481,7 +810,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServ
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerError{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -489,7 +819,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerE
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -514,7 +873,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnava
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -522,7 +882,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavaila
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -547,7 +936,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeo
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -555,7 +945,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecast copy gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecast copy gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecast copy gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecast copy gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecast copy gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}/copy][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastCopyGatewayTimeout  %+v", 504, o.Payload)
 }
 

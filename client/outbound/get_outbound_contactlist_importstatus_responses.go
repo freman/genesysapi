@@ -95,7 +95,6 @@ func (o *GetOutboundContactlistImportstatusReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOutboundContactlistImportstatusOK() *GetOutboundContactlistImportstat
 	return &GetOutboundContactlistImportstatusOK{}
 }
 
-/*GetOutboundContactlistImportstatusOK handles this case with default header values.
+/*
+GetOutboundContactlistImportstatusOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOutboundContactlistImportstatusOK struct {
 	Payload *models.ImportStatus
 }
 
+// IsSuccess returns true when this get outbound contactlist importstatus o k response has a 2xx status code
+func (o *GetOutboundContactlistImportstatusOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get outbound contactlist importstatus o k response has a 3xx status code
+func (o *GetOutboundContactlistImportstatusOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlist importstatus o k response has a 4xx status code
+func (o *GetOutboundContactlistImportstatusOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound contactlist importstatus o k response has a 5xx status code
+func (o *GetOutboundContactlistImportstatusOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlist importstatus o k response a status code equal to that given
+func (o *GetOutboundContactlistImportstatusOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOutboundContactlistImportstatusOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOutboundContactlistImportstatusOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOutboundContactlistImportstatusBadRequest() *GetOutboundContactlistIm
 	return &GetOutboundContactlistImportstatusBadRequest{}
 }
 
-/*GetOutboundContactlistImportstatusBadRequest handles this case with default header values.
+/*
+GetOutboundContactlistImportstatusBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOutboundContactlistImportstatusBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlist importstatus bad request response has a 2xx status code
+func (o *GetOutboundContactlistImportstatusBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlist importstatus bad request response has a 3xx status code
+func (o *GetOutboundContactlistImportstatusBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlist importstatus bad request response has a 4xx status code
+func (o *GetOutboundContactlistImportstatusBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlist importstatus bad request response has a 5xx status code
+func (o *GetOutboundContactlistImportstatusBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlist importstatus bad request response a status code equal to that given
+func (o *GetOutboundContactlistImportstatusBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOutboundContactlistImportstatusBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOutboundContactlistImportstatusBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOutboundContactlistImportstatusUnauthorized() *GetOutboundContactlist
 	return &GetOutboundContactlistImportstatusUnauthorized{}
 }
 
-/*GetOutboundContactlistImportstatusUnauthorized handles this case with default header values.
+/*
+GetOutboundContactlistImportstatusUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOutboundContactlistImportstatusUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlist importstatus unauthorized response has a 2xx status code
+func (o *GetOutboundContactlistImportstatusUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlist importstatus unauthorized response has a 3xx status code
+func (o *GetOutboundContactlistImportstatusUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlist importstatus unauthorized response has a 4xx status code
+func (o *GetOutboundContactlistImportstatusUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlist importstatus unauthorized response has a 5xx status code
+func (o *GetOutboundContactlistImportstatusUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlist importstatus unauthorized response a status code equal to that given
+func (o *GetOutboundContactlistImportstatusUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOutboundContactlistImportstatusUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOutboundContactlistImportstatusUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOutboundContactlistImportstatusForbidden() *GetOutboundContactlistImp
 	return &GetOutboundContactlistImportstatusForbidden{}
 }
 
-/*GetOutboundContactlistImportstatusForbidden handles this case with default header values.
+/*
+GetOutboundContactlistImportstatusForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOutboundContactlistImportstatusForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlist importstatus forbidden response has a 2xx status code
+func (o *GetOutboundContactlistImportstatusForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlist importstatus forbidden response has a 3xx status code
+func (o *GetOutboundContactlistImportstatusForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlist importstatus forbidden response has a 4xx status code
+func (o *GetOutboundContactlistImportstatusForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlist importstatus forbidden response has a 5xx status code
+func (o *GetOutboundContactlistImportstatusForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlist importstatus forbidden response a status code equal to that given
+func (o *GetOutboundContactlistImportstatusForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOutboundContactlistImportstatusForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOutboundContactlistImportstatusForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOutboundContactlistImportstatusNotFound() *GetOutboundContactlistImpo
 	return &GetOutboundContactlistImportstatusNotFound{}
 }
 
-/*GetOutboundContactlistImportstatusNotFound handles this case with default header values.
+/*
+GetOutboundContactlistImportstatusNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOutboundContactlistImportstatusNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlist importstatus not found response has a 2xx status code
+func (o *GetOutboundContactlistImportstatusNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlist importstatus not found response has a 3xx status code
+func (o *GetOutboundContactlistImportstatusNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlist importstatus not found response has a 4xx status code
+func (o *GetOutboundContactlistImportstatusNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlist importstatus not found response has a 5xx status code
+func (o *GetOutboundContactlistImportstatusNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlist importstatus not found response a status code equal to that given
+func (o *GetOutboundContactlistImportstatusNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOutboundContactlistImportstatusNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOutboundContactlistImportstatusNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOutboundContactlistImportstatusRequestTimeout() *GetOutboundContactli
 	return &GetOutboundContactlistImportstatusRequestTimeout{}
 }
 
-/*GetOutboundContactlistImportstatusRequestTimeout handles this case with default header values.
+/*
+GetOutboundContactlistImportstatusRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOutboundContactlistImportstatusRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlist importstatus request timeout response has a 2xx status code
+func (o *GetOutboundContactlistImportstatusRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlist importstatus request timeout response has a 3xx status code
+func (o *GetOutboundContactlistImportstatusRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlist importstatus request timeout response has a 4xx status code
+func (o *GetOutboundContactlistImportstatusRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlist importstatus request timeout response has a 5xx status code
+func (o *GetOutboundContactlistImportstatusRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlist importstatus request timeout response a status code equal to that given
+func (o *GetOutboundContactlistImportstatusRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOutboundContactlistImportstatusRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundContactlistImportstatusRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOutboundContactlistImportstatusRequestEntityTooLarge() *GetOutboundCo
 	return &GetOutboundContactlistImportstatusRequestEntityTooLarge{}
 }
 
-/*GetOutboundContactlistImportstatusRequestEntityTooLarge handles this case with default header values.
+/*
+GetOutboundContactlistImportstatusRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOutboundContactlistImportstatusRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlist importstatus request entity too large response has a 2xx status code
+func (o *GetOutboundContactlistImportstatusRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlist importstatus request entity too large response has a 3xx status code
+func (o *GetOutboundContactlistImportstatusRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlist importstatus request entity too large response has a 4xx status code
+func (o *GetOutboundContactlistImportstatusRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlist importstatus request entity too large response has a 5xx status code
+func (o *GetOutboundContactlistImportstatusRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlist importstatus request entity too large response a status code equal to that given
+func (o *GetOutboundContactlistImportstatusRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOutboundContactlistImportstatusRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOutboundContactlistImportstatusRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOutboundContactlistImportstatusUnsupportedMediaType() *GetOutboundCon
 	return &GetOutboundContactlistImportstatusUnsupportedMediaType{}
 }
 
-/*GetOutboundContactlistImportstatusUnsupportedMediaType handles this case with default header values.
+/*
+GetOutboundContactlistImportstatusUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOutboundContactlistImportstatusUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlist importstatus unsupported media type response has a 2xx status code
+func (o *GetOutboundContactlistImportstatusUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlist importstatus unsupported media type response has a 3xx status code
+func (o *GetOutboundContactlistImportstatusUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlist importstatus unsupported media type response has a 4xx status code
+func (o *GetOutboundContactlistImportstatusUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlist importstatus unsupported media type response has a 5xx status code
+func (o *GetOutboundContactlistImportstatusUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlist importstatus unsupported media type response a status code equal to that given
+func (o *GetOutboundContactlistImportstatusUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOutboundContactlistImportstatusUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOutboundContactlistImportstatusUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOutboundContactlistImportstatusTooManyRequests() *GetOutboundContactl
 	return &GetOutboundContactlistImportstatusTooManyRequests{}
 }
 
-/*GetOutboundContactlistImportstatusTooManyRequests handles this case with default header values.
+/*
+GetOutboundContactlistImportstatusTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOutboundContactlistImportstatusTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlist importstatus too many requests response has a 2xx status code
+func (o *GetOutboundContactlistImportstatusTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlist importstatus too many requests response has a 3xx status code
+func (o *GetOutboundContactlistImportstatusTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlist importstatus too many requests response has a 4xx status code
+func (o *GetOutboundContactlistImportstatusTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlist importstatus too many requests response has a 5xx status code
+func (o *GetOutboundContactlistImportstatusTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlist importstatus too many requests response a status code equal to that given
+func (o *GetOutboundContactlistImportstatusTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOutboundContactlistImportstatusTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOutboundContactlistImportstatusTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOutboundContactlistImportstatusInternalServerError() *GetOutboundCont
 	return &GetOutboundContactlistImportstatusInternalServerError{}
 }
 
-/*GetOutboundContactlistImportstatusInternalServerError handles this case with default header values.
+/*
+GetOutboundContactlistImportstatusInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOutboundContactlistImportstatusInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlist importstatus internal server error response has a 2xx status code
+func (o *GetOutboundContactlistImportstatusInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlist importstatus internal server error response has a 3xx status code
+func (o *GetOutboundContactlistImportstatusInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlist importstatus internal server error response has a 4xx status code
+func (o *GetOutboundContactlistImportstatusInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound contactlist importstatus internal server error response has a 5xx status code
+func (o *GetOutboundContactlistImportstatusInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound contactlist importstatus internal server error response a status code equal to that given
+func (o *GetOutboundContactlistImportstatusInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOutboundContactlistImportstatusInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOutboundContactlistImportstatusInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOutboundContactlistImportstatusServiceUnavailable() *GetOutboundConta
 	return &GetOutboundContactlistImportstatusServiceUnavailable{}
 }
 
-/*GetOutboundContactlistImportstatusServiceUnavailable handles this case with default header values.
+/*
+GetOutboundContactlistImportstatusServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOutboundContactlistImportstatusServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlist importstatus service unavailable response has a 2xx status code
+func (o *GetOutboundContactlistImportstatusServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlist importstatus service unavailable response has a 3xx status code
+func (o *GetOutboundContactlistImportstatusServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlist importstatus service unavailable response has a 4xx status code
+func (o *GetOutboundContactlistImportstatusServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound contactlist importstatus service unavailable response has a 5xx status code
+func (o *GetOutboundContactlistImportstatusServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound contactlist importstatus service unavailable response a status code equal to that given
+func (o *GetOutboundContactlistImportstatusServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOutboundContactlistImportstatusServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOutboundContactlistImportstatusServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOutboundContactlistImportstatusGatewayTimeout() *GetOutboundContactli
 	return &GetOutboundContactlistImportstatusGatewayTimeout{}
 }
 
-/*GetOutboundContactlistImportstatusGatewayTimeout handles this case with default header values.
+/*
+GetOutboundContactlistImportstatusGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOutboundContactlistImportstatusGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlist importstatus gateway timeout response has a 2xx status code
+func (o *GetOutboundContactlistImportstatusGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlist importstatus gateway timeout response has a 3xx status code
+func (o *GetOutboundContactlistImportstatusGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlist importstatus gateway timeout response has a 4xx status code
+func (o *GetOutboundContactlistImportstatusGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound contactlist importstatus gateway timeout response has a 5xx status code
+func (o *GetOutboundContactlistImportstatusGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound contactlist importstatus gateway timeout response a status code equal to that given
+func (o *GetOutboundContactlistImportstatusGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOutboundContactlistImportstatusGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOutboundContactlistImportstatusGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/{contactListId}/importstatus][%d] getOutboundContactlistImportstatusGatewayTimeout  %+v", 504, o.Payload)
 }
 

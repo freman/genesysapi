@@ -95,7 +95,6 @@ func (o *DeleteStationAssociateduserReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteStationAssociateduserOK() *DeleteStationAssociateduserOK {
 	return &DeleteStationAssociateduserOK{}
 }
 
-/*DeleteStationAssociateduserOK handles this case with default header values.
+/*
+DeleteStationAssociateduserOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteStationAssociateduserOK struct {
 }
 
+// IsSuccess returns true when this delete station associateduser o k response has a 2xx status code
+func (o *DeleteStationAssociateduserOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete station associateduser o k response has a 3xx status code
+func (o *DeleteStationAssociateduserOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete station associateduser o k response has a 4xx status code
+func (o *DeleteStationAssociateduserOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete station associateduser o k response has a 5xx status code
+func (o *DeleteStationAssociateduserOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete station associateduser o k response a status code equal to that given
+func (o *DeleteStationAssociateduserOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteStationAssociateduserOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserOK ", 200)
+}
+
+func (o *DeleteStationAssociateduserOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteStationAssociateduserBadRequest() *DeleteStationAssociateduserBadR
 	return &DeleteStationAssociateduserBadRequest{}
 }
 
-/*DeleteStationAssociateduserBadRequest handles this case with default header values.
+/*
+DeleteStationAssociateduserBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteStationAssociateduserBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete station associateduser bad request response has a 2xx status code
+func (o *DeleteStationAssociateduserBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete station associateduser bad request response has a 3xx status code
+func (o *DeleteStationAssociateduserBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete station associateduser bad request response has a 4xx status code
+func (o *DeleteStationAssociateduserBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete station associateduser bad request response has a 5xx status code
+func (o *DeleteStationAssociateduserBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete station associateduser bad request response a status code equal to that given
+func (o *DeleteStationAssociateduserBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteStationAssociateduserBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteStationAssociateduserBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteStationAssociateduserUnauthorized() *DeleteStationAssociateduserUn
 	return &DeleteStationAssociateduserUnauthorized{}
 }
 
-/*DeleteStationAssociateduserUnauthorized handles this case with default header values.
+/*
+DeleteStationAssociateduserUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteStationAssociateduserUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete station associateduser unauthorized response has a 2xx status code
+func (o *DeleteStationAssociateduserUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete station associateduser unauthorized response has a 3xx status code
+func (o *DeleteStationAssociateduserUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete station associateduser unauthorized response has a 4xx status code
+func (o *DeleteStationAssociateduserUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete station associateduser unauthorized response has a 5xx status code
+func (o *DeleteStationAssociateduserUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete station associateduser unauthorized response a status code equal to that given
+func (o *DeleteStationAssociateduserUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteStationAssociateduserUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteStationAssociateduserUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteStationAssociateduserForbidden() *DeleteStationAssociateduserForbi
 	return &DeleteStationAssociateduserForbidden{}
 }
 
-/*DeleteStationAssociateduserForbidden handles this case with default header values.
+/*
+DeleteStationAssociateduserForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteStationAssociateduserForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete station associateduser forbidden response has a 2xx status code
+func (o *DeleteStationAssociateduserForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete station associateduser forbidden response has a 3xx status code
+func (o *DeleteStationAssociateduserForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete station associateduser forbidden response has a 4xx status code
+func (o *DeleteStationAssociateduserForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete station associateduser forbidden response has a 5xx status code
+func (o *DeleteStationAssociateduserForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete station associateduser forbidden response a status code equal to that given
+func (o *DeleteStationAssociateduserForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteStationAssociateduserForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteStationAssociateduserForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteStationAssociateduserNotFound() *DeleteStationAssociateduserNotFou
 	return &DeleteStationAssociateduserNotFound{}
 }
 
-/*DeleteStationAssociateduserNotFound handles this case with default header values.
+/*
+DeleteStationAssociateduserNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteStationAssociateduserNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete station associateduser not found response has a 2xx status code
+func (o *DeleteStationAssociateduserNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete station associateduser not found response has a 3xx status code
+func (o *DeleteStationAssociateduserNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete station associateduser not found response has a 4xx status code
+func (o *DeleteStationAssociateduserNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete station associateduser not found response has a 5xx status code
+func (o *DeleteStationAssociateduserNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete station associateduser not found response a status code equal to that given
+func (o *DeleteStationAssociateduserNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteStationAssociateduserNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteStationAssociateduserNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteStationAssociateduserRequestTimeout() *DeleteStationAssociateduser
 	return &DeleteStationAssociateduserRequestTimeout{}
 }
 
-/*DeleteStationAssociateduserRequestTimeout handles this case with default header values.
+/*
+DeleteStationAssociateduserRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteStationAssociateduserRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete station associateduser request timeout response has a 2xx status code
+func (o *DeleteStationAssociateduserRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete station associateduser request timeout response has a 3xx status code
+func (o *DeleteStationAssociateduserRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete station associateduser request timeout response has a 4xx status code
+func (o *DeleteStationAssociateduserRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete station associateduser request timeout response has a 5xx status code
+func (o *DeleteStationAssociateduserRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete station associateduser request timeout response a status code equal to that given
+func (o *DeleteStationAssociateduserRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteStationAssociateduserRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteStationAssociateduserRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteStationAssociateduserRequestEntityTooLarge() *DeleteStationAssocia
 	return &DeleteStationAssociateduserRequestEntityTooLarge{}
 }
 
-/*DeleteStationAssociateduserRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteStationAssociateduserRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteStationAssociateduserRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete station associateduser request entity too large response has a 2xx status code
+func (o *DeleteStationAssociateduserRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete station associateduser request entity too large response has a 3xx status code
+func (o *DeleteStationAssociateduserRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete station associateduser request entity too large response has a 4xx status code
+func (o *DeleteStationAssociateduserRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete station associateduser request entity too large response has a 5xx status code
+func (o *DeleteStationAssociateduserRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete station associateduser request entity too large response a status code equal to that given
+func (o *DeleteStationAssociateduserRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteStationAssociateduserRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteStationAssociateduserRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteStationAssociateduserUnsupportedMediaType() *DeleteStationAssociat
 	return &DeleteStationAssociateduserUnsupportedMediaType{}
 }
 
-/*DeleteStationAssociateduserUnsupportedMediaType handles this case with default header values.
+/*
+DeleteStationAssociateduserUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteStationAssociateduserUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete station associateduser unsupported media type response has a 2xx status code
+func (o *DeleteStationAssociateduserUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete station associateduser unsupported media type response has a 3xx status code
+func (o *DeleteStationAssociateduserUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete station associateduser unsupported media type response has a 4xx status code
+func (o *DeleteStationAssociateduserUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete station associateduser unsupported media type response has a 5xx status code
+func (o *DeleteStationAssociateduserUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete station associateduser unsupported media type response a status code equal to that given
+func (o *DeleteStationAssociateduserUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteStationAssociateduserUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteStationAssociateduserUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteStationAssociateduserTooManyRequests() *DeleteStationAssociateduse
 	return &DeleteStationAssociateduserTooManyRequests{}
 }
 
-/*DeleteStationAssociateduserTooManyRequests handles this case with default header values.
+/*
+DeleteStationAssociateduserTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteStationAssociateduserTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete station associateduser too many requests response has a 2xx status code
+func (o *DeleteStationAssociateduserTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete station associateduser too many requests response has a 3xx status code
+func (o *DeleteStationAssociateduserTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete station associateduser too many requests response has a 4xx status code
+func (o *DeleteStationAssociateduserTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete station associateduser too many requests response has a 5xx status code
+func (o *DeleteStationAssociateduserTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete station associateduser too many requests response a status code equal to that given
+func (o *DeleteStationAssociateduserTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteStationAssociateduserTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteStationAssociateduserTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteStationAssociateduserInternalServerError() *DeleteStationAssociate
 	return &DeleteStationAssociateduserInternalServerError{}
 }
 
-/*DeleteStationAssociateduserInternalServerError handles this case with default header values.
+/*
+DeleteStationAssociateduserInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteStationAssociateduserInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete station associateduser internal server error response has a 2xx status code
+func (o *DeleteStationAssociateduserInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete station associateduser internal server error response has a 3xx status code
+func (o *DeleteStationAssociateduserInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete station associateduser internal server error response has a 4xx status code
+func (o *DeleteStationAssociateduserInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete station associateduser internal server error response has a 5xx status code
+func (o *DeleteStationAssociateduserInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete station associateduser internal server error response a status code equal to that given
+func (o *DeleteStationAssociateduserInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteStationAssociateduserInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteStationAssociateduserInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteStationAssociateduserServiceUnavailable() *DeleteStationAssociated
 	return &DeleteStationAssociateduserServiceUnavailable{}
 }
 
-/*DeleteStationAssociateduserServiceUnavailable handles this case with default header values.
+/*
+DeleteStationAssociateduserServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteStationAssociateduserServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete station associateduser service unavailable response has a 2xx status code
+func (o *DeleteStationAssociateduserServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete station associateduser service unavailable response has a 3xx status code
+func (o *DeleteStationAssociateduserServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete station associateduser service unavailable response has a 4xx status code
+func (o *DeleteStationAssociateduserServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete station associateduser service unavailable response has a 5xx status code
+func (o *DeleteStationAssociateduserServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete station associateduser service unavailable response a status code equal to that given
+func (o *DeleteStationAssociateduserServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteStationAssociateduserServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteStationAssociateduserServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteStationAssociateduserGatewayTimeout() *DeleteStationAssociateduser
 	return &DeleteStationAssociateduserGatewayTimeout{}
 }
 
-/*DeleteStationAssociateduserGatewayTimeout handles this case with default header values.
+/*
+DeleteStationAssociateduserGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteStationAssociateduserGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete station associateduser gateway timeout response has a 2xx status code
+func (o *DeleteStationAssociateduserGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete station associateduser gateway timeout response has a 3xx status code
+func (o *DeleteStationAssociateduserGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete station associateduser gateway timeout response has a 4xx status code
+func (o *DeleteStationAssociateduserGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete station associateduser gateway timeout response has a 5xx status code
+func (o *DeleteStationAssociateduserGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete station associateduser gateway timeout response a status code equal to that given
+func (o *DeleteStationAssociateduserGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteStationAssociateduserGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteStationAssociateduserGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/stations/{stationId}/associateduser][%d] deleteStationAssociateduserGatewayTimeout  %+v", 504, o.Payload)
 }
 

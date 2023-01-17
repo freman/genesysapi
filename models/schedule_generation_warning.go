@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -85,7 +86,6 @@ func (m *ScheduleGenerationWarning) validateNoNeedDaysItemsEnum(path, location s
 }
 
 func (m *ScheduleGenerationWarning) validateNoNeedDays(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NoNeedDays) { // not required
 		return nil
 	}
@@ -126,7 +126,6 @@ func (m *ScheduleGenerationWarning) validateUnableToScheduleRequiredDaysItemsEnu
 }
 
 func (m *ScheduleGenerationWarning) validateUnableToScheduleRequiredDays(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UnableToScheduleRequiredDays) { // not required
 		return nil
 	}
@@ -144,6 +143,11 @@ func (m *ScheduleGenerationWarning) validateUnableToScheduleRequiredDays(formats
 
 	}
 
+	return nil
+}
+
+// ContextValidate validates this schedule generation warning based on context it is used
+func (m *ScheduleGenerationWarning) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

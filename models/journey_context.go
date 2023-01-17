@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -60,6 +62,8 @@ func (m *JourneyContext) validateCustomer(formats strfmt.Registry) error {
 		if err := m.Customer.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customer")
 			}
 			return err
 		}
@@ -69,7 +73,6 @@ func (m *JourneyContext) validateCustomer(formats strfmt.Registry) error {
 }
 
 func (m *JourneyContext) validateCustomerSession(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CustomerSession) { // not required
 		return nil
 	}
@@ -78,6 +81,8 @@ func (m *JourneyContext) validateCustomerSession(formats strfmt.Registry) error 
 		if err := m.CustomerSession.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customerSession")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customerSession")
 			}
 			return err
 		}
@@ -87,7 +92,6 @@ func (m *JourneyContext) validateCustomerSession(formats strfmt.Registry) error 
 }
 
 func (m *JourneyContext) validateTriggeringAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TriggeringAction) { // not required
 		return nil
 	}
@@ -96,6 +100,78 @@ func (m *JourneyContext) validateTriggeringAction(formats strfmt.Registry) error
 		if err := m.TriggeringAction.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("triggeringAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("triggeringAction")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this journey context based on the context it is used
+func (m *JourneyContext) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCustomer(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCustomerSession(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTriggeringAction(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *JourneyContext) contextValidateCustomer(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Customer != nil {
+		if err := m.Customer.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("customer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customer")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JourneyContext) contextValidateCustomerSession(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CustomerSession != nil {
+		if err := m.CustomerSession.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("customerSession")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customerSession")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JourneyContext) contextValidateTriggeringAction(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TriggeringAction != nil {
+		if err := m.TriggeringAction.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("triggeringAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("triggeringAction")
 			}
 			return err
 		}

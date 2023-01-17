@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -103,7 +104,6 @@ func (m *ContentFacetFilterItem) validateOperatorEnum(path, location string, val
 }
 
 func (m *ContentFacetFilterItem) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -155,7 +155,6 @@ func (m *ContentFacetFilterItem) validateTypeEnum(path, location string, value s
 }
 
 func (m *ContentFacetFilterItem) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -165,6 +164,11 @@ func (m *ContentFacetFilterItem) validateType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this content facet filter item based on context it is used
+func (m *ContentFacetFilterItem) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

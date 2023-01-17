@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetSpeechandtextanalyticsConversationParams creates a new GetSpeechandtextanalyticsConversationParams object
-// with the default values initialized.
+// NewGetSpeechandtextanalyticsConversationParams creates a new GetSpeechandtextanalyticsConversationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSpeechandtextanalyticsConversationParams() *GetSpeechandtextanalyticsConversationParams {
-	var ()
 	return &GetSpeechandtextanalyticsConversationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsConversationParamsWithTimeout creates a new GetSpeechandtextanalyticsConversationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSpeechandtextanalyticsConversationParamsWithTimeout(timeout time.Duration) *GetSpeechandtextanalyticsConversationParams {
-	var ()
 	return &GetSpeechandtextanalyticsConversationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsConversationParamsWithContext creates a new GetSpeechandtextanalyticsConversationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSpeechandtextanalyticsConversationParamsWithContext(ctx context.Context) *GetSpeechandtextanalyticsConversationParams {
-	var ()
 	return &GetSpeechandtextanalyticsConversationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetSpeechandtextanalyticsConversationParamsWithHTTPClient creates a new GetSpeechandtextanalyticsConversationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSpeechandtextanalyticsConversationParamsWithHTTPClient(client *http.Client) *GetSpeechandtextanalyticsConversationParams {
-	var ()
 	return &GetSpeechandtextanalyticsConversationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetSpeechandtextanalyticsConversationParams contains all the parameters to send to the API endpoint
-for the get speechandtextanalytics conversation operation typically these are written to a http.Request
+/*
+GetSpeechandtextanalyticsConversationParams contains all the parameters to send to the API endpoint
+
+	for the get speechandtextanalytics conversation operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSpeechandtextanalyticsConversationParams struct {
 
-	/*ConversationID
-	  Conversation Id
+	/* ConversationID.
 
+	   Conversation Id
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get speechandtextanalytics conversation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsConversationParams) WithDefaults() *GetSpeechandtextanalyticsConversationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get speechandtextanalytics conversation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsConversationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get speechandtextanalytics conversation params

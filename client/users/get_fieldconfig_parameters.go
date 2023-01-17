@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetFieldconfigParams creates a new GetFieldconfigParams object
-// with the default values initialized.
+// NewGetFieldconfigParams creates a new GetFieldconfigParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFieldconfigParams() *GetFieldconfigParams {
-	var ()
 	return &GetFieldconfigParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFieldconfigParamsWithTimeout creates a new GetFieldconfigParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFieldconfigParamsWithTimeout(timeout time.Duration) *GetFieldconfigParams {
-	var ()
 	return &GetFieldconfigParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFieldconfigParamsWithContext creates a new GetFieldconfigParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFieldconfigParamsWithContext(ctx context.Context) *GetFieldconfigParams {
-	var ()
 	return &GetFieldconfigParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetFieldconfigParamsWithHTTPClient creates a new GetFieldconfigParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFieldconfigParamsWithHTTPClient(client *http.Client) *GetFieldconfigParams {
-	var ()
 	return &GetFieldconfigParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetFieldconfigParams contains all the parameters to send to the API endpoint
-for the get fieldconfig operation typically these are written to a http.Request
+/*
+GetFieldconfigParams contains all the parameters to send to the API endpoint
+
+	for the get fieldconfig operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFieldconfigParams struct {
 
-	/*Type
-	  Field type
+	/* Type.
 
+	   Field type
 	*/
 	Type string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get fieldconfig params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFieldconfigParams) WithDefaults() *GetFieldconfigParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get fieldconfig params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFieldconfigParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get fieldconfig params
@@ -127,6 +143,7 @@ func (o *GetFieldconfigParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	qrType := o.Type
 	qType := qrType
 	if qType != "" {
+
 		if err := r.SetQueryParam("type", qType); err != nil {
 			return err
 		}

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteOutboundRulesetParams creates a new DeleteOutboundRulesetParams object
-// with the default values initialized.
+// NewDeleteOutboundRulesetParams creates a new DeleteOutboundRulesetParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundRulesetParams() *DeleteOutboundRulesetParams {
-	var ()
 	return &DeleteOutboundRulesetParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundRulesetParamsWithTimeout creates a new DeleteOutboundRulesetParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundRulesetParamsWithTimeout(timeout time.Duration) *DeleteOutboundRulesetParams {
-	var ()
 	return &DeleteOutboundRulesetParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundRulesetParamsWithContext creates a new DeleteOutboundRulesetParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundRulesetParamsWithContext(ctx context.Context) *DeleteOutboundRulesetParams {
-	var ()
 	return &DeleteOutboundRulesetParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundRulesetParamsWithHTTPClient creates a new DeleteOutboundRulesetParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundRulesetParamsWithHTTPClient(client *http.Client) *DeleteOutboundRulesetParams {
-	var ()
 	return &DeleteOutboundRulesetParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundRulesetParams contains all the parameters to send to the API endpoint
-for the delete outbound ruleset operation typically these are written to a http.Request
+/*
+DeleteOutboundRulesetParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound ruleset operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundRulesetParams struct {
 
-	/*RuleSetID
-	  Rule Set ID
+	/* RuleSetID.
 
+	   Rule Set ID
 	*/
 	RuleSetID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound ruleset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundRulesetParams) WithDefaults() *DeleteOutboundRulesetParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound ruleset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundRulesetParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound ruleset params

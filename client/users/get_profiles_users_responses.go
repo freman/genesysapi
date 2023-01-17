@@ -95,7 +95,6 @@ func (o *GetProfilesUsersReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetProfilesUsersOK() *GetProfilesUsersOK {
 	return &GetProfilesUsersOK{}
 }
 
-/*GetProfilesUsersOK handles this case with default header values.
+/*
+GetProfilesUsersOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetProfilesUsersOK struct {
 	Payload *models.UserProfileEntityListing
 }
 
+// IsSuccess returns true when this get profiles users o k response has a 2xx status code
+func (o *GetProfilesUsersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get profiles users o k response has a 3xx status code
+func (o *GetProfilesUsersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get profiles users o k response has a 4xx status code
+func (o *GetProfilesUsersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get profiles users o k response has a 5xx status code
+func (o *GetProfilesUsersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get profiles users o k response a status code equal to that given
+func (o *GetProfilesUsersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetProfilesUsersOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersOK  %+v", 200, o.Payload)
+}
+
+func (o *GetProfilesUsersOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetProfilesUsersBadRequest() *GetProfilesUsersBadRequest {
 	return &GetProfilesUsersBadRequest{}
 }
 
-/*GetProfilesUsersBadRequest handles this case with default header values.
+/*
+GetProfilesUsersBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetProfilesUsersBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get profiles users bad request response has a 2xx status code
+func (o *GetProfilesUsersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get profiles users bad request response has a 3xx status code
+func (o *GetProfilesUsersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get profiles users bad request response has a 4xx status code
+func (o *GetProfilesUsersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get profiles users bad request response has a 5xx status code
+func (o *GetProfilesUsersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get profiles users bad request response a status code equal to that given
+func (o *GetProfilesUsersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetProfilesUsersBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetProfilesUsersBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetProfilesUsersUnauthorized() *GetProfilesUsersUnauthorized {
 	return &GetProfilesUsersUnauthorized{}
 }
 
-/*GetProfilesUsersUnauthorized handles this case with default header values.
+/*
+GetProfilesUsersUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetProfilesUsersUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get profiles users unauthorized response has a 2xx status code
+func (o *GetProfilesUsersUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get profiles users unauthorized response has a 3xx status code
+func (o *GetProfilesUsersUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get profiles users unauthorized response has a 4xx status code
+func (o *GetProfilesUsersUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get profiles users unauthorized response has a 5xx status code
+func (o *GetProfilesUsersUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get profiles users unauthorized response a status code equal to that given
+func (o *GetProfilesUsersUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetProfilesUsersUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetProfilesUsersUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetProfilesUsersForbidden() *GetProfilesUsersForbidden {
 	return &GetProfilesUsersForbidden{}
 }
 
-/*GetProfilesUsersForbidden handles this case with default header values.
+/*
+GetProfilesUsersForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetProfilesUsersForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get profiles users forbidden response has a 2xx status code
+func (o *GetProfilesUsersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get profiles users forbidden response has a 3xx status code
+func (o *GetProfilesUsersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get profiles users forbidden response has a 4xx status code
+func (o *GetProfilesUsersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get profiles users forbidden response has a 5xx status code
+func (o *GetProfilesUsersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get profiles users forbidden response a status code equal to that given
+func (o *GetProfilesUsersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetProfilesUsersForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetProfilesUsersForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetProfilesUsersNotFound() *GetProfilesUsersNotFound {
 	return &GetProfilesUsersNotFound{}
 }
 
-/*GetProfilesUsersNotFound handles this case with default header values.
+/*
+GetProfilesUsersNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetProfilesUsersNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get profiles users not found response has a 2xx status code
+func (o *GetProfilesUsersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get profiles users not found response has a 3xx status code
+func (o *GetProfilesUsersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get profiles users not found response has a 4xx status code
+func (o *GetProfilesUsersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get profiles users not found response has a 5xx status code
+func (o *GetProfilesUsersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get profiles users not found response a status code equal to that given
+func (o *GetProfilesUsersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetProfilesUsersNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetProfilesUsersNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetProfilesUsersRequestTimeout() *GetProfilesUsersRequestTimeout {
 	return &GetProfilesUsersRequestTimeout{}
 }
 
-/*GetProfilesUsersRequestTimeout handles this case with default header values.
+/*
+GetProfilesUsersRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetProfilesUsersRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get profiles users request timeout response has a 2xx status code
+func (o *GetProfilesUsersRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get profiles users request timeout response has a 3xx status code
+func (o *GetProfilesUsersRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get profiles users request timeout response has a 4xx status code
+func (o *GetProfilesUsersRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get profiles users request timeout response has a 5xx status code
+func (o *GetProfilesUsersRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get profiles users request timeout response a status code equal to that given
+func (o *GetProfilesUsersRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetProfilesUsersRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetProfilesUsersRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetProfilesUsersRequestEntityTooLarge() *GetProfilesUsersRequestEntityTo
 	return &GetProfilesUsersRequestEntityTooLarge{}
 }
 
-/*GetProfilesUsersRequestEntityTooLarge handles this case with default header values.
+/*
+GetProfilesUsersRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetProfilesUsersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get profiles users request entity too large response has a 2xx status code
+func (o *GetProfilesUsersRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get profiles users request entity too large response has a 3xx status code
+func (o *GetProfilesUsersRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get profiles users request entity too large response has a 4xx status code
+func (o *GetProfilesUsersRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get profiles users request entity too large response has a 5xx status code
+func (o *GetProfilesUsersRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get profiles users request entity too large response a status code equal to that given
+func (o *GetProfilesUsersRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetProfilesUsersRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetProfilesUsersRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetProfilesUsersUnsupportedMediaType() *GetProfilesUsersUnsupportedMedia
 	return &GetProfilesUsersUnsupportedMediaType{}
 }
 
-/*GetProfilesUsersUnsupportedMediaType handles this case with default header values.
+/*
+GetProfilesUsersUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetProfilesUsersUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get profiles users unsupported media type response has a 2xx status code
+func (o *GetProfilesUsersUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get profiles users unsupported media type response has a 3xx status code
+func (o *GetProfilesUsersUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get profiles users unsupported media type response has a 4xx status code
+func (o *GetProfilesUsersUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get profiles users unsupported media type response has a 5xx status code
+func (o *GetProfilesUsersUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get profiles users unsupported media type response a status code equal to that given
+func (o *GetProfilesUsersUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetProfilesUsersUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetProfilesUsersUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetProfilesUsersTooManyRequests() *GetProfilesUsersTooManyRequests {
 	return &GetProfilesUsersTooManyRequests{}
 }
 
-/*GetProfilesUsersTooManyRequests handles this case with default header values.
+/*
+GetProfilesUsersTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetProfilesUsersTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get profiles users too many requests response has a 2xx status code
+func (o *GetProfilesUsersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get profiles users too many requests response has a 3xx status code
+func (o *GetProfilesUsersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get profiles users too many requests response has a 4xx status code
+func (o *GetProfilesUsersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get profiles users too many requests response has a 5xx status code
+func (o *GetProfilesUsersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get profiles users too many requests response a status code equal to that given
+func (o *GetProfilesUsersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetProfilesUsersTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetProfilesUsersTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetProfilesUsersInternalServerError() *GetProfilesUsersInternalServerErr
 	return &GetProfilesUsersInternalServerError{}
 }
 
-/*GetProfilesUsersInternalServerError handles this case with default header values.
+/*
+GetProfilesUsersInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetProfilesUsersInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get profiles users internal server error response has a 2xx status code
+func (o *GetProfilesUsersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get profiles users internal server error response has a 3xx status code
+func (o *GetProfilesUsersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get profiles users internal server error response has a 4xx status code
+func (o *GetProfilesUsersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get profiles users internal server error response has a 5xx status code
+func (o *GetProfilesUsersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get profiles users internal server error response a status code equal to that given
+func (o *GetProfilesUsersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetProfilesUsersInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetProfilesUsersInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetProfilesUsersServiceUnavailable() *GetProfilesUsersServiceUnavailable
 	return &GetProfilesUsersServiceUnavailable{}
 }
 
-/*GetProfilesUsersServiceUnavailable handles this case with default header values.
+/*
+GetProfilesUsersServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetProfilesUsersServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get profiles users service unavailable response has a 2xx status code
+func (o *GetProfilesUsersServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get profiles users service unavailable response has a 3xx status code
+func (o *GetProfilesUsersServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get profiles users service unavailable response has a 4xx status code
+func (o *GetProfilesUsersServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get profiles users service unavailable response has a 5xx status code
+func (o *GetProfilesUsersServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get profiles users service unavailable response a status code equal to that given
+func (o *GetProfilesUsersServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetProfilesUsersServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetProfilesUsersServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetProfilesUsersGatewayTimeout() *GetProfilesUsersGatewayTimeout {
 	return &GetProfilesUsersGatewayTimeout{}
 }
 
-/*GetProfilesUsersGatewayTimeout handles this case with default header values.
+/*
+GetProfilesUsersGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetProfilesUsersGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get profiles users gateway timeout response has a 2xx status code
+func (o *GetProfilesUsersGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get profiles users gateway timeout response has a 3xx status code
+func (o *GetProfilesUsersGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get profiles users gateway timeout response has a 4xx status code
+func (o *GetProfilesUsersGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get profiles users gateway timeout response has a 5xx status code
+func (o *GetProfilesUsersGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get profiles users gateway timeout response a status code equal to that given
+func (o *GetProfilesUsersGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetProfilesUsersGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetProfilesUsersGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/profiles/users][%d] getProfilesUsersGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *GetOutboundCallanalysisresponsesetReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOutboundCallanalysisresponsesetOK() *GetOutboundCallanalysisresponses
 	return &GetOutboundCallanalysisresponsesetOK{}
 }
 
-/*GetOutboundCallanalysisresponsesetOK handles this case with default header values.
+/*
+GetOutboundCallanalysisresponsesetOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOutboundCallanalysisresponsesetOK struct {
 	Payload *models.ResponseSet
 }
 
+// IsSuccess returns true when this get outbound callanalysisresponseset o k response has a 2xx status code
+func (o *GetOutboundCallanalysisresponsesetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get outbound callanalysisresponseset o k response has a 3xx status code
+func (o *GetOutboundCallanalysisresponsesetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound callanalysisresponseset o k response has a 4xx status code
+func (o *GetOutboundCallanalysisresponsesetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound callanalysisresponseset o k response has a 5xx status code
+func (o *GetOutboundCallanalysisresponsesetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound callanalysisresponseset o k response a status code equal to that given
+func (o *GetOutboundCallanalysisresponsesetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOutboundCallanalysisresponsesetOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOutboundCallanalysisresponsesetOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOutboundCallanalysisresponsesetBadRequest() *GetOutboundCallanalysisr
 	return &GetOutboundCallanalysisresponsesetBadRequest{}
 }
 
-/*GetOutboundCallanalysisresponsesetBadRequest handles this case with default header values.
+/*
+GetOutboundCallanalysisresponsesetBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOutboundCallanalysisresponsesetBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound callanalysisresponseset bad request response has a 2xx status code
+func (o *GetOutboundCallanalysisresponsesetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound callanalysisresponseset bad request response has a 3xx status code
+func (o *GetOutboundCallanalysisresponsesetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound callanalysisresponseset bad request response has a 4xx status code
+func (o *GetOutboundCallanalysisresponsesetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound callanalysisresponseset bad request response has a 5xx status code
+func (o *GetOutboundCallanalysisresponsesetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound callanalysisresponseset bad request response a status code equal to that given
+func (o *GetOutboundCallanalysisresponsesetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOutboundCallanalysisresponsesetBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOutboundCallanalysisresponsesetBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOutboundCallanalysisresponsesetUnauthorized() *GetOutboundCallanalysi
 	return &GetOutboundCallanalysisresponsesetUnauthorized{}
 }
 
-/*GetOutboundCallanalysisresponsesetUnauthorized handles this case with default header values.
+/*
+GetOutboundCallanalysisresponsesetUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOutboundCallanalysisresponsesetUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound callanalysisresponseset unauthorized response has a 2xx status code
+func (o *GetOutboundCallanalysisresponsesetUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound callanalysisresponseset unauthorized response has a 3xx status code
+func (o *GetOutboundCallanalysisresponsesetUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound callanalysisresponseset unauthorized response has a 4xx status code
+func (o *GetOutboundCallanalysisresponsesetUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound callanalysisresponseset unauthorized response has a 5xx status code
+func (o *GetOutboundCallanalysisresponsesetUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound callanalysisresponseset unauthorized response a status code equal to that given
+func (o *GetOutboundCallanalysisresponsesetUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOutboundCallanalysisresponsesetUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOutboundCallanalysisresponsesetUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOutboundCallanalysisresponsesetForbidden() *GetOutboundCallanalysisre
 	return &GetOutboundCallanalysisresponsesetForbidden{}
 }
 
-/*GetOutboundCallanalysisresponsesetForbidden handles this case with default header values.
+/*
+GetOutboundCallanalysisresponsesetForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOutboundCallanalysisresponsesetForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound callanalysisresponseset forbidden response has a 2xx status code
+func (o *GetOutboundCallanalysisresponsesetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound callanalysisresponseset forbidden response has a 3xx status code
+func (o *GetOutboundCallanalysisresponsesetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound callanalysisresponseset forbidden response has a 4xx status code
+func (o *GetOutboundCallanalysisresponsesetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound callanalysisresponseset forbidden response has a 5xx status code
+func (o *GetOutboundCallanalysisresponsesetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound callanalysisresponseset forbidden response a status code equal to that given
+func (o *GetOutboundCallanalysisresponsesetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOutboundCallanalysisresponsesetForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOutboundCallanalysisresponsesetForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOutboundCallanalysisresponsesetNotFound() *GetOutboundCallanalysisres
 	return &GetOutboundCallanalysisresponsesetNotFound{}
 }
 
-/*GetOutboundCallanalysisresponsesetNotFound handles this case with default header values.
+/*
+GetOutboundCallanalysisresponsesetNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOutboundCallanalysisresponsesetNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound callanalysisresponseset not found response has a 2xx status code
+func (o *GetOutboundCallanalysisresponsesetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound callanalysisresponseset not found response has a 3xx status code
+func (o *GetOutboundCallanalysisresponsesetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound callanalysisresponseset not found response has a 4xx status code
+func (o *GetOutboundCallanalysisresponsesetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound callanalysisresponseset not found response has a 5xx status code
+func (o *GetOutboundCallanalysisresponsesetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound callanalysisresponseset not found response a status code equal to that given
+func (o *GetOutboundCallanalysisresponsesetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOutboundCallanalysisresponsesetNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOutboundCallanalysisresponsesetNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOutboundCallanalysisresponsesetRequestTimeout() *GetOutboundCallanaly
 	return &GetOutboundCallanalysisresponsesetRequestTimeout{}
 }
 
-/*GetOutboundCallanalysisresponsesetRequestTimeout handles this case with default header values.
+/*
+GetOutboundCallanalysisresponsesetRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOutboundCallanalysisresponsesetRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound callanalysisresponseset request timeout response has a 2xx status code
+func (o *GetOutboundCallanalysisresponsesetRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound callanalysisresponseset request timeout response has a 3xx status code
+func (o *GetOutboundCallanalysisresponsesetRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound callanalysisresponseset request timeout response has a 4xx status code
+func (o *GetOutboundCallanalysisresponsesetRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound callanalysisresponseset request timeout response has a 5xx status code
+func (o *GetOutboundCallanalysisresponsesetRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound callanalysisresponseset request timeout response a status code equal to that given
+func (o *GetOutboundCallanalysisresponsesetRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOutboundCallanalysisresponsesetRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundCallanalysisresponsesetRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOutboundCallanalysisresponsesetRequestEntityTooLarge() *GetOutboundCa
 	return &GetOutboundCallanalysisresponsesetRequestEntityTooLarge{}
 }
 
-/*GetOutboundCallanalysisresponsesetRequestEntityTooLarge handles this case with default header values.
+/*
+GetOutboundCallanalysisresponsesetRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOutboundCallanalysisresponsesetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound callanalysisresponseset request entity too large response has a 2xx status code
+func (o *GetOutboundCallanalysisresponsesetRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound callanalysisresponseset request entity too large response has a 3xx status code
+func (o *GetOutboundCallanalysisresponsesetRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound callanalysisresponseset request entity too large response has a 4xx status code
+func (o *GetOutboundCallanalysisresponsesetRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound callanalysisresponseset request entity too large response has a 5xx status code
+func (o *GetOutboundCallanalysisresponsesetRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound callanalysisresponseset request entity too large response a status code equal to that given
+func (o *GetOutboundCallanalysisresponsesetRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOutboundCallanalysisresponsesetRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOutboundCallanalysisresponsesetRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOutboundCallanalysisresponsesetUnsupportedMediaType() *GetOutboundCal
 	return &GetOutboundCallanalysisresponsesetUnsupportedMediaType{}
 }
 
-/*GetOutboundCallanalysisresponsesetUnsupportedMediaType handles this case with default header values.
+/*
+GetOutboundCallanalysisresponsesetUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOutboundCallanalysisresponsesetUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound callanalysisresponseset unsupported media type response has a 2xx status code
+func (o *GetOutboundCallanalysisresponsesetUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound callanalysisresponseset unsupported media type response has a 3xx status code
+func (o *GetOutboundCallanalysisresponsesetUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound callanalysisresponseset unsupported media type response has a 4xx status code
+func (o *GetOutboundCallanalysisresponsesetUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound callanalysisresponseset unsupported media type response has a 5xx status code
+func (o *GetOutboundCallanalysisresponsesetUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound callanalysisresponseset unsupported media type response a status code equal to that given
+func (o *GetOutboundCallanalysisresponsesetUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOutboundCallanalysisresponsesetUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOutboundCallanalysisresponsesetUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOutboundCallanalysisresponsesetTooManyRequests() *GetOutboundCallanal
 	return &GetOutboundCallanalysisresponsesetTooManyRequests{}
 }
 
-/*GetOutboundCallanalysisresponsesetTooManyRequests handles this case with default header values.
+/*
+GetOutboundCallanalysisresponsesetTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOutboundCallanalysisresponsesetTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound callanalysisresponseset too many requests response has a 2xx status code
+func (o *GetOutboundCallanalysisresponsesetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound callanalysisresponseset too many requests response has a 3xx status code
+func (o *GetOutboundCallanalysisresponsesetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound callanalysisresponseset too many requests response has a 4xx status code
+func (o *GetOutboundCallanalysisresponsesetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound callanalysisresponseset too many requests response has a 5xx status code
+func (o *GetOutboundCallanalysisresponsesetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound callanalysisresponseset too many requests response a status code equal to that given
+func (o *GetOutboundCallanalysisresponsesetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOutboundCallanalysisresponsesetTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOutboundCallanalysisresponsesetTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOutboundCallanalysisresponsesetInternalServerError() *GetOutboundCall
 	return &GetOutboundCallanalysisresponsesetInternalServerError{}
 }
 
-/*GetOutboundCallanalysisresponsesetInternalServerError handles this case with default header values.
+/*
+GetOutboundCallanalysisresponsesetInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOutboundCallanalysisresponsesetInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound callanalysisresponseset internal server error response has a 2xx status code
+func (o *GetOutboundCallanalysisresponsesetInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound callanalysisresponseset internal server error response has a 3xx status code
+func (o *GetOutboundCallanalysisresponsesetInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound callanalysisresponseset internal server error response has a 4xx status code
+func (o *GetOutboundCallanalysisresponsesetInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound callanalysisresponseset internal server error response has a 5xx status code
+func (o *GetOutboundCallanalysisresponsesetInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound callanalysisresponseset internal server error response a status code equal to that given
+func (o *GetOutboundCallanalysisresponsesetInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOutboundCallanalysisresponsesetInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOutboundCallanalysisresponsesetInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOutboundCallanalysisresponsesetServiceUnavailable() *GetOutboundCalla
 	return &GetOutboundCallanalysisresponsesetServiceUnavailable{}
 }
 
-/*GetOutboundCallanalysisresponsesetServiceUnavailable handles this case with default header values.
+/*
+GetOutboundCallanalysisresponsesetServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOutboundCallanalysisresponsesetServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound callanalysisresponseset service unavailable response has a 2xx status code
+func (o *GetOutboundCallanalysisresponsesetServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound callanalysisresponseset service unavailable response has a 3xx status code
+func (o *GetOutboundCallanalysisresponsesetServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound callanalysisresponseset service unavailable response has a 4xx status code
+func (o *GetOutboundCallanalysisresponsesetServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound callanalysisresponseset service unavailable response has a 5xx status code
+func (o *GetOutboundCallanalysisresponsesetServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound callanalysisresponseset service unavailable response a status code equal to that given
+func (o *GetOutboundCallanalysisresponsesetServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOutboundCallanalysisresponsesetServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOutboundCallanalysisresponsesetServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOutboundCallanalysisresponsesetGatewayTimeout() *GetOutboundCallanaly
 	return &GetOutboundCallanalysisresponsesetGatewayTimeout{}
 }
 
-/*GetOutboundCallanalysisresponsesetGatewayTimeout handles this case with default header values.
+/*
+GetOutboundCallanalysisresponsesetGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOutboundCallanalysisresponsesetGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound callanalysisresponseset gateway timeout response has a 2xx status code
+func (o *GetOutboundCallanalysisresponsesetGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound callanalysisresponseset gateway timeout response has a 3xx status code
+func (o *GetOutboundCallanalysisresponsesetGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound callanalysisresponseset gateway timeout response has a 4xx status code
+func (o *GetOutboundCallanalysisresponsesetGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound callanalysisresponseset gateway timeout response has a 5xx status code
+func (o *GetOutboundCallanalysisresponsesetGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound callanalysisresponseset gateway timeout response a status code equal to that given
+func (o *GetOutboundCallanalysisresponsesetGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOutboundCallanalysisresponsesetGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOutboundCallanalysisresponsesetGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] getOutboundCallanalysisresponsesetGatewayTimeout  %+v", 504, o.Payload)
 }
 

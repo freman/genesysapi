@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -87,7 +88,6 @@ func (m *ExternalMetricDefinition) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ExternalMetricDefinition) validateDateLastRefreshed(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateLastRefreshed) { // not required
 		return nil
 	}
@@ -132,7 +132,6 @@ func (m *ExternalMetricDefinition) validateDefaultObjectiveTypeEnum(path, locati
 }
 
 func (m *ExternalMetricDefinition) validateDefaultObjectiveType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DefaultObjectiveType) { // not required
 		return nil
 	}
@@ -146,7 +145,6 @@ func (m *ExternalMetricDefinition) validateDefaultObjectiveType(formats strfmt.R
 }
 
 func (m *ExternalMetricDefinition) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -194,13 +192,61 @@ func (m *ExternalMetricDefinition) validateUnitEnum(path, location string, value
 }
 
 func (m *ExternalMetricDefinition) validateUnit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Unit) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateUnitEnum("unit", "body", m.Unit); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this external metric definition based on the context it is used
+func (m *ExternalMetricDefinition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInUse(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ExternalMetricDefinition) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ExternalMetricDefinition) contextValidateInUse(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "inUse", "body", m.InUse); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ExternalMetricDefinition) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

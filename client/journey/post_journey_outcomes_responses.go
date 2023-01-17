@@ -107,7 +107,6 @@ func (o *PostJourneyOutcomesReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -118,7 +117,8 @@ func NewPostJourneyOutcomesOK() *PostJourneyOutcomesOK {
 	return &PostJourneyOutcomesOK{}
 }
 
-/*PostJourneyOutcomesOK handles this case with default header values.
+/*
+PostJourneyOutcomesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -126,7 +126,36 @@ type PostJourneyOutcomesOK struct {
 	Payload *models.Outcome
 }
 
+// IsSuccess returns true when this post journey outcomes o k response has a 2xx status code
+func (o *PostJourneyOutcomesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post journey outcomes o k response has a 3xx status code
+func (o *PostJourneyOutcomesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes o k response has a 4xx status code
+func (o *PostJourneyOutcomesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey outcomes o k response has a 5xx status code
+func (o *PostJourneyOutcomesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey outcomes o k response a status code equal to that given
+func (o *PostJourneyOutcomesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostJourneyOutcomesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostJourneyOutcomesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesOK  %+v", 200, o.Payload)
 }
 
@@ -151,7 +180,8 @@ func NewPostJourneyOutcomesCreated() *PostJourneyOutcomesCreated {
 	return &PostJourneyOutcomesCreated{}
 }
 
-/*PostJourneyOutcomesCreated handles this case with default header values.
+/*
+PostJourneyOutcomesCreated describes a response with status code 201, with default header values.
 
 Outcome created.
 */
@@ -159,7 +189,36 @@ type PostJourneyOutcomesCreated struct {
 	Payload *models.Outcome
 }
 
+// IsSuccess returns true when this post journey outcomes created response has a 2xx status code
+func (o *PostJourneyOutcomesCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post journey outcomes created response has a 3xx status code
+func (o *PostJourneyOutcomesCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes created response has a 4xx status code
+func (o *PostJourneyOutcomesCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey outcomes created response has a 5xx status code
+func (o *PostJourneyOutcomesCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey outcomes created response a status code equal to that given
+func (o *PostJourneyOutcomesCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostJourneyOutcomesCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostJourneyOutcomesCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesCreated  %+v", 201, o.Payload)
 }
 
@@ -184,7 +243,8 @@ func NewPostJourneyOutcomesBadRequest() *PostJourneyOutcomesBadRequest {
 	return &PostJourneyOutcomesBadRequest{}
 }
 
-/*PostJourneyOutcomesBadRequest handles this case with default header values.
+/*
+PostJourneyOutcomesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -192,7 +252,36 @@ type PostJourneyOutcomesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey outcomes bad request response has a 2xx status code
+func (o *PostJourneyOutcomesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey outcomes bad request response has a 3xx status code
+func (o *PostJourneyOutcomesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes bad request response has a 4xx status code
+func (o *PostJourneyOutcomesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey outcomes bad request response has a 5xx status code
+func (o *PostJourneyOutcomesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey outcomes bad request response a status code equal to that given
+func (o *PostJourneyOutcomesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostJourneyOutcomesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostJourneyOutcomesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -217,7 +306,8 @@ func NewPostJourneyOutcomesUnauthorized() *PostJourneyOutcomesUnauthorized {
 	return &PostJourneyOutcomesUnauthorized{}
 }
 
-/*PostJourneyOutcomesUnauthorized handles this case with default header values.
+/*
+PostJourneyOutcomesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -225,7 +315,36 @@ type PostJourneyOutcomesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey outcomes unauthorized response has a 2xx status code
+func (o *PostJourneyOutcomesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey outcomes unauthorized response has a 3xx status code
+func (o *PostJourneyOutcomesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes unauthorized response has a 4xx status code
+func (o *PostJourneyOutcomesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey outcomes unauthorized response has a 5xx status code
+func (o *PostJourneyOutcomesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey outcomes unauthorized response a status code equal to that given
+func (o *PostJourneyOutcomesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostJourneyOutcomesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostJourneyOutcomesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -250,7 +369,8 @@ func NewPostJourneyOutcomesForbidden() *PostJourneyOutcomesForbidden {
 	return &PostJourneyOutcomesForbidden{}
 }
 
-/*PostJourneyOutcomesForbidden handles this case with default header values.
+/*
+PostJourneyOutcomesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -258,7 +378,36 @@ type PostJourneyOutcomesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey outcomes forbidden response has a 2xx status code
+func (o *PostJourneyOutcomesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey outcomes forbidden response has a 3xx status code
+func (o *PostJourneyOutcomesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes forbidden response has a 4xx status code
+func (o *PostJourneyOutcomesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey outcomes forbidden response has a 5xx status code
+func (o *PostJourneyOutcomesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey outcomes forbidden response a status code equal to that given
+func (o *PostJourneyOutcomesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostJourneyOutcomesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostJourneyOutcomesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesForbidden  %+v", 403, o.Payload)
 }
 
@@ -283,7 +432,8 @@ func NewPostJourneyOutcomesNotFound() *PostJourneyOutcomesNotFound {
 	return &PostJourneyOutcomesNotFound{}
 }
 
-/*PostJourneyOutcomesNotFound handles this case with default header values.
+/*
+PostJourneyOutcomesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -291,7 +441,36 @@ type PostJourneyOutcomesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey outcomes not found response has a 2xx status code
+func (o *PostJourneyOutcomesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey outcomes not found response has a 3xx status code
+func (o *PostJourneyOutcomesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes not found response has a 4xx status code
+func (o *PostJourneyOutcomesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey outcomes not found response has a 5xx status code
+func (o *PostJourneyOutcomesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey outcomes not found response a status code equal to that given
+func (o *PostJourneyOutcomesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostJourneyOutcomesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostJourneyOutcomesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesNotFound  %+v", 404, o.Payload)
 }
 
@@ -316,7 +495,8 @@ func NewPostJourneyOutcomesRequestTimeout() *PostJourneyOutcomesRequestTimeout {
 	return &PostJourneyOutcomesRequestTimeout{}
 }
 
-/*PostJourneyOutcomesRequestTimeout handles this case with default header values.
+/*
+PostJourneyOutcomesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -324,7 +504,36 @@ type PostJourneyOutcomesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey outcomes request timeout response has a 2xx status code
+func (o *PostJourneyOutcomesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey outcomes request timeout response has a 3xx status code
+func (o *PostJourneyOutcomesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes request timeout response has a 4xx status code
+func (o *PostJourneyOutcomesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey outcomes request timeout response has a 5xx status code
+func (o *PostJourneyOutcomesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey outcomes request timeout response a status code equal to that given
+func (o *PostJourneyOutcomesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostJourneyOutcomesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostJourneyOutcomesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -349,7 +558,8 @@ func NewPostJourneyOutcomesConflict() *PostJourneyOutcomesConflict {
 	return &PostJourneyOutcomesConflict{}
 }
 
-/*PostJourneyOutcomesConflict handles this case with default header values.
+/*
+PostJourneyOutcomesConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -357,7 +567,36 @@ type PostJourneyOutcomesConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey outcomes conflict response has a 2xx status code
+func (o *PostJourneyOutcomesConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey outcomes conflict response has a 3xx status code
+func (o *PostJourneyOutcomesConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes conflict response has a 4xx status code
+func (o *PostJourneyOutcomesConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey outcomes conflict response has a 5xx status code
+func (o *PostJourneyOutcomesConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey outcomes conflict response a status code equal to that given
+func (o *PostJourneyOutcomesConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostJourneyOutcomesConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostJourneyOutcomesConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesConflict  %+v", 409, o.Payload)
 }
 
@@ -382,7 +621,8 @@ func NewPostJourneyOutcomesRequestEntityTooLarge() *PostJourneyOutcomesRequestEn
 	return &PostJourneyOutcomesRequestEntityTooLarge{}
 }
 
-/*PostJourneyOutcomesRequestEntityTooLarge handles this case with default header values.
+/*
+PostJourneyOutcomesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -390,7 +630,36 @@ type PostJourneyOutcomesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey outcomes request entity too large response has a 2xx status code
+func (o *PostJourneyOutcomesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey outcomes request entity too large response has a 3xx status code
+func (o *PostJourneyOutcomesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes request entity too large response has a 4xx status code
+func (o *PostJourneyOutcomesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey outcomes request entity too large response has a 5xx status code
+func (o *PostJourneyOutcomesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey outcomes request entity too large response a status code equal to that given
+func (o *PostJourneyOutcomesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostJourneyOutcomesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostJourneyOutcomesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -415,7 +684,8 @@ func NewPostJourneyOutcomesUnsupportedMediaType() *PostJourneyOutcomesUnsupporte
 	return &PostJourneyOutcomesUnsupportedMediaType{}
 }
 
-/*PostJourneyOutcomesUnsupportedMediaType handles this case with default header values.
+/*
+PostJourneyOutcomesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -423,7 +693,36 @@ type PostJourneyOutcomesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey outcomes unsupported media type response has a 2xx status code
+func (o *PostJourneyOutcomesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey outcomes unsupported media type response has a 3xx status code
+func (o *PostJourneyOutcomesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes unsupported media type response has a 4xx status code
+func (o *PostJourneyOutcomesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey outcomes unsupported media type response has a 5xx status code
+func (o *PostJourneyOutcomesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey outcomes unsupported media type response a status code equal to that given
+func (o *PostJourneyOutcomesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostJourneyOutcomesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostJourneyOutcomesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -448,7 +747,8 @@ func NewPostJourneyOutcomesTooManyRequests() *PostJourneyOutcomesTooManyRequests
 	return &PostJourneyOutcomesTooManyRequests{}
 }
 
-/*PostJourneyOutcomesTooManyRequests handles this case with default header values.
+/*
+PostJourneyOutcomesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -456,7 +756,36 @@ type PostJourneyOutcomesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey outcomes too many requests response has a 2xx status code
+func (o *PostJourneyOutcomesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey outcomes too many requests response has a 3xx status code
+func (o *PostJourneyOutcomesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes too many requests response has a 4xx status code
+func (o *PostJourneyOutcomesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey outcomes too many requests response has a 5xx status code
+func (o *PostJourneyOutcomesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey outcomes too many requests response a status code equal to that given
+func (o *PostJourneyOutcomesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostJourneyOutcomesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostJourneyOutcomesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -481,7 +810,8 @@ func NewPostJourneyOutcomesInternalServerError() *PostJourneyOutcomesInternalSer
 	return &PostJourneyOutcomesInternalServerError{}
 }
 
-/*PostJourneyOutcomesInternalServerError handles this case with default header values.
+/*
+PostJourneyOutcomesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -489,7 +819,36 @@ type PostJourneyOutcomesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey outcomes internal server error response has a 2xx status code
+func (o *PostJourneyOutcomesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey outcomes internal server error response has a 3xx status code
+func (o *PostJourneyOutcomesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes internal server error response has a 4xx status code
+func (o *PostJourneyOutcomesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey outcomes internal server error response has a 5xx status code
+func (o *PostJourneyOutcomesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post journey outcomes internal server error response a status code equal to that given
+func (o *PostJourneyOutcomesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostJourneyOutcomesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostJourneyOutcomesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -514,7 +873,8 @@ func NewPostJourneyOutcomesServiceUnavailable() *PostJourneyOutcomesServiceUnava
 	return &PostJourneyOutcomesServiceUnavailable{}
 }
 
-/*PostJourneyOutcomesServiceUnavailable handles this case with default header values.
+/*
+PostJourneyOutcomesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -522,7 +882,36 @@ type PostJourneyOutcomesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey outcomes service unavailable response has a 2xx status code
+func (o *PostJourneyOutcomesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey outcomes service unavailable response has a 3xx status code
+func (o *PostJourneyOutcomesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes service unavailable response has a 4xx status code
+func (o *PostJourneyOutcomesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey outcomes service unavailable response has a 5xx status code
+func (o *PostJourneyOutcomesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post journey outcomes service unavailable response a status code equal to that given
+func (o *PostJourneyOutcomesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostJourneyOutcomesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostJourneyOutcomesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -547,7 +936,8 @@ func NewPostJourneyOutcomesGatewayTimeout() *PostJourneyOutcomesGatewayTimeout {
 	return &PostJourneyOutcomesGatewayTimeout{}
 }
 
-/*PostJourneyOutcomesGatewayTimeout handles this case with default header values.
+/*
+PostJourneyOutcomesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -555,7 +945,36 @@ type PostJourneyOutcomesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey outcomes gateway timeout response has a 2xx status code
+func (o *PostJourneyOutcomesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey outcomes gateway timeout response has a 3xx status code
+func (o *PostJourneyOutcomesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey outcomes gateway timeout response has a 4xx status code
+func (o *PostJourneyOutcomesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey outcomes gateway timeout response has a 5xx status code
+func (o *PostJourneyOutcomesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post journey outcomes gateway timeout response a status code equal to that given
+func (o *PostJourneyOutcomesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostJourneyOutcomesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostJourneyOutcomesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/outcomes][%d] postJourneyOutcomesGatewayTimeout  %+v", 504, o.Payload)
 }
 

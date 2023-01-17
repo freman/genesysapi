@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -18,10 +20,12 @@ import (
 type ItemValidationLimits struct {
 
 	// A structure denoting the system-imposed minimum and maximum string length (for text-based core types) or numeric values (for number-based) core types.  For example, the validationLimits for a text-based core type specify the min/max values for a minimum string length (minLength) constraint supplied by a schemaauthor on a text field.  Similarly, the maxLength's min/max specifies maximum string length constraint supplied by a schema author for the same field.
+	// Example: \"validationLimits\": {\n\"minLength\": {\"min\": 0, \"max\": 100},\n\"maxLength\": {\"min\": 1, \"max\": 100}\n}
 	// Required: true
 	MaxLength *MaxLength `json:"maxLength"`
 
 	// A structure denoting the system-imposed minimum string length (for text-based core types) or numeric values (for number-based) core types.  For example, the validationLimits for a text-based core type specify the min/max values for a minimum string length (minLength) constraint supplied by a schemaauthor on a text field.  Similarly, the maxLength's min/max specifies maximum string length constraint supplied by a schema author for the same field.
+	// Example: \"minLength\": {\"min\": 0, \"max\": 100}
 	// Required: true
 	MinLength *MinLength `json:"minLength"`
 }
@@ -54,6 +58,8 @@ func (m *ItemValidationLimits) validateMaxLength(formats strfmt.Registry) error 
 		if err := m.MaxLength.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("maxLength")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("maxLength")
 			}
 			return err
 		}
@@ -72,6 +78,58 @@ func (m *ItemValidationLimits) validateMinLength(formats strfmt.Registry) error 
 		if err := m.MinLength.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("minLength")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("minLength")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this item validation limits based on the context it is used
+func (m *ItemValidationLimits) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMaxLength(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMinLength(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ItemValidationLimits) contextValidateMaxLength(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MaxLength != nil {
+		if err := m.MaxLength.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("maxLength")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("maxLength")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ItemValidationLimits) contextValidateMinLength(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MinLength != nil {
+		if err := m.MinLength.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("minLength")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("minLength")
 			}
 			return err
 		}

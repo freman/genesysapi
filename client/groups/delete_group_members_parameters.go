@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteGroupMembersParams creates a new DeleteGroupMembersParams object
-// with the default values initialized.
+// NewDeleteGroupMembersParams creates a new DeleteGroupMembersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteGroupMembersParams() *DeleteGroupMembersParams {
-	var ()
 	return &DeleteGroupMembersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteGroupMembersParamsWithTimeout creates a new DeleteGroupMembersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteGroupMembersParamsWithTimeout(timeout time.Duration) *DeleteGroupMembersParams {
-	var ()
 	return &DeleteGroupMembersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteGroupMembersParamsWithContext creates a new DeleteGroupMembersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteGroupMembersParamsWithContext(ctx context.Context) *DeleteGroupMembersParams {
-	var ()
 	return &DeleteGroupMembersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteGroupMembersParamsWithHTTPClient creates a new DeleteGroupMembersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteGroupMembersParamsWithHTTPClient(client *http.Client) *DeleteGroupMembersParams {
-	var ()
 	return &DeleteGroupMembersParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteGroupMembersParams contains all the parameters to send to the API endpoint
-for the delete group members operation typically these are written to a http.Request
+/*
+DeleteGroupMembersParams contains all the parameters to send to the API endpoint
+
+	for the delete group members operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteGroupMembersParams struct {
 
-	/*GroupID
-	  Group ID
+	/* GroupID.
 
+	   Group ID
 	*/
 	GroupID string
-	/*Ids
-	  Comma separated list of userIds to remove
 
+	/* Ids.
+
+	   Comma separated list of userIds to remove
 	*/
 	Ids string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete group members params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteGroupMembersParams) WithDefaults() *DeleteGroupMembersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete group members params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteGroupMembersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete group members params
@@ -148,6 +165,7 @@ func (o *DeleteGroupMembersParams) WriteToRequest(r runtime.ClientRequest, reg s
 	qrIds := o.Ids
 	qIds := qrIds
 	if qIds != "" {
+
 		if err := r.SetQueryParam("ids", qIds); err != nil {
 			return err
 		}

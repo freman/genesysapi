@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOrgauthorizationPairingParams creates a new GetOrgauthorizationPairingParams object
-// with the default values initialized.
+// NewGetOrgauthorizationPairingParams creates a new GetOrgauthorizationPairingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOrgauthorizationPairingParams() *GetOrgauthorizationPairingParams {
-	var ()
 	return &GetOrgauthorizationPairingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOrgauthorizationPairingParamsWithTimeout creates a new GetOrgauthorizationPairingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOrgauthorizationPairingParamsWithTimeout(timeout time.Duration) *GetOrgauthorizationPairingParams {
-	var ()
 	return &GetOrgauthorizationPairingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOrgauthorizationPairingParamsWithContext creates a new GetOrgauthorizationPairingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOrgauthorizationPairingParamsWithContext(ctx context.Context) *GetOrgauthorizationPairingParams {
-	var ()
 	return &GetOrgauthorizationPairingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOrgauthorizationPairingParamsWithHTTPClient creates a new GetOrgauthorizationPairingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOrgauthorizationPairingParamsWithHTTPClient(client *http.Client) *GetOrgauthorizationPairingParams {
-	var ()
 	return &GetOrgauthorizationPairingParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOrgauthorizationPairingParams contains all the parameters to send to the API endpoint
-for the get orgauthorization pairing operation typically these are written to a http.Request
+/*
+GetOrgauthorizationPairingParams contains all the parameters to send to the API endpoint
+
+	for the get orgauthorization pairing operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOrgauthorizationPairingParams struct {
 
-	/*PairingID
-	  Pairing Id
+	/* PairingID.
 
+	   Pairing Id
 	*/
 	PairingID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get orgauthorization pairing params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrgauthorizationPairingParams) WithDefaults() *GetOrgauthorizationPairingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get orgauthorization pairing params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrgauthorizationPairingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get orgauthorization pairing params

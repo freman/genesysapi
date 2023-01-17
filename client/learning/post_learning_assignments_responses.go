@@ -101,7 +101,6 @@ func (o *PostLearningAssignmentsReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostLearningAssignmentsOK() *PostLearningAssignmentsOK {
 	return &PostLearningAssignmentsOK{}
 }
 
-/*PostLearningAssignmentsOK handles this case with default header values.
+/*
+PostLearningAssignmentsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostLearningAssignmentsOK struct {
 	Payload *models.LearningAssignment
 }
 
+// IsSuccess returns true when this post learning assignments o k response has a 2xx status code
+func (o *PostLearningAssignmentsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post learning assignments o k response has a 3xx status code
+func (o *PostLearningAssignmentsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments o k response has a 4xx status code
+func (o *PostLearningAssignmentsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments o k response has a 5xx status code
+func (o *PostLearningAssignmentsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments o k response a status code equal to that given
+func (o *PostLearningAssignmentsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLearningAssignmentsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLearningAssignmentsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostLearningAssignmentsBadRequest() *PostLearningAssignmentsBadRequest {
 	return &PostLearningAssignmentsBadRequest{}
 }
 
-/*PostLearningAssignmentsBadRequest handles this case with default header values.
+/*
+PostLearningAssignmentsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostLearningAssignmentsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments bad request response has a 2xx status code
+func (o *PostLearningAssignmentsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments bad request response has a 3xx status code
+func (o *PostLearningAssignmentsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bad request response has a 4xx status code
+func (o *PostLearningAssignmentsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments bad request response has a 5xx status code
+func (o *PostLearningAssignmentsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments bad request response a status code equal to that given
+func (o *PostLearningAssignmentsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLearningAssignmentsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostLearningAssignmentsUnauthorized() *PostLearningAssignmentsUnauthoriz
 	return &PostLearningAssignmentsUnauthorized{}
 }
 
-/*PostLearningAssignmentsUnauthorized handles this case with default header values.
+/*
+PostLearningAssignmentsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostLearningAssignmentsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments unauthorized response has a 2xx status code
+func (o *PostLearningAssignmentsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments unauthorized response has a 3xx status code
+func (o *PostLearningAssignmentsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments unauthorized response has a 4xx status code
+func (o *PostLearningAssignmentsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments unauthorized response has a 5xx status code
+func (o *PostLearningAssignmentsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments unauthorized response a status code equal to that given
+func (o *PostLearningAssignmentsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLearningAssignmentsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLearningAssignmentsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostLearningAssignmentsForbidden() *PostLearningAssignmentsForbidden {
 	return &PostLearningAssignmentsForbidden{}
 }
 
-/*PostLearningAssignmentsForbidden handles this case with default header values.
+/*
+PostLearningAssignmentsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostLearningAssignmentsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments forbidden response has a 2xx status code
+func (o *PostLearningAssignmentsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments forbidden response has a 3xx status code
+func (o *PostLearningAssignmentsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments forbidden response has a 4xx status code
+func (o *PostLearningAssignmentsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments forbidden response has a 5xx status code
+func (o *PostLearningAssignmentsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments forbidden response a status code equal to that given
+func (o *PostLearningAssignmentsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLearningAssignmentsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLearningAssignmentsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostLearningAssignmentsNotFound() *PostLearningAssignmentsNotFound {
 	return &PostLearningAssignmentsNotFound{}
 }
 
-/*PostLearningAssignmentsNotFound handles this case with default header values.
+/*
+PostLearningAssignmentsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostLearningAssignmentsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments not found response has a 2xx status code
+func (o *PostLearningAssignmentsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments not found response has a 3xx status code
+func (o *PostLearningAssignmentsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments not found response has a 4xx status code
+func (o *PostLearningAssignmentsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments not found response has a 5xx status code
+func (o *PostLearningAssignmentsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments not found response a status code equal to that given
+func (o *PostLearningAssignmentsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLearningAssignmentsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLearningAssignmentsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostLearningAssignmentsRequestTimeout() *PostLearningAssignmentsRequestT
 	return &PostLearningAssignmentsRequestTimeout{}
 }
 
-/*PostLearningAssignmentsRequestTimeout handles this case with default header values.
+/*
+PostLearningAssignmentsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostLearningAssignmentsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments request timeout response has a 2xx status code
+func (o *PostLearningAssignmentsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments request timeout response has a 3xx status code
+func (o *PostLearningAssignmentsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments request timeout response has a 4xx status code
+func (o *PostLearningAssignmentsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments request timeout response has a 5xx status code
+func (o *PostLearningAssignmentsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments request timeout response a status code equal to that given
+func (o *PostLearningAssignmentsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLearningAssignmentsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLearningAssignmentsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostLearningAssignmentsConflict() *PostLearningAssignmentsConflict {
 	return &PostLearningAssignmentsConflict{}
 }
 
-/*PostLearningAssignmentsConflict handles this case with default header values.
+/*
+PostLearningAssignmentsConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PostLearningAssignmentsConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments conflict response has a 2xx status code
+func (o *PostLearningAssignmentsConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments conflict response has a 3xx status code
+func (o *PostLearningAssignmentsConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments conflict response has a 4xx status code
+func (o *PostLearningAssignmentsConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments conflict response has a 5xx status code
+func (o *PostLearningAssignmentsConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments conflict response a status code equal to that given
+func (o *PostLearningAssignmentsConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostLearningAssignmentsConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostLearningAssignmentsConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostLearningAssignmentsRequestEntityTooLarge() *PostLearningAssignmentsR
 	return &PostLearningAssignmentsRequestEntityTooLarge{}
 }
 
-/*PostLearningAssignmentsRequestEntityTooLarge handles this case with default header values.
+/*
+PostLearningAssignmentsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostLearningAssignmentsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments request entity too large response has a 2xx status code
+func (o *PostLearningAssignmentsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments request entity too large response has a 3xx status code
+func (o *PostLearningAssignmentsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments request entity too large response has a 4xx status code
+func (o *PostLearningAssignmentsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments request entity too large response has a 5xx status code
+func (o *PostLearningAssignmentsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments request entity too large response a status code equal to that given
+func (o *PostLearningAssignmentsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLearningAssignmentsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLearningAssignmentsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostLearningAssignmentsUnsupportedMediaType() *PostLearningAssignmentsUn
 	return &PostLearningAssignmentsUnsupportedMediaType{}
 }
 
-/*PostLearningAssignmentsUnsupportedMediaType handles this case with default header values.
+/*
+PostLearningAssignmentsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostLearningAssignmentsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments unsupported media type response has a 2xx status code
+func (o *PostLearningAssignmentsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments unsupported media type response has a 3xx status code
+func (o *PostLearningAssignmentsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments unsupported media type response has a 4xx status code
+func (o *PostLearningAssignmentsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments unsupported media type response has a 5xx status code
+func (o *PostLearningAssignmentsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments unsupported media type response a status code equal to that given
+func (o *PostLearningAssignmentsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLearningAssignmentsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLearningAssignmentsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostLearningAssignmentsTooManyRequests() *PostLearningAssignmentsTooMany
 	return &PostLearningAssignmentsTooManyRequests{}
 }
 
-/*PostLearningAssignmentsTooManyRequests handles this case with default header values.
+/*
+PostLearningAssignmentsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostLearningAssignmentsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments too many requests response has a 2xx status code
+func (o *PostLearningAssignmentsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments too many requests response has a 3xx status code
+func (o *PostLearningAssignmentsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments too many requests response has a 4xx status code
+func (o *PostLearningAssignmentsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments too many requests response has a 5xx status code
+func (o *PostLearningAssignmentsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments too many requests response a status code equal to that given
+func (o *PostLearningAssignmentsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLearningAssignmentsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLearningAssignmentsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostLearningAssignmentsInternalServerError() *PostLearningAssignmentsInt
 	return &PostLearningAssignmentsInternalServerError{}
 }
 
-/*PostLearningAssignmentsInternalServerError handles this case with default header values.
+/*
+PostLearningAssignmentsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostLearningAssignmentsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments internal server error response has a 2xx status code
+func (o *PostLearningAssignmentsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments internal server error response has a 3xx status code
+func (o *PostLearningAssignmentsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments internal server error response has a 4xx status code
+func (o *PostLearningAssignmentsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments internal server error response has a 5xx status code
+func (o *PostLearningAssignmentsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignments internal server error response a status code equal to that given
+func (o *PostLearningAssignmentsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLearningAssignmentsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLearningAssignmentsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostLearningAssignmentsServiceUnavailable() *PostLearningAssignmentsServ
 	return &PostLearningAssignmentsServiceUnavailable{}
 }
 
-/*PostLearningAssignmentsServiceUnavailable handles this case with default header values.
+/*
+PostLearningAssignmentsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostLearningAssignmentsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments service unavailable response has a 2xx status code
+func (o *PostLearningAssignmentsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments service unavailable response has a 3xx status code
+func (o *PostLearningAssignmentsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments service unavailable response has a 4xx status code
+func (o *PostLearningAssignmentsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments service unavailable response has a 5xx status code
+func (o *PostLearningAssignmentsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignments service unavailable response a status code equal to that given
+func (o *PostLearningAssignmentsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLearningAssignmentsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLearningAssignmentsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostLearningAssignmentsGatewayTimeout() *PostLearningAssignmentsGatewayT
 	return &PostLearningAssignmentsGatewayTimeout{}
 }
 
-/*PostLearningAssignmentsGatewayTimeout handles this case with default header values.
+/*
+PostLearningAssignmentsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostLearningAssignmentsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments gateway timeout response has a 2xx status code
+func (o *PostLearningAssignmentsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments gateway timeout response has a 3xx status code
+func (o *PostLearningAssignmentsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments gateway timeout response has a 4xx status code
+func (o *PostLearningAssignmentsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments gateway timeout response has a 5xx status code
+func (o *PostLearningAssignmentsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignments gateway timeout response a status code equal to that given
+func (o *PostLearningAssignmentsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLearningAssignmentsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLearningAssignmentsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments][%d] postLearningAssignmentsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostFlowHistoryParams creates a new PostFlowHistoryParams object
-// with the default values initialized.
+// NewPostFlowHistoryParams creates a new PostFlowHistoryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostFlowHistoryParams() *PostFlowHistoryParams {
-	var ()
 	return &PostFlowHistoryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostFlowHistoryParamsWithTimeout creates a new PostFlowHistoryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostFlowHistoryParamsWithTimeout(timeout time.Duration) *PostFlowHistoryParams {
-	var ()
 	return &PostFlowHistoryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostFlowHistoryParamsWithContext creates a new PostFlowHistoryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostFlowHistoryParamsWithContext(ctx context.Context) *PostFlowHistoryParams {
-	var ()
 	return &PostFlowHistoryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostFlowHistoryParamsWithHTTPClient creates a new PostFlowHistoryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostFlowHistoryParamsWithHTTPClient(client *http.Client) *PostFlowHistoryParams {
-	var ()
 	return &PostFlowHistoryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostFlowHistoryParams contains all the parameters to send to the API endpoint
-for the post flow history operation typically these are written to a http.Request
+/*
+PostFlowHistoryParams contains all the parameters to send to the API endpoint
+
+	for the post flow history operation.
+
+	Typically these are written to a http.Request.
 */
 type PostFlowHistoryParams struct {
 
-	/*FlowID
-	  Flow ID
+	/* FlowID.
 
+	   Flow ID
 	*/
 	FlowID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post flow history params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowHistoryParams) WithDefaults() *PostFlowHistoryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post flow history params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowHistoryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post flow history params

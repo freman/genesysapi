@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchRoutingEmailDomainValidateParams creates a new PatchRoutingEmailDomainValidateParams object
-// with the default values initialized.
+// NewPatchRoutingEmailDomainValidateParams creates a new PatchRoutingEmailDomainValidateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchRoutingEmailDomainValidateParams() *PatchRoutingEmailDomainValidateParams {
-	var ()
 	return &PatchRoutingEmailDomainValidateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchRoutingEmailDomainValidateParamsWithTimeout creates a new PatchRoutingEmailDomainValidateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchRoutingEmailDomainValidateParamsWithTimeout(timeout time.Duration) *PatchRoutingEmailDomainValidateParams {
-	var ()
 	return &PatchRoutingEmailDomainValidateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchRoutingEmailDomainValidateParamsWithContext creates a new PatchRoutingEmailDomainValidateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchRoutingEmailDomainValidateParamsWithContext(ctx context.Context) *PatchRoutingEmailDomainValidateParams {
-	var ()
 	return &PatchRoutingEmailDomainValidateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchRoutingEmailDomainValidateParamsWithHTTPClient creates a new PatchRoutingEmailDomainValidateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchRoutingEmailDomainValidateParamsWithHTTPClient(client *http.Client) *PatchRoutingEmailDomainValidateParams {
-	var ()
 	return &PatchRoutingEmailDomainValidateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchRoutingEmailDomainValidateParams contains all the parameters to send to the API endpoint
-for the patch routing email domain validate operation typically these are written to a http.Request
+/*
+PatchRoutingEmailDomainValidateParams contains all the parameters to send to the API endpoint
+
+	for the patch routing email domain validate operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchRoutingEmailDomainValidateParams struct {
 
-	/*Body
-	  Domain settings
+	/* Body.
 
+	   Domain settings
 	*/
 	Body *models.InboundDomainPatchRequest
-	/*DomainID
-	  domain ID
 
+	/* DomainID.
+
+	   domain ID
 	*/
 	DomainID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch routing email domain validate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchRoutingEmailDomainValidateParams) WithDefaults() *PatchRoutingEmailDomainValidateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch routing email domain validate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchRoutingEmailDomainValidateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch routing email domain validate params
@@ -140,7 +157,6 @@ func (o *PatchRoutingEmailDomainValidateParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

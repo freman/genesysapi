@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostIntegrationsActionDraftParams creates a new PostIntegrationsActionDraftParams object
-// with the default values initialized.
+// NewPostIntegrationsActionDraftParams creates a new PostIntegrationsActionDraftParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostIntegrationsActionDraftParams() *PostIntegrationsActionDraftParams {
-	var ()
 	return &PostIntegrationsActionDraftParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostIntegrationsActionDraftParamsWithTimeout creates a new PostIntegrationsActionDraftParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostIntegrationsActionDraftParamsWithTimeout(timeout time.Duration) *PostIntegrationsActionDraftParams {
-	var ()
 	return &PostIntegrationsActionDraftParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostIntegrationsActionDraftParamsWithContext creates a new PostIntegrationsActionDraftParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostIntegrationsActionDraftParamsWithContext(ctx context.Context) *PostIntegrationsActionDraftParams {
-	var ()
 	return &PostIntegrationsActionDraftParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostIntegrationsActionDraftParamsWithHTTPClient creates a new PostIntegrationsActionDraftParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostIntegrationsActionDraftParamsWithHTTPClient(client *http.Client) *PostIntegrationsActionDraftParams {
-	var ()
 	return &PostIntegrationsActionDraftParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostIntegrationsActionDraftParams contains all the parameters to send to the API endpoint
-for the post integrations action draft operation typically these are written to a http.Request
+/*
+PostIntegrationsActionDraftParams contains all the parameters to send to the API endpoint
+
+	for the post integrations action draft operation.
+
+	Typically these are written to a http.Request.
 */
 type PostIntegrationsActionDraftParams struct {
 
-	/*ActionID
-	  actionId
+	/* ActionID.
 
+	   actionId
 	*/
 	ActionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post integrations action draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostIntegrationsActionDraftParams) WithDefaults() *PostIntegrationsActionDraftParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post integrations action draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostIntegrationsActionDraftParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post integrations action draft params

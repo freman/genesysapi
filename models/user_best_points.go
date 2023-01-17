@@ -6,11 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // UserBestPoints user best points
@@ -46,7 +48,6 @@ func (m *UserBestPoints) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserBestPoints) validateBestPoints(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BestPoints) { // not required
 		return nil
 	}
@@ -60,6 +61,8 @@ func (m *UserBestPoints) validateBestPoints(formats strfmt.Registry) error {
 			if err := m.BestPoints[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("bestPoints" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bestPoints" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -71,7 +74,6 @@ func (m *UserBestPoints) validateBestPoints(formats strfmt.Registry) error {
 }
 
 func (m *UserBestPoints) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -80,6 +82,66 @@ func (m *UserBestPoints) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user best points based on the context it is used
+func (m *UserBestPoints) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBestPoints(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserBestPoints) contextValidateBestPoints(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "bestPoints", "body", []*UserBestPointsItem(m.BestPoints)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.BestPoints); i++ {
+
+		if m.BestPoints[i] != nil {
+			if err := m.BestPoints[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("bestPoints" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bestPoints" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserBestPoints) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

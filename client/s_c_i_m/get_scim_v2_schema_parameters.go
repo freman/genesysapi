@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetScimV2SchemaParams creates a new GetScimV2SchemaParams object
-// with the default values initialized.
+// NewGetScimV2SchemaParams creates a new GetScimV2SchemaParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScimV2SchemaParams() *GetScimV2SchemaParams {
-	var ()
 	return &GetScimV2SchemaParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScimV2SchemaParamsWithTimeout creates a new GetScimV2SchemaParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScimV2SchemaParamsWithTimeout(timeout time.Duration) *GetScimV2SchemaParams {
-	var ()
 	return &GetScimV2SchemaParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScimV2SchemaParamsWithContext creates a new GetScimV2SchemaParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScimV2SchemaParamsWithContext(ctx context.Context) *GetScimV2SchemaParams {
-	var ()
 	return &GetScimV2SchemaParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetScimV2SchemaParamsWithHTTPClient creates a new GetScimV2SchemaParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScimV2SchemaParamsWithHTTPClient(client *http.Client) *GetScimV2SchemaParams {
-	var ()
 	return &GetScimV2SchemaParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetScimV2SchemaParams contains all the parameters to send to the API endpoint
-for the get scim v2 schema operation typically these are written to a http.Request
+/*
+GetScimV2SchemaParams contains all the parameters to send to the API endpoint
+
+	for the get scim v2 schema operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScimV2SchemaParams struct {
 
-	/*SchemaID
-	  The ID of a schema. Returned with GET /api/v2/scim/v2/schemas.
+	/* SchemaID.
 
+	   The ID of a schema. Returned with GET /api/v2/scim/v2/schemas.
 	*/
 	SchemaID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get scim v2 schema params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScimV2SchemaParams) WithDefaults() *GetScimV2SchemaParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get scim v2 schema params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScimV2SchemaParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get scim v2 schema params

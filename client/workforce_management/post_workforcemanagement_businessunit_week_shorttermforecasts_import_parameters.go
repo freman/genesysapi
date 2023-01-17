@@ -18,66 +18,86 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams() *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParamsWithTimeout creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParamsWithContext creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParamsWithContext(ctx context.Context) *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParamsWithHTTPClient creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement businessunit week shorttermforecasts import operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement businessunit week shorttermforecasts import operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.WfmProcessUploadRequest
-	/*BusinessUnitID
-	  The ID of the business unit to which the forecast belongs
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit to which the forecast belongs
 	*/
 	BusinessUnitID string
-	/*WeekDateID
-	  First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekDateID.
+
+	   First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekDateID strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement businessunit week shorttermforecasts import params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams) WithDefaults() *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement businessunit week shorttermforecasts import params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement businessunit week shorttermforecasts import params
@@ -153,7 +173,6 @@ func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportParams) 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

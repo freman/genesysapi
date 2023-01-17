@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -82,7 +83,6 @@ func (m *PredictorModel) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PredictorModel) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -95,7 +95,6 @@ func (m *PredictorModel) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *PredictorModel) validateDateTrained(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateTrained) { // not required
 		return nil
 	}
@@ -108,7 +107,6 @@ func (m *PredictorModel) validateDateTrained(formats strfmt.Registry) error {
 }
 
 func (m *PredictorModel) validateFeatures(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Features) { // not required
 		return nil
 	}
@@ -122,6 +120,8 @@ func (m *PredictorModel) validateFeatures(formats strfmt.Registry) error {
 			if err := m.Features[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("features" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("features" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -165,7 +165,6 @@ func (m *PredictorModel) validateMediaTypeEnum(path, location string, value stri
 }
 
 func (m *PredictorModel) validateMediaType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaType) { // not required
 		return nil
 	}
@@ -179,7 +178,6 @@ func (m *PredictorModel) validateMediaType(formats strfmt.Registry) error {
 }
 
 func (m *PredictorModel) validateQueues(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queues) { // not required
 		return nil
 	}
@@ -193,6 +191,135 @@ func (m *PredictorModel) validateQueues(formats strfmt.Registry) error {
 			if err := m.Queues[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queues" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this predictor model based on the context it is used
+func (m *PredictorModel) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateTrained(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFeatures(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKpi(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMediaType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PredictorModel) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PredictorModel) contextValidateDateTrained(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateTrained", "body", strfmt.DateTime(m.DateTrained)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PredictorModel) contextValidateFeatures(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Features); i++ {
+
+		if m.Features[i] != nil {
+			if err := m.Features[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("features" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("features" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *PredictorModel) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PredictorModel) contextValidateKpi(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "kpi", "body", string(m.Kpi)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PredictorModel) contextValidateMediaType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "mediaType", "body", string(m.MediaType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PredictorModel) contextValidateQueues(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "queues", "body", []*AddressableEntityRef(m.Queues)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Queues); i++ {
+
+		if m.Queues[i] != nil {
+			if err := m.Queues[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

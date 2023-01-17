@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostGroupGreetingsParams creates a new PostGroupGreetingsParams object
-// with the default values initialized.
+// NewPostGroupGreetingsParams creates a new PostGroupGreetingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostGroupGreetingsParams() *PostGroupGreetingsParams {
-	var ()
 	return &PostGroupGreetingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostGroupGreetingsParamsWithTimeout creates a new PostGroupGreetingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostGroupGreetingsParamsWithTimeout(timeout time.Duration) *PostGroupGreetingsParams {
-	var ()
 	return &PostGroupGreetingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostGroupGreetingsParamsWithContext creates a new PostGroupGreetingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostGroupGreetingsParamsWithContext(ctx context.Context) *PostGroupGreetingsParams {
-	var ()
 	return &PostGroupGreetingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostGroupGreetingsParamsWithHTTPClient creates a new PostGroupGreetingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostGroupGreetingsParamsWithHTTPClient(client *http.Client) *PostGroupGreetingsParams {
-	var ()
 	return &PostGroupGreetingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostGroupGreetingsParams contains all the parameters to send to the API endpoint
-for the post group greetings operation typically these are written to a http.Request
+/*
+PostGroupGreetingsParams contains all the parameters to send to the API endpoint
+
+	for the post group greetings operation.
+
+	Typically these are written to a http.Request.
 */
 type PostGroupGreetingsParams struct {
 
-	/*Body
-	  The Greeting to create
+	/* Body.
 
+	   The Greeting to create
 	*/
 	Body *models.Greeting
-	/*GroupID
-	  Group ID
 
+	/* GroupID.
+
+	   Group ID
 	*/
 	GroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post group greetings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGroupGreetingsParams) WithDefaults() *PostGroupGreetingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post group greetings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGroupGreetingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post group greetings params
@@ -140,7 +157,6 @@ func (o *PostGroupGreetingsParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

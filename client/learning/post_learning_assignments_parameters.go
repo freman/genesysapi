@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostLearningAssignmentsParams creates a new PostLearningAssignmentsParams object
-// with the default values initialized.
+// NewPostLearningAssignmentsParams creates a new PostLearningAssignmentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostLearningAssignmentsParams() *PostLearningAssignmentsParams {
-	var ()
 	return &PostLearningAssignmentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostLearningAssignmentsParamsWithTimeout creates a new PostLearningAssignmentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostLearningAssignmentsParamsWithTimeout(timeout time.Duration) *PostLearningAssignmentsParams {
-	var ()
 	return &PostLearningAssignmentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostLearningAssignmentsParamsWithContext creates a new PostLearningAssignmentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostLearningAssignmentsParamsWithContext(ctx context.Context) *PostLearningAssignmentsParams {
-	var ()
 	return &PostLearningAssignmentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostLearningAssignmentsParamsWithHTTPClient creates a new PostLearningAssignmentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostLearningAssignmentsParamsWithHTTPClient(client *http.Client) *PostLearningAssignmentsParams {
-	var ()
 	return &PostLearningAssignmentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostLearningAssignmentsParams contains all the parameters to send to the API endpoint
-for the post learning assignments operation typically these are written to a http.Request
+/*
+PostLearningAssignmentsParams contains all the parameters to send to the API endpoint
+
+	for the post learning assignments operation.
+
+	Typically these are written to a http.Request.
 */
 type PostLearningAssignmentsParams struct {
 
-	/*Body
-	  The Learning Assignment to be created
+	/* Body.
 
+	   The Learning Assignment to be created
 	*/
 	Body *models.LearningAssignmentCreate
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post learning assignments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLearningAssignmentsParams) WithDefaults() *PostLearningAssignmentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post learning assignments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLearningAssignmentsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post learning assignments params
@@ -124,7 +140,6 @@ func (o *PostLearningAssignmentsParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

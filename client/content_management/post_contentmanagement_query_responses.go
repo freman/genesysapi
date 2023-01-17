@@ -95,7 +95,6 @@ func (o *PostContentmanagementQueryReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostContentmanagementQueryOK() *PostContentmanagementQueryOK {
 	return &PostContentmanagementQueryOK{}
 }
 
-/*PostContentmanagementQueryOK handles this case with default header values.
+/*
+PostContentmanagementQueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostContentmanagementQueryOK struct {
 	Payload *models.QueryResults
 }
 
+// IsSuccess returns true when this post contentmanagement query o k response has a 2xx status code
+func (o *PostContentmanagementQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post contentmanagement query o k response has a 3xx status code
+func (o *PostContentmanagementQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement query o k response has a 4xx status code
+func (o *PostContentmanagementQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement query o k response has a 5xx status code
+func (o *PostContentmanagementQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement query o k response a status code equal to that given
+func (o *PostContentmanagementQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostContentmanagementQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostContentmanagementQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostContentmanagementQueryBadRequest() *PostContentmanagementQueryBadReq
 	return &PostContentmanagementQueryBadRequest{}
 }
 
-/*PostContentmanagementQueryBadRequest handles this case with default header values.
+/*
+PostContentmanagementQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostContentmanagementQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement query bad request response has a 2xx status code
+func (o *PostContentmanagementQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement query bad request response has a 3xx status code
+func (o *PostContentmanagementQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement query bad request response has a 4xx status code
+func (o *PostContentmanagementQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement query bad request response has a 5xx status code
+func (o *PostContentmanagementQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement query bad request response a status code equal to that given
+func (o *PostContentmanagementQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostContentmanagementQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostContentmanagementQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostContentmanagementQueryUnauthorized() *PostContentmanagementQueryUnau
 	return &PostContentmanagementQueryUnauthorized{}
 }
 
-/*PostContentmanagementQueryUnauthorized handles this case with default header values.
+/*
+PostContentmanagementQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostContentmanagementQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement query unauthorized response has a 2xx status code
+func (o *PostContentmanagementQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement query unauthorized response has a 3xx status code
+func (o *PostContentmanagementQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement query unauthorized response has a 4xx status code
+func (o *PostContentmanagementQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement query unauthorized response has a 5xx status code
+func (o *PostContentmanagementQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement query unauthorized response a status code equal to that given
+func (o *PostContentmanagementQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostContentmanagementQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostContentmanagementQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostContentmanagementQueryForbidden() *PostContentmanagementQueryForbidd
 	return &PostContentmanagementQueryForbidden{}
 }
 
-/*PostContentmanagementQueryForbidden handles this case with default header values.
+/*
+PostContentmanagementQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostContentmanagementQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement query forbidden response has a 2xx status code
+func (o *PostContentmanagementQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement query forbidden response has a 3xx status code
+func (o *PostContentmanagementQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement query forbidden response has a 4xx status code
+func (o *PostContentmanagementQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement query forbidden response has a 5xx status code
+func (o *PostContentmanagementQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement query forbidden response a status code equal to that given
+func (o *PostContentmanagementQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostContentmanagementQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostContentmanagementQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostContentmanagementQueryNotFound() *PostContentmanagementQueryNotFound
 	return &PostContentmanagementQueryNotFound{}
 }
 
-/*PostContentmanagementQueryNotFound handles this case with default header values.
+/*
+PostContentmanagementQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostContentmanagementQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement query not found response has a 2xx status code
+func (o *PostContentmanagementQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement query not found response has a 3xx status code
+func (o *PostContentmanagementQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement query not found response has a 4xx status code
+func (o *PostContentmanagementQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement query not found response has a 5xx status code
+func (o *PostContentmanagementQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement query not found response a status code equal to that given
+func (o *PostContentmanagementQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostContentmanagementQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostContentmanagementQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostContentmanagementQueryRequestTimeout() *PostContentmanagementQueryRe
 	return &PostContentmanagementQueryRequestTimeout{}
 }
 
-/*PostContentmanagementQueryRequestTimeout handles this case with default header values.
+/*
+PostContentmanagementQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostContentmanagementQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement query request timeout response has a 2xx status code
+func (o *PostContentmanagementQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement query request timeout response has a 3xx status code
+func (o *PostContentmanagementQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement query request timeout response has a 4xx status code
+func (o *PostContentmanagementQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement query request timeout response has a 5xx status code
+func (o *PostContentmanagementQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement query request timeout response a status code equal to that given
+func (o *PostContentmanagementQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostContentmanagementQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostContentmanagementQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostContentmanagementQueryRequestEntityTooLarge() *PostContentmanagement
 	return &PostContentmanagementQueryRequestEntityTooLarge{}
 }
 
-/*PostContentmanagementQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostContentmanagementQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostContentmanagementQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement query request entity too large response has a 2xx status code
+func (o *PostContentmanagementQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement query request entity too large response has a 3xx status code
+func (o *PostContentmanagementQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement query request entity too large response has a 4xx status code
+func (o *PostContentmanagementQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement query request entity too large response has a 5xx status code
+func (o *PostContentmanagementQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement query request entity too large response a status code equal to that given
+func (o *PostContentmanagementQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostContentmanagementQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostContentmanagementQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostContentmanagementQueryUnsupportedMediaType() *PostContentmanagementQ
 	return &PostContentmanagementQueryUnsupportedMediaType{}
 }
 
-/*PostContentmanagementQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostContentmanagementQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostContentmanagementQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement query unsupported media type response has a 2xx status code
+func (o *PostContentmanagementQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement query unsupported media type response has a 3xx status code
+func (o *PostContentmanagementQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement query unsupported media type response has a 4xx status code
+func (o *PostContentmanagementQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement query unsupported media type response has a 5xx status code
+func (o *PostContentmanagementQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement query unsupported media type response a status code equal to that given
+func (o *PostContentmanagementQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostContentmanagementQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostContentmanagementQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostContentmanagementQueryTooManyRequests() *PostContentmanagementQueryT
 	return &PostContentmanagementQueryTooManyRequests{}
 }
 
-/*PostContentmanagementQueryTooManyRequests handles this case with default header values.
+/*
+PostContentmanagementQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostContentmanagementQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement query too many requests response has a 2xx status code
+func (o *PostContentmanagementQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement query too many requests response has a 3xx status code
+func (o *PostContentmanagementQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement query too many requests response has a 4xx status code
+func (o *PostContentmanagementQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement query too many requests response has a 5xx status code
+func (o *PostContentmanagementQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement query too many requests response a status code equal to that given
+func (o *PostContentmanagementQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostContentmanagementQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostContentmanagementQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostContentmanagementQueryInternalServerError() *PostContentmanagementQu
 	return &PostContentmanagementQueryInternalServerError{}
 }
 
-/*PostContentmanagementQueryInternalServerError handles this case with default header values.
+/*
+PostContentmanagementQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostContentmanagementQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement query internal server error response has a 2xx status code
+func (o *PostContentmanagementQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement query internal server error response has a 3xx status code
+func (o *PostContentmanagementQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement query internal server error response has a 4xx status code
+func (o *PostContentmanagementQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement query internal server error response has a 5xx status code
+func (o *PostContentmanagementQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement query internal server error response a status code equal to that given
+func (o *PostContentmanagementQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostContentmanagementQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostContentmanagementQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostContentmanagementQueryServiceUnavailable() *PostContentmanagementQue
 	return &PostContentmanagementQueryServiceUnavailable{}
 }
 
-/*PostContentmanagementQueryServiceUnavailable handles this case with default header values.
+/*
+PostContentmanagementQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostContentmanagementQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement query service unavailable response has a 2xx status code
+func (o *PostContentmanagementQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement query service unavailable response has a 3xx status code
+func (o *PostContentmanagementQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement query service unavailable response has a 4xx status code
+func (o *PostContentmanagementQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement query service unavailable response has a 5xx status code
+func (o *PostContentmanagementQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement query service unavailable response a status code equal to that given
+func (o *PostContentmanagementQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostContentmanagementQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostContentmanagementQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostContentmanagementQueryGatewayTimeout() *PostContentmanagementQueryGa
 	return &PostContentmanagementQueryGatewayTimeout{}
 }
 
-/*PostContentmanagementQueryGatewayTimeout handles this case with default header values.
+/*
+PostContentmanagementQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostContentmanagementQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement query gateway timeout response has a 2xx status code
+func (o *PostContentmanagementQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement query gateway timeout response has a 3xx status code
+func (o *PostContentmanagementQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement query gateway timeout response has a 4xx status code
+func (o *PostContentmanagementQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement query gateway timeout response has a 5xx status code
+func (o *PostContentmanagementQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement query gateway timeout response a status code equal to that given
+func (o *PostContentmanagementQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostContentmanagementQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostContentmanagementQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/query][%d] postContentmanagementQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

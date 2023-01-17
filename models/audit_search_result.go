@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -56,7 +57,6 @@ func (m *AuditSearchResult) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AuditSearchResult) validateAuditMessages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AuditMessages) { // not required
 		return nil
 	}
@@ -70,6 +70,8 @@ func (m *AuditSearchResult) validateAuditMessages(formats strfmt.Registry) error
 			if err := m.AuditMessages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("auditMessages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("auditMessages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -81,7 +83,6 @@ func (m *AuditSearchResult) validateAuditMessages(formats strfmt.Registry) error
 }
 
 func (m *AuditSearchResult) validateFacetInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FacetInfo) { // not required
 		return nil
 	}
@@ -95,6 +96,66 @@ func (m *AuditSearchResult) validateFacetInfo(formats strfmt.Registry) error {
 			if err := m.FacetInfo[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("facetInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("facetInfo" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this audit search result based on the context it is used
+func (m *AuditSearchResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAuditMessages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFacetInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AuditSearchResult) contextValidateAuditMessages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AuditMessages); i++ {
+
+		if m.AuditMessages[i] != nil {
+			if err := m.AuditMessages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("auditMessages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("auditMessages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AuditSearchResult) contextValidateFacetInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.FacetInfo); i++ {
+
+		if m.FacetInfo[i] != nil {
+			if err := m.FacetInfo[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("facetInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("facetInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

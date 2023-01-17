@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -100,7 +102,6 @@ func (m *Metric) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Metric) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -113,7 +114,6 @@ func (m *Metric) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Metric) validateDateUnlinked(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateUnlinked) { // not required
 		return nil
 	}
@@ -126,7 +126,6 @@ func (m *Metric) validateDateUnlinked(formats strfmt.Registry) error {
 }
 
 func (m *Metric) validateLinkedMetric(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LinkedMetric) { // not required
 		return nil
 	}
@@ -135,6 +134,8 @@ func (m *Metric) validateLinkedMetric(formats strfmt.Registry) error {
 		if err := m.LinkedMetric.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("linkedMetric")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("linkedMetric")
 			}
 			return err
 		}
@@ -153,7 +154,6 @@ func (m *Metric) validateName(formats strfmt.Registry) error {
 }
 
 func (m *Metric) validateObjective(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Objective) { // not required
 		return nil
 	}
@@ -162,6 +162,8 @@ func (m *Metric) validateObjective(formats strfmt.Registry) error {
 		if err := m.Objective.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("objective")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("objective")
 			}
 			return err
 		}
@@ -171,7 +173,6 @@ func (m *Metric) validateObjective(formats strfmt.Registry) error {
 }
 
 func (m *Metric) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -184,7 +185,6 @@ func (m *Metric) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *Metric) validateSourcePerformanceProfile(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SourcePerformanceProfile) { // not required
 		return nil
 	}
@@ -193,6 +193,130 @@ func (m *Metric) validateSourcePerformanceProfile(formats strfmt.Registry) error
 		if err := m.SourcePerformanceProfile.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sourcePerformanceProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sourcePerformanceProfile")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this metric based on the context it is used
+func (m *Metric) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateUnlinked(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLinkedMetric(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateObjective(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSourcePerformanceProfile(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Metric) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Metric) contextValidateDateUnlinked(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateUnlinked", "body", strfmt.Date(m.DateUnlinked)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Metric) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Metric) contextValidateLinkedMetric(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LinkedMetric != nil {
+		if err := m.LinkedMetric.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("linkedMetric")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("linkedMetric")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Metric) contextValidateObjective(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Objective != nil {
+		if err := m.Objective.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("objective")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("objective")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Metric) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Metric) contextValidateSourcePerformanceProfile(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SourcePerformanceProfile != nil {
+		if err := m.SourcePerformanceProfile.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sourcePerformanceProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sourcePerformanceProfile")
 			}
 			return err
 		}

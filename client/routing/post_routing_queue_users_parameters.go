@@ -19,81 +19,98 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRoutingQueueUsersParams creates a new PostRoutingQueueUsersParams object
-// with the default values initialized.
+// NewPostRoutingQueueUsersParams creates a new PostRoutingQueueUsersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRoutingQueueUsersParams() *PostRoutingQueueUsersParams {
-	var (
-		deleteDefault = bool(false)
-	)
 	return &PostRoutingQueueUsersParams{
-		Delete: &deleteDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRoutingQueueUsersParamsWithTimeout creates a new PostRoutingQueueUsersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRoutingQueueUsersParamsWithTimeout(timeout time.Duration) *PostRoutingQueueUsersParams {
-	var (
-		deleteDefault = bool(false)
-	)
 	return &PostRoutingQueueUsersParams{
-		Delete: &deleteDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRoutingQueueUsersParamsWithContext creates a new PostRoutingQueueUsersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRoutingQueueUsersParamsWithContext(ctx context.Context) *PostRoutingQueueUsersParams {
-	var (
-		deleteDefault = bool(false)
-	)
 	return &PostRoutingQueueUsersParams{
-		Delete: &deleteDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostRoutingQueueUsersParamsWithHTTPClient creates a new PostRoutingQueueUsersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRoutingQueueUsersParamsWithHTTPClient(client *http.Client) *PostRoutingQueueUsersParams {
-	var (
-		deleteDefault = bool(false)
-	)
 	return &PostRoutingQueueUsersParams{
-		Delete:     &deleteDefault,
 		HTTPClient: client,
 	}
 }
 
-/*PostRoutingQueueUsersParams contains all the parameters to send to the API endpoint
-for the post routing queue users operation typically these are written to a http.Request
+/*
+PostRoutingQueueUsersParams contains all the parameters to send to the API endpoint
+
+	for the post routing queue users operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRoutingQueueUsersParams struct {
 
-	/*Body
-	  Queue Members
+	/* Body.
 
+	   Queue Members
 	*/
 	Body []*models.WritableEntity
-	/*Delete
-	  True to delete queue members
 
+	/* Delete.
+
+	   True to delete queue members
 	*/
 	Delete *bool
-	/*QueueID
-	  Queue ID
 
+	/* QueueID.
+
+	   Queue ID
 	*/
 	QueueID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post routing queue users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingQueueUsersParams) WithDefaults() *PostRoutingQueueUsersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post routing queue users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingQueueUsersParams) SetDefaults() {
+	var (
+		deleteDefault = bool(false)
+	)
+
+	val := PostRoutingQueueUsersParams{
+		Delete: &deleteDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post routing queue users params
@@ -169,7 +186,6 @@ func (o *PostRoutingQueueUsersParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -180,16 +196,17 @@ func (o *PostRoutingQueueUsersParams) WriteToRequest(r runtime.ClientRequest, re
 
 		// query param delete
 		var qrDelete bool
+
 		if o.Delete != nil {
 			qrDelete = *o.Delete
 		}
 		qDelete := swag.FormatBool(qrDelete)
 		if qDelete != "" {
+
 			if err := r.SetQueryParam("delete", qDelete); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param queueId

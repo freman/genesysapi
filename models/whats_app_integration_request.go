@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -80,7 +82,6 @@ func (m *WhatsAppIntegrationRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WhatsAppIntegrationRequest) validateMessagingSetting(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessagingSetting) { // not required
 		return nil
 	}
@@ -89,6 +90,8 @@ func (m *WhatsAppIntegrationRequest) validateMessagingSetting(formats strfmt.Reg
 		if err := m.MessagingSetting.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messagingSetting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingSetting")
 			}
 			return err
 		}
@@ -116,7 +119,6 @@ func (m *WhatsAppIntegrationRequest) validatePhoneNumber(formats strfmt.Registry
 }
 
 func (m *WhatsAppIntegrationRequest) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -129,7 +131,6 @@ func (m *WhatsAppIntegrationRequest) validateSelfURI(formats strfmt.Registry) er
 }
 
 func (m *WhatsAppIntegrationRequest) validateSupportedContent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SupportedContent) { // not required
 		return nil
 	}
@@ -138,6 +139,8 @@ func (m *WhatsAppIntegrationRequest) validateSupportedContent(formats strfmt.Reg
 		if err := m.SupportedContent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("supportedContent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportedContent")
 			}
 			return err
 		}
@@ -150,6 +153,82 @@ func (m *WhatsAppIntegrationRequest) validateWabaCertificate(formats strfmt.Regi
 
 	if err := validate.Required("wabaCertificate", "body", m.WabaCertificate); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this whats app integration request based on the context it is used
+func (m *WhatsAppIntegrationRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessagingSetting(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupportedContent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WhatsAppIntegrationRequest) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegrationRequest) contextValidateMessagingSetting(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessagingSetting != nil {
+		if err := m.MessagingSetting.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingSetting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingSetting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegrationRequest) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegrationRequest) contextValidateSupportedContent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SupportedContent != nil {
+		if err := m.SupportedContent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportedContent")
+			}
+			return err
+		}
 	}
 
 	return nil

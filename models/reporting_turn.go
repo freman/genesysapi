@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -92,7 +93,6 @@ func (m *ReportingTurn) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ReportingTurn) validateAskAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AskAction) { // not required
 		return nil
 	}
@@ -101,6 +101,8 @@ func (m *ReportingTurn) validateAskAction(formats strfmt.Registry) error {
 		if err := m.AskAction.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("askAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("askAction")
 			}
 			return err
 		}
@@ -181,7 +183,6 @@ func (m *ReportingTurn) validateAskActionResultEnum(path, location string, value
 }
 
 func (m *ReportingTurn) validateAskActionResult(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AskActionResult) { // not required
 		return nil
 	}
@@ -195,7 +196,6 @@ func (m *ReportingTurn) validateAskActionResult(formats strfmt.Registry) error {
 }
 
 func (m *ReportingTurn) validateConversation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversation) { // not required
 		return nil
 	}
@@ -204,6 +204,8 @@ func (m *ReportingTurn) validateConversation(formats strfmt.Registry) error {
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}
@@ -213,7 +215,6 @@ func (m *ReportingTurn) validateConversation(formats strfmt.Registry) error {
 }
 
 func (m *ReportingTurn) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -226,7 +227,6 @@ func (m *ReportingTurn) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *ReportingTurn) validateIntent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Intent) { // not required
 		return nil
 	}
@@ -235,6 +235,8 @@ func (m *ReportingTurn) validateIntent(formats strfmt.Registry) error {
 		if err := m.Intent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("intent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("intent")
 			}
 			return err
 		}
@@ -244,7 +246,6 @@ func (m *ReportingTurn) validateIntent(formats strfmt.Registry) error {
 }
 
 func (m *ReportingTurn) validateKnowledge(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Knowledge) { // not required
 		return nil
 	}
@@ -253,6 +254,8 @@ func (m *ReportingTurn) validateKnowledge(formats strfmt.Registry) error {
 		if err := m.Knowledge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("knowledge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledge")
 			}
 			return err
 		}
@@ -262,7 +265,6 @@ func (m *ReportingTurn) validateKnowledge(formats strfmt.Registry) error {
 }
 
 func (m *ReportingTurn) validateSessionEndDetails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SessionEndDetails) { // not required
 		return nil
 	}
@@ -271,6 +273,118 @@ func (m *ReportingTurn) validateSessionEndDetails(formats strfmt.Registry) error
 		if err := m.SessionEndDetails.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sessionEndDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sessionEndDetails")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this reporting turn based on the context it is used
+func (m *ReportingTurn) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAskAction(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKnowledge(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSessionEndDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ReportingTurn) contextValidateAskAction(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AskAction != nil {
+		if err := m.AskAction.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("askAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("askAction")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ReportingTurn) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ReportingTurn) contextValidateIntent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Intent != nil {
+		if err := m.Intent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("intent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("intent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ReportingTurn) contextValidateKnowledge(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Knowledge != nil {
+		if err := m.Knowledge.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("knowledge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ReportingTurn) contextValidateSessionEndDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SessionEndDetails != nil {
+		if err := m.SessionEndDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sessionEndDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sessionEndDetails")
 			}
 			return err
 		}

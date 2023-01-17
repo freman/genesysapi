@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteWorkforcemanagementBusinessunitPlanninggroupParams creates a new DeleteWorkforcemanagementBusinessunitPlanninggroupParams object
-// with the default values initialized.
+// NewDeleteWorkforcemanagementBusinessunitPlanninggroupParams creates a new DeleteWorkforcemanagementBusinessunitPlanninggroupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteWorkforcemanagementBusinessunitPlanninggroupParams() *DeleteWorkforcemanagementBusinessunitPlanninggroupParams {
-	var ()
 	return &DeleteWorkforcemanagementBusinessunitPlanninggroupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementBusinessunitPlanninggroupParamsWithTimeout creates a new DeleteWorkforcemanagementBusinessunitPlanninggroupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteWorkforcemanagementBusinessunitPlanninggroupParamsWithTimeout(timeout time.Duration) *DeleteWorkforcemanagementBusinessunitPlanninggroupParams {
-	var ()
 	return &DeleteWorkforcemanagementBusinessunitPlanninggroupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementBusinessunitPlanninggroupParamsWithContext creates a new DeleteWorkforcemanagementBusinessunitPlanninggroupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteWorkforcemanagementBusinessunitPlanninggroupParamsWithContext(ctx context.Context) *DeleteWorkforcemanagementBusinessunitPlanninggroupParams {
-	var ()
 	return &DeleteWorkforcemanagementBusinessunitPlanninggroupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteWorkforcemanagementBusinessunitPlanninggroupParamsWithHTTPClient creates a new DeleteWorkforcemanagementBusinessunitPlanninggroupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteWorkforcemanagementBusinessunitPlanninggroupParamsWithHTTPClient(client *http.Client) *DeleteWorkforcemanagementBusinessunitPlanninggroupParams {
-	var ()
 	return &DeleteWorkforcemanagementBusinessunitPlanninggroupParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteWorkforcemanagementBusinessunitPlanninggroupParams contains all the parameters to send to the API endpoint
-for the delete workforcemanagement businessunit planninggroup operation typically these are written to a http.Request
+/*
+DeleteWorkforcemanagementBusinessunitPlanninggroupParams contains all the parameters to send to the API endpoint
+
+	for the delete workforcemanagement businessunit planninggroup operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteWorkforcemanagementBusinessunitPlanninggroupParams struct {
 
-	/*BusinessUnitID
-	  The ID of the business unit.
+	/* BusinessUnitID.
 
+	   The ID of the business unit.
 	*/
 	BusinessUnitID string
-	/*PlanningGroupID
-	  The ID of a planning group to delete
 
+	/* PlanningGroupID.
+
+	   The ID of a planning group to delete
 	*/
 	PlanningGroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete workforcemanagement businessunit planninggroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementBusinessunitPlanninggroupParams) WithDefaults() *DeleteWorkforcemanagementBusinessunitPlanninggroupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete workforcemanagement businessunit planninggroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementBusinessunitPlanninggroupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete workforcemanagement businessunit planninggroup params

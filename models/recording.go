@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -214,7 +215,6 @@ func (m *Recording) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateAnnotations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Annotations) { // not required
 		return nil
 	}
@@ -228,6 +228,8 @@ func (m *Recording) validateAnnotations(formats strfmt.Registry) error {
 			if err := m.Annotations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("annotations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("annotations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -239,7 +241,6 @@ func (m *Recording) validateAnnotations(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateArchiveDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ArchiveDate) { // not required
 		return nil
 	}
@@ -278,7 +279,6 @@ func (m *Recording) validateArchiveMediumEnum(path, location string, value strin
 }
 
 func (m *Recording) validateArchiveMedium(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ArchiveMedium) { // not required
 		return nil
 	}
@@ -292,7 +292,6 @@ func (m *Recording) validateArchiveMedium(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateCreationTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreationTime) { // not required
 		return nil
 	}
@@ -305,7 +304,6 @@ func (m *Recording) validateCreationTime(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateDeleteDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DeleteDate) { // not required
 		return nil
 	}
@@ -318,7 +316,6 @@ func (m *Recording) validateDeleteDate(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateEmailTranscript(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EmailTranscript) { // not required
 		return nil
 	}
@@ -332,6 +329,8 @@ func (m *Recording) validateEmailTranscript(formats strfmt.Registry) error {
 			if err := m.EmailTranscript[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("emailTranscript" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("emailTranscript" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -343,7 +342,6 @@ func (m *Recording) validateEmailTranscript(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateExportDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExportDate) { // not required
 		return nil
 	}
@@ -356,7 +354,6 @@ func (m *Recording) validateExportDate(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateExportedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExportedDate) { // not required
 		return nil
 	}
@@ -413,7 +410,6 @@ func (m *Recording) validateFileStateEnum(path, location string, value string) e
 }
 
 func (m *Recording) validateFileState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FileState) { // not required
 		return nil
 	}
@@ -427,7 +423,6 @@ func (m *Recording) validateFileState(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateMediaUris(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaUris) { // not required
 		return nil
 	}
@@ -439,6 +434,11 @@ func (m *Recording) validateMediaUris(formats strfmt.Registry) error {
 		}
 		if val, ok := m.MediaUris[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mediaUris" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mediaUris" + "." + k)
+				}
 				return err
 			}
 		}
@@ -449,7 +449,6 @@ func (m *Recording) validateMediaUris(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateMessagingTranscript(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessagingTranscript) { // not required
 		return nil
 	}
@@ -463,6 +462,8 @@ func (m *Recording) validateMessagingTranscript(formats strfmt.Registry) error {
 			if err := m.MessagingTranscript[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("messagingTranscript" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messagingTranscript" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -474,7 +475,6 @@ func (m *Recording) validateMessagingTranscript(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateOriginalRecordingStartTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OriginalRecordingStartTime) { // not required
 		return nil
 	}
@@ -513,7 +513,6 @@ func (m *Recording) validateRecordingErrorStatusEnum(path, location string, valu
 }
 
 func (m *Recording) validateRecordingErrorStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RecordingErrorStatus) { // not required
 		return nil
 	}
@@ -556,7 +555,6 @@ func (m *Recording) validateRecordingFileRoleEnum(path, location string, value s
 }
 
 func (m *Recording) validateRecordingFileRole(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RecordingFileRole) { // not required
 		return nil
 	}
@@ -570,7 +568,6 @@ func (m *Recording) validateRecordingFileRole(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateRestoreExpirationTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RestoreExpirationTime) { // not required
 		return nil
 	}
@@ -583,7 +580,6 @@ func (m *Recording) validateRestoreExpirationTime(formats strfmt.Registry) error
 }
 
 func (m *Recording) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -596,7 +592,6 @@ func (m *Recording) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateTranscript(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Transcript) { // not required
 		return nil
 	}
@@ -610,6 +605,8 @@ func (m *Recording) validateTranscript(formats strfmt.Registry) error {
 			if err := m.Transcript[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("transcript" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("transcript" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -621,7 +618,6 @@ func (m *Recording) validateTranscript(formats strfmt.Registry) error {
 }
 
 func (m *Recording) validateUsers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Users) { // not required
 		return nil
 	}
@@ -635,6 +631,183 @@ func (m *Recording) validateUsers(formats strfmt.Registry) error {
 			if err := m.Users[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("users" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("users" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this recording based on the context it is used
+func (m *Recording) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAnnotations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmailTranscript(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMediaUris(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessagingTranscript(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTranscript(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUsers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Recording) contextValidateAnnotations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Annotations); i++ {
+
+		if m.Annotations[i] != nil {
+			if err := m.Annotations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("annotations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("annotations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Recording) contextValidateEmailTranscript(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.EmailTranscript); i++ {
+
+		if m.EmailTranscript[i] != nil {
+			if err := m.EmailTranscript[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("emailTranscript" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("emailTranscript" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Recording) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Recording) contextValidateMediaUris(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.MediaUris {
+
+		if val, ok := m.MediaUris[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Recording) contextValidateMessagingTranscript(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MessagingTranscript); i++ {
+
+		if m.MessagingTranscript[i] != nil {
+			if err := m.MessagingTranscript[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("messagingTranscript" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messagingTranscript" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Recording) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Recording) contextValidateTranscript(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Transcript); i++ {
+
+		if m.Transcript[i] != nil {
+			if err := m.Transcript[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("transcript" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("transcript" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Recording) contextValidateUsers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Users); i++ {
+
+		if m.Users[i] != nil {
+			if err := m.Users[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("users" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("users" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -131,7 +132,6 @@ func (m *TrunkBase) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TrunkBase) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -144,7 +144,6 @@ func (m *TrunkBase) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *TrunkBase) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -157,7 +156,6 @@ func (m *TrunkBase) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *TrunkBase) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -166,6 +164,8 @@ func (m *TrunkBase) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -184,7 +184,6 @@ func (m *TrunkBase) validateName(formats strfmt.Registry) error {
 }
 
 func (m *TrunkBase) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -229,7 +228,6 @@ func (m *TrunkBase) validateStateEnum(path, location string, value string) error
 }
 
 func (m *TrunkBase) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -252,6 +250,8 @@ func (m *TrunkBase) validateTrunkMetabase(formats strfmt.Registry) error {
 		if err := m.TrunkMetabase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("trunkMetabase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trunkMetabase")
 			}
 			return err
 		}
@@ -301,6 +301,173 @@ func (m *TrunkBase) validateTrunkType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTrunkTypeEnum("trunkType", "body", *m.TrunkType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this trunk base based on the context it is used
+func (m *TrunkBase) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrunkMetabase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TrunkBase) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdBy", "body", string(m.CreatedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TrunkBase) contextValidateCreatedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdByApp", "body", string(m.CreatedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TrunkBase) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TrunkBase) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TrunkBase) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TrunkBase) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TrunkBase) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedBy", "body", string(m.ModifiedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TrunkBase) contextValidateModifiedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedByApp", "body", string(m.ModifiedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TrunkBase) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TrunkBase) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TrunkBase) contextValidateTrunkMetabase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TrunkMetabase != nil {
+		if err := m.TrunkMetabase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trunkMetabase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trunkMetabase")
+			}
+			return err
+		}
 	}
 
 	return nil

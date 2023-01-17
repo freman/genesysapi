@@ -95,7 +95,6 @@ func (o *PostCoachingScheduleslotsQueryReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostCoachingScheduleslotsQueryOK() *PostCoachingScheduleslotsQueryOK {
 	return &PostCoachingScheduleslotsQueryOK{}
 }
 
-/*PostCoachingScheduleslotsQueryOK handles this case with default header values.
+/*
+PostCoachingScheduleslotsQueryOK describes a response with status code 200, with default header values.
 
 Coaching slots retrieved
 */
@@ -114,7 +114,36 @@ type PostCoachingScheduleslotsQueryOK struct {
 	Payload *models.CoachingSlotsResponse
 }
 
+// IsSuccess returns true when this post coaching scheduleslots query o k response has a 2xx status code
+func (o *PostCoachingScheduleslotsQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post coaching scheduleslots query o k response has a 3xx status code
+func (o *PostCoachingScheduleslotsQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching scheduleslots query o k response has a 4xx status code
+func (o *PostCoachingScheduleslotsQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post coaching scheduleslots query o k response has a 5xx status code
+func (o *PostCoachingScheduleslotsQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching scheduleslots query o k response a status code equal to that given
+func (o *PostCoachingScheduleslotsQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostCoachingScheduleslotsQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostCoachingScheduleslotsQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostCoachingScheduleslotsQueryBadRequest() *PostCoachingScheduleslotsQue
 	return &PostCoachingScheduleslotsQueryBadRequest{}
 }
 
-/*PostCoachingScheduleslotsQueryBadRequest handles this case with default header values.
+/*
+PostCoachingScheduleslotsQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostCoachingScheduleslotsQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching scheduleslots query bad request response has a 2xx status code
+func (o *PostCoachingScheduleslotsQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching scheduleslots query bad request response has a 3xx status code
+func (o *PostCoachingScheduleslotsQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching scheduleslots query bad request response has a 4xx status code
+func (o *PostCoachingScheduleslotsQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching scheduleslots query bad request response has a 5xx status code
+func (o *PostCoachingScheduleslotsQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching scheduleslots query bad request response a status code equal to that given
+func (o *PostCoachingScheduleslotsQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostCoachingScheduleslotsQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostCoachingScheduleslotsQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostCoachingScheduleslotsQueryUnauthorized() *PostCoachingScheduleslotsQ
 	return &PostCoachingScheduleslotsQueryUnauthorized{}
 }
 
-/*PostCoachingScheduleslotsQueryUnauthorized handles this case with default header values.
+/*
+PostCoachingScheduleslotsQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostCoachingScheduleslotsQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching scheduleslots query unauthorized response has a 2xx status code
+func (o *PostCoachingScheduleslotsQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching scheduleslots query unauthorized response has a 3xx status code
+func (o *PostCoachingScheduleslotsQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching scheduleslots query unauthorized response has a 4xx status code
+func (o *PostCoachingScheduleslotsQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching scheduleslots query unauthorized response has a 5xx status code
+func (o *PostCoachingScheduleslotsQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching scheduleslots query unauthorized response a status code equal to that given
+func (o *PostCoachingScheduleslotsQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostCoachingScheduleslotsQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostCoachingScheduleslotsQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostCoachingScheduleslotsQueryForbidden() *PostCoachingScheduleslotsQuer
 	return &PostCoachingScheduleslotsQueryForbidden{}
 }
 
-/*PostCoachingScheduleslotsQueryForbidden handles this case with default header values.
+/*
+PostCoachingScheduleslotsQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostCoachingScheduleslotsQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching scheduleslots query forbidden response has a 2xx status code
+func (o *PostCoachingScheduleslotsQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching scheduleslots query forbidden response has a 3xx status code
+func (o *PostCoachingScheduleslotsQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching scheduleslots query forbidden response has a 4xx status code
+func (o *PostCoachingScheduleslotsQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching scheduleslots query forbidden response has a 5xx status code
+func (o *PostCoachingScheduleslotsQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching scheduleslots query forbidden response a status code equal to that given
+func (o *PostCoachingScheduleslotsQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostCoachingScheduleslotsQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostCoachingScheduleslotsQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostCoachingScheduleslotsQueryNotFound() *PostCoachingScheduleslotsQuery
 	return &PostCoachingScheduleslotsQueryNotFound{}
 }
 
-/*PostCoachingScheduleslotsQueryNotFound handles this case with default header values.
+/*
+PostCoachingScheduleslotsQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostCoachingScheduleslotsQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching scheduleslots query not found response has a 2xx status code
+func (o *PostCoachingScheduleslotsQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching scheduleslots query not found response has a 3xx status code
+func (o *PostCoachingScheduleslotsQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching scheduleslots query not found response has a 4xx status code
+func (o *PostCoachingScheduleslotsQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching scheduleslots query not found response has a 5xx status code
+func (o *PostCoachingScheduleslotsQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching scheduleslots query not found response a status code equal to that given
+func (o *PostCoachingScheduleslotsQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostCoachingScheduleslotsQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostCoachingScheduleslotsQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostCoachingScheduleslotsQueryRequestTimeout() *PostCoachingScheduleslot
 	return &PostCoachingScheduleslotsQueryRequestTimeout{}
 }
 
-/*PostCoachingScheduleslotsQueryRequestTimeout handles this case with default header values.
+/*
+PostCoachingScheduleslotsQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostCoachingScheduleslotsQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching scheduleslots query request timeout response has a 2xx status code
+func (o *PostCoachingScheduleslotsQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching scheduleslots query request timeout response has a 3xx status code
+func (o *PostCoachingScheduleslotsQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching scheduleslots query request timeout response has a 4xx status code
+func (o *PostCoachingScheduleslotsQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching scheduleslots query request timeout response has a 5xx status code
+func (o *PostCoachingScheduleslotsQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching scheduleslots query request timeout response a status code equal to that given
+func (o *PostCoachingScheduleslotsQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostCoachingScheduleslotsQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostCoachingScheduleslotsQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostCoachingScheduleslotsQueryRequestEntityTooLarge() *PostCoachingSched
 	return &PostCoachingScheduleslotsQueryRequestEntityTooLarge{}
 }
 
-/*PostCoachingScheduleslotsQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostCoachingScheduleslotsQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostCoachingScheduleslotsQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching scheduleslots query request entity too large response has a 2xx status code
+func (o *PostCoachingScheduleslotsQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching scheduleslots query request entity too large response has a 3xx status code
+func (o *PostCoachingScheduleslotsQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching scheduleslots query request entity too large response has a 4xx status code
+func (o *PostCoachingScheduleslotsQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching scheduleslots query request entity too large response has a 5xx status code
+func (o *PostCoachingScheduleslotsQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching scheduleslots query request entity too large response a status code equal to that given
+func (o *PostCoachingScheduleslotsQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostCoachingScheduleslotsQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostCoachingScheduleslotsQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostCoachingScheduleslotsQueryUnsupportedMediaType() *PostCoachingSchedu
 	return &PostCoachingScheduleslotsQueryUnsupportedMediaType{}
 }
 
-/*PostCoachingScheduleslotsQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostCoachingScheduleslotsQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostCoachingScheduleslotsQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching scheduleslots query unsupported media type response has a 2xx status code
+func (o *PostCoachingScheduleslotsQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching scheduleslots query unsupported media type response has a 3xx status code
+func (o *PostCoachingScheduleslotsQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching scheduleslots query unsupported media type response has a 4xx status code
+func (o *PostCoachingScheduleslotsQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching scheduleslots query unsupported media type response has a 5xx status code
+func (o *PostCoachingScheduleslotsQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching scheduleslots query unsupported media type response a status code equal to that given
+func (o *PostCoachingScheduleslotsQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostCoachingScheduleslotsQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostCoachingScheduleslotsQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostCoachingScheduleslotsQueryTooManyRequests() *PostCoachingScheduleslo
 	return &PostCoachingScheduleslotsQueryTooManyRequests{}
 }
 
-/*PostCoachingScheduleslotsQueryTooManyRequests handles this case with default header values.
+/*
+PostCoachingScheduleslotsQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostCoachingScheduleslotsQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching scheduleslots query too many requests response has a 2xx status code
+func (o *PostCoachingScheduleslotsQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching scheduleslots query too many requests response has a 3xx status code
+func (o *PostCoachingScheduleslotsQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching scheduleslots query too many requests response has a 4xx status code
+func (o *PostCoachingScheduleslotsQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching scheduleslots query too many requests response has a 5xx status code
+func (o *PostCoachingScheduleslotsQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching scheduleslots query too many requests response a status code equal to that given
+func (o *PostCoachingScheduleslotsQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostCoachingScheduleslotsQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostCoachingScheduleslotsQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostCoachingScheduleslotsQueryInternalServerError() *PostCoachingSchedul
 	return &PostCoachingScheduleslotsQueryInternalServerError{}
 }
 
-/*PostCoachingScheduleslotsQueryInternalServerError handles this case with default header values.
+/*
+PostCoachingScheduleslotsQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostCoachingScheduleslotsQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching scheduleslots query internal server error response has a 2xx status code
+func (o *PostCoachingScheduleslotsQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching scheduleslots query internal server error response has a 3xx status code
+func (o *PostCoachingScheduleslotsQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching scheduleslots query internal server error response has a 4xx status code
+func (o *PostCoachingScheduleslotsQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post coaching scheduleslots query internal server error response has a 5xx status code
+func (o *PostCoachingScheduleslotsQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post coaching scheduleslots query internal server error response a status code equal to that given
+func (o *PostCoachingScheduleslotsQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostCoachingScheduleslotsQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostCoachingScheduleslotsQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostCoachingScheduleslotsQueryServiceUnavailable() *PostCoachingSchedule
 	return &PostCoachingScheduleslotsQueryServiceUnavailable{}
 }
 
-/*PostCoachingScheduleslotsQueryServiceUnavailable handles this case with default header values.
+/*
+PostCoachingScheduleslotsQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostCoachingScheduleslotsQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching scheduleslots query service unavailable response has a 2xx status code
+func (o *PostCoachingScheduleslotsQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching scheduleslots query service unavailable response has a 3xx status code
+func (o *PostCoachingScheduleslotsQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching scheduleslots query service unavailable response has a 4xx status code
+func (o *PostCoachingScheduleslotsQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post coaching scheduleslots query service unavailable response has a 5xx status code
+func (o *PostCoachingScheduleslotsQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post coaching scheduleslots query service unavailable response a status code equal to that given
+func (o *PostCoachingScheduleslotsQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostCoachingScheduleslotsQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostCoachingScheduleslotsQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostCoachingScheduleslotsQueryGatewayTimeout() *PostCoachingScheduleslot
 	return &PostCoachingScheduleslotsQueryGatewayTimeout{}
 }
 
-/*PostCoachingScheduleslotsQueryGatewayTimeout handles this case with default header values.
+/*
+PostCoachingScheduleslotsQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostCoachingScheduleslotsQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching scheduleslots query gateway timeout response has a 2xx status code
+func (o *PostCoachingScheduleslotsQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching scheduleslots query gateway timeout response has a 3xx status code
+func (o *PostCoachingScheduleslotsQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching scheduleslots query gateway timeout response has a 4xx status code
+func (o *PostCoachingScheduleslotsQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post coaching scheduleslots query gateway timeout response has a 5xx status code
+func (o *PostCoachingScheduleslotsQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post coaching scheduleslots query gateway timeout response a status code equal to that given
+func (o *PostCoachingScheduleslotsQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostCoachingScheduleslotsQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostCoachingScheduleslotsQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/scheduleslots/query][%d] postCoachingScheduleslotsQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

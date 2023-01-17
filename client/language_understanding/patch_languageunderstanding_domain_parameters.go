@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchLanguageunderstandingDomainParams creates a new PatchLanguageunderstandingDomainParams object
-// with the default values initialized.
+// NewPatchLanguageunderstandingDomainParams creates a new PatchLanguageunderstandingDomainParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchLanguageunderstandingDomainParams() *PatchLanguageunderstandingDomainParams {
-	var ()
 	return &PatchLanguageunderstandingDomainParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchLanguageunderstandingDomainParamsWithTimeout creates a new PatchLanguageunderstandingDomainParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchLanguageunderstandingDomainParamsWithTimeout(timeout time.Duration) *PatchLanguageunderstandingDomainParams {
-	var ()
 	return &PatchLanguageunderstandingDomainParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchLanguageunderstandingDomainParamsWithContext creates a new PatchLanguageunderstandingDomainParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchLanguageunderstandingDomainParamsWithContext(ctx context.Context) *PatchLanguageunderstandingDomainParams {
-	var ()
 	return &PatchLanguageunderstandingDomainParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchLanguageunderstandingDomainParamsWithHTTPClient creates a new PatchLanguageunderstandingDomainParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchLanguageunderstandingDomainParamsWithHTTPClient(client *http.Client) *PatchLanguageunderstandingDomainParams {
-	var ()
 	return &PatchLanguageunderstandingDomainParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchLanguageunderstandingDomainParams contains all the parameters to send to the API endpoint
-for the patch languageunderstanding domain operation typically these are written to a http.Request
+/*
+PatchLanguageunderstandingDomainParams contains all the parameters to send to the API endpoint
+
+	for the patch languageunderstanding domain operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchLanguageunderstandingDomainParams struct {
 
-	/*Body
-	  The updated NLU Domain.
+	/* Body.
 
+	   The updated NLU Domain.
 	*/
 	Body *models.NluDomain
-	/*DomainID
-	  ID of the NLU domain.
 
+	/* DomainID.
+
+	   ID of the NLU domain.
 	*/
 	DomainID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch languageunderstanding domain params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchLanguageunderstandingDomainParams) WithDefaults() *PatchLanguageunderstandingDomainParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch languageunderstanding domain params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchLanguageunderstandingDomainParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch languageunderstanding domain params
@@ -140,7 +157,6 @@ func (o *PatchLanguageunderstandingDomainParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

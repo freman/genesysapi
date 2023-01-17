@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteArchitectPromptResourceParams creates a new DeleteArchitectPromptResourceParams object
-// with the default values initialized.
+// NewDeleteArchitectPromptResourceParams creates a new DeleteArchitectPromptResourceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteArchitectPromptResourceParams() *DeleteArchitectPromptResourceParams {
-	var ()
 	return &DeleteArchitectPromptResourceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteArchitectPromptResourceParamsWithTimeout creates a new DeleteArchitectPromptResourceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteArchitectPromptResourceParamsWithTimeout(timeout time.Duration) *DeleteArchitectPromptResourceParams {
-	var ()
 	return &DeleteArchitectPromptResourceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteArchitectPromptResourceParamsWithContext creates a new DeleteArchitectPromptResourceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteArchitectPromptResourceParamsWithContext(ctx context.Context) *DeleteArchitectPromptResourceParams {
-	var ()
 	return &DeleteArchitectPromptResourceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteArchitectPromptResourceParamsWithHTTPClient creates a new DeleteArchitectPromptResourceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteArchitectPromptResourceParamsWithHTTPClient(client *http.Client) *DeleteArchitectPromptResourceParams {
-	var ()
 	return &DeleteArchitectPromptResourceParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteArchitectPromptResourceParams contains all the parameters to send to the API endpoint
-for the delete architect prompt resource operation typically these are written to a http.Request
+/*
+DeleteArchitectPromptResourceParams contains all the parameters to send to the API endpoint
+
+	for the delete architect prompt resource operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteArchitectPromptResourceParams struct {
 
-	/*LanguageCode
-	  Language
+	/* LanguageCode.
 
+	   Language
 	*/
 	LanguageCode string
-	/*PromptID
-	  Prompt ID
 
+	/* PromptID.
+
+	   Prompt ID
 	*/
 	PromptID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete architect prompt resource params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteArchitectPromptResourceParams) WithDefaults() *DeleteArchitectPromptResourceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete architect prompt resource params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteArchitectPromptResourceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete architect prompt resource params

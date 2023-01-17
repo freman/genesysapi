@@ -95,7 +95,6 @@ func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDReader) Read
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDOK() *PatchCo
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK{}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK struct {
 	Payload *models.TwitterIntegration
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations twitter integration Id o k response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations twitter integration Id o k response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations twitter integration Id o k response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations messaging integrations twitter integration Id o k response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations twitter integration Id o k response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest() 
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest{}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations twitter integration Id bad request response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations twitter integration Id bad request response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations twitter integration Id bad request response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations twitter integration Id bad request response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations twitter integration Id bad request response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized(
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized{}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations twitter integration Id unauthorized response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations twitter integration Id unauthorized response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations twitter integration Id unauthorized response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations twitter integration Id unauthorized response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations twitter integration Id unauthorized response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDForbidden() *
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDForbidden{}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDForbidden handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchConversationsMessagingIntegrationsTwitterIntegrationIDForbidden struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations twitter integration Id forbidden response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations twitter integration Id forbidden response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations twitter integration Id forbidden response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations twitter integration Id forbidden response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations twitter integration Id forbidden response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDNotFound() *P
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDNotFound{}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDNotFound handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchConversationsMessagingIntegrationsTwitterIntegrationIDNotFound struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations twitter integration Id not found response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations twitter integration Id not found response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations twitter integration Id not found response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations twitter integration Id not found response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations twitter integration Id not found response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeou
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout{}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations twitter integration Id request timeout response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations twitter integration Id request timeout response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations twitter integration Id request timeout response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations twitter integration Id request timeout response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations twitter integration Id request timeout response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntity
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge{}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityToo
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations twitter integration Id request entity too large response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations twitter integration Id request entity too large response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations twitter integration Id request entity too large response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations twitter integration Id request entity too large response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations twitter integration Id request entity too large response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMe
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType{}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMedia
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations twitter integration Id unsupported media type response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations twitter integration Id unsupported media type response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations twitter integration Id unsupported media type response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations twitter integration Id unsupported media type response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations twitter integration Id unsupported media type response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDTooManyReques
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests{}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations twitter integration Id too many requests response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations twitter integration Id too many requests response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations twitter integration Id too many requests response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations twitter integration Id too many requests response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations twitter integration Id too many requests response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDInternalServe
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError{}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerEr
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations twitter integration Id internal server error response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations twitter integration Id internal server error response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations twitter integration Id internal server error response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations messaging integrations twitter integration Id internal server error response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations messaging integrations twitter integration Id internal server error response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavai
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable{}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailab
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations twitter integration Id service unavailable response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations twitter integration Id service unavailable response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations twitter integration Id service unavailable response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations messaging integrations twitter integration Id service unavailable response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations messaging integrations twitter integration Id service unavailable response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeou
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout{}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations twitter integration Id gateway timeout response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations twitter integration Id gateway timeout response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations twitter integration Id gateway timeout response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations messaging integrations twitter integration Id gateway timeout response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations messaging integrations twitter integration Id gateway timeout response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] patchConversationsMessagingIntegrationsTwitterIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

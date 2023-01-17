@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -18,6 +20,7 @@ import (
 type PublishDraftInput struct {
 
 	// The current draft version.
+	// Example: If the current draft version is 2 and the current published version of Action is 33, then you would send 2 here. (Your draft will become published version 34)
 	// Required: true
 	Version *int32 `json:"version"`
 }
@@ -42,6 +45,11 @@ func (m *PublishDraftInput) validateVersion(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this publish draft input based on context it is used
+func (m *PublishDraftInput) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

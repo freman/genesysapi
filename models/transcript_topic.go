@@ -6,9 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // TranscriptTopic transcript topic
@@ -71,7 +74,6 @@ func (m *TranscriptTopic) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TranscriptTopic) validateDuration(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Duration) { // not required
 		return nil
 	}
@@ -80,6 +82,8 @@ func (m *TranscriptTopic) validateDuration(formats strfmt.Registry) error {
 		if err := m.Duration.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("duration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("duration")
 			}
 			return err
 		}
@@ -89,7 +93,6 @@ func (m *TranscriptTopic) validateDuration(formats strfmt.Registry) error {
 }
 
 func (m *TranscriptTopic) validateOffset(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Offset) { // not required
 		return nil
 	}
@@ -98,9 +101,152 @@ func (m *TranscriptTopic) validateOffset(formats strfmt.Registry) error {
 		if err := m.Offset.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("offset")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("offset")
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this transcript topic based on the context it is used
+func (m *TranscriptTopic) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConfidence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDuration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOffset(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRecordingLocation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStartTimeMilliseconds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTopicPhrase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTranscriptPhrase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TranscriptTopic) contextValidateConfidence(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "confidence", "body", int32(m.Confidence)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TranscriptTopic) contextValidateDuration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Duration != nil {
+		if err := m.Duration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("duration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("duration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TranscriptTopic) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TranscriptTopic) contextValidateName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "name", "body", string(m.Name)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TranscriptTopic) contextValidateOffset(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Offset != nil {
+		if err := m.Offset.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("offset")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("offset")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TranscriptTopic) contextValidateRecordingLocation(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "recordingLocation", "body", int64(m.RecordingLocation)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TranscriptTopic) contextValidateStartTimeMilliseconds(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "startTimeMilliseconds", "body", int64(m.StartTimeMilliseconds)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TranscriptTopic) contextValidateTopicPhrase(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "topicPhrase", "body", string(m.TopicPhrase)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TranscriptTopic) contextValidateTranscriptPhrase(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "transcriptPhrase", "body", string(m.TranscriptPhrase)); err != nil {
+		return err
 	}
 
 	return nil

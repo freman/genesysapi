@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -96,7 +97,6 @@ func (m *ListedTopic) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ListedTopic) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -109,7 +109,6 @@ func (m *ListedTopic) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *ListedTopic) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -118,6 +117,8 @@ func (m *ListedTopic) validateModifiedBy(formats strfmt.Registry) error {
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -159,7 +160,6 @@ func (m *ListedTopic) validateParticipantsEnum(path, location string, value stri
 }
 
 func (m *ListedTopic) validateParticipants(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Participants) { // not required
 		return nil
 	}
@@ -173,7 +173,6 @@ func (m *ListedTopic) validateParticipants(formats strfmt.Registry) error {
 }
 
 func (m *ListedTopic) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -227,13 +226,68 @@ func (m *ListedTopic) validateStrictnessEnum(path, location string, value string
 }
 
 func (m *ListedTopic) validateStrictness(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Strictness) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStrictnessEnum("strictness", "body", m.Strictness); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this listed topic based on the context it is used
+func (m *ListedTopic) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ListedTopic) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ListedTopic) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ListedTopic) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutConversationsMessageRecordingstateParams creates a new PutConversationsMessageRecordingstateParams object
-// with the default values initialized.
+// NewPutConversationsMessageRecordingstateParams creates a new PutConversationsMessageRecordingstateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutConversationsMessageRecordingstateParams() *PutConversationsMessageRecordingstateParams {
-	var ()
 	return &PutConversationsMessageRecordingstateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutConversationsMessageRecordingstateParamsWithTimeout creates a new PutConversationsMessageRecordingstateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutConversationsMessageRecordingstateParamsWithTimeout(timeout time.Duration) *PutConversationsMessageRecordingstateParams {
-	var ()
 	return &PutConversationsMessageRecordingstateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutConversationsMessageRecordingstateParamsWithContext creates a new PutConversationsMessageRecordingstateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutConversationsMessageRecordingstateParamsWithContext(ctx context.Context) *PutConversationsMessageRecordingstateParams {
-	var ()
 	return &PutConversationsMessageRecordingstateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutConversationsMessageRecordingstateParamsWithHTTPClient creates a new PutConversationsMessageRecordingstateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutConversationsMessageRecordingstateParamsWithHTTPClient(client *http.Client) *PutConversationsMessageRecordingstateParams {
-	var ()
 	return &PutConversationsMessageRecordingstateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutConversationsMessageRecordingstateParams contains all the parameters to send to the API endpoint
-for the put conversations message recordingstate operation typically these are written to a http.Request
+/*
+PutConversationsMessageRecordingstateParams contains all the parameters to send to the API endpoint
+
+	for the put conversations message recordingstate operation.
+
+	Typically these are written to a http.Request.
 */
 type PutConversationsMessageRecordingstateParams struct {
 
-	/*Body
-	  SetRecordingState
+	/* Body.
 
+	   SetRecordingState
 	*/
 	Body *models.SetRecordingState
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put conversations message recordingstate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationsMessageRecordingstateParams) WithDefaults() *PutConversationsMessageRecordingstateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put conversations message recordingstate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationsMessageRecordingstateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put conversations message recordingstate params
@@ -140,7 +157,6 @@ func (o *PutConversationsMessageRecordingstateParams) WriteToRequest(r runtime.C
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

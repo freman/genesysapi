@@ -95,7 +95,6 @@ func (o *DeleteIdentityprovidersAdfsReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteIdentityprovidersAdfsOK() *DeleteIdentityprovidersAdfsOK {
 	return &DeleteIdentityprovidersAdfsOK{}
 }
 
-/*DeleteIdentityprovidersAdfsOK handles this case with default header values.
+/*
+DeleteIdentityprovidersAdfsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteIdentityprovidersAdfsOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete identityproviders adfs o k response has a 2xx status code
+func (o *DeleteIdentityprovidersAdfsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete identityproviders adfs o k response has a 3xx status code
+func (o *DeleteIdentityprovidersAdfsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders adfs o k response has a 4xx status code
+func (o *DeleteIdentityprovidersAdfsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders adfs o k response has a 5xx status code
+func (o *DeleteIdentityprovidersAdfsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders adfs o k response a status code equal to that given
+func (o *DeleteIdentityprovidersAdfsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteIdentityprovidersAdfsOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersAdfsOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewDeleteIdentityprovidersAdfsBadRequest() *DeleteIdentityprovidersAdfsBadR
 	return &DeleteIdentityprovidersAdfsBadRequest{}
 }
 
-/*DeleteIdentityprovidersAdfsBadRequest handles this case with default header values.
+/*
+DeleteIdentityprovidersAdfsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type DeleteIdentityprovidersAdfsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders adfs bad request response has a 2xx status code
+func (o *DeleteIdentityprovidersAdfsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders adfs bad request response has a 3xx status code
+func (o *DeleteIdentityprovidersAdfsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders adfs bad request response has a 4xx status code
+func (o *DeleteIdentityprovidersAdfsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders adfs bad request response has a 5xx status code
+func (o *DeleteIdentityprovidersAdfsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders adfs bad request response a status code equal to that given
+func (o *DeleteIdentityprovidersAdfsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteIdentityprovidersAdfsBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersAdfsBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteIdentityprovidersAdfsUnauthorized() *DeleteIdentityprovidersAdfsUn
 	return &DeleteIdentityprovidersAdfsUnauthorized{}
 }
 
-/*DeleteIdentityprovidersAdfsUnauthorized handles this case with default header values.
+/*
+DeleteIdentityprovidersAdfsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type DeleteIdentityprovidersAdfsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders adfs unauthorized response has a 2xx status code
+func (o *DeleteIdentityprovidersAdfsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders adfs unauthorized response has a 3xx status code
+func (o *DeleteIdentityprovidersAdfsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders adfs unauthorized response has a 4xx status code
+func (o *DeleteIdentityprovidersAdfsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders adfs unauthorized response has a 5xx status code
+func (o *DeleteIdentityprovidersAdfsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders adfs unauthorized response a status code equal to that given
+func (o *DeleteIdentityprovidersAdfsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteIdentityprovidersAdfsUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersAdfsUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteIdentityprovidersAdfsForbidden() *DeleteIdentityprovidersAdfsForbi
 	return &DeleteIdentityprovidersAdfsForbidden{}
 }
 
-/*DeleteIdentityprovidersAdfsForbidden handles this case with default header values.
+/*
+DeleteIdentityprovidersAdfsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type DeleteIdentityprovidersAdfsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders adfs forbidden response has a 2xx status code
+func (o *DeleteIdentityprovidersAdfsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders adfs forbidden response has a 3xx status code
+func (o *DeleteIdentityprovidersAdfsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders adfs forbidden response has a 4xx status code
+func (o *DeleteIdentityprovidersAdfsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders adfs forbidden response has a 5xx status code
+func (o *DeleteIdentityprovidersAdfsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders adfs forbidden response a status code equal to that given
+func (o *DeleteIdentityprovidersAdfsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteIdentityprovidersAdfsForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersAdfsForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteIdentityprovidersAdfsNotFound() *DeleteIdentityprovidersAdfsNotFou
 	return &DeleteIdentityprovidersAdfsNotFound{}
 }
 
-/*DeleteIdentityprovidersAdfsNotFound handles this case with default header values.
+/*
+DeleteIdentityprovidersAdfsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type DeleteIdentityprovidersAdfsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders adfs not found response has a 2xx status code
+func (o *DeleteIdentityprovidersAdfsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders adfs not found response has a 3xx status code
+func (o *DeleteIdentityprovidersAdfsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders adfs not found response has a 4xx status code
+func (o *DeleteIdentityprovidersAdfsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders adfs not found response has a 5xx status code
+func (o *DeleteIdentityprovidersAdfsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders adfs not found response a status code equal to that given
+func (o *DeleteIdentityprovidersAdfsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteIdentityprovidersAdfsNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersAdfsNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteIdentityprovidersAdfsRequestTimeout() *DeleteIdentityprovidersAdfs
 	return &DeleteIdentityprovidersAdfsRequestTimeout{}
 }
 
-/*DeleteIdentityprovidersAdfsRequestTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersAdfsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type DeleteIdentityprovidersAdfsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders adfs request timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersAdfsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders adfs request timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersAdfsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders adfs request timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersAdfsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders adfs request timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersAdfsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders adfs request timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersAdfsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteIdentityprovidersAdfsRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersAdfsRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteIdentityprovidersAdfsRequestEntityTooLarge() *DeleteIdentityprovid
 	return &DeleteIdentityprovidersAdfsRequestEntityTooLarge{}
 }
 
-/*DeleteIdentityprovidersAdfsRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteIdentityprovidersAdfsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type DeleteIdentityprovidersAdfsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders adfs request entity too large response has a 2xx status code
+func (o *DeleteIdentityprovidersAdfsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders adfs request entity too large response has a 3xx status code
+func (o *DeleteIdentityprovidersAdfsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders adfs request entity too large response has a 4xx status code
+func (o *DeleteIdentityprovidersAdfsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders adfs request entity too large response has a 5xx status code
+func (o *DeleteIdentityprovidersAdfsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders adfs request entity too large response a status code equal to that given
+func (o *DeleteIdentityprovidersAdfsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteIdentityprovidersAdfsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersAdfsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteIdentityprovidersAdfsUnsupportedMediaType() *DeleteIdentityprovide
 	return &DeleteIdentityprovidersAdfsUnsupportedMediaType{}
 }
 
-/*DeleteIdentityprovidersAdfsUnsupportedMediaType handles this case with default header values.
+/*
+DeleteIdentityprovidersAdfsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type DeleteIdentityprovidersAdfsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders adfs unsupported media type response has a 2xx status code
+func (o *DeleteIdentityprovidersAdfsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders adfs unsupported media type response has a 3xx status code
+func (o *DeleteIdentityprovidersAdfsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders adfs unsupported media type response has a 4xx status code
+func (o *DeleteIdentityprovidersAdfsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders adfs unsupported media type response has a 5xx status code
+func (o *DeleteIdentityprovidersAdfsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders adfs unsupported media type response a status code equal to that given
+func (o *DeleteIdentityprovidersAdfsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteIdentityprovidersAdfsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersAdfsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteIdentityprovidersAdfsTooManyRequests() *DeleteIdentityprovidersAdf
 	return &DeleteIdentityprovidersAdfsTooManyRequests{}
 }
 
-/*DeleteIdentityprovidersAdfsTooManyRequests handles this case with default header values.
+/*
+DeleteIdentityprovidersAdfsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type DeleteIdentityprovidersAdfsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders adfs too many requests response has a 2xx status code
+func (o *DeleteIdentityprovidersAdfsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders adfs too many requests response has a 3xx status code
+func (o *DeleteIdentityprovidersAdfsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders adfs too many requests response has a 4xx status code
+func (o *DeleteIdentityprovidersAdfsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders adfs too many requests response has a 5xx status code
+func (o *DeleteIdentityprovidersAdfsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders adfs too many requests response a status code equal to that given
+func (o *DeleteIdentityprovidersAdfsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteIdentityprovidersAdfsTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersAdfsTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteIdentityprovidersAdfsInternalServerError() *DeleteIdentityprovider
 	return &DeleteIdentityprovidersAdfsInternalServerError{}
 }
 
-/*DeleteIdentityprovidersAdfsInternalServerError handles this case with default header values.
+/*
+DeleteIdentityprovidersAdfsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type DeleteIdentityprovidersAdfsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders adfs internal server error response has a 2xx status code
+func (o *DeleteIdentityprovidersAdfsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders adfs internal server error response has a 3xx status code
+func (o *DeleteIdentityprovidersAdfsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders adfs internal server error response has a 4xx status code
+func (o *DeleteIdentityprovidersAdfsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders adfs internal server error response has a 5xx status code
+func (o *DeleteIdentityprovidersAdfsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders adfs internal server error response a status code equal to that given
+func (o *DeleteIdentityprovidersAdfsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteIdentityprovidersAdfsInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersAdfsInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteIdentityprovidersAdfsServiceUnavailable() *DeleteIdentityproviders
 	return &DeleteIdentityprovidersAdfsServiceUnavailable{}
 }
 
-/*DeleteIdentityprovidersAdfsServiceUnavailable handles this case with default header values.
+/*
+DeleteIdentityprovidersAdfsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type DeleteIdentityprovidersAdfsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders adfs service unavailable response has a 2xx status code
+func (o *DeleteIdentityprovidersAdfsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders adfs service unavailable response has a 3xx status code
+func (o *DeleteIdentityprovidersAdfsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders adfs service unavailable response has a 4xx status code
+func (o *DeleteIdentityprovidersAdfsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders adfs service unavailable response has a 5xx status code
+func (o *DeleteIdentityprovidersAdfsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders adfs service unavailable response a status code equal to that given
+func (o *DeleteIdentityprovidersAdfsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteIdentityprovidersAdfsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersAdfsServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteIdentityprovidersAdfsGatewayTimeout() *DeleteIdentityprovidersAdfs
 	return &DeleteIdentityprovidersAdfsGatewayTimeout{}
 }
 
-/*DeleteIdentityprovidersAdfsGatewayTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersAdfsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type DeleteIdentityprovidersAdfsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders adfs gateway timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersAdfsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders adfs gateway timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersAdfsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders adfs gateway timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersAdfsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders adfs gateway timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersAdfsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders adfs gateway timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersAdfsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteIdentityprovidersAdfsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersAdfsGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/adfs][%d] deleteIdentityprovidersAdfsGatewayTimeout  %+v", 504, o.Payload)
 }
 

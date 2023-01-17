@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConversationsMessagingSupportedcontentSupportedContentIDParams creates a new GetConversationsMessagingSupportedcontentSupportedContentIDParams object
-// with the default values initialized.
+// NewGetConversationsMessagingSupportedcontentSupportedContentIDParams creates a new GetConversationsMessagingSupportedcontentSupportedContentIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationsMessagingSupportedcontentSupportedContentIDParams() *GetConversationsMessagingSupportedcontentSupportedContentIDParams {
-	var ()
 	return &GetConversationsMessagingSupportedcontentSupportedContentIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationsMessagingSupportedcontentSupportedContentIDParamsWithTimeout creates a new GetConversationsMessagingSupportedcontentSupportedContentIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationsMessagingSupportedcontentSupportedContentIDParamsWithTimeout(timeout time.Duration) *GetConversationsMessagingSupportedcontentSupportedContentIDParams {
-	var ()
 	return &GetConversationsMessagingSupportedcontentSupportedContentIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationsMessagingSupportedcontentSupportedContentIDParamsWithContext creates a new GetConversationsMessagingSupportedcontentSupportedContentIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationsMessagingSupportedcontentSupportedContentIDParamsWithContext(ctx context.Context) *GetConversationsMessagingSupportedcontentSupportedContentIDParams {
-	var ()
 	return &GetConversationsMessagingSupportedcontentSupportedContentIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationsMessagingSupportedcontentSupportedContentIDParamsWithHTTPClient creates a new GetConversationsMessagingSupportedcontentSupportedContentIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationsMessagingSupportedcontentSupportedContentIDParamsWithHTTPClient(client *http.Client) *GetConversationsMessagingSupportedcontentSupportedContentIDParams {
-	var ()
 	return &GetConversationsMessagingSupportedcontentSupportedContentIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationsMessagingSupportedcontentSupportedContentIDParams contains all the parameters to send to the API endpoint
-for the get conversations messaging supportedcontent supported content Id operation typically these are written to a http.Request
+/*
+GetConversationsMessagingSupportedcontentSupportedContentIDParams contains all the parameters to send to the API endpoint
+
+	for the get conversations messaging supportedcontent supported content Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationsMessagingSupportedcontentSupportedContentIDParams struct {
 
-	/*SupportedContentID
-	  Supported Content ID
+	/* SupportedContentID.
 
+	   Supported Content ID
 	*/
 	SupportedContentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversations messaging supportedcontent supported content Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsMessagingSupportedcontentSupportedContentIDParams) WithDefaults() *GetConversationsMessagingSupportedcontentSupportedContentIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversations messaging supportedcontent supported content Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsMessagingSupportedcontentSupportedContentIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get conversations messaging supportedcontent supported content Id params

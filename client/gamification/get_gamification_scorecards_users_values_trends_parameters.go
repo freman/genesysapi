@@ -16,91 +16,116 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationScorecardsUsersValuesTrendsParams creates a new GetGamificationScorecardsUsersValuesTrendsParams object
-// with the default values initialized.
+// NewGetGamificationScorecardsUsersValuesTrendsParams creates a new GetGamificationScorecardsUsersValuesTrendsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationScorecardsUsersValuesTrendsParams() *GetGamificationScorecardsUsersValuesTrendsParams {
-	var (
-		timeZoneDefault = string("UTC")
-	)
 	return &GetGamificationScorecardsUsersValuesTrendsParams{
-		TimeZone: &timeZoneDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationScorecardsUsersValuesTrendsParamsWithTimeout creates a new GetGamificationScorecardsUsersValuesTrendsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationScorecardsUsersValuesTrendsParamsWithTimeout(timeout time.Duration) *GetGamificationScorecardsUsersValuesTrendsParams {
-	var (
-		timeZoneDefault = string("UTC")
-	)
 	return &GetGamificationScorecardsUsersValuesTrendsParams{
-		TimeZone: &timeZoneDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationScorecardsUsersValuesTrendsParamsWithContext creates a new GetGamificationScorecardsUsersValuesTrendsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationScorecardsUsersValuesTrendsParamsWithContext(ctx context.Context) *GetGamificationScorecardsUsersValuesTrendsParams {
-	var (
-		timeZoneDefault = string("UTC")
-	)
 	return &GetGamificationScorecardsUsersValuesTrendsParams{
-		TimeZone: &timeZoneDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationScorecardsUsersValuesTrendsParamsWithHTTPClient creates a new GetGamificationScorecardsUsersValuesTrendsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationScorecardsUsersValuesTrendsParamsWithHTTPClient(client *http.Client) *GetGamificationScorecardsUsersValuesTrendsParams {
-	var (
-		timeZoneDefault = string("UTC")
-	)
 	return &GetGamificationScorecardsUsersValuesTrendsParams{
-		TimeZone:   &timeZoneDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationScorecardsUsersValuesTrendsParams contains all the parameters to send to the API endpoint
-for the get gamification scorecards users values trends operation typically these are written to a http.Request
+/*
+GetGamificationScorecardsUsersValuesTrendsParams contains all the parameters to send to the API endpoint
+
+	for the get gamification scorecards users values trends operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationScorecardsUsersValuesTrendsParams struct {
 
-	/*EndWorkday
-	  End workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	/* EndWorkday.
 
+	   End workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	EndWorkday strfmt.Date
-	/*FilterID
-	  ID for the filter type.
 
+	/* FilterID.
+
+	   ID for the filter type.
 	*/
 	FilterID string
-	/*FilterType
-	  Filter type for the query request.
 
+	/* FilterType.
+
+	   Filter type for the query request.
 	*/
 	FilterType string
-	/*StartWorkday
-	  Start workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* StartWorkday.
+
+	   Start workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	StartWorkday strfmt.Date
-	/*TimeZone
-	  Timezone for the workday. Defaults to UTC
 
+	/* TimeZone.
+
+	   Timezone for the workday. Defaults to UTC
+
+	   Default: "UTC"
 	*/
 	TimeZone *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification scorecards users values trends params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsUsersValuesTrendsParams) WithDefaults() *GetGamificationScorecardsUsersValuesTrendsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification scorecards users values trends params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsUsersValuesTrendsParams) SetDefaults() {
+	var (
+		timeZoneDefault = string("UTC")
+	)
+
+	val := GetGamificationScorecardsUsersValuesTrendsParams{
+		TimeZone: &timeZoneDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get gamification scorecards users values trends params
@@ -203,6 +228,7 @@ func (o *GetGamificationScorecardsUsersValuesTrendsParams) WriteToRequest(r runt
 	qrEndWorkday := o.EndWorkday
 	qEndWorkday := qrEndWorkday.String()
 	if qEndWorkday != "" {
+
 		if err := r.SetQueryParam("endWorkday", qEndWorkday); err != nil {
 			return err
 		}
@@ -212,6 +238,7 @@ func (o *GetGamificationScorecardsUsersValuesTrendsParams) WriteToRequest(r runt
 	qrFilterID := o.FilterID
 	qFilterID := qrFilterID
 	if qFilterID != "" {
+
 		if err := r.SetQueryParam("filterId", qFilterID); err != nil {
 			return err
 		}
@@ -221,6 +248,7 @@ func (o *GetGamificationScorecardsUsersValuesTrendsParams) WriteToRequest(r runt
 	qrFilterType := o.FilterType
 	qFilterType := qrFilterType
 	if qFilterType != "" {
+
 		if err := r.SetQueryParam("filterType", qFilterType); err != nil {
 			return err
 		}
@@ -230,6 +258,7 @@ func (o *GetGamificationScorecardsUsersValuesTrendsParams) WriteToRequest(r runt
 	qrStartWorkday := o.StartWorkday
 	qStartWorkday := qrStartWorkday.String()
 	if qStartWorkday != "" {
+
 		if err := r.SetQueryParam("startWorkday", qStartWorkday); err != nil {
 			return err
 		}
@@ -239,16 +268,17 @@ func (o *GetGamificationScorecardsUsersValuesTrendsParams) WriteToRequest(r runt
 
 		// query param timeZone
 		var qrTimeZone string
+
 		if o.TimeZone != nil {
 			qrTimeZone = *o.TimeZone
 		}
 		qTimeZone := qrTimeZone
 		if qTimeZone != "" {
+
 			if err := r.SetQueryParam("timeZone", qTimeZone); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

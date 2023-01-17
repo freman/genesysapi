@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -111,7 +112,6 @@ func (m *DataTableImportJob) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DataTableImportJob) validateDateCompleted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCompleted) { // not required
 		return nil
 	}
@@ -124,7 +124,6 @@ func (m *DataTableImportJob) validateDateCompleted(formats strfmt.Registry) erro
 }
 
 func (m *DataTableImportJob) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -137,7 +136,6 @@ func (m *DataTableImportJob) validateDateCreated(formats strfmt.Registry) error 
 }
 
 func (m *DataTableImportJob) validateErrorInformation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorInformation) { // not required
 		return nil
 	}
@@ -146,6 +144,8 @@ func (m *DataTableImportJob) validateErrorInformation(formats strfmt.Registry) e
 		if err := m.ErrorInformation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errorInformation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInformation")
 			}
 			return err
 		}
@@ -184,7 +184,6 @@ func (m *DataTableImportJob) validateImportModeEnum(path, location string, value
 }
 
 func (m *DataTableImportJob) validateImportMode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ImportMode) { // not required
 		return nil
 	}
@@ -198,7 +197,6 @@ func (m *DataTableImportJob) validateImportMode(formats strfmt.Registry) error {
 }
 
 func (m *DataTableImportJob) validateOwner(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Owner) { // not required
 		return nil
 	}
@@ -207,6 +205,8 @@ func (m *DataTableImportJob) validateOwner(formats strfmt.Registry) error {
 		if err := m.Owner.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("owner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("owner")
 			}
 			return err
 		}
@@ -216,7 +216,6 @@ func (m *DataTableImportJob) validateOwner(formats strfmt.Registry) error {
 }
 
 func (m *DataTableImportJob) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -278,12 +277,87 @@ func (m *DataTableImportJob) validateStatus(formats strfmt.Registry) error {
 }
 
 func (m *DataTableImportJob) validateUploadURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UploadURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("uploadURI", "body", "uri", m.UploadURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this data table import job based on the context it is used
+func (m *DataTableImportJob) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateErrorInformation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOwner(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DataTableImportJob) contextValidateErrorInformation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ErrorInformation != nil {
+		if err := m.ErrorInformation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorInformation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInformation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DataTableImportJob) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DataTableImportJob) contextValidateOwner(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Owner != nil {
+		if err := m.Owner.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("owner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("owner")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DataTableImportJob) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

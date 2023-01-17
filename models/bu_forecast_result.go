@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -52,7 +53,6 @@ func (m *BuForecastResult) Validate(formats strfmt.Registry) error {
 }
 
 func (m *BuForecastResult) validatePlanningGroups(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PlanningGroups) { // not required
 		return nil
 	}
@@ -66,6 +66,8 @@ func (m *BuForecastResult) validatePlanningGroups(formats strfmt.Registry) error
 			if err := m.PlanningGroups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("planningGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("planningGroups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -77,13 +79,46 @@ func (m *BuForecastResult) validatePlanningGroups(formats strfmt.Registry) error
 }
 
 func (m *BuForecastResult) validateReferenceStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReferenceStartDate) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("referenceStartDate", "body", "date-time", m.ReferenceStartDate.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu forecast result based on the context it is used
+func (m *BuForecastResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePlanningGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuForecastResult) contextValidatePlanningGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PlanningGroups); i++ {
+
+		if m.PlanningGroups[i] != nil {
+			if err := m.PlanningGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("planningGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("planningGroups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

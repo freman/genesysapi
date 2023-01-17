@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -58,7 +59,6 @@ func (m *ShiftTradeMatchReviewResponse) Validate(formats strfmt.Registry) error 
 }
 
 func (m *ShiftTradeMatchReviewResponse) validateAdminReviewViolations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AdminReviewViolations) { // not required
 		return nil
 	}
@@ -72,6 +72,8 @@ func (m *ShiftTradeMatchReviewResponse) validateAdminReviewViolations(formats st
 			if err := m.AdminReviewViolations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("adminReviewViolations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("adminReviewViolations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -83,7 +85,6 @@ func (m *ShiftTradeMatchReviewResponse) validateAdminReviewViolations(formats st
 }
 
 func (m *ShiftTradeMatchReviewResponse) validateInitiatingUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitiatingUser) { // not required
 		return nil
 	}
@@ -92,6 +93,8 @@ func (m *ShiftTradeMatchReviewResponse) validateInitiatingUser(formats strfmt.Re
 		if err := m.InitiatingUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("initiatingUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("initiatingUser")
 			}
 			return err
 		}
@@ -101,7 +104,6 @@ func (m *ShiftTradeMatchReviewResponse) validateInitiatingUser(formats strfmt.Re
 }
 
 func (m *ShiftTradeMatchReviewResponse) validateReceivingUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReceivingUser) { // not required
 		return nil
 	}
@@ -110,6 +112,8 @@ func (m *ShiftTradeMatchReviewResponse) validateReceivingUser(formats strfmt.Reg
 		if err := m.ReceivingUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("receivingUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("receivingUser")
 			}
 			return err
 		}
@@ -119,7 +123,6 @@ func (m *ShiftTradeMatchReviewResponse) validateReceivingUser(formats strfmt.Reg
 }
 
 func (m *ShiftTradeMatchReviewResponse) validateViolations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Violations) { // not required
 		return nil
 	}
@@ -133,6 +136,106 @@ func (m *ShiftTradeMatchReviewResponse) validateViolations(formats strfmt.Regist
 			if err := m.Violations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("violations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("violations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this shift trade match review response based on the context it is used
+func (m *ShiftTradeMatchReviewResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAdminReviewViolations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInitiatingUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReceivingUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateViolations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ShiftTradeMatchReviewResponse) contextValidateAdminReviewViolations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AdminReviewViolations); i++ {
+
+		if m.AdminReviewViolations[i] != nil {
+			if err := m.AdminReviewViolations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("adminReviewViolations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("adminReviewViolations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ShiftTradeMatchReviewResponse) contextValidateInitiatingUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InitiatingUser != nil {
+		if err := m.InitiatingUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("initiatingUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("initiatingUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ShiftTradeMatchReviewResponse) contextValidateReceivingUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReceivingUser != nil {
+		if err := m.ReceivingUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("receivingUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("receivingUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ShiftTradeMatchReviewResponse) contextValidateViolations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Violations); i++ {
+
+		if m.Violations[i] != nil {
+			if err := m.Violations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("violations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("violations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationTemplateParams creates a new GetGamificationTemplateParams object
-// with the default values initialized.
+// NewGetGamificationTemplateParams creates a new GetGamificationTemplateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationTemplateParams() *GetGamificationTemplateParams {
-	var ()
 	return &GetGamificationTemplateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationTemplateParamsWithTimeout creates a new GetGamificationTemplateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationTemplateParamsWithTimeout(timeout time.Duration) *GetGamificationTemplateParams {
-	var ()
 	return &GetGamificationTemplateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationTemplateParamsWithContext creates a new GetGamificationTemplateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationTemplateParamsWithContext(ctx context.Context) *GetGamificationTemplateParams {
-	var ()
 	return &GetGamificationTemplateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationTemplateParamsWithHTTPClient creates a new GetGamificationTemplateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationTemplateParamsWithHTTPClient(client *http.Client) *GetGamificationTemplateParams {
-	var ()
 	return &GetGamificationTemplateParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationTemplateParams contains all the parameters to send to the API endpoint
-for the get gamification template operation typically these are written to a http.Request
+/*
+GetGamificationTemplateParams contains all the parameters to send to the API endpoint
+
+	for the get gamification template operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationTemplateParams struct {
 
-	/*TemplateID
-	  template id
+	/* TemplateID.
 
+	   template id
 	*/
 	TemplateID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification template params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationTemplateParams) WithDefaults() *GetGamificationTemplateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification template params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationTemplateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification template params

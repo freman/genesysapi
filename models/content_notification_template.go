@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -66,6 +68,8 @@ func (m *ContentNotificationTemplate) validateBody(formats strfmt.Registry) erro
 		if err := m.Body.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("body")
 			}
 			return err
 		}
@@ -75,7 +79,6 @@ func (m *ContentNotificationTemplate) validateBody(formats strfmt.Registry) erro
 }
 
 func (m *ContentNotificationTemplate) validateFooter(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Footer) { // not required
 		return nil
 	}
@@ -84,6 +87,8 @@ func (m *ContentNotificationTemplate) validateFooter(formats strfmt.Registry) er
 		if err := m.Footer.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("footer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("footer")
 			}
 			return err
 		}
@@ -93,7 +98,6 @@ func (m *ContentNotificationTemplate) validateFooter(formats strfmt.Registry) er
 }
 
 func (m *ContentNotificationTemplate) validateHeader(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Header) { // not required
 		return nil
 	}
@@ -102,6 +106,78 @@ func (m *ContentNotificationTemplate) validateHeader(formats strfmt.Registry) er
 		if err := m.Header.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("header")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("header")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this content notification template based on the context it is used
+func (m *ContentNotificationTemplate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBody(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFooter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHeader(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ContentNotificationTemplate) contextValidateBody(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Body != nil {
+		if err := m.Body.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("body")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("body")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ContentNotificationTemplate) contextValidateFooter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Footer != nil {
+		if err := m.Footer.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("footer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("footer")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ContentNotificationTemplate) contextValidateHeader(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Header != nil {
+		if err := m.Header.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("header")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("header")
 			}
 			return err
 		}

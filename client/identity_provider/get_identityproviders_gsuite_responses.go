@@ -95,7 +95,6 @@ func (o *GetIdentityprovidersGsuiteReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIdentityprovidersGsuiteOK() *GetIdentityprovidersGsuiteOK {
 	return &GetIdentityprovidersGsuiteOK{}
 }
 
-/*GetIdentityprovidersGsuiteOK handles this case with default header values.
+/*
+GetIdentityprovidersGsuiteOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIdentityprovidersGsuiteOK struct {
 	Payload *models.GSuite
 }
 
+// IsSuccess returns true when this get identityproviders gsuite o k response has a 2xx status code
+func (o *GetIdentityprovidersGsuiteOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get identityproviders gsuite o k response has a 3xx status code
+func (o *GetIdentityprovidersGsuiteOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders gsuite o k response has a 4xx status code
+func (o *GetIdentityprovidersGsuiteOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders gsuite o k response has a 5xx status code
+func (o *GetIdentityprovidersGsuiteOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders gsuite o k response a status code equal to that given
+func (o *GetIdentityprovidersGsuiteOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIdentityprovidersGsuiteOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIdentityprovidersGsuiteOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIdentityprovidersGsuiteBadRequest() *GetIdentityprovidersGsuiteBadReq
 	return &GetIdentityprovidersGsuiteBadRequest{}
 }
 
-/*GetIdentityprovidersGsuiteBadRequest handles this case with default header values.
+/*
+GetIdentityprovidersGsuiteBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIdentityprovidersGsuiteBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders gsuite bad request response has a 2xx status code
+func (o *GetIdentityprovidersGsuiteBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders gsuite bad request response has a 3xx status code
+func (o *GetIdentityprovidersGsuiteBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders gsuite bad request response has a 4xx status code
+func (o *GetIdentityprovidersGsuiteBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders gsuite bad request response has a 5xx status code
+func (o *GetIdentityprovidersGsuiteBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders gsuite bad request response a status code equal to that given
+func (o *GetIdentityprovidersGsuiteBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIdentityprovidersGsuiteBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIdentityprovidersGsuiteBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIdentityprovidersGsuiteUnauthorized() *GetIdentityprovidersGsuiteUnau
 	return &GetIdentityprovidersGsuiteUnauthorized{}
 }
 
-/*GetIdentityprovidersGsuiteUnauthorized handles this case with default header values.
+/*
+GetIdentityprovidersGsuiteUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIdentityprovidersGsuiteUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders gsuite unauthorized response has a 2xx status code
+func (o *GetIdentityprovidersGsuiteUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders gsuite unauthorized response has a 3xx status code
+func (o *GetIdentityprovidersGsuiteUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders gsuite unauthorized response has a 4xx status code
+func (o *GetIdentityprovidersGsuiteUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders gsuite unauthorized response has a 5xx status code
+func (o *GetIdentityprovidersGsuiteUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders gsuite unauthorized response a status code equal to that given
+func (o *GetIdentityprovidersGsuiteUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIdentityprovidersGsuiteUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIdentityprovidersGsuiteUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIdentityprovidersGsuiteForbidden() *GetIdentityprovidersGsuiteForbidd
 	return &GetIdentityprovidersGsuiteForbidden{}
 }
 
-/*GetIdentityprovidersGsuiteForbidden handles this case with default header values.
+/*
+GetIdentityprovidersGsuiteForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIdentityprovidersGsuiteForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders gsuite forbidden response has a 2xx status code
+func (o *GetIdentityprovidersGsuiteForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders gsuite forbidden response has a 3xx status code
+func (o *GetIdentityprovidersGsuiteForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders gsuite forbidden response has a 4xx status code
+func (o *GetIdentityprovidersGsuiteForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders gsuite forbidden response has a 5xx status code
+func (o *GetIdentityprovidersGsuiteForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders gsuite forbidden response a status code equal to that given
+func (o *GetIdentityprovidersGsuiteForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIdentityprovidersGsuiteForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIdentityprovidersGsuiteForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIdentityprovidersGsuiteNotFound() *GetIdentityprovidersGsuiteNotFound
 	return &GetIdentityprovidersGsuiteNotFound{}
 }
 
-/*GetIdentityprovidersGsuiteNotFound handles this case with default header values.
+/*
+GetIdentityprovidersGsuiteNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIdentityprovidersGsuiteNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders gsuite not found response has a 2xx status code
+func (o *GetIdentityprovidersGsuiteNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders gsuite not found response has a 3xx status code
+func (o *GetIdentityprovidersGsuiteNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders gsuite not found response has a 4xx status code
+func (o *GetIdentityprovidersGsuiteNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders gsuite not found response has a 5xx status code
+func (o *GetIdentityprovidersGsuiteNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders gsuite not found response a status code equal to that given
+func (o *GetIdentityprovidersGsuiteNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIdentityprovidersGsuiteNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIdentityprovidersGsuiteNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIdentityprovidersGsuiteRequestTimeout() *GetIdentityprovidersGsuiteRe
 	return &GetIdentityprovidersGsuiteRequestTimeout{}
 }
 
-/*GetIdentityprovidersGsuiteRequestTimeout handles this case with default header values.
+/*
+GetIdentityprovidersGsuiteRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIdentityprovidersGsuiteRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders gsuite request timeout response has a 2xx status code
+func (o *GetIdentityprovidersGsuiteRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders gsuite request timeout response has a 3xx status code
+func (o *GetIdentityprovidersGsuiteRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders gsuite request timeout response has a 4xx status code
+func (o *GetIdentityprovidersGsuiteRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders gsuite request timeout response has a 5xx status code
+func (o *GetIdentityprovidersGsuiteRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders gsuite request timeout response a status code equal to that given
+func (o *GetIdentityprovidersGsuiteRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIdentityprovidersGsuiteRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIdentityprovidersGsuiteRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIdentityprovidersGsuiteRequestEntityTooLarge() *GetIdentityprovidersG
 	return &GetIdentityprovidersGsuiteRequestEntityTooLarge{}
 }
 
-/*GetIdentityprovidersGsuiteRequestEntityTooLarge handles this case with default header values.
+/*
+GetIdentityprovidersGsuiteRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIdentityprovidersGsuiteRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders gsuite request entity too large response has a 2xx status code
+func (o *GetIdentityprovidersGsuiteRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders gsuite request entity too large response has a 3xx status code
+func (o *GetIdentityprovidersGsuiteRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders gsuite request entity too large response has a 4xx status code
+func (o *GetIdentityprovidersGsuiteRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders gsuite request entity too large response has a 5xx status code
+func (o *GetIdentityprovidersGsuiteRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders gsuite request entity too large response a status code equal to that given
+func (o *GetIdentityprovidersGsuiteRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIdentityprovidersGsuiteRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIdentityprovidersGsuiteRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIdentityprovidersGsuiteUnsupportedMediaType() *GetIdentityprovidersGs
 	return &GetIdentityprovidersGsuiteUnsupportedMediaType{}
 }
 
-/*GetIdentityprovidersGsuiteUnsupportedMediaType handles this case with default header values.
+/*
+GetIdentityprovidersGsuiteUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIdentityprovidersGsuiteUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders gsuite unsupported media type response has a 2xx status code
+func (o *GetIdentityprovidersGsuiteUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders gsuite unsupported media type response has a 3xx status code
+func (o *GetIdentityprovidersGsuiteUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders gsuite unsupported media type response has a 4xx status code
+func (o *GetIdentityprovidersGsuiteUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders gsuite unsupported media type response has a 5xx status code
+func (o *GetIdentityprovidersGsuiteUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders gsuite unsupported media type response a status code equal to that given
+func (o *GetIdentityprovidersGsuiteUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIdentityprovidersGsuiteUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIdentityprovidersGsuiteUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIdentityprovidersGsuiteTooManyRequests() *GetIdentityprovidersGsuiteT
 	return &GetIdentityprovidersGsuiteTooManyRequests{}
 }
 
-/*GetIdentityprovidersGsuiteTooManyRequests handles this case with default header values.
+/*
+GetIdentityprovidersGsuiteTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIdentityprovidersGsuiteTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders gsuite too many requests response has a 2xx status code
+func (o *GetIdentityprovidersGsuiteTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders gsuite too many requests response has a 3xx status code
+func (o *GetIdentityprovidersGsuiteTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders gsuite too many requests response has a 4xx status code
+func (o *GetIdentityprovidersGsuiteTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders gsuite too many requests response has a 5xx status code
+func (o *GetIdentityprovidersGsuiteTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders gsuite too many requests response a status code equal to that given
+func (o *GetIdentityprovidersGsuiteTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIdentityprovidersGsuiteTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIdentityprovidersGsuiteTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIdentityprovidersGsuiteInternalServerError() *GetIdentityprovidersGsu
 	return &GetIdentityprovidersGsuiteInternalServerError{}
 }
 
-/*GetIdentityprovidersGsuiteInternalServerError handles this case with default header values.
+/*
+GetIdentityprovidersGsuiteInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIdentityprovidersGsuiteInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders gsuite internal server error response has a 2xx status code
+func (o *GetIdentityprovidersGsuiteInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders gsuite internal server error response has a 3xx status code
+func (o *GetIdentityprovidersGsuiteInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders gsuite internal server error response has a 4xx status code
+func (o *GetIdentityprovidersGsuiteInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders gsuite internal server error response has a 5xx status code
+func (o *GetIdentityprovidersGsuiteInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders gsuite internal server error response a status code equal to that given
+func (o *GetIdentityprovidersGsuiteInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIdentityprovidersGsuiteInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIdentityprovidersGsuiteInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIdentityprovidersGsuiteServiceUnavailable() *GetIdentityprovidersGsui
 	return &GetIdentityprovidersGsuiteServiceUnavailable{}
 }
 
-/*GetIdentityprovidersGsuiteServiceUnavailable handles this case with default header values.
+/*
+GetIdentityprovidersGsuiteServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIdentityprovidersGsuiteServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders gsuite service unavailable response has a 2xx status code
+func (o *GetIdentityprovidersGsuiteServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders gsuite service unavailable response has a 3xx status code
+func (o *GetIdentityprovidersGsuiteServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders gsuite service unavailable response has a 4xx status code
+func (o *GetIdentityprovidersGsuiteServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders gsuite service unavailable response has a 5xx status code
+func (o *GetIdentityprovidersGsuiteServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders gsuite service unavailable response a status code equal to that given
+func (o *GetIdentityprovidersGsuiteServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIdentityprovidersGsuiteServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIdentityprovidersGsuiteServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIdentityprovidersGsuiteGatewayTimeout() *GetIdentityprovidersGsuiteGa
 	return &GetIdentityprovidersGsuiteGatewayTimeout{}
 }
 
-/*GetIdentityprovidersGsuiteGatewayTimeout handles this case with default header values.
+/*
+GetIdentityprovidersGsuiteGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIdentityprovidersGsuiteGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders gsuite gateway timeout response has a 2xx status code
+func (o *GetIdentityprovidersGsuiteGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders gsuite gateway timeout response has a 3xx status code
+func (o *GetIdentityprovidersGsuiteGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders gsuite gateway timeout response has a 4xx status code
+func (o *GetIdentityprovidersGsuiteGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders gsuite gateway timeout response has a 5xx status code
+func (o *GetIdentityprovidersGsuiteGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders gsuite gateway timeout response a status code equal to that given
+func (o *GetIdentityprovidersGsuiteGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIdentityprovidersGsuiteGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIdentityprovidersGsuiteGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/gsuite][%d] getIdentityprovidersGsuiteGatewayTimeout  %+v", 504, o.Payload)
 }
 

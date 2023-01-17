@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -43,7 +44,6 @@ func (m *ReportingTurnKnowledgeSearch) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ReportingTurnKnowledgeSearch) validateDocuments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Documents) { // not required
 		return nil
 	}
@@ -57,6 +57,42 @@ func (m *ReportingTurnKnowledgeSearch) validateDocuments(formats strfmt.Registry
 			if err := m.Documents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("documents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("documents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this reporting turn knowledge search based on the context it is used
+func (m *ReportingTurnKnowledgeSearch) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDocuments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ReportingTurnKnowledgeSearch) contextValidateDocuments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Documents); i++ {
+
+		if m.Documents[i] != nil {
+			if err := m.Documents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("documents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("documents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

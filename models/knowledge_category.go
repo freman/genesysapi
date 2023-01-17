@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -90,7 +91,6 @@ func (m *KnowledgeCategory) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeCategory) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -103,7 +103,6 @@ func (m *KnowledgeCategory) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeCategory) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -116,7 +115,6 @@ func (m *KnowledgeCategory) validateDateModified(formats strfmt.Registry) error 
 }
 
 func (m *KnowledgeCategory) validateKnowledgeBase(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KnowledgeBase) { // not required
 		return nil
 	}
@@ -125,6 +123,8 @@ func (m *KnowledgeCategory) validateKnowledgeBase(formats strfmt.Registry) error
 		if err := m.KnowledgeBase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
 			}
 			return err
 		}
@@ -147,89 +147,89 @@ func init() {
 
 const (
 
-	// KnowledgeCategoryLanguageCodeEnUS captures enum value "en-US"
-	KnowledgeCategoryLanguageCodeEnUS string = "en-US"
+	// KnowledgeCategoryLanguageCodeEnDashUS captures enum value "en-US"
+	KnowledgeCategoryLanguageCodeEnDashUS string = "en-US"
 
-	// KnowledgeCategoryLanguageCodeEnUK captures enum value "en-UK"
-	KnowledgeCategoryLanguageCodeEnUK string = "en-UK"
+	// KnowledgeCategoryLanguageCodeEnDashUK captures enum value "en-UK"
+	KnowledgeCategoryLanguageCodeEnDashUK string = "en-UK"
 
-	// KnowledgeCategoryLanguageCodeEnAU captures enum value "en-AU"
-	KnowledgeCategoryLanguageCodeEnAU string = "en-AU"
+	// KnowledgeCategoryLanguageCodeEnDashAU captures enum value "en-AU"
+	KnowledgeCategoryLanguageCodeEnDashAU string = "en-AU"
 
-	// KnowledgeCategoryLanguageCodeEnCA captures enum value "en-CA"
-	KnowledgeCategoryLanguageCodeEnCA string = "en-CA"
+	// KnowledgeCategoryLanguageCodeEnDashCA captures enum value "en-CA"
+	KnowledgeCategoryLanguageCodeEnDashCA string = "en-CA"
 
-	// KnowledgeCategoryLanguageCodeEnHK captures enum value "en-HK"
-	KnowledgeCategoryLanguageCodeEnHK string = "en-HK"
+	// KnowledgeCategoryLanguageCodeEnDashHK captures enum value "en-HK"
+	KnowledgeCategoryLanguageCodeEnDashHK string = "en-HK"
 
-	// KnowledgeCategoryLanguageCodeEnIN captures enum value "en-IN"
-	KnowledgeCategoryLanguageCodeEnIN string = "en-IN"
+	// KnowledgeCategoryLanguageCodeEnDashIN captures enum value "en-IN"
+	KnowledgeCategoryLanguageCodeEnDashIN string = "en-IN"
 
-	// KnowledgeCategoryLanguageCodeEnIE captures enum value "en-IE"
-	KnowledgeCategoryLanguageCodeEnIE string = "en-IE"
+	// KnowledgeCategoryLanguageCodeEnDashIE captures enum value "en-IE"
+	KnowledgeCategoryLanguageCodeEnDashIE string = "en-IE"
 
-	// KnowledgeCategoryLanguageCodeEnNZ captures enum value "en-NZ"
-	KnowledgeCategoryLanguageCodeEnNZ string = "en-NZ"
+	// KnowledgeCategoryLanguageCodeEnDashNZ captures enum value "en-NZ"
+	KnowledgeCategoryLanguageCodeEnDashNZ string = "en-NZ"
 
-	// KnowledgeCategoryLanguageCodeEnPH captures enum value "en-PH"
-	KnowledgeCategoryLanguageCodeEnPH string = "en-PH"
+	// KnowledgeCategoryLanguageCodeEnDashPH captures enum value "en-PH"
+	KnowledgeCategoryLanguageCodeEnDashPH string = "en-PH"
 
-	// KnowledgeCategoryLanguageCodeEnSG captures enum value "en-SG"
-	KnowledgeCategoryLanguageCodeEnSG string = "en-SG"
+	// KnowledgeCategoryLanguageCodeEnDashSG captures enum value "en-SG"
+	KnowledgeCategoryLanguageCodeEnDashSG string = "en-SG"
 
-	// KnowledgeCategoryLanguageCodeEnZA captures enum value "en-ZA"
-	KnowledgeCategoryLanguageCodeEnZA string = "en-ZA"
+	// KnowledgeCategoryLanguageCodeEnDashZA captures enum value "en-ZA"
+	KnowledgeCategoryLanguageCodeEnDashZA string = "en-ZA"
 
-	// KnowledgeCategoryLanguageCodeDeDE captures enum value "de-DE"
-	KnowledgeCategoryLanguageCodeDeDE string = "de-DE"
+	// KnowledgeCategoryLanguageCodeDeDashDE captures enum value "de-DE"
+	KnowledgeCategoryLanguageCodeDeDashDE string = "de-DE"
 
-	// KnowledgeCategoryLanguageCodeDeAT captures enum value "de-AT"
-	KnowledgeCategoryLanguageCodeDeAT string = "de-AT"
+	// KnowledgeCategoryLanguageCodeDeDashAT captures enum value "de-AT"
+	KnowledgeCategoryLanguageCodeDeDashAT string = "de-AT"
 
-	// KnowledgeCategoryLanguageCodeDeCH captures enum value "de-CH"
-	KnowledgeCategoryLanguageCodeDeCH string = "de-CH"
+	// KnowledgeCategoryLanguageCodeDeDashCH captures enum value "de-CH"
+	KnowledgeCategoryLanguageCodeDeDashCH string = "de-CH"
 
-	// KnowledgeCategoryLanguageCodeEsAR captures enum value "es-AR"
-	KnowledgeCategoryLanguageCodeEsAR string = "es-AR"
+	// KnowledgeCategoryLanguageCodeEsDashAR captures enum value "es-AR"
+	KnowledgeCategoryLanguageCodeEsDashAR string = "es-AR"
 
-	// KnowledgeCategoryLanguageCodeEsCO captures enum value "es-CO"
-	KnowledgeCategoryLanguageCodeEsCO string = "es-CO"
+	// KnowledgeCategoryLanguageCodeEsDashCO captures enum value "es-CO"
+	KnowledgeCategoryLanguageCodeEsDashCO string = "es-CO"
 
-	// KnowledgeCategoryLanguageCodeEsMX captures enum value "es-MX"
-	KnowledgeCategoryLanguageCodeEsMX string = "es-MX"
+	// KnowledgeCategoryLanguageCodeEsDashMX captures enum value "es-MX"
+	KnowledgeCategoryLanguageCodeEsDashMX string = "es-MX"
 
-	// KnowledgeCategoryLanguageCodeEsUS captures enum value "es-US"
-	KnowledgeCategoryLanguageCodeEsUS string = "es-US"
+	// KnowledgeCategoryLanguageCodeEsDashUS captures enum value "es-US"
+	KnowledgeCategoryLanguageCodeEsDashUS string = "es-US"
 
-	// KnowledgeCategoryLanguageCodeEsES captures enum value "es-ES"
-	KnowledgeCategoryLanguageCodeEsES string = "es-ES"
+	// KnowledgeCategoryLanguageCodeEsDashES captures enum value "es-ES"
+	KnowledgeCategoryLanguageCodeEsDashES string = "es-ES"
 
-	// KnowledgeCategoryLanguageCodeFrFR captures enum value "fr-FR"
-	KnowledgeCategoryLanguageCodeFrFR string = "fr-FR"
+	// KnowledgeCategoryLanguageCodeFrDashFR captures enum value "fr-FR"
+	KnowledgeCategoryLanguageCodeFrDashFR string = "fr-FR"
 
-	// KnowledgeCategoryLanguageCodeFrBE captures enum value "fr-BE"
-	KnowledgeCategoryLanguageCodeFrBE string = "fr-BE"
+	// KnowledgeCategoryLanguageCodeFrDashBE captures enum value "fr-BE"
+	KnowledgeCategoryLanguageCodeFrDashBE string = "fr-BE"
 
-	// KnowledgeCategoryLanguageCodeFrCA captures enum value "fr-CA"
-	KnowledgeCategoryLanguageCodeFrCA string = "fr-CA"
+	// KnowledgeCategoryLanguageCodeFrDashCA captures enum value "fr-CA"
+	KnowledgeCategoryLanguageCodeFrDashCA string = "fr-CA"
 
-	// KnowledgeCategoryLanguageCodeFrCH captures enum value "fr-CH"
-	KnowledgeCategoryLanguageCodeFrCH string = "fr-CH"
+	// KnowledgeCategoryLanguageCodeFrDashCH captures enum value "fr-CH"
+	KnowledgeCategoryLanguageCodeFrDashCH string = "fr-CH"
 
-	// KnowledgeCategoryLanguageCodePtBR captures enum value "pt-BR"
-	KnowledgeCategoryLanguageCodePtBR string = "pt-BR"
+	// KnowledgeCategoryLanguageCodePtDashBR captures enum value "pt-BR"
+	KnowledgeCategoryLanguageCodePtDashBR string = "pt-BR"
 
-	// KnowledgeCategoryLanguageCodePtPT captures enum value "pt-PT"
-	KnowledgeCategoryLanguageCodePtPT string = "pt-PT"
+	// KnowledgeCategoryLanguageCodePtDashPT captures enum value "pt-PT"
+	KnowledgeCategoryLanguageCodePtDashPT string = "pt-PT"
 
-	// KnowledgeCategoryLanguageCodeNlNL captures enum value "nl-NL"
-	KnowledgeCategoryLanguageCodeNlNL string = "nl-NL"
+	// KnowledgeCategoryLanguageCodeNlDashNL captures enum value "nl-NL"
+	KnowledgeCategoryLanguageCodeNlDashNL string = "nl-NL"
 
-	// KnowledgeCategoryLanguageCodeNlBE captures enum value "nl-BE"
-	KnowledgeCategoryLanguageCodeNlBE string = "nl-BE"
+	// KnowledgeCategoryLanguageCodeNlDashBE captures enum value "nl-BE"
+	KnowledgeCategoryLanguageCodeNlDashBE string = "nl-BE"
 
-	// KnowledgeCategoryLanguageCodeItIT captures enum value "it-IT"
-	KnowledgeCategoryLanguageCodeItIT string = "it-IT"
+	// KnowledgeCategoryLanguageCodeItDashIT captures enum value "it-IT"
+	KnowledgeCategoryLanguageCodeItDashIT string = "it-IT"
 )
 
 // prop value enum
@@ -241,7 +241,6 @@ func (m *KnowledgeCategory) validateLanguageCodeEnum(path, location string, valu
 }
 
 func (m *KnowledgeCategory) validateLanguageCode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LanguageCode) { // not required
 		return nil
 	}
@@ -264,12 +263,106 @@ func (m *KnowledgeCategory) validateName(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeCategory) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge category based on the context it is used
+func (m *KnowledgeCategory) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKnowledgeBase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLanguageCode(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeCategory) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeCategory) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeCategory) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeCategory) contextValidateKnowledgeBase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KnowledgeBase != nil {
+		if err := m.KnowledgeBase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeCategory) contextValidateLanguageCode(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "languageCode", "body", string(m.LanguageCode)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeCategory) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

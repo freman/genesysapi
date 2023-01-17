@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteFlowsDatatableRowParams creates a new DeleteFlowsDatatableRowParams object
-// with the default values initialized.
+// NewDeleteFlowsDatatableRowParams creates a new DeleteFlowsDatatableRowParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteFlowsDatatableRowParams() *DeleteFlowsDatatableRowParams {
-	var ()
 	return &DeleteFlowsDatatableRowParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteFlowsDatatableRowParamsWithTimeout creates a new DeleteFlowsDatatableRowParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteFlowsDatatableRowParamsWithTimeout(timeout time.Duration) *DeleteFlowsDatatableRowParams {
-	var ()
 	return &DeleteFlowsDatatableRowParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteFlowsDatatableRowParamsWithContext creates a new DeleteFlowsDatatableRowParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteFlowsDatatableRowParamsWithContext(ctx context.Context) *DeleteFlowsDatatableRowParams {
-	var ()
 	return &DeleteFlowsDatatableRowParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteFlowsDatatableRowParamsWithHTTPClient creates a new DeleteFlowsDatatableRowParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteFlowsDatatableRowParamsWithHTTPClient(client *http.Client) *DeleteFlowsDatatableRowParams {
-	var ()
 	return &DeleteFlowsDatatableRowParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteFlowsDatatableRowParams contains all the parameters to send to the API endpoint
-for the delete flows datatable row operation typically these are written to a http.Request
+/*
+DeleteFlowsDatatableRowParams contains all the parameters to send to the API endpoint
+
+	for the delete flows datatable row operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteFlowsDatatableRowParams struct {
 
-	/*DatatableID
-	  id of datatable
+	/* DatatableID.
 
+	   id of datatable
 	*/
 	DatatableID string
-	/*RowID
-	  the key for the row
 
+	/* RowID.
+
+	   the key for the row
 	*/
 	RowID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete flows datatable row params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteFlowsDatatableRowParams) WithDefaults() *DeleteFlowsDatatableRowParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete flows datatable row params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteFlowsDatatableRowParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete flows datatable row params

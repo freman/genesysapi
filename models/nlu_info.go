@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -28,6 +29,9 @@ type NluInfo struct {
 	// intents
 	Intents []*Intent `json:"intents"`
 
+	// nlu data
+	NluData *NluDomainVersion `json:"nluData,omitempty"`
+
 	// version
 	// Read Only: true
 	Version *NluDomainVersion `json:"version,omitempty"`
@@ -45,6 +49,10 @@ func (m *NluInfo) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateNluData(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateVersion(formats); err != nil {
 		res = append(res, err)
 	}
@@ -56,7 +64,6 @@ func (m *NluInfo) Validate(formats strfmt.Registry) error {
 }
 
 func (m *NluInfo) validateDomain(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Domain) { // not required
 		return nil
 	}
@@ -65,6 +72,8 @@ func (m *NluInfo) validateDomain(formats strfmt.Registry) error {
 		if err := m.Domain.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("domain")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("domain")
 			}
 			return err
 		}
@@ -74,7 +83,6 @@ func (m *NluInfo) validateDomain(formats strfmt.Registry) error {
 }
 
 func (m *NluInfo) validateIntents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Intents) { // not required
 		return nil
 	}
@@ -88,6 +96,8 @@ func (m *NluInfo) validateIntents(formats strfmt.Registry) error {
 			if err := m.Intents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -98,8 +108,26 @@ func (m *NluInfo) validateIntents(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *NluInfo) validateVersion(formats strfmt.Registry) error {
+func (m *NluInfo) validateNluData(formats strfmt.Registry) error {
+	if swag.IsZero(m.NluData) { // not required
+		return nil
+	}
 
+	if m.NluData != nil {
+		if err := m.NluData.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("nluData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nluData")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NluInfo) validateVersion(formats strfmt.Registry) error {
 	if swag.IsZero(m.Version) { // not required
 		return nil
 	}
@@ -108,6 +136,102 @@ func (m *NluInfo) validateVersion(formats strfmt.Registry) error {
 		if err := m.Version.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("version")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this nlu info based on the context it is used
+func (m *NluInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDomain(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNluData(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *NluInfo) contextValidateDomain(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Domain != nil {
+		if err := m.Domain.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("domain")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("domain")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NluInfo) contextValidateIntents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Intents); i++ {
+
+		if m.Intents[i] != nil {
+			if err := m.Intents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *NluInfo) contextValidateNluData(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.NluData != nil {
+		if err := m.NluData.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("nluData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nluData")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NluInfo) contextValidateVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Version != nil {
+		if err := m.Version.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("version")
 			}
 			return err
 		}

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -20,7 +21,7 @@ import (
 type ConversationAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentOwned agentRank agentScore ani assignerId authenticated conversationId conversationInitiator convertedFrom convertedTo customerParticipation deliveryStatus destinationAddress direction disconnectType divisionId dnis edgeId eligibleAgentCount extendedDeliveryStatus externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowInType flowOutType groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType knowledgeBaseId mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank selfServed sessionDnis sessionId stationId teamId usedRouting userId waitingInteractionCount wrapUpCode]
+	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentOwned agentRank agentScore ani assignerId authenticated conversationId conversationInitiator convertedFrom convertedTo customerParticipation deliveryStatus destinationAddress direction disconnectType divisionId dnis edgeId eligibleAgentCount errorCode extendedDeliveryStatus externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowInType flowOutType groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType knowledgeBaseId mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank selfServed sessionDnis sessionId stationId teamId usedRouting userId waitingInteractionCount wrapUpCode]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +69,7 @@ var conversationAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","conversationInitiator","convertedFrom","convertedTo","customerParticipation","deliveryStatus","destinationAddress","direction","disconnectType","divisionId","dnis","edgeId","eligibleAgentCount","extendedDeliveryStatus","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowInType","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","knowledgeBaseId","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","selfServed","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","waitingInteractionCount","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","conversationInitiator","convertedFrom","convertedTo","customerParticipation","deliveryStatus","destinationAddress","direction","disconnectType","divisionId","dnis","edgeId","eligibleAgentCount","errorCode","extendedDeliveryStatus","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowInType","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","knowledgeBaseId","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","selfServed","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","waitingInteractionCount","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -149,6 +150,9 @@ const (
 
 	// ConversationAggregateQueryPredicateDimensionEligibleAgentCount captures enum value "eligibleAgentCount"
 	ConversationAggregateQueryPredicateDimensionEligibleAgentCount string = "eligibleAgentCount"
+
+	// ConversationAggregateQueryPredicateDimensionErrorCode captures enum value "errorCode"
+	ConversationAggregateQueryPredicateDimensionErrorCode string = "errorCode"
 
 	// ConversationAggregateQueryPredicateDimensionExtendedDeliveryStatus captures enum value "extendedDeliveryStatus"
 	ConversationAggregateQueryPredicateDimensionExtendedDeliveryStatus string = "extendedDeliveryStatus"
@@ -319,7 +323,6 @@ func (m *ConversationAggregateQueryPredicate) validateDimensionEnum(path, locati
 }
 
 func (m *ConversationAggregateQueryPredicate) validateDimension(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Dimension) { // not required
 		return nil
 	}
@@ -365,7 +368,6 @@ func (m *ConversationAggregateQueryPredicate) validateOperatorEnum(path, locatio
 }
 
 func (m *ConversationAggregateQueryPredicate) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -379,7 +381,6 @@ func (m *ConversationAggregateQueryPredicate) validateOperator(formats strfmt.Re
 }
 
 func (m *ConversationAggregateQueryPredicate) validateRange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Range) { // not required
 		return nil
 	}
@@ -388,6 +389,8 @@ func (m *ConversationAggregateQueryPredicate) validateRange(formats strfmt.Regis
 		if err := m.Range.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
 			}
 			return err
 		}
@@ -429,7 +432,6 @@ func (m *ConversationAggregateQueryPredicate) validateTypeEnum(path, location st
 }
 
 func (m *ConversationAggregateQueryPredicate) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -437,6 +439,36 @@ func (m *ConversationAggregateQueryPredicate) validateType(formats strfmt.Regist
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation aggregate query predicate based on the context it is used
+func (m *ConversationAggregateQueryPredicate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConversationAggregateQueryPredicate) contextValidateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Range != nil {
+		if err := m.Range.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
+			}
+			return err
+		}
 	}
 
 	return nil

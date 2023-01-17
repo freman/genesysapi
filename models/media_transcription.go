@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -74,7 +75,6 @@ func (m *MediaTranscription) validateTranscriptionProviderEnum(path, location st
 }
 
 func (m *MediaTranscription) validateTranscriptionProvider(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TranscriptionProvider) { // not required
 		return nil
 	}
@@ -84,6 +84,11 @@ func (m *MediaTranscription) validateTranscriptionProvider(formats strfmt.Regist
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this media transcription based on context it is used
+func (m *MediaTranscription) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

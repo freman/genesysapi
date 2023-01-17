@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchConversationsCallParticipantAttributesParams creates a new PatchConversationsCallParticipantAttributesParams object
-// with the default values initialized.
+// NewPatchConversationsCallParticipantAttributesParams creates a new PatchConversationsCallParticipantAttributesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchConversationsCallParticipantAttributesParams() *PatchConversationsCallParticipantAttributesParams {
-	var ()
 	return &PatchConversationsCallParticipantAttributesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchConversationsCallParticipantAttributesParamsWithTimeout creates a new PatchConversationsCallParticipantAttributesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchConversationsCallParticipantAttributesParamsWithTimeout(timeout time.Duration) *PatchConversationsCallParticipantAttributesParams {
-	var ()
 	return &PatchConversationsCallParticipantAttributesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchConversationsCallParticipantAttributesParamsWithContext creates a new PatchConversationsCallParticipantAttributesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchConversationsCallParticipantAttributesParamsWithContext(ctx context.Context) *PatchConversationsCallParticipantAttributesParams {
-	var ()
 	return &PatchConversationsCallParticipantAttributesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchConversationsCallParticipantAttributesParamsWithHTTPClient creates a new PatchConversationsCallParticipantAttributesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchConversationsCallParticipantAttributesParamsWithHTTPClient(client *http.Client) *PatchConversationsCallParticipantAttributesParams {
-	var ()
 	return &PatchConversationsCallParticipantAttributesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchConversationsCallParticipantAttributesParams contains all the parameters to send to the API endpoint
-for the patch conversations call participant attributes operation typically these are written to a http.Request
+/*
+PatchConversationsCallParticipantAttributesParams contains all the parameters to send to the API endpoint
+
+	for the patch conversations call participant attributes operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchConversationsCallParticipantAttributesParams struct {
 
-	/*Body
-	  Participant attributes
+	/* Body.
 
+	   Participant attributes
 	*/
 	Body *models.ParticipantAttributes
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch conversations call participant attributes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsCallParticipantAttributesParams) WithDefaults() *PatchConversationsCallParticipantAttributesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch conversations call participant attributes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsCallParticipantAttributesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch conversations call participant attributes params
@@ -156,7 +174,6 @@ func (o *PatchConversationsCallParticipantAttributesParams) WriteToRequest(r run
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

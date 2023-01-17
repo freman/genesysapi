@@ -18,74 +18,93 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchWorkforcemanagementManagementunitUserTimeoffrequestParams creates a new PatchWorkforcemanagementManagementunitUserTimeoffrequestParams object
-// with the default values initialized.
+// NewPatchWorkforcemanagementManagementunitUserTimeoffrequestParams creates a new PatchWorkforcemanagementManagementunitUserTimeoffrequestParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchWorkforcemanagementManagementunitUserTimeoffrequestParams() *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams {
-	var ()
 	return &PatchWorkforcemanagementManagementunitUserTimeoffrequestParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchWorkforcemanagementManagementunitUserTimeoffrequestParamsWithTimeout creates a new PatchWorkforcemanagementManagementunitUserTimeoffrequestParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchWorkforcemanagementManagementunitUserTimeoffrequestParamsWithTimeout(timeout time.Duration) *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams {
-	var ()
 	return &PatchWorkforcemanagementManagementunitUserTimeoffrequestParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchWorkforcemanagementManagementunitUserTimeoffrequestParamsWithContext creates a new PatchWorkforcemanagementManagementunitUserTimeoffrequestParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchWorkforcemanagementManagementunitUserTimeoffrequestParamsWithContext(ctx context.Context) *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams {
-	var ()
 	return &PatchWorkforcemanagementManagementunitUserTimeoffrequestParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchWorkforcemanagementManagementunitUserTimeoffrequestParamsWithHTTPClient creates a new PatchWorkforcemanagementManagementunitUserTimeoffrequestParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchWorkforcemanagementManagementunitUserTimeoffrequestParamsWithHTTPClient(client *http.Client) *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams {
-	var ()
 	return &PatchWorkforcemanagementManagementunitUserTimeoffrequestParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchWorkforcemanagementManagementunitUserTimeoffrequestParams contains all the parameters to send to the API endpoint
-for the patch workforcemanagement managementunit user timeoffrequest operation typically these are written to a http.Request
+/*
+PatchWorkforcemanagementManagementunitUserTimeoffrequestParams contains all the parameters to send to the API endpoint
+
+	for the patch workforcemanagement managementunit user timeoffrequest operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchWorkforcemanagementManagementunitUserTimeoffrequestParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.AdminTimeOffRequestPatch
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
-	/*TimeOffRequestID
-	  The id of the time off request to update
 
+	/* TimeOffRequestID.
+
+	   The id of the time off request to update
 	*/
 	TimeOffRequestID string
-	/*UserID
-	  The id of the user the requested time off request belongs to
 
+	/* UserID.
+
+	   The id of the user the requested time off request belongs to
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch workforcemanagement managementunit user timeoffrequest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) WithDefaults() *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch workforcemanagement managementunit user timeoffrequest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch workforcemanagement managementunit user timeoffrequest params
@@ -172,7 +191,6 @@ func (o *PatchWorkforcemanagementManagementunitUserTimeoffrequestParams) WriteTo
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOutboundCallabletimesetsParams creates a new PostOutboundCallabletimesetsParams object
-// with the default values initialized.
+// NewPostOutboundCallabletimesetsParams creates a new PostOutboundCallabletimesetsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundCallabletimesetsParams() *PostOutboundCallabletimesetsParams {
-	var ()
 	return &PostOutboundCallabletimesetsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundCallabletimesetsParamsWithTimeout creates a new PostOutboundCallabletimesetsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundCallabletimesetsParamsWithTimeout(timeout time.Duration) *PostOutboundCallabletimesetsParams {
-	var ()
 	return &PostOutboundCallabletimesetsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundCallabletimesetsParamsWithContext creates a new PostOutboundCallabletimesetsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundCallabletimesetsParamsWithContext(ctx context.Context) *PostOutboundCallabletimesetsParams {
-	var ()
 	return &PostOutboundCallabletimesetsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundCallabletimesetsParamsWithHTTPClient creates a new PostOutboundCallabletimesetsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundCallabletimesetsParamsWithHTTPClient(client *http.Client) *PostOutboundCallabletimesetsParams {
-	var ()
 	return &PostOutboundCallabletimesetsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundCallabletimesetsParams contains all the parameters to send to the API endpoint
-for the post outbound callabletimesets operation typically these are written to a http.Request
+/*
+PostOutboundCallabletimesetsParams contains all the parameters to send to the API endpoint
+
+	for the post outbound callabletimesets operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundCallabletimesetsParams struct {
 
-	/*Body
-	  DialerCallableTimeSet
+	/* Body.
 
+	   DialerCallableTimeSet
 	*/
 	Body *models.CallableTimeSet
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound callabletimesets params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundCallabletimesetsParams) WithDefaults() *PostOutboundCallabletimesetsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound callabletimesets params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundCallabletimesetsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound callabletimesets params
@@ -124,7 +140,6 @@ func (o *PostOutboundCallabletimesetsParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -17,117 +17,136 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetOutboundCampaignsAllParams creates a new GetOutboundCampaignsAllParams object
-// with the default values initialized.
+// NewGetOutboundCampaignsAllParams creates a new GetOutboundCampaignsAllParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundCampaignsAllParams() *GetOutboundCampaignsAllParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("a")
-	)
 	return &GetOutboundCampaignsAllParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundCampaignsAllParamsWithTimeout creates a new GetOutboundCampaignsAllParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundCampaignsAllParamsWithTimeout(timeout time.Duration) *GetOutboundCampaignsAllParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("a")
-	)
 	return &GetOutboundCampaignsAllParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundCampaignsAllParamsWithContext creates a new GetOutboundCampaignsAllParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundCampaignsAllParamsWithContext(ctx context.Context) *GetOutboundCampaignsAllParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("a")
-	)
 	return &GetOutboundCampaignsAllParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundCampaignsAllParamsWithHTTPClient creates a new GetOutboundCampaignsAllParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundCampaignsAllParamsWithHTTPClient(client *http.Client) *GetOutboundCampaignsAllParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("a")
-	)
 	return &GetOutboundCampaignsAllParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundCampaignsAllParams contains all the parameters to send to the API endpoint
-for the get outbound campaigns all operation typically these are written to a http.Request
+/*
+GetOutboundCampaignsAllParams contains all the parameters to send to the API endpoint
+
+	for the get outbound campaigns all operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundCampaignsAllParams struct {
 
-	/*DivisionID
-	  Division ID(s)
+	/* DivisionID.
 
+	   Division ID(s)
 	*/
 	DivisionID []string
-	/*ID
-	  Campaign ID(s)
 
+	/* ID.
+
+	   Campaign ID(s)
 	*/
 	ID []string
-	/*MediaType
-	  Media type(s)
 
+	/* MediaType.
+
+	   Media type(s)
 	*/
 	MediaType []string
-	/*Name
-	  Campaign name(s)
 
+	/* Name.
+
+	   Campaign name(s)
 	*/
 	Name *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "a"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound campaigns all params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundCampaignsAllParams) WithDefaults() *GetOutboundCampaignsAllParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound campaigns all params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundCampaignsAllParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortOrderDefault = string("a")
+	)
+
+	val := GetOutboundCampaignsAllParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get outbound campaigns all params
@@ -248,96 +267,160 @@ func (o *GetOutboundCampaignsAllParams) WriteToRequest(r runtime.ClientRequest, 
 	}
 	var res []error
 
-	valuesDivisionID := o.DivisionID
+	if o.DivisionID != nil {
 
-	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
-	// query array param divisionId
-	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
-		return err
+		// binding items for divisionId
+		joinedDivisionID := o.bindParamDivisionID(reg)
+
+		// query array param divisionId
+		if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+			return err
+		}
 	}
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
-	valuesMediaType := o.MediaType
+	if o.MediaType != nil {
 
-	joinedMediaType := swag.JoinByFormat(valuesMediaType, "multi")
-	// query array param mediaType
-	if err := r.SetQueryParam("mediaType", joinedMediaType...); err != nil {
-		return err
+		// binding items for mediaType
+		joinedMediaType := o.bindParamMediaType(reg)
+
+		// query array param mediaType
+		if err := r.SetQueryParam("mediaType", joinedMediaType...); err != nil {
+			return err
+		}
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetOutboundCampaignsAll binds the parameter divisionId
+func (o *GetOutboundCampaignsAllParams) bindParamDivisionID(formats strfmt.Registry) []string {
+	divisionIDIR := o.DivisionID
+
+	var divisionIDIC []string
+	for _, divisionIDIIR := range divisionIDIR { // explode []string
+
+		divisionIDIIV := divisionIDIIR // string as string
+		divisionIDIC = append(divisionIDIC, divisionIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	divisionIDIS := swag.JoinByFormat(divisionIDIC, "multi")
+
+	return divisionIDIS
+}
+
+// bindParamGetOutboundCampaignsAll binds the parameter id
+func (o *GetOutboundCampaignsAllParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
+}
+
+// bindParamGetOutboundCampaignsAll binds the parameter mediaType
+func (o *GetOutboundCampaignsAllParams) bindParamMediaType(formats strfmt.Registry) []string {
+	mediaTypeIR := o.MediaType
+
+	var mediaTypeIC []string
+	for _, mediaTypeIIR := range mediaTypeIR { // explode []string
+
+		mediaTypeIIV := mediaTypeIIR // string as string
+		mediaTypeIC = append(mediaTypeIC, mediaTypeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	mediaTypeIS := swag.JoinByFormat(mediaTypeIC, "multi")
+
+	return mediaTypeIS
 }

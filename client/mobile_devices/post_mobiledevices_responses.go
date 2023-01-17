@@ -95,7 +95,6 @@ func (o *PostMobiledevicesReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostMobiledevicesOK() *PostMobiledevicesOK {
 	return &PostMobiledevicesOK{}
 }
 
-/*PostMobiledevicesOK handles this case with default header values.
+/*
+PostMobiledevicesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostMobiledevicesOK struct {
 	Payload *models.UserDevice
 }
 
+// IsSuccess returns true when this post mobiledevices o k response has a 2xx status code
+func (o *PostMobiledevicesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post mobiledevices o k response has a 3xx status code
+func (o *PostMobiledevicesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mobiledevices o k response has a 4xx status code
+func (o *PostMobiledevicesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post mobiledevices o k response has a 5xx status code
+func (o *PostMobiledevicesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mobiledevices o k response a status code equal to that given
+func (o *PostMobiledevicesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostMobiledevicesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostMobiledevicesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostMobiledevicesBadRequest() *PostMobiledevicesBadRequest {
 	return &PostMobiledevicesBadRequest{}
 }
 
-/*PostMobiledevicesBadRequest handles this case with default header values.
+/*
+PostMobiledevicesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostMobiledevicesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post mobiledevices bad request response has a 2xx status code
+func (o *PostMobiledevicesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mobiledevices bad request response has a 3xx status code
+func (o *PostMobiledevicesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mobiledevices bad request response has a 4xx status code
+func (o *PostMobiledevicesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mobiledevices bad request response has a 5xx status code
+func (o *PostMobiledevicesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mobiledevices bad request response a status code equal to that given
+func (o *PostMobiledevicesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostMobiledevicesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostMobiledevicesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostMobiledevicesUnauthorized() *PostMobiledevicesUnauthorized {
 	return &PostMobiledevicesUnauthorized{}
 }
 
-/*PostMobiledevicesUnauthorized handles this case with default header values.
+/*
+PostMobiledevicesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostMobiledevicesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post mobiledevices unauthorized response has a 2xx status code
+func (o *PostMobiledevicesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mobiledevices unauthorized response has a 3xx status code
+func (o *PostMobiledevicesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mobiledevices unauthorized response has a 4xx status code
+func (o *PostMobiledevicesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mobiledevices unauthorized response has a 5xx status code
+func (o *PostMobiledevicesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mobiledevices unauthorized response a status code equal to that given
+func (o *PostMobiledevicesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostMobiledevicesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostMobiledevicesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostMobiledevicesForbidden() *PostMobiledevicesForbidden {
 	return &PostMobiledevicesForbidden{}
 }
 
-/*PostMobiledevicesForbidden handles this case with default header values.
+/*
+PostMobiledevicesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostMobiledevicesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post mobiledevices forbidden response has a 2xx status code
+func (o *PostMobiledevicesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mobiledevices forbidden response has a 3xx status code
+func (o *PostMobiledevicesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mobiledevices forbidden response has a 4xx status code
+func (o *PostMobiledevicesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mobiledevices forbidden response has a 5xx status code
+func (o *PostMobiledevicesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mobiledevices forbidden response a status code equal to that given
+func (o *PostMobiledevicesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostMobiledevicesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostMobiledevicesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostMobiledevicesNotFound() *PostMobiledevicesNotFound {
 	return &PostMobiledevicesNotFound{}
 }
 
-/*PostMobiledevicesNotFound handles this case with default header values.
+/*
+PostMobiledevicesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostMobiledevicesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post mobiledevices not found response has a 2xx status code
+func (o *PostMobiledevicesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mobiledevices not found response has a 3xx status code
+func (o *PostMobiledevicesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mobiledevices not found response has a 4xx status code
+func (o *PostMobiledevicesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mobiledevices not found response has a 5xx status code
+func (o *PostMobiledevicesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mobiledevices not found response a status code equal to that given
+func (o *PostMobiledevicesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostMobiledevicesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostMobiledevicesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostMobiledevicesRequestTimeout() *PostMobiledevicesRequestTimeout {
 	return &PostMobiledevicesRequestTimeout{}
 }
 
-/*PostMobiledevicesRequestTimeout handles this case with default header values.
+/*
+PostMobiledevicesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostMobiledevicesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post mobiledevices request timeout response has a 2xx status code
+func (o *PostMobiledevicesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mobiledevices request timeout response has a 3xx status code
+func (o *PostMobiledevicesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mobiledevices request timeout response has a 4xx status code
+func (o *PostMobiledevicesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mobiledevices request timeout response has a 5xx status code
+func (o *PostMobiledevicesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mobiledevices request timeout response a status code equal to that given
+func (o *PostMobiledevicesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostMobiledevicesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostMobiledevicesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostMobiledevicesRequestEntityTooLarge() *PostMobiledevicesRequestEntity
 	return &PostMobiledevicesRequestEntityTooLarge{}
 }
 
-/*PostMobiledevicesRequestEntityTooLarge handles this case with default header values.
+/*
+PostMobiledevicesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostMobiledevicesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post mobiledevices request entity too large response has a 2xx status code
+func (o *PostMobiledevicesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mobiledevices request entity too large response has a 3xx status code
+func (o *PostMobiledevicesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mobiledevices request entity too large response has a 4xx status code
+func (o *PostMobiledevicesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mobiledevices request entity too large response has a 5xx status code
+func (o *PostMobiledevicesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mobiledevices request entity too large response a status code equal to that given
+func (o *PostMobiledevicesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostMobiledevicesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostMobiledevicesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostMobiledevicesUnsupportedMediaType() *PostMobiledevicesUnsupportedMed
 	return &PostMobiledevicesUnsupportedMediaType{}
 }
 
-/*PostMobiledevicesUnsupportedMediaType handles this case with default header values.
+/*
+PostMobiledevicesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostMobiledevicesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post mobiledevices unsupported media type response has a 2xx status code
+func (o *PostMobiledevicesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mobiledevices unsupported media type response has a 3xx status code
+func (o *PostMobiledevicesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mobiledevices unsupported media type response has a 4xx status code
+func (o *PostMobiledevicesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mobiledevices unsupported media type response has a 5xx status code
+func (o *PostMobiledevicesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mobiledevices unsupported media type response a status code equal to that given
+func (o *PostMobiledevicesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostMobiledevicesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostMobiledevicesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostMobiledevicesTooManyRequests() *PostMobiledevicesTooManyRequests {
 	return &PostMobiledevicesTooManyRequests{}
 }
 
-/*PostMobiledevicesTooManyRequests handles this case with default header values.
+/*
+PostMobiledevicesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostMobiledevicesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post mobiledevices too many requests response has a 2xx status code
+func (o *PostMobiledevicesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mobiledevices too many requests response has a 3xx status code
+func (o *PostMobiledevicesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mobiledevices too many requests response has a 4xx status code
+func (o *PostMobiledevicesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post mobiledevices too many requests response has a 5xx status code
+func (o *PostMobiledevicesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post mobiledevices too many requests response a status code equal to that given
+func (o *PostMobiledevicesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostMobiledevicesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostMobiledevicesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostMobiledevicesInternalServerError() *PostMobiledevicesInternalServerE
 	return &PostMobiledevicesInternalServerError{}
 }
 
-/*PostMobiledevicesInternalServerError handles this case with default header values.
+/*
+PostMobiledevicesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostMobiledevicesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post mobiledevices internal server error response has a 2xx status code
+func (o *PostMobiledevicesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mobiledevices internal server error response has a 3xx status code
+func (o *PostMobiledevicesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mobiledevices internal server error response has a 4xx status code
+func (o *PostMobiledevicesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post mobiledevices internal server error response has a 5xx status code
+func (o *PostMobiledevicesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post mobiledevices internal server error response a status code equal to that given
+func (o *PostMobiledevicesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostMobiledevicesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostMobiledevicesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostMobiledevicesServiceUnavailable() *PostMobiledevicesServiceUnavailab
 	return &PostMobiledevicesServiceUnavailable{}
 }
 
-/*PostMobiledevicesServiceUnavailable handles this case with default header values.
+/*
+PostMobiledevicesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostMobiledevicesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post mobiledevices service unavailable response has a 2xx status code
+func (o *PostMobiledevicesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mobiledevices service unavailable response has a 3xx status code
+func (o *PostMobiledevicesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mobiledevices service unavailable response has a 4xx status code
+func (o *PostMobiledevicesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post mobiledevices service unavailable response has a 5xx status code
+func (o *PostMobiledevicesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post mobiledevices service unavailable response a status code equal to that given
+func (o *PostMobiledevicesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostMobiledevicesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostMobiledevicesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostMobiledevicesGatewayTimeout() *PostMobiledevicesGatewayTimeout {
 	return &PostMobiledevicesGatewayTimeout{}
 }
 
-/*PostMobiledevicesGatewayTimeout handles this case with default header values.
+/*
+PostMobiledevicesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostMobiledevicesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post mobiledevices gateway timeout response has a 2xx status code
+func (o *PostMobiledevicesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post mobiledevices gateway timeout response has a 3xx status code
+func (o *PostMobiledevicesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post mobiledevices gateway timeout response has a 4xx status code
+func (o *PostMobiledevicesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post mobiledevices gateway timeout response has a 5xx status code
+func (o *PostMobiledevicesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post mobiledevices gateway timeout response a status code equal to that given
+func (o *PostMobiledevicesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostMobiledevicesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostMobiledevicesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/mobiledevices][%d] postMobiledevicesGatewayTimeout  %+v", 504, o.Payload)
 }
 

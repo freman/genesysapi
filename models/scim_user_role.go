@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -21,6 +23,11 @@ type ScimUserRole struct {
 
 // Validate validates this scim user role
 func (m *ScimUserRole) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this scim user role based on context it is used
+func (m *ScimUserRole) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

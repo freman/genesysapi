@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetScimServiceproviderconfigParams creates a new GetScimServiceproviderconfigParams object
-// with the default values initialized.
+// NewGetScimServiceproviderconfigParams creates a new GetScimServiceproviderconfigParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScimServiceproviderconfigParams() *GetScimServiceproviderconfigParams {
-	var ()
 	return &GetScimServiceproviderconfigParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScimServiceproviderconfigParamsWithTimeout creates a new GetScimServiceproviderconfigParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScimServiceproviderconfigParamsWithTimeout(timeout time.Duration) *GetScimServiceproviderconfigParams {
-	var ()
 	return &GetScimServiceproviderconfigParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScimServiceproviderconfigParamsWithContext creates a new GetScimServiceproviderconfigParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScimServiceproviderconfigParamsWithContext(ctx context.Context) *GetScimServiceproviderconfigParams {
-	var ()
 	return &GetScimServiceproviderconfigParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetScimServiceproviderconfigParamsWithHTTPClient creates a new GetScimServiceproviderconfigParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScimServiceproviderconfigParamsWithHTTPClient(client *http.Client) *GetScimServiceproviderconfigParams {
-	var ()
 	return &GetScimServiceproviderconfigParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetScimServiceproviderconfigParams contains all the parameters to send to the API endpoint
-for the get scim serviceproviderconfig operation typically these are written to a http.Request
+/*
+GetScimServiceproviderconfigParams contains all the parameters to send to the API endpoint
+
+	for the get scim serviceproviderconfig operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScimServiceproviderconfigParams struct {
 
-	/*IfNoneMatch
-	  The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/serviceproviderconfig. Example: "42". If the ETag is different from the version on the server, returns the current configuration of the resource. If the ETag is current, returns 304 Not Modified.
+	/* IfNoneMatch.
 
+	   The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/serviceproviderconfig. Example: "42". If the ETag is different from the version on the server, returns the current configuration of the resource. If the ETag is current, returns 304 Not Modified.
 	*/
 	IfNoneMatch *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get scim serviceproviderconfig params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScimServiceproviderconfigParams) WithDefaults() *GetScimServiceproviderconfigParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get scim serviceproviderconfig params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScimServiceproviderconfigParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get scim serviceproviderconfig params
@@ -129,7 +145,6 @@ func (o *GetScimServiceproviderconfigParams) WriteToRequest(r runtime.ClientRequ
 		if err := r.SetHeaderParam("If-None-Match", *o.IfNoneMatch); err != nil {
 			return err
 		}
-
 	}
 
 	if len(res) > 0 {

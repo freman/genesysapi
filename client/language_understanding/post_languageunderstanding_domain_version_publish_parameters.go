@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostLanguageunderstandingDomainVersionPublishParams creates a new PostLanguageunderstandingDomainVersionPublishParams object
-// with the default values initialized.
+// NewPostLanguageunderstandingDomainVersionPublishParams creates a new PostLanguageunderstandingDomainVersionPublishParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostLanguageunderstandingDomainVersionPublishParams() *PostLanguageunderstandingDomainVersionPublishParams {
-	var ()
 	return &PostLanguageunderstandingDomainVersionPublishParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostLanguageunderstandingDomainVersionPublishParamsWithTimeout creates a new PostLanguageunderstandingDomainVersionPublishParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostLanguageunderstandingDomainVersionPublishParamsWithTimeout(timeout time.Duration) *PostLanguageunderstandingDomainVersionPublishParams {
-	var ()
 	return &PostLanguageunderstandingDomainVersionPublishParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostLanguageunderstandingDomainVersionPublishParamsWithContext creates a new PostLanguageunderstandingDomainVersionPublishParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostLanguageunderstandingDomainVersionPublishParamsWithContext(ctx context.Context) *PostLanguageunderstandingDomainVersionPublishParams {
-	var ()
 	return &PostLanguageunderstandingDomainVersionPublishParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostLanguageunderstandingDomainVersionPublishParamsWithHTTPClient creates a new PostLanguageunderstandingDomainVersionPublishParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostLanguageunderstandingDomainVersionPublishParamsWithHTTPClient(client *http.Client) *PostLanguageunderstandingDomainVersionPublishParams {
-	var ()
 	return &PostLanguageunderstandingDomainVersionPublishParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostLanguageunderstandingDomainVersionPublishParams contains all the parameters to send to the API endpoint
-for the post languageunderstanding domain version publish operation typically these are written to a http.Request
+/*
+PostLanguageunderstandingDomainVersionPublishParams contains all the parameters to send to the API endpoint
+
+	for the post languageunderstanding domain version publish operation.
+
+	Typically these are written to a http.Request.
 */
 type PostLanguageunderstandingDomainVersionPublishParams struct {
 
-	/*DomainID
-	  ID of the NLU domain.
+	/* DomainID.
 
+	   ID of the NLU domain.
 	*/
 	DomainID string
-	/*DomainVersionID
-	  ID of the NLU domain version.
 
+	/* DomainVersionID.
+
+	   ID of the NLU domain version.
 	*/
 	DomainVersionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post languageunderstanding domain version publish params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLanguageunderstandingDomainVersionPublishParams) WithDefaults() *PostLanguageunderstandingDomainVersionPublishParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post languageunderstanding domain version publish params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLanguageunderstandingDomainVersionPublishParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post languageunderstanding domain version publish params

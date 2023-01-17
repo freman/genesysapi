@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -151,6 +152,11 @@ func (m *DocumentQueryPredicate) validateValues(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this document query predicate based on context it is used
+func (m *DocumentQueryPredicate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

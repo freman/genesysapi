@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -117,7 +118,6 @@ func (m *MediaParticipantRequest) validateStateEnum(path, location string, value
 }
 
 func (m *MediaParticipantRequest) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -131,7 +131,6 @@ func (m *MediaParticipantRequest) validateState(formats strfmt.Registry) error {
 }
 
 func (m *MediaParticipantRequest) validateWrapup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Wrapup) { // not required
 		return nil
 	}
@@ -140,6 +139,38 @@ func (m *MediaParticipantRequest) validateWrapup(formats strfmt.Registry) error 
 		if err := m.Wrapup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this media participant request based on the context it is used
+func (m *MediaParticipantRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateWrapup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MediaParticipantRequest) contextValidateWrapup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Wrapup != nil {
+		if err := m.Wrapup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
 			}
 			return err
 		}

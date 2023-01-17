@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetNotificationsChannelSubscriptionsParams creates a new GetNotificationsChannelSubscriptionsParams object
-// with the default values initialized.
+// NewGetNotificationsChannelSubscriptionsParams creates a new GetNotificationsChannelSubscriptionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetNotificationsChannelSubscriptionsParams() *GetNotificationsChannelSubscriptionsParams {
-	var ()
 	return &GetNotificationsChannelSubscriptionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetNotificationsChannelSubscriptionsParamsWithTimeout creates a new GetNotificationsChannelSubscriptionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetNotificationsChannelSubscriptionsParamsWithTimeout(timeout time.Duration) *GetNotificationsChannelSubscriptionsParams {
-	var ()
 	return &GetNotificationsChannelSubscriptionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetNotificationsChannelSubscriptionsParamsWithContext creates a new GetNotificationsChannelSubscriptionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetNotificationsChannelSubscriptionsParamsWithContext(ctx context.Context) *GetNotificationsChannelSubscriptionsParams {
-	var ()
 	return &GetNotificationsChannelSubscriptionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetNotificationsChannelSubscriptionsParamsWithHTTPClient creates a new GetNotificationsChannelSubscriptionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetNotificationsChannelSubscriptionsParamsWithHTTPClient(client *http.Client) *GetNotificationsChannelSubscriptionsParams {
-	var ()
 	return &GetNotificationsChannelSubscriptionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetNotificationsChannelSubscriptionsParams contains all the parameters to send to the API endpoint
-for the get notifications channel subscriptions operation typically these are written to a http.Request
+/*
+GetNotificationsChannelSubscriptionsParams contains all the parameters to send to the API endpoint
+
+	for the get notifications channel subscriptions operation.
+
+	Typically these are written to a http.Request.
 */
 type GetNotificationsChannelSubscriptionsParams struct {
 
-	/*ChannelID
-	  Channel ID
+	/* ChannelID.
 
+	   Channel ID
 	*/
 	ChannelID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get notifications channel subscriptions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetNotificationsChannelSubscriptionsParams) WithDefaults() *GetNotificationsChannelSubscriptionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get notifications channel subscriptions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetNotificationsChannelSubscriptionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get notifications channel subscriptions params

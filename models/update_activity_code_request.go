@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -128,7 +129,6 @@ func (m *UpdateActivityCodeRequest) validateCategoryEnum(path, location string, 
 }
 
 func (m *UpdateActivityCodeRequest) validateCategory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Category) { // not required
 		return nil
 	}
@@ -151,6 +151,8 @@ func (m *UpdateActivityCodeRequest) validateMetadata(formats strfmt.Registry) er
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -160,7 +162,6 @@ func (m *UpdateActivityCodeRequest) validateMetadata(formats strfmt.Registry) er
 }
 
 func (m *UpdateActivityCodeRequest) validateSecondaryPresences(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SecondaryPresences) { // not required
 		return nil
 	}
@@ -169,6 +170,58 @@ func (m *UpdateActivityCodeRequest) validateSecondaryPresences(formats strfmt.Re
 		if err := m.SecondaryPresences.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("secondaryPresences")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secondaryPresences")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this update activity code request based on the context it is used
+func (m *UpdateActivityCodeRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSecondaryPresences(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UpdateActivityCodeRequest) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateActivityCodeRequest) contextValidateSecondaryPresences(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SecondaryPresences != nil {
+		if err := m.SecondaryPresences.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("secondaryPresences")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secondaryPresences")
 			}
 			return err
 		}

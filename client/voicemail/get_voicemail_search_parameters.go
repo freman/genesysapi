@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetVoicemailSearchParams creates a new GetVoicemailSearchParams object
-// with the default values initialized.
+// NewGetVoicemailSearchParams creates a new GetVoicemailSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetVoicemailSearchParams() *GetVoicemailSearchParams {
-	var ()
 	return &GetVoicemailSearchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetVoicemailSearchParamsWithTimeout creates a new GetVoicemailSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetVoicemailSearchParamsWithTimeout(timeout time.Duration) *GetVoicemailSearchParams {
-	var ()
 	return &GetVoicemailSearchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetVoicemailSearchParamsWithContext creates a new GetVoicemailSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetVoicemailSearchParamsWithContext(ctx context.Context) *GetVoicemailSearchParams {
-	var ()
 	return &GetVoicemailSearchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetVoicemailSearchParamsWithHTTPClient creates a new GetVoicemailSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetVoicemailSearchParamsWithHTTPClient(client *http.Client) *GetVoicemailSearchParams {
-	var ()
 	return &GetVoicemailSearchParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetVoicemailSearchParams contains all the parameters to send to the API endpoint
-for the get voicemail search operation typically these are written to a http.Request
+/*
+GetVoicemailSearchParams contains all the parameters to send to the API endpoint
+
+	for the get voicemail search operation.
+
+	Typically these are written to a http.Request.
 */
 type GetVoicemailSearchParams struct {
 
-	/*Expand
-	  expand
+	/* Expand.
 
+	   expand
 	*/
 	Expand []string
-	/*Q64
-	  q64
 
+	/* Q64.
+
+	   q64
 	*/
 	Q64 string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get voicemail search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetVoicemailSearchParams) WithDefaults() *GetVoicemailSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get voicemail search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetVoicemailSearchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get voicemail search params
@@ -140,18 +157,22 @@ func (o *GetVoicemailSearchParams) WriteToRequest(r runtime.ClientRequest, reg s
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// query param q64
 	qrQ64 := o.Q64
 	qQ64 := qrQ64
 	if qQ64 != "" {
+
 		if err := r.SetQueryParam("q64", qQ64); err != nil {
 			return err
 		}
@@ -161,4 +182,21 @@ func (o *GetVoicemailSearchParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetVoicemailSearch binds the parameter expand
+func (o *GetVoicemailSearchParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

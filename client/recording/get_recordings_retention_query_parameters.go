@@ -17,81 +17,103 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRecordingsRetentionQueryParams creates a new GetRecordingsRetentionQueryParams object
-// with the default values initialized.
+// NewGetRecordingsRetentionQueryParams creates a new GetRecordingsRetentionQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRecordingsRetentionQueryParams() *GetRecordingsRetentionQueryParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetRecordingsRetentionQueryParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRecordingsRetentionQueryParamsWithTimeout creates a new GetRecordingsRetentionQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRecordingsRetentionQueryParamsWithTimeout(timeout time.Duration) *GetRecordingsRetentionQueryParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetRecordingsRetentionQueryParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRecordingsRetentionQueryParamsWithContext creates a new GetRecordingsRetentionQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRecordingsRetentionQueryParamsWithContext(ctx context.Context) *GetRecordingsRetentionQueryParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetRecordingsRetentionQueryParams{
-		PageSize: &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetRecordingsRetentionQueryParamsWithHTTPClient creates a new GetRecordingsRetentionQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRecordingsRetentionQueryParamsWithHTTPClient(client *http.Client) *GetRecordingsRetentionQueryParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetRecordingsRetentionQueryParams{
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetRecordingsRetentionQueryParams contains all the parameters to send to the API endpoint
-for the get recordings retention query operation typically these are written to a http.Request
+/*
+GetRecordingsRetentionQueryParams contains all the parameters to send to the API endpoint
+
+	for the get recordings retention query operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRecordingsRetentionQueryParams struct {
 
-	/*Cursor
-	  Indicates where to resume query results (not required for first page)
+	/* Cursor.
 
+	   Indicates where to resume query results (not required for first page)
 	*/
 	Cursor *string
-	/*PageSize
-	  Page size. Maximum is 500.
 
+	/* PageSize.
+
+	   Page size. Maximum is 500.
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*RetentionThresholdDays
-	  Fetch retention data for recordings retained for more days than the provided value.
 
+	/* RetentionThresholdDays.
+
+	   Fetch retention data for recordings retained for more days than the provided value.
+
+	   Format: int32
 	*/
 	RetentionThresholdDays int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get recordings retention query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingsRetentionQueryParams) WithDefaults() *GetRecordingsRetentionQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get recordings retention query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingsRetentionQueryParams) SetDefaults() {
+	var (
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetRecordingsRetentionQueryParams{
+		PageSize: &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get recordings retention query params
@@ -172,38 +194,41 @@ func (o *GetRecordingsRetentionQueryParams) WriteToRequest(r runtime.ClientReque
 
 		// query param cursor
 		var qrCursor string
+
 		if o.Cursor != nil {
 			qrCursor = *o.Cursor
 		}
 		qCursor := qrCursor
 		if qCursor != "" {
+
 			if err := r.SetQueryParam("cursor", qCursor); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param retentionThresholdDays
 	qrRetentionThresholdDays := o.RetentionThresholdDays
 	qRetentionThresholdDays := swag.FormatInt32(qrRetentionThresholdDays)
 	if qRetentionThresholdDays != "" {
+
 		if err := r.SetQueryParam("retentionThresholdDays", qRetentionThresholdDays); err != nil {
 			return err
 		}

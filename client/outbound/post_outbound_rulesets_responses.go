@@ -95,7 +95,6 @@ func (o *PostOutboundRulesetsReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOutboundRulesetsOK() *PostOutboundRulesetsOK {
 	return &PostOutboundRulesetsOK{}
 }
 
-/*PostOutboundRulesetsOK handles this case with default header values.
+/*
+PostOutboundRulesetsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOutboundRulesetsOK struct {
 	Payload *models.RuleSet
 }
 
+// IsSuccess returns true when this post outbound rulesets o k response has a 2xx status code
+func (o *PostOutboundRulesetsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post outbound rulesets o k response has a 3xx status code
+func (o *PostOutboundRulesetsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound rulesets o k response has a 4xx status code
+func (o *PostOutboundRulesetsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound rulesets o k response has a 5xx status code
+func (o *PostOutboundRulesetsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound rulesets o k response a status code equal to that given
+func (o *PostOutboundRulesetsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOutboundRulesetsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOutboundRulesetsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostOutboundRulesetsBadRequest() *PostOutboundRulesetsBadRequest {
 	return &PostOutboundRulesetsBadRequest{}
 }
 
-/*PostOutboundRulesetsBadRequest handles this case with default header values.
+/*
+PostOutboundRulesetsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostOutboundRulesetsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound rulesets bad request response has a 2xx status code
+func (o *PostOutboundRulesetsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound rulesets bad request response has a 3xx status code
+func (o *PostOutboundRulesetsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound rulesets bad request response has a 4xx status code
+func (o *PostOutboundRulesetsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound rulesets bad request response has a 5xx status code
+func (o *PostOutboundRulesetsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound rulesets bad request response a status code equal to that given
+func (o *PostOutboundRulesetsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOutboundRulesetsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOutboundRulesetsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostOutboundRulesetsUnauthorized() *PostOutboundRulesetsUnauthorized {
 	return &PostOutboundRulesetsUnauthorized{}
 }
 
-/*PostOutboundRulesetsUnauthorized handles this case with default header values.
+/*
+PostOutboundRulesetsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostOutboundRulesetsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound rulesets unauthorized response has a 2xx status code
+func (o *PostOutboundRulesetsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound rulesets unauthorized response has a 3xx status code
+func (o *PostOutboundRulesetsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound rulesets unauthorized response has a 4xx status code
+func (o *PostOutboundRulesetsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound rulesets unauthorized response has a 5xx status code
+func (o *PostOutboundRulesetsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound rulesets unauthorized response a status code equal to that given
+func (o *PostOutboundRulesetsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOutboundRulesetsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOutboundRulesetsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostOutboundRulesetsForbidden() *PostOutboundRulesetsForbidden {
 	return &PostOutboundRulesetsForbidden{}
 }
 
-/*PostOutboundRulesetsForbidden handles this case with default header values.
+/*
+PostOutboundRulesetsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostOutboundRulesetsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound rulesets forbidden response has a 2xx status code
+func (o *PostOutboundRulesetsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound rulesets forbidden response has a 3xx status code
+func (o *PostOutboundRulesetsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound rulesets forbidden response has a 4xx status code
+func (o *PostOutboundRulesetsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound rulesets forbidden response has a 5xx status code
+func (o *PostOutboundRulesetsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound rulesets forbidden response a status code equal to that given
+func (o *PostOutboundRulesetsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOutboundRulesetsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOutboundRulesetsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostOutboundRulesetsNotFound() *PostOutboundRulesetsNotFound {
 	return &PostOutboundRulesetsNotFound{}
 }
 
-/*PostOutboundRulesetsNotFound handles this case with default header values.
+/*
+PostOutboundRulesetsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostOutboundRulesetsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound rulesets not found response has a 2xx status code
+func (o *PostOutboundRulesetsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound rulesets not found response has a 3xx status code
+func (o *PostOutboundRulesetsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound rulesets not found response has a 4xx status code
+func (o *PostOutboundRulesetsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound rulesets not found response has a 5xx status code
+func (o *PostOutboundRulesetsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound rulesets not found response a status code equal to that given
+func (o *PostOutboundRulesetsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOutboundRulesetsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOutboundRulesetsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostOutboundRulesetsRequestTimeout() *PostOutboundRulesetsRequestTimeout
 	return &PostOutboundRulesetsRequestTimeout{}
 }
 
-/*PostOutboundRulesetsRequestTimeout handles this case with default header values.
+/*
+PostOutboundRulesetsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostOutboundRulesetsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound rulesets request timeout response has a 2xx status code
+func (o *PostOutboundRulesetsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound rulesets request timeout response has a 3xx status code
+func (o *PostOutboundRulesetsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound rulesets request timeout response has a 4xx status code
+func (o *PostOutboundRulesetsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound rulesets request timeout response has a 5xx status code
+func (o *PostOutboundRulesetsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound rulesets request timeout response a status code equal to that given
+func (o *PostOutboundRulesetsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOutboundRulesetsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundRulesetsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostOutboundRulesetsRequestEntityTooLarge() *PostOutboundRulesetsRequest
 	return &PostOutboundRulesetsRequestEntityTooLarge{}
 }
 
-/*PostOutboundRulesetsRequestEntityTooLarge handles this case with default header values.
+/*
+PostOutboundRulesetsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostOutboundRulesetsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound rulesets request entity too large response has a 2xx status code
+func (o *PostOutboundRulesetsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound rulesets request entity too large response has a 3xx status code
+func (o *PostOutboundRulesetsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound rulesets request entity too large response has a 4xx status code
+func (o *PostOutboundRulesetsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound rulesets request entity too large response has a 5xx status code
+func (o *PostOutboundRulesetsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound rulesets request entity too large response a status code equal to that given
+func (o *PostOutboundRulesetsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOutboundRulesetsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOutboundRulesetsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostOutboundRulesetsUnsupportedMediaType() *PostOutboundRulesetsUnsuppor
 	return &PostOutboundRulesetsUnsupportedMediaType{}
 }
 
-/*PostOutboundRulesetsUnsupportedMediaType handles this case with default header values.
+/*
+PostOutboundRulesetsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostOutboundRulesetsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound rulesets unsupported media type response has a 2xx status code
+func (o *PostOutboundRulesetsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound rulesets unsupported media type response has a 3xx status code
+func (o *PostOutboundRulesetsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound rulesets unsupported media type response has a 4xx status code
+func (o *PostOutboundRulesetsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound rulesets unsupported media type response has a 5xx status code
+func (o *PostOutboundRulesetsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound rulesets unsupported media type response a status code equal to that given
+func (o *PostOutboundRulesetsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOutboundRulesetsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOutboundRulesetsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostOutboundRulesetsTooManyRequests() *PostOutboundRulesetsTooManyReques
 	return &PostOutboundRulesetsTooManyRequests{}
 }
 
-/*PostOutboundRulesetsTooManyRequests handles this case with default header values.
+/*
+PostOutboundRulesetsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostOutboundRulesetsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound rulesets too many requests response has a 2xx status code
+func (o *PostOutboundRulesetsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound rulesets too many requests response has a 3xx status code
+func (o *PostOutboundRulesetsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound rulesets too many requests response has a 4xx status code
+func (o *PostOutboundRulesetsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound rulesets too many requests response has a 5xx status code
+func (o *PostOutboundRulesetsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound rulesets too many requests response a status code equal to that given
+func (o *PostOutboundRulesetsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOutboundRulesetsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOutboundRulesetsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostOutboundRulesetsInternalServerError() *PostOutboundRulesetsInternalS
 	return &PostOutboundRulesetsInternalServerError{}
 }
 
-/*PostOutboundRulesetsInternalServerError handles this case with default header values.
+/*
+PostOutboundRulesetsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostOutboundRulesetsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound rulesets internal server error response has a 2xx status code
+func (o *PostOutboundRulesetsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound rulesets internal server error response has a 3xx status code
+func (o *PostOutboundRulesetsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound rulesets internal server error response has a 4xx status code
+func (o *PostOutboundRulesetsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound rulesets internal server error response has a 5xx status code
+func (o *PostOutboundRulesetsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound rulesets internal server error response a status code equal to that given
+func (o *PostOutboundRulesetsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOutboundRulesetsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOutboundRulesetsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostOutboundRulesetsServiceUnavailable() *PostOutboundRulesetsServiceUna
 	return &PostOutboundRulesetsServiceUnavailable{}
 }
 
-/*PostOutboundRulesetsServiceUnavailable handles this case with default header values.
+/*
+PostOutboundRulesetsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostOutboundRulesetsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound rulesets service unavailable response has a 2xx status code
+func (o *PostOutboundRulesetsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound rulesets service unavailable response has a 3xx status code
+func (o *PostOutboundRulesetsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound rulesets service unavailable response has a 4xx status code
+func (o *PostOutboundRulesetsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound rulesets service unavailable response has a 5xx status code
+func (o *PostOutboundRulesetsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound rulesets service unavailable response a status code equal to that given
+func (o *PostOutboundRulesetsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOutboundRulesetsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOutboundRulesetsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostOutboundRulesetsGatewayTimeout() *PostOutboundRulesetsGatewayTimeout
 	return &PostOutboundRulesetsGatewayTimeout{}
 }
 
-/*PostOutboundRulesetsGatewayTimeout handles this case with default header values.
+/*
+PostOutboundRulesetsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostOutboundRulesetsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound rulesets gateway timeout response has a 2xx status code
+func (o *PostOutboundRulesetsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound rulesets gateway timeout response has a 3xx status code
+func (o *PostOutboundRulesetsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound rulesets gateway timeout response has a 4xx status code
+func (o *PostOutboundRulesetsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound rulesets gateway timeout response has a 5xx status code
+func (o *PostOutboundRulesetsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound rulesets gateway timeout response a status code equal to that given
+func (o *PostOutboundRulesetsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOutboundRulesetsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOutboundRulesetsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/rulesets][%d] postOutboundRulesetsGatewayTimeout  %+v", 504, o.Payload)
 }
 

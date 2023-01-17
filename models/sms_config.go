@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -60,7 +62,6 @@ func (m *SmsConfig) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SmsConfig) validateContentTemplate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContentTemplate) { // not required
 		return nil
 	}
@@ -69,6 +70,8 @@ func (m *SmsConfig) validateContentTemplate(formats strfmt.Registry) error {
 		if err := m.ContentTemplate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contentTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contentTemplate")
 			}
 			return err
 		}
@@ -105,6 +108,58 @@ func (m *SmsConfig) validateSenderSmsPhoneNumber(formats strfmt.Registry) error 
 		if err := m.SenderSmsPhoneNumber.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("senderSmsPhoneNumber")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("senderSmsPhoneNumber")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this sms config based on the context it is used
+func (m *SmsConfig) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContentTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSenderSmsPhoneNumber(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SmsConfig) contextValidateContentTemplate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContentTemplate != nil {
+		if err := m.ContentTemplate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contentTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contentTemplate")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SmsConfig) contextValidateSenderSmsPhoneNumber(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SenderSmsPhoneNumber != nil {
+		if err := m.SenderSmsPhoneNumber.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("senderSmsPhoneNumber")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("senderSmsPhoneNumber")
 			}
 			return err
 		}

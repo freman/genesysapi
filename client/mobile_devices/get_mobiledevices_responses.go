@@ -95,7 +95,6 @@ func (o *GetMobiledevicesReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetMobiledevicesOK() *GetMobiledevicesOK {
 	return &GetMobiledevicesOK{}
 }
 
-/*GetMobiledevicesOK handles this case with default header values.
+/*
+GetMobiledevicesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetMobiledevicesOK struct {
 	Payload *models.DirectoryUserDevicesListing
 }
 
+// IsSuccess returns true when this get mobiledevices o k response has a 2xx status code
+func (o *GetMobiledevicesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get mobiledevices o k response has a 3xx status code
+func (o *GetMobiledevicesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mobiledevices o k response has a 4xx status code
+func (o *GetMobiledevicesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get mobiledevices o k response has a 5xx status code
+func (o *GetMobiledevicesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mobiledevices o k response a status code equal to that given
+func (o *GetMobiledevicesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetMobiledevicesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetMobiledevicesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetMobiledevicesBadRequest() *GetMobiledevicesBadRequest {
 	return &GetMobiledevicesBadRequest{}
 }
 
-/*GetMobiledevicesBadRequest handles this case with default header values.
+/*
+GetMobiledevicesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetMobiledevicesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get mobiledevices bad request response has a 2xx status code
+func (o *GetMobiledevicesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mobiledevices bad request response has a 3xx status code
+func (o *GetMobiledevicesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mobiledevices bad request response has a 4xx status code
+func (o *GetMobiledevicesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mobiledevices bad request response has a 5xx status code
+func (o *GetMobiledevicesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mobiledevices bad request response a status code equal to that given
+func (o *GetMobiledevicesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetMobiledevicesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetMobiledevicesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetMobiledevicesUnauthorized() *GetMobiledevicesUnauthorized {
 	return &GetMobiledevicesUnauthorized{}
 }
 
-/*GetMobiledevicesUnauthorized handles this case with default header values.
+/*
+GetMobiledevicesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetMobiledevicesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get mobiledevices unauthorized response has a 2xx status code
+func (o *GetMobiledevicesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mobiledevices unauthorized response has a 3xx status code
+func (o *GetMobiledevicesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mobiledevices unauthorized response has a 4xx status code
+func (o *GetMobiledevicesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mobiledevices unauthorized response has a 5xx status code
+func (o *GetMobiledevicesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mobiledevices unauthorized response a status code equal to that given
+func (o *GetMobiledevicesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetMobiledevicesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetMobiledevicesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetMobiledevicesForbidden() *GetMobiledevicesForbidden {
 	return &GetMobiledevicesForbidden{}
 }
 
-/*GetMobiledevicesForbidden handles this case with default header values.
+/*
+GetMobiledevicesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetMobiledevicesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get mobiledevices forbidden response has a 2xx status code
+func (o *GetMobiledevicesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mobiledevices forbidden response has a 3xx status code
+func (o *GetMobiledevicesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mobiledevices forbidden response has a 4xx status code
+func (o *GetMobiledevicesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mobiledevices forbidden response has a 5xx status code
+func (o *GetMobiledevicesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mobiledevices forbidden response a status code equal to that given
+func (o *GetMobiledevicesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetMobiledevicesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetMobiledevicesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetMobiledevicesNotFound() *GetMobiledevicesNotFound {
 	return &GetMobiledevicesNotFound{}
 }
 
-/*GetMobiledevicesNotFound handles this case with default header values.
+/*
+GetMobiledevicesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetMobiledevicesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get mobiledevices not found response has a 2xx status code
+func (o *GetMobiledevicesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mobiledevices not found response has a 3xx status code
+func (o *GetMobiledevicesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mobiledevices not found response has a 4xx status code
+func (o *GetMobiledevicesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mobiledevices not found response has a 5xx status code
+func (o *GetMobiledevicesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mobiledevices not found response a status code equal to that given
+func (o *GetMobiledevicesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetMobiledevicesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetMobiledevicesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetMobiledevicesRequestTimeout() *GetMobiledevicesRequestTimeout {
 	return &GetMobiledevicesRequestTimeout{}
 }
 
-/*GetMobiledevicesRequestTimeout handles this case with default header values.
+/*
+GetMobiledevicesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetMobiledevicesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get mobiledevices request timeout response has a 2xx status code
+func (o *GetMobiledevicesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mobiledevices request timeout response has a 3xx status code
+func (o *GetMobiledevicesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mobiledevices request timeout response has a 4xx status code
+func (o *GetMobiledevicesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mobiledevices request timeout response has a 5xx status code
+func (o *GetMobiledevicesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mobiledevices request timeout response a status code equal to that given
+func (o *GetMobiledevicesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetMobiledevicesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetMobiledevicesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetMobiledevicesRequestEntityTooLarge() *GetMobiledevicesRequestEntityTo
 	return &GetMobiledevicesRequestEntityTooLarge{}
 }
 
-/*GetMobiledevicesRequestEntityTooLarge handles this case with default header values.
+/*
+GetMobiledevicesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetMobiledevicesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get mobiledevices request entity too large response has a 2xx status code
+func (o *GetMobiledevicesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mobiledevices request entity too large response has a 3xx status code
+func (o *GetMobiledevicesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mobiledevices request entity too large response has a 4xx status code
+func (o *GetMobiledevicesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mobiledevices request entity too large response has a 5xx status code
+func (o *GetMobiledevicesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mobiledevices request entity too large response a status code equal to that given
+func (o *GetMobiledevicesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetMobiledevicesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetMobiledevicesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetMobiledevicesUnsupportedMediaType() *GetMobiledevicesUnsupportedMedia
 	return &GetMobiledevicesUnsupportedMediaType{}
 }
 
-/*GetMobiledevicesUnsupportedMediaType handles this case with default header values.
+/*
+GetMobiledevicesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetMobiledevicesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get mobiledevices unsupported media type response has a 2xx status code
+func (o *GetMobiledevicesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mobiledevices unsupported media type response has a 3xx status code
+func (o *GetMobiledevicesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mobiledevices unsupported media type response has a 4xx status code
+func (o *GetMobiledevicesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mobiledevices unsupported media type response has a 5xx status code
+func (o *GetMobiledevicesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mobiledevices unsupported media type response a status code equal to that given
+func (o *GetMobiledevicesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetMobiledevicesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetMobiledevicesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetMobiledevicesTooManyRequests() *GetMobiledevicesTooManyRequests {
 	return &GetMobiledevicesTooManyRequests{}
 }
 
-/*GetMobiledevicesTooManyRequests handles this case with default header values.
+/*
+GetMobiledevicesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetMobiledevicesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get mobiledevices too many requests response has a 2xx status code
+func (o *GetMobiledevicesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mobiledevices too many requests response has a 3xx status code
+func (o *GetMobiledevicesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mobiledevices too many requests response has a 4xx status code
+func (o *GetMobiledevicesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get mobiledevices too many requests response has a 5xx status code
+func (o *GetMobiledevicesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get mobiledevices too many requests response a status code equal to that given
+func (o *GetMobiledevicesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetMobiledevicesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetMobiledevicesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetMobiledevicesInternalServerError() *GetMobiledevicesInternalServerErr
 	return &GetMobiledevicesInternalServerError{}
 }
 
-/*GetMobiledevicesInternalServerError handles this case with default header values.
+/*
+GetMobiledevicesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetMobiledevicesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get mobiledevices internal server error response has a 2xx status code
+func (o *GetMobiledevicesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mobiledevices internal server error response has a 3xx status code
+func (o *GetMobiledevicesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mobiledevices internal server error response has a 4xx status code
+func (o *GetMobiledevicesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get mobiledevices internal server error response has a 5xx status code
+func (o *GetMobiledevicesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get mobiledevices internal server error response a status code equal to that given
+func (o *GetMobiledevicesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetMobiledevicesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetMobiledevicesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetMobiledevicesServiceUnavailable() *GetMobiledevicesServiceUnavailable
 	return &GetMobiledevicesServiceUnavailable{}
 }
 
-/*GetMobiledevicesServiceUnavailable handles this case with default header values.
+/*
+GetMobiledevicesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetMobiledevicesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get mobiledevices service unavailable response has a 2xx status code
+func (o *GetMobiledevicesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mobiledevices service unavailable response has a 3xx status code
+func (o *GetMobiledevicesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mobiledevices service unavailable response has a 4xx status code
+func (o *GetMobiledevicesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get mobiledevices service unavailable response has a 5xx status code
+func (o *GetMobiledevicesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get mobiledevices service unavailable response a status code equal to that given
+func (o *GetMobiledevicesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetMobiledevicesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetMobiledevicesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetMobiledevicesGatewayTimeout() *GetMobiledevicesGatewayTimeout {
 	return &GetMobiledevicesGatewayTimeout{}
 }
 
-/*GetMobiledevicesGatewayTimeout handles this case with default header values.
+/*
+GetMobiledevicesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetMobiledevicesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get mobiledevices gateway timeout response has a 2xx status code
+func (o *GetMobiledevicesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get mobiledevices gateway timeout response has a 3xx status code
+func (o *GetMobiledevicesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get mobiledevices gateway timeout response has a 4xx status code
+func (o *GetMobiledevicesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get mobiledevices gateway timeout response has a 5xx status code
+func (o *GetMobiledevicesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get mobiledevices gateway timeout response a status code equal to that given
+func (o *GetMobiledevicesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetMobiledevicesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetMobiledevicesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/mobiledevices][%d] getMobiledevicesGatewayTimeout  %+v", 504, o.Payload)
 }
 

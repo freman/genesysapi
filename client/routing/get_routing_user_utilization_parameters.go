@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingUserUtilizationParams creates a new GetRoutingUserUtilizationParams object
-// with the default values initialized.
+// NewGetRoutingUserUtilizationParams creates a new GetRoutingUserUtilizationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingUserUtilizationParams() *GetRoutingUserUtilizationParams {
-	var ()
 	return &GetRoutingUserUtilizationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingUserUtilizationParamsWithTimeout creates a new GetRoutingUserUtilizationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingUserUtilizationParamsWithTimeout(timeout time.Duration) *GetRoutingUserUtilizationParams {
-	var ()
 	return &GetRoutingUserUtilizationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingUserUtilizationParamsWithContext creates a new GetRoutingUserUtilizationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingUserUtilizationParamsWithContext(ctx context.Context) *GetRoutingUserUtilizationParams {
-	var ()
 	return &GetRoutingUserUtilizationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingUserUtilizationParamsWithHTTPClient creates a new GetRoutingUserUtilizationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingUserUtilizationParamsWithHTTPClient(client *http.Client) *GetRoutingUserUtilizationParams {
-	var ()
 	return &GetRoutingUserUtilizationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingUserUtilizationParams contains all the parameters to send to the API endpoint
-for the get routing user utilization operation typically these are written to a http.Request
+/*
+GetRoutingUserUtilizationParams contains all the parameters to send to the API endpoint
+
+	for the get routing user utilization operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingUserUtilizationParams struct {
 
-	/*UserID
-	  User ID
+	/* UserID.
 
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing user utilization params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingUserUtilizationParams) WithDefaults() *GetRoutingUserUtilizationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing user utilization params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingUserUtilizationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing user utilization params

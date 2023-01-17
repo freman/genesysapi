@@ -101,7 +101,6 @@ func (o *PostRoutingPredictorsReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostRoutingPredictorsOK() *PostRoutingPredictorsOK {
 	return &PostRoutingPredictorsOK{}
 }
 
-/*PostRoutingPredictorsOK handles this case with default header values.
+/*
+PostRoutingPredictorsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostRoutingPredictorsOK struct {
 	Payload *models.Predictor
 }
 
+// IsSuccess returns true when this post routing predictors o k response has a 2xx status code
+func (o *PostRoutingPredictorsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post routing predictors o k response has a 3xx status code
+func (o *PostRoutingPredictorsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors o k response has a 4xx status code
+func (o *PostRoutingPredictorsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing predictors o k response has a 5xx status code
+func (o *PostRoutingPredictorsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing predictors o k response a status code equal to that given
+func (o *PostRoutingPredictorsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostRoutingPredictorsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostRoutingPredictorsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostRoutingPredictorsCreated() *PostRoutingPredictorsCreated {
 	return &PostRoutingPredictorsCreated{}
 }
 
-/*PostRoutingPredictorsCreated handles this case with default header values.
+/*
+PostRoutingPredictorsCreated describes a response with status code 201, with default header values.
 
 Predictor created.
 */
@@ -153,7 +183,36 @@ type PostRoutingPredictorsCreated struct {
 	Payload *models.Predictor
 }
 
+// IsSuccess returns true when this post routing predictors created response has a 2xx status code
+func (o *PostRoutingPredictorsCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post routing predictors created response has a 3xx status code
+func (o *PostRoutingPredictorsCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors created response has a 4xx status code
+func (o *PostRoutingPredictorsCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing predictors created response has a 5xx status code
+func (o *PostRoutingPredictorsCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing predictors created response a status code equal to that given
+func (o *PostRoutingPredictorsCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostRoutingPredictorsCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostRoutingPredictorsCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsCreated  %+v", 201, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostRoutingPredictorsBadRequest() *PostRoutingPredictorsBadRequest {
 	return &PostRoutingPredictorsBadRequest{}
 }
 
-/*PostRoutingPredictorsBadRequest handles this case with default header values.
+/*
+PostRoutingPredictorsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostRoutingPredictorsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing predictors bad request response has a 2xx status code
+func (o *PostRoutingPredictorsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing predictors bad request response has a 3xx status code
+func (o *PostRoutingPredictorsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors bad request response has a 4xx status code
+func (o *PostRoutingPredictorsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing predictors bad request response has a 5xx status code
+func (o *PostRoutingPredictorsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing predictors bad request response a status code equal to that given
+func (o *PostRoutingPredictorsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostRoutingPredictorsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostRoutingPredictorsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostRoutingPredictorsUnauthorized() *PostRoutingPredictorsUnauthorized {
 	return &PostRoutingPredictorsUnauthorized{}
 }
 
-/*PostRoutingPredictorsUnauthorized handles this case with default header values.
+/*
+PostRoutingPredictorsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostRoutingPredictorsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing predictors unauthorized response has a 2xx status code
+func (o *PostRoutingPredictorsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing predictors unauthorized response has a 3xx status code
+func (o *PostRoutingPredictorsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors unauthorized response has a 4xx status code
+func (o *PostRoutingPredictorsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing predictors unauthorized response has a 5xx status code
+func (o *PostRoutingPredictorsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing predictors unauthorized response a status code equal to that given
+func (o *PostRoutingPredictorsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostRoutingPredictorsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostRoutingPredictorsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostRoutingPredictorsForbidden() *PostRoutingPredictorsForbidden {
 	return &PostRoutingPredictorsForbidden{}
 }
 
-/*PostRoutingPredictorsForbidden handles this case with default header values.
+/*
+PostRoutingPredictorsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostRoutingPredictorsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing predictors forbidden response has a 2xx status code
+func (o *PostRoutingPredictorsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing predictors forbidden response has a 3xx status code
+func (o *PostRoutingPredictorsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors forbidden response has a 4xx status code
+func (o *PostRoutingPredictorsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing predictors forbidden response has a 5xx status code
+func (o *PostRoutingPredictorsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing predictors forbidden response a status code equal to that given
+func (o *PostRoutingPredictorsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostRoutingPredictorsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostRoutingPredictorsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostRoutingPredictorsNotFound() *PostRoutingPredictorsNotFound {
 	return &PostRoutingPredictorsNotFound{}
 }
 
-/*PostRoutingPredictorsNotFound handles this case with default header values.
+/*
+PostRoutingPredictorsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostRoutingPredictorsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing predictors not found response has a 2xx status code
+func (o *PostRoutingPredictorsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing predictors not found response has a 3xx status code
+func (o *PostRoutingPredictorsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors not found response has a 4xx status code
+func (o *PostRoutingPredictorsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing predictors not found response has a 5xx status code
+func (o *PostRoutingPredictorsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing predictors not found response a status code equal to that given
+func (o *PostRoutingPredictorsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostRoutingPredictorsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostRoutingPredictorsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostRoutingPredictorsRequestTimeout() *PostRoutingPredictorsRequestTimeo
 	return &PostRoutingPredictorsRequestTimeout{}
 }
 
-/*PostRoutingPredictorsRequestTimeout handles this case with default header values.
+/*
+PostRoutingPredictorsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostRoutingPredictorsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing predictors request timeout response has a 2xx status code
+func (o *PostRoutingPredictorsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing predictors request timeout response has a 3xx status code
+func (o *PostRoutingPredictorsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors request timeout response has a 4xx status code
+func (o *PostRoutingPredictorsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing predictors request timeout response has a 5xx status code
+func (o *PostRoutingPredictorsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing predictors request timeout response a status code equal to that given
+func (o *PostRoutingPredictorsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostRoutingPredictorsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRoutingPredictorsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostRoutingPredictorsRequestEntityTooLarge() *PostRoutingPredictorsReque
 	return &PostRoutingPredictorsRequestEntityTooLarge{}
 }
 
-/*PostRoutingPredictorsRequestEntityTooLarge handles this case with default header values.
+/*
+PostRoutingPredictorsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostRoutingPredictorsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing predictors request entity too large response has a 2xx status code
+func (o *PostRoutingPredictorsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing predictors request entity too large response has a 3xx status code
+func (o *PostRoutingPredictorsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors request entity too large response has a 4xx status code
+func (o *PostRoutingPredictorsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing predictors request entity too large response has a 5xx status code
+func (o *PostRoutingPredictorsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing predictors request entity too large response a status code equal to that given
+func (o *PostRoutingPredictorsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostRoutingPredictorsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostRoutingPredictorsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostRoutingPredictorsUnsupportedMediaType() *PostRoutingPredictorsUnsupp
 	return &PostRoutingPredictorsUnsupportedMediaType{}
 }
 
-/*PostRoutingPredictorsUnsupportedMediaType handles this case with default header values.
+/*
+PostRoutingPredictorsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostRoutingPredictorsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing predictors unsupported media type response has a 2xx status code
+func (o *PostRoutingPredictorsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing predictors unsupported media type response has a 3xx status code
+func (o *PostRoutingPredictorsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors unsupported media type response has a 4xx status code
+func (o *PostRoutingPredictorsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing predictors unsupported media type response has a 5xx status code
+func (o *PostRoutingPredictorsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing predictors unsupported media type response a status code equal to that given
+func (o *PostRoutingPredictorsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostRoutingPredictorsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostRoutingPredictorsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostRoutingPredictorsTooManyRequests() *PostRoutingPredictorsTooManyRequ
 	return &PostRoutingPredictorsTooManyRequests{}
 }
 
-/*PostRoutingPredictorsTooManyRequests handles this case with default header values.
+/*
+PostRoutingPredictorsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostRoutingPredictorsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing predictors too many requests response has a 2xx status code
+func (o *PostRoutingPredictorsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing predictors too many requests response has a 3xx status code
+func (o *PostRoutingPredictorsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors too many requests response has a 4xx status code
+func (o *PostRoutingPredictorsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing predictors too many requests response has a 5xx status code
+func (o *PostRoutingPredictorsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing predictors too many requests response a status code equal to that given
+func (o *PostRoutingPredictorsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostRoutingPredictorsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostRoutingPredictorsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostRoutingPredictorsInternalServerError() *PostRoutingPredictorsInterna
 	return &PostRoutingPredictorsInternalServerError{}
 }
 
-/*PostRoutingPredictorsInternalServerError handles this case with default header values.
+/*
+PostRoutingPredictorsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostRoutingPredictorsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing predictors internal server error response has a 2xx status code
+func (o *PostRoutingPredictorsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing predictors internal server error response has a 3xx status code
+func (o *PostRoutingPredictorsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors internal server error response has a 4xx status code
+func (o *PostRoutingPredictorsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing predictors internal server error response has a 5xx status code
+func (o *PostRoutingPredictorsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing predictors internal server error response a status code equal to that given
+func (o *PostRoutingPredictorsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostRoutingPredictorsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostRoutingPredictorsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostRoutingPredictorsServiceUnavailable() *PostRoutingPredictorsServiceU
 	return &PostRoutingPredictorsServiceUnavailable{}
 }
 
-/*PostRoutingPredictorsServiceUnavailable handles this case with default header values.
+/*
+PostRoutingPredictorsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostRoutingPredictorsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing predictors service unavailable response has a 2xx status code
+func (o *PostRoutingPredictorsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing predictors service unavailable response has a 3xx status code
+func (o *PostRoutingPredictorsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors service unavailable response has a 4xx status code
+func (o *PostRoutingPredictorsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing predictors service unavailable response has a 5xx status code
+func (o *PostRoutingPredictorsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing predictors service unavailable response a status code equal to that given
+func (o *PostRoutingPredictorsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostRoutingPredictorsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostRoutingPredictorsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostRoutingPredictorsGatewayTimeout() *PostRoutingPredictorsGatewayTimeo
 	return &PostRoutingPredictorsGatewayTimeout{}
 }
 
-/*PostRoutingPredictorsGatewayTimeout handles this case with default header values.
+/*
+PostRoutingPredictorsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostRoutingPredictorsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing predictors gateway timeout response has a 2xx status code
+func (o *PostRoutingPredictorsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing predictors gateway timeout response has a 3xx status code
+func (o *PostRoutingPredictorsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing predictors gateway timeout response has a 4xx status code
+func (o *PostRoutingPredictorsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing predictors gateway timeout response has a 5xx status code
+func (o *PostRoutingPredictorsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing predictors gateway timeout response a status code equal to that given
+func (o *PostRoutingPredictorsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostRoutingPredictorsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostRoutingPredictorsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/predictors][%d] postRoutingPredictorsGatewayTimeout  %+v", 504, o.Payload)
 }
 

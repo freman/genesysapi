@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -51,7 +52,6 @@ func (m *ScimUserExtensions) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ScimUserExtensions) validateExternalIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalIds) { // not required
 		return nil
 	}
@@ -65,6 +65,8 @@ func (m *ScimUserExtensions) validateExternalIds(formats strfmt.Registry) error 
 			if err := m.ExternalIds[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("externalIds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("externalIds" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -76,7 +78,6 @@ func (m *ScimUserExtensions) validateExternalIds(formats strfmt.Registry) error 
 }
 
 func (m *ScimUserExtensions) validateRoutingLanguages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingLanguages) { // not required
 		return nil
 	}
@@ -90,6 +91,8 @@ func (m *ScimUserExtensions) validateRoutingLanguages(formats strfmt.Registry) e
 			if err := m.RoutingLanguages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("routingLanguages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingLanguages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -101,7 +104,6 @@ func (m *ScimUserExtensions) validateRoutingLanguages(formats strfmt.Registry) e
 }
 
 func (m *ScimUserExtensions) validateRoutingSkills(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingSkills) { // not required
 		return nil
 	}
@@ -115,6 +117,90 @@ func (m *ScimUserExtensions) validateRoutingSkills(formats strfmt.Registry) erro
 			if err := m.RoutingSkills[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("routingSkills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingSkills" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scim user extensions based on the context it is used
+func (m *ScimUserExtensions) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateExternalIds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutingLanguages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutingSkills(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimUserExtensions) contextValidateExternalIds(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ExternalIds); i++ {
+
+		if m.ExternalIds[i] != nil {
+			if err := m.ExternalIds[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("externalIds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("externalIds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScimUserExtensions) contextValidateRoutingLanguages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RoutingLanguages); i++ {
+
+		if m.RoutingLanguages[i] != nil {
+			if err := m.RoutingLanguages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("routingLanguages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingLanguages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScimUserExtensions) contextValidateRoutingSkills(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RoutingSkills); i++ {
+
+		if m.RoutingSkills[i] != nil {
+			if err := m.RoutingSkills[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("routingSkills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingSkills" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -95,7 +95,6 @@ func (o *GetUserOutofofficeReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetUserOutofofficeOK() *GetUserOutofofficeOK {
 	return &GetUserOutofofficeOK{}
 }
 
-/*GetUserOutofofficeOK handles this case with default header values.
+/*
+GetUserOutofofficeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetUserOutofofficeOK struct {
 	Payload *models.OutOfOffice
 }
 
+// IsSuccess returns true when this get user outofoffice o k response has a 2xx status code
+func (o *GetUserOutofofficeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get user outofoffice o k response has a 3xx status code
+func (o *GetUserOutofofficeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user outofoffice o k response has a 4xx status code
+func (o *GetUserOutofofficeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user outofoffice o k response has a 5xx status code
+func (o *GetUserOutofofficeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user outofoffice o k response a status code equal to that given
+func (o *GetUserOutofofficeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUserOutofofficeOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeOK  %+v", 200, o.Payload)
+}
+
+func (o *GetUserOutofofficeOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetUserOutofofficeBadRequest() *GetUserOutofofficeBadRequest {
 	return &GetUserOutofofficeBadRequest{}
 }
 
-/*GetUserOutofofficeBadRequest handles this case with default header values.
+/*
+GetUserOutofofficeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetUserOutofofficeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user outofoffice bad request response has a 2xx status code
+func (o *GetUserOutofofficeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user outofoffice bad request response has a 3xx status code
+func (o *GetUserOutofofficeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user outofoffice bad request response has a 4xx status code
+func (o *GetUserOutofofficeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user outofoffice bad request response has a 5xx status code
+func (o *GetUserOutofofficeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user outofoffice bad request response a status code equal to that given
+func (o *GetUserOutofofficeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUserOutofofficeBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetUserOutofofficeBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetUserOutofofficeUnauthorized() *GetUserOutofofficeUnauthorized {
 	return &GetUserOutofofficeUnauthorized{}
 }
 
-/*GetUserOutofofficeUnauthorized handles this case with default header values.
+/*
+GetUserOutofofficeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetUserOutofofficeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user outofoffice unauthorized response has a 2xx status code
+func (o *GetUserOutofofficeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user outofoffice unauthorized response has a 3xx status code
+func (o *GetUserOutofofficeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user outofoffice unauthorized response has a 4xx status code
+func (o *GetUserOutofofficeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user outofoffice unauthorized response has a 5xx status code
+func (o *GetUserOutofofficeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user outofoffice unauthorized response a status code equal to that given
+func (o *GetUserOutofofficeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetUserOutofofficeUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetUserOutofofficeUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetUserOutofofficeForbidden() *GetUserOutofofficeForbidden {
 	return &GetUserOutofofficeForbidden{}
 }
 
-/*GetUserOutofofficeForbidden handles this case with default header values.
+/*
+GetUserOutofofficeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetUserOutofofficeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user outofoffice forbidden response has a 2xx status code
+func (o *GetUserOutofofficeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user outofoffice forbidden response has a 3xx status code
+func (o *GetUserOutofofficeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user outofoffice forbidden response has a 4xx status code
+func (o *GetUserOutofofficeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user outofoffice forbidden response has a 5xx status code
+func (o *GetUserOutofofficeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user outofoffice forbidden response a status code equal to that given
+func (o *GetUserOutofofficeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUserOutofofficeForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetUserOutofofficeForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetUserOutofofficeNotFound() *GetUserOutofofficeNotFound {
 	return &GetUserOutofofficeNotFound{}
 }
 
-/*GetUserOutofofficeNotFound handles this case with default header values.
+/*
+GetUserOutofofficeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetUserOutofofficeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user outofoffice not found response has a 2xx status code
+func (o *GetUserOutofofficeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user outofoffice not found response has a 3xx status code
+func (o *GetUserOutofofficeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user outofoffice not found response has a 4xx status code
+func (o *GetUserOutofofficeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user outofoffice not found response has a 5xx status code
+func (o *GetUserOutofofficeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user outofoffice not found response a status code equal to that given
+func (o *GetUserOutofofficeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetUserOutofofficeNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetUserOutofofficeNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetUserOutofofficeRequestTimeout() *GetUserOutofofficeRequestTimeout {
 	return &GetUserOutofofficeRequestTimeout{}
 }
 
-/*GetUserOutofofficeRequestTimeout handles this case with default header values.
+/*
+GetUserOutofofficeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetUserOutofofficeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user outofoffice request timeout response has a 2xx status code
+func (o *GetUserOutofofficeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user outofoffice request timeout response has a 3xx status code
+func (o *GetUserOutofofficeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user outofoffice request timeout response has a 4xx status code
+func (o *GetUserOutofofficeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user outofoffice request timeout response has a 5xx status code
+func (o *GetUserOutofofficeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user outofoffice request timeout response a status code equal to that given
+func (o *GetUserOutofofficeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetUserOutofofficeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserOutofofficeRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetUserOutofofficeRequestEntityTooLarge() *GetUserOutofofficeRequestEnti
 	return &GetUserOutofofficeRequestEntityTooLarge{}
 }
 
-/*GetUserOutofofficeRequestEntityTooLarge handles this case with default header values.
+/*
+GetUserOutofofficeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetUserOutofofficeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user outofoffice request entity too large response has a 2xx status code
+func (o *GetUserOutofofficeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user outofoffice request entity too large response has a 3xx status code
+func (o *GetUserOutofofficeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user outofoffice request entity too large response has a 4xx status code
+func (o *GetUserOutofofficeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user outofoffice request entity too large response has a 5xx status code
+func (o *GetUserOutofofficeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user outofoffice request entity too large response a status code equal to that given
+func (o *GetUserOutofofficeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetUserOutofofficeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetUserOutofofficeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetUserOutofofficeUnsupportedMediaType() *GetUserOutofofficeUnsupportedM
 	return &GetUserOutofofficeUnsupportedMediaType{}
 }
 
-/*GetUserOutofofficeUnsupportedMediaType handles this case with default header values.
+/*
+GetUserOutofofficeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetUserOutofofficeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user outofoffice unsupported media type response has a 2xx status code
+func (o *GetUserOutofofficeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user outofoffice unsupported media type response has a 3xx status code
+func (o *GetUserOutofofficeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user outofoffice unsupported media type response has a 4xx status code
+func (o *GetUserOutofofficeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user outofoffice unsupported media type response has a 5xx status code
+func (o *GetUserOutofofficeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user outofoffice unsupported media type response a status code equal to that given
+func (o *GetUserOutofofficeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetUserOutofofficeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetUserOutofofficeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetUserOutofofficeTooManyRequests() *GetUserOutofofficeTooManyRequests {
 	return &GetUserOutofofficeTooManyRequests{}
 }
 
-/*GetUserOutofofficeTooManyRequests handles this case with default header values.
+/*
+GetUserOutofofficeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetUserOutofofficeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user outofoffice too many requests response has a 2xx status code
+func (o *GetUserOutofofficeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user outofoffice too many requests response has a 3xx status code
+func (o *GetUserOutofofficeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user outofoffice too many requests response has a 4xx status code
+func (o *GetUserOutofofficeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user outofoffice too many requests response has a 5xx status code
+func (o *GetUserOutofofficeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user outofoffice too many requests response a status code equal to that given
+func (o *GetUserOutofofficeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUserOutofofficeTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetUserOutofofficeTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetUserOutofofficeInternalServerError() *GetUserOutofofficeInternalServe
 	return &GetUserOutofofficeInternalServerError{}
 }
 
-/*GetUserOutofofficeInternalServerError handles this case with default header values.
+/*
+GetUserOutofofficeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetUserOutofofficeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user outofoffice internal server error response has a 2xx status code
+func (o *GetUserOutofofficeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user outofoffice internal server error response has a 3xx status code
+func (o *GetUserOutofofficeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user outofoffice internal server error response has a 4xx status code
+func (o *GetUserOutofofficeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user outofoffice internal server error response has a 5xx status code
+func (o *GetUserOutofofficeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user outofoffice internal server error response a status code equal to that given
+func (o *GetUserOutofofficeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUserOutofofficeInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetUserOutofofficeInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetUserOutofofficeServiceUnavailable() *GetUserOutofofficeServiceUnavail
 	return &GetUserOutofofficeServiceUnavailable{}
 }
 
-/*GetUserOutofofficeServiceUnavailable handles this case with default header values.
+/*
+GetUserOutofofficeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetUserOutofofficeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user outofoffice service unavailable response has a 2xx status code
+func (o *GetUserOutofofficeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user outofoffice service unavailable response has a 3xx status code
+func (o *GetUserOutofofficeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user outofoffice service unavailable response has a 4xx status code
+func (o *GetUserOutofofficeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user outofoffice service unavailable response has a 5xx status code
+func (o *GetUserOutofofficeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user outofoffice service unavailable response a status code equal to that given
+func (o *GetUserOutofofficeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetUserOutofofficeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetUserOutofofficeServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetUserOutofofficeGatewayTimeout() *GetUserOutofofficeGatewayTimeout {
 	return &GetUserOutofofficeGatewayTimeout{}
 }
 
-/*GetUserOutofofficeGatewayTimeout handles this case with default header values.
+/*
+GetUserOutofofficeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetUserOutofofficeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user outofoffice gateway timeout response has a 2xx status code
+func (o *GetUserOutofofficeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user outofoffice gateway timeout response has a 3xx status code
+func (o *GetUserOutofofficeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user outofoffice gateway timeout response has a 4xx status code
+func (o *GetUserOutofofficeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user outofoffice gateway timeout response has a 5xx status code
+func (o *GetUserOutofofficeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user outofoffice gateway timeout response a status code equal to that given
+func (o *GetUserOutofofficeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetUserOutofofficeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetUserOutofofficeGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/outofoffice][%d] getUserOutofofficeGatewayTimeout  %+v", 504, o.Payload)
 }
 

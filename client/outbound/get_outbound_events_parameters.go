@@ -17,125 +17,141 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetOutboundEventsParams creates a new GetOutboundEventsParams object
-// with the default values initialized.
+// NewGetOutboundEventsParams creates a new GetOutboundEventsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundEventsParams() *GetOutboundEventsParams {
-	var (
-		filterTypeDefault = string("Prefix")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("a")
-	)
 	return &GetOutboundEventsParams{
-		FilterType: &filterTypeDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundEventsParamsWithTimeout creates a new GetOutboundEventsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundEventsParamsWithTimeout(timeout time.Duration) *GetOutboundEventsParams {
-	var (
-		filterTypeDefault = string("Prefix")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("a")
-	)
 	return &GetOutboundEventsParams{
-		FilterType: &filterTypeDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundEventsParamsWithContext creates a new GetOutboundEventsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundEventsParamsWithContext(ctx context.Context) *GetOutboundEventsParams {
-	var (
-		filterTypeDefault = string("Prefix")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("a")
-	)
 	return &GetOutboundEventsParams{
-		FilterType: &filterTypeDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundEventsParamsWithHTTPClient creates a new GetOutboundEventsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundEventsParamsWithHTTPClient(client *http.Client) *GetOutboundEventsParams {
-	var (
-		filterTypeDefault = string("Prefix")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("a")
-	)
 	return &GetOutboundEventsParams{
-		FilterType: &filterTypeDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundEventsParams contains all the parameters to send to the API endpoint
-for the get outbound events operation typically these are written to a http.Request
+/*
+GetOutboundEventsParams contains all the parameters to send to the API endpoint
+
+	for the get outbound events operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundEventsParams struct {
 
-	/*Category
-	  Category
+	/* Category.
 
+	   Category
 	*/
 	Category *string
-	/*FilterType
-	  Filter type
 
+	/* FilterType.
+
+	   Filter type
+
+	   Default: "Prefix"
 	*/
 	FilterType *string
-	/*Level
-	  Level
 
+	/* Level.
+
+	   Level
 	*/
 	Level *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "a"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound events params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundEventsParams) WithDefaults() *GetOutboundEventsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound events params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundEventsParams) SetDefaults() {
+	var (
+		filterTypeDefault = string("Prefix")
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortOrderDefault = string("a")
+	)
+
+	val := GetOutboundEventsParams{
+		FilterType: &filterTypeDefault,
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get outbound events params
@@ -260,112 +276,119 @@ func (o *GetOutboundEventsParams) WriteToRequest(r runtime.ClientRequest, reg st
 
 		// query param category
 		var qrCategory string
+
 		if o.Category != nil {
 			qrCategory = *o.Category
 		}
 		qCategory := qrCategory
 		if qCategory != "" {
+
 			if err := r.SetQueryParam("category", qCategory); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.FilterType != nil {
 
 		// query param filterType
 		var qrFilterType string
+
 		if o.FilterType != nil {
 			qrFilterType = *o.FilterType
 		}
 		qFilterType := qrFilterType
 		if qFilterType != "" {
+
 			if err := r.SetQueryParam("filterType", qFilterType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Level != nil {
 
 		// query param level
 		var qrLevel string
+
 		if o.Level != nil {
 			qrLevel = *o.Level
 		}
 		qLevel := qrLevel
 		if qLevel != "" {
+
 			if err := r.SetQueryParam("level", qLevel); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

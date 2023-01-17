@@ -19,64 +19,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostResponsemanagementResponseassetsSearchParams creates a new PostResponsemanagementResponseassetsSearchParams object
-// with the default values initialized.
+// NewPostResponsemanagementResponseassetsSearchParams creates a new PostResponsemanagementResponseassetsSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostResponsemanagementResponseassetsSearchParams() *PostResponsemanagementResponseassetsSearchParams {
-	var ()
 	return &PostResponsemanagementResponseassetsSearchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostResponsemanagementResponseassetsSearchParamsWithTimeout creates a new PostResponsemanagementResponseassetsSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostResponsemanagementResponseassetsSearchParamsWithTimeout(timeout time.Duration) *PostResponsemanagementResponseassetsSearchParams {
-	var ()
 	return &PostResponsemanagementResponseassetsSearchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostResponsemanagementResponseassetsSearchParamsWithContext creates a new PostResponsemanagementResponseassetsSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostResponsemanagementResponseassetsSearchParamsWithContext(ctx context.Context) *PostResponsemanagementResponseassetsSearchParams {
-	var ()
 	return &PostResponsemanagementResponseassetsSearchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostResponsemanagementResponseassetsSearchParamsWithHTTPClient creates a new PostResponsemanagementResponseassetsSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostResponsemanagementResponseassetsSearchParamsWithHTTPClient(client *http.Client) *PostResponsemanagementResponseassetsSearchParams {
-	var ()
 	return &PostResponsemanagementResponseassetsSearchParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostResponsemanagementResponseassetsSearchParams contains all the parameters to send to the API endpoint
-for the post responsemanagement responseassets search operation typically these are written to a http.Request
+/*
+PostResponsemanagementResponseassetsSearchParams contains all the parameters to send to the API endpoint
+
+	for the post responsemanagement responseassets search operation.
+
+	Typically these are written to a http.Request.
 */
 type PostResponsemanagementResponseassetsSearchParams struct {
 
-	/*Body
-	  request
+	/* Body.
 
+	   request
 	*/
 	Body *models.ResponseAssetSearchRequest
-	/*Expand
-	  Which fields, if any, to expand
 
+	/* Expand.
+
+	   Which fields, if any, to expand
 	*/
 	Expand []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post responsemanagement responseassets search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostResponsemanagementResponseassetsSearchParams) WithDefaults() *PostResponsemanagementResponseassetsSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post responsemanagement responseassets search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostResponsemanagementResponseassetsSearchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post responsemanagement responseassets search params
@@ -141,23 +158,42 @@ func (o *PostResponsemanagementResponseassetsSearchParams) WriteToRequest(r runt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
 		}
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamPostResponsemanagementResponseassetsSearch binds the parameter expand
+func (o *PostResponsemanagementResponseassetsSearchParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

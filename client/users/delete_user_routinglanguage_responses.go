@@ -95,7 +95,6 @@ func (o *DeleteUserRoutinglanguageReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteUserRoutinglanguageNoContent() *DeleteUserRoutinglanguageNoContent
 	return &DeleteUserRoutinglanguageNoContent{}
 }
 
-/*DeleteUserRoutinglanguageNoContent handles this case with default header values.
+/*
+DeleteUserRoutinglanguageNoContent describes a response with status code 204, with default header values.
 
 Language removed
 */
 type DeleteUserRoutinglanguageNoContent struct {
 }
 
+// IsSuccess returns true when this delete user routinglanguage no content response has a 2xx status code
+func (o *DeleteUserRoutinglanguageNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete user routinglanguage no content response has a 3xx status code
+func (o *DeleteUserRoutinglanguageNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routinglanguage no content response has a 4xx status code
+func (o *DeleteUserRoutinglanguageNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user routinglanguage no content response has a 5xx status code
+func (o *DeleteUserRoutinglanguageNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routinglanguage no content response a status code equal to that given
+func (o *DeleteUserRoutinglanguageNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteUserRoutinglanguageNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageNoContent ", 204)
+}
+
+func (o *DeleteUserRoutinglanguageNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteUserRoutinglanguageBadRequest() *DeleteUserRoutinglanguageBadReque
 	return &DeleteUserRoutinglanguageBadRequest{}
 }
 
-/*DeleteUserRoutinglanguageBadRequest handles this case with default header values.
+/*
+DeleteUserRoutinglanguageBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteUserRoutinglanguageBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routinglanguage bad request response has a 2xx status code
+func (o *DeleteUserRoutinglanguageBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routinglanguage bad request response has a 3xx status code
+func (o *DeleteUserRoutinglanguageBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routinglanguage bad request response has a 4xx status code
+func (o *DeleteUserRoutinglanguageBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routinglanguage bad request response has a 5xx status code
+func (o *DeleteUserRoutinglanguageBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routinglanguage bad request response a status code equal to that given
+func (o *DeleteUserRoutinglanguageBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteUserRoutinglanguageBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteUserRoutinglanguageBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteUserRoutinglanguageUnauthorized() *DeleteUserRoutinglanguageUnauth
 	return &DeleteUserRoutinglanguageUnauthorized{}
 }
 
-/*DeleteUserRoutinglanguageUnauthorized handles this case with default header values.
+/*
+DeleteUserRoutinglanguageUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteUserRoutinglanguageUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routinglanguage unauthorized response has a 2xx status code
+func (o *DeleteUserRoutinglanguageUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routinglanguage unauthorized response has a 3xx status code
+func (o *DeleteUserRoutinglanguageUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routinglanguage unauthorized response has a 4xx status code
+func (o *DeleteUserRoutinglanguageUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routinglanguage unauthorized response has a 5xx status code
+func (o *DeleteUserRoutinglanguageUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routinglanguage unauthorized response a status code equal to that given
+func (o *DeleteUserRoutinglanguageUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteUserRoutinglanguageUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteUserRoutinglanguageUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteUserRoutinglanguageForbidden() *DeleteUserRoutinglanguageForbidden
 	return &DeleteUserRoutinglanguageForbidden{}
 }
 
-/*DeleteUserRoutinglanguageForbidden handles this case with default header values.
+/*
+DeleteUserRoutinglanguageForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteUserRoutinglanguageForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routinglanguage forbidden response has a 2xx status code
+func (o *DeleteUserRoutinglanguageForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routinglanguage forbidden response has a 3xx status code
+func (o *DeleteUserRoutinglanguageForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routinglanguage forbidden response has a 4xx status code
+func (o *DeleteUserRoutinglanguageForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routinglanguage forbidden response has a 5xx status code
+func (o *DeleteUserRoutinglanguageForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routinglanguage forbidden response a status code equal to that given
+func (o *DeleteUserRoutinglanguageForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteUserRoutinglanguageForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteUserRoutinglanguageForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteUserRoutinglanguageNotFound() *DeleteUserRoutinglanguageNotFound {
 	return &DeleteUserRoutinglanguageNotFound{}
 }
 
-/*DeleteUserRoutinglanguageNotFound handles this case with default header values.
+/*
+DeleteUserRoutinglanguageNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteUserRoutinglanguageNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routinglanguage not found response has a 2xx status code
+func (o *DeleteUserRoutinglanguageNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routinglanguage not found response has a 3xx status code
+func (o *DeleteUserRoutinglanguageNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routinglanguage not found response has a 4xx status code
+func (o *DeleteUserRoutinglanguageNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routinglanguage not found response has a 5xx status code
+func (o *DeleteUserRoutinglanguageNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routinglanguage not found response a status code equal to that given
+func (o *DeleteUserRoutinglanguageNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteUserRoutinglanguageNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteUserRoutinglanguageNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteUserRoutinglanguageRequestTimeout() *DeleteUserRoutinglanguageRequ
 	return &DeleteUserRoutinglanguageRequestTimeout{}
 }
 
-/*DeleteUserRoutinglanguageRequestTimeout handles this case with default header values.
+/*
+DeleteUserRoutinglanguageRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteUserRoutinglanguageRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routinglanguage request timeout response has a 2xx status code
+func (o *DeleteUserRoutinglanguageRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routinglanguage request timeout response has a 3xx status code
+func (o *DeleteUserRoutinglanguageRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routinglanguage request timeout response has a 4xx status code
+func (o *DeleteUserRoutinglanguageRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routinglanguage request timeout response has a 5xx status code
+func (o *DeleteUserRoutinglanguageRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routinglanguage request timeout response a status code equal to that given
+func (o *DeleteUserRoutinglanguageRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteUserRoutinglanguageRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteUserRoutinglanguageRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteUserRoutinglanguageRequestEntityTooLarge() *DeleteUserRoutinglangu
 	return &DeleteUserRoutinglanguageRequestEntityTooLarge{}
 }
 
-/*DeleteUserRoutinglanguageRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteUserRoutinglanguageRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteUserRoutinglanguageRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routinglanguage request entity too large response has a 2xx status code
+func (o *DeleteUserRoutinglanguageRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routinglanguage request entity too large response has a 3xx status code
+func (o *DeleteUserRoutinglanguageRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routinglanguage request entity too large response has a 4xx status code
+func (o *DeleteUserRoutinglanguageRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routinglanguage request entity too large response has a 5xx status code
+func (o *DeleteUserRoutinglanguageRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routinglanguage request entity too large response a status code equal to that given
+func (o *DeleteUserRoutinglanguageRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteUserRoutinglanguageRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteUserRoutinglanguageRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteUserRoutinglanguageUnsupportedMediaType() *DeleteUserRoutinglangua
 	return &DeleteUserRoutinglanguageUnsupportedMediaType{}
 }
 
-/*DeleteUserRoutinglanguageUnsupportedMediaType handles this case with default header values.
+/*
+DeleteUserRoutinglanguageUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteUserRoutinglanguageUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routinglanguage unsupported media type response has a 2xx status code
+func (o *DeleteUserRoutinglanguageUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routinglanguage unsupported media type response has a 3xx status code
+func (o *DeleteUserRoutinglanguageUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routinglanguage unsupported media type response has a 4xx status code
+func (o *DeleteUserRoutinglanguageUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routinglanguage unsupported media type response has a 5xx status code
+func (o *DeleteUserRoutinglanguageUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routinglanguage unsupported media type response a status code equal to that given
+func (o *DeleteUserRoutinglanguageUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteUserRoutinglanguageUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteUserRoutinglanguageUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteUserRoutinglanguageTooManyRequests() *DeleteUserRoutinglanguageToo
 	return &DeleteUserRoutinglanguageTooManyRequests{}
 }
 
-/*DeleteUserRoutinglanguageTooManyRequests handles this case with default header values.
+/*
+DeleteUserRoutinglanguageTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteUserRoutinglanguageTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routinglanguage too many requests response has a 2xx status code
+func (o *DeleteUserRoutinglanguageTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routinglanguage too many requests response has a 3xx status code
+func (o *DeleteUserRoutinglanguageTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routinglanguage too many requests response has a 4xx status code
+func (o *DeleteUserRoutinglanguageTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routinglanguage too many requests response has a 5xx status code
+func (o *DeleteUserRoutinglanguageTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routinglanguage too many requests response a status code equal to that given
+func (o *DeleteUserRoutinglanguageTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteUserRoutinglanguageTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteUserRoutinglanguageTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteUserRoutinglanguageInternalServerError() *DeleteUserRoutinglanguag
 	return &DeleteUserRoutinglanguageInternalServerError{}
 }
 
-/*DeleteUserRoutinglanguageInternalServerError handles this case with default header values.
+/*
+DeleteUserRoutinglanguageInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteUserRoutinglanguageInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routinglanguage internal server error response has a 2xx status code
+func (o *DeleteUserRoutinglanguageInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routinglanguage internal server error response has a 3xx status code
+func (o *DeleteUserRoutinglanguageInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routinglanguage internal server error response has a 4xx status code
+func (o *DeleteUserRoutinglanguageInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user routinglanguage internal server error response has a 5xx status code
+func (o *DeleteUserRoutinglanguageInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete user routinglanguage internal server error response a status code equal to that given
+func (o *DeleteUserRoutinglanguageInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteUserRoutinglanguageInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteUserRoutinglanguageInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteUserRoutinglanguageServiceUnavailable() *DeleteUserRoutinglanguage
 	return &DeleteUserRoutinglanguageServiceUnavailable{}
 }
 
-/*DeleteUserRoutinglanguageServiceUnavailable handles this case with default header values.
+/*
+DeleteUserRoutinglanguageServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteUserRoutinglanguageServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routinglanguage service unavailable response has a 2xx status code
+func (o *DeleteUserRoutinglanguageServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routinglanguage service unavailable response has a 3xx status code
+func (o *DeleteUserRoutinglanguageServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routinglanguage service unavailable response has a 4xx status code
+func (o *DeleteUserRoutinglanguageServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user routinglanguage service unavailable response has a 5xx status code
+func (o *DeleteUserRoutinglanguageServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete user routinglanguage service unavailable response a status code equal to that given
+func (o *DeleteUserRoutinglanguageServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteUserRoutinglanguageServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteUserRoutinglanguageServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteUserRoutinglanguageGatewayTimeout() *DeleteUserRoutinglanguageGate
 	return &DeleteUserRoutinglanguageGatewayTimeout{}
 }
 
-/*DeleteUserRoutinglanguageGatewayTimeout handles this case with default header values.
+/*
+DeleteUserRoutinglanguageGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteUserRoutinglanguageGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routinglanguage gateway timeout response has a 2xx status code
+func (o *DeleteUserRoutinglanguageGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routinglanguage gateway timeout response has a 3xx status code
+func (o *DeleteUserRoutinglanguageGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routinglanguage gateway timeout response has a 4xx status code
+func (o *DeleteUserRoutinglanguageGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user routinglanguage gateway timeout response has a 5xx status code
+func (o *DeleteUserRoutinglanguageGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete user routinglanguage gateway timeout response a status code equal to that given
+func (o *DeleteUserRoutinglanguageGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteUserRoutinglanguageGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteUserRoutinglanguageGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routinglanguages/{languageId}][%d] deleteUserRoutinglanguageGatewayTimeout  %+v", 504, o.Payload)
 }
 

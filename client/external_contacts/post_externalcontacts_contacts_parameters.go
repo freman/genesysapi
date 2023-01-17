@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostExternalcontactsContactsParams creates a new PostExternalcontactsContactsParams object
-// with the default values initialized.
+// NewPostExternalcontactsContactsParams creates a new PostExternalcontactsContactsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostExternalcontactsContactsParams() *PostExternalcontactsContactsParams {
-	var ()
 	return &PostExternalcontactsContactsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostExternalcontactsContactsParamsWithTimeout creates a new PostExternalcontactsContactsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostExternalcontactsContactsParamsWithTimeout(timeout time.Duration) *PostExternalcontactsContactsParams {
-	var ()
 	return &PostExternalcontactsContactsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostExternalcontactsContactsParamsWithContext creates a new PostExternalcontactsContactsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostExternalcontactsContactsParamsWithContext(ctx context.Context) *PostExternalcontactsContactsParams {
-	var ()
 	return &PostExternalcontactsContactsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostExternalcontactsContactsParamsWithHTTPClient creates a new PostExternalcontactsContactsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostExternalcontactsContactsParamsWithHTTPClient(client *http.Client) *PostExternalcontactsContactsParams {
-	var ()
 	return &PostExternalcontactsContactsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostExternalcontactsContactsParams contains all the parameters to send to the API endpoint
-for the post externalcontacts contacts operation typically these are written to a http.Request
+/*
+PostExternalcontactsContactsParams contains all the parameters to send to the API endpoint
+
+	for the post externalcontacts contacts operation.
+
+	Typically these are written to a http.Request.
 */
 type PostExternalcontactsContactsParams struct {
 
-	/*Body
-	  ExternalContact
+	/* Body.
 
+	   ExternalContact
 	*/
 	Body *models.ExternalContact
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post externalcontacts contacts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsContactsParams) WithDefaults() *PostExternalcontactsContactsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post externalcontacts contacts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsContactsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post externalcontacts contacts params
@@ -124,7 +140,6 @@ func (o *PostExternalcontactsContactsParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

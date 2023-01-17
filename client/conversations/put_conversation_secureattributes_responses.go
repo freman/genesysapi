@@ -101,7 +101,6 @@ func (o *PutConversationSecureattributesReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutConversationSecureattributesAccepted() *PutConversationSecureattribut
 	return &PutConversationSecureattributesAccepted{}
 }
 
-/*PutConversationSecureattributesAccepted handles this case with default header values.
+/*
+PutConversationSecureattributesAccepted describes a response with status code 202, with default header values.
 
 The secure attributes set request was accepted.
 */
@@ -120,7 +120,36 @@ type PutConversationSecureattributesAccepted struct {
 	Payload string
 }
 
+// IsSuccess returns true when this put conversation secureattributes accepted response has a 2xx status code
+func (o *PutConversationSecureattributesAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversation secureattributes accepted response has a 3xx status code
+func (o *PutConversationSecureattributesAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes accepted response has a 4xx status code
+func (o *PutConversationSecureattributesAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversation secureattributes accepted response has a 5xx status code
+func (o *PutConversationSecureattributesAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation secureattributes accepted response a status code equal to that given
+func (o *PutConversationSecureattributesAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PutConversationSecureattributesAccepted) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PutConversationSecureattributesAccepted) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesAccepted  %+v", 202, o.Payload)
 }
 
@@ -143,7 +172,8 @@ func NewPutConversationSecureattributesBadRequest() *PutConversationSecureattrib
 	return &PutConversationSecureattributesBadRequest{}
 }
 
-/*PutConversationSecureattributesBadRequest handles this case with default header values.
+/*
+PutConversationSecureattributesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -151,7 +181,36 @@ type PutConversationSecureattributesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation secureattributes bad request response has a 2xx status code
+func (o *PutConversationSecureattributesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation secureattributes bad request response has a 3xx status code
+func (o *PutConversationSecureattributesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes bad request response has a 4xx status code
+func (o *PutConversationSecureattributesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation secureattributes bad request response has a 5xx status code
+func (o *PutConversationSecureattributesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation secureattributes bad request response a status code equal to that given
+func (o *PutConversationSecureattributesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutConversationSecureattributesBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutConversationSecureattributesBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -176,7 +235,8 @@ func NewPutConversationSecureattributesUnauthorized() *PutConversationSecureattr
 	return &PutConversationSecureattributesUnauthorized{}
 }
 
-/*PutConversationSecureattributesUnauthorized handles this case with default header values.
+/*
+PutConversationSecureattributesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -184,7 +244,36 @@ type PutConversationSecureattributesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation secureattributes unauthorized response has a 2xx status code
+func (o *PutConversationSecureattributesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation secureattributes unauthorized response has a 3xx status code
+func (o *PutConversationSecureattributesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes unauthorized response has a 4xx status code
+func (o *PutConversationSecureattributesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation secureattributes unauthorized response has a 5xx status code
+func (o *PutConversationSecureattributesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation secureattributes unauthorized response a status code equal to that given
+func (o *PutConversationSecureattributesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutConversationSecureattributesUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutConversationSecureattributesUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -209,7 +298,8 @@ func NewPutConversationSecureattributesForbidden() *PutConversationSecureattribu
 	return &PutConversationSecureattributesForbidden{}
 }
 
-/*PutConversationSecureattributesForbidden handles this case with default header values.
+/*
+PutConversationSecureattributesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -217,7 +307,36 @@ type PutConversationSecureattributesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation secureattributes forbidden response has a 2xx status code
+func (o *PutConversationSecureattributesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation secureattributes forbidden response has a 3xx status code
+func (o *PutConversationSecureattributesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes forbidden response has a 4xx status code
+func (o *PutConversationSecureattributesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation secureattributes forbidden response has a 5xx status code
+func (o *PutConversationSecureattributesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation secureattributes forbidden response a status code equal to that given
+func (o *PutConversationSecureattributesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutConversationSecureattributesForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutConversationSecureattributesForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesForbidden  %+v", 403, o.Payload)
 }
 
@@ -242,7 +361,8 @@ func NewPutConversationSecureattributesNotFound() *PutConversationSecureattribut
 	return &PutConversationSecureattributesNotFound{}
 }
 
-/*PutConversationSecureattributesNotFound handles this case with default header values.
+/*
+PutConversationSecureattributesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -250,7 +370,36 @@ type PutConversationSecureattributesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation secureattributes not found response has a 2xx status code
+func (o *PutConversationSecureattributesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation secureattributes not found response has a 3xx status code
+func (o *PutConversationSecureattributesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes not found response has a 4xx status code
+func (o *PutConversationSecureattributesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation secureattributes not found response has a 5xx status code
+func (o *PutConversationSecureattributesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation secureattributes not found response a status code equal to that given
+func (o *PutConversationSecureattributesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutConversationSecureattributesNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutConversationSecureattributesNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesNotFound  %+v", 404, o.Payload)
 }
 
@@ -275,7 +424,8 @@ func NewPutConversationSecureattributesRequestTimeout() *PutConversationSecureat
 	return &PutConversationSecureattributesRequestTimeout{}
 }
 
-/*PutConversationSecureattributesRequestTimeout handles this case with default header values.
+/*
+PutConversationSecureattributesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -283,7 +433,36 @@ type PutConversationSecureattributesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation secureattributes request timeout response has a 2xx status code
+func (o *PutConversationSecureattributesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation secureattributes request timeout response has a 3xx status code
+func (o *PutConversationSecureattributesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes request timeout response has a 4xx status code
+func (o *PutConversationSecureattributesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation secureattributes request timeout response has a 5xx status code
+func (o *PutConversationSecureattributesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation secureattributes request timeout response a status code equal to that given
+func (o *PutConversationSecureattributesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutConversationSecureattributesRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationSecureattributesRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -308,7 +487,8 @@ func NewPutConversationSecureattributesConflict() *PutConversationSecureattribut
 	return &PutConversationSecureattributesConflict{}
 }
 
-/*PutConversationSecureattributesConflict handles this case with default header values.
+/*
+PutConversationSecureattributesConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -316,7 +496,36 @@ type PutConversationSecureattributesConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation secureattributes conflict response has a 2xx status code
+func (o *PutConversationSecureattributesConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation secureattributes conflict response has a 3xx status code
+func (o *PutConversationSecureattributesConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes conflict response has a 4xx status code
+func (o *PutConversationSecureattributesConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation secureattributes conflict response has a 5xx status code
+func (o *PutConversationSecureattributesConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation secureattributes conflict response a status code equal to that given
+func (o *PutConversationSecureattributesConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutConversationSecureattributesConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutConversationSecureattributesConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesConflict  %+v", 409, o.Payload)
 }
 
@@ -341,7 +550,8 @@ func NewPutConversationSecureattributesRequestEntityTooLarge() *PutConversationS
 	return &PutConversationSecureattributesRequestEntityTooLarge{}
 }
 
-/*PutConversationSecureattributesRequestEntityTooLarge handles this case with default header values.
+/*
+PutConversationSecureattributesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -349,7 +559,36 @@ type PutConversationSecureattributesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation secureattributes request entity too large response has a 2xx status code
+func (o *PutConversationSecureattributesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation secureattributes request entity too large response has a 3xx status code
+func (o *PutConversationSecureattributesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes request entity too large response has a 4xx status code
+func (o *PutConversationSecureattributesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation secureattributes request entity too large response has a 5xx status code
+func (o *PutConversationSecureattributesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation secureattributes request entity too large response a status code equal to that given
+func (o *PutConversationSecureattributesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutConversationSecureattributesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutConversationSecureattributesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -374,7 +613,8 @@ func NewPutConversationSecureattributesUnsupportedMediaType() *PutConversationSe
 	return &PutConversationSecureattributesUnsupportedMediaType{}
 }
 
-/*PutConversationSecureattributesUnsupportedMediaType handles this case with default header values.
+/*
+PutConversationSecureattributesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -382,7 +622,36 @@ type PutConversationSecureattributesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation secureattributes unsupported media type response has a 2xx status code
+func (o *PutConversationSecureattributesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation secureattributes unsupported media type response has a 3xx status code
+func (o *PutConversationSecureattributesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes unsupported media type response has a 4xx status code
+func (o *PutConversationSecureattributesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation secureattributes unsupported media type response has a 5xx status code
+func (o *PutConversationSecureattributesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation secureattributes unsupported media type response a status code equal to that given
+func (o *PutConversationSecureattributesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutConversationSecureattributesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutConversationSecureattributesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -407,7 +676,8 @@ func NewPutConversationSecureattributesTooManyRequests() *PutConversationSecurea
 	return &PutConversationSecureattributesTooManyRequests{}
 }
 
-/*PutConversationSecureattributesTooManyRequests handles this case with default header values.
+/*
+PutConversationSecureattributesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -415,7 +685,36 @@ type PutConversationSecureattributesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation secureattributes too many requests response has a 2xx status code
+func (o *PutConversationSecureattributesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation secureattributes too many requests response has a 3xx status code
+func (o *PutConversationSecureattributesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes too many requests response has a 4xx status code
+func (o *PutConversationSecureattributesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation secureattributes too many requests response has a 5xx status code
+func (o *PutConversationSecureattributesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation secureattributes too many requests response a status code equal to that given
+func (o *PutConversationSecureattributesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutConversationSecureattributesTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutConversationSecureattributesTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -440,7 +739,8 @@ func NewPutConversationSecureattributesInternalServerError() *PutConversationSec
 	return &PutConversationSecureattributesInternalServerError{}
 }
 
-/*PutConversationSecureattributesInternalServerError handles this case with default header values.
+/*
+PutConversationSecureattributesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -448,7 +748,36 @@ type PutConversationSecureattributesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation secureattributes internal server error response has a 2xx status code
+func (o *PutConversationSecureattributesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation secureattributes internal server error response has a 3xx status code
+func (o *PutConversationSecureattributesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes internal server error response has a 4xx status code
+func (o *PutConversationSecureattributesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversation secureattributes internal server error response has a 5xx status code
+func (o *PutConversationSecureattributesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversation secureattributes internal server error response a status code equal to that given
+func (o *PutConversationSecureattributesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutConversationSecureattributesInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutConversationSecureattributesInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -473,7 +802,8 @@ func NewPutConversationSecureattributesServiceUnavailable() *PutConversationSecu
 	return &PutConversationSecureattributesServiceUnavailable{}
 }
 
-/*PutConversationSecureattributesServiceUnavailable handles this case with default header values.
+/*
+PutConversationSecureattributesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -481,7 +811,36 @@ type PutConversationSecureattributesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation secureattributes service unavailable response has a 2xx status code
+func (o *PutConversationSecureattributesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation secureattributes service unavailable response has a 3xx status code
+func (o *PutConversationSecureattributesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes service unavailable response has a 4xx status code
+func (o *PutConversationSecureattributesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversation secureattributes service unavailable response has a 5xx status code
+func (o *PutConversationSecureattributesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversation secureattributes service unavailable response a status code equal to that given
+func (o *PutConversationSecureattributesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutConversationSecureattributesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutConversationSecureattributesServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -506,7 +865,8 @@ func NewPutConversationSecureattributesGatewayTimeout() *PutConversationSecureat
 	return &PutConversationSecureattributesGatewayTimeout{}
 }
 
-/*PutConversationSecureattributesGatewayTimeout handles this case with default header values.
+/*
+PutConversationSecureattributesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -514,7 +874,36 @@ type PutConversationSecureattributesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation secureattributes gateway timeout response has a 2xx status code
+func (o *PutConversationSecureattributesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation secureattributes gateway timeout response has a 3xx status code
+func (o *PutConversationSecureattributesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation secureattributes gateway timeout response has a 4xx status code
+func (o *PutConversationSecureattributesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversation secureattributes gateway timeout response has a 5xx status code
+func (o *PutConversationSecureattributesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversation secureattributes gateway timeout response a status code equal to that given
+func (o *PutConversationSecureattributesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutConversationSecureattributesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutConversationSecureattributesGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/secureattributes][%d] putConversationSecureattributesGatewayTimeout  %+v", 504, o.Payload)
 }
 

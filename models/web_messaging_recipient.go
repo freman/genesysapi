@@ -6,11 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // WebMessagingRecipient Information about the recipient the message is sent to or received from.
@@ -54,7 +56,6 @@ func (m *WebMessagingRecipient) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WebMessagingRecipient) validateAdditionalIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AdditionalIds) { // not required
 		return nil
 	}
@@ -68,11 +69,103 @@ func (m *WebMessagingRecipient) validateAdditionalIds(formats strfmt.Registry) e
 			if err := m.AdditionalIds[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("additionalIds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("additionalIds" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this web messaging recipient based on the context it is used
+func (m *WebMessagingRecipient) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAdditionalIds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFirstName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateImage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNickname(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WebMessagingRecipient) contextValidateAdditionalIds(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "additionalIds", "body", []*RecipientAdditionalIdentifier(m.AdditionalIds)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.AdditionalIds); i++ {
+
+		if m.AdditionalIds[i] != nil {
+			if err := m.AdditionalIds[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("additionalIds" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("additionalIds" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WebMessagingRecipient) contextValidateFirstName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "firstName", "body", string(m.FirstName)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebMessagingRecipient) contextValidateImage(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "image", "body", string(m.Image)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebMessagingRecipient) contextValidateLastName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "lastName", "body", string(m.LastName)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebMessagingRecipient) contextValidateNickname(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "nickname", "body", string(m.Nickname)); err != nil {
+		return err
 	}
 
 	return nil

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -99,7 +100,6 @@ func (m *IntegrationStatusInfo) validateCodeEnum(path, location string, value st
 }
 
 func (m *IntegrationStatusInfo) validateCode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Code) { // not required
 		return nil
 	}
@@ -113,7 +113,6 @@ func (m *IntegrationStatusInfo) validateCode(formats strfmt.Registry) error {
 }
 
 func (m *IntegrationStatusInfo) validateDetail(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Detail) { // not required
 		return nil
 	}
@@ -122,6 +121,8 @@ func (m *IntegrationStatusInfo) validateDetail(formats strfmt.Registry) error {
 		if err := m.Detail.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("detail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("detail")
 			}
 			return err
 		}
@@ -131,12 +132,80 @@ func (m *IntegrationStatusInfo) validateDetail(formats strfmt.Registry) error {
 }
 
 func (m *IntegrationStatusInfo) validateLastUpdated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastUpdated) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("lastUpdated", "body", "date-time", m.LastUpdated.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this integration status info based on the context it is used
+func (m *IntegrationStatusInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCode(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDetail(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEffective(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastUpdated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *IntegrationStatusInfo) contextValidateCode(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "code", "body", string(m.Code)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationStatusInfo) contextValidateDetail(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Detail != nil {
+		if err := m.Detail.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("detail")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("detail")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *IntegrationStatusInfo) contextValidateEffective(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "effective", "body", string(m.Effective)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationStatusInfo) contextValidateLastUpdated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "lastUpdated", "body", strfmt.DateTime(m.LastUpdated)); err != nil {
 		return err
 	}
 

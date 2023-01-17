@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -98,29 +99,29 @@ func init() {
 
 const (
 
-	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatUnspecified captures enum value "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
-	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatUnspecified string = "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML1Dot1NameidDashFormatUnspecified captures enum value "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML1Dot1NameidDashFormatUnspecified string = "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
 
-	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatEmailAddress captures enum value "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
-	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatEmailAddress string = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML1Dot1NameidDashFormatEmailAddress captures enum value "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML1Dot1NameidDashFormatEmailAddress string = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
 
-	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatX509SubjectName captures enum value "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
-	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatX509SubjectName string = "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML1Dot1NameidDashFormatX509SubjectName captures enum value "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML1Dot1NameidDashFormatX509SubjectName string = "urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName"
 
-	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatWindowsDomainQualifiedName captures enum value "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName"
-	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML11NameidFormatWindowsDomainQualifiedName string = "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName"
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML1Dot1NameidDashFormatWindowsDomainQualifiedName captures enum value "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML1Dot1NameidDashFormatWindowsDomainQualifiedName string = "urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName"
 
-	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatKerberos captures enum value "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos"
-	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatKerberos string = "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos"
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML2Dot0NameidDashFormatKerberos captures enum value "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML2Dot0NameidDashFormatKerberos string = "urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos"
 
-	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatEntity captures enum value "urn:oasis:names:tc:SAML:2.0:nameid-format:entity"
-	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatEntity string = "urn:oasis:names:tc:SAML:2.0:nameid-format:entity"
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML2Dot0NameidDashFormatEntity captures enum value "urn:oasis:names:tc:SAML:2.0:nameid-format:entity"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML2Dot0NameidDashFormatEntity string = "urn:oasis:names:tc:SAML:2.0:nameid-format:entity"
 
-	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatPersistent captures enum value "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
-	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatPersistent string = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML2Dot0NameidDashFormatPersistent captures enum value "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML2Dot0NameidDashFormatPersistent string = "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
 
-	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatTransient captures enum value "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
-	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML20NameidFormatTransient string = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+	// GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML2Dot0NameidDashFormatTransient captures enum value "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+	GenericSAMLNameIdentifierFormatUrnOasisNamesTcSAML2Dot0NameidDashFormatTransient string = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
 )
 
 // prop value enum
@@ -132,7 +133,6 @@ func (m *GenericSAML) validateNameIdentifierFormatEnum(path, location string, va
 }
 
 func (m *GenericSAML) validateNameIdentifierFormat(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NameIdentifierFormat) { // not required
 		return nil
 	}
@@ -146,12 +146,47 @@ func (m *GenericSAML) validateNameIdentifierFormat(formats strfmt.Registry) erro
 }
 
 func (m *GenericSAML) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this generic s a m l based on the context it is used
+func (m *GenericSAML) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *GenericSAML) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *GenericSAML) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

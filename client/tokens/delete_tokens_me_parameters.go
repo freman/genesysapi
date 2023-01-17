@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteTokensMeParams creates a new DeleteTokensMeParams object
-// with the default values initialized.
+// NewDeleteTokensMeParams creates a new DeleteTokensMeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteTokensMeParams() *DeleteTokensMeParams {
-
 	return &DeleteTokensMeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteTokensMeParamsWithTimeout creates a new DeleteTokensMeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteTokensMeParamsWithTimeout(timeout time.Duration) *DeleteTokensMeParams {
-
 	return &DeleteTokensMeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteTokensMeParamsWithContext creates a new DeleteTokensMeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteTokensMeParamsWithContext(ctx context.Context) *DeleteTokensMeParams {
-
 	return &DeleteTokensMeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteTokensMeParamsWithHTTPClient creates a new DeleteTokensMeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteTokensMeParamsWithHTTPClient(client *http.Client) *DeleteTokensMeParams {
-
 	return &DeleteTokensMeParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteTokensMeParams contains all the parameters to send to the API endpoint
-for the delete tokens me operation typically these are written to a http.Request
+/*
+DeleteTokensMeParams contains all the parameters to send to the API endpoint
+
+	for the delete tokens me operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteTokensMeParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete tokens me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteTokensMeParams) WithDefaults() *DeleteTokensMeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete tokens me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteTokensMeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete tokens me params

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -85,7 +86,6 @@ func (m *SupportCenterSettings) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SupportCenterSettings) validateCustomMessages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CustomMessages) { // not required
 		return nil
 	}
@@ -99,6 +99,8 @@ func (m *SupportCenterSettings) validateCustomMessages(formats strfmt.Registry) 
 			if err := m.CustomMessages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("customMessages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("customMessages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -110,7 +112,6 @@ func (m *SupportCenterSettings) validateCustomMessages(formats strfmt.Registry) 
 }
 
 func (m *SupportCenterSettings) validateEnabledCategories(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EnabledCategories) { // not required
 		return nil
 	}
@@ -124,6 +125,8 @@ func (m *SupportCenterSettings) validateEnabledCategories(formats strfmt.Registr
 			if err := m.EnabledCategories[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("enabledCategories" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("enabledCategories" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -135,7 +138,6 @@ func (m *SupportCenterSettings) validateEnabledCategories(formats strfmt.Registr
 }
 
 func (m *SupportCenterSettings) validateFeedback(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Feedback) { // not required
 		return nil
 	}
@@ -144,6 +146,8 @@ func (m *SupportCenterSettings) validateFeedback(formats strfmt.Registry) error 
 		if err := m.Feedback.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("feedback")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("feedback")
 			}
 			return err
 		}
@@ -153,7 +157,6 @@ func (m *SupportCenterSettings) validateFeedback(formats strfmt.Registry) error 
 }
 
 func (m *SupportCenterSettings) validateKnowledgeBase(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KnowledgeBase) { // not required
 		return nil
 	}
@@ -162,6 +165,8 @@ func (m *SupportCenterSettings) validateKnowledgeBase(formats strfmt.Registry) e
 		if err := m.KnowledgeBase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
 			}
 			return err
 		}
@@ -200,7 +205,6 @@ func (m *SupportCenterSettings) validateRouterTypeEnum(path, location string, va
 }
 
 func (m *SupportCenterSettings) validateRouterType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RouterType) { // not required
 		return nil
 	}
@@ -214,7 +218,6 @@ func (m *SupportCenterSettings) validateRouterType(formats strfmt.Registry) erro
 }
 
 func (m *SupportCenterSettings) validateScreens(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Screens) { // not required
 		return nil
 	}
@@ -228,6 +231,8 @@ func (m *SupportCenterSettings) validateScreens(formats strfmt.Registry) error {
 			if err := m.Screens[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("screens" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("screens" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -239,7 +244,6 @@ func (m *SupportCenterSettings) validateScreens(formats strfmt.Registry) error {
 }
 
 func (m *SupportCenterSettings) validateStyleSetting(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StyleSetting) { // not required
 		return nil
 	}
@@ -248,6 +252,150 @@ func (m *SupportCenterSettings) validateStyleSetting(formats strfmt.Registry) er
 		if err := m.StyleSetting.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("styleSetting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("styleSetting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this support center settings based on the context it is used
+func (m *SupportCenterSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCustomMessages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEnabledCategories(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFeedback(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKnowledgeBase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScreens(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStyleSetting(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SupportCenterSettings) contextValidateCustomMessages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CustomMessages); i++ {
+
+		if m.CustomMessages[i] != nil {
+			if err := m.CustomMessages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("customMessages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("customMessages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SupportCenterSettings) contextValidateEnabledCategories(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.EnabledCategories); i++ {
+
+		if m.EnabledCategories[i] != nil {
+			if err := m.EnabledCategories[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("enabledCategories" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("enabledCategories" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SupportCenterSettings) contextValidateFeedback(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Feedback != nil {
+		if err := m.Feedback.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("feedback")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("feedback")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SupportCenterSettings) contextValidateKnowledgeBase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KnowledgeBase != nil {
+		if err := m.KnowledgeBase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SupportCenterSettings) contextValidateScreens(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Screens); i++ {
+
+		if m.Screens[i] != nil {
+			if err := m.Screens[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("screens" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("screens" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SupportCenterSettings) contextValidateStyleSetting(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.StyleSetting != nil {
+		if err := m.StyleSetting.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("styleSetting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("styleSetting")
 			}
 			return err
 		}

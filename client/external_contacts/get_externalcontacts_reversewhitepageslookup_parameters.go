@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetExternalcontactsReversewhitepageslookupParams creates a new GetExternalcontactsReversewhitepageslookupParams object
-// with the default values initialized.
+// NewGetExternalcontactsReversewhitepageslookupParams creates a new GetExternalcontactsReversewhitepageslookupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetExternalcontactsReversewhitepageslookupParams() *GetExternalcontactsReversewhitepageslookupParams {
-	var ()
 	return &GetExternalcontactsReversewhitepageslookupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetExternalcontactsReversewhitepageslookupParamsWithTimeout creates a new GetExternalcontactsReversewhitepageslookupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetExternalcontactsReversewhitepageslookupParamsWithTimeout(timeout time.Duration) *GetExternalcontactsReversewhitepageslookupParams {
-	var ()
 	return &GetExternalcontactsReversewhitepageslookupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetExternalcontactsReversewhitepageslookupParamsWithContext creates a new GetExternalcontactsReversewhitepageslookupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetExternalcontactsReversewhitepageslookupParamsWithContext(ctx context.Context) *GetExternalcontactsReversewhitepageslookupParams {
-	var ()
 	return &GetExternalcontactsReversewhitepageslookupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetExternalcontactsReversewhitepageslookupParamsWithHTTPClient creates a new GetExternalcontactsReversewhitepageslookupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetExternalcontactsReversewhitepageslookupParamsWithHTTPClient(client *http.Client) *GetExternalcontactsReversewhitepageslookupParams {
-	var ()
 	return &GetExternalcontactsReversewhitepageslookupParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetExternalcontactsReversewhitepageslookupParams contains all the parameters to send to the API endpoint
-for the get externalcontacts reversewhitepageslookup operation typically these are written to a http.Request
+/*
+GetExternalcontactsReversewhitepageslookupParams contains all the parameters to send to the API endpoint
+
+	for the get externalcontacts reversewhitepageslookup operation.
+
+	Typically these are written to a http.Request.
 */
 type GetExternalcontactsReversewhitepageslookupParams struct {
 
-	/*Expand
-	  which field, if any, to expand
+	/* Expand.
 
+	   which field, if any, to expand
 	*/
 	Expand []string
-	/*LookupVal
-	  User supplied value to lookup contacts/externalOrganizations (supports email addresses, e164 phone numbers, Twitter screen names)
 
+	/* LookupVal.
+
+	   User supplied value to lookup contacts/externalOrganizations (supports email addresses, e164 phone numbers, Twitter screen names)
 	*/
 	LookupVal string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get externalcontacts reversewhitepageslookup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsReversewhitepageslookupParams) WithDefaults() *GetExternalcontactsReversewhitepageslookupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get externalcontacts reversewhitepageslookup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsReversewhitepageslookupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get externalcontacts reversewhitepageslookup params
@@ -140,18 +157,22 @@ func (o *GetExternalcontactsReversewhitepageslookupParams) WriteToRequest(r runt
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// query param lookupVal
 	qrLookupVal := o.LookupVal
 	qLookupVal := qrLookupVal
 	if qLookupVal != "" {
+
 		if err := r.SetQueryParam("lookupVal", qLookupVal); err != nil {
 			return err
 		}
@@ -161,4 +182,21 @@ func (o *GetExternalcontactsReversewhitepageslookupParams) WriteToRequest(r runt
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetExternalcontactsReversewhitepageslookup binds the parameter expand
+func (o *GetExternalcontactsReversewhitepageslookupParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

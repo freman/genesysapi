@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutWebdeploymentsConfigurationVersionsDraftParams creates a new PutWebdeploymentsConfigurationVersionsDraftParams object
-// with the default values initialized.
+// NewPutWebdeploymentsConfigurationVersionsDraftParams creates a new PutWebdeploymentsConfigurationVersionsDraftParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutWebdeploymentsConfigurationVersionsDraftParams() *PutWebdeploymentsConfigurationVersionsDraftParams {
-	var ()
 	return &PutWebdeploymentsConfigurationVersionsDraftParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutWebdeploymentsConfigurationVersionsDraftParamsWithTimeout creates a new PutWebdeploymentsConfigurationVersionsDraftParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutWebdeploymentsConfigurationVersionsDraftParamsWithTimeout(timeout time.Duration) *PutWebdeploymentsConfigurationVersionsDraftParams {
-	var ()
 	return &PutWebdeploymentsConfigurationVersionsDraftParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutWebdeploymentsConfigurationVersionsDraftParamsWithContext creates a new PutWebdeploymentsConfigurationVersionsDraftParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutWebdeploymentsConfigurationVersionsDraftParamsWithContext(ctx context.Context) *PutWebdeploymentsConfigurationVersionsDraftParams {
-	var ()
 	return &PutWebdeploymentsConfigurationVersionsDraftParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutWebdeploymentsConfigurationVersionsDraftParamsWithHTTPClient creates a new PutWebdeploymentsConfigurationVersionsDraftParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutWebdeploymentsConfigurationVersionsDraftParamsWithHTTPClient(client *http.Client) *PutWebdeploymentsConfigurationVersionsDraftParams {
-	var ()
 	return &PutWebdeploymentsConfigurationVersionsDraftParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftParams contains all the parameters to send to the API endpoint
-for the put webdeployments configuration versions draft operation typically these are written to a http.Request
+/*
+PutWebdeploymentsConfigurationVersionsDraftParams contains all the parameters to send to the API endpoint
+
+	for the put webdeployments configuration versions draft operation.
+
+	Typically these are written to a http.Request.
 */
 type PutWebdeploymentsConfigurationVersionsDraftParams struct {
 
-	/*ConfigurationID
-	  The configuration version ID
+	/* ConfigurationID.
 
+	   The configuration version ID
 	*/
 	ConfigurationID string
-	/*ConfigurationVersion*/
+
+	// ConfigurationVersion.
 	ConfigurationVersion *models.WebDeploymentConfigurationVersion
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put webdeployments configuration versions draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutWebdeploymentsConfigurationVersionsDraftParams) WithDefaults() *PutWebdeploymentsConfigurationVersionsDraftParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put webdeployments configuration versions draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutWebdeploymentsConfigurationVersionsDraftParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put webdeployments configuration versions draft params
@@ -142,7 +159,6 @@ func (o *PutWebdeploymentsConfigurationVersionsDraftParams) WriteToRequest(r run
 	if err := r.SetPathParam("configurationId", o.ConfigurationID); err != nil {
 		return err
 	}
-
 	if o.ConfigurationVersion != nil {
 		if err := r.SetBodyParam(o.ConfigurationVersion); err != nil {
 			return err

@@ -95,7 +95,6 @@ func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryReader) ReadResponse(
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostWorkforcemanagementTimeofflimitsAvailableQueryOK() *PostWorkforceman
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryOK{}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryOK handles this case with default header values.
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostWorkforcemanagementTimeofflimitsAvailableQueryOK struct {
 	Payload *models.AvailableTimeOffResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement timeofflimits available query o k response has a 2xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement timeofflimits available query o k response has a 3xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement timeofflimits available query o k response has a 4xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement timeofflimits available query o k response has a 5xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement timeofflimits available query o k response a status code equal to that given
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostWorkforcemanagementTimeofflimitsAvailableQueryBadRequest() *PostWork
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryBadRequest{}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostWorkforcemanagementTimeofflimitsAvailableQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement timeofflimits available query bad request response has a 2xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement timeofflimits available query bad request response has a 3xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement timeofflimits available query bad request response has a 4xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement timeofflimits available query bad request response has a 5xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement timeofflimits available query bad request response a status code equal to that given
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized() *PostWo
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized{}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement timeofflimits available query unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement timeofflimits available query unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement timeofflimits available query unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement timeofflimits available query unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement timeofflimits available query unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostWorkforcemanagementTimeofflimitsAvailableQueryForbidden() *PostWorkf
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryForbidden{}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostWorkforcemanagementTimeofflimitsAvailableQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement timeofflimits available query forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement timeofflimits available query forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement timeofflimits available query forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement timeofflimits available query forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement timeofflimits available query forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostWorkforcemanagementTimeofflimitsAvailableQueryNotFound() *PostWorkfo
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryNotFound{}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostWorkforcemanagementTimeofflimitsAvailableQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement timeofflimits available query not found response has a 2xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement timeofflimits available query not found response has a 3xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement timeofflimits available query not found response has a 4xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement timeofflimits available query not found response has a 5xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement timeofflimits available query not found response a status code equal to that given
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout() *Post
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout{}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement timeofflimits available query request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement timeofflimits available query request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement timeofflimits available query request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement timeofflimits available query request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement timeofflimits available query request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge(
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement timeofflimits available query request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement timeofflimits available query request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement timeofflimits available query request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement timeofflimits available query request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement timeofflimits available query request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType()
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement timeofflimits available query unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement timeofflimits available query unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement timeofflimits available query unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement timeofflimits available query unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement timeofflimits available query unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests() *Pos
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests{}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement timeofflimits available query too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement timeofflimits available query too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement timeofflimits available query too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement timeofflimits available query too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement timeofflimits available query too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError() 
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError{}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement timeofflimits available query internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement timeofflimits available query internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement timeofflimits available query internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement timeofflimits available query internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement timeofflimits available query internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable() *
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement timeofflimits available query service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement timeofflimits available query service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement timeofflimits available query service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement timeofflimits available query service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement timeofflimits available query service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout() *Post
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement timeofflimits available query gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement timeofflimits available query gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement timeofflimits available query gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement timeofflimits available query gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement timeofflimits available query gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/timeofflimits/available/query][%d] postWorkforcemanagementTimeofflimitsAvailableQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *PostOrgauthorizationTrusteeUsersReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOrgauthorizationTrusteeUsersOK() *PostOrgauthorizationTrusteeUsersOK
 	return &PostOrgauthorizationTrusteeUsersOK{}
 }
 
-/*PostOrgauthorizationTrusteeUsersOK handles this case with default header values.
+/*
+PostOrgauthorizationTrusteeUsersOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOrgauthorizationTrusteeUsersOK struct {
 	Payload *models.TrustUser
 }
 
+// IsSuccess returns true when this post orgauthorization trustee users o k response has a 2xx status code
+func (o *PostOrgauthorizationTrusteeUsersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post orgauthorization trustee users o k response has a 3xx status code
+func (o *PostOrgauthorizationTrusteeUsersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustee users o k response has a 4xx status code
+func (o *PostOrgauthorizationTrusteeUsersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post orgauthorization trustee users o k response has a 5xx status code
+func (o *PostOrgauthorizationTrusteeUsersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustee users o k response a status code equal to that given
+func (o *PostOrgauthorizationTrusteeUsersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOrgauthorizationTrusteeUsersOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteeUsersOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostOrgauthorizationTrusteeUsersBadRequest() *PostOrgauthorizationTruste
 	return &PostOrgauthorizationTrusteeUsersBadRequest{}
 }
 
-/*PostOrgauthorizationTrusteeUsersBadRequest handles this case with default header values.
+/*
+PostOrgauthorizationTrusteeUsersBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostOrgauthorizationTrusteeUsersBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustee users bad request response has a 2xx status code
+func (o *PostOrgauthorizationTrusteeUsersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustee users bad request response has a 3xx status code
+func (o *PostOrgauthorizationTrusteeUsersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustee users bad request response has a 4xx status code
+func (o *PostOrgauthorizationTrusteeUsersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustee users bad request response has a 5xx status code
+func (o *PostOrgauthorizationTrusteeUsersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustee users bad request response a status code equal to that given
+func (o *PostOrgauthorizationTrusteeUsersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOrgauthorizationTrusteeUsersBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteeUsersBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostOrgauthorizationTrusteeUsersUnauthorized() *PostOrgauthorizationTrus
 	return &PostOrgauthorizationTrusteeUsersUnauthorized{}
 }
 
-/*PostOrgauthorizationTrusteeUsersUnauthorized handles this case with default header values.
+/*
+PostOrgauthorizationTrusteeUsersUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostOrgauthorizationTrusteeUsersUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustee users unauthorized response has a 2xx status code
+func (o *PostOrgauthorizationTrusteeUsersUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustee users unauthorized response has a 3xx status code
+func (o *PostOrgauthorizationTrusteeUsersUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustee users unauthorized response has a 4xx status code
+func (o *PostOrgauthorizationTrusteeUsersUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustee users unauthorized response has a 5xx status code
+func (o *PostOrgauthorizationTrusteeUsersUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustee users unauthorized response a status code equal to that given
+func (o *PostOrgauthorizationTrusteeUsersUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOrgauthorizationTrusteeUsersUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteeUsersUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostOrgauthorizationTrusteeUsersForbidden() *PostOrgauthorizationTrustee
 	return &PostOrgauthorizationTrusteeUsersForbidden{}
 }
 
-/*PostOrgauthorizationTrusteeUsersForbidden handles this case with default header values.
+/*
+PostOrgauthorizationTrusteeUsersForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostOrgauthorizationTrusteeUsersForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustee users forbidden response has a 2xx status code
+func (o *PostOrgauthorizationTrusteeUsersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustee users forbidden response has a 3xx status code
+func (o *PostOrgauthorizationTrusteeUsersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustee users forbidden response has a 4xx status code
+func (o *PostOrgauthorizationTrusteeUsersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustee users forbidden response has a 5xx status code
+func (o *PostOrgauthorizationTrusteeUsersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustee users forbidden response a status code equal to that given
+func (o *PostOrgauthorizationTrusteeUsersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOrgauthorizationTrusteeUsersForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteeUsersForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostOrgauthorizationTrusteeUsersNotFound() *PostOrgauthorizationTrusteeU
 	return &PostOrgauthorizationTrusteeUsersNotFound{}
 }
 
-/*PostOrgauthorizationTrusteeUsersNotFound handles this case with default header values.
+/*
+PostOrgauthorizationTrusteeUsersNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostOrgauthorizationTrusteeUsersNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustee users not found response has a 2xx status code
+func (o *PostOrgauthorizationTrusteeUsersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustee users not found response has a 3xx status code
+func (o *PostOrgauthorizationTrusteeUsersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustee users not found response has a 4xx status code
+func (o *PostOrgauthorizationTrusteeUsersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustee users not found response has a 5xx status code
+func (o *PostOrgauthorizationTrusteeUsersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustee users not found response a status code equal to that given
+func (o *PostOrgauthorizationTrusteeUsersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOrgauthorizationTrusteeUsersNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteeUsersNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostOrgauthorizationTrusteeUsersRequestTimeout() *PostOrgauthorizationTr
 	return &PostOrgauthorizationTrusteeUsersRequestTimeout{}
 }
 
-/*PostOrgauthorizationTrusteeUsersRequestTimeout handles this case with default header values.
+/*
+PostOrgauthorizationTrusteeUsersRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostOrgauthorizationTrusteeUsersRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustee users request timeout response has a 2xx status code
+func (o *PostOrgauthorizationTrusteeUsersRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustee users request timeout response has a 3xx status code
+func (o *PostOrgauthorizationTrusteeUsersRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustee users request timeout response has a 4xx status code
+func (o *PostOrgauthorizationTrusteeUsersRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustee users request timeout response has a 5xx status code
+func (o *PostOrgauthorizationTrusteeUsersRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustee users request timeout response a status code equal to that given
+func (o *PostOrgauthorizationTrusteeUsersRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOrgauthorizationTrusteeUsersRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteeUsersRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostOrgauthorizationTrusteeUsersRequestEntityTooLarge() *PostOrgauthoriz
 	return &PostOrgauthorizationTrusteeUsersRequestEntityTooLarge{}
 }
 
-/*PostOrgauthorizationTrusteeUsersRequestEntityTooLarge handles this case with default header values.
+/*
+PostOrgauthorizationTrusteeUsersRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostOrgauthorizationTrusteeUsersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustee users request entity too large response has a 2xx status code
+func (o *PostOrgauthorizationTrusteeUsersRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustee users request entity too large response has a 3xx status code
+func (o *PostOrgauthorizationTrusteeUsersRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustee users request entity too large response has a 4xx status code
+func (o *PostOrgauthorizationTrusteeUsersRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustee users request entity too large response has a 5xx status code
+func (o *PostOrgauthorizationTrusteeUsersRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustee users request entity too large response a status code equal to that given
+func (o *PostOrgauthorizationTrusteeUsersRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOrgauthorizationTrusteeUsersRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteeUsersRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostOrgauthorizationTrusteeUsersUnsupportedMediaType() *PostOrgauthoriza
 	return &PostOrgauthorizationTrusteeUsersUnsupportedMediaType{}
 }
 
-/*PostOrgauthorizationTrusteeUsersUnsupportedMediaType handles this case with default header values.
+/*
+PostOrgauthorizationTrusteeUsersUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostOrgauthorizationTrusteeUsersUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustee users unsupported media type response has a 2xx status code
+func (o *PostOrgauthorizationTrusteeUsersUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustee users unsupported media type response has a 3xx status code
+func (o *PostOrgauthorizationTrusteeUsersUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustee users unsupported media type response has a 4xx status code
+func (o *PostOrgauthorizationTrusteeUsersUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustee users unsupported media type response has a 5xx status code
+func (o *PostOrgauthorizationTrusteeUsersUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustee users unsupported media type response a status code equal to that given
+func (o *PostOrgauthorizationTrusteeUsersUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOrgauthorizationTrusteeUsersUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteeUsersUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostOrgauthorizationTrusteeUsersTooManyRequests() *PostOrgauthorizationT
 	return &PostOrgauthorizationTrusteeUsersTooManyRequests{}
 }
 
-/*PostOrgauthorizationTrusteeUsersTooManyRequests handles this case with default header values.
+/*
+PostOrgauthorizationTrusteeUsersTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostOrgauthorizationTrusteeUsersTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustee users too many requests response has a 2xx status code
+func (o *PostOrgauthorizationTrusteeUsersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustee users too many requests response has a 3xx status code
+func (o *PostOrgauthorizationTrusteeUsersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustee users too many requests response has a 4xx status code
+func (o *PostOrgauthorizationTrusteeUsersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustee users too many requests response has a 5xx status code
+func (o *PostOrgauthorizationTrusteeUsersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustee users too many requests response a status code equal to that given
+func (o *PostOrgauthorizationTrusteeUsersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOrgauthorizationTrusteeUsersTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteeUsersTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostOrgauthorizationTrusteeUsersInternalServerError() *PostOrgauthorizat
 	return &PostOrgauthorizationTrusteeUsersInternalServerError{}
 }
 
-/*PostOrgauthorizationTrusteeUsersInternalServerError handles this case with default header values.
+/*
+PostOrgauthorizationTrusteeUsersInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostOrgauthorizationTrusteeUsersInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustee users internal server error response has a 2xx status code
+func (o *PostOrgauthorizationTrusteeUsersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustee users internal server error response has a 3xx status code
+func (o *PostOrgauthorizationTrusteeUsersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustee users internal server error response has a 4xx status code
+func (o *PostOrgauthorizationTrusteeUsersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post orgauthorization trustee users internal server error response has a 5xx status code
+func (o *PostOrgauthorizationTrusteeUsersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post orgauthorization trustee users internal server error response a status code equal to that given
+func (o *PostOrgauthorizationTrusteeUsersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOrgauthorizationTrusteeUsersInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteeUsersInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostOrgauthorizationTrusteeUsersServiceUnavailable() *PostOrgauthorizati
 	return &PostOrgauthorizationTrusteeUsersServiceUnavailable{}
 }
 
-/*PostOrgauthorizationTrusteeUsersServiceUnavailable handles this case with default header values.
+/*
+PostOrgauthorizationTrusteeUsersServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostOrgauthorizationTrusteeUsersServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustee users service unavailable response has a 2xx status code
+func (o *PostOrgauthorizationTrusteeUsersServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustee users service unavailable response has a 3xx status code
+func (o *PostOrgauthorizationTrusteeUsersServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustee users service unavailable response has a 4xx status code
+func (o *PostOrgauthorizationTrusteeUsersServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post orgauthorization trustee users service unavailable response has a 5xx status code
+func (o *PostOrgauthorizationTrusteeUsersServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post orgauthorization trustee users service unavailable response a status code equal to that given
+func (o *PostOrgauthorizationTrusteeUsersServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOrgauthorizationTrusteeUsersServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteeUsersServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostOrgauthorizationTrusteeUsersGatewayTimeout() *PostOrgauthorizationTr
 	return &PostOrgauthorizationTrusteeUsersGatewayTimeout{}
 }
 
-/*PostOrgauthorizationTrusteeUsersGatewayTimeout handles this case with default header values.
+/*
+PostOrgauthorizationTrusteeUsersGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostOrgauthorizationTrusteeUsersGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustee users gateway timeout response has a 2xx status code
+func (o *PostOrgauthorizationTrusteeUsersGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustee users gateway timeout response has a 3xx status code
+func (o *PostOrgauthorizationTrusteeUsersGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustee users gateway timeout response has a 4xx status code
+func (o *PostOrgauthorizationTrusteeUsersGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post orgauthorization trustee users gateway timeout response has a 5xx status code
+func (o *PostOrgauthorizationTrusteeUsersGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post orgauthorization trustee users gateway timeout response a status code equal to that given
+func (o *PostOrgauthorizationTrusteeUsersGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOrgauthorizationTrusteeUsersGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrusteeUsersGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustees/{trusteeOrgId}/users][%d] postOrgauthorizationTrusteeUsersGatewayTimeout  %+v", 504, o.Payload)
 }
 

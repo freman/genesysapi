@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteTelephonyProvidersEdgesEdgegroupParams creates a new DeleteTelephonyProvidersEdgesEdgegroupParams object
-// with the default values initialized.
+// NewDeleteTelephonyProvidersEdgesEdgegroupParams creates a new DeleteTelephonyProvidersEdgesEdgegroupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteTelephonyProvidersEdgesEdgegroupParams() *DeleteTelephonyProvidersEdgesEdgegroupParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgesEdgegroupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteTelephonyProvidersEdgesEdgegroupParamsWithTimeout creates a new DeleteTelephonyProvidersEdgesEdgegroupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteTelephonyProvidersEdgesEdgegroupParamsWithTimeout(timeout time.Duration) *DeleteTelephonyProvidersEdgesEdgegroupParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgesEdgegroupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteTelephonyProvidersEdgesEdgegroupParamsWithContext creates a new DeleteTelephonyProvidersEdgesEdgegroupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteTelephonyProvidersEdgesEdgegroupParamsWithContext(ctx context.Context) *DeleteTelephonyProvidersEdgesEdgegroupParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgesEdgegroupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteTelephonyProvidersEdgesEdgegroupParamsWithHTTPClient creates a new DeleteTelephonyProvidersEdgesEdgegroupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteTelephonyProvidersEdgesEdgegroupParamsWithHTTPClient(client *http.Client) *DeleteTelephonyProvidersEdgesEdgegroupParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgesEdgegroupParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteTelephonyProvidersEdgesEdgegroupParams contains all the parameters to send to the API endpoint
-for the delete telephony providers edges edgegroup operation typically these are written to a http.Request
+/*
+DeleteTelephonyProvidersEdgesEdgegroupParams contains all the parameters to send to the API endpoint
+
+	for the delete telephony providers edges edgegroup operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteTelephonyProvidersEdgesEdgegroupParams struct {
 
-	/*EdgeGroupID
-	  Edge group ID
+	/* EdgeGroupID.
 
+	   Edge group ID
 	*/
 	EdgeGroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete telephony providers edges edgegroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteTelephonyProvidersEdgesEdgegroupParams) WithDefaults() *DeleteTelephonyProvidersEdgesEdgegroupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete telephony providers edges edgegroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteTelephonyProvidersEdgesEdgegroupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete telephony providers edges edgegroup params

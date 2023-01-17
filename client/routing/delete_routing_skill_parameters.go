@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteRoutingSkillParams creates a new DeleteRoutingSkillParams object
-// with the default values initialized.
+// NewDeleteRoutingSkillParams creates a new DeleteRoutingSkillParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRoutingSkillParams() *DeleteRoutingSkillParams {
-	var ()
 	return &DeleteRoutingSkillParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRoutingSkillParamsWithTimeout creates a new DeleteRoutingSkillParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRoutingSkillParamsWithTimeout(timeout time.Duration) *DeleteRoutingSkillParams {
-	var ()
 	return &DeleteRoutingSkillParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRoutingSkillParamsWithContext creates a new DeleteRoutingSkillParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRoutingSkillParamsWithContext(ctx context.Context) *DeleteRoutingSkillParams {
-	var ()
 	return &DeleteRoutingSkillParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRoutingSkillParamsWithHTTPClient creates a new DeleteRoutingSkillParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRoutingSkillParamsWithHTTPClient(client *http.Client) *DeleteRoutingSkillParams {
-	var ()
 	return &DeleteRoutingSkillParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRoutingSkillParams contains all the parameters to send to the API endpoint
-for the delete routing skill operation typically these are written to a http.Request
+/*
+DeleteRoutingSkillParams contains all the parameters to send to the API endpoint
+
+	for the delete routing skill operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteRoutingSkillParams struct {
 
-	/*SkillID
-	  Skill ID
+	/* SkillID.
 
+	   Skill ID
 	*/
 	SkillID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete routing skill params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingSkillParams) WithDefaults() *DeleteRoutingSkillParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete routing skill params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingSkillParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete routing skill params

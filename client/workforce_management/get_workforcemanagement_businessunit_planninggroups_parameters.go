@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementBusinessunitPlanninggroupsParams creates a new GetWorkforcemanagementBusinessunitPlanninggroupsParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementBusinessunitPlanninggroupsParams creates a new GetWorkforcemanagementBusinessunitPlanninggroupsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementBusinessunitPlanninggroupsParams() *GetWorkforcemanagementBusinessunitPlanninggroupsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitPlanninggroupsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitPlanninggroupsParamsWithTimeout creates a new GetWorkforcemanagementBusinessunitPlanninggroupsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementBusinessunitPlanninggroupsParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementBusinessunitPlanninggroupsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitPlanninggroupsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitPlanninggroupsParamsWithContext creates a new GetWorkforcemanagementBusinessunitPlanninggroupsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementBusinessunitPlanninggroupsParamsWithContext(ctx context.Context) *GetWorkforcemanagementBusinessunitPlanninggroupsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitPlanninggroupsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitPlanninggroupsParamsWithHTTPClient creates a new GetWorkforcemanagementBusinessunitPlanninggroupsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementBusinessunitPlanninggroupsParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementBusinessunitPlanninggroupsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitPlanninggroupsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementBusinessunitPlanninggroupsParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement businessunit planninggroups operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementBusinessunitPlanninggroupsParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement businessunit planninggroups operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementBusinessunitPlanninggroupsParams struct {
 
-	/*BusinessUnitID
-	  The ID of the business unit.
+	/* BusinessUnitID.
 
+	   The ID of the business unit.
 	*/
 	BusinessUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement businessunit planninggroups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitPlanninggroupsParams) WithDefaults() *GetWorkforcemanagementBusinessunitPlanninggroupsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement businessunit planninggroups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitPlanninggroupsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement businessunit planninggroups params

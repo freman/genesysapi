@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -106,7 +107,6 @@ func (m *BuIntradayResponse) validateCategoriesItemsEnum(path, location string, 
 }
 
 func (m *BuIntradayResponse) validateCategories(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Categories) { // not required
 		return nil
 	}
@@ -124,7 +124,6 @@ func (m *BuIntradayResponse) validateCategories(formats strfmt.Registry) error {
 }
 
 func (m *BuIntradayResponse) validateEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndDate) { // not required
 		return nil
 	}
@@ -137,7 +136,6 @@ func (m *BuIntradayResponse) validateEndDate(formats strfmt.Registry) error {
 }
 
 func (m *BuIntradayResponse) validateIntradayDataGroupings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IntradayDataGroupings) { // not required
 		return nil
 	}
@@ -151,6 +149,8 @@ func (m *BuIntradayResponse) validateIntradayDataGroupings(formats strfmt.Regist
 			if err := m.IntradayDataGroupings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intradayDataGroupings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intradayDataGroupings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -191,7 +191,6 @@ func (m *BuIntradayResponse) validateNoDataReasonEnum(path, location string, val
 }
 
 func (m *BuIntradayResponse) validateNoDataReason(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NoDataReason) { // not required
 		return nil
 	}
@@ -205,7 +204,6 @@ func (m *BuIntradayResponse) validateNoDataReason(formats strfmt.Registry) error
 }
 
 func (m *BuIntradayResponse) validateSchedule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Schedule) { // not required
 		return nil
 	}
@@ -214,6 +212,8 @@ func (m *BuIntradayResponse) validateSchedule(formats strfmt.Registry) error {
 		if err := m.Schedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedule")
 			}
 			return err
 		}
@@ -223,7 +223,6 @@ func (m *BuIntradayResponse) validateSchedule(formats strfmt.Registry) error {
 }
 
 func (m *BuIntradayResponse) validateShortTermForecast(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShortTermForecast) { // not required
 		return nil
 	}
@@ -232,6 +231,8 @@ func (m *BuIntradayResponse) validateShortTermForecast(formats strfmt.Registry) 
 		if err := m.ShortTermForecast.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("shortTermForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecast")
 			}
 			return err
 		}
@@ -241,13 +242,86 @@ func (m *BuIntradayResponse) validateShortTermForecast(formats strfmt.Registry) 
 }
 
 func (m *BuIntradayResponse) validateStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDate) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("startDate", "body", "date-time", m.StartDate.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu intraday response based on the context it is used
+func (m *BuIntradayResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateIntradayDataGroupings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchedule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShortTermForecast(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuIntradayResponse) contextValidateIntradayDataGroupings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.IntradayDataGroupings); i++ {
+
+		if m.IntradayDataGroupings[i] != nil {
+			if err := m.IntradayDataGroupings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("intradayDataGroupings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intradayDataGroupings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuIntradayResponse) contextValidateSchedule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Schedule != nil {
+		if err := m.Schedule.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedule")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuIntradayResponse) contextValidateShortTermForecast(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ShortTermForecast != nil {
+		if err := m.ShortTermForecast.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("shortTermForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecast")
+			}
+			return err
+		}
 	}
 
 	return nil

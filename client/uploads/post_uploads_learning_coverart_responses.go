@@ -95,7 +95,6 @@ func (o *PostUploadsLearningCoverartReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostUploadsLearningCoverartOK() *PostUploadsLearningCoverartOK {
 	return &PostUploadsLearningCoverartOK{}
 }
 
-/*PostUploadsLearningCoverartOK handles this case with default header values.
+/*
+PostUploadsLearningCoverartOK describes a response with status code 200, with default header values.
 
 Pre-signed urls successfully created.
 */
@@ -114,7 +114,36 @@ type PostUploadsLearningCoverartOK struct {
 	Payload *models.UploadURLResponse
 }
 
+// IsSuccess returns true when this post uploads learning coverart o k response has a 2xx status code
+func (o *PostUploadsLearningCoverartOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post uploads learning coverart o k response has a 3xx status code
+func (o *PostUploadsLearningCoverartOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads learning coverart o k response has a 4xx status code
+func (o *PostUploadsLearningCoverartOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post uploads learning coverart o k response has a 5xx status code
+func (o *PostUploadsLearningCoverartOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads learning coverart o k response a status code equal to that given
+func (o *PostUploadsLearningCoverartOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostUploadsLearningCoverartOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartOK  %+v", 200, o.Payload)
+}
+
+func (o *PostUploadsLearningCoverartOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostUploadsLearningCoverartBadRequest() *PostUploadsLearningCoverartBadR
 	return &PostUploadsLearningCoverartBadRequest{}
 }
 
-/*PostUploadsLearningCoverartBadRequest handles this case with default header values.
+/*
+PostUploadsLearningCoverartBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostUploadsLearningCoverartBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads learning coverart bad request response has a 2xx status code
+func (o *PostUploadsLearningCoverartBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads learning coverart bad request response has a 3xx status code
+func (o *PostUploadsLearningCoverartBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads learning coverart bad request response has a 4xx status code
+func (o *PostUploadsLearningCoverartBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads learning coverart bad request response has a 5xx status code
+func (o *PostUploadsLearningCoverartBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads learning coverart bad request response a status code equal to that given
+func (o *PostUploadsLearningCoverartBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostUploadsLearningCoverartBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostUploadsLearningCoverartBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostUploadsLearningCoverartUnauthorized() *PostUploadsLearningCoverartUn
 	return &PostUploadsLearningCoverartUnauthorized{}
 }
 
-/*PostUploadsLearningCoverartUnauthorized handles this case with default header values.
+/*
+PostUploadsLearningCoverartUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostUploadsLearningCoverartUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads learning coverart unauthorized response has a 2xx status code
+func (o *PostUploadsLearningCoverartUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads learning coverart unauthorized response has a 3xx status code
+func (o *PostUploadsLearningCoverartUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads learning coverart unauthorized response has a 4xx status code
+func (o *PostUploadsLearningCoverartUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads learning coverart unauthorized response has a 5xx status code
+func (o *PostUploadsLearningCoverartUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads learning coverart unauthorized response a status code equal to that given
+func (o *PostUploadsLearningCoverartUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostUploadsLearningCoverartUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostUploadsLearningCoverartUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostUploadsLearningCoverartForbidden() *PostUploadsLearningCoverartForbi
 	return &PostUploadsLearningCoverartForbidden{}
 }
 
-/*PostUploadsLearningCoverartForbidden handles this case with default header values.
+/*
+PostUploadsLearningCoverartForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostUploadsLearningCoverartForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads learning coverart forbidden response has a 2xx status code
+func (o *PostUploadsLearningCoverartForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads learning coverart forbidden response has a 3xx status code
+func (o *PostUploadsLearningCoverartForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads learning coverart forbidden response has a 4xx status code
+func (o *PostUploadsLearningCoverartForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads learning coverart forbidden response has a 5xx status code
+func (o *PostUploadsLearningCoverartForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads learning coverart forbidden response a status code equal to that given
+func (o *PostUploadsLearningCoverartForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostUploadsLearningCoverartForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostUploadsLearningCoverartForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostUploadsLearningCoverartNotFound() *PostUploadsLearningCoverartNotFou
 	return &PostUploadsLearningCoverartNotFound{}
 }
 
-/*PostUploadsLearningCoverartNotFound handles this case with default header values.
+/*
+PostUploadsLearningCoverartNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostUploadsLearningCoverartNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads learning coverart not found response has a 2xx status code
+func (o *PostUploadsLearningCoverartNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads learning coverart not found response has a 3xx status code
+func (o *PostUploadsLearningCoverartNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads learning coverart not found response has a 4xx status code
+func (o *PostUploadsLearningCoverartNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads learning coverart not found response has a 5xx status code
+func (o *PostUploadsLearningCoverartNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads learning coverart not found response a status code equal to that given
+func (o *PostUploadsLearningCoverartNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostUploadsLearningCoverartNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostUploadsLearningCoverartNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostUploadsLearningCoverartRequestTimeout() *PostUploadsLearningCoverart
 	return &PostUploadsLearningCoverartRequestTimeout{}
 }
 
-/*PostUploadsLearningCoverartRequestTimeout handles this case with default header values.
+/*
+PostUploadsLearningCoverartRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostUploadsLearningCoverartRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads learning coverart request timeout response has a 2xx status code
+func (o *PostUploadsLearningCoverartRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads learning coverart request timeout response has a 3xx status code
+func (o *PostUploadsLearningCoverartRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads learning coverart request timeout response has a 4xx status code
+func (o *PostUploadsLearningCoverartRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads learning coverart request timeout response has a 5xx status code
+func (o *PostUploadsLearningCoverartRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads learning coverart request timeout response a status code equal to that given
+func (o *PostUploadsLearningCoverartRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostUploadsLearningCoverartRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUploadsLearningCoverartRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostUploadsLearningCoverartRequestEntityTooLarge() *PostUploadsLearningC
 	return &PostUploadsLearningCoverartRequestEntityTooLarge{}
 }
 
-/*PostUploadsLearningCoverartRequestEntityTooLarge handles this case with default header values.
+/*
+PostUploadsLearningCoverartRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostUploadsLearningCoverartRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads learning coverart request entity too large response has a 2xx status code
+func (o *PostUploadsLearningCoverartRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads learning coverart request entity too large response has a 3xx status code
+func (o *PostUploadsLearningCoverartRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads learning coverart request entity too large response has a 4xx status code
+func (o *PostUploadsLearningCoverartRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads learning coverart request entity too large response has a 5xx status code
+func (o *PostUploadsLearningCoverartRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads learning coverart request entity too large response a status code equal to that given
+func (o *PostUploadsLearningCoverartRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostUploadsLearningCoverartRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostUploadsLearningCoverartRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostUploadsLearningCoverartUnsupportedMediaType() *PostUploadsLearningCo
 	return &PostUploadsLearningCoverartUnsupportedMediaType{}
 }
 
-/*PostUploadsLearningCoverartUnsupportedMediaType handles this case with default header values.
+/*
+PostUploadsLearningCoverartUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostUploadsLearningCoverartUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads learning coverart unsupported media type response has a 2xx status code
+func (o *PostUploadsLearningCoverartUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads learning coverart unsupported media type response has a 3xx status code
+func (o *PostUploadsLearningCoverartUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads learning coverart unsupported media type response has a 4xx status code
+func (o *PostUploadsLearningCoverartUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads learning coverart unsupported media type response has a 5xx status code
+func (o *PostUploadsLearningCoverartUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads learning coverart unsupported media type response a status code equal to that given
+func (o *PostUploadsLearningCoverartUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostUploadsLearningCoverartUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostUploadsLearningCoverartUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostUploadsLearningCoverartTooManyRequests() *PostUploadsLearningCoverar
 	return &PostUploadsLearningCoverartTooManyRequests{}
 }
 
-/*PostUploadsLearningCoverartTooManyRequests handles this case with default header values.
+/*
+PostUploadsLearningCoverartTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostUploadsLearningCoverartTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads learning coverart too many requests response has a 2xx status code
+func (o *PostUploadsLearningCoverartTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads learning coverart too many requests response has a 3xx status code
+func (o *PostUploadsLearningCoverartTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads learning coverart too many requests response has a 4xx status code
+func (o *PostUploadsLearningCoverartTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads learning coverart too many requests response has a 5xx status code
+func (o *PostUploadsLearningCoverartTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads learning coverart too many requests response a status code equal to that given
+func (o *PostUploadsLearningCoverartTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostUploadsLearningCoverartTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostUploadsLearningCoverartTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostUploadsLearningCoverartInternalServerError() *PostUploadsLearningCov
 	return &PostUploadsLearningCoverartInternalServerError{}
 }
 
-/*PostUploadsLearningCoverartInternalServerError handles this case with default header values.
+/*
+PostUploadsLearningCoverartInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostUploadsLearningCoverartInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads learning coverart internal server error response has a 2xx status code
+func (o *PostUploadsLearningCoverartInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads learning coverart internal server error response has a 3xx status code
+func (o *PostUploadsLearningCoverartInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads learning coverart internal server error response has a 4xx status code
+func (o *PostUploadsLearningCoverartInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post uploads learning coverart internal server error response has a 5xx status code
+func (o *PostUploadsLearningCoverartInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post uploads learning coverart internal server error response a status code equal to that given
+func (o *PostUploadsLearningCoverartInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostUploadsLearningCoverartInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostUploadsLearningCoverartInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostUploadsLearningCoverartServiceUnavailable() *PostUploadsLearningCove
 	return &PostUploadsLearningCoverartServiceUnavailable{}
 }
 
-/*PostUploadsLearningCoverartServiceUnavailable handles this case with default header values.
+/*
+PostUploadsLearningCoverartServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostUploadsLearningCoverartServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads learning coverart service unavailable response has a 2xx status code
+func (o *PostUploadsLearningCoverartServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads learning coverart service unavailable response has a 3xx status code
+func (o *PostUploadsLearningCoverartServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads learning coverart service unavailable response has a 4xx status code
+func (o *PostUploadsLearningCoverartServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post uploads learning coverart service unavailable response has a 5xx status code
+func (o *PostUploadsLearningCoverartServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post uploads learning coverart service unavailable response a status code equal to that given
+func (o *PostUploadsLearningCoverartServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostUploadsLearningCoverartServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostUploadsLearningCoverartServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostUploadsLearningCoverartGatewayTimeout() *PostUploadsLearningCoverart
 	return &PostUploadsLearningCoverartGatewayTimeout{}
 }
 
-/*PostUploadsLearningCoverartGatewayTimeout handles this case with default header values.
+/*
+PostUploadsLearningCoverartGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostUploadsLearningCoverartGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads learning coverart gateway timeout response has a 2xx status code
+func (o *PostUploadsLearningCoverartGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads learning coverart gateway timeout response has a 3xx status code
+func (o *PostUploadsLearningCoverartGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads learning coverart gateway timeout response has a 4xx status code
+func (o *PostUploadsLearningCoverartGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post uploads learning coverart gateway timeout response has a 5xx status code
+func (o *PostUploadsLearningCoverartGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post uploads learning coverart gateway timeout response a status code equal to that given
+func (o *PostUploadsLearningCoverartGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostUploadsLearningCoverartGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostUploadsLearningCoverartGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/learning/coverart][%d] postUploadsLearningCoverartGatewayTimeout  %+v", 504, o.Payload)
 }
 

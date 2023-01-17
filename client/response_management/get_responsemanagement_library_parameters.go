@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetResponsemanagementLibraryParams creates a new GetResponsemanagementLibraryParams object
-// with the default values initialized.
+// NewGetResponsemanagementLibraryParams creates a new GetResponsemanagementLibraryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetResponsemanagementLibraryParams() *GetResponsemanagementLibraryParams {
-	var ()
 	return &GetResponsemanagementLibraryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetResponsemanagementLibraryParamsWithTimeout creates a new GetResponsemanagementLibraryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetResponsemanagementLibraryParamsWithTimeout(timeout time.Duration) *GetResponsemanagementLibraryParams {
-	var ()
 	return &GetResponsemanagementLibraryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetResponsemanagementLibraryParamsWithContext creates a new GetResponsemanagementLibraryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetResponsemanagementLibraryParamsWithContext(ctx context.Context) *GetResponsemanagementLibraryParams {
-	var ()
 	return &GetResponsemanagementLibraryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetResponsemanagementLibraryParamsWithHTTPClient creates a new GetResponsemanagementLibraryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetResponsemanagementLibraryParamsWithHTTPClient(client *http.Client) *GetResponsemanagementLibraryParams {
-	var ()
 	return &GetResponsemanagementLibraryParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetResponsemanagementLibraryParams contains all the parameters to send to the API endpoint
-for the get responsemanagement library operation typically these are written to a http.Request
+/*
+GetResponsemanagementLibraryParams contains all the parameters to send to the API endpoint
+
+	for the get responsemanagement library operation.
+
+	Typically these are written to a http.Request.
 */
 type GetResponsemanagementLibraryParams struct {
 
-	/*LibraryID
-	  Library ID
+	/* LibraryID.
 
+	   Library ID
 	*/
 	LibraryID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get responsemanagement library params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetResponsemanagementLibraryParams) WithDefaults() *GetResponsemanagementLibraryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get responsemanagement library params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetResponsemanagementLibraryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get responsemanagement library params

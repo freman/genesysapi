@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -144,7 +145,6 @@ func (m *HistoricalAdherenceExceptionInfo) validateActualActivityCategoryEnum(pa
 }
 
 func (m *HistoricalAdherenceExceptionInfo) validateActualActivityCategory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActualActivityCategory) { // not required
 		return nil
 	}
@@ -193,7 +193,6 @@ func (m *HistoricalAdherenceExceptionInfo) validateImpactEnum(path, location str
 }
 
 func (m *HistoricalAdherenceExceptionInfo) validateImpact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Impact) { // not required
 		return nil
 	}
@@ -245,7 +244,6 @@ func (m *HistoricalAdherenceExceptionInfo) validateRoutingStatusEnum(path, locat
 }
 
 func (m *HistoricalAdherenceExceptionInfo) validateRoutingStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingStatus) { // not required
 		return nil
 	}
@@ -309,7 +307,6 @@ func (m *HistoricalAdherenceExceptionInfo) validateScheduledActivityCategoryEnum
 }
 
 func (m *HistoricalAdherenceExceptionInfo) validateScheduledActivityCategory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScheduledActivityCategory) { // not required
 		return nil
 	}
@@ -323,7 +320,6 @@ func (m *HistoricalAdherenceExceptionInfo) validateScheduledActivityCategory(for
 }
 
 func (m *HistoricalAdherenceExceptionInfo) validateScheduledSecondaryPresenceLookupIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScheduledSecondaryPresenceLookupIds) { // not required
 		return nil
 	}
@@ -389,7 +385,6 @@ func (m *HistoricalAdherenceExceptionInfo) validateSystemPresenceEnum(path, loca
 }
 
 func (m *HistoricalAdherenceExceptionInfo) validateSystemPresence(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SystemPresence) { // not required
 		return nil
 	}
@@ -399,6 +394,11 @@ func (m *HistoricalAdherenceExceptionInfo) validateSystemPresence(formats strfmt
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this historical adherence exception info based on context it is used
+func (m *HistoricalAdherenceExceptionInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

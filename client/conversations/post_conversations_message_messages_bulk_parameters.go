@@ -17,78 +17,95 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewPostConversationsMessageMessagesBulkParams creates a new PostConversationsMessageMessagesBulkParams object
-// with the default values initialized.
+// NewPostConversationsMessageMessagesBulkParams creates a new PostConversationsMessageMessagesBulkParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsMessageMessagesBulkParams() *PostConversationsMessageMessagesBulkParams {
-	var (
-		useNormalizedMessageDefault = bool(false)
-	)
 	return &PostConversationsMessageMessagesBulkParams{
-		UseNormalizedMessage: &useNormalizedMessageDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsMessageMessagesBulkParamsWithTimeout creates a new PostConversationsMessageMessagesBulkParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsMessageMessagesBulkParamsWithTimeout(timeout time.Duration) *PostConversationsMessageMessagesBulkParams {
-	var (
-		useNormalizedMessageDefault = bool(false)
-	)
 	return &PostConversationsMessageMessagesBulkParams{
-		UseNormalizedMessage: &useNormalizedMessageDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsMessageMessagesBulkParamsWithContext creates a new PostConversationsMessageMessagesBulkParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsMessageMessagesBulkParamsWithContext(ctx context.Context) *PostConversationsMessageMessagesBulkParams {
-	var (
-		useNormalizedMessageDefault = bool(false)
-	)
 	return &PostConversationsMessageMessagesBulkParams{
-		UseNormalizedMessage: &useNormalizedMessageDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsMessageMessagesBulkParamsWithHTTPClient creates a new PostConversationsMessageMessagesBulkParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsMessageMessagesBulkParamsWithHTTPClient(client *http.Client) *PostConversationsMessageMessagesBulkParams {
-	var (
-		useNormalizedMessageDefault = bool(false)
-	)
 	return &PostConversationsMessageMessagesBulkParams{
-		UseNormalizedMessage: &useNormalizedMessageDefault,
-		HTTPClient:           client,
+		HTTPClient: client,
 	}
 }
 
-/*PostConversationsMessageMessagesBulkParams contains all the parameters to send to the API endpoint
-for the post conversations message messages bulk operation typically these are written to a http.Request
+/*
+PostConversationsMessageMessagesBulkParams contains all the parameters to send to the API endpoint
+
+	for the post conversations message messages bulk operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsMessageMessagesBulkParams struct {
 
-	/*Body
-	  messageIds
+	/* Body.
 
+	   messageIds
 	*/
 	Body []string
-	/*ConversationID*/
-	ConversationID string
-	/*UseNormalizedMessage
-	  If true, response removes deprecated fields (textBody, media, stickers)
 
+	// ConversationID.
+	ConversationID string
+
+	/* UseNormalizedMessage.
+
+	   If true, response removes deprecated fields (textBody, media, stickers)
 	*/
 	UseNormalizedMessage *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations message messages bulk params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessageMessagesBulkParams) WithDefaults() *PostConversationsMessageMessagesBulkParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations message messages bulk params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessageMessagesBulkParams) SetDefaults() {
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
+
+	val := PostConversationsMessageMessagesBulkParams{
+		UseNormalizedMessage: &useNormalizedMessageDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post conversations message messages bulk params
@@ -164,7 +181,6 @@ func (o *PostConversationsMessageMessagesBulkParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -180,16 +196,17 @@ func (o *PostConversationsMessageMessagesBulkParams) WriteToRequest(r runtime.Cl
 
 		// query param useNormalizedMessage
 		var qrUseNormalizedMessage bool
+
 		if o.UseNormalizedMessage != nil {
 			qrUseNormalizedMessage = *o.UseNormalizedMessage
 		}
 		qUseNormalizedMessage := swag.FormatBool(qrUseNormalizedMessage)
 		if qUseNormalizedMessage != "" {
+
 			if err := r.SetQueryParam("useNormalizedMessage", qUseNormalizedMessage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -61,7 +62,6 @@ func (m *BuAgentScheduleHistoryDroppedChange) Validate(formats strfmt.Registry) 
 }
 
 func (m *BuAgentScheduleHistoryDroppedChange) validateDeletes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Deletes) { // not required
 		return nil
 	}
@@ -70,6 +70,8 @@ func (m *BuAgentScheduleHistoryDroppedChange) validateDeletes(formats strfmt.Reg
 		if err := m.Deletes.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deletes")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deletes")
 			}
 			return err
 		}
@@ -79,7 +81,6 @@ func (m *BuAgentScheduleHistoryDroppedChange) validateDeletes(formats strfmt.Reg
 }
 
 func (m *BuAgentScheduleHistoryDroppedChange) validateFullDayTimeOffMarkerDates(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FullDayTimeOffMarkerDates) { // not required
 		return nil
 	}
@@ -100,7 +101,6 @@ func (m *BuAgentScheduleHistoryDroppedChange) validateFullDayTimeOffMarkerDates(
 }
 
 func (m *BuAgentScheduleHistoryDroppedChange) validateMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metadata) { // not required
 		return nil
 	}
@@ -109,6 +109,8 @@ func (m *BuAgentScheduleHistoryDroppedChange) validateMetadata(formats strfmt.Re
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -118,13 +120,62 @@ func (m *BuAgentScheduleHistoryDroppedChange) validateMetadata(formats strfmt.Re
 }
 
 func (m *BuAgentScheduleHistoryDroppedChange) validateShiftIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShiftIds) { // not required
 		return nil
 	}
 
 	if err := validate.UniqueItems("shiftIds", "body", m.ShiftIds); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu agent schedule history dropped change based on the context it is used
+func (m *BuAgentScheduleHistoryDroppedChange) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDeletes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuAgentScheduleHistoryDroppedChange) contextValidateDeletes(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Deletes != nil {
+		if err := m.Deletes.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deletes")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deletes")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuAgentScheduleHistoryDroppedChange) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
 	}
 
 	return nil

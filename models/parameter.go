@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -94,7 +95,6 @@ func (m *Parameter) validateDomainEnum(path, location string, value string) erro
 }
 
 func (m *Parameter) validateDomain(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Domain) { // not required
 		return nil
 	}
@@ -143,7 +143,6 @@ func (m *Parameter) validateParameterTypeEnum(path, location string, value strin
 }
 
 func (m *Parameter) validateParameterType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ParameterType) { // not required
 		return nil
 	}
@@ -153,6 +152,11 @@ func (m *Parameter) validateParameterType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this parameter based on context it is used
+func (m *Parameter) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

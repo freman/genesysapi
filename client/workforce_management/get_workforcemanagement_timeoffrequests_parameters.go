@@ -17,71 +17,86 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWorkforcemanagementTimeoffrequestsParams creates a new GetWorkforcemanagementTimeoffrequestsParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementTimeoffrequestsParams creates a new GetWorkforcemanagementTimeoffrequestsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementTimeoffrequestsParams() *GetWorkforcemanagementTimeoffrequestsParams {
-	var (
-		recentlyReviewedDefault = bool(false)
-	)
 	return &GetWorkforcemanagementTimeoffrequestsParams{
-		RecentlyReviewed: &recentlyReviewedDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementTimeoffrequestsParamsWithTimeout creates a new GetWorkforcemanagementTimeoffrequestsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementTimeoffrequestsParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementTimeoffrequestsParams {
-	var (
-		recentlyReviewedDefault = bool(false)
-	)
 	return &GetWorkforcemanagementTimeoffrequestsParams{
-		RecentlyReviewed: &recentlyReviewedDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementTimeoffrequestsParamsWithContext creates a new GetWorkforcemanagementTimeoffrequestsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementTimeoffrequestsParamsWithContext(ctx context.Context) *GetWorkforcemanagementTimeoffrequestsParams {
-	var (
-		recentlyReviewedDefault = bool(false)
-	)
 	return &GetWorkforcemanagementTimeoffrequestsParams{
-		RecentlyReviewed: &recentlyReviewedDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementTimeoffrequestsParamsWithHTTPClient creates a new GetWorkforcemanagementTimeoffrequestsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementTimeoffrequestsParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementTimeoffrequestsParams {
-	var (
-		recentlyReviewedDefault = bool(false)
-	)
 	return &GetWorkforcemanagementTimeoffrequestsParams{
-		RecentlyReviewed: &recentlyReviewedDefault,
-		HTTPClient:       client,
+		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementTimeoffrequestsParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement timeoffrequests operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementTimeoffrequestsParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement timeoffrequests operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementTimeoffrequestsParams struct {
 
-	/*RecentlyReviewed
-	  Limit results to requests that have been reviewed within the preceding 30 days
+	/* RecentlyReviewed.
 
+	   Limit results to requests that have been reviewed within the preceding 30 days
 	*/
 	RecentlyReviewed *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement timeoffrequests params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementTimeoffrequestsParams) WithDefaults() *GetWorkforcemanagementTimeoffrequestsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement timeoffrequests params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementTimeoffrequestsParams) SetDefaults() {
+	var (
+		recentlyReviewedDefault = bool(false)
+	)
+
+	val := GetWorkforcemanagementTimeoffrequestsParams{
+		RecentlyReviewed: &recentlyReviewedDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement timeoffrequests params
@@ -140,16 +155,17 @@ func (o *GetWorkforcemanagementTimeoffrequestsParams) WriteToRequest(r runtime.C
 
 		// query param recentlyReviewed
 		var qrRecentlyReviewed bool
+
 		if o.RecentlyReviewed != nil {
 			qrRecentlyReviewed = *o.RecentlyReviewed
 		}
 		qRecentlyReviewed := swag.FormatBool(qrRecentlyReviewed)
 		if qRecentlyReviewed != "" {
+
 			if err := r.SetQueryParam("recentlyReviewed", qRecentlyReviewed); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

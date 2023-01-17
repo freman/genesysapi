@@ -18,6 +18,10 @@ import (
 // API is the interface of the telephony client
 type API interface {
 	/*
+	   GetTelephonyMediaregions retrieves the list of a w s regions media can stream through
+	*/
+	GetTelephonyMediaregions(ctx context.Context, params *GetTelephonyMediaregionsParams) (*GetTelephonyMediaregionsOK, error)
+	/*
 	   GetTelephonySiptraces fetches s IP metadata
 	   Fetch SIP metadata that matches a given parameter. If exactMatch is passed as a parameter only sip records that have exactly that value will be returned. For example, some records contain conversationId but not all relevant records for that call may contain the conversationId so only a partial view of the call will be reflected
 	*/
@@ -48,6 +52,31 @@ type Client struct {
 	transport runtime.ClientTransport
 	formats   strfmt.Registry
 	authInfo  runtime.ClientAuthInfoWriter
+}
+
+/*
+GetTelephonyMediaregions retrieves the list of a w s regions media can stream through
+*/
+func (a *Client) GetTelephonyMediaregions(ctx context.Context, params *GetTelephonyMediaregionsParams) (*GetTelephonyMediaregionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getTelephonyMediaregions",
+		Method:             "GET",
+		PathPattern:        "/api/v2/telephony/mediaregions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetTelephonyMediaregionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetTelephonyMediaregionsOK), nil
+
 }
 
 /*

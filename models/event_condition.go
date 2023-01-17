@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -36,7 +37,7 @@ type EventCondition struct {
 
 	// The stream type for which this condition can be satisfied.
 	// Required: true
-	// Enum: [Web Custom Conversation]
+	// Enum: [Web Custom Conversation App]
 	StreamType *string `json:"streamType"`
 
 	// The event values.
@@ -143,7 +144,6 @@ func (m *EventCondition) validateOperatorEnum(path, location string, value strin
 }
 
 func (m *EventCondition) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -169,7 +169,7 @@ var eventConditionTypeStreamTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Web","Custom","Conversation"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Web","Custom","Conversation","App"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -187,6 +187,9 @@ const (
 
 	// EventConditionStreamTypeConversation captures enum value "Conversation"
 	EventConditionStreamTypeConversation string = "Conversation"
+
+	// EventConditionStreamTypeApp captures enum value "App"
+	EventConditionStreamTypeApp string = "App"
 )
 
 // prop value enum
@@ -217,6 +220,11 @@ func (m *EventCondition) validateValues(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this event condition based on context it is used
+func (m *EventCondition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

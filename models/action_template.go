@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -102,7 +103,6 @@ func (m *ActionTemplate) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ActionTemplate) validateContentOffer(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContentOffer) { // not required
 		return nil
 	}
@@ -111,6 +111,8 @@ func (m *ActionTemplate) validateContentOffer(formats strfmt.Registry) error {
 		if err := m.ContentOffer.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contentOffer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contentOffer")
 			}
 			return err
 		}
@@ -120,7 +122,6 @@ func (m *ActionTemplate) validateContentOffer(formats strfmt.Registry) error {
 }
 
 func (m *ActionTemplate) validateCreatedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedDate) { // not required
 		return nil
 	}
@@ -188,7 +189,6 @@ func (m *ActionTemplate) validateMediaType(formats strfmt.Registry) error {
 }
 
 func (m *ActionTemplate) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -210,7 +210,6 @@ func (m *ActionTemplate) validateName(formats strfmt.Registry) error {
 }
 
 func (m *ActionTemplate) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -262,6 +261,101 @@ func (m *ActionTemplate) validateState(formats strfmt.Registry) error {
 
 	// value enum
 	if err := m.validateStateEnum("state", "body", *m.State); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this action template based on the context it is used
+func (m *ActionTemplate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContentOffer(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ActionTemplate) contextValidateContentOffer(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContentOffer != nil {
+		if err := m.ContentOffer.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contentOffer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contentOffer")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ActionTemplate) contextValidateCreatedDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdDate", "body", strfmt.DateTime(m.CreatedDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ActionTemplate) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ActionTemplate) contextValidateModifiedDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedDate", "body", strfmt.DateTime(m.ModifiedDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ActionTemplate) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ActionTemplate) contextValidateVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "version", "body", int32(m.Version)); err != nil {
 		return err
 	}
 

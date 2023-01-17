@@ -95,7 +95,6 @@ func (o *GetOrgauthorizationTrustorUserReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOrgauthorizationTrustorUserOK() *GetOrgauthorizationTrustorUserOK {
 	return &GetOrgauthorizationTrustorUserOK{}
 }
 
-/*GetOrgauthorizationTrustorUserOK handles this case with default header values.
+/*
+GetOrgauthorizationTrustorUserOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOrgauthorizationTrustorUserOK struct {
 	Payload *models.TrustUser
 }
 
+// IsSuccess returns true when this get orgauthorization trustor user o k response has a 2xx status code
+func (o *GetOrgauthorizationTrustorUserOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get orgauthorization trustor user o k response has a 3xx status code
+func (o *GetOrgauthorizationTrustorUserOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor user o k response has a 4xx status code
+func (o *GetOrgauthorizationTrustorUserOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orgauthorization trustor user o k response has a 5xx status code
+func (o *GetOrgauthorizationTrustorUserOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor user o k response a status code equal to that given
+func (o *GetOrgauthorizationTrustorUserOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrgauthorizationTrustorUserOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUserOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOrgauthorizationTrustorUserBadRequest() *GetOrgauthorizationTrustorUs
 	return &GetOrgauthorizationTrustorUserBadRequest{}
 }
 
-/*GetOrgauthorizationTrustorUserBadRequest handles this case with default header values.
+/*
+GetOrgauthorizationTrustorUserBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOrgauthorizationTrustorUserBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor user bad request response has a 2xx status code
+func (o *GetOrgauthorizationTrustorUserBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor user bad request response has a 3xx status code
+func (o *GetOrgauthorizationTrustorUserBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor user bad request response has a 4xx status code
+func (o *GetOrgauthorizationTrustorUserBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor user bad request response has a 5xx status code
+func (o *GetOrgauthorizationTrustorUserBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor user bad request response a status code equal to that given
+func (o *GetOrgauthorizationTrustorUserBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOrgauthorizationTrustorUserBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUserBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOrgauthorizationTrustorUserUnauthorized() *GetOrgauthorizationTrustor
 	return &GetOrgauthorizationTrustorUserUnauthorized{}
 }
 
-/*GetOrgauthorizationTrustorUserUnauthorized handles this case with default header values.
+/*
+GetOrgauthorizationTrustorUserUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOrgauthorizationTrustorUserUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor user unauthorized response has a 2xx status code
+func (o *GetOrgauthorizationTrustorUserUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor user unauthorized response has a 3xx status code
+func (o *GetOrgauthorizationTrustorUserUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor user unauthorized response has a 4xx status code
+func (o *GetOrgauthorizationTrustorUserUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor user unauthorized response has a 5xx status code
+func (o *GetOrgauthorizationTrustorUserUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor user unauthorized response a status code equal to that given
+func (o *GetOrgauthorizationTrustorUserUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOrgauthorizationTrustorUserUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUserUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOrgauthorizationTrustorUserForbidden() *GetOrgauthorizationTrustorUse
 	return &GetOrgauthorizationTrustorUserForbidden{}
 }
 
-/*GetOrgauthorizationTrustorUserForbidden handles this case with default header values.
+/*
+GetOrgauthorizationTrustorUserForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOrgauthorizationTrustorUserForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor user forbidden response has a 2xx status code
+func (o *GetOrgauthorizationTrustorUserForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor user forbidden response has a 3xx status code
+func (o *GetOrgauthorizationTrustorUserForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor user forbidden response has a 4xx status code
+func (o *GetOrgauthorizationTrustorUserForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor user forbidden response has a 5xx status code
+func (o *GetOrgauthorizationTrustorUserForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor user forbidden response a status code equal to that given
+func (o *GetOrgauthorizationTrustorUserForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrgauthorizationTrustorUserForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUserForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOrgauthorizationTrustorUserNotFound() *GetOrgauthorizationTrustorUser
 	return &GetOrgauthorizationTrustorUserNotFound{}
 }
 
-/*GetOrgauthorizationTrustorUserNotFound handles this case with default header values.
+/*
+GetOrgauthorizationTrustorUserNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOrgauthorizationTrustorUserNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor user not found response has a 2xx status code
+func (o *GetOrgauthorizationTrustorUserNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor user not found response has a 3xx status code
+func (o *GetOrgauthorizationTrustorUserNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor user not found response has a 4xx status code
+func (o *GetOrgauthorizationTrustorUserNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor user not found response has a 5xx status code
+func (o *GetOrgauthorizationTrustorUserNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor user not found response a status code equal to that given
+func (o *GetOrgauthorizationTrustorUserNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrgauthorizationTrustorUserNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUserNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOrgauthorizationTrustorUserRequestTimeout() *GetOrgauthorizationTrust
 	return &GetOrgauthorizationTrustorUserRequestTimeout{}
 }
 
-/*GetOrgauthorizationTrustorUserRequestTimeout handles this case with default header values.
+/*
+GetOrgauthorizationTrustorUserRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOrgauthorizationTrustorUserRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor user request timeout response has a 2xx status code
+func (o *GetOrgauthorizationTrustorUserRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor user request timeout response has a 3xx status code
+func (o *GetOrgauthorizationTrustorUserRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor user request timeout response has a 4xx status code
+func (o *GetOrgauthorizationTrustorUserRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor user request timeout response has a 5xx status code
+func (o *GetOrgauthorizationTrustorUserRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor user request timeout response a status code equal to that given
+func (o *GetOrgauthorizationTrustorUserRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOrgauthorizationTrustorUserRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUserRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOrgauthorizationTrustorUserRequestEntityTooLarge() *GetOrgauthorizati
 	return &GetOrgauthorizationTrustorUserRequestEntityTooLarge{}
 }
 
-/*GetOrgauthorizationTrustorUserRequestEntityTooLarge handles this case with default header values.
+/*
+GetOrgauthorizationTrustorUserRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOrgauthorizationTrustorUserRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor user request entity too large response has a 2xx status code
+func (o *GetOrgauthorizationTrustorUserRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor user request entity too large response has a 3xx status code
+func (o *GetOrgauthorizationTrustorUserRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor user request entity too large response has a 4xx status code
+func (o *GetOrgauthorizationTrustorUserRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor user request entity too large response has a 5xx status code
+func (o *GetOrgauthorizationTrustorUserRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor user request entity too large response a status code equal to that given
+func (o *GetOrgauthorizationTrustorUserRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOrgauthorizationTrustorUserRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUserRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOrgauthorizationTrustorUserUnsupportedMediaType() *GetOrgauthorizatio
 	return &GetOrgauthorizationTrustorUserUnsupportedMediaType{}
 }
 
-/*GetOrgauthorizationTrustorUserUnsupportedMediaType handles this case with default header values.
+/*
+GetOrgauthorizationTrustorUserUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOrgauthorizationTrustorUserUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor user unsupported media type response has a 2xx status code
+func (o *GetOrgauthorizationTrustorUserUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor user unsupported media type response has a 3xx status code
+func (o *GetOrgauthorizationTrustorUserUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor user unsupported media type response has a 4xx status code
+func (o *GetOrgauthorizationTrustorUserUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor user unsupported media type response has a 5xx status code
+func (o *GetOrgauthorizationTrustorUserUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor user unsupported media type response a status code equal to that given
+func (o *GetOrgauthorizationTrustorUserUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOrgauthorizationTrustorUserUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUserUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOrgauthorizationTrustorUserTooManyRequests() *GetOrgauthorizationTrus
 	return &GetOrgauthorizationTrustorUserTooManyRequests{}
 }
 
-/*GetOrgauthorizationTrustorUserTooManyRequests handles this case with default header values.
+/*
+GetOrgauthorizationTrustorUserTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOrgauthorizationTrustorUserTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor user too many requests response has a 2xx status code
+func (o *GetOrgauthorizationTrustorUserTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor user too many requests response has a 3xx status code
+func (o *GetOrgauthorizationTrustorUserTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor user too many requests response has a 4xx status code
+func (o *GetOrgauthorizationTrustorUserTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor user too many requests response has a 5xx status code
+func (o *GetOrgauthorizationTrustorUserTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor user too many requests response a status code equal to that given
+func (o *GetOrgauthorizationTrustorUserTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOrgauthorizationTrustorUserTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUserTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOrgauthorizationTrustorUserInternalServerError() *GetOrgauthorization
 	return &GetOrgauthorizationTrustorUserInternalServerError{}
 }
 
-/*GetOrgauthorizationTrustorUserInternalServerError handles this case with default header values.
+/*
+GetOrgauthorizationTrustorUserInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOrgauthorizationTrustorUserInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor user internal server error response has a 2xx status code
+func (o *GetOrgauthorizationTrustorUserInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor user internal server error response has a 3xx status code
+func (o *GetOrgauthorizationTrustorUserInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor user internal server error response has a 4xx status code
+func (o *GetOrgauthorizationTrustorUserInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orgauthorization trustor user internal server error response has a 5xx status code
+func (o *GetOrgauthorizationTrustorUserInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get orgauthorization trustor user internal server error response a status code equal to that given
+func (o *GetOrgauthorizationTrustorUserInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOrgauthorizationTrustorUserInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUserInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOrgauthorizationTrustorUserServiceUnavailable() *GetOrgauthorizationT
 	return &GetOrgauthorizationTrustorUserServiceUnavailable{}
 }
 
-/*GetOrgauthorizationTrustorUserServiceUnavailable handles this case with default header values.
+/*
+GetOrgauthorizationTrustorUserServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOrgauthorizationTrustorUserServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor user service unavailable response has a 2xx status code
+func (o *GetOrgauthorizationTrustorUserServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor user service unavailable response has a 3xx status code
+func (o *GetOrgauthorizationTrustorUserServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor user service unavailable response has a 4xx status code
+func (o *GetOrgauthorizationTrustorUserServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orgauthorization trustor user service unavailable response has a 5xx status code
+func (o *GetOrgauthorizationTrustorUserServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get orgauthorization trustor user service unavailable response a status code equal to that given
+func (o *GetOrgauthorizationTrustorUserServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOrgauthorizationTrustorUserServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUserServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOrgauthorizationTrustorUserGatewayTimeout() *GetOrgauthorizationTrust
 	return &GetOrgauthorizationTrustorUserGatewayTimeout{}
 }
 
-/*GetOrgauthorizationTrustorUserGatewayTimeout handles this case with default header values.
+/*
+GetOrgauthorizationTrustorUserGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOrgauthorizationTrustorUserGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor user gateway timeout response has a 2xx status code
+func (o *GetOrgauthorizationTrustorUserGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor user gateway timeout response has a 3xx status code
+func (o *GetOrgauthorizationTrustorUserGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor user gateway timeout response has a 4xx status code
+func (o *GetOrgauthorizationTrustorUserGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orgauthorization trustor user gateway timeout response has a 5xx status code
+func (o *GetOrgauthorizationTrustorUserGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get orgauthorization trustor user gateway timeout response a status code equal to that given
+func (o *GetOrgauthorizationTrustorUserGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOrgauthorizationTrustorUserGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorUserGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] getOrgauthorizationTrustorUserGatewayTimeout  %+v", 504, o.Payload)
 }
 

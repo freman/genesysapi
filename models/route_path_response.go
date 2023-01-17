@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -62,7 +63,6 @@ func (m *RoutePathResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *RoutePathResponse) validateLanguage(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Language) { // not required
 		return nil
 	}
@@ -71,6 +71,8 @@ func (m *RoutePathResponse) validateLanguage(formats strfmt.Registry) error {
 		if err := m.Language.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("language")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("language")
 			}
 			return err
 		}
@@ -118,7 +120,6 @@ func (m *RoutePathResponse) validateMediaTypeEnum(path, location string, value s
 }
 
 func (m *RoutePathResponse) validateMediaType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaType) { // not required
 		return nil
 	}
@@ -132,7 +133,6 @@ func (m *RoutePathResponse) validateMediaType(formats strfmt.Registry) error {
 }
 
 func (m *RoutePathResponse) validateQueue(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queue) { // not required
 		return nil
 	}
@@ -141,6 +141,8 @@ func (m *RoutePathResponse) validateQueue(formats strfmt.Registry) error {
 		if err := m.Queue.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
 			}
 			return err
 		}
@@ -150,7 +152,6 @@ func (m *RoutePathResponse) validateQueue(formats strfmt.Registry) error {
 }
 
 func (m *RoutePathResponse) validateSkills(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Skills) { // not required
 		return nil
 	}
@@ -168,6 +169,82 @@ func (m *RoutePathResponse) validateSkills(formats strfmt.Registry) error {
 			if err := m.Skills[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("skills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("skills" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this route path response based on the context it is used
+func (m *RoutePathResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateLanguage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSkills(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RoutePathResponse) contextValidateLanguage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Language != nil {
+		if err := m.Language.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("language")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("language")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RoutePathResponse) contextValidateQueue(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Queue != nil {
+		if err := m.Queue.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RoutePathResponse) contextValidateSkills(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Skills); i++ {
+
+		if m.Skills[i] != nil {
+			if err := m.Skills[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("skills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("skills" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

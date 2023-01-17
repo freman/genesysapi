@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -113,7 +115,6 @@ func (m *CreateCoachingAppointmentRequest) validateAttendeeIds(formats strfmt.Re
 }
 
 func (m *CreateCoachingAppointmentRequest) validateConversationIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationIds) { // not required
 		return nil
 	}
@@ -148,7 +149,6 @@ func (m *CreateCoachingAppointmentRequest) validateDescription(formats strfmt.Re
 }
 
 func (m *CreateCoachingAppointmentRequest) validateDocumentIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DocumentIds) { // not required
 		return nil
 	}
@@ -179,7 +179,6 @@ func (m *CreateCoachingAppointmentRequest) validateName(formats strfmt.Registry)
 }
 
 func (m *CreateCoachingAppointmentRequest) validateWfmSchedule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WfmSchedule) { // not required
 		return nil
 	}
@@ -188,6 +187,38 @@ func (m *CreateCoachingAppointmentRequest) validateWfmSchedule(formats strfmt.Re
 		if err := m.WfmSchedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wfmSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wfmSchedule")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this create coaching appointment request based on the context it is used
+func (m *CreateCoachingAppointmentRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateWfmSchedule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CreateCoachingAppointmentRequest) contextValidateWfmSchedule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WfmSchedule != nil {
+		if err := m.WfmSchedule.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wfmSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wfmSchedule")
 			}
 			return err
 		}

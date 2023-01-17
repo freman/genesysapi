@@ -95,7 +95,6 @@ func (o *PutArchitectIvrReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutArchitectIvrOK() *PutArchitectIvrOK {
 	return &PutArchitectIvrOK{}
 }
 
-/*PutArchitectIvrOK handles this case with default header values.
+/*
+PutArchitectIvrOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutArchitectIvrOK struct {
 	Payload *models.IVR
 }
 
+// IsSuccess returns true when this put architect ivr o k response has a 2xx status code
+func (o *PutArchitectIvrOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put architect ivr o k response has a 3xx status code
+func (o *PutArchitectIvrOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect ivr o k response has a 4xx status code
+func (o *PutArchitectIvrOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect ivr o k response has a 5xx status code
+func (o *PutArchitectIvrOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect ivr o k response a status code equal to that given
+func (o *PutArchitectIvrOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutArchitectIvrOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrOK  %+v", 200, o.Payload)
+}
+
+func (o *PutArchitectIvrOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutArchitectIvrBadRequest() *PutArchitectIvrBadRequest {
 	return &PutArchitectIvrBadRequest{}
 }
 
-/*PutArchitectIvrBadRequest handles this case with default header values.
+/*
+PutArchitectIvrBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutArchitectIvrBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect ivr bad request response has a 2xx status code
+func (o *PutArchitectIvrBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect ivr bad request response has a 3xx status code
+func (o *PutArchitectIvrBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect ivr bad request response has a 4xx status code
+func (o *PutArchitectIvrBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect ivr bad request response has a 5xx status code
+func (o *PutArchitectIvrBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect ivr bad request response a status code equal to that given
+func (o *PutArchitectIvrBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutArchitectIvrBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutArchitectIvrBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutArchitectIvrUnauthorized() *PutArchitectIvrUnauthorized {
 	return &PutArchitectIvrUnauthorized{}
 }
 
-/*PutArchitectIvrUnauthorized handles this case with default header values.
+/*
+PutArchitectIvrUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutArchitectIvrUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect ivr unauthorized response has a 2xx status code
+func (o *PutArchitectIvrUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect ivr unauthorized response has a 3xx status code
+func (o *PutArchitectIvrUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect ivr unauthorized response has a 4xx status code
+func (o *PutArchitectIvrUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect ivr unauthorized response has a 5xx status code
+func (o *PutArchitectIvrUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect ivr unauthorized response a status code equal to that given
+func (o *PutArchitectIvrUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutArchitectIvrUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutArchitectIvrUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutArchitectIvrForbidden() *PutArchitectIvrForbidden {
 	return &PutArchitectIvrForbidden{}
 }
 
-/*PutArchitectIvrForbidden handles this case with default header values.
+/*
+PutArchitectIvrForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutArchitectIvrForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect ivr forbidden response has a 2xx status code
+func (o *PutArchitectIvrForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect ivr forbidden response has a 3xx status code
+func (o *PutArchitectIvrForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect ivr forbidden response has a 4xx status code
+func (o *PutArchitectIvrForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect ivr forbidden response has a 5xx status code
+func (o *PutArchitectIvrForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect ivr forbidden response a status code equal to that given
+func (o *PutArchitectIvrForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutArchitectIvrForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutArchitectIvrForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutArchitectIvrNotFound() *PutArchitectIvrNotFound {
 	return &PutArchitectIvrNotFound{}
 }
 
-/*PutArchitectIvrNotFound handles this case with default header values.
+/*
+PutArchitectIvrNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutArchitectIvrNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect ivr not found response has a 2xx status code
+func (o *PutArchitectIvrNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect ivr not found response has a 3xx status code
+func (o *PutArchitectIvrNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect ivr not found response has a 4xx status code
+func (o *PutArchitectIvrNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect ivr not found response has a 5xx status code
+func (o *PutArchitectIvrNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect ivr not found response a status code equal to that given
+func (o *PutArchitectIvrNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutArchitectIvrNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutArchitectIvrNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutArchitectIvrRequestTimeout() *PutArchitectIvrRequestTimeout {
 	return &PutArchitectIvrRequestTimeout{}
 }
 
-/*PutArchitectIvrRequestTimeout handles this case with default header values.
+/*
+PutArchitectIvrRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutArchitectIvrRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect ivr request timeout response has a 2xx status code
+func (o *PutArchitectIvrRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect ivr request timeout response has a 3xx status code
+func (o *PutArchitectIvrRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect ivr request timeout response has a 4xx status code
+func (o *PutArchitectIvrRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect ivr request timeout response has a 5xx status code
+func (o *PutArchitectIvrRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect ivr request timeout response a status code equal to that given
+func (o *PutArchitectIvrRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutArchitectIvrRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutArchitectIvrRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutArchitectIvrRequestEntityTooLarge() *PutArchitectIvrRequestEntityTooL
 	return &PutArchitectIvrRequestEntityTooLarge{}
 }
 
-/*PutArchitectIvrRequestEntityTooLarge handles this case with default header values.
+/*
+PutArchitectIvrRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutArchitectIvrRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect ivr request entity too large response has a 2xx status code
+func (o *PutArchitectIvrRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect ivr request entity too large response has a 3xx status code
+func (o *PutArchitectIvrRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect ivr request entity too large response has a 4xx status code
+func (o *PutArchitectIvrRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect ivr request entity too large response has a 5xx status code
+func (o *PutArchitectIvrRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect ivr request entity too large response a status code equal to that given
+func (o *PutArchitectIvrRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutArchitectIvrRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutArchitectIvrRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutArchitectIvrUnsupportedMediaType() *PutArchitectIvrUnsupportedMediaTy
 	return &PutArchitectIvrUnsupportedMediaType{}
 }
 
-/*PutArchitectIvrUnsupportedMediaType handles this case with default header values.
+/*
+PutArchitectIvrUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutArchitectIvrUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect ivr unsupported media type response has a 2xx status code
+func (o *PutArchitectIvrUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect ivr unsupported media type response has a 3xx status code
+func (o *PutArchitectIvrUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect ivr unsupported media type response has a 4xx status code
+func (o *PutArchitectIvrUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect ivr unsupported media type response has a 5xx status code
+func (o *PutArchitectIvrUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect ivr unsupported media type response a status code equal to that given
+func (o *PutArchitectIvrUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutArchitectIvrUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutArchitectIvrUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutArchitectIvrTooManyRequests() *PutArchitectIvrTooManyRequests {
 	return &PutArchitectIvrTooManyRequests{}
 }
 
-/*PutArchitectIvrTooManyRequests handles this case with default header values.
+/*
+PutArchitectIvrTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutArchitectIvrTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect ivr too many requests response has a 2xx status code
+func (o *PutArchitectIvrTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect ivr too many requests response has a 3xx status code
+func (o *PutArchitectIvrTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect ivr too many requests response has a 4xx status code
+func (o *PutArchitectIvrTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect ivr too many requests response has a 5xx status code
+func (o *PutArchitectIvrTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect ivr too many requests response a status code equal to that given
+func (o *PutArchitectIvrTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutArchitectIvrTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutArchitectIvrTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutArchitectIvrInternalServerError() *PutArchitectIvrInternalServerError
 	return &PutArchitectIvrInternalServerError{}
 }
 
-/*PutArchitectIvrInternalServerError handles this case with default header values.
+/*
+PutArchitectIvrInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutArchitectIvrInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect ivr internal server error response has a 2xx status code
+func (o *PutArchitectIvrInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect ivr internal server error response has a 3xx status code
+func (o *PutArchitectIvrInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect ivr internal server error response has a 4xx status code
+func (o *PutArchitectIvrInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect ivr internal server error response has a 5xx status code
+func (o *PutArchitectIvrInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put architect ivr internal server error response a status code equal to that given
+func (o *PutArchitectIvrInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutArchitectIvrInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutArchitectIvrInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutArchitectIvrServiceUnavailable() *PutArchitectIvrServiceUnavailable {
 	return &PutArchitectIvrServiceUnavailable{}
 }
 
-/*PutArchitectIvrServiceUnavailable handles this case with default header values.
+/*
+PutArchitectIvrServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutArchitectIvrServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect ivr service unavailable response has a 2xx status code
+func (o *PutArchitectIvrServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect ivr service unavailable response has a 3xx status code
+func (o *PutArchitectIvrServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect ivr service unavailable response has a 4xx status code
+func (o *PutArchitectIvrServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect ivr service unavailable response has a 5xx status code
+func (o *PutArchitectIvrServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put architect ivr service unavailable response a status code equal to that given
+func (o *PutArchitectIvrServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutArchitectIvrServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutArchitectIvrServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutArchitectIvrGatewayTimeout() *PutArchitectIvrGatewayTimeout {
 	return &PutArchitectIvrGatewayTimeout{}
 }
 
-/*PutArchitectIvrGatewayTimeout handles this case with default header values.
+/*
+PutArchitectIvrGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutArchitectIvrGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect ivr gateway timeout response has a 2xx status code
+func (o *PutArchitectIvrGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect ivr gateway timeout response has a 3xx status code
+func (o *PutArchitectIvrGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect ivr gateway timeout response has a 4xx status code
+func (o *PutArchitectIvrGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect ivr gateway timeout response has a 5xx status code
+func (o *PutArchitectIvrGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put architect ivr gateway timeout response a status code equal to that given
+func (o *PutArchitectIvrGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutArchitectIvrGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutArchitectIvrGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/ivrs/{ivrId}][%d] putArchitectIvrGatewayTimeout  %+v", 504, o.Payload)
 }
 

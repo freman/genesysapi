@@ -95,7 +95,6 @@ func (o *PutIdentityprovidersSalesforceReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutIdentityprovidersSalesforceOK() *PutIdentityprovidersSalesforceOK {
 	return &PutIdentityprovidersSalesforceOK{}
 }
 
-/*PutIdentityprovidersSalesforceOK handles this case with default header values.
+/*
+PutIdentityprovidersSalesforceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutIdentityprovidersSalesforceOK struct {
 	Payload *models.OAuthProvider
 }
 
+// IsSuccess returns true when this put identityproviders salesforce o k response has a 2xx status code
+func (o *PutIdentityprovidersSalesforceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put identityproviders salesforce o k response has a 3xx status code
+func (o *PutIdentityprovidersSalesforceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders salesforce o k response has a 4xx status code
+func (o *PutIdentityprovidersSalesforceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders salesforce o k response has a 5xx status code
+func (o *PutIdentityprovidersSalesforceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders salesforce o k response a status code equal to that given
+func (o *PutIdentityprovidersSalesforceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutIdentityprovidersSalesforceOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceOK  %+v", 200, o.Payload)
+}
+
+func (o *PutIdentityprovidersSalesforceOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutIdentityprovidersSalesforceBadRequest() *PutIdentityprovidersSalesfor
 	return &PutIdentityprovidersSalesforceBadRequest{}
 }
 
-/*PutIdentityprovidersSalesforceBadRequest handles this case with default header values.
+/*
+PutIdentityprovidersSalesforceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutIdentityprovidersSalesforceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders salesforce bad request response has a 2xx status code
+func (o *PutIdentityprovidersSalesforceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders salesforce bad request response has a 3xx status code
+func (o *PutIdentityprovidersSalesforceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders salesforce bad request response has a 4xx status code
+func (o *PutIdentityprovidersSalesforceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders salesforce bad request response has a 5xx status code
+func (o *PutIdentityprovidersSalesforceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders salesforce bad request response a status code equal to that given
+func (o *PutIdentityprovidersSalesforceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutIdentityprovidersSalesforceBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutIdentityprovidersSalesforceBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutIdentityprovidersSalesforceUnauthorized() *PutIdentityprovidersSalesf
 	return &PutIdentityprovidersSalesforceUnauthorized{}
 }
 
-/*PutIdentityprovidersSalesforceUnauthorized handles this case with default header values.
+/*
+PutIdentityprovidersSalesforceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutIdentityprovidersSalesforceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders salesforce unauthorized response has a 2xx status code
+func (o *PutIdentityprovidersSalesforceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders salesforce unauthorized response has a 3xx status code
+func (o *PutIdentityprovidersSalesforceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders salesforce unauthorized response has a 4xx status code
+func (o *PutIdentityprovidersSalesforceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders salesforce unauthorized response has a 5xx status code
+func (o *PutIdentityprovidersSalesforceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders salesforce unauthorized response a status code equal to that given
+func (o *PutIdentityprovidersSalesforceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutIdentityprovidersSalesforceUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutIdentityprovidersSalesforceUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutIdentityprovidersSalesforceForbidden() *PutIdentityprovidersSalesforc
 	return &PutIdentityprovidersSalesforceForbidden{}
 }
 
-/*PutIdentityprovidersSalesforceForbidden handles this case with default header values.
+/*
+PutIdentityprovidersSalesforceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutIdentityprovidersSalesforceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders salesforce forbidden response has a 2xx status code
+func (o *PutIdentityprovidersSalesforceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders salesforce forbidden response has a 3xx status code
+func (o *PutIdentityprovidersSalesforceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders salesforce forbidden response has a 4xx status code
+func (o *PutIdentityprovidersSalesforceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders salesforce forbidden response has a 5xx status code
+func (o *PutIdentityprovidersSalesforceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders salesforce forbidden response a status code equal to that given
+func (o *PutIdentityprovidersSalesforceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutIdentityprovidersSalesforceForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutIdentityprovidersSalesforceForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutIdentityprovidersSalesforceNotFound() *PutIdentityprovidersSalesforce
 	return &PutIdentityprovidersSalesforceNotFound{}
 }
 
-/*PutIdentityprovidersSalesforceNotFound handles this case with default header values.
+/*
+PutIdentityprovidersSalesforceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutIdentityprovidersSalesforceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders salesforce not found response has a 2xx status code
+func (o *PutIdentityprovidersSalesforceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders salesforce not found response has a 3xx status code
+func (o *PutIdentityprovidersSalesforceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders salesforce not found response has a 4xx status code
+func (o *PutIdentityprovidersSalesforceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders salesforce not found response has a 5xx status code
+func (o *PutIdentityprovidersSalesforceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders salesforce not found response a status code equal to that given
+func (o *PutIdentityprovidersSalesforceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutIdentityprovidersSalesforceNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutIdentityprovidersSalesforceNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutIdentityprovidersSalesforceRequestTimeout() *PutIdentityprovidersSale
 	return &PutIdentityprovidersSalesforceRequestTimeout{}
 }
 
-/*PutIdentityprovidersSalesforceRequestTimeout handles this case with default header values.
+/*
+PutIdentityprovidersSalesforceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutIdentityprovidersSalesforceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders salesforce request timeout response has a 2xx status code
+func (o *PutIdentityprovidersSalesforceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders salesforce request timeout response has a 3xx status code
+func (o *PutIdentityprovidersSalesforceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders salesforce request timeout response has a 4xx status code
+func (o *PutIdentityprovidersSalesforceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders salesforce request timeout response has a 5xx status code
+func (o *PutIdentityprovidersSalesforceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders salesforce request timeout response a status code equal to that given
+func (o *PutIdentityprovidersSalesforceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutIdentityprovidersSalesforceRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIdentityprovidersSalesforceRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutIdentityprovidersSalesforceRequestEntityTooLarge() *PutIdentityprovid
 	return &PutIdentityprovidersSalesforceRequestEntityTooLarge{}
 }
 
-/*PutIdentityprovidersSalesforceRequestEntityTooLarge handles this case with default header values.
+/*
+PutIdentityprovidersSalesforceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutIdentityprovidersSalesforceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders salesforce request entity too large response has a 2xx status code
+func (o *PutIdentityprovidersSalesforceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders salesforce request entity too large response has a 3xx status code
+func (o *PutIdentityprovidersSalesforceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders salesforce request entity too large response has a 4xx status code
+func (o *PutIdentityprovidersSalesforceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders salesforce request entity too large response has a 5xx status code
+func (o *PutIdentityprovidersSalesforceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders salesforce request entity too large response a status code equal to that given
+func (o *PutIdentityprovidersSalesforceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutIdentityprovidersSalesforceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutIdentityprovidersSalesforceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutIdentityprovidersSalesforceUnsupportedMediaType() *PutIdentityprovide
 	return &PutIdentityprovidersSalesforceUnsupportedMediaType{}
 }
 
-/*PutIdentityprovidersSalesforceUnsupportedMediaType handles this case with default header values.
+/*
+PutIdentityprovidersSalesforceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutIdentityprovidersSalesforceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders salesforce unsupported media type response has a 2xx status code
+func (o *PutIdentityprovidersSalesforceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders salesforce unsupported media type response has a 3xx status code
+func (o *PutIdentityprovidersSalesforceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders salesforce unsupported media type response has a 4xx status code
+func (o *PutIdentityprovidersSalesforceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders salesforce unsupported media type response has a 5xx status code
+func (o *PutIdentityprovidersSalesforceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders salesforce unsupported media type response a status code equal to that given
+func (o *PutIdentityprovidersSalesforceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutIdentityprovidersSalesforceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutIdentityprovidersSalesforceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutIdentityprovidersSalesforceTooManyRequests() *PutIdentityprovidersSal
 	return &PutIdentityprovidersSalesforceTooManyRequests{}
 }
 
-/*PutIdentityprovidersSalesforceTooManyRequests handles this case with default header values.
+/*
+PutIdentityprovidersSalesforceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutIdentityprovidersSalesforceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders salesforce too many requests response has a 2xx status code
+func (o *PutIdentityprovidersSalesforceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders salesforce too many requests response has a 3xx status code
+func (o *PutIdentityprovidersSalesforceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders salesforce too many requests response has a 4xx status code
+func (o *PutIdentityprovidersSalesforceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders salesforce too many requests response has a 5xx status code
+func (o *PutIdentityprovidersSalesforceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders salesforce too many requests response a status code equal to that given
+func (o *PutIdentityprovidersSalesforceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutIdentityprovidersSalesforceTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutIdentityprovidersSalesforceTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutIdentityprovidersSalesforceInternalServerError() *PutIdentityprovider
 	return &PutIdentityprovidersSalesforceInternalServerError{}
 }
 
-/*PutIdentityprovidersSalesforceInternalServerError handles this case with default header values.
+/*
+PutIdentityprovidersSalesforceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutIdentityprovidersSalesforceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders salesforce internal server error response has a 2xx status code
+func (o *PutIdentityprovidersSalesforceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders salesforce internal server error response has a 3xx status code
+func (o *PutIdentityprovidersSalesforceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders salesforce internal server error response has a 4xx status code
+func (o *PutIdentityprovidersSalesforceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders salesforce internal server error response has a 5xx status code
+func (o *PutIdentityprovidersSalesforceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders salesforce internal server error response a status code equal to that given
+func (o *PutIdentityprovidersSalesforceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutIdentityprovidersSalesforceInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutIdentityprovidersSalesforceInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutIdentityprovidersSalesforceServiceUnavailable() *PutIdentityproviders
 	return &PutIdentityprovidersSalesforceServiceUnavailable{}
 }
 
-/*PutIdentityprovidersSalesforceServiceUnavailable handles this case with default header values.
+/*
+PutIdentityprovidersSalesforceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutIdentityprovidersSalesforceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders salesforce service unavailable response has a 2xx status code
+func (o *PutIdentityprovidersSalesforceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders salesforce service unavailable response has a 3xx status code
+func (o *PutIdentityprovidersSalesforceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders salesforce service unavailable response has a 4xx status code
+func (o *PutIdentityprovidersSalesforceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders salesforce service unavailable response has a 5xx status code
+func (o *PutIdentityprovidersSalesforceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders salesforce service unavailable response a status code equal to that given
+func (o *PutIdentityprovidersSalesforceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutIdentityprovidersSalesforceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutIdentityprovidersSalesforceServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutIdentityprovidersSalesforceGatewayTimeout() *PutIdentityprovidersSale
 	return &PutIdentityprovidersSalesforceGatewayTimeout{}
 }
 
-/*PutIdentityprovidersSalesforceGatewayTimeout handles this case with default header values.
+/*
+PutIdentityprovidersSalesforceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutIdentityprovidersSalesforceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders salesforce gateway timeout response has a 2xx status code
+func (o *PutIdentityprovidersSalesforceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders salesforce gateway timeout response has a 3xx status code
+func (o *PutIdentityprovidersSalesforceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders salesforce gateway timeout response has a 4xx status code
+func (o *PutIdentityprovidersSalesforceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders salesforce gateway timeout response has a 5xx status code
+func (o *PutIdentityprovidersSalesforceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders salesforce gateway timeout response a status code equal to that given
+func (o *PutIdentityprovidersSalesforceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutIdentityprovidersSalesforceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutIdentityprovidersSalesforceGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/salesforce][%d] putIdentityprovidersSalesforceGatewayTimeout  %+v", 504, o.Payload)
 }
 

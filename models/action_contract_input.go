@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -54,6 +56,8 @@ func (m *ActionContractInput) validateInput(formats strfmt.Registry) error {
 		if err := m.Input.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("input")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("input")
 			}
 			return err
 		}
@@ -72,6 +76,58 @@ func (m *ActionContractInput) validateOutput(formats strfmt.Registry) error {
 		if err := m.Output.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("output")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("output")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this action contract input based on the context it is used
+func (m *ActionContractInput) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateInput(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutput(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ActionContractInput) contextValidateInput(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Input != nil {
+		if err := m.Input.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("input")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("input")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ActionContractInput) contextValidateOutput(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Output != nil {
+		if err := m.Output.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("output")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("output")
 			}
 			return err
 		}

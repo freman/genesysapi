@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -47,7 +48,6 @@ func (m *StatisticalResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *StatisticalResponse) validateMetrics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metrics) { // not required
 		return nil
 	}
@@ -61,6 +61,8 @@ func (m *StatisticalResponse) validateMetrics(formats strfmt.Registry) error {
 			if err := m.Metrics[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("metrics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("metrics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -72,7 +74,6 @@ func (m *StatisticalResponse) validateMetrics(formats strfmt.Registry) error {
 }
 
 func (m *StatisticalResponse) validateViews(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Views) { // not required
 		return nil
 	}
@@ -86,6 +87,66 @@ func (m *StatisticalResponse) validateViews(formats strfmt.Registry) error {
 			if err := m.Views[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("views" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("views" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this statistical response based on the context it is used
+func (m *StatisticalResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMetrics(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateViews(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *StatisticalResponse) contextValidateMetrics(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Metrics); i++ {
+
+		if m.Metrics[i] != nil {
+			if err := m.Metrics[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("metrics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("metrics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *StatisticalResponse) contextValidateViews(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Views); i++ {
+
+		if m.Views[i] != nil {
+			if err := m.Views[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("views" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("views" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

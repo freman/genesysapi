@@ -95,7 +95,6 @@ func (o *DeleteOutboundRulesetReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteOutboundRulesetOK() *DeleteOutboundRulesetOK {
 	return &DeleteOutboundRulesetOK{}
 }
 
-/*DeleteOutboundRulesetOK handles this case with default header values.
+/*
+DeleteOutboundRulesetOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteOutboundRulesetOK struct {
 }
 
+// IsSuccess returns true when this delete outbound ruleset o k response has a 2xx status code
+func (o *DeleteOutboundRulesetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete outbound ruleset o k response has a 3xx status code
+func (o *DeleteOutboundRulesetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound ruleset o k response has a 4xx status code
+func (o *DeleteOutboundRulesetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound ruleset o k response has a 5xx status code
+func (o *DeleteOutboundRulesetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound ruleset o k response a status code equal to that given
+func (o *DeleteOutboundRulesetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteOutboundRulesetOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetOK ", 200)
+}
+
+func (o *DeleteOutboundRulesetOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteOutboundRulesetBadRequest() *DeleteOutboundRulesetBadRequest {
 	return &DeleteOutboundRulesetBadRequest{}
 }
 
-/*DeleteOutboundRulesetBadRequest handles this case with default header values.
+/*
+DeleteOutboundRulesetBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteOutboundRulesetBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound ruleset bad request response has a 2xx status code
+func (o *DeleteOutboundRulesetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound ruleset bad request response has a 3xx status code
+func (o *DeleteOutboundRulesetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound ruleset bad request response has a 4xx status code
+func (o *DeleteOutboundRulesetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound ruleset bad request response has a 5xx status code
+func (o *DeleteOutboundRulesetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound ruleset bad request response a status code equal to that given
+func (o *DeleteOutboundRulesetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOutboundRulesetBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOutboundRulesetBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteOutboundRulesetUnauthorized() *DeleteOutboundRulesetUnauthorized {
 	return &DeleteOutboundRulesetUnauthorized{}
 }
 
-/*DeleteOutboundRulesetUnauthorized handles this case with default header values.
+/*
+DeleteOutboundRulesetUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteOutboundRulesetUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound ruleset unauthorized response has a 2xx status code
+func (o *DeleteOutboundRulesetUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound ruleset unauthorized response has a 3xx status code
+func (o *DeleteOutboundRulesetUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound ruleset unauthorized response has a 4xx status code
+func (o *DeleteOutboundRulesetUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound ruleset unauthorized response has a 5xx status code
+func (o *DeleteOutboundRulesetUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound ruleset unauthorized response a status code equal to that given
+func (o *DeleteOutboundRulesetUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOutboundRulesetUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOutboundRulesetUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteOutboundRulesetForbidden() *DeleteOutboundRulesetForbidden {
 	return &DeleteOutboundRulesetForbidden{}
 }
 
-/*DeleteOutboundRulesetForbidden handles this case with default header values.
+/*
+DeleteOutboundRulesetForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteOutboundRulesetForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound ruleset forbidden response has a 2xx status code
+func (o *DeleteOutboundRulesetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound ruleset forbidden response has a 3xx status code
+func (o *DeleteOutboundRulesetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound ruleset forbidden response has a 4xx status code
+func (o *DeleteOutboundRulesetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound ruleset forbidden response has a 5xx status code
+func (o *DeleteOutboundRulesetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound ruleset forbidden response a status code equal to that given
+func (o *DeleteOutboundRulesetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOutboundRulesetForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOutboundRulesetForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteOutboundRulesetNotFound() *DeleteOutboundRulesetNotFound {
 	return &DeleteOutboundRulesetNotFound{}
 }
 
-/*DeleteOutboundRulesetNotFound handles this case with default header values.
+/*
+DeleteOutboundRulesetNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteOutboundRulesetNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound ruleset not found response has a 2xx status code
+func (o *DeleteOutboundRulesetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound ruleset not found response has a 3xx status code
+func (o *DeleteOutboundRulesetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound ruleset not found response has a 4xx status code
+func (o *DeleteOutboundRulesetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound ruleset not found response has a 5xx status code
+func (o *DeleteOutboundRulesetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound ruleset not found response a status code equal to that given
+func (o *DeleteOutboundRulesetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOutboundRulesetNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOutboundRulesetNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteOutboundRulesetRequestTimeout() *DeleteOutboundRulesetRequestTimeo
 	return &DeleteOutboundRulesetRequestTimeout{}
 }
 
-/*DeleteOutboundRulesetRequestTimeout handles this case with default header values.
+/*
+DeleteOutboundRulesetRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteOutboundRulesetRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound ruleset request timeout response has a 2xx status code
+func (o *DeleteOutboundRulesetRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound ruleset request timeout response has a 3xx status code
+func (o *DeleteOutboundRulesetRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound ruleset request timeout response has a 4xx status code
+func (o *DeleteOutboundRulesetRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound ruleset request timeout response has a 5xx status code
+func (o *DeleteOutboundRulesetRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound ruleset request timeout response a status code equal to that given
+func (o *DeleteOutboundRulesetRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOutboundRulesetRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundRulesetRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteOutboundRulesetRequestEntityTooLarge() *DeleteOutboundRulesetReque
 	return &DeleteOutboundRulesetRequestEntityTooLarge{}
 }
 
-/*DeleteOutboundRulesetRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOutboundRulesetRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteOutboundRulesetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound ruleset request entity too large response has a 2xx status code
+func (o *DeleteOutboundRulesetRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound ruleset request entity too large response has a 3xx status code
+func (o *DeleteOutboundRulesetRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound ruleset request entity too large response has a 4xx status code
+func (o *DeleteOutboundRulesetRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound ruleset request entity too large response has a 5xx status code
+func (o *DeleteOutboundRulesetRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound ruleset request entity too large response a status code equal to that given
+func (o *DeleteOutboundRulesetRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOutboundRulesetRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOutboundRulesetRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteOutboundRulesetUnsupportedMediaType() *DeleteOutboundRulesetUnsupp
 	return &DeleteOutboundRulesetUnsupportedMediaType{}
 }
 
-/*DeleteOutboundRulesetUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOutboundRulesetUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteOutboundRulesetUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound ruleset unsupported media type response has a 2xx status code
+func (o *DeleteOutboundRulesetUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound ruleset unsupported media type response has a 3xx status code
+func (o *DeleteOutboundRulesetUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound ruleset unsupported media type response has a 4xx status code
+func (o *DeleteOutboundRulesetUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound ruleset unsupported media type response has a 5xx status code
+func (o *DeleteOutboundRulesetUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound ruleset unsupported media type response a status code equal to that given
+func (o *DeleteOutboundRulesetUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOutboundRulesetUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOutboundRulesetUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteOutboundRulesetTooManyRequests() *DeleteOutboundRulesetTooManyRequ
 	return &DeleteOutboundRulesetTooManyRequests{}
 }
 
-/*DeleteOutboundRulesetTooManyRequests handles this case with default header values.
+/*
+DeleteOutboundRulesetTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteOutboundRulesetTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound ruleset too many requests response has a 2xx status code
+func (o *DeleteOutboundRulesetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound ruleset too many requests response has a 3xx status code
+func (o *DeleteOutboundRulesetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound ruleset too many requests response has a 4xx status code
+func (o *DeleteOutboundRulesetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound ruleset too many requests response has a 5xx status code
+func (o *DeleteOutboundRulesetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound ruleset too many requests response a status code equal to that given
+func (o *DeleteOutboundRulesetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOutboundRulesetTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOutboundRulesetTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteOutboundRulesetInternalServerError() *DeleteOutboundRulesetInterna
 	return &DeleteOutboundRulesetInternalServerError{}
 }
 
-/*DeleteOutboundRulesetInternalServerError handles this case with default header values.
+/*
+DeleteOutboundRulesetInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteOutboundRulesetInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound ruleset internal server error response has a 2xx status code
+func (o *DeleteOutboundRulesetInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound ruleset internal server error response has a 3xx status code
+func (o *DeleteOutboundRulesetInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound ruleset internal server error response has a 4xx status code
+func (o *DeleteOutboundRulesetInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound ruleset internal server error response has a 5xx status code
+func (o *DeleteOutboundRulesetInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound ruleset internal server error response a status code equal to that given
+func (o *DeleteOutboundRulesetInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOutboundRulesetInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOutboundRulesetInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteOutboundRulesetServiceUnavailable() *DeleteOutboundRulesetServiceU
 	return &DeleteOutboundRulesetServiceUnavailable{}
 }
 
-/*DeleteOutboundRulesetServiceUnavailable handles this case with default header values.
+/*
+DeleteOutboundRulesetServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteOutboundRulesetServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound ruleset service unavailable response has a 2xx status code
+func (o *DeleteOutboundRulesetServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound ruleset service unavailable response has a 3xx status code
+func (o *DeleteOutboundRulesetServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound ruleset service unavailable response has a 4xx status code
+func (o *DeleteOutboundRulesetServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound ruleset service unavailable response has a 5xx status code
+func (o *DeleteOutboundRulesetServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound ruleset service unavailable response a status code equal to that given
+func (o *DeleteOutboundRulesetServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOutboundRulesetServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOutboundRulesetServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteOutboundRulesetGatewayTimeout() *DeleteOutboundRulesetGatewayTimeo
 	return &DeleteOutboundRulesetGatewayTimeout{}
 }
 
-/*DeleteOutboundRulesetGatewayTimeout handles this case with default header values.
+/*
+DeleteOutboundRulesetGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteOutboundRulesetGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound ruleset gateway timeout response has a 2xx status code
+func (o *DeleteOutboundRulesetGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound ruleset gateway timeout response has a 3xx status code
+func (o *DeleteOutboundRulesetGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound ruleset gateway timeout response has a 4xx status code
+func (o *DeleteOutboundRulesetGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound ruleset gateway timeout response has a 5xx status code
+func (o *DeleteOutboundRulesetGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound ruleset gateway timeout response a status code equal to that given
+func (o *DeleteOutboundRulesetGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOutboundRulesetGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOutboundRulesetGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/rulesets/{ruleSetId}][%d] deleteOutboundRulesetGatewayTimeout  %+v", 504, o.Payload)
 }
 

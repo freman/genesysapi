@@ -95,7 +95,6 @@ func (o *PostRecordingsScreensessionsMetadataReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostRecordingsScreensessionsMetadataNoContent() *PostRecordingsScreenses
 	return &PostRecordingsScreensessionsMetadataNoContent{}
 }
 
-/*PostRecordingsScreensessionsMetadataNoContent handles this case with default header values.
+/*
+PostRecordingsScreensessionsMetadataNoContent describes a response with status code 204, with default header values.
 
 Meta-data supplied to screen recording.
 */
 type PostRecordingsScreensessionsMetadataNoContent struct {
 }
 
+// IsSuccess returns true when this post recordings screensessions metadata no content response has a 2xx status code
+func (o *PostRecordingsScreensessionsMetadataNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post recordings screensessions metadata no content response has a 3xx status code
+func (o *PostRecordingsScreensessionsMetadataNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recordings screensessions metadata no content response has a 4xx status code
+func (o *PostRecordingsScreensessionsMetadataNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recordings screensessions metadata no content response has a 5xx status code
+func (o *PostRecordingsScreensessionsMetadataNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recordings screensessions metadata no content response a status code equal to that given
+func (o *PostRecordingsScreensessionsMetadataNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PostRecordingsScreensessionsMetadataNoContent) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataNoContent ", 204)
+}
+
+func (o *PostRecordingsScreensessionsMetadataNoContent) String() string {
 	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewPostRecordingsScreensessionsMetadataBadRequest() *PostRecordingsScreense
 	return &PostRecordingsScreensessionsMetadataBadRequest{}
 }
 
-/*PostRecordingsScreensessionsMetadataBadRequest handles this case with default header values.
+/*
+PostRecordingsScreensessionsMetadataBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostRecordingsScreensessionsMetadataBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recordings screensessions metadata bad request response has a 2xx status code
+func (o *PostRecordingsScreensessionsMetadataBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recordings screensessions metadata bad request response has a 3xx status code
+func (o *PostRecordingsScreensessionsMetadataBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recordings screensessions metadata bad request response has a 4xx status code
+func (o *PostRecordingsScreensessionsMetadataBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recordings screensessions metadata bad request response has a 5xx status code
+func (o *PostRecordingsScreensessionsMetadataBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recordings screensessions metadata bad request response a status code equal to that given
+func (o *PostRecordingsScreensessionsMetadataBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostRecordingsScreensessionsMetadataBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostRecordingsScreensessionsMetadataBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostRecordingsScreensessionsMetadataUnauthorized() *PostRecordingsScreen
 	return &PostRecordingsScreensessionsMetadataUnauthorized{}
 }
 
-/*PostRecordingsScreensessionsMetadataUnauthorized handles this case with default header values.
+/*
+PostRecordingsScreensessionsMetadataUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostRecordingsScreensessionsMetadataUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recordings screensessions metadata unauthorized response has a 2xx status code
+func (o *PostRecordingsScreensessionsMetadataUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recordings screensessions metadata unauthorized response has a 3xx status code
+func (o *PostRecordingsScreensessionsMetadataUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recordings screensessions metadata unauthorized response has a 4xx status code
+func (o *PostRecordingsScreensessionsMetadataUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recordings screensessions metadata unauthorized response has a 5xx status code
+func (o *PostRecordingsScreensessionsMetadataUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recordings screensessions metadata unauthorized response a status code equal to that given
+func (o *PostRecordingsScreensessionsMetadataUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostRecordingsScreensessionsMetadataUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostRecordingsScreensessionsMetadataUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostRecordingsScreensessionsMetadataForbidden() *PostRecordingsScreenses
 	return &PostRecordingsScreensessionsMetadataForbidden{}
 }
 
-/*PostRecordingsScreensessionsMetadataForbidden handles this case with default header values.
+/*
+PostRecordingsScreensessionsMetadataForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostRecordingsScreensessionsMetadataForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recordings screensessions metadata forbidden response has a 2xx status code
+func (o *PostRecordingsScreensessionsMetadataForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recordings screensessions metadata forbidden response has a 3xx status code
+func (o *PostRecordingsScreensessionsMetadataForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recordings screensessions metadata forbidden response has a 4xx status code
+func (o *PostRecordingsScreensessionsMetadataForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recordings screensessions metadata forbidden response has a 5xx status code
+func (o *PostRecordingsScreensessionsMetadataForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recordings screensessions metadata forbidden response a status code equal to that given
+func (o *PostRecordingsScreensessionsMetadataForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostRecordingsScreensessionsMetadataForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostRecordingsScreensessionsMetadataForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostRecordingsScreensessionsMetadataNotFound() *PostRecordingsScreensess
 	return &PostRecordingsScreensessionsMetadataNotFound{}
 }
 
-/*PostRecordingsScreensessionsMetadataNotFound handles this case with default header values.
+/*
+PostRecordingsScreensessionsMetadataNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostRecordingsScreensessionsMetadataNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recordings screensessions metadata not found response has a 2xx status code
+func (o *PostRecordingsScreensessionsMetadataNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recordings screensessions metadata not found response has a 3xx status code
+func (o *PostRecordingsScreensessionsMetadataNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recordings screensessions metadata not found response has a 4xx status code
+func (o *PostRecordingsScreensessionsMetadataNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recordings screensessions metadata not found response has a 5xx status code
+func (o *PostRecordingsScreensessionsMetadataNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recordings screensessions metadata not found response a status code equal to that given
+func (o *PostRecordingsScreensessionsMetadataNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostRecordingsScreensessionsMetadataNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostRecordingsScreensessionsMetadataNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostRecordingsScreensessionsMetadataRequestTimeout() *PostRecordingsScre
 	return &PostRecordingsScreensessionsMetadataRequestTimeout{}
 }
 
-/*PostRecordingsScreensessionsMetadataRequestTimeout handles this case with default header values.
+/*
+PostRecordingsScreensessionsMetadataRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostRecordingsScreensessionsMetadataRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recordings screensessions metadata request timeout response has a 2xx status code
+func (o *PostRecordingsScreensessionsMetadataRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recordings screensessions metadata request timeout response has a 3xx status code
+func (o *PostRecordingsScreensessionsMetadataRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recordings screensessions metadata request timeout response has a 4xx status code
+func (o *PostRecordingsScreensessionsMetadataRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recordings screensessions metadata request timeout response has a 5xx status code
+func (o *PostRecordingsScreensessionsMetadataRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recordings screensessions metadata request timeout response a status code equal to that given
+func (o *PostRecordingsScreensessionsMetadataRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostRecordingsScreensessionsMetadataRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRecordingsScreensessionsMetadataRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostRecordingsScreensessionsMetadataRequestEntityTooLarge() *PostRecordi
 	return &PostRecordingsScreensessionsMetadataRequestEntityTooLarge{}
 }
 
-/*PostRecordingsScreensessionsMetadataRequestEntityTooLarge handles this case with default header values.
+/*
+PostRecordingsScreensessionsMetadataRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostRecordingsScreensessionsMetadataRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recordings screensessions metadata request entity too large response has a 2xx status code
+func (o *PostRecordingsScreensessionsMetadataRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recordings screensessions metadata request entity too large response has a 3xx status code
+func (o *PostRecordingsScreensessionsMetadataRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recordings screensessions metadata request entity too large response has a 4xx status code
+func (o *PostRecordingsScreensessionsMetadataRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recordings screensessions metadata request entity too large response has a 5xx status code
+func (o *PostRecordingsScreensessionsMetadataRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recordings screensessions metadata request entity too large response a status code equal to that given
+func (o *PostRecordingsScreensessionsMetadataRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostRecordingsScreensessionsMetadataRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostRecordingsScreensessionsMetadataRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostRecordingsScreensessionsMetadataUnsupportedMediaType() *PostRecordin
 	return &PostRecordingsScreensessionsMetadataUnsupportedMediaType{}
 }
 
-/*PostRecordingsScreensessionsMetadataUnsupportedMediaType handles this case with default header values.
+/*
+PostRecordingsScreensessionsMetadataUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostRecordingsScreensessionsMetadataUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recordings screensessions metadata unsupported media type response has a 2xx status code
+func (o *PostRecordingsScreensessionsMetadataUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recordings screensessions metadata unsupported media type response has a 3xx status code
+func (o *PostRecordingsScreensessionsMetadataUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recordings screensessions metadata unsupported media type response has a 4xx status code
+func (o *PostRecordingsScreensessionsMetadataUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recordings screensessions metadata unsupported media type response has a 5xx status code
+func (o *PostRecordingsScreensessionsMetadataUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recordings screensessions metadata unsupported media type response a status code equal to that given
+func (o *PostRecordingsScreensessionsMetadataUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostRecordingsScreensessionsMetadataUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostRecordingsScreensessionsMetadataUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostRecordingsScreensessionsMetadataTooManyRequests() *PostRecordingsScr
 	return &PostRecordingsScreensessionsMetadataTooManyRequests{}
 }
 
-/*PostRecordingsScreensessionsMetadataTooManyRequests handles this case with default header values.
+/*
+PostRecordingsScreensessionsMetadataTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostRecordingsScreensessionsMetadataTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recordings screensessions metadata too many requests response has a 2xx status code
+func (o *PostRecordingsScreensessionsMetadataTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recordings screensessions metadata too many requests response has a 3xx status code
+func (o *PostRecordingsScreensessionsMetadataTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recordings screensessions metadata too many requests response has a 4xx status code
+func (o *PostRecordingsScreensessionsMetadataTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recordings screensessions metadata too many requests response has a 5xx status code
+func (o *PostRecordingsScreensessionsMetadataTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recordings screensessions metadata too many requests response a status code equal to that given
+func (o *PostRecordingsScreensessionsMetadataTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostRecordingsScreensessionsMetadataTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostRecordingsScreensessionsMetadataTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostRecordingsScreensessionsMetadataInternalServerError() *PostRecording
 	return &PostRecordingsScreensessionsMetadataInternalServerError{}
 }
 
-/*PostRecordingsScreensessionsMetadataInternalServerError handles this case with default header values.
+/*
+PostRecordingsScreensessionsMetadataInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostRecordingsScreensessionsMetadataInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recordings screensessions metadata internal server error response has a 2xx status code
+func (o *PostRecordingsScreensessionsMetadataInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recordings screensessions metadata internal server error response has a 3xx status code
+func (o *PostRecordingsScreensessionsMetadataInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recordings screensessions metadata internal server error response has a 4xx status code
+func (o *PostRecordingsScreensessionsMetadataInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recordings screensessions metadata internal server error response has a 5xx status code
+func (o *PostRecordingsScreensessionsMetadataInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post recordings screensessions metadata internal server error response a status code equal to that given
+func (o *PostRecordingsScreensessionsMetadataInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostRecordingsScreensessionsMetadataInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostRecordingsScreensessionsMetadataInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostRecordingsScreensessionsMetadataServiceUnavailable() *PostRecordings
 	return &PostRecordingsScreensessionsMetadataServiceUnavailable{}
 }
 
-/*PostRecordingsScreensessionsMetadataServiceUnavailable handles this case with default header values.
+/*
+PostRecordingsScreensessionsMetadataServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostRecordingsScreensessionsMetadataServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recordings screensessions metadata service unavailable response has a 2xx status code
+func (o *PostRecordingsScreensessionsMetadataServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recordings screensessions metadata service unavailable response has a 3xx status code
+func (o *PostRecordingsScreensessionsMetadataServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recordings screensessions metadata service unavailable response has a 4xx status code
+func (o *PostRecordingsScreensessionsMetadataServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recordings screensessions metadata service unavailable response has a 5xx status code
+func (o *PostRecordingsScreensessionsMetadataServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post recordings screensessions metadata service unavailable response a status code equal to that given
+func (o *PostRecordingsScreensessionsMetadataServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostRecordingsScreensessionsMetadataServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostRecordingsScreensessionsMetadataServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostRecordingsScreensessionsMetadataGatewayTimeout() *PostRecordingsScre
 	return &PostRecordingsScreensessionsMetadataGatewayTimeout{}
 }
 
-/*PostRecordingsScreensessionsMetadataGatewayTimeout handles this case with default header values.
+/*
+PostRecordingsScreensessionsMetadataGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostRecordingsScreensessionsMetadataGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recordings screensessions metadata gateway timeout response has a 2xx status code
+func (o *PostRecordingsScreensessionsMetadataGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recordings screensessions metadata gateway timeout response has a 3xx status code
+func (o *PostRecordingsScreensessionsMetadataGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recordings screensessions metadata gateway timeout response has a 4xx status code
+func (o *PostRecordingsScreensessionsMetadataGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recordings screensessions metadata gateway timeout response has a 5xx status code
+func (o *PostRecordingsScreensessionsMetadataGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post recordings screensessions metadata gateway timeout response a status code equal to that given
+func (o *PostRecordingsScreensessionsMetadataGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostRecordingsScreensessionsMetadataGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostRecordingsScreensessionsMetadataGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/recordings/screensessions/metadata][%d] postRecordingsScreensessionsMetadataGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams creates a new GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams creates a new GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams() *GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams {
-	var ()
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunkbasesettingsTemplateParamsWithTimeout creates a new GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesTrunkbasesettingsTemplateParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams {
-	var ()
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunkbasesettingsTemplateParamsWithContext creates a new GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesTrunkbasesettingsTemplateParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams {
-	var ()
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunkbasesettingsTemplateParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesTrunkbasesettingsTemplateParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams {
-	var ()
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges trunkbasesettings template operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges trunkbasesettings template operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams struct {
 
-	/*TrunkMetabaseID
-	  The id of a metabase object upon which to base this Trunk Base Settings
+	/* TrunkMetabaseID.
 
+	   The id of a metabase object upon which to base this Trunk Base Settings
 	*/
 	TrunkMetabaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges trunkbasesettings template params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams) WithDefaults() *GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges trunkbasesettings template params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges trunkbasesettings template params
@@ -127,6 +143,7 @@ func (o *GetTelephonyProvidersEdgesTrunkbasesettingsTemplateParams) WriteToReque
 	qrTrunkMetabaseID := o.TrunkMetabaseID
 	qTrunkMetabaseID := qrTrunkMetabaseID
 	if qTrunkMetabaseID != "" {
+
 		if err := r.SetQueryParam("trunkMetabaseId", qTrunkMetabaseID); err != nil {
 			return err
 		}

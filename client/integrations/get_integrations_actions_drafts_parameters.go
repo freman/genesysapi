@@ -17,145 +17,165 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetIntegrationsActionsDraftsParams creates a new GetIntegrationsActionsDraftsParams object
-// with the default values initialized.
+// NewGetIntegrationsActionsDraftsParams creates a new GetIntegrationsActionsDraftsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntegrationsActionsDraftsParams() *GetIntegrationsActionsDraftsParams {
-	var (
-		includeAuthActionsDefault = string("false")
-		pageNumberDefault         = int32(1)
-		pageSizeDefault           = int32(25)
-		sortOrderDefault          = string("asc")
-	)
 	return &GetIntegrationsActionsDraftsParams{
-		IncludeAuthActions: &includeAuthActionsDefault,
-		PageNumber:         &pageNumberDefault,
-		PageSize:           &pageSizeDefault,
-		SortOrder:          &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntegrationsActionsDraftsParamsWithTimeout creates a new GetIntegrationsActionsDraftsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntegrationsActionsDraftsParamsWithTimeout(timeout time.Duration) *GetIntegrationsActionsDraftsParams {
-	var (
-		includeAuthActionsDefault = string("false")
-		pageNumberDefault         = int32(1)
-		pageSizeDefault           = int32(25)
-		sortOrderDefault          = string("asc")
-	)
 	return &GetIntegrationsActionsDraftsParams{
-		IncludeAuthActions: &includeAuthActionsDefault,
-		PageNumber:         &pageNumberDefault,
-		PageSize:           &pageSizeDefault,
-		SortOrder:          &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntegrationsActionsDraftsParamsWithContext creates a new GetIntegrationsActionsDraftsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntegrationsActionsDraftsParamsWithContext(ctx context.Context) *GetIntegrationsActionsDraftsParams {
-	var (
-		includeAuthActionsDefault = string("false")
-		pageNumberDefault         = int32(1)
-		pageSizeDefault           = int32(25)
-		sortOrderDefault          = string("asc")
-	)
 	return &GetIntegrationsActionsDraftsParams{
-		IncludeAuthActions: &includeAuthActionsDefault,
-		PageNumber:         &pageNumberDefault,
-		PageSize:           &pageSizeDefault,
-		SortOrder:          &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntegrationsActionsDraftsParamsWithHTTPClient creates a new GetIntegrationsActionsDraftsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntegrationsActionsDraftsParamsWithHTTPClient(client *http.Client) *GetIntegrationsActionsDraftsParams {
-	var (
-		includeAuthActionsDefault = string("false")
-		pageNumberDefault         = int32(1)
-		pageSizeDefault           = int32(25)
-		sortOrderDefault          = string("asc")
-	)
 	return &GetIntegrationsActionsDraftsParams{
-		IncludeAuthActions: &includeAuthActionsDefault,
-		PageNumber:         &pageNumberDefault,
-		PageSize:           &pageSizeDefault,
-		SortOrder:          &sortOrderDefault,
-		HTTPClient:         client,
+		HTTPClient: client,
 	}
 }
 
-/*GetIntegrationsActionsDraftsParams contains all the parameters to send to the API endpoint
-for the get integrations actions drafts operation typically these are written to a http.Request
+/*
+GetIntegrationsActionsDraftsParams contains all the parameters to send to the API endpoint
+
+	for the get integrations actions drafts operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntegrationsActionsDraftsParams struct {
 
-	/*Category
-	  Filter by category name.
+	/* Category.
 
+	   Filter by category name.
 	*/
 	Category *string
-	/*Ids
-	  Filter by action Id. Can be a comma separated list to request multiple actions.  Limit of 50 Ids.
 
+	/* Ids.
+
+	   Filter by action Id. Can be a comma separated list to request multiple actions.  Limit of 50 Ids.
 	*/
 	Ids *string
-	/*IncludeAuthActions
-	  Whether or not to include authentication actions in the response. These actions are not directly executable. Some integrations create them and will run them as needed to refresh authentication information for other actions.
 
+	/* IncludeAuthActions.
+
+	   Whether or not to include authentication actions in the response. These actions are not directly executable. Some integrations create them and will run them as needed to refresh authentication information for other actions.
+
+	   Default: "false"
 	*/
 	IncludeAuthActions *string
-	/*Name
-	  Filter by partial or complete action name.
 
+	/* Name.
+
+	   Filter by partial or complete action name.
 	*/
 	Name *string
-	/*NextPage
-	  next page token
 
+	/* NextPage.
+
+	   next page token
 	*/
 	NextPage *string
-	/*PageNumber
-	  The page number requested
 
+	/* PageNumber.
+
+	   The page number requested
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  The total page size requested
 
+	/* PageSize.
+
+	   The total page size requested
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*PreviousPage
-	  Previous page token
 
+	/* PreviousPage.
+
+	   Previous page token
 	*/
 	PreviousPage *string
-	/*Secure
-	  Filter based on 'secure' configuration option. True will only return actions marked as secure. False will return only non-secure actions. Do not use filter if you want all Actions.
 
+	/* Secure.
+
+	   Filter based on 'secure' configuration option. True will only return actions marked as secure. False will return only non-secure actions. Do not use filter if you want all Actions.
 	*/
 	Secure *string
-	/*SortBy
-	  Root level field name to sort on.
 
+	/* SortBy.
+
+	   Root level field name to sort on.
 	*/
 	SortBy *string
-	/*SortOrder
-	  Direction to sort 'sortBy' field.
 
+	/* SortOrder.
+
+	   Direction to sort 'sortBy' field.
+
+	   Default: "asc"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get integrations actions drafts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsActionsDraftsParams) WithDefaults() *GetIntegrationsActionsDraftsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get integrations actions drafts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsActionsDraftsParams) SetDefaults() {
+	var (
+		includeAuthActionsDefault = string("false")
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortOrderDefault = string("asc")
+	)
+
+	val := GetIntegrationsActionsDraftsParams{
+		IncludeAuthActions: &includeAuthActionsDefault,
+		PageNumber:         &pageNumberDefault,
+		PageSize:           &pageSizeDefault,
+		SortOrder:          &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get integrations actions drafts params
@@ -324,176 +344,187 @@ func (o *GetIntegrationsActionsDraftsParams) WriteToRequest(r runtime.ClientRequ
 
 		// query param category
 		var qrCategory string
+
 		if o.Category != nil {
 			qrCategory = *o.Category
 		}
 		qCategory := qrCategory
 		if qCategory != "" {
+
 			if err := r.SetQueryParam("category", qCategory); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Ids != nil {
 
 		// query param ids
 		var qrIds string
+
 		if o.Ids != nil {
 			qrIds = *o.Ids
 		}
 		qIds := qrIds
 		if qIds != "" {
+
 			if err := r.SetQueryParam("ids", qIds); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeAuthActions != nil {
 
 		// query param includeAuthActions
 		var qrIncludeAuthActions string
+
 		if o.IncludeAuthActions != nil {
 			qrIncludeAuthActions = *o.IncludeAuthActions
 		}
 		qIncludeAuthActions := qrIncludeAuthActions
 		if qIncludeAuthActions != "" {
+
 			if err := r.SetQueryParam("includeAuthActions", qIncludeAuthActions); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.NextPage != nil {
 
 		// query param nextPage
 		var qrNextPage string
+
 		if o.NextPage != nil {
 			qrNextPage = *o.NextPage
 		}
 		qNextPage := qrNextPage
 		if qNextPage != "" {
+
 			if err := r.SetQueryParam("nextPage", qNextPage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PreviousPage != nil {
 
 		// query param previousPage
 		var qrPreviousPage string
+
 		if o.PreviousPage != nil {
 			qrPreviousPage = *o.PreviousPage
 		}
 		qPreviousPage := qrPreviousPage
 		if qPreviousPage != "" {
+
 			if err := r.SetQueryParam("previousPage", qPreviousPage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Secure != nil {
 
 		// query param secure
 		var qrSecure string
+
 		if o.Secure != nil {
 			qrSecure = *o.Secure
 		}
 		qSecure := qrSecure
 		if qSecure != "" {
+
 			if err := r.SetQueryParam("secure", qSecure); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

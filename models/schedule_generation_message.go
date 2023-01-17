@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -47,7 +48,6 @@ func (m *ScheduleGenerationMessage) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ScheduleGenerationMessage) validateArguments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Arguments) { // not required
 		return nil
 	}
@@ -61,6 +61,8 @@ func (m *ScheduleGenerationMessage) validateArguments(formats strfmt.Registry) e
 			if err := m.Arguments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("arguments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("arguments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -230,7 +232,6 @@ func (m *ScheduleGenerationMessage) validateTypeEnum(path, location string, valu
 }
 
 func (m *ScheduleGenerationMessage) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -238,6 +239,40 @@ func (m *ScheduleGenerationMessage) validateType(formats strfmt.Registry) error 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this schedule generation message based on the context it is used
+func (m *ScheduleGenerationMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateArguments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScheduleGenerationMessage) contextValidateArguments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Arguments); i++ {
+
+		if m.Arguments[i] != nil {
+			if err := m.Arguments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("arguments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("arguments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

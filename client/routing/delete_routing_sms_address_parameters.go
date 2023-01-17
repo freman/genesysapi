@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteRoutingSmsAddressParams creates a new DeleteRoutingSmsAddressParams object
-// with the default values initialized.
+// NewDeleteRoutingSmsAddressParams creates a new DeleteRoutingSmsAddressParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRoutingSmsAddressParams() *DeleteRoutingSmsAddressParams {
-	var ()
 	return &DeleteRoutingSmsAddressParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRoutingSmsAddressParamsWithTimeout creates a new DeleteRoutingSmsAddressParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRoutingSmsAddressParamsWithTimeout(timeout time.Duration) *DeleteRoutingSmsAddressParams {
-	var ()
 	return &DeleteRoutingSmsAddressParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRoutingSmsAddressParamsWithContext creates a new DeleteRoutingSmsAddressParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRoutingSmsAddressParamsWithContext(ctx context.Context) *DeleteRoutingSmsAddressParams {
-	var ()
 	return &DeleteRoutingSmsAddressParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRoutingSmsAddressParamsWithHTTPClient creates a new DeleteRoutingSmsAddressParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRoutingSmsAddressParamsWithHTTPClient(client *http.Client) *DeleteRoutingSmsAddressParams {
-	var ()
 	return &DeleteRoutingSmsAddressParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRoutingSmsAddressParams contains all the parameters to send to the API endpoint
-for the delete routing sms address operation typically these are written to a http.Request
+/*
+DeleteRoutingSmsAddressParams contains all the parameters to send to the API endpoint
+
+	for the delete routing sms address operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteRoutingSmsAddressParams struct {
 
-	/*AddressID
-	  Address ID
+	/* AddressID.
 
+	   Address ID
 	*/
 	AddressID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete routing sms address params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingSmsAddressParams) WithDefaults() *DeleteRoutingSmsAddressParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete routing sms address params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingSmsAddressParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete routing sms address params

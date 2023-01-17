@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostEmployeeperformanceExternalmetricsDataParams creates a new PostEmployeeperformanceExternalmetricsDataParams object
-// with the default values initialized.
+// NewPostEmployeeperformanceExternalmetricsDataParams creates a new PostEmployeeperformanceExternalmetricsDataParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostEmployeeperformanceExternalmetricsDataParams() *PostEmployeeperformanceExternalmetricsDataParams {
-	var ()
 	return &PostEmployeeperformanceExternalmetricsDataParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostEmployeeperformanceExternalmetricsDataParamsWithTimeout creates a new PostEmployeeperformanceExternalmetricsDataParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostEmployeeperformanceExternalmetricsDataParamsWithTimeout(timeout time.Duration) *PostEmployeeperformanceExternalmetricsDataParams {
-	var ()
 	return &PostEmployeeperformanceExternalmetricsDataParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostEmployeeperformanceExternalmetricsDataParamsWithContext creates a new PostEmployeeperformanceExternalmetricsDataParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostEmployeeperformanceExternalmetricsDataParamsWithContext(ctx context.Context) *PostEmployeeperformanceExternalmetricsDataParams {
-	var ()
 	return &PostEmployeeperformanceExternalmetricsDataParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostEmployeeperformanceExternalmetricsDataParamsWithHTTPClient creates a new PostEmployeeperformanceExternalmetricsDataParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostEmployeeperformanceExternalmetricsDataParamsWithHTTPClient(client *http.Client) *PostEmployeeperformanceExternalmetricsDataParams {
-	var ()
 	return &PostEmployeeperformanceExternalmetricsDataParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostEmployeeperformanceExternalmetricsDataParams contains all the parameters to send to the API endpoint
-for the post employeeperformance externalmetrics data operation typically these are written to a http.Request
+/*
+PostEmployeeperformanceExternalmetricsDataParams contains all the parameters to send to the API endpoint
+
+	for the post employeeperformance externalmetrics data operation.
+
+	Typically these are written to a http.Request.
 */
 type PostEmployeeperformanceExternalmetricsDataParams struct {
 
-	/*Body
-	  The External Metric Data to be added
+	/* Body.
 
+	   The External Metric Data to be added
 	*/
 	Body *models.ExternalMetricDataWriteRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post employeeperformance externalmetrics data params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostEmployeeperformanceExternalmetricsDataParams) WithDefaults() *PostEmployeeperformanceExternalmetricsDataParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post employeeperformance externalmetrics data params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostEmployeeperformanceExternalmetricsDataParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post employeeperformance externalmetrics data params
@@ -124,7 +140,6 @@ func (o *PostEmployeeperformanceExternalmetricsDataParams) WriteToRequest(r runt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

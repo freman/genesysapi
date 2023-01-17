@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -67,7 +68,6 @@ func (m *ProgramMappings) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ProgramMappings) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -80,7 +80,6 @@ func (m *ProgramMappings) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *ProgramMappings) validateFlows(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Flows) { // not required
 		return nil
 	}
@@ -94,6 +93,8 @@ func (m *ProgramMappings) validateFlows(formats strfmt.Registry) error {
 			if err := m.Flows[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("flows" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("flows" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -105,7 +106,6 @@ func (m *ProgramMappings) validateFlows(formats strfmt.Registry) error {
 }
 
 func (m *ProgramMappings) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -114,6 +114,8 @@ func (m *ProgramMappings) validateModifiedBy(formats strfmt.Registry) error {
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -123,7 +125,6 @@ func (m *ProgramMappings) validateModifiedBy(formats strfmt.Registry) error {
 }
 
 func (m *ProgramMappings) validateProgram(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Program) { // not required
 		return nil
 	}
@@ -132,6 +133,8 @@ func (m *ProgramMappings) validateProgram(formats strfmt.Registry) error {
 		if err := m.Program.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("program")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("program")
 			}
 			return err
 		}
@@ -141,7 +144,6 @@ func (m *ProgramMappings) validateProgram(formats strfmt.Registry) error {
 }
 
 func (m *ProgramMappings) validateQueues(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queues) { // not required
 		return nil
 	}
@@ -155,6 +157,106 @@ func (m *ProgramMappings) validateQueues(formats strfmt.Registry) error {
 			if err := m.Queues[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queues" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this program mappings based on the context it is used
+func (m *ProgramMappings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFlows(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProgram(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ProgramMappings) contextValidateFlows(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Flows); i++ {
+
+		if m.Flows[i] != nil {
+			if err := m.Flows[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("flows" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("flows" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ProgramMappings) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ProgramMappings) contextValidateProgram(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Program != nil {
+		if err := m.Program.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("program")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("program")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ProgramMappings) contextValidateQueues(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Queues); i++ {
+
+		if m.Queues[i] != nil {
+			if err := m.Queues[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

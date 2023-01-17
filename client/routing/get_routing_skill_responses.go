@@ -95,7 +95,6 @@ func (o *GetRoutingSkillReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingSkillOK() *GetRoutingSkillOK {
 	return &GetRoutingSkillOK{}
 }
 
-/*GetRoutingSkillOK handles this case with default header values.
+/*
+GetRoutingSkillOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingSkillOK struct {
 	Payload *models.RoutingSkill
 }
 
+// IsSuccess returns true when this get routing skill o k response has a 2xx status code
+func (o *GetRoutingSkillOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing skill o k response has a 3xx status code
+func (o *GetRoutingSkillOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing skill o k response has a 4xx status code
+func (o *GetRoutingSkillOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing skill o k response has a 5xx status code
+func (o *GetRoutingSkillOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing skill o k response a status code equal to that given
+func (o *GetRoutingSkillOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingSkillOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingSkillOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingSkillBadRequest() *GetRoutingSkillBadRequest {
 	return &GetRoutingSkillBadRequest{}
 }
 
-/*GetRoutingSkillBadRequest handles this case with default header values.
+/*
+GetRoutingSkillBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingSkillBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing skill bad request response has a 2xx status code
+func (o *GetRoutingSkillBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing skill bad request response has a 3xx status code
+func (o *GetRoutingSkillBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing skill bad request response has a 4xx status code
+func (o *GetRoutingSkillBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing skill bad request response has a 5xx status code
+func (o *GetRoutingSkillBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing skill bad request response a status code equal to that given
+func (o *GetRoutingSkillBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingSkillBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingSkillBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingSkillUnauthorized() *GetRoutingSkillUnauthorized {
 	return &GetRoutingSkillUnauthorized{}
 }
 
-/*GetRoutingSkillUnauthorized handles this case with default header values.
+/*
+GetRoutingSkillUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingSkillUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing skill unauthorized response has a 2xx status code
+func (o *GetRoutingSkillUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing skill unauthorized response has a 3xx status code
+func (o *GetRoutingSkillUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing skill unauthorized response has a 4xx status code
+func (o *GetRoutingSkillUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing skill unauthorized response has a 5xx status code
+func (o *GetRoutingSkillUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing skill unauthorized response a status code equal to that given
+func (o *GetRoutingSkillUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingSkillUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingSkillUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingSkillForbidden() *GetRoutingSkillForbidden {
 	return &GetRoutingSkillForbidden{}
 }
 
-/*GetRoutingSkillForbidden handles this case with default header values.
+/*
+GetRoutingSkillForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingSkillForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing skill forbidden response has a 2xx status code
+func (o *GetRoutingSkillForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing skill forbidden response has a 3xx status code
+func (o *GetRoutingSkillForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing skill forbidden response has a 4xx status code
+func (o *GetRoutingSkillForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing skill forbidden response has a 5xx status code
+func (o *GetRoutingSkillForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing skill forbidden response a status code equal to that given
+func (o *GetRoutingSkillForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingSkillForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingSkillForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingSkillNotFound() *GetRoutingSkillNotFound {
 	return &GetRoutingSkillNotFound{}
 }
 
-/*GetRoutingSkillNotFound handles this case with default header values.
+/*
+GetRoutingSkillNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingSkillNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing skill not found response has a 2xx status code
+func (o *GetRoutingSkillNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing skill not found response has a 3xx status code
+func (o *GetRoutingSkillNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing skill not found response has a 4xx status code
+func (o *GetRoutingSkillNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing skill not found response has a 5xx status code
+func (o *GetRoutingSkillNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing skill not found response a status code equal to that given
+func (o *GetRoutingSkillNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingSkillNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingSkillNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingSkillRequestTimeout() *GetRoutingSkillRequestTimeout {
 	return &GetRoutingSkillRequestTimeout{}
 }
 
-/*GetRoutingSkillRequestTimeout handles this case with default header values.
+/*
+GetRoutingSkillRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingSkillRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing skill request timeout response has a 2xx status code
+func (o *GetRoutingSkillRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing skill request timeout response has a 3xx status code
+func (o *GetRoutingSkillRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing skill request timeout response has a 4xx status code
+func (o *GetRoutingSkillRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing skill request timeout response has a 5xx status code
+func (o *GetRoutingSkillRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing skill request timeout response a status code equal to that given
+func (o *GetRoutingSkillRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingSkillRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingSkillRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingSkillRequestEntityTooLarge() *GetRoutingSkillRequestEntityTooL
 	return &GetRoutingSkillRequestEntityTooLarge{}
 }
 
-/*GetRoutingSkillRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingSkillRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingSkillRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing skill request entity too large response has a 2xx status code
+func (o *GetRoutingSkillRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing skill request entity too large response has a 3xx status code
+func (o *GetRoutingSkillRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing skill request entity too large response has a 4xx status code
+func (o *GetRoutingSkillRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing skill request entity too large response has a 5xx status code
+func (o *GetRoutingSkillRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing skill request entity too large response a status code equal to that given
+func (o *GetRoutingSkillRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingSkillRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingSkillRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingSkillUnsupportedMediaType() *GetRoutingSkillUnsupportedMediaTy
 	return &GetRoutingSkillUnsupportedMediaType{}
 }
 
-/*GetRoutingSkillUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingSkillUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingSkillUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing skill unsupported media type response has a 2xx status code
+func (o *GetRoutingSkillUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing skill unsupported media type response has a 3xx status code
+func (o *GetRoutingSkillUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing skill unsupported media type response has a 4xx status code
+func (o *GetRoutingSkillUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing skill unsupported media type response has a 5xx status code
+func (o *GetRoutingSkillUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing skill unsupported media type response a status code equal to that given
+func (o *GetRoutingSkillUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingSkillUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingSkillUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingSkillTooManyRequests() *GetRoutingSkillTooManyRequests {
 	return &GetRoutingSkillTooManyRequests{}
 }
 
-/*GetRoutingSkillTooManyRequests handles this case with default header values.
+/*
+GetRoutingSkillTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingSkillTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing skill too many requests response has a 2xx status code
+func (o *GetRoutingSkillTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing skill too many requests response has a 3xx status code
+func (o *GetRoutingSkillTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing skill too many requests response has a 4xx status code
+func (o *GetRoutingSkillTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing skill too many requests response has a 5xx status code
+func (o *GetRoutingSkillTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing skill too many requests response a status code equal to that given
+func (o *GetRoutingSkillTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingSkillTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingSkillTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingSkillInternalServerError() *GetRoutingSkillInternalServerError
 	return &GetRoutingSkillInternalServerError{}
 }
 
-/*GetRoutingSkillInternalServerError handles this case with default header values.
+/*
+GetRoutingSkillInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingSkillInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing skill internal server error response has a 2xx status code
+func (o *GetRoutingSkillInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing skill internal server error response has a 3xx status code
+func (o *GetRoutingSkillInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing skill internal server error response has a 4xx status code
+func (o *GetRoutingSkillInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing skill internal server error response has a 5xx status code
+func (o *GetRoutingSkillInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing skill internal server error response a status code equal to that given
+func (o *GetRoutingSkillInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingSkillInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingSkillInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingSkillServiceUnavailable() *GetRoutingSkillServiceUnavailable {
 	return &GetRoutingSkillServiceUnavailable{}
 }
 
-/*GetRoutingSkillServiceUnavailable handles this case with default header values.
+/*
+GetRoutingSkillServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingSkillServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing skill service unavailable response has a 2xx status code
+func (o *GetRoutingSkillServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing skill service unavailable response has a 3xx status code
+func (o *GetRoutingSkillServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing skill service unavailable response has a 4xx status code
+func (o *GetRoutingSkillServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing skill service unavailable response has a 5xx status code
+func (o *GetRoutingSkillServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing skill service unavailable response a status code equal to that given
+func (o *GetRoutingSkillServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingSkillServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingSkillServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingSkillGatewayTimeout() *GetRoutingSkillGatewayTimeout {
 	return &GetRoutingSkillGatewayTimeout{}
 }
 
-/*GetRoutingSkillGatewayTimeout handles this case with default header values.
+/*
+GetRoutingSkillGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingSkillGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing skill gateway timeout response has a 2xx status code
+func (o *GetRoutingSkillGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing skill gateway timeout response has a 3xx status code
+func (o *GetRoutingSkillGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing skill gateway timeout response has a 4xx status code
+func (o *GetRoutingSkillGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing skill gateway timeout response has a 5xx status code
+func (o *GetRoutingSkillGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing skill gateway timeout response a status code equal to that given
+func (o *GetRoutingSkillGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingSkillGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingSkillGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/skills/{skillId}][%d] getRoutingSkillGatewayTimeout  %+v", 504, o.Payload)
 }
 

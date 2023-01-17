@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // SupportedLanguage supported language
@@ -26,6 +30,42 @@ type SupportedLanguage struct {
 
 // Validate validates this supported language
 func (m *SupportedLanguage) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this supported language based on the context it is used
+func (m *SupportedLanguage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateIsDefault(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLanguage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SupportedLanguage) contextValidateIsDefault(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isDefault", "body", m.IsDefault); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SupportedLanguage) contextValidateLanguage(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "language", "body", string(m.Language)); err != nil {
+		return err
+	}
+
 	return nil
 }
 

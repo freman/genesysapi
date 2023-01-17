@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchUserRoutinglanguagesBulkParams creates a new PatchUserRoutinglanguagesBulkParams object
-// with the default values initialized.
+// NewPatchUserRoutinglanguagesBulkParams creates a new PatchUserRoutinglanguagesBulkParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchUserRoutinglanguagesBulkParams() *PatchUserRoutinglanguagesBulkParams {
-	var ()
 	return &PatchUserRoutinglanguagesBulkParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchUserRoutinglanguagesBulkParamsWithTimeout creates a new PatchUserRoutinglanguagesBulkParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchUserRoutinglanguagesBulkParamsWithTimeout(timeout time.Duration) *PatchUserRoutinglanguagesBulkParams {
-	var ()
 	return &PatchUserRoutinglanguagesBulkParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchUserRoutinglanguagesBulkParamsWithContext creates a new PatchUserRoutinglanguagesBulkParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchUserRoutinglanguagesBulkParamsWithContext(ctx context.Context) *PatchUserRoutinglanguagesBulkParams {
-	var ()
 	return &PatchUserRoutinglanguagesBulkParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchUserRoutinglanguagesBulkParamsWithHTTPClient creates a new PatchUserRoutinglanguagesBulkParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchUserRoutinglanguagesBulkParamsWithHTTPClient(client *http.Client) *PatchUserRoutinglanguagesBulkParams {
-	var ()
 	return &PatchUserRoutinglanguagesBulkParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchUserRoutinglanguagesBulkParams contains all the parameters to send to the API endpoint
-for the patch user routinglanguages bulk operation typically these are written to a http.Request
+/*
+PatchUserRoutinglanguagesBulkParams contains all the parameters to send to the API endpoint
+
+	for the patch user routinglanguages bulk operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchUserRoutinglanguagesBulkParams struct {
 
-	/*Body
-	  Language
+	/* Body.
 
+	   Language
 	*/
 	Body []*models.UserRoutingLanguagePost
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch user routinglanguages bulk params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchUserRoutinglanguagesBulkParams) WithDefaults() *PatchUserRoutinglanguagesBulkParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch user routinglanguages bulk params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchUserRoutinglanguagesBulkParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch user routinglanguages bulk params
@@ -140,7 +157,6 @@ func (o *PatchUserRoutinglanguagesBulkParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

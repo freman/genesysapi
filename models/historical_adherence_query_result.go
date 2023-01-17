@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -46,6 +47,9 @@ type HistoricalAdherenceQueryResult struct {
 	// The impact of the current adherence state for this user
 	// Enum: [Positive Negative Neutral Unknown]
 	Impact string `json:"impact,omitempty"`
+
+	// The ID of the management unit of the user for whom the adherence is queried
+	ManagementUnitID string `json:"managementUnitId,omitempty"`
 
 	// Beginning of the date range that was queried, in ISO-8601 format
 	// Format: date-time
@@ -94,7 +98,6 @@ func (m *HistoricalAdherenceQueryResult) Validate(formats strfmt.Registry) error
 }
 
 func (m *HistoricalAdherenceQueryResult) validateActuals(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Actuals) { // not required
 		return nil
 	}
@@ -108,6 +111,8 @@ func (m *HistoricalAdherenceQueryResult) validateActuals(formats strfmt.Registry
 			if err := m.Actuals[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("actuals" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("actuals" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -119,7 +124,6 @@ func (m *HistoricalAdherenceQueryResult) validateActuals(formats strfmt.Registry
 }
 
 func (m *HistoricalAdherenceQueryResult) validateActualsEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActualsEndDate) { // not required
 		return nil
 	}
@@ -132,7 +136,6 @@ func (m *HistoricalAdherenceQueryResult) validateActualsEndDate(formats strfmt.R
 }
 
 func (m *HistoricalAdherenceQueryResult) validateDayMetrics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DayMetrics) { // not required
 		return nil
 	}
@@ -146,6 +149,8 @@ func (m *HistoricalAdherenceQueryResult) validateDayMetrics(formats strfmt.Regis
 			if err := m.DayMetrics[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dayMetrics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dayMetrics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -157,7 +162,6 @@ func (m *HistoricalAdherenceQueryResult) validateDayMetrics(formats strfmt.Regis
 }
 
 func (m *HistoricalAdherenceQueryResult) validateEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndDate) { // not required
 		return nil
 	}
@@ -170,7 +174,6 @@ func (m *HistoricalAdherenceQueryResult) validateEndDate(formats strfmt.Registry
 }
 
 func (m *HistoricalAdherenceQueryResult) validateExceptionInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExceptionInfo) { // not required
 		return nil
 	}
@@ -184,6 +187,8 @@ func (m *HistoricalAdherenceQueryResult) validateExceptionInfo(formats strfmt.Re
 			if err := m.ExceptionInfo[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("exceptionInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("exceptionInfo" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -230,7 +235,6 @@ func (m *HistoricalAdherenceQueryResult) validateImpactEnum(path, location strin
 }
 
 func (m *HistoricalAdherenceQueryResult) validateImpact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Impact) { // not required
 		return nil
 	}
@@ -244,13 +248,94 @@ func (m *HistoricalAdherenceQueryResult) validateImpact(formats strfmt.Registry)
 }
 
 func (m *HistoricalAdherenceQueryResult) validateStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDate) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("startDate", "body", "date-time", m.StartDate.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this historical adherence query result based on the context it is used
+func (m *HistoricalAdherenceQueryResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActuals(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDayMetrics(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExceptionInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *HistoricalAdherenceQueryResult) contextValidateActuals(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Actuals); i++ {
+
+		if m.Actuals[i] != nil {
+			if err := m.Actuals[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("actuals" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("actuals" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *HistoricalAdherenceQueryResult) contextValidateDayMetrics(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DayMetrics); i++ {
+
+		if m.DayMetrics[i] != nil {
+			if err := m.DayMetrics[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("dayMetrics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dayMetrics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *HistoricalAdherenceQueryResult) contextValidateExceptionInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ExceptionInfo); i++ {
+
+		if m.ExceptionInfo[i] != nil {
+			if err := m.ExceptionInfo[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("exceptionInfo" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("exceptionInfo" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

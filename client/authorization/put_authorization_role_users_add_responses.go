@@ -95,7 +95,6 @@ func (o *PutAuthorizationRoleUsersAddReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutAuthorizationRoleUsersAddOK() *PutAuthorizationRoleUsersAddOK {
 	return &PutAuthorizationRoleUsersAddOK{}
 }
 
-/*PutAuthorizationRoleUsersAddOK handles this case with default header values.
+/*
+PutAuthorizationRoleUsersAddOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutAuthorizationRoleUsersAddOK struct {
 	Payload []string
 }
 
+// IsSuccess returns true when this put authorization role users add o k response has a 2xx status code
+func (o *PutAuthorizationRoleUsersAddOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put authorization role users add o k response has a 3xx status code
+func (o *PutAuthorizationRoleUsersAddOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users add o k response has a 4xx status code
+func (o *PutAuthorizationRoleUsersAddOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization role users add o k response has a 5xx status code
+func (o *PutAuthorizationRoleUsersAddOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users add o k response a status code equal to that given
+func (o *PutAuthorizationRoleUsersAddOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutAuthorizationRoleUsersAddOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddOK  %+v", 200, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersAddOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewPutAuthorizationRoleUsersAddBadRequest() *PutAuthorizationRoleUsersAddBa
 	return &PutAuthorizationRoleUsersAddBadRequest{}
 }
 
-/*PutAuthorizationRoleUsersAddBadRequest handles this case with default header values.
+/*
+PutAuthorizationRoleUsersAddBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type PutAuthorizationRoleUsersAddBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users add bad request response has a 2xx status code
+func (o *PutAuthorizationRoleUsersAddBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users add bad request response has a 3xx status code
+func (o *PutAuthorizationRoleUsersAddBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users add bad request response has a 4xx status code
+func (o *PutAuthorizationRoleUsersAddBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users add bad request response has a 5xx status code
+func (o *PutAuthorizationRoleUsersAddBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users add bad request response a status code equal to that given
+func (o *PutAuthorizationRoleUsersAddBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutAuthorizationRoleUsersAddBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersAddBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewPutAuthorizationRoleUsersAddUnauthorized() *PutAuthorizationRoleUsersAdd
 	return &PutAuthorizationRoleUsersAddUnauthorized{}
 }
 
-/*PutAuthorizationRoleUsersAddUnauthorized handles this case with default header values.
+/*
+PutAuthorizationRoleUsersAddUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type PutAuthorizationRoleUsersAddUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users add unauthorized response has a 2xx status code
+func (o *PutAuthorizationRoleUsersAddUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users add unauthorized response has a 3xx status code
+func (o *PutAuthorizationRoleUsersAddUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users add unauthorized response has a 4xx status code
+func (o *PutAuthorizationRoleUsersAddUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users add unauthorized response has a 5xx status code
+func (o *PutAuthorizationRoleUsersAddUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users add unauthorized response a status code equal to that given
+func (o *PutAuthorizationRoleUsersAddUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutAuthorizationRoleUsersAddUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersAddUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewPutAuthorizationRoleUsersAddForbidden() *PutAuthorizationRoleUsersAddFor
 	return &PutAuthorizationRoleUsersAddForbidden{}
 }
 
-/*PutAuthorizationRoleUsersAddForbidden handles this case with default header values.
+/*
+PutAuthorizationRoleUsersAddForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type PutAuthorizationRoleUsersAddForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users add forbidden response has a 2xx status code
+func (o *PutAuthorizationRoleUsersAddForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users add forbidden response has a 3xx status code
+func (o *PutAuthorizationRoleUsersAddForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users add forbidden response has a 4xx status code
+func (o *PutAuthorizationRoleUsersAddForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users add forbidden response has a 5xx status code
+func (o *PutAuthorizationRoleUsersAddForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users add forbidden response a status code equal to that given
+func (o *PutAuthorizationRoleUsersAddForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutAuthorizationRoleUsersAddForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersAddForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewPutAuthorizationRoleUsersAddNotFound() *PutAuthorizationRoleUsersAddNotF
 	return &PutAuthorizationRoleUsersAddNotFound{}
 }
 
-/*PutAuthorizationRoleUsersAddNotFound handles this case with default header values.
+/*
+PutAuthorizationRoleUsersAddNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type PutAuthorizationRoleUsersAddNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users add not found response has a 2xx status code
+func (o *PutAuthorizationRoleUsersAddNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users add not found response has a 3xx status code
+func (o *PutAuthorizationRoleUsersAddNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users add not found response has a 4xx status code
+func (o *PutAuthorizationRoleUsersAddNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users add not found response has a 5xx status code
+func (o *PutAuthorizationRoleUsersAddNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users add not found response a status code equal to that given
+func (o *PutAuthorizationRoleUsersAddNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutAuthorizationRoleUsersAddNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersAddNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewPutAuthorizationRoleUsersAddRequestTimeout() *PutAuthorizationRoleUsersA
 	return &PutAuthorizationRoleUsersAddRequestTimeout{}
 }
 
-/*PutAuthorizationRoleUsersAddRequestTimeout handles this case with default header values.
+/*
+PutAuthorizationRoleUsersAddRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type PutAuthorizationRoleUsersAddRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users add request timeout response has a 2xx status code
+func (o *PutAuthorizationRoleUsersAddRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users add request timeout response has a 3xx status code
+func (o *PutAuthorizationRoleUsersAddRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users add request timeout response has a 4xx status code
+func (o *PutAuthorizationRoleUsersAddRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users add request timeout response has a 5xx status code
+func (o *PutAuthorizationRoleUsersAddRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users add request timeout response a status code equal to that given
+func (o *PutAuthorizationRoleUsersAddRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutAuthorizationRoleUsersAddRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersAddRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewPutAuthorizationRoleUsersAddRequestEntityTooLarge() *PutAuthorizationRol
 	return &PutAuthorizationRoleUsersAddRequestEntityTooLarge{}
 }
 
-/*PutAuthorizationRoleUsersAddRequestEntityTooLarge handles this case with default header values.
+/*
+PutAuthorizationRoleUsersAddRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type PutAuthorizationRoleUsersAddRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users add request entity too large response has a 2xx status code
+func (o *PutAuthorizationRoleUsersAddRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users add request entity too large response has a 3xx status code
+func (o *PutAuthorizationRoleUsersAddRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users add request entity too large response has a 4xx status code
+func (o *PutAuthorizationRoleUsersAddRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users add request entity too large response has a 5xx status code
+func (o *PutAuthorizationRoleUsersAddRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users add request entity too large response a status code equal to that given
+func (o *PutAuthorizationRoleUsersAddRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutAuthorizationRoleUsersAddRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersAddRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewPutAuthorizationRoleUsersAddUnsupportedMediaType() *PutAuthorizationRole
 	return &PutAuthorizationRoleUsersAddUnsupportedMediaType{}
 }
 
-/*PutAuthorizationRoleUsersAddUnsupportedMediaType handles this case with default header values.
+/*
+PutAuthorizationRoleUsersAddUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type PutAuthorizationRoleUsersAddUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users add unsupported media type response has a 2xx status code
+func (o *PutAuthorizationRoleUsersAddUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users add unsupported media type response has a 3xx status code
+func (o *PutAuthorizationRoleUsersAddUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users add unsupported media type response has a 4xx status code
+func (o *PutAuthorizationRoleUsersAddUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users add unsupported media type response has a 5xx status code
+func (o *PutAuthorizationRoleUsersAddUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users add unsupported media type response a status code equal to that given
+func (o *PutAuthorizationRoleUsersAddUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutAuthorizationRoleUsersAddUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersAddUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewPutAuthorizationRoleUsersAddTooManyRequests() *PutAuthorizationRoleUsers
 	return &PutAuthorizationRoleUsersAddTooManyRequests{}
 }
 
-/*PutAuthorizationRoleUsersAddTooManyRequests handles this case with default header values.
+/*
+PutAuthorizationRoleUsersAddTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type PutAuthorizationRoleUsersAddTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users add too many requests response has a 2xx status code
+func (o *PutAuthorizationRoleUsersAddTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users add too many requests response has a 3xx status code
+func (o *PutAuthorizationRoleUsersAddTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users add too many requests response has a 4xx status code
+func (o *PutAuthorizationRoleUsersAddTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users add too many requests response has a 5xx status code
+func (o *PutAuthorizationRoleUsersAddTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users add too many requests response a status code equal to that given
+func (o *PutAuthorizationRoleUsersAddTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutAuthorizationRoleUsersAddTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersAddTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewPutAuthorizationRoleUsersAddInternalServerError() *PutAuthorizationRoleU
 	return &PutAuthorizationRoleUsersAddInternalServerError{}
 }
 
-/*PutAuthorizationRoleUsersAddInternalServerError handles this case with default header values.
+/*
+PutAuthorizationRoleUsersAddInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type PutAuthorizationRoleUsersAddInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users add internal server error response has a 2xx status code
+func (o *PutAuthorizationRoleUsersAddInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users add internal server error response has a 3xx status code
+func (o *PutAuthorizationRoleUsersAddInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users add internal server error response has a 4xx status code
+func (o *PutAuthorizationRoleUsersAddInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization role users add internal server error response has a 5xx status code
+func (o *PutAuthorizationRoleUsersAddInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put authorization role users add internal server error response a status code equal to that given
+func (o *PutAuthorizationRoleUsersAddInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutAuthorizationRoleUsersAddInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersAddInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewPutAuthorizationRoleUsersAddServiceUnavailable() *PutAuthorizationRoleUs
 	return &PutAuthorizationRoleUsersAddServiceUnavailable{}
 }
 
-/*PutAuthorizationRoleUsersAddServiceUnavailable handles this case with default header values.
+/*
+PutAuthorizationRoleUsersAddServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type PutAuthorizationRoleUsersAddServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users add service unavailable response has a 2xx status code
+func (o *PutAuthorizationRoleUsersAddServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users add service unavailable response has a 3xx status code
+func (o *PutAuthorizationRoleUsersAddServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users add service unavailable response has a 4xx status code
+func (o *PutAuthorizationRoleUsersAddServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization role users add service unavailable response has a 5xx status code
+func (o *PutAuthorizationRoleUsersAddServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put authorization role users add service unavailable response a status code equal to that given
+func (o *PutAuthorizationRoleUsersAddServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutAuthorizationRoleUsersAddServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersAddServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewPutAuthorizationRoleUsersAddGatewayTimeout() *PutAuthorizationRoleUsersA
 	return &PutAuthorizationRoleUsersAddGatewayTimeout{}
 }
 
-/*PutAuthorizationRoleUsersAddGatewayTimeout handles this case with default header values.
+/*
+PutAuthorizationRoleUsersAddGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type PutAuthorizationRoleUsersAddGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users add gateway timeout response has a 2xx status code
+func (o *PutAuthorizationRoleUsersAddGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users add gateway timeout response has a 3xx status code
+func (o *PutAuthorizationRoleUsersAddGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users add gateway timeout response has a 4xx status code
+func (o *PutAuthorizationRoleUsersAddGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization role users add gateway timeout response has a 5xx status code
+func (o *PutAuthorizationRoleUsersAddGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put authorization role users add gateway timeout response a status code equal to that given
+func (o *PutAuthorizationRoleUsersAddGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutAuthorizationRoleUsersAddGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersAddGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/add][%d] putAuthorizationRoleUsersAddGatewayTimeout  %+v", 504, o.Payload)
 }
 

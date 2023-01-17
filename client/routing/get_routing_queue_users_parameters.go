@@ -17,139 +17,163 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRoutingQueueUsersParams creates a new GetRoutingQueueUsersParams object
-// with the default values initialized.
+// NewGetRoutingQueueUsersParams creates a new GetRoutingQueueUsersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingQueueUsersParams() *GetRoutingQueueUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("asc")
-	)
 	return &GetRoutingQueueUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingQueueUsersParamsWithTimeout creates a new GetRoutingQueueUsersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingQueueUsersParamsWithTimeout(timeout time.Duration) *GetRoutingQueueUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("asc")
-	)
 	return &GetRoutingQueueUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingQueueUsersParamsWithContext creates a new GetRoutingQueueUsersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingQueueUsersParamsWithContext(ctx context.Context) *GetRoutingQueueUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("asc")
-	)
 	return &GetRoutingQueueUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingQueueUsersParamsWithHTTPClient creates a new GetRoutingQueueUsersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingQueueUsersParamsWithHTTPClient(client *http.Client) *GetRoutingQueueUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("asc")
-	)
 	return &GetRoutingQueueUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingQueueUsersParams contains all the parameters to send to the API endpoint
-for the get routing queue users operation typically these are written to a http.Request
+/*
+GetRoutingQueueUsersParams contains all the parameters to send to the API endpoint
+
+	for the get routing queue users operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingQueueUsersParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand.
+	/* Expand.
 
+	   Which fields, if any, to expand.
 	*/
 	Expand []string
-	/*Joined
-	  Filter by joined status
 
+	/* Joined.
+
+	   Filter by joined status
 	*/
 	Joined *bool
-	/*Languages
-	  Filter by language
 
+	/* Languages.
+
+	   Filter by language
 	*/
 	Languages []string
-	/*Name
-	  Filter by queue member name
 
+	/* Name.
+
+	   Filter by queue member name
 	*/
 	Name *string
-	/*PageNumber*/
-	PageNumber *int32
-	/*PageSize
-	  Max value is 100
 
+	// PageNumber.
+	//
+	// Format: int32
+	// Default: 1
+	PageNumber *int32
+
+	/* PageSize.
+
+	   Max value is 100
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*Presence
-	  Filter by presence
 
+	/* Presence.
+
+	   Filter by presence
 	*/
 	Presence []string
-	/*ProfileSkills
-	  Filter by profile skill
 
+	/* ProfileSkills.
+
+	   Filter by profile skill
 	*/
 	ProfileSkills []string
-	/*QueueID
-	  Queue ID
 
+	/* QueueID.
+
+	   Queue ID
 	*/
 	QueueID string
-	/*RoutingStatus
-	  Filter by routing status
 
+	/* RoutingStatus.
+
+	   Filter by routing status
 	*/
 	RoutingStatus []string
-	/*Skills
-	  Filter by skill
 
+	/* Skills.
+
+	   Filter by skill
 	*/
 	Skills []string
-	/*SortOrder
-	  Note: results are sorted by name.
 
+	/* SortOrder.
+
+	   Note: results are sorted by name.
+
+	   Default: "asc"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing queue users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingQueueUsersParams) WithDefaults() *GetRoutingQueueUsersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing queue users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingQueueUsersParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortOrderDefault = string("asc")
+	)
+
+	val := GetRoutingQueueUsersParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get routing queue users params
@@ -325,100 +349,116 @@ func (o *GetRoutingQueueUsersParams) WriteToRequest(r runtime.ClientRequest, reg
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.Joined != nil {
 
 		// query param joined
 		var qrJoined bool
+
 		if o.Joined != nil {
 			qrJoined = *o.Joined
 		}
 		qJoined := swag.FormatBool(qrJoined)
 		if qJoined != "" {
+
 			if err := r.SetQueryParam("joined", qJoined); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesLanguages := o.Languages
+	if o.Languages != nil {
 
-	joinedLanguages := swag.JoinByFormat(valuesLanguages, "multi")
-	// query array param languages
-	if err := r.SetQueryParam("languages", joinedLanguages...); err != nil {
-		return err
+		// binding items for languages
+		joinedLanguages := o.bindParamLanguages(reg)
+
+		// query array param languages
+		if err := r.SetQueryParam("languages", joinedLanguages...); err != nil {
+			return err
+		}
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesPresence := o.Presence
+	if o.Presence != nil {
 
-	joinedPresence := swag.JoinByFormat(valuesPresence, "multi")
-	// query array param presence
-	if err := r.SetQueryParam("presence", joinedPresence...); err != nil {
-		return err
+		// binding items for presence
+		joinedPresence := o.bindParamPresence(reg)
+
+		// query array param presence
+		if err := r.SetQueryParam("presence", joinedPresence...); err != nil {
+			return err
+		}
 	}
 
-	valuesProfileSkills := o.ProfileSkills
+	if o.ProfileSkills != nil {
 
-	joinedProfileSkills := swag.JoinByFormat(valuesProfileSkills, "multi")
-	// query array param profileSkills
-	if err := r.SetQueryParam("profileSkills", joinedProfileSkills...); err != nil {
-		return err
+		// binding items for profileSkills
+		joinedProfileSkills := o.bindParamProfileSkills(reg)
+
+		// query array param profileSkills
+		if err := r.SetQueryParam("profileSkills", joinedProfileSkills...); err != nil {
+			return err
+		}
 	}
 
 	// path param queueId
@@ -426,40 +466,149 @@ func (o *GetRoutingQueueUsersParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 
-	valuesRoutingStatus := o.RoutingStatus
+	if o.RoutingStatus != nil {
 
-	joinedRoutingStatus := swag.JoinByFormat(valuesRoutingStatus, "multi")
-	// query array param routingStatus
-	if err := r.SetQueryParam("routingStatus", joinedRoutingStatus...); err != nil {
-		return err
+		// binding items for routingStatus
+		joinedRoutingStatus := o.bindParamRoutingStatus(reg)
+
+		// query array param routingStatus
+		if err := r.SetQueryParam("routingStatus", joinedRoutingStatus...); err != nil {
+			return err
+		}
 	}
 
-	valuesSkills := o.Skills
+	if o.Skills != nil {
 
-	joinedSkills := swag.JoinByFormat(valuesSkills, "multi")
-	// query array param skills
-	if err := r.SetQueryParam("skills", joinedSkills...); err != nil {
-		return err
+		// binding items for skills
+		joinedSkills := o.bindParamSkills(reg)
+
+		// query array param skills
+		if err := r.SetQueryParam("skills", joinedSkills...); err != nil {
+			return err
+		}
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetRoutingQueueUsers binds the parameter expand
+func (o *GetRoutingQueueUsersParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
+}
+
+// bindParamGetRoutingQueueUsers binds the parameter languages
+func (o *GetRoutingQueueUsersParams) bindParamLanguages(formats strfmt.Registry) []string {
+	languagesIR := o.Languages
+
+	var languagesIC []string
+	for _, languagesIIR := range languagesIR { // explode []string
+
+		languagesIIV := languagesIIR // string as string
+		languagesIC = append(languagesIC, languagesIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	languagesIS := swag.JoinByFormat(languagesIC, "multi")
+
+	return languagesIS
+}
+
+// bindParamGetRoutingQueueUsers binds the parameter presence
+func (o *GetRoutingQueueUsersParams) bindParamPresence(formats strfmt.Registry) []string {
+	presenceIR := o.Presence
+
+	var presenceIC []string
+	for _, presenceIIR := range presenceIR { // explode []string
+
+		presenceIIV := presenceIIR // string as string
+		presenceIC = append(presenceIC, presenceIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	presenceIS := swag.JoinByFormat(presenceIC, "multi")
+
+	return presenceIS
+}
+
+// bindParamGetRoutingQueueUsers binds the parameter profileSkills
+func (o *GetRoutingQueueUsersParams) bindParamProfileSkills(formats strfmt.Registry) []string {
+	profileSkillsIR := o.ProfileSkills
+
+	var profileSkillsIC []string
+	for _, profileSkillsIIR := range profileSkillsIR { // explode []string
+
+		profileSkillsIIV := profileSkillsIIR // string as string
+		profileSkillsIC = append(profileSkillsIC, profileSkillsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	profileSkillsIS := swag.JoinByFormat(profileSkillsIC, "multi")
+
+	return profileSkillsIS
+}
+
+// bindParamGetRoutingQueueUsers binds the parameter routingStatus
+func (o *GetRoutingQueueUsersParams) bindParamRoutingStatus(formats strfmt.Registry) []string {
+	routingStatusIR := o.RoutingStatus
+
+	var routingStatusIC []string
+	for _, routingStatusIIR := range routingStatusIR { // explode []string
+
+		routingStatusIIV := routingStatusIIR // string as string
+		routingStatusIC = append(routingStatusIC, routingStatusIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	routingStatusIS := swag.JoinByFormat(routingStatusIC, "multi")
+
+	return routingStatusIS
+}
+
+// bindParamGetRoutingQueueUsers binds the parameter skills
+func (o *GetRoutingQueueUsersParams) bindParamSkills(formats strfmt.Registry) []string {
+	skillsIR := o.Skills
+
+	var skillsIC []string
+	for _, skillsIIR := range skillsIR { // explode []string
+
+		skillsIIV := skillsIIR // string as string
+		skillsIC = append(skillsIC, skillsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	skillsIS := swag.JoinByFormat(skillsIC, "multi")
+
+	return skillsIS
 }

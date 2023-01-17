@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *CrossPlatformMessageMediaPolicy) Validate(formats strfmt.Registry) erro
 }
 
 func (m *CrossPlatformMessageMediaPolicy) validateActions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Actions) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *CrossPlatformMessageMediaPolicy) validateActions(formats strfmt.Registr
 		if err := m.Actions.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("actions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actions")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *CrossPlatformMessageMediaPolicy) validateActions(formats strfmt.Registr
 }
 
 func (m *CrossPlatformMessageMediaPolicy) validateConditions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conditions) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *CrossPlatformMessageMediaPolicy) validateConditions(formats strfmt.Regi
 		if err := m.Conditions.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conditions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conditions")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this cross platform message media policy based on the context it is used
+func (m *CrossPlatformMessageMediaPolicy) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConditions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CrossPlatformMessageMediaPolicy) contextValidateActions(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Actions != nil {
+		if err := m.Actions.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("actions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actions")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CrossPlatformMessageMediaPolicy) contextValidateConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conditions != nil {
+		if err := m.Conditions.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conditions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conditions")
 			}
 			return err
 		}

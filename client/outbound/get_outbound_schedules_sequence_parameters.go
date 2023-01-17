@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundSchedulesSequenceParams creates a new GetOutboundSchedulesSequenceParams object
-// with the default values initialized.
+// NewGetOutboundSchedulesSequenceParams creates a new GetOutboundSchedulesSequenceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundSchedulesSequenceParams() *GetOutboundSchedulesSequenceParams {
-	var ()
 	return &GetOutboundSchedulesSequenceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundSchedulesSequenceParamsWithTimeout creates a new GetOutboundSchedulesSequenceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundSchedulesSequenceParamsWithTimeout(timeout time.Duration) *GetOutboundSchedulesSequenceParams {
-	var ()
 	return &GetOutboundSchedulesSequenceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundSchedulesSequenceParamsWithContext creates a new GetOutboundSchedulesSequenceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundSchedulesSequenceParamsWithContext(ctx context.Context) *GetOutboundSchedulesSequenceParams {
-	var ()
 	return &GetOutboundSchedulesSequenceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundSchedulesSequenceParamsWithHTTPClient creates a new GetOutboundSchedulesSequenceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundSchedulesSequenceParamsWithHTTPClient(client *http.Client) *GetOutboundSchedulesSequenceParams {
-	var ()
 	return &GetOutboundSchedulesSequenceParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundSchedulesSequenceParams contains all the parameters to send to the API endpoint
-for the get outbound schedules sequence operation typically these are written to a http.Request
+/*
+GetOutboundSchedulesSequenceParams contains all the parameters to send to the API endpoint
+
+	for the get outbound schedules sequence operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundSchedulesSequenceParams struct {
 
-	/*SequenceID
-	  Sequence ID
+	/* SequenceID.
 
+	   Sequence ID
 	*/
 	SequenceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound schedules sequence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundSchedulesSequenceParams) WithDefaults() *GetOutboundSchedulesSequenceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound schedules sequence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundSchedulesSequenceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get outbound schedules sequence params

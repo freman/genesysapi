@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostCoachingScheduleslotsQueryParams creates a new PostCoachingScheduleslotsQueryParams object
-// with the default values initialized.
+// NewPostCoachingScheduleslotsQueryParams creates a new PostCoachingScheduleslotsQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostCoachingScheduleslotsQueryParams() *PostCoachingScheduleslotsQueryParams {
-	var ()
 	return &PostCoachingScheduleslotsQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostCoachingScheduleslotsQueryParamsWithTimeout creates a new PostCoachingScheduleslotsQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostCoachingScheduleslotsQueryParamsWithTimeout(timeout time.Duration) *PostCoachingScheduleslotsQueryParams {
-	var ()
 	return &PostCoachingScheduleslotsQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostCoachingScheduleslotsQueryParamsWithContext creates a new PostCoachingScheduleslotsQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostCoachingScheduleslotsQueryParamsWithContext(ctx context.Context) *PostCoachingScheduleslotsQueryParams {
-	var ()
 	return &PostCoachingScheduleslotsQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostCoachingScheduleslotsQueryParamsWithHTTPClient creates a new PostCoachingScheduleslotsQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostCoachingScheduleslotsQueryParamsWithHTTPClient(client *http.Client) *PostCoachingScheduleslotsQueryParams {
-	var ()
 	return &PostCoachingScheduleslotsQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostCoachingScheduleslotsQueryParams contains all the parameters to send to the API endpoint
-for the post coaching scheduleslots query operation typically these are written to a http.Request
+/*
+PostCoachingScheduleslotsQueryParams contains all the parameters to send to the API endpoint
+
+	for the post coaching scheduleslots query operation.
+
+	Typically these are written to a http.Request.
 */
 type PostCoachingScheduleslotsQueryParams struct {
 
-	/*Body
-	  The slot search request
+	/* Body.
 
+	   The slot search request
 	*/
 	Body *models.CoachingSlotsRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post coaching scheduleslots query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostCoachingScheduleslotsQueryParams) WithDefaults() *PostCoachingScheduleslotsQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post coaching scheduleslots query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostCoachingScheduleslotsQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post coaching scheduleslots query params
@@ -124,7 +140,6 @@ func (o *PostCoachingScheduleslotsQueryParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

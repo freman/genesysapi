@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -81,7 +82,6 @@ func (m *PatchAction) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PatchAction) validateActionTemplate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionTemplate) { // not required
 		return nil
 	}
@@ -90,6 +90,8 @@ func (m *PatchAction) validateActionTemplate(formats strfmt.Registry) error {
 		if err := m.ActionTemplate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("actionTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actionTemplate")
 			}
 			return err
 		}
@@ -99,7 +101,6 @@ func (m *PatchAction) validateActionTemplate(formats strfmt.Registry) error {
 }
 
 func (m *PatchAction) validateArchitectFlowFields(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ArchitectFlowFields) { // not required
 		return nil
 	}
@@ -108,6 +109,8 @@ func (m *PatchAction) validateArchitectFlowFields(formats strfmt.Registry) error
 		if err := m.ArchitectFlowFields.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("architectFlowFields")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("architectFlowFields")
 			}
 			return err
 		}
@@ -172,7 +175,6 @@ func (m *PatchAction) validateMediaType(formats strfmt.Registry) error {
 }
 
 func (m *PatchAction) validateOpenActionFields(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OpenActionFields) { // not required
 		return nil
 	}
@@ -181,6 +183,8 @@ func (m *PatchAction) validateOpenActionFields(formats strfmt.Registry) error {
 		if err := m.OpenActionFields.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("openActionFields")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("openActionFields")
 			}
 			return err
 		}
@@ -190,7 +194,6 @@ func (m *PatchAction) validateOpenActionFields(formats strfmt.Registry) error {
 }
 
 func (m *PatchAction) validateProps(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Props) { // not required
 		return nil
 	}
@@ -199,6 +202,8 @@ func (m *PatchAction) validateProps(formats strfmt.Registry) error {
 		if err := m.Props.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("props")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("props")
 			}
 			return err
 		}
@@ -208,7 +213,6 @@ func (m *PatchAction) validateProps(formats strfmt.Registry) error {
 }
 
 func (m *PatchAction) validateWebMessagingOfferFields(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WebMessagingOfferFields) { // not required
 		return nil
 	}
@@ -217,6 +221,118 @@ func (m *PatchAction) validateWebMessagingOfferFields(formats strfmt.Registry) e
 		if err := m.WebMessagingOfferFields.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("webMessagingOfferFields")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("webMessagingOfferFields")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this patch action based on the context it is used
+func (m *PatchAction) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActionTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateArchitectFlowFields(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOpenActionFields(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProps(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWebMessagingOfferFields(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PatchAction) contextValidateActionTemplate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ActionTemplate != nil {
+		if err := m.ActionTemplate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("actionTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actionTemplate")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PatchAction) contextValidateArchitectFlowFields(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ArchitectFlowFields != nil {
+		if err := m.ArchitectFlowFields.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("architectFlowFields")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("architectFlowFields")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PatchAction) contextValidateOpenActionFields(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OpenActionFields != nil {
+		if err := m.OpenActionFields.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("openActionFields")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("openActionFields")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PatchAction) contextValidateProps(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Props != nil {
+		if err := m.Props.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("props")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("props")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PatchAction) contextValidateWebMessagingOfferFields(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WebMessagingOfferFields != nil {
+		if err := m.WebMessagingOfferFields.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("webMessagingOfferFields")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("webMessagingOfferFields")
 			}
 			return err
 		}

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -33,7 +35,7 @@ type WfmHistoricalAdherenceQuery struct {
 	// Unique: true
 	TeamIds []string `json:"teamIds"`
 
-	// The time zone, in olson format, to use in defining days when computing adherence. If it is not set, the business unit time zone will be used. The results will be returned as UTC timestamps regardless of the time zone input.
+	// The time zone, in olson format, to use in defining days when computing adherence. The results will be returned as UTC timestamps regardless of the time zone input.
 	TimeZone string `json:"timeZone,omitempty"`
 
 	// The userIds to report on. If null or not set, adherence will be computed for all the users in management unit or requested teamIds
@@ -68,7 +70,6 @@ func (m *WfmHistoricalAdherenceQuery) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WfmHistoricalAdherenceQuery) validateEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndDate) { // not required
 		return nil
 	}
@@ -94,7 +95,6 @@ func (m *WfmHistoricalAdherenceQuery) validateStartDate(formats strfmt.Registry)
 }
 
 func (m *WfmHistoricalAdherenceQuery) validateTeamIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TeamIds) { // not required
 		return nil
 	}
@@ -107,7 +107,6 @@ func (m *WfmHistoricalAdherenceQuery) validateTeamIds(formats strfmt.Registry) e
 }
 
 func (m *WfmHistoricalAdherenceQuery) validateUserIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserIds) { // not required
 		return nil
 	}
@@ -116,6 +115,11 @@ func (m *WfmHistoricalAdherenceQuery) validateUserIds(formats strfmt.Registry) e
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this wfm historical adherence query based on context it is used
+func (m *WfmHistoricalAdherenceQuery) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

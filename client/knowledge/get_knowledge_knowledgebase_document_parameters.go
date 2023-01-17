@@ -17,74 +17,93 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetKnowledgeKnowledgebaseDocumentParams creates a new GetKnowledgeKnowledgebaseDocumentParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseDocumentParams creates a new GetKnowledgeKnowledgebaseDocumentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseDocumentParams() *GetKnowledgeKnowledgebaseDocumentParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentParamsWithTimeout creates a new GetKnowledgeKnowledgebaseDocumentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseDocumentParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseDocumentParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentParamsWithContext creates a new GetKnowledgeKnowledgebaseDocumentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseDocumentParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseDocumentParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseDocumentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseDocumentParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseDocumentParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase document operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseDocumentParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase document operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseDocumentParams struct {
 
-	/*DocumentID
-	  Document ID.
+	/* DocumentID.
 
+	   Document ID.
 	*/
 	DocumentID string
-	/*Expand
-	  The specified entity attributes will be filled. Comma separated values expected. Max No. of variations that can be returned on expand is 20.
 
+	/* Expand.
+
+	   The specified entity attributes will be filled. Comma separated values expected. Max No. of variations that can be returned on expand is 20.
 	*/
 	Expand []string
-	/*KnowledgeBaseID
-	  Knowledge base ID.
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID.
 	*/
 	KnowledgeBaseID string
-	/*State
-	  "when state is "Draft", draft version of the document is returned,otherwise by default published version is returned in the response.
 
+	/* State.
+
+	   "when state is "Draft", draft version of the document is returned,otherwise by default published version is returned in the response.
 	*/
 	State *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseDocumentParams) WithDefaults() *GetKnowledgeKnowledgebaseDocumentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseDocumentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase document params
@@ -177,12 +196,15 @@ func (o *GetKnowledgeKnowledgebaseDocumentParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// path param knowledgeBaseId
@@ -194,20 +216,38 @@ func (o *GetKnowledgeKnowledgebaseDocumentParams) WriteToRequest(r runtime.Clien
 
 		// query param state
 		var qrState string
+
 		if o.State != nil {
 			qrState = *o.State
 		}
 		qState := qrState
 		if qState != "" {
+
 			if err := r.SetQueryParam("state", qState); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetKnowledgeKnowledgebaseDocument binds the parameter expand
+func (o *GetKnowledgeKnowledgebaseDocumentParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

@@ -17,140 +17,159 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetOutboundMessagingcampaignsParams creates a new GetOutboundMessagingcampaignsParams object
-// with the default values initialized.
+// NewGetOutboundMessagingcampaignsParams creates a new GetOutboundMessagingcampaignsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundMessagingcampaignsParams() *GetOutboundMessagingcampaignsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetOutboundMessagingcampaignsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundMessagingcampaignsParamsWithTimeout creates a new GetOutboundMessagingcampaignsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundMessagingcampaignsParamsWithTimeout(timeout time.Duration) *GetOutboundMessagingcampaignsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetOutboundMessagingcampaignsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundMessagingcampaignsParamsWithContext creates a new GetOutboundMessagingcampaignsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundMessagingcampaignsParamsWithContext(ctx context.Context) *GetOutboundMessagingcampaignsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetOutboundMessagingcampaignsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundMessagingcampaignsParamsWithHTTPClient creates a new GetOutboundMessagingcampaignsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundMessagingcampaignsParamsWithHTTPClient(client *http.Client) *GetOutboundMessagingcampaignsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetOutboundMessagingcampaignsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundMessagingcampaignsParams contains all the parameters to send to the API endpoint
-for the get outbound messagingcampaigns operation typically these are written to a http.Request
+/*
+GetOutboundMessagingcampaignsParams contains all the parameters to send to the API endpoint
+
+	for the get outbound messagingcampaigns operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundMessagingcampaignsParams struct {
 
-	/*ContactListID
-	  Contact List ID
+	/* ContactListID.
 
+	   Contact List ID
 	*/
 	ContactListID *string
-	/*DivisionID
-	  Division ID(s)
 
+	/* DivisionID.
+
+	   Division ID(s)
 	*/
 	DivisionID []string
-	/*ID
-	  A list of messaging campaign ids to bulk fetch
 
+	/* ID.
+
+	   A list of messaging campaign ids to bulk fetch
 	*/
 	ID []string
-	/*Name
-	  Name
 
+	/* Name.
+
+	   Name
 	*/
 	Name *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size. The max that will be returned is 100.
 
+	/* PageSize.
+
+	   Page size. The max that will be returned is 100.
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SenderSmsPhoneNumber
-	  Sender SMS Phone Number
 
+	/* SenderSmsPhoneNumber.
+
+	   Sender SMS Phone Number
 	*/
 	SenderSmsPhoneNumber *string
-	/*SortBy
-	  The field to sort by
 
+	/* SortBy.
+
+	   The field to sort by
+
+	   Default: "name"
 	*/
 	SortBy *string
-	/*SortOrder
-	  The direction to sort
 
+	/* SortOrder.
+
+	   The direction to sort
+
+	   Default: "ascending"
 	*/
 	SortOrder *string
-	/*Type
-	  Campaign Type
 
+	/* Type.
+
+	   Campaign Type
 	*/
 	Type *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound messagingcampaigns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundMessagingcampaignsParams) WithDefaults() *GetOutboundMessagingcampaignsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound messagingcampaigns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundMessagingcampaignsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("name")
+
+		sortOrderDefault = string("ascending")
+	)
+
+	val := GetOutboundMessagingcampaignsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get outbound messagingcampaigns params
@@ -308,148 +327,196 @@ func (o *GetOutboundMessagingcampaignsParams) WriteToRequest(r runtime.ClientReq
 
 		// query param contactListId
 		var qrContactListID string
+
 		if o.ContactListID != nil {
 			qrContactListID = *o.ContactListID
 		}
 		qContactListID := qrContactListID
 		if qContactListID != "" {
+
 			if err := r.SetQueryParam("contactListId", qContactListID); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesDivisionID := o.DivisionID
+	if o.DivisionID != nil {
 
-	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
-	// query array param divisionId
-	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
-		return err
+		// binding items for divisionId
+		joinedDivisionID := o.bindParamDivisionID(reg)
+
+		// query array param divisionId
+		if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+			return err
+		}
 	}
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SenderSmsPhoneNumber != nil {
 
 		// query param senderSmsPhoneNumber
 		var qrSenderSmsPhoneNumber string
+
 		if o.SenderSmsPhoneNumber != nil {
 			qrSenderSmsPhoneNumber = *o.SenderSmsPhoneNumber
 		}
 		qSenderSmsPhoneNumber := qrSenderSmsPhoneNumber
 		if qSenderSmsPhoneNumber != "" {
+
 			if err := r.SetQueryParam("senderSmsPhoneNumber", qSenderSmsPhoneNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Type != nil {
 
 		// query param type
 		var qrType string
+
 		if o.Type != nil {
 			qrType = *o.Type
 		}
 		qType := qrType
 		if qType != "" {
+
 			if err := r.SetQueryParam("type", qType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetOutboundMessagingcampaigns binds the parameter divisionId
+func (o *GetOutboundMessagingcampaignsParams) bindParamDivisionID(formats strfmt.Registry) []string {
+	divisionIDIR := o.DivisionID
+
+	var divisionIDIC []string
+	for _, divisionIDIIR := range divisionIDIR { // explode []string
+
+		divisionIDIIV := divisionIDIIR // string as string
+		divisionIDIC = append(divisionIDIC, divisionIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	divisionIDIS := swag.JoinByFormat(divisionIDIC, "multi")
+
+	return divisionIDIS
+}
+
+// bindParamGetOutboundMessagingcampaigns binds the parameter id
+func (o *GetOutboundMessagingcampaignsParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
 }

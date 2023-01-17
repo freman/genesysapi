@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostConversationsMessageCommunicationMessagesMediaParams creates a new PostConversationsMessageCommunicationMessagesMediaParams object
-// with the default values initialized.
+// NewPostConversationsMessageCommunicationMessagesMediaParams creates a new PostConversationsMessageCommunicationMessagesMediaParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsMessageCommunicationMessagesMediaParams() *PostConversationsMessageCommunicationMessagesMediaParams {
-	var ()
 	return &PostConversationsMessageCommunicationMessagesMediaParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsMessageCommunicationMessagesMediaParamsWithTimeout creates a new PostConversationsMessageCommunicationMessagesMediaParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsMessageCommunicationMessagesMediaParamsWithTimeout(timeout time.Duration) *PostConversationsMessageCommunicationMessagesMediaParams {
-	var ()
 	return &PostConversationsMessageCommunicationMessagesMediaParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsMessageCommunicationMessagesMediaParamsWithContext creates a new PostConversationsMessageCommunicationMessagesMediaParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsMessageCommunicationMessagesMediaParamsWithContext(ctx context.Context) *PostConversationsMessageCommunicationMessagesMediaParams {
-	var ()
 	return &PostConversationsMessageCommunicationMessagesMediaParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsMessageCommunicationMessagesMediaParamsWithHTTPClient creates a new PostConversationsMessageCommunicationMessagesMediaParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsMessageCommunicationMessagesMediaParamsWithHTTPClient(client *http.Client) *PostConversationsMessageCommunicationMessagesMediaParams {
-	var ()
 	return &PostConversationsMessageCommunicationMessagesMediaParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaParams contains all the parameters to send to the API endpoint
-for the post conversations message communication messages media operation typically these are written to a http.Request
+/*
+PostConversationsMessageCommunicationMessagesMediaParams contains all the parameters to send to the API endpoint
+
+	for the post conversations message communication messages media operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsMessageCommunicationMessagesMediaParams struct {
 
-	/*CommunicationID
-	  communicationId
+	/* CommunicationID.
 
+	   communicationId
 	*/
 	CommunicationID string
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations message communication messages media params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessageCommunicationMessagesMediaParams) WithDefaults() *PostConversationsMessageCommunicationMessagesMediaParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations message communication messages media params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessageCommunicationMessagesMediaParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations message communication messages media params

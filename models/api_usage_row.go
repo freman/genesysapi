@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -73,7 +75,6 @@ func (m *APIUsageRow) Validate(formats strfmt.Registry) error {
 }
 
 func (m *APIUsageRow) validateDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Date) { // not required
 		return nil
 	}
@@ -82,6 +83,11 @@ func (m *APIUsageRow) validateDate(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this Api usage row based on context it is used
+func (m *APIUsageRow) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

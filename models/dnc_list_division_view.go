@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -20,7 +21,7 @@ import (
 type DncListDivisionView struct {
 
 	// The contact method. Required if dncSourceType is rds.
-	// Enum: [Email Phone]
+	// Enum: [Email Phone Any]
 	ContactMethod string `json:"contactMethod,omitempty"`
 
 	// The division to which this entity belongs.
@@ -28,7 +29,7 @@ type DncListDivisionView struct {
 
 	// The type of the DncList.
 	// Read Only: true
-	// Enum: [rds dnc.com gryphon]
+	// Enum: [rds rds_custom dnc.com gryphon]
 	DncSourceType string `json:"dncSourceType,omitempty"`
 
 	// The globally unique identifier for the object.
@@ -86,7 +87,7 @@ var dncListDivisionViewTypeContactMethodPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Email","Phone"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Email","Phone","Any"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -101,6 +102,9 @@ const (
 
 	// DncListDivisionViewContactMethodPhone captures enum value "Phone"
 	DncListDivisionViewContactMethodPhone string = "Phone"
+
+	// DncListDivisionViewContactMethodAny captures enum value "Any"
+	DncListDivisionViewContactMethodAny string = "Any"
 )
 
 // prop value enum
@@ -112,7 +116,6 @@ func (m *DncListDivisionView) validateContactMethodEnum(path, location string, v
 }
 
 func (m *DncListDivisionView) validateContactMethod(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactMethod) { // not required
 		return nil
 	}
@@ -126,7 +129,6 @@ func (m *DncListDivisionView) validateContactMethod(formats strfmt.Registry) err
 }
 
 func (m *DncListDivisionView) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -135,6 +137,8 @@ func (m *DncListDivisionView) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -147,7 +151,7 @@ var dncListDivisionViewTypeDncSourceTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["rds","dnc.com","gryphon"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["rds","rds_custom","dnc.com","gryphon"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -160,8 +164,11 @@ const (
 	// DncListDivisionViewDncSourceTypeRds captures enum value "rds"
 	DncListDivisionViewDncSourceTypeRds string = "rds"
 
-	// DncListDivisionViewDncSourceTypeDncCom captures enum value "dnc.com"
-	DncListDivisionViewDncSourceTypeDncCom string = "dnc.com"
+	// DncListDivisionViewDncSourceTypeRdsCustom captures enum value "rds_custom"
+	DncListDivisionViewDncSourceTypeRdsCustom string = "rds_custom"
+
+	// DncListDivisionViewDncSourceTypeDncDotCom captures enum value "dnc.com"
+	DncListDivisionViewDncSourceTypeDncDotCom string = "dnc.com"
 
 	// DncListDivisionViewDncSourceTypeGryphon captures enum value "gryphon"
 	DncListDivisionViewDncSourceTypeGryphon string = "gryphon"
@@ -176,7 +183,6 @@ func (m *DncListDivisionView) validateDncSourceTypeEnum(path, location string, v
 }
 
 func (m *DncListDivisionView) validateDncSourceType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DncSourceType) { // not required
 		return nil
 	}
@@ -190,7 +196,6 @@ func (m *DncListDivisionView) validateDncSourceType(formats strfmt.Registry) err
 }
 
 func (m *DncListDivisionView) validateImportStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ImportStatus) { // not required
 		return nil
 	}
@@ -199,6 +204,8 @@ func (m *DncListDivisionView) validateImportStatus(formats strfmt.Registry) erro
 		if err := m.ImportStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("importStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("importStatus")
 			}
 			return err
 		}
@@ -208,12 +215,113 @@ func (m *DncListDivisionView) validateImportStatus(formats strfmt.Registry) erro
 }
 
 func (m *DncListDivisionView) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this dnc list division view based on the context it is used
+func (m *DncListDivisionView) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDncSourceType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateImportStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSize(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DncListDivisionView) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DncListDivisionView) contextValidateDncSourceType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dncSourceType", "body", string(m.DncSourceType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DncListDivisionView) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DncListDivisionView) contextValidateImportStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ImportStatus != nil {
+		if err := m.ImportStatus.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("importStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("importStatus")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DncListDivisionView) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DncListDivisionView) contextValidateSize(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "size", "body", int64(m.Size)); err != nil {
 		return err
 	}
 

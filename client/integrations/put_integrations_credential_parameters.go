@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutIntegrationsCredentialParams creates a new PutIntegrationsCredentialParams object
-// with the default values initialized.
+// NewPutIntegrationsCredentialParams creates a new PutIntegrationsCredentialParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutIntegrationsCredentialParams() *PutIntegrationsCredentialParams {
-	var ()
 	return &PutIntegrationsCredentialParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutIntegrationsCredentialParamsWithTimeout creates a new PutIntegrationsCredentialParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutIntegrationsCredentialParamsWithTimeout(timeout time.Duration) *PutIntegrationsCredentialParams {
-	var ()
 	return &PutIntegrationsCredentialParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutIntegrationsCredentialParamsWithContext creates a new PutIntegrationsCredentialParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutIntegrationsCredentialParamsWithContext(ctx context.Context) *PutIntegrationsCredentialParams {
-	var ()
 	return &PutIntegrationsCredentialParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutIntegrationsCredentialParamsWithHTTPClient creates a new PutIntegrationsCredentialParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutIntegrationsCredentialParamsWithHTTPClient(client *http.Client) *PutIntegrationsCredentialParams {
-	var ()
 	return &PutIntegrationsCredentialParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutIntegrationsCredentialParams contains all the parameters to send to the API endpoint
-for the put integrations credential operation typically these are written to a http.Request
+/*
+PutIntegrationsCredentialParams contains all the parameters to send to the API endpoint
+
+	for the put integrations credential operation.
+
+	Typically these are written to a http.Request.
 */
 type PutIntegrationsCredentialParams struct {
 
-	/*Body
-	  Credential
+	/* Body.
 
+	   Credential
 	*/
 	Body *models.Credential
-	/*CredentialID
-	  Credential ID
 
+	/* CredentialID.
+
+	   Credential ID
 	*/
 	CredentialID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put integrations credential params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIntegrationsCredentialParams) WithDefaults() *PutIntegrationsCredentialParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put integrations credential params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIntegrationsCredentialParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put integrations credential params
@@ -140,7 +157,6 @@ func (o *PutIntegrationsCredentialParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

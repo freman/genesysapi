@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostSpeechandtextanalyticsTranscriptsSearchParams creates a new PostSpeechandtextanalyticsTranscriptsSearchParams object
-// with the default values initialized.
+// NewPostSpeechandtextanalyticsTranscriptsSearchParams creates a new PostSpeechandtextanalyticsTranscriptsSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostSpeechandtextanalyticsTranscriptsSearchParams() *PostSpeechandtextanalyticsTranscriptsSearchParams {
-	var ()
 	return &PostSpeechandtextanalyticsTranscriptsSearchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostSpeechandtextanalyticsTranscriptsSearchParamsWithTimeout creates a new PostSpeechandtextanalyticsTranscriptsSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostSpeechandtextanalyticsTranscriptsSearchParamsWithTimeout(timeout time.Duration) *PostSpeechandtextanalyticsTranscriptsSearchParams {
-	var ()
 	return &PostSpeechandtextanalyticsTranscriptsSearchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostSpeechandtextanalyticsTranscriptsSearchParamsWithContext creates a new PostSpeechandtextanalyticsTranscriptsSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostSpeechandtextanalyticsTranscriptsSearchParamsWithContext(ctx context.Context) *PostSpeechandtextanalyticsTranscriptsSearchParams {
-	var ()
 	return &PostSpeechandtextanalyticsTranscriptsSearchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostSpeechandtextanalyticsTranscriptsSearchParamsWithHTTPClient creates a new PostSpeechandtextanalyticsTranscriptsSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostSpeechandtextanalyticsTranscriptsSearchParamsWithHTTPClient(client *http.Client) *PostSpeechandtextanalyticsTranscriptsSearchParams {
-	var ()
 	return &PostSpeechandtextanalyticsTranscriptsSearchParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostSpeechandtextanalyticsTranscriptsSearchParams contains all the parameters to send to the API endpoint
-for the post speechandtextanalytics transcripts search operation typically these are written to a http.Request
+/*
+PostSpeechandtextanalyticsTranscriptsSearchParams contains all the parameters to send to the API endpoint
+
+	for the post speechandtextanalytics transcripts search operation.
+
+	Typically these are written to a http.Request.
 */
 type PostSpeechandtextanalyticsTranscriptsSearchParams struct {
 
-	/*Body
-	  Search request options
+	/* Body.
 
+	   Search request options
 	*/
 	Body *models.TranscriptSearchRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post speechandtextanalytics transcripts search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostSpeechandtextanalyticsTranscriptsSearchParams) WithDefaults() *PostSpeechandtextanalyticsTranscriptsSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post speechandtextanalytics transcripts search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostSpeechandtextanalyticsTranscriptsSearchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post speechandtextanalytics transcripts search params
@@ -124,7 +140,6 @@ func (o *PostSpeechandtextanalyticsTranscriptsSearchParams) WriteToRequest(r run
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

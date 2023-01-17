@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -77,7 +78,7 @@ type ObservationValue struct {
 	TeamID string `json:"teamId,omitempty"`
 
 	// Complete routing method
-	// Enum: [Bullseye Conditional Last Manual Predictive Preferred Standard]
+	// Enum: [Bullseye Conditional Last Manual Predictive Preferred Standard Vip]
 	UsedRouting string `json:"usedRouting,omitempty"`
 
 	// Unique identifier for the user
@@ -148,7 +149,6 @@ func (m *ObservationValue) validateDirectionEnum(path, location string, value st
 }
 
 func (m *ObservationValue) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -175,7 +175,6 @@ func (m *ObservationValue) validateObservationDate(formats strfmt.Registry) erro
 }
 
 func (m *ObservationValue) validateRequestedRoutingSkillIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RequestedRoutingSkillIds) { // not required
 		return nil
 	}
@@ -191,7 +190,7 @@ var observationValueRequestedRoutingsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -207,7 +206,6 @@ func (m *ObservationValue) validateRequestedRoutingsItemsEnum(path, location str
 }
 
 func (m *ObservationValue) validateRequestedRoutings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RequestedRoutings) { // not required
 		return nil
 	}
@@ -229,7 +227,6 @@ func (m *ObservationValue) validateRequestedRoutings(formats strfmt.Registry) er
 }
 
 func (m *ObservationValue) validateScoredAgents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScoredAgents) { // not required
 		return nil
 	}
@@ -243,6 +240,8 @@ func (m *ObservationValue) validateScoredAgents(formats strfmt.Registry) error {
 			if err := m.ScoredAgents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -257,7 +256,7 @@ var observationValueTypeUsedRoutingPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -287,6 +286,9 @@ const (
 
 	// ObservationValueUsedRoutingStandard captures enum value "Standard"
 	ObservationValueUsedRoutingStandard string = "Standard"
+
+	// ObservationValueUsedRoutingVip captures enum value "Vip"
+	ObservationValueUsedRoutingVip string = "Vip"
 )
 
 // prop value enum
@@ -298,7 +300,6 @@ func (m *ObservationValue) validateUsedRoutingEnum(path, location string, value 
 }
 
 func (m *ObservationValue) validateUsedRouting(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UsedRouting) { // not required
 		return nil
 	}
@@ -306,6 +307,40 @@ func (m *ObservationValue) validateUsedRouting(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateUsedRoutingEnum("usedRouting", "body", m.UsedRouting); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this observation value based on the context it is used
+func (m *ObservationValue) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateScoredAgents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ObservationValue) contextValidateScoredAgents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ScoredAgents); i++ {
+
+		if m.ScoredAgents[i] != nil {
+			if err := m.ScoredAgents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

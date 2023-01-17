@@ -95,7 +95,6 @@ func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchReader) ReadResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostWorkforcemanagementBusinessunitAgentschedulesSearchOK() *PostWorkfor
 	return &PostWorkforcemanagementBusinessunitAgentschedulesSearchOK{}
 }
 
-/*PostWorkforcemanagementBusinessunitAgentschedulesSearchOK handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitAgentschedulesSearchOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchOK struct {
 	Payload *models.BuAsyncAgentSchedulesSearchResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit agentschedules search o k response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit agentschedules search o k response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit agentschedules search o k response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit agentschedules search o k response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit agentschedules search o k response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest() *Pos
 	return &PostWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest{}
 }
 
-/*PostWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit agentschedules search bad request response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit agentschedules search bad request response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit agentschedules search bad request response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit agentschedules search bad request response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit agentschedules search bad request response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized() *P
 	return &PostWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized{}
 }
 
-/*PostWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit agentschedules search unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit agentschedules search unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit agentschedules search unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit agentschedules search unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit agentschedules search unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostWorkforcemanagementBusinessunitAgentschedulesSearchForbidden() *Post
 	return &PostWorkforcemanagementBusinessunitAgentschedulesSearchForbidden{}
 }
 
-/*PostWorkforcemanagementBusinessunitAgentschedulesSearchForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitAgentschedulesSearchForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit agentschedules search forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit agentschedules search forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit agentschedules search forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit agentschedules search forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit agentschedules search forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostWorkforcemanagementBusinessunitAgentschedulesSearchNotFound() *PostW
 	return &PostWorkforcemanagementBusinessunitAgentschedulesSearchNotFound{}
 }
 
-/*PostWorkforcemanagementBusinessunitAgentschedulesSearchNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitAgentschedulesSearchNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit agentschedules search not found response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit agentschedules search not found response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit agentschedules search not found response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit agentschedules search not found response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit agentschedules search not found response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout() 
 	return &PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout{}
 }
 
-/*PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit agentschedules search request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit agentschedules search request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit agentschedules search request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit agentschedules search request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit agentschedules search request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooL
 	return &PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarg
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit agentschedules search request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit agentschedules search request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit agentschedules search request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit agentschedules search request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit agentschedules search request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaT
 	return &PostWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit agentschedules search unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit agentschedules search unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit agentschedules search unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit agentschedules search unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit agentschedules search unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests()
 	return &PostWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests{}
 }
 
-/*PostWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit agentschedules search too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit agentschedules search too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit agentschedules search too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit agentschedules search too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit agentschedules search too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerErr
 	return &PostWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError{}
 }
 
-/*PostWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit agentschedules search internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit agentschedules search internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit agentschedules search internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit agentschedules search internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit agentschedules search internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailabl
 	return &PostWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit agentschedules search service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit agentschedules search service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit agentschedules search service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit agentschedules search service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit agentschedules search service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout() 
 	return &PostWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit agentschedules search gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit agentschedules search gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit agentschedules search gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit agentschedules search gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit agentschedules search gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/agentschedules/search][%d] postWorkforcemanagementBusinessunitAgentschedulesSearchGatewayTimeout  %+v", 504, o.Payload)
 }
 

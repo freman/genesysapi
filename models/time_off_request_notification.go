@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -63,7 +64,6 @@ func (m *TimeOffRequestNotification) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TimeOffRequestNotification) validatePartialDayStartDateTimes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PartialDayStartDateTimes) { // not required
 		return nil
 	}
@@ -115,7 +115,6 @@ func (m *TimeOffRequestNotification) validateStatusEnum(path, location string, v
 }
 
 func (m *TimeOffRequestNotification) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -129,7 +128,6 @@ func (m *TimeOffRequestNotification) validateStatus(formats strfmt.Registry) err
 }
 
 func (m *TimeOffRequestNotification) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -138,6 +136,38 @@ func (m *TimeOffRequestNotification) validateUser(formats strfmt.Registry) error
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this time off request notification based on the context it is used
+func (m *TimeOffRequestNotification) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TimeOffRequestNotification) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

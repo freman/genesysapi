@@ -95,7 +95,6 @@ func (o *PostConversationParticipantSecureivrsessionsReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostConversationParticipantSecureivrsessionsOK() *PostConversationPartic
 	return &PostConversationParticipantSecureivrsessionsOK{}
 }
 
-/*PostConversationParticipantSecureivrsessionsOK handles this case with default header values.
+/*
+PostConversationParticipantSecureivrsessionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostConversationParticipantSecureivrsessionsOK struct {
 	Payload *models.SecureSession
 }
 
+// IsSuccess returns true when this post conversation participant secureivrsessions o k response has a 2xx status code
+func (o *PostConversationParticipantSecureivrsessionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversation participant secureivrsessions o k response has a 3xx status code
+func (o *PostConversationParticipantSecureivrsessionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant secureivrsessions o k response has a 4xx status code
+func (o *PostConversationParticipantSecureivrsessionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation participant secureivrsessions o k response has a 5xx status code
+func (o *PostConversationParticipantSecureivrsessionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant secureivrsessions o k response a status code equal to that given
+func (o *PostConversationParticipantSecureivrsessionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostConversationParticipantSecureivrsessionsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostConversationParticipantSecureivrsessionsBadRequest() *PostConversati
 	return &PostConversationParticipantSecureivrsessionsBadRequest{}
 }
 
-/*PostConversationParticipantSecureivrsessionsBadRequest handles this case with default header values.
+/*
+PostConversationParticipantSecureivrsessionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostConversationParticipantSecureivrsessionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant secureivrsessions bad request response has a 2xx status code
+func (o *PostConversationParticipantSecureivrsessionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant secureivrsessions bad request response has a 3xx status code
+func (o *PostConversationParticipantSecureivrsessionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant secureivrsessions bad request response has a 4xx status code
+func (o *PostConversationParticipantSecureivrsessionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant secureivrsessions bad request response has a 5xx status code
+func (o *PostConversationParticipantSecureivrsessionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant secureivrsessions bad request response a status code equal to that given
+func (o *PostConversationParticipantSecureivrsessionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationParticipantSecureivrsessionsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostConversationParticipantSecureivrsessionsUnauthorized() *PostConversa
 	return &PostConversationParticipantSecureivrsessionsUnauthorized{}
 }
 
-/*PostConversationParticipantSecureivrsessionsUnauthorized handles this case with default header values.
+/*
+PostConversationParticipantSecureivrsessionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostConversationParticipantSecureivrsessionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant secureivrsessions unauthorized response has a 2xx status code
+func (o *PostConversationParticipantSecureivrsessionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant secureivrsessions unauthorized response has a 3xx status code
+func (o *PostConversationParticipantSecureivrsessionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant secureivrsessions unauthorized response has a 4xx status code
+func (o *PostConversationParticipantSecureivrsessionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant secureivrsessions unauthorized response has a 5xx status code
+func (o *PostConversationParticipantSecureivrsessionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant secureivrsessions unauthorized response a status code equal to that given
+func (o *PostConversationParticipantSecureivrsessionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationParticipantSecureivrsessionsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostConversationParticipantSecureivrsessionsForbidden() *PostConversatio
 	return &PostConversationParticipantSecureivrsessionsForbidden{}
 }
 
-/*PostConversationParticipantSecureivrsessionsForbidden handles this case with default header values.
+/*
+PostConversationParticipantSecureivrsessionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostConversationParticipantSecureivrsessionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant secureivrsessions forbidden response has a 2xx status code
+func (o *PostConversationParticipantSecureivrsessionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant secureivrsessions forbidden response has a 3xx status code
+func (o *PostConversationParticipantSecureivrsessionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant secureivrsessions forbidden response has a 4xx status code
+func (o *PostConversationParticipantSecureivrsessionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant secureivrsessions forbidden response has a 5xx status code
+func (o *PostConversationParticipantSecureivrsessionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant secureivrsessions forbidden response a status code equal to that given
+func (o *PostConversationParticipantSecureivrsessionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationParticipantSecureivrsessionsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostConversationParticipantSecureivrsessionsNotFound() *PostConversation
 	return &PostConversationParticipantSecureivrsessionsNotFound{}
 }
 
-/*PostConversationParticipantSecureivrsessionsNotFound handles this case with default header values.
+/*
+PostConversationParticipantSecureivrsessionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostConversationParticipantSecureivrsessionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant secureivrsessions not found response has a 2xx status code
+func (o *PostConversationParticipantSecureivrsessionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant secureivrsessions not found response has a 3xx status code
+func (o *PostConversationParticipantSecureivrsessionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant secureivrsessions not found response has a 4xx status code
+func (o *PostConversationParticipantSecureivrsessionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant secureivrsessions not found response has a 5xx status code
+func (o *PostConversationParticipantSecureivrsessionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant secureivrsessions not found response a status code equal to that given
+func (o *PostConversationParticipantSecureivrsessionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationParticipantSecureivrsessionsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostConversationParticipantSecureivrsessionsRequestTimeout() *PostConver
 	return &PostConversationParticipantSecureivrsessionsRequestTimeout{}
 }
 
-/*PostConversationParticipantSecureivrsessionsRequestTimeout handles this case with default header values.
+/*
+PostConversationParticipantSecureivrsessionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostConversationParticipantSecureivrsessionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant secureivrsessions request timeout response has a 2xx status code
+func (o *PostConversationParticipantSecureivrsessionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant secureivrsessions request timeout response has a 3xx status code
+func (o *PostConversationParticipantSecureivrsessionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant secureivrsessions request timeout response has a 4xx status code
+func (o *PostConversationParticipantSecureivrsessionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant secureivrsessions request timeout response has a 5xx status code
+func (o *PostConversationParticipantSecureivrsessionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant secureivrsessions request timeout response a status code equal to that given
+func (o *PostConversationParticipantSecureivrsessionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationParticipantSecureivrsessionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostConversationParticipantSecureivrsessionsRequestEntityTooLarge() *Pos
 	return &PostConversationParticipantSecureivrsessionsRequestEntityTooLarge{}
 }
 
-/*PostConversationParticipantSecureivrsessionsRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationParticipantSecureivrsessionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostConversationParticipantSecureivrsessionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant secureivrsessions request entity too large response has a 2xx status code
+func (o *PostConversationParticipantSecureivrsessionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant secureivrsessions request entity too large response has a 3xx status code
+func (o *PostConversationParticipantSecureivrsessionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant secureivrsessions request entity too large response has a 4xx status code
+func (o *PostConversationParticipantSecureivrsessionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant secureivrsessions request entity too large response has a 5xx status code
+func (o *PostConversationParticipantSecureivrsessionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant secureivrsessions request entity too large response a status code equal to that given
+func (o *PostConversationParticipantSecureivrsessionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationParticipantSecureivrsessionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostConversationParticipantSecureivrsessionsUnsupportedMediaType() *Post
 	return &PostConversationParticipantSecureivrsessionsUnsupportedMediaType{}
 }
 
-/*PostConversationParticipantSecureivrsessionsUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationParticipantSecureivrsessionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostConversationParticipantSecureivrsessionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant secureivrsessions unsupported media type response has a 2xx status code
+func (o *PostConversationParticipantSecureivrsessionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant secureivrsessions unsupported media type response has a 3xx status code
+func (o *PostConversationParticipantSecureivrsessionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant secureivrsessions unsupported media type response has a 4xx status code
+func (o *PostConversationParticipantSecureivrsessionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant secureivrsessions unsupported media type response has a 5xx status code
+func (o *PostConversationParticipantSecureivrsessionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant secureivrsessions unsupported media type response a status code equal to that given
+func (o *PostConversationParticipantSecureivrsessionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationParticipantSecureivrsessionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostConversationParticipantSecureivrsessionsTooManyRequests() *PostConve
 	return &PostConversationParticipantSecureivrsessionsTooManyRequests{}
 }
 
-/*PostConversationParticipantSecureivrsessionsTooManyRequests handles this case with default header values.
+/*
+PostConversationParticipantSecureivrsessionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostConversationParticipantSecureivrsessionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant secureivrsessions too many requests response has a 2xx status code
+func (o *PostConversationParticipantSecureivrsessionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant secureivrsessions too many requests response has a 3xx status code
+func (o *PostConversationParticipantSecureivrsessionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant secureivrsessions too many requests response has a 4xx status code
+func (o *PostConversationParticipantSecureivrsessionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant secureivrsessions too many requests response has a 5xx status code
+func (o *PostConversationParticipantSecureivrsessionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant secureivrsessions too many requests response a status code equal to that given
+func (o *PostConversationParticipantSecureivrsessionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationParticipantSecureivrsessionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostConversationParticipantSecureivrsessionsInternalServerError() *PostC
 	return &PostConversationParticipantSecureivrsessionsInternalServerError{}
 }
 
-/*PostConversationParticipantSecureivrsessionsInternalServerError handles this case with default header values.
+/*
+PostConversationParticipantSecureivrsessionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostConversationParticipantSecureivrsessionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant secureivrsessions internal server error response has a 2xx status code
+func (o *PostConversationParticipantSecureivrsessionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant secureivrsessions internal server error response has a 3xx status code
+func (o *PostConversationParticipantSecureivrsessionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant secureivrsessions internal server error response has a 4xx status code
+func (o *PostConversationParticipantSecureivrsessionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation participant secureivrsessions internal server error response has a 5xx status code
+func (o *PostConversationParticipantSecureivrsessionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversation participant secureivrsessions internal server error response a status code equal to that given
+func (o *PostConversationParticipantSecureivrsessionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationParticipantSecureivrsessionsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostConversationParticipantSecureivrsessionsServiceUnavailable() *PostCo
 	return &PostConversationParticipantSecureivrsessionsServiceUnavailable{}
 }
 
-/*PostConversationParticipantSecureivrsessionsServiceUnavailable handles this case with default header values.
+/*
+PostConversationParticipantSecureivrsessionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostConversationParticipantSecureivrsessionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant secureivrsessions service unavailable response has a 2xx status code
+func (o *PostConversationParticipantSecureivrsessionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant secureivrsessions service unavailable response has a 3xx status code
+func (o *PostConversationParticipantSecureivrsessionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant secureivrsessions service unavailable response has a 4xx status code
+func (o *PostConversationParticipantSecureivrsessionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation participant secureivrsessions service unavailable response has a 5xx status code
+func (o *PostConversationParticipantSecureivrsessionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversation participant secureivrsessions service unavailable response a status code equal to that given
+func (o *PostConversationParticipantSecureivrsessionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationParticipantSecureivrsessionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostConversationParticipantSecureivrsessionsGatewayTimeout() *PostConver
 	return &PostConversationParticipantSecureivrsessionsGatewayTimeout{}
 }
 
-/*PostConversationParticipantSecureivrsessionsGatewayTimeout handles this case with default header values.
+/*
+PostConversationParticipantSecureivrsessionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostConversationParticipantSecureivrsessionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant secureivrsessions gateway timeout response has a 2xx status code
+func (o *PostConversationParticipantSecureivrsessionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant secureivrsessions gateway timeout response has a 3xx status code
+func (o *PostConversationParticipantSecureivrsessionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant secureivrsessions gateway timeout response has a 4xx status code
+func (o *PostConversationParticipantSecureivrsessionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation participant secureivrsessions gateway timeout response has a 5xx status code
+func (o *PostConversationParticipantSecureivrsessionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversation participant secureivrsessions gateway timeout response a status code equal to that given
+func (o *PostConversationParticipantSecureivrsessionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationParticipantSecureivrsessionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationParticipantSecureivrsessionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/secureivrsessions][%d] postConversationParticipantSecureivrsessionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

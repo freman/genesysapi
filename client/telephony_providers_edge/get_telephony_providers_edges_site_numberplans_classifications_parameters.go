@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesSiteNumberplansClassificationsParams creates a new GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesSiteNumberplansClassificationsParams creates a new GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesSiteNumberplansClassificationsParams() *GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams {
-	var ()
 	return &GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesSiteNumberplansClassificationsParamsWithTimeout creates a new GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesSiteNumberplansClassificationsParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams {
-	var ()
 	return &GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesSiteNumberplansClassificationsParamsWithContext creates a new GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesSiteNumberplansClassificationsParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams {
-	var ()
 	return &GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesSiteNumberplansClassificationsParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesSiteNumberplansClassificationsParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams {
-	var ()
 	return &GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges site numberplans classifications operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges site numberplans classifications operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams struct {
 
-	/*Classification
-	  Classification
+	/* Classification.
 
+	   Classification
 	*/
 	Classification *string
-	/*SiteID
-	  Site ID
 
+	/* SiteID.
+
+	   Site ID
 	*/
 	SiteID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges site numberplans classifications params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams) WithDefaults() *GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges site numberplans classifications params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges site numberplans classifications params
@@ -143,16 +160,17 @@ func (o *GetTelephonyProvidersEdgesSiteNumberplansClassificationsParams) WriteTo
 
 		// query param classification
 		var qrClassification string
+
 		if o.Classification != nil {
 			qrClassification = *o.Classification
 		}
 		qClassification := qrClassification
 		if qClassification != "" {
+
 			if err := r.SetQueryParam("classification", qClassification); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param siteId

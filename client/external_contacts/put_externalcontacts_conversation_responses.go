@@ -95,7 +95,6 @@ func (o *PutExternalcontactsConversationReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPutExternalcontactsConversationAccepted() *PutExternalcontactsConversati
 	return &PutExternalcontactsConversationAccepted{}
 }
 
-/*PutExternalcontactsConversationAccepted handles this case with default header values.
+/*
+PutExternalcontactsConversationAccepted describes a response with status code 202, with default header values.
 
 Accepted - Processing association
 */
 type PutExternalcontactsConversationAccepted struct {
 }
 
+// IsSuccess returns true when this put externalcontacts conversation accepted response has a 2xx status code
+func (o *PutExternalcontactsConversationAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put externalcontacts conversation accepted response has a 3xx status code
+func (o *PutExternalcontactsConversationAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts conversation accepted response has a 4xx status code
+func (o *PutExternalcontactsConversationAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put externalcontacts conversation accepted response has a 5xx status code
+func (o *PutExternalcontactsConversationAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts conversation accepted response a status code equal to that given
+func (o *PutExternalcontactsConversationAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PutExternalcontactsConversationAccepted) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationAccepted ", 202)
+}
+
+func (o *PutExternalcontactsConversationAccepted) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationAccepted ", 202)
 }
 
@@ -127,7 +156,8 @@ func NewPutExternalcontactsConversationBadRequest() *PutExternalcontactsConversa
 	return &PutExternalcontactsConversationBadRequest{}
 }
 
-/*PutExternalcontactsConversationBadRequest handles this case with default header values.
+/*
+PutExternalcontactsConversationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PutExternalcontactsConversationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts conversation bad request response has a 2xx status code
+func (o *PutExternalcontactsConversationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts conversation bad request response has a 3xx status code
+func (o *PutExternalcontactsConversationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts conversation bad request response has a 4xx status code
+func (o *PutExternalcontactsConversationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts conversation bad request response has a 5xx status code
+func (o *PutExternalcontactsConversationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts conversation bad request response a status code equal to that given
+func (o *PutExternalcontactsConversationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutExternalcontactsConversationBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutExternalcontactsConversationBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPutExternalcontactsConversationUnauthorized() *PutExternalcontactsConver
 	return &PutExternalcontactsConversationUnauthorized{}
 }
 
-/*PutExternalcontactsConversationUnauthorized handles this case with default header values.
+/*
+PutExternalcontactsConversationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PutExternalcontactsConversationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts conversation unauthorized response has a 2xx status code
+func (o *PutExternalcontactsConversationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts conversation unauthorized response has a 3xx status code
+func (o *PutExternalcontactsConversationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts conversation unauthorized response has a 4xx status code
+func (o *PutExternalcontactsConversationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts conversation unauthorized response has a 5xx status code
+func (o *PutExternalcontactsConversationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts conversation unauthorized response a status code equal to that given
+func (o *PutExternalcontactsConversationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutExternalcontactsConversationUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutExternalcontactsConversationUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPutExternalcontactsConversationForbidden() *PutExternalcontactsConversat
 	return &PutExternalcontactsConversationForbidden{}
 }
 
-/*PutExternalcontactsConversationForbidden handles this case with default header values.
+/*
+PutExternalcontactsConversationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PutExternalcontactsConversationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts conversation forbidden response has a 2xx status code
+func (o *PutExternalcontactsConversationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts conversation forbidden response has a 3xx status code
+func (o *PutExternalcontactsConversationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts conversation forbidden response has a 4xx status code
+func (o *PutExternalcontactsConversationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts conversation forbidden response has a 5xx status code
+func (o *PutExternalcontactsConversationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts conversation forbidden response a status code equal to that given
+func (o *PutExternalcontactsConversationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutExternalcontactsConversationForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutExternalcontactsConversationForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPutExternalcontactsConversationNotFound() *PutExternalcontactsConversati
 	return &PutExternalcontactsConversationNotFound{}
 }
 
-/*PutExternalcontactsConversationNotFound handles this case with default header values.
+/*
+PutExternalcontactsConversationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PutExternalcontactsConversationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts conversation not found response has a 2xx status code
+func (o *PutExternalcontactsConversationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts conversation not found response has a 3xx status code
+func (o *PutExternalcontactsConversationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts conversation not found response has a 4xx status code
+func (o *PutExternalcontactsConversationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts conversation not found response has a 5xx status code
+func (o *PutExternalcontactsConversationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts conversation not found response a status code equal to that given
+func (o *PutExternalcontactsConversationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutExternalcontactsConversationNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutExternalcontactsConversationNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPutExternalcontactsConversationRequestTimeout() *PutExternalcontactsConv
 	return &PutExternalcontactsConversationRequestTimeout{}
 }
 
-/*PutExternalcontactsConversationRequestTimeout handles this case with default header values.
+/*
+PutExternalcontactsConversationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PutExternalcontactsConversationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts conversation request timeout response has a 2xx status code
+func (o *PutExternalcontactsConversationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts conversation request timeout response has a 3xx status code
+func (o *PutExternalcontactsConversationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts conversation request timeout response has a 4xx status code
+func (o *PutExternalcontactsConversationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts conversation request timeout response has a 5xx status code
+func (o *PutExternalcontactsConversationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts conversation request timeout response a status code equal to that given
+func (o *PutExternalcontactsConversationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutExternalcontactsConversationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutExternalcontactsConversationRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPutExternalcontactsConversationRequestEntityTooLarge() *PutExternalconta
 	return &PutExternalcontactsConversationRequestEntityTooLarge{}
 }
 
-/*PutExternalcontactsConversationRequestEntityTooLarge handles this case with default header values.
+/*
+PutExternalcontactsConversationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PutExternalcontactsConversationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts conversation request entity too large response has a 2xx status code
+func (o *PutExternalcontactsConversationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts conversation request entity too large response has a 3xx status code
+func (o *PutExternalcontactsConversationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts conversation request entity too large response has a 4xx status code
+func (o *PutExternalcontactsConversationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts conversation request entity too large response has a 5xx status code
+func (o *PutExternalcontactsConversationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts conversation request entity too large response a status code equal to that given
+func (o *PutExternalcontactsConversationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutExternalcontactsConversationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutExternalcontactsConversationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPutExternalcontactsConversationUnsupportedMediaType() *PutExternalcontac
 	return &PutExternalcontactsConversationUnsupportedMediaType{}
 }
 
-/*PutExternalcontactsConversationUnsupportedMediaType handles this case with default header values.
+/*
+PutExternalcontactsConversationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PutExternalcontactsConversationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts conversation unsupported media type response has a 2xx status code
+func (o *PutExternalcontactsConversationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts conversation unsupported media type response has a 3xx status code
+func (o *PutExternalcontactsConversationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts conversation unsupported media type response has a 4xx status code
+func (o *PutExternalcontactsConversationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts conversation unsupported media type response has a 5xx status code
+func (o *PutExternalcontactsConversationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts conversation unsupported media type response a status code equal to that given
+func (o *PutExternalcontactsConversationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutExternalcontactsConversationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutExternalcontactsConversationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPutExternalcontactsConversationTooManyRequests() *PutExternalcontactsCon
 	return &PutExternalcontactsConversationTooManyRequests{}
 }
 
-/*PutExternalcontactsConversationTooManyRequests handles this case with default header values.
+/*
+PutExternalcontactsConversationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PutExternalcontactsConversationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts conversation too many requests response has a 2xx status code
+func (o *PutExternalcontactsConversationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts conversation too many requests response has a 3xx status code
+func (o *PutExternalcontactsConversationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts conversation too many requests response has a 4xx status code
+func (o *PutExternalcontactsConversationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts conversation too many requests response has a 5xx status code
+func (o *PutExternalcontactsConversationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts conversation too many requests response a status code equal to that given
+func (o *PutExternalcontactsConversationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutExternalcontactsConversationTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutExternalcontactsConversationTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPutExternalcontactsConversationInternalServerError() *PutExternalcontact
 	return &PutExternalcontactsConversationInternalServerError{}
 }
 
-/*PutExternalcontactsConversationInternalServerError handles this case with default header values.
+/*
+PutExternalcontactsConversationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PutExternalcontactsConversationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts conversation internal server error response has a 2xx status code
+func (o *PutExternalcontactsConversationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts conversation internal server error response has a 3xx status code
+func (o *PutExternalcontactsConversationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts conversation internal server error response has a 4xx status code
+func (o *PutExternalcontactsConversationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put externalcontacts conversation internal server error response has a 5xx status code
+func (o *PutExternalcontactsConversationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put externalcontacts conversation internal server error response a status code equal to that given
+func (o *PutExternalcontactsConversationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutExternalcontactsConversationInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutExternalcontactsConversationInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPutExternalcontactsConversationServiceUnavailable() *PutExternalcontacts
 	return &PutExternalcontactsConversationServiceUnavailable{}
 }
 
-/*PutExternalcontactsConversationServiceUnavailable handles this case with default header values.
+/*
+PutExternalcontactsConversationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PutExternalcontactsConversationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts conversation service unavailable response has a 2xx status code
+func (o *PutExternalcontactsConversationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts conversation service unavailable response has a 3xx status code
+func (o *PutExternalcontactsConversationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts conversation service unavailable response has a 4xx status code
+func (o *PutExternalcontactsConversationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put externalcontacts conversation service unavailable response has a 5xx status code
+func (o *PutExternalcontactsConversationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put externalcontacts conversation service unavailable response a status code equal to that given
+func (o *PutExternalcontactsConversationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutExternalcontactsConversationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutExternalcontactsConversationServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPutExternalcontactsConversationGatewayTimeout() *PutExternalcontactsConv
 	return &PutExternalcontactsConversationGatewayTimeout{}
 }
 
-/*PutExternalcontactsConversationGatewayTimeout handles this case with default header values.
+/*
+PutExternalcontactsConversationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PutExternalcontactsConversationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts conversation gateway timeout response has a 2xx status code
+func (o *PutExternalcontactsConversationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts conversation gateway timeout response has a 3xx status code
+func (o *PutExternalcontactsConversationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts conversation gateway timeout response has a 4xx status code
+func (o *PutExternalcontactsConversationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put externalcontacts conversation gateway timeout response has a 5xx status code
+func (o *PutExternalcontactsConversationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put externalcontacts conversation gateway timeout response a status code equal to that given
+func (o *PutExternalcontactsConversationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutExternalcontactsConversationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutExternalcontactsConversationGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/conversations/{conversationId}][%d] putExternalcontactsConversationGatewayTimeout  %+v", 504, o.Payload)
 }
 

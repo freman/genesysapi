@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -106,7 +107,6 @@ func (m *LockInfo) validateActionEnum(path, location string, value string) error
 }
 
 func (m *LockInfo) validateAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Action) { // not required
 		return nil
 	}
@@ -120,7 +120,6 @@ func (m *LockInfo) validateAction(formats strfmt.Registry) error {
 }
 
 func (m *LockInfo) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -133,7 +132,6 @@ func (m *LockInfo) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *LockInfo) validateDateExpires(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateExpires) { // not required
 		return nil
 	}
@@ -146,7 +144,6 @@ func (m *LockInfo) validateDateExpires(formats strfmt.Registry) error {
 }
 
 func (m *LockInfo) validateLockedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LockedBy) { // not required
 		return nil
 	}
@@ -155,6 +152,38 @@ func (m *LockInfo) validateLockedBy(formats strfmt.Registry) error {
 		if err := m.LockedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lockedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lockedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this lock info based on the context it is used
+func (m *LockInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateLockedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *LockInfo) contextValidateLockedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LockedBy != nil {
+		if err := m.LockedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lockedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lockedBy")
 			}
 			return err
 		}

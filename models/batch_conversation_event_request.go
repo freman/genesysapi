@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -156,7 +157,6 @@ func (m *BatchConversationEventRequest) Validate(formats strfmt.Registry) error 
 }
 
 func (m *BatchConversationEventRequest) validateAudioUpdatedEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AudioUpdatedEvents) { // not required
 		return nil
 	}
@@ -170,6 +170,8 @@ func (m *BatchConversationEventRequest) validateAudioUpdatedEvents(formats strfm
 			if err := m.AudioUpdatedEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("audioUpdatedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("audioUpdatedEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -181,7 +183,6 @@ func (m *BatchConversationEventRequest) validateAudioUpdatedEvents(formats strfm
 }
 
 func (m *BatchConversationEventRequest) validateCommunicationAnsweredEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CommunicationAnsweredEvents) { // not required
 		return nil
 	}
@@ -195,6 +196,8 @@ func (m *BatchConversationEventRequest) validateCommunicationAnsweredEvents(form
 			if err := m.CommunicationAnsweredEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("communicationAnsweredEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("communicationAnsweredEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -206,7 +209,6 @@ func (m *BatchConversationEventRequest) validateCommunicationAnsweredEvents(form
 }
 
 func (m *BatchConversationEventRequest) validateCommunicationDispositionAppliedEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CommunicationDispositionAppliedEvents) { // not required
 		return nil
 	}
@@ -220,6 +222,8 @@ func (m *BatchConversationEventRequest) validateCommunicationDispositionAppliedE
 			if err := m.CommunicationDispositionAppliedEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("communicationDispositionAppliedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("communicationDispositionAppliedEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -231,7 +235,6 @@ func (m *BatchConversationEventRequest) validateCommunicationDispositionAppliedE
 }
 
 func (m *BatchConversationEventRequest) validateCommunicationEndedEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CommunicationEndedEvents) { // not required
 		return nil
 	}
@@ -245,6 +248,8 @@ func (m *BatchConversationEventRequest) validateCommunicationEndedEvents(formats
 			if err := m.CommunicationEndedEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("communicationEndedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("communicationEndedEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -256,7 +261,6 @@ func (m *BatchConversationEventRequest) validateCommunicationEndedEvents(formats
 }
 
 func (m *BatchConversationEventRequest) validateConsultTransferEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConsultTransferEvents) { // not required
 		return nil
 	}
@@ -270,6 +274,8 @@ func (m *BatchConversationEventRequest) validateConsultTransferEvents(formats st
 			if err := m.ConsultTransferEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("consultTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("consultTransferEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -281,7 +287,6 @@ func (m *BatchConversationEventRequest) validateConsultTransferEvents(formats st
 }
 
 func (m *BatchConversationEventRequest) validateEndConsultTransferEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndConsultTransferEvents) { // not required
 		return nil
 	}
@@ -295,6 +300,8 @@ func (m *BatchConversationEventRequest) validateEndConsultTransferEvents(formats
 			if err := m.EndConsultTransferEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("endConsultTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("endConsultTransferEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -306,7 +313,6 @@ func (m *BatchConversationEventRequest) validateEndConsultTransferEvents(formats
 }
 
 func (m *BatchConversationEventRequest) validateEndTransferEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndTransferEvents) { // not required
 		return nil
 	}
@@ -320,6 +326,8 @@ func (m *BatchConversationEventRequest) validateEndTransferEvents(formats strfmt
 			if err := m.EndTransferEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("endTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("endTransferEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -331,7 +339,6 @@ func (m *BatchConversationEventRequest) validateEndTransferEvents(formats strfmt
 }
 
 func (m *BatchConversationEventRequest) validateExternalEstablishedEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalEstablishedEvents) { // not required
 		return nil
 	}
@@ -345,6 +352,8 @@ func (m *BatchConversationEventRequest) validateExternalEstablishedEvents(format
 			if err := m.ExternalEstablishedEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("externalEstablishedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("externalEstablishedEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -356,7 +365,6 @@ func (m *BatchConversationEventRequest) validateExternalEstablishedEvents(format
 }
 
 func (m *BatchConversationEventRequest) validateHoldUpdatedEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HoldUpdatedEvents) { // not required
 		return nil
 	}
@@ -370,6 +378,8 @@ func (m *BatchConversationEventRequest) validateHoldUpdatedEvents(formats strfmt
 			if err := m.HoldUpdatedEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("holdUpdatedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("holdUpdatedEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -381,7 +391,6 @@ func (m *BatchConversationEventRequest) validateHoldUpdatedEvents(formats strfmt
 }
 
 func (m *BatchConversationEventRequest) validateIvrEstablishedEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IvrEstablishedEvents) { // not required
 		return nil
 	}
@@ -395,6 +404,8 @@ func (m *BatchConversationEventRequest) validateIvrEstablishedEvents(formats str
 			if err := m.IvrEstablishedEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ivrEstablishedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ivrEstablishedEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -406,7 +417,6 @@ func (m *BatchConversationEventRequest) validateIvrEstablishedEvents(formats str
 }
 
 func (m *BatchConversationEventRequest) validatePhoneEstablishedEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PhoneEstablishedEvents) { // not required
 		return nil
 	}
@@ -420,6 +430,8 @@ func (m *BatchConversationEventRequest) validatePhoneEstablishedEvents(formats s
 			if err := m.PhoneEstablishedEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("phoneEstablishedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phoneEstablishedEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -431,7 +443,6 @@ func (m *BatchConversationEventRequest) validatePhoneEstablishedEvents(formats s
 }
 
 func (m *BatchConversationEventRequest) validatePhoneTransferEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PhoneTransferEvents) { // not required
 		return nil
 	}
@@ -445,6 +456,8 @@ func (m *BatchConversationEventRequest) validatePhoneTransferEvents(formats strf
 			if err := m.PhoneTransferEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("phoneTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phoneTransferEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -456,7 +469,6 @@ func (m *BatchConversationEventRequest) validatePhoneTransferEvents(formats strf
 }
 
 func (m *BatchConversationEventRequest) validateProgressConsultTransferEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProgressConsultTransferEvents) { // not required
 		return nil
 	}
@@ -470,6 +482,8 @@ func (m *BatchConversationEventRequest) validateProgressConsultTransferEvents(fo
 			if err := m.ProgressConsultTransferEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("progressConsultTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("progressConsultTransferEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -481,7 +495,6 @@ func (m *BatchConversationEventRequest) validateProgressConsultTransferEvents(fo
 }
 
 func (m *BatchConversationEventRequest) validateProgressTransferEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProgressTransferEvents) { // not required
 		return nil
 	}
@@ -495,6 +508,8 @@ func (m *BatchConversationEventRequest) validateProgressTransferEvents(formats s
 			if err := m.ProgressTransferEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("progressTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("progressTransferEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -506,7 +521,6 @@ func (m *BatchConversationEventRequest) validateProgressTransferEvents(formats s
 }
 
 func (m *BatchConversationEventRequest) validateRoutingEstablishedEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingEstablishedEvents) { // not required
 		return nil
 	}
@@ -520,6 +534,8 @@ func (m *BatchConversationEventRequest) validateRoutingEstablishedEvents(formats
 			if err := m.RoutingEstablishedEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("routingEstablishedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingEstablishedEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -531,7 +547,6 @@ func (m *BatchConversationEventRequest) validateRoutingEstablishedEvents(formats
 }
 
 func (m *BatchConversationEventRequest) validateRoutingTransferEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingTransferEvents) { // not required
 		return nil
 	}
@@ -545,6 +560,8 @@ func (m *BatchConversationEventRequest) validateRoutingTransferEvents(formats st
 			if err := m.RoutingTransferEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("routingTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingTransferEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -556,7 +573,6 @@ func (m *BatchConversationEventRequest) validateRoutingTransferEvents(formats st
 }
 
 func (m *BatchConversationEventRequest) validateUserEstablishedEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserEstablishedEvents) { // not required
 		return nil
 	}
@@ -570,6 +586,8 @@ func (m *BatchConversationEventRequest) validateUserEstablishedEvents(formats st
 			if err := m.UserEstablishedEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("userEstablishedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userEstablishedEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -581,7 +599,6 @@ func (m *BatchConversationEventRequest) validateUserEstablishedEvents(formats st
 }
 
 func (m *BatchConversationEventRequest) validateUserTransferEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserTransferEvents) { // not required
 		return nil
 	}
@@ -595,6 +612,450 @@ func (m *BatchConversationEventRequest) validateUserTransferEvents(formats strfm
 			if err := m.UserTransferEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("userTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userTransferEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this batch conversation event request based on the context it is used
+func (m *BatchConversationEventRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAudioUpdatedEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCommunicationAnsweredEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCommunicationDispositionAppliedEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCommunicationEndedEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConsultTransferEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEndConsultTransferEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEndTransferEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExternalEstablishedEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHoldUpdatedEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIvrEstablishedEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhoneEstablishedEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhoneTransferEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProgressConsultTransferEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProgressTransferEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutingEstablishedEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutingTransferEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserEstablishedEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserTransferEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateAudioUpdatedEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AudioUpdatedEvents); i++ {
+
+		if m.AudioUpdatedEvents[i] != nil {
+			if err := m.AudioUpdatedEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("audioUpdatedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("audioUpdatedEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateCommunicationAnsweredEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CommunicationAnsweredEvents); i++ {
+
+		if m.CommunicationAnsweredEvents[i] != nil {
+			if err := m.CommunicationAnsweredEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("communicationAnsweredEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("communicationAnsweredEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateCommunicationDispositionAppliedEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CommunicationDispositionAppliedEvents); i++ {
+
+		if m.CommunicationDispositionAppliedEvents[i] != nil {
+			if err := m.CommunicationDispositionAppliedEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("communicationDispositionAppliedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("communicationDispositionAppliedEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateCommunicationEndedEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CommunicationEndedEvents); i++ {
+
+		if m.CommunicationEndedEvents[i] != nil {
+			if err := m.CommunicationEndedEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("communicationEndedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("communicationEndedEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateConsultTransferEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ConsultTransferEvents); i++ {
+
+		if m.ConsultTransferEvents[i] != nil {
+			if err := m.ConsultTransferEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("consultTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("consultTransferEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateEndConsultTransferEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.EndConsultTransferEvents); i++ {
+
+		if m.EndConsultTransferEvents[i] != nil {
+			if err := m.EndConsultTransferEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("endConsultTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("endConsultTransferEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateEndTransferEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.EndTransferEvents); i++ {
+
+		if m.EndTransferEvents[i] != nil {
+			if err := m.EndTransferEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("endTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("endTransferEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateExternalEstablishedEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ExternalEstablishedEvents); i++ {
+
+		if m.ExternalEstablishedEvents[i] != nil {
+			if err := m.ExternalEstablishedEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("externalEstablishedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("externalEstablishedEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateHoldUpdatedEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.HoldUpdatedEvents); i++ {
+
+		if m.HoldUpdatedEvents[i] != nil {
+			if err := m.HoldUpdatedEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("holdUpdatedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("holdUpdatedEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateIvrEstablishedEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.IvrEstablishedEvents); i++ {
+
+		if m.IvrEstablishedEvents[i] != nil {
+			if err := m.IvrEstablishedEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ivrEstablishedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ivrEstablishedEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidatePhoneEstablishedEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PhoneEstablishedEvents); i++ {
+
+		if m.PhoneEstablishedEvents[i] != nil {
+			if err := m.PhoneEstablishedEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("phoneEstablishedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phoneEstablishedEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidatePhoneTransferEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PhoneTransferEvents); i++ {
+
+		if m.PhoneTransferEvents[i] != nil {
+			if err := m.PhoneTransferEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("phoneTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phoneTransferEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateProgressConsultTransferEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ProgressConsultTransferEvents); i++ {
+
+		if m.ProgressConsultTransferEvents[i] != nil {
+			if err := m.ProgressConsultTransferEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("progressConsultTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("progressConsultTransferEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateProgressTransferEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ProgressTransferEvents); i++ {
+
+		if m.ProgressTransferEvents[i] != nil {
+			if err := m.ProgressTransferEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("progressTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("progressTransferEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateRoutingEstablishedEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RoutingEstablishedEvents); i++ {
+
+		if m.RoutingEstablishedEvents[i] != nil {
+			if err := m.RoutingEstablishedEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("routingEstablishedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingEstablishedEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateRoutingTransferEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RoutingTransferEvents); i++ {
+
+		if m.RoutingTransferEvents[i] != nil {
+			if err := m.RoutingTransferEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("routingTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingTransferEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateUserEstablishedEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.UserEstablishedEvents); i++ {
+
+		if m.UserEstablishedEvents[i] != nil {
+			if err := m.UserEstablishedEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("userEstablishedEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userEstablishedEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BatchConversationEventRequest) contextValidateUserTransferEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.UserTransferEvents); i++ {
+
+		if m.UserTransferEvents[i] != nil {
+			if err := m.UserTransferEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("userTransferEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userTransferEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

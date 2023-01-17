@@ -95,7 +95,6 @@ func (o *DeleteTokenReader) ReadResponse(response runtime.ClientResponse, consum
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteTokenNoContent() *DeleteTokenNoContent {
 	return &DeleteTokenNoContent{}
 }
 
-/*DeleteTokenNoContent handles this case with default header values.
+/*
+DeleteTokenNoContent describes a response with status code 204, with default header values.
 
 Operation was successful.
 */
 type DeleteTokenNoContent struct {
 }
 
+// IsSuccess returns true when this delete token no content response has a 2xx status code
+func (o *DeleteTokenNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete token no content response has a 3xx status code
+func (o *DeleteTokenNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token no content response has a 4xx status code
+func (o *DeleteTokenNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete token no content response has a 5xx status code
+func (o *DeleteTokenNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token no content response a status code equal to that given
+func (o *DeleteTokenNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteTokenNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenNoContent ", 204)
+}
+
+func (o *DeleteTokenNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteTokenBadRequest() *DeleteTokenBadRequest {
 	return &DeleteTokenBadRequest{}
 }
 
-/*DeleteTokenBadRequest handles this case with default header values.
+/*
+DeleteTokenBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteTokenBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete token bad request response has a 2xx status code
+func (o *DeleteTokenBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token bad request response has a 3xx status code
+func (o *DeleteTokenBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token bad request response has a 4xx status code
+func (o *DeleteTokenBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete token bad request response has a 5xx status code
+func (o *DeleteTokenBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token bad request response a status code equal to that given
+func (o *DeleteTokenBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteTokenBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteTokenBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteTokenUnauthorized() *DeleteTokenUnauthorized {
 	return &DeleteTokenUnauthorized{}
 }
 
-/*DeleteTokenUnauthorized handles this case with default header values.
+/*
+DeleteTokenUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteTokenUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete token unauthorized response has a 2xx status code
+func (o *DeleteTokenUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token unauthorized response has a 3xx status code
+func (o *DeleteTokenUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token unauthorized response has a 4xx status code
+func (o *DeleteTokenUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete token unauthorized response has a 5xx status code
+func (o *DeleteTokenUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token unauthorized response a status code equal to that given
+func (o *DeleteTokenUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteTokenUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteTokenUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteTokenForbidden() *DeleteTokenForbidden {
 	return &DeleteTokenForbidden{}
 }
 
-/*DeleteTokenForbidden handles this case with default header values.
+/*
+DeleteTokenForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteTokenForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete token forbidden response has a 2xx status code
+func (o *DeleteTokenForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token forbidden response has a 3xx status code
+func (o *DeleteTokenForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token forbidden response has a 4xx status code
+func (o *DeleteTokenForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete token forbidden response has a 5xx status code
+func (o *DeleteTokenForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token forbidden response a status code equal to that given
+func (o *DeleteTokenForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteTokenForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteTokenForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteTokenNotFound() *DeleteTokenNotFound {
 	return &DeleteTokenNotFound{}
 }
 
-/*DeleteTokenNotFound handles this case with default header values.
+/*
+DeleteTokenNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteTokenNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete token not found response has a 2xx status code
+func (o *DeleteTokenNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token not found response has a 3xx status code
+func (o *DeleteTokenNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token not found response has a 4xx status code
+func (o *DeleteTokenNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete token not found response has a 5xx status code
+func (o *DeleteTokenNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token not found response a status code equal to that given
+func (o *DeleteTokenNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteTokenNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteTokenNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteTokenRequestTimeout() *DeleteTokenRequestTimeout {
 	return &DeleteTokenRequestTimeout{}
 }
 
-/*DeleteTokenRequestTimeout handles this case with default header values.
+/*
+DeleteTokenRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteTokenRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete token request timeout response has a 2xx status code
+func (o *DeleteTokenRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token request timeout response has a 3xx status code
+func (o *DeleteTokenRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token request timeout response has a 4xx status code
+func (o *DeleteTokenRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete token request timeout response has a 5xx status code
+func (o *DeleteTokenRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token request timeout response a status code equal to that given
+func (o *DeleteTokenRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteTokenRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteTokenRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteTokenRequestEntityTooLarge() *DeleteTokenRequestEntityTooLarge {
 	return &DeleteTokenRequestEntityTooLarge{}
 }
 
-/*DeleteTokenRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteTokenRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteTokenRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete token request entity too large response has a 2xx status code
+func (o *DeleteTokenRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token request entity too large response has a 3xx status code
+func (o *DeleteTokenRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token request entity too large response has a 4xx status code
+func (o *DeleteTokenRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete token request entity too large response has a 5xx status code
+func (o *DeleteTokenRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token request entity too large response a status code equal to that given
+func (o *DeleteTokenRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteTokenRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteTokenRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteTokenUnsupportedMediaType() *DeleteTokenUnsupportedMediaType {
 	return &DeleteTokenUnsupportedMediaType{}
 }
 
-/*DeleteTokenUnsupportedMediaType handles this case with default header values.
+/*
+DeleteTokenUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteTokenUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete token unsupported media type response has a 2xx status code
+func (o *DeleteTokenUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token unsupported media type response has a 3xx status code
+func (o *DeleteTokenUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token unsupported media type response has a 4xx status code
+func (o *DeleteTokenUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete token unsupported media type response has a 5xx status code
+func (o *DeleteTokenUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token unsupported media type response a status code equal to that given
+func (o *DeleteTokenUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteTokenUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteTokenUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteTokenTooManyRequests() *DeleteTokenTooManyRequests {
 	return &DeleteTokenTooManyRequests{}
 }
 
-/*DeleteTokenTooManyRequests handles this case with default header values.
+/*
+DeleteTokenTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteTokenTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete token too many requests response has a 2xx status code
+func (o *DeleteTokenTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token too many requests response has a 3xx status code
+func (o *DeleteTokenTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token too many requests response has a 4xx status code
+func (o *DeleteTokenTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete token too many requests response has a 5xx status code
+func (o *DeleteTokenTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete token too many requests response a status code equal to that given
+func (o *DeleteTokenTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteTokenTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteTokenTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteTokenInternalServerError() *DeleteTokenInternalServerError {
 	return &DeleteTokenInternalServerError{}
 }
 
-/*DeleteTokenInternalServerError handles this case with default header values.
+/*
+DeleteTokenInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteTokenInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete token internal server error response has a 2xx status code
+func (o *DeleteTokenInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token internal server error response has a 3xx status code
+func (o *DeleteTokenInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token internal server error response has a 4xx status code
+func (o *DeleteTokenInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete token internal server error response has a 5xx status code
+func (o *DeleteTokenInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete token internal server error response a status code equal to that given
+func (o *DeleteTokenInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteTokenInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteTokenInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteTokenServiceUnavailable() *DeleteTokenServiceUnavailable {
 	return &DeleteTokenServiceUnavailable{}
 }
 
-/*DeleteTokenServiceUnavailable handles this case with default header values.
+/*
+DeleteTokenServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteTokenServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete token service unavailable response has a 2xx status code
+func (o *DeleteTokenServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token service unavailable response has a 3xx status code
+func (o *DeleteTokenServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token service unavailable response has a 4xx status code
+func (o *DeleteTokenServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete token service unavailable response has a 5xx status code
+func (o *DeleteTokenServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete token service unavailable response a status code equal to that given
+func (o *DeleteTokenServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteTokenServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteTokenServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteTokenGatewayTimeout() *DeleteTokenGatewayTimeout {
 	return &DeleteTokenGatewayTimeout{}
 }
 
-/*DeleteTokenGatewayTimeout handles this case with default header values.
+/*
+DeleteTokenGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteTokenGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete token gateway timeout response has a 2xx status code
+func (o *DeleteTokenGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete token gateway timeout response has a 3xx status code
+func (o *DeleteTokenGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete token gateway timeout response has a 4xx status code
+func (o *DeleteTokenGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete token gateway timeout response has a 5xx status code
+func (o *DeleteTokenGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete token gateway timeout response a status code equal to that given
+func (o *DeleteTokenGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteTokenGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteTokenGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/tokens/{userId}][%d] deleteTokenGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -56,7 +58,6 @@ func (m *FieldConfigs) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FieldConfigs) validateExternalContact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalContact) { // not required
 		return nil
 	}
@@ -65,6 +66,8 @@ func (m *FieldConfigs) validateExternalContact(formats strfmt.Registry) error {
 		if err := m.ExternalContact.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("externalContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalContact")
 			}
 			return err
 		}
@@ -74,7 +77,6 @@ func (m *FieldConfigs) validateExternalContact(formats strfmt.Registry) error {
 }
 
 func (m *FieldConfigs) validateGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Group) { // not required
 		return nil
 	}
@@ -83,6 +85,8 @@ func (m *FieldConfigs) validateGroup(formats strfmt.Registry) error {
 		if err := m.Group.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("group")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("group")
 			}
 			return err
 		}
@@ -92,7 +96,6 @@ func (m *FieldConfigs) validateGroup(formats strfmt.Registry) error {
 }
 
 func (m *FieldConfigs) validateOrg(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Org) { // not required
 		return nil
 	}
@@ -101,6 +104,8 @@ func (m *FieldConfigs) validateOrg(formats strfmt.Registry) error {
 		if err := m.Org.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("org")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("org")
 			}
 			return err
 		}
@@ -110,7 +115,6 @@ func (m *FieldConfigs) validateOrg(formats strfmt.Registry) error {
 }
 
 func (m *FieldConfigs) validatePerson(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Person) { // not required
 		return nil
 	}
@@ -119,6 +123,98 @@ func (m *FieldConfigs) validatePerson(formats strfmt.Registry) error {
 		if err := m.Person.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("person")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("person")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this field configs based on the context it is used
+func (m *FieldConfigs) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateExternalContact(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOrg(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePerson(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FieldConfigs) contextValidateExternalContact(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExternalContact != nil {
+		if err := m.ExternalContact.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("externalContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalContact")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FieldConfigs) contextValidateGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Group != nil {
+		if err := m.Group.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("group")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("group")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FieldConfigs) contextValidateOrg(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Org != nil {
+		if err := m.Org.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("org")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("org")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FieldConfigs) contextValidatePerson(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Person != nil {
+		if err := m.Person.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("person")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("person")
 			}
 			return err
 		}

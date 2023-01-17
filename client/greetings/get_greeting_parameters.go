@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGreetingParams creates a new GetGreetingParams object
-// with the default values initialized.
+// NewGetGreetingParams creates a new GetGreetingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGreetingParams() *GetGreetingParams {
-	var ()
 	return &GetGreetingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGreetingParamsWithTimeout creates a new GetGreetingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGreetingParamsWithTimeout(timeout time.Duration) *GetGreetingParams {
-	var ()
 	return &GetGreetingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGreetingParamsWithContext creates a new GetGreetingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGreetingParamsWithContext(ctx context.Context) *GetGreetingParams {
-	var ()
 	return &GetGreetingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGreetingParamsWithHTTPClient creates a new GetGreetingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGreetingParamsWithHTTPClient(client *http.Client) *GetGreetingParams {
-	var ()
 	return &GetGreetingParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGreetingParams contains all the parameters to send to the API endpoint
-for the get greeting operation typically these are written to a http.Request
+/*
+GetGreetingParams contains all the parameters to send to the API endpoint
+
+	for the get greeting operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGreetingParams struct {
 
-	/*GreetingID
-	  Greeting ID
+	/* GreetingID.
 
+	   Greeting ID
 	*/
 	GreetingID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get greeting params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGreetingParams) WithDefaults() *GetGreetingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get greeting params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGreetingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get greeting params

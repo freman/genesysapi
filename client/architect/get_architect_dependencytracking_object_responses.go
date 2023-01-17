@@ -107,7 +107,6 @@ func (o *GetArchitectDependencytrackingObjectReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -118,7 +117,8 @@ func NewGetArchitectDependencytrackingObjectOK() *GetArchitectDependencytracking
 	return &GetArchitectDependencytrackingObjectOK{}
 }
 
-/*GetArchitectDependencytrackingObjectOK handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -126,7 +126,36 @@ type GetArchitectDependencytrackingObjectOK struct {
 	Payload *models.DependencyObject
 }
 
+// IsSuccess returns true when this get architect dependencytracking object o k response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get architect dependencytracking object o k response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object o k response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect dependencytracking object o k response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking object o k response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetArchitectDependencytrackingObjectOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectOK  %+v", 200, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectOK  %+v", 200, o.Payload)
 }
 
@@ -151,14 +180,44 @@ func NewGetArchitectDependencytrackingObjectPartialContent() *GetArchitectDepend
 	return &GetArchitectDependencytrackingObjectPartialContent{}
 }
 
-/*GetArchitectDependencytrackingObjectPartialContent handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectPartialContent describes a response with status code 206, with default header values.
 
 Partial Content - the org data is being rebuilt or needs to be rebuilt.
 */
 type GetArchitectDependencytrackingObjectPartialContent struct {
 }
 
+// IsSuccess returns true when this get architect dependencytracking object partial content response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectPartialContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get architect dependencytracking object partial content response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectPartialContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object partial content response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectPartialContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect dependencytracking object partial content response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectPartialContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking object partial content response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectPartialContent) IsCode(code int) bool {
+	return code == 206
+}
+
 func (o *GetArchitectDependencytrackingObjectPartialContent) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectPartialContent ", 206)
+}
+
+func (o *GetArchitectDependencytrackingObjectPartialContent) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectPartialContent ", 206)
 }
 
@@ -172,7 +231,8 @@ func NewGetArchitectDependencytrackingObjectBadRequest() *GetArchitectDependency
 	return &GetArchitectDependencytrackingObjectBadRequest{}
 }
 
-/*GetArchitectDependencytrackingObjectBadRequest handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -180,7 +240,36 @@ type GetArchitectDependencytrackingObjectBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking object bad request response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking object bad request response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object bad request response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking object bad request response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking object bad request response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetArchitectDependencytrackingObjectBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectBadRequest  %+v", 400, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetArchitectDependencytrackingObjectUnauthorized() *GetArchitectDependen
 	return &GetArchitectDependencytrackingObjectUnauthorized{}
 }
 
-/*GetArchitectDependencytrackingObjectUnauthorized handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -213,7 +303,36 @@ type GetArchitectDependencytrackingObjectUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking object unauthorized response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking object unauthorized response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object unauthorized response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking object unauthorized response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking object unauthorized response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetArchitectDependencytrackingObjectUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetArchitectDependencytrackingObjectForbidden() *GetArchitectDependencyt
 	return &GetArchitectDependencytrackingObjectForbidden{}
 }
 
-/*GetArchitectDependencytrackingObjectForbidden handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -246,7 +366,36 @@ type GetArchitectDependencytrackingObjectForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking object forbidden response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking object forbidden response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object forbidden response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking object forbidden response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking object forbidden response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetArchitectDependencytrackingObjectForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectForbidden  %+v", 403, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetArchitectDependencytrackingObjectNotFound() *GetArchitectDependencytr
 	return &GetArchitectDependencytrackingObjectNotFound{}
 }
 
-/*GetArchitectDependencytrackingObjectNotFound handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -279,7 +429,36 @@ type GetArchitectDependencytrackingObjectNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking object not found response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking object not found response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object not found response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking object not found response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking object not found response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetArchitectDependencytrackingObjectNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectNotFound  %+v", 404, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetArchitectDependencytrackingObjectRequestTimeout() *GetArchitectDepend
 	return &GetArchitectDependencytrackingObjectRequestTimeout{}
 }
 
-/*GetArchitectDependencytrackingObjectRequestTimeout handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -312,7 +492,36 @@ type GetArchitectDependencytrackingObjectRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking object request timeout response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking object request timeout response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object request timeout response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking object request timeout response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking object request timeout response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetArchitectDependencytrackingObjectRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetArchitectDependencytrackingObjectGone() *GetArchitectDependencytracki
 	return &GetArchitectDependencytrackingObjectGone{}
 }
 
-/*GetArchitectDependencytrackingObjectGone handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectGone describes a response with status code 410, with default header values.
 
 Gone
 */
@@ -345,7 +555,36 @@ type GetArchitectDependencytrackingObjectGone struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking object gone response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectGone) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking object gone response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectGone) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object gone response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectGone) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking object gone response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectGone) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking object gone response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectGone) IsCode(code int) bool {
+	return code == 410
+}
+
 func (o *GetArchitectDependencytrackingObjectGone) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectGone  %+v", 410, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectGone) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectGone  %+v", 410, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetArchitectDependencytrackingObjectRequestEntityTooLarge() *GetArchitec
 	return &GetArchitectDependencytrackingObjectRequestEntityTooLarge{}
 }
 
-/*GetArchitectDependencytrackingObjectRequestEntityTooLarge handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -378,7 +618,36 @@ type GetArchitectDependencytrackingObjectRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking object request entity too large response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking object request entity too large response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object request entity too large response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking object request entity too large response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking object request entity too large response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetArchitectDependencytrackingObjectRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetArchitectDependencytrackingObjectUnsupportedMediaType() *GetArchitect
 	return &GetArchitectDependencytrackingObjectUnsupportedMediaType{}
 }
 
-/*GetArchitectDependencytrackingObjectUnsupportedMediaType handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -411,7 +681,36 @@ type GetArchitectDependencytrackingObjectUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking object unsupported media type response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking object unsupported media type response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object unsupported media type response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking object unsupported media type response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking object unsupported media type response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetArchitectDependencytrackingObjectUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetArchitectDependencytrackingObjectTooManyRequests() *GetArchitectDepen
 	return &GetArchitectDependencytrackingObjectTooManyRequests{}
 }
 
-/*GetArchitectDependencytrackingObjectTooManyRequests handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -444,7 +744,36 @@ type GetArchitectDependencytrackingObjectTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking object too many requests response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking object too many requests response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object too many requests response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking object too many requests response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking object too many requests response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetArchitectDependencytrackingObjectTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetArchitectDependencytrackingObjectInternalServerError() *GetArchitectD
 	return &GetArchitectDependencytrackingObjectInternalServerError{}
 }
 
-/*GetArchitectDependencytrackingObjectInternalServerError handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -477,7 +807,36 @@ type GetArchitectDependencytrackingObjectInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking object internal server error response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking object internal server error response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object internal server error response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect dependencytracking object internal server error response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect dependencytracking object internal server error response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetArchitectDependencytrackingObjectInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -502,7 +861,8 @@ func NewGetArchitectDependencytrackingObjectServiceUnavailable() *GetArchitectDe
 	return &GetArchitectDependencytrackingObjectServiceUnavailable{}
 }
 
-/*GetArchitectDependencytrackingObjectServiceUnavailable handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -510,7 +870,36 @@ type GetArchitectDependencytrackingObjectServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking object service unavailable response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking object service unavailable response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object service unavailable response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect dependencytracking object service unavailable response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect dependencytracking object service unavailable response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetArchitectDependencytrackingObjectServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -535,7 +924,8 @@ func NewGetArchitectDependencytrackingObjectGatewayTimeout() *GetArchitectDepend
 	return &GetArchitectDependencytrackingObjectGatewayTimeout{}
 }
 
-/*GetArchitectDependencytrackingObjectGatewayTimeout handles this case with default header values.
+/*
+GetArchitectDependencytrackingObjectGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -543,7 +933,36 @@ type GetArchitectDependencytrackingObjectGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking object gateway timeout response has a 2xx status code
+func (o *GetArchitectDependencytrackingObjectGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking object gateway timeout response has a 3xx status code
+func (o *GetArchitectDependencytrackingObjectGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking object gateway timeout response has a 4xx status code
+func (o *GetArchitectDependencytrackingObjectGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect dependencytracking object gateway timeout response has a 5xx status code
+func (o *GetArchitectDependencytrackingObjectGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect dependencytracking object gateway timeout response a status code equal to that given
+func (o *GetArchitectDependencytrackingObjectGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetArchitectDependencytrackingObjectGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingObjectGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/object][%d] getArchitectDependencytrackingObjectGatewayTimeout  %+v", 504, o.Payload)
 }
 

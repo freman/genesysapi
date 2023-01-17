@@ -101,7 +101,6 @@ func (o *PatchOutboundSettingsReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewPatchOutboundSettingsNoContent() *PatchOutboundSettingsNoContent {
 	return &PatchOutboundSettingsNoContent{}
 }
 
-/*PatchOutboundSettingsNoContent handles this case with default header values.
+/*
+PatchOutboundSettingsNoContent describes a response with status code 204, with default header values.
 
 Accepted - Processing Update
 */
 type PatchOutboundSettingsNoContent struct {
 }
 
+// IsSuccess returns true when this patch outbound settings no content response has a 2xx status code
+func (o *PatchOutboundSettingsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch outbound settings no content response has a 3xx status code
+func (o *PatchOutboundSettingsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings no content response has a 4xx status code
+func (o *PatchOutboundSettingsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch outbound settings no content response has a 5xx status code
+func (o *PatchOutboundSettingsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch outbound settings no content response a status code equal to that given
+func (o *PatchOutboundSettingsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PatchOutboundSettingsNoContent) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsNoContent ", 204)
+}
+
+func (o *PatchOutboundSettingsNoContent) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsNoContent ", 204)
 }
 
@@ -133,7 +162,8 @@ func NewPatchOutboundSettingsBadRequest() *PatchOutboundSettingsBadRequest {
 	return &PatchOutboundSettingsBadRequest{}
 }
 
-/*PatchOutboundSettingsBadRequest handles this case with default header values.
+/*
+PatchOutboundSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type PatchOutboundSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch outbound settings bad request response has a 2xx status code
+func (o *PatchOutboundSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch outbound settings bad request response has a 3xx status code
+func (o *PatchOutboundSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings bad request response has a 4xx status code
+func (o *PatchOutboundSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch outbound settings bad request response has a 5xx status code
+func (o *PatchOutboundSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch outbound settings bad request response a status code equal to that given
+func (o *PatchOutboundSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchOutboundSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchOutboundSettingsBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewPatchOutboundSettingsUnauthorized() *PatchOutboundSettingsUnauthorized {
 	return &PatchOutboundSettingsUnauthorized{}
 }
 
-/*PatchOutboundSettingsUnauthorized handles this case with default header values.
+/*
+PatchOutboundSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type PatchOutboundSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch outbound settings unauthorized response has a 2xx status code
+func (o *PatchOutboundSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch outbound settings unauthorized response has a 3xx status code
+func (o *PatchOutboundSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings unauthorized response has a 4xx status code
+func (o *PatchOutboundSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch outbound settings unauthorized response has a 5xx status code
+func (o *PatchOutboundSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch outbound settings unauthorized response a status code equal to that given
+func (o *PatchOutboundSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchOutboundSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchOutboundSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewPatchOutboundSettingsForbidden() *PatchOutboundSettingsForbidden {
 	return &PatchOutboundSettingsForbidden{}
 }
 
-/*PatchOutboundSettingsForbidden handles this case with default header values.
+/*
+PatchOutboundSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type PatchOutboundSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch outbound settings forbidden response has a 2xx status code
+func (o *PatchOutboundSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch outbound settings forbidden response has a 3xx status code
+func (o *PatchOutboundSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings forbidden response has a 4xx status code
+func (o *PatchOutboundSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch outbound settings forbidden response has a 5xx status code
+func (o *PatchOutboundSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch outbound settings forbidden response a status code equal to that given
+func (o *PatchOutboundSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchOutboundSettingsForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchOutboundSettingsForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewPatchOutboundSettingsNotFound() *PatchOutboundSettingsNotFound {
 	return &PatchOutboundSettingsNotFound{}
 }
 
-/*PatchOutboundSettingsNotFound handles this case with default header values.
+/*
+PatchOutboundSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type PatchOutboundSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch outbound settings not found response has a 2xx status code
+func (o *PatchOutboundSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch outbound settings not found response has a 3xx status code
+func (o *PatchOutboundSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings not found response has a 4xx status code
+func (o *PatchOutboundSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch outbound settings not found response has a 5xx status code
+func (o *PatchOutboundSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch outbound settings not found response a status code equal to that given
+func (o *PatchOutboundSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchOutboundSettingsNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchOutboundSettingsNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewPatchOutboundSettingsRequestTimeout() *PatchOutboundSettingsRequestTimeo
 	return &PatchOutboundSettingsRequestTimeout{}
 }
 
-/*PatchOutboundSettingsRequestTimeout handles this case with default header values.
+/*
+PatchOutboundSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type PatchOutboundSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch outbound settings request timeout response has a 2xx status code
+func (o *PatchOutboundSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch outbound settings request timeout response has a 3xx status code
+func (o *PatchOutboundSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings request timeout response has a 4xx status code
+func (o *PatchOutboundSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch outbound settings request timeout response has a 5xx status code
+func (o *PatchOutboundSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch outbound settings request timeout response a status code equal to that given
+func (o *PatchOutboundSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchOutboundSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchOutboundSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewPatchOutboundSettingsConflict() *PatchOutboundSettingsConflict {
 	return &PatchOutboundSettingsConflict{}
 }
 
-/*PatchOutboundSettingsConflict handles this case with default header values.
+/*
+PatchOutboundSettingsConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type PatchOutboundSettingsConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch outbound settings conflict response has a 2xx status code
+func (o *PatchOutboundSettingsConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch outbound settings conflict response has a 3xx status code
+func (o *PatchOutboundSettingsConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings conflict response has a 4xx status code
+func (o *PatchOutboundSettingsConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch outbound settings conflict response has a 5xx status code
+func (o *PatchOutboundSettingsConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch outbound settings conflict response a status code equal to that given
+func (o *PatchOutboundSettingsConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchOutboundSettingsConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchOutboundSettingsConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewPatchOutboundSettingsRequestEntityTooLarge() *PatchOutboundSettingsReque
 	return &PatchOutboundSettingsRequestEntityTooLarge{}
 }
 
-/*PatchOutboundSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+PatchOutboundSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type PatchOutboundSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch outbound settings request entity too large response has a 2xx status code
+func (o *PatchOutboundSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch outbound settings request entity too large response has a 3xx status code
+func (o *PatchOutboundSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings request entity too large response has a 4xx status code
+func (o *PatchOutboundSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch outbound settings request entity too large response has a 5xx status code
+func (o *PatchOutboundSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch outbound settings request entity too large response a status code equal to that given
+func (o *PatchOutboundSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchOutboundSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchOutboundSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewPatchOutboundSettingsUnsupportedMediaType() *PatchOutboundSettingsUnsupp
 	return &PatchOutboundSettingsUnsupportedMediaType{}
 }
 
-/*PatchOutboundSettingsUnsupportedMediaType handles this case with default header values.
+/*
+PatchOutboundSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type PatchOutboundSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch outbound settings unsupported media type response has a 2xx status code
+func (o *PatchOutboundSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch outbound settings unsupported media type response has a 3xx status code
+func (o *PatchOutboundSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings unsupported media type response has a 4xx status code
+func (o *PatchOutboundSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch outbound settings unsupported media type response has a 5xx status code
+func (o *PatchOutboundSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch outbound settings unsupported media type response a status code equal to that given
+func (o *PatchOutboundSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchOutboundSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchOutboundSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewPatchOutboundSettingsTooManyRequests() *PatchOutboundSettingsTooManyRequ
 	return &PatchOutboundSettingsTooManyRequests{}
 }
 
-/*PatchOutboundSettingsTooManyRequests handles this case with default header values.
+/*
+PatchOutboundSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type PatchOutboundSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch outbound settings too many requests response has a 2xx status code
+func (o *PatchOutboundSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch outbound settings too many requests response has a 3xx status code
+func (o *PatchOutboundSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings too many requests response has a 4xx status code
+func (o *PatchOutboundSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch outbound settings too many requests response has a 5xx status code
+func (o *PatchOutboundSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch outbound settings too many requests response a status code equal to that given
+func (o *PatchOutboundSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchOutboundSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchOutboundSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewPatchOutboundSettingsInternalServerError() *PatchOutboundSettingsInterna
 	return &PatchOutboundSettingsInternalServerError{}
 }
 
-/*PatchOutboundSettingsInternalServerError handles this case with default header values.
+/*
+PatchOutboundSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type PatchOutboundSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch outbound settings internal server error response has a 2xx status code
+func (o *PatchOutboundSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch outbound settings internal server error response has a 3xx status code
+func (o *PatchOutboundSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings internal server error response has a 4xx status code
+func (o *PatchOutboundSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch outbound settings internal server error response has a 5xx status code
+func (o *PatchOutboundSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch outbound settings internal server error response a status code equal to that given
+func (o *PatchOutboundSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchOutboundSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchOutboundSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewPatchOutboundSettingsServiceUnavailable() *PatchOutboundSettingsServiceU
 	return &PatchOutboundSettingsServiceUnavailable{}
 }
 
-/*PatchOutboundSettingsServiceUnavailable handles this case with default header values.
+/*
+PatchOutboundSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type PatchOutboundSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch outbound settings service unavailable response has a 2xx status code
+func (o *PatchOutboundSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch outbound settings service unavailable response has a 3xx status code
+func (o *PatchOutboundSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings service unavailable response has a 4xx status code
+func (o *PatchOutboundSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch outbound settings service unavailable response has a 5xx status code
+func (o *PatchOutboundSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch outbound settings service unavailable response a status code equal to that given
+func (o *PatchOutboundSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchOutboundSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchOutboundSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewPatchOutboundSettingsGatewayTimeout() *PatchOutboundSettingsGatewayTimeo
 	return &PatchOutboundSettingsGatewayTimeout{}
 }
 
-/*PatchOutboundSettingsGatewayTimeout handles this case with default header values.
+/*
+PatchOutboundSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type PatchOutboundSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch outbound settings gateway timeout response has a 2xx status code
+func (o *PatchOutboundSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch outbound settings gateway timeout response has a 3xx status code
+func (o *PatchOutboundSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch outbound settings gateway timeout response has a 4xx status code
+func (o *PatchOutboundSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch outbound settings gateway timeout response has a 5xx status code
+func (o *PatchOutboundSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch outbound settings gateway timeout response a status code equal to that given
+func (o *PatchOutboundSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchOutboundSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchOutboundSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/outbound/settings][%d] patchOutboundSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

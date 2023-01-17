@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -69,7 +71,6 @@ func (m *UserPresence) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserPresence) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -82,7 +83,6 @@ func (m *UserPresence) validateModifiedDate(formats strfmt.Registry) error {
 }
 
 func (m *UserPresence) validatePresenceDefinition(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PresenceDefinition) { // not required
 		return nil
 	}
@@ -91,6 +91,8 @@ func (m *UserPresence) validatePresenceDefinition(formats strfmt.Registry) error
 		if err := m.PresenceDefinition.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("presenceDefinition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("presenceDefinition")
 			}
 			return err
 		}
@@ -100,12 +102,67 @@ func (m *UserPresence) validatePresenceDefinition(formats strfmt.Registry) error
 }
 
 func (m *UserPresence) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user presence based on the context it is used
+func (m *UserPresence) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePresenceDefinition(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserPresence) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserPresence) contextValidatePresenceDefinition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PresenceDefinition != nil {
+		if err := m.PresenceDefinition.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("presenceDefinition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("presenceDefinition")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserPresence) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

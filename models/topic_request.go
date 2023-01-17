@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -130,7 +131,6 @@ func (m *TopicRequest) validateParticipantsEnum(path, location string, value str
 }
 
 func (m *TopicRequest) validateParticipants(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Participants) { // not required
 		return nil
 	}
@@ -144,7 +144,6 @@ func (m *TopicRequest) validateParticipants(formats strfmt.Registry) error {
 }
 
 func (m *TopicRequest) validatePhrases(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Phrases) { // not required
 		return nil
 	}
@@ -158,6 +157,8 @@ func (m *TopicRequest) validatePhrases(formats strfmt.Registry) error {
 			if err := m.Phrases[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("phrases" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phrases" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -210,7 +211,6 @@ func (m *TopicRequest) validateStrictnessEnum(path, location string, value strin
 }
 
 func (m *TopicRequest) validateStrictness(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Strictness) { // not required
 		return nil
 	}
@@ -218,6 +218,40 @@ func (m *TopicRequest) validateStrictness(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateStrictnessEnum("strictness", "body", m.Strictness); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this topic request based on the context it is used
+func (m *TopicRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePhrases(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TopicRequest) contextValidatePhrases(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Phrases); i++ {
+
+		if m.Phrases[i] != nil {
+			if err := m.Phrases[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("phrases" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phrases" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

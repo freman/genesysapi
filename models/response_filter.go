@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -19,7 +20,7 @@ import (
 // swagger:model ResponseFilter
 type ResponseFilter struct {
 
-	// Field to filter on. Allowed values are 'name' and 'libraryId.
+	// Field to filter on. Allowed values are 'name', 'libraryId', 'text.contentType', 'messagingTemplate' and 'responseType'
 	// Required: true
 	Name *string `json:"name"`
 
@@ -28,7 +29,7 @@ type ResponseFilter struct {
 	// Enum: [IN EQUALS NOTEQUALS]
 	Operator *string `json:"operator"`
 
-	// Values to filter on.
+	// Values to filter on. If name is 'responseType' then allowed values are 'CampaignSmsTemplate', 'CampaignEmailTemplate', 'Footer' and 'Signature'
 	// Required: true
 	Values []string `json:"values"`
 }
@@ -116,6 +117,11 @@ func (m *ResponseFilter) validateValues(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this response filter based on context it is used
+func (m *ResponseFilter) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

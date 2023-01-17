@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -105,7 +106,6 @@ func (m *Survey) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Survey) validateAgent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Agent) { // not required
 		return nil
 	}
@@ -114,6 +114,8 @@ func (m *Survey) validateAgent(formats strfmt.Registry) error {
 		if err := m.Agent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("agent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent")
 			}
 			return err
 		}
@@ -123,7 +125,6 @@ func (m *Survey) validateAgent(formats strfmt.Registry) error {
 }
 
 func (m *Survey) validateAnswers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Answers) { // not required
 		return nil
 	}
@@ -132,6 +133,8 @@ func (m *Survey) validateAnswers(formats strfmt.Registry) error {
 		if err := m.Answers.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("answers")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("answers")
 			}
 			return err
 		}
@@ -141,7 +144,6 @@ func (m *Survey) validateAnswers(formats strfmt.Registry) error {
 }
 
 func (m *Survey) validateCompletedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CompletedDate) { // not required
 		return nil
 	}
@@ -154,7 +156,6 @@ func (m *Survey) validateCompletedDate(formats strfmt.Registry) error {
 }
 
 func (m *Survey) validateConversation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversation) { // not required
 		return nil
 	}
@@ -163,6 +164,8 @@ func (m *Survey) validateConversation(formats strfmt.Registry) error {
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}
@@ -172,7 +175,6 @@ func (m *Survey) validateConversation(formats strfmt.Registry) error {
 }
 
 func (m *Survey) validateQueue(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queue) { // not required
 		return nil
 	}
@@ -181,6 +183,8 @@ func (m *Survey) validateQueue(formats strfmt.Registry) error {
 		if err := m.Queue.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
 			}
 			return err
 		}
@@ -190,7 +194,6 @@ func (m *Survey) validateQueue(formats strfmt.Registry) error {
 }
 
 func (m *Survey) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -247,7 +250,6 @@ func (m *Survey) validateStatusEnum(path, location string, value string) error {
 }
 
 func (m *Survey) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -261,7 +263,6 @@ func (m *Survey) validateStatus(formats strfmt.Registry) error {
 }
 
 func (m *Survey) validateSurveyErrorDetails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SurveyErrorDetails) { // not required
 		return nil
 	}
@@ -270,6 +271,8 @@ func (m *Survey) validateSurveyErrorDetails(formats strfmt.Registry) error {
 		if err := m.SurveyErrorDetails.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("surveyErrorDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyErrorDetails")
 			}
 			return err
 		}
@@ -279,7 +282,6 @@ func (m *Survey) validateSurveyErrorDetails(formats strfmt.Registry) error {
 }
 
 func (m *Survey) validateSurveyForm(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SurveyForm) { // not required
 		return nil
 	}
@@ -288,6 +290,164 @@ func (m *Survey) validateSurveyForm(formats strfmt.Registry) error {
 		if err := m.SurveyForm.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("surveyForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyForm")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this survey based on the context it is used
+func (m *Survey) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAnswers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSurveyErrorDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSurveyForm(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Survey) contextValidateAgent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Agent != nil {
+		if err := m.Agent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("agent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Survey) contextValidateAnswers(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Answers != nil {
+		if err := m.Answers.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("answers")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("answers")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Survey) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Survey) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Survey) contextValidateQueue(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Queue != nil {
+		if err := m.Queue.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Survey) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Survey) contextValidateSurveyErrorDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SurveyErrorDetails != nil {
+		if err := m.SurveyErrorDetails.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("surveyErrorDetails")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyErrorDetails")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Survey) contextValidateSurveyForm(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SurveyForm != nil {
+		if err := m.SurveyForm.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("surveyForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyForm")
 			}
 			return err
 		}

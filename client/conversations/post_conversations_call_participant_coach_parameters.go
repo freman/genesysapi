@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostConversationsCallParticipantCoachParams creates a new PostConversationsCallParticipantCoachParams object
-// with the default values initialized.
+// NewPostConversationsCallParticipantCoachParams creates a new PostConversationsCallParticipantCoachParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsCallParticipantCoachParams() *PostConversationsCallParticipantCoachParams {
-	var ()
 	return &PostConversationsCallParticipantCoachParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsCallParticipantCoachParamsWithTimeout creates a new PostConversationsCallParticipantCoachParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsCallParticipantCoachParamsWithTimeout(timeout time.Duration) *PostConversationsCallParticipantCoachParams {
-	var ()
 	return &PostConversationsCallParticipantCoachParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsCallParticipantCoachParamsWithContext creates a new PostConversationsCallParticipantCoachParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsCallParticipantCoachParamsWithContext(ctx context.Context) *PostConversationsCallParticipantCoachParams {
-	var ()
 	return &PostConversationsCallParticipantCoachParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsCallParticipantCoachParamsWithHTTPClient creates a new PostConversationsCallParticipantCoachParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsCallParticipantCoachParamsWithHTTPClient(client *http.Client) *PostConversationsCallParticipantCoachParams {
-	var ()
 	return &PostConversationsCallParticipantCoachParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsCallParticipantCoachParams contains all the parameters to send to the API endpoint
-for the post conversations call participant coach operation typically these are written to a http.Request
+/*
+PostConversationsCallParticipantCoachParams contains all the parameters to send to the API endpoint
+
+	for the post conversations call participant coach operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsCallParticipantCoachParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations call participant coach params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCallParticipantCoachParams) WithDefaults() *PostConversationsCallParticipantCoachParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations call participant coach params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCallParticipantCoachParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations call participant coach params

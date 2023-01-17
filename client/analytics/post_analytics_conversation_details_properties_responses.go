@@ -95,7 +95,6 @@ func (o *PostAnalyticsConversationDetailsPropertiesReader) ReadResponse(response
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostAnalyticsConversationDetailsPropertiesAccepted() *PostAnalyticsConve
 	return &PostAnalyticsConversationDetailsPropertiesAccepted{}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesAccepted handles this case with default header values.
+/*
+PostAnalyticsConversationDetailsPropertiesAccepted describes a response with status code 202, with default header values.
 
 Accepted - Indexing properties
 */
@@ -114,7 +114,36 @@ type PostAnalyticsConversationDetailsPropertiesAccepted struct {
 	Payload *models.PropertyIndexRequest
 }
 
+// IsSuccess returns true when this post analytics conversation details properties accepted response has a 2xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post analytics conversation details properties accepted response has a 3xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversation details properties accepted response has a 4xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics conversation details properties accepted response has a 5xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversation details properties accepted response a status code equal to that given
+func (o *PostAnalyticsConversationDetailsPropertiesAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostAnalyticsConversationDetailsPropertiesAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostAnalyticsConversationDetailsPropertiesAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesAccepted  %+v", 202, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostAnalyticsConversationDetailsPropertiesBadRequest() *PostAnalyticsCon
 	return &PostAnalyticsConversationDetailsPropertiesBadRequest{}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesBadRequest handles this case with default header values.
+/*
+PostAnalyticsConversationDetailsPropertiesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostAnalyticsConversationDetailsPropertiesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversation details properties bad request response has a 2xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversation details properties bad request response has a 3xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversation details properties bad request response has a 4xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversation details properties bad request response has a 5xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversation details properties bad request response a status code equal to that given
+func (o *PostAnalyticsConversationDetailsPropertiesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAnalyticsConversationDetailsPropertiesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAnalyticsConversationDetailsPropertiesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostAnalyticsConversationDetailsPropertiesUnauthorized() *PostAnalyticsC
 	return &PostAnalyticsConversationDetailsPropertiesUnauthorized{}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesUnauthorized handles this case with default header values.
+/*
+PostAnalyticsConversationDetailsPropertiesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostAnalyticsConversationDetailsPropertiesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversation details properties unauthorized response has a 2xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversation details properties unauthorized response has a 3xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversation details properties unauthorized response has a 4xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversation details properties unauthorized response has a 5xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversation details properties unauthorized response a status code equal to that given
+func (o *PostAnalyticsConversationDetailsPropertiesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAnalyticsConversationDetailsPropertiesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAnalyticsConversationDetailsPropertiesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostAnalyticsConversationDetailsPropertiesForbidden() *PostAnalyticsConv
 	return &PostAnalyticsConversationDetailsPropertiesForbidden{}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesForbidden handles this case with default header values.
+/*
+PostAnalyticsConversationDetailsPropertiesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostAnalyticsConversationDetailsPropertiesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversation details properties forbidden response has a 2xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversation details properties forbidden response has a 3xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversation details properties forbidden response has a 4xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversation details properties forbidden response has a 5xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversation details properties forbidden response a status code equal to that given
+func (o *PostAnalyticsConversationDetailsPropertiesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAnalyticsConversationDetailsPropertiesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAnalyticsConversationDetailsPropertiesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostAnalyticsConversationDetailsPropertiesNotFound() *PostAnalyticsConve
 	return &PostAnalyticsConversationDetailsPropertiesNotFound{}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesNotFound handles this case with default header values.
+/*
+PostAnalyticsConversationDetailsPropertiesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostAnalyticsConversationDetailsPropertiesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversation details properties not found response has a 2xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversation details properties not found response has a 3xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversation details properties not found response has a 4xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversation details properties not found response has a 5xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversation details properties not found response a status code equal to that given
+func (o *PostAnalyticsConversationDetailsPropertiesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAnalyticsConversationDetailsPropertiesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAnalyticsConversationDetailsPropertiesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostAnalyticsConversationDetailsPropertiesRequestTimeout() *PostAnalytic
 	return &PostAnalyticsConversationDetailsPropertiesRequestTimeout{}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesRequestTimeout handles this case with default header values.
+/*
+PostAnalyticsConversationDetailsPropertiesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostAnalyticsConversationDetailsPropertiesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversation details properties request timeout response has a 2xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversation details properties request timeout response has a 3xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversation details properties request timeout response has a 4xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversation details properties request timeout response has a 5xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversation details properties request timeout response a status code equal to that given
+func (o *PostAnalyticsConversationDetailsPropertiesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAnalyticsConversationDetailsPropertiesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAnalyticsConversationDetailsPropertiesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostAnalyticsConversationDetailsPropertiesRequestEntityTooLarge() *PostA
 	return &PostAnalyticsConversationDetailsPropertiesRequestEntityTooLarge{}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesRequestEntityTooLarge handles this case with default header values.
+/*
+PostAnalyticsConversationDetailsPropertiesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostAnalyticsConversationDetailsPropertiesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversation details properties request entity too large response has a 2xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversation details properties request entity too large response has a 3xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversation details properties request entity too large response has a 4xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversation details properties request entity too large response has a 5xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversation details properties request entity too large response a status code equal to that given
+func (o *PostAnalyticsConversationDetailsPropertiesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAnalyticsConversationDetailsPropertiesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAnalyticsConversationDetailsPropertiesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostAnalyticsConversationDetailsPropertiesUnsupportedMediaType() *PostAn
 	return &PostAnalyticsConversationDetailsPropertiesUnsupportedMediaType{}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesUnsupportedMediaType handles this case with default header values.
+/*
+PostAnalyticsConversationDetailsPropertiesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostAnalyticsConversationDetailsPropertiesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversation details properties unsupported media type response has a 2xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversation details properties unsupported media type response has a 3xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversation details properties unsupported media type response has a 4xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversation details properties unsupported media type response has a 5xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversation details properties unsupported media type response a status code equal to that given
+func (o *PostAnalyticsConversationDetailsPropertiesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAnalyticsConversationDetailsPropertiesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAnalyticsConversationDetailsPropertiesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostAnalyticsConversationDetailsPropertiesTooManyRequests() *PostAnalyti
 	return &PostAnalyticsConversationDetailsPropertiesTooManyRequests{}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesTooManyRequests handles this case with default header values.
+/*
+PostAnalyticsConversationDetailsPropertiesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostAnalyticsConversationDetailsPropertiesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversation details properties too many requests response has a 2xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversation details properties too many requests response has a 3xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversation details properties too many requests response has a 4xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversation details properties too many requests response has a 5xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversation details properties too many requests response a status code equal to that given
+func (o *PostAnalyticsConversationDetailsPropertiesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAnalyticsConversationDetailsPropertiesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAnalyticsConversationDetailsPropertiesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostAnalyticsConversationDetailsPropertiesInternalServerError() *PostAna
 	return &PostAnalyticsConversationDetailsPropertiesInternalServerError{}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesInternalServerError handles this case with default header values.
+/*
+PostAnalyticsConversationDetailsPropertiesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostAnalyticsConversationDetailsPropertiesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversation details properties internal server error response has a 2xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversation details properties internal server error response has a 3xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversation details properties internal server error response has a 4xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics conversation details properties internal server error response has a 5xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics conversation details properties internal server error response a status code equal to that given
+func (o *PostAnalyticsConversationDetailsPropertiesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAnalyticsConversationDetailsPropertiesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAnalyticsConversationDetailsPropertiesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostAnalyticsConversationDetailsPropertiesServiceUnavailable() *PostAnal
 	return &PostAnalyticsConversationDetailsPropertiesServiceUnavailable{}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesServiceUnavailable handles this case with default header values.
+/*
+PostAnalyticsConversationDetailsPropertiesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostAnalyticsConversationDetailsPropertiesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversation details properties service unavailable response has a 2xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversation details properties service unavailable response has a 3xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversation details properties service unavailable response has a 4xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics conversation details properties service unavailable response has a 5xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics conversation details properties service unavailable response a status code equal to that given
+func (o *PostAnalyticsConversationDetailsPropertiesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAnalyticsConversationDetailsPropertiesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAnalyticsConversationDetailsPropertiesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostAnalyticsConversationDetailsPropertiesGatewayTimeout() *PostAnalytic
 	return &PostAnalyticsConversationDetailsPropertiesGatewayTimeout{}
 }
 
-/*PostAnalyticsConversationDetailsPropertiesGatewayTimeout handles this case with default header values.
+/*
+PostAnalyticsConversationDetailsPropertiesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostAnalyticsConversationDetailsPropertiesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversation details properties gateway timeout response has a 2xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversation details properties gateway timeout response has a 3xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversation details properties gateway timeout response has a 4xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics conversation details properties gateway timeout response has a 5xx status code
+func (o *PostAnalyticsConversationDetailsPropertiesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics conversation details properties gateway timeout response a status code equal to that given
+func (o *PostAnalyticsConversationDetailsPropertiesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAnalyticsConversationDetailsPropertiesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAnalyticsConversationDetailsPropertiesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/{conversationId}/details/properties][%d] postAnalyticsConversationDetailsPropertiesGatewayTimeout  %+v", 504, o.Payload)
 }
 

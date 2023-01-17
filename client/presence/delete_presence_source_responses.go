@@ -101,7 +101,6 @@ func (o *DeletePresenceSourceReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeletePresenceSourceNoContent() *DeletePresenceSourceNoContent {
 	return &DeletePresenceSourceNoContent{}
 }
 
-/*DeletePresenceSourceNoContent handles this case with default header values.
+/*
+DeletePresenceSourceNoContent describes a response with status code 204, with default header values.
 
 Presence source successfully deactivated.
 */
 type DeletePresenceSourceNoContent struct {
 }
 
+// IsSuccess returns true when this delete presence source no content response has a 2xx status code
+func (o *DeletePresenceSourceNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete presence source no content response has a 3xx status code
+func (o *DeletePresenceSourceNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source no content response has a 4xx status code
+func (o *DeletePresenceSourceNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete presence source no content response has a 5xx status code
+func (o *DeletePresenceSourceNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presence source no content response a status code equal to that given
+func (o *DeletePresenceSourceNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeletePresenceSourceNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceNoContent ", 204)
+}
+
+func (o *DeletePresenceSourceNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceNoContent ", 204)
 }
 
@@ -133,7 +162,8 @@ func NewDeletePresenceSourceBadRequest() *DeletePresenceSourceBadRequest {
 	return &DeletePresenceSourceBadRequest{}
 }
 
-/*DeletePresenceSourceBadRequest handles this case with default header values.
+/*
+DeletePresenceSourceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeletePresenceSourceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presence source bad request response has a 2xx status code
+func (o *DeletePresenceSourceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presence source bad request response has a 3xx status code
+func (o *DeletePresenceSourceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source bad request response has a 4xx status code
+func (o *DeletePresenceSourceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presence source bad request response has a 5xx status code
+func (o *DeletePresenceSourceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presence source bad request response a status code equal to that given
+func (o *DeletePresenceSourceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeletePresenceSourceBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeletePresenceSourceBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeletePresenceSourceUnauthorized() *DeletePresenceSourceUnauthorized {
 	return &DeletePresenceSourceUnauthorized{}
 }
 
-/*DeletePresenceSourceUnauthorized handles this case with default header values.
+/*
+DeletePresenceSourceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeletePresenceSourceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presence source unauthorized response has a 2xx status code
+func (o *DeletePresenceSourceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presence source unauthorized response has a 3xx status code
+func (o *DeletePresenceSourceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source unauthorized response has a 4xx status code
+func (o *DeletePresenceSourceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presence source unauthorized response has a 5xx status code
+func (o *DeletePresenceSourceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presence source unauthorized response a status code equal to that given
+func (o *DeletePresenceSourceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeletePresenceSourceUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeletePresenceSourceUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeletePresenceSourceForbidden() *DeletePresenceSourceForbidden {
 	return &DeletePresenceSourceForbidden{}
 }
 
-/*DeletePresenceSourceForbidden handles this case with default header values.
+/*
+DeletePresenceSourceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeletePresenceSourceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presence source forbidden response has a 2xx status code
+func (o *DeletePresenceSourceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presence source forbidden response has a 3xx status code
+func (o *DeletePresenceSourceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source forbidden response has a 4xx status code
+func (o *DeletePresenceSourceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presence source forbidden response has a 5xx status code
+func (o *DeletePresenceSourceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presence source forbidden response a status code equal to that given
+func (o *DeletePresenceSourceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeletePresenceSourceForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeletePresenceSourceForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeletePresenceSourceNotFound() *DeletePresenceSourceNotFound {
 	return &DeletePresenceSourceNotFound{}
 }
 
-/*DeletePresenceSourceNotFound handles this case with default header values.
+/*
+DeletePresenceSourceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeletePresenceSourceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presence source not found response has a 2xx status code
+func (o *DeletePresenceSourceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presence source not found response has a 3xx status code
+func (o *DeletePresenceSourceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source not found response has a 4xx status code
+func (o *DeletePresenceSourceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presence source not found response has a 5xx status code
+func (o *DeletePresenceSourceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presence source not found response a status code equal to that given
+func (o *DeletePresenceSourceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeletePresenceSourceNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeletePresenceSourceNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeletePresenceSourceRequestTimeout() *DeletePresenceSourceRequestTimeout
 	return &DeletePresenceSourceRequestTimeout{}
 }
 
-/*DeletePresenceSourceRequestTimeout handles this case with default header values.
+/*
+DeletePresenceSourceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeletePresenceSourceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presence source request timeout response has a 2xx status code
+func (o *DeletePresenceSourceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presence source request timeout response has a 3xx status code
+func (o *DeletePresenceSourceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source request timeout response has a 4xx status code
+func (o *DeletePresenceSourceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presence source request timeout response has a 5xx status code
+func (o *DeletePresenceSourceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presence source request timeout response a status code equal to that given
+func (o *DeletePresenceSourceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeletePresenceSourceRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeletePresenceSourceRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeletePresenceSourceConflict() *DeletePresenceSourceConflict {
 	return &DeletePresenceSourceConflict{}
 }
 
-/*DeletePresenceSourceConflict handles this case with default header values.
+/*
+DeletePresenceSourceConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeletePresenceSourceConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presence source conflict response has a 2xx status code
+func (o *DeletePresenceSourceConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presence source conflict response has a 3xx status code
+func (o *DeletePresenceSourceConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source conflict response has a 4xx status code
+func (o *DeletePresenceSourceConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presence source conflict response has a 5xx status code
+func (o *DeletePresenceSourceConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presence source conflict response a status code equal to that given
+func (o *DeletePresenceSourceConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeletePresenceSourceConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeletePresenceSourceConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeletePresenceSourceRequestEntityTooLarge() *DeletePresenceSourceRequest
 	return &DeletePresenceSourceRequestEntityTooLarge{}
 }
 
-/*DeletePresenceSourceRequestEntityTooLarge handles this case with default header values.
+/*
+DeletePresenceSourceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeletePresenceSourceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presence source request entity too large response has a 2xx status code
+func (o *DeletePresenceSourceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presence source request entity too large response has a 3xx status code
+func (o *DeletePresenceSourceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source request entity too large response has a 4xx status code
+func (o *DeletePresenceSourceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presence source request entity too large response has a 5xx status code
+func (o *DeletePresenceSourceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presence source request entity too large response a status code equal to that given
+func (o *DeletePresenceSourceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeletePresenceSourceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeletePresenceSourceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeletePresenceSourceUnsupportedMediaType() *DeletePresenceSourceUnsuppor
 	return &DeletePresenceSourceUnsupportedMediaType{}
 }
 
-/*DeletePresenceSourceUnsupportedMediaType handles this case with default header values.
+/*
+DeletePresenceSourceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeletePresenceSourceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presence source unsupported media type response has a 2xx status code
+func (o *DeletePresenceSourceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presence source unsupported media type response has a 3xx status code
+func (o *DeletePresenceSourceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source unsupported media type response has a 4xx status code
+func (o *DeletePresenceSourceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presence source unsupported media type response has a 5xx status code
+func (o *DeletePresenceSourceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presence source unsupported media type response a status code equal to that given
+func (o *DeletePresenceSourceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeletePresenceSourceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeletePresenceSourceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeletePresenceSourceTooManyRequests() *DeletePresenceSourceTooManyReques
 	return &DeletePresenceSourceTooManyRequests{}
 }
 
-/*DeletePresenceSourceTooManyRequests handles this case with default header values.
+/*
+DeletePresenceSourceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeletePresenceSourceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presence source too many requests response has a 2xx status code
+func (o *DeletePresenceSourceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presence source too many requests response has a 3xx status code
+func (o *DeletePresenceSourceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source too many requests response has a 4xx status code
+func (o *DeletePresenceSourceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presence source too many requests response has a 5xx status code
+func (o *DeletePresenceSourceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presence source too many requests response a status code equal to that given
+func (o *DeletePresenceSourceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeletePresenceSourceTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeletePresenceSourceTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeletePresenceSourceInternalServerError() *DeletePresenceSourceInternalS
 	return &DeletePresenceSourceInternalServerError{}
 }
 
-/*DeletePresenceSourceInternalServerError handles this case with default header values.
+/*
+DeletePresenceSourceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeletePresenceSourceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presence source internal server error response has a 2xx status code
+func (o *DeletePresenceSourceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presence source internal server error response has a 3xx status code
+func (o *DeletePresenceSourceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source internal server error response has a 4xx status code
+func (o *DeletePresenceSourceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete presence source internal server error response has a 5xx status code
+func (o *DeletePresenceSourceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete presence source internal server error response a status code equal to that given
+func (o *DeletePresenceSourceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeletePresenceSourceInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeletePresenceSourceInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeletePresenceSourceServiceUnavailable() *DeletePresenceSourceServiceUna
 	return &DeletePresenceSourceServiceUnavailable{}
 }
 
-/*DeletePresenceSourceServiceUnavailable handles this case with default header values.
+/*
+DeletePresenceSourceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeletePresenceSourceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presence source service unavailable response has a 2xx status code
+func (o *DeletePresenceSourceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presence source service unavailable response has a 3xx status code
+func (o *DeletePresenceSourceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source service unavailable response has a 4xx status code
+func (o *DeletePresenceSourceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete presence source service unavailable response has a 5xx status code
+func (o *DeletePresenceSourceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete presence source service unavailable response a status code equal to that given
+func (o *DeletePresenceSourceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeletePresenceSourceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeletePresenceSourceServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeletePresenceSourceGatewayTimeout() *DeletePresenceSourceGatewayTimeout
 	return &DeletePresenceSourceGatewayTimeout{}
 }
 
-/*DeletePresenceSourceGatewayTimeout handles this case with default header values.
+/*
+DeletePresenceSourceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeletePresenceSourceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presence source gateway timeout response has a 2xx status code
+func (o *DeletePresenceSourceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presence source gateway timeout response has a 3xx status code
+func (o *DeletePresenceSourceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presence source gateway timeout response has a 4xx status code
+func (o *DeletePresenceSourceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete presence source gateway timeout response has a 5xx status code
+func (o *DeletePresenceSourceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete presence source gateway timeout response a status code equal to that given
+func (o *DeletePresenceSourceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeletePresenceSourceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeletePresenceSourceGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presence/sources/{sourceId}][%d] deletePresenceSourceGatewayTimeout  %+v", 504, o.Payload)
 }
 

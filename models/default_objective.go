@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -97,7 +98,6 @@ func (m *DefaultObjective) validateMediaTypesItemsEnum(path, location string, va
 }
 
 func (m *DefaultObjective) validateMediaTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaTypes) { // not required
 		return nil
 	}
@@ -115,7 +115,6 @@ func (m *DefaultObjective) validateMediaTypes(formats strfmt.Registry) error {
 }
 
 func (m *DefaultObjective) validateQueues(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queues) { // not required
 		return nil
 	}
@@ -129,6 +128,8 @@ func (m *DefaultObjective) validateQueues(formats strfmt.Registry) error {
 			if err := m.Queues[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -169,7 +170,6 @@ func (m *DefaultObjective) validateTopicIdsFilterTypeEnum(path, location string,
 }
 
 func (m *DefaultObjective) validateTopicIdsFilterType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TopicIdsFilterType) { // not required
 		return nil
 	}
@@ -183,7 +183,6 @@ func (m *DefaultObjective) validateTopicIdsFilterType(formats strfmt.Registry) e
 }
 
 func (m *DefaultObjective) validateTopics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Topics) { // not required
 		return nil
 	}
@@ -197,6 +196,8 @@ func (m *DefaultObjective) validateTopics(formats strfmt.Registry) error {
 			if err := m.Topics[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("topics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("topics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -208,7 +209,6 @@ func (m *DefaultObjective) validateTopics(formats strfmt.Registry) error {
 }
 
 func (m *DefaultObjective) validateZones(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Zones) { // not required
 		return nil
 	}
@@ -222,6 +222,103 @@ func (m *DefaultObjective) validateZones(formats strfmt.Registry) error {
 			if err := m.Zones[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("zones" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("zones" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this default objective based on the context it is used
+func (m *DefaultObjective) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTopics(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateZones(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DefaultObjective) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DefaultObjective) contextValidateQueues(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Queues); i++ {
+
+		if m.Queues[i] != nil {
+			if err := m.Queues[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queues" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DefaultObjective) contextValidateTopics(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Topics); i++ {
+
+		if m.Topics[i] != nil {
+			if err := m.Topics[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("topics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("topics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DefaultObjective) contextValidateZones(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Zones); i++ {
+
+		if m.Zones[i] != nil {
+			if err := m.Zones[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("zones" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("zones" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

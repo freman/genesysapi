@@ -17,69 +17,87 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWorkforcemanagementManagementunitWorkplanParams creates a new GetWorkforcemanagementManagementunitWorkplanParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementManagementunitWorkplanParams creates a new GetWorkforcemanagementManagementunitWorkplanParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementManagementunitWorkplanParams() *GetWorkforcemanagementManagementunitWorkplanParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitWorkplanParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitWorkplanParamsWithTimeout creates a new GetWorkforcemanagementManagementunitWorkplanParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementManagementunitWorkplanParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementManagementunitWorkplanParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitWorkplanParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitWorkplanParamsWithContext creates a new GetWorkforcemanagementManagementunitWorkplanParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementManagementunitWorkplanParamsWithContext(ctx context.Context) *GetWorkforcemanagementManagementunitWorkplanParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitWorkplanParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitWorkplanParamsWithHTTPClient creates a new GetWorkforcemanagementManagementunitWorkplanParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementManagementunitWorkplanParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementManagementunitWorkplanParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitWorkplanParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementManagementunitWorkplanParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement managementunit workplan operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementManagementunitWorkplanParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement managementunit workplan operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementManagementunitWorkplanParams struct {
 
-	/*IncludeOnly
-	  limit response to the specified fields
+	/* IncludeOnly.
 
+	   limit response to the specified fields
 	*/
 	IncludeOnly []string
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
-	/*WorkPlanID
-	  The ID of the work plan to fetch
 
+	/* WorkPlanID.
+
+	   The ID of the work plan to fetch
 	*/
 	WorkPlanID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement managementunit workplan params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitWorkplanParams) WithDefaults() *GetWorkforcemanagementManagementunitWorkplanParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement managementunit workplan params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitWorkplanParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement managementunit workplan params
@@ -156,12 +174,15 @@ func (o *GetWorkforcemanagementManagementunitWorkplanParams) WriteToRequest(r ru
 	}
 	var res []error
 
-	valuesIncludeOnly := o.IncludeOnly
+	if o.IncludeOnly != nil {
 
-	joinedIncludeOnly := swag.JoinByFormat(valuesIncludeOnly, "multi")
-	// query array param includeOnly
-	if err := r.SetQueryParam("includeOnly", joinedIncludeOnly...); err != nil {
-		return err
+		// binding items for includeOnly
+		joinedIncludeOnly := o.bindParamIncludeOnly(reg)
+
+		// query array param includeOnly
+		if err := r.SetQueryParam("includeOnly", joinedIncludeOnly...); err != nil {
+			return err
+		}
 	}
 
 	// path param managementUnitId
@@ -178,4 +199,21 @@ func (o *GetWorkforcemanagementManagementunitWorkplanParams) WriteToRequest(r ru
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetWorkforcemanagementManagementunitWorkplan binds the parameter includeOnly
+func (o *GetWorkforcemanagementManagementunitWorkplanParams) bindParamIncludeOnly(formats strfmt.Registry) []string {
+	includeOnlyIR := o.IncludeOnly
+
+	var includeOnlyIC []string
+	for _, includeOnlyIIR := range includeOnlyIR { // explode []string
+
+		includeOnlyIIV := includeOnlyIIR // string as string
+		includeOnlyIC = append(includeOnlyIC, includeOnlyIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	includeOnlyIS := swag.JoinByFormat(includeOnlyIC, "multi")
+
+	return includeOnlyIS
 }

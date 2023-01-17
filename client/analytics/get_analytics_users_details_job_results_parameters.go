@@ -17,69 +17,89 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetAnalyticsUsersDetailsJobResultsParams creates a new GetAnalyticsUsersDetailsJobResultsParams object
-// with the default values initialized.
+// NewGetAnalyticsUsersDetailsJobResultsParams creates a new GetAnalyticsUsersDetailsJobResultsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAnalyticsUsersDetailsJobResultsParams() *GetAnalyticsUsersDetailsJobResultsParams {
-	var ()
 	return &GetAnalyticsUsersDetailsJobResultsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAnalyticsUsersDetailsJobResultsParamsWithTimeout creates a new GetAnalyticsUsersDetailsJobResultsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAnalyticsUsersDetailsJobResultsParamsWithTimeout(timeout time.Duration) *GetAnalyticsUsersDetailsJobResultsParams {
-	var ()
 	return &GetAnalyticsUsersDetailsJobResultsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAnalyticsUsersDetailsJobResultsParamsWithContext creates a new GetAnalyticsUsersDetailsJobResultsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAnalyticsUsersDetailsJobResultsParamsWithContext(ctx context.Context) *GetAnalyticsUsersDetailsJobResultsParams {
-	var ()
 	return &GetAnalyticsUsersDetailsJobResultsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAnalyticsUsersDetailsJobResultsParamsWithHTTPClient creates a new GetAnalyticsUsersDetailsJobResultsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAnalyticsUsersDetailsJobResultsParamsWithHTTPClient(client *http.Client) *GetAnalyticsUsersDetailsJobResultsParams {
-	var ()
 	return &GetAnalyticsUsersDetailsJobResultsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAnalyticsUsersDetailsJobResultsParams contains all the parameters to send to the API endpoint
-for the get analytics users details job results operation typically these are written to a http.Request
+/*
+GetAnalyticsUsersDetailsJobResultsParams contains all the parameters to send to the API endpoint
+
+	for the get analytics users details job results operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAnalyticsUsersDetailsJobResultsParams struct {
 
-	/*Cursor
-	  Indicates where to resume query results (not required for first page)
+	/* Cursor.
 
+	   Indicates where to resume query results (not required for first page)
 	*/
 	Cursor *string
-	/*JobID
-	  jobId
 
+	/* JobID.
+
+	   jobId
 	*/
 	JobID string
-	/*PageSize
-	  The desired maximum number of results
 
+	/* PageSize.
+
+	   The desired maximum number of results
+
+	   Format: int32
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get analytics users details job results params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAnalyticsUsersDetailsJobResultsParams) WithDefaults() *GetAnalyticsUsersDetailsJobResultsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get analytics users details job results params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAnalyticsUsersDetailsJobResultsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get analytics users details job results params
@@ -160,16 +180,17 @@ func (o *GetAnalyticsUsersDetailsJobResultsParams) WriteToRequest(r runtime.Clie
 
 		// query param cursor
 		var qrCursor string
+
 		if o.Cursor != nil {
 			qrCursor = *o.Cursor
 		}
 		qCursor := qrCursor
 		if qCursor != "" {
+
 			if err := r.SetQueryParam("cursor", qCursor); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param jobId
@@ -181,16 +202,17 @@ func (o *GetAnalyticsUsersDetailsJobResultsParams) WriteToRequest(r runtime.Clie
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

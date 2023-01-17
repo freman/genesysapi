@@ -95,7 +95,6 @@ func (o *PostExternalcontactsIdentifierlookupReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostExternalcontactsIdentifierlookupOK() *PostExternalcontactsIdentifier
 	return &PostExternalcontactsIdentifierlookupOK{}
 }
 
-/*PostExternalcontactsIdentifierlookupOK handles this case with default header values.
+/*
+PostExternalcontactsIdentifierlookupOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostExternalcontactsIdentifierlookupOK struct {
 	Payload *models.ExternalContact
 }
 
+// IsSuccess returns true when this post externalcontacts identifierlookup o k response has a 2xx status code
+func (o *PostExternalcontactsIdentifierlookupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post externalcontacts identifierlookup o k response has a 3xx status code
+func (o *PostExternalcontactsIdentifierlookupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts identifierlookup o k response has a 4xx status code
+func (o *PostExternalcontactsIdentifierlookupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts identifierlookup o k response has a 5xx status code
+func (o *PostExternalcontactsIdentifierlookupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts identifierlookup o k response a status code equal to that given
+func (o *PostExternalcontactsIdentifierlookupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostExternalcontactsIdentifierlookupOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupOK  %+v", 200, o.Payload)
+}
+
+func (o *PostExternalcontactsIdentifierlookupOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostExternalcontactsIdentifierlookupBadRequest() *PostExternalcontactsId
 	return &PostExternalcontactsIdentifierlookupBadRequest{}
 }
 
-/*PostExternalcontactsIdentifierlookupBadRequest handles this case with default header values.
+/*
+PostExternalcontactsIdentifierlookupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostExternalcontactsIdentifierlookupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts identifierlookup bad request response has a 2xx status code
+func (o *PostExternalcontactsIdentifierlookupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts identifierlookup bad request response has a 3xx status code
+func (o *PostExternalcontactsIdentifierlookupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts identifierlookup bad request response has a 4xx status code
+func (o *PostExternalcontactsIdentifierlookupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts identifierlookup bad request response has a 5xx status code
+func (o *PostExternalcontactsIdentifierlookupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts identifierlookup bad request response a status code equal to that given
+func (o *PostExternalcontactsIdentifierlookupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostExternalcontactsIdentifierlookupBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostExternalcontactsIdentifierlookupBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostExternalcontactsIdentifierlookupUnauthorized() *PostExternalcontacts
 	return &PostExternalcontactsIdentifierlookupUnauthorized{}
 }
 
-/*PostExternalcontactsIdentifierlookupUnauthorized handles this case with default header values.
+/*
+PostExternalcontactsIdentifierlookupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostExternalcontactsIdentifierlookupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts identifierlookup unauthorized response has a 2xx status code
+func (o *PostExternalcontactsIdentifierlookupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts identifierlookup unauthorized response has a 3xx status code
+func (o *PostExternalcontactsIdentifierlookupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts identifierlookup unauthorized response has a 4xx status code
+func (o *PostExternalcontactsIdentifierlookupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts identifierlookup unauthorized response has a 5xx status code
+func (o *PostExternalcontactsIdentifierlookupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts identifierlookup unauthorized response a status code equal to that given
+func (o *PostExternalcontactsIdentifierlookupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostExternalcontactsIdentifierlookupUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostExternalcontactsIdentifierlookupUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostExternalcontactsIdentifierlookupForbidden() *PostExternalcontactsIde
 	return &PostExternalcontactsIdentifierlookupForbidden{}
 }
 
-/*PostExternalcontactsIdentifierlookupForbidden handles this case with default header values.
+/*
+PostExternalcontactsIdentifierlookupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostExternalcontactsIdentifierlookupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts identifierlookup forbidden response has a 2xx status code
+func (o *PostExternalcontactsIdentifierlookupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts identifierlookup forbidden response has a 3xx status code
+func (o *PostExternalcontactsIdentifierlookupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts identifierlookup forbidden response has a 4xx status code
+func (o *PostExternalcontactsIdentifierlookupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts identifierlookup forbidden response has a 5xx status code
+func (o *PostExternalcontactsIdentifierlookupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts identifierlookup forbidden response a status code equal to that given
+func (o *PostExternalcontactsIdentifierlookupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostExternalcontactsIdentifierlookupForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostExternalcontactsIdentifierlookupForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostExternalcontactsIdentifierlookupNotFound() *PostExternalcontactsIden
 	return &PostExternalcontactsIdentifierlookupNotFound{}
 }
 
-/*PostExternalcontactsIdentifierlookupNotFound handles this case with default header values.
+/*
+PostExternalcontactsIdentifierlookupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostExternalcontactsIdentifierlookupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts identifierlookup not found response has a 2xx status code
+func (o *PostExternalcontactsIdentifierlookupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts identifierlookup not found response has a 3xx status code
+func (o *PostExternalcontactsIdentifierlookupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts identifierlookup not found response has a 4xx status code
+func (o *PostExternalcontactsIdentifierlookupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts identifierlookup not found response has a 5xx status code
+func (o *PostExternalcontactsIdentifierlookupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts identifierlookup not found response a status code equal to that given
+func (o *PostExternalcontactsIdentifierlookupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostExternalcontactsIdentifierlookupNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostExternalcontactsIdentifierlookupNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostExternalcontactsIdentifierlookupRequestTimeout() *PostExternalcontac
 	return &PostExternalcontactsIdentifierlookupRequestTimeout{}
 }
 
-/*PostExternalcontactsIdentifierlookupRequestTimeout handles this case with default header values.
+/*
+PostExternalcontactsIdentifierlookupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostExternalcontactsIdentifierlookupRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts identifierlookup request timeout response has a 2xx status code
+func (o *PostExternalcontactsIdentifierlookupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts identifierlookup request timeout response has a 3xx status code
+func (o *PostExternalcontactsIdentifierlookupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts identifierlookup request timeout response has a 4xx status code
+func (o *PostExternalcontactsIdentifierlookupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts identifierlookup request timeout response has a 5xx status code
+func (o *PostExternalcontactsIdentifierlookupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts identifierlookup request timeout response a status code equal to that given
+func (o *PostExternalcontactsIdentifierlookupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostExternalcontactsIdentifierlookupRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostExternalcontactsIdentifierlookupRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostExternalcontactsIdentifierlookupRequestEntityTooLarge() *PostExterna
 	return &PostExternalcontactsIdentifierlookupRequestEntityTooLarge{}
 }
 
-/*PostExternalcontactsIdentifierlookupRequestEntityTooLarge handles this case with default header values.
+/*
+PostExternalcontactsIdentifierlookupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostExternalcontactsIdentifierlookupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts identifierlookup request entity too large response has a 2xx status code
+func (o *PostExternalcontactsIdentifierlookupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts identifierlookup request entity too large response has a 3xx status code
+func (o *PostExternalcontactsIdentifierlookupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts identifierlookup request entity too large response has a 4xx status code
+func (o *PostExternalcontactsIdentifierlookupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts identifierlookup request entity too large response has a 5xx status code
+func (o *PostExternalcontactsIdentifierlookupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts identifierlookup request entity too large response a status code equal to that given
+func (o *PostExternalcontactsIdentifierlookupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostExternalcontactsIdentifierlookupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostExternalcontactsIdentifierlookupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostExternalcontactsIdentifierlookupUnsupportedMediaType() *PostExternal
 	return &PostExternalcontactsIdentifierlookupUnsupportedMediaType{}
 }
 
-/*PostExternalcontactsIdentifierlookupUnsupportedMediaType handles this case with default header values.
+/*
+PostExternalcontactsIdentifierlookupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostExternalcontactsIdentifierlookupUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts identifierlookup unsupported media type response has a 2xx status code
+func (o *PostExternalcontactsIdentifierlookupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts identifierlookup unsupported media type response has a 3xx status code
+func (o *PostExternalcontactsIdentifierlookupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts identifierlookup unsupported media type response has a 4xx status code
+func (o *PostExternalcontactsIdentifierlookupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts identifierlookup unsupported media type response has a 5xx status code
+func (o *PostExternalcontactsIdentifierlookupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts identifierlookup unsupported media type response a status code equal to that given
+func (o *PostExternalcontactsIdentifierlookupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostExternalcontactsIdentifierlookupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostExternalcontactsIdentifierlookupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostExternalcontactsIdentifierlookupTooManyRequests() *PostExternalconta
 	return &PostExternalcontactsIdentifierlookupTooManyRequests{}
 }
 
-/*PostExternalcontactsIdentifierlookupTooManyRequests handles this case with default header values.
+/*
+PostExternalcontactsIdentifierlookupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostExternalcontactsIdentifierlookupTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts identifierlookup too many requests response has a 2xx status code
+func (o *PostExternalcontactsIdentifierlookupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts identifierlookup too many requests response has a 3xx status code
+func (o *PostExternalcontactsIdentifierlookupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts identifierlookup too many requests response has a 4xx status code
+func (o *PostExternalcontactsIdentifierlookupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts identifierlookup too many requests response has a 5xx status code
+func (o *PostExternalcontactsIdentifierlookupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts identifierlookup too many requests response a status code equal to that given
+func (o *PostExternalcontactsIdentifierlookupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostExternalcontactsIdentifierlookupTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostExternalcontactsIdentifierlookupTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostExternalcontactsIdentifierlookupInternalServerError() *PostExternalc
 	return &PostExternalcontactsIdentifierlookupInternalServerError{}
 }
 
-/*PostExternalcontactsIdentifierlookupInternalServerError handles this case with default header values.
+/*
+PostExternalcontactsIdentifierlookupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostExternalcontactsIdentifierlookupInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts identifierlookup internal server error response has a 2xx status code
+func (o *PostExternalcontactsIdentifierlookupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts identifierlookup internal server error response has a 3xx status code
+func (o *PostExternalcontactsIdentifierlookupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts identifierlookup internal server error response has a 4xx status code
+func (o *PostExternalcontactsIdentifierlookupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts identifierlookup internal server error response has a 5xx status code
+func (o *PostExternalcontactsIdentifierlookupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post externalcontacts identifierlookup internal server error response a status code equal to that given
+func (o *PostExternalcontactsIdentifierlookupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostExternalcontactsIdentifierlookupInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostExternalcontactsIdentifierlookupInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostExternalcontactsIdentifierlookupServiceUnavailable() *PostExternalco
 	return &PostExternalcontactsIdentifierlookupServiceUnavailable{}
 }
 
-/*PostExternalcontactsIdentifierlookupServiceUnavailable handles this case with default header values.
+/*
+PostExternalcontactsIdentifierlookupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostExternalcontactsIdentifierlookupServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts identifierlookup service unavailable response has a 2xx status code
+func (o *PostExternalcontactsIdentifierlookupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts identifierlookup service unavailable response has a 3xx status code
+func (o *PostExternalcontactsIdentifierlookupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts identifierlookup service unavailable response has a 4xx status code
+func (o *PostExternalcontactsIdentifierlookupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts identifierlookup service unavailable response has a 5xx status code
+func (o *PostExternalcontactsIdentifierlookupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post externalcontacts identifierlookup service unavailable response a status code equal to that given
+func (o *PostExternalcontactsIdentifierlookupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostExternalcontactsIdentifierlookupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostExternalcontactsIdentifierlookupServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostExternalcontactsIdentifierlookupGatewayTimeout() *PostExternalcontac
 	return &PostExternalcontactsIdentifierlookupGatewayTimeout{}
 }
 
-/*PostExternalcontactsIdentifierlookupGatewayTimeout handles this case with default header values.
+/*
+PostExternalcontactsIdentifierlookupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostExternalcontactsIdentifierlookupGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts identifierlookup gateway timeout response has a 2xx status code
+func (o *PostExternalcontactsIdentifierlookupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts identifierlookup gateway timeout response has a 3xx status code
+func (o *PostExternalcontactsIdentifierlookupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts identifierlookup gateway timeout response has a 4xx status code
+func (o *PostExternalcontactsIdentifierlookupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts identifierlookup gateway timeout response has a 5xx status code
+func (o *PostExternalcontactsIdentifierlookupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post externalcontacts identifierlookup gateway timeout response a status code equal to that given
+func (o *PostExternalcontactsIdentifierlookupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostExternalcontactsIdentifierlookupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostExternalcontactsIdentifierlookupGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/identifierlookup][%d] postExternalcontactsIdentifierlookupGatewayTimeout  %+v", 504, o.Payload)
 }
 

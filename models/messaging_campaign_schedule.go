@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -50,6 +51,7 @@ type MessagingCampaignSchedule struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// The time zone for this messaging campaign schedule.
+	// Example: Africa/Abidjan
 	TimeZone string `json:"timeZone,omitempty"`
 
 	// Required for updates, must match the version number of the most recent update
@@ -87,7 +89,6 @@ func (m *MessagingCampaignSchedule) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MessagingCampaignSchedule) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -100,7 +101,6 @@ func (m *MessagingCampaignSchedule) validateDateCreated(formats strfmt.Registry)
 }
 
 func (m *MessagingCampaignSchedule) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -127,6 +127,8 @@ func (m *MessagingCampaignSchedule) validateIntervals(formats strfmt.Registry) e
 			if err := m.Intervals[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intervals" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intervals" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -147,6 +149,8 @@ func (m *MessagingCampaignSchedule) validateMessagingCampaign(formats strfmt.Reg
 		if err := m.MessagingCampaign.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messagingCampaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingCampaign")
 			}
 			return err
 		}
@@ -156,12 +160,117 @@ func (m *MessagingCampaignSchedule) validateMessagingCampaign(formats strfmt.Reg
 }
 
 func (m *MessagingCampaignSchedule) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this messaging campaign schedule based on the context it is used
+func (m *MessagingCampaignSchedule) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntervals(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessagingCampaign(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MessagingCampaignSchedule) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaignSchedule) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaignSchedule) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaignSchedule) contextValidateIntervals(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Intervals); i++ {
+
+		if m.Intervals[i] != nil {
+			if err := m.Intervals[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("intervals" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intervals" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaignSchedule) contextValidateMessagingCampaign(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessagingCampaign != nil {
+		if err := m.MessagingCampaign.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingCampaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingCampaign")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaignSchedule) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

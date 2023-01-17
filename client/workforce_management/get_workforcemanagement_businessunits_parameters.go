@@ -16,58 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementBusinessunitsParams creates a new GetWorkforcemanagementBusinessunitsParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementBusinessunitsParams creates a new GetWorkforcemanagementBusinessunitsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementBusinessunitsParams() *GetWorkforcemanagementBusinessunitsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitsParamsWithTimeout creates a new GetWorkforcemanagementBusinessunitsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementBusinessunitsParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementBusinessunitsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitsParamsWithContext creates a new GetWorkforcemanagementBusinessunitsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementBusinessunitsParamsWithContext(ctx context.Context) *GetWorkforcemanagementBusinessunitsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitsParamsWithHTTPClient creates a new GetWorkforcemanagementBusinessunitsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementBusinessunitsParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementBusinessunitsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementBusinessunitsParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement businessunits operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementBusinessunitsParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement businessunits operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementBusinessunitsParams struct {
 
-	/*DivisionID*/
+	// DivisionID.
 	DivisionID *string
-	/*Feature*/
+
+	// Feature.
 	Feature *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement businessunits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitsParams) WithDefaults() *GetWorkforcemanagementBusinessunitsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement businessunits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement businessunits params
@@ -137,32 +154,34 @@ func (o *GetWorkforcemanagementBusinessunitsParams) WriteToRequest(r runtime.Cli
 
 		// query param divisionId
 		var qrDivisionID string
+
 		if o.DivisionID != nil {
 			qrDivisionID = *o.DivisionID
 		}
 		qDivisionID := qrDivisionID
 		if qDivisionID != "" {
+
 			if err := r.SetQueryParam("divisionId", qDivisionID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Feature != nil {
 
 		// query param feature
 		var qrFeature string
+
 		if o.Feature != nil {
 			qrFeature = *o.Feature
 		}
 		qFeature := qrFeature
 		if qFeature != "" {
+
 			if err := r.SetQueryParam("feature", qFeature); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

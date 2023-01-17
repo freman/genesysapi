@@ -17,125 +17,141 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetArchitectSchedulegroupsParams creates a new GetArchitectSchedulegroupsParams object
-// with the default values initialized.
+// NewGetArchitectSchedulegroupsParams creates a new GetArchitectSchedulegroupsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetArchitectSchedulegroupsParams() *GetArchitectSchedulegroupsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetArchitectSchedulegroupsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetArchitectSchedulegroupsParamsWithTimeout creates a new GetArchitectSchedulegroupsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetArchitectSchedulegroupsParamsWithTimeout(timeout time.Duration) *GetArchitectSchedulegroupsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetArchitectSchedulegroupsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetArchitectSchedulegroupsParamsWithContext creates a new GetArchitectSchedulegroupsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetArchitectSchedulegroupsParamsWithContext(ctx context.Context) *GetArchitectSchedulegroupsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetArchitectSchedulegroupsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetArchitectSchedulegroupsParamsWithHTTPClient creates a new GetArchitectSchedulegroupsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetArchitectSchedulegroupsParamsWithHTTPClient(client *http.Client) *GetArchitectSchedulegroupsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetArchitectSchedulegroupsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetArchitectSchedulegroupsParams contains all the parameters to send to the API endpoint
-for the get architect schedulegroups operation typically these are written to a http.Request
+/*
+GetArchitectSchedulegroupsParams contains all the parameters to send to the API endpoint
+
+	for the get architect schedulegroups operation.
+
+	Typically these are written to a http.Request.
 */
 type GetArchitectSchedulegroupsParams struct {
 
-	/*DivisionID
-	  List of divisionIds on which to filter.
+	/* DivisionID.
 
+	   List of divisionIds on which to filter.
 	*/
 	DivisionID []string
-	/*Name
-	  Name of the Schedule Group to filter by.
 
+	/* Name.
+
+	   Name of the Schedule Group to filter by.
 	*/
 	Name *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*ScheduleIds
-	  A comma-delimited list of Schedule IDs to filter by.
 
+	/* ScheduleIds.
+
+	   A comma-delimited list of Schedule IDs to filter by.
 	*/
 	ScheduleIds *string
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
+
+	   Default: "name"
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "ASC"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get architect schedulegroups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectSchedulegroupsParams) WithDefaults() *GetArchitectSchedulegroupsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get architect schedulegroups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectSchedulegroupsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("name")
+
+		sortOrderDefault = string("ASC")
+	)
+
+	val := GetArchitectSchedulegroupsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get architect schedulegroups params
@@ -256,112 +272,138 @@ func (o *GetArchitectSchedulegroupsParams) WriteToRequest(r runtime.ClientReques
 	}
 	var res []error
 
-	valuesDivisionID := o.DivisionID
+	if o.DivisionID != nil {
 
-	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
-	// query array param divisionId
-	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
-		return err
+		// binding items for divisionId
+		joinedDivisionID := o.bindParamDivisionID(reg)
+
+		// query array param divisionId
+		if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+			return err
+		}
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ScheduleIds != nil {
 
 		// query param scheduleIds
 		var qrScheduleIds string
+
 		if o.ScheduleIds != nil {
 			qrScheduleIds = *o.ScheduleIds
 		}
 		qScheduleIds := qrScheduleIds
 		if qScheduleIds != "" {
+
 			if err := r.SetQueryParam("scheduleIds", qScheduleIds); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetArchitectSchedulegroups binds the parameter divisionId
+func (o *GetArchitectSchedulegroupsParams) bindParamDivisionID(formats strfmt.Registry) []string {
+	divisionIDIR := o.DivisionID
+
+	var divisionIDIC []string
+	for _, divisionIDIIR := range divisionIDIR { // explode []string
+
+		divisionIDIIV := divisionIDIIR // string as string
+		divisionIDIC = append(divisionIDIC, divisionIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	divisionIDIS := swag.JoinByFormat(divisionIDIC, "multi")
+
+	return divisionIDIS
 }

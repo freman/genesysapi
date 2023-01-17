@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -148,7 +149,6 @@ func (m *TimeOffRequestResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TimeOffRequestResponse) validateMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metadata) { // not required
 		return nil
 	}
@@ -157,6 +157,8 @@ func (m *TimeOffRequestResponse) validateMetadata(formats strfmt.Registry) error
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -166,7 +168,6 @@ func (m *TimeOffRequestResponse) validateMetadata(formats strfmt.Registry) error
 }
 
 func (m *TimeOffRequestResponse) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -175,6 +176,8 @@ func (m *TimeOffRequestResponse) validateModifiedBy(formats strfmt.Registry) err
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -184,7 +187,6 @@ func (m *TimeOffRequestResponse) validateModifiedBy(formats strfmt.Registry) err
 }
 
 func (m *TimeOffRequestResponse) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -197,7 +199,6 @@ func (m *TimeOffRequestResponse) validateModifiedDate(formats strfmt.Registry) e
 }
 
 func (m *TimeOffRequestResponse) validatePartialDayStartDateTimes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PartialDayStartDateTimes) { // not required
 		return nil
 	}
@@ -214,7 +215,6 @@ func (m *TimeOffRequestResponse) validatePartialDayStartDateTimes(formats strfmt
 }
 
 func (m *TimeOffRequestResponse) validateReviewedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReviewedBy) { // not required
 		return nil
 	}
@@ -223,6 +223,8 @@ func (m *TimeOffRequestResponse) validateReviewedBy(formats strfmt.Registry) err
 		if err := m.ReviewedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("reviewedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reviewedBy")
 			}
 			return err
 		}
@@ -232,7 +234,6 @@ func (m *TimeOffRequestResponse) validateReviewedBy(formats strfmt.Registry) err
 }
 
 func (m *TimeOffRequestResponse) validateReviewedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReviewedDate) { // not required
 		return nil
 	}
@@ -245,7 +246,6 @@ func (m *TimeOffRequestResponse) validateReviewedDate(formats strfmt.Registry) e
 }
 
 func (m *TimeOffRequestResponse) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -293,7 +293,6 @@ func (m *TimeOffRequestResponse) validateStatusEnum(path, location string, value
 }
 
 func (m *TimeOffRequestResponse) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -307,7 +306,6 @@ func (m *TimeOffRequestResponse) validateStatus(formats strfmt.Registry) error {
 }
 
 func (m *TimeOffRequestResponse) validateSubmittedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SubmittedBy) { // not required
 		return nil
 	}
@@ -316,6 +314,8 @@ func (m *TimeOffRequestResponse) validateSubmittedBy(formats strfmt.Registry) er
 		if err := m.SubmittedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("submittedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("submittedBy")
 			}
 			return err
 		}
@@ -325,7 +325,6 @@ func (m *TimeOffRequestResponse) validateSubmittedBy(formats strfmt.Registry) er
 }
 
 func (m *TimeOffRequestResponse) validateSubmittedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SubmittedDate) { // not required
 		return nil
 	}
@@ -382,7 +381,6 @@ func (m *TimeOffRequestResponse) validateSubstatusEnum(path, location string, va
 }
 
 func (m *TimeOffRequestResponse) validateSubstatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Substatus) { // not required
 		return nil
 	}
@@ -396,7 +394,6 @@ func (m *TimeOffRequestResponse) validateSubstatus(formats strfmt.Registry) erro
 }
 
 func (m *TimeOffRequestResponse) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -405,6 +402,144 @@ func (m *TimeOffRequestResponse) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this time off request response based on the context it is used
+func (m *TimeOffRequestResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReviewedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSubmittedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TimeOffRequestResponse) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TimeOffRequestResponse) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TimeOffRequestResponse) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TimeOffRequestResponse) contextValidateReviewedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReviewedBy != nil {
+		if err := m.ReviewedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("reviewedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reviewedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TimeOffRequestResponse) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TimeOffRequestResponse) contextValidateSubmittedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SubmittedBy != nil {
+		if err := m.SubmittedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("submittedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("submittedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TimeOffRequestResponse) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

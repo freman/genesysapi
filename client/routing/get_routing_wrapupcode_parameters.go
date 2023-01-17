@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingWrapupcodeParams creates a new GetRoutingWrapupcodeParams object
-// with the default values initialized.
+// NewGetRoutingWrapupcodeParams creates a new GetRoutingWrapupcodeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingWrapupcodeParams() *GetRoutingWrapupcodeParams {
-	var ()
 	return &GetRoutingWrapupcodeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingWrapupcodeParamsWithTimeout creates a new GetRoutingWrapupcodeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingWrapupcodeParamsWithTimeout(timeout time.Duration) *GetRoutingWrapupcodeParams {
-	var ()
 	return &GetRoutingWrapupcodeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingWrapupcodeParamsWithContext creates a new GetRoutingWrapupcodeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingWrapupcodeParamsWithContext(ctx context.Context) *GetRoutingWrapupcodeParams {
-	var ()
 	return &GetRoutingWrapupcodeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingWrapupcodeParamsWithHTTPClient creates a new GetRoutingWrapupcodeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingWrapupcodeParamsWithHTTPClient(client *http.Client) *GetRoutingWrapupcodeParams {
-	var ()
 	return &GetRoutingWrapupcodeParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingWrapupcodeParams contains all the parameters to send to the API endpoint
-for the get routing wrapupcode operation typically these are written to a http.Request
+/*
+GetRoutingWrapupcodeParams contains all the parameters to send to the API endpoint
+
+	for the get routing wrapupcode operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingWrapupcodeParams struct {
 
-	/*CodeID
-	  Wrapup Code ID
+	/* CodeID.
 
+	   Wrapup Code ID
 	*/
 	CodeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing wrapupcode params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingWrapupcodeParams) WithDefaults() *GetRoutingWrapupcodeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing wrapupcode params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingWrapupcodeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing wrapupcode params

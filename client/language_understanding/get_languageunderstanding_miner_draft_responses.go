@@ -95,7 +95,6 @@ func (o *GetLanguageunderstandingMinerDraftReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetLanguageunderstandingMinerDraftOK() *GetLanguageunderstandingMinerDra
 	return &GetLanguageunderstandingMinerDraftOK{}
 }
 
-/*GetLanguageunderstandingMinerDraftOK handles this case with default header values.
+/*
+GetLanguageunderstandingMinerDraftOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetLanguageunderstandingMinerDraftOK struct {
 	Payload *models.Draft
 }
 
+// IsSuccess returns true when this get languageunderstanding miner draft o k response has a 2xx status code
+func (o *GetLanguageunderstandingMinerDraftOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get languageunderstanding miner draft o k response has a 3xx status code
+func (o *GetLanguageunderstandingMinerDraftOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding miner draft o k response has a 4xx status code
+func (o *GetLanguageunderstandingMinerDraftOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languageunderstanding miner draft o k response has a 5xx status code
+func (o *GetLanguageunderstandingMinerDraftOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding miner draft o k response a status code equal to that given
+func (o *GetLanguageunderstandingMinerDraftOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLanguageunderstandingMinerDraftOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftOK  %+v", 200, o.Payload)
+}
+
+func (o *GetLanguageunderstandingMinerDraftOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetLanguageunderstandingMinerDraftBadRequest() *GetLanguageunderstanding
 	return &GetLanguageunderstandingMinerDraftBadRequest{}
 }
 
-/*GetLanguageunderstandingMinerDraftBadRequest handles this case with default header values.
+/*
+GetLanguageunderstandingMinerDraftBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetLanguageunderstandingMinerDraftBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding miner draft bad request response has a 2xx status code
+func (o *GetLanguageunderstandingMinerDraftBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding miner draft bad request response has a 3xx status code
+func (o *GetLanguageunderstandingMinerDraftBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding miner draft bad request response has a 4xx status code
+func (o *GetLanguageunderstandingMinerDraftBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding miner draft bad request response has a 5xx status code
+func (o *GetLanguageunderstandingMinerDraftBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding miner draft bad request response a status code equal to that given
+func (o *GetLanguageunderstandingMinerDraftBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLanguageunderstandingMinerDraftBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetLanguageunderstandingMinerDraftBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetLanguageunderstandingMinerDraftUnauthorized() *GetLanguageunderstandi
 	return &GetLanguageunderstandingMinerDraftUnauthorized{}
 }
 
-/*GetLanguageunderstandingMinerDraftUnauthorized handles this case with default header values.
+/*
+GetLanguageunderstandingMinerDraftUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetLanguageunderstandingMinerDraftUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding miner draft unauthorized response has a 2xx status code
+func (o *GetLanguageunderstandingMinerDraftUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding miner draft unauthorized response has a 3xx status code
+func (o *GetLanguageunderstandingMinerDraftUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding miner draft unauthorized response has a 4xx status code
+func (o *GetLanguageunderstandingMinerDraftUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding miner draft unauthorized response has a 5xx status code
+func (o *GetLanguageunderstandingMinerDraftUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding miner draft unauthorized response a status code equal to that given
+func (o *GetLanguageunderstandingMinerDraftUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetLanguageunderstandingMinerDraftUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetLanguageunderstandingMinerDraftUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetLanguageunderstandingMinerDraftForbidden() *GetLanguageunderstandingM
 	return &GetLanguageunderstandingMinerDraftForbidden{}
 }
 
-/*GetLanguageunderstandingMinerDraftForbidden handles this case with default header values.
+/*
+GetLanguageunderstandingMinerDraftForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetLanguageunderstandingMinerDraftForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding miner draft forbidden response has a 2xx status code
+func (o *GetLanguageunderstandingMinerDraftForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding miner draft forbidden response has a 3xx status code
+func (o *GetLanguageunderstandingMinerDraftForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding miner draft forbidden response has a 4xx status code
+func (o *GetLanguageunderstandingMinerDraftForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding miner draft forbidden response has a 5xx status code
+func (o *GetLanguageunderstandingMinerDraftForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding miner draft forbidden response a status code equal to that given
+func (o *GetLanguageunderstandingMinerDraftForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLanguageunderstandingMinerDraftForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetLanguageunderstandingMinerDraftForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetLanguageunderstandingMinerDraftNotFound() *GetLanguageunderstandingMi
 	return &GetLanguageunderstandingMinerDraftNotFound{}
 }
 
-/*GetLanguageunderstandingMinerDraftNotFound handles this case with default header values.
+/*
+GetLanguageunderstandingMinerDraftNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetLanguageunderstandingMinerDraftNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding miner draft not found response has a 2xx status code
+func (o *GetLanguageunderstandingMinerDraftNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding miner draft not found response has a 3xx status code
+func (o *GetLanguageunderstandingMinerDraftNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding miner draft not found response has a 4xx status code
+func (o *GetLanguageunderstandingMinerDraftNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding miner draft not found response has a 5xx status code
+func (o *GetLanguageunderstandingMinerDraftNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding miner draft not found response a status code equal to that given
+func (o *GetLanguageunderstandingMinerDraftNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLanguageunderstandingMinerDraftNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetLanguageunderstandingMinerDraftNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetLanguageunderstandingMinerDraftRequestTimeout() *GetLanguageunderstan
 	return &GetLanguageunderstandingMinerDraftRequestTimeout{}
 }
 
-/*GetLanguageunderstandingMinerDraftRequestTimeout handles this case with default header values.
+/*
+GetLanguageunderstandingMinerDraftRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetLanguageunderstandingMinerDraftRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding miner draft request timeout response has a 2xx status code
+func (o *GetLanguageunderstandingMinerDraftRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding miner draft request timeout response has a 3xx status code
+func (o *GetLanguageunderstandingMinerDraftRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding miner draft request timeout response has a 4xx status code
+func (o *GetLanguageunderstandingMinerDraftRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding miner draft request timeout response has a 5xx status code
+func (o *GetLanguageunderstandingMinerDraftRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding miner draft request timeout response a status code equal to that given
+func (o *GetLanguageunderstandingMinerDraftRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetLanguageunderstandingMinerDraftRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLanguageunderstandingMinerDraftRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetLanguageunderstandingMinerDraftRequestEntityTooLarge() *GetLanguageun
 	return &GetLanguageunderstandingMinerDraftRequestEntityTooLarge{}
 }
 
-/*GetLanguageunderstandingMinerDraftRequestEntityTooLarge handles this case with default header values.
+/*
+GetLanguageunderstandingMinerDraftRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetLanguageunderstandingMinerDraftRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding miner draft request entity too large response has a 2xx status code
+func (o *GetLanguageunderstandingMinerDraftRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding miner draft request entity too large response has a 3xx status code
+func (o *GetLanguageunderstandingMinerDraftRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding miner draft request entity too large response has a 4xx status code
+func (o *GetLanguageunderstandingMinerDraftRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding miner draft request entity too large response has a 5xx status code
+func (o *GetLanguageunderstandingMinerDraftRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding miner draft request entity too large response a status code equal to that given
+func (o *GetLanguageunderstandingMinerDraftRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetLanguageunderstandingMinerDraftRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetLanguageunderstandingMinerDraftRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetLanguageunderstandingMinerDraftUnsupportedMediaType() *GetLanguageund
 	return &GetLanguageunderstandingMinerDraftUnsupportedMediaType{}
 }
 
-/*GetLanguageunderstandingMinerDraftUnsupportedMediaType handles this case with default header values.
+/*
+GetLanguageunderstandingMinerDraftUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetLanguageunderstandingMinerDraftUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding miner draft unsupported media type response has a 2xx status code
+func (o *GetLanguageunderstandingMinerDraftUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding miner draft unsupported media type response has a 3xx status code
+func (o *GetLanguageunderstandingMinerDraftUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding miner draft unsupported media type response has a 4xx status code
+func (o *GetLanguageunderstandingMinerDraftUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding miner draft unsupported media type response has a 5xx status code
+func (o *GetLanguageunderstandingMinerDraftUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding miner draft unsupported media type response a status code equal to that given
+func (o *GetLanguageunderstandingMinerDraftUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetLanguageunderstandingMinerDraftUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetLanguageunderstandingMinerDraftUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetLanguageunderstandingMinerDraftTooManyRequests() *GetLanguageundersta
 	return &GetLanguageunderstandingMinerDraftTooManyRequests{}
 }
 
-/*GetLanguageunderstandingMinerDraftTooManyRequests handles this case with default header values.
+/*
+GetLanguageunderstandingMinerDraftTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetLanguageunderstandingMinerDraftTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding miner draft too many requests response has a 2xx status code
+func (o *GetLanguageunderstandingMinerDraftTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding miner draft too many requests response has a 3xx status code
+func (o *GetLanguageunderstandingMinerDraftTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding miner draft too many requests response has a 4xx status code
+func (o *GetLanguageunderstandingMinerDraftTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding miner draft too many requests response has a 5xx status code
+func (o *GetLanguageunderstandingMinerDraftTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding miner draft too many requests response a status code equal to that given
+func (o *GetLanguageunderstandingMinerDraftTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLanguageunderstandingMinerDraftTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetLanguageunderstandingMinerDraftTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetLanguageunderstandingMinerDraftInternalServerError() *GetLanguageunde
 	return &GetLanguageunderstandingMinerDraftInternalServerError{}
 }
 
-/*GetLanguageunderstandingMinerDraftInternalServerError handles this case with default header values.
+/*
+GetLanguageunderstandingMinerDraftInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetLanguageunderstandingMinerDraftInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding miner draft internal server error response has a 2xx status code
+func (o *GetLanguageunderstandingMinerDraftInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding miner draft internal server error response has a 3xx status code
+func (o *GetLanguageunderstandingMinerDraftInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding miner draft internal server error response has a 4xx status code
+func (o *GetLanguageunderstandingMinerDraftInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languageunderstanding miner draft internal server error response has a 5xx status code
+func (o *GetLanguageunderstandingMinerDraftInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get languageunderstanding miner draft internal server error response a status code equal to that given
+func (o *GetLanguageunderstandingMinerDraftInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLanguageunderstandingMinerDraftInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetLanguageunderstandingMinerDraftInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetLanguageunderstandingMinerDraftServiceUnavailable() *GetLanguageunder
 	return &GetLanguageunderstandingMinerDraftServiceUnavailable{}
 }
 
-/*GetLanguageunderstandingMinerDraftServiceUnavailable handles this case with default header values.
+/*
+GetLanguageunderstandingMinerDraftServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetLanguageunderstandingMinerDraftServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding miner draft service unavailable response has a 2xx status code
+func (o *GetLanguageunderstandingMinerDraftServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding miner draft service unavailable response has a 3xx status code
+func (o *GetLanguageunderstandingMinerDraftServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding miner draft service unavailable response has a 4xx status code
+func (o *GetLanguageunderstandingMinerDraftServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languageunderstanding miner draft service unavailable response has a 5xx status code
+func (o *GetLanguageunderstandingMinerDraftServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get languageunderstanding miner draft service unavailable response a status code equal to that given
+func (o *GetLanguageunderstandingMinerDraftServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetLanguageunderstandingMinerDraftServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetLanguageunderstandingMinerDraftServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetLanguageunderstandingMinerDraftGatewayTimeout() *GetLanguageunderstan
 	return &GetLanguageunderstandingMinerDraftGatewayTimeout{}
 }
 
-/*GetLanguageunderstandingMinerDraftGatewayTimeout handles this case with default header values.
+/*
+GetLanguageunderstandingMinerDraftGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetLanguageunderstandingMinerDraftGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding miner draft gateway timeout response has a 2xx status code
+func (o *GetLanguageunderstandingMinerDraftGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding miner draft gateway timeout response has a 3xx status code
+func (o *GetLanguageunderstandingMinerDraftGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding miner draft gateway timeout response has a 4xx status code
+func (o *GetLanguageunderstandingMinerDraftGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languageunderstanding miner draft gateway timeout response has a 5xx status code
+func (o *GetLanguageunderstandingMinerDraftGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get languageunderstanding miner draft gateway timeout response a status code equal to that given
+func (o *GetLanguageunderstandingMinerDraftGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetLanguageunderstandingMinerDraftGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetLanguageunderstandingMinerDraftGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/miners/{minerId}/drafts/{draftId}][%d] getLanguageunderstandingMinerDraftGatewayTimeout  %+v", 504, o.Payload)
 }
 

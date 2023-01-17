@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -26,7 +27,7 @@ type IPAddressRange struct {
 	Region string `json:"region,omitempty"`
 
 	// service
-	// Enum: [data-actions smtp audiohook]
+	// Enum: [data-actions smtp audiohook api]
 	Service string `json:"service,omitempty"`
 }
 
@@ -48,7 +49,7 @@ var ipAddressRangeTypeServicePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["data-actions","smtp","audiohook"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["data-actions","smtp","audiohook","api"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -58,14 +59,17 @@ func init() {
 
 const (
 
-	// IPAddressRangeServiceDataActions captures enum value "data-actions"
-	IPAddressRangeServiceDataActions string = "data-actions"
+	// IPAddressRangeServiceDataDashActions captures enum value "data-actions"
+	IPAddressRangeServiceDataDashActions string = "data-actions"
 
 	// IPAddressRangeServiceSMTP captures enum value "smtp"
 	IPAddressRangeServiceSMTP string = "smtp"
 
 	// IPAddressRangeServiceAudiohook captures enum value "audiohook"
 	IPAddressRangeServiceAudiohook string = "audiohook"
+
+	// IPAddressRangeServiceAPI captures enum value "api"
+	IPAddressRangeServiceAPI string = "api"
 )
 
 // prop value enum
@@ -77,7 +81,6 @@ func (m *IPAddressRange) validateServiceEnum(path, location string, value string
 }
 
 func (m *IPAddressRange) validateService(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Service) { // not required
 		return nil
 	}
@@ -87,6 +90,11 @@ func (m *IPAddressRange) validateService(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this Ip address range based on context it is used
+func (m *IPAddressRange) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

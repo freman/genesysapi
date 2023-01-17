@@ -95,7 +95,6 @@ func (o *PatchGeolocationsSettingsReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchGeolocationsSettingsOK() *PatchGeolocationsSettingsOK {
 	return &PatchGeolocationsSettingsOK{}
 }
 
-/*PatchGeolocationsSettingsOK handles this case with default header values.
+/*
+PatchGeolocationsSettingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchGeolocationsSettingsOK struct {
 	Payload *models.GeolocationSettings
 }
 
+// IsSuccess returns true when this patch geolocations settings o k response has a 2xx status code
+func (o *PatchGeolocationsSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch geolocations settings o k response has a 3xx status code
+func (o *PatchGeolocationsSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch geolocations settings o k response has a 4xx status code
+func (o *PatchGeolocationsSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch geolocations settings o k response has a 5xx status code
+func (o *PatchGeolocationsSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch geolocations settings o k response a status code equal to that given
+func (o *PatchGeolocationsSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchGeolocationsSettingsOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchGeolocationsSettingsOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchGeolocationsSettingsBadRequest() *PatchGeolocationsSettingsBadReque
 	return &PatchGeolocationsSettingsBadRequest{}
 }
 
-/*PatchGeolocationsSettingsBadRequest handles this case with default header values.
+/*
+PatchGeolocationsSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchGeolocationsSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch geolocations settings bad request response has a 2xx status code
+func (o *PatchGeolocationsSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch geolocations settings bad request response has a 3xx status code
+func (o *PatchGeolocationsSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch geolocations settings bad request response has a 4xx status code
+func (o *PatchGeolocationsSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch geolocations settings bad request response has a 5xx status code
+func (o *PatchGeolocationsSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch geolocations settings bad request response a status code equal to that given
+func (o *PatchGeolocationsSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchGeolocationsSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchGeolocationsSettingsBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchGeolocationsSettingsUnauthorized() *PatchGeolocationsSettingsUnauth
 	return &PatchGeolocationsSettingsUnauthorized{}
 }
 
-/*PatchGeolocationsSettingsUnauthorized handles this case with default header values.
+/*
+PatchGeolocationsSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchGeolocationsSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch geolocations settings unauthorized response has a 2xx status code
+func (o *PatchGeolocationsSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch geolocations settings unauthorized response has a 3xx status code
+func (o *PatchGeolocationsSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch geolocations settings unauthorized response has a 4xx status code
+func (o *PatchGeolocationsSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch geolocations settings unauthorized response has a 5xx status code
+func (o *PatchGeolocationsSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch geolocations settings unauthorized response a status code equal to that given
+func (o *PatchGeolocationsSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchGeolocationsSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchGeolocationsSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchGeolocationsSettingsForbidden() *PatchGeolocationsSettingsForbidden
 	return &PatchGeolocationsSettingsForbidden{}
 }
 
-/*PatchGeolocationsSettingsForbidden handles this case with default header values.
+/*
+PatchGeolocationsSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchGeolocationsSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch geolocations settings forbidden response has a 2xx status code
+func (o *PatchGeolocationsSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch geolocations settings forbidden response has a 3xx status code
+func (o *PatchGeolocationsSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch geolocations settings forbidden response has a 4xx status code
+func (o *PatchGeolocationsSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch geolocations settings forbidden response has a 5xx status code
+func (o *PatchGeolocationsSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch geolocations settings forbidden response a status code equal to that given
+func (o *PatchGeolocationsSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchGeolocationsSettingsForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchGeolocationsSettingsForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchGeolocationsSettingsNotFound() *PatchGeolocationsSettingsNotFound {
 	return &PatchGeolocationsSettingsNotFound{}
 }
 
-/*PatchGeolocationsSettingsNotFound handles this case with default header values.
+/*
+PatchGeolocationsSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchGeolocationsSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch geolocations settings not found response has a 2xx status code
+func (o *PatchGeolocationsSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch geolocations settings not found response has a 3xx status code
+func (o *PatchGeolocationsSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch geolocations settings not found response has a 4xx status code
+func (o *PatchGeolocationsSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch geolocations settings not found response has a 5xx status code
+func (o *PatchGeolocationsSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch geolocations settings not found response a status code equal to that given
+func (o *PatchGeolocationsSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchGeolocationsSettingsNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchGeolocationsSettingsNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchGeolocationsSettingsRequestTimeout() *PatchGeolocationsSettingsRequ
 	return &PatchGeolocationsSettingsRequestTimeout{}
 }
 
-/*PatchGeolocationsSettingsRequestTimeout handles this case with default header values.
+/*
+PatchGeolocationsSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchGeolocationsSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch geolocations settings request timeout response has a 2xx status code
+func (o *PatchGeolocationsSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch geolocations settings request timeout response has a 3xx status code
+func (o *PatchGeolocationsSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch geolocations settings request timeout response has a 4xx status code
+func (o *PatchGeolocationsSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch geolocations settings request timeout response has a 5xx status code
+func (o *PatchGeolocationsSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch geolocations settings request timeout response a status code equal to that given
+func (o *PatchGeolocationsSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchGeolocationsSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchGeolocationsSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchGeolocationsSettingsRequestEntityTooLarge() *PatchGeolocationsSetti
 	return &PatchGeolocationsSettingsRequestEntityTooLarge{}
 }
 
-/*PatchGeolocationsSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+PatchGeolocationsSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchGeolocationsSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch geolocations settings request entity too large response has a 2xx status code
+func (o *PatchGeolocationsSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch geolocations settings request entity too large response has a 3xx status code
+func (o *PatchGeolocationsSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch geolocations settings request entity too large response has a 4xx status code
+func (o *PatchGeolocationsSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch geolocations settings request entity too large response has a 5xx status code
+func (o *PatchGeolocationsSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch geolocations settings request entity too large response a status code equal to that given
+func (o *PatchGeolocationsSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchGeolocationsSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchGeolocationsSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchGeolocationsSettingsUnsupportedMediaType() *PatchGeolocationsSettin
 	return &PatchGeolocationsSettingsUnsupportedMediaType{}
 }
 
-/*PatchGeolocationsSettingsUnsupportedMediaType handles this case with default header values.
+/*
+PatchGeolocationsSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchGeolocationsSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch geolocations settings unsupported media type response has a 2xx status code
+func (o *PatchGeolocationsSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch geolocations settings unsupported media type response has a 3xx status code
+func (o *PatchGeolocationsSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch geolocations settings unsupported media type response has a 4xx status code
+func (o *PatchGeolocationsSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch geolocations settings unsupported media type response has a 5xx status code
+func (o *PatchGeolocationsSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch geolocations settings unsupported media type response a status code equal to that given
+func (o *PatchGeolocationsSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchGeolocationsSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchGeolocationsSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchGeolocationsSettingsTooManyRequests() *PatchGeolocationsSettingsToo
 	return &PatchGeolocationsSettingsTooManyRequests{}
 }
 
-/*PatchGeolocationsSettingsTooManyRequests handles this case with default header values.
+/*
+PatchGeolocationsSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchGeolocationsSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch geolocations settings too many requests response has a 2xx status code
+func (o *PatchGeolocationsSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch geolocations settings too many requests response has a 3xx status code
+func (o *PatchGeolocationsSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch geolocations settings too many requests response has a 4xx status code
+func (o *PatchGeolocationsSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch geolocations settings too many requests response has a 5xx status code
+func (o *PatchGeolocationsSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch geolocations settings too many requests response a status code equal to that given
+func (o *PatchGeolocationsSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchGeolocationsSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchGeolocationsSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchGeolocationsSettingsInternalServerError() *PatchGeolocationsSetting
 	return &PatchGeolocationsSettingsInternalServerError{}
 }
 
-/*PatchGeolocationsSettingsInternalServerError handles this case with default header values.
+/*
+PatchGeolocationsSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchGeolocationsSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch geolocations settings internal server error response has a 2xx status code
+func (o *PatchGeolocationsSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch geolocations settings internal server error response has a 3xx status code
+func (o *PatchGeolocationsSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch geolocations settings internal server error response has a 4xx status code
+func (o *PatchGeolocationsSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch geolocations settings internal server error response has a 5xx status code
+func (o *PatchGeolocationsSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch geolocations settings internal server error response a status code equal to that given
+func (o *PatchGeolocationsSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchGeolocationsSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchGeolocationsSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchGeolocationsSettingsServiceUnavailable() *PatchGeolocationsSettings
 	return &PatchGeolocationsSettingsServiceUnavailable{}
 }
 
-/*PatchGeolocationsSettingsServiceUnavailable handles this case with default header values.
+/*
+PatchGeolocationsSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchGeolocationsSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch geolocations settings service unavailable response has a 2xx status code
+func (o *PatchGeolocationsSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch geolocations settings service unavailable response has a 3xx status code
+func (o *PatchGeolocationsSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch geolocations settings service unavailable response has a 4xx status code
+func (o *PatchGeolocationsSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch geolocations settings service unavailable response has a 5xx status code
+func (o *PatchGeolocationsSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch geolocations settings service unavailable response a status code equal to that given
+func (o *PatchGeolocationsSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchGeolocationsSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchGeolocationsSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchGeolocationsSettingsGatewayTimeout() *PatchGeolocationsSettingsGate
 	return &PatchGeolocationsSettingsGatewayTimeout{}
 }
 
-/*PatchGeolocationsSettingsGatewayTimeout handles this case with default header values.
+/*
+PatchGeolocationsSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchGeolocationsSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch geolocations settings gateway timeout response has a 2xx status code
+func (o *PatchGeolocationsSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch geolocations settings gateway timeout response has a 3xx status code
+func (o *PatchGeolocationsSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch geolocations settings gateway timeout response has a 4xx status code
+func (o *PatchGeolocationsSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch geolocations settings gateway timeout response has a 5xx status code
+func (o *PatchGeolocationsSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch geolocations settings gateway timeout response a status code equal to that given
+func (o *PatchGeolocationsSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchGeolocationsSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchGeolocationsSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/geolocations/settings][%d] patchGeolocationsSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

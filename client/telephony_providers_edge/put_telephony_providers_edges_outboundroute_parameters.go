@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutTelephonyProvidersEdgesOutboundrouteParams creates a new PutTelephonyProvidersEdgesOutboundrouteParams object
-// with the default values initialized.
+// NewPutTelephonyProvidersEdgesOutboundrouteParams creates a new PutTelephonyProvidersEdgesOutboundrouteParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutTelephonyProvidersEdgesOutboundrouteParams() *PutTelephonyProvidersEdgesOutboundrouteParams {
-	var ()
 	return &PutTelephonyProvidersEdgesOutboundrouteParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutTelephonyProvidersEdgesOutboundrouteParamsWithTimeout creates a new PutTelephonyProvidersEdgesOutboundrouteParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutTelephonyProvidersEdgesOutboundrouteParamsWithTimeout(timeout time.Duration) *PutTelephonyProvidersEdgesOutboundrouteParams {
-	var ()
 	return &PutTelephonyProvidersEdgesOutboundrouteParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutTelephonyProvidersEdgesOutboundrouteParamsWithContext creates a new PutTelephonyProvidersEdgesOutboundrouteParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutTelephonyProvidersEdgesOutboundrouteParamsWithContext(ctx context.Context) *PutTelephonyProvidersEdgesOutboundrouteParams {
-	var ()
 	return &PutTelephonyProvidersEdgesOutboundrouteParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutTelephonyProvidersEdgesOutboundrouteParamsWithHTTPClient creates a new PutTelephonyProvidersEdgesOutboundrouteParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutTelephonyProvidersEdgesOutboundrouteParamsWithHTTPClient(client *http.Client) *PutTelephonyProvidersEdgesOutboundrouteParams {
-	var ()
 	return &PutTelephonyProvidersEdgesOutboundrouteParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutTelephonyProvidersEdgesOutboundrouteParams contains all the parameters to send to the API endpoint
-for the put telephony providers edges outboundroute operation typically these are written to a http.Request
+/*
+PutTelephonyProvidersEdgesOutboundrouteParams contains all the parameters to send to the API endpoint
+
+	for the put telephony providers edges outboundroute operation.
+
+	Typically these are written to a http.Request.
 */
 type PutTelephonyProvidersEdgesOutboundrouteParams struct {
 
-	/*Body
-	  OutboundRoute
+	/* Body.
 
+	   OutboundRoute
 	*/
 	Body *models.OutboundRoute
-	/*OutboundRouteID
-	  Outbound route ID
 
+	/* OutboundRouteID.
+
+	   Outbound route ID
 	*/
 	OutboundRouteID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put telephony providers edges outboundroute params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutTelephonyProvidersEdgesOutboundrouteParams) WithDefaults() *PutTelephonyProvidersEdgesOutboundrouteParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put telephony providers edges outboundroute params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutTelephonyProvidersEdgesOutboundrouteParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put telephony providers edges outboundroute params
@@ -140,7 +157,6 @@ func (o *PutTelephonyProvidersEdgesOutboundrouteParams) WriteToRequest(r runtime
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

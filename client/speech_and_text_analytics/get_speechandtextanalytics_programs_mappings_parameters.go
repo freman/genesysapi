@@ -17,76 +17,95 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetSpeechandtextanalyticsProgramsMappingsParams creates a new GetSpeechandtextanalyticsProgramsMappingsParams object
-// with the default values initialized.
+// NewGetSpeechandtextanalyticsProgramsMappingsParams creates a new GetSpeechandtextanalyticsProgramsMappingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSpeechandtextanalyticsProgramsMappingsParams() *GetSpeechandtextanalyticsProgramsMappingsParams {
-	var (
-		pageSizeDefault = int32(20)
-	)
 	return &GetSpeechandtextanalyticsProgramsMappingsParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsProgramsMappingsParamsWithTimeout creates a new GetSpeechandtextanalyticsProgramsMappingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSpeechandtextanalyticsProgramsMappingsParamsWithTimeout(timeout time.Duration) *GetSpeechandtextanalyticsProgramsMappingsParams {
-	var (
-		pageSizeDefault = int32(20)
-	)
 	return &GetSpeechandtextanalyticsProgramsMappingsParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsProgramsMappingsParamsWithContext creates a new GetSpeechandtextanalyticsProgramsMappingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSpeechandtextanalyticsProgramsMappingsParamsWithContext(ctx context.Context) *GetSpeechandtextanalyticsProgramsMappingsParams {
-	var (
-		pageSizeDefault = int32(20)
-	)
 	return &GetSpeechandtextanalyticsProgramsMappingsParams{
-		PageSize: &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetSpeechandtextanalyticsProgramsMappingsParamsWithHTTPClient creates a new GetSpeechandtextanalyticsProgramsMappingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSpeechandtextanalyticsProgramsMappingsParamsWithHTTPClient(client *http.Client) *GetSpeechandtextanalyticsProgramsMappingsParams {
-	var (
-		pageSizeDefault = int32(20)
-	)
 	return &GetSpeechandtextanalyticsProgramsMappingsParams{
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetSpeechandtextanalyticsProgramsMappingsParams contains all the parameters to send to the API endpoint
-for the get speechandtextanalytics programs mappings operation typically these are written to a http.Request
+/*
+GetSpeechandtextanalyticsProgramsMappingsParams contains all the parameters to send to the API endpoint
+
+	for the get speechandtextanalytics programs mappings operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSpeechandtextanalyticsProgramsMappingsParams struct {
 
-	/*NextPage
-	  The key for listing the next page
+	/* NextPage.
 
+	   The key for listing the next page
 	*/
 	NextPage *string
-	/*PageSize
-	  The page size for the listing
 
+	/* PageSize.
+
+	   The page size for the listing
+
+	   Format: int32
+	   Default: 20
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get speechandtextanalytics programs mappings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsProgramsMappingsParams) WithDefaults() *GetSpeechandtextanalyticsProgramsMappingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get speechandtextanalytics programs mappings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsProgramsMappingsParams) SetDefaults() {
+	var (
+		pageSizeDefault = int32(20)
+	)
+
+	val := GetSpeechandtextanalyticsProgramsMappingsParams{
+		PageSize: &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get speechandtextanalytics programs mappings params
@@ -156,32 +175,34 @@ func (o *GetSpeechandtextanalyticsProgramsMappingsParams) WriteToRequest(r runti
 
 		// query param nextPage
 		var qrNextPage string
+
 		if o.NextPage != nil {
 			qrNextPage = *o.NextPage
 		}
 		qNextPage := qrNextPage
 		if qNextPage != "" {
+
 			if err := r.SetQueryParam("nextPage", qNextPage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

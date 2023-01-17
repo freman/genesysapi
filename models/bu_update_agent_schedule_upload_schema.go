@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -77,7 +78,6 @@ func (m *BuUpdateAgentScheduleUploadSchema) Validate(formats strfmt.Registry) er
 }
 
 func (m *BuUpdateAgentScheduleUploadSchema) validateFullDayTimeOffMarkers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FullDayTimeOffMarkers) { // not required
 		return nil
 	}
@@ -91,6 +91,8 @@ func (m *BuUpdateAgentScheduleUploadSchema) validateFullDayTimeOffMarkers(format
 			if err := m.FullDayTimeOffMarkers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -102,7 +104,6 @@ func (m *BuUpdateAgentScheduleUploadSchema) validateFullDayTimeOffMarkers(format
 }
 
 func (m *BuUpdateAgentScheduleUploadSchema) validateMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metadata) { // not required
 		return nil
 	}
@@ -111,6 +112,8 @@ func (m *BuUpdateAgentScheduleUploadSchema) validateMetadata(formats strfmt.Regi
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -120,7 +123,6 @@ func (m *BuUpdateAgentScheduleUploadSchema) validateMetadata(formats strfmt.Regi
 }
 
 func (m *BuUpdateAgentScheduleUploadSchema) validateShifts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Shifts) { // not required
 		return nil
 	}
@@ -134,6 +136,8 @@ func (m *BuUpdateAgentScheduleUploadSchema) validateShifts(formats strfmt.Regist
 			if err := m.Shifts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("shifts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("shifts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -154,7 +158,6 @@ func (m *BuUpdateAgentScheduleUploadSchema) validateUserID(formats strfmt.Regist
 }
 
 func (m *BuUpdateAgentScheduleUploadSchema) validateWorkPlanID(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WorkPlanID) { // not required
 		return nil
 	}
@@ -163,6 +166,8 @@ func (m *BuUpdateAgentScheduleUploadSchema) validateWorkPlanID(formats strfmt.Re
 		if err := m.WorkPlanID.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workPlanId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPlanId")
 			}
 			return err
 		}
@@ -172,7 +177,6 @@ func (m *BuUpdateAgentScheduleUploadSchema) validateWorkPlanID(formats strfmt.Re
 }
 
 func (m *BuUpdateAgentScheduleUploadSchema) validateWorkPlanIdsPerWeek(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WorkPlanIdsPerWeek) { // not required
 		return nil
 	}
@@ -181,6 +185,126 @@ func (m *BuUpdateAgentScheduleUploadSchema) validateWorkPlanIdsPerWeek(formats s
 		if err := m.WorkPlanIdsPerWeek.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workPlanIdsPerWeek")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPlanIdsPerWeek")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu update agent schedule upload schema based on the context it is used
+func (m *BuUpdateAgentScheduleUploadSchema) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFullDayTimeOffMarkers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShifts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkPlanID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkPlanIdsPerWeek(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuUpdateAgentScheduleUploadSchema) contextValidateFullDayTimeOffMarkers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.FullDayTimeOffMarkers); i++ {
+
+		if m.FullDayTimeOffMarkers[i] != nil {
+			if err := m.FullDayTimeOffMarkers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuUpdateAgentScheduleUploadSchema) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuUpdateAgentScheduleUploadSchema) contextValidateShifts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Shifts); i++ {
+
+		if m.Shifts[i] != nil {
+			if err := m.Shifts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("shifts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("shifts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuUpdateAgentScheduleUploadSchema) contextValidateWorkPlanID(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WorkPlanID != nil {
+		if err := m.WorkPlanID.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workPlanId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPlanId")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuUpdateAgentScheduleUploadSchema) contextValidateWorkPlanIdsPerWeek(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WorkPlanIdsPerWeek != nil {
+		if err := m.WorkPlanIdsPerWeek.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workPlanIdsPerWeek")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPlanIdsPerWeek")
 			}
 			return err
 		}

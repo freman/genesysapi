@@ -95,7 +95,6 @@ func (o *PostTelephonyProvidersEdgeDiagnosticPingReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingAccepted() *PostTelephonyProvide
 	return &PostTelephonyProvidersEdgeDiagnosticPingAccepted{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingAccepted handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticPingAccepted describes a response with status code 202, with default header values.
 
 Request to get network diagnostic has been accepted
 */
@@ -114,7 +114,36 @@ type PostTelephonyProvidersEdgeDiagnosticPingAccepted struct {
 	Payload *models.EdgeNetworkDiagnostic
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic ping accepted response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic ping accepted response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic ping accepted response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic ping accepted response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic ping accepted response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticPingAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticPingAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingAccepted  %+v", 202, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingBadRequest() *PostTelephonyProvi
 	return &PostTelephonyProvidersEdgeDiagnosticPingBadRequest{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingBadRequest handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticPingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostTelephonyProvidersEdgeDiagnosticPingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic ping bad request response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic ping bad request response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic ping bad request response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic ping bad request response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic ping bad request response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticPingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticPingBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingUnauthorized() *PostTelephonyPro
 	return &PostTelephonyProvidersEdgeDiagnosticPingUnauthorized{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingUnauthorized handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticPingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostTelephonyProvidersEdgeDiagnosticPingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic ping unauthorized response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic ping unauthorized response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic ping unauthorized response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic ping unauthorized response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic ping unauthorized response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticPingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticPingUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingForbidden() *PostTelephonyProvid
 	return &PostTelephonyProvidersEdgeDiagnosticPingForbidden{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingForbidden handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticPingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostTelephonyProvidersEdgeDiagnosticPingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic ping forbidden response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic ping forbidden response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic ping forbidden response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic ping forbidden response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic ping forbidden response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticPingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticPingForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingNotFound() *PostTelephonyProvide
 	return &PostTelephonyProvidersEdgeDiagnosticPingNotFound{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingNotFound handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticPingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostTelephonyProvidersEdgeDiagnosticPingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic ping not found response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic ping not found response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic ping not found response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic ping not found response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic ping not found response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticPingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticPingNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingRequestTimeout() *PostTelephonyP
 	return &PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic ping request timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic ping request timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic ping request timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic ping request timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic ping request timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge() *PostTel
 	return &PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic ping request entity too large response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic ping request entity too large response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic ping request entity too large response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic ping request entity too large response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic ping request entity too large response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType() *PostTele
 	return &PostTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic ping unsupported media type response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic ping unsupported media type response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic ping unsupported media type response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic ping unsupported media type response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic ping unsupported media type response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingTooManyRequests() *PostTelephony
 	return &PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic ping too many requests response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic ping too many requests response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic ping too many requests response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic ping too many requests response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic ping too many requests response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingInternalServerError() *PostTelep
 	return &PostTelephonyProvidersEdgeDiagnosticPingInternalServerError{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingInternalServerError handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticPingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostTelephonyProvidersEdgeDiagnosticPingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic ping internal server error response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic ping internal server error response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic ping internal server error response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic ping internal server error response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic ping internal server error response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticPingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticPingInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingServiceUnavailable() *PostTeleph
 	return &PostTelephonyProvidersEdgeDiagnosticPingServiceUnavailable{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingServiceUnavailable handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticPingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostTelephonyProvidersEdgeDiagnosticPingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic ping service unavailable response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic ping service unavailable response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic ping service unavailable response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic ping service unavailable response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic ping service unavailable response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticPingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticPingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticPingGatewayTimeout() *PostTelephonyP
 	return &PostTelephonyProvidersEdgeDiagnosticPingGatewayTimeout{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticPingGatewayTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticPingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostTelephonyProvidersEdgeDiagnosticPingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic ping gateway timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic ping gateway timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic ping gateway timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic ping gateway timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticPingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic ping gateway timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticPingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticPingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticPingGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/ping][%d] postTelephonyProvidersEdgeDiagnosticPingGatewayTimeout  %+v", 504, o.Payload)
 }
 

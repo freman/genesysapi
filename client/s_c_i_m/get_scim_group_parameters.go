@@ -17,74 +17,93 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetScimGroupParams creates a new GetScimGroupParams object
-// with the default values initialized.
+// NewGetScimGroupParams creates a new GetScimGroupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScimGroupParams() *GetScimGroupParams {
-	var ()
 	return &GetScimGroupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScimGroupParamsWithTimeout creates a new GetScimGroupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScimGroupParamsWithTimeout(timeout time.Duration) *GetScimGroupParams {
-	var ()
 	return &GetScimGroupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScimGroupParamsWithContext creates a new GetScimGroupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScimGroupParamsWithContext(ctx context.Context) *GetScimGroupParams {
-	var ()
 	return &GetScimGroupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetScimGroupParamsWithHTTPClient creates a new GetScimGroupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScimGroupParamsWithHTTPClient(client *http.Client) *GetScimGroupParams {
-	var ()
 	return &GetScimGroupParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetScimGroupParams contains all the parameters to send to the API endpoint
-for the get scim group operation typically these are written to a http.Request
+/*
+GetScimGroupParams contains all the parameters to send to the API endpoint
+
+	for the get scim group operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScimGroupParams struct {
 
-	/*IfNoneMatch
-	  The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/groups/{groupId}. Example: "42". If the ETag is different from the version on the server, returns the current configuration of the resource. If the ETag is current, returns 304 Not Modified.
+	/* IfNoneMatch.
 
+	   The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/groups/{groupId}. Example: "42". If the ETag is different from the version on the server, returns the current configuration of the resource. If the ETag is current, returns 304 Not Modified.
 	*/
 	IfNoneMatch *string
-	/*Attributes
-	  Indicates which attributes to include. Returns these attributes and the "id", "active", and "meta" attributes. Use "attributes" to avoid expensive secondary calls for the default attributes.
 
+	/* Attributes.
+
+	   Indicates which attributes to include. Returns these attributes and the "id", "active", and "meta" attributes. Use "attributes" to avoid expensive secondary calls for the default attributes.
 	*/
 	Attributes []string
-	/*ExcludedAttributes
-	  Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Always returns "id", "active", and "meta" attributes. Use "excludedAttributes" to avoid expensive secondary calls for the default attributes.
 
+	/* ExcludedAttributes.
+
+	   Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Always returns "id", "active", and "meta" attributes. Use "excludedAttributes" to avoid expensive secondary calls for the default attributes.
 	*/
 	ExcludedAttributes []string
-	/*GroupID
-	  The ID of a group. Returned with GET /api/v2/scim/groups.
 
+	/* GroupID.
+
+	   The ID of a group. Returned with GET /api/v2/scim/groups.
 	*/
 	GroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get scim group params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScimGroupParams) WithDefaults() *GetScimGroupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get scim group params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScimGroupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get scim group params
@@ -178,23 +197,28 @@ func (o *GetScimGroupParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		if err := r.SetHeaderParam("If-None-Match", *o.IfNoneMatch); err != nil {
 			return err
 		}
-
 	}
 
-	valuesAttributes := o.Attributes
+	if o.Attributes != nil {
 
-	joinedAttributes := swag.JoinByFormat(valuesAttributes, "multi")
-	// query array param attributes
-	if err := r.SetQueryParam("attributes", joinedAttributes...); err != nil {
-		return err
+		// binding items for attributes
+		joinedAttributes := o.bindParamAttributes(reg)
+
+		// query array param attributes
+		if err := r.SetQueryParam("attributes", joinedAttributes...); err != nil {
+			return err
+		}
 	}
 
-	valuesExcludedAttributes := o.ExcludedAttributes
+	if o.ExcludedAttributes != nil {
 
-	joinedExcludedAttributes := swag.JoinByFormat(valuesExcludedAttributes, "multi")
-	// query array param excludedAttributes
-	if err := r.SetQueryParam("excludedAttributes", joinedExcludedAttributes...); err != nil {
-		return err
+		// binding items for excludedAttributes
+		joinedExcludedAttributes := o.bindParamExcludedAttributes(reg)
+
+		// query array param excludedAttributes
+		if err := r.SetQueryParam("excludedAttributes", joinedExcludedAttributes...); err != nil {
+			return err
+		}
 	}
 
 	// path param groupId
@@ -206,4 +230,38 @@ func (o *GetScimGroupParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetScimGroup binds the parameter attributes
+func (o *GetScimGroupParams) bindParamAttributes(formats strfmt.Registry) []string {
+	attributesIR := o.Attributes
+
+	var attributesIC []string
+	for _, attributesIIR := range attributesIR { // explode []string
+
+		attributesIIV := attributesIIR // string as string
+		attributesIC = append(attributesIC, attributesIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	attributesIS := swag.JoinByFormat(attributesIC, "multi")
+
+	return attributesIS
+}
+
+// bindParamGetScimGroup binds the parameter excludedAttributes
+func (o *GetScimGroupParams) bindParamExcludedAttributes(formats strfmt.Registry) []string {
+	excludedAttributesIR := o.ExcludedAttributes
+
+	var excludedAttributesIC []string
+	for _, excludedAttributesIIR := range excludedAttributesIR { // explode []string
+
+		excludedAttributesIIV := excludedAttributesIIR // string as string
+		excludedAttributesIC = append(excludedAttributesIC, excludedAttributesIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	excludedAttributesIS := swag.JoinByFormat(excludedAttributesIC, "multi")
+
+	return excludedAttributesIS
 }

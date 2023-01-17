@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams creates a new GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams creates a new GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams() *GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParamsWithTimeout creates a new GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParamsWithContext creates a new GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParamsWithContext(ctx context.Context) *GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParamsWithHTTPClient creates a new GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement managementunit user timeoffrequest timeofflimits operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement managementunit user timeoffrequest timeofflimits operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams struct {
 
-	/*ManagementUnitID
-	  The ID of the management unit.
+	/* ManagementUnitID.
 
+	   The ID of the management unit.
 	*/
 	ManagementUnitID string
-	/*TimeOffRequestID
-	  The ID of the time off request, which dates and activityCodeId determine limit values to retrieve
 
+	/* TimeOffRequestID.
+
+	   The ID of the time off request, which dates and activityCodeId determine limit values to retrieve
 	*/
 	TimeOffRequestID string
-	/*UserID
-	  The userId to whom the time off request applies.
 
+	/* UserID.
+
+	   The userId to whom the time off request applies.
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement managementunit user timeoffrequest timeofflimits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams) WithDefaults() *GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement managementunit user timeoffrequest timeofflimits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestTimeofflimitsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement managementunit user timeoffrequest timeofflimits params

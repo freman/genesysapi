@@ -17,125 +17,141 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetTelephonyProvidersEdgesTrunksParams creates a new GetTelephonyProvidersEdgesTrunksParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesTrunksParams creates a new GetTelephonyProvidersEdgesTrunksParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesTrunksParams() *GetTelephonyProvidersEdgesTrunksParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetTelephonyProvidersEdgesTrunksParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunksParamsWithTimeout creates a new GetTelephonyProvidersEdgesTrunksParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesTrunksParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesTrunksParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetTelephonyProvidersEdgesTrunksParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunksParamsWithContext creates a new GetTelephonyProvidersEdgesTrunksParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesTrunksParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesTrunksParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetTelephonyProvidersEdgesTrunksParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunksParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesTrunksParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesTrunksParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesTrunksParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetTelephonyProvidersEdgesTrunksParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesTrunksParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges trunks operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesTrunksParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges trunks operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesTrunksParams struct {
 
-	/*EdgeID
-	  Filter by Edge Ids
+	/* EdgeID.
 
+	   Filter by Edge Ids
 	*/
 	EdgeID *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortBy
-	  Value by which to sort
 
+	/* SortBy.
+
+	   Value by which to sort
+
+	   Default: "name"
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "ASC"
 	*/
 	SortOrder *string
-	/*TrunkBaseID
-	  Filter by Trunk Base Ids
 
+	/* TrunkBaseID.
+
+	   Filter by Trunk Base Ids
 	*/
 	TrunkBaseID *string
-	/*TrunkType
-	  Filter by a Trunk type
 
+	/* TrunkType.
+
+	   Filter by a Trunk type
 	*/
 	TrunkType *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges trunks params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesTrunksParams) WithDefaults() *GetTelephonyProvidersEdgesTrunksParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges trunks params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesTrunksParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("name")
+
+		sortOrderDefault = string("ASC")
+	)
+
+	val := GetTelephonyProvidersEdgesTrunksParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges trunks params
@@ -260,112 +276,119 @@ func (o *GetTelephonyProvidersEdgesTrunksParams) WriteToRequest(r runtime.Client
 
 		// query param edge.id
 		var qrEdgeID string
+
 		if o.EdgeID != nil {
 			qrEdgeID = *o.EdgeID
 		}
 		qEdgeID := qrEdgeID
 		if qEdgeID != "" {
+
 			if err := r.SetQueryParam("edge.id", qEdgeID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.TrunkBaseID != nil {
 
 		// query param trunkBase.id
 		var qrTrunkBaseID string
+
 		if o.TrunkBaseID != nil {
 			qrTrunkBaseID = *o.TrunkBaseID
 		}
 		qTrunkBaseID := qrTrunkBaseID
 		if qTrunkBaseID != "" {
+
 			if err := r.SetQueryParam("trunkBase.id", qTrunkBaseID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.TrunkType != nil {
 
 		// query param trunkType
 		var qrTrunkType string
+
 		if o.TrunkType != nil {
 			qrTrunkType = *o.TrunkType
 		}
 		qTrunkType := qrTrunkType
 		if qTrunkType != "" {
+
 			if err := r.SetQueryParam("trunkType", qTrunkType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

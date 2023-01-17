@@ -95,7 +95,6 @@ func (o *GetOrganizationsEmbeddedintegrationReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOrganizationsEmbeddedintegrationOK() *GetOrganizationsEmbeddedintegra
 	return &GetOrganizationsEmbeddedintegrationOK{}
 }
 
-/*GetOrganizationsEmbeddedintegrationOK handles this case with default header values.
+/*
+GetOrganizationsEmbeddedintegrationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOrganizationsEmbeddedintegrationOK struct {
 	Payload *models.EmbeddedIntegration
 }
 
+// IsSuccess returns true when this get organizations embeddedintegration o k response has a 2xx status code
+func (o *GetOrganizationsEmbeddedintegrationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get organizations embeddedintegration o k response has a 3xx status code
+func (o *GetOrganizationsEmbeddedintegrationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations embeddedintegration o k response has a 4xx status code
+func (o *GetOrganizationsEmbeddedintegrationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations embeddedintegration o k response has a 5xx status code
+func (o *GetOrganizationsEmbeddedintegrationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations embeddedintegration o k response a status code equal to that given
+func (o *GetOrganizationsEmbeddedintegrationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrganizationsEmbeddedintegrationOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOrganizationsEmbeddedintegrationOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOrganizationsEmbeddedintegrationBadRequest() *GetOrganizationsEmbedde
 	return &GetOrganizationsEmbeddedintegrationBadRequest{}
 }
 
-/*GetOrganizationsEmbeddedintegrationBadRequest handles this case with default header values.
+/*
+GetOrganizationsEmbeddedintegrationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOrganizationsEmbeddedintegrationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations embeddedintegration bad request response has a 2xx status code
+func (o *GetOrganizationsEmbeddedintegrationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations embeddedintegration bad request response has a 3xx status code
+func (o *GetOrganizationsEmbeddedintegrationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations embeddedintegration bad request response has a 4xx status code
+func (o *GetOrganizationsEmbeddedintegrationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations embeddedintegration bad request response has a 5xx status code
+func (o *GetOrganizationsEmbeddedintegrationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations embeddedintegration bad request response a status code equal to that given
+func (o *GetOrganizationsEmbeddedintegrationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOrganizationsEmbeddedintegrationBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOrganizationsEmbeddedintegrationBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOrganizationsEmbeddedintegrationUnauthorized() *GetOrganizationsEmbed
 	return &GetOrganizationsEmbeddedintegrationUnauthorized{}
 }
 
-/*GetOrganizationsEmbeddedintegrationUnauthorized handles this case with default header values.
+/*
+GetOrganizationsEmbeddedintegrationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOrganizationsEmbeddedintegrationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations embeddedintegration unauthorized response has a 2xx status code
+func (o *GetOrganizationsEmbeddedintegrationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations embeddedintegration unauthorized response has a 3xx status code
+func (o *GetOrganizationsEmbeddedintegrationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations embeddedintegration unauthorized response has a 4xx status code
+func (o *GetOrganizationsEmbeddedintegrationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations embeddedintegration unauthorized response has a 5xx status code
+func (o *GetOrganizationsEmbeddedintegrationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations embeddedintegration unauthorized response a status code equal to that given
+func (o *GetOrganizationsEmbeddedintegrationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOrganizationsEmbeddedintegrationUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOrganizationsEmbeddedintegrationUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOrganizationsEmbeddedintegrationForbidden() *GetOrganizationsEmbedded
 	return &GetOrganizationsEmbeddedintegrationForbidden{}
 }
 
-/*GetOrganizationsEmbeddedintegrationForbidden handles this case with default header values.
+/*
+GetOrganizationsEmbeddedintegrationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOrganizationsEmbeddedintegrationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations embeddedintegration forbidden response has a 2xx status code
+func (o *GetOrganizationsEmbeddedintegrationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations embeddedintegration forbidden response has a 3xx status code
+func (o *GetOrganizationsEmbeddedintegrationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations embeddedintegration forbidden response has a 4xx status code
+func (o *GetOrganizationsEmbeddedintegrationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations embeddedintegration forbidden response has a 5xx status code
+func (o *GetOrganizationsEmbeddedintegrationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations embeddedintegration forbidden response a status code equal to that given
+func (o *GetOrganizationsEmbeddedintegrationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrganizationsEmbeddedintegrationForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOrganizationsEmbeddedintegrationForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOrganizationsEmbeddedintegrationNotFound() *GetOrganizationsEmbeddedi
 	return &GetOrganizationsEmbeddedintegrationNotFound{}
 }
 
-/*GetOrganizationsEmbeddedintegrationNotFound handles this case with default header values.
+/*
+GetOrganizationsEmbeddedintegrationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOrganizationsEmbeddedintegrationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations embeddedintegration not found response has a 2xx status code
+func (o *GetOrganizationsEmbeddedintegrationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations embeddedintegration not found response has a 3xx status code
+func (o *GetOrganizationsEmbeddedintegrationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations embeddedintegration not found response has a 4xx status code
+func (o *GetOrganizationsEmbeddedintegrationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations embeddedintegration not found response has a 5xx status code
+func (o *GetOrganizationsEmbeddedintegrationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations embeddedintegration not found response a status code equal to that given
+func (o *GetOrganizationsEmbeddedintegrationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrganizationsEmbeddedintegrationNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOrganizationsEmbeddedintegrationNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOrganizationsEmbeddedintegrationRequestTimeout() *GetOrganizationsEmb
 	return &GetOrganizationsEmbeddedintegrationRequestTimeout{}
 }
 
-/*GetOrganizationsEmbeddedintegrationRequestTimeout handles this case with default header values.
+/*
+GetOrganizationsEmbeddedintegrationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOrganizationsEmbeddedintegrationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations embeddedintegration request timeout response has a 2xx status code
+func (o *GetOrganizationsEmbeddedintegrationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations embeddedintegration request timeout response has a 3xx status code
+func (o *GetOrganizationsEmbeddedintegrationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations embeddedintegration request timeout response has a 4xx status code
+func (o *GetOrganizationsEmbeddedintegrationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations embeddedintegration request timeout response has a 5xx status code
+func (o *GetOrganizationsEmbeddedintegrationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations embeddedintegration request timeout response a status code equal to that given
+func (o *GetOrganizationsEmbeddedintegrationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOrganizationsEmbeddedintegrationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrganizationsEmbeddedintegrationRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOrganizationsEmbeddedintegrationRequestEntityTooLarge() *GetOrganizat
 	return &GetOrganizationsEmbeddedintegrationRequestEntityTooLarge{}
 }
 
-/*GetOrganizationsEmbeddedintegrationRequestEntityTooLarge handles this case with default header values.
+/*
+GetOrganizationsEmbeddedintegrationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOrganizationsEmbeddedintegrationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations embeddedintegration request entity too large response has a 2xx status code
+func (o *GetOrganizationsEmbeddedintegrationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations embeddedintegration request entity too large response has a 3xx status code
+func (o *GetOrganizationsEmbeddedintegrationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations embeddedintegration request entity too large response has a 4xx status code
+func (o *GetOrganizationsEmbeddedintegrationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations embeddedintegration request entity too large response has a 5xx status code
+func (o *GetOrganizationsEmbeddedintegrationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations embeddedintegration request entity too large response a status code equal to that given
+func (o *GetOrganizationsEmbeddedintegrationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOrganizationsEmbeddedintegrationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOrganizationsEmbeddedintegrationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOrganizationsEmbeddedintegrationUnsupportedMediaType() *GetOrganizati
 	return &GetOrganizationsEmbeddedintegrationUnsupportedMediaType{}
 }
 
-/*GetOrganizationsEmbeddedintegrationUnsupportedMediaType handles this case with default header values.
+/*
+GetOrganizationsEmbeddedintegrationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOrganizationsEmbeddedintegrationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations embeddedintegration unsupported media type response has a 2xx status code
+func (o *GetOrganizationsEmbeddedintegrationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations embeddedintegration unsupported media type response has a 3xx status code
+func (o *GetOrganizationsEmbeddedintegrationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations embeddedintegration unsupported media type response has a 4xx status code
+func (o *GetOrganizationsEmbeddedintegrationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations embeddedintegration unsupported media type response has a 5xx status code
+func (o *GetOrganizationsEmbeddedintegrationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations embeddedintegration unsupported media type response a status code equal to that given
+func (o *GetOrganizationsEmbeddedintegrationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOrganizationsEmbeddedintegrationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOrganizationsEmbeddedintegrationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOrganizationsEmbeddedintegrationTooManyRequests() *GetOrganizationsEm
 	return &GetOrganizationsEmbeddedintegrationTooManyRequests{}
 }
 
-/*GetOrganizationsEmbeddedintegrationTooManyRequests handles this case with default header values.
+/*
+GetOrganizationsEmbeddedintegrationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOrganizationsEmbeddedintegrationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations embeddedintegration too many requests response has a 2xx status code
+func (o *GetOrganizationsEmbeddedintegrationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations embeddedintegration too many requests response has a 3xx status code
+func (o *GetOrganizationsEmbeddedintegrationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations embeddedintegration too many requests response has a 4xx status code
+func (o *GetOrganizationsEmbeddedintegrationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations embeddedintegration too many requests response has a 5xx status code
+func (o *GetOrganizationsEmbeddedintegrationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations embeddedintegration too many requests response a status code equal to that given
+func (o *GetOrganizationsEmbeddedintegrationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOrganizationsEmbeddedintegrationTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOrganizationsEmbeddedintegrationTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOrganizationsEmbeddedintegrationInternalServerError() *GetOrganizatio
 	return &GetOrganizationsEmbeddedintegrationInternalServerError{}
 }
 
-/*GetOrganizationsEmbeddedintegrationInternalServerError handles this case with default header values.
+/*
+GetOrganizationsEmbeddedintegrationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOrganizationsEmbeddedintegrationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations embeddedintegration internal server error response has a 2xx status code
+func (o *GetOrganizationsEmbeddedintegrationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations embeddedintegration internal server error response has a 3xx status code
+func (o *GetOrganizationsEmbeddedintegrationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations embeddedintegration internal server error response has a 4xx status code
+func (o *GetOrganizationsEmbeddedintegrationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations embeddedintegration internal server error response has a 5xx status code
+func (o *GetOrganizationsEmbeddedintegrationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations embeddedintegration internal server error response a status code equal to that given
+func (o *GetOrganizationsEmbeddedintegrationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOrganizationsEmbeddedintegrationInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOrganizationsEmbeddedintegrationInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOrganizationsEmbeddedintegrationServiceUnavailable() *GetOrganization
 	return &GetOrganizationsEmbeddedintegrationServiceUnavailable{}
 }
 
-/*GetOrganizationsEmbeddedintegrationServiceUnavailable handles this case with default header values.
+/*
+GetOrganizationsEmbeddedintegrationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOrganizationsEmbeddedintegrationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations embeddedintegration service unavailable response has a 2xx status code
+func (o *GetOrganizationsEmbeddedintegrationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations embeddedintegration service unavailable response has a 3xx status code
+func (o *GetOrganizationsEmbeddedintegrationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations embeddedintegration service unavailable response has a 4xx status code
+func (o *GetOrganizationsEmbeddedintegrationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations embeddedintegration service unavailable response has a 5xx status code
+func (o *GetOrganizationsEmbeddedintegrationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations embeddedintegration service unavailable response a status code equal to that given
+func (o *GetOrganizationsEmbeddedintegrationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOrganizationsEmbeddedintegrationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOrganizationsEmbeddedintegrationServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOrganizationsEmbeddedintegrationGatewayTimeout() *GetOrganizationsEmb
 	return &GetOrganizationsEmbeddedintegrationGatewayTimeout{}
 }
 
-/*GetOrganizationsEmbeddedintegrationGatewayTimeout handles this case with default header values.
+/*
+GetOrganizationsEmbeddedintegrationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOrganizationsEmbeddedintegrationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations embeddedintegration gateway timeout response has a 2xx status code
+func (o *GetOrganizationsEmbeddedintegrationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations embeddedintegration gateway timeout response has a 3xx status code
+func (o *GetOrganizationsEmbeddedintegrationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations embeddedintegration gateway timeout response has a 4xx status code
+func (o *GetOrganizationsEmbeddedintegrationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations embeddedintegration gateway timeout response has a 5xx status code
+func (o *GetOrganizationsEmbeddedintegrationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations embeddedintegration gateway timeout response a status code equal to that given
+func (o *GetOrganizationsEmbeddedintegrationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOrganizationsEmbeddedintegrationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOrganizationsEmbeddedintegrationGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/embeddedintegration][%d] getOrganizationsEmbeddedintegrationGatewayTimeout  %+v", 504, o.Payload)
 }
 

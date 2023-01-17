@@ -19,73 +19,91 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutRecordingsDeletionprotectionParams creates a new PutRecordingsDeletionprotectionParams object
-// with the default values initialized.
+// NewPutRecordingsDeletionprotectionParams creates a new PutRecordingsDeletionprotectionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutRecordingsDeletionprotectionParams() *PutRecordingsDeletionprotectionParams {
-	var (
-		protectDefault = bool(true)
-	)
 	return &PutRecordingsDeletionprotectionParams{
-		Protect: &protectDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutRecordingsDeletionprotectionParamsWithTimeout creates a new PutRecordingsDeletionprotectionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutRecordingsDeletionprotectionParamsWithTimeout(timeout time.Duration) *PutRecordingsDeletionprotectionParams {
-	var (
-		protectDefault = bool(true)
-	)
 	return &PutRecordingsDeletionprotectionParams{
-		Protect: &protectDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPutRecordingsDeletionprotectionParamsWithContext creates a new PutRecordingsDeletionprotectionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutRecordingsDeletionprotectionParamsWithContext(ctx context.Context) *PutRecordingsDeletionprotectionParams {
-	var (
-		protectDefault = bool(true)
-	)
 	return &PutRecordingsDeletionprotectionParams{
-		Protect: &protectDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPutRecordingsDeletionprotectionParamsWithHTTPClient creates a new PutRecordingsDeletionprotectionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutRecordingsDeletionprotectionParamsWithHTTPClient(client *http.Client) *PutRecordingsDeletionprotectionParams {
-	var (
-		protectDefault = bool(true)
-	)
 	return &PutRecordingsDeletionprotectionParams{
-		Protect:    &protectDefault,
 		HTTPClient: client,
 	}
 }
 
-/*PutRecordingsDeletionprotectionParams contains all the parameters to send to the API endpoint
-for the put recordings deletionprotection operation typically these are written to a http.Request
+/*
+PutRecordingsDeletionprotectionParams contains all the parameters to send to the API endpoint
+
+	for the put recordings deletionprotection operation.
+
+	Typically these are written to a http.Request.
 */
 type PutRecordingsDeletionprotectionParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.ConversationDeletionProtectionQuery
-	/*Protect
-	  Check for apply, uncheck for revoke (each action requires the respective permission)
 
+	/* Protect.
+
+	   Check for apply, uncheck for revoke (each action requires the respective permission)
+
+	   Default: true
 	*/
 	Protect *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put recordings deletionprotection params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRecordingsDeletionprotectionParams) WithDefaults() *PutRecordingsDeletionprotectionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put recordings deletionprotection params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRecordingsDeletionprotectionParams) SetDefaults() {
+	var (
+		protectDefault = bool(true)
+	)
+
+	val := PutRecordingsDeletionprotectionParams{
+		Protect: &protectDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the put recordings deletionprotection params
@@ -150,7 +168,6 @@ func (o *PutRecordingsDeletionprotectionParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -161,16 +178,17 @@ func (o *PutRecordingsDeletionprotectionParams) WriteToRequest(r runtime.ClientR
 
 		// query param protect
 		var qrProtect bool
+
 		if o.Protect != nil {
 			qrProtect = *o.Protect
 		}
 		qProtect := swag.FormatBool(qrProtect)
 		if qProtect != "" {
+
 			if err := r.SetQueryParam("protect", qProtect); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

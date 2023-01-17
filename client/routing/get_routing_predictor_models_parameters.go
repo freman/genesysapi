@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingPredictorModelsParams creates a new GetRoutingPredictorModelsParams object
-// with the default values initialized.
+// NewGetRoutingPredictorModelsParams creates a new GetRoutingPredictorModelsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingPredictorModelsParams() *GetRoutingPredictorModelsParams {
-	var ()
 	return &GetRoutingPredictorModelsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingPredictorModelsParamsWithTimeout creates a new GetRoutingPredictorModelsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingPredictorModelsParamsWithTimeout(timeout time.Duration) *GetRoutingPredictorModelsParams {
-	var ()
 	return &GetRoutingPredictorModelsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingPredictorModelsParamsWithContext creates a new GetRoutingPredictorModelsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingPredictorModelsParamsWithContext(ctx context.Context) *GetRoutingPredictorModelsParams {
-	var ()
 	return &GetRoutingPredictorModelsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingPredictorModelsParamsWithHTTPClient creates a new GetRoutingPredictorModelsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingPredictorModelsParamsWithHTTPClient(client *http.Client) *GetRoutingPredictorModelsParams {
-	var ()
 	return &GetRoutingPredictorModelsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingPredictorModelsParams contains all the parameters to send to the API endpoint
-for the get routing predictor models operation typically these are written to a http.Request
+/*
+GetRoutingPredictorModelsParams contains all the parameters to send to the API endpoint
+
+	for the get routing predictor models operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingPredictorModelsParams struct {
 
-	/*PredictorID
-	  Predictor ID
+	/* PredictorID.
 
+	   Predictor ID
 	*/
 	PredictorID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing predictor models params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingPredictorModelsParams) WithDefaults() *GetRoutingPredictorModelsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing predictor models params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingPredictorModelsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing predictor models params

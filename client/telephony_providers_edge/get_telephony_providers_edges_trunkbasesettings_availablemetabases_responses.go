@@ -95,7 +95,6 @@ func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesReader) Re
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK() *GetTe
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK{}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK struct {
 	Payload *models.TrunkMetabaseEntityListing
 }
 
+// IsSuccess returns true when this get telephony providers edges trunkbasesettings availablemetabases o k response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get telephony providers edges trunkbasesettings availablemetabases o k response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges trunkbasesettings availablemetabases o k response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edges trunkbasesettings availablemetabases o k response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges trunkbasesettings availablemetabases o k response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest(
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest{}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges trunkbasesettings availablemetabases bad request response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges trunkbasesettings availablemetabases bad request response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges trunkbasesettings availablemetabases bad request response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges trunkbasesettings availablemetabases bad request response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges trunkbasesettings availablemetabases bad request response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorize
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized{}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges trunkbasesettings availablemetabases unauthorized response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges trunkbasesettings availablemetabases unauthorized response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges trunkbasesettings availablemetabases unauthorized response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges trunkbasesettings availablemetabases unauthorized response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges trunkbasesettings availablemetabases unauthorized response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden()
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden{}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges trunkbasesettings availablemetabases forbidden response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges trunkbasesettings availablemetabases forbidden response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges trunkbasesettings availablemetabases forbidden response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges trunkbasesettings availablemetabases forbidden response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges trunkbasesettings availablemetabases forbidden response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound() 
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound{}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges trunkbasesettings availablemetabases not found response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges trunkbasesettings availablemetabases not found response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges trunkbasesettings availablemetabases not found response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges trunkbasesettings availablemetabases not found response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges trunkbasesettings availablemetabases not found response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTime
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout{}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges trunkbasesettings availablemetabases request timeout response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges trunkbasesettings availablemetabases request timeout response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges trunkbasesettings availablemetabases request timeout response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges trunkbasesettings availablemetabases request timeout response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges trunkbasesettings availablemetabases request timeout response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEnti
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityTooLarge{}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityTooLarge handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityT
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges trunkbasesettings availablemetabases request entity too large response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges trunkbasesettings availablemetabases request entity too large response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges trunkbasesettings availablemetabases request entity too large response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges trunkbasesettings availablemetabases request entity too large response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges trunkbasesettings availablemetabases request entity too large response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupported
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMediaType{}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMediaType handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMed
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges trunkbasesettings availablemetabases unsupported media type response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges trunkbasesettings availablemetabases unsupported media type response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges trunkbasesettings availablemetabases unsupported media type response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges trunkbasesettings availablemetabases unsupported media type response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges trunkbasesettings availablemetabases unsupported media type response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequ
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequests{}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequests handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequest
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges trunkbasesettings availablemetabases too many requests response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges trunkbasesettings availablemetabases too many requests response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges trunkbasesettings availablemetabases too many requests response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges trunkbasesettings availablemetabases too many requests response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges trunkbasesettings availablemetabases too many requests response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalSer
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServerError{}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServerError handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServer
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges trunkbasesettings availablemetabases internal server error response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges trunkbasesettings availablemetabases internal server error response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges trunkbasesettings availablemetabases internal server error response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edges trunkbasesettings availablemetabases internal server error response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony providers edges trunkbasesettings availablemetabases internal server error response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnav
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavailable{}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavailable handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavail
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges trunkbasesettings availablemetabases service unavailable response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges trunkbasesettings availablemetabases service unavailable response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges trunkbasesettings availablemetabases service unavailable response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edges trunkbasesettings availablemetabases service unavailable response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony providers edges trunkbasesettings availablemetabases service unavailable response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTime
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout{}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges trunkbasesettings availablemetabases gateway timeout response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges trunkbasesettings availablemetabases gateway timeout response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges trunkbasesettings availablemetabases gateway timeout response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edges trunkbasesettings availablemetabases gateway timeout response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony providers edges trunkbasesettings availablemetabases gateway timeout response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/trunkbasesettings/availablemetabases][%d] getTelephonyProvidersEdgesTrunkbasesettingsAvailablemetabasesGatewayTimeout  %+v", 504, o.Payload)
 }
 

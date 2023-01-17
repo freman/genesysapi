@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -106,7 +107,6 @@ func (m *ConversationMessageMetadataContent) validateContentTypeEnum(path, locat
 }
 
 func (m *ConversationMessageMetadataContent) validateContentType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContentType) { // not required
 		return nil
 	}
@@ -176,7 +176,6 @@ func (m *ConversationMessageMetadataContent) validateSubTypeEnum(path, location 
 }
 
 func (m *ConversationMessageMetadataContent) validateSubType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SubType) { // not required
 		return nil
 	}
@@ -186,6 +185,11 @@ func (m *ConversationMessageMetadataContent) validateSubType(formats strfmt.Regi
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this conversation message metadata content based on context it is used
+func (m *ConversationMessageMetadataContent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

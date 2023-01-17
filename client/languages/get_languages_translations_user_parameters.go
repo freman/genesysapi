@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetLanguagesTranslationsUserParams creates a new GetLanguagesTranslationsUserParams object
-// with the default values initialized.
+// NewGetLanguagesTranslationsUserParams creates a new GetLanguagesTranslationsUserParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLanguagesTranslationsUserParams() *GetLanguagesTranslationsUserParams {
-	var ()
 	return &GetLanguagesTranslationsUserParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLanguagesTranslationsUserParamsWithTimeout creates a new GetLanguagesTranslationsUserParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLanguagesTranslationsUserParamsWithTimeout(timeout time.Duration) *GetLanguagesTranslationsUserParams {
-	var ()
 	return &GetLanguagesTranslationsUserParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLanguagesTranslationsUserParamsWithContext creates a new GetLanguagesTranslationsUserParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLanguagesTranslationsUserParamsWithContext(ctx context.Context) *GetLanguagesTranslationsUserParams {
-	var ()
 	return &GetLanguagesTranslationsUserParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLanguagesTranslationsUserParamsWithHTTPClient creates a new GetLanguagesTranslationsUserParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLanguagesTranslationsUserParamsWithHTTPClient(client *http.Client) *GetLanguagesTranslationsUserParams {
-	var ()
 	return &GetLanguagesTranslationsUserParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLanguagesTranslationsUserParams contains all the parameters to send to the API endpoint
-for the get languages translations user operation typically these are written to a http.Request
+/*
+GetLanguagesTranslationsUserParams contains all the parameters to send to the API endpoint
+
+	for the get languages translations user operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLanguagesTranslationsUserParams struct {
 
-	/*UserID
-	  The user id
+	/* UserID.
 
+	   The user id
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get languages translations user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguagesTranslationsUserParams) WithDefaults() *GetLanguagesTranslationsUserParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get languages translations user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguagesTranslationsUserParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get languages translations user params

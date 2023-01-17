@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAuditsQueryTransactionIDParams creates a new GetAuditsQueryTransactionIDParams object
-// with the default values initialized.
+// NewGetAuditsQueryTransactionIDParams creates a new GetAuditsQueryTransactionIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAuditsQueryTransactionIDParams() *GetAuditsQueryTransactionIDParams {
-	var ()
 	return &GetAuditsQueryTransactionIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAuditsQueryTransactionIDParamsWithTimeout creates a new GetAuditsQueryTransactionIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAuditsQueryTransactionIDParamsWithTimeout(timeout time.Duration) *GetAuditsQueryTransactionIDParams {
-	var ()
 	return &GetAuditsQueryTransactionIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAuditsQueryTransactionIDParamsWithContext creates a new GetAuditsQueryTransactionIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAuditsQueryTransactionIDParamsWithContext(ctx context.Context) *GetAuditsQueryTransactionIDParams {
-	var ()
 	return &GetAuditsQueryTransactionIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAuditsQueryTransactionIDParamsWithHTTPClient creates a new GetAuditsQueryTransactionIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAuditsQueryTransactionIDParamsWithHTTPClient(client *http.Client) *GetAuditsQueryTransactionIDParams {
-	var ()
 	return &GetAuditsQueryTransactionIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAuditsQueryTransactionIDParams contains all the parameters to send to the API endpoint
-for the get audits query transaction Id operation typically these are written to a http.Request
+/*
+GetAuditsQueryTransactionIDParams contains all the parameters to send to the API endpoint
+
+	for the get audits query transaction Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAuditsQueryTransactionIDParams struct {
 
-	/*TransactionID
-	  Transaction ID
+	/* TransactionID.
 
+	   Transaction ID
 	*/
 	TransactionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get audits query transaction Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuditsQueryTransactionIDParams) WithDefaults() *GetAuditsQueryTransactionIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get audits query transaction Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuditsQueryTransactionIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get audits query transaction Id params

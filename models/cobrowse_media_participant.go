@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -240,7 +241,6 @@ func (m *CobrowseMediaParticipant) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CobrowseMediaParticipant) validateConnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectedTime) { // not required
 		return nil
 	}
@@ -253,7 +253,6 @@ func (m *CobrowseMediaParticipant) validateConnectedTime(formats strfmt.Registry
 }
 
 func (m *CobrowseMediaParticipant) validateConversationRoutingData(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationRoutingData) { // not required
 		return nil
 	}
@@ -262,6 +261,8 @@ func (m *CobrowseMediaParticipant) validateConversationRoutingData(formats strfm
 		if err := m.ConversationRoutingData.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversationRoutingData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationRoutingData")
 			}
 			return err
 		}
@@ -300,7 +301,6 @@ func (m *CobrowseMediaParticipant) validateDirectionEnum(path, location string, 
 }
 
 func (m *CobrowseMediaParticipant) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -339,23 +339,23 @@ const (
 	// CobrowseMediaParticipantDisconnectTypeTransfer captures enum value "transfer"
 	CobrowseMediaParticipantDisconnectTypeTransfer string = "transfer"
 
-	// CobrowseMediaParticipantDisconnectTypeTransferConference captures enum value "transfer.conference"
-	CobrowseMediaParticipantDisconnectTypeTransferConference string = "transfer.conference"
+	// CobrowseMediaParticipantDisconnectTypeTransferDotConference captures enum value "transfer.conference"
+	CobrowseMediaParticipantDisconnectTypeTransferDotConference string = "transfer.conference"
 
-	// CobrowseMediaParticipantDisconnectTypeTransferConsult captures enum value "transfer.consult"
-	CobrowseMediaParticipantDisconnectTypeTransferConsult string = "transfer.consult"
+	// CobrowseMediaParticipantDisconnectTypeTransferDotConsult captures enum value "transfer.consult"
+	CobrowseMediaParticipantDisconnectTypeTransferDotConsult string = "transfer.consult"
 
-	// CobrowseMediaParticipantDisconnectTypeTransferForward captures enum value "transfer.forward"
-	CobrowseMediaParticipantDisconnectTypeTransferForward string = "transfer.forward"
+	// CobrowseMediaParticipantDisconnectTypeTransferDotForward captures enum value "transfer.forward"
+	CobrowseMediaParticipantDisconnectTypeTransferDotForward string = "transfer.forward"
 
-	// CobrowseMediaParticipantDisconnectTypeTransferNoanswer captures enum value "transfer.noanswer"
-	CobrowseMediaParticipantDisconnectTypeTransferNoanswer string = "transfer.noanswer"
+	// CobrowseMediaParticipantDisconnectTypeTransferDotNoanswer captures enum value "transfer.noanswer"
+	CobrowseMediaParticipantDisconnectTypeTransferDotNoanswer string = "transfer.noanswer"
 
-	// CobrowseMediaParticipantDisconnectTypeTransferNotavailable captures enum value "transfer.notavailable"
-	CobrowseMediaParticipantDisconnectTypeTransferNotavailable string = "transfer.notavailable"
+	// CobrowseMediaParticipantDisconnectTypeTransferDotNotavailable captures enum value "transfer.notavailable"
+	CobrowseMediaParticipantDisconnectTypeTransferDotNotavailable string = "transfer.notavailable"
 
-	// CobrowseMediaParticipantDisconnectTypeTransportFailure captures enum value "transport.failure"
-	CobrowseMediaParticipantDisconnectTypeTransportFailure string = "transport.failure"
+	// CobrowseMediaParticipantDisconnectTypeTransportDotFailure captures enum value "transport.failure"
+	CobrowseMediaParticipantDisconnectTypeTransportDotFailure string = "transport.failure"
 
 	// CobrowseMediaParticipantDisconnectTypeError captures enum value "error"
 	CobrowseMediaParticipantDisconnectTypeError string = "error"
@@ -379,7 +379,6 @@ func (m *CobrowseMediaParticipant) validateDisconnectTypeEnum(path, location str
 }
 
 func (m *CobrowseMediaParticipant) validateDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectType) { // not required
 		return nil
 	}
@@ -393,7 +392,6 @@ func (m *CobrowseMediaParticipant) validateDisconnectType(formats strfmt.Registr
 }
 
 func (m *CobrowseMediaParticipant) validateEndAcwTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndAcwTime) { // not required
 		return nil
 	}
@@ -406,7 +404,6 @@ func (m *CobrowseMediaParticipant) validateEndAcwTime(formats strfmt.Registry) e
 }
 
 func (m *CobrowseMediaParticipant) validateEndTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndTime) { // not required
 		return nil
 	}
@@ -419,7 +416,6 @@ func (m *CobrowseMediaParticipant) validateEndTime(formats strfmt.Registry) erro
 }
 
 func (m *CobrowseMediaParticipant) validateErrorInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorInfo) { // not required
 		return nil
 	}
@@ -428,6 +424,8 @@ func (m *CobrowseMediaParticipant) validateErrorInfo(formats strfmt.Registry) er
 		if err := m.ErrorInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInfo")
 			}
 			return err
 		}
@@ -437,7 +435,6 @@ func (m *CobrowseMediaParticipant) validateErrorInfo(formats strfmt.Registry) er
 }
 
 func (m *CobrowseMediaParticipant) validateExternalContact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalContact) { // not required
 		return nil
 	}
@@ -446,6 +443,8 @@ func (m *CobrowseMediaParticipant) validateExternalContact(formats strfmt.Regist
 		if err := m.ExternalContact.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("externalContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalContact")
 			}
 			return err
 		}
@@ -455,7 +454,6 @@ func (m *CobrowseMediaParticipant) validateExternalContact(formats strfmt.Regist
 }
 
 func (m *CobrowseMediaParticipant) validateExternalOrganization(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalOrganization) { // not required
 		return nil
 	}
@@ -464,6 +462,8 @@ func (m *CobrowseMediaParticipant) validateExternalOrganization(formats strfmt.R
 		if err := m.ExternalOrganization.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("externalOrganization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalOrganization")
 			}
 			return err
 		}
@@ -499,7 +499,6 @@ func (m *CobrowseMediaParticipant) validateFlaggedReasonEnum(path, location stri
 }
 
 func (m *CobrowseMediaParticipant) validateFlaggedReason(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlaggedReason) { // not required
 		return nil
 	}
@@ -513,7 +512,6 @@ func (m *CobrowseMediaParticipant) validateFlaggedReason(formats strfmt.Registry
 }
 
 func (m *CobrowseMediaParticipant) validateJourneyContext(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.JourneyContext) { // not required
 		return nil
 	}
@@ -522,6 +520,8 @@ func (m *CobrowseMediaParticipant) validateJourneyContext(formats strfmt.Registr
 		if err := m.JourneyContext.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("journeyContext")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journeyContext")
 			}
 			return err
 		}
@@ -531,7 +531,6 @@ func (m *CobrowseMediaParticipant) validateJourneyContext(formats strfmt.Registr
 }
 
 func (m *CobrowseMediaParticipant) validateProviderEventTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProviderEventTime) { // not required
 		return nil
 	}
@@ -544,7 +543,6 @@ func (m *CobrowseMediaParticipant) validateProviderEventTime(formats strfmt.Regi
 }
 
 func (m *CobrowseMediaParticipant) validateQueue(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queue) { // not required
 		return nil
 	}
@@ -553,6 +551,8 @@ func (m *CobrowseMediaParticipant) validateQueue(formats strfmt.Registry) error 
 		if err := m.Queue.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
 			}
 			return err
 		}
@@ -562,7 +562,6 @@ func (m *CobrowseMediaParticipant) validateQueue(formats strfmt.Registry) error 
 }
 
 func (m *CobrowseMediaParticipant) validateScript(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Script) { // not required
 		return nil
 	}
@@ -571,6 +570,8 @@ func (m *CobrowseMediaParticipant) validateScript(formats strfmt.Registry) error
 		if err := m.Script.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("script")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("script")
 			}
 			return err
 		}
@@ -580,7 +581,6 @@ func (m *CobrowseMediaParticipant) validateScript(formats strfmt.Registry) error
 }
 
 func (m *CobrowseMediaParticipant) validateStartAcwTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartAcwTime) { // not required
 		return nil
 	}
@@ -593,7 +593,6 @@ func (m *CobrowseMediaParticipant) validateStartAcwTime(formats strfmt.Registry)
 }
 
 func (m *CobrowseMediaParticipant) validateStartHoldTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartHoldTime) { // not required
 		return nil
 	}
@@ -606,7 +605,6 @@ func (m *CobrowseMediaParticipant) validateStartHoldTime(formats strfmt.Registry
 }
 
 func (m *CobrowseMediaParticipant) validateStartTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartTime) { // not required
 		return nil
 	}
@@ -675,7 +673,6 @@ func (m *CobrowseMediaParticipant) validateStateEnum(path, location string, valu
 }
 
 func (m *CobrowseMediaParticipant) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -689,7 +686,6 @@ func (m *CobrowseMediaParticipant) validateState(formats strfmt.Registry) error 
 }
 
 func (m *CobrowseMediaParticipant) validateTeam(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Team) { // not required
 		return nil
 	}
@@ -698,6 +694,8 @@ func (m *CobrowseMediaParticipant) validateTeam(formats strfmt.Registry) error {
 		if err := m.Team.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("team")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("team")
 			}
 			return err
 		}
@@ -707,7 +705,6 @@ func (m *CobrowseMediaParticipant) validateTeam(formats strfmt.Registry) error {
 }
 
 func (m *CobrowseMediaParticipant) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -716,6 +713,8 @@ func (m *CobrowseMediaParticipant) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}
@@ -725,7 +724,6 @@ func (m *CobrowseMediaParticipant) validateUser(formats strfmt.Registry) error {
 }
 
 func (m *CobrowseMediaParticipant) validateWrapup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Wrapup) { // not required
 		return nil
 	}
@@ -734,6 +732,218 @@ func (m *CobrowseMediaParticipant) validateWrapup(formats strfmt.Registry) error
 		if err := m.Wrapup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this cobrowse media participant based on the context it is used
+func (m *CobrowseMediaParticipant) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConversationRoutingData(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateErrorInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExternalContact(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExternalOrganization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateJourneyContext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScript(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTeam(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CobrowseMediaParticipant) contextValidateConversationRoutingData(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConversationRoutingData != nil {
+		if err := m.ConversationRoutingData.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversationRoutingData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationRoutingData")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CobrowseMediaParticipant) contextValidateErrorInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ErrorInfo != nil {
+		if err := m.ErrorInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CobrowseMediaParticipant) contextValidateExternalContact(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExternalContact != nil {
+		if err := m.ExternalContact.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("externalContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalContact")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CobrowseMediaParticipant) contextValidateExternalOrganization(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExternalOrganization != nil {
+		if err := m.ExternalOrganization.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("externalOrganization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalOrganization")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CobrowseMediaParticipant) contextValidateJourneyContext(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.JourneyContext != nil {
+		if err := m.JourneyContext.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("journeyContext")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journeyContext")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CobrowseMediaParticipant) contextValidateQueue(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Queue != nil {
+		if err := m.Queue.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CobrowseMediaParticipant) contextValidateScript(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Script != nil {
+		if err := m.Script.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("script")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("script")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CobrowseMediaParticipant) contextValidateTeam(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Team != nil {
+		if err := m.Team.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("team")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("team")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CobrowseMediaParticipant) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CobrowseMediaParticipant) contextValidateWrapup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Wrapup != nil {
+		if err := m.Wrapup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
 			}
 			return err
 		}

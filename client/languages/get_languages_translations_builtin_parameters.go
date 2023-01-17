@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetLanguagesTranslationsBuiltinParams creates a new GetLanguagesTranslationsBuiltinParams object
-// with the default values initialized.
+// NewGetLanguagesTranslationsBuiltinParams creates a new GetLanguagesTranslationsBuiltinParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLanguagesTranslationsBuiltinParams() *GetLanguagesTranslationsBuiltinParams {
-	var ()
 	return &GetLanguagesTranslationsBuiltinParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLanguagesTranslationsBuiltinParamsWithTimeout creates a new GetLanguagesTranslationsBuiltinParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLanguagesTranslationsBuiltinParamsWithTimeout(timeout time.Duration) *GetLanguagesTranslationsBuiltinParams {
-	var ()
 	return &GetLanguagesTranslationsBuiltinParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLanguagesTranslationsBuiltinParamsWithContext creates a new GetLanguagesTranslationsBuiltinParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLanguagesTranslationsBuiltinParamsWithContext(ctx context.Context) *GetLanguagesTranslationsBuiltinParams {
-	var ()
 	return &GetLanguagesTranslationsBuiltinParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLanguagesTranslationsBuiltinParamsWithHTTPClient creates a new GetLanguagesTranslationsBuiltinParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLanguagesTranslationsBuiltinParamsWithHTTPClient(client *http.Client) *GetLanguagesTranslationsBuiltinParams {
-	var ()
 	return &GetLanguagesTranslationsBuiltinParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLanguagesTranslationsBuiltinParams contains all the parameters to send to the API endpoint
-for the get languages translations builtin operation typically these are written to a http.Request
+/*
+GetLanguagesTranslationsBuiltinParams contains all the parameters to send to the API endpoint
+
+	for the get languages translations builtin operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLanguagesTranslationsBuiltinParams struct {
 
-	/*Language
-	  The language of the builtin translation to retrieve
+	/* Language.
 
+	   The language of the builtin translation to retrieve
 	*/
 	Language string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get languages translations builtin params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguagesTranslationsBuiltinParams) WithDefaults() *GetLanguagesTranslationsBuiltinParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get languages translations builtin params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguagesTranslationsBuiltinParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get languages translations builtin params
@@ -127,6 +143,7 @@ func (o *GetLanguagesTranslationsBuiltinParams) WriteToRequest(r runtime.ClientR
 	qrLanguage := o.Language
 	qLanguage := qrLanguage
 	if qLanguage != "" {
+
 		if err := r.SetQueryParam("language", qLanguage); err != nil {
 			return err
 		}

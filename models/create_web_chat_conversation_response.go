@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -50,7 +52,6 @@ func (m *CreateWebChatConversationResponse) Validate(formats strfmt.Registry) er
 }
 
 func (m *CreateWebChatConversationResponse) validateEventStreamURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EventStreamURI) { // not required
 		return nil
 	}
@@ -63,7 +64,6 @@ func (m *CreateWebChatConversationResponse) validateEventStreamURI(formats strfm
 }
 
 func (m *CreateWebChatConversationResponse) validateMember(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Member) { // not required
 		return nil
 	}
@@ -72,6 +72,38 @@ func (m *CreateWebChatConversationResponse) validateMember(formats strfmt.Regist
 		if err := m.Member.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("member")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("member")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this create web chat conversation response based on the context it is used
+func (m *CreateWebChatConversationResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMember(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CreateWebChatConversationResponse) contextValidateMember(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Member != nil {
+		if err := m.Member.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("member")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("member")
 			}
 			return err
 		}

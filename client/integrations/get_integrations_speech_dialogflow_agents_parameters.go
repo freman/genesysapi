@@ -17,89 +17,107 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetIntegrationsSpeechDialogflowAgentsParams creates a new GetIntegrationsSpeechDialogflowAgentsParams object
-// with the default values initialized.
+// NewGetIntegrationsSpeechDialogflowAgentsParams creates a new GetIntegrationsSpeechDialogflowAgentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntegrationsSpeechDialogflowAgentsParams() *GetIntegrationsSpeechDialogflowAgentsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetIntegrationsSpeechDialogflowAgentsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntegrationsSpeechDialogflowAgentsParamsWithTimeout creates a new GetIntegrationsSpeechDialogflowAgentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntegrationsSpeechDialogflowAgentsParamsWithTimeout(timeout time.Duration) *GetIntegrationsSpeechDialogflowAgentsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetIntegrationsSpeechDialogflowAgentsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntegrationsSpeechDialogflowAgentsParamsWithContext creates a new GetIntegrationsSpeechDialogflowAgentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntegrationsSpeechDialogflowAgentsParamsWithContext(ctx context.Context) *GetIntegrationsSpeechDialogflowAgentsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetIntegrationsSpeechDialogflowAgentsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntegrationsSpeechDialogflowAgentsParamsWithHTTPClient creates a new GetIntegrationsSpeechDialogflowAgentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntegrationsSpeechDialogflowAgentsParamsWithHTTPClient(client *http.Client) *GetIntegrationsSpeechDialogflowAgentsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetIntegrationsSpeechDialogflowAgentsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentsParams contains all the parameters to send to the API endpoint
-for the get integrations speech dialogflow agents operation typically these are written to a http.Request
+/*
+GetIntegrationsSpeechDialogflowAgentsParams contains all the parameters to send to the API endpoint
+
+	for the get integrations speech dialogflow agents operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntegrationsSpeechDialogflowAgentsParams struct {
 
-	/*Name
-	  Filter on agent name
+	/* Name.
 
+	   Filter on agent name
 	*/
 	Name *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get integrations speech dialogflow agents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsSpeechDialogflowAgentsParams) WithDefaults() *GetIntegrationsSpeechDialogflowAgentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get integrations speech dialogflow agents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsSpeechDialogflowAgentsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetIntegrationsSpeechDialogflowAgentsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get integrations speech dialogflow agents params
@@ -180,48 +198,51 @@ func (o *GetIntegrationsSpeechDialogflowAgentsParams) WriteToRequest(r runtime.C
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

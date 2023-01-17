@@ -101,7 +101,6 @@ func (o *PatchLocationReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchLocationOK() *PatchLocationOK {
 	return &PatchLocationOK{}
 }
 
-/*PatchLocationOK handles this case with default header values.
+/*
+PatchLocationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchLocationOK struct {
 	Payload *models.LocationDefinition
 }
 
+// IsSuccess returns true when this patch location o k response has a 2xx status code
+func (o *PatchLocationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch location o k response has a 3xx status code
+func (o *PatchLocationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location o k response has a 4xx status code
+func (o *PatchLocationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch location o k response has a 5xx status code
+func (o *PatchLocationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch location o k response a status code equal to that given
+func (o *PatchLocationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchLocationOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchLocationOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchLocationBadRequest() *PatchLocationBadRequest {
 	return &PatchLocationBadRequest{}
 }
 
-/*PatchLocationBadRequest handles this case with default header values.
+/*
+PatchLocationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchLocationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch location bad request response has a 2xx status code
+func (o *PatchLocationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch location bad request response has a 3xx status code
+func (o *PatchLocationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location bad request response has a 4xx status code
+func (o *PatchLocationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch location bad request response has a 5xx status code
+func (o *PatchLocationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch location bad request response a status code equal to that given
+func (o *PatchLocationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchLocationBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchLocationBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchLocationUnauthorized() *PatchLocationUnauthorized {
 	return &PatchLocationUnauthorized{}
 }
 
-/*PatchLocationUnauthorized handles this case with default header values.
+/*
+PatchLocationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchLocationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch location unauthorized response has a 2xx status code
+func (o *PatchLocationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch location unauthorized response has a 3xx status code
+func (o *PatchLocationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location unauthorized response has a 4xx status code
+func (o *PatchLocationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch location unauthorized response has a 5xx status code
+func (o *PatchLocationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch location unauthorized response a status code equal to that given
+func (o *PatchLocationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchLocationUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchLocationUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchLocationForbidden() *PatchLocationForbidden {
 	return &PatchLocationForbidden{}
 }
 
-/*PatchLocationForbidden handles this case with default header values.
+/*
+PatchLocationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchLocationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch location forbidden response has a 2xx status code
+func (o *PatchLocationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch location forbidden response has a 3xx status code
+func (o *PatchLocationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location forbidden response has a 4xx status code
+func (o *PatchLocationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch location forbidden response has a 5xx status code
+func (o *PatchLocationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch location forbidden response a status code equal to that given
+func (o *PatchLocationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchLocationForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchLocationForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchLocationNotFound() *PatchLocationNotFound {
 	return &PatchLocationNotFound{}
 }
 
-/*PatchLocationNotFound handles this case with default header values.
+/*
+PatchLocationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchLocationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch location not found response has a 2xx status code
+func (o *PatchLocationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch location not found response has a 3xx status code
+func (o *PatchLocationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location not found response has a 4xx status code
+func (o *PatchLocationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch location not found response has a 5xx status code
+func (o *PatchLocationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch location not found response a status code equal to that given
+func (o *PatchLocationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchLocationNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchLocationNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchLocationRequestTimeout() *PatchLocationRequestTimeout {
 	return &PatchLocationRequestTimeout{}
 }
 
-/*PatchLocationRequestTimeout handles this case with default header values.
+/*
+PatchLocationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchLocationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch location request timeout response has a 2xx status code
+func (o *PatchLocationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch location request timeout response has a 3xx status code
+func (o *PatchLocationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location request timeout response has a 4xx status code
+func (o *PatchLocationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch location request timeout response has a 5xx status code
+func (o *PatchLocationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch location request timeout response a status code equal to that given
+func (o *PatchLocationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchLocationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchLocationRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchLocationConflict() *PatchLocationConflict {
 	return &PatchLocationConflict{}
 }
 
-/*PatchLocationConflict handles this case with default header values.
+/*
+PatchLocationConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PatchLocationConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch location conflict response has a 2xx status code
+func (o *PatchLocationConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch location conflict response has a 3xx status code
+func (o *PatchLocationConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location conflict response has a 4xx status code
+func (o *PatchLocationConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch location conflict response has a 5xx status code
+func (o *PatchLocationConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch location conflict response a status code equal to that given
+func (o *PatchLocationConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchLocationConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchLocationConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchLocationRequestEntityTooLarge() *PatchLocationRequestEntityTooLarge
 	return &PatchLocationRequestEntityTooLarge{}
 }
 
-/*PatchLocationRequestEntityTooLarge handles this case with default header values.
+/*
+PatchLocationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchLocationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch location request entity too large response has a 2xx status code
+func (o *PatchLocationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch location request entity too large response has a 3xx status code
+func (o *PatchLocationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location request entity too large response has a 4xx status code
+func (o *PatchLocationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch location request entity too large response has a 5xx status code
+func (o *PatchLocationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch location request entity too large response a status code equal to that given
+func (o *PatchLocationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchLocationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchLocationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchLocationUnsupportedMediaType() *PatchLocationUnsupportedMediaType {
 	return &PatchLocationUnsupportedMediaType{}
 }
 
-/*PatchLocationUnsupportedMediaType handles this case with default header values.
+/*
+PatchLocationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchLocationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch location unsupported media type response has a 2xx status code
+func (o *PatchLocationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch location unsupported media type response has a 3xx status code
+func (o *PatchLocationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location unsupported media type response has a 4xx status code
+func (o *PatchLocationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch location unsupported media type response has a 5xx status code
+func (o *PatchLocationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch location unsupported media type response a status code equal to that given
+func (o *PatchLocationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchLocationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchLocationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchLocationTooManyRequests() *PatchLocationTooManyRequests {
 	return &PatchLocationTooManyRequests{}
 }
 
-/*PatchLocationTooManyRequests handles this case with default header values.
+/*
+PatchLocationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchLocationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch location too many requests response has a 2xx status code
+func (o *PatchLocationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch location too many requests response has a 3xx status code
+func (o *PatchLocationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location too many requests response has a 4xx status code
+func (o *PatchLocationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch location too many requests response has a 5xx status code
+func (o *PatchLocationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch location too many requests response a status code equal to that given
+func (o *PatchLocationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchLocationTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchLocationTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchLocationInternalServerError() *PatchLocationInternalServerError {
 	return &PatchLocationInternalServerError{}
 }
 
-/*PatchLocationInternalServerError handles this case with default header values.
+/*
+PatchLocationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchLocationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch location internal server error response has a 2xx status code
+func (o *PatchLocationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch location internal server error response has a 3xx status code
+func (o *PatchLocationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location internal server error response has a 4xx status code
+func (o *PatchLocationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch location internal server error response has a 5xx status code
+func (o *PatchLocationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch location internal server error response a status code equal to that given
+func (o *PatchLocationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchLocationInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchLocationInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchLocationServiceUnavailable() *PatchLocationServiceUnavailable {
 	return &PatchLocationServiceUnavailable{}
 }
 
-/*PatchLocationServiceUnavailable handles this case with default header values.
+/*
+PatchLocationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchLocationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch location service unavailable response has a 2xx status code
+func (o *PatchLocationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch location service unavailable response has a 3xx status code
+func (o *PatchLocationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location service unavailable response has a 4xx status code
+func (o *PatchLocationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch location service unavailable response has a 5xx status code
+func (o *PatchLocationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch location service unavailable response a status code equal to that given
+func (o *PatchLocationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchLocationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchLocationServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchLocationGatewayTimeout() *PatchLocationGatewayTimeout {
 	return &PatchLocationGatewayTimeout{}
 }
 
-/*PatchLocationGatewayTimeout handles this case with default header values.
+/*
+PatchLocationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchLocationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch location gateway timeout response has a 2xx status code
+func (o *PatchLocationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch location gateway timeout response has a 3xx status code
+func (o *PatchLocationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch location gateway timeout response has a 4xx status code
+func (o *PatchLocationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch location gateway timeout response has a 5xx status code
+func (o *PatchLocationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch location gateway timeout response a status code equal to that given
+func (o *PatchLocationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchLocationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchLocationGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/locations/{locationId}][%d] patchLocationGatewayTimeout  %+v", 504, o.Payload)
 }
 

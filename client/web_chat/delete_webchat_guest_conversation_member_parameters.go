@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteWebchatGuestConversationMemberParams creates a new DeleteWebchatGuestConversationMemberParams object
-// with the default values initialized.
+// NewDeleteWebchatGuestConversationMemberParams creates a new DeleteWebchatGuestConversationMemberParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteWebchatGuestConversationMemberParams() *DeleteWebchatGuestConversationMemberParams {
-	var ()
 	return &DeleteWebchatGuestConversationMemberParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteWebchatGuestConversationMemberParamsWithTimeout creates a new DeleteWebchatGuestConversationMemberParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteWebchatGuestConversationMemberParamsWithTimeout(timeout time.Duration) *DeleteWebchatGuestConversationMemberParams {
-	var ()
 	return &DeleteWebchatGuestConversationMemberParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteWebchatGuestConversationMemberParamsWithContext creates a new DeleteWebchatGuestConversationMemberParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteWebchatGuestConversationMemberParamsWithContext(ctx context.Context) *DeleteWebchatGuestConversationMemberParams {
-	var ()
 	return &DeleteWebchatGuestConversationMemberParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteWebchatGuestConversationMemberParamsWithHTTPClient creates a new DeleteWebchatGuestConversationMemberParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteWebchatGuestConversationMemberParamsWithHTTPClient(client *http.Client) *DeleteWebchatGuestConversationMemberParams {
-	var ()
 	return &DeleteWebchatGuestConversationMemberParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteWebchatGuestConversationMemberParams contains all the parameters to send to the API endpoint
-for the delete webchat guest conversation member operation typically these are written to a http.Request
+/*
+DeleteWebchatGuestConversationMemberParams contains all the parameters to send to the API endpoint
+
+	for the delete webchat guest conversation member operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteWebchatGuestConversationMemberParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*MemberID
-	  memberId
 
+	/* MemberID.
+
+	   memberId
 	*/
 	MemberID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete webchat guest conversation member params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWebchatGuestConversationMemberParams) WithDefaults() *DeleteWebchatGuestConversationMemberParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete webchat guest conversation member params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWebchatGuestConversationMemberParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete webchat guest conversation member params

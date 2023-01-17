@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -71,7 +72,6 @@ func (m *VisibilityCondition) validateCombiningOperationEnum(path, location stri
 }
 
 func (m *VisibilityCondition) validateCombiningOperation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CombiningOperation) { // not required
 		return nil
 	}
@@ -81,6 +81,11 @@ func (m *VisibilityCondition) validateCombiningOperation(formats strfmt.Registry
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this visibility condition based on context it is used
+func (m *VisibilityCondition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

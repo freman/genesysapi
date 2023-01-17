@@ -95,7 +95,6 @@ func (o *GetExternalcontactsReversewhitepageslookupReader) ReadResponse(response
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetExternalcontactsReversewhitepageslookupOK() *GetExternalcontactsRever
 	return &GetExternalcontactsReversewhitepageslookupOK{}
 }
 
-/*GetExternalcontactsReversewhitepageslookupOK handles this case with default header values.
+/*
+GetExternalcontactsReversewhitepageslookupOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetExternalcontactsReversewhitepageslookupOK struct {
 	Payload *models.ReverseWhitepagesLookupResult
 }
 
+// IsSuccess returns true when this get externalcontacts reversewhitepageslookup o k response has a 2xx status code
+func (o *GetExternalcontactsReversewhitepageslookupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get externalcontacts reversewhitepageslookup o k response has a 3xx status code
+func (o *GetExternalcontactsReversewhitepageslookupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts reversewhitepageslookup o k response has a 4xx status code
+func (o *GetExternalcontactsReversewhitepageslookupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get externalcontacts reversewhitepageslookup o k response has a 5xx status code
+func (o *GetExternalcontactsReversewhitepageslookupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts reversewhitepageslookup o k response a status code equal to that given
+func (o *GetExternalcontactsReversewhitepageslookupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetExternalcontactsReversewhitepageslookupOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupOK  %+v", 200, o.Payload)
+}
+
+func (o *GetExternalcontactsReversewhitepageslookupOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetExternalcontactsReversewhitepageslookupBadRequest() *GetExternalconta
 	return &GetExternalcontactsReversewhitepageslookupBadRequest{}
 }
 
-/*GetExternalcontactsReversewhitepageslookupBadRequest handles this case with default header values.
+/*
+GetExternalcontactsReversewhitepageslookupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetExternalcontactsReversewhitepageslookupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts reversewhitepageslookup bad request response has a 2xx status code
+func (o *GetExternalcontactsReversewhitepageslookupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts reversewhitepageslookup bad request response has a 3xx status code
+func (o *GetExternalcontactsReversewhitepageslookupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts reversewhitepageslookup bad request response has a 4xx status code
+func (o *GetExternalcontactsReversewhitepageslookupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts reversewhitepageslookup bad request response has a 5xx status code
+func (o *GetExternalcontactsReversewhitepageslookupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts reversewhitepageslookup bad request response a status code equal to that given
+func (o *GetExternalcontactsReversewhitepageslookupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetExternalcontactsReversewhitepageslookupBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetExternalcontactsReversewhitepageslookupBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetExternalcontactsReversewhitepageslookupUnauthorized() *GetExternalcon
 	return &GetExternalcontactsReversewhitepageslookupUnauthorized{}
 }
 
-/*GetExternalcontactsReversewhitepageslookupUnauthorized handles this case with default header values.
+/*
+GetExternalcontactsReversewhitepageslookupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetExternalcontactsReversewhitepageslookupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts reversewhitepageslookup unauthorized response has a 2xx status code
+func (o *GetExternalcontactsReversewhitepageslookupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts reversewhitepageslookup unauthorized response has a 3xx status code
+func (o *GetExternalcontactsReversewhitepageslookupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts reversewhitepageslookup unauthorized response has a 4xx status code
+func (o *GetExternalcontactsReversewhitepageslookupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts reversewhitepageslookup unauthorized response has a 5xx status code
+func (o *GetExternalcontactsReversewhitepageslookupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts reversewhitepageslookup unauthorized response a status code equal to that given
+func (o *GetExternalcontactsReversewhitepageslookupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetExternalcontactsReversewhitepageslookupUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetExternalcontactsReversewhitepageslookupUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetExternalcontactsReversewhitepageslookupForbidden() *GetExternalcontac
 	return &GetExternalcontactsReversewhitepageslookupForbidden{}
 }
 
-/*GetExternalcontactsReversewhitepageslookupForbidden handles this case with default header values.
+/*
+GetExternalcontactsReversewhitepageslookupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetExternalcontactsReversewhitepageslookupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts reversewhitepageslookup forbidden response has a 2xx status code
+func (o *GetExternalcontactsReversewhitepageslookupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts reversewhitepageslookup forbidden response has a 3xx status code
+func (o *GetExternalcontactsReversewhitepageslookupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts reversewhitepageslookup forbidden response has a 4xx status code
+func (o *GetExternalcontactsReversewhitepageslookupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts reversewhitepageslookup forbidden response has a 5xx status code
+func (o *GetExternalcontactsReversewhitepageslookupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts reversewhitepageslookup forbidden response a status code equal to that given
+func (o *GetExternalcontactsReversewhitepageslookupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetExternalcontactsReversewhitepageslookupForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetExternalcontactsReversewhitepageslookupForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetExternalcontactsReversewhitepageslookupNotFound() *GetExternalcontact
 	return &GetExternalcontactsReversewhitepageslookupNotFound{}
 }
 
-/*GetExternalcontactsReversewhitepageslookupNotFound handles this case with default header values.
+/*
+GetExternalcontactsReversewhitepageslookupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetExternalcontactsReversewhitepageslookupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts reversewhitepageslookup not found response has a 2xx status code
+func (o *GetExternalcontactsReversewhitepageslookupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts reversewhitepageslookup not found response has a 3xx status code
+func (o *GetExternalcontactsReversewhitepageslookupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts reversewhitepageslookup not found response has a 4xx status code
+func (o *GetExternalcontactsReversewhitepageslookupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts reversewhitepageslookup not found response has a 5xx status code
+func (o *GetExternalcontactsReversewhitepageslookupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts reversewhitepageslookup not found response a status code equal to that given
+func (o *GetExternalcontactsReversewhitepageslookupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetExternalcontactsReversewhitepageslookupNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetExternalcontactsReversewhitepageslookupNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetExternalcontactsReversewhitepageslookupRequestTimeout() *GetExternalc
 	return &GetExternalcontactsReversewhitepageslookupRequestTimeout{}
 }
 
-/*GetExternalcontactsReversewhitepageslookupRequestTimeout handles this case with default header values.
+/*
+GetExternalcontactsReversewhitepageslookupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetExternalcontactsReversewhitepageslookupRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts reversewhitepageslookup request timeout response has a 2xx status code
+func (o *GetExternalcontactsReversewhitepageslookupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts reversewhitepageslookup request timeout response has a 3xx status code
+func (o *GetExternalcontactsReversewhitepageslookupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts reversewhitepageslookup request timeout response has a 4xx status code
+func (o *GetExternalcontactsReversewhitepageslookupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts reversewhitepageslookup request timeout response has a 5xx status code
+func (o *GetExternalcontactsReversewhitepageslookupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts reversewhitepageslookup request timeout response a status code equal to that given
+func (o *GetExternalcontactsReversewhitepageslookupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetExternalcontactsReversewhitepageslookupRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetExternalcontactsReversewhitepageslookupRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetExternalcontactsReversewhitepageslookupRequestEntityTooLarge() *GetEx
 	return &GetExternalcontactsReversewhitepageslookupRequestEntityTooLarge{}
 }
 
-/*GetExternalcontactsReversewhitepageslookupRequestEntityTooLarge handles this case with default header values.
+/*
+GetExternalcontactsReversewhitepageslookupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetExternalcontactsReversewhitepageslookupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts reversewhitepageslookup request entity too large response has a 2xx status code
+func (o *GetExternalcontactsReversewhitepageslookupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts reversewhitepageslookup request entity too large response has a 3xx status code
+func (o *GetExternalcontactsReversewhitepageslookupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts reversewhitepageslookup request entity too large response has a 4xx status code
+func (o *GetExternalcontactsReversewhitepageslookupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts reversewhitepageslookup request entity too large response has a 5xx status code
+func (o *GetExternalcontactsReversewhitepageslookupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts reversewhitepageslookup request entity too large response a status code equal to that given
+func (o *GetExternalcontactsReversewhitepageslookupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetExternalcontactsReversewhitepageslookupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetExternalcontactsReversewhitepageslookupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetExternalcontactsReversewhitepageslookupUnsupportedMediaType() *GetExt
 	return &GetExternalcontactsReversewhitepageslookupUnsupportedMediaType{}
 }
 
-/*GetExternalcontactsReversewhitepageslookupUnsupportedMediaType handles this case with default header values.
+/*
+GetExternalcontactsReversewhitepageslookupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetExternalcontactsReversewhitepageslookupUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts reversewhitepageslookup unsupported media type response has a 2xx status code
+func (o *GetExternalcontactsReversewhitepageslookupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts reversewhitepageslookup unsupported media type response has a 3xx status code
+func (o *GetExternalcontactsReversewhitepageslookupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts reversewhitepageslookup unsupported media type response has a 4xx status code
+func (o *GetExternalcontactsReversewhitepageslookupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts reversewhitepageslookup unsupported media type response has a 5xx status code
+func (o *GetExternalcontactsReversewhitepageslookupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts reversewhitepageslookup unsupported media type response a status code equal to that given
+func (o *GetExternalcontactsReversewhitepageslookupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetExternalcontactsReversewhitepageslookupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetExternalcontactsReversewhitepageslookupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetExternalcontactsReversewhitepageslookupTooManyRequests() *GetExternal
 	return &GetExternalcontactsReversewhitepageslookupTooManyRequests{}
 }
 
-/*GetExternalcontactsReversewhitepageslookupTooManyRequests handles this case with default header values.
+/*
+GetExternalcontactsReversewhitepageslookupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetExternalcontactsReversewhitepageslookupTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts reversewhitepageslookup too many requests response has a 2xx status code
+func (o *GetExternalcontactsReversewhitepageslookupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts reversewhitepageslookup too many requests response has a 3xx status code
+func (o *GetExternalcontactsReversewhitepageslookupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts reversewhitepageslookup too many requests response has a 4xx status code
+func (o *GetExternalcontactsReversewhitepageslookupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts reversewhitepageslookup too many requests response has a 5xx status code
+func (o *GetExternalcontactsReversewhitepageslookupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts reversewhitepageslookup too many requests response a status code equal to that given
+func (o *GetExternalcontactsReversewhitepageslookupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetExternalcontactsReversewhitepageslookupTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetExternalcontactsReversewhitepageslookupTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetExternalcontactsReversewhitepageslookupInternalServerError() *GetExte
 	return &GetExternalcontactsReversewhitepageslookupInternalServerError{}
 }
 
-/*GetExternalcontactsReversewhitepageslookupInternalServerError handles this case with default header values.
+/*
+GetExternalcontactsReversewhitepageslookupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetExternalcontactsReversewhitepageslookupInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts reversewhitepageslookup internal server error response has a 2xx status code
+func (o *GetExternalcontactsReversewhitepageslookupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts reversewhitepageslookup internal server error response has a 3xx status code
+func (o *GetExternalcontactsReversewhitepageslookupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts reversewhitepageslookup internal server error response has a 4xx status code
+func (o *GetExternalcontactsReversewhitepageslookupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get externalcontacts reversewhitepageslookup internal server error response has a 5xx status code
+func (o *GetExternalcontactsReversewhitepageslookupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get externalcontacts reversewhitepageslookup internal server error response a status code equal to that given
+func (o *GetExternalcontactsReversewhitepageslookupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetExternalcontactsReversewhitepageslookupInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetExternalcontactsReversewhitepageslookupInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetExternalcontactsReversewhitepageslookupServiceUnavailable() *GetExter
 	return &GetExternalcontactsReversewhitepageslookupServiceUnavailable{}
 }
 
-/*GetExternalcontactsReversewhitepageslookupServiceUnavailable handles this case with default header values.
+/*
+GetExternalcontactsReversewhitepageslookupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetExternalcontactsReversewhitepageslookupServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts reversewhitepageslookup service unavailable response has a 2xx status code
+func (o *GetExternalcontactsReversewhitepageslookupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts reversewhitepageslookup service unavailable response has a 3xx status code
+func (o *GetExternalcontactsReversewhitepageslookupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts reversewhitepageslookup service unavailable response has a 4xx status code
+func (o *GetExternalcontactsReversewhitepageslookupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get externalcontacts reversewhitepageslookup service unavailable response has a 5xx status code
+func (o *GetExternalcontactsReversewhitepageslookupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get externalcontacts reversewhitepageslookup service unavailable response a status code equal to that given
+func (o *GetExternalcontactsReversewhitepageslookupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetExternalcontactsReversewhitepageslookupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetExternalcontactsReversewhitepageslookupServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetExternalcontactsReversewhitepageslookupGatewayTimeout() *GetExternalc
 	return &GetExternalcontactsReversewhitepageslookupGatewayTimeout{}
 }
 
-/*GetExternalcontactsReversewhitepageslookupGatewayTimeout handles this case with default header values.
+/*
+GetExternalcontactsReversewhitepageslookupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetExternalcontactsReversewhitepageslookupGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts reversewhitepageslookup gateway timeout response has a 2xx status code
+func (o *GetExternalcontactsReversewhitepageslookupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts reversewhitepageslookup gateway timeout response has a 3xx status code
+func (o *GetExternalcontactsReversewhitepageslookupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts reversewhitepageslookup gateway timeout response has a 4xx status code
+func (o *GetExternalcontactsReversewhitepageslookupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get externalcontacts reversewhitepageslookup gateway timeout response has a 5xx status code
+func (o *GetExternalcontactsReversewhitepageslookupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get externalcontacts reversewhitepageslookup gateway timeout response a status code equal to that given
+func (o *GetExternalcontactsReversewhitepageslookupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetExternalcontactsReversewhitepageslookupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetExternalcontactsReversewhitepageslookupGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/reversewhitepageslookup][%d] getExternalcontactsReversewhitepageslookupGatewayTimeout  %+v", 504, o.Payload)
 }
 

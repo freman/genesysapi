@@ -17,79 +17,99 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWorkforcemanagementManagementunitWeekSchedulesParams creates a new GetWorkforcemanagementManagementunitWeekSchedulesParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementManagementunitWeekSchedulesParams creates a new GetWorkforcemanagementManagementunitWeekSchedulesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementManagementunitWeekSchedulesParams() *GetWorkforcemanagementManagementunitWeekSchedulesParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitWeekSchedulesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitWeekSchedulesParamsWithTimeout creates a new GetWorkforcemanagementManagementunitWeekSchedulesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementManagementunitWeekSchedulesParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementManagementunitWeekSchedulesParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitWeekSchedulesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitWeekSchedulesParamsWithContext creates a new GetWorkforcemanagementManagementunitWeekSchedulesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementManagementunitWeekSchedulesParamsWithContext(ctx context.Context) *GetWorkforcemanagementManagementunitWeekSchedulesParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitWeekSchedulesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitWeekSchedulesParamsWithHTTPClient creates a new GetWorkforcemanagementManagementunitWeekSchedulesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementManagementunitWeekSchedulesParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementManagementunitWeekSchedulesParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitWeekSchedulesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementManagementunitWeekSchedulesParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement managementunit week schedules operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementManagementunitWeekSchedulesParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement managementunit week schedules operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementManagementunitWeekSchedulesParams struct {
 
-	/*EarliestWeekDate
-	  The start date of the earliest week to query in yyyy-MM-dd format
+	/* EarliestWeekDate.
 
+	   The start date of the earliest week to query in yyyy-MM-dd format
 	*/
 	EarliestWeekDate *string
-	/*IncludeOnlyPublished
-	  Return only published schedules
 
+	/* IncludeOnlyPublished.
+
+	   Return only published schedules
 	*/
 	IncludeOnlyPublished *bool
-	/*LatestWeekDate
-	  The start date of the latest week to query in yyyy-MM-dd format
 
+	/* LatestWeekDate.
+
+	   The start date of the latest week to query in yyyy-MM-dd format
 	*/
 	LatestWeekDate *string
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
-	/*WeekID
-	  First day of schedule week in yyyy-MM-dd format.
 
+	/* WeekID.
+
+	   First day of schedule week in yyyy-MM-dd format.
 	*/
 	WeekID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement managementunit week schedules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitWeekSchedulesParams) WithDefaults() *GetWorkforcemanagementManagementunitWeekSchedulesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement managementunit week schedules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitWeekSchedulesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement managementunit week schedules params
@@ -192,48 +212,51 @@ func (o *GetWorkforcemanagementManagementunitWeekSchedulesParams) WriteToRequest
 
 		// query param earliestWeekDate
 		var qrEarliestWeekDate string
+
 		if o.EarliestWeekDate != nil {
 			qrEarliestWeekDate = *o.EarliestWeekDate
 		}
 		qEarliestWeekDate := qrEarliestWeekDate
 		if qEarliestWeekDate != "" {
+
 			if err := r.SetQueryParam("earliestWeekDate", qEarliestWeekDate); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeOnlyPublished != nil {
 
 		// query param includeOnlyPublished
 		var qrIncludeOnlyPublished bool
+
 		if o.IncludeOnlyPublished != nil {
 			qrIncludeOnlyPublished = *o.IncludeOnlyPublished
 		}
 		qIncludeOnlyPublished := swag.FormatBool(qrIncludeOnlyPublished)
 		if qIncludeOnlyPublished != "" {
+
 			if err := r.SetQueryParam("includeOnlyPublished", qIncludeOnlyPublished); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.LatestWeekDate != nil {
 
 		// query param latestWeekDate
 		var qrLatestWeekDate string
+
 		if o.LatestWeekDate != nil {
 			qrLatestWeekDate = *o.LatestWeekDate
 		}
 		qLatestWeekDate := qrLatestWeekDate
 		if qLatestWeekDate != "" {
+
 			if err := r.SetQueryParam("latestWeekDate", qLatestWeekDate); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param managementUnitId

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -96,7 +97,6 @@ func (m *OutboundSettings) Validate(formats strfmt.Registry) error {
 }
 
 func (m *OutboundSettings) validateAutomaticTimeZoneMapping(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AutomaticTimeZoneMapping) { // not required
 		return nil
 	}
@@ -105,6 +105,8 @@ func (m *OutboundSettings) validateAutomaticTimeZoneMapping(formats strfmt.Regis
 		if err := m.AutomaticTimeZoneMapping.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("automaticTimeZoneMapping")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("automaticTimeZoneMapping")
 			}
 			return err
 		}
@@ -143,7 +145,6 @@ func (m *OutboundSettings) validateComplianceAbandonRateDenominatorEnum(path, lo
 }
 
 func (m *OutboundSettings) validateComplianceAbandonRateDenominator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ComplianceAbandonRateDenominator) { // not required
 		return nil
 	}
@@ -157,7 +158,6 @@ func (m *OutboundSettings) validateComplianceAbandonRateDenominator(formats strf
 }
 
 func (m *OutboundSettings) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -170,7 +170,6 @@ func (m *OutboundSettings) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *OutboundSettings) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -183,12 +182,106 @@ func (m *OutboundSettings) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *OutboundSettings) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this outbound settings based on the context it is used
+func (m *OutboundSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAutomaticTimeZoneMapping(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxConfigurableCallsPerAgent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OutboundSettings) contextValidateAutomaticTimeZoneMapping(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AutomaticTimeZoneMapping != nil {
+		if err := m.AutomaticTimeZoneMapping.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("automaticTimeZoneMapping")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("automaticTimeZoneMapping")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OutboundSettings) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OutboundSettings) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OutboundSettings) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OutboundSettings) contextValidateMaxConfigurableCallsPerAgent(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxConfigurableCallsPerAgent", "body", int32(m.MaxConfigurableCallsPerAgent)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OutboundSettings) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

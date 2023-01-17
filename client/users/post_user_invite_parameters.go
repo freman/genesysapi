@@ -17,76 +17,92 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewPostUserInviteParams creates a new PostUserInviteParams object
-// with the default values initialized.
+// NewPostUserInviteParams creates a new PostUserInviteParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostUserInviteParams() *PostUserInviteParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &PostUserInviteParams{
-		Force: &forceDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostUserInviteParamsWithTimeout creates a new PostUserInviteParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostUserInviteParamsWithTimeout(timeout time.Duration) *PostUserInviteParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &PostUserInviteParams{
-		Force: &forceDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostUserInviteParamsWithContext creates a new PostUserInviteParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostUserInviteParamsWithContext(ctx context.Context) *PostUserInviteParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &PostUserInviteParams{
-		Force: &forceDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostUserInviteParamsWithHTTPClient creates a new PostUserInviteParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostUserInviteParamsWithHTTPClient(client *http.Client) *PostUserInviteParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &PostUserInviteParams{
-		Force:      &forceDefault,
 		HTTPClient: client,
 	}
 }
 
-/*PostUserInviteParams contains all the parameters to send to the API endpoint
-for the post user invite operation typically these are written to a http.Request
+/*
+PostUserInviteParams contains all the parameters to send to the API endpoint
+
+	for the post user invite operation.
+
+	Typically these are written to a http.Request.
 */
 type PostUserInviteParams struct {
 
-	/*Force
-	  Resend the invitation even if one is already outstanding
+	/* Force.
 
+	   Resend the invitation even if one is already outstanding
 	*/
 	Force *bool
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post user invite params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUserInviteParams) WithDefaults() *PostUserInviteParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post user invite params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUserInviteParams) SetDefaults() {
+	var (
+		forceDefault = bool(false)
+	)
+
+	val := PostUserInviteParams{
+		Force: &forceDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post user invite params
@@ -156,16 +172,17 @@ func (o *PostUserInviteParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 
 		// query param force
 		var qrForce bool
+
 		if o.Force != nil {
 			qrForce = *o.Force
 		}
 		qForce := swag.FormatBool(qrForce)
 		if qForce != "" {
+
 			if err := r.SetQueryParam("force", qForce); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param userId

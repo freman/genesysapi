@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteNotificationsChannelSubscriptionsParams creates a new DeleteNotificationsChannelSubscriptionsParams object
-// with the default values initialized.
+// NewDeleteNotificationsChannelSubscriptionsParams creates a new DeleteNotificationsChannelSubscriptionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteNotificationsChannelSubscriptionsParams() *DeleteNotificationsChannelSubscriptionsParams {
-	var ()
 	return &DeleteNotificationsChannelSubscriptionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteNotificationsChannelSubscriptionsParamsWithTimeout creates a new DeleteNotificationsChannelSubscriptionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteNotificationsChannelSubscriptionsParamsWithTimeout(timeout time.Duration) *DeleteNotificationsChannelSubscriptionsParams {
-	var ()
 	return &DeleteNotificationsChannelSubscriptionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteNotificationsChannelSubscriptionsParamsWithContext creates a new DeleteNotificationsChannelSubscriptionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteNotificationsChannelSubscriptionsParamsWithContext(ctx context.Context) *DeleteNotificationsChannelSubscriptionsParams {
-	var ()
 	return &DeleteNotificationsChannelSubscriptionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteNotificationsChannelSubscriptionsParamsWithHTTPClient creates a new DeleteNotificationsChannelSubscriptionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteNotificationsChannelSubscriptionsParamsWithHTTPClient(client *http.Client) *DeleteNotificationsChannelSubscriptionsParams {
-	var ()
 	return &DeleteNotificationsChannelSubscriptionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteNotificationsChannelSubscriptionsParams contains all the parameters to send to the API endpoint
-for the delete notifications channel subscriptions operation typically these are written to a http.Request
+/*
+DeleteNotificationsChannelSubscriptionsParams contains all the parameters to send to the API endpoint
+
+	for the delete notifications channel subscriptions operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteNotificationsChannelSubscriptionsParams struct {
 
-	/*ChannelID
-	  Channel ID
+	/* ChannelID.
 
+	   Channel ID
 	*/
 	ChannelID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete notifications channel subscriptions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteNotificationsChannelSubscriptionsParams) WithDefaults() *DeleteNotificationsChannelSubscriptionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete notifications channel subscriptions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteNotificationsChannelSubscriptionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete notifications channel subscriptions params

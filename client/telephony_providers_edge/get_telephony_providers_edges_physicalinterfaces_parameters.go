@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesPhysicalinterfacesParams creates a new GetTelephonyProvidersEdgesPhysicalinterfacesParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesPhysicalinterfacesParams creates a new GetTelephonyProvidersEdgesPhysicalinterfacesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesPhysicalinterfacesParams() *GetTelephonyProvidersEdgesPhysicalinterfacesParams {
-	var ()
 	return &GetTelephonyProvidersEdgesPhysicalinterfacesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesPhysicalinterfacesParamsWithTimeout creates a new GetTelephonyProvidersEdgesPhysicalinterfacesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesPhysicalinterfacesParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesPhysicalinterfacesParams {
-	var ()
 	return &GetTelephonyProvidersEdgesPhysicalinterfacesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesPhysicalinterfacesParamsWithContext creates a new GetTelephonyProvidersEdgesPhysicalinterfacesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesPhysicalinterfacesParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesPhysicalinterfacesParams {
-	var ()
 	return &GetTelephonyProvidersEdgesPhysicalinterfacesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesPhysicalinterfacesParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesPhysicalinterfacesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesPhysicalinterfacesParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesPhysicalinterfacesParams {
-	var ()
 	return &GetTelephonyProvidersEdgesPhysicalinterfacesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesPhysicalinterfacesParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges physicalinterfaces operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesPhysicalinterfacesParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges physicalinterfaces operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesPhysicalinterfacesParams struct {
 
-	/*EdgeIds
-	  Comma separated list of Edge Id's
+	/* EdgeIds.
 
+	   Comma separated list of Edge Id's
 	*/
 	EdgeIds string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges physicalinterfaces params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesPhysicalinterfacesParams) WithDefaults() *GetTelephonyProvidersEdgesPhysicalinterfacesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges physicalinterfaces params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesPhysicalinterfacesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges physicalinterfaces params
@@ -127,6 +143,7 @@ func (o *GetTelephonyProvidersEdgesPhysicalinterfacesParams) WriteToRequest(r ru
 	qrEdgeIds := o.EdgeIds
 	qEdgeIds := qrEdgeIds
 	if qEdgeIds != "" {
+
 		if err := r.SetQueryParam("edgeIds", qEdgeIds); err != nil {
 			return err
 		}

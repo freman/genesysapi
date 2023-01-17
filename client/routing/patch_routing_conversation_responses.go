@@ -95,7 +95,6 @@ func (o *PatchRoutingConversationReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchRoutingConversationOK() *PatchRoutingConversationOK {
 	return &PatchRoutingConversationOK{}
 }
 
-/*PatchRoutingConversationOK handles this case with default header values.
+/*
+PatchRoutingConversationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchRoutingConversationOK struct {
 	Payload *models.RoutingConversationAttributesResponse
 }
 
+// IsSuccess returns true when this patch routing conversation o k response has a 2xx status code
+func (o *PatchRoutingConversationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch routing conversation o k response has a 3xx status code
+func (o *PatchRoutingConversationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing conversation o k response has a 4xx status code
+func (o *PatchRoutingConversationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing conversation o k response has a 5xx status code
+func (o *PatchRoutingConversationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing conversation o k response a status code equal to that given
+func (o *PatchRoutingConversationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchRoutingConversationOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchRoutingConversationOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchRoutingConversationBadRequest() *PatchRoutingConversationBadRequest
 	return &PatchRoutingConversationBadRequest{}
 }
 
-/*PatchRoutingConversationBadRequest handles this case with default header values.
+/*
+PatchRoutingConversationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchRoutingConversationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing conversation bad request response has a 2xx status code
+func (o *PatchRoutingConversationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing conversation bad request response has a 3xx status code
+func (o *PatchRoutingConversationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing conversation bad request response has a 4xx status code
+func (o *PatchRoutingConversationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing conversation bad request response has a 5xx status code
+func (o *PatchRoutingConversationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing conversation bad request response a status code equal to that given
+func (o *PatchRoutingConversationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchRoutingConversationBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchRoutingConversationBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchRoutingConversationUnauthorized() *PatchRoutingConversationUnauthor
 	return &PatchRoutingConversationUnauthorized{}
 }
 
-/*PatchRoutingConversationUnauthorized handles this case with default header values.
+/*
+PatchRoutingConversationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchRoutingConversationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing conversation unauthorized response has a 2xx status code
+func (o *PatchRoutingConversationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing conversation unauthorized response has a 3xx status code
+func (o *PatchRoutingConversationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing conversation unauthorized response has a 4xx status code
+func (o *PatchRoutingConversationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing conversation unauthorized response has a 5xx status code
+func (o *PatchRoutingConversationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing conversation unauthorized response a status code equal to that given
+func (o *PatchRoutingConversationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchRoutingConversationUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchRoutingConversationUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchRoutingConversationForbidden() *PatchRoutingConversationForbidden {
 	return &PatchRoutingConversationForbidden{}
 }
 
-/*PatchRoutingConversationForbidden handles this case with default header values.
+/*
+PatchRoutingConversationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchRoutingConversationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing conversation forbidden response has a 2xx status code
+func (o *PatchRoutingConversationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing conversation forbidden response has a 3xx status code
+func (o *PatchRoutingConversationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing conversation forbidden response has a 4xx status code
+func (o *PatchRoutingConversationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing conversation forbidden response has a 5xx status code
+func (o *PatchRoutingConversationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing conversation forbidden response a status code equal to that given
+func (o *PatchRoutingConversationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchRoutingConversationForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchRoutingConversationForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchRoutingConversationNotFound() *PatchRoutingConversationNotFound {
 	return &PatchRoutingConversationNotFound{}
 }
 
-/*PatchRoutingConversationNotFound handles this case with default header values.
+/*
+PatchRoutingConversationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchRoutingConversationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing conversation not found response has a 2xx status code
+func (o *PatchRoutingConversationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing conversation not found response has a 3xx status code
+func (o *PatchRoutingConversationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing conversation not found response has a 4xx status code
+func (o *PatchRoutingConversationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing conversation not found response has a 5xx status code
+func (o *PatchRoutingConversationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing conversation not found response a status code equal to that given
+func (o *PatchRoutingConversationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchRoutingConversationNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchRoutingConversationNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchRoutingConversationRequestTimeout() *PatchRoutingConversationReques
 	return &PatchRoutingConversationRequestTimeout{}
 }
 
-/*PatchRoutingConversationRequestTimeout handles this case with default header values.
+/*
+PatchRoutingConversationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchRoutingConversationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing conversation request timeout response has a 2xx status code
+func (o *PatchRoutingConversationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing conversation request timeout response has a 3xx status code
+func (o *PatchRoutingConversationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing conversation request timeout response has a 4xx status code
+func (o *PatchRoutingConversationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing conversation request timeout response has a 5xx status code
+func (o *PatchRoutingConversationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing conversation request timeout response a status code equal to that given
+func (o *PatchRoutingConversationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchRoutingConversationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchRoutingConversationRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchRoutingConversationRequestEntityTooLarge() *PatchRoutingConversatio
 	return &PatchRoutingConversationRequestEntityTooLarge{}
 }
 
-/*PatchRoutingConversationRequestEntityTooLarge handles this case with default header values.
+/*
+PatchRoutingConversationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchRoutingConversationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing conversation request entity too large response has a 2xx status code
+func (o *PatchRoutingConversationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing conversation request entity too large response has a 3xx status code
+func (o *PatchRoutingConversationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing conversation request entity too large response has a 4xx status code
+func (o *PatchRoutingConversationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing conversation request entity too large response has a 5xx status code
+func (o *PatchRoutingConversationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing conversation request entity too large response a status code equal to that given
+func (o *PatchRoutingConversationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchRoutingConversationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchRoutingConversationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchRoutingConversationUnsupportedMediaType() *PatchRoutingConversation
 	return &PatchRoutingConversationUnsupportedMediaType{}
 }
 
-/*PatchRoutingConversationUnsupportedMediaType handles this case with default header values.
+/*
+PatchRoutingConversationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchRoutingConversationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing conversation unsupported media type response has a 2xx status code
+func (o *PatchRoutingConversationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing conversation unsupported media type response has a 3xx status code
+func (o *PatchRoutingConversationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing conversation unsupported media type response has a 4xx status code
+func (o *PatchRoutingConversationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing conversation unsupported media type response has a 5xx status code
+func (o *PatchRoutingConversationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing conversation unsupported media type response a status code equal to that given
+func (o *PatchRoutingConversationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchRoutingConversationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchRoutingConversationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchRoutingConversationTooManyRequests() *PatchRoutingConversationTooMa
 	return &PatchRoutingConversationTooManyRequests{}
 }
 
-/*PatchRoutingConversationTooManyRequests handles this case with default header values.
+/*
+PatchRoutingConversationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchRoutingConversationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing conversation too many requests response has a 2xx status code
+func (o *PatchRoutingConversationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing conversation too many requests response has a 3xx status code
+func (o *PatchRoutingConversationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing conversation too many requests response has a 4xx status code
+func (o *PatchRoutingConversationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing conversation too many requests response has a 5xx status code
+func (o *PatchRoutingConversationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing conversation too many requests response a status code equal to that given
+func (o *PatchRoutingConversationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchRoutingConversationTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchRoutingConversationTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchRoutingConversationInternalServerError() *PatchRoutingConversationI
 	return &PatchRoutingConversationInternalServerError{}
 }
 
-/*PatchRoutingConversationInternalServerError handles this case with default header values.
+/*
+PatchRoutingConversationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchRoutingConversationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing conversation internal server error response has a 2xx status code
+func (o *PatchRoutingConversationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing conversation internal server error response has a 3xx status code
+func (o *PatchRoutingConversationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing conversation internal server error response has a 4xx status code
+func (o *PatchRoutingConversationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing conversation internal server error response has a 5xx status code
+func (o *PatchRoutingConversationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing conversation internal server error response a status code equal to that given
+func (o *PatchRoutingConversationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchRoutingConversationInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchRoutingConversationInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchRoutingConversationServiceUnavailable() *PatchRoutingConversationSe
 	return &PatchRoutingConversationServiceUnavailable{}
 }
 
-/*PatchRoutingConversationServiceUnavailable handles this case with default header values.
+/*
+PatchRoutingConversationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchRoutingConversationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing conversation service unavailable response has a 2xx status code
+func (o *PatchRoutingConversationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing conversation service unavailable response has a 3xx status code
+func (o *PatchRoutingConversationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing conversation service unavailable response has a 4xx status code
+func (o *PatchRoutingConversationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing conversation service unavailable response has a 5xx status code
+func (o *PatchRoutingConversationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing conversation service unavailable response a status code equal to that given
+func (o *PatchRoutingConversationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchRoutingConversationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchRoutingConversationServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchRoutingConversationGatewayTimeout() *PatchRoutingConversationGatewa
 	return &PatchRoutingConversationGatewayTimeout{}
 }
 
-/*PatchRoutingConversationGatewayTimeout handles this case with default header values.
+/*
+PatchRoutingConversationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchRoutingConversationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing conversation gateway timeout response has a 2xx status code
+func (o *PatchRoutingConversationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing conversation gateway timeout response has a 3xx status code
+func (o *PatchRoutingConversationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing conversation gateway timeout response has a 4xx status code
+func (o *PatchRoutingConversationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing conversation gateway timeout response has a 5xx status code
+func (o *PatchRoutingConversationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing conversation gateway timeout response a status code equal to that given
+func (o *PatchRoutingConversationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchRoutingConversationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchRoutingConversationGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/conversations/{conversationId}][%d] patchRoutingConversationGatewayTimeout  %+v", 504, o.Payload)
 }
 

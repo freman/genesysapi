@@ -95,7 +95,6 @@ func (o *GetIdentityprovidersAdfsReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIdentityprovidersAdfsOK() *GetIdentityprovidersAdfsOK {
 	return &GetIdentityprovidersAdfsOK{}
 }
 
-/*GetIdentityprovidersAdfsOK handles this case with default header values.
+/*
+GetIdentityprovidersAdfsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIdentityprovidersAdfsOK struct {
 	Payload *models.ADFS
 }
 
+// IsSuccess returns true when this get identityproviders adfs o k response has a 2xx status code
+func (o *GetIdentityprovidersAdfsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get identityproviders adfs o k response has a 3xx status code
+func (o *GetIdentityprovidersAdfsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders adfs o k response has a 4xx status code
+func (o *GetIdentityprovidersAdfsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders adfs o k response has a 5xx status code
+func (o *GetIdentityprovidersAdfsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders adfs o k response a status code equal to that given
+func (o *GetIdentityprovidersAdfsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIdentityprovidersAdfsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIdentityprovidersAdfsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIdentityprovidersAdfsBadRequest() *GetIdentityprovidersAdfsBadRequest
 	return &GetIdentityprovidersAdfsBadRequest{}
 }
 
-/*GetIdentityprovidersAdfsBadRequest handles this case with default header values.
+/*
+GetIdentityprovidersAdfsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIdentityprovidersAdfsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders adfs bad request response has a 2xx status code
+func (o *GetIdentityprovidersAdfsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders adfs bad request response has a 3xx status code
+func (o *GetIdentityprovidersAdfsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders adfs bad request response has a 4xx status code
+func (o *GetIdentityprovidersAdfsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders adfs bad request response has a 5xx status code
+func (o *GetIdentityprovidersAdfsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders adfs bad request response a status code equal to that given
+func (o *GetIdentityprovidersAdfsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIdentityprovidersAdfsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIdentityprovidersAdfsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIdentityprovidersAdfsUnauthorized() *GetIdentityprovidersAdfsUnauthor
 	return &GetIdentityprovidersAdfsUnauthorized{}
 }
 
-/*GetIdentityprovidersAdfsUnauthorized handles this case with default header values.
+/*
+GetIdentityprovidersAdfsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIdentityprovidersAdfsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders adfs unauthorized response has a 2xx status code
+func (o *GetIdentityprovidersAdfsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders adfs unauthorized response has a 3xx status code
+func (o *GetIdentityprovidersAdfsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders adfs unauthorized response has a 4xx status code
+func (o *GetIdentityprovidersAdfsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders adfs unauthorized response has a 5xx status code
+func (o *GetIdentityprovidersAdfsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders adfs unauthorized response a status code equal to that given
+func (o *GetIdentityprovidersAdfsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIdentityprovidersAdfsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIdentityprovidersAdfsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIdentityprovidersAdfsForbidden() *GetIdentityprovidersAdfsForbidden {
 	return &GetIdentityprovidersAdfsForbidden{}
 }
 
-/*GetIdentityprovidersAdfsForbidden handles this case with default header values.
+/*
+GetIdentityprovidersAdfsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIdentityprovidersAdfsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders adfs forbidden response has a 2xx status code
+func (o *GetIdentityprovidersAdfsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders adfs forbidden response has a 3xx status code
+func (o *GetIdentityprovidersAdfsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders adfs forbidden response has a 4xx status code
+func (o *GetIdentityprovidersAdfsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders adfs forbidden response has a 5xx status code
+func (o *GetIdentityprovidersAdfsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders adfs forbidden response a status code equal to that given
+func (o *GetIdentityprovidersAdfsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIdentityprovidersAdfsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIdentityprovidersAdfsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIdentityprovidersAdfsNotFound() *GetIdentityprovidersAdfsNotFound {
 	return &GetIdentityprovidersAdfsNotFound{}
 }
 
-/*GetIdentityprovidersAdfsNotFound handles this case with default header values.
+/*
+GetIdentityprovidersAdfsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIdentityprovidersAdfsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders adfs not found response has a 2xx status code
+func (o *GetIdentityprovidersAdfsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders adfs not found response has a 3xx status code
+func (o *GetIdentityprovidersAdfsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders adfs not found response has a 4xx status code
+func (o *GetIdentityprovidersAdfsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders adfs not found response has a 5xx status code
+func (o *GetIdentityprovidersAdfsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders adfs not found response a status code equal to that given
+func (o *GetIdentityprovidersAdfsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIdentityprovidersAdfsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIdentityprovidersAdfsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIdentityprovidersAdfsRequestTimeout() *GetIdentityprovidersAdfsReques
 	return &GetIdentityprovidersAdfsRequestTimeout{}
 }
 
-/*GetIdentityprovidersAdfsRequestTimeout handles this case with default header values.
+/*
+GetIdentityprovidersAdfsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIdentityprovidersAdfsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders adfs request timeout response has a 2xx status code
+func (o *GetIdentityprovidersAdfsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders adfs request timeout response has a 3xx status code
+func (o *GetIdentityprovidersAdfsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders adfs request timeout response has a 4xx status code
+func (o *GetIdentityprovidersAdfsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders adfs request timeout response has a 5xx status code
+func (o *GetIdentityprovidersAdfsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders adfs request timeout response a status code equal to that given
+func (o *GetIdentityprovidersAdfsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIdentityprovidersAdfsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIdentityprovidersAdfsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIdentityprovidersAdfsRequestEntityTooLarge() *GetIdentityprovidersAdf
 	return &GetIdentityprovidersAdfsRequestEntityTooLarge{}
 }
 
-/*GetIdentityprovidersAdfsRequestEntityTooLarge handles this case with default header values.
+/*
+GetIdentityprovidersAdfsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIdentityprovidersAdfsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders adfs request entity too large response has a 2xx status code
+func (o *GetIdentityprovidersAdfsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders adfs request entity too large response has a 3xx status code
+func (o *GetIdentityprovidersAdfsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders adfs request entity too large response has a 4xx status code
+func (o *GetIdentityprovidersAdfsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders adfs request entity too large response has a 5xx status code
+func (o *GetIdentityprovidersAdfsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders adfs request entity too large response a status code equal to that given
+func (o *GetIdentityprovidersAdfsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIdentityprovidersAdfsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIdentityprovidersAdfsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIdentityprovidersAdfsUnsupportedMediaType() *GetIdentityprovidersAdfs
 	return &GetIdentityprovidersAdfsUnsupportedMediaType{}
 }
 
-/*GetIdentityprovidersAdfsUnsupportedMediaType handles this case with default header values.
+/*
+GetIdentityprovidersAdfsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIdentityprovidersAdfsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders adfs unsupported media type response has a 2xx status code
+func (o *GetIdentityprovidersAdfsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders adfs unsupported media type response has a 3xx status code
+func (o *GetIdentityprovidersAdfsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders adfs unsupported media type response has a 4xx status code
+func (o *GetIdentityprovidersAdfsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders adfs unsupported media type response has a 5xx status code
+func (o *GetIdentityprovidersAdfsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders adfs unsupported media type response a status code equal to that given
+func (o *GetIdentityprovidersAdfsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIdentityprovidersAdfsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIdentityprovidersAdfsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIdentityprovidersAdfsTooManyRequests() *GetIdentityprovidersAdfsTooMa
 	return &GetIdentityprovidersAdfsTooManyRequests{}
 }
 
-/*GetIdentityprovidersAdfsTooManyRequests handles this case with default header values.
+/*
+GetIdentityprovidersAdfsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIdentityprovidersAdfsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders adfs too many requests response has a 2xx status code
+func (o *GetIdentityprovidersAdfsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders adfs too many requests response has a 3xx status code
+func (o *GetIdentityprovidersAdfsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders adfs too many requests response has a 4xx status code
+func (o *GetIdentityprovidersAdfsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders adfs too many requests response has a 5xx status code
+func (o *GetIdentityprovidersAdfsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders adfs too many requests response a status code equal to that given
+func (o *GetIdentityprovidersAdfsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIdentityprovidersAdfsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIdentityprovidersAdfsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIdentityprovidersAdfsInternalServerError() *GetIdentityprovidersAdfsI
 	return &GetIdentityprovidersAdfsInternalServerError{}
 }
 
-/*GetIdentityprovidersAdfsInternalServerError handles this case with default header values.
+/*
+GetIdentityprovidersAdfsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIdentityprovidersAdfsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders adfs internal server error response has a 2xx status code
+func (o *GetIdentityprovidersAdfsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders adfs internal server error response has a 3xx status code
+func (o *GetIdentityprovidersAdfsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders adfs internal server error response has a 4xx status code
+func (o *GetIdentityprovidersAdfsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders adfs internal server error response has a 5xx status code
+func (o *GetIdentityprovidersAdfsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders adfs internal server error response a status code equal to that given
+func (o *GetIdentityprovidersAdfsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIdentityprovidersAdfsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIdentityprovidersAdfsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIdentityprovidersAdfsServiceUnavailable() *GetIdentityprovidersAdfsSe
 	return &GetIdentityprovidersAdfsServiceUnavailable{}
 }
 
-/*GetIdentityprovidersAdfsServiceUnavailable handles this case with default header values.
+/*
+GetIdentityprovidersAdfsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIdentityprovidersAdfsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders adfs service unavailable response has a 2xx status code
+func (o *GetIdentityprovidersAdfsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders adfs service unavailable response has a 3xx status code
+func (o *GetIdentityprovidersAdfsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders adfs service unavailable response has a 4xx status code
+func (o *GetIdentityprovidersAdfsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders adfs service unavailable response has a 5xx status code
+func (o *GetIdentityprovidersAdfsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders adfs service unavailable response a status code equal to that given
+func (o *GetIdentityprovidersAdfsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIdentityprovidersAdfsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIdentityprovidersAdfsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIdentityprovidersAdfsGatewayTimeout() *GetIdentityprovidersAdfsGatewa
 	return &GetIdentityprovidersAdfsGatewayTimeout{}
 }
 
-/*GetIdentityprovidersAdfsGatewayTimeout handles this case with default header values.
+/*
+GetIdentityprovidersAdfsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIdentityprovidersAdfsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders adfs gateway timeout response has a 2xx status code
+func (o *GetIdentityprovidersAdfsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders adfs gateway timeout response has a 3xx status code
+func (o *GetIdentityprovidersAdfsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders adfs gateway timeout response has a 4xx status code
+func (o *GetIdentityprovidersAdfsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders adfs gateway timeout response has a 5xx status code
+func (o *GetIdentityprovidersAdfsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders adfs gateway timeout response a status code equal to that given
+func (o *GetIdentityprovidersAdfsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIdentityprovidersAdfsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIdentityprovidersAdfsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/adfs][%d] getIdentityprovidersAdfsGatewayTimeout  %+v", 504, o.Payload)
 }
 

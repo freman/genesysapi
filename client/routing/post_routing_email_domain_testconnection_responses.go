@@ -95,7 +95,6 @@ func (o *PostRoutingEmailDomainTestconnectionReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostRoutingEmailDomainTestconnectionOK() *PostRoutingEmailDomainTestconn
 	return &PostRoutingEmailDomainTestconnectionOK{}
 }
 
-/*PostRoutingEmailDomainTestconnectionOK handles this case with default header values.
+/*
+PostRoutingEmailDomainTestconnectionOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostRoutingEmailDomainTestconnectionOK struct {
 	Payload *models.TestMessage
 }
 
+// IsSuccess returns true when this post routing email domain testconnection o k response has a 2xx status code
+func (o *PostRoutingEmailDomainTestconnectionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post routing email domain testconnection o k response has a 3xx status code
+func (o *PostRoutingEmailDomainTestconnectionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing email domain testconnection o k response has a 4xx status code
+func (o *PostRoutingEmailDomainTestconnectionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing email domain testconnection o k response has a 5xx status code
+func (o *PostRoutingEmailDomainTestconnectionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing email domain testconnection o k response a status code equal to that given
+func (o *PostRoutingEmailDomainTestconnectionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostRoutingEmailDomainTestconnectionOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionOK  %+v", 200, o.Payload)
+}
+
+func (o *PostRoutingEmailDomainTestconnectionOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostRoutingEmailDomainTestconnectionBadRequest() *PostRoutingEmailDomain
 	return &PostRoutingEmailDomainTestconnectionBadRequest{}
 }
 
-/*PostRoutingEmailDomainTestconnectionBadRequest handles this case with default header values.
+/*
+PostRoutingEmailDomainTestconnectionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostRoutingEmailDomainTestconnectionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing email domain testconnection bad request response has a 2xx status code
+func (o *PostRoutingEmailDomainTestconnectionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing email domain testconnection bad request response has a 3xx status code
+func (o *PostRoutingEmailDomainTestconnectionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing email domain testconnection bad request response has a 4xx status code
+func (o *PostRoutingEmailDomainTestconnectionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing email domain testconnection bad request response has a 5xx status code
+func (o *PostRoutingEmailDomainTestconnectionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing email domain testconnection bad request response a status code equal to that given
+func (o *PostRoutingEmailDomainTestconnectionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostRoutingEmailDomainTestconnectionBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostRoutingEmailDomainTestconnectionBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostRoutingEmailDomainTestconnectionUnauthorized() *PostRoutingEmailDoma
 	return &PostRoutingEmailDomainTestconnectionUnauthorized{}
 }
 
-/*PostRoutingEmailDomainTestconnectionUnauthorized handles this case with default header values.
+/*
+PostRoutingEmailDomainTestconnectionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostRoutingEmailDomainTestconnectionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing email domain testconnection unauthorized response has a 2xx status code
+func (o *PostRoutingEmailDomainTestconnectionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing email domain testconnection unauthorized response has a 3xx status code
+func (o *PostRoutingEmailDomainTestconnectionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing email domain testconnection unauthorized response has a 4xx status code
+func (o *PostRoutingEmailDomainTestconnectionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing email domain testconnection unauthorized response has a 5xx status code
+func (o *PostRoutingEmailDomainTestconnectionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing email domain testconnection unauthorized response a status code equal to that given
+func (o *PostRoutingEmailDomainTestconnectionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostRoutingEmailDomainTestconnectionUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostRoutingEmailDomainTestconnectionUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostRoutingEmailDomainTestconnectionForbidden() *PostRoutingEmailDomainT
 	return &PostRoutingEmailDomainTestconnectionForbidden{}
 }
 
-/*PostRoutingEmailDomainTestconnectionForbidden handles this case with default header values.
+/*
+PostRoutingEmailDomainTestconnectionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostRoutingEmailDomainTestconnectionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing email domain testconnection forbidden response has a 2xx status code
+func (o *PostRoutingEmailDomainTestconnectionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing email domain testconnection forbidden response has a 3xx status code
+func (o *PostRoutingEmailDomainTestconnectionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing email domain testconnection forbidden response has a 4xx status code
+func (o *PostRoutingEmailDomainTestconnectionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing email domain testconnection forbidden response has a 5xx status code
+func (o *PostRoutingEmailDomainTestconnectionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing email domain testconnection forbidden response a status code equal to that given
+func (o *PostRoutingEmailDomainTestconnectionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostRoutingEmailDomainTestconnectionForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostRoutingEmailDomainTestconnectionForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostRoutingEmailDomainTestconnectionNotFound() *PostRoutingEmailDomainTe
 	return &PostRoutingEmailDomainTestconnectionNotFound{}
 }
 
-/*PostRoutingEmailDomainTestconnectionNotFound handles this case with default header values.
+/*
+PostRoutingEmailDomainTestconnectionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostRoutingEmailDomainTestconnectionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing email domain testconnection not found response has a 2xx status code
+func (o *PostRoutingEmailDomainTestconnectionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing email domain testconnection not found response has a 3xx status code
+func (o *PostRoutingEmailDomainTestconnectionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing email domain testconnection not found response has a 4xx status code
+func (o *PostRoutingEmailDomainTestconnectionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing email domain testconnection not found response has a 5xx status code
+func (o *PostRoutingEmailDomainTestconnectionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing email domain testconnection not found response a status code equal to that given
+func (o *PostRoutingEmailDomainTestconnectionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostRoutingEmailDomainTestconnectionNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostRoutingEmailDomainTestconnectionNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostRoutingEmailDomainTestconnectionRequestTimeout() *PostRoutingEmailDo
 	return &PostRoutingEmailDomainTestconnectionRequestTimeout{}
 }
 
-/*PostRoutingEmailDomainTestconnectionRequestTimeout handles this case with default header values.
+/*
+PostRoutingEmailDomainTestconnectionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostRoutingEmailDomainTestconnectionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing email domain testconnection request timeout response has a 2xx status code
+func (o *PostRoutingEmailDomainTestconnectionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing email domain testconnection request timeout response has a 3xx status code
+func (o *PostRoutingEmailDomainTestconnectionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing email domain testconnection request timeout response has a 4xx status code
+func (o *PostRoutingEmailDomainTestconnectionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing email domain testconnection request timeout response has a 5xx status code
+func (o *PostRoutingEmailDomainTestconnectionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing email domain testconnection request timeout response a status code equal to that given
+func (o *PostRoutingEmailDomainTestconnectionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostRoutingEmailDomainTestconnectionRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRoutingEmailDomainTestconnectionRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostRoutingEmailDomainTestconnectionRequestEntityTooLarge() *PostRouting
 	return &PostRoutingEmailDomainTestconnectionRequestEntityTooLarge{}
 }
 
-/*PostRoutingEmailDomainTestconnectionRequestEntityTooLarge handles this case with default header values.
+/*
+PostRoutingEmailDomainTestconnectionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostRoutingEmailDomainTestconnectionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing email domain testconnection request entity too large response has a 2xx status code
+func (o *PostRoutingEmailDomainTestconnectionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing email domain testconnection request entity too large response has a 3xx status code
+func (o *PostRoutingEmailDomainTestconnectionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing email domain testconnection request entity too large response has a 4xx status code
+func (o *PostRoutingEmailDomainTestconnectionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing email domain testconnection request entity too large response has a 5xx status code
+func (o *PostRoutingEmailDomainTestconnectionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing email domain testconnection request entity too large response a status code equal to that given
+func (o *PostRoutingEmailDomainTestconnectionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostRoutingEmailDomainTestconnectionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostRoutingEmailDomainTestconnectionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostRoutingEmailDomainTestconnectionUnsupportedMediaType() *PostRoutingE
 	return &PostRoutingEmailDomainTestconnectionUnsupportedMediaType{}
 }
 
-/*PostRoutingEmailDomainTestconnectionUnsupportedMediaType handles this case with default header values.
+/*
+PostRoutingEmailDomainTestconnectionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostRoutingEmailDomainTestconnectionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing email domain testconnection unsupported media type response has a 2xx status code
+func (o *PostRoutingEmailDomainTestconnectionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing email domain testconnection unsupported media type response has a 3xx status code
+func (o *PostRoutingEmailDomainTestconnectionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing email domain testconnection unsupported media type response has a 4xx status code
+func (o *PostRoutingEmailDomainTestconnectionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing email domain testconnection unsupported media type response has a 5xx status code
+func (o *PostRoutingEmailDomainTestconnectionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing email domain testconnection unsupported media type response a status code equal to that given
+func (o *PostRoutingEmailDomainTestconnectionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostRoutingEmailDomainTestconnectionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostRoutingEmailDomainTestconnectionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostRoutingEmailDomainTestconnectionTooManyRequests() *PostRoutingEmailD
 	return &PostRoutingEmailDomainTestconnectionTooManyRequests{}
 }
 
-/*PostRoutingEmailDomainTestconnectionTooManyRequests handles this case with default header values.
+/*
+PostRoutingEmailDomainTestconnectionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostRoutingEmailDomainTestconnectionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing email domain testconnection too many requests response has a 2xx status code
+func (o *PostRoutingEmailDomainTestconnectionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing email domain testconnection too many requests response has a 3xx status code
+func (o *PostRoutingEmailDomainTestconnectionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing email domain testconnection too many requests response has a 4xx status code
+func (o *PostRoutingEmailDomainTestconnectionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing email domain testconnection too many requests response has a 5xx status code
+func (o *PostRoutingEmailDomainTestconnectionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing email domain testconnection too many requests response a status code equal to that given
+func (o *PostRoutingEmailDomainTestconnectionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostRoutingEmailDomainTestconnectionTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostRoutingEmailDomainTestconnectionTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostRoutingEmailDomainTestconnectionInternalServerError() *PostRoutingEm
 	return &PostRoutingEmailDomainTestconnectionInternalServerError{}
 }
 
-/*PostRoutingEmailDomainTestconnectionInternalServerError handles this case with default header values.
+/*
+PostRoutingEmailDomainTestconnectionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostRoutingEmailDomainTestconnectionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing email domain testconnection internal server error response has a 2xx status code
+func (o *PostRoutingEmailDomainTestconnectionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing email domain testconnection internal server error response has a 3xx status code
+func (o *PostRoutingEmailDomainTestconnectionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing email domain testconnection internal server error response has a 4xx status code
+func (o *PostRoutingEmailDomainTestconnectionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing email domain testconnection internal server error response has a 5xx status code
+func (o *PostRoutingEmailDomainTestconnectionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing email domain testconnection internal server error response a status code equal to that given
+func (o *PostRoutingEmailDomainTestconnectionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostRoutingEmailDomainTestconnectionInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostRoutingEmailDomainTestconnectionInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostRoutingEmailDomainTestconnectionServiceUnavailable() *PostRoutingEma
 	return &PostRoutingEmailDomainTestconnectionServiceUnavailable{}
 }
 
-/*PostRoutingEmailDomainTestconnectionServiceUnavailable handles this case with default header values.
+/*
+PostRoutingEmailDomainTestconnectionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostRoutingEmailDomainTestconnectionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing email domain testconnection service unavailable response has a 2xx status code
+func (o *PostRoutingEmailDomainTestconnectionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing email domain testconnection service unavailable response has a 3xx status code
+func (o *PostRoutingEmailDomainTestconnectionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing email domain testconnection service unavailable response has a 4xx status code
+func (o *PostRoutingEmailDomainTestconnectionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing email domain testconnection service unavailable response has a 5xx status code
+func (o *PostRoutingEmailDomainTestconnectionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing email domain testconnection service unavailable response a status code equal to that given
+func (o *PostRoutingEmailDomainTestconnectionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostRoutingEmailDomainTestconnectionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostRoutingEmailDomainTestconnectionServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostRoutingEmailDomainTestconnectionGatewayTimeout() *PostRoutingEmailDo
 	return &PostRoutingEmailDomainTestconnectionGatewayTimeout{}
 }
 
-/*PostRoutingEmailDomainTestconnectionGatewayTimeout handles this case with default header values.
+/*
+PostRoutingEmailDomainTestconnectionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostRoutingEmailDomainTestconnectionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing email domain testconnection gateway timeout response has a 2xx status code
+func (o *PostRoutingEmailDomainTestconnectionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing email domain testconnection gateway timeout response has a 3xx status code
+func (o *PostRoutingEmailDomainTestconnectionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing email domain testconnection gateway timeout response has a 4xx status code
+func (o *PostRoutingEmailDomainTestconnectionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing email domain testconnection gateway timeout response has a 5xx status code
+func (o *PostRoutingEmailDomainTestconnectionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing email domain testconnection gateway timeout response a status code equal to that given
+func (o *PostRoutingEmailDomainTestconnectionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostRoutingEmailDomainTestconnectionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostRoutingEmailDomainTestconnectionGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/email/domains/{domainId}/testconnection][%d] postRoutingEmailDomainTestconnectionGatewayTimeout  %+v", 504, o.Payload)
 }
 

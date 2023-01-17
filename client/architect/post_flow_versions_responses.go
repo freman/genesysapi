@@ -113,7 +113,6 @@ func (o *PostFlowVersionsReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -124,7 +123,8 @@ func NewPostFlowVersionsOK() *PostFlowVersionsOK {
 	return &PostFlowVersionsOK{}
 }
 
-/*PostFlowVersionsOK handles this case with default header values.
+/*
+PostFlowVersionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -132,7 +132,36 @@ type PostFlowVersionsOK struct {
 	Payload *models.FlowVersion
 }
 
+// IsSuccess returns true when this post flow versions o k response has a 2xx status code
+func (o *PostFlowVersionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post flow versions o k response has a 3xx status code
+func (o *PostFlowVersionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions o k response has a 4xx status code
+func (o *PostFlowVersionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flow versions o k response has a 5xx status code
+func (o *PostFlowVersionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow versions o k response a status code equal to that given
+func (o *PostFlowVersionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostFlowVersionsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostFlowVersionsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsOK  %+v", 200, o.Payload)
 }
 
@@ -157,7 +186,8 @@ func NewPostFlowVersionsBadRequest() *PostFlowVersionsBadRequest {
 	return &PostFlowVersionsBadRequest{}
 }
 
-/*PostFlowVersionsBadRequest handles this case with default header values.
+/*
+PostFlowVersionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -165,7 +195,36 @@ type PostFlowVersionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions bad request response has a 2xx status code
+func (o *PostFlowVersionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions bad request response has a 3xx status code
+func (o *PostFlowVersionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions bad request response has a 4xx status code
+func (o *PostFlowVersionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow versions bad request response has a 5xx status code
+func (o *PostFlowVersionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow versions bad request response a status code equal to that given
+func (o *PostFlowVersionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostFlowVersionsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostFlowVersionsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -190,7 +249,8 @@ func NewPostFlowVersionsUnauthorized() *PostFlowVersionsUnauthorized {
 	return &PostFlowVersionsUnauthorized{}
 }
 
-/*PostFlowVersionsUnauthorized handles this case with default header values.
+/*
+PostFlowVersionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -198,7 +258,36 @@ type PostFlowVersionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions unauthorized response has a 2xx status code
+func (o *PostFlowVersionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions unauthorized response has a 3xx status code
+func (o *PostFlowVersionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions unauthorized response has a 4xx status code
+func (o *PostFlowVersionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow versions unauthorized response has a 5xx status code
+func (o *PostFlowVersionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow versions unauthorized response a status code equal to that given
+func (o *PostFlowVersionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostFlowVersionsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostFlowVersionsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -223,7 +312,8 @@ func NewPostFlowVersionsForbidden() *PostFlowVersionsForbidden {
 	return &PostFlowVersionsForbidden{}
 }
 
-/*PostFlowVersionsForbidden handles this case with default header values.
+/*
+PostFlowVersionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -231,7 +321,36 @@ type PostFlowVersionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions forbidden response has a 2xx status code
+func (o *PostFlowVersionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions forbidden response has a 3xx status code
+func (o *PostFlowVersionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions forbidden response has a 4xx status code
+func (o *PostFlowVersionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow versions forbidden response has a 5xx status code
+func (o *PostFlowVersionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow versions forbidden response a status code equal to that given
+func (o *PostFlowVersionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostFlowVersionsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostFlowVersionsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -256,7 +375,8 @@ func NewPostFlowVersionsNotFound() *PostFlowVersionsNotFound {
 	return &PostFlowVersionsNotFound{}
 }
 
-/*PostFlowVersionsNotFound handles this case with default header values.
+/*
+PostFlowVersionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -264,7 +384,36 @@ type PostFlowVersionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions not found response has a 2xx status code
+func (o *PostFlowVersionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions not found response has a 3xx status code
+func (o *PostFlowVersionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions not found response has a 4xx status code
+func (o *PostFlowVersionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow versions not found response has a 5xx status code
+func (o *PostFlowVersionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow versions not found response a status code equal to that given
+func (o *PostFlowVersionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostFlowVersionsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostFlowVersionsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -289,7 +438,8 @@ func NewPostFlowVersionsMethodNotAllowed() *PostFlowVersionsMethodNotAllowed {
 	return &PostFlowVersionsMethodNotAllowed{}
 }
 
-/*PostFlowVersionsMethodNotAllowed handles this case with default header values.
+/*
+PostFlowVersionsMethodNotAllowed describes a response with status code 405, with default header values.
 
 Method Not Allowed
 */
@@ -297,7 +447,36 @@ type PostFlowVersionsMethodNotAllowed struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions method not allowed response has a 2xx status code
+func (o *PostFlowVersionsMethodNotAllowed) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions method not allowed response has a 3xx status code
+func (o *PostFlowVersionsMethodNotAllowed) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions method not allowed response has a 4xx status code
+func (o *PostFlowVersionsMethodNotAllowed) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow versions method not allowed response has a 5xx status code
+func (o *PostFlowVersionsMethodNotAllowed) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow versions method not allowed response a status code equal to that given
+func (o *PostFlowVersionsMethodNotAllowed) IsCode(code int) bool {
+	return code == 405
+}
+
 func (o *PostFlowVersionsMethodNotAllowed) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsMethodNotAllowed  %+v", 405, o.Payload)
+}
+
+func (o *PostFlowVersionsMethodNotAllowed) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsMethodNotAllowed  %+v", 405, o.Payload)
 }
 
@@ -322,7 +501,8 @@ func NewPostFlowVersionsRequestTimeout() *PostFlowVersionsRequestTimeout {
 	return &PostFlowVersionsRequestTimeout{}
 }
 
-/*PostFlowVersionsRequestTimeout handles this case with default header values.
+/*
+PostFlowVersionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -330,7 +510,36 @@ type PostFlowVersionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions request timeout response has a 2xx status code
+func (o *PostFlowVersionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions request timeout response has a 3xx status code
+func (o *PostFlowVersionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions request timeout response has a 4xx status code
+func (o *PostFlowVersionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow versions request timeout response has a 5xx status code
+func (o *PostFlowVersionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow versions request timeout response a status code equal to that given
+func (o *PostFlowVersionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostFlowVersionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowVersionsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -355,7 +564,8 @@ func NewPostFlowVersionsConflict() *PostFlowVersionsConflict {
 	return &PostFlowVersionsConflict{}
 }
 
-/*PostFlowVersionsConflict handles this case with default header values.
+/*
+PostFlowVersionsConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -363,7 +573,36 @@ type PostFlowVersionsConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions conflict response has a 2xx status code
+func (o *PostFlowVersionsConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions conflict response has a 3xx status code
+func (o *PostFlowVersionsConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions conflict response has a 4xx status code
+func (o *PostFlowVersionsConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow versions conflict response has a 5xx status code
+func (o *PostFlowVersionsConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow versions conflict response a status code equal to that given
+func (o *PostFlowVersionsConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostFlowVersionsConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostFlowVersionsConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsConflict  %+v", 409, o.Payload)
 }
 
@@ -388,7 +627,8 @@ func NewPostFlowVersionsGone() *PostFlowVersionsGone {
 	return &PostFlowVersionsGone{}
 }
 
-/*PostFlowVersionsGone handles this case with default header values.
+/*
+PostFlowVersionsGone describes a response with status code 410, with default header values.
 
 Gone
 */
@@ -396,7 +636,36 @@ type PostFlowVersionsGone struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions gone response has a 2xx status code
+func (o *PostFlowVersionsGone) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions gone response has a 3xx status code
+func (o *PostFlowVersionsGone) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions gone response has a 4xx status code
+func (o *PostFlowVersionsGone) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow versions gone response has a 5xx status code
+func (o *PostFlowVersionsGone) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow versions gone response a status code equal to that given
+func (o *PostFlowVersionsGone) IsCode(code int) bool {
+	return code == 410
+}
+
 func (o *PostFlowVersionsGone) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsGone  %+v", 410, o.Payload)
+}
+
+func (o *PostFlowVersionsGone) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsGone  %+v", 410, o.Payload)
 }
 
@@ -421,7 +690,8 @@ func NewPostFlowVersionsRequestEntityTooLarge() *PostFlowVersionsRequestEntityTo
 	return &PostFlowVersionsRequestEntityTooLarge{}
 }
 
-/*PostFlowVersionsRequestEntityTooLarge handles this case with default header values.
+/*
+PostFlowVersionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -429,7 +699,36 @@ type PostFlowVersionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions request entity too large response has a 2xx status code
+func (o *PostFlowVersionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions request entity too large response has a 3xx status code
+func (o *PostFlowVersionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions request entity too large response has a 4xx status code
+func (o *PostFlowVersionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow versions request entity too large response has a 5xx status code
+func (o *PostFlowVersionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow versions request entity too large response a status code equal to that given
+func (o *PostFlowVersionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostFlowVersionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostFlowVersionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -454,7 +753,8 @@ func NewPostFlowVersionsUnsupportedMediaType() *PostFlowVersionsUnsupportedMedia
 	return &PostFlowVersionsUnsupportedMediaType{}
 }
 
-/*PostFlowVersionsUnsupportedMediaType handles this case with default header values.
+/*
+PostFlowVersionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -462,7 +762,36 @@ type PostFlowVersionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions unsupported media type response has a 2xx status code
+func (o *PostFlowVersionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions unsupported media type response has a 3xx status code
+func (o *PostFlowVersionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions unsupported media type response has a 4xx status code
+func (o *PostFlowVersionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow versions unsupported media type response has a 5xx status code
+func (o *PostFlowVersionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow versions unsupported media type response a status code equal to that given
+func (o *PostFlowVersionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostFlowVersionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostFlowVersionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -487,7 +816,8 @@ func NewPostFlowVersionsTooManyRequests() *PostFlowVersionsTooManyRequests {
 	return &PostFlowVersionsTooManyRequests{}
 }
 
-/*PostFlowVersionsTooManyRequests handles this case with default header values.
+/*
+PostFlowVersionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -495,7 +825,36 @@ type PostFlowVersionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions too many requests response has a 2xx status code
+func (o *PostFlowVersionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions too many requests response has a 3xx status code
+func (o *PostFlowVersionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions too many requests response has a 4xx status code
+func (o *PostFlowVersionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow versions too many requests response has a 5xx status code
+func (o *PostFlowVersionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow versions too many requests response a status code equal to that given
+func (o *PostFlowVersionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostFlowVersionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostFlowVersionsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -520,7 +879,8 @@ func NewPostFlowVersionsInternalServerError() *PostFlowVersionsInternalServerErr
 	return &PostFlowVersionsInternalServerError{}
 }
 
-/*PostFlowVersionsInternalServerError handles this case with default header values.
+/*
+PostFlowVersionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -528,7 +888,36 @@ type PostFlowVersionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions internal server error response has a 2xx status code
+func (o *PostFlowVersionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions internal server error response has a 3xx status code
+func (o *PostFlowVersionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions internal server error response has a 4xx status code
+func (o *PostFlowVersionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flow versions internal server error response has a 5xx status code
+func (o *PostFlowVersionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flow versions internal server error response a status code equal to that given
+func (o *PostFlowVersionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostFlowVersionsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostFlowVersionsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -553,7 +942,8 @@ func NewPostFlowVersionsServiceUnavailable() *PostFlowVersionsServiceUnavailable
 	return &PostFlowVersionsServiceUnavailable{}
 }
 
-/*PostFlowVersionsServiceUnavailable handles this case with default header values.
+/*
+PostFlowVersionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -561,7 +951,36 @@ type PostFlowVersionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions service unavailable response has a 2xx status code
+func (o *PostFlowVersionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions service unavailable response has a 3xx status code
+func (o *PostFlowVersionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions service unavailable response has a 4xx status code
+func (o *PostFlowVersionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flow versions service unavailable response has a 5xx status code
+func (o *PostFlowVersionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flow versions service unavailable response a status code equal to that given
+func (o *PostFlowVersionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostFlowVersionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostFlowVersionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -586,7 +1005,8 @@ func NewPostFlowVersionsGatewayTimeout() *PostFlowVersionsGatewayTimeout {
 	return &PostFlowVersionsGatewayTimeout{}
 }
 
-/*PostFlowVersionsGatewayTimeout handles this case with default header values.
+/*
+PostFlowVersionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -594,7 +1014,36 @@ type PostFlowVersionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow versions gateway timeout response has a 2xx status code
+func (o *PostFlowVersionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow versions gateway timeout response has a 3xx status code
+func (o *PostFlowVersionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow versions gateway timeout response has a 4xx status code
+func (o *PostFlowVersionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flow versions gateway timeout response has a 5xx status code
+func (o *PostFlowVersionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flow versions gateway timeout response a status code equal to that given
+func (o *PostFlowVersionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostFlowVersionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostFlowVersionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/versions][%d] postFlowVersionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

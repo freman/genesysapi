@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -53,7 +55,6 @@ func (m *ProcessScheduleUpdateUploadRequest) Validate(formats strfmt.Registry) e
 }
 
 func (m *ProcessScheduleUpdateUploadRequest) validateManagementUnitIdsForAddedTeamUsers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ManagementUnitIdsForAddedTeamUsers) { // not required
 		return nil
 	}
@@ -66,7 +67,6 @@ func (m *ProcessScheduleUpdateUploadRequest) validateManagementUnitIdsForAddedTe
 }
 
 func (m *ProcessScheduleUpdateUploadRequest) validateTeamIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TeamIds) { // not required
 		return nil
 	}
@@ -84,6 +84,11 @@ func (m *ProcessScheduleUpdateUploadRequest) validateUploadKey(formats strfmt.Re
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this process schedule update upload request based on context it is used
+func (m *ProcessScheduleUpdateUploadRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

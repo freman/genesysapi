@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTelephonyProvidersEdgeRebootParams creates a new PostTelephonyProvidersEdgeRebootParams object
-// with the default values initialized.
+// NewPostTelephonyProvidersEdgeRebootParams creates a new PostTelephonyProvidersEdgeRebootParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTelephonyProvidersEdgeRebootParams() *PostTelephonyProvidersEdgeRebootParams {
-	var ()
 	return &PostTelephonyProvidersEdgeRebootParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeRebootParamsWithTimeout creates a new PostTelephonyProvidersEdgeRebootParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTelephonyProvidersEdgeRebootParamsWithTimeout(timeout time.Duration) *PostTelephonyProvidersEdgeRebootParams {
-	var ()
 	return &PostTelephonyProvidersEdgeRebootParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeRebootParamsWithContext creates a new PostTelephonyProvidersEdgeRebootParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTelephonyProvidersEdgeRebootParamsWithContext(ctx context.Context) *PostTelephonyProvidersEdgeRebootParams {
-	var ()
 	return &PostTelephonyProvidersEdgeRebootParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeRebootParamsWithHTTPClient creates a new PostTelephonyProvidersEdgeRebootParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTelephonyProvidersEdgeRebootParamsWithHTTPClient(client *http.Client) *PostTelephonyProvidersEdgeRebootParams {
-	var ()
 	return &PostTelephonyProvidersEdgeRebootParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTelephonyProvidersEdgeRebootParams contains all the parameters to send to the API endpoint
-for the post telephony providers edge reboot operation typically these are written to a http.Request
+/*
+PostTelephonyProvidersEdgeRebootParams contains all the parameters to send to the API endpoint
+
+	for the post telephony providers edge reboot operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTelephonyProvidersEdgeRebootParams struct {
 
-	/*Body
-	  Parameters for the edge reboot
+	/* Body.
 
+	   Parameters for the edge reboot
 	*/
 	Body *models.EdgeRebootParameters
-	/*EdgeID
-	  Edge ID
 
+	/* EdgeID.
+
+	   Edge ID
 	*/
 	EdgeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post telephony providers edge reboot params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeRebootParams) WithDefaults() *PostTelephonyProvidersEdgeRebootParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post telephony providers edge reboot params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeRebootParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post telephony providers edge reboot params
@@ -140,7 +157,6 @@ func (o *PostTelephonyProvidersEdgeRebootParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

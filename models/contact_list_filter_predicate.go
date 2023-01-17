@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -92,7 +93,6 @@ func (m *ContactListFilterPredicate) validateColumnTypeEnum(path, location strin
 }
 
 func (m *ContactListFilterPredicate) validateColumnType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ColumnType) { // not required
 		return nil
 	}
@@ -165,7 +165,6 @@ func (m *ContactListFilterPredicate) validateOperatorEnum(path, location string,
 }
 
 func (m *ContactListFilterPredicate) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -179,7 +178,6 @@ func (m *ContactListFilterPredicate) validateOperator(formats strfmt.Registry) e
 }
 
 func (m *ContactListFilterPredicate) validateRange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Range) { // not required
 		return nil
 	}
@@ -188,6 +186,38 @@ func (m *ContactListFilterPredicate) validateRange(formats strfmt.Registry) erro
 		if err := m.Range.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this contact list filter predicate based on the context it is used
+func (m *ContactListFilterPredicate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ContactListFilterPredicate) contextValidateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Range != nil {
+		if err := m.Range.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
 			}
 			return err
 		}

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -45,7 +47,6 @@ func (m *BuRescheduleAgentScheduleResult) Validate(formats strfmt.Registry) erro
 }
 
 func (m *BuRescheduleAgentScheduleResult) validateDownloadResult(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DownloadResult) { // not required
 		return nil
 	}
@@ -54,6 +55,8 @@ func (m *BuRescheduleAgentScheduleResult) validateDownloadResult(formats strfmt.
 		if err := m.DownloadResult.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("downloadResult")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("downloadResult")
 			}
 			return err
 		}
@@ -63,7 +66,6 @@ func (m *BuRescheduleAgentScheduleResult) validateDownloadResult(formats strfmt.
 }
 
 func (m *BuRescheduleAgentScheduleResult) validateManagementUnit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ManagementUnit) { // not required
 		return nil
 	}
@@ -72,6 +74,58 @@ func (m *BuRescheduleAgentScheduleResult) validateManagementUnit(formats strfmt.
 		if err := m.ManagementUnit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("managementUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managementUnit")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu reschedule agent schedule result based on the context it is used
+func (m *BuRescheduleAgentScheduleResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDownloadResult(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateManagementUnit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuRescheduleAgentScheduleResult) contextValidateDownloadResult(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DownloadResult != nil {
+		if err := m.DownloadResult.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("downloadResult")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("downloadResult")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuRescheduleAgentScheduleResult) contextValidateManagementUnit(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ManagementUnit != nil {
+		if err := m.ManagementUnit.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("managementUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managementUnit")
 			}
 			return err
 		}

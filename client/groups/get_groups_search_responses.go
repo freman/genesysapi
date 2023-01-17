@@ -95,7 +95,6 @@ func (o *GetGroupsSearchReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGroupsSearchOK() *GetGroupsSearchOK {
 	return &GetGroupsSearchOK{}
 }
 
-/*GetGroupsSearchOK handles this case with default header values.
+/*
+GetGroupsSearchOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGroupsSearchOK struct {
 	Payload *models.GroupsSearchResponse
 }
 
+// IsSuccess returns true when this get groups search o k response has a 2xx status code
+func (o *GetGroupsSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get groups search o k response has a 3xx status code
+func (o *GetGroupsSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups search o k response has a 4xx status code
+func (o *GetGroupsSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get groups search o k response has a 5xx status code
+func (o *GetGroupsSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups search o k response a status code equal to that given
+func (o *GetGroupsSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGroupsSearchOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGroupsSearchOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGroupsSearchBadRequest() *GetGroupsSearchBadRequest {
 	return &GetGroupsSearchBadRequest{}
 }
 
-/*GetGroupsSearchBadRequest handles this case with default header values.
+/*
+GetGroupsSearchBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGroupsSearchBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups search bad request response has a 2xx status code
+func (o *GetGroupsSearchBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups search bad request response has a 3xx status code
+func (o *GetGroupsSearchBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups search bad request response has a 4xx status code
+func (o *GetGroupsSearchBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups search bad request response has a 5xx status code
+func (o *GetGroupsSearchBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups search bad request response a status code equal to that given
+func (o *GetGroupsSearchBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGroupsSearchBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGroupsSearchBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGroupsSearchUnauthorized() *GetGroupsSearchUnauthorized {
 	return &GetGroupsSearchUnauthorized{}
 }
 
-/*GetGroupsSearchUnauthorized handles this case with default header values.
+/*
+GetGroupsSearchUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGroupsSearchUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups search unauthorized response has a 2xx status code
+func (o *GetGroupsSearchUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups search unauthorized response has a 3xx status code
+func (o *GetGroupsSearchUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups search unauthorized response has a 4xx status code
+func (o *GetGroupsSearchUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups search unauthorized response has a 5xx status code
+func (o *GetGroupsSearchUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups search unauthorized response a status code equal to that given
+func (o *GetGroupsSearchUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGroupsSearchUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGroupsSearchUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGroupsSearchForbidden() *GetGroupsSearchForbidden {
 	return &GetGroupsSearchForbidden{}
 }
 
-/*GetGroupsSearchForbidden handles this case with default header values.
+/*
+GetGroupsSearchForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGroupsSearchForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups search forbidden response has a 2xx status code
+func (o *GetGroupsSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups search forbidden response has a 3xx status code
+func (o *GetGroupsSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups search forbidden response has a 4xx status code
+func (o *GetGroupsSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups search forbidden response has a 5xx status code
+func (o *GetGroupsSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups search forbidden response a status code equal to that given
+func (o *GetGroupsSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGroupsSearchForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGroupsSearchForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGroupsSearchNotFound() *GetGroupsSearchNotFound {
 	return &GetGroupsSearchNotFound{}
 }
 
-/*GetGroupsSearchNotFound handles this case with default header values.
+/*
+GetGroupsSearchNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGroupsSearchNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups search not found response has a 2xx status code
+func (o *GetGroupsSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups search not found response has a 3xx status code
+func (o *GetGroupsSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups search not found response has a 4xx status code
+func (o *GetGroupsSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups search not found response has a 5xx status code
+func (o *GetGroupsSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups search not found response a status code equal to that given
+func (o *GetGroupsSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGroupsSearchNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGroupsSearchNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGroupsSearchRequestTimeout() *GetGroupsSearchRequestTimeout {
 	return &GetGroupsSearchRequestTimeout{}
 }
 
-/*GetGroupsSearchRequestTimeout handles this case with default header values.
+/*
+GetGroupsSearchRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGroupsSearchRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups search request timeout response has a 2xx status code
+func (o *GetGroupsSearchRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups search request timeout response has a 3xx status code
+func (o *GetGroupsSearchRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups search request timeout response has a 4xx status code
+func (o *GetGroupsSearchRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups search request timeout response has a 5xx status code
+func (o *GetGroupsSearchRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups search request timeout response a status code equal to that given
+func (o *GetGroupsSearchRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGroupsSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGroupsSearchRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGroupsSearchRequestEntityTooLarge() *GetGroupsSearchRequestEntityTooL
 	return &GetGroupsSearchRequestEntityTooLarge{}
 }
 
-/*GetGroupsSearchRequestEntityTooLarge handles this case with default header values.
+/*
+GetGroupsSearchRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGroupsSearchRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups search request entity too large response has a 2xx status code
+func (o *GetGroupsSearchRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups search request entity too large response has a 3xx status code
+func (o *GetGroupsSearchRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups search request entity too large response has a 4xx status code
+func (o *GetGroupsSearchRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups search request entity too large response has a 5xx status code
+func (o *GetGroupsSearchRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups search request entity too large response a status code equal to that given
+func (o *GetGroupsSearchRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGroupsSearchRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGroupsSearchRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGroupsSearchUnsupportedMediaType() *GetGroupsSearchUnsupportedMediaTy
 	return &GetGroupsSearchUnsupportedMediaType{}
 }
 
-/*GetGroupsSearchUnsupportedMediaType handles this case with default header values.
+/*
+GetGroupsSearchUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGroupsSearchUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups search unsupported media type response has a 2xx status code
+func (o *GetGroupsSearchUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups search unsupported media type response has a 3xx status code
+func (o *GetGroupsSearchUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups search unsupported media type response has a 4xx status code
+func (o *GetGroupsSearchUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups search unsupported media type response has a 5xx status code
+func (o *GetGroupsSearchUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups search unsupported media type response a status code equal to that given
+func (o *GetGroupsSearchUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGroupsSearchUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGroupsSearchUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGroupsSearchTooManyRequests() *GetGroupsSearchTooManyRequests {
 	return &GetGroupsSearchTooManyRequests{}
 }
 
-/*GetGroupsSearchTooManyRequests handles this case with default header values.
+/*
+GetGroupsSearchTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGroupsSearchTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups search too many requests response has a 2xx status code
+func (o *GetGroupsSearchTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups search too many requests response has a 3xx status code
+func (o *GetGroupsSearchTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups search too many requests response has a 4xx status code
+func (o *GetGroupsSearchTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups search too many requests response has a 5xx status code
+func (o *GetGroupsSearchTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups search too many requests response a status code equal to that given
+func (o *GetGroupsSearchTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGroupsSearchTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGroupsSearchTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGroupsSearchInternalServerError() *GetGroupsSearchInternalServerError
 	return &GetGroupsSearchInternalServerError{}
 }
 
-/*GetGroupsSearchInternalServerError handles this case with default header values.
+/*
+GetGroupsSearchInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGroupsSearchInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups search internal server error response has a 2xx status code
+func (o *GetGroupsSearchInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups search internal server error response has a 3xx status code
+func (o *GetGroupsSearchInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups search internal server error response has a 4xx status code
+func (o *GetGroupsSearchInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get groups search internal server error response has a 5xx status code
+func (o *GetGroupsSearchInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get groups search internal server error response a status code equal to that given
+func (o *GetGroupsSearchInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGroupsSearchInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGroupsSearchInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGroupsSearchServiceUnavailable() *GetGroupsSearchServiceUnavailable {
 	return &GetGroupsSearchServiceUnavailable{}
 }
 
-/*GetGroupsSearchServiceUnavailable handles this case with default header values.
+/*
+GetGroupsSearchServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGroupsSearchServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups search service unavailable response has a 2xx status code
+func (o *GetGroupsSearchServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups search service unavailable response has a 3xx status code
+func (o *GetGroupsSearchServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups search service unavailable response has a 4xx status code
+func (o *GetGroupsSearchServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get groups search service unavailable response has a 5xx status code
+func (o *GetGroupsSearchServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get groups search service unavailable response a status code equal to that given
+func (o *GetGroupsSearchServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGroupsSearchServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGroupsSearchServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGroupsSearchGatewayTimeout() *GetGroupsSearchGatewayTimeout {
 	return &GetGroupsSearchGatewayTimeout{}
 }
 
-/*GetGroupsSearchGatewayTimeout handles this case with default header values.
+/*
+GetGroupsSearchGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGroupsSearchGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups search gateway timeout response has a 2xx status code
+func (o *GetGroupsSearchGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups search gateway timeout response has a 3xx status code
+func (o *GetGroupsSearchGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups search gateway timeout response has a 4xx status code
+func (o *GetGroupsSearchGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get groups search gateway timeout response has a 5xx status code
+func (o *GetGroupsSearchGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get groups search gateway timeout response a status code equal to that given
+func (o *GetGroupsSearchGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGroupsSearchGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGroupsSearchGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/search][%d] getGroupsSearchGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -90,7 +91,6 @@ func (m *DomainOrganizationRole) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DomainOrganizationRole) validatePermissionPolicies(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PermissionPolicies) { // not required
 		return nil
 	}
@@ -108,6 +108,8 @@ func (m *DomainOrganizationRole) validatePermissionPolicies(formats strfmt.Regis
 			if err := m.PermissionPolicies[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("permissionPolicies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("permissionPolicies" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -119,7 +121,6 @@ func (m *DomainOrganizationRole) validatePermissionPolicies(formats strfmt.Regis
 }
 
 func (m *DomainOrganizationRole) validatePermissions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Permissions) { // not required
 		return nil
 	}
@@ -132,7 +133,6 @@ func (m *DomainOrganizationRole) validatePermissions(formats strfmt.Registry) er
 }
 
 func (m *DomainOrganizationRole) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -145,12 +145,84 @@ func (m *DomainOrganizationRole) validateSelfURI(formats strfmt.Registry) error 
 }
 
 func (m *DomainOrganizationRole) validateUnusedPermissions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UnusedPermissions) { // not required
 		return nil
 	}
 
 	if err := validate.UniqueItems("unusedPermissions", "body", m.UnusedPermissions); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain organization role based on the context it is used
+func (m *DomainOrganizationRole) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePermissionPolicies(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUnusedPermissions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainOrganizationRole) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainOrganizationRole) contextValidatePermissionPolicies(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PermissionPolicies); i++ {
+
+		if m.PermissionPolicies[i] != nil {
+			if err := m.PermissionPolicies[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("permissionPolicies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("permissionPolicies" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainOrganizationRole) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainOrganizationRole) contextValidateUnusedPermissions(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "unusedPermissions", "body", []string(m.UnusedPermissions)); err != nil {
 		return err
 	}
 

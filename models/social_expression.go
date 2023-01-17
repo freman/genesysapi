@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -134,7 +135,6 @@ func (m *SocialExpression) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SocialExpression) validateAfterCallWork(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AfterCallWork) { // not required
 		return nil
 	}
@@ -143,6 +143,8 @@ func (m *SocialExpression) validateAfterCallWork(formats strfmt.Registry) error 
 		if err := m.AfterCallWork.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
 			}
 			return err
 		}
@@ -152,7 +154,6 @@ func (m *SocialExpression) validateAfterCallWork(formats strfmt.Registry) error 
 }
 
 func (m *SocialExpression) validateConnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectedTime) { // not required
 		return nil
 	}
@@ -193,23 +194,23 @@ const (
 	// SocialExpressionDisconnectTypeTransfer captures enum value "transfer"
 	SocialExpressionDisconnectTypeTransfer string = "transfer"
 
-	// SocialExpressionDisconnectTypeTransferConference captures enum value "transfer.conference"
-	SocialExpressionDisconnectTypeTransferConference string = "transfer.conference"
+	// SocialExpressionDisconnectTypeTransferDotConference captures enum value "transfer.conference"
+	SocialExpressionDisconnectTypeTransferDotConference string = "transfer.conference"
 
-	// SocialExpressionDisconnectTypeTransferConsult captures enum value "transfer.consult"
-	SocialExpressionDisconnectTypeTransferConsult string = "transfer.consult"
+	// SocialExpressionDisconnectTypeTransferDotConsult captures enum value "transfer.consult"
+	SocialExpressionDisconnectTypeTransferDotConsult string = "transfer.consult"
 
-	// SocialExpressionDisconnectTypeTransferForward captures enum value "transfer.forward"
-	SocialExpressionDisconnectTypeTransferForward string = "transfer.forward"
+	// SocialExpressionDisconnectTypeTransferDotForward captures enum value "transfer.forward"
+	SocialExpressionDisconnectTypeTransferDotForward string = "transfer.forward"
 
-	// SocialExpressionDisconnectTypeTransferNoanswer captures enum value "transfer.noanswer"
-	SocialExpressionDisconnectTypeTransferNoanswer string = "transfer.noanswer"
+	// SocialExpressionDisconnectTypeTransferDotNoanswer captures enum value "transfer.noanswer"
+	SocialExpressionDisconnectTypeTransferDotNoanswer string = "transfer.noanswer"
 
-	// SocialExpressionDisconnectTypeTransferNotavailable captures enum value "transfer.notavailable"
-	SocialExpressionDisconnectTypeTransferNotavailable string = "transfer.notavailable"
+	// SocialExpressionDisconnectTypeTransferDotNotavailable captures enum value "transfer.notavailable"
+	SocialExpressionDisconnectTypeTransferDotNotavailable string = "transfer.notavailable"
 
-	// SocialExpressionDisconnectTypeTransportFailure captures enum value "transport.failure"
-	SocialExpressionDisconnectTypeTransportFailure string = "transport.failure"
+	// SocialExpressionDisconnectTypeTransportDotFailure captures enum value "transport.failure"
+	SocialExpressionDisconnectTypeTransportDotFailure string = "transport.failure"
 
 	// SocialExpressionDisconnectTypeError captures enum value "error"
 	SocialExpressionDisconnectTypeError string = "error"
@@ -236,7 +237,6 @@ func (m *SocialExpression) validateDisconnectTypeEnum(path, location string, val
 }
 
 func (m *SocialExpression) validateDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectType) { // not required
 		return nil
 	}
@@ -250,7 +250,6 @@ func (m *SocialExpression) validateDisconnectType(formats strfmt.Registry) error
 }
 
 func (m *SocialExpression) validateDisconnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectedTime) { // not required
 		return nil
 	}
@@ -263,7 +262,6 @@ func (m *SocialExpression) validateDisconnectedTime(formats strfmt.Registry) err
 }
 
 func (m *SocialExpression) validateSegments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Segments) { // not required
 		return nil
 	}
@@ -277,6 +275,8 @@ func (m *SocialExpression) validateSegments(formats strfmt.Registry) error {
 			if err := m.Segments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -288,7 +288,6 @@ func (m *SocialExpression) validateSegments(formats strfmt.Registry) error {
 }
 
 func (m *SocialExpression) validateStartAlertingTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartAlertingTime) { // not required
 		return nil
 	}
@@ -301,7 +300,6 @@ func (m *SocialExpression) validateStartAlertingTime(formats strfmt.Registry) er
 }
 
 func (m *SocialExpression) validateStartHoldTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartHoldTime) { // not required
 		return nil
 	}
@@ -361,7 +359,6 @@ func (m *SocialExpression) validateStateEnum(path, location string, value string
 }
 
 func (m *SocialExpression) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -375,7 +372,6 @@ func (m *SocialExpression) validateState(formats strfmt.Registry) error {
 }
 
 func (m *SocialExpression) validateWrapup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Wrapup) { // not required
 		return nil
 	}
@@ -384,6 +380,82 @@ func (m *SocialExpression) validateWrapup(formats strfmt.Registry) error {
 		if err := m.Wrapup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this social expression based on the context it is used
+func (m *SocialExpression) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAfterCallWork(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSegments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SocialExpression) contextValidateAfterCallWork(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SocialExpression) contextValidateSegments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Segments); i++ {
+
+		if m.Segments[i] != nil {
+			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SocialExpression) contextValidateWrapup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Wrapup != nil {
+		if err := m.Wrapup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
 			}
 			return err
 		}

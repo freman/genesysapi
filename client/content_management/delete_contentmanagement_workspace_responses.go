@@ -95,7 +95,6 @@ func (o *DeleteContentmanagementWorkspaceReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteContentmanagementWorkspaceAccepted() *DeleteContentmanagementWorks
 	return &DeleteContentmanagementWorkspaceAccepted{}
 }
 
-/*DeleteContentmanagementWorkspaceAccepted handles this case with default header values.
+/*
+DeleteContentmanagementWorkspaceAccepted describes a response with status code 202, with default header values.
 
 Accepted - Processing Delete
 */
 type DeleteContentmanagementWorkspaceAccepted struct {
 }
 
+// IsSuccess returns true when this delete contentmanagement workspace accepted response has a 2xx status code
+func (o *DeleteContentmanagementWorkspaceAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete contentmanagement workspace accepted response has a 3xx status code
+func (o *DeleteContentmanagementWorkspaceAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement workspace accepted response has a 4xx status code
+func (o *DeleteContentmanagementWorkspaceAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete contentmanagement workspace accepted response has a 5xx status code
+func (o *DeleteContentmanagementWorkspaceAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement workspace accepted response a status code equal to that given
+func (o *DeleteContentmanagementWorkspaceAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *DeleteContentmanagementWorkspaceAccepted) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceAccepted ", 202)
+}
+
+func (o *DeleteContentmanagementWorkspaceAccepted) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceAccepted ", 202)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteContentmanagementWorkspaceBadRequest() *DeleteContentmanagementWor
 	return &DeleteContentmanagementWorkspaceBadRequest{}
 }
 
-/*DeleteContentmanagementWorkspaceBadRequest handles this case with default header values.
+/*
+DeleteContentmanagementWorkspaceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteContentmanagementWorkspaceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement workspace bad request response has a 2xx status code
+func (o *DeleteContentmanagementWorkspaceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement workspace bad request response has a 3xx status code
+func (o *DeleteContentmanagementWorkspaceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement workspace bad request response has a 4xx status code
+func (o *DeleteContentmanagementWorkspaceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement workspace bad request response has a 5xx status code
+func (o *DeleteContentmanagementWorkspaceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement workspace bad request response a status code equal to that given
+func (o *DeleteContentmanagementWorkspaceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteContentmanagementWorkspaceBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteContentmanagementWorkspaceBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteContentmanagementWorkspaceUnauthorized() *DeleteContentmanagementW
 	return &DeleteContentmanagementWorkspaceUnauthorized{}
 }
 
-/*DeleteContentmanagementWorkspaceUnauthorized handles this case with default header values.
+/*
+DeleteContentmanagementWorkspaceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteContentmanagementWorkspaceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement workspace unauthorized response has a 2xx status code
+func (o *DeleteContentmanagementWorkspaceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement workspace unauthorized response has a 3xx status code
+func (o *DeleteContentmanagementWorkspaceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement workspace unauthorized response has a 4xx status code
+func (o *DeleteContentmanagementWorkspaceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement workspace unauthorized response has a 5xx status code
+func (o *DeleteContentmanagementWorkspaceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement workspace unauthorized response a status code equal to that given
+func (o *DeleteContentmanagementWorkspaceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteContentmanagementWorkspaceUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteContentmanagementWorkspaceUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteContentmanagementWorkspaceForbidden() *DeleteContentmanagementWork
 	return &DeleteContentmanagementWorkspaceForbidden{}
 }
 
-/*DeleteContentmanagementWorkspaceForbidden handles this case with default header values.
+/*
+DeleteContentmanagementWorkspaceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteContentmanagementWorkspaceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement workspace forbidden response has a 2xx status code
+func (o *DeleteContentmanagementWorkspaceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement workspace forbidden response has a 3xx status code
+func (o *DeleteContentmanagementWorkspaceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement workspace forbidden response has a 4xx status code
+func (o *DeleteContentmanagementWorkspaceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement workspace forbidden response has a 5xx status code
+func (o *DeleteContentmanagementWorkspaceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement workspace forbidden response a status code equal to that given
+func (o *DeleteContentmanagementWorkspaceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteContentmanagementWorkspaceForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteContentmanagementWorkspaceForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteContentmanagementWorkspaceNotFound() *DeleteContentmanagementWorks
 	return &DeleteContentmanagementWorkspaceNotFound{}
 }
 
-/*DeleteContentmanagementWorkspaceNotFound handles this case with default header values.
+/*
+DeleteContentmanagementWorkspaceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteContentmanagementWorkspaceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement workspace not found response has a 2xx status code
+func (o *DeleteContentmanagementWorkspaceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement workspace not found response has a 3xx status code
+func (o *DeleteContentmanagementWorkspaceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement workspace not found response has a 4xx status code
+func (o *DeleteContentmanagementWorkspaceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement workspace not found response has a 5xx status code
+func (o *DeleteContentmanagementWorkspaceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement workspace not found response a status code equal to that given
+func (o *DeleteContentmanagementWorkspaceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteContentmanagementWorkspaceNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteContentmanagementWorkspaceNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteContentmanagementWorkspaceRequestTimeout() *DeleteContentmanagemen
 	return &DeleteContentmanagementWorkspaceRequestTimeout{}
 }
 
-/*DeleteContentmanagementWorkspaceRequestTimeout handles this case with default header values.
+/*
+DeleteContentmanagementWorkspaceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteContentmanagementWorkspaceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement workspace request timeout response has a 2xx status code
+func (o *DeleteContentmanagementWorkspaceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement workspace request timeout response has a 3xx status code
+func (o *DeleteContentmanagementWorkspaceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement workspace request timeout response has a 4xx status code
+func (o *DeleteContentmanagementWorkspaceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement workspace request timeout response has a 5xx status code
+func (o *DeleteContentmanagementWorkspaceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement workspace request timeout response a status code equal to that given
+func (o *DeleteContentmanagementWorkspaceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteContentmanagementWorkspaceRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteContentmanagementWorkspaceRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteContentmanagementWorkspaceRequestEntityTooLarge() *DeleteContentma
 	return &DeleteContentmanagementWorkspaceRequestEntityTooLarge{}
 }
 
-/*DeleteContentmanagementWorkspaceRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteContentmanagementWorkspaceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteContentmanagementWorkspaceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement workspace request entity too large response has a 2xx status code
+func (o *DeleteContentmanagementWorkspaceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement workspace request entity too large response has a 3xx status code
+func (o *DeleteContentmanagementWorkspaceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement workspace request entity too large response has a 4xx status code
+func (o *DeleteContentmanagementWorkspaceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement workspace request entity too large response has a 5xx status code
+func (o *DeleteContentmanagementWorkspaceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement workspace request entity too large response a status code equal to that given
+func (o *DeleteContentmanagementWorkspaceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteContentmanagementWorkspaceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteContentmanagementWorkspaceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteContentmanagementWorkspaceUnsupportedMediaType() *DeleteContentman
 	return &DeleteContentmanagementWorkspaceUnsupportedMediaType{}
 }
 
-/*DeleteContentmanagementWorkspaceUnsupportedMediaType handles this case with default header values.
+/*
+DeleteContentmanagementWorkspaceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteContentmanagementWorkspaceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement workspace unsupported media type response has a 2xx status code
+func (o *DeleteContentmanagementWorkspaceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement workspace unsupported media type response has a 3xx status code
+func (o *DeleteContentmanagementWorkspaceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement workspace unsupported media type response has a 4xx status code
+func (o *DeleteContentmanagementWorkspaceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement workspace unsupported media type response has a 5xx status code
+func (o *DeleteContentmanagementWorkspaceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement workspace unsupported media type response a status code equal to that given
+func (o *DeleteContentmanagementWorkspaceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteContentmanagementWorkspaceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteContentmanagementWorkspaceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteContentmanagementWorkspaceTooManyRequests() *DeleteContentmanageme
 	return &DeleteContentmanagementWorkspaceTooManyRequests{}
 }
 
-/*DeleteContentmanagementWorkspaceTooManyRequests handles this case with default header values.
+/*
+DeleteContentmanagementWorkspaceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteContentmanagementWorkspaceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement workspace too many requests response has a 2xx status code
+func (o *DeleteContentmanagementWorkspaceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement workspace too many requests response has a 3xx status code
+func (o *DeleteContentmanagementWorkspaceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement workspace too many requests response has a 4xx status code
+func (o *DeleteContentmanagementWorkspaceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement workspace too many requests response has a 5xx status code
+func (o *DeleteContentmanagementWorkspaceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement workspace too many requests response a status code equal to that given
+func (o *DeleteContentmanagementWorkspaceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteContentmanagementWorkspaceTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteContentmanagementWorkspaceTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteContentmanagementWorkspaceInternalServerError() *DeleteContentmana
 	return &DeleteContentmanagementWorkspaceInternalServerError{}
 }
 
-/*DeleteContentmanagementWorkspaceInternalServerError handles this case with default header values.
+/*
+DeleteContentmanagementWorkspaceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteContentmanagementWorkspaceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement workspace internal server error response has a 2xx status code
+func (o *DeleteContentmanagementWorkspaceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement workspace internal server error response has a 3xx status code
+func (o *DeleteContentmanagementWorkspaceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement workspace internal server error response has a 4xx status code
+func (o *DeleteContentmanagementWorkspaceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete contentmanagement workspace internal server error response has a 5xx status code
+func (o *DeleteContentmanagementWorkspaceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete contentmanagement workspace internal server error response a status code equal to that given
+func (o *DeleteContentmanagementWorkspaceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteContentmanagementWorkspaceInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteContentmanagementWorkspaceInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteContentmanagementWorkspaceServiceUnavailable() *DeleteContentmanag
 	return &DeleteContentmanagementWorkspaceServiceUnavailable{}
 }
 
-/*DeleteContentmanagementWorkspaceServiceUnavailable handles this case with default header values.
+/*
+DeleteContentmanagementWorkspaceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteContentmanagementWorkspaceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement workspace service unavailable response has a 2xx status code
+func (o *DeleteContentmanagementWorkspaceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement workspace service unavailable response has a 3xx status code
+func (o *DeleteContentmanagementWorkspaceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement workspace service unavailable response has a 4xx status code
+func (o *DeleteContentmanagementWorkspaceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete contentmanagement workspace service unavailable response has a 5xx status code
+func (o *DeleteContentmanagementWorkspaceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete contentmanagement workspace service unavailable response a status code equal to that given
+func (o *DeleteContentmanagementWorkspaceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteContentmanagementWorkspaceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteContentmanagementWorkspaceServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteContentmanagementWorkspaceGatewayTimeout() *DeleteContentmanagemen
 	return &DeleteContentmanagementWorkspaceGatewayTimeout{}
 }
 
-/*DeleteContentmanagementWorkspaceGatewayTimeout handles this case with default header values.
+/*
+DeleteContentmanagementWorkspaceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteContentmanagementWorkspaceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement workspace gateway timeout response has a 2xx status code
+func (o *DeleteContentmanagementWorkspaceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement workspace gateway timeout response has a 3xx status code
+func (o *DeleteContentmanagementWorkspaceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement workspace gateway timeout response has a 4xx status code
+func (o *DeleteContentmanagementWorkspaceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete contentmanagement workspace gateway timeout response has a 5xx status code
+func (o *DeleteContentmanagementWorkspaceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete contentmanagement workspace gateway timeout response a status code equal to that given
+func (o *DeleteContentmanagementWorkspaceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteContentmanagementWorkspaceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteContentmanagementWorkspaceGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/workspaces/{workspaceId}][%d] deleteContentmanagementWorkspaceGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *PutRoutingUtilizationReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutRoutingUtilizationOK() *PutRoutingUtilizationOK {
 	return &PutRoutingUtilizationOK{}
 }
 
-/*PutRoutingUtilizationOK handles this case with default header values.
+/*
+PutRoutingUtilizationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutRoutingUtilizationOK struct {
 	Payload *models.Utilization
 }
 
+// IsSuccess returns true when this put routing utilization o k response has a 2xx status code
+func (o *PutRoutingUtilizationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put routing utilization o k response has a 3xx status code
+func (o *PutRoutingUtilizationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing utilization o k response has a 4xx status code
+func (o *PutRoutingUtilizationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put routing utilization o k response has a 5xx status code
+func (o *PutRoutingUtilizationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing utilization o k response a status code equal to that given
+func (o *PutRoutingUtilizationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutRoutingUtilizationOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationOK  %+v", 200, o.Payload)
+}
+
+func (o *PutRoutingUtilizationOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutRoutingUtilizationBadRequest() *PutRoutingUtilizationBadRequest {
 	return &PutRoutingUtilizationBadRequest{}
 }
 
-/*PutRoutingUtilizationBadRequest handles this case with default header values.
+/*
+PutRoutingUtilizationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutRoutingUtilizationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing utilization bad request response has a 2xx status code
+func (o *PutRoutingUtilizationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing utilization bad request response has a 3xx status code
+func (o *PutRoutingUtilizationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing utilization bad request response has a 4xx status code
+func (o *PutRoutingUtilizationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing utilization bad request response has a 5xx status code
+func (o *PutRoutingUtilizationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing utilization bad request response a status code equal to that given
+func (o *PutRoutingUtilizationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutRoutingUtilizationBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutRoutingUtilizationBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutRoutingUtilizationUnauthorized() *PutRoutingUtilizationUnauthorized {
 	return &PutRoutingUtilizationUnauthorized{}
 }
 
-/*PutRoutingUtilizationUnauthorized handles this case with default header values.
+/*
+PutRoutingUtilizationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutRoutingUtilizationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing utilization unauthorized response has a 2xx status code
+func (o *PutRoutingUtilizationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing utilization unauthorized response has a 3xx status code
+func (o *PutRoutingUtilizationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing utilization unauthorized response has a 4xx status code
+func (o *PutRoutingUtilizationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing utilization unauthorized response has a 5xx status code
+func (o *PutRoutingUtilizationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing utilization unauthorized response a status code equal to that given
+func (o *PutRoutingUtilizationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutRoutingUtilizationUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutRoutingUtilizationUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutRoutingUtilizationForbidden() *PutRoutingUtilizationForbidden {
 	return &PutRoutingUtilizationForbidden{}
 }
 
-/*PutRoutingUtilizationForbidden handles this case with default header values.
+/*
+PutRoutingUtilizationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutRoutingUtilizationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing utilization forbidden response has a 2xx status code
+func (o *PutRoutingUtilizationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing utilization forbidden response has a 3xx status code
+func (o *PutRoutingUtilizationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing utilization forbidden response has a 4xx status code
+func (o *PutRoutingUtilizationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing utilization forbidden response has a 5xx status code
+func (o *PutRoutingUtilizationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing utilization forbidden response a status code equal to that given
+func (o *PutRoutingUtilizationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutRoutingUtilizationForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutRoutingUtilizationForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutRoutingUtilizationNotFound() *PutRoutingUtilizationNotFound {
 	return &PutRoutingUtilizationNotFound{}
 }
 
-/*PutRoutingUtilizationNotFound handles this case with default header values.
+/*
+PutRoutingUtilizationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutRoutingUtilizationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing utilization not found response has a 2xx status code
+func (o *PutRoutingUtilizationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing utilization not found response has a 3xx status code
+func (o *PutRoutingUtilizationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing utilization not found response has a 4xx status code
+func (o *PutRoutingUtilizationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing utilization not found response has a 5xx status code
+func (o *PutRoutingUtilizationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing utilization not found response a status code equal to that given
+func (o *PutRoutingUtilizationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutRoutingUtilizationNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutRoutingUtilizationNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutRoutingUtilizationRequestTimeout() *PutRoutingUtilizationRequestTimeo
 	return &PutRoutingUtilizationRequestTimeout{}
 }
 
-/*PutRoutingUtilizationRequestTimeout handles this case with default header values.
+/*
+PutRoutingUtilizationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutRoutingUtilizationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing utilization request timeout response has a 2xx status code
+func (o *PutRoutingUtilizationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing utilization request timeout response has a 3xx status code
+func (o *PutRoutingUtilizationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing utilization request timeout response has a 4xx status code
+func (o *PutRoutingUtilizationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing utilization request timeout response has a 5xx status code
+func (o *PutRoutingUtilizationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing utilization request timeout response a status code equal to that given
+func (o *PutRoutingUtilizationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutRoutingUtilizationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutRoutingUtilizationRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutRoutingUtilizationRequestEntityTooLarge() *PutRoutingUtilizationReque
 	return &PutRoutingUtilizationRequestEntityTooLarge{}
 }
 
-/*PutRoutingUtilizationRequestEntityTooLarge handles this case with default header values.
+/*
+PutRoutingUtilizationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutRoutingUtilizationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing utilization request entity too large response has a 2xx status code
+func (o *PutRoutingUtilizationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing utilization request entity too large response has a 3xx status code
+func (o *PutRoutingUtilizationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing utilization request entity too large response has a 4xx status code
+func (o *PutRoutingUtilizationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing utilization request entity too large response has a 5xx status code
+func (o *PutRoutingUtilizationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing utilization request entity too large response a status code equal to that given
+func (o *PutRoutingUtilizationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutRoutingUtilizationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutRoutingUtilizationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutRoutingUtilizationUnsupportedMediaType() *PutRoutingUtilizationUnsupp
 	return &PutRoutingUtilizationUnsupportedMediaType{}
 }
 
-/*PutRoutingUtilizationUnsupportedMediaType handles this case with default header values.
+/*
+PutRoutingUtilizationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutRoutingUtilizationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing utilization unsupported media type response has a 2xx status code
+func (o *PutRoutingUtilizationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing utilization unsupported media type response has a 3xx status code
+func (o *PutRoutingUtilizationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing utilization unsupported media type response has a 4xx status code
+func (o *PutRoutingUtilizationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing utilization unsupported media type response has a 5xx status code
+func (o *PutRoutingUtilizationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing utilization unsupported media type response a status code equal to that given
+func (o *PutRoutingUtilizationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutRoutingUtilizationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutRoutingUtilizationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutRoutingUtilizationTooManyRequests() *PutRoutingUtilizationTooManyRequ
 	return &PutRoutingUtilizationTooManyRequests{}
 }
 
-/*PutRoutingUtilizationTooManyRequests handles this case with default header values.
+/*
+PutRoutingUtilizationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutRoutingUtilizationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing utilization too many requests response has a 2xx status code
+func (o *PutRoutingUtilizationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing utilization too many requests response has a 3xx status code
+func (o *PutRoutingUtilizationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing utilization too many requests response has a 4xx status code
+func (o *PutRoutingUtilizationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing utilization too many requests response has a 5xx status code
+func (o *PutRoutingUtilizationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing utilization too many requests response a status code equal to that given
+func (o *PutRoutingUtilizationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutRoutingUtilizationTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutRoutingUtilizationTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutRoutingUtilizationInternalServerError() *PutRoutingUtilizationInterna
 	return &PutRoutingUtilizationInternalServerError{}
 }
 
-/*PutRoutingUtilizationInternalServerError handles this case with default header values.
+/*
+PutRoutingUtilizationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutRoutingUtilizationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing utilization internal server error response has a 2xx status code
+func (o *PutRoutingUtilizationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing utilization internal server error response has a 3xx status code
+func (o *PutRoutingUtilizationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing utilization internal server error response has a 4xx status code
+func (o *PutRoutingUtilizationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put routing utilization internal server error response has a 5xx status code
+func (o *PutRoutingUtilizationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put routing utilization internal server error response a status code equal to that given
+func (o *PutRoutingUtilizationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutRoutingUtilizationInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutRoutingUtilizationInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutRoutingUtilizationServiceUnavailable() *PutRoutingUtilizationServiceU
 	return &PutRoutingUtilizationServiceUnavailable{}
 }
 
-/*PutRoutingUtilizationServiceUnavailable handles this case with default header values.
+/*
+PutRoutingUtilizationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutRoutingUtilizationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing utilization service unavailable response has a 2xx status code
+func (o *PutRoutingUtilizationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing utilization service unavailable response has a 3xx status code
+func (o *PutRoutingUtilizationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing utilization service unavailable response has a 4xx status code
+func (o *PutRoutingUtilizationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put routing utilization service unavailable response has a 5xx status code
+func (o *PutRoutingUtilizationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put routing utilization service unavailable response a status code equal to that given
+func (o *PutRoutingUtilizationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutRoutingUtilizationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutRoutingUtilizationServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutRoutingUtilizationGatewayTimeout() *PutRoutingUtilizationGatewayTimeo
 	return &PutRoutingUtilizationGatewayTimeout{}
 }
 
-/*PutRoutingUtilizationGatewayTimeout handles this case with default header values.
+/*
+PutRoutingUtilizationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutRoutingUtilizationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing utilization gateway timeout response has a 2xx status code
+func (o *PutRoutingUtilizationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing utilization gateway timeout response has a 3xx status code
+func (o *PutRoutingUtilizationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing utilization gateway timeout response has a 4xx status code
+func (o *PutRoutingUtilizationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put routing utilization gateway timeout response has a 5xx status code
+func (o *PutRoutingUtilizationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put routing utilization gateway timeout response a status code equal to that given
+func (o *PutRoutingUtilizationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutRoutingUtilizationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutRoutingUtilizationGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/utilization][%d] putRoutingUtilizationGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -105,13 +106,74 @@ func (m *ScimError) validateScimTypeEnum(path, location string, value string) er
 }
 
 func (m *ScimError) validateScimType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScimType) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateScimTypeEnum("scimType", "body", m.ScimType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scim error based on the context it is used
+func (m *ScimError) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDetail(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchemas(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScimType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimError) contextValidateDetail(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "detail", "body", string(m.Detail)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimError) contextValidateSchemas(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "schemas", "body", []string(m.Schemas)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimError) contextValidateScimType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "scimType", "body", string(m.ScimType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimError) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
 		return err
 	}
 

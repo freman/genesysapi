@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostExternalcontactsContactPromotionParams creates a new PostExternalcontactsContactPromotionParams object
-// with the default values initialized.
+// NewPostExternalcontactsContactPromotionParams creates a new PostExternalcontactsContactPromotionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostExternalcontactsContactPromotionParams() *PostExternalcontactsContactPromotionParams {
-	var ()
 	return &PostExternalcontactsContactPromotionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostExternalcontactsContactPromotionParamsWithTimeout creates a new PostExternalcontactsContactPromotionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostExternalcontactsContactPromotionParamsWithTimeout(timeout time.Duration) *PostExternalcontactsContactPromotionParams {
-	var ()
 	return &PostExternalcontactsContactPromotionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostExternalcontactsContactPromotionParamsWithContext creates a new PostExternalcontactsContactPromotionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostExternalcontactsContactPromotionParamsWithContext(ctx context.Context) *PostExternalcontactsContactPromotionParams {
-	var ()
 	return &PostExternalcontactsContactPromotionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostExternalcontactsContactPromotionParamsWithHTTPClient creates a new PostExternalcontactsContactPromotionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostExternalcontactsContactPromotionParamsWithHTTPClient(client *http.Client) *PostExternalcontactsContactPromotionParams {
-	var ()
 	return &PostExternalcontactsContactPromotionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostExternalcontactsContactPromotionParams contains all the parameters to send to the API endpoint
-for the post externalcontacts contact promotion operation typically these are written to a http.Request
+/*
+PostExternalcontactsContactPromotionParams contains all the parameters to send to the API endpoint
+
+	for the post externalcontacts contact promotion operation.
+
+	Typically these are written to a http.Request.
 */
 type PostExternalcontactsContactPromotionParams struct {
 
-	/*ContactID
-	  ExternalContact ID
+	/* ContactID.
 
+	   ExternalContact ID
 	*/
 	ContactID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post externalcontacts contact promotion params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsContactPromotionParams) WithDefaults() *PostExternalcontactsContactPromotionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post externalcontacts contact promotion params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsContactPromotionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post externalcontacts contact promotion params

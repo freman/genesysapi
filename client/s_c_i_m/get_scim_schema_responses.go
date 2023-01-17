@@ -95,7 +95,6 @@ func (o *GetScimSchemaReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetScimSchemaOK() *GetScimSchemaOK {
 	return &GetScimSchemaOK{}
 }
 
-/*GetScimSchemaOK handles this case with default header values.
+/*
+GetScimSchemaOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetScimSchemaOK struct {
 	Payload *models.ScimV2SchemaDefinition
 }
 
+// IsSuccess returns true when this get scim schema o k response has a 2xx status code
+func (o *GetScimSchemaOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get scim schema o k response has a 3xx status code
+func (o *GetScimSchemaOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim schema o k response has a 4xx status code
+func (o *GetScimSchemaOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim schema o k response has a 5xx status code
+func (o *GetScimSchemaOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim schema o k response a status code equal to that given
+func (o *GetScimSchemaOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetScimSchemaOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaOK  %+v", 200, o.Payload)
+}
+
+func (o *GetScimSchemaOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetScimSchemaBadRequest() *GetScimSchemaBadRequest {
 	return &GetScimSchemaBadRequest{}
 }
 
-/*GetScimSchemaBadRequest handles this case with default header values.
+/*
+GetScimSchemaBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetScimSchemaBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim schema bad request response has a 2xx status code
+func (o *GetScimSchemaBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim schema bad request response has a 3xx status code
+func (o *GetScimSchemaBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim schema bad request response has a 4xx status code
+func (o *GetScimSchemaBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim schema bad request response has a 5xx status code
+func (o *GetScimSchemaBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim schema bad request response a status code equal to that given
+func (o *GetScimSchemaBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetScimSchemaBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetScimSchemaBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetScimSchemaUnauthorized() *GetScimSchemaUnauthorized {
 	return &GetScimSchemaUnauthorized{}
 }
 
-/*GetScimSchemaUnauthorized handles this case with default header values.
+/*
+GetScimSchemaUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetScimSchemaUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim schema unauthorized response has a 2xx status code
+func (o *GetScimSchemaUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim schema unauthorized response has a 3xx status code
+func (o *GetScimSchemaUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim schema unauthorized response has a 4xx status code
+func (o *GetScimSchemaUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim schema unauthorized response has a 5xx status code
+func (o *GetScimSchemaUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim schema unauthorized response a status code equal to that given
+func (o *GetScimSchemaUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetScimSchemaUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetScimSchemaUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetScimSchemaForbidden() *GetScimSchemaForbidden {
 	return &GetScimSchemaForbidden{}
 }
 
-/*GetScimSchemaForbidden handles this case with default header values.
+/*
+GetScimSchemaForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetScimSchemaForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim schema forbidden response has a 2xx status code
+func (o *GetScimSchemaForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim schema forbidden response has a 3xx status code
+func (o *GetScimSchemaForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim schema forbidden response has a 4xx status code
+func (o *GetScimSchemaForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim schema forbidden response has a 5xx status code
+func (o *GetScimSchemaForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim schema forbidden response a status code equal to that given
+func (o *GetScimSchemaForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetScimSchemaForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetScimSchemaForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetScimSchemaNotFound() *GetScimSchemaNotFound {
 	return &GetScimSchemaNotFound{}
 }
 
-/*GetScimSchemaNotFound handles this case with default header values.
+/*
+GetScimSchemaNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetScimSchemaNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim schema not found response has a 2xx status code
+func (o *GetScimSchemaNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim schema not found response has a 3xx status code
+func (o *GetScimSchemaNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim schema not found response has a 4xx status code
+func (o *GetScimSchemaNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim schema not found response has a 5xx status code
+func (o *GetScimSchemaNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim schema not found response a status code equal to that given
+func (o *GetScimSchemaNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetScimSchemaNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetScimSchemaNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetScimSchemaRequestTimeout() *GetScimSchemaRequestTimeout {
 	return &GetScimSchemaRequestTimeout{}
 }
 
-/*GetScimSchemaRequestTimeout handles this case with default header values.
+/*
+GetScimSchemaRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetScimSchemaRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim schema request timeout response has a 2xx status code
+func (o *GetScimSchemaRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim schema request timeout response has a 3xx status code
+func (o *GetScimSchemaRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim schema request timeout response has a 4xx status code
+func (o *GetScimSchemaRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim schema request timeout response has a 5xx status code
+func (o *GetScimSchemaRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim schema request timeout response a status code equal to that given
+func (o *GetScimSchemaRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetScimSchemaRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScimSchemaRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetScimSchemaRequestEntityTooLarge() *GetScimSchemaRequestEntityTooLarge
 	return &GetScimSchemaRequestEntityTooLarge{}
 }
 
-/*GetScimSchemaRequestEntityTooLarge handles this case with default header values.
+/*
+GetScimSchemaRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetScimSchemaRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim schema request entity too large response has a 2xx status code
+func (o *GetScimSchemaRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim schema request entity too large response has a 3xx status code
+func (o *GetScimSchemaRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim schema request entity too large response has a 4xx status code
+func (o *GetScimSchemaRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim schema request entity too large response has a 5xx status code
+func (o *GetScimSchemaRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim schema request entity too large response a status code equal to that given
+func (o *GetScimSchemaRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetScimSchemaRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetScimSchemaRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetScimSchemaUnsupportedMediaType() *GetScimSchemaUnsupportedMediaType {
 	return &GetScimSchemaUnsupportedMediaType{}
 }
 
-/*GetScimSchemaUnsupportedMediaType handles this case with default header values.
+/*
+GetScimSchemaUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetScimSchemaUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim schema unsupported media type response has a 2xx status code
+func (o *GetScimSchemaUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim schema unsupported media type response has a 3xx status code
+func (o *GetScimSchemaUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim schema unsupported media type response has a 4xx status code
+func (o *GetScimSchemaUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim schema unsupported media type response has a 5xx status code
+func (o *GetScimSchemaUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim schema unsupported media type response a status code equal to that given
+func (o *GetScimSchemaUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetScimSchemaUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetScimSchemaUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetScimSchemaTooManyRequests() *GetScimSchemaTooManyRequests {
 	return &GetScimSchemaTooManyRequests{}
 }
 
-/*GetScimSchemaTooManyRequests handles this case with default header values.
+/*
+GetScimSchemaTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetScimSchemaTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim schema too many requests response has a 2xx status code
+func (o *GetScimSchemaTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim schema too many requests response has a 3xx status code
+func (o *GetScimSchemaTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim schema too many requests response has a 4xx status code
+func (o *GetScimSchemaTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim schema too many requests response has a 5xx status code
+func (o *GetScimSchemaTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim schema too many requests response a status code equal to that given
+func (o *GetScimSchemaTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetScimSchemaTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetScimSchemaTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetScimSchemaInternalServerError() *GetScimSchemaInternalServerError {
 	return &GetScimSchemaInternalServerError{}
 }
 
-/*GetScimSchemaInternalServerError handles this case with default header values.
+/*
+GetScimSchemaInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetScimSchemaInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim schema internal server error response has a 2xx status code
+func (o *GetScimSchemaInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim schema internal server error response has a 3xx status code
+func (o *GetScimSchemaInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim schema internal server error response has a 4xx status code
+func (o *GetScimSchemaInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim schema internal server error response has a 5xx status code
+func (o *GetScimSchemaInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim schema internal server error response a status code equal to that given
+func (o *GetScimSchemaInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetScimSchemaInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetScimSchemaInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetScimSchemaServiceUnavailable() *GetScimSchemaServiceUnavailable {
 	return &GetScimSchemaServiceUnavailable{}
 }
 
-/*GetScimSchemaServiceUnavailable handles this case with default header values.
+/*
+GetScimSchemaServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetScimSchemaServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim schema service unavailable response has a 2xx status code
+func (o *GetScimSchemaServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim schema service unavailable response has a 3xx status code
+func (o *GetScimSchemaServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim schema service unavailable response has a 4xx status code
+func (o *GetScimSchemaServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim schema service unavailable response has a 5xx status code
+func (o *GetScimSchemaServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim schema service unavailable response a status code equal to that given
+func (o *GetScimSchemaServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetScimSchemaServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetScimSchemaServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetScimSchemaGatewayTimeout() *GetScimSchemaGatewayTimeout {
 	return &GetScimSchemaGatewayTimeout{}
 }
 
-/*GetScimSchemaGatewayTimeout handles this case with default header values.
+/*
+GetScimSchemaGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetScimSchemaGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim schema gateway timeout response has a 2xx status code
+func (o *GetScimSchemaGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim schema gateway timeout response has a 3xx status code
+func (o *GetScimSchemaGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim schema gateway timeout response has a 4xx status code
+func (o *GetScimSchemaGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim schema gateway timeout response has a 5xx status code
+func (o *GetScimSchemaGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim schema gateway timeout response a status code equal to that given
+func (o *GetScimSchemaGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetScimSchemaGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetScimSchemaGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/schemas/{schemaId}][%d] getScimSchemaGatewayTimeout  %+v", 504, o.Payload)
 }
 

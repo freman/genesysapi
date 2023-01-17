@@ -95,7 +95,6 @@ func (o *PostAnalyticsBotsAggregatesQueryReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostAnalyticsBotsAggregatesQueryOK() *PostAnalyticsBotsAggregatesQueryOK
 	return &PostAnalyticsBotsAggregatesQueryOK{}
 }
 
-/*PostAnalyticsBotsAggregatesQueryOK handles this case with default header values.
+/*
+PostAnalyticsBotsAggregatesQueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostAnalyticsBotsAggregatesQueryOK struct {
 	Payload *models.BotAggregateQueryResponse
 }
 
+// IsSuccess returns true when this post analytics bots aggregates query o k response has a 2xx status code
+func (o *PostAnalyticsBotsAggregatesQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post analytics bots aggregates query o k response has a 3xx status code
+func (o *PostAnalyticsBotsAggregatesQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics bots aggregates query o k response has a 4xx status code
+func (o *PostAnalyticsBotsAggregatesQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics bots aggregates query o k response has a 5xx status code
+func (o *PostAnalyticsBotsAggregatesQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics bots aggregates query o k response a status code equal to that given
+func (o *PostAnalyticsBotsAggregatesQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostAnalyticsBotsAggregatesQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostAnalyticsBotsAggregatesQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostAnalyticsBotsAggregatesQueryBadRequest() *PostAnalyticsBotsAggregate
 	return &PostAnalyticsBotsAggregatesQueryBadRequest{}
 }
 
-/*PostAnalyticsBotsAggregatesQueryBadRequest handles this case with default header values.
+/*
+PostAnalyticsBotsAggregatesQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostAnalyticsBotsAggregatesQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics bots aggregates query bad request response has a 2xx status code
+func (o *PostAnalyticsBotsAggregatesQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics bots aggregates query bad request response has a 3xx status code
+func (o *PostAnalyticsBotsAggregatesQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics bots aggregates query bad request response has a 4xx status code
+func (o *PostAnalyticsBotsAggregatesQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics bots aggregates query bad request response has a 5xx status code
+func (o *PostAnalyticsBotsAggregatesQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics bots aggregates query bad request response a status code equal to that given
+func (o *PostAnalyticsBotsAggregatesQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAnalyticsBotsAggregatesQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAnalyticsBotsAggregatesQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostAnalyticsBotsAggregatesQueryUnauthorized() *PostAnalyticsBotsAggrega
 	return &PostAnalyticsBotsAggregatesQueryUnauthorized{}
 }
 
-/*PostAnalyticsBotsAggregatesQueryUnauthorized handles this case with default header values.
+/*
+PostAnalyticsBotsAggregatesQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostAnalyticsBotsAggregatesQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics bots aggregates query unauthorized response has a 2xx status code
+func (o *PostAnalyticsBotsAggregatesQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics bots aggregates query unauthorized response has a 3xx status code
+func (o *PostAnalyticsBotsAggregatesQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics bots aggregates query unauthorized response has a 4xx status code
+func (o *PostAnalyticsBotsAggregatesQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics bots aggregates query unauthorized response has a 5xx status code
+func (o *PostAnalyticsBotsAggregatesQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics bots aggregates query unauthorized response a status code equal to that given
+func (o *PostAnalyticsBotsAggregatesQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAnalyticsBotsAggregatesQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAnalyticsBotsAggregatesQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostAnalyticsBotsAggregatesQueryForbidden() *PostAnalyticsBotsAggregates
 	return &PostAnalyticsBotsAggregatesQueryForbidden{}
 }
 
-/*PostAnalyticsBotsAggregatesQueryForbidden handles this case with default header values.
+/*
+PostAnalyticsBotsAggregatesQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostAnalyticsBotsAggregatesQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics bots aggregates query forbidden response has a 2xx status code
+func (o *PostAnalyticsBotsAggregatesQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics bots aggregates query forbidden response has a 3xx status code
+func (o *PostAnalyticsBotsAggregatesQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics bots aggregates query forbidden response has a 4xx status code
+func (o *PostAnalyticsBotsAggregatesQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics bots aggregates query forbidden response has a 5xx status code
+func (o *PostAnalyticsBotsAggregatesQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics bots aggregates query forbidden response a status code equal to that given
+func (o *PostAnalyticsBotsAggregatesQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAnalyticsBotsAggregatesQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAnalyticsBotsAggregatesQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostAnalyticsBotsAggregatesQueryNotFound() *PostAnalyticsBotsAggregatesQ
 	return &PostAnalyticsBotsAggregatesQueryNotFound{}
 }
 
-/*PostAnalyticsBotsAggregatesQueryNotFound handles this case with default header values.
+/*
+PostAnalyticsBotsAggregatesQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostAnalyticsBotsAggregatesQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics bots aggregates query not found response has a 2xx status code
+func (o *PostAnalyticsBotsAggregatesQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics bots aggregates query not found response has a 3xx status code
+func (o *PostAnalyticsBotsAggregatesQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics bots aggregates query not found response has a 4xx status code
+func (o *PostAnalyticsBotsAggregatesQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics bots aggregates query not found response has a 5xx status code
+func (o *PostAnalyticsBotsAggregatesQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics bots aggregates query not found response a status code equal to that given
+func (o *PostAnalyticsBotsAggregatesQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAnalyticsBotsAggregatesQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAnalyticsBotsAggregatesQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostAnalyticsBotsAggregatesQueryRequestTimeout() *PostAnalyticsBotsAggre
 	return &PostAnalyticsBotsAggregatesQueryRequestTimeout{}
 }
 
-/*PostAnalyticsBotsAggregatesQueryRequestTimeout handles this case with default header values.
+/*
+PostAnalyticsBotsAggregatesQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostAnalyticsBotsAggregatesQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics bots aggregates query request timeout response has a 2xx status code
+func (o *PostAnalyticsBotsAggregatesQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics bots aggregates query request timeout response has a 3xx status code
+func (o *PostAnalyticsBotsAggregatesQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics bots aggregates query request timeout response has a 4xx status code
+func (o *PostAnalyticsBotsAggregatesQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics bots aggregates query request timeout response has a 5xx status code
+func (o *PostAnalyticsBotsAggregatesQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics bots aggregates query request timeout response a status code equal to that given
+func (o *PostAnalyticsBotsAggregatesQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAnalyticsBotsAggregatesQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAnalyticsBotsAggregatesQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostAnalyticsBotsAggregatesQueryRequestEntityTooLarge() *PostAnalyticsBo
 	return &PostAnalyticsBotsAggregatesQueryRequestEntityTooLarge{}
 }
 
-/*PostAnalyticsBotsAggregatesQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostAnalyticsBotsAggregatesQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostAnalyticsBotsAggregatesQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics bots aggregates query request entity too large response has a 2xx status code
+func (o *PostAnalyticsBotsAggregatesQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics bots aggregates query request entity too large response has a 3xx status code
+func (o *PostAnalyticsBotsAggregatesQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics bots aggregates query request entity too large response has a 4xx status code
+func (o *PostAnalyticsBotsAggregatesQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics bots aggregates query request entity too large response has a 5xx status code
+func (o *PostAnalyticsBotsAggregatesQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics bots aggregates query request entity too large response a status code equal to that given
+func (o *PostAnalyticsBotsAggregatesQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAnalyticsBotsAggregatesQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAnalyticsBotsAggregatesQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostAnalyticsBotsAggregatesQueryUnsupportedMediaType() *PostAnalyticsBot
 	return &PostAnalyticsBotsAggregatesQueryUnsupportedMediaType{}
 }
 
-/*PostAnalyticsBotsAggregatesQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostAnalyticsBotsAggregatesQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostAnalyticsBotsAggregatesQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics bots aggregates query unsupported media type response has a 2xx status code
+func (o *PostAnalyticsBotsAggregatesQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics bots aggregates query unsupported media type response has a 3xx status code
+func (o *PostAnalyticsBotsAggregatesQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics bots aggregates query unsupported media type response has a 4xx status code
+func (o *PostAnalyticsBotsAggregatesQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics bots aggregates query unsupported media type response has a 5xx status code
+func (o *PostAnalyticsBotsAggregatesQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics bots aggregates query unsupported media type response a status code equal to that given
+func (o *PostAnalyticsBotsAggregatesQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAnalyticsBotsAggregatesQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAnalyticsBotsAggregatesQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostAnalyticsBotsAggregatesQueryTooManyRequests() *PostAnalyticsBotsAggr
 	return &PostAnalyticsBotsAggregatesQueryTooManyRequests{}
 }
 
-/*PostAnalyticsBotsAggregatesQueryTooManyRequests handles this case with default header values.
+/*
+PostAnalyticsBotsAggregatesQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostAnalyticsBotsAggregatesQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics bots aggregates query too many requests response has a 2xx status code
+func (o *PostAnalyticsBotsAggregatesQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics bots aggregates query too many requests response has a 3xx status code
+func (o *PostAnalyticsBotsAggregatesQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics bots aggregates query too many requests response has a 4xx status code
+func (o *PostAnalyticsBotsAggregatesQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics bots aggregates query too many requests response has a 5xx status code
+func (o *PostAnalyticsBotsAggregatesQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics bots aggregates query too many requests response a status code equal to that given
+func (o *PostAnalyticsBotsAggregatesQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAnalyticsBotsAggregatesQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAnalyticsBotsAggregatesQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostAnalyticsBotsAggregatesQueryInternalServerError() *PostAnalyticsBots
 	return &PostAnalyticsBotsAggregatesQueryInternalServerError{}
 }
 
-/*PostAnalyticsBotsAggregatesQueryInternalServerError handles this case with default header values.
+/*
+PostAnalyticsBotsAggregatesQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostAnalyticsBotsAggregatesQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics bots aggregates query internal server error response has a 2xx status code
+func (o *PostAnalyticsBotsAggregatesQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics bots aggregates query internal server error response has a 3xx status code
+func (o *PostAnalyticsBotsAggregatesQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics bots aggregates query internal server error response has a 4xx status code
+func (o *PostAnalyticsBotsAggregatesQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics bots aggregates query internal server error response has a 5xx status code
+func (o *PostAnalyticsBotsAggregatesQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics bots aggregates query internal server error response a status code equal to that given
+func (o *PostAnalyticsBotsAggregatesQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAnalyticsBotsAggregatesQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAnalyticsBotsAggregatesQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostAnalyticsBotsAggregatesQueryServiceUnavailable() *PostAnalyticsBotsA
 	return &PostAnalyticsBotsAggregatesQueryServiceUnavailable{}
 }
 
-/*PostAnalyticsBotsAggregatesQueryServiceUnavailable handles this case with default header values.
+/*
+PostAnalyticsBotsAggregatesQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostAnalyticsBotsAggregatesQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics bots aggregates query service unavailable response has a 2xx status code
+func (o *PostAnalyticsBotsAggregatesQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics bots aggregates query service unavailable response has a 3xx status code
+func (o *PostAnalyticsBotsAggregatesQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics bots aggregates query service unavailable response has a 4xx status code
+func (o *PostAnalyticsBotsAggregatesQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics bots aggregates query service unavailable response has a 5xx status code
+func (o *PostAnalyticsBotsAggregatesQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics bots aggregates query service unavailable response a status code equal to that given
+func (o *PostAnalyticsBotsAggregatesQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAnalyticsBotsAggregatesQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAnalyticsBotsAggregatesQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostAnalyticsBotsAggregatesQueryGatewayTimeout() *PostAnalyticsBotsAggre
 	return &PostAnalyticsBotsAggregatesQueryGatewayTimeout{}
 }
 
-/*PostAnalyticsBotsAggregatesQueryGatewayTimeout handles this case with default header values.
+/*
+PostAnalyticsBotsAggregatesQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostAnalyticsBotsAggregatesQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics bots aggregates query gateway timeout response has a 2xx status code
+func (o *PostAnalyticsBotsAggregatesQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics bots aggregates query gateway timeout response has a 3xx status code
+func (o *PostAnalyticsBotsAggregatesQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics bots aggregates query gateway timeout response has a 4xx status code
+func (o *PostAnalyticsBotsAggregatesQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics bots aggregates query gateway timeout response has a 5xx status code
+func (o *PostAnalyticsBotsAggregatesQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics bots aggregates query gateway timeout response a status code equal to that given
+func (o *PostAnalyticsBotsAggregatesQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAnalyticsBotsAggregatesQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAnalyticsBotsAggregatesQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/bots/aggregates/query][%d] postAnalyticsBotsAggregatesQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

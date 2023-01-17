@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -85,7 +86,6 @@ func (m *RecordingRetention) Validate(formats strfmt.Registry) error {
 }
 
 func (m *RecordingRetention) validateArchiveDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ArchiveDate) { // not required
 		return nil
 	}
@@ -124,7 +124,6 @@ func (m *RecordingRetention) validateArchiveMediumEnum(path, location string, va
 }
 
 func (m *RecordingRetention) validateArchiveMedium(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ArchiveMedium) { // not required
 		return nil
 	}
@@ -138,7 +137,6 @@ func (m *RecordingRetention) validateArchiveMedium(formats strfmt.Registry) erro
 }
 
 func (m *RecordingRetention) validateCreationTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreationTime) { // not required
 		return nil
 	}
@@ -151,7 +149,6 @@ func (m *RecordingRetention) validateCreationTime(formats strfmt.Registry) error
 }
 
 func (m *RecordingRetention) validateDeleteDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DeleteDate) { // not required
 		return nil
 	}
@@ -164,7 +161,6 @@ func (m *RecordingRetention) validateDeleteDate(formats strfmt.Registry) error {
 }
 
 func (m *RecordingRetention) validateExportDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExportDate) { // not required
 		return nil
 	}
@@ -177,7 +173,6 @@ func (m *RecordingRetention) validateExportDate(formats strfmt.Registry) error {
 }
 
 func (m *RecordingRetention) validateExportedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExportedDate) { // not required
 		return nil
 	}
@@ -186,6 +181,11 @@ func (m *RecordingRetention) validateExportedDate(formats strfmt.Registry) error
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this recording retention based on context it is used
+func (m *RecordingRetention) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

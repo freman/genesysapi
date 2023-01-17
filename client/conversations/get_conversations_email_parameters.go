@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConversationsEmailParams creates a new GetConversationsEmailParams object
-// with the default values initialized.
+// NewGetConversationsEmailParams creates a new GetConversationsEmailParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationsEmailParams() *GetConversationsEmailParams {
-	var ()
 	return &GetConversationsEmailParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationsEmailParamsWithTimeout creates a new GetConversationsEmailParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationsEmailParamsWithTimeout(timeout time.Duration) *GetConversationsEmailParams {
-	var ()
 	return &GetConversationsEmailParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationsEmailParamsWithContext creates a new GetConversationsEmailParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationsEmailParamsWithContext(ctx context.Context) *GetConversationsEmailParams {
-	var ()
 	return &GetConversationsEmailParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationsEmailParamsWithHTTPClient creates a new GetConversationsEmailParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationsEmailParamsWithHTTPClient(client *http.Client) *GetConversationsEmailParams {
-	var ()
 	return &GetConversationsEmailParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationsEmailParams contains all the parameters to send to the API endpoint
-for the get conversations email operation typically these are written to a http.Request
+/*
+GetConversationsEmailParams contains all the parameters to send to the API endpoint
+
+	for the get conversations email operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationsEmailParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversations email params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsEmailParams) WithDefaults() *GetConversationsEmailParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversations email params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsEmailParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get conversations email params

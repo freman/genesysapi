@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundContactlistContactParams creates a new GetOutboundContactlistContactParams object
-// with the default values initialized.
+// NewGetOutboundContactlistContactParams creates a new GetOutboundContactlistContactParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundContactlistContactParams() *GetOutboundContactlistContactParams {
-	var ()
 	return &GetOutboundContactlistContactParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundContactlistContactParamsWithTimeout creates a new GetOutboundContactlistContactParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundContactlistContactParamsWithTimeout(timeout time.Duration) *GetOutboundContactlistContactParams {
-	var ()
 	return &GetOutboundContactlistContactParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundContactlistContactParamsWithContext creates a new GetOutboundContactlistContactParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundContactlistContactParamsWithContext(ctx context.Context) *GetOutboundContactlistContactParams {
-	var ()
 	return &GetOutboundContactlistContactParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundContactlistContactParamsWithHTTPClient creates a new GetOutboundContactlistContactParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundContactlistContactParamsWithHTTPClient(client *http.Client) *GetOutboundContactlistContactParams {
-	var ()
 	return &GetOutboundContactlistContactParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundContactlistContactParams contains all the parameters to send to the API endpoint
-for the get outbound contactlist contact operation typically these are written to a http.Request
+/*
+GetOutboundContactlistContactParams contains all the parameters to send to the API endpoint
+
+	for the get outbound contactlist contact operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundContactlistContactParams struct {
 
-	/*ContactID
-	  Contact ID
+	/* ContactID.
 
+	   Contact ID
 	*/
 	ContactID string
-	/*ContactListID
-	  Contact List ID
 
+	/* ContactListID.
+
+	   Contact List ID
 	*/
 	ContactListID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound contactlist contact params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundContactlistContactParams) WithDefaults() *GetOutboundContactlistContactParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound contactlist contact params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundContactlistContactParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get outbound contactlist contact params

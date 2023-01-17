@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -97,7 +98,6 @@ func (m *SiteConnection) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SiteConnection) validateEdgeList(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EdgeList) { // not required
 		return nil
 	}
@@ -111,6 +111,8 @@ func (m *SiteConnection) validateEdgeList(formats strfmt.Registry) error {
 			if err := m.EdgeList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("edgeList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("edgeList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -151,7 +153,6 @@ func (m *SiteConnection) validateMediaModelEnum(path, location string, value str
 }
 
 func (m *SiteConnection) validateMediaModel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaModel) { // not required
 		return nil
 	}
@@ -165,7 +166,6 @@ func (m *SiteConnection) validateMediaModel(formats strfmt.Registry) error {
 }
 
 func (m *SiteConnection) validatePrimaryCoreSites(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PrimaryCoreSites) { // not required
 		return nil
 	}
@@ -179,6 +179,8 @@ func (m *SiteConnection) validatePrimaryCoreSites(formats strfmt.Registry) error
 			if err := m.PrimaryCoreSites[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("primaryCoreSites" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("primaryCoreSites" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -190,7 +192,6 @@ func (m *SiteConnection) validatePrimaryCoreSites(formats strfmt.Registry) error
 }
 
 func (m *SiteConnection) validateSecondaryCoreSites(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SecondaryCoreSites) { // not required
 		return nil
 	}
@@ -204,6 +205,8 @@ func (m *SiteConnection) validateSecondaryCoreSites(formats strfmt.Registry) err
 			if err := m.SecondaryCoreSites[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("secondaryCoreSites" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("secondaryCoreSites" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -215,7 +218,6 @@ func (m *SiteConnection) validateSecondaryCoreSites(formats strfmt.Registry) err
 }
 
 func (m *SiteConnection) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -260,7 +262,6 @@ func (m *SiteConnection) validateTypeEnum(path, location string, value string) e
 }
 
 func (m *SiteConnection) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -268,6 +269,126 @@ func (m *SiteConnection) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this site connection based on the context it is used
+func (m *SiteConnection) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCoreSite(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEdgeList(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMediaModel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrimaryCoreSites(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSecondaryCoreSites(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SiteConnection) contextValidateCoreSite(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "coreSite", "body", m.CoreSite); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SiteConnection) contextValidateEdgeList(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "edgeList", "body", []*ConnectedEdge(m.EdgeList)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.EdgeList); i++ {
+
+		if m.EdgeList[i] != nil {
+			if err := m.EdgeList[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("edgeList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("edgeList" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SiteConnection) contextValidateMediaModel(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "mediaModel", "body", string(m.MediaModel)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SiteConnection) contextValidatePrimaryCoreSites(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "primaryCoreSites", "body", []*DomainEntityRef(m.PrimaryCoreSites)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.PrimaryCoreSites); i++ {
+
+		if m.PrimaryCoreSites[i] != nil {
+			if err := m.PrimaryCoreSites[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("primaryCoreSites" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("primaryCoreSites" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SiteConnection) contextValidateSecondaryCoreSites(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "secondaryCoreSites", "body", []*DomainEntityRef(m.SecondaryCoreSites)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.SecondaryCoreSites); i++ {
+
+		if m.SecondaryCoreSites[i] != nil {
+			if err := m.SecondaryCoreSites[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("secondaryCoreSites" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("secondaryCoreSites" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

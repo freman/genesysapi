@@ -17,84 +17,101 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams creates a new GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams creates a new GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams() *GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParamsWithTimeout creates a new GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParamsWithContext creates a new GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges phonebasesettings availablemetabases operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges phonebasesettings availablemetabases operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams struct {
 
-	/*PageNumber
-	  Page number
+	/* PageNumber.
 
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges phonebasesettings availablemetabases params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams) WithDefaults() *GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges phonebasesettings availablemetabases params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges phonebasesettings availablemetabases params
@@ -164,32 +181,34 @@ func (o *GetTelephonyProvidersEdgesPhonebasesettingsAvailablemetabasesParams) Wr
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

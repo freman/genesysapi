@@ -19,76 +19,94 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostSearchParams creates a new PostSearchParams object
-// with the default values initialized.
+// NewPostSearchParams creates a new PostSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostSearchParams() *PostSearchParams {
-	var (
-		profileDefault = bool(true)
-	)
 	return &PostSearchParams{
-		Profile: &profileDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostSearchParamsWithTimeout creates a new PostSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostSearchParamsWithTimeout(timeout time.Duration) *PostSearchParams {
-	var (
-		profileDefault = bool(true)
-	)
 	return &PostSearchParams{
-		Profile: &profileDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostSearchParamsWithContext creates a new PostSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostSearchParamsWithContext(ctx context.Context) *PostSearchParams {
-	var (
-		profileDefault = bool(true)
-	)
 	return &PostSearchParams{
-		Profile: &profileDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostSearchParamsWithHTTPClient creates a new PostSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostSearchParamsWithHTTPClient(client *http.Client) *PostSearchParams {
-	var (
-		profileDefault = bool(true)
-	)
 	return &PostSearchParams{
-		Profile:    &profileDefault,
 		HTTPClient: client,
 	}
 }
 
-/*PostSearchParams contains all the parameters to send to the API endpoint
-for the post search operation typically these are written to a http.Request
+/*
+PostSearchParams contains all the parameters to send to the API endpoint
+
+	for the post search operation.
+
+	Typically these are written to a http.Request.
 */
 type PostSearchParams struct {
 
-	/*Body
-	  Search request options
+	/* Body.
 
+	   Search request options
 	*/
 	Body *models.SearchRequest
-	/*Profile
-	  profile
 
+	/* Profile.
+
+	   profile
+
+	   Default: true
 	*/
 	Profile *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostSearchParams) WithDefaults() *PostSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostSearchParams) SetDefaults() {
+	var (
+		profileDefault = bool(true)
+	)
+
+	val := PostSearchParams{
+		Profile: &profileDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post search params
@@ -153,7 +171,6 @@ func (o *PostSearchParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -164,16 +181,17 @@ func (o *PostSearchParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 
 		// query param profile
 		var qrProfile bool
+
 		if o.Profile != nil {
 			qrProfile = *o.Profile
 		}
 		qProfile := swag.FormatBool(qrProfile)
 		if qProfile != "" {
+
 			if err := r.SetQueryParam("profile", qProfile); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -95,7 +95,6 @@ func (o *GetIntegrationConfigCurrentReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIntegrationConfigCurrentOK() *GetIntegrationConfigCurrentOK {
 	return &GetIntegrationConfigCurrentOK{}
 }
 
-/*GetIntegrationConfigCurrentOK handles this case with default header values.
+/*
+GetIntegrationConfigCurrentOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIntegrationConfigCurrentOK struct {
 	Payload *models.IntegrationConfiguration
 }
 
+// IsSuccess returns true when this get integration config current o k response has a 2xx status code
+func (o *GetIntegrationConfigCurrentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get integration config current o k response has a 3xx status code
+func (o *GetIntegrationConfigCurrentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integration config current o k response has a 4xx status code
+func (o *GetIntegrationConfigCurrentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integration config current o k response has a 5xx status code
+func (o *GetIntegrationConfigCurrentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integration config current o k response a status code equal to that given
+func (o *GetIntegrationConfigCurrentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntegrationConfigCurrentOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIntegrationConfigCurrentOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIntegrationConfigCurrentBadRequest() *GetIntegrationConfigCurrentBadR
 	return &GetIntegrationConfigCurrentBadRequest{}
 }
 
-/*GetIntegrationConfigCurrentBadRequest handles this case with default header values.
+/*
+GetIntegrationConfigCurrentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIntegrationConfigCurrentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integration config current bad request response has a 2xx status code
+func (o *GetIntegrationConfigCurrentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integration config current bad request response has a 3xx status code
+func (o *GetIntegrationConfigCurrentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integration config current bad request response has a 4xx status code
+func (o *GetIntegrationConfigCurrentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integration config current bad request response has a 5xx status code
+func (o *GetIntegrationConfigCurrentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integration config current bad request response a status code equal to that given
+func (o *GetIntegrationConfigCurrentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntegrationConfigCurrentBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIntegrationConfigCurrentBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIntegrationConfigCurrentUnauthorized() *GetIntegrationConfigCurrentUn
 	return &GetIntegrationConfigCurrentUnauthorized{}
 }
 
-/*GetIntegrationConfigCurrentUnauthorized handles this case with default header values.
+/*
+GetIntegrationConfigCurrentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIntegrationConfigCurrentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integration config current unauthorized response has a 2xx status code
+func (o *GetIntegrationConfigCurrentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integration config current unauthorized response has a 3xx status code
+func (o *GetIntegrationConfigCurrentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integration config current unauthorized response has a 4xx status code
+func (o *GetIntegrationConfigCurrentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integration config current unauthorized response has a 5xx status code
+func (o *GetIntegrationConfigCurrentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integration config current unauthorized response a status code equal to that given
+func (o *GetIntegrationConfigCurrentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIntegrationConfigCurrentUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIntegrationConfigCurrentUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIntegrationConfigCurrentForbidden() *GetIntegrationConfigCurrentForbi
 	return &GetIntegrationConfigCurrentForbidden{}
 }
 
-/*GetIntegrationConfigCurrentForbidden handles this case with default header values.
+/*
+GetIntegrationConfigCurrentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIntegrationConfigCurrentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integration config current forbidden response has a 2xx status code
+func (o *GetIntegrationConfigCurrentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integration config current forbidden response has a 3xx status code
+func (o *GetIntegrationConfigCurrentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integration config current forbidden response has a 4xx status code
+func (o *GetIntegrationConfigCurrentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integration config current forbidden response has a 5xx status code
+func (o *GetIntegrationConfigCurrentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integration config current forbidden response a status code equal to that given
+func (o *GetIntegrationConfigCurrentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntegrationConfigCurrentForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIntegrationConfigCurrentForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIntegrationConfigCurrentNotFound() *GetIntegrationConfigCurrentNotFou
 	return &GetIntegrationConfigCurrentNotFound{}
 }
 
-/*GetIntegrationConfigCurrentNotFound handles this case with default header values.
+/*
+GetIntegrationConfigCurrentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIntegrationConfigCurrentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integration config current not found response has a 2xx status code
+func (o *GetIntegrationConfigCurrentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integration config current not found response has a 3xx status code
+func (o *GetIntegrationConfigCurrentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integration config current not found response has a 4xx status code
+func (o *GetIntegrationConfigCurrentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integration config current not found response has a 5xx status code
+func (o *GetIntegrationConfigCurrentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integration config current not found response a status code equal to that given
+func (o *GetIntegrationConfigCurrentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntegrationConfigCurrentNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIntegrationConfigCurrentNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIntegrationConfigCurrentRequestTimeout() *GetIntegrationConfigCurrent
 	return &GetIntegrationConfigCurrentRequestTimeout{}
 }
 
-/*GetIntegrationConfigCurrentRequestTimeout handles this case with default header values.
+/*
+GetIntegrationConfigCurrentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIntegrationConfigCurrentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integration config current request timeout response has a 2xx status code
+func (o *GetIntegrationConfigCurrentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integration config current request timeout response has a 3xx status code
+func (o *GetIntegrationConfigCurrentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integration config current request timeout response has a 4xx status code
+func (o *GetIntegrationConfigCurrentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integration config current request timeout response has a 5xx status code
+func (o *GetIntegrationConfigCurrentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integration config current request timeout response a status code equal to that given
+func (o *GetIntegrationConfigCurrentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIntegrationConfigCurrentRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationConfigCurrentRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIntegrationConfigCurrentRequestEntityTooLarge() *GetIntegrationConfig
 	return &GetIntegrationConfigCurrentRequestEntityTooLarge{}
 }
 
-/*GetIntegrationConfigCurrentRequestEntityTooLarge handles this case with default header values.
+/*
+GetIntegrationConfigCurrentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIntegrationConfigCurrentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integration config current request entity too large response has a 2xx status code
+func (o *GetIntegrationConfigCurrentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integration config current request entity too large response has a 3xx status code
+func (o *GetIntegrationConfigCurrentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integration config current request entity too large response has a 4xx status code
+func (o *GetIntegrationConfigCurrentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integration config current request entity too large response has a 5xx status code
+func (o *GetIntegrationConfigCurrentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integration config current request entity too large response a status code equal to that given
+func (o *GetIntegrationConfigCurrentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIntegrationConfigCurrentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIntegrationConfigCurrentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIntegrationConfigCurrentUnsupportedMediaType() *GetIntegrationConfigC
 	return &GetIntegrationConfigCurrentUnsupportedMediaType{}
 }
 
-/*GetIntegrationConfigCurrentUnsupportedMediaType handles this case with default header values.
+/*
+GetIntegrationConfigCurrentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIntegrationConfigCurrentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integration config current unsupported media type response has a 2xx status code
+func (o *GetIntegrationConfigCurrentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integration config current unsupported media type response has a 3xx status code
+func (o *GetIntegrationConfigCurrentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integration config current unsupported media type response has a 4xx status code
+func (o *GetIntegrationConfigCurrentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integration config current unsupported media type response has a 5xx status code
+func (o *GetIntegrationConfigCurrentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integration config current unsupported media type response a status code equal to that given
+func (o *GetIntegrationConfigCurrentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIntegrationConfigCurrentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIntegrationConfigCurrentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIntegrationConfigCurrentTooManyRequests() *GetIntegrationConfigCurren
 	return &GetIntegrationConfigCurrentTooManyRequests{}
 }
 
-/*GetIntegrationConfigCurrentTooManyRequests handles this case with default header values.
+/*
+GetIntegrationConfigCurrentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIntegrationConfigCurrentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integration config current too many requests response has a 2xx status code
+func (o *GetIntegrationConfigCurrentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integration config current too many requests response has a 3xx status code
+func (o *GetIntegrationConfigCurrentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integration config current too many requests response has a 4xx status code
+func (o *GetIntegrationConfigCurrentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integration config current too many requests response has a 5xx status code
+func (o *GetIntegrationConfigCurrentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integration config current too many requests response a status code equal to that given
+func (o *GetIntegrationConfigCurrentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntegrationConfigCurrentTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIntegrationConfigCurrentTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIntegrationConfigCurrentInternalServerError() *GetIntegrationConfigCu
 	return &GetIntegrationConfigCurrentInternalServerError{}
 }
 
-/*GetIntegrationConfigCurrentInternalServerError handles this case with default header values.
+/*
+GetIntegrationConfigCurrentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIntegrationConfigCurrentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integration config current internal server error response has a 2xx status code
+func (o *GetIntegrationConfigCurrentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integration config current internal server error response has a 3xx status code
+func (o *GetIntegrationConfigCurrentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integration config current internal server error response has a 4xx status code
+func (o *GetIntegrationConfigCurrentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integration config current internal server error response has a 5xx status code
+func (o *GetIntegrationConfigCurrentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integration config current internal server error response a status code equal to that given
+func (o *GetIntegrationConfigCurrentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntegrationConfigCurrentInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIntegrationConfigCurrentInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIntegrationConfigCurrentServiceUnavailable() *GetIntegrationConfigCur
 	return &GetIntegrationConfigCurrentServiceUnavailable{}
 }
 
-/*GetIntegrationConfigCurrentServiceUnavailable handles this case with default header values.
+/*
+GetIntegrationConfigCurrentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIntegrationConfigCurrentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integration config current service unavailable response has a 2xx status code
+func (o *GetIntegrationConfigCurrentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integration config current service unavailable response has a 3xx status code
+func (o *GetIntegrationConfigCurrentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integration config current service unavailable response has a 4xx status code
+func (o *GetIntegrationConfigCurrentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integration config current service unavailable response has a 5xx status code
+func (o *GetIntegrationConfigCurrentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integration config current service unavailable response a status code equal to that given
+func (o *GetIntegrationConfigCurrentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIntegrationConfigCurrentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIntegrationConfigCurrentServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIntegrationConfigCurrentGatewayTimeout() *GetIntegrationConfigCurrent
 	return &GetIntegrationConfigCurrentGatewayTimeout{}
 }
 
-/*GetIntegrationConfigCurrentGatewayTimeout handles this case with default header values.
+/*
+GetIntegrationConfigCurrentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIntegrationConfigCurrentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integration config current gateway timeout response has a 2xx status code
+func (o *GetIntegrationConfigCurrentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integration config current gateway timeout response has a 3xx status code
+func (o *GetIntegrationConfigCurrentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integration config current gateway timeout response has a 4xx status code
+func (o *GetIntegrationConfigCurrentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integration config current gateway timeout response has a 5xx status code
+func (o *GetIntegrationConfigCurrentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integration config current gateway timeout response a status code equal to that given
+func (o *GetIntegrationConfigCurrentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIntegrationConfigCurrentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIntegrationConfigCurrentGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/{integrationId}/config/current][%d] getIntegrationConfigCurrentGatewayTimeout  %+v", 504, o.Payload)
 }
 

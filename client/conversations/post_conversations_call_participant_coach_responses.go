@@ -95,7 +95,6 @@ func (o *PostConversationsCallParticipantCoachReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostConversationsCallParticipantCoachCreated() *PostConversationsCallPar
 	return &PostConversationsCallParticipantCoachCreated{}
 }
 
-/*PostConversationsCallParticipantCoachCreated handles this case with default header values.
+/*
+PostConversationsCallParticipantCoachCreated describes a response with status code 201, with default header values.
 
 Created
 */
 type PostConversationsCallParticipantCoachCreated struct {
 }
 
+// IsSuccess returns true when this post conversations call participant coach created response has a 2xx status code
+func (o *PostConversationsCallParticipantCoachCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations call participant coach created response has a 3xx status code
+func (o *PostConversationsCallParticipantCoachCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant coach created response has a 4xx status code
+func (o *PostConversationsCallParticipantCoachCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations call participant coach created response has a 5xx status code
+func (o *PostConversationsCallParticipantCoachCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant coach created response a status code equal to that given
+func (o *PostConversationsCallParticipantCoachCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostConversationsCallParticipantCoachCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachCreated ", 201)
+}
+
+func (o *PostConversationsCallParticipantCoachCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachCreated ", 201)
 }
 
@@ -127,7 +156,8 @@ func NewPostConversationsCallParticipantCoachBadRequest() *PostConversationsCall
 	return &PostConversationsCallParticipantCoachBadRequest{}
 }
 
-/*PostConversationsCallParticipantCoachBadRequest handles this case with default header values.
+/*
+PostConversationsCallParticipantCoachBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostConversationsCallParticipantCoachBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant coach bad request response has a 2xx status code
+func (o *PostConversationsCallParticipantCoachBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant coach bad request response has a 3xx status code
+func (o *PostConversationsCallParticipantCoachBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant coach bad request response has a 4xx status code
+func (o *PostConversationsCallParticipantCoachBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant coach bad request response has a 5xx status code
+func (o *PostConversationsCallParticipantCoachBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant coach bad request response a status code equal to that given
+func (o *PostConversationsCallParticipantCoachBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsCallParticipantCoachBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantCoachBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostConversationsCallParticipantCoachUnauthorized() *PostConversationsCa
 	return &PostConversationsCallParticipantCoachUnauthorized{}
 }
 
-/*PostConversationsCallParticipantCoachUnauthorized handles this case with default header values.
+/*
+PostConversationsCallParticipantCoachUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostConversationsCallParticipantCoachUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant coach unauthorized response has a 2xx status code
+func (o *PostConversationsCallParticipantCoachUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant coach unauthorized response has a 3xx status code
+func (o *PostConversationsCallParticipantCoachUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant coach unauthorized response has a 4xx status code
+func (o *PostConversationsCallParticipantCoachUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant coach unauthorized response has a 5xx status code
+func (o *PostConversationsCallParticipantCoachUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant coach unauthorized response a status code equal to that given
+func (o *PostConversationsCallParticipantCoachUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsCallParticipantCoachUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantCoachUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostConversationsCallParticipantCoachForbidden() *PostConversationsCallP
 	return &PostConversationsCallParticipantCoachForbidden{}
 }
 
-/*PostConversationsCallParticipantCoachForbidden handles this case with default header values.
+/*
+PostConversationsCallParticipantCoachForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostConversationsCallParticipantCoachForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant coach forbidden response has a 2xx status code
+func (o *PostConversationsCallParticipantCoachForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant coach forbidden response has a 3xx status code
+func (o *PostConversationsCallParticipantCoachForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant coach forbidden response has a 4xx status code
+func (o *PostConversationsCallParticipantCoachForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant coach forbidden response has a 5xx status code
+func (o *PostConversationsCallParticipantCoachForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant coach forbidden response a status code equal to that given
+func (o *PostConversationsCallParticipantCoachForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsCallParticipantCoachForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantCoachForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostConversationsCallParticipantCoachNotFound() *PostConversationsCallPa
 	return &PostConversationsCallParticipantCoachNotFound{}
 }
 
-/*PostConversationsCallParticipantCoachNotFound handles this case with default header values.
+/*
+PostConversationsCallParticipantCoachNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostConversationsCallParticipantCoachNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant coach not found response has a 2xx status code
+func (o *PostConversationsCallParticipantCoachNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant coach not found response has a 3xx status code
+func (o *PostConversationsCallParticipantCoachNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant coach not found response has a 4xx status code
+func (o *PostConversationsCallParticipantCoachNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant coach not found response has a 5xx status code
+func (o *PostConversationsCallParticipantCoachNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant coach not found response a status code equal to that given
+func (o *PostConversationsCallParticipantCoachNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsCallParticipantCoachNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantCoachNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostConversationsCallParticipantCoachRequestTimeout() *PostConversations
 	return &PostConversationsCallParticipantCoachRequestTimeout{}
 }
 
-/*PostConversationsCallParticipantCoachRequestTimeout handles this case with default header values.
+/*
+PostConversationsCallParticipantCoachRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostConversationsCallParticipantCoachRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant coach request timeout response has a 2xx status code
+func (o *PostConversationsCallParticipantCoachRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant coach request timeout response has a 3xx status code
+func (o *PostConversationsCallParticipantCoachRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant coach request timeout response has a 4xx status code
+func (o *PostConversationsCallParticipantCoachRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant coach request timeout response has a 5xx status code
+func (o *PostConversationsCallParticipantCoachRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant coach request timeout response a status code equal to that given
+func (o *PostConversationsCallParticipantCoachRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsCallParticipantCoachRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantCoachRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostConversationsCallParticipantCoachRequestEntityTooLarge() *PostConver
 	return &PostConversationsCallParticipantCoachRequestEntityTooLarge{}
 }
 
-/*PostConversationsCallParticipantCoachRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsCallParticipantCoachRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostConversationsCallParticipantCoachRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant coach request entity too large response has a 2xx status code
+func (o *PostConversationsCallParticipantCoachRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant coach request entity too large response has a 3xx status code
+func (o *PostConversationsCallParticipantCoachRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant coach request entity too large response has a 4xx status code
+func (o *PostConversationsCallParticipantCoachRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant coach request entity too large response has a 5xx status code
+func (o *PostConversationsCallParticipantCoachRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant coach request entity too large response a status code equal to that given
+func (o *PostConversationsCallParticipantCoachRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsCallParticipantCoachRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantCoachRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostConversationsCallParticipantCoachUnsupportedMediaType() *PostConvers
 	return &PostConversationsCallParticipantCoachUnsupportedMediaType{}
 }
 
-/*PostConversationsCallParticipantCoachUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsCallParticipantCoachUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostConversationsCallParticipantCoachUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant coach unsupported media type response has a 2xx status code
+func (o *PostConversationsCallParticipantCoachUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant coach unsupported media type response has a 3xx status code
+func (o *PostConversationsCallParticipantCoachUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant coach unsupported media type response has a 4xx status code
+func (o *PostConversationsCallParticipantCoachUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant coach unsupported media type response has a 5xx status code
+func (o *PostConversationsCallParticipantCoachUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant coach unsupported media type response a status code equal to that given
+func (o *PostConversationsCallParticipantCoachUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsCallParticipantCoachUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantCoachUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostConversationsCallParticipantCoachTooManyRequests() *PostConversation
 	return &PostConversationsCallParticipantCoachTooManyRequests{}
 }
 
-/*PostConversationsCallParticipantCoachTooManyRequests handles this case with default header values.
+/*
+PostConversationsCallParticipantCoachTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostConversationsCallParticipantCoachTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant coach too many requests response has a 2xx status code
+func (o *PostConversationsCallParticipantCoachTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant coach too many requests response has a 3xx status code
+func (o *PostConversationsCallParticipantCoachTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant coach too many requests response has a 4xx status code
+func (o *PostConversationsCallParticipantCoachTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations call participant coach too many requests response has a 5xx status code
+func (o *PostConversationsCallParticipantCoachTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations call participant coach too many requests response a status code equal to that given
+func (o *PostConversationsCallParticipantCoachTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsCallParticipantCoachTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantCoachTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostConversationsCallParticipantCoachInternalServerError() *PostConversa
 	return &PostConversationsCallParticipantCoachInternalServerError{}
 }
 
-/*PostConversationsCallParticipantCoachInternalServerError handles this case with default header values.
+/*
+PostConversationsCallParticipantCoachInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostConversationsCallParticipantCoachInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant coach internal server error response has a 2xx status code
+func (o *PostConversationsCallParticipantCoachInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant coach internal server error response has a 3xx status code
+func (o *PostConversationsCallParticipantCoachInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant coach internal server error response has a 4xx status code
+func (o *PostConversationsCallParticipantCoachInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations call participant coach internal server error response has a 5xx status code
+func (o *PostConversationsCallParticipantCoachInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations call participant coach internal server error response a status code equal to that given
+func (o *PostConversationsCallParticipantCoachInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsCallParticipantCoachInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantCoachInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostConversationsCallParticipantCoachServiceUnavailable() *PostConversat
 	return &PostConversationsCallParticipantCoachServiceUnavailable{}
 }
 
-/*PostConversationsCallParticipantCoachServiceUnavailable handles this case with default header values.
+/*
+PostConversationsCallParticipantCoachServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostConversationsCallParticipantCoachServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant coach service unavailable response has a 2xx status code
+func (o *PostConversationsCallParticipantCoachServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant coach service unavailable response has a 3xx status code
+func (o *PostConversationsCallParticipantCoachServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant coach service unavailable response has a 4xx status code
+func (o *PostConversationsCallParticipantCoachServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations call participant coach service unavailable response has a 5xx status code
+func (o *PostConversationsCallParticipantCoachServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations call participant coach service unavailable response a status code equal to that given
+func (o *PostConversationsCallParticipantCoachServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsCallParticipantCoachServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantCoachServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostConversationsCallParticipantCoachGatewayTimeout() *PostConversations
 	return &PostConversationsCallParticipantCoachGatewayTimeout{}
 }
 
-/*PostConversationsCallParticipantCoachGatewayTimeout handles this case with default header values.
+/*
+PostConversationsCallParticipantCoachGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostConversationsCallParticipantCoachGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations call participant coach gateway timeout response has a 2xx status code
+func (o *PostConversationsCallParticipantCoachGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations call participant coach gateway timeout response has a 3xx status code
+func (o *PostConversationsCallParticipantCoachGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations call participant coach gateway timeout response has a 4xx status code
+func (o *PostConversationsCallParticipantCoachGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations call participant coach gateway timeout response has a 5xx status code
+func (o *PostConversationsCallParticipantCoachGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations call participant coach gateway timeout response a status code equal to that given
+func (o *PostConversationsCallParticipantCoachGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsCallParticipantCoachGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsCallParticipantCoachGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/calls/{conversationId}/participants/{participantId}/coach][%d] postConversationsCallParticipantCoachGatewayTimeout  %+v", 504, o.Payload)
 }
 

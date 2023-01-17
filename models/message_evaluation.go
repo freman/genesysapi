@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -85,7 +86,6 @@ func (m *MessageEvaluation) validateMessageTypeEnum(path, location string, value
 }
 
 func (m *MessageEvaluation) validateMessageType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageType) { // not required
 		return nil
 	}
@@ -99,7 +99,6 @@ func (m *MessageEvaluation) validateMessageType(formats strfmt.Registry) error {
 }
 
 func (m *MessageEvaluation) validateTimestamp(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Timestamp) { // not required
 		return nil
 	}
@@ -108,6 +107,11 @@ func (m *MessageEvaluation) validateTimestamp(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this message evaluation based on context it is used
+func (m *MessageEvaluation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

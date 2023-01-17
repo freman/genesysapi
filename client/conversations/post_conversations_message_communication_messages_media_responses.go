@@ -95,7 +95,6 @@ func (o *PostConversationsMessageCommunicationMessagesMediaReader) ReadResponse(
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostConversationsMessageCommunicationMessagesMediaAccepted() *PostConver
 	return &PostConversationsMessageCommunicationMessagesMediaAccepted{}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaAccepted handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesMediaAccepted describes a response with status code 202, with default header values.
 
 Accepted
 */
@@ -114,7 +114,36 @@ type PostConversationsMessageCommunicationMessagesMediaAccepted struct {
 	Payload *models.MessageMediaData
 }
 
+// IsSuccess returns true when this post conversations message communication messages media accepted response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations message communication messages media accepted response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages media accepted response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message communication messages media accepted response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages media accepted response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesMediaAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostConversationsMessageCommunicationMessagesMediaAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaAccepted  %+v", 202, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostConversationsMessageCommunicationMessagesMediaBadRequest() *PostConv
 	return &PostConversationsMessageCommunicationMessagesMediaBadRequest{}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaBadRequest handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesMediaBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostConversationsMessageCommunicationMessagesMediaBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages media bad request response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages media bad request response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages media bad request response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages media bad request response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages media bad request response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesMediaBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsMessageCommunicationMessagesMediaBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostConversationsMessageCommunicationMessagesMediaUnauthorized() *PostCo
 	return &PostConversationsMessageCommunicationMessagesMediaUnauthorized{}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaUnauthorized handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesMediaUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostConversationsMessageCommunicationMessagesMediaUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages media unauthorized response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages media unauthorized response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages media unauthorized response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages media unauthorized response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages media unauthorized response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesMediaUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsMessageCommunicationMessagesMediaUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostConversationsMessageCommunicationMessagesMediaForbidden() *PostConve
 	return &PostConversationsMessageCommunicationMessagesMediaForbidden{}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaForbidden handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesMediaForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostConversationsMessageCommunicationMessagesMediaForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages media forbidden response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages media forbidden response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages media forbidden response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages media forbidden response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages media forbidden response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesMediaForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsMessageCommunicationMessagesMediaForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostConversationsMessageCommunicationMessagesMediaNotFound() *PostConver
 	return &PostConversationsMessageCommunicationMessagesMediaNotFound{}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaNotFound handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesMediaNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostConversationsMessageCommunicationMessagesMediaNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages media not found response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages media not found response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages media not found response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages media not found response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages media not found response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesMediaNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsMessageCommunicationMessagesMediaNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostConversationsMessageCommunicationMessagesMediaRequestTimeout() *Post
 	return &PostConversationsMessageCommunicationMessagesMediaRequestTimeout{}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaRequestTimeout handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesMediaRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostConversationsMessageCommunicationMessagesMediaRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages media request timeout response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages media request timeout response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages media request timeout response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages media request timeout response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages media request timeout response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesMediaRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsMessageCommunicationMessagesMediaRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge(
 	return &PostConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge{}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages media request entity too large response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages media request entity too large response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages media request entity too large response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages media request entity too large response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages media request entity too large response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostConversationsMessageCommunicationMessagesMediaUnsupportedMediaType()
 	return &PostConversationsMessageCommunicationMessagesMediaUnsupportedMediaType{}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesMediaUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostConversationsMessageCommunicationMessagesMediaUnsupportedMediaType stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages media unsupported media type response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages media unsupported media type response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages media unsupported media type response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages media unsupported media type response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages media unsupported media type response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesMediaUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsMessageCommunicationMessagesMediaUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostConversationsMessageCommunicationMessagesMediaTooManyRequests() *Pos
 	return &PostConversationsMessageCommunicationMessagesMediaTooManyRequests{}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaTooManyRequests handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesMediaTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostConversationsMessageCommunicationMessagesMediaTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages media too many requests response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages media too many requests response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages media too many requests response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages media too many requests response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages media too many requests response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesMediaTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsMessageCommunicationMessagesMediaTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostConversationsMessageCommunicationMessagesMediaInternalServerError() 
 	return &PostConversationsMessageCommunicationMessagesMediaInternalServerError{}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaInternalServerError handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesMediaInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostConversationsMessageCommunicationMessagesMediaInternalServerError struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages media internal server error response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages media internal server error response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages media internal server error response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message communication messages media internal server error response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations message communication messages media internal server error response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesMediaInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsMessageCommunicationMessagesMediaInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostConversationsMessageCommunicationMessagesMediaServiceUnavailable() *
 	return &PostConversationsMessageCommunicationMessagesMediaServiceUnavailable{}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaServiceUnavailable handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesMediaServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostConversationsMessageCommunicationMessagesMediaServiceUnavailable struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages media service unavailable response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages media service unavailable response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages media service unavailable response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message communication messages media service unavailable response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations message communication messages media service unavailable response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesMediaServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsMessageCommunicationMessagesMediaServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostConversationsMessageCommunicationMessagesMediaGatewayTimeout() *Post
 	return &PostConversationsMessageCommunicationMessagesMediaGatewayTimeout{}
 }
 
-/*PostConversationsMessageCommunicationMessagesMediaGatewayTimeout handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesMediaGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostConversationsMessageCommunicationMessagesMediaGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages media gateway timeout response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages media gateway timeout response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages media gateway timeout response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message communication messages media gateway timeout response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesMediaGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations message communication messages media gateway timeout response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesMediaGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsMessageCommunicationMessagesMediaGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesMediaGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media][%d] postConversationsMessageCommunicationMessagesMediaGatewayTimeout  %+v", 504, o.Payload)
 }
 

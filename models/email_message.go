@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -124,7 +125,6 @@ func (m *EmailMessage) Validate(formats strfmt.Registry) error {
 }
 
 func (m *EmailMessage) validateAttachments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Attachments) { // not required
 		return nil
 	}
@@ -138,6 +138,8 @@ func (m *EmailMessage) validateAttachments(formats strfmt.Registry) error {
 			if err := m.Attachments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("attachments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attachments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -149,7 +151,6 @@ func (m *EmailMessage) validateAttachments(formats strfmt.Registry) error {
 }
 
 func (m *EmailMessage) validateBcc(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Bcc) { // not required
 		return nil
 	}
@@ -163,6 +164,8 @@ func (m *EmailMessage) validateBcc(formats strfmt.Registry) error {
 			if err := m.Bcc[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("bcc" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bcc" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -174,7 +177,6 @@ func (m *EmailMessage) validateBcc(formats strfmt.Registry) error {
 }
 
 func (m *EmailMessage) validateCc(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Cc) { // not required
 		return nil
 	}
@@ -188,6 +190,8 @@ func (m *EmailMessage) validateCc(formats strfmt.Registry) error {
 			if err := m.Cc[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("cc" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cc" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -208,6 +212,8 @@ func (m *EmailMessage) validateFrom(formats strfmt.Registry) error {
 		if err := m.From.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("from")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("from")
 			}
 			return err
 		}
@@ -217,7 +223,6 @@ func (m *EmailMessage) validateFrom(formats strfmt.Registry) error {
 }
 
 func (m *EmailMessage) validateReplyTo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReplyTo) { // not required
 		return nil
 	}
@@ -226,6 +231,8 @@ func (m *EmailMessage) validateReplyTo(formats strfmt.Registry) error {
 		if err := m.ReplyTo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("replyTo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("replyTo")
 			}
 			return err
 		}
@@ -235,7 +242,6 @@ func (m *EmailMessage) validateReplyTo(formats strfmt.Registry) error {
 }
 
 func (m *EmailMessage) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -257,7 +263,6 @@ func (m *EmailMessage) validateTextBody(formats strfmt.Registry) error {
 }
 
 func (m *EmailMessage) validateTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Time) { // not required
 		return nil
 	}
@@ -284,6 +289,206 @@ func (m *EmailMessage) validateTo(formats strfmt.Registry) error {
 			if err := m.To[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("to" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("to" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this email message based on the context it is used
+func (m *EmailMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttachments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateBcc(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCc(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmailSizeBytes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFrom(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxEmailSizeBytes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReplyTo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EmailMessage) contextValidateAttachments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Attachments); i++ {
+
+		if m.Attachments[i] != nil {
+			if err := m.Attachments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("attachments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attachments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EmailMessage) contextValidateBcc(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Bcc); i++ {
+
+		if m.Bcc[i] != nil {
+			if err := m.Bcc[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("bcc" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bcc" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EmailMessage) contextValidateCc(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Cc); i++ {
+
+		if m.Cc[i] != nil {
+			if err := m.Cc[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cc" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cc" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EmailMessage) contextValidateEmailSizeBytes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "emailSizeBytes", "body", int32(m.EmailSizeBytes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EmailMessage) contextValidateFrom(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.From != nil {
+		if err := m.From.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("from")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("from")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EmailMessage) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EmailMessage) contextValidateMaxEmailSizeBytes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxEmailSizeBytes", "body", int32(m.MaxEmailSizeBytes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EmailMessage) contextValidateReplyTo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReplyTo != nil {
+		if err := m.ReplyTo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("replyTo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("replyTo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EmailMessage) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EmailMessage) contextValidateTo(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.To); i++ {
+
+		if m.To[i] != nil {
+			if err := m.To[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("to" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("to" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

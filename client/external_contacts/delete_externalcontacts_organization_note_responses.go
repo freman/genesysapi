@@ -95,7 +95,6 @@ func (o *DeleteExternalcontactsOrganizationNoteReader) ReadResponse(response run
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteExternalcontactsOrganizationNoteOK() *DeleteExternalcontactsOrgani
 	return &DeleteExternalcontactsOrganizationNoteOK{}
 }
 
-/*DeleteExternalcontactsOrganizationNoteOK handles this case with default header values.
+/*
+DeleteExternalcontactsOrganizationNoteOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteExternalcontactsOrganizationNoteOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete externalcontacts organization note o k response has a 2xx status code
+func (o *DeleteExternalcontactsOrganizationNoteOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete externalcontacts organization note o k response has a 3xx status code
+func (o *DeleteExternalcontactsOrganizationNoteOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts organization note o k response has a 4xx status code
+func (o *DeleteExternalcontactsOrganizationNoteOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete externalcontacts organization note o k response has a 5xx status code
+func (o *DeleteExternalcontactsOrganizationNoteOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts organization note o k response a status code equal to that given
+func (o *DeleteExternalcontactsOrganizationNoteOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteExternalcontactsOrganizationNoteOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteExternalcontactsOrganizationNoteOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewDeleteExternalcontactsOrganizationNoteBadRequest() *DeleteExternalcontac
 	return &DeleteExternalcontactsOrganizationNoteBadRequest{}
 }
 
-/*DeleteExternalcontactsOrganizationNoteBadRequest handles this case with default header values.
+/*
+DeleteExternalcontactsOrganizationNoteBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type DeleteExternalcontactsOrganizationNoteBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts organization note bad request response has a 2xx status code
+func (o *DeleteExternalcontactsOrganizationNoteBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts organization note bad request response has a 3xx status code
+func (o *DeleteExternalcontactsOrganizationNoteBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts organization note bad request response has a 4xx status code
+func (o *DeleteExternalcontactsOrganizationNoteBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts organization note bad request response has a 5xx status code
+func (o *DeleteExternalcontactsOrganizationNoteBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts organization note bad request response a status code equal to that given
+func (o *DeleteExternalcontactsOrganizationNoteBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteExternalcontactsOrganizationNoteBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteExternalcontactsOrganizationNoteBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteExternalcontactsOrganizationNoteUnauthorized() *DeleteExternalcont
 	return &DeleteExternalcontactsOrganizationNoteUnauthorized{}
 }
 
-/*DeleteExternalcontactsOrganizationNoteUnauthorized handles this case with default header values.
+/*
+DeleteExternalcontactsOrganizationNoteUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type DeleteExternalcontactsOrganizationNoteUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts organization note unauthorized response has a 2xx status code
+func (o *DeleteExternalcontactsOrganizationNoteUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts organization note unauthorized response has a 3xx status code
+func (o *DeleteExternalcontactsOrganizationNoteUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts organization note unauthorized response has a 4xx status code
+func (o *DeleteExternalcontactsOrganizationNoteUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts organization note unauthorized response has a 5xx status code
+func (o *DeleteExternalcontactsOrganizationNoteUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts organization note unauthorized response a status code equal to that given
+func (o *DeleteExternalcontactsOrganizationNoteUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteExternalcontactsOrganizationNoteUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteExternalcontactsOrganizationNoteUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteExternalcontactsOrganizationNoteForbidden() *DeleteExternalcontact
 	return &DeleteExternalcontactsOrganizationNoteForbidden{}
 }
 
-/*DeleteExternalcontactsOrganizationNoteForbidden handles this case with default header values.
+/*
+DeleteExternalcontactsOrganizationNoteForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type DeleteExternalcontactsOrganizationNoteForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts organization note forbidden response has a 2xx status code
+func (o *DeleteExternalcontactsOrganizationNoteForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts organization note forbidden response has a 3xx status code
+func (o *DeleteExternalcontactsOrganizationNoteForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts organization note forbidden response has a 4xx status code
+func (o *DeleteExternalcontactsOrganizationNoteForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts organization note forbidden response has a 5xx status code
+func (o *DeleteExternalcontactsOrganizationNoteForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts organization note forbidden response a status code equal to that given
+func (o *DeleteExternalcontactsOrganizationNoteForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteExternalcontactsOrganizationNoteForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteExternalcontactsOrganizationNoteForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteExternalcontactsOrganizationNoteNotFound() *DeleteExternalcontacts
 	return &DeleteExternalcontactsOrganizationNoteNotFound{}
 }
 
-/*DeleteExternalcontactsOrganizationNoteNotFound handles this case with default header values.
+/*
+DeleteExternalcontactsOrganizationNoteNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type DeleteExternalcontactsOrganizationNoteNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts organization note not found response has a 2xx status code
+func (o *DeleteExternalcontactsOrganizationNoteNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts organization note not found response has a 3xx status code
+func (o *DeleteExternalcontactsOrganizationNoteNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts organization note not found response has a 4xx status code
+func (o *DeleteExternalcontactsOrganizationNoteNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts organization note not found response has a 5xx status code
+func (o *DeleteExternalcontactsOrganizationNoteNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts organization note not found response a status code equal to that given
+func (o *DeleteExternalcontactsOrganizationNoteNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteExternalcontactsOrganizationNoteNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteExternalcontactsOrganizationNoteNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteExternalcontactsOrganizationNoteRequestTimeout() *DeleteExternalco
 	return &DeleteExternalcontactsOrganizationNoteRequestTimeout{}
 }
 
-/*DeleteExternalcontactsOrganizationNoteRequestTimeout handles this case with default header values.
+/*
+DeleteExternalcontactsOrganizationNoteRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type DeleteExternalcontactsOrganizationNoteRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts organization note request timeout response has a 2xx status code
+func (o *DeleteExternalcontactsOrganizationNoteRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts organization note request timeout response has a 3xx status code
+func (o *DeleteExternalcontactsOrganizationNoteRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts organization note request timeout response has a 4xx status code
+func (o *DeleteExternalcontactsOrganizationNoteRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts organization note request timeout response has a 5xx status code
+func (o *DeleteExternalcontactsOrganizationNoteRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts organization note request timeout response a status code equal to that given
+func (o *DeleteExternalcontactsOrganizationNoteRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteExternalcontactsOrganizationNoteRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteExternalcontactsOrganizationNoteRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteExternalcontactsOrganizationNoteRequestEntityTooLarge() *DeleteExt
 	return &DeleteExternalcontactsOrganizationNoteRequestEntityTooLarge{}
 }
 
-/*DeleteExternalcontactsOrganizationNoteRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteExternalcontactsOrganizationNoteRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type DeleteExternalcontactsOrganizationNoteRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts organization note request entity too large response has a 2xx status code
+func (o *DeleteExternalcontactsOrganizationNoteRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts organization note request entity too large response has a 3xx status code
+func (o *DeleteExternalcontactsOrganizationNoteRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts organization note request entity too large response has a 4xx status code
+func (o *DeleteExternalcontactsOrganizationNoteRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts organization note request entity too large response has a 5xx status code
+func (o *DeleteExternalcontactsOrganizationNoteRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts organization note request entity too large response a status code equal to that given
+func (o *DeleteExternalcontactsOrganizationNoteRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteExternalcontactsOrganizationNoteRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteExternalcontactsOrganizationNoteRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteExternalcontactsOrganizationNoteUnsupportedMediaType() *DeleteExte
 	return &DeleteExternalcontactsOrganizationNoteUnsupportedMediaType{}
 }
 
-/*DeleteExternalcontactsOrganizationNoteUnsupportedMediaType handles this case with default header values.
+/*
+DeleteExternalcontactsOrganizationNoteUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type DeleteExternalcontactsOrganizationNoteUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts organization note unsupported media type response has a 2xx status code
+func (o *DeleteExternalcontactsOrganizationNoteUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts organization note unsupported media type response has a 3xx status code
+func (o *DeleteExternalcontactsOrganizationNoteUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts organization note unsupported media type response has a 4xx status code
+func (o *DeleteExternalcontactsOrganizationNoteUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts organization note unsupported media type response has a 5xx status code
+func (o *DeleteExternalcontactsOrganizationNoteUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts organization note unsupported media type response a status code equal to that given
+func (o *DeleteExternalcontactsOrganizationNoteUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteExternalcontactsOrganizationNoteUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteExternalcontactsOrganizationNoteUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteExternalcontactsOrganizationNoteTooManyRequests() *DeleteExternalc
 	return &DeleteExternalcontactsOrganizationNoteTooManyRequests{}
 }
 
-/*DeleteExternalcontactsOrganizationNoteTooManyRequests handles this case with default header values.
+/*
+DeleteExternalcontactsOrganizationNoteTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type DeleteExternalcontactsOrganizationNoteTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts organization note too many requests response has a 2xx status code
+func (o *DeleteExternalcontactsOrganizationNoteTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts organization note too many requests response has a 3xx status code
+func (o *DeleteExternalcontactsOrganizationNoteTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts organization note too many requests response has a 4xx status code
+func (o *DeleteExternalcontactsOrganizationNoteTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts organization note too many requests response has a 5xx status code
+func (o *DeleteExternalcontactsOrganizationNoteTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts organization note too many requests response a status code equal to that given
+func (o *DeleteExternalcontactsOrganizationNoteTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteExternalcontactsOrganizationNoteTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteExternalcontactsOrganizationNoteTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteExternalcontactsOrganizationNoteInternalServerError() *DeleteExter
 	return &DeleteExternalcontactsOrganizationNoteInternalServerError{}
 }
 
-/*DeleteExternalcontactsOrganizationNoteInternalServerError handles this case with default header values.
+/*
+DeleteExternalcontactsOrganizationNoteInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type DeleteExternalcontactsOrganizationNoteInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts organization note internal server error response has a 2xx status code
+func (o *DeleteExternalcontactsOrganizationNoteInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts organization note internal server error response has a 3xx status code
+func (o *DeleteExternalcontactsOrganizationNoteInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts organization note internal server error response has a 4xx status code
+func (o *DeleteExternalcontactsOrganizationNoteInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete externalcontacts organization note internal server error response has a 5xx status code
+func (o *DeleteExternalcontactsOrganizationNoteInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete externalcontacts organization note internal server error response a status code equal to that given
+func (o *DeleteExternalcontactsOrganizationNoteInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteExternalcontactsOrganizationNoteInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteExternalcontactsOrganizationNoteInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteExternalcontactsOrganizationNoteServiceUnavailable() *DeleteExtern
 	return &DeleteExternalcontactsOrganizationNoteServiceUnavailable{}
 }
 
-/*DeleteExternalcontactsOrganizationNoteServiceUnavailable handles this case with default header values.
+/*
+DeleteExternalcontactsOrganizationNoteServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type DeleteExternalcontactsOrganizationNoteServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts organization note service unavailable response has a 2xx status code
+func (o *DeleteExternalcontactsOrganizationNoteServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts organization note service unavailable response has a 3xx status code
+func (o *DeleteExternalcontactsOrganizationNoteServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts organization note service unavailable response has a 4xx status code
+func (o *DeleteExternalcontactsOrganizationNoteServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete externalcontacts organization note service unavailable response has a 5xx status code
+func (o *DeleteExternalcontactsOrganizationNoteServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete externalcontacts organization note service unavailable response a status code equal to that given
+func (o *DeleteExternalcontactsOrganizationNoteServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteExternalcontactsOrganizationNoteServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteExternalcontactsOrganizationNoteServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteExternalcontactsOrganizationNoteGatewayTimeout() *DeleteExternalco
 	return &DeleteExternalcontactsOrganizationNoteGatewayTimeout{}
 }
 
-/*DeleteExternalcontactsOrganizationNoteGatewayTimeout handles this case with default header values.
+/*
+DeleteExternalcontactsOrganizationNoteGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type DeleteExternalcontactsOrganizationNoteGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts organization note gateway timeout response has a 2xx status code
+func (o *DeleteExternalcontactsOrganizationNoteGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts organization note gateway timeout response has a 3xx status code
+func (o *DeleteExternalcontactsOrganizationNoteGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts organization note gateway timeout response has a 4xx status code
+func (o *DeleteExternalcontactsOrganizationNoteGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete externalcontacts organization note gateway timeout response has a 5xx status code
+func (o *DeleteExternalcontactsOrganizationNoteGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete externalcontacts organization note gateway timeout response a status code equal to that given
+func (o *DeleteExternalcontactsOrganizationNoteGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteExternalcontactsOrganizationNoteGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteExternalcontactsOrganizationNoteGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] deleteExternalcontactsOrganizationNoteGatewayTimeout  %+v", 504, o.Payload)
 }
 

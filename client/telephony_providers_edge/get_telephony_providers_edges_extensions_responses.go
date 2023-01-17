@@ -95,7 +95,6 @@ func (o *GetTelephonyProvidersEdgesExtensionsReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetTelephonyProvidersEdgesExtensionsOK() *GetTelephonyProvidersEdgesExte
 	return &GetTelephonyProvidersEdgesExtensionsOK{}
 }
 
-/*GetTelephonyProvidersEdgesExtensionsOK handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesExtensionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetTelephonyProvidersEdgesExtensionsOK struct {
 	Payload *models.ExtensionEntityListing
 }
 
+// IsSuccess returns true when this get telephony providers edges extensions o k response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get telephony providers edges extensions o k response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges extensions o k response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edges extensions o k response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges extensions o k response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesExtensionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetTelephonyProvidersEdgesExtensionsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesExtensionsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetTelephonyProvidersEdgesExtensionsBadRequest() *GetTelephonyProvidersE
 	return &GetTelephonyProvidersEdgesExtensionsBadRequest{}
 }
 
-/*GetTelephonyProvidersEdgesExtensionsBadRequest handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesExtensionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetTelephonyProvidersEdgesExtensionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges extensions bad request response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges extensions bad request response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges extensions bad request response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges extensions bad request response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges extensions bad request response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesExtensionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetTelephonyProvidersEdgesExtensionsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesExtensionsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetTelephonyProvidersEdgesExtensionsUnauthorized() *GetTelephonyProvider
 	return &GetTelephonyProvidersEdgesExtensionsUnauthorized{}
 }
 
-/*GetTelephonyProvidersEdgesExtensionsUnauthorized handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesExtensionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetTelephonyProvidersEdgesExtensionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges extensions unauthorized response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges extensions unauthorized response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges extensions unauthorized response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges extensions unauthorized response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges extensions unauthorized response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesExtensionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetTelephonyProvidersEdgesExtensionsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesExtensionsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetTelephonyProvidersEdgesExtensionsForbidden() *GetTelephonyProvidersEd
 	return &GetTelephonyProvidersEdgesExtensionsForbidden{}
 }
 
-/*GetTelephonyProvidersEdgesExtensionsForbidden handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesExtensionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetTelephonyProvidersEdgesExtensionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges extensions forbidden response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges extensions forbidden response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges extensions forbidden response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges extensions forbidden response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges extensions forbidden response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesExtensionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetTelephonyProvidersEdgesExtensionsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesExtensionsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetTelephonyProvidersEdgesExtensionsNotFound() *GetTelephonyProvidersEdg
 	return &GetTelephonyProvidersEdgesExtensionsNotFound{}
 }
 
-/*GetTelephonyProvidersEdgesExtensionsNotFound handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesExtensionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetTelephonyProvidersEdgesExtensionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges extensions not found response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges extensions not found response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges extensions not found response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges extensions not found response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges extensions not found response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesExtensionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetTelephonyProvidersEdgesExtensionsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesExtensionsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetTelephonyProvidersEdgesExtensionsRequestTimeout() *GetTelephonyProvid
 	return &GetTelephonyProvidersEdgesExtensionsRequestTimeout{}
 }
 
-/*GetTelephonyProvidersEdgesExtensionsRequestTimeout handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesExtensionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetTelephonyProvidersEdgesExtensionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges extensions request timeout response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges extensions request timeout response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges extensions request timeout response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges extensions request timeout response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges extensions request timeout response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesExtensionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetTelephonyProvidersEdgesExtensionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesExtensionsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetTelephonyProvidersEdgesExtensionsRequestEntityTooLarge() *GetTelephon
 	return &GetTelephonyProvidersEdgesExtensionsRequestEntityTooLarge{}
 }
 
-/*GetTelephonyProvidersEdgesExtensionsRequestEntityTooLarge handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesExtensionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetTelephonyProvidersEdgesExtensionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges extensions request entity too large response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges extensions request entity too large response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges extensions request entity too large response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges extensions request entity too large response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges extensions request entity too large response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesExtensionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetTelephonyProvidersEdgesExtensionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesExtensionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetTelephonyProvidersEdgesExtensionsUnsupportedMediaType() *GetTelephony
 	return &GetTelephonyProvidersEdgesExtensionsUnsupportedMediaType{}
 }
 
-/*GetTelephonyProvidersEdgesExtensionsUnsupportedMediaType handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesExtensionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetTelephonyProvidersEdgesExtensionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges extensions unsupported media type response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges extensions unsupported media type response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges extensions unsupported media type response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges extensions unsupported media type response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges extensions unsupported media type response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesExtensionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetTelephonyProvidersEdgesExtensionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesExtensionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetTelephonyProvidersEdgesExtensionsTooManyRequests() *GetTelephonyProvi
 	return &GetTelephonyProvidersEdgesExtensionsTooManyRequests{}
 }
 
-/*GetTelephonyProvidersEdgesExtensionsTooManyRequests handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesExtensionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetTelephonyProvidersEdgesExtensionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges extensions too many requests response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges extensions too many requests response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges extensions too many requests response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges extensions too many requests response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges extensions too many requests response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesExtensionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetTelephonyProvidersEdgesExtensionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesExtensionsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetTelephonyProvidersEdgesExtensionsInternalServerError() *GetTelephonyP
 	return &GetTelephonyProvidersEdgesExtensionsInternalServerError{}
 }
 
-/*GetTelephonyProvidersEdgesExtensionsInternalServerError handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesExtensionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetTelephonyProvidersEdgesExtensionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges extensions internal server error response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges extensions internal server error response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges extensions internal server error response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edges extensions internal server error response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony providers edges extensions internal server error response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesExtensionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetTelephonyProvidersEdgesExtensionsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesExtensionsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetTelephonyProvidersEdgesExtensionsServiceUnavailable() *GetTelephonyPr
 	return &GetTelephonyProvidersEdgesExtensionsServiceUnavailable{}
 }
 
-/*GetTelephonyProvidersEdgesExtensionsServiceUnavailable handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesExtensionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetTelephonyProvidersEdgesExtensionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges extensions service unavailable response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges extensions service unavailable response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges extensions service unavailable response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edges extensions service unavailable response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony providers edges extensions service unavailable response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesExtensionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetTelephonyProvidersEdgesExtensionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesExtensionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetTelephonyProvidersEdgesExtensionsGatewayTimeout() *GetTelephonyProvid
 	return &GetTelephonyProvidersEdgesExtensionsGatewayTimeout{}
 }
 
-/*GetTelephonyProvidersEdgesExtensionsGatewayTimeout handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesExtensionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetTelephonyProvidersEdgesExtensionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges extensions gateway timeout response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges extensions gateway timeout response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges extensions gateway timeout response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edges extensions gateway timeout response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesExtensionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony providers edges extensions gateway timeout response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesExtensionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetTelephonyProvidersEdgesExtensionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesExtensionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/extensions][%d] getTelephonyProvidersEdgesExtensionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

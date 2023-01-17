@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingPredictorModelFeaturesParams creates a new GetRoutingPredictorModelFeaturesParams object
-// with the default values initialized.
+// NewGetRoutingPredictorModelFeaturesParams creates a new GetRoutingPredictorModelFeaturesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingPredictorModelFeaturesParams() *GetRoutingPredictorModelFeaturesParams {
-	var ()
 	return &GetRoutingPredictorModelFeaturesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingPredictorModelFeaturesParamsWithTimeout creates a new GetRoutingPredictorModelFeaturesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingPredictorModelFeaturesParamsWithTimeout(timeout time.Duration) *GetRoutingPredictorModelFeaturesParams {
-	var ()
 	return &GetRoutingPredictorModelFeaturesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingPredictorModelFeaturesParamsWithContext creates a new GetRoutingPredictorModelFeaturesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingPredictorModelFeaturesParamsWithContext(ctx context.Context) *GetRoutingPredictorModelFeaturesParams {
-	var ()
 	return &GetRoutingPredictorModelFeaturesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingPredictorModelFeaturesParamsWithHTTPClient creates a new GetRoutingPredictorModelFeaturesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingPredictorModelFeaturesParamsWithHTTPClient(client *http.Client) *GetRoutingPredictorModelFeaturesParams {
-	var ()
 	return &GetRoutingPredictorModelFeaturesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingPredictorModelFeaturesParams contains all the parameters to send to the API endpoint
-for the get routing predictor model features operation typically these are written to a http.Request
+/*
+GetRoutingPredictorModelFeaturesParams contains all the parameters to send to the API endpoint
+
+	for the get routing predictor model features operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingPredictorModelFeaturesParams struct {
 
-	/*ModelID
-	  Model ID
+	/* ModelID.
 
+	   Model ID
 	*/
 	ModelID string
-	/*PredictorID
-	  Predictor ID
 
+	/* PredictorID.
+
+	   Predictor ID
 	*/
 	PredictorID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing predictor model features params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingPredictorModelFeaturesParams) WithDefaults() *GetRoutingPredictorModelFeaturesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing predictor model features params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingPredictorModelFeaturesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing predictor model features params

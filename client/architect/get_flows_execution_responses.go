@@ -95,7 +95,6 @@ func (o *GetFlowsExecutionReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetFlowsExecutionOK() *GetFlowsExecutionOK {
 	return &GetFlowsExecutionOK{}
 }
 
-/*GetFlowsExecutionOK handles this case with default header values.
+/*
+GetFlowsExecutionOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetFlowsExecutionOK struct {
 	Payload *models.FlowRuntimeExecution
 }
 
+// IsSuccess returns true when this get flows execution o k response has a 2xx status code
+func (o *GetFlowsExecutionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get flows execution o k response has a 3xx status code
+func (o *GetFlowsExecutionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows execution o k response has a 4xx status code
+func (o *GetFlowsExecutionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows execution o k response has a 5xx status code
+func (o *GetFlowsExecutionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows execution o k response a status code equal to that given
+func (o *GetFlowsExecutionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetFlowsExecutionOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionOK  %+v", 200, o.Payload)
+}
+
+func (o *GetFlowsExecutionOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetFlowsExecutionBadRequest() *GetFlowsExecutionBadRequest {
 	return &GetFlowsExecutionBadRequest{}
 }
 
-/*GetFlowsExecutionBadRequest handles this case with default header values.
+/*
+GetFlowsExecutionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetFlowsExecutionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows execution bad request response has a 2xx status code
+func (o *GetFlowsExecutionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows execution bad request response has a 3xx status code
+func (o *GetFlowsExecutionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows execution bad request response has a 4xx status code
+func (o *GetFlowsExecutionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows execution bad request response has a 5xx status code
+func (o *GetFlowsExecutionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows execution bad request response a status code equal to that given
+func (o *GetFlowsExecutionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetFlowsExecutionBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetFlowsExecutionBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetFlowsExecutionUnauthorized() *GetFlowsExecutionUnauthorized {
 	return &GetFlowsExecutionUnauthorized{}
 }
 
-/*GetFlowsExecutionUnauthorized handles this case with default header values.
+/*
+GetFlowsExecutionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetFlowsExecutionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows execution unauthorized response has a 2xx status code
+func (o *GetFlowsExecutionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows execution unauthorized response has a 3xx status code
+func (o *GetFlowsExecutionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows execution unauthorized response has a 4xx status code
+func (o *GetFlowsExecutionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows execution unauthorized response has a 5xx status code
+func (o *GetFlowsExecutionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows execution unauthorized response a status code equal to that given
+func (o *GetFlowsExecutionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetFlowsExecutionUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetFlowsExecutionUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetFlowsExecutionForbidden() *GetFlowsExecutionForbidden {
 	return &GetFlowsExecutionForbidden{}
 }
 
-/*GetFlowsExecutionForbidden handles this case with default header values.
+/*
+GetFlowsExecutionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetFlowsExecutionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows execution forbidden response has a 2xx status code
+func (o *GetFlowsExecutionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows execution forbidden response has a 3xx status code
+func (o *GetFlowsExecutionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows execution forbidden response has a 4xx status code
+func (o *GetFlowsExecutionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows execution forbidden response has a 5xx status code
+func (o *GetFlowsExecutionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows execution forbidden response a status code equal to that given
+func (o *GetFlowsExecutionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetFlowsExecutionForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetFlowsExecutionForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetFlowsExecutionNotFound() *GetFlowsExecutionNotFound {
 	return &GetFlowsExecutionNotFound{}
 }
 
-/*GetFlowsExecutionNotFound handles this case with default header values.
+/*
+GetFlowsExecutionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetFlowsExecutionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows execution not found response has a 2xx status code
+func (o *GetFlowsExecutionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows execution not found response has a 3xx status code
+func (o *GetFlowsExecutionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows execution not found response has a 4xx status code
+func (o *GetFlowsExecutionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows execution not found response has a 5xx status code
+func (o *GetFlowsExecutionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows execution not found response a status code equal to that given
+func (o *GetFlowsExecutionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetFlowsExecutionNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetFlowsExecutionNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetFlowsExecutionRequestTimeout() *GetFlowsExecutionRequestTimeout {
 	return &GetFlowsExecutionRequestTimeout{}
 }
 
-/*GetFlowsExecutionRequestTimeout handles this case with default header values.
+/*
+GetFlowsExecutionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetFlowsExecutionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows execution request timeout response has a 2xx status code
+func (o *GetFlowsExecutionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows execution request timeout response has a 3xx status code
+func (o *GetFlowsExecutionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows execution request timeout response has a 4xx status code
+func (o *GetFlowsExecutionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows execution request timeout response has a 5xx status code
+func (o *GetFlowsExecutionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows execution request timeout response a status code equal to that given
+func (o *GetFlowsExecutionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetFlowsExecutionRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFlowsExecutionRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetFlowsExecutionRequestEntityTooLarge() *GetFlowsExecutionRequestEntity
 	return &GetFlowsExecutionRequestEntityTooLarge{}
 }
 
-/*GetFlowsExecutionRequestEntityTooLarge handles this case with default header values.
+/*
+GetFlowsExecutionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetFlowsExecutionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows execution request entity too large response has a 2xx status code
+func (o *GetFlowsExecutionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows execution request entity too large response has a 3xx status code
+func (o *GetFlowsExecutionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows execution request entity too large response has a 4xx status code
+func (o *GetFlowsExecutionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows execution request entity too large response has a 5xx status code
+func (o *GetFlowsExecutionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows execution request entity too large response a status code equal to that given
+func (o *GetFlowsExecutionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetFlowsExecutionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetFlowsExecutionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetFlowsExecutionUnsupportedMediaType() *GetFlowsExecutionUnsupportedMed
 	return &GetFlowsExecutionUnsupportedMediaType{}
 }
 
-/*GetFlowsExecutionUnsupportedMediaType handles this case with default header values.
+/*
+GetFlowsExecutionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetFlowsExecutionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows execution unsupported media type response has a 2xx status code
+func (o *GetFlowsExecutionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows execution unsupported media type response has a 3xx status code
+func (o *GetFlowsExecutionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows execution unsupported media type response has a 4xx status code
+func (o *GetFlowsExecutionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows execution unsupported media type response has a 5xx status code
+func (o *GetFlowsExecutionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows execution unsupported media type response a status code equal to that given
+func (o *GetFlowsExecutionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetFlowsExecutionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetFlowsExecutionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetFlowsExecutionTooManyRequests() *GetFlowsExecutionTooManyRequests {
 	return &GetFlowsExecutionTooManyRequests{}
 }
 
-/*GetFlowsExecutionTooManyRequests handles this case with default header values.
+/*
+GetFlowsExecutionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetFlowsExecutionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows execution too many requests response has a 2xx status code
+func (o *GetFlowsExecutionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows execution too many requests response has a 3xx status code
+func (o *GetFlowsExecutionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows execution too many requests response has a 4xx status code
+func (o *GetFlowsExecutionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows execution too many requests response has a 5xx status code
+func (o *GetFlowsExecutionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows execution too many requests response a status code equal to that given
+func (o *GetFlowsExecutionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetFlowsExecutionTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetFlowsExecutionTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetFlowsExecutionInternalServerError() *GetFlowsExecutionInternalServerE
 	return &GetFlowsExecutionInternalServerError{}
 }
 
-/*GetFlowsExecutionInternalServerError handles this case with default header values.
+/*
+GetFlowsExecutionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetFlowsExecutionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows execution internal server error response has a 2xx status code
+func (o *GetFlowsExecutionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows execution internal server error response has a 3xx status code
+func (o *GetFlowsExecutionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows execution internal server error response has a 4xx status code
+func (o *GetFlowsExecutionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows execution internal server error response has a 5xx status code
+func (o *GetFlowsExecutionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows execution internal server error response a status code equal to that given
+func (o *GetFlowsExecutionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetFlowsExecutionInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetFlowsExecutionInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetFlowsExecutionServiceUnavailable() *GetFlowsExecutionServiceUnavailab
 	return &GetFlowsExecutionServiceUnavailable{}
 }
 
-/*GetFlowsExecutionServiceUnavailable handles this case with default header values.
+/*
+GetFlowsExecutionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetFlowsExecutionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows execution service unavailable response has a 2xx status code
+func (o *GetFlowsExecutionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows execution service unavailable response has a 3xx status code
+func (o *GetFlowsExecutionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows execution service unavailable response has a 4xx status code
+func (o *GetFlowsExecutionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows execution service unavailable response has a 5xx status code
+func (o *GetFlowsExecutionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows execution service unavailable response a status code equal to that given
+func (o *GetFlowsExecutionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetFlowsExecutionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetFlowsExecutionServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetFlowsExecutionGatewayTimeout() *GetFlowsExecutionGatewayTimeout {
 	return &GetFlowsExecutionGatewayTimeout{}
 }
 
-/*GetFlowsExecutionGatewayTimeout handles this case with default header values.
+/*
+GetFlowsExecutionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetFlowsExecutionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows execution gateway timeout response has a 2xx status code
+func (o *GetFlowsExecutionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows execution gateway timeout response has a 3xx status code
+func (o *GetFlowsExecutionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows execution gateway timeout response has a 4xx status code
+func (o *GetFlowsExecutionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows execution gateway timeout response has a 5xx status code
+func (o *GetFlowsExecutionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows execution gateway timeout response a status code equal to that given
+func (o *GetFlowsExecutionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetFlowsExecutionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetFlowsExecutionGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/executions/{flowExecutionId}][%d] getFlowsExecutionGatewayTimeout  %+v", 504, o.Payload)
 }
 

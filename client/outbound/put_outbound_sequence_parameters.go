@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOutboundSequenceParams creates a new PutOutboundSequenceParams object
-// with the default values initialized.
+// NewPutOutboundSequenceParams creates a new PutOutboundSequenceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOutboundSequenceParams() *PutOutboundSequenceParams {
-	var ()
 	return &PutOutboundSequenceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOutboundSequenceParamsWithTimeout creates a new PutOutboundSequenceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOutboundSequenceParamsWithTimeout(timeout time.Duration) *PutOutboundSequenceParams {
-	var ()
 	return &PutOutboundSequenceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOutboundSequenceParamsWithContext creates a new PutOutboundSequenceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOutboundSequenceParamsWithContext(ctx context.Context) *PutOutboundSequenceParams {
-	var ()
 	return &PutOutboundSequenceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOutboundSequenceParamsWithHTTPClient creates a new PutOutboundSequenceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOutboundSequenceParamsWithHTTPClient(client *http.Client) *PutOutboundSequenceParams {
-	var ()
 	return &PutOutboundSequenceParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOutboundSequenceParams contains all the parameters to send to the API endpoint
-for the put outbound sequence operation typically these are written to a http.Request
+/*
+PutOutboundSequenceParams contains all the parameters to send to the API endpoint
+
+	for the put outbound sequence operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOutboundSequenceParams struct {
 
-	/*Body
-	  Organization
+	/* Body.
 
+	   Organization
 	*/
 	Body *models.CampaignSequence
-	/*SequenceID
-	  Campaign Sequence ID
 
+	/* SequenceID.
+
+	   Campaign Sequence ID
 	*/
 	SequenceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put outbound sequence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundSequenceParams) WithDefaults() *PutOutboundSequenceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put outbound sequence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundSequenceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put outbound sequence params
@@ -140,7 +157,6 @@ func (o *PutOutboundSequenceParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

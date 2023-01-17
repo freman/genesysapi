@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostExternalcontactsBulkRelationshipsRemoveParams creates a new PostExternalcontactsBulkRelationshipsRemoveParams object
-// with the default values initialized.
+// NewPostExternalcontactsBulkRelationshipsRemoveParams creates a new PostExternalcontactsBulkRelationshipsRemoveParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostExternalcontactsBulkRelationshipsRemoveParams() *PostExternalcontactsBulkRelationshipsRemoveParams {
-	var ()
 	return &PostExternalcontactsBulkRelationshipsRemoveParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostExternalcontactsBulkRelationshipsRemoveParamsWithTimeout creates a new PostExternalcontactsBulkRelationshipsRemoveParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostExternalcontactsBulkRelationshipsRemoveParamsWithTimeout(timeout time.Duration) *PostExternalcontactsBulkRelationshipsRemoveParams {
-	var ()
 	return &PostExternalcontactsBulkRelationshipsRemoveParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostExternalcontactsBulkRelationshipsRemoveParamsWithContext creates a new PostExternalcontactsBulkRelationshipsRemoveParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostExternalcontactsBulkRelationshipsRemoveParamsWithContext(ctx context.Context) *PostExternalcontactsBulkRelationshipsRemoveParams {
-	var ()
 	return &PostExternalcontactsBulkRelationshipsRemoveParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostExternalcontactsBulkRelationshipsRemoveParamsWithHTTPClient creates a new PostExternalcontactsBulkRelationshipsRemoveParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostExternalcontactsBulkRelationshipsRemoveParamsWithHTTPClient(client *http.Client) *PostExternalcontactsBulkRelationshipsRemoveParams {
-	var ()
 	return &PostExternalcontactsBulkRelationshipsRemoveParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostExternalcontactsBulkRelationshipsRemoveParams contains all the parameters to send to the API endpoint
-for the post externalcontacts bulk relationships remove operation typically these are written to a http.Request
+/*
+PostExternalcontactsBulkRelationshipsRemoveParams contains all the parameters to send to the API endpoint
+
+	for the post externalcontacts bulk relationships remove operation.
+
+	Typically these are written to a http.Request.
 */
 type PostExternalcontactsBulkRelationshipsRemoveParams struct {
 
-	/*Body
-	  Relationships ids
+	/* Body.
 
+	   Relationships ids
 	*/
 	Body *models.BulkIdsRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post externalcontacts bulk relationships remove params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsBulkRelationshipsRemoveParams) WithDefaults() *PostExternalcontactsBulkRelationshipsRemoveParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post externalcontacts bulk relationships remove params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsBulkRelationshipsRemoveParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post externalcontacts bulk relationships remove params
@@ -124,7 +140,6 @@ func (o *PostExternalcontactsBulkRelationshipsRemoveParams) WriteToRequest(r run
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

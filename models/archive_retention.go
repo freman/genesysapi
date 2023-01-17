@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -68,7 +69,6 @@ func (m *ArchiveRetention) validateStorageMediumEnum(path, location string, valu
 }
 
 func (m *ArchiveRetention) validateStorageMedium(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StorageMedium) { // not required
 		return nil
 	}
@@ -78,6 +78,11 @@ func (m *ArchiveRetention) validateStorageMedium(formats strfmt.Registry) error 
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this archive retention based on context it is used
+func (m *ArchiveRetention) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

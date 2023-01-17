@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetContentmanagementSecurityprofileParams creates a new GetContentmanagementSecurityprofileParams object
-// with the default values initialized.
+// NewGetContentmanagementSecurityprofileParams creates a new GetContentmanagementSecurityprofileParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetContentmanagementSecurityprofileParams() *GetContentmanagementSecurityprofileParams {
-	var ()
 	return &GetContentmanagementSecurityprofileParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetContentmanagementSecurityprofileParamsWithTimeout creates a new GetContentmanagementSecurityprofileParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetContentmanagementSecurityprofileParamsWithTimeout(timeout time.Duration) *GetContentmanagementSecurityprofileParams {
-	var ()
 	return &GetContentmanagementSecurityprofileParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetContentmanagementSecurityprofileParamsWithContext creates a new GetContentmanagementSecurityprofileParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetContentmanagementSecurityprofileParamsWithContext(ctx context.Context) *GetContentmanagementSecurityprofileParams {
-	var ()
 	return &GetContentmanagementSecurityprofileParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetContentmanagementSecurityprofileParamsWithHTTPClient creates a new GetContentmanagementSecurityprofileParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetContentmanagementSecurityprofileParamsWithHTTPClient(client *http.Client) *GetContentmanagementSecurityprofileParams {
-	var ()
 	return &GetContentmanagementSecurityprofileParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetContentmanagementSecurityprofileParams contains all the parameters to send to the API endpoint
-for the get contentmanagement securityprofile operation typically these are written to a http.Request
+/*
+GetContentmanagementSecurityprofileParams contains all the parameters to send to the API endpoint
+
+	for the get contentmanagement securityprofile operation.
+
+	Typically these are written to a http.Request.
 */
 type GetContentmanagementSecurityprofileParams struct {
 
-	/*SecurityProfileID
-	  Security Profile Id
+	/* SecurityProfileID.
 
+	   Security Profile Id
 	*/
 	SecurityProfileID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get contentmanagement securityprofile params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementSecurityprofileParams) WithDefaults() *GetContentmanagementSecurityprofileParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get contentmanagement securityprofile params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementSecurityprofileParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get contentmanagement securityprofile params

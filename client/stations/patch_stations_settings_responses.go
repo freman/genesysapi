@@ -95,7 +95,6 @@ func (o *PatchStationsSettingsReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchStationsSettingsOK() *PatchStationsSettingsOK {
 	return &PatchStationsSettingsOK{}
 }
 
-/*PatchStationsSettingsOK handles this case with default header values.
+/*
+PatchStationsSettingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchStationsSettingsOK struct {
 	Payload *models.StationSettings
 }
 
+// IsSuccess returns true when this patch stations settings o k response has a 2xx status code
+func (o *PatchStationsSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch stations settings o k response has a 3xx status code
+func (o *PatchStationsSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch stations settings o k response has a 4xx status code
+func (o *PatchStationsSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch stations settings o k response has a 5xx status code
+func (o *PatchStationsSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch stations settings o k response a status code equal to that given
+func (o *PatchStationsSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchStationsSettingsOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchStationsSettingsOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchStationsSettingsBadRequest() *PatchStationsSettingsBadRequest {
 	return &PatchStationsSettingsBadRequest{}
 }
 
-/*PatchStationsSettingsBadRequest handles this case with default header values.
+/*
+PatchStationsSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchStationsSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch stations settings bad request response has a 2xx status code
+func (o *PatchStationsSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch stations settings bad request response has a 3xx status code
+func (o *PatchStationsSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch stations settings bad request response has a 4xx status code
+func (o *PatchStationsSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch stations settings bad request response has a 5xx status code
+func (o *PatchStationsSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch stations settings bad request response a status code equal to that given
+func (o *PatchStationsSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchStationsSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchStationsSettingsBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchStationsSettingsUnauthorized() *PatchStationsSettingsUnauthorized {
 	return &PatchStationsSettingsUnauthorized{}
 }
 
-/*PatchStationsSettingsUnauthorized handles this case with default header values.
+/*
+PatchStationsSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchStationsSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch stations settings unauthorized response has a 2xx status code
+func (o *PatchStationsSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch stations settings unauthorized response has a 3xx status code
+func (o *PatchStationsSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch stations settings unauthorized response has a 4xx status code
+func (o *PatchStationsSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch stations settings unauthorized response has a 5xx status code
+func (o *PatchStationsSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch stations settings unauthorized response a status code equal to that given
+func (o *PatchStationsSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchStationsSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchStationsSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchStationsSettingsForbidden() *PatchStationsSettingsForbidden {
 	return &PatchStationsSettingsForbidden{}
 }
 
-/*PatchStationsSettingsForbidden handles this case with default header values.
+/*
+PatchStationsSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchStationsSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch stations settings forbidden response has a 2xx status code
+func (o *PatchStationsSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch stations settings forbidden response has a 3xx status code
+func (o *PatchStationsSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch stations settings forbidden response has a 4xx status code
+func (o *PatchStationsSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch stations settings forbidden response has a 5xx status code
+func (o *PatchStationsSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch stations settings forbidden response a status code equal to that given
+func (o *PatchStationsSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchStationsSettingsForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchStationsSettingsForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchStationsSettingsNotFound() *PatchStationsSettingsNotFound {
 	return &PatchStationsSettingsNotFound{}
 }
 
-/*PatchStationsSettingsNotFound handles this case with default header values.
+/*
+PatchStationsSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchStationsSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch stations settings not found response has a 2xx status code
+func (o *PatchStationsSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch stations settings not found response has a 3xx status code
+func (o *PatchStationsSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch stations settings not found response has a 4xx status code
+func (o *PatchStationsSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch stations settings not found response has a 5xx status code
+func (o *PatchStationsSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch stations settings not found response a status code equal to that given
+func (o *PatchStationsSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchStationsSettingsNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchStationsSettingsNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchStationsSettingsRequestTimeout() *PatchStationsSettingsRequestTimeo
 	return &PatchStationsSettingsRequestTimeout{}
 }
 
-/*PatchStationsSettingsRequestTimeout handles this case with default header values.
+/*
+PatchStationsSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchStationsSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch stations settings request timeout response has a 2xx status code
+func (o *PatchStationsSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch stations settings request timeout response has a 3xx status code
+func (o *PatchStationsSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch stations settings request timeout response has a 4xx status code
+func (o *PatchStationsSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch stations settings request timeout response has a 5xx status code
+func (o *PatchStationsSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch stations settings request timeout response a status code equal to that given
+func (o *PatchStationsSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchStationsSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchStationsSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchStationsSettingsRequestEntityTooLarge() *PatchStationsSettingsReque
 	return &PatchStationsSettingsRequestEntityTooLarge{}
 }
 
-/*PatchStationsSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+PatchStationsSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchStationsSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch stations settings request entity too large response has a 2xx status code
+func (o *PatchStationsSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch stations settings request entity too large response has a 3xx status code
+func (o *PatchStationsSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch stations settings request entity too large response has a 4xx status code
+func (o *PatchStationsSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch stations settings request entity too large response has a 5xx status code
+func (o *PatchStationsSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch stations settings request entity too large response a status code equal to that given
+func (o *PatchStationsSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchStationsSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchStationsSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchStationsSettingsUnsupportedMediaType() *PatchStationsSettingsUnsupp
 	return &PatchStationsSettingsUnsupportedMediaType{}
 }
 
-/*PatchStationsSettingsUnsupportedMediaType handles this case with default header values.
+/*
+PatchStationsSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchStationsSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch stations settings unsupported media type response has a 2xx status code
+func (o *PatchStationsSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch stations settings unsupported media type response has a 3xx status code
+func (o *PatchStationsSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch stations settings unsupported media type response has a 4xx status code
+func (o *PatchStationsSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch stations settings unsupported media type response has a 5xx status code
+func (o *PatchStationsSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch stations settings unsupported media type response a status code equal to that given
+func (o *PatchStationsSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchStationsSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchStationsSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchStationsSettingsTooManyRequests() *PatchStationsSettingsTooManyRequ
 	return &PatchStationsSettingsTooManyRequests{}
 }
 
-/*PatchStationsSettingsTooManyRequests handles this case with default header values.
+/*
+PatchStationsSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchStationsSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch stations settings too many requests response has a 2xx status code
+func (o *PatchStationsSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch stations settings too many requests response has a 3xx status code
+func (o *PatchStationsSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch stations settings too many requests response has a 4xx status code
+func (o *PatchStationsSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch stations settings too many requests response has a 5xx status code
+func (o *PatchStationsSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch stations settings too many requests response a status code equal to that given
+func (o *PatchStationsSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchStationsSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchStationsSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchStationsSettingsInternalServerError() *PatchStationsSettingsInterna
 	return &PatchStationsSettingsInternalServerError{}
 }
 
-/*PatchStationsSettingsInternalServerError handles this case with default header values.
+/*
+PatchStationsSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchStationsSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch stations settings internal server error response has a 2xx status code
+func (o *PatchStationsSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch stations settings internal server error response has a 3xx status code
+func (o *PatchStationsSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch stations settings internal server error response has a 4xx status code
+func (o *PatchStationsSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch stations settings internal server error response has a 5xx status code
+func (o *PatchStationsSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch stations settings internal server error response a status code equal to that given
+func (o *PatchStationsSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchStationsSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchStationsSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchStationsSettingsServiceUnavailable() *PatchStationsSettingsServiceU
 	return &PatchStationsSettingsServiceUnavailable{}
 }
 
-/*PatchStationsSettingsServiceUnavailable handles this case with default header values.
+/*
+PatchStationsSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchStationsSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch stations settings service unavailable response has a 2xx status code
+func (o *PatchStationsSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch stations settings service unavailable response has a 3xx status code
+func (o *PatchStationsSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch stations settings service unavailable response has a 4xx status code
+func (o *PatchStationsSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch stations settings service unavailable response has a 5xx status code
+func (o *PatchStationsSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch stations settings service unavailable response a status code equal to that given
+func (o *PatchStationsSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchStationsSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchStationsSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchStationsSettingsGatewayTimeout() *PatchStationsSettingsGatewayTimeo
 	return &PatchStationsSettingsGatewayTimeout{}
 }
 
-/*PatchStationsSettingsGatewayTimeout handles this case with default header values.
+/*
+PatchStationsSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchStationsSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch stations settings gateway timeout response has a 2xx status code
+func (o *PatchStationsSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch stations settings gateway timeout response has a 3xx status code
+func (o *PatchStationsSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch stations settings gateway timeout response has a 4xx status code
+func (o *PatchStationsSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch stations settings gateway timeout response has a 5xx status code
+func (o *PatchStationsSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch stations settings gateway timeout response a status code equal to that given
+func (o *PatchStationsSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchStationsSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchStationsSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/stations/settings][%d] patchStationsSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

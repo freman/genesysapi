@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteRoutingQueueMemberParams creates a new DeleteRoutingQueueMemberParams object
-// with the default values initialized.
+// NewDeleteRoutingQueueMemberParams creates a new DeleteRoutingQueueMemberParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRoutingQueueMemberParams() *DeleteRoutingQueueMemberParams {
-	var ()
 	return &DeleteRoutingQueueMemberParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRoutingQueueMemberParamsWithTimeout creates a new DeleteRoutingQueueMemberParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRoutingQueueMemberParamsWithTimeout(timeout time.Duration) *DeleteRoutingQueueMemberParams {
-	var ()
 	return &DeleteRoutingQueueMemberParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRoutingQueueMemberParamsWithContext creates a new DeleteRoutingQueueMemberParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRoutingQueueMemberParamsWithContext(ctx context.Context) *DeleteRoutingQueueMemberParams {
-	var ()
 	return &DeleteRoutingQueueMemberParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRoutingQueueMemberParamsWithHTTPClient creates a new DeleteRoutingQueueMemberParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRoutingQueueMemberParamsWithHTTPClient(client *http.Client) *DeleteRoutingQueueMemberParams {
-	var ()
 	return &DeleteRoutingQueueMemberParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRoutingQueueMemberParams contains all the parameters to send to the API endpoint
-for the delete routing queue member operation typically these are written to a http.Request
+/*
+DeleteRoutingQueueMemberParams contains all the parameters to send to the API endpoint
+
+	for the delete routing queue member operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteRoutingQueueMemberParams struct {
 
-	/*MemberID
-	  Member ID
+	/* MemberID.
 
+	   Member ID
 	*/
 	MemberID string
-	/*QueueID
-	  Queue ID
 
+	/* QueueID.
+
+	   Queue ID
 	*/
 	QueueID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete routing queue member params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingQueueMemberParams) WithDefaults() *DeleteRoutingQueueMemberParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete routing queue member params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingQueueMemberParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete routing queue member params

@@ -95,7 +95,6 @@ func (o *PutConversationsKeyconfigurationReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutConversationsKeyconfigurationOK() *PutConversationsKeyconfigurationOK
 	return &PutConversationsKeyconfigurationOK{}
 }
 
-/*PutConversationsKeyconfigurationOK handles this case with default header values.
+/*
+PutConversationsKeyconfigurationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutConversationsKeyconfigurationOK struct {
 	Payload *models.ConversationEncryptionConfiguration
 }
 
+// IsSuccess returns true when this put conversations keyconfiguration o k response has a 2xx status code
+func (o *PutConversationsKeyconfigurationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversations keyconfiguration o k response has a 3xx status code
+func (o *PutConversationsKeyconfigurationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations keyconfiguration o k response has a 4xx status code
+func (o *PutConversationsKeyconfigurationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations keyconfiguration o k response has a 5xx status code
+func (o *PutConversationsKeyconfigurationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations keyconfiguration o k response a status code equal to that given
+func (o *PutConversationsKeyconfigurationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutConversationsKeyconfigurationOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationOK  %+v", 200, o.Payload)
+}
+
+func (o *PutConversationsKeyconfigurationOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutConversationsKeyconfigurationBadRequest() *PutConversationsKeyconfigu
 	return &PutConversationsKeyconfigurationBadRequest{}
 }
 
-/*PutConversationsKeyconfigurationBadRequest handles this case with default header values.
+/*
+PutConversationsKeyconfigurationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutConversationsKeyconfigurationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations keyconfiguration bad request response has a 2xx status code
+func (o *PutConversationsKeyconfigurationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations keyconfiguration bad request response has a 3xx status code
+func (o *PutConversationsKeyconfigurationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations keyconfiguration bad request response has a 4xx status code
+func (o *PutConversationsKeyconfigurationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations keyconfiguration bad request response has a 5xx status code
+func (o *PutConversationsKeyconfigurationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations keyconfiguration bad request response a status code equal to that given
+func (o *PutConversationsKeyconfigurationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutConversationsKeyconfigurationBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutConversationsKeyconfigurationBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutConversationsKeyconfigurationUnauthorized() *PutConversationsKeyconfi
 	return &PutConversationsKeyconfigurationUnauthorized{}
 }
 
-/*PutConversationsKeyconfigurationUnauthorized handles this case with default header values.
+/*
+PutConversationsKeyconfigurationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutConversationsKeyconfigurationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations keyconfiguration unauthorized response has a 2xx status code
+func (o *PutConversationsKeyconfigurationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations keyconfiguration unauthorized response has a 3xx status code
+func (o *PutConversationsKeyconfigurationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations keyconfiguration unauthorized response has a 4xx status code
+func (o *PutConversationsKeyconfigurationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations keyconfiguration unauthorized response has a 5xx status code
+func (o *PutConversationsKeyconfigurationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations keyconfiguration unauthorized response a status code equal to that given
+func (o *PutConversationsKeyconfigurationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutConversationsKeyconfigurationUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutConversationsKeyconfigurationUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutConversationsKeyconfigurationForbidden() *PutConversationsKeyconfigur
 	return &PutConversationsKeyconfigurationForbidden{}
 }
 
-/*PutConversationsKeyconfigurationForbidden handles this case with default header values.
+/*
+PutConversationsKeyconfigurationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutConversationsKeyconfigurationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations keyconfiguration forbidden response has a 2xx status code
+func (o *PutConversationsKeyconfigurationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations keyconfiguration forbidden response has a 3xx status code
+func (o *PutConversationsKeyconfigurationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations keyconfiguration forbidden response has a 4xx status code
+func (o *PutConversationsKeyconfigurationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations keyconfiguration forbidden response has a 5xx status code
+func (o *PutConversationsKeyconfigurationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations keyconfiguration forbidden response a status code equal to that given
+func (o *PutConversationsKeyconfigurationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutConversationsKeyconfigurationForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutConversationsKeyconfigurationForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutConversationsKeyconfigurationNotFound() *PutConversationsKeyconfigura
 	return &PutConversationsKeyconfigurationNotFound{}
 }
 
-/*PutConversationsKeyconfigurationNotFound handles this case with default header values.
+/*
+PutConversationsKeyconfigurationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutConversationsKeyconfigurationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations keyconfiguration not found response has a 2xx status code
+func (o *PutConversationsKeyconfigurationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations keyconfiguration not found response has a 3xx status code
+func (o *PutConversationsKeyconfigurationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations keyconfiguration not found response has a 4xx status code
+func (o *PutConversationsKeyconfigurationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations keyconfiguration not found response has a 5xx status code
+func (o *PutConversationsKeyconfigurationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations keyconfiguration not found response a status code equal to that given
+func (o *PutConversationsKeyconfigurationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutConversationsKeyconfigurationNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutConversationsKeyconfigurationNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutConversationsKeyconfigurationRequestTimeout() *PutConversationsKeycon
 	return &PutConversationsKeyconfigurationRequestTimeout{}
 }
 
-/*PutConversationsKeyconfigurationRequestTimeout handles this case with default header values.
+/*
+PutConversationsKeyconfigurationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutConversationsKeyconfigurationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations keyconfiguration request timeout response has a 2xx status code
+func (o *PutConversationsKeyconfigurationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations keyconfiguration request timeout response has a 3xx status code
+func (o *PutConversationsKeyconfigurationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations keyconfiguration request timeout response has a 4xx status code
+func (o *PutConversationsKeyconfigurationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations keyconfiguration request timeout response has a 5xx status code
+func (o *PutConversationsKeyconfigurationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations keyconfiguration request timeout response a status code equal to that given
+func (o *PutConversationsKeyconfigurationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutConversationsKeyconfigurationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationsKeyconfigurationRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutConversationsKeyconfigurationRequestEntityTooLarge() *PutConversation
 	return &PutConversationsKeyconfigurationRequestEntityTooLarge{}
 }
 
-/*PutConversationsKeyconfigurationRequestEntityTooLarge handles this case with default header values.
+/*
+PutConversationsKeyconfigurationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutConversationsKeyconfigurationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations keyconfiguration request entity too large response has a 2xx status code
+func (o *PutConversationsKeyconfigurationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations keyconfiguration request entity too large response has a 3xx status code
+func (o *PutConversationsKeyconfigurationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations keyconfiguration request entity too large response has a 4xx status code
+func (o *PutConversationsKeyconfigurationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations keyconfiguration request entity too large response has a 5xx status code
+func (o *PutConversationsKeyconfigurationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations keyconfiguration request entity too large response a status code equal to that given
+func (o *PutConversationsKeyconfigurationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutConversationsKeyconfigurationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutConversationsKeyconfigurationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutConversationsKeyconfigurationUnsupportedMediaType() *PutConversations
 	return &PutConversationsKeyconfigurationUnsupportedMediaType{}
 }
 
-/*PutConversationsKeyconfigurationUnsupportedMediaType handles this case with default header values.
+/*
+PutConversationsKeyconfigurationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutConversationsKeyconfigurationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations keyconfiguration unsupported media type response has a 2xx status code
+func (o *PutConversationsKeyconfigurationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations keyconfiguration unsupported media type response has a 3xx status code
+func (o *PutConversationsKeyconfigurationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations keyconfiguration unsupported media type response has a 4xx status code
+func (o *PutConversationsKeyconfigurationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations keyconfiguration unsupported media type response has a 5xx status code
+func (o *PutConversationsKeyconfigurationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations keyconfiguration unsupported media type response a status code equal to that given
+func (o *PutConversationsKeyconfigurationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutConversationsKeyconfigurationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutConversationsKeyconfigurationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutConversationsKeyconfigurationTooManyRequests() *PutConversationsKeyco
 	return &PutConversationsKeyconfigurationTooManyRequests{}
 }
 
-/*PutConversationsKeyconfigurationTooManyRequests handles this case with default header values.
+/*
+PutConversationsKeyconfigurationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutConversationsKeyconfigurationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations keyconfiguration too many requests response has a 2xx status code
+func (o *PutConversationsKeyconfigurationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations keyconfiguration too many requests response has a 3xx status code
+func (o *PutConversationsKeyconfigurationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations keyconfiguration too many requests response has a 4xx status code
+func (o *PutConversationsKeyconfigurationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations keyconfiguration too many requests response has a 5xx status code
+func (o *PutConversationsKeyconfigurationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations keyconfiguration too many requests response a status code equal to that given
+func (o *PutConversationsKeyconfigurationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutConversationsKeyconfigurationTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutConversationsKeyconfigurationTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutConversationsKeyconfigurationInternalServerError() *PutConversationsK
 	return &PutConversationsKeyconfigurationInternalServerError{}
 }
 
-/*PutConversationsKeyconfigurationInternalServerError handles this case with default header values.
+/*
+PutConversationsKeyconfigurationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutConversationsKeyconfigurationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations keyconfiguration internal server error response has a 2xx status code
+func (o *PutConversationsKeyconfigurationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations keyconfiguration internal server error response has a 3xx status code
+func (o *PutConversationsKeyconfigurationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations keyconfiguration internal server error response has a 4xx status code
+func (o *PutConversationsKeyconfigurationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations keyconfiguration internal server error response has a 5xx status code
+func (o *PutConversationsKeyconfigurationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations keyconfiguration internal server error response a status code equal to that given
+func (o *PutConversationsKeyconfigurationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutConversationsKeyconfigurationInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutConversationsKeyconfigurationInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutConversationsKeyconfigurationServiceUnavailable() *PutConversationsKe
 	return &PutConversationsKeyconfigurationServiceUnavailable{}
 }
 
-/*PutConversationsKeyconfigurationServiceUnavailable handles this case with default header values.
+/*
+PutConversationsKeyconfigurationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutConversationsKeyconfigurationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations keyconfiguration service unavailable response has a 2xx status code
+func (o *PutConversationsKeyconfigurationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations keyconfiguration service unavailable response has a 3xx status code
+func (o *PutConversationsKeyconfigurationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations keyconfiguration service unavailable response has a 4xx status code
+func (o *PutConversationsKeyconfigurationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations keyconfiguration service unavailable response has a 5xx status code
+func (o *PutConversationsKeyconfigurationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations keyconfiguration service unavailable response a status code equal to that given
+func (o *PutConversationsKeyconfigurationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutConversationsKeyconfigurationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutConversationsKeyconfigurationServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutConversationsKeyconfigurationGatewayTimeout() *PutConversationsKeycon
 	return &PutConversationsKeyconfigurationGatewayTimeout{}
 }
 
-/*PutConversationsKeyconfigurationGatewayTimeout handles this case with default header values.
+/*
+PutConversationsKeyconfigurationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutConversationsKeyconfigurationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations keyconfiguration gateway timeout response has a 2xx status code
+func (o *PutConversationsKeyconfigurationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations keyconfiguration gateway timeout response has a 3xx status code
+func (o *PutConversationsKeyconfigurationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations keyconfiguration gateway timeout response has a 4xx status code
+func (o *PutConversationsKeyconfigurationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations keyconfiguration gateway timeout response has a 5xx status code
+func (o *PutConversationsKeyconfigurationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations keyconfiguration gateway timeout response a status code equal to that given
+func (o *PutConversationsKeyconfigurationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutConversationsKeyconfigurationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutConversationsKeyconfigurationGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/keyconfigurations/{keyconfigurationsId}][%d] putConversationsKeyconfigurationGatewayTimeout  %+v", 504, o.Payload)
 }
 

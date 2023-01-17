@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -46,6 +48,38 @@ func (m *TextBotUserInputAlternative) validateTranscript(formats strfmt.Registry
 		if err := m.Transcript.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("transcript")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("transcript")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this text bot user input alternative based on the context it is used
+func (m *TextBotUserInputAlternative) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateTranscript(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TextBotUserInputAlternative) contextValidateTranscript(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Transcript != nil {
+		if err := m.Transcript.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("transcript")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("transcript")
 			}
 			return err
 		}

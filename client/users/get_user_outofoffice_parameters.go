@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetUserOutofofficeParams creates a new GetUserOutofofficeParams object
-// with the default values initialized.
+// NewGetUserOutofofficeParams creates a new GetUserOutofofficeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUserOutofofficeParams() *GetUserOutofofficeParams {
-	var ()
 	return &GetUserOutofofficeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUserOutofofficeParamsWithTimeout creates a new GetUserOutofofficeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUserOutofofficeParamsWithTimeout(timeout time.Duration) *GetUserOutofofficeParams {
-	var ()
 	return &GetUserOutofofficeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUserOutofofficeParamsWithContext creates a new GetUserOutofofficeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUserOutofofficeParamsWithContext(ctx context.Context) *GetUserOutofofficeParams {
-	var ()
 	return &GetUserOutofofficeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetUserOutofofficeParamsWithHTTPClient creates a new GetUserOutofofficeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUserOutofofficeParamsWithHTTPClient(client *http.Client) *GetUserOutofofficeParams {
-	var ()
 	return &GetUserOutofofficeParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetUserOutofofficeParams contains all the parameters to send to the API endpoint
-for the get user outofoffice operation typically these are written to a http.Request
+/*
+GetUserOutofofficeParams contains all the parameters to send to the API endpoint
+
+	for the get user outofoffice operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUserOutofofficeParams struct {
 
-	/*UserID
-	  User ID
+	/* UserID.
 
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get user outofoffice params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserOutofofficeParams) WithDefaults() *GetUserOutofofficeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get user outofoffice params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserOutofofficeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get user outofoffice params

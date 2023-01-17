@@ -95,7 +95,6 @@ func (o *PostAuthorizationRolesReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostAuthorizationRolesOK() *PostAuthorizationRolesOK {
 	return &PostAuthorizationRolesOK{}
 }
 
-/*PostAuthorizationRolesOK handles this case with default header values.
+/*
+PostAuthorizationRolesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostAuthorizationRolesOK struct {
 	Payload *models.DomainOrganizationRole
 }
 
+// IsSuccess returns true when this post authorization roles o k response has a 2xx status code
+func (o *PostAuthorizationRolesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post authorization roles o k response has a 3xx status code
+func (o *PostAuthorizationRolesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization roles o k response has a 4xx status code
+func (o *PostAuthorizationRolesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization roles o k response has a 5xx status code
+func (o *PostAuthorizationRolesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization roles o k response a status code equal to that given
+func (o *PostAuthorizationRolesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostAuthorizationRolesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostAuthorizationRolesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostAuthorizationRolesBadRequest() *PostAuthorizationRolesBadRequest {
 	return &PostAuthorizationRolesBadRequest{}
 }
 
-/*PostAuthorizationRolesBadRequest handles this case with default header values.
+/*
+PostAuthorizationRolesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostAuthorizationRolesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization roles bad request response has a 2xx status code
+func (o *PostAuthorizationRolesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization roles bad request response has a 3xx status code
+func (o *PostAuthorizationRolesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization roles bad request response has a 4xx status code
+func (o *PostAuthorizationRolesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization roles bad request response has a 5xx status code
+func (o *PostAuthorizationRolesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization roles bad request response a status code equal to that given
+func (o *PostAuthorizationRolesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAuthorizationRolesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAuthorizationRolesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostAuthorizationRolesUnauthorized() *PostAuthorizationRolesUnauthorized
 	return &PostAuthorizationRolesUnauthorized{}
 }
 
-/*PostAuthorizationRolesUnauthorized handles this case with default header values.
+/*
+PostAuthorizationRolesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostAuthorizationRolesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization roles unauthorized response has a 2xx status code
+func (o *PostAuthorizationRolesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization roles unauthorized response has a 3xx status code
+func (o *PostAuthorizationRolesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization roles unauthorized response has a 4xx status code
+func (o *PostAuthorizationRolesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization roles unauthorized response has a 5xx status code
+func (o *PostAuthorizationRolesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization roles unauthorized response a status code equal to that given
+func (o *PostAuthorizationRolesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAuthorizationRolesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAuthorizationRolesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostAuthorizationRolesForbidden() *PostAuthorizationRolesForbidden {
 	return &PostAuthorizationRolesForbidden{}
 }
 
-/*PostAuthorizationRolesForbidden handles this case with default header values.
+/*
+PostAuthorizationRolesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostAuthorizationRolesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization roles forbidden response has a 2xx status code
+func (o *PostAuthorizationRolesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization roles forbidden response has a 3xx status code
+func (o *PostAuthorizationRolesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization roles forbidden response has a 4xx status code
+func (o *PostAuthorizationRolesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization roles forbidden response has a 5xx status code
+func (o *PostAuthorizationRolesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization roles forbidden response a status code equal to that given
+func (o *PostAuthorizationRolesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAuthorizationRolesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAuthorizationRolesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostAuthorizationRolesNotFound() *PostAuthorizationRolesNotFound {
 	return &PostAuthorizationRolesNotFound{}
 }
 
-/*PostAuthorizationRolesNotFound handles this case with default header values.
+/*
+PostAuthorizationRolesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostAuthorizationRolesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization roles not found response has a 2xx status code
+func (o *PostAuthorizationRolesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization roles not found response has a 3xx status code
+func (o *PostAuthorizationRolesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization roles not found response has a 4xx status code
+func (o *PostAuthorizationRolesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization roles not found response has a 5xx status code
+func (o *PostAuthorizationRolesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization roles not found response a status code equal to that given
+func (o *PostAuthorizationRolesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAuthorizationRolesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAuthorizationRolesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostAuthorizationRolesRequestTimeout() *PostAuthorizationRolesRequestTim
 	return &PostAuthorizationRolesRequestTimeout{}
 }
 
-/*PostAuthorizationRolesRequestTimeout handles this case with default header values.
+/*
+PostAuthorizationRolesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostAuthorizationRolesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization roles request timeout response has a 2xx status code
+func (o *PostAuthorizationRolesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization roles request timeout response has a 3xx status code
+func (o *PostAuthorizationRolesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization roles request timeout response has a 4xx status code
+func (o *PostAuthorizationRolesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization roles request timeout response has a 5xx status code
+func (o *PostAuthorizationRolesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization roles request timeout response a status code equal to that given
+func (o *PostAuthorizationRolesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAuthorizationRolesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAuthorizationRolesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostAuthorizationRolesRequestEntityTooLarge() *PostAuthorizationRolesReq
 	return &PostAuthorizationRolesRequestEntityTooLarge{}
 }
 
-/*PostAuthorizationRolesRequestEntityTooLarge handles this case with default header values.
+/*
+PostAuthorizationRolesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostAuthorizationRolesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization roles request entity too large response has a 2xx status code
+func (o *PostAuthorizationRolesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization roles request entity too large response has a 3xx status code
+func (o *PostAuthorizationRolesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization roles request entity too large response has a 4xx status code
+func (o *PostAuthorizationRolesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization roles request entity too large response has a 5xx status code
+func (o *PostAuthorizationRolesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization roles request entity too large response a status code equal to that given
+func (o *PostAuthorizationRolesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAuthorizationRolesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAuthorizationRolesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostAuthorizationRolesUnsupportedMediaType() *PostAuthorizationRolesUnsu
 	return &PostAuthorizationRolesUnsupportedMediaType{}
 }
 
-/*PostAuthorizationRolesUnsupportedMediaType handles this case with default header values.
+/*
+PostAuthorizationRolesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostAuthorizationRolesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization roles unsupported media type response has a 2xx status code
+func (o *PostAuthorizationRolesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization roles unsupported media type response has a 3xx status code
+func (o *PostAuthorizationRolesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization roles unsupported media type response has a 4xx status code
+func (o *PostAuthorizationRolesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization roles unsupported media type response has a 5xx status code
+func (o *PostAuthorizationRolesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization roles unsupported media type response a status code equal to that given
+func (o *PostAuthorizationRolesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAuthorizationRolesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAuthorizationRolesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostAuthorizationRolesTooManyRequests() *PostAuthorizationRolesTooManyRe
 	return &PostAuthorizationRolesTooManyRequests{}
 }
 
-/*PostAuthorizationRolesTooManyRequests handles this case with default header values.
+/*
+PostAuthorizationRolesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostAuthorizationRolesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization roles too many requests response has a 2xx status code
+func (o *PostAuthorizationRolesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization roles too many requests response has a 3xx status code
+func (o *PostAuthorizationRolesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization roles too many requests response has a 4xx status code
+func (o *PostAuthorizationRolesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization roles too many requests response has a 5xx status code
+func (o *PostAuthorizationRolesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization roles too many requests response a status code equal to that given
+func (o *PostAuthorizationRolesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAuthorizationRolesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAuthorizationRolesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostAuthorizationRolesInternalServerError() *PostAuthorizationRolesInter
 	return &PostAuthorizationRolesInternalServerError{}
 }
 
-/*PostAuthorizationRolesInternalServerError handles this case with default header values.
+/*
+PostAuthorizationRolesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostAuthorizationRolesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization roles internal server error response has a 2xx status code
+func (o *PostAuthorizationRolesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization roles internal server error response has a 3xx status code
+func (o *PostAuthorizationRolesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization roles internal server error response has a 4xx status code
+func (o *PostAuthorizationRolesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization roles internal server error response has a 5xx status code
+func (o *PostAuthorizationRolesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization roles internal server error response a status code equal to that given
+func (o *PostAuthorizationRolesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAuthorizationRolesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAuthorizationRolesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostAuthorizationRolesServiceUnavailable() *PostAuthorizationRolesServic
 	return &PostAuthorizationRolesServiceUnavailable{}
 }
 
-/*PostAuthorizationRolesServiceUnavailable handles this case with default header values.
+/*
+PostAuthorizationRolesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostAuthorizationRolesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization roles service unavailable response has a 2xx status code
+func (o *PostAuthorizationRolesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization roles service unavailable response has a 3xx status code
+func (o *PostAuthorizationRolesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization roles service unavailable response has a 4xx status code
+func (o *PostAuthorizationRolesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization roles service unavailable response has a 5xx status code
+func (o *PostAuthorizationRolesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization roles service unavailable response a status code equal to that given
+func (o *PostAuthorizationRolesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAuthorizationRolesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAuthorizationRolesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostAuthorizationRolesGatewayTimeout() *PostAuthorizationRolesGatewayTim
 	return &PostAuthorizationRolesGatewayTimeout{}
 }
 
-/*PostAuthorizationRolesGatewayTimeout handles this case with default header values.
+/*
+PostAuthorizationRolesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostAuthorizationRolesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization roles gateway timeout response has a 2xx status code
+func (o *PostAuthorizationRolesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization roles gateway timeout response has a 3xx status code
+func (o *PostAuthorizationRolesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization roles gateway timeout response has a 4xx status code
+func (o *PostAuthorizationRolesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization roles gateway timeout response has a 5xx status code
+func (o *PostAuthorizationRolesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization roles gateway timeout response a status code equal to that given
+func (o *PostAuthorizationRolesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAuthorizationRolesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAuthorizationRolesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles][%d] postAuthorizationRolesGatewayTimeout  %+v", 504, o.Payload)
 }
 

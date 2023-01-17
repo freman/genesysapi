@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -36,7 +38,6 @@ func (m *ArticleContent) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ArticleContent) validateBody(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Body) { // not required
 		return nil
 	}
@@ -45,6 +46,38 @@ func (m *ArticleContent) validateBody(formats strfmt.Registry) error {
 		if err := m.Body.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("body")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this article content based on the context it is used
+func (m *ArticleContent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBody(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ArticleContent) contextValidateBody(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Body != nil {
+		if err := m.Body.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("body")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("body")
 			}
 			return err
 		}

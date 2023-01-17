@@ -95,7 +95,6 @@ func (o *DeleteAnalyticsReportingScheduleReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteAnalyticsReportingScheduleOK() *DeleteAnalyticsReportingScheduleOK
 	return &DeleteAnalyticsReportingScheduleOK{}
 }
 
-/*DeleteAnalyticsReportingScheduleOK handles this case with default header values.
+/*
+DeleteAnalyticsReportingScheduleOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteAnalyticsReportingScheduleOK struct {
 }
 
+// IsSuccess returns true when this delete analytics reporting schedule o k response has a 2xx status code
+func (o *DeleteAnalyticsReportingScheduleOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete analytics reporting schedule o k response has a 3xx status code
+func (o *DeleteAnalyticsReportingScheduleOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics reporting schedule o k response has a 4xx status code
+func (o *DeleteAnalyticsReportingScheduleOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete analytics reporting schedule o k response has a 5xx status code
+func (o *DeleteAnalyticsReportingScheduleOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics reporting schedule o k response a status code equal to that given
+func (o *DeleteAnalyticsReportingScheduleOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteAnalyticsReportingScheduleOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleOK ", 200)
+}
+
+func (o *DeleteAnalyticsReportingScheduleOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteAnalyticsReportingScheduleBadRequest() *DeleteAnalyticsReportingSc
 	return &DeleteAnalyticsReportingScheduleBadRequest{}
 }
 
-/*DeleteAnalyticsReportingScheduleBadRequest handles this case with default header values.
+/*
+DeleteAnalyticsReportingScheduleBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteAnalyticsReportingScheduleBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics reporting schedule bad request response has a 2xx status code
+func (o *DeleteAnalyticsReportingScheduleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics reporting schedule bad request response has a 3xx status code
+func (o *DeleteAnalyticsReportingScheduleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics reporting schedule bad request response has a 4xx status code
+func (o *DeleteAnalyticsReportingScheduleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics reporting schedule bad request response has a 5xx status code
+func (o *DeleteAnalyticsReportingScheduleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics reporting schedule bad request response a status code equal to that given
+func (o *DeleteAnalyticsReportingScheduleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteAnalyticsReportingScheduleBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteAnalyticsReportingScheduleBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteAnalyticsReportingScheduleUnauthorized() *DeleteAnalyticsReporting
 	return &DeleteAnalyticsReportingScheduleUnauthorized{}
 }
 
-/*DeleteAnalyticsReportingScheduleUnauthorized handles this case with default header values.
+/*
+DeleteAnalyticsReportingScheduleUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteAnalyticsReportingScheduleUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics reporting schedule unauthorized response has a 2xx status code
+func (o *DeleteAnalyticsReportingScheduleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics reporting schedule unauthorized response has a 3xx status code
+func (o *DeleteAnalyticsReportingScheduleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics reporting schedule unauthorized response has a 4xx status code
+func (o *DeleteAnalyticsReportingScheduleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics reporting schedule unauthorized response has a 5xx status code
+func (o *DeleteAnalyticsReportingScheduleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics reporting schedule unauthorized response a status code equal to that given
+func (o *DeleteAnalyticsReportingScheduleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteAnalyticsReportingScheduleUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteAnalyticsReportingScheduleUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteAnalyticsReportingScheduleForbidden() *DeleteAnalyticsReportingSch
 	return &DeleteAnalyticsReportingScheduleForbidden{}
 }
 
-/*DeleteAnalyticsReportingScheduleForbidden handles this case with default header values.
+/*
+DeleteAnalyticsReportingScheduleForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteAnalyticsReportingScheduleForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics reporting schedule forbidden response has a 2xx status code
+func (o *DeleteAnalyticsReportingScheduleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics reporting schedule forbidden response has a 3xx status code
+func (o *DeleteAnalyticsReportingScheduleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics reporting schedule forbidden response has a 4xx status code
+func (o *DeleteAnalyticsReportingScheduleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics reporting schedule forbidden response has a 5xx status code
+func (o *DeleteAnalyticsReportingScheduleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics reporting schedule forbidden response a status code equal to that given
+func (o *DeleteAnalyticsReportingScheduleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteAnalyticsReportingScheduleForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteAnalyticsReportingScheduleForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteAnalyticsReportingScheduleNotFound() *DeleteAnalyticsReportingSche
 	return &DeleteAnalyticsReportingScheduleNotFound{}
 }
 
-/*DeleteAnalyticsReportingScheduleNotFound handles this case with default header values.
+/*
+DeleteAnalyticsReportingScheduleNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteAnalyticsReportingScheduleNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics reporting schedule not found response has a 2xx status code
+func (o *DeleteAnalyticsReportingScheduleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics reporting schedule not found response has a 3xx status code
+func (o *DeleteAnalyticsReportingScheduleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics reporting schedule not found response has a 4xx status code
+func (o *DeleteAnalyticsReportingScheduleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics reporting schedule not found response has a 5xx status code
+func (o *DeleteAnalyticsReportingScheduleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics reporting schedule not found response a status code equal to that given
+func (o *DeleteAnalyticsReportingScheduleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteAnalyticsReportingScheduleNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteAnalyticsReportingScheduleNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteAnalyticsReportingScheduleRequestTimeout() *DeleteAnalyticsReporti
 	return &DeleteAnalyticsReportingScheduleRequestTimeout{}
 }
 
-/*DeleteAnalyticsReportingScheduleRequestTimeout handles this case with default header values.
+/*
+DeleteAnalyticsReportingScheduleRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteAnalyticsReportingScheduleRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics reporting schedule request timeout response has a 2xx status code
+func (o *DeleteAnalyticsReportingScheduleRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics reporting schedule request timeout response has a 3xx status code
+func (o *DeleteAnalyticsReportingScheduleRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics reporting schedule request timeout response has a 4xx status code
+func (o *DeleteAnalyticsReportingScheduleRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics reporting schedule request timeout response has a 5xx status code
+func (o *DeleteAnalyticsReportingScheduleRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics reporting schedule request timeout response a status code equal to that given
+func (o *DeleteAnalyticsReportingScheduleRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteAnalyticsReportingScheduleRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteAnalyticsReportingScheduleRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteAnalyticsReportingScheduleRequestEntityTooLarge() *DeleteAnalytics
 	return &DeleteAnalyticsReportingScheduleRequestEntityTooLarge{}
 }
 
-/*DeleteAnalyticsReportingScheduleRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteAnalyticsReportingScheduleRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteAnalyticsReportingScheduleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics reporting schedule request entity too large response has a 2xx status code
+func (o *DeleteAnalyticsReportingScheduleRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics reporting schedule request entity too large response has a 3xx status code
+func (o *DeleteAnalyticsReportingScheduleRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics reporting schedule request entity too large response has a 4xx status code
+func (o *DeleteAnalyticsReportingScheduleRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics reporting schedule request entity too large response has a 5xx status code
+func (o *DeleteAnalyticsReportingScheduleRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics reporting schedule request entity too large response a status code equal to that given
+func (o *DeleteAnalyticsReportingScheduleRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteAnalyticsReportingScheduleRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteAnalyticsReportingScheduleRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteAnalyticsReportingScheduleUnsupportedMediaType() *DeleteAnalyticsR
 	return &DeleteAnalyticsReportingScheduleUnsupportedMediaType{}
 }
 
-/*DeleteAnalyticsReportingScheduleUnsupportedMediaType handles this case with default header values.
+/*
+DeleteAnalyticsReportingScheduleUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteAnalyticsReportingScheduleUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics reporting schedule unsupported media type response has a 2xx status code
+func (o *DeleteAnalyticsReportingScheduleUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics reporting schedule unsupported media type response has a 3xx status code
+func (o *DeleteAnalyticsReportingScheduleUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics reporting schedule unsupported media type response has a 4xx status code
+func (o *DeleteAnalyticsReportingScheduleUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics reporting schedule unsupported media type response has a 5xx status code
+func (o *DeleteAnalyticsReportingScheduleUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics reporting schedule unsupported media type response a status code equal to that given
+func (o *DeleteAnalyticsReportingScheduleUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteAnalyticsReportingScheduleUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteAnalyticsReportingScheduleUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteAnalyticsReportingScheduleTooManyRequests() *DeleteAnalyticsReport
 	return &DeleteAnalyticsReportingScheduleTooManyRequests{}
 }
 
-/*DeleteAnalyticsReportingScheduleTooManyRequests handles this case with default header values.
+/*
+DeleteAnalyticsReportingScheduleTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteAnalyticsReportingScheduleTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics reporting schedule too many requests response has a 2xx status code
+func (o *DeleteAnalyticsReportingScheduleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics reporting schedule too many requests response has a 3xx status code
+func (o *DeleteAnalyticsReportingScheduleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics reporting schedule too many requests response has a 4xx status code
+func (o *DeleteAnalyticsReportingScheduleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics reporting schedule too many requests response has a 5xx status code
+func (o *DeleteAnalyticsReportingScheduleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics reporting schedule too many requests response a status code equal to that given
+func (o *DeleteAnalyticsReportingScheduleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteAnalyticsReportingScheduleTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteAnalyticsReportingScheduleTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteAnalyticsReportingScheduleInternalServerError() *DeleteAnalyticsRe
 	return &DeleteAnalyticsReportingScheduleInternalServerError{}
 }
 
-/*DeleteAnalyticsReportingScheduleInternalServerError handles this case with default header values.
+/*
+DeleteAnalyticsReportingScheduleInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteAnalyticsReportingScheduleInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics reporting schedule internal server error response has a 2xx status code
+func (o *DeleteAnalyticsReportingScheduleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics reporting schedule internal server error response has a 3xx status code
+func (o *DeleteAnalyticsReportingScheduleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics reporting schedule internal server error response has a 4xx status code
+func (o *DeleteAnalyticsReportingScheduleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete analytics reporting schedule internal server error response has a 5xx status code
+func (o *DeleteAnalyticsReportingScheduleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete analytics reporting schedule internal server error response a status code equal to that given
+func (o *DeleteAnalyticsReportingScheduleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteAnalyticsReportingScheduleInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteAnalyticsReportingScheduleInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteAnalyticsReportingScheduleServiceUnavailable() *DeleteAnalyticsRep
 	return &DeleteAnalyticsReportingScheduleServiceUnavailable{}
 }
 
-/*DeleteAnalyticsReportingScheduleServiceUnavailable handles this case with default header values.
+/*
+DeleteAnalyticsReportingScheduleServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteAnalyticsReportingScheduleServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics reporting schedule service unavailable response has a 2xx status code
+func (o *DeleteAnalyticsReportingScheduleServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics reporting schedule service unavailable response has a 3xx status code
+func (o *DeleteAnalyticsReportingScheduleServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics reporting schedule service unavailable response has a 4xx status code
+func (o *DeleteAnalyticsReportingScheduleServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete analytics reporting schedule service unavailable response has a 5xx status code
+func (o *DeleteAnalyticsReportingScheduleServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete analytics reporting schedule service unavailable response a status code equal to that given
+func (o *DeleteAnalyticsReportingScheduleServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteAnalyticsReportingScheduleServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteAnalyticsReportingScheduleServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteAnalyticsReportingScheduleGatewayTimeout() *DeleteAnalyticsReporti
 	return &DeleteAnalyticsReportingScheduleGatewayTimeout{}
 }
 
-/*DeleteAnalyticsReportingScheduleGatewayTimeout handles this case with default header values.
+/*
+DeleteAnalyticsReportingScheduleGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteAnalyticsReportingScheduleGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics reporting schedule gateway timeout response has a 2xx status code
+func (o *DeleteAnalyticsReportingScheduleGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics reporting schedule gateway timeout response has a 3xx status code
+func (o *DeleteAnalyticsReportingScheduleGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics reporting schedule gateway timeout response has a 4xx status code
+func (o *DeleteAnalyticsReportingScheduleGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete analytics reporting schedule gateway timeout response has a 5xx status code
+func (o *DeleteAnalyticsReportingScheduleGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete analytics reporting schedule gateway timeout response a status code equal to that given
+func (o *DeleteAnalyticsReportingScheduleGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteAnalyticsReportingScheduleGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteAnalyticsReportingScheduleGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/reporting/schedules/{scheduleId}][%d] deleteAnalyticsReportingScheduleGatewayTimeout  %+v", 504, o.Payload)
 }
 

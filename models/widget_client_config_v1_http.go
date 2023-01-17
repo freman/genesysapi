@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -47,7 +48,6 @@ func (m *WidgetClientConfigV1HTTP) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WidgetClientConfigV1HTTP) validateAuthenticationURL(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AuthenticationURL) { // not required
 		return nil
 	}
@@ -76,8 +76,8 @@ const (
 	// WidgetClientConfigV1HTTPWebChatSkinBasic captures enum value "basic"
 	WidgetClientConfigV1HTTPWebChatSkinBasic string = "basic"
 
-	// WidgetClientConfigV1HTTPWebChatSkinModernCaretSkin captures enum value "modern-caret-skin"
-	WidgetClientConfigV1HTTPWebChatSkinModernCaretSkin string = "modern-caret-skin"
+	// WidgetClientConfigV1HTTPWebChatSkinModernDashCaretDashSkin captures enum value "modern-caret-skin"
+	WidgetClientConfigV1HTTPWebChatSkinModernDashCaretDashSkin string = "modern-caret-skin"
 )
 
 // prop value enum
@@ -89,7 +89,6 @@ func (m *WidgetClientConfigV1HTTP) validateWebChatSkinEnum(path, location string
 }
 
 func (m *WidgetClientConfigV1HTTP) validateWebChatSkin(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WebChatSkin) { // not required
 		return nil
 	}
@@ -99,6 +98,11 @@ func (m *WidgetClientConfigV1HTTP) validateWebChatSkin(formats strfmt.Registry) 
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this widget client config v1 Http based on context it is used
+func (m *WidgetClientConfigV1HTTP) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -110,7 +111,6 @@ func (m *RecordingJob) Validate(formats strfmt.Registry) error {
 }
 
 func (m *RecordingJob) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -123,7 +123,6 @@ func (m *RecordingJob) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *RecordingJob) validateRecordingJobsQuery(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RecordingJobsQuery) { // not required
 		return nil
 	}
@@ -132,6 +131,8 @@ func (m *RecordingJob) validateRecordingJobsQuery(formats strfmt.Registry) error
 		if err := m.RecordingJobsQuery.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("recordingJobsQuery")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recordingJobsQuery")
 			}
 			return err
 		}
@@ -141,7 +142,6 @@ func (m *RecordingJob) validateRecordingJobsQuery(formats strfmt.Registry) error
 }
 
 func (m *RecordingJob) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -209,7 +209,6 @@ func (m *RecordingJob) validateState(formats strfmt.Registry) error {
 }
 
 func (m *RecordingJob) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -218,6 +217,201 @@ func (m *RecordingJob) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this recording job based on the context it is used
+func (m *RecordingJob) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateErrorMessage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFailedRecordings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePercentProgress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRecordingJobsQuery(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalConversations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalFailedRecordings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalProcessedRecordings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalRecordings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalSkippedRecordings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RecordingJob) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJob) contextValidateErrorMessage(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "errorMessage", "body", string(m.ErrorMessage)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJob) contextValidateFailedRecordings(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "failedRecordings", "body", string(m.FailedRecordings)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJob) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJob) contextValidatePercentProgress(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "percentProgress", "body", int32(m.PercentProgress)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJob) contextValidateRecordingJobsQuery(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RecordingJobsQuery != nil {
+		if err := m.RecordingJobsQuery.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("recordingJobsQuery")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recordingJobsQuery")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RecordingJob) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJob) contextValidateTotalConversations(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalConversations", "body", int32(m.TotalConversations)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJob) contextValidateTotalFailedRecordings(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalFailedRecordings", "body", int32(m.TotalFailedRecordings)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJob) contextValidateTotalProcessedRecordings(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalProcessedRecordings", "body", int32(m.TotalProcessedRecordings)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJob) contextValidateTotalRecordings(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalRecordings", "body", int32(m.TotalRecordings)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJob) contextValidateTotalSkippedRecordings(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalSkippedRecordings", "body", int32(m.TotalSkippedRecordings)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingJob) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -51,7 +52,6 @@ func (m *MatchShiftTradeResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MatchShiftTradeResponse) validateAdminReviewViolations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AdminReviewViolations) { // not required
 		return nil
 	}
@@ -65,6 +65,8 @@ func (m *MatchShiftTradeResponse) validateAdminReviewViolations(formats strfmt.R
 			if err := m.AdminReviewViolations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("adminReviewViolations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("adminReviewViolations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -76,7 +78,6 @@ func (m *MatchShiftTradeResponse) validateAdminReviewViolations(formats strfmt.R
 }
 
 func (m *MatchShiftTradeResponse) validateTrade(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Trade) { // not required
 		return nil
 	}
@@ -85,6 +86,8 @@ func (m *MatchShiftTradeResponse) validateTrade(formats strfmt.Registry) error {
 		if err := m.Trade.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("trade")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trade")
 			}
 			return err
 		}
@@ -94,7 +97,6 @@ func (m *MatchShiftTradeResponse) validateTrade(formats strfmt.Registry) error {
 }
 
 func (m *MatchShiftTradeResponse) validateViolations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Violations) { // not required
 		return nil
 	}
@@ -108,6 +110,86 @@ func (m *MatchShiftTradeResponse) validateViolations(formats strfmt.Registry) er
 			if err := m.Violations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("violations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("violations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this match shift trade response based on the context it is used
+func (m *MatchShiftTradeResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAdminReviewViolations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrade(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateViolations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MatchShiftTradeResponse) contextValidateAdminReviewViolations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AdminReviewViolations); i++ {
+
+		if m.AdminReviewViolations[i] != nil {
+			if err := m.AdminReviewViolations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("adminReviewViolations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("adminReviewViolations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MatchShiftTradeResponse) contextValidateTrade(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Trade != nil {
+		if err := m.Trade.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trade")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trade")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MatchShiftTradeResponse) contextValidateViolations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Violations); i++ {
+
+		if m.Violations[i] != nil {
+			if err := m.Violations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("violations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("violations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

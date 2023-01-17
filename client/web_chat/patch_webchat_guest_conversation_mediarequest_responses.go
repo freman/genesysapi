@@ -95,7 +95,6 @@ func (o *PatchWebchatGuestConversationMediarequestReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchWebchatGuestConversationMediarequestOK() *PatchWebchatGuestConversa
 	return &PatchWebchatGuestConversationMediarequestOK{}
 }
 
-/*PatchWebchatGuestConversationMediarequestOK handles this case with default header values.
+/*
+PatchWebchatGuestConversationMediarequestOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchWebchatGuestConversationMediarequestOK struct {
 	Payload *models.WebChatGuestMediaRequest
 }
 
+// IsSuccess returns true when this patch webchat guest conversation mediarequest o k response has a 2xx status code
+func (o *PatchWebchatGuestConversationMediarequestOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch webchat guest conversation mediarequest o k response has a 3xx status code
+func (o *PatchWebchatGuestConversationMediarequestOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch webchat guest conversation mediarequest o k response has a 4xx status code
+func (o *PatchWebchatGuestConversationMediarequestOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch webchat guest conversation mediarequest o k response has a 5xx status code
+func (o *PatchWebchatGuestConversationMediarequestOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch webchat guest conversation mediarequest o k response a status code equal to that given
+func (o *PatchWebchatGuestConversationMediarequestOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchWebchatGuestConversationMediarequestOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchWebchatGuestConversationMediarequestBadRequest() *PatchWebchatGuest
 	return &PatchWebchatGuestConversationMediarequestBadRequest{}
 }
 
-/*PatchWebchatGuestConversationMediarequestBadRequest handles this case with default header values.
+/*
+PatchWebchatGuestConversationMediarequestBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchWebchatGuestConversationMediarequestBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch webchat guest conversation mediarequest bad request response has a 2xx status code
+func (o *PatchWebchatGuestConversationMediarequestBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch webchat guest conversation mediarequest bad request response has a 3xx status code
+func (o *PatchWebchatGuestConversationMediarequestBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch webchat guest conversation mediarequest bad request response has a 4xx status code
+func (o *PatchWebchatGuestConversationMediarequestBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch webchat guest conversation mediarequest bad request response has a 5xx status code
+func (o *PatchWebchatGuestConversationMediarequestBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch webchat guest conversation mediarequest bad request response a status code equal to that given
+func (o *PatchWebchatGuestConversationMediarequestBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchWebchatGuestConversationMediarequestBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchWebchatGuestConversationMediarequestUnauthorized() *PatchWebchatGue
 	return &PatchWebchatGuestConversationMediarequestUnauthorized{}
 }
 
-/*PatchWebchatGuestConversationMediarequestUnauthorized handles this case with default header values.
+/*
+PatchWebchatGuestConversationMediarequestUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchWebchatGuestConversationMediarequestUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch webchat guest conversation mediarequest unauthorized response has a 2xx status code
+func (o *PatchWebchatGuestConversationMediarequestUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch webchat guest conversation mediarequest unauthorized response has a 3xx status code
+func (o *PatchWebchatGuestConversationMediarequestUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch webchat guest conversation mediarequest unauthorized response has a 4xx status code
+func (o *PatchWebchatGuestConversationMediarequestUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch webchat guest conversation mediarequest unauthorized response has a 5xx status code
+func (o *PatchWebchatGuestConversationMediarequestUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch webchat guest conversation mediarequest unauthorized response a status code equal to that given
+func (o *PatchWebchatGuestConversationMediarequestUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchWebchatGuestConversationMediarequestUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchWebchatGuestConversationMediarequestForbidden() *PatchWebchatGuestC
 	return &PatchWebchatGuestConversationMediarequestForbidden{}
 }
 
-/*PatchWebchatGuestConversationMediarequestForbidden handles this case with default header values.
+/*
+PatchWebchatGuestConversationMediarequestForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchWebchatGuestConversationMediarequestForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch webchat guest conversation mediarequest forbidden response has a 2xx status code
+func (o *PatchWebchatGuestConversationMediarequestForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch webchat guest conversation mediarequest forbidden response has a 3xx status code
+func (o *PatchWebchatGuestConversationMediarequestForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch webchat guest conversation mediarequest forbidden response has a 4xx status code
+func (o *PatchWebchatGuestConversationMediarequestForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch webchat guest conversation mediarequest forbidden response has a 5xx status code
+func (o *PatchWebchatGuestConversationMediarequestForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch webchat guest conversation mediarequest forbidden response a status code equal to that given
+func (o *PatchWebchatGuestConversationMediarequestForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchWebchatGuestConversationMediarequestForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchWebchatGuestConversationMediarequestNotFound() *PatchWebchatGuestCo
 	return &PatchWebchatGuestConversationMediarequestNotFound{}
 }
 
-/*PatchWebchatGuestConversationMediarequestNotFound handles this case with default header values.
+/*
+PatchWebchatGuestConversationMediarequestNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchWebchatGuestConversationMediarequestNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch webchat guest conversation mediarequest not found response has a 2xx status code
+func (o *PatchWebchatGuestConversationMediarequestNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch webchat guest conversation mediarequest not found response has a 3xx status code
+func (o *PatchWebchatGuestConversationMediarequestNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch webchat guest conversation mediarequest not found response has a 4xx status code
+func (o *PatchWebchatGuestConversationMediarequestNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch webchat guest conversation mediarequest not found response has a 5xx status code
+func (o *PatchWebchatGuestConversationMediarequestNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch webchat guest conversation mediarequest not found response a status code equal to that given
+func (o *PatchWebchatGuestConversationMediarequestNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchWebchatGuestConversationMediarequestNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchWebchatGuestConversationMediarequestRequestTimeout() *PatchWebchatG
 	return &PatchWebchatGuestConversationMediarequestRequestTimeout{}
 }
 
-/*PatchWebchatGuestConversationMediarequestRequestTimeout handles this case with default header values.
+/*
+PatchWebchatGuestConversationMediarequestRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchWebchatGuestConversationMediarequestRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch webchat guest conversation mediarequest request timeout response has a 2xx status code
+func (o *PatchWebchatGuestConversationMediarequestRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch webchat guest conversation mediarequest request timeout response has a 3xx status code
+func (o *PatchWebchatGuestConversationMediarequestRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch webchat guest conversation mediarequest request timeout response has a 4xx status code
+func (o *PatchWebchatGuestConversationMediarequestRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch webchat guest conversation mediarequest request timeout response has a 5xx status code
+func (o *PatchWebchatGuestConversationMediarequestRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch webchat guest conversation mediarequest request timeout response a status code equal to that given
+func (o *PatchWebchatGuestConversationMediarequestRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchWebchatGuestConversationMediarequestRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchWebchatGuestConversationMediarequestRequestEntityTooLarge() *PatchW
 	return &PatchWebchatGuestConversationMediarequestRequestEntityTooLarge{}
 }
 
-/*PatchWebchatGuestConversationMediarequestRequestEntityTooLarge handles this case with default header values.
+/*
+PatchWebchatGuestConversationMediarequestRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchWebchatGuestConversationMediarequestRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch webchat guest conversation mediarequest request entity too large response has a 2xx status code
+func (o *PatchWebchatGuestConversationMediarequestRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch webchat guest conversation mediarequest request entity too large response has a 3xx status code
+func (o *PatchWebchatGuestConversationMediarequestRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch webchat guest conversation mediarequest request entity too large response has a 4xx status code
+func (o *PatchWebchatGuestConversationMediarequestRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch webchat guest conversation mediarequest request entity too large response has a 5xx status code
+func (o *PatchWebchatGuestConversationMediarequestRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch webchat guest conversation mediarequest request entity too large response a status code equal to that given
+func (o *PatchWebchatGuestConversationMediarequestRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchWebchatGuestConversationMediarequestRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchWebchatGuestConversationMediarequestUnsupportedMediaType() *PatchWe
 	return &PatchWebchatGuestConversationMediarequestUnsupportedMediaType{}
 }
 
-/*PatchWebchatGuestConversationMediarequestUnsupportedMediaType handles this case with default header values.
+/*
+PatchWebchatGuestConversationMediarequestUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchWebchatGuestConversationMediarequestUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch webchat guest conversation mediarequest unsupported media type response has a 2xx status code
+func (o *PatchWebchatGuestConversationMediarequestUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch webchat guest conversation mediarequest unsupported media type response has a 3xx status code
+func (o *PatchWebchatGuestConversationMediarequestUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch webchat guest conversation mediarequest unsupported media type response has a 4xx status code
+func (o *PatchWebchatGuestConversationMediarequestUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch webchat guest conversation mediarequest unsupported media type response has a 5xx status code
+func (o *PatchWebchatGuestConversationMediarequestUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch webchat guest conversation mediarequest unsupported media type response a status code equal to that given
+func (o *PatchWebchatGuestConversationMediarequestUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchWebchatGuestConversationMediarequestUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchWebchatGuestConversationMediarequestTooManyRequests() *PatchWebchat
 	return &PatchWebchatGuestConversationMediarequestTooManyRequests{}
 }
 
-/*PatchWebchatGuestConversationMediarequestTooManyRequests handles this case with default header values.
+/*
+PatchWebchatGuestConversationMediarequestTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchWebchatGuestConversationMediarequestTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch webchat guest conversation mediarequest too many requests response has a 2xx status code
+func (o *PatchWebchatGuestConversationMediarequestTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch webchat guest conversation mediarequest too many requests response has a 3xx status code
+func (o *PatchWebchatGuestConversationMediarequestTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch webchat guest conversation mediarequest too many requests response has a 4xx status code
+func (o *PatchWebchatGuestConversationMediarequestTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch webchat guest conversation mediarequest too many requests response has a 5xx status code
+func (o *PatchWebchatGuestConversationMediarequestTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch webchat guest conversation mediarequest too many requests response a status code equal to that given
+func (o *PatchWebchatGuestConversationMediarequestTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchWebchatGuestConversationMediarequestTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchWebchatGuestConversationMediarequestInternalServerError() *PatchWeb
 	return &PatchWebchatGuestConversationMediarequestInternalServerError{}
 }
 
-/*PatchWebchatGuestConversationMediarequestInternalServerError handles this case with default header values.
+/*
+PatchWebchatGuestConversationMediarequestInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchWebchatGuestConversationMediarequestInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch webchat guest conversation mediarequest internal server error response has a 2xx status code
+func (o *PatchWebchatGuestConversationMediarequestInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch webchat guest conversation mediarequest internal server error response has a 3xx status code
+func (o *PatchWebchatGuestConversationMediarequestInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch webchat guest conversation mediarequest internal server error response has a 4xx status code
+func (o *PatchWebchatGuestConversationMediarequestInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch webchat guest conversation mediarequest internal server error response has a 5xx status code
+func (o *PatchWebchatGuestConversationMediarequestInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch webchat guest conversation mediarequest internal server error response a status code equal to that given
+func (o *PatchWebchatGuestConversationMediarequestInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchWebchatGuestConversationMediarequestInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchWebchatGuestConversationMediarequestServiceUnavailable() *PatchWebc
 	return &PatchWebchatGuestConversationMediarequestServiceUnavailable{}
 }
 
-/*PatchWebchatGuestConversationMediarequestServiceUnavailable handles this case with default header values.
+/*
+PatchWebchatGuestConversationMediarequestServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchWebchatGuestConversationMediarequestServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch webchat guest conversation mediarequest service unavailable response has a 2xx status code
+func (o *PatchWebchatGuestConversationMediarequestServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch webchat guest conversation mediarequest service unavailable response has a 3xx status code
+func (o *PatchWebchatGuestConversationMediarequestServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch webchat guest conversation mediarequest service unavailable response has a 4xx status code
+func (o *PatchWebchatGuestConversationMediarequestServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch webchat guest conversation mediarequest service unavailable response has a 5xx status code
+func (o *PatchWebchatGuestConversationMediarequestServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch webchat guest conversation mediarequest service unavailable response a status code equal to that given
+func (o *PatchWebchatGuestConversationMediarequestServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchWebchatGuestConversationMediarequestServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchWebchatGuestConversationMediarequestGatewayTimeout() *PatchWebchatG
 	return &PatchWebchatGuestConversationMediarequestGatewayTimeout{}
 }
 
-/*PatchWebchatGuestConversationMediarequestGatewayTimeout handles this case with default header values.
+/*
+PatchWebchatGuestConversationMediarequestGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchWebchatGuestConversationMediarequestGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch webchat guest conversation mediarequest gateway timeout response has a 2xx status code
+func (o *PatchWebchatGuestConversationMediarequestGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch webchat guest conversation mediarequest gateway timeout response has a 3xx status code
+func (o *PatchWebchatGuestConversationMediarequestGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch webchat guest conversation mediarequest gateway timeout response has a 4xx status code
+func (o *PatchWebchatGuestConversationMediarequestGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch webchat guest conversation mediarequest gateway timeout response has a 5xx status code
+func (o *PatchWebchatGuestConversationMediarequestGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch webchat guest conversation mediarequest gateway timeout response a status code equal to that given
+func (o *PatchWebchatGuestConversationMediarequestGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchWebchatGuestConversationMediarequestGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchWebchatGuestConversationMediarequestGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/webchat/guest/conversations/{conversationId}/mediarequests/{mediaRequestId}][%d] patchWebchatGuestConversationMediarequestGatewayTimeout  %+v", 504, o.Payload)
 }
 

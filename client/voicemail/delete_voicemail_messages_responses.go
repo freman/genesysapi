@@ -95,7 +95,6 @@ func (o *DeleteVoicemailMessagesReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteVoicemailMessagesOK() *DeleteVoicemailMessagesOK {
 	return &DeleteVoicemailMessagesOK{}
 }
 
-/*DeleteVoicemailMessagesOK handles this case with default header values.
+/*
+DeleteVoicemailMessagesOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteVoicemailMessagesOK struct {
 }
 
+// IsSuccess returns true when this delete voicemail messages o k response has a 2xx status code
+func (o *DeleteVoicemailMessagesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete voicemail messages o k response has a 3xx status code
+func (o *DeleteVoicemailMessagesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete voicemail messages o k response has a 4xx status code
+func (o *DeleteVoicemailMessagesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete voicemail messages o k response has a 5xx status code
+func (o *DeleteVoicemailMessagesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete voicemail messages o k response a status code equal to that given
+func (o *DeleteVoicemailMessagesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteVoicemailMessagesOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesOK ", 200)
+}
+
+func (o *DeleteVoicemailMessagesOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteVoicemailMessagesBadRequest() *DeleteVoicemailMessagesBadRequest {
 	return &DeleteVoicemailMessagesBadRequest{}
 }
 
-/*DeleteVoicemailMessagesBadRequest handles this case with default header values.
+/*
+DeleteVoicemailMessagesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteVoicemailMessagesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete voicemail messages bad request response has a 2xx status code
+func (o *DeleteVoicemailMessagesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete voicemail messages bad request response has a 3xx status code
+func (o *DeleteVoicemailMessagesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete voicemail messages bad request response has a 4xx status code
+func (o *DeleteVoicemailMessagesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete voicemail messages bad request response has a 5xx status code
+func (o *DeleteVoicemailMessagesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete voicemail messages bad request response a status code equal to that given
+func (o *DeleteVoicemailMessagesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteVoicemailMessagesBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteVoicemailMessagesBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteVoicemailMessagesUnauthorized() *DeleteVoicemailMessagesUnauthoriz
 	return &DeleteVoicemailMessagesUnauthorized{}
 }
 
-/*DeleteVoicemailMessagesUnauthorized handles this case with default header values.
+/*
+DeleteVoicemailMessagesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteVoicemailMessagesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete voicemail messages unauthorized response has a 2xx status code
+func (o *DeleteVoicemailMessagesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete voicemail messages unauthorized response has a 3xx status code
+func (o *DeleteVoicemailMessagesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete voicemail messages unauthorized response has a 4xx status code
+func (o *DeleteVoicemailMessagesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete voicemail messages unauthorized response has a 5xx status code
+func (o *DeleteVoicemailMessagesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete voicemail messages unauthorized response a status code equal to that given
+func (o *DeleteVoicemailMessagesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteVoicemailMessagesUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteVoicemailMessagesUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteVoicemailMessagesForbidden() *DeleteVoicemailMessagesForbidden {
 	return &DeleteVoicemailMessagesForbidden{}
 }
 
-/*DeleteVoicemailMessagesForbidden handles this case with default header values.
+/*
+DeleteVoicemailMessagesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteVoicemailMessagesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete voicemail messages forbidden response has a 2xx status code
+func (o *DeleteVoicemailMessagesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete voicemail messages forbidden response has a 3xx status code
+func (o *DeleteVoicemailMessagesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete voicemail messages forbidden response has a 4xx status code
+func (o *DeleteVoicemailMessagesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete voicemail messages forbidden response has a 5xx status code
+func (o *DeleteVoicemailMessagesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete voicemail messages forbidden response a status code equal to that given
+func (o *DeleteVoicemailMessagesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteVoicemailMessagesForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteVoicemailMessagesForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteVoicemailMessagesNotFound() *DeleteVoicemailMessagesNotFound {
 	return &DeleteVoicemailMessagesNotFound{}
 }
 
-/*DeleteVoicemailMessagesNotFound handles this case with default header values.
+/*
+DeleteVoicemailMessagesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteVoicemailMessagesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete voicemail messages not found response has a 2xx status code
+func (o *DeleteVoicemailMessagesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete voicemail messages not found response has a 3xx status code
+func (o *DeleteVoicemailMessagesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete voicemail messages not found response has a 4xx status code
+func (o *DeleteVoicemailMessagesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete voicemail messages not found response has a 5xx status code
+func (o *DeleteVoicemailMessagesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete voicemail messages not found response a status code equal to that given
+func (o *DeleteVoicemailMessagesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteVoicemailMessagesNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteVoicemailMessagesNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteVoicemailMessagesRequestTimeout() *DeleteVoicemailMessagesRequestT
 	return &DeleteVoicemailMessagesRequestTimeout{}
 }
 
-/*DeleteVoicemailMessagesRequestTimeout handles this case with default header values.
+/*
+DeleteVoicemailMessagesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteVoicemailMessagesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete voicemail messages request timeout response has a 2xx status code
+func (o *DeleteVoicemailMessagesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete voicemail messages request timeout response has a 3xx status code
+func (o *DeleteVoicemailMessagesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete voicemail messages request timeout response has a 4xx status code
+func (o *DeleteVoicemailMessagesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete voicemail messages request timeout response has a 5xx status code
+func (o *DeleteVoicemailMessagesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete voicemail messages request timeout response a status code equal to that given
+func (o *DeleteVoicemailMessagesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteVoicemailMessagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteVoicemailMessagesRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteVoicemailMessagesRequestEntityTooLarge() *DeleteVoicemailMessagesR
 	return &DeleteVoicemailMessagesRequestEntityTooLarge{}
 }
 
-/*DeleteVoicemailMessagesRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteVoicemailMessagesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteVoicemailMessagesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete voicemail messages request entity too large response has a 2xx status code
+func (o *DeleteVoicemailMessagesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete voicemail messages request entity too large response has a 3xx status code
+func (o *DeleteVoicemailMessagesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete voicemail messages request entity too large response has a 4xx status code
+func (o *DeleteVoicemailMessagesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete voicemail messages request entity too large response has a 5xx status code
+func (o *DeleteVoicemailMessagesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete voicemail messages request entity too large response a status code equal to that given
+func (o *DeleteVoicemailMessagesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteVoicemailMessagesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteVoicemailMessagesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteVoicemailMessagesUnsupportedMediaType() *DeleteVoicemailMessagesUn
 	return &DeleteVoicemailMessagesUnsupportedMediaType{}
 }
 
-/*DeleteVoicemailMessagesUnsupportedMediaType handles this case with default header values.
+/*
+DeleteVoicemailMessagesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteVoicemailMessagesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete voicemail messages unsupported media type response has a 2xx status code
+func (o *DeleteVoicemailMessagesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete voicemail messages unsupported media type response has a 3xx status code
+func (o *DeleteVoicemailMessagesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete voicemail messages unsupported media type response has a 4xx status code
+func (o *DeleteVoicemailMessagesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete voicemail messages unsupported media type response has a 5xx status code
+func (o *DeleteVoicemailMessagesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete voicemail messages unsupported media type response a status code equal to that given
+func (o *DeleteVoicemailMessagesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteVoicemailMessagesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteVoicemailMessagesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteVoicemailMessagesTooManyRequests() *DeleteVoicemailMessagesTooMany
 	return &DeleteVoicemailMessagesTooManyRequests{}
 }
 
-/*DeleteVoicemailMessagesTooManyRequests handles this case with default header values.
+/*
+DeleteVoicemailMessagesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteVoicemailMessagesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete voicemail messages too many requests response has a 2xx status code
+func (o *DeleteVoicemailMessagesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete voicemail messages too many requests response has a 3xx status code
+func (o *DeleteVoicemailMessagesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete voicemail messages too many requests response has a 4xx status code
+func (o *DeleteVoicemailMessagesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete voicemail messages too many requests response has a 5xx status code
+func (o *DeleteVoicemailMessagesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete voicemail messages too many requests response a status code equal to that given
+func (o *DeleteVoicemailMessagesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteVoicemailMessagesTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteVoicemailMessagesTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteVoicemailMessagesInternalServerError() *DeleteVoicemailMessagesInt
 	return &DeleteVoicemailMessagesInternalServerError{}
 }
 
-/*DeleteVoicemailMessagesInternalServerError handles this case with default header values.
+/*
+DeleteVoicemailMessagesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteVoicemailMessagesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete voicemail messages internal server error response has a 2xx status code
+func (o *DeleteVoicemailMessagesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete voicemail messages internal server error response has a 3xx status code
+func (o *DeleteVoicemailMessagesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete voicemail messages internal server error response has a 4xx status code
+func (o *DeleteVoicemailMessagesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete voicemail messages internal server error response has a 5xx status code
+func (o *DeleteVoicemailMessagesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete voicemail messages internal server error response a status code equal to that given
+func (o *DeleteVoicemailMessagesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteVoicemailMessagesInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteVoicemailMessagesInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteVoicemailMessagesServiceUnavailable() *DeleteVoicemailMessagesServ
 	return &DeleteVoicemailMessagesServiceUnavailable{}
 }
 
-/*DeleteVoicemailMessagesServiceUnavailable handles this case with default header values.
+/*
+DeleteVoicemailMessagesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteVoicemailMessagesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete voicemail messages service unavailable response has a 2xx status code
+func (o *DeleteVoicemailMessagesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete voicemail messages service unavailable response has a 3xx status code
+func (o *DeleteVoicemailMessagesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete voicemail messages service unavailable response has a 4xx status code
+func (o *DeleteVoicemailMessagesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete voicemail messages service unavailable response has a 5xx status code
+func (o *DeleteVoicemailMessagesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete voicemail messages service unavailable response a status code equal to that given
+func (o *DeleteVoicemailMessagesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteVoicemailMessagesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteVoicemailMessagesServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteVoicemailMessagesGatewayTimeout() *DeleteVoicemailMessagesGatewayT
 	return &DeleteVoicemailMessagesGatewayTimeout{}
 }
 
-/*DeleteVoicemailMessagesGatewayTimeout handles this case with default header values.
+/*
+DeleteVoicemailMessagesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteVoicemailMessagesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete voicemail messages gateway timeout response has a 2xx status code
+func (o *DeleteVoicemailMessagesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete voicemail messages gateway timeout response has a 3xx status code
+func (o *DeleteVoicemailMessagesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete voicemail messages gateway timeout response has a 4xx status code
+func (o *DeleteVoicemailMessagesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete voicemail messages gateway timeout response has a 5xx status code
+func (o *DeleteVoicemailMessagesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete voicemail messages gateway timeout response a status code equal to that given
+func (o *DeleteVoicemailMessagesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteVoicemailMessagesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteVoicemailMessagesGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/voicemail/messages][%d] deleteVoicemailMessagesGatewayTimeout  %+v", 504, o.Payload)
 }
 

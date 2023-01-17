@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutWebdeploymentsDeploymentParams creates a new PutWebdeploymentsDeploymentParams object
-// with the default values initialized.
+// NewPutWebdeploymentsDeploymentParams creates a new PutWebdeploymentsDeploymentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutWebdeploymentsDeploymentParams() *PutWebdeploymentsDeploymentParams {
-	var ()
 	return &PutWebdeploymentsDeploymentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutWebdeploymentsDeploymentParamsWithTimeout creates a new PutWebdeploymentsDeploymentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutWebdeploymentsDeploymentParamsWithTimeout(timeout time.Duration) *PutWebdeploymentsDeploymentParams {
-	var ()
 	return &PutWebdeploymentsDeploymentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutWebdeploymentsDeploymentParamsWithContext creates a new PutWebdeploymentsDeploymentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutWebdeploymentsDeploymentParamsWithContext(ctx context.Context) *PutWebdeploymentsDeploymentParams {
-	var ()
 	return &PutWebdeploymentsDeploymentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutWebdeploymentsDeploymentParamsWithHTTPClient creates a new PutWebdeploymentsDeploymentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutWebdeploymentsDeploymentParamsWithHTTPClient(client *http.Client) *PutWebdeploymentsDeploymentParams {
-	var ()
 	return &PutWebdeploymentsDeploymentParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutWebdeploymentsDeploymentParams contains all the parameters to send to the API endpoint
-for the put webdeployments deployment operation typically these are written to a http.Request
+/*
+PutWebdeploymentsDeploymentParams contains all the parameters to send to the API endpoint
+
+	for the put webdeployments deployment operation.
+
+	Typically these are written to a http.Request.
 */
 type PutWebdeploymentsDeploymentParams struct {
 
-	/*Deployment*/
+	// Deployment.
 	Deployment *models.WebDeployment
-	/*DeploymentID
-	  The deployment ID
 
+	/* DeploymentID.
+
+	   The deployment ID
 	*/
 	DeploymentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put webdeployments deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutWebdeploymentsDeploymentParams) WithDefaults() *PutWebdeploymentsDeploymentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put webdeployments deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutWebdeploymentsDeploymentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put webdeployments deployment params
@@ -137,7 +154,6 @@ func (o *PutWebdeploymentsDeploymentParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
 	if o.Deployment != nil {
 		if err := r.SetBodyParam(o.Deployment); err != nil {
 			return err

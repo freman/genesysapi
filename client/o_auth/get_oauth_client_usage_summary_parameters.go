@@ -16,76 +16,94 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOauthClientUsageSummaryParams creates a new GetOauthClientUsageSummaryParams object
-// with the default values initialized.
+// NewGetOauthClientUsageSummaryParams creates a new GetOauthClientUsageSummaryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOauthClientUsageSummaryParams() *GetOauthClientUsageSummaryParams {
-	var (
-		daysDefault = string("7")
-	)
 	return &GetOauthClientUsageSummaryParams{
-		Days: &daysDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOauthClientUsageSummaryParamsWithTimeout creates a new GetOauthClientUsageSummaryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOauthClientUsageSummaryParamsWithTimeout(timeout time.Duration) *GetOauthClientUsageSummaryParams {
-	var (
-		daysDefault = string("7")
-	)
 	return &GetOauthClientUsageSummaryParams{
-		Days: &daysDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOauthClientUsageSummaryParamsWithContext creates a new GetOauthClientUsageSummaryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOauthClientUsageSummaryParamsWithContext(ctx context.Context) *GetOauthClientUsageSummaryParams {
-	var (
-		daysDefault = string("7")
-	)
 	return &GetOauthClientUsageSummaryParams{
-		Days: &daysDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOauthClientUsageSummaryParamsWithHTTPClient creates a new GetOauthClientUsageSummaryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOauthClientUsageSummaryParamsWithHTTPClient(client *http.Client) *GetOauthClientUsageSummaryParams {
-	var (
-		daysDefault = string("7")
-	)
 	return &GetOauthClientUsageSummaryParams{
-		Days:       &daysDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetOauthClientUsageSummaryParams contains all the parameters to send to the API endpoint
-for the get oauth client usage summary operation typically these are written to a http.Request
+/*
+GetOauthClientUsageSummaryParams contains all the parameters to send to the API endpoint
+
+	for the get oauth client usage summary operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOauthClientUsageSummaryParams struct {
 
-	/*ClientID
-	  Client ID
+	/* ClientID.
 
+	   Client ID
 	*/
 	ClientID string
-	/*Days
-	  Previous number of days to query
 
+	/* Days.
+
+	   Previous number of days to query
+
+	   Default: "7"
 	*/
 	Days *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get oauth client usage summary params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOauthClientUsageSummaryParams) WithDefaults() *GetOauthClientUsageSummaryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get oauth client usage summary params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOauthClientUsageSummaryParams) SetDefaults() {
+	var (
+		daysDefault = string("7")
+	)
+
+	val := GetOauthClientUsageSummaryParams{
+		Days: &daysDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get oauth client usage summary params
@@ -160,16 +178,17 @@ func (o *GetOauthClientUsageSummaryParams) WriteToRequest(r runtime.ClientReques
 
 		// query param days
 		var qrDays string
+
 		if o.Days != nil {
 			qrDays = *o.Days
 		}
 		qDays := qrDays
 		if qDays != "" {
+
 			if err := r.SetQueryParam("days", qDays); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

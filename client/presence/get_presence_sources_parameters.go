@@ -16,71 +16,88 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetPresenceSourcesParams creates a new GetPresenceSourcesParams object
-// with the default values initialized.
+// NewGetPresenceSourcesParams creates a new GetPresenceSourcesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetPresenceSourcesParams() *GetPresenceSourcesParams {
-	var (
-		deletedDefault = string("false")
-	)
 	return &GetPresenceSourcesParams{
-		Deleted: &deletedDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetPresenceSourcesParamsWithTimeout creates a new GetPresenceSourcesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetPresenceSourcesParamsWithTimeout(timeout time.Duration) *GetPresenceSourcesParams {
-	var (
-		deletedDefault = string("false")
-	)
 	return &GetPresenceSourcesParams{
-		Deleted: &deletedDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetPresenceSourcesParamsWithContext creates a new GetPresenceSourcesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetPresenceSourcesParamsWithContext(ctx context.Context) *GetPresenceSourcesParams {
-	var (
-		deletedDefault = string("false")
-	)
 	return &GetPresenceSourcesParams{
-		Deleted: &deletedDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetPresenceSourcesParamsWithHTTPClient creates a new GetPresenceSourcesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetPresenceSourcesParamsWithHTTPClient(client *http.Client) *GetPresenceSourcesParams {
-	var (
-		deletedDefault = string("false")
-	)
 	return &GetPresenceSourcesParams{
-		Deleted:    &deletedDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetPresenceSourcesParams contains all the parameters to send to the API endpoint
-for the get presence sources operation typically these are written to a http.Request
+/*
+GetPresenceSourcesParams contains all the parameters to send to the API endpoint
+
+	for the get presence sources operation.
+
+	Typically these are written to a http.Request.
 */
 type GetPresenceSourcesParams struct {
 
-	/*Deleted
-	  Deleted query can be TRUE or FALSE
+	/* Deactivated.
 
+	   Deactivated query can be TRUE or FALSE
+
+	   Default: "false"
 	*/
-	Deleted *string
+	Deactivated *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get presence sources params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetPresenceSourcesParams) WithDefaults() *GetPresenceSourcesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get presence sources params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetPresenceSourcesParams) SetDefaults() {
+	var (
+		deactivatedDefault = string("false")
+	)
+
+	val := GetPresenceSourcesParams{
+		Deactivated: &deactivatedDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get presence sources params
@@ -116,15 +133,15 @@ func (o *GetPresenceSourcesParams) SetHTTPClient(client *http.Client) {
 	o.HTTPClient = client
 }
 
-// WithDeleted adds the deleted to the get presence sources params
-func (o *GetPresenceSourcesParams) WithDeleted(deleted *string) *GetPresenceSourcesParams {
-	o.SetDeleted(deleted)
+// WithDeactivated adds the deactivated to the get presence sources params
+func (o *GetPresenceSourcesParams) WithDeactivated(deactivated *string) *GetPresenceSourcesParams {
+	o.SetDeactivated(deactivated)
 	return o
 }
 
-// SetDeleted adds the deleted to the get presence sources params
-func (o *GetPresenceSourcesParams) SetDeleted(deleted *string) {
-	o.Deleted = deleted
+// SetDeactivated adds the deactivated to the get presence sources params
+func (o *GetPresenceSourcesParams) SetDeactivated(deactivated *string) {
+	o.Deactivated = deactivated
 }
 
 // WriteToRequest writes these params to a swagger request
@@ -135,20 +152,21 @@ func (o *GetPresenceSourcesParams) WriteToRequest(r runtime.ClientRequest, reg s
 	}
 	var res []error
 
-	if o.Deleted != nil {
+	if o.Deactivated != nil {
 
-		// query param deleted
-		var qrDeleted string
-		if o.Deleted != nil {
-			qrDeleted = *o.Deleted
+		// query param deactivated
+		var qrDeactivated string
+
+		if o.Deactivated != nil {
+			qrDeactivated = *o.Deactivated
 		}
-		qDeleted := qrDeleted
-		if qDeleted != "" {
-			if err := r.SetQueryParam("deleted", qDeleted); err != nil {
+		qDeactivated := qrDeactivated
+		if qDeactivated != "" {
+
+			if err := r.SetQueryParam("deactivated", qDeactivated); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

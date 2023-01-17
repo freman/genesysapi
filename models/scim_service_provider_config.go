@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -108,7 +109,6 @@ func (m *ScimServiceProviderConfig) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ScimServiceProviderConfig) validateAuthenticationSchemes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AuthenticationSchemes) { // not required
 		return nil
 	}
@@ -122,6 +122,8 @@ func (m *ScimServiceProviderConfig) validateAuthenticationSchemes(formats strfmt
 			if err := m.AuthenticationSchemes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("authenticationSchemes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("authenticationSchemes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -133,7 +135,6 @@ func (m *ScimServiceProviderConfig) validateAuthenticationSchemes(formats strfmt
 }
 
 func (m *ScimServiceProviderConfig) validateBulk(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Bulk) { // not required
 		return nil
 	}
@@ -142,6 +143,8 @@ func (m *ScimServiceProviderConfig) validateBulk(formats strfmt.Registry) error 
 		if err := m.Bulk.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("bulk")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bulk")
 			}
 			return err
 		}
@@ -151,7 +154,6 @@ func (m *ScimServiceProviderConfig) validateBulk(formats strfmt.Registry) error 
 }
 
 func (m *ScimServiceProviderConfig) validateChangePassword(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ChangePassword) { // not required
 		return nil
 	}
@@ -160,6 +162,8 @@ func (m *ScimServiceProviderConfig) validateChangePassword(formats strfmt.Regist
 		if err := m.ChangePassword.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("changePassword")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("changePassword")
 			}
 			return err
 		}
@@ -169,7 +173,6 @@ func (m *ScimServiceProviderConfig) validateChangePassword(formats strfmt.Regist
 }
 
 func (m *ScimServiceProviderConfig) validateDocumentationURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DocumentationURI) { // not required
 		return nil
 	}
@@ -182,7 +185,6 @@ func (m *ScimServiceProviderConfig) validateDocumentationURI(formats strfmt.Regi
 }
 
 func (m *ScimServiceProviderConfig) validateEtag(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Etag) { // not required
 		return nil
 	}
@@ -191,6 +193,8 @@ func (m *ScimServiceProviderConfig) validateEtag(formats strfmt.Registry) error 
 		if err := m.Etag.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("etag")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("etag")
 			}
 			return err
 		}
@@ -200,7 +204,6 @@ func (m *ScimServiceProviderConfig) validateEtag(formats strfmt.Registry) error 
 }
 
 func (m *ScimServiceProviderConfig) validateFilter(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Filter) { // not required
 		return nil
 	}
@@ -209,6 +212,8 @@ func (m *ScimServiceProviderConfig) validateFilter(formats strfmt.Registry) erro
 		if err := m.Filter.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
 			}
 			return err
 		}
@@ -218,7 +223,6 @@ func (m *ScimServiceProviderConfig) validateFilter(formats strfmt.Registry) erro
 }
 
 func (m *ScimServiceProviderConfig) validateMeta(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Meta) { // not required
 		return nil
 	}
@@ -227,6 +231,8 @@ func (m *ScimServiceProviderConfig) validateMeta(formats strfmt.Registry) error 
 		if err := m.Meta.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -236,7 +242,6 @@ func (m *ScimServiceProviderConfig) validateMeta(formats strfmt.Registry) error 
 }
 
 func (m *ScimServiceProviderConfig) validatePatch(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Patch) { // not required
 		return nil
 	}
@@ -245,6 +250,8 @@ func (m *ScimServiceProviderConfig) validatePatch(formats strfmt.Registry) error
 		if err := m.Patch.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("patch")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("patch")
 			}
 			return err
 		}
@@ -254,7 +261,6 @@ func (m *ScimServiceProviderConfig) validatePatch(formats strfmt.Registry) error
 }
 
 func (m *ScimServiceProviderConfig) validateSort(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Sort) { // not required
 		return nil
 	}
@@ -263,6 +269,212 @@ func (m *ScimServiceProviderConfig) validateSort(formats strfmt.Registry) error 
 		if err := m.Sort.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sort")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sort")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scim service provider config based on the context it is used
+func (m *ScimServiceProviderConfig) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAuthenticationSchemes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateBulk(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateChangePassword(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDocumentationURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEtag(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFilter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePatch(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchemas(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSort(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimServiceProviderConfig) contextValidateAuthenticationSchemes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "authenticationSchemes", "body", []*ScimServiceProviderConfigAuthenticationScheme(m.AuthenticationSchemes)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.AuthenticationSchemes); i++ {
+
+		if m.AuthenticationSchemes[i] != nil {
+			if err := m.AuthenticationSchemes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("authenticationSchemes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("authenticationSchemes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfig) contextValidateBulk(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Bulk != nil {
+		if err := m.Bulk.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("bulk")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bulk")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfig) contextValidateChangePassword(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ChangePassword != nil {
+		if err := m.ChangePassword.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("changePassword")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("changePassword")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfig) contextValidateDocumentationURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "documentationUri", "body", strfmt.URI(m.DocumentationURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfig) contextValidateEtag(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Etag != nil {
+		if err := m.Etag.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("etag")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("etag")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfig) contextValidateFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Filter != nil {
+		if err := m.Filter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfig) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Meta != nil {
+		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfig) contextValidatePatch(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Patch != nil {
+		if err := m.Patch.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("patch")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("patch")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfig) contextValidateSchemas(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "schemas", "body", []string(m.Schemas)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfig) contextValidateSort(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Sort != nil {
+		if err := m.Sort.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sort")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sort")
 			}
 			return err
 		}

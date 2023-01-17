@@ -17,89 +17,107 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetAuthorizationRoleUsersParams creates a new GetAuthorizationRoleUsersParams object
-// with the default values initialized.
+// NewGetAuthorizationRoleUsersParams creates a new GetAuthorizationRoleUsersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAuthorizationRoleUsersParams() *GetAuthorizationRoleUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetAuthorizationRoleUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAuthorizationRoleUsersParamsWithTimeout creates a new GetAuthorizationRoleUsersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAuthorizationRoleUsersParamsWithTimeout(timeout time.Duration) *GetAuthorizationRoleUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetAuthorizationRoleUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAuthorizationRoleUsersParamsWithContext creates a new GetAuthorizationRoleUsersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAuthorizationRoleUsersParamsWithContext(ctx context.Context) *GetAuthorizationRoleUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetAuthorizationRoleUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetAuthorizationRoleUsersParamsWithHTTPClient creates a new GetAuthorizationRoleUsersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAuthorizationRoleUsersParamsWithHTTPClient(client *http.Client) *GetAuthorizationRoleUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetAuthorizationRoleUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetAuthorizationRoleUsersParams contains all the parameters to send to the API endpoint
-for the get authorization role users operation typically these are written to a http.Request
+/*
+GetAuthorizationRoleUsersParams contains all the parameters to send to the API endpoint
+
+	for the get authorization role users operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAuthorizationRoleUsersParams struct {
 
-	/*PageNumber
-	  Page number
+	/* PageNumber.
 
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*RoleID
-	  Role ID
 
+	/* RoleID.
+
+	   Role ID
 	*/
 	RoleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get authorization role users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationRoleUsersParams) WithDefaults() *GetAuthorizationRoleUsersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get authorization role users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationRoleUsersParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetAuthorizationRoleUsersParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get authorization role users params
@@ -180,32 +198,34 @@ func (o *GetAuthorizationRoleUsersParams) WriteToRequest(r runtime.ClientRequest
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param roleId

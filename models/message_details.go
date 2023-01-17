@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -90,7 +91,6 @@ func (m *MessageDetails) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MessageDetails) validateErrorInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorInfo) { // not required
 		return nil
 	}
@@ -99,6 +99,8 @@ func (m *MessageDetails) validateErrorInfo(formats strfmt.Registry) error {
 		if err := m.ErrorInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInfo")
 			}
 			return err
 		}
@@ -108,7 +110,6 @@ func (m *MessageDetails) validateErrorInfo(formats strfmt.Registry) error {
 }
 
 func (m *MessageDetails) validateMedia(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Media) { // not required
 		return nil
 	}
@@ -122,6 +123,8 @@ func (m *MessageDetails) validateMedia(formats strfmt.Registry) error {
 			if err := m.Media[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("media" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("media" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -133,7 +136,6 @@ func (m *MessageDetails) validateMedia(formats strfmt.Registry) error {
 }
 
 func (m *MessageDetails) validateMessageMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageMetadata) { // not required
 		return nil
 	}
@@ -142,6 +144,8 @@ func (m *MessageDetails) validateMessageMetadata(formats strfmt.Registry) error 
 		if err := m.MessageMetadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messageMetadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messageMetadata")
 			}
 			return err
 		}
@@ -176,11 +180,11 @@ const (
 	// MessageDetailsMessageStatusReceived captures enum value "received"
 	MessageDetailsMessageStatusReceived string = "received"
 
-	// MessageDetailsMessageStatusDeliverySuccess captures enum value "delivery-success"
-	MessageDetailsMessageStatusDeliverySuccess string = "delivery-success"
+	// MessageDetailsMessageStatusDeliveryDashSuccess captures enum value "delivery-success"
+	MessageDetailsMessageStatusDeliveryDashSuccess string = "delivery-success"
 
-	// MessageDetailsMessageStatusDeliveryFailed captures enum value "delivery-failed"
-	MessageDetailsMessageStatusDeliveryFailed string = "delivery-failed"
+	// MessageDetailsMessageStatusDeliveryDashFailed captures enum value "delivery-failed"
+	MessageDetailsMessageStatusDeliveryDashFailed string = "delivery-failed"
 
 	// MessageDetailsMessageStatusRead captures enum value "read"
 	MessageDetailsMessageStatusRead string = "read"
@@ -198,7 +202,6 @@ func (m *MessageDetails) validateMessageStatusEnum(path, location string, value 
 }
 
 func (m *MessageDetails) validateMessageStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageStatus) { // not required
 		return nil
 	}
@@ -212,7 +215,6 @@ func (m *MessageDetails) validateMessageStatus(formats strfmt.Registry) error {
 }
 
 func (m *MessageDetails) validateMessageTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageTime) { // not required
 		return nil
 	}
@@ -225,7 +227,6 @@ func (m *MessageDetails) validateMessageTime(formats strfmt.Registry) error {
 }
 
 func (m *MessageDetails) validateMessageURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageURI) { // not required
 		return nil
 	}
@@ -238,7 +239,6 @@ func (m *MessageDetails) validateMessageURI(formats strfmt.Registry) error {
 }
 
 func (m *MessageDetails) validateStickers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Stickers) { // not required
 		return nil
 	}
@@ -252,6 +252,106 @@ func (m *MessageDetails) validateStickers(formats strfmt.Registry) error {
 			if err := m.Stickers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("stickers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("stickers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this message details based on the context it is used
+func (m *MessageDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateErrorInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMedia(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessageMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStickers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MessageDetails) contextValidateErrorInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ErrorInfo != nil {
+		if err := m.ErrorInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessageDetails) contextValidateMedia(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Media); i++ {
+
+		if m.Media[i] != nil {
+			if err := m.Media[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("media" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("media" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessageDetails) contextValidateMessageMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessageMetadata != nil {
+		if err := m.MessageMetadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messageMetadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messageMetadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessageDetails) contextValidateStickers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Stickers); i++ {
+
+		if m.Stickers[i] != nil {
+			if err := m.Stickers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("stickers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("stickers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

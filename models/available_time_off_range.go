@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -89,7 +90,6 @@ func (m *AvailableTimeOffRange) validateGranularityEnum(path, location string, v
 }
 
 func (m *AvailableTimeOffRange) validateGranularity(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Granularity) { // not required
 		return nil
 	}
@@ -103,7 +103,6 @@ func (m *AvailableTimeOffRange) validateGranularity(formats strfmt.Registry) err
 }
 
 func (m *AvailableTimeOffRange) validateStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDate) { // not required
 		return nil
 	}
@@ -116,7 +115,6 @@ func (m *AvailableTimeOffRange) validateStartDate(formats strfmt.Registry) error
 }
 
 func (m *AvailableTimeOffRange) validateTimeOffLimit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TimeOffLimit) { // not required
 		return nil
 	}
@@ -125,6 +123,38 @@ func (m *AvailableTimeOffRange) validateTimeOffLimit(formats strfmt.Registry) er
 		if err := m.TimeOffLimit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("timeOffLimit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeOffLimit")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this available time off range based on the context it is used
+func (m *AvailableTimeOffRange) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateTimeOffLimit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AvailableTimeOffRange) contextValidateTimeOffLimit(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TimeOffLimit != nil {
+		if err := m.TimeOffLimit.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("timeOffLimit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeOffLimit")
 			}
 			return err
 		}

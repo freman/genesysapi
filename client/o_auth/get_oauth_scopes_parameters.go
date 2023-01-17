@@ -16,71 +16,88 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOauthScopesParams creates a new GetOauthScopesParams object
-// with the default values initialized.
+// NewGetOauthScopesParams creates a new GetOauthScopesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOauthScopesParams() *GetOauthScopesParams {
-	var (
-		acceptLanguageDefault = string("en-us")
-	)
 	return &GetOauthScopesParams{
-		AcceptLanguage: &acceptLanguageDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOauthScopesParamsWithTimeout creates a new GetOauthScopesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOauthScopesParamsWithTimeout(timeout time.Duration) *GetOauthScopesParams {
-	var (
-		acceptLanguageDefault = string("en-us")
-	)
 	return &GetOauthScopesParams{
-		AcceptLanguage: &acceptLanguageDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOauthScopesParamsWithContext creates a new GetOauthScopesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOauthScopesParamsWithContext(ctx context.Context) *GetOauthScopesParams {
-	var (
-		acceptLanguageDefault = string("en-us")
-	)
 	return &GetOauthScopesParams{
-		AcceptLanguage: &acceptLanguageDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOauthScopesParamsWithHTTPClient creates a new GetOauthScopesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOauthScopesParamsWithHTTPClient(client *http.Client) *GetOauthScopesParams {
-	var (
-		acceptLanguageDefault = string("en-us")
-	)
 	return &GetOauthScopesParams{
-		AcceptLanguage: &acceptLanguageDefault,
-		HTTPClient:     client,
+		HTTPClient: client,
 	}
 }
 
-/*GetOauthScopesParams contains all the parameters to send to the API endpoint
-for the get oauth scopes operation typically these are written to a http.Request
+/*
+GetOauthScopesParams contains all the parameters to send to the API endpoint
+
+	for the get oauth scopes operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOauthScopesParams struct {
 
-	/*AcceptLanguage
-	  The language with which to display the scope descriptions.
+	/* AcceptLanguage.
 
+	   The language with which to display the scope descriptions.
+
+	   Default: "en-us"
 	*/
 	AcceptLanguage *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get oauth scopes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOauthScopesParams) WithDefaults() *GetOauthScopesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get oauth scopes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOauthScopesParams) SetDefaults() {
+	var (
+		acceptLanguageDefault = string("en-us")
+	)
+
+	val := GetOauthScopesParams{
+		AcceptLanguage: &acceptLanguageDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get oauth scopes params
@@ -141,7 +158,6 @@ func (o *GetOauthScopesParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		if err := r.SetHeaderParam("Accept-Language", *o.AcceptLanguage); err != nil {
 			return err
 		}
-
 	}
 
 	if len(res) > 0 {

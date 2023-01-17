@@ -95,7 +95,6 @@ func (o *PostOutboundAuditsReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOutboundAuditsOK() *PostOutboundAuditsOK {
 	return &PostOutboundAuditsOK{}
 }
 
-/*PostOutboundAuditsOK handles this case with default header values.
+/*
+PostOutboundAuditsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOutboundAuditsOK struct {
 	Payload *models.AuditSearchResult
 }
 
+// IsSuccess returns true when this post outbound audits o k response has a 2xx status code
+func (o *PostOutboundAuditsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post outbound audits o k response has a 3xx status code
+func (o *PostOutboundAuditsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound audits o k response has a 4xx status code
+func (o *PostOutboundAuditsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound audits o k response has a 5xx status code
+func (o *PostOutboundAuditsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound audits o k response a status code equal to that given
+func (o *PostOutboundAuditsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOutboundAuditsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOutboundAuditsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostOutboundAuditsBadRequest() *PostOutboundAuditsBadRequest {
 	return &PostOutboundAuditsBadRequest{}
 }
 
-/*PostOutboundAuditsBadRequest handles this case with default header values.
+/*
+PostOutboundAuditsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostOutboundAuditsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound audits bad request response has a 2xx status code
+func (o *PostOutboundAuditsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound audits bad request response has a 3xx status code
+func (o *PostOutboundAuditsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound audits bad request response has a 4xx status code
+func (o *PostOutboundAuditsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound audits bad request response has a 5xx status code
+func (o *PostOutboundAuditsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound audits bad request response a status code equal to that given
+func (o *PostOutboundAuditsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOutboundAuditsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOutboundAuditsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostOutboundAuditsUnauthorized() *PostOutboundAuditsUnauthorized {
 	return &PostOutboundAuditsUnauthorized{}
 }
 
-/*PostOutboundAuditsUnauthorized handles this case with default header values.
+/*
+PostOutboundAuditsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostOutboundAuditsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound audits unauthorized response has a 2xx status code
+func (o *PostOutboundAuditsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound audits unauthorized response has a 3xx status code
+func (o *PostOutboundAuditsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound audits unauthorized response has a 4xx status code
+func (o *PostOutboundAuditsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound audits unauthorized response has a 5xx status code
+func (o *PostOutboundAuditsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound audits unauthorized response a status code equal to that given
+func (o *PostOutboundAuditsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOutboundAuditsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOutboundAuditsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostOutboundAuditsForbidden() *PostOutboundAuditsForbidden {
 	return &PostOutboundAuditsForbidden{}
 }
 
-/*PostOutboundAuditsForbidden handles this case with default header values.
+/*
+PostOutboundAuditsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostOutboundAuditsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound audits forbidden response has a 2xx status code
+func (o *PostOutboundAuditsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound audits forbidden response has a 3xx status code
+func (o *PostOutboundAuditsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound audits forbidden response has a 4xx status code
+func (o *PostOutboundAuditsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound audits forbidden response has a 5xx status code
+func (o *PostOutboundAuditsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound audits forbidden response a status code equal to that given
+func (o *PostOutboundAuditsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOutboundAuditsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOutboundAuditsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostOutboundAuditsNotFound() *PostOutboundAuditsNotFound {
 	return &PostOutboundAuditsNotFound{}
 }
 
-/*PostOutboundAuditsNotFound handles this case with default header values.
+/*
+PostOutboundAuditsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostOutboundAuditsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound audits not found response has a 2xx status code
+func (o *PostOutboundAuditsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound audits not found response has a 3xx status code
+func (o *PostOutboundAuditsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound audits not found response has a 4xx status code
+func (o *PostOutboundAuditsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound audits not found response has a 5xx status code
+func (o *PostOutboundAuditsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound audits not found response a status code equal to that given
+func (o *PostOutboundAuditsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOutboundAuditsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOutboundAuditsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostOutboundAuditsRequestTimeout() *PostOutboundAuditsRequestTimeout {
 	return &PostOutboundAuditsRequestTimeout{}
 }
 
-/*PostOutboundAuditsRequestTimeout handles this case with default header values.
+/*
+PostOutboundAuditsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostOutboundAuditsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound audits request timeout response has a 2xx status code
+func (o *PostOutboundAuditsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound audits request timeout response has a 3xx status code
+func (o *PostOutboundAuditsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound audits request timeout response has a 4xx status code
+func (o *PostOutboundAuditsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound audits request timeout response has a 5xx status code
+func (o *PostOutboundAuditsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound audits request timeout response a status code equal to that given
+func (o *PostOutboundAuditsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOutboundAuditsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundAuditsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostOutboundAuditsRequestEntityTooLarge() *PostOutboundAuditsRequestEnti
 	return &PostOutboundAuditsRequestEntityTooLarge{}
 }
 
-/*PostOutboundAuditsRequestEntityTooLarge handles this case with default header values.
+/*
+PostOutboundAuditsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostOutboundAuditsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound audits request entity too large response has a 2xx status code
+func (o *PostOutboundAuditsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound audits request entity too large response has a 3xx status code
+func (o *PostOutboundAuditsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound audits request entity too large response has a 4xx status code
+func (o *PostOutboundAuditsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound audits request entity too large response has a 5xx status code
+func (o *PostOutboundAuditsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound audits request entity too large response a status code equal to that given
+func (o *PostOutboundAuditsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOutboundAuditsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOutboundAuditsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostOutboundAuditsUnsupportedMediaType() *PostOutboundAuditsUnsupportedM
 	return &PostOutboundAuditsUnsupportedMediaType{}
 }
 
-/*PostOutboundAuditsUnsupportedMediaType handles this case with default header values.
+/*
+PostOutboundAuditsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostOutboundAuditsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound audits unsupported media type response has a 2xx status code
+func (o *PostOutboundAuditsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound audits unsupported media type response has a 3xx status code
+func (o *PostOutboundAuditsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound audits unsupported media type response has a 4xx status code
+func (o *PostOutboundAuditsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound audits unsupported media type response has a 5xx status code
+func (o *PostOutboundAuditsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound audits unsupported media type response a status code equal to that given
+func (o *PostOutboundAuditsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOutboundAuditsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOutboundAuditsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostOutboundAuditsTooManyRequests() *PostOutboundAuditsTooManyRequests {
 	return &PostOutboundAuditsTooManyRequests{}
 }
 
-/*PostOutboundAuditsTooManyRequests handles this case with default header values.
+/*
+PostOutboundAuditsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostOutboundAuditsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound audits too many requests response has a 2xx status code
+func (o *PostOutboundAuditsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound audits too many requests response has a 3xx status code
+func (o *PostOutboundAuditsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound audits too many requests response has a 4xx status code
+func (o *PostOutboundAuditsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound audits too many requests response has a 5xx status code
+func (o *PostOutboundAuditsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound audits too many requests response a status code equal to that given
+func (o *PostOutboundAuditsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOutboundAuditsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOutboundAuditsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostOutboundAuditsInternalServerError() *PostOutboundAuditsInternalServe
 	return &PostOutboundAuditsInternalServerError{}
 }
 
-/*PostOutboundAuditsInternalServerError handles this case with default header values.
+/*
+PostOutboundAuditsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostOutboundAuditsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound audits internal server error response has a 2xx status code
+func (o *PostOutboundAuditsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound audits internal server error response has a 3xx status code
+func (o *PostOutboundAuditsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound audits internal server error response has a 4xx status code
+func (o *PostOutboundAuditsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound audits internal server error response has a 5xx status code
+func (o *PostOutboundAuditsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound audits internal server error response a status code equal to that given
+func (o *PostOutboundAuditsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOutboundAuditsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOutboundAuditsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostOutboundAuditsServiceUnavailable() *PostOutboundAuditsServiceUnavail
 	return &PostOutboundAuditsServiceUnavailable{}
 }
 
-/*PostOutboundAuditsServiceUnavailable handles this case with default header values.
+/*
+PostOutboundAuditsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostOutboundAuditsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound audits service unavailable response has a 2xx status code
+func (o *PostOutboundAuditsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound audits service unavailable response has a 3xx status code
+func (o *PostOutboundAuditsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound audits service unavailable response has a 4xx status code
+func (o *PostOutboundAuditsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound audits service unavailable response has a 5xx status code
+func (o *PostOutboundAuditsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound audits service unavailable response a status code equal to that given
+func (o *PostOutboundAuditsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOutboundAuditsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOutboundAuditsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostOutboundAuditsGatewayTimeout() *PostOutboundAuditsGatewayTimeout {
 	return &PostOutboundAuditsGatewayTimeout{}
 }
 
-/*PostOutboundAuditsGatewayTimeout handles this case with default header values.
+/*
+PostOutboundAuditsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostOutboundAuditsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound audits gateway timeout response has a 2xx status code
+func (o *PostOutboundAuditsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound audits gateway timeout response has a 3xx status code
+func (o *PostOutboundAuditsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound audits gateway timeout response has a 4xx status code
+func (o *PostOutboundAuditsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound audits gateway timeout response has a 5xx status code
+func (o *PostOutboundAuditsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound audits gateway timeout response a status code equal to that given
+func (o *PostOutboundAuditsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOutboundAuditsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOutboundAuditsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/audits][%d] postOutboundAuditsGatewayTimeout  %+v", 504, o.Payload)
 }
 

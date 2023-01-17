@@ -95,7 +95,6 @@ func (o *PostConversationsEmailInboundmessagesReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostConversationsEmailInboundmessagesOK() *PostConversationsEmailInbound
 	return &PostConversationsEmailInboundmessagesOK{}
 }
 
-/*PostConversationsEmailInboundmessagesOK handles this case with default header values.
+/*
+PostConversationsEmailInboundmessagesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostConversationsEmailInboundmessagesOK struct {
 	Payload *models.EmailConversation
 }
 
+// IsSuccess returns true when this post conversations email inboundmessages o k response has a 2xx status code
+func (o *PostConversationsEmailInboundmessagesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations email inboundmessages o k response has a 3xx status code
+func (o *PostConversationsEmailInboundmessagesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email inboundmessages o k response has a 4xx status code
+func (o *PostConversationsEmailInboundmessagesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations email inboundmessages o k response has a 5xx status code
+func (o *PostConversationsEmailInboundmessagesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email inboundmessages o k response a status code equal to that given
+func (o *PostConversationsEmailInboundmessagesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostConversationsEmailInboundmessagesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostConversationsEmailInboundmessagesBadRequest() *PostConversationsEmai
 	return &PostConversationsEmailInboundmessagesBadRequest{}
 }
 
-/*PostConversationsEmailInboundmessagesBadRequest handles this case with default header values.
+/*
+PostConversationsEmailInboundmessagesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostConversationsEmailInboundmessagesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email inboundmessages bad request response has a 2xx status code
+func (o *PostConversationsEmailInboundmessagesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email inboundmessages bad request response has a 3xx status code
+func (o *PostConversationsEmailInboundmessagesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email inboundmessages bad request response has a 4xx status code
+func (o *PostConversationsEmailInboundmessagesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email inboundmessages bad request response has a 5xx status code
+func (o *PostConversationsEmailInboundmessagesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email inboundmessages bad request response a status code equal to that given
+func (o *PostConversationsEmailInboundmessagesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsEmailInboundmessagesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostConversationsEmailInboundmessagesUnauthorized() *PostConversationsEm
 	return &PostConversationsEmailInboundmessagesUnauthorized{}
 }
 
-/*PostConversationsEmailInboundmessagesUnauthorized handles this case with default header values.
+/*
+PostConversationsEmailInboundmessagesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostConversationsEmailInboundmessagesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email inboundmessages unauthorized response has a 2xx status code
+func (o *PostConversationsEmailInboundmessagesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email inboundmessages unauthorized response has a 3xx status code
+func (o *PostConversationsEmailInboundmessagesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email inboundmessages unauthorized response has a 4xx status code
+func (o *PostConversationsEmailInboundmessagesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email inboundmessages unauthorized response has a 5xx status code
+func (o *PostConversationsEmailInboundmessagesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email inboundmessages unauthorized response a status code equal to that given
+func (o *PostConversationsEmailInboundmessagesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsEmailInboundmessagesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostConversationsEmailInboundmessagesForbidden() *PostConversationsEmail
 	return &PostConversationsEmailInboundmessagesForbidden{}
 }
 
-/*PostConversationsEmailInboundmessagesForbidden handles this case with default header values.
+/*
+PostConversationsEmailInboundmessagesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostConversationsEmailInboundmessagesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email inboundmessages forbidden response has a 2xx status code
+func (o *PostConversationsEmailInboundmessagesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email inboundmessages forbidden response has a 3xx status code
+func (o *PostConversationsEmailInboundmessagesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email inboundmessages forbidden response has a 4xx status code
+func (o *PostConversationsEmailInboundmessagesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email inboundmessages forbidden response has a 5xx status code
+func (o *PostConversationsEmailInboundmessagesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email inboundmessages forbidden response a status code equal to that given
+func (o *PostConversationsEmailInboundmessagesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsEmailInboundmessagesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostConversationsEmailInboundmessagesNotFound() *PostConversationsEmailI
 	return &PostConversationsEmailInboundmessagesNotFound{}
 }
 
-/*PostConversationsEmailInboundmessagesNotFound handles this case with default header values.
+/*
+PostConversationsEmailInboundmessagesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostConversationsEmailInboundmessagesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email inboundmessages not found response has a 2xx status code
+func (o *PostConversationsEmailInboundmessagesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email inboundmessages not found response has a 3xx status code
+func (o *PostConversationsEmailInboundmessagesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email inboundmessages not found response has a 4xx status code
+func (o *PostConversationsEmailInboundmessagesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email inboundmessages not found response has a 5xx status code
+func (o *PostConversationsEmailInboundmessagesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email inboundmessages not found response a status code equal to that given
+func (o *PostConversationsEmailInboundmessagesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsEmailInboundmessagesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostConversationsEmailInboundmessagesRequestTimeout() *PostConversations
 	return &PostConversationsEmailInboundmessagesRequestTimeout{}
 }
 
-/*PostConversationsEmailInboundmessagesRequestTimeout handles this case with default header values.
+/*
+PostConversationsEmailInboundmessagesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostConversationsEmailInboundmessagesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email inboundmessages request timeout response has a 2xx status code
+func (o *PostConversationsEmailInboundmessagesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email inboundmessages request timeout response has a 3xx status code
+func (o *PostConversationsEmailInboundmessagesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email inboundmessages request timeout response has a 4xx status code
+func (o *PostConversationsEmailInboundmessagesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email inboundmessages request timeout response has a 5xx status code
+func (o *PostConversationsEmailInboundmessagesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email inboundmessages request timeout response a status code equal to that given
+func (o *PostConversationsEmailInboundmessagesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsEmailInboundmessagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostConversationsEmailInboundmessagesRequestEntityTooLarge() *PostConver
 	return &PostConversationsEmailInboundmessagesRequestEntityTooLarge{}
 }
 
-/*PostConversationsEmailInboundmessagesRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsEmailInboundmessagesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostConversationsEmailInboundmessagesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email inboundmessages request entity too large response has a 2xx status code
+func (o *PostConversationsEmailInboundmessagesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email inboundmessages request entity too large response has a 3xx status code
+func (o *PostConversationsEmailInboundmessagesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email inboundmessages request entity too large response has a 4xx status code
+func (o *PostConversationsEmailInboundmessagesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email inboundmessages request entity too large response has a 5xx status code
+func (o *PostConversationsEmailInboundmessagesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email inboundmessages request entity too large response a status code equal to that given
+func (o *PostConversationsEmailInboundmessagesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsEmailInboundmessagesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostConversationsEmailInboundmessagesUnsupportedMediaType() *PostConvers
 	return &PostConversationsEmailInboundmessagesUnsupportedMediaType{}
 }
 
-/*PostConversationsEmailInboundmessagesUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsEmailInboundmessagesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostConversationsEmailInboundmessagesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email inboundmessages unsupported media type response has a 2xx status code
+func (o *PostConversationsEmailInboundmessagesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email inboundmessages unsupported media type response has a 3xx status code
+func (o *PostConversationsEmailInboundmessagesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email inboundmessages unsupported media type response has a 4xx status code
+func (o *PostConversationsEmailInboundmessagesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email inboundmessages unsupported media type response has a 5xx status code
+func (o *PostConversationsEmailInboundmessagesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email inboundmessages unsupported media type response a status code equal to that given
+func (o *PostConversationsEmailInboundmessagesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsEmailInboundmessagesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostConversationsEmailInboundmessagesTooManyRequests() *PostConversation
 	return &PostConversationsEmailInboundmessagesTooManyRequests{}
 }
 
-/*PostConversationsEmailInboundmessagesTooManyRequests handles this case with default header values.
+/*
+PostConversationsEmailInboundmessagesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostConversationsEmailInboundmessagesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email inboundmessages too many requests response has a 2xx status code
+func (o *PostConversationsEmailInboundmessagesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email inboundmessages too many requests response has a 3xx status code
+func (o *PostConversationsEmailInboundmessagesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email inboundmessages too many requests response has a 4xx status code
+func (o *PostConversationsEmailInboundmessagesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations email inboundmessages too many requests response has a 5xx status code
+func (o *PostConversationsEmailInboundmessagesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations email inboundmessages too many requests response a status code equal to that given
+func (o *PostConversationsEmailInboundmessagesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsEmailInboundmessagesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostConversationsEmailInboundmessagesInternalServerError() *PostConversa
 	return &PostConversationsEmailInboundmessagesInternalServerError{}
 }
 
-/*PostConversationsEmailInboundmessagesInternalServerError handles this case with default header values.
+/*
+PostConversationsEmailInboundmessagesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostConversationsEmailInboundmessagesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email inboundmessages internal server error response has a 2xx status code
+func (o *PostConversationsEmailInboundmessagesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email inboundmessages internal server error response has a 3xx status code
+func (o *PostConversationsEmailInboundmessagesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email inboundmessages internal server error response has a 4xx status code
+func (o *PostConversationsEmailInboundmessagesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations email inboundmessages internal server error response has a 5xx status code
+func (o *PostConversationsEmailInboundmessagesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations email inboundmessages internal server error response a status code equal to that given
+func (o *PostConversationsEmailInboundmessagesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsEmailInboundmessagesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostConversationsEmailInboundmessagesServiceUnavailable() *PostConversat
 	return &PostConversationsEmailInboundmessagesServiceUnavailable{}
 }
 
-/*PostConversationsEmailInboundmessagesServiceUnavailable handles this case with default header values.
+/*
+PostConversationsEmailInboundmessagesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostConversationsEmailInboundmessagesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email inboundmessages service unavailable response has a 2xx status code
+func (o *PostConversationsEmailInboundmessagesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email inboundmessages service unavailable response has a 3xx status code
+func (o *PostConversationsEmailInboundmessagesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email inboundmessages service unavailable response has a 4xx status code
+func (o *PostConversationsEmailInboundmessagesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations email inboundmessages service unavailable response has a 5xx status code
+func (o *PostConversationsEmailInboundmessagesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations email inboundmessages service unavailable response a status code equal to that given
+func (o *PostConversationsEmailInboundmessagesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsEmailInboundmessagesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostConversationsEmailInboundmessagesGatewayTimeout() *PostConversations
 	return &PostConversationsEmailInboundmessagesGatewayTimeout{}
 }
 
-/*PostConversationsEmailInboundmessagesGatewayTimeout handles this case with default header values.
+/*
+PostConversationsEmailInboundmessagesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostConversationsEmailInboundmessagesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations email inboundmessages gateway timeout response has a 2xx status code
+func (o *PostConversationsEmailInboundmessagesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations email inboundmessages gateway timeout response has a 3xx status code
+func (o *PostConversationsEmailInboundmessagesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations email inboundmessages gateway timeout response has a 4xx status code
+func (o *PostConversationsEmailInboundmessagesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations email inboundmessages gateway timeout response has a 5xx status code
+func (o *PostConversationsEmailInboundmessagesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations email inboundmessages gateway timeout response a status code equal to that given
+func (o *PostConversationsEmailInboundmessagesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsEmailInboundmessagesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsEmailInboundmessagesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/emails/{conversationId}/inboundmessages][%d] postConversationsEmailInboundmessagesGatewayTimeout  %+v", 504, o.Payload)
 }
 

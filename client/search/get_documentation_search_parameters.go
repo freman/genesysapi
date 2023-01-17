@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetDocumentationSearchParams creates a new GetDocumentationSearchParams object
-// with the default values initialized.
+// NewGetDocumentationSearchParams creates a new GetDocumentationSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetDocumentationSearchParams() *GetDocumentationSearchParams {
-	var ()
 	return &GetDocumentationSearchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetDocumentationSearchParamsWithTimeout creates a new GetDocumentationSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetDocumentationSearchParamsWithTimeout(timeout time.Duration) *GetDocumentationSearchParams {
-	var ()
 	return &GetDocumentationSearchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetDocumentationSearchParamsWithContext creates a new GetDocumentationSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetDocumentationSearchParamsWithContext(ctx context.Context) *GetDocumentationSearchParams {
-	var ()
 	return &GetDocumentationSearchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetDocumentationSearchParamsWithHTTPClient creates a new GetDocumentationSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetDocumentationSearchParamsWithHTTPClient(client *http.Client) *GetDocumentationSearchParams {
-	var ()
 	return &GetDocumentationSearchParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetDocumentationSearchParams contains all the parameters to send to the API endpoint
-for the get documentation search operation typically these are written to a http.Request
+/*
+GetDocumentationSearchParams contains all the parameters to send to the API endpoint
+
+	for the get documentation search operation.
+
+	Typically these are written to a http.Request.
 */
 type GetDocumentationSearchParams struct {
 
-	/*Q64
-	  q64
+	/* Q64.
 
+	   q64
 	*/
 	Q64 string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get documentation search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDocumentationSearchParams) WithDefaults() *GetDocumentationSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get documentation search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDocumentationSearchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get documentation search params
@@ -127,6 +143,7 @@ func (o *GetDocumentationSearchParams) WriteToRequest(r runtime.ClientRequest, r
 	qrQ64 := o.Q64
 	qQ64 := qrQ64
 	if qQ64 != "" {
+
 		if err := r.SetQueryParam("q64", qQ64); err != nil {
 			return err
 		}

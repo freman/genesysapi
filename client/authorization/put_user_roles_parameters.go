@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPutUserRolesParams creates a new PutUserRolesParams object
-// with the default values initialized.
+// NewPutUserRolesParams creates a new PutUserRolesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutUserRolesParams() *PutUserRolesParams {
-	var ()
 	return &PutUserRolesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutUserRolesParamsWithTimeout creates a new PutUserRolesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutUserRolesParamsWithTimeout(timeout time.Duration) *PutUserRolesParams {
-	var ()
 	return &PutUserRolesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutUserRolesParamsWithContext creates a new PutUserRolesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutUserRolesParamsWithContext(ctx context.Context) *PutUserRolesParams {
-	var ()
 	return &PutUserRolesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutUserRolesParamsWithHTTPClient creates a new PutUserRolesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutUserRolesParamsWithHTTPClient(client *http.Client) *PutUserRolesParams {
-	var ()
 	return &PutUserRolesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutUserRolesParams contains all the parameters to send to the API endpoint
-for the put user roles operation typically these are written to a http.Request
+/*
+PutUserRolesParams contains all the parameters to send to the API endpoint
+
+	for the put user roles operation.
+
+	Typically these are written to a http.Request.
 */
 type PutUserRolesParams struct {
 
-	/*Body
-	  List of roles
+	/* Body.
 
+	   List of roles
 	*/
 	Body []string
-	/*SubjectID
-	  User ID
 
+	/* SubjectID.
+
+	   User ID
 	*/
 	SubjectID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put user roles params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutUserRolesParams) WithDefaults() *PutUserRolesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put user roles params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutUserRolesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put user roles params
@@ -138,7 +155,6 @@ func (o *PutUserRolesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -95,7 +95,6 @@ func (o *PutIdentityprovidersGenericReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutIdentityprovidersGenericOK() *PutIdentityprovidersGenericOK {
 	return &PutIdentityprovidersGenericOK{}
 }
 
-/*PutIdentityprovidersGenericOK handles this case with default header values.
+/*
+PutIdentityprovidersGenericOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutIdentityprovidersGenericOK struct {
 	Payload *models.OAuthProvider
 }
 
+// IsSuccess returns true when this put identityproviders generic o k response has a 2xx status code
+func (o *PutIdentityprovidersGenericOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put identityproviders generic o k response has a 3xx status code
+func (o *PutIdentityprovidersGenericOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders generic o k response has a 4xx status code
+func (o *PutIdentityprovidersGenericOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders generic o k response has a 5xx status code
+func (o *PutIdentityprovidersGenericOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders generic o k response a status code equal to that given
+func (o *PutIdentityprovidersGenericOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutIdentityprovidersGenericOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericOK  %+v", 200, o.Payload)
+}
+
+func (o *PutIdentityprovidersGenericOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutIdentityprovidersGenericBadRequest() *PutIdentityprovidersGenericBadR
 	return &PutIdentityprovidersGenericBadRequest{}
 }
 
-/*PutIdentityprovidersGenericBadRequest handles this case with default header values.
+/*
+PutIdentityprovidersGenericBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutIdentityprovidersGenericBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders generic bad request response has a 2xx status code
+func (o *PutIdentityprovidersGenericBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders generic bad request response has a 3xx status code
+func (o *PutIdentityprovidersGenericBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders generic bad request response has a 4xx status code
+func (o *PutIdentityprovidersGenericBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders generic bad request response has a 5xx status code
+func (o *PutIdentityprovidersGenericBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders generic bad request response a status code equal to that given
+func (o *PutIdentityprovidersGenericBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutIdentityprovidersGenericBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutIdentityprovidersGenericBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutIdentityprovidersGenericUnauthorized() *PutIdentityprovidersGenericUn
 	return &PutIdentityprovidersGenericUnauthorized{}
 }
 
-/*PutIdentityprovidersGenericUnauthorized handles this case with default header values.
+/*
+PutIdentityprovidersGenericUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutIdentityprovidersGenericUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders generic unauthorized response has a 2xx status code
+func (o *PutIdentityprovidersGenericUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders generic unauthorized response has a 3xx status code
+func (o *PutIdentityprovidersGenericUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders generic unauthorized response has a 4xx status code
+func (o *PutIdentityprovidersGenericUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders generic unauthorized response has a 5xx status code
+func (o *PutIdentityprovidersGenericUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders generic unauthorized response a status code equal to that given
+func (o *PutIdentityprovidersGenericUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutIdentityprovidersGenericUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutIdentityprovidersGenericUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutIdentityprovidersGenericForbidden() *PutIdentityprovidersGenericForbi
 	return &PutIdentityprovidersGenericForbidden{}
 }
 
-/*PutIdentityprovidersGenericForbidden handles this case with default header values.
+/*
+PutIdentityprovidersGenericForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutIdentityprovidersGenericForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders generic forbidden response has a 2xx status code
+func (o *PutIdentityprovidersGenericForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders generic forbidden response has a 3xx status code
+func (o *PutIdentityprovidersGenericForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders generic forbidden response has a 4xx status code
+func (o *PutIdentityprovidersGenericForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders generic forbidden response has a 5xx status code
+func (o *PutIdentityprovidersGenericForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders generic forbidden response a status code equal to that given
+func (o *PutIdentityprovidersGenericForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutIdentityprovidersGenericForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutIdentityprovidersGenericForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutIdentityprovidersGenericNotFound() *PutIdentityprovidersGenericNotFou
 	return &PutIdentityprovidersGenericNotFound{}
 }
 
-/*PutIdentityprovidersGenericNotFound handles this case with default header values.
+/*
+PutIdentityprovidersGenericNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutIdentityprovidersGenericNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders generic not found response has a 2xx status code
+func (o *PutIdentityprovidersGenericNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders generic not found response has a 3xx status code
+func (o *PutIdentityprovidersGenericNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders generic not found response has a 4xx status code
+func (o *PutIdentityprovidersGenericNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders generic not found response has a 5xx status code
+func (o *PutIdentityprovidersGenericNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders generic not found response a status code equal to that given
+func (o *PutIdentityprovidersGenericNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutIdentityprovidersGenericNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutIdentityprovidersGenericNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutIdentityprovidersGenericRequestTimeout() *PutIdentityprovidersGeneric
 	return &PutIdentityprovidersGenericRequestTimeout{}
 }
 
-/*PutIdentityprovidersGenericRequestTimeout handles this case with default header values.
+/*
+PutIdentityprovidersGenericRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutIdentityprovidersGenericRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders generic request timeout response has a 2xx status code
+func (o *PutIdentityprovidersGenericRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders generic request timeout response has a 3xx status code
+func (o *PutIdentityprovidersGenericRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders generic request timeout response has a 4xx status code
+func (o *PutIdentityprovidersGenericRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders generic request timeout response has a 5xx status code
+func (o *PutIdentityprovidersGenericRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders generic request timeout response a status code equal to that given
+func (o *PutIdentityprovidersGenericRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutIdentityprovidersGenericRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIdentityprovidersGenericRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutIdentityprovidersGenericRequestEntityTooLarge() *PutIdentityproviders
 	return &PutIdentityprovidersGenericRequestEntityTooLarge{}
 }
 
-/*PutIdentityprovidersGenericRequestEntityTooLarge handles this case with default header values.
+/*
+PutIdentityprovidersGenericRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutIdentityprovidersGenericRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders generic request entity too large response has a 2xx status code
+func (o *PutIdentityprovidersGenericRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders generic request entity too large response has a 3xx status code
+func (o *PutIdentityprovidersGenericRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders generic request entity too large response has a 4xx status code
+func (o *PutIdentityprovidersGenericRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders generic request entity too large response has a 5xx status code
+func (o *PutIdentityprovidersGenericRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders generic request entity too large response a status code equal to that given
+func (o *PutIdentityprovidersGenericRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutIdentityprovidersGenericRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutIdentityprovidersGenericRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutIdentityprovidersGenericUnsupportedMediaType() *PutIdentityprovidersG
 	return &PutIdentityprovidersGenericUnsupportedMediaType{}
 }
 
-/*PutIdentityprovidersGenericUnsupportedMediaType handles this case with default header values.
+/*
+PutIdentityprovidersGenericUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutIdentityprovidersGenericUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders generic unsupported media type response has a 2xx status code
+func (o *PutIdentityprovidersGenericUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders generic unsupported media type response has a 3xx status code
+func (o *PutIdentityprovidersGenericUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders generic unsupported media type response has a 4xx status code
+func (o *PutIdentityprovidersGenericUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders generic unsupported media type response has a 5xx status code
+func (o *PutIdentityprovidersGenericUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders generic unsupported media type response a status code equal to that given
+func (o *PutIdentityprovidersGenericUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutIdentityprovidersGenericUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutIdentityprovidersGenericUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutIdentityprovidersGenericTooManyRequests() *PutIdentityprovidersGeneri
 	return &PutIdentityprovidersGenericTooManyRequests{}
 }
 
-/*PutIdentityprovidersGenericTooManyRequests handles this case with default header values.
+/*
+PutIdentityprovidersGenericTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutIdentityprovidersGenericTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders generic too many requests response has a 2xx status code
+func (o *PutIdentityprovidersGenericTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders generic too many requests response has a 3xx status code
+func (o *PutIdentityprovidersGenericTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders generic too many requests response has a 4xx status code
+func (o *PutIdentityprovidersGenericTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders generic too many requests response has a 5xx status code
+func (o *PutIdentityprovidersGenericTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders generic too many requests response a status code equal to that given
+func (o *PutIdentityprovidersGenericTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutIdentityprovidersGenericTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutIdentityprovidersGenericTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutIdentityprovidersGenericInternalServerError() *PutIdentityprovidersGe
 	return &PutIdentityprovidersGenericInternalServerError{}
 }
 
-/*PutIdentityprovidersGenericInternalServerError handles this case with default header values.
+/*
+PutIdentityprovidersGenericInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutIdentityprovidersGenericInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders generic internal server error response has a 2xx status code
+func (o *PutIdentityprovidersGenericInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders generic internal server error response has a 3xx status code
+func (o *PutIdentityprovidersGenericInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders generic internal server error response has a 4xx status code
+func (o *PutIdentityprovidersGenericInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders generic internal server error response has a 5xx status code
+func (o *PutIdentityprovidersGenericInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders generic internal server error response a status code equal to that given
+func (o *PutIdentityprovidersGenericInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutIdentityprovidersGenericInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutIdentityprovidersGenericInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutIdentityprovidersGenericServiceUnavailable() *PutIdentityprovidersGen
 	return &PutIdentityprovidersGenericServiceUnavailable{}
 }
 
-/*PutIdentityprovidersGenericServiceUnavailable handles this case with default header values.
+/*
+PutIdentityprovidersGenericServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutIdentityprovidersGenericServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders generic service unavailable response has a 2xx status code
+func (o *PutIdentityprovidersGenericServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders generic service unavailable response has a 3xx status code
+func (o *PutIdentityprovidersGenericServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders generic service unavailable response has a 4xx status code
+func (o *PutIdentityprovidersGenericServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders generic service unavailable response has a 5xx status code
+func (o *PutIdentityprovidersGenericServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders generic service unavailable response a status code equal to that given
+func (o *PutIdentityprovidersGenericServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutIdentityprovidersGenericServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutIdentityprovidersGenericServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutIdentityprovidersGenericGatewayTimeout() *PutIdentityprovidersGeneric
 	return &PutIdentityprovidersGenericGatewayTimeout{}
 }
 
-/*PutIdentityprovidersGenericGatewayTimeout handles this case with default header values.
+/*
+PutIdentityprovidersGenericGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutIdentityprovidersGenericGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders generic gateway timeout response has a 2xx status code
+func (o *PutIdentityprovidersGenericGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders generic gateway timeout response has a 3xx status code
+func (o *PutIdentityprovidersGenericGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders generic gateway timeout response has a 4xx status code
+func (o *PutIdentityprovidersGenericGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders generic gateway timeout response has a 5xx status code
+func (o *PutIdentityprovidersGenericGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders generic gateway timeout response a status code equal to that given
+func (o *PutIdentityprovidersGenericGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutIdentityprovidersGenericGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutIdentityprovidersGenericGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/generic][%d] putIdentityprovidersGenericGatewayTimeout  %+v", 504, o.Payload)
 }
 

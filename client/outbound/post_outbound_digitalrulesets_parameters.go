@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOutboundDigitalrulesetsParams creates a new PostOutboundDigitalrulesetsParams object
-// with the default values initialized.
+// NewPostOutboundDigitalrulesetsParams creates a new PostOutboundDigitalrulesetsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundDigitalrulesetsParams() *PostOutboundDigitalrulesetsParams {
-	var ()
 	return &PostOutboundDigitalrulesetsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundDigitalrulesetsParamsWithTimeout creates a new PostOutboundDigitalrulesetsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundDigitalrulesetsParamsWithTimeout(timeout time.Duration) *PostOutboundDigitalrulesetsParams {
-	var ()
 	return &PostOutboundDigitalrulesetsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundDigitalrulesetsParamsWithContext creates a new PostOutboundDigitalrulesetsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundDigitalrulesetsParamsWithContext(ctx context.Context) *PostOutboundDigitalrulesetsParams {
-	var ()
 	return &PostOutboundDigitalrulesetsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundDigitalrulesetsParamsWithHTTPClient creates a new PostOutboundDigitalrulesetsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundDigitalrulesetsParamsWithHTTPClient(client *http.Client) *PostOutboundDigitalrulesetsParams {
-	var ()
 	return &PostOutboundDigitalrulesetsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundDigitalrulesetsParams contains all the parameters to send to the API endpoint
-for the post outbound digitalrulesets operation typically these are written to a http.Request
+/*
+PostOutboundDigitalrulesetsParams contains all the parameters to send to the API endpoint
+
+	for the post outbound digitalrulesets operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundDigitalrulesetsParams struct {
 
-	/*Body
-	  Digital Rule Set
+	/* Body.
 
+	   Digital Rule Set
 	*/
 	Body *models.DigitalRuleSet
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound digitalrulesets params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundDigitalrulesetsParams) WithDefaults() *PostOutboundDigitalrulesetsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound digitalrulesets params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundDigitalrulesetsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound digitalrulesets params
@@ -124,7 +140,6 @@ func (o *PostOutboundDigitalrulesetsParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

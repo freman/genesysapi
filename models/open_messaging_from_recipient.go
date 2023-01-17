@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -112,6 +113,29 @@ func (m *OpenMessagingFromRecipient) validateIDType(formats strfmt.Registry) err
 
 	// value enum
 	if err := m.validateIDTypeEnum("idType", "body", *m.IDType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this open messaging from recipient based on the context it is used
+func (m *OpenMessagingFromRecipient) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateImage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OpenMessagingFromRecipient) contextValidateImage(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "image", "body", string(m.Image)); err != nil {
 		return err
 	}
 

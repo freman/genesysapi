@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -61,7 +62,6 @@ func (m *SchedulingStatusResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SchedulingStatusResponse) validateErrorDetails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorDetails) { // not required
 		return nil
 	}
@@ -75,6 +75,8 @@ func (m *SchedulingStatusResponse) validateErrorDetails(formats strfmt.Registry)
 			if err := m.ErrorDetails[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errorDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errorDetails" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -124,13 +126,102 @@ func (m *SchedulingStatusResponse) validateStatusEnum(path, location string, val
 }
 
 func (m *SchedulingStatusResponse) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scheduling status response based on the context it is used
+func (m *SchedulingStatusResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateErrorDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePercentComplete(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchedulingResultURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SchedulingStatusResponse) contextValidateErrorDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "errorDetails", "body", []*SchedulingProcessingError(m.ErrorDetails)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.ErrorDetails); i++ {
+
+		if m.ErrorDetails[i] != nil {
+			if err := m.ErrorDetails[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("errorDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errorDetails" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SchedulingStatusResponse) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchedulingStatusResponse) contextValidatePercentComplete(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "percentComplete", "body", int32(m.PercentComplete)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchedulingStatusResponse) contextValidateSchedulingResultURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "schedulingResultUri", "body", string(m.SchedulingResultURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchedulingStatusResponse) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
 		return err
 	}
 

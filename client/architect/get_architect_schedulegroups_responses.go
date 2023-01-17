@@ -95,7 +95,6 @@ func (o *GetArchitectSchedulegroupsReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetArchitectSchedulegroupsOK() *GetArchitectSchedulegroupsOK {
 	return &GetArchitectSchedulegroupsOK{}
 }
 
-/*GetArchitectSchedulegroupsOK handles this case with default header values.
+/*
+GetArchitectSchedulegroupsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetArchitectSchedulegroupsOK struct {
 	Payload *models.ScheduleGroupEntityListing
 }
 
+// IsSuccess returns true when this get architect schedulegroups o k response has a 2xx status code
+func (o *GetArchitectSchedulegroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get architect schedulegroups o k response has a 3xx status code
+func (o *GetArchitectSchedulegroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedulegroups o k response has a 4xx status code
+func (o *GetArchitectSchedulegroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect schedulegroups o k response has a 5xx status code
+func (o *GetArchitectSchedulegroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedulegroups o k response a status code equal to that given
+func (o *GetArchitectSchedulegroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetArchitectSchedulegroupsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetArchitectSchedulegroupsBadRequest() *GetArchitectSchedulegroupsBadReq
 	return &GetArchitectSchedulegroupsBadRequest{}
 }
 
-/*GetArchitectSchedulegroupsBadRequest handles this case with default header values.
+/*
+GetArchitectSchedulegroupsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetArchitectSchedulegroupsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedulegroups bad request response has a 2xx status code
+func (o *GetArchitectSchedulegroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedulegroups bad request response has a 3xx status code
+func (o *GetArchitectSchedulegroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedulegroups bad request response has a 4xx status code
+func (o *GetArchitectSchedulegroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedulegroups bad request response has a 5xx status code
+func (o *GetArchitectSchedulegroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedulegroups bad request response a status code equal to that given
+func (o *GetArchitectSchedulegroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetArchitectSchedulegroupsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetArchitectSchedulegroupsUnauthorized() *GetArchitectSchedulegroupsUnau
 	return &GetArchitectSchedulegroupsUnauthorized{}
 }
 
-/*GetArchitectSchedulegroupsUnauthorized handles this case with default header values.
+/*
+GetArchitectSchedulegroupsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetArchitectSchedulegroupsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedulegroups unauthorized response has a 2xx status code
+func (o *GetArchitectSchedulegroupsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedulegroups unauthorized response has a 3xx status code
+func (o *GetArchitectSchedulegroupsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedulegroups unauthorized response has a 4xx status code
+func (o *GetArchitectSchedulegroupsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedulegroups unauthorized response has a 5xx status code
+func (o *GetArchitectSchedulegroupsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedulegroups unauthorized response a status code equal to that given
+func (o *GetArchitectSchedulegroupsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetArchitectSchedulegroupsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetArchitectSchedulegroupsForbidden() *GetArchitectSchedulegroupsForbidd
 	return &GetArchitectSchedulegroupsForbidden{}
 }
 
-/*GetArchitectSchedulegroupsForbidden handles this case with default header values.
+/*
+GetArchitectSchedulegroupsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetArchitectSchedulegroupsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedulegroups forbidden response has a 2xx status code
+func (o *GetArchitectSchedulegroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedulegroups forbidden response has a 3xx status code
+func (o *GetArchitectSchedulegroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedulegroups forbidden response has a 4xx status code
+func (o *GetArchitectSchedulegroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedulegroups forbidden response has a 5xx status code
+func (o *GetArchitectSchedulegroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedulegroups forbidden response a status code equal to that given
+func (o *GetArchitectSchedulegroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetArchitectSchedulegroupsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetArchitectSchedulegroupsNotFound() *GetArchitectSchedulegroupsNotFound
 	return &GetArchitectSchedulegroupsNotFound{}
 }
 
-/*GetArchitectSchedulegroupsNotFound handles this case with default header values.
+/*
+GetArchitectSchedulegroupsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetArchitectSchedulegroupsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedulegroups not found response has a 2xx status code
+func (o *GetArchitectSchedulegroupsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedulegroups not found response has a 3xx status code
+func (o *GetArchitectSchedulegroupsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedulegroups not found response has a 4xx status code
+func (o *GetArchitectSchedulegroupsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedulegroups not found response has a 5xx status code
+func (o *GetArchitectSchedulegroupsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedulegroups not found response a status code equal to that given
+func (o *GetArchitectSchedulegroupsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetArchitectSchedulegroupsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetArchitectSchedulegroupsRequestTimeout() *GetArchitectSchedulegroupsRe
 	return &GetArchitectSchedulegroupsRequestTimeout{}
 }
 
-/*GetArchitectSchedulegroupsRequestTimeout handles this case with default header values.
+/*
+GetArchitectSchedulegroupsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetArchitectSchedulegroupsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedulegroups request timeout response has a 2xx status code
+func (o *GetArchitectSchedulegroupsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedulegroups request timeout response has a 3xx status code
+func (o *GetArchitectSchedulegroupsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedulegroups request timeout response has a 4xx status code
+func (o *GetArchitectSchedulegroupsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedulegroups request timeout response has a 5xx status code
+func (o *GetArchitectSchedulegroupsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedulegroups request timeout response a status code equal to that given
+func (o *GetArchitectSchedulegroupsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetArchitectSchedulegroupsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetArchitectSchedulegroupsRequestEntityTooLarge() *GetArchitectScheduleg
 	return &GetArchitectSchedulegroupsRequestEntityTooLarge{}
 }
 
-/*GetArchitectSchedulegroupsRequestEntityTooLarge handles this case with default header values.
+/*
+GetArchitectSchedulegroupsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetArchitectSchedulegroupsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedulegroups request entity too large response has a 2xx status code
+func (o *GetArchitectSchedulegroupsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedulegroups request entity too large response has a 3xx status code
+func (o *GetArchitectSchedulegroupsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedulegroups request entity too large response has a 4xx status code
+func (o *GetArchitectSchedulegroupsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedulegroups request entity too large response has a 5xx status code
+func (o *GetArchitectSchedulegroupsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedulegroups request entity too large response a status code equal to that given
+func (o *GetArchitectSchedulegroupsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetArchitectSchedulegroupsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetArchitectSchedulegroupsUnsupportedMediaType() *GetArchitectSchedulegr
 	return &GetArchitectSchedulegroupsUnsupportedMediaType{}
 }
 
-/*GetArchitectSchedulegroupsUnsupportedMediaType handles this case with default header values.
+/*
+GetArchitectSchedulegroupsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetArchitectSchedulegroupsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedulegroups unsupported media type response has a 2xx status code
+func (o *GetArchitectSchedulegroupsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedulegroups unsupported media type response has a 3xx status code
+func (o *GetArchitectSchedulegroupsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedulegroups unsupported media type response has a 4xx status code
+func (o *GetArchitectSchedulegroupsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedulegroups unsupported media type response has a 5xx status code
+func (o *GetArchitectSchedulegroupsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedulegroups unsupported media type response a status code equal to that given
+func (o *GetArchitectSchedulegroupsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetArchitectSchedulegroupsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetArchitectSchedulegroupsTooManyRequests() *GetArchitectSchedulegroupsT
 	return &GetArchitectSchedulegroupsTooManyRequests{}
 }
 
-/*GetArchitectSchedulegroupsTooManyRequests handles this case with default header values.
+/*
+GetArchitectSchedulegroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetArchitectSchedulegroupsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedulegroups too many requests response has a 2xx status code
+func (o *GetArchitectSchedulegroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedulegroups too many requests response has a 3xx status code
+func (o *GetArchitectSchedulegroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedulegroups too many requests response has a 4xx status code
+func (o *GetArchitectSchedulegroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedulegroups too many requests response has a 5xx status code
+func (o *GetArchitectSchedulegroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedulegroups too many requests response a status code equal to that given
+func (o *GetArchitectSchedulegroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetArchitectSchedulegroupsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetArchitectSchedulegroupsInternalServerError() *GetArchitectSchedulegro
 	return &GetArchitectSchedulegroupsInternalServerError{}
 }
 
-/*GetArchitectSchedulegroupsInternalServerError handles this case with default header values.
+/*
+GetArchitectSchedulegroupsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetArchitectSchedulegroupsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedulegroups internal server error response has a 2xx status code
+func (o *GetArchitectSchedulegroupsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedulegroups internal server error response has a 3xx status code
+func (o *GetArchitectSchedulegroupsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedulegroups internal server error response has a 4xx status code
+func (o *GetArchitectSchedulegroupsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect schedulegroups internal server error response has a 5xx status code
+func (o *GetArchitectSchedulegroupsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect schedulegroups internal server error response a status code equal to that given
+func (o *GetArchitectSchedulegroupsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetArchitectSchedulegroupsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetArchitectSchedulegroupsServiceUnavailable() *GetArchitectSchedulegrou
 	return &GetArchitectSchedulegroupsServiceUnavailable{}
 }
 
-/*GetArchitectSchedulegroupsServiceUnavailable handles this case with default header values.
+/*
+GetArchitectSchedulegroupsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetArchitectSchedulegroupsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedulegroups service unavailable response has a 2xx status code
+func (o *GetArchitectSchedulegroupsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedulegroups service unavailable response has a 3xx status code
+func (o *GetArchitectSchedulegroupsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedulegroups service unavailable response has a 4xx status code
+func (o *GetArchitectSchedulegroupsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect schedulegroups service unavailable response has a 5xx status code
+func (o *GetArchitectSchedulegroupsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect schedulegroups service unavailable response a status code equal to that given
+func (o *GetArchitectSchedulegroupsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetArchitectSchedulegroupsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetArchitectSchedulegroupsGatewayTimeout() *GetArchitectSchedulegroupsGa
 	return &GetArchitectSchedulegroupsGatewayTimeout{}
 }
 
-/*GetArchitectSchedulegroupsGatewayTimeout handles this case with default header values.
+/*
+GetArchitectSchedulegroupsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetArchitectSchedulegroupsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedulegroups gateway timeout response has a 2xx status code
+func (o *GetArchitectSchedulegroupsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedulegroups gateway timeout response has a 3xx status code
+func (o *GetArchitectSchedulegroupsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedulegroups gateway timeout response has a 4xx status code
+func (o *GetArchitectSchedulegroupsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect schedulegroups gateway timeout response has a 5xx status code
+func (o *GetArchitectSchedulegroupsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect schedulegroups gateway timeout response a status code equal to that given
+func (o *GetArchitectSchedulegroupsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetArchitectSchedulegroupsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetArchitectSchedulegroupsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedulegroups][%d] getArchitectSchedulegroupsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -62,7 +63,6 @@ func (m *EvaluationScoringSet) Validate(formats strfmt.Registry) error {
 }
 
 func (m *EvaluationScoringSet) validateQuestionGroupScores(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.QuestionGroupScores) { // not required
 		return nil
 	}
@@ -76,6 +76,8 @@ func (m *EvaluationScoringSet) validateQuestionGroupScores(formats strfmt.Regist
 			if err := m.QuestionGroupScores[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -87,7 +89,6 @@ func (m *EvaluationScoringSet) validateQuestionGroupScores(formats strfmt.Regist
 }
 
 func (m *EvaluationScoringSet) validateTranscriptTopics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TranscriptTopics) { // not required
 		return nil
 	}
@@ -101,6 +102,66 @@ func (m *EvaluationScoringSet) validateTranscriptTopics(formats strfmt.Registry)
 			if err := m.TranscriptTopics[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("transcriptTopics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("transcriptTopics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this evaluation scoring set based on the context it is used
+func (m *EvaluationScoringSet) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateQuestionGroupScores(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTranscriptTopics(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EvaluationScoringSet) contextValidateQuestionGroupScores(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.QuestionGroupScores); i++ {
+
+		if m.QuestionGroupScores[i] != nil {
+			if err := m.QuestionGroupScores[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EvaluationScoringSet) contextValidateTranscriptTopics(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TranscriptTopics); i++ {
+
+		if m.TranscriptTopics[i] != nil {
+			if err := m.TranscriptTopics[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("transcriptTopics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("transcriptTopics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

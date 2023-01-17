@@ -17,79 +17,99 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRoutingAssessmentsParams creates a new GetRoutingAssessmentsParams object
-// with the default values initialized.
+// NewGetRoutingAssessmentsParams creates a new GetRoutingAssessmentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingAssessmentsParams() *GetRoutingAssessmentsParams {
-	var ()
 	return &GetRoutingAssessmentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingAssessmentsParamsWithTimeout creates a new GetRoutingAssessmentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingAssessmentsParamsWithTimeout(timeout time.Duration) *GetRoutingAssessmentsParams {
-	var ()
 	return &GetRoutingAssessmentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingAssessmentsParamsWithContext creates a new GetRoutingAssessmentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingAssessmentsParamsWithContext(ctx context.Context) *GetRoutingAssessmentsParams {
-	var ()
 	return &GetRoutingAssessmentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingAssessmentsParamsWithHTTPClient creates a new GetRoutingAssessmentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingAssessmentsParamsWithHTTPClient(client *http.Client) *GetRoutingAssessmentsParams {
-	var ()
 	return &GetRoutingAssessmentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingAssessmentsParams contains all the parameters to send to the API endpoint
-for the get routing assessments operation typically these are written to a http.Request
+/*
+GetRoutingAssessmentsParams contains all the parameters to send to the API endpoint
+
+	for the get routing assessments operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingAssessmentsParams struct {
 
-	/*After
-	  The cursor that points to the end of the set of entities that has been returned.
+	/* After.
 
+	   The cursor that points to the end of the set of entities that has been returned.
 	*/
 	After *string
-	/*Before
-	  The cursor that points to the start of the set of entities that has been returned.
 
+	/* Before.
+
+	   The cursor that points to the start of the set of entities that has been returned.
 	*/
 	Before *string
-	/*Limit
-	  Number of entities to return. Maximum of 200. Deprecated in favour of pageSize
 
+	/* Limit.
+
+	   Number of entities to return. Maximum of 200. Deprecated in favour of pageSize
 	*/
 	Limit *string
-	/*PageSize
-	  Number of entities to return. Maximum of 200.
 
+	/* PageSize.
+
+	   Number of entities to return. Maximum of 200.
 	*/
 	PageSize *string
-	/*QueueID
-	  Queue ID(s) to filter assessments by.
 
+	/* QueueID.
+
+	   Queue ID(s) to filter assessments by.
 	*/
 	QueueID []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing assessments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingAssessmentsParams) WithDefaults() *GetRoutingAssessmentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing assessments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingAssessmentsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing assessments params
@@ -192,76 +212,100 @@ func (o *GetRoutingAssessmentsParams) WriteToRequest(r runtime.ClientRequest, re
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit string
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := qrLimit
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize string
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := qrPageSize
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesQueueID := o.QueueID
+	if o.QueueID != nil {
 
-	joinedQueueID := swag.JoinByFormat(valuesQueueID, "multi")
-	// query array param queueId
-	if err := r.SetQueryParam("queueId", joinedQueueID...); err != nil {
-		return err
+		// binding items for queueId
+		joinedQueueID := o.bindParamQueueID(reg)
+
+		// query array param queueId
+		if err := r.SetQueryParam("queueId", joinedQueueID...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetRoutingAssessments binds the parameter queueId
+func (o *GetRoutingAssessmentsParams) bindParamQueueID(formats strfmt.Registry) []string {
+	queueIDIR := o.QueueID
+
+	var queueIDIC []string
+	for _, queueIDIIR := range queueIDIR { // explode []string
+
+		queueIDIIV := queueIDIIR // string as string
+		queueIDIC = append(queueIDIC, queueIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	queueIDIS := swag.JoinByFormat(queueIDIC, "multi")
+
+	return queueIDIS
 }

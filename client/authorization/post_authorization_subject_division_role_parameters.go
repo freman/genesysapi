@@ -16,86 +16,106 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostAuthorizationSubjectDivisionRoleParams creates a new PostAuthorizationSubjectDivisionRoleParams object
-// with the default values initialized.
+// NewPostAuthorizationSubjectDivisionRoleParams creates a new PostAuthorizationSubjectDivisionRoleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAuthorizationSubjectDivisionRoleParams() *PostAuthorizationSubjectDivisionRoleParams {
-	var (
-		subjectTypeDefault = string("PC_USER")
-	)
 	return &PostAuthorizationSubjectDivisionRoleParams{
-		SubjectType: &subjectTypeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAuthorizationSubjectDivisionRoleParamsWithTimeout creates a new PostAuthorizationSubjectDivisionRoleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAuthorizationSubjectDivisionRoleParamsWithTimeout(timeout time.Duration) *PostAuthorizationSubjectDivisionRoleParams {
-	var (
-		subjectTypeDefault = string("PC_USER")
-	)
 	return &PostAuthorizationSubjectDivisionRoleParams{
-		SubjectType: &subjectTypeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAuthorizationSubjectDivisionRoleParamsWithContext creates a new PostAuthorizationSubjectDivisionRoleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAuthorizationSubjectDivisionRoleParamsWithContext(ctx context.Context) *PostAuthorizationSubjectDivisionRoleParams {
-	var (
-		subjectTypeDefault = string("PC_USER")
-	)
 	return &PostAuthorizationSubjectDivisionRoleParams{
-		SubjectType: &subjectTypeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostAuthorizationSubjectDivisionRoleParamsWithHTTPClient creates a new PostAuthorizationSubjectDivisionRoleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAuthorizationSubjectDivisionRoleParamsWithHTTPClient(client *http.Client) *PostAuthorizationSubjectDivisionRoleParams {
-	var (
-		subjectTypeDefault = string("PC_USER")
-	)
 	return &PostAuthorizationSubjectDivisionRoleParams{
-		SubjectType: &subjectTypeDefault,
-		HTTPClient:  client,
+		HTTPClient: client,
 	}
 }
 
-/*PostAuthorizationSubjectDivisionRoleParams contains all the parameters to send to the API endpoint
-for the post authorization subject division role operation typically these are written to a http.Request
+/*
+PostAuthorizationSubjectDivisionRoleParams contains all the parameters to send to the API endpoint
+
+	for the post authorization subject division role operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAuthorizationSubjectDivisionRoleParams struct {
 
-	/*DivisionID
-	  the id of the division to which to make the grant
+	/* DivisionID.
 
+	   the id of the division to which to make the grant
 	*/
 	DivisionID string
-	/*RoleID
-	  the id of the role to grant
 
+	/* RoleID.
+
+	   the id of the role to grant
 	*/
 	RoleID string
-	/*SubjectID
-	  Subject ID (user or group)
 
+	/* SubjectID.
+
+	   Subject ID (user or group)
 	*/
 	SubjectID string
-	/*SubjectType
-	  what the type of the subject is: PC_GROUP, PC_USER or PC_OAUTH_CLIENT (note: for cross-org authorization, please use the Organization Authorization endpoints)
 
+	/* SubjectType.
+
+	   what the type of the subject is: PC_GROUP, PC_USER or PC_OAUTH_CLIENT (note: for cross-org authorization, please use the Organization Authorization endpoints)
+
+	   Default: "PC_USER"
 	*/
 	SubjectType *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post authorization subject division role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuthorizationSubjectDivisionRoleParams) WithDefaults() *PostAuthorizationSubjectDivisionRoleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post authorization subject division role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuthorizationSubjectDivisionRoleParams) SetDefaults() {
+	var (
+		subjectTypeDefault = string("PC_USER")
+	)
+
+	val := PostAuthorizationSubjectDivisionRoleParams{
+		SubjectType: &subjectTypeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post authorization subject division role params
@@ -202,16 +222,17 @@ func (o *PostAuthorizationSubjectDivisionRoleParams) WriteToRequest(r runtime.Cl
 
 		// query param subjectType
 		var qrSubjectType string
+
 		if o.SubjectType != nil {
 			qrSubjectType = *o.SubjectType
 		}
 		qSubjectType := qrSubjectType
 		if qSubjectType != "" {
+
 			if err := r.SetQueryParam("subjectType", qSubjectType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

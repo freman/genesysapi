@@ -95,7 +95,6 @@ func (o *GetAnalyticsBotflowReportingturnsReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetAnalyticsBotflowReportingturnsOK() *GetAnalyticsBotflowReportingturns
 	return &GetAnalyticsBotflowReportingturnsOK{}
 }
 
-/*GetAnalyticsBotflowReportingturnsOK handles this case with default header values.
+/*
+GetAnalyticsBotflowReportingturnsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetAnalyticsBotflowReportingturnsOK struct {
 	Payload *models.ReportingTurnsResponse
 }
 
+// IsSuccess returns true when this get analytics botflow reportingturns o k response has a 2xx status code
+func (o *GetAnalyticsBotflowReportingturnsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get analytics botflow reportingturns o k response has a 3xx status code
+func (o *GetAnalyticsBotflowReportingturnsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics botflow reportingturns o k response has a 4xx status code
+func (o *GetAnalyticsBotflowReportingturnsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics botflow reportingturns o k response has a 5xx status code
+func (o *GetAnalyticsBotflowReportingturnsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics botflow reportingturns o k response a status code equal to that given
+func (o *GetAnalyticsBotflowReportingturnsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAnalyticsBotflowReportingturnsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetAnalyticsBotflowReportingturnsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetAnalyticsBotflowReportingturnsBadRequest() *GetAnalyticsBotflowReport
 	return &GetAnalyticsBotflowReportingturnsBadRequest{}
 }
 
-/*GetAnalyticsBotflowReportingturnsBadRequest handles this case with default header values.
+/*
+GetAnalyticsBotflowReportingturnsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetAnalyticsBotflowReportingturnsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics botflow reportingturns bad request response has a 2xx status code
+func (o *GetAnalyticsBotflowReportingturnsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics botflow reportingturns bad request response has a 3xx status code
+func (o *GetAnalyticsBotflowReportingturnsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics botflow reportingturns bad request response has a 4xx status code
+func (o *GetAnalyticsBotflowReportingturnsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics botflow reportingturns bad request response has a 5xx status code
+func (o *GetAnalyticsBotflowReportingturnsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics botflow reportingturns bad request response a status code equal to that given
+func (o *GetAnalyticsBotflowReportingturnsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAnalyticsBotflowReportingturnsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetAnalyticsBotflowReportingturnsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetAnalyticsBotflowReportingturnsUnauthorized() *GetAnalyticsBotflowRepo
 	return &GetAnalyticsBotflowReportingturnsUnauthorized{}
 }
 
-/*GetAnalyticsBotflowReportingturnsUnauthorized handles this case with default header values.
+/*
+GetAnalyticsBotflowReportingturnsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetAnalyticsBotflowReportingturnsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics botflow reportingturns unauthorized response has a 2xx status code
+func (o *GetAnalyticsBotflowReportingturnsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics botflow reportingturns unauthorized response has a 3xx status code
+func (o *GetAnalyticsBotflowReportingturnsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics botflow reportingturns unauthorized response has a 4xx status code
+func (o *GetAnalyticsBotflowReportingturnsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics botflow reportingturns unauthorized response has a 5xx status code
+func (o *GetAnalyticsBotflowReportingturnsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics botflow reportingturns unauthorized response a status code equal to that given
+func (o *GetAnalyticsBotflowReportingturnsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetAnalyticsBotflowReportingturnsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetAnalyticsBotflowReportingturnsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetAnalyticsBotflowReportingturnsForbidden() *GetAnalyticsBotflowReporti
 	return &GetAnalyticsBotflowReportingturnsForbidden{}
 }
 
-/*GetAnalyticsBotflowReportingturnsForbidden handles this case with default header values.
+/*
+GetAnalyticsBotflowReportingturnsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetAnalyticsBotflowReportingturnsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics botflow reportingturns forbidden response has a 2xx status code
+func (o *GetAnalyticsBotflowReportingturnsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics botflow reportingturns forbidden response has a 3xx status code
+func (o *GetAnalyticsBotflowReportingturnsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics botflow reportingturns forbidden response has a 4xx status code
+func (o *GetAnalyticsBotflowReportingturnsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics botflow reportingturns forbidden response has a 5xx status code
+func (o *GetAnalyticsBotflowReportingturnsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics botflow reportingturns forbidden response a status code equal to that given
+func (o *GetAnalyticsBotflowReportingturnsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAnalyticsBotflowReportingturnsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetAnalyticsBotflowReportingturnsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetAnalyticsBotflowReportingturnsNotFound() *GetAnalyticsBotflowReportin
 	return &GetAnalyticsBotflowReportingturnsNotFound{}
 }
 
-/*GetAnalyticsBotflowReportingturnsNotFound handles this case with default header values.
+/*
+GetAnalyticsBotflowReportingturnsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetAnalyticsBotflowReportingturnsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics botflow reportingturns not found response has a 2xx status code
+func (o *GetAnalyticsBotflowReportingturnsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics botflow reportingturns not found response has a 3xx status code
+func (o *GetAnalyticsBotflowReportingturnsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics botflow reportingturns not found response has a 4xx status code
+func (o *GetAnalyticsBotflowReportingturnsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics botflow reportingturns not found response has a 5xx status code
+func (o *GetAnalyticsBotflowReportingturnsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics botflow reportingturns not found response a status code equal to that given
+func (o *GetAnalyticsBotflowReportingturnsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAnalyticsBotflowReportingturnsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetAnalyticsBotflowReportingturnsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetAnalyticsBotflowReportingturnsRequestTimeout() *GetAnalyticsBotflowRe
 	return &GetAnalyticsBotflowReportingturnsRequestTimeout{}
 }
 
-/*GetAnalyticsBotflowReportingturnsRequestTimeout handles this case with default header values.
+/*
+GetAnalyticsBotflowReportingturnsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetAnalyticsBotflowReportingturnsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics botflow reportingturns request timeout response has a 2xx status code
+func (o *GetAnalyticsBotflowReportingturnsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics botflow reportingturns request timeout response has a 3xx status code
+func (o *GetAnalyticsBotflowReportingturnsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics botflow reportingturns request timeout response has a 4xx status code
+func (o *GetAnalyticsBotflowReportingturnsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics botflow reportingturns request timeout response has a 5xx status code
+func (o *GetAnalyticsBotflowReportingturnsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics botflow reportingturns request timeout response a status code equal to that given
+func (o *GetAnalyticsBotflowReportingturnsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetAnalyticsBotflowReportingturnsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAnalyticsBotflowReportingturnsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetAnalyticsBotflowReportingturnsRequestEntityTooLarge() *GetAnalyticsBo
 	return &GetAnalyticsBotflowReportingturnsRequestEntityTooLarge{}
 }
 
-/*GetAnalyticsBotflowReportingturnsRequestEntityTooLarge handles this case with default header values.
+/*
+GetAnalyticsBotflowReportingturnsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetAnalyticsBotflowReportingturnsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics botflow reportingturns request entity too large response has a 2xx status code
+func (o *GetAnalyticsBotflowReportingturnsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics botflow reportingturns request entity too large response has a 3xx status code
+func (o *GetAnalyticsBotflowReportingturnsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics botflow reportingturns request entity too large response has a 4xx status code
+func (o *GetAnalyticsBotflowReportingturnsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics botflow reportingturns request entity too large response has a 5xx status code
+func (o *GetAnalyticsBotflowReportingturnsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics botflow reportingturns request entity too large response a status code equal to that given
+func (o *GetAnalyticsBotflowReportingturnsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetAnalyticsBotflowReportingturnsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetAnalyticsBotflowReportingturnsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetAnalyticsBotflowReportingturnsUnsupportedMediaType() *GetAnalyticsBot
 	return &GetAnalyticsBotflowReportingturnsUnsupportedMediaType{}
 }
 
-/*GetAnalyticsBotflowReportingturnsUnsupportedMediaType handles this case with default header values.
+/*
+GetAnalyticsBotflowReportingturnsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetAnalyticsBotflowReportingturnsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics botflow reportingturns unsupported media type response has a 2xx status code
+func (o *GetAnalyticsBotflowReportingturnsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics botflow reportingturns unsupported media type response has a 3xx status code
+func (o *GetAnalyticsBotflowReportingturnsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics botflow reportingturns unsupported media type response has a 4xx status code
+func (o *GetAnalyticsBotflowReportingturnsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics botflow reportingturns unsupported media type response has a 5xx status code
+func (o *GetAnalyticsBotflowReportingturnsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics botflow reportingturns unsupported media type response a status code equal to that given
+func (o *GetAnalyticsBotflowReportingturnsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetAnalyticsBotflowReportingturnsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetAnalyticsBotflowReportingturnsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetAnalyticsBotflowReportingturnsTooManyRequests() *GetAnalyticsBotflowR
 	return &GetAnalyticsBotflowReportingturnsTooManyRequests{}
 }
 
-/*GetAnalyticsBotflowReportingturnsTooManyRequests handles this case with default header values.
+/*
+GetAnalyticsBotflowReportingturnsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetAnalyticsBotflowReportingturnsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics botflow reportingturns too many requests response has a 2xx status code
+func (o *GetAnalyticsBotflowReportingturnsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics botflow reportingturns too many requests response has a 3xx status code
+func (o *GetAnalyticsBotflowReportingturnsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics botflow reportingturns too many requests response has a 4xx status code
+func (o *GetAnalyticsBotflowReportingturnsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics botflow reportingturns too many requests response has a 5xx status code
+func (o *GetAnalyticsBotflowReportingturnsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics botflow reportingturns too many requests response a status code equal to that given
+func (o *GetAnalyticsBotflowReportingturnsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAnalyticsBotflowReportingturnsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetAnalyticsBotflowReportingturnsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetAnalyticsBotflowReportingturnsInternalServerError() *GetAnalyticsBotf
 	return &GetAnalyticsBotflowReportingturnsInternalServerError{}
 }
 
-/*GetAnalyticsBotflowReportingturnsInternalServerError handles this case with default header values.
+/*
+GetAnalyticsBotflowReportingturnsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetAnalyticsBotflowReportingturnsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics botflow reportingturns internal server error response has a 2xx status code
+func (o *GetAnalyticsBotflowReportingturnsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics botflow reportingturns internal server error response has a 3xx status code
+func (o *GetAnalyticsBotflowReportingturnsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics botflow reportingturns internal server error response has a 4xx status code
+func (o *GetAnalyticsBotflowReportingturnsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics botflow reportingturns internal server error response has a 5xx status code
+func (o *GetAnalyticsBotflowReportingturnsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics botflow reportingturns internal server error response a status code equal to that given
+func (o *GetAnalyticsBotflowReportingturnsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAnalyticsBotflowReportingturnsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetAnalyticsBotflowReportingturnsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetAnalyticsBotflowReportingturnsServiceUnavailable() *GetAnalyticsBotfl
 	return &GetAnalyticsBotflowReportingturnsServiceUnavailable{}
 }
 
-/*GetAnalyticsBotflowReportingturnsServiceUnavailable handles this case with default header values.
+/*
+GetAnalyticsBotflowReportingturnsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetAnalyticsBotflowReportingturnsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics botflow reportingturns service unavailable response has a 2xx status code
+func (o *GetAnalyticsBotflowReportingturnsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics botflow reportingturns service unavailable response has a 3xx status code
+func (o *GetAnalyticsBotflowReportingturnsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics botflow reportingturns service unavailable response has a 4xx status code
+func (o *GetAnalyticsBotflowReportingturnsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics botflow reportingturns service unavailable response has a 5xx status code
+func (o *GetAnalyticsBotflowReportingturnsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics botflow reportingturns service unavailable response a status code equal to that given
+func (o *GetAnalyticsBotflowReportingturnsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetAnalyticsBotflowReportingturnsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetAnalyticsBotflowReportingturnsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetAnalyticsBotflowReportingturnsGatewayTimeout() *GetAnalyticsBotflowRe
 	return &GetAnalyticsBotflowReportingturnsGatewayTimeout{}
 }
 
-/*GetAnalyticsBotflowReportingturnsGatewayTimeout handles this case with default header values.
+/*
+GetAnalyticsBotflowReportingturnsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetAnalyticsBotflowReportingturnsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics botflow reportingturns gateway timeout response has a 2xx status code
+func (o *GetAnalyticsBotflowReportingturnsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics botflow reportingturns gateway timeout response has a 3xx status code
+func (o *GetAnalyticsBotflowReportingturnsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics botflow reportingturns gateway timeout response has a 4xx status code
+func (o *GetAnalyticsBotflowReportingturnsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics botflow reportingturns gateway timeout response has a 5xx status code
+func (o *GetAnalyticsBotflowReportingturnsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics botflow reportingturns gateway timeout response a status code equal to that given
+func (o *GetAnalyticsBotflowReportingturnsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetAnalyticsBotflowReportingturnsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetAnalyticsBotflowReportingturnsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/botflows/{botFlowId}/reportingturns][%d] getAnalyticsBotflowReportingturnsGatewayTimeout  %+v", 504, o.Payload)
 }
 

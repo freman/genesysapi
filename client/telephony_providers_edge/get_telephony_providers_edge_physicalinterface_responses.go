@@ -95,7 +95,6 @@ func (o *GetTelephonyProvidersEdgePhysicalinterfaceReader) ReadResponse(response
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetTelephonyProvidersEdgePhysicalinterfaceOK() *GetTelephonyProvidersEdg
 	return &GetTelephonyProvidersEdgePhysicalinterfaceOK{}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfaceOK handles this case with default header values.
+/*
+GetTelephonyProvidersEdgePhysicalinterfaceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetTelephonyProvidersEdgePhysicalinterfaceOK struct {
 	Payload *models.DomainPhysicalInterface
 }
 
+// IsSuccess returns true when this get telephony providers edge physicalinterface o k response has a 2xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get telephony providers edge physicalinterface o k response has a 3xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edge physicalinterface o k response has a 4xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edge physicalinterface o k response has a 5xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edge physicalinterface o k response a status code equal to that given
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetTelephonyProvidersEdgePhysicalinterfaceOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceOK  %+v", 200, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetTelephonyProvidersEdgePhysicalinterfaceBadRequest() *GetTelephonyProv
 	return &GetTelephonyProvidersEdgePhysicalinterfaceBadRequest{}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfaceBadRequest handles this case with default header values.
+/*
+GetTelephonyProvidersEdgePhysicalinterfaceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetTelephonyProvidersEdgePhysicalinterfaceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edge physicalinterface bad request response has a 2xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edge physicalinterface bad request response has a 3xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edge physicalinterface bad request response has a 4xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edge physicalinterface bad request response has a 5xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edge physicalinterface bad request response a status code equal to that given
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetTelephonyProvidersEdgePhysicalinterfaceBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetTelephonyProvidersEdgePhysicalinterfaceUnauthorized() *GetTelephonyPr
 	return &GetTelephonyProvidersEdgePhysicalinterfaceUnauthorized{}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfaceUnauthorized handles this case with default header values.
+/*
+GetTelephonyProvidersEdgePhysicalinterfaceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetTelephonyProvidersEdgePhysicalinterfaceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edge physicalinterface unauthorized response has a 2xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edge physicalinterface unauthorized response has a 3xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edge physicalinterface unauthorized response has a 4xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edge physicalinterface unauthorized response has a 5xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edge physicalinterface unauthorized response a status code equal to that given
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetTelephonyProvidersEdgePhysicalinterfaceForbidden() *GetTelephonyProvi
 	return &GetTelephonyProvidersEdgePhysicalinterfaceForbidden{}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfaceForbidden handles this case with default header values.
+/*
+GetTelephonyProvidersEdgePhysicalinterfaceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetTelephonyProvidersEdgePhysicalinterfaceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edge physicalinterface forbidden response has a 2xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edge physicalinterface forbidden response has a 3xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edge physicalinterface forbidden response has a 4xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edge physicalinterface forbidden response has a 5xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edge physicalinterface forbidden response a status code equal to that given
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetTelephonyProvidersEdgePhysicalinterfaceForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetTelephonyProvidersEdgePhysicalinterfaceNotFound() *GetTelephonyProvid
 	return &GetTelephonyProvidersEdgePhysicalinterfaceNotFound{}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfaceNotFound handles this case with default header values.
+/*
+GetTelephonyProvidersEdgePhysicalinterfaceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetTelephonyProvidersEdgePhysicalinterfaceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edge physicalinterface not found response has a 2xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edge physicalinterface not found response has a 3xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edge physicalinterface not found response has a 4xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edge physicalinterface not found response has a 5xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edge physicalinterface not found response a status code equal to that given
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetTelephonyProvidersEdgePhysicalinterfaceNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetTelephonyProvidersEdgePhysicalinterfaceRequestTimeout() *GetTelephony
 	return &GetTelephonyProvidersEdgePhysicalinterfaceRequestTimeout{}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfaceRequestTimeout handles this case with default header values.
+/*
+GetTelephonyProvidersEdgePhysicalinterfaceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetTelephonyProvidersEdgePhysicalinterfaceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edge physicalinterface request timeout response has a 2xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edge physicalinterface request timeout response has a 3xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edge physicalinterface request timeout response has a 4xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edge physicalinterface request timeout response has a 5xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edge physicalinterface request timeout response a status code equal to that given
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge() *GetTe
 	return &GetTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge{}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge handles this case with default header values.
+/*
+GetTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edge physicalinterface request entity too large response has a 2xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edge physicalinterface request entity too large response has a 3xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edge physicalinterface request entity too large response has a 4xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edge physicalinterface request entity too large response has a 5xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edge physicalinterface request entity too large response a status code equal to that given
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType() *GetTel
 	return &GetTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType{}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType handles this case with default header values.
+/*
+GetTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edge physicalinterface unsupported media type response has a 2xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edge physicalinterface unsupported media type response has a 3xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edge physicalinterface unsupported media type response has a 4xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edge physicalinterface unsupported media type response has a 5xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edge physicalinterface unsupported media type response a status code equal to that given
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetTelephonyProvidersEdgePhysicalinterfaceTooManyRequests() *GetTelephon
 	return &GetTelephonyProvidersEdgePhysicalinterfaceTooManyRequests{}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfaceTooManyRequests handles this case with default header values.
+/*
+GetTelephonyProvidersEdgePhysicalinterfaceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetTelephonyProvidersEdgePhysicalinterfaceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edge physicalinterface too many requests response has a 2xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edge physicalinterface too many requests response has a 3xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edge physicalinterface too many requests response has a 4xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edge physicalinterface too many requests response has a 5xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edge physicalinterface too many requests response a status code equal to that given
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetTelephonyProvidersEdgePhysicalinterfaceTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetTelephonyProvidersEdgePhysicalinterfaceInternalServerError() *GetTele
 	return &GetTelephonyProvidersEdgePhysicalinterfaceInternalServerError{}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfaceInternalServerError handles this case with default header values.
+/*
+GetTelephonyProvidersEdgePhysicalinterfaceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetTelephonyProvidersEdgePhysicalinterfaceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edge physicalinterface internal server error response has a 2xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edge physicalinterface internal server error response has a 3xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edge physicalinterface internal server error response has a 4xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edge physicalinterface internal server error response has a 5xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony providers edge physicalinterface internal server error response a status code equal to that given
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetTelephonyProvidersEdgePhysicalinterfaceInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable() *GetTelep
 	return &GetTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable{}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable handles this case with default header values.
+/*
+GetTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edge physicalinterface service unavailable response has a 2xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edge physicalinterface service unavailable response has a 3xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edge physicalinterface service unavailable response has a 4xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edge physicalinterface service unavailable response has a 5xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony providers edge physicalinterface service unavailable response a status code equal to that given
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout() *GetTelephony
 	return &GetTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout{}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout handles this case with default header values.
+/*
+GetTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edge physicalinterface gateway timeout response has a 2xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edge physicalinterface gateway timeout response has a 3xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edge physicalinterface gateway timeout response has a 4xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edge physicalinterface gateway timeout response has a 5xx status code
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony providers edge physicalinterface gateway timeout response a status code equal to that given
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/{edgeId}/physicalinterfaces/{interfaceId}][%d] getTelephonyProvidersEdgePhysicalinterfaceGatewayTimeout  %+v", 504, o.Payload)
 }
 

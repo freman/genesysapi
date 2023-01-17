@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutQualityCalibrationParams creates a new PutQualityCalibrationParams object
-// with the default values initialized.
+// NewPutQualityCalibrationParams creates a new PutQualityCalibrationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutQualityCalibrationParams() *PutQualityCalibrationParams {
-	var ()
 	return &PutQualityCalibrationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutQualityCalibrationParamsWithTimeout creates a new PutQualityCalibrationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutQualityCalibrationParamsWithTimeout(timeout time.Duration) *PutQualityCalibrationParams {
-	var ()
 	return &PutQualityCalibrationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutQualityCalibrationParamsWithContext creates a new PutQualityCalibrationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutQualityCalibrationParamsWithContext(ctx context.Context) *PutQualityCalibrationParams {
-	var ()
 	return &PutQualityCalibrationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutQualityCalibrationParamsWithHTTPClient creates a new PutQualityCalibrationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutQualityCalibrationParamsWithHTTPClient(client *http.Client) *PutQualityCalibrationParams {
-	var ()
 	return &PutQualityCalibrationParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutQualityCalibrationParams contains all the parameters to send to the API endpoint
-for the put quality calibration operation typically these are written to a http.Request
+/*
+PutQualityCalibrationParams contains all the parameters to send to the API endpoint
+
+	for the put quality calibration operation.
+
+	Typically these are written to a http.Request.
 */
 type PutQualityCalibrationParams struct {
 
-	/*Body
-	  Calibration
+	/* Body.
 
+	   Calibration
 	*/
 	Body *models.Calibration
-	/*CalibrationID
-	  Calibration ID
 
+	/* CalibrationID.
+
+	   Calibration ID
 	*/
 	CalibrationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put quality calibration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutQualityCalibrationParams) WithDefaults() *PutQualityCalibrationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put quality calibration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutQualityCalibrationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put quality calibration params
@@ -140,7 +157,6 @@ func (o *PutQualityCalibrationParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

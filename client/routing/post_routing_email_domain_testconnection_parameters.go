@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRoutingEmailDomainTestconnectionParams creates a new PostRoutingEmailDomainTestconnectionParams object
-// with the default values initialized.
+// NewPostRoutingEmailDomainTestconnectionParams creates a new PostRoutingEmailDomainTestconnectionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRoutingEmailDomainTestconnectionParams() *PostRoutingEmailDomainTestconnectionParams {
-	var ()
 	return &PostRoutingEmailDomainTestconnectionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRoutingEmailDomainTestconnectionParamsWithTimeout creates a new PostRoutingEmailDomainTestconnectionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRoutingEmailDomainTestconnectionParamsWithTimeout(timeout time.Duration) *PostRoutingEmailDomainTestconnectionParams {
-	var ()
 	return &PostRoutingEmailDomainTestconnectionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRoutingEmailDomainTestconnectionParamsWithContext creates a new PostRoutingEmailDomainTestconnectionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRoutingEmailDomainTestconnectionParamsWithContext(ctx context.Context) *PostRoutingEmailDomainTestconnectionParams {
-	var ()
 	return &PostRoutingEmailDomainTestconnectionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRoutingEmailDomainTestconnectionParamsWithHTTPClient creates a new PostRoutingEmailDomainTestconnectionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRoutingEmailDomainTestconnectionParamsWithHTTPClient(client *http.Client) *PostRoutingEmailDomainTestconnectionParams {
-	var ()
 	return &PostRoutingEmailDomainTestconnectionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRoutingEmailDomainTestconnectionParams contains all the parameters to send to the API endpoint
-for the post routing email domain testconnection operation typically these are written to a http.Request
+/*
+PostRoutingEmailDomainTestconnectionParams contains all the parameters to send to the API endpoint
+
+	for the post routing email domain testconnection operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRoutingEmailDomainTestconnectionParams struct {
 
-	/*Body
-	  TestMessage
+	/* Body.
 
+	   TestMessage
 	*/
 	Body *models.TestMessage
-	/*DomainID
-	  domain ID
 
+	/* DomainID.
+
+	   domain ID
 	*/
 	DomainID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post routing email domain testconnection params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingEmailDomainTestconnectionParams) WithDefaults() *PostRoutingEmailDomainTestconnectionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post routing email domain testconnection params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingEmailDomainTestconnectionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post routing email domain testconnection params
@@ -140,7 +157,6 @@ func (o *PostRoutingEmailDomainTestconnectionParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

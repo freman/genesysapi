@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -99,7 +100,6 @@ func (m *ActionTarget) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ActionTarget) validateCreatedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedDate) { // not required
 		return nil
 	}
@@ -112,7 +112,6 @@ func (m *ActionTarget) validateCreatedDate(formats strfmt.Registry) error {
 }
 
 func (m *ActionTarget) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -125,7 +124,6 @@ func (m *ActionTarget) validateModifiedDate(formats strfmt.Registry) error {
 }
 
 func (m *ActionTarget) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -138,7 +136,6 @@ func (m *ActionTarget) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *ActionTarget) validateServiceLevel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ServiceLevel) { // not required
 		return nil
 	}
@@ -147,6 +144,8 @@ func (m *ActionTarget) validateServiceLevel(formats strfmt.Registry) error {
 		if err := m.ServiceLevel.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("serviceLevel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("serviceLevel")
 			}
 			return err
 		}
@@ -188,7 +187,6 @@ func (m *ActionTarget) validateStateEnum(path, location string, value string) er
 }
 
 func (m *ActionTarget) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -221,7 +219,6 @@ func (m *ActionTarget) validateSupportedMediaTypesItemsEnum(path, location strin
 }
 
 func (m *ActionTarget) validateSupportedMediaTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SupportedMediaTypes) { // not required
 		return nil
 	}
@@ -239,7 +236,6 @@ func (m *ActionTarget) validateSupportedMediaTypes(formats strfmt.Registry) erro
 }
 
 func (m *ActionTarget) validateUserData(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserData) { // not required
 		return nil
 	}
@@ -253,6 +249,88 @@ func (m *ActionTarget) validateUserData(formats strfmt.Registry) error {
 			if err := m.UserData[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("userData" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userData" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this action target based on the context it is used
+func (m *ActionTarget) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateServiceLevel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserData(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ActionTarget) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ActionTarget) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ActionTarget) contextValidateServiceLevel(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ServiceLevel != nil {
+		if err := m.ServiceLevel.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("serviceLevel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("serviceLevel")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ActionTarget) contextValidateUserData(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.UserData); i++ {
+
+		if m.UserData[i] != nil {
+			if err := m.UserData[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("userData" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userData" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -17,109 +17,131 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetJourneySegmentsParams creates a new GetJourneySegmentsParams object
-// with the default values initialized.
+// NewGetJourneySegmentsParams creates a new GetJourneySegmentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetJourneySegmentsParams() *GetJourneySegmentsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetJourneySegmentsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetJourneySegmentsParamsWithTimeout creates a new GetJourneySegmentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetJourneySegmentsParamsWithTimeout(timeout time.Duration) *GetJourneySegmentsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetJourneySegmentsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetJourneySegmentsParamsWithContext creates a new GetJourneySegmentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetJourneySegmentsParamsWithContext(ctx context.Context) *GetJourneySegmentsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetJourneySegmentsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetJourneySegmentsParamsWithHTTPClient creates a new GetJourneySegmentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetJourneySegmentsParamsWithHTTPClient(client *http.Client) *GetJourneySegmentsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetJourneySegmentsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetJourneySegmentsParams contains all the parameters to send to the API endpoint
-for the get journey segments operation typically these are written to a http.Request
+/*
+GetJourneySegmentsParams contains all the parameters to send to the API endpoint
+
+	for the get journey segments operation.
+
+	Typically these are written to a http.Request.
 */
 type GetJourneySegmentsParams struct {
 
-	/*IsActive
-	  Determines whether or not to show only active segments.
+	/* IsActive.
 
+	   Determines whether or not to show only active segments.
 	*/
 	IsActive *bool
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*QueryFields
-	  Segment field(s) to query on. Requires 'queryValue' to also be set.
 
+	/* QueryFields.
+
+	   Segment field(s) to query on. Requires 'queryValue' to also be set.
 	*/
 	QueryFields []string
-	/*QueryValue
-	  Value to query on. Requires 'queryFields' to also be set.
 
+	/* QueryValue.
+
+	   Value to query on. Requires 'queryFields' to also be set.
 	*/
 	QueryValue *string
-	/*SegmentIds
-	  IDs of segments to return. Use of this parameter is not compatible with pagination, sorting or querying. A maximum of 100 segments are allowed per request.
 
+	/* SegmentIds.
+
+	   IDs of segments to return. Use of this parameter is not compatible with pagination, sorting or querying. A maximum of 100 segments are allowed per request.
 	*/
 	SegmentIds []string
-	/*SortBy
-	  Field(s) to sort by. The response can be sorted by any first level property on the Outcome response. Prefix with '-' for descending (e.g. sortBy=displayName,-createdDate).
 
+	/* SortBy.
+
+	   Field(s) to sort by. The response can be sorted by any first level property on the Outcome response. Prefix with '-' for descending (e.g. sortBy=displayName,-createdDate).
 	*/
 	SortBy *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get journey segments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetJourneySegmentsParams) WithDefaults() *GetJourneySegmentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get journey segments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetJourneySegmentsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetJourneySegmentsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get journey segments params
@@ -244,100 +266,145 @@ func (o *GetJourneySegmentsParams) WriteToRequest(r runtime.ClientRequest, reg s
 
 		// query param isActive
 		var qrIsActive bool
+
 		if o.IsActive != nil {
 			qrIsActive = *o.IsActive
 		}
 		qIsActive := swag.FormatBool(qrIsActive)
 		if qIsActive != "" {
+
 			if err := r.SetQueryParam("isActive", qIsActive); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesQueryFields := o.QueryFields
+	if o.QueryFields != nil {
 
-	joinedQueryFields := swag.JoinByFormat(valuesQueryFields, "multi")
-	// query array param queryFields
-	if err := r.SetQueryParam("queryFields", joinedQueryFields...); err != nil {
-		return err
+		// binding items for queryFields
+		joinedQueryFields := o.bindParamQueryFields(reg)
+
+		// query array param queryFields
+		if err := r.SetQueryParam("queryFields", joinedQueryFields...); err != nil {
+			return err
+		}
 	}
 
 	if o.QueryValue != nil {
 
 		// query param queryValue
 		var qrQueryValue string
+
 		if o.QueryValue != nil {
 			qrQueryValue = *o.QueryValue
 		}
 		qQueryValue := qrQueryValue
 		if qQueryValue != "" {
+
 			if err := r.SetQueryParam("queryValue", qQueryValue); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesSegmentIds := o.SegmentIds
+	if o.SegmentIds != nil {
 
-	joinedSegmentIds := swag.JoinByFormat(valuesSegmentIds, "multi")
-	// query array param segmentIds
-	if err := r.SetQueryParam("segmentIds", joinedSegmentIds...); err != nil {
-		return err
+		// binding items for segmentIds
+		joinedSegmentIds := o.bindParamSegmentIds(reg)
+
+		// query array param segmentIds
+		if err := r.SetQueryParam("segmentIds", joinedSegmentIds...); err != nil {
+			return err
+		}
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetJourneySegments binds the parameter queryFields
+func (o *GetJourneySegmentsParams) bindParamQueryFields(formats strfmt.Registry) []string {
+	queryFieldsIR := o.QueryFields
+
+	var queryFieldsIC []string
+	for _, queryFieldsIIR := range queryFieldsIR { // explode []string
+
+		queryFieldsIIV := queryFieldsIIR // string as string
+		queryFieldsIC = append(queryFieldsIC, queryFieldsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	queryFieldsIS := swag.JoinByFormat(queryFieldsIC, "multi")
+
+	return queryFieldsIS
+}
+
+// bindParamGetJourneySegments binds the parameter segmentIds
+func (o *GetJourneySegmentsParams) bindParamSegmentIds(formats strfmt.Registry) []string {
+	segmentIdsIR := o.SegmentIds
+
+	var segmentIdsIC []string
+	for _, segmentIdsIIR := range segmentIdsIR { // explode []string
+
+		segmentIdsIIV := segmentIdsIIR // string as string
+		segmentIdsIC = append(segmentIdsIC, segmentIdsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	segmentIdsIS := swag.JoinByFormat(segmentIdsIC, "multi")
+
+	return segmentIdsIS
 }

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -206,7 +207,6 @@ func (m *AnalyticsConversationSegment) validateDisconnectTypeEnum(path, location
 }
 
 func (m *AnalyticsConversationSegment) validateDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectType) { // not required
 		return nil
 	}
@@ -220,7 +220,6 @@ func (m *AnalyticsConversationSegment) validateDisconnectType(formats strfmt.Reg
 }
 
 func (m *AnalyticsConversationSegment) validateProperties(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Properties) { // not required
 		return nil
 	}
@@ -234,6 +233,8 @@ func (m *AnalyticsConversationSegment) validateProperties(formats strfmt.Registr
 			if err := m.Properties[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("properties" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("properties" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -245,7 +246,6 @@ func (m *AnalyticsConversationSegment) validateProperties(formats strfmt.Registr
 }
 
 func (m *AnalyticsConversationSegment) validateScoredAgents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScoredAgents) { // not required
 		return nil
 	}
@@ -259,6 +259,8 @@ func (m *AnalyticsConversationSegment) validateScoredAgents(formats strfmt.Regis
 			if err := m.ScoredAgents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -270,7 +272,6 @@ func (m *AnalyticsConversationSegment) validateScoredAgents(formats strfmt.Regis
 }
 
 func (m *AnalyticsConversationSegment) validateSegmentEnd(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SegmentEnd) { // not required
 		return nil
 	}
@@ -283,7 +284,6 @@ func (m *AnalyticsConversationSegment) validateSegmentEnd(formats strfmt.Registr
 }
 
 func (m *AnalyticsConversationSegment) validateSegmentStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SegmentStart) { // not required
 		return nil
 	}
@@ -379,7 +379,6 @@ func (m *AnalyticsConversationSegment) validateSegmentTypeEnum(path, location st
 }
 
 func (m *AnalyticsConversationSegment) validateSegmentType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SegmentType) { // not required
 		return nil
 	}
@@ -387,6 +386,64 @@ func (m *AnalyticsConversationSegment) validateSegmentType(formats strfmt.Regist
 	// value enum
 	if err := m.validateSegmentTypeEnum("segmentType", "body", m.SegmentType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this analytics conversation segment based on the context it is used
+func (m *AnalyticsConversationSegment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateProperties(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScoredAgents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AnalyticsConversationSegment) contextValidateProperties(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Properties); i++ {
+
+		if m.Properties[i] != nil {
+			if err := m.Properties[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("properties" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("properties" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AnalyticsConversationSegment) contextValidateScoredAgents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ScoredAgents); i++ {
+
+		if m.ScoredAgents[i] != nil {
+			if err := m.ScoredAgents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

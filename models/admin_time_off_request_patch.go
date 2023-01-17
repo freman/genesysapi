@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -76,6 +77,8 @@ func (m *AdminTimeOffRequestPatch) validateMetadata(formats strfmt.Registry) err
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -85,7 +88,6 @@ func (m *AdminTimeOffRequestPatch) validateMetadata(formats strfmt.Registry) err
 }
 
 func (m *AdminTimeOffRequestPatch) validatePartialDayStartDateTimes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PartialDayStartDateTimes) { // not required
 		return nil
 	}
@@ -134,7 +136,6 @@ func (m *AdminTimeOffRequestPatch) validateStatusEnum(path, location string, val
 }
 
 func (m *AdminTimeOffRequestPatch) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -142,6 +143,36 @@ func (m *AdminTimeOffRequestPatch) validateStatus(formats strfmt.Registry) error
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this admin time off request patch based on the context it is used
+func (m *AdminTimeOffRequestPatch) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AdminTimeOffRequestPatch) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchUserRoutinglanguageParams creates a new PatchUserRoutinglanguageParams object
-// with the default values initialized.
+// NewPatchUserRoutinglanguageParams creates a new PatchUserRoutinglanguageParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchUserRoutinglanguageParams() *PatchUserRoutinglanguageParams {
-	var ()
 	return &PatchUserRoutinglanguageParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchUserRoutinglanguageParamsWithTimeout creates a new PatchUserRoutinglanguageParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchUserRoutinglanguageParamsWithTimeout(timeout time.Duration) *PatchUserRoutinglanguageParams {
-	var ()
 	return &PatchUserRoutinglanguageParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchUserRoutinglanguageParamsWithContext creates a new PatchUserRoutinglanguageParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchUserRoutinglanguageParamsWithContext(ctx context.Context) *PatchUserRoutinglanguageParams {
-	var ()
 	return &PatchUserRoutinglanguageParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchUserRoutinglanguageParamsWithHTTPClient creates a new PatchUserRoutinglanguageParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchUserRoutinglanguageParamsWithHTTPClient(client *http.Client) *PatchUserRoutinglanguageParams {
-	var ()
 	return &PatchUserRoutinglanguageParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchUserRoutinglanguageParams contains all the parameters to send to the API endpoint
-for the patch user routinglanguage operation typically these are written to a http.Request
+/*
+PatchUserRoutinglanguageParams contains all the parameters to send to the API endpoint
+
+	for the patch user routinglanguage operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchUserRoutinglanguageParams struct {
 
-	/*Body
-	  Language
+	/* Body.
 
+	   Language
 	*/
 	Body *models.UserRoutingLanguage
-	/*LanguageID
-	  languageId
 
+	/* LanguageID.
+
+	   languageId
 	*/
 	LanguageID string
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch user routinglanguage params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchUserRoutinglanguageParams) WithDefaults() *PatchUserRoutinglanguageParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch user routinglanguage params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchUserRoutinglanguageParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch user routinglanguage params
@@ -156,7 +174,6 @@ func (o *PatchUserRoutinglanguageParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

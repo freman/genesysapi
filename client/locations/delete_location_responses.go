@@ -95,7 +95,6 @@ func (o *DeleteLocationReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteLocationNoContent() *DeleteLocationNoContent {
 	return &DeleteLocationNoContent{}
 }
 
-/*DeleteLocationNoContent handles this case with default header values.
+/*
+DeleteLocationNoContent describes a response with status code 204, with default header values.
 
 The location was deleted successfully
 */
 type DeleteLocationNoContent struct {
 }
 
+// IsSuccess returns true when this delete location no content response has a 2xx status code
+func (o *DeleteLocationNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete location no content response has a 3xx status code
+func (o *DeleteLocationNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete location no content response has a 4xx status code
+func (o *DeleteLocationNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete location no content response has a 5xx status code
+func (o *DeleteLocationNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete location no content response a status code equal to that given
+func (o *DeleteLocationNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteLocationNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationNoContent ", 204)
+}
+
+func (o *DeleteLocationNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteLocationBadRequest() *DeleteLocationBadRequest {
 	return &DeleteLocationBadRequest{}
 }
 
-/*DeleteLocationBadRequest handles this case with default header values.
+/*
+DeleteLocationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteLocationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete location bad request response has a 2xx status code
+func (o *DeleteLocationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete location bad request response has a 3xx status code
+func (o *DeleteLocationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete location bad request response has a 4xx status code
+func (o *DeleteLocationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete location bad request response has a 5xx status code
+func (o *DeleteLocationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete location bad request response a status code equal to that given
+func (o *DeleteLocationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteLocationBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteLocationBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteLocationUnauthorized() *DeleteLocationUnauthorized {
 	return &DeleteLocationUnauthorized{}
 }
 
-/*DeleteLocationUnauthorized handles this case with default header values.
+/*
+DeleteLocationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteLocationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete location unauthorized response has a 2xx status code
+func (o *DeleteLocationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete location unauthorized response has a 3xx status code
+func (o *DeleteLocationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete location unauthorized response has a 4xx status code
+func (o *DeleteLocationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete location unauthorized response has a 5xx status code
+func (o *DeleteLocationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete location unauthorized response a status code equal to that given
+func (o *DeleteLocationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteLocationUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteLocationUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteLocationForbidden() *DeleteLocationForbidden {
 	return &DeleteLocationForbidden{}
 }
 
-/*DeleteLocationForbidden handles this case with default header values.
+/*
+DeleteLocationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteLocationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete location forbidden response has a 2xx status code
+func (o *DeleteLocationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete location forbidden response has a 3xx status code
+func (o *DeleteLocationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete location forbidden response has a 4xx status code
+func (o *DeleteLocationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete location forbidden response has a 5xx status code
+func (o *DeleteLocationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete location forbidden response a status code equal to that given
+func (o *DeleteLocationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteLocationForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteLocationForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteLocationNotFound() *DeleteLocationNotFound {
 	return &DeleteLocationNotFound{}
 }
 
-/*DeleteLocationNotFound handles this case with default header values.
+/*
+DeleteLocationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteLocationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete location not found response has a 2xx status code
+func (o *DeleteLocationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete location not found response has a 3xx status code
+func (o *DeleteLocationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete location not found response has a 4xx status code
+func (o *DeleteLocationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete location not found response has a 5xx status code
+func (o *DeleteLocationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete location not found response a status code equal to that given
+func (o *DeleteLocationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteLocationNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteLocationNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteLocationRequestTimeout() *DeleteLocationRequestTimeout {
 	return &DeleteLocationRequestTimeout{}
 }
 
-/*DeleteLocationRequestTimeout handles this case with default header values.
+/*
+DeleteLocationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteLocationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete location request timeout response has a 2xx status code
+func (o *DeleteLocationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete location request timeout response has a 3xx status code
+func (o *DeleteLocationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete location request timeout response has a 4xx status code
+func (o *DeleteLocationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete location request timeout response has a 5xx status code
+func (o *DeleteLocationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete location request timeout response a status code equal to that given
+func (o *DeleteLocationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteLocationRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteLocationRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteLocationRequestEntityTooLarge() *DeleteLocationRequestEntityTooLar
 	return &DeleteLocationRequestEntityTooLarge{}
 }
 
-/*DeleteLocationRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteLocationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteLocationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete location request entity too large response has a 2xx status code
+func (o *DeleteLocationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete location request entity too large response has a 3xx status code
+func (o *DeleteLocationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete location request entity too large response has a 4xx status code
+func (o *DeleteLocationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete location request entity too large response has a 5xx status code
+func (o *DeleteLocationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete location request entity too large response a status code equal to that given
+func (o *DeleteLocationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteLocationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteLocationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteLocationUnsupportedMediaType() *DeleteLocationUnsupportedMediaType
 	return &DeleteLocationUnsupportedMediaType{}
 }
 
-/*DeleteLocationUnsupportedMediaType handles this case with default header values.
+/*
+DeleteLocationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteLocationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete location unsupported media type response has a 2xx status code
+func (o *DeleteLocationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete location unsupported media type response has a 3xx status code
+func (o *DeleteLocationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete location unsupported media type response has a 4xx status code
+func (o *DeleteLocationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete location unsupported media type response has a 5xx status code
+func (o *DeleteLocationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete location unsupported media type response a status code equal to that given
+func (o *DeleteLocationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteLocationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteLocationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteLocationTooManyRequests() *DeleteLocationTooManyRequests {
 	return &DeleteLocationTooManyRequests{}
 }
 
-/*DeleteLocationTooManyRequests handles this case with default header values.
+/*
+DeleteLocationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteLocationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete location too many requests response has a 2xx status code
+func (o *DeleteLocationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete location too many requests response has a 3xx status code
+func (o *DeleteLocationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete location too many requests response has a 4xx status code
+func (o *DeleteLocationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete location too many requests response has a 5xx status code
+func (o *DeleteLocationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete location too many requests response a status code equal to that given
+func (o *DeleteLocationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteLocationTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteLocationTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteLocationInternalServerError() *DeleteLocationInternalServerError {
 	return &DeleteLocationInternalServerError{}
 }
 
-/*DeleteLocationInternalServerError handles this case with default header values.
+/*
+DeleteLocationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteLocationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete location internal server error response has a 2xx status code
+func (o *DeleteLocationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete location internal server error response has a 3xx status code
+func (o *DeleteLocationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete location internal server error response has a 4xx status code
+func (o *DeleteLocationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete location internal server error response has a 5xx status code
+func (o *DeleteLocationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete location internal server error response a status code equal to that given
+func (o *DeleteLocationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteLocationInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteLocationInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteLocationServiceUnavailable() *DeleteLocationServiceUnavailable {
 	return &DeleteLocationServiceUnavailable{}
 }
 
-/*DeleteLocationServiceUnavailable handles this case with default header values.
+/*
+DeleteLocationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteLocationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete location service unavailable response has a 2xx status code
+func (o *DeleteLocationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete location service unavailable response has a 3xx status code
+func (o *DeleteLocationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete location service unavailable response has a 4xx status code
+func (o *DeleteLocationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete location service unavailable response has a 5xx status code
+func (o *DeleteLocationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete location service unavailable response a status code equal to that given
+func (o *DeleteLocationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteLocationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteLocationServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteLocationGatewayTimeout() *DeleteLocationGatewayTimeout {
 	return &DeleteLocationGatewayTimeout{}
 }
 
-/*DeleteLocationGatewayTimeout handles this case with default header values.
+/*
+DeleteLocationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteLocationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete location gateway timeout response has a 2xx status code
+func (o *DeleteLocationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete location gateway timeout response has a 3xx status code
+func (o *DeleteLocationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete location gateway timeout response has a 4xx status code
+func (o *DeleteLocationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete location gateway timeout response has a 5xx status code
+func (o *DeleteLocationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete location gateway timeout response a status code equal to that given
+func (o *DeleteLocationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteLocationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteLocationGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/locations/{locationId}][%d] deleteLocationGatewayTimeout  %+v", 504, o.Payload)
 }
 

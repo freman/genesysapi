@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundSchedulesMessagingcampaignsParams creates a new GetOutboundSchedulesMessagingcampaignsParams object
-// with the default values initialized.
+// NewGetOutboundSchedulesMessagingcampaignsParams creates a new GetOutboundSchedulesMessagingcampaignsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundSchedulesMessagingcampaignsParams() *GetOutboundSchedulesMessagingcampaignsParams {
-
 	return &GetOutboundSchedulesMessagingcampaignsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundSchedulesMessagingcampaignsParamsWithTimeout creates a new GetOutboundSchedulesMessagingcampaignsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundSchedulesMessagingcampaignsParamsWithTimeout(timeout time.Duration) *GetOutboundSchedulesMessagingcampaignsParams {
-
 	return &GetOutboundSchedulesMessagingcampaignsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundSchedulesMessagingcampaignsParamsWithContext creates a new GetOutboundSchedulesMessagingcampaignsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundSchedulesMessagingcampaignsParamsWithContext(ctx context.Context) *GetOutboundSchedulesMessagingcampaignsParams {
-
 	return &GetOutboundSchedulesMessagingcampaignsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundSchedulesMessagingcampaignsParamsWithHTTPClient creates a new GetOutboundSchedulesMessagingcampaignsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundSchedulesMessagingcampaignsParamsWithHTTPClient(client *http.Client) *GetOutboundSchedulesMessagingcampaignsParams {
-
 	return &GetOutboundSchedulesMessagingcampaignsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundSchedulesMessagingcampaignsParams contains all the parameters to send to the API endpoint
-for the get outbound schedules messagingcampaigns operation typically these are written to a http.Request
+/*
+GetOutboundSchedulesMessagingcampaignsParams contains all the parameters to send to the API endpoint
+
+	for the get outbound schedules messagingcampaigns operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundSchedulesMessagingcampaignsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound schedules messagingcampaigns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundSchedulesMessagingcampaignsParams) WithDefaults() *GetOutboundSchedulesMessagingcampaignsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound schedules messagingcampaigns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundSchedulesMessagingcampaignsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get outbound schedules messagingcampaigns params

@@ -101,7 +101,6 @@ func (o *PostLanguageunderstandingMinerDraftsReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostLanguageunderstandingMinerDraftsOK() *PostLanguageunderstandingMiner
 	return &PostLanguageunderstandingMinerDraftsOK{}
 }
 
-/*PostLanguageunderstandingMinerDraftsOK handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostLanguageunderstandingMinerDraftsOK struct {
 	Payload *models.Draft
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts o k response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts o k response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts o k response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts o k response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts o k response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLanguageunderstandingMinerDraftsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostLanguageunderstandingMinerDraftsCreated() *PostLanguageunderstanding
 	return &PostLanguageunderstandingMinerDraftsCreated{}
 }
 
-/*PostLanguageunderstandingMinerDraftsCreated handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsCreated describes a response with status code 201, with default header values.
 
 Draft created successfully
 */
@@ -153,7 +183,36 @@ type PostLanguageunderstandingMinerDraftsCreated struct {
 	Payload *models.Draft
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts created response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts created response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts created response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts created response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts created response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostLanguageunderstandingMinerDraftsCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsCreated  %+v", 201, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostLanguageunderstandingMinerDraftsBadRequest() *PostLanguageunderstand
 	return &PostLanguageunderstandingMinerDraftsBadRequest{}
 }
 
-/*PostLanguageunderstandingMinerDraftsBadRequest handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostLanguageunderstandingMinerDraftsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts bad request response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts bad request response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts bad request response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts bad request response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts bad request response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLanguageunderstandingMinerDraftsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostLanguageunderstandingMinerDraftsUnauthorized() *PostLanguageundersta
 	return &PostLanguageunderstandingMinerDraftsUnauthorized{}
 }
 
-/*PostLanguageunderstandingMinerDraftsUnauthorized handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostLanguageunderstandingMinerDraftsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts unauthorized response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts unauthorized response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts unauthorized response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts unauthorized response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts unauthorized response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLanguageunderstandingMinerDraftsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostLanguageunderstandingMinerDraftsForbidden() *PostLanguageunderstandi
 	return &PostLanguageunderstandingMinerDraftsForbidden{}
 }
 
-/*PostLanguageunderstandingMinerDraftsForbidden handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostLanguageunderstandingMinerDraftsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts forbidden response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts forbidden response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts forbidden response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts forbidden response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts forbidden response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLanguageunderstandingMinerDraftsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostLanguageunderstandingMinerDraftsNotFound() *PostLanguageunderstandin
 	return &PostLanguageunderstandingMinerDraftsNotFound{}
 }
 
-/*PostLanguageunderstandingMinerDraftsNotFound handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostLanguageunderstandingMinerDraftsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts not found response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts not found response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts not found response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts not found response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts not found response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLanguageunderstandingMinerDraftsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostLanguageunderstandingMinerDraftsRequestTimeout() *PostLanguageunders
 	return &PostLanguageunderstandingMinerDraftsRequestTimeout{}
 }
 
-/*PostLanguageunderstandingMinerDraftsRequestTimeout handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostLanguageunderstandingMinerDraftsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts request timeout response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts request timeout response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts request timeout response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts request timeout response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts request timeout response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLanguageunderstandingMinerDraftsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostLanguageunderstandingMinerDraftsRequestEntityTooLarge() *PostLanguag
 	return &PostLanguageunderstandingMinerDraftsRequestEntityTooLarge{}
 }
 
-/*PostLanguageunderstandingMinerDraftsRequestEntityTooLarge handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostLanguageunderstandingMinerDraftsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts request entity too large response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts request entity too large response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts request entity too large response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts request entity too large response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts request entity too large response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLanguageunderstandingMinerDraftsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostLanguageunderstandingMinerDraftsUnsupportedMediaType() *PostLanguage
 	return &PostLanguageunderstandingMinerDraftsUnsupportedMediaType{}
 }
 
-/*PostLanguageunderstandingMinerDraftsUnsupportedMediaType handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostLanguageunderstandingMinerDraftsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts unsupported media type response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts unsupported media type response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts unsupported media type response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts unsupported media type response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts unsupported media type response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLanguageunderstandingMinerDraftsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostLanguageunderstandingMinerDraftsTooManyRequests() *PostLanguageunder
 	return &PostLanguageunderstandingMinerDraftsTooManyRequests{}
 }
 
-/*PostLanguageunderstandingMinerDraftsTooManyRequests handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostLanguageunderstandingMinerDraftsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts too many requests response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts too many requests response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts too many requests response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts too many requests response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts too many requests response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLanguageunderstandingMinerDraftsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostLanguageunderstandingMinerDraftsInternalServerError() *PostLanguageu
 	return &PostLanguageunderstandingMinerDraftsInternalServerError{}
 }
 
-/*PostLanguageunderstandingMinerDraftsInternalServerError handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostLanguageunderstandingMinerDraftsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts internal server error response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts internal server error response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts internal server error response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts internal server error response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts internal server error response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLanguageunderstandingMinerDraftsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostLanguageunderstandingMinerDraftsServiceUnavailable() *PostLanguageun
 	return &PostLanguageunderstandingMinerDraftsServiceUnavailable{}
 }
 
-/*PostLanguageunderstandingMinerDraftsServiceUnavailable handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostLanguageunderstandingMinerDraftsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts service unavailable response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts service unavailable response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts service unavailable response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts service unavailable response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts service unavailable response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLanguageunderstandingMinerDraftsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostLanguageunderstandingMinerDraftsGatewayTimeout() *PostLanguageunders
 	return &PostLanguageunderstandingMinerDraftsGatewayTimeout{}
 }
 
-/*PostLanguageunderstandingMinerDraftsGatewayTimeout handles this case with default header values.
+/*
+PostLanguageunderstandingMinerDraftsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostLanguageunderstandingMinerDraftsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner drafts gateway timeout response has a 2xx status code
+func (o *PostLanguageunderstandingMinerDraftsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner drafts gateway timeout response has a 3xx status code
+func (o *PostLanguageunderstandingMinerDraftsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner drafts gateway timeout response has a 4xx status code
+func (o *PostLanguageunderstandingMinerDraftsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding miner drafts gateway timeout response has a 5xx status code
+func (o *PostLanguageunderstandingMinerDraftsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post languageunderstanding miner drafts gateway timeout response a status code equal to that given
+func (o *PostLanguageunderstandingMinerDraftsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLanguageunderstandingMinerDraftsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerDraftsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/drafts][%d] postLanguageunderstandingMinerDraftsGatewayTimeout  %+v", 504, o.Payload)
 }
 

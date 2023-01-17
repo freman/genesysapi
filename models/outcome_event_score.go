@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -19,8 +21,14 @@ type OutcomeEventScore struct {
 	// The outcome that the score was calculated for.
 	Outcome *AddressableEntityRef `json:"outcome,omitempty"`
 
+	// Represents the predicted probability's percentile score when compared with all other generated probabilities for a given outcome.
+	Percentile int32 `json:"percentile,omitempty"`
+
 	// Represents the likelihood of a customer reaching or achieving a given outcome.
 	Probability float32 `json:"probability,omitempty"`
+
+	// Represents the maximum likelihood percentile score reached for a given outcome by the current session.
+	SessionMaxPercentile int32 `json:"sessionMaxPercentile,omitempty"`
 
 	// Represents the max probability reached in the session.
 	SessionMaxProbability float32 `json:"sessionMaxProbability,omitempty"`
@@ -41,7 +49,6 @@ func (m *OutcomeEventScore) Validate(formats strfmt.Registry) error {
 }
 
 func (m *OutcomeEventScore) validateOutcome(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Outcome) { // not required
 		return nil
 	}
@@ -50,6 +57,38 @@ func (m *OutcomeEventScore) validateOutcome(formats strfmt.Registry) error {
 		if err := m.Outcome.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outcome")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outcome")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this outcome event score based on the context it is used
+func (m *OutcomeEventScore) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateOutcome(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OutcomeEventScore) contextValidateOutcome(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Outcome != nil {
+		if err := m.Outcome.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outcome")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outcome")
 			}
 			return err
 		}

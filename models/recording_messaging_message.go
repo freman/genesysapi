@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -100,7 +101,6 @@ func (m *RecordingMessagingMessage) Validate(formats strfmt.Registry) error {
 }
 
 func (m *RecordingMessagingMessage) validateButtonResponse(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ButtonResponse) { // not required
 		return nil
 	}
@@ -109,6 +109,8 @@ func (m *RecordingMessagingMessage) validateButtonResponse(formats strfmt.Regist
 		if err := m.ButtonResponse.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("buttonResponse")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("buttonResponse")
 			}
 			return err
 		}
@@ -118,7 +120,6 @@ func (m *RecordingMessagingMessage) validateButtonResponse(formats strfmt.Regist
 }
 
 func (m *RecordingMessagingMessage) validateFromExternalContact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FromExternalContact) { // not required
 		return nil
 	}
@@ -127,6 +128,8 @@ func (m *RecordingMessagingMessage) validateFromExternalContact(formats strfmt.R
 		if err := m.FromExternalContact.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("fromExternalContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fromExternalContact")
 			}
 			return err
 		}
@@ -136,7 +139,6 @@ func (m *RecordingMessagingMessage) validateFromExternalContact(formats strfmt.R
 }
 
 func (m *RecordingMessagingMessage) validateFromUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FromUser) { // not required
 		return nil
 	}
@@ -145,6 +147,8 @@ func (m *RecordingMessagingMessage) validateFromUser(formats strfmt.Registry) er
 		if err := m.FromUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("fromUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fromUser")
 			}
 			return err
 		}
@@ -154,7 +158,6 @@ func (m *RecordingMessagingMessage) validateFromUser(formats strfmt.Registry) er
 }
 
 func (m *RecordingMessagingMessage) validateMessageMediaAttachments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageMediaAttachments) { // not required
 		return nil
 	}
@@ -168,6 +171,8 @@ func (m *RecordingMessagingMessage) validateMessageMediaAttachments(formats strf
 			if err := m.MessageMediaAttachments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("messageMediaAttachments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messageMediaAttachments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -179,7 +184,6 @@ func (m *RecordingMessagingMessage) validateMessageMediaAttachments(formats strf
 }
 
 func (m *RecordingMessagingMessage) validateMessageStickerAttachments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageStickerAttachments) { // not required
 		return nil
 	}
@@ -193,6 +197,8 @@ func (m *RecordingMessagingMessage) validateMessageStickerAttachments(formats st
 			if err := m.MessageStickerAttachments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("messageStickerAttachments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messageStickerAttachments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -204,7 +210,6 @@ func (m *RecordingMessagingMessage) validateMessageStickerAttachments(formats st
 }
 
 func (m *RecordingMessagingMessage) validateQuickReplies(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.QuickReplies) { // not required
 		return nil
 	}
@@ -218,6 +223,8 @@ func (m *RecordingMessagingMessage) validateQuickReplies(formats strfmt.Registry
 			if err := m.QuickReplies[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("quickReplies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("quickReplies" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -229,7 +236,6 @@ func (m *RecordingMessagingMessage) validateQuickReplies(formats strfmt.Registry
 }
 
 func (m *RecordingMessagingMessage) validateStory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Story) { // not required
 		return nil
 	}
@@ -238,6 +244,8 @@ func (m *RecordingMessagingMessage) validateStory(formats strfmt.Registry) error
 		if err := m.Story.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("story")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("story")
 			}
 			return err
 		}
@@ -247,13 +255,174 @@ func (m *RecordingMessagingMessage) validateStory(formats strfmt.Registry) error
 }
 
 func (m *RecordingMessagingMessage) validateTimestamp(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Timestamp) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("timestamp", "body", "date-time", m.Timestamp.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this recording messaging message based on the context it is used
+func (m *RecordingMessagingMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateButtonResponse(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFromExternalContact(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFromUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessageMediaAttachments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessageStickerAttachments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuickReplies(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStory(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RecordingMessagingMessage) contextValidateButtonResponse(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ButtonResponse != nil {
+		if err := m.ButtonResponse.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("buttonResponse")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("buttonResponse")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RecordingMessagingMessage) contextValidateFromExternalContact(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FromExternalContact != nil {
+		if err := m.FromExternalContact.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fromExternalContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fromExternalContact")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RecordingMessagingMessage) contextValidateFromUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FromUser != nil {
+		if err := m.FromUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fromUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fromUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RecordingMessagingMessage) contextValidateMessageMediaAttachments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MessageMediaAttachments); i++ {
+
+		if m.MessageMediaAttachments[i] != nil {
+			if err := m.MessageMediaAttachments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("messageMediaAttachments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messageMediaAttachments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *RecordingMessagingMessage) contextValidateMessageStickerAttachments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MessageStickerAttachments); i++ {
+
+		if m.MessageStickerAttachments[i] != nil {
+			if err := m.MessageStickerAttachments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("messageStickerAttachments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messageStickerAttachments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *RecordingMessagingMessage) contextValidateQuickReplies(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.QuickReplies); i++ {
+
+		if m.QuickReplies[i] != nil {
+			if err := m.QuickReplies[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("quickReplies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("quickReplies" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *RecordingMessagingMessage) contextValidateStory(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Story != nil {
+		if err := m.Story.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("story")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("story")
+			}
+			return err
+		}
 	}
 
 	return nil

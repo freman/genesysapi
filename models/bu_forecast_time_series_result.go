@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -84,7 +85,6 @@ func (m *BuForecastTimeSeriesResult) validateForecastTypeEnum(path, location str
 }
 
 func (m *BuForecastTimeSeriesResult) validateForecastType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ForecastType) { // not required
 		return nil
 	}
@@ -199,7 +199,6 @@ func (m *BuForecastTimeSeriesResult) validateForecastingMethodEnum(path, locatio
 }
 
 func (m *BuForecastTimeSeriesResult) validateForecastingMethod(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ForecastingMethod) { // not required
 		return nil
 	}
@@ -242,7 +241,6 @@ func (m *BuForecastTimeSeriesResult) validateMetricEnum(path, location string, v
 }
 
 func (m *BuForecastTimeSeriesResult) validateMetric(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metric) { // not required
 		return nil
 	}
@@ -252,6 +250,11 @@ func (m *BuForecastTimeSeriesResult) validateMetric(formats strfmt.Registry) err
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this bu forecast time series result based on context it is used
+func (m *BuForecastTimeSeriesResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

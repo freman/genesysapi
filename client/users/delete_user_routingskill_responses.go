@@ -101,7 +101,6 @@ func (o *DeleteUserRoutingskillReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteUserRoutingskillOK() *DeleteUserRoutingskillOK {
 	return &DeleteUserRoutingskillOK{}
 }
 
-/*DeleteUserRoutingskillOK handles this case with default header values.
+/*
+DeleteUserRoutingskillOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteUserRoutingskillOK struct {
 }
 
+// IsSuccess returns true when this delete user routingskill o k response has a 2xx status code
+func (o *DeleteUserRoutingskillOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete user routingskill o k response has a 3xx status code
+func (o *DeleteUserRoutingskillOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill o k response has a 4xx status code
+func (o *DeleteUserRoutingskillOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user routingskill o k response has a 5xx status code
+func (o *DeleteUserRoutingskillOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routingskill o k response a status code equal to that given
+func (o *DeleteUserRoutingskillOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteUserRoutingskillOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillOK ", 200)
+}
+
+func (o *DeleteUserRoutingskillOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillOK ", 200)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteUserRoutingskillBadRequest() *DeleteUserRoutingskillBadRequest {
 	return &DeleteUserRoutingskillBadRequest{}
 }
 
-/*DeleteUserRoutingskillBadRequest handles this case with default header values.
+/*
+DeleteUserRoutingskillBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteUserRoutingskillBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routingskill bad request response has a 2xx status code
+func (o *DeleteUserRoutingskillBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routingskill bad request response has a 3xx status code
+func (o *DeleteUserRoutingskillBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill bad request response has a 4xx status code
+func (o *DeleteUserRoutingskillBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routingskill bad request response has a 5xx status code
+func (o *DeleteUserRoutingskillBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routingskill bad request response a status code equal to that given
+func (o *DeleteUserRoutingskillBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteUserRoutingskillBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteUserRoutingskillUnauthorized() *DeleteUserRoutingskillUnauthorized
 	return &DeleteUserRoutingskillUnauthorized{}
 }
 
-/*DeleteUserRoutingskillUnauthorized handles this case with default header values.
+/*
+DeleteUserRoutingskillUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteUserRoutingskillUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routingskill unauthorized response has a 2xx status code
+func (o *DeleteUserRoutingskillUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routingskill unauthorized response has a 3xx status code
+func (o *DeleteUserRoutingskillUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill unauthorized response has a 4xx status code
+func (o *DeleteUserRoutingskillUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routingskill unauthorized response has a 5xx status code
+func (o *DeleteUserRoutingskillUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routingskill unauthorized response a status code equal to that given
+func (o *DeleteUserRoutingskillUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteUserRoutingskillUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteUserRoutingskillForbidden() *DeleteUserRoutingskillForbidden {
 	return &DeleteUserRoutingskillForbidden{}
 }
 
-/*DeleteUserRoutingskillForbidden handles this case with default header values.
+/*
+DeleteUserRoutingskillForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteUserRoutingskillForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routingskill forbidden response has a 2xx status code
+func (o *DeleteUserRoutingskillForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routingskill forbidden response has a 3xx status code
+func (o *DeleteUserRoutingskillForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill forbidden response has a 4xx status code
+func (o *DeleteUserRoutingskillForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routingskill forbidden response has a 5xx status code
+func (o *DeleteUserRoutingskillForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routingskill forbidden response a status code equal to that given
+func (o *DeleteUserRoutingskillForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteUserRoutingskillForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteUserRoutingskillNotFound() *DeleteUserRoutingskillNotFound {
 	return &DeleteUserRoutingskillNotFound{}
 }
 
-/*DeleteUserRoutingskillNotFound handles this case with default header values.
+/*
+DeleteUserRoutingskillNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteUserRoutingskillNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routingskill not found response has a 2xx status code
+func (o *DeleteUserRoutingskillNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routingskill not found response has a 3xx status code
+func (o *DeleteUserRoutingskillNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill not found response has a 4xx status code
+func (o *DeleteUserRoutingskillNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routingskill not found response has a 5xx status code
+func (o *DeleteUserRoutingskillNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routingskill not found response a status code equal to that given
+func (o *DeleteUserRoutingskillNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteUserRoutingskillNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteUserRoutingskillRequestTimeout() *DeleteUserRoutingskillRequestTim
 	return &DeleteUserRoutingskillRequestTimeout{}
 }
 
-/*DeleteUserRoutingskillRequestTimeout handles this case with default header values.
+/*
+DeleteUserRoutingskillRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteUserRoutingskillRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routingskill request timeout response has a 2xx status code
+func (o *DeleteUserRoutingskillRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routingskill request timeout response has a 3xx status code
+func (o *DeleteUserRoutingskillRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill request timeout response has a 4xx status code
+func (o *DeleteUserRoutingskillRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routingskill request timeout response has a 5xx status code
+func (o *DeleteUserRoutingskillRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routingskill request timeout response a status code equal to that given
+func (o *DeleteUserRoutingskillRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteUserRoutingskillRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteUserRoutingskillConflict() *DeleteUserRoutingskillConflict {
 	return &DeleteUserRoutingskillConflict{}
 }
 
-/*DeleteUserRoutingskillConflict handles this case with default header values.
+/*
+DeleteUserRoutingskillConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeleteUserRoutingskillConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routingskill conflict response has a 2xx status code
+func (o *DeleteUserRoutingskillConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routingskill conflict response has a 3xx status code
+func (o *DeleteUserRoutingskillConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill conflict response has a 4xx status code
+func (o *DeleteUserRoutingskillConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routingskill conflict response has a 5xx status code
+func (o *DeleteUserRoutingskillConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routingskill conflict response a status code equal to that given
+func (o *DeleteUserRoutingskillConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteUserRoutingskillConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteUserRoutingskillRequestEntityTooLarge() *DeleteUserRoutingskillReq
 	return &DeleteUserRoutingskillRequestEntityTooLarge{}
 }
 
-/*DeleteUserRoutingskillRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteUserRoutingskillRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteUserRoutingskillRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routingskill request entity too large response has a 2xx status code
+func (o *DeleteUserRoutingskillRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routingskill request entity too large response has a 3xx status code
+func (o *DeleteUserRoutingskillRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill request entity too large response has a 4xx status code
+func (o *DeleteUserRoutingskillRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routingskill request entity too large response has a 5xx status code
+func (o *DeleteUserRoutingskillRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routingskill request entity too large response a status code equal to that given
+func (o *DeleteUserRoutingskillRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteUserRoutingskillRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteUserRoutingskillUnsupportedMediaType() *DeleteUserRoutingskillUnsu
 	return &DeleteUserRoutingskillUnsupportedMediaType{}
 }
 
-/*DeleteUserRoutingskillUnsupportedMediaType handles this case with default header values.
+/*
+DeleteUserRoutingskillUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteUserRoutingskillUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routingskill unsupported media type response has a 2xx status code
+func (o *DeleteUserRoutingskillUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routingskill unsupported media type response has a 3xx status code
+func (o *DeleteUserRoutingskillUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill unsupported media type response has a 4xx status code
+func (o *DeleteUserRoutingskillUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routingskill unsupported media type response has a 5xx status code
+func (o *DeleteUserRoutingskillUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routingskill unsupported media type response a status code equal to that given
+func (o *DeleteUserRoutingskillUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteUserRoutingskillUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteUserRoutingskillTooManyRequests() *DeleteUserRoutingskillTooManyRe
 	return &DeleteUserRoutingskillTooManyRequests{}
 }
 
-/*DeleteUserRoutingskillTooManyRequests handles this case with default header values.
+/*
+DeleteUserRoutingskillTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteUserRoutingskillTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routingskill too many requests response has a 2xx status code
+func (o *DeleteUserRoutingskillTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routingskill too many requests response has a 3xx status code
+func (o *DeleteUserRoutingskillTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill too many requests response has a 4xx status code
+func (o *DeleteUserRoutingskillTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user routingskill too many requests response has a 5xx status code
+func (o *DeleteUserRoutingskillTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user routingskill too many requests response a status code equal to that given
+func (o *DeleteUserRoutingskillTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteUserRoutingskillTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteUserRoutingskillInternalServerError() *DeleteUserRoutingskillInter
 	return &DeleteUserRoutingskillInternalServerError{}
 }
 
-/*DeleteUserRoutingskillInternalServerError handles this case with default header values.
+/*
+DeleteUserRoutingskillInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteUserRoutingskillInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routingskill internal server error response has a 2xx status code
+func (o *DeleteUserRoutingskillInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routingskill internal server error response has a 3xx status code
+func (o *DeleteUserRoutingskillInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill internal server error response has a 4xx status code
+func (o *DeleteUserRoutingskillInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user routingskill internal server error response has a 5xx status code
+func (o *DeleteUserRoutingskillInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete user routingskill internal server error response a status code equal to that given
+func (o *DeleteUserRoutingskillInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteUserRoutingskillInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteUserRoutingskillServiceUnavailable() *DeleteUserRoutingskillServic
 	return &DeleteUserRoutingskillServiceUnavailable{}
 }
 
-/*DeleteUserRoutingskillServiceUnavailable handles this case with default header values.
+/*
+DeleteUserRoutingskillServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteUserRoutingskillServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routingskill service unavailable response has a 2xx status code
+func (o *DeleteUserRoutingskillServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routingskill service unavailable response has a 3xx status code
+func (o *DeleteUserRoutingskillServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill service unavailable response has a 4xx status code
+func (o *DeleteUserRoutingskillServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user routingskill service unavailable response has a 5xx status code
+func (o *DeleteUserRoutingskillServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete user routingskill service unavailable response a status code equal to that given
+func (o *DeleteUserRoutingskillServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteUserRoutingskillServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteUserRoutingskillGatewayTimeout() *DeleteUserRoutingskillGatewayTim
 	return &DeleteUserRoutingskillGatewayTimeout{}
 }
 
-/*DeleteUserRoutingskillGatewayTimeout handles this case with default header values.
+/*
+DeleteUserRoutingskillGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteUserRoutingskillGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user routingskill gateway timeout response has a 2xx status code
+func (o *DeleteUserRoutingskillGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user routingskill gateway timeout response has a 3xx status code
+func (o *DeleteUserRoutingskillGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user routingskill gateway timeout response has a 4xx status code
+func (o *DeleteUserRoutingskillGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user routingskill gateway timeout response has a 5xx status code
+func (o *DeleteUserRoutingskillGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete user routingskill gateway timeout response a status code equal to that given
+func (o *DeleteUserRoutingskillGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteUserRoutingskillGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteUserRoutingskillGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}/routingskills/{skillId}][%d] deleteUserRoutingskillGatewayTimeout  %+v", 504, o.Payload)
 }
 

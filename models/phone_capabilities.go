@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -82,7 +83,6 @@ func (m *PhoneCapabilities) validateMediaCodecsItemsEnum(path, location string, 
 }
 
 func (m *PhoneCapabilities) validateMediaCodecs(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaCodecs) { // not required
 		return nil
 	}
@@ -96,6 +96,11 @@ func (m *PhoneCapabilities) validateMediaCodecs(formats strfmt.Registry) error {
 
 	}
 
+	return nil
+}
+
+// ContextValidate validates this phone capabilities based on context it is used
+func (m *PhoneCapabilities) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

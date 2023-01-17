@@ -95,7 +95,6 @@ func (o *PostConversationsFaxesReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostConversationsFaxesOK() *PostConversationsFaxesOK {
 	return &PostConversationsFaxesOK{}
 }
 
-/*PostConversationsFaxesOK handles this case with default header values.
+/*
+PostConversationsFaxesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostConversationsFaxesOK struct {
 	Payload *models.FaxSendResponse
 }
 
+// IsSuccess returns true when this post conversations faxes o k response has a 2xx status code
+func (o *PostConversationsFaxesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations faxes o k response has a 3xx status code
+func (o *PostConversationsFaxesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations faxes o k response has a 4xx status code
+func (o *PostConversationsFaxesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations faxes o k response has a 5xx status code
+func (o *PostConversationsFaxesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations faxes o k response a status code equal to that given
+func (o *PostConversationsFaxesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostConversationsFaxesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostConversationsFaxesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostConversationsFaxesBadRequest() *PostConversationsFaxesBadRequest {
 	return &PostConversationsFaxesBadRequest{}
 }
 
-/*PostConversationsFaxesBadRequest handles this case with default header values.
+/*
+PostConversationsFaxesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostConversationsFaxesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations faxes bad request response has a 2xx status code
+func (o *PostConversationsFaxesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations faxes bad request response has a 3xx status code
+func (o *PostConversationsFaxesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations faxes bad request response has a 4xx status code
+func (o *PostConversationsFaxesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations faxes bad request response has a 5xx status code
+func (o *PostConversationsFaxesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations faxes bad request response a status code equal to that given
+func (o *PostConversationsFaxesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsFaxesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsFaxesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostConversationsFaxesUnauthorized() *PostConversationsFaxesUnauthorized
 	return &PostConversationsFaxesUnauthorized{}
 }
 
-/*PostConversationsFaxesUnauthorized handles this case with default header values.
+/*
+PostConversationsFaxesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostConversationsFaxesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations faxes unauthorized response has a 2xx status code
+func (o *PostConversationsFaxesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations faxes unauthorized response has a 3xx status code
+func (o *PostConversationsFaxesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations faxes unauthorized response has a 4xx status code
+func (o *PostConversationsFaxesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations faxes unauthorized response has a 5xx status code
+func (o *PostConversationsFaxesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations faxes unauthorized response a status code equal to that given
+func (o *PostConversationsFaxesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsFaxesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsFaxesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostConversationsFaxesForbidden() *PostConversationsFaxesForbidden {
 	return &PostConversationsFaxesForbidden{}
 }
 
-/*PostConversationsFaxesForbidden handles this case with default header values.
+/*
+PostConversationsFaxesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostConversationsFaxesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations faxes forbidden response has a 2xx status code
+func (o *PostConversationsFaxesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations faxes forbidden response has a 3xx status code
+func (o *PostConversationsFaxesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations faxes forbidden response has a 4xx status code
+func (o *PostConversationsFaxesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations faxes forbidden response has a 5xx status code
+func (o *PostConversationsFaxesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations faxes forbidden response a status code equal to that given
+func (o *PostConversationsFaxesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsFaxesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsFaxesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostConversationsFaxesNotFound() *PostConversationsFaxesNotFound {
 	return &PostConversationsFaxesNotFound{}
 }
 
-/*PostConversationsFaxesNotFound handles this case with default header values.
+/*
+PostConversationsFaxesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostConversationsFaxesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations faxes not found response has a 2xx status code
+func (o *PostConversationsFaxesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations faxes not found response has a 3xx status code
+func (o *PostConversationsFaxesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations faxes not found response has a 4xx status code
+func (o *PostConversationsFaxesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations faxes not found response has a 5xx status code
+func (o *PostConversationsFaxesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations faxes not found response a status code equal to that given
+func (o *PostConversationsFaxesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsFaxesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsFaxesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostConversationsFaxesRequestTimeout() *PostConversationsFaxesRequestTim
 	return &PostConversationsFaxesRequestTimeout{}
 }
 
-/*PostConversationsFaxesRequestTimeout handles this case with default header values.
+/*
+PostConversationsFaxesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostConversationsFaxesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations faxes request timeout response has a 2xx status code
+func (o *PostConversationsFaxesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations faxes request timeout response has a 3xx status code
+func (o *PostConversationsFaxesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations faxes request timeout response has a 4xx status code
+func (o *PostConversationsFaxesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations faxes request timeout response has a 5xx status code
+func (o *PostConversationsFaxesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations faxes request timeout response a status code equal to that given
+func (o *PostConversationsFaxesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsFaxesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsFaxesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostConversationsFaxesRequestEntityTooLarge() *PostConversationsFaxesReq
 	return &PostConversationsFaxesRequestEntityTooLarge{}
 }
 
-/*PostConversationsFaxesRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsFaxesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostConversationsFaxesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations faxes request entity too large response has a 2xx status code
+func (o *PostConversationsFaxesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations faxes request entity too large response has a 3xx status code
+func (o *PostConversationsFaxesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations faxes request entity too large response has a 4xx status code
+func (o *PostConversationsFaxesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations faxes request entity too large response has a 5xx status code
+func (o *PostConversationsFaxesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations faxes request entity too large response a status code equal to that given
+func (o *PostConversationsFaxesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsFaxesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsFaxesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostConversationsFaxesUnsupportedMediaType() *PostConversationsFaxesUnsu
 	return &PostConversationsFaxesUnsupportedMediaType{}
 }
 
-/*PostConversationsFaxesUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsFaxesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostConversationsFaxesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations faxes unsupported media type response has a 2xx status code
+func (o *PostConversationsFaxesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations faxes unsupported media type response has a 3xx status code
+func (o *PostConversationsFaxesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations faxes unsupported media type response has a 4xx status code
+func (o *PostConversationsFaxesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations faxes unsupported media type response has a 5xx status code
+func (o *PostConversationsFaxesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations faxes unsupported media type response a status code equal to that given
+func (o *PostConversationsFaxesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsFaxesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsFaxesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostConversationsFaxesTooManyRequests() *PostConversationsFaxesTooManyRe
 	return &PostConversationsFaxesTooManyRequests{}
 }
 
-/*PostConversationsFaxesTooManyRequests handles this case with default header values.
+/*
+PostConversationsFaxesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostConversationsFaxesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations faxes too many requests response has a 2xx status code
+func (o *PostConversationsFaxesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations faxes too many requests response has a 3xx status code
+func (o *PostConversationsFaxesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations faxes too many requests response has a 4xx status code
+func (o *PostConversationsFaxesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations faxes too many requests response has a 5xx status code
+func (o *PostConversationsFaxesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations faxes too many requests response a status code equal to that given
+func (o *PostConversationsFaxesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsFaxesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsFaxesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostConversationsFaxesInternalServerError() *PostConversationsFaxesInter
 	return &PostConversationsFaxesInternalServerError{}
 }
 
-/*PostConversationsFaxesInternalServerError handles this case with default header values.
+/*
+PostConversationsFaxesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostConversationsFaxesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations faxes internal server error response has a 2xx status code
+func (o *PostConversationsFaxesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations faxes internal server error response has a 3xx status code
+func (o *PostConversationsFaxesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations faxes internal server error response has a 4xx status code
+func (o *PostConversationsFaxesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations faxes internal server error response has a 5xx status code
+func (o *PostConversationsFaxesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations faxes internal server error response a status code equal to that given
+func (o *PostConversationsFaxesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsFaxesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsFaxesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostConversationsFaxesServiceUnavailable() *PostConversationsFaxesServic
 	return &PostConversationsFaxesServiceUnavailable{}
 }
 
-/*PostConversationsFaxesServiceUnavailable handles this case with default header values.
+/*
+PostConversationsFaxesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostConversationsFaxesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations faxes service unavailable response has a 2xx status code
+func (o *PostConversationsFaxesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations faxes service unavailable response has a 3xx status code
+func (o *PostConversationsFaxesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations faxes service unavailable response has a 4xx status code
+func (o *PostConversationsFaxesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations faxes service unavailable response has a 5xx status code
+func (o *PostConversationsFaxesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations faxes service unavailable response a status code equal to that given
+func (o *PostConversationsFaxesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsFaxesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsFaxesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostConversationsFaxesGatewayTimeout() *PostConversationsFaxesGatewayTim
 	return &PostConversationsFaxesGatewayTimeout{}
 }
 
-/*PostConversationsFaxesGatewayTimeout handles this case with default header values.
+/*
+PostConversationsFaxesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostConversationsFaxesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations faxes gateway timeout response has a 2xx status code
+func (o *PostConversationsFaxesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations faxes gateway timeout response has a 3xx status code
+func (o *PostConversationsFaxesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations faxes gateway timeout response has a 4xx status code
+func (o *PostConversationsFaxesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations faxes gateway timeout response has a 5xx status code
+func (o *PostConversationsFaxesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations faxes gateway timeout response a status code equal to that given
+func (o *PostConversationsFaxesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsFaxesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsFaxesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/faxes][%d] postConversationsFaxesGatewayTimeout  %+v", 504, o.Payload)
 }
 

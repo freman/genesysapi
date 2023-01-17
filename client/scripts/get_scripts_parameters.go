@@ -17,124 +17,149 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetScriptsParams creates a new GetScriptsParams object
-// with the default values initialized.
+// NewGetScriptsParams creates a new GetScriptsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScriptsParams() *GetScriptsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetScriptsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScriptsParamsWithTimeout creates a new GetScriptsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScriptsParamsWithTimeout(timeout time.Duration) *GetScriptsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetScriptsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScriptsParamsWithContext creates a new GetScriptsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScriptsParamsWithContext(ctx context.Context) *GetScriptsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetScriptsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetScriptsParamsWithHTTPClient creates a new GetScriptsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScriptsParamsWithHTTPClient(client *http.Client) *GetScriptsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetScriptsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetScriptsParams contains all the parameters to send to the API endpoint
-for the get scripts operation typically these are written to a http.Request
+/*
+GetScriptsParams contains all the parameters to send to the API endpoint
+
+	for the get scripts operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScriptsParams struct {
 
-	/*DivisionIds
-	  Filters scripts to requested divisionIds
+	/* DivisionIds.
 
+	   Filters scripts to requested divisionIds
 	*/
 	DivisionIds *string
-	/*Expand
-	  Expand
 
+	/* Expand.
+
+	   Expand
 	*/
 	Expand *string
-	/*Feature
-	  Feature filter
 
+	/* Feature.
+
+	   Feature filter
 	*/
 	Feature *string
-	/*FlowID
-	  Secure flow id filter
 
+	/* FlowID.
+
+	   Secure flow id filter
 	*/
 	FlowID *string
-	/*Name
-	  Name filter
 
+	/* Name.
+
+	   Name filter
 	*/
 	Name *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*ScriptDataVersion
-	  Advanced usage - controls the data version of the script
 
+	/* ScriptDataVersion.
+
+	   Advanced usage - controls the data version of the script
 	*/
 	ScriptDataVersion *string
-	/*SortBy
-	  SortBy
 
+	/* SortBy.
+
+	   SortBy
 	*/
 	SortBy *string
-	/*SortOrder
-	  SortOrder
 
+	/* SortOrder.
+
+	   SortOrder
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get scripts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScriptsParams) WithDefaults() *GetScriptsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get scripts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScriptsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetScriptsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get scripts params
@@ -292,160 +317,170 @@ func (o *GetScriptsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 
 		// query param divisionIds
 		var qrDivisionIds string
+
 		if o.DivisionIds != nil {
 			qrDivisionIds = *o.DivisionIds
 		}
 		qDivisionIds := qrDivisionIds
 		if qDivisionIds != "" {
+
 			if err := r.SetQueryParam("divisionIds", qDivisionIds); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Expand != nil {
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Feature != nil {
 
 		// query param feature
 		var qrFeature string
+
 		if o.Feature != nil {
 			qrFeature = *o.Feature
 		}
 		qFeature := qrFeature
 		if qFeature != "" {
+
 			if err := r.SetQueryParam("feature", qFeature); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.FlowID != nil {
 
 		// query param flowId
 		var qrFlowID string
+
 		if o.FlowID != nil {
 			qrFlowID = *o.FlowID
 		}
 		qFlowID := qrFlowID
 		if qFlowID != "" {
+
 			if err := r.SetQueryParam("flowId", qFlowID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ScriptDataVersion != nil {
 
 		// query param scriptDataVersion
 		var qrScriptDataVersion string
+
 		if o.ScriptDataVersion != nil {
 			qrScriptDataVersion = *o.ScriptDataVersion
 		}
 		qScriptDataVersion := qrScriptDataVersion
 		if qScriptDataVersion != "" {
+
 			if err := r.SetQueryParam("scriptDataVersion", qScriptDataVersion); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

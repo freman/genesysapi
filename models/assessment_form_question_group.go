@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -112,6 +113,8 @@ func (m *AssessmentFormQuestionGroup) validateQuestions(formats strfmt.Registry)
 			if err := m.Questions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("questions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -123,7 +126,6 @@ func (m *AssessmentFormQuestionGroup) validateQuestions(formats strfmt.Registry)
 }
 
 func (m *AssessmentFormQuestionGroup) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -145,7 +147,6 @@ func (m *AssessmentFormQuestionGroup) validateType(formats strfmt.Registry) erro
 }
 
 func (m *AssessmentFormQuestionGroup) validateVisibilityCondition(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.VisibilityCondition) { // not required
 		return nil
 	}
@@ -154,6 +155,75 @@ func (m *AssessmentFormQuestionGroup) validateVisibilityCondition(formats strfmt
 		if err := m.VisibilityCondition.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("visibilityCondition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("visibilityCondition")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this assessment form question group based on the context it is used
+func (m *AssessmentFormQuestionGroup) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateQuestions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVisibilityCondition(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AssessmentFormQuestionGroup) contextValidateQuestions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Questions); i++ {
+
+		if m.Questions[i] != nil {
+			if err := m.Questions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("questions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AssessmentFormQuestionGroup) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentFormQuestionGroup) contextValidateVisibilityCondition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.VisibilityCondition != nil {
+		if err := m.VisibilityCondition.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("visibilityCondition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("visibilityCondition")
 			}
 			return err
 		}

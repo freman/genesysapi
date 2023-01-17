@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostUserRoutinglanguagesParams creates a new PostUserRoutinglanguagesParams object
-// with the default values initialized.
+// NewPostUserRoutinglanguagesParams creates a new PostUserRoutinglanguagesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostUserRoutinglanguagesParams() *PostUserRoutinglanguagesParams {
-	var ()
 	return &PostUserRoutinglanguagesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostUserRoutinglanguagesParamsWithTimeout creates a new PostUserRoutinglanguagesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostUserRoutinglanguagesParamsWithTimeout(timeout time.Duration) *PostUserRoutinglanguagesParams {
-	var ()
 	return &PostUserRoutinglanguagesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostUserRoutinglanguagesParamsWithContext creates a new PostUserRoutinglanguagesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostUserRoutinglanguagesParamsWithContext(ctx context.Context) *PostUserRoutinglanguagesParams {
-	var ()
 	return &PostUserRoutinglanguagesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostUserRoutinglanguagesParamsWithHTTPClient creates a new PostUserRoutinglanguagesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostUserRoutinglanguagesParamsWithHTTPClient(client *http.Client) *PostUserRoutinglanguagesParams {
-	var ()
 	return &PostUserRoutinglanguagesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostUserRoutinglanguagesParams contains all the parameters to send to the API endpoint
-for the post user routinglanguages operation typically these are written to a http.Request
+/*
+PostUserRoutinglanguagesParams contains all the parameters to send to the API endpoint
+
+	for the post user routinglanguages operation.
+
+	Typically these are written to a http.Request.
 */
 type PostUserRoutinglanguagesParams struct {
 
-	/*Body
-	  Language
+	/* Body.
 
+	   Language
 	*/
 	Body *models.UserRoutingLanguagePost
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post user routinglanguages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUserRoutinglanguagesParams) WithDefaults() *PostUserRoutinglanguagesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post user routinglanguages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUserRoutinglanguagesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post user routinglanguages params
@@ -140,7 +157,6 @@ func (o *PostUserRoutinglanguagesParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

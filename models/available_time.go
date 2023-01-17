@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -112,7 +113,6 @@ func (m *AvailableTime) validateActivityCategoryEnum(path, location string, valu
 }
 
 func (m *AvailableTime) validateActivityCategory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActivityCategory) { // not required
 		return nil
 	}
@@ -126,7 +126,6 @@ func (m *AvailableTime) validateActivityCategory(formats strfmt.Registry) error 
 }
 
 func (m *AvailableTime) validateDateStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStart) { // not required
 		return nil
 	}
@@ -139,7 +138,6 @@ func (m *AvailableTime) validateDateStart(formats strfmt.Registry) error {
 }
 
 func (m *AvailableTime) validateWfmSchedule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WfmSchedule) { // not required
 		return nil
 	}
@@ -148,6 +146,90 @@ func (m *AvailableTime) validateWfmSchedule(formats strfmt.Registry) error {
 		if err := m.WfmSchedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wfmSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wfmSchedule")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this available time based on the context it is used
+func (m *AvailableTime) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActivityCategory(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateStart(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIsPaid(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLengthInMinutes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWfmSchedule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AvailableTime) contextValidateActivityCategory(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "activityCategory", "body", string(m.ActivityCategory)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AvailableTime) contextValidateDateStart(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateStart", "body", strfmt.DateTime(m.DateStart)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AvailableTime) contextValidateIsPaid(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isPaid", "body", m.IsPaid); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AvailableTime) contextValidateLengthInMinutes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "lengthInMinutes", "body", int32(m.LengthInMinutes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AvailableTime) contextValidateWfmSchedule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WfmSchedule != nil {
+		if err := m.WfmSchedule.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wfmSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wfmSchedule")
 			}
 			return err
 		}

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -257,7 +258,7 @@ func (m *InteractionStatsAlert) validateDimensionEnum(path, location string, val
 
 func (m *InteractionStatsAlert) validateDimension(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("dimension", "body", string(m.Dimension)); err != nil {
+	if err := validate.RequiredString("dimension", "body", m.Dimension); err != nil {
 		return err
 	}
 
@@ -271,7 +272,7 @@ func (m *InteractionStatsAlert) validateDimension(formats strfmt.Registry) error
 
 func (m *InteractionStatsAlert) validateDimensionValue(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("dimensionValue", "body", string(m.DimensionValue)); err != nil {
+	if err := validate.RequiredString("dimensionValue", "body", m.DimensionValue); err != nil {
 		return err
 	}
 
@@ -279,7 +280,6 @@ func (m *InteractionStatsAlert) validateDimensionValue(formats strfmt.Registry) 
 }
 
 func (m *InteractionStatsAlert) validateEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndDate) { // not required
 		return nil
 	}
@@ -331,7 +331,7 @@ func (m *InteractionStatsAlert) validateMediaTypeEnum(path, location string, val
 
 func (m *InteractionStatsAlert) validateMediaType(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("mediaType", "body", string(m.MediaType)); err != nil {
+	if err := validate.RequiredString("mediaType", "body", m.MediaType); err != nil {
 		return err
 	}
 
@@ -398,7 +398,7 @@ func (m *InteractionStatsAlert) validateMetricEnum(path, location string, value 
 
 func (m *InteractionStatsAlert) validateMetric(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("metric", "body", string(m.Metric)); err != nil {
+	if err := validate.RequiredString("metric", "body", m.Metric); err != nil {
 		return err
 	}
 
@@ -412,7 +412,7 @@ func (m *InteractionStatsAlert) validateMetric(formats strfmt.Registry) error {
 
 func (m *InteractionStatsAlert) validateName(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("name", "body", string(m.Name)); err != nil {
+	if err := validate.RequiredString("name", "body", m.Name); err != nil {
 		return err
 	}
 
@@ -438,6 +438,8 @@ func (m *InteractionStatsAlert) validateNotificationUsers(formats strfmt.Registr
 			if err := m.NotificationUsers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("notificationUsers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("notificationUsers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -491,7 +493,7 @@ func (m *InteractionStatsAlert) validateNumericRangeEnum(path, location string, 
 
 func (m *InteractionStatsAlert) validateNumericRange(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("numericRange", "body", string(m.NumericRange)); err != nil {
+	if err := validate.RequiredString("numericRange", "body", m.NumericRange); err != nil {
 		return err
 	}
 
@@ -505,7 +507,7 @@ func (m *InteractionStatsAlert) validateNumericRange(formats strfmt.Registry) er
 
 func (m *InteractionStatsAlert) validateRuleID(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("ruleId", "body", string(m.RuleID)); err != nil {
+	if err := validate.RequiredString("ruleId", "body", m.RuleID); err != nil {
 		return err
 	}
 
@@ -513,7 +515,6 @@ func (m *InteractionStatsAlert) validateRuleID(formats strfmt.Registry) error {
 }
 
 func (m *InteractionStatsAlert) validateRuleURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RuleURI) { // not required
 		return nil
 	}
@@ -526,7 +527,6 @@ func (m *InteractionStatsAlert) validateRuleURI(formats strfmt.Registry) error {
 }
 
 func (m *InteractionStatsAlert) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -588,7 +588,7 @@ func (m *InteractionStatsAlert) validateStatisticEnum(path, location string, val
 
 func (m *InteractionStatsAlert) validateStatistic(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("statistic", "body", string(m.Statistic)); err != nil {
+	if err := validate.RequiredString("statistic", "body", m.Statistic); err != nil {
 		return err
 	}
 
@@ -612,6 +612,226 @@ func (m *InteractionStatsAlert) validateUnread(formats strfmt.Registry) error {
 func (m *InteractionStatsAlert) validateValue(formats strfmt.Registry) error {
 
 	if err := validate.Required("value", "body", float64(m.Value)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this interaction stats alert based on the context it is used
+func (m *InteractionStatsAlert) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAlertTypes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDimension(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDimensionValue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEndDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMediaType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetric(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNotificationUsers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNumericRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRuleID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStartDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatistic(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateValue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateAlertTypes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "alertTypes", "body", []string(m.AlertTypes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateDimension(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dimension", "body", string(m.Dimension)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateDimensionValue(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dimensionValue", "body", string(m.DimensionValue)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateEndDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "endDate", "body", strfmt.DateTime(m.EndDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateMediaType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "mediaType", "body", string(m.MediaType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateMetric(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "metric", "body", string(m.Metric)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "name", "body", string(m.Name)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateNotificationUsers(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "notificationUsers", "body", []*User(m.NotificationUsers)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.NotificationUsers); i++ {
+
+		if m.NotificationUsers[i] != nil {
+			if err := m.NotificationUsers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("notificationUsers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("notificationUsers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateNumericRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "numericRange", "body", string(m.NumericRange)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateRuleID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "ruleId", "body", string(m.RuleID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateStartDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "startDate", "body", strfmt.DateTime(m.StartDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateStatistic(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "statistic", "body", string(m.Statistic)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *InteractionStatsAlert) contextValidateValue(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "value", "body", float64(m.Value)); err != nil {
 		return err
 	}
 

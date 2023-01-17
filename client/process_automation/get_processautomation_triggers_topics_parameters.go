@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetProcessautomationTriggersTopicsParams creates a new GetProcessautomationTriggersTopicsParams object
-// with the default values initialized.
+// NewGetProcessautomationTriggersTopicsParams creates a new GetProcessautomationTriggersTopicsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetProcessautomationTriggersTopicsParams() *GetProcessautomationTriggersTopicsParams {
-	var ()
 	return &GetProcessautomationTriggersTopicsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetProcessautomationTriggersTopicsParamsWithTimeout creates a new GetProcessautomationTriggersTopicsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetProcessautomationTriggersTopicsParamsWithTimeout(timeout time.Duration) *GetProcessautomationTriggersTopicsParams {
-	var ()
 	return &GetProcessautomationTriggersTopicsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetProcessautomationTriggersTopicsParamsWithContext creates a new GetProcessautomationTriggersTopicsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetProcessautomationTriggersTopicsParamsWithContext(ctx context.Context) *GetProcessautomationTriggersTopicsParams {
-	var ()
 	return &GetProcessautomationTriggersTopicsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetProcessautomationTriggersTopicsParamsWithHTTPClient creates a new GetProcessautomationTriggersTopicsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetProcessautomationTriggersTopicsParamsWithHTTPClient(client *http.Client) *GetProcessautomationTriggersTopicsParams {
-	var ()
 	return &GetProcessautomationTriggersTopicsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetProcessautomationTriggersTopicsParams contains all the parameters to send to the API endpoint
-for the get processautomation triggers topics operation typically these are written to a http.Request
+/*
+GetProcessautomationTriggersTopicsParams contains all the parameters to send to the API endpoint
+
+	for the get processautomation triggers topics operation.
+
+	Typically these are written to a http.Request.
 */
 type GetProcessautomationTriggersTopicsParams struct {
 
-	/*After
-	  The cursor that points to the end of the set of entities that has been returned.
+	/* After.
 
+	   The cursor that points to the end of the set of entities that has been returned.
 	*/
 	After *string
-	/*Before
-	  The cursor that points to the start of the set of entities that has been returned.
 
+	/* Before.
+
+	   The cursor that points to the start of the set of entities that has been returned.
 	*/
 	Before *string
-	/*PageSize
-	  Number of entities to return. Maximum of 200.
 
+	/* PageSize.
+
+	   Number of entities to return. Maximum of 200.
 	*/
 	PageSize *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get processautomation triggers topics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetProcessautomationTriggersTopicsParams) WithDefaults() *GetProcessautomationTriggersTopicsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get processautomation triggers topics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetProcessautomationTriggersTopicsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get processautomation triggers topics params
@@ -159,48 +177,51 @@ func (o *GetProcessautomationTriggersTopicsParams) WriteToRequest(r runtime.Clie
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize string
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := qrPageSize
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

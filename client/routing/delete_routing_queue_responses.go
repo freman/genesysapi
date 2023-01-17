@@ -95,7 +95,6 @@ func (o *DeleteRoutingQueueReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteRoutingQueueOK() *DeleteRoutingQueueOK {
 	return &DeleteRoutingQueueOK{}
 }
 
-/*DeleteRoutingQueueOK handles this case with default header values.
+/*
+DeleteRoutingQueueOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteRoutingQueueOK struct {
 }
 
+// IsSuccess returns true when this delete routing queue o k response has a 2xx status code
+func (o *DeleteRoutingQueueOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete routing queue o k response has a 3xx status code
+func (o *DeleteRoutingQueueOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing queue o k response has a 4xx status code
+func (o *DeleteRoutingQueueOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing queue o k response has a 5xx status code
+func (o *DeleteRoutingQueueOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing queue o k response a status code equal to that given
+func (o *DeleteRoutingQueueOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteRoutingQueueOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueOK ", 200)
+}
+
+func (o *DeleteRoutingQueueOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteRoutingQueueBadRequest() *DeleteRoutingQueueBadRequest {
 	return &DeleteRoutingQueueBadRequest{}
 }
 
-/*DeleteRoutingQueueBadRequest handles this case with default header values.
+/*
+DeleteRoutingQueueBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteRoutingQueueBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing queue bad request response has a 2xx status code
+func (o *DeleteRoutingQueueBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing queue bad request response has a 3xx status code
+func (o *DeleteRoutingQueueBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing queue bad request response has a 4xx status code
+func (o *DeleteRoutingQueueBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing queue bad request response has a 5xx status code
+func (o *DeleteRoutingQueueBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing queue bad request response a status code equal to that given
+func (o *DeleteRoutingQueueBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteRoutingQueueBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteRoutingQueueBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteRoutingQueueUnauthorized() *DeleteRoutingQueueUnauthorized {
 	return &DeleteRoutingQueueUnauthorized{}
 }
 
-/*DeleteRoutingQueueUnauthorized handles this case with default header values.
+/*
+DeleteRoutingQueueUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteRoutingQueueUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing queue unauthorized response has a 2xx status code
+func (o *DeleteRoutingQueueUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing queue unauthorized response has a 3xx status code
+func (o *DeleteRoutingQueueUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing queue unauthorized response has a 4xx status code
+func (o *DeleteRoutingQueueUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing queue unauthorized response has a 5xx status code
+func (o *DeleteRoutingQueueUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing queue unauthorized response a status code equal to that given
+func (o *DeleteRoutingQueueUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteRoutingQueueUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteRoutingQueueUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteRoutingQueueForbidden() *DeleteRoutingQueueForbidden {
 	return &DeleteRoutingQueueForbidden{}
 }
 
-/*DeleteRoutingQueueForbidden handles this case with default header values.
+/*
+DeleteRoutingQueueForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteRoutingQueueForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing queue forbidden response has a 2xx status code
+func (o *DeleteRoutingQueueForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing queue forbidden response has a 3xx status code
+func (o *DeleteRoutingQueueForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing queue forbidden response has a 4xx status code
+func (o *DeleteRoutingQueueForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing queue forbidden response has a 5xx status code
+func (o *DeleteRoutingQueueForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing queue forbidden response a status code equal to that given
+func (o *DeleteRoutingQueueForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRoutingQueueForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteRoutingQueueForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteRoutingQueueNotFound() *DeleteRoutingQueueNotFound {
 	return &DeleteRoutingQueueNotFound{}
 }
 
-/*DeleteRoutingQueueNotFound handles this case with default header values.
+/*
+DeleteRoutingQueueNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteRoutingQueueNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing queue not found response has a 2xx status code
+func (o *DeleteRoutingQueueNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing queue not found response has a 3xx status code
+func (o *DeleteRoutingQueueNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing queue not found response has a 4xx status code
+func (o *DeleteRoutingQueueNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing queue not found response has a 5xx status code
+func (o *DeleteRoutingQueueNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing queue not found response a status code equal to that given
+func (o *DeleteRoutingQueueNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteRoutingQueueNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteRoutingQueueNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteRoutingQueueRequestTimeout() *DeleteRoutingQueueRequestTimeout {
 	return &DeleteRoutingQueueRequestTimeout{}
 }
 
-/*DeleteRoutingQueueRequestTimeout handles this case with default header values.
+/*
+DeleteRoutingQueueRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteRoutingQueueRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing queue request timeout response has a 2xx status code
+func (o *DeleteRoutingQueueRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing queue request timeout response has a 3xx status code
+func (o *DeleteRoutingQueueRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing queue request timeout response has a 4xx status code
+func (o *DeleteRoutingQueueRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing queue request timeout response has a 5xx status code
+func (o *DeleteRoutingQueueRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing queue request timeout response a status code equal to that given
+func (o *DeleteRoutingQueueRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteRoutingQueueRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteRoutingQueueRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteRoutingQueueRequestEntityTooLarge() *DeleteRoutingQueueRequestEnti
 	return &DeleteRoutingQueueRequestEntityTooLarge{}
 }
 
-/*DeleteRoutingQueueRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteRoutingQueueRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteRoutingQueueRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing queue request entity too large response has a 2xx status code
+func (o *DeleteRoutingQueueRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing queue request entity too large response has a 3xx status code
+func (o *DeleteRoutingQueueRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing queue request entity too large response has a 4xx status code
+func (o *DeleteRoutingQueueRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing queue request entity too large response has a 5xx status code
+func (o *DeleteRoutingQueueRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing queue request entity too large response a status code equal to that given
+func (o *DeleteRoutingQueueRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteRoutingQueueRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteRoutingQueueRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteRoutingQueueUnsupportedMediaType() *DeleteRoutingQueueUnsupportedM
 	return &DeleteRoutingQueueUnsupportedMediaType{}
 }
 
-/*DeleteRoutingQueueUnsupportedMediaType handles this case with default header values.
+/*
+DeleteRoutingQueueUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteRoutingQueueUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing queue unsupported media type response has a 2xx status code
+func (o *DeleteRoutingQueueUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing queue unsupported media type response has a 3xx status code
+func (o *DeleteRoutingQueueUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing queue unsupported media type response has a 4xx status code
+func (o *DeleteRoutingQueueUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing queue unsupported media type response has a 5xx status code
+func (o *DeleteRoutingQueueUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing queue unsupported media type response a status code equal to that given
+func (o *DeleteRoutingQueueUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteRoutingQueueUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteRoutingQueueUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteRoutingQueueTooManyRequests() *DeleteRoutingQueueTooManyRequests {
 	return &DeleteRoutingQueueTooManyRequests{}
 }
 
-/*DeleteRoutingQueueTooManyRequests handles this case with default header values.
+/*
+DeleteRoutingQueueTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteRoutingQueueTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing queue too many requests response has a 2xx status code
+func (o *DeleteRoutingQueueTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing queue too many requests response has a 3xx status code
+func (o *DeleteRoutingQueueTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing queue too many requests response has a 4xx status code
+func (o *DeleteRoutingQueueTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing queue too many requests response has a 5xx status code
+func (o *DeleteRoutingQueueTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing queue too many requests response a status code equal to that given
+func (o *DeleteRoutingQueueTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteRoutingQueueTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteRoutingQueueTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteRoutingQueueInternalServerError() *DeleteRoutingQueueInternalServe
 	return &DeleteRoutingQueueInternalServerError{}
 }
 
-/*DeleteRoutingQueueInternalServerError handles this case with default header values.
+/*
+DeleteRoutingQueueInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteRoutingQueueInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing queue internal server error response has a 2xx status code
+func (o *DeleteRoutingQueueInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing queue internal server error response has a 3xx status code
+func (o *DeleteRoutingQueueInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing queue internal server error response has a 4xx status code
+func (o *DeleteRoutingQueueInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing queue internal server error response has a 5xx status code
+func (o *DeleteRoutingQueueInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing queue internal server error response a status code equal to that given
+func (o *DeleteRoutingQueueInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteRoutingQueueInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteRoutingQueueInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteRoutingQueueServiceUnavailable() *DeleteRoutingQueueServiceUnavail
 	return &DeleteRoutingQueueServiceUnavailable{}
 }
 
-/*DeleteRoutingQueueServiceUnavailable handles this case with default header values.
+/*
+DeleteRoutingQueueServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteRoutingQueueServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing queue service unavailable response has a 2xx status code
+func (o *DeleteRoutingQueueServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing queue service unavailable response has a 3xx status code
+func (o *DeleteRoutingQueueServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing queue service unavailable response has a 4xx status code
+func (o *DeleteRoutingQueueServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing queue service unavailable response has a 5xx status code
+func (o *DeleteRoutingQueueServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing queue service unavailable response a status code equal to that given
+func (o *DeleteRoutingQueueServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteRoutingQueueServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteRoutingQueueServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteRoutingQueueGatewayTimeout() *DeleteRoutingQueueGatewayTimeout {
 	return &DeleteRoutingQueueGatewayTimeout{}
 }
 
-/*DeleteRoutingQueueGatewayTimeout handles this case with default header values.
+/*
+DeleteRoutingQueueGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteRoutingQueueGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing queue gateway timeout response has a 2xx status code
+func (o *DeleteRoutingQueueGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing queue gateway timeout response has a 3xx status code
+func (o *DeleteRoutingQueueGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing queue gateway timeout response has a 4xx status code
+func (o *DeleteRoutingQueueGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing queue gateway timeout response has a 5xx status code
+func (o *DeleteRoutingQueueGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing queue gateway timeout response a status code equal to that given
+func (o *DeleteRoutingQueueGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteRoutingQueueGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteRoutingQueueGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/queues/{queueId}][%d] deleteRoutingQueueGatewayTimeout  %+v", 504, o.Payload)
 }
 

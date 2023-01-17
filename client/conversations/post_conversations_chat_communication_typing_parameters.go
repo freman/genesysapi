@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostConversationsChatCommunicationTypingParams creates a new PostConversationsChatCommunicationTypingParams object
-// with the default values initialized.
+// NewPostConversationsChatCommunicationTypingParams creates a new PostConversationsChatCommunicationTypingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsChatCommunicationTypingParams() *PostConversationsChatCommunicationTypingParams {
-	var ()
 	return &PostConversationsChatCommunicationTypingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsChatCommunicationTypingParamsWithTimeout creates a new PostConversationsChatCommunicationTypingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsChatCommunicationTypingParamsWithTimeout(timeout time.Duration) *PostConversationsChatCommunicationTypingParams {
-	var ()
 	return &PostConversationsChatCommunicationTypingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsChatCommunicationTypingParamsWithContext creates a new PostConversationsChatCommunicationTypingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsChatCommunicationTypingParamsWithContext(ctx context.Context) *PostConversationsChatCommunicationTypingParams {
-	var ()
 	return &PostConversationsChatCommunicationTypingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsChatCommunicationTypingParamsWithHTTPClient creates a new PostConversationsChatCommunicationTypingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsChatCommunicationTypingParamsWithHTTPClient(client *http.Client) *PostConversationsChatCommunicationTypingParams {
-	var ()
 	return &PostConversationsChatCommunicationTypingParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsChatCommunicationTypingParams contains all the parameters to send to the API endpoint
-for the post conversations chat communication typing operation typically these are written to a http.Request
+/*
+PostConversationsChatCommunicationTypingParams contains all the parameters to send to the API endpoint
+
+	for the post conversations chat communication typing operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsChatCommunicationTypingParams struct {
 
-	/*CommunicationID
-	  communicationId
+	/* CommunicationID.
 
+	   communicationId
 	*/
 	CommunicationID string
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations chat communication typing params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsChatCommunicationTypingParams) WithDefaults() *PostConversationsChatCommunicationTypingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations chat communication typing params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsChatCommunicationTypingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations chat communication typing params

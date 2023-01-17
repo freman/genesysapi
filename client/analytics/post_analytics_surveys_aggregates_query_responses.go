@@ -95,7 +95,6 @@ func (o *PostAnalyticsSurveysAggregatesQueryReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostAnalyticsSurveysAggregatesQueryOK() *PostAnalyticsSurveysAggregatesQ
 	return &PostAnalyticsSurveysAggregatesQueryOK{}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryOK handles this case with default header values.
+/*
+PostAnalyticsSurveysAggregatesQueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostAnalyticsSurveysAggregatesQueryOK struct {
 	Payload *models.SurveyAggregateQueryResponse
 }
 
+// IsSuccess returns true when this post analytics surveys aggregates query o k response has a 2xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post analytics surveys aggregates query o k response has a 3xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics surveys aggregates query o k response has a 4xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics surveys aggregates query o k response has a 5xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics surveys aggregates query o k response a status code equal to that given
+func (o *PostAnalyticsSurveysAggregatesQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostAnalyticsSurveysAggregatesQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostAnalyticsSurveysAggregatesQueryBadRequest() *PostAnalyticsSurveysAgg
 	return &PostAnalyticsSurveysAggregatesQueryBadRequest{}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryBadRequest handles this case with default header values.
+/*
+PostAnalyticsSurveysAggregatesQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostAnalyticsSurveysAggregatesQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics surveys aggregates query bad request response has a 2xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics surveys aggregates query bad request response has a 3xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics surveys aggregates query bad request response has a 4xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics surveys aggregates query bad request response has a 5xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics surveys aggregates query bad request response a status code equal to that given
+func (o *PostAnalyticsSurveysAggregatesQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAnalyticsSurveysAggregatesQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostAnalyticsSurveysAggregatesQueryUnauthorized() *PostAnalyticsSurveysA
 	return &PostAnalyticsSurveysAggregatesQueryUnauthorized{}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryUnauthorized handles this case with default header values.
+/*
+PostAnalyticsSurveysAggregatesQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostAnalyticsSurveysAggregatesQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics surveys aggregates query unauthorized response has a 2xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics surveys aggregates query unauthorized response has a 3xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics surveys aggregates query unauthorized response has a 4xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics surveys aggregates query unauthorized response has a 5xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics surveys aggregates query unauthorized response a status code equal to that given
+func (o *PostAnalyticsSurveysAggregatesQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAnalyticsSurveysAggregatesQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostAnalyticsSurveysAggregatesQueryForbidden() *PostAnalyticsSurveysAggr
 	return &PostAnalyticsSurveysAggregatesQueryForbidden{}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryForbidden handles this case with default header values.
+/*
+PostAnalyticsSurveysAggregatesQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostAnalyticsSurveysAggregatesQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics surveys aggregates query forbidden response has a 2xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics surveys aggregates query forbidden response has a 3xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics surveys aggregates query forbidden response has a 4xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics surveys aggregates query forbidden response has a 5xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics surveys aggregates query forbidden response a status code equal to that given
+func (o *PostAnalyticsSurveysAggregatesQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAnalyticsSurveysAggregatesQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostAnalyticsSurveysAggregatesQueryNotFound() *PostAnalyticsSurveysAggre
 	return &PostAnalyticsSurveysAggregatesQueryNotFound{}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryNotFound handles this case with default header values.
+/*
+PostAnalyticsSurveysAggregatesQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostAnalyticsSurveysAggregatesQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics surveys aggregates query not found response has a 2xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics surveys aggregates query not found response has a 3xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics surveys aggregates query not found response has a 4xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics surveys aggregates query not found response has a 5xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics surveys aggregates query not found response a status code equal to that given
+func (o *PostAnalyticsSurveysAggregatesQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAnalyticsSurveysAggregatesQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostAnalyticsSurveysAggregatesQueryRequestTimeout() *PostAnalyticsSurvey
 	return &PostAnalyticsSurveysAggregatesQueryRequestTimeout{}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryRequestTimeout handles this case with default header values.
+/*
+PostAnalyticsSurveysAggregatesQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostAnalyticsSurveysAggregatesQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics surveys aggregates query request timeout response has a 2xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics surveys aggregates query request timeout response has a 3xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics surveys aggregates query request timeout response has a 4xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics surveys aggregates query request timeout response has a 5xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics surveys aggregates query request timeout response a status code equal to that given
+func (o *PostAnalyticsSurveysAggregatesQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAnalyticsSurveysAggregatesQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge() *PostAnalytic
 	return &PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge{}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics surveys aggregates query request entity too large response has a 2xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics surveys aggregates query request entity too large response has a 3xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics surveys aggregates query request entity too large response has a 4xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics surveys aggregates query request entity too large response has a 5xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics surveys aggregates query request entity too large response a status code equal to that given
+func (o *PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostAnalyticsSurveysAggregatesQueryUnsupportedMediaType() *PostAnalytics
 	return &PostAnalyticsSurveysAggregatesQueryUnsupportedMediaType{}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostAnalyticsSurveysAggregatesQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostAnalyticsSurveysAggregatesQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics surveys aggregates query unsupported media type response has a 2xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics surveys aggregates query unsupported media type response has a 3xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics surveys aggregates query unsupported media type response has a 4xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics surveys aggregates query unsupported media type response has a 5xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics surveys aggregates query unsupported media type response a status code equal to that given
+func (o *PostAnalyticsSurveysAggregatesQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAnalyticsSurveysAggregatesQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostAnalyticsSurveysAggregatesQueryTooManyRequests() *PostAnalyticsSurve
 	return &PostAnalyticsSurveysAggregatesQueryTooManyRequests{}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryTooManyRequests handles this case with default header values.
+/*
+PostAnalyticsSurveysAggregatesQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostAnalyticsSurveysAggregatesQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics surveys aggregates query too many requests response has a 2xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics surveys aggregates query too many requests response has a 3xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics surveys aggregates query too many requests response has a 4xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics surveys aggregates query too many requests response has a 5xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics surveys aggregates query too many requests response a status code equal to that given
+func (o *PostAnalyticsSurveysAggregatesQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAnalyticsSurveysAggregatesQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostAnalyticsSurveysAggregatesQueryInternalServerError() *PostAnalyticsS
 	return &PostAnalyticsSurveysAggregatesQueryInternalServerError{}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryInternalServerError handles this case with default header values.
+/*
+PostAnalyticsSurveysAggregatesQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostAnalyticsSurveysAggregatesQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics surveys aggregates query internal server error response has a 2xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics surveys aggregates query internal server error response has a 3xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics surveys aggregates query internal server error response has a 4xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics surveys aggregates query internal server error response has a 5xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics surveys aggregates query internal server error response a status code equal to that given
+func (o *PostAnalyticsSurveysAggregatesQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAnalyticsSurveysAggregatesQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostAnalyticsSurveysAggregatesQueryServiceUnavailable() *PostAnalyticsSu
 	return &PostAnalyticsSurveysAggregatesQueryServiceUnavailable{}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryServiceUnavailable handles this case with default header values.
+/*
+PostAnalyticsSurveysAggregatesQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostAnalyticsSurveysAggregatesQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics surveys aggregates query service unavailable response has a 2xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics surveys aggregates query service unavailable response has a 3xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics surveys aggregates query service unavailable response has a 4xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics surveys aggregates query service unavailable response has a 5xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics surveys aggregates query service unavailable response a status code equal to that given
+func (o *PostAnalyticsSurveysAggregatesQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAnalyticsSurveysAggregatesQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostAnalyticsSurveysAggregatesQueryGatewayTimeout() *PostAnalyticsSurvey
 	return &PostAnalyticsSurveysAggregatesQueryGatewayTimeout{}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryGatewayTimeout handles this case with default header values.
+/*
+PostAnalyticsSurveysAggregatesQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostAnalyticsSurveysAggregatesQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics surveys aggregates query gateway timeout response has a 2xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics surveys aggregates query gateway timeout response has a 3xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics surveys aggregates query gateway timeout response has a 4xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics surveys aggregates query gateway timeout response has a 5xx status code
+func (o *PostAnalyticsSurveysAggregatesQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics surveys aggregates query gateway timeout response a status code equal to that given
+func (o *PostAnalyticsSurveysAggregatesQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAnalyticsSurveysAggregatesQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAnalyticsSurveysAggregatesQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/surveys/aggregates/query][%d] postAnalyticsSurveysAggregatesQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

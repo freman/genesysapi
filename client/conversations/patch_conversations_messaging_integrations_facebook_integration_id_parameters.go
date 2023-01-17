@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDParams creates a new PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams object
-// with the default values initialized.
+// NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDParams creates a new PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDParams() *PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams {
-	var ()
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDParamsWithTimeout creates a new PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDParamsWithTimeout(timeout time.Duration) *PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams {
-	var ()
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDParamsWithContext creates a new PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDParamsWithContext(ctx context.Context) *PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams {
-	var ()
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDParamsWithHTTPClient creates a new PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDParamsWithHTTPClient(client *http.Client) *PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams {
-	var ()
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams contains all the parameters to send to the API endpoint
-for the patch conversations messaging integrations facebook integration Id operation typically these are written to a http.Request
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams contains all the parameters to send to the API endpoint
+
+	for the patch conversations messaging integrations facebook integration Id operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams struct {
 
-	/*Body
-	  FacebookIntegrationUpdateRequest
+	/* Body.
 
+	   FacebookIntegrationUpdateRequest
 	*/
 	Body *models.FacebookIntegrationUpdateRequest
-	/*IntegrationID
-	  Integration ID
 
+	/* IntegrationID.
+
+	   Integration ID
 	*/
 	IntegrationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch conversations messaging integrations facebook integration Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams) WithDefaults() *PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch conversations messaging integrations facebook integration Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch conversations messaging integrations facebook integration Id params
@@ -140,7 +157,6 @@ func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDParams) Wri
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

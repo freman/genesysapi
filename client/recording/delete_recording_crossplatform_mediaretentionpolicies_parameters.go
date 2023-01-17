@@ -16,56 +16,72 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteRecordingCrossplatformMediaretentionpoliciesParams creates a new DeleteRecordingCrossplatformMediaretentionpoliciesParams object
-// with the default values initialized.
+// NewDeleteRecordingCrossplatformMediaretentionpoliciesParams creates a new DeleteRecordingCrossplatformMediaretentionpoliciesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRecordingCrossplatformMediaretentionpoliciesParams() *DeleteRecordingCrossplatformMediaretentionpoliciesParams {
-	var ()
 	return &DeleteRecordingCrossplatformMediaretentionpoliciesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRecordingCrossplatformMediaretentionpoliciesParamsWithTimeout creates a new DeleteRecordingCrossplatformMediaretentionpoliciesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRecordingCrossplatformMediaretentionpoliciesParamsWithTimeout(timeout time.Duration) *DeleteRecordingCrossplatformMediaretentionpoliciesParams {
-	var ()
 	return &DeleteRecordingCrossplatformMediaretentionpoliciesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRecordingCrossplatformMediaretentionpoliciesParamsWithContext creates a new DeleteRecordingCrossplatformMediaretentionpoliciesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRecordingCrossplatformMediaretentionpoliciesParamsWithContext(ctx context.Context) *DeleteRecordingCrossplatformMediaretentionpoliciesParams {
-	var ()
 	return &DeleteRecordingCrossplatformMediaretentionpoliciesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRecordingCrossplatformMediaretentionpoliciesParamsWithHTTPClient creates a new DeleteRecordingCrossplatformMediaretentionpoliciesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRecordingCrossplatformMediaretentionpoliciesParamsWithHTTPClient(client *http.Client) *DeleteRecordingCrossplatformMediaretentionpoliciesParams {
-	var ()
 	return &DeleteRecordingCrossplatformMediaretentionpoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpoliciesParams contains all the parameters to send to the API endpoint
-for the delete recording crossplatform mediaretentionpolicies operation typically these are written to a http.Request
+/*
+DeleteRecordingCrossplatformMediaretentionpoliciesParams contains all the parameters to send to the API endpoint
+
+	for the delete recording crossplatform mediaretentionpolicies operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteRecordingCrossplatformMediaretentionpoliciesParams struct {
 
-	/*Ids*/
+	// Ids.
 	Ids string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete recording crossplatform mediaretentionpolicies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRecordingCrossplatformMediaretentionpoliciesParams) WithDefaults() *DeleteRecordingCrossplatformMediaretentionpoliciesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete recording crossplatform mediaretentionpolicies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRecordingCrossplatformMediaretentionpoliciesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete recording crossplatform mediaretentionpolicies params
@@ -124,6 +140,7 @@ func (o *DeleteRecordingCrossplatformMediaretentionpoliciesParams) WriteToReques
 	qrIds := o.Ids
 	qIds := qrIds
 	if qIds != "" {
+
 		if err := r.SetQueryParam("ids", qIds); err != nil {
 			return err
 		}

@@ -95,7 +95,6 @@ func (o *PutIntegrationsCredentialReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutIntegrationsCredentialOK() *PutIntegrationsCredentialOK {
 	return &PutIntegrationsCredentialOK{}
 }
 
-/*PutIntegrationsCredentialOK handles this case with default header values.
+/*
+PutIntegrationsCredentialOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutIntegrationsCredentialOK struct {
 	Payload *models.CredentialInfo
 }
 
+// IsSuccess returns true when this put integrations credential o k response has a 2xx status code
+func (o *PutIntegrationsCredentialOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put integrations credential o k response has a 3xx status code
+func (o *PutIntegrationsCredentialOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations credential o k response has a 4xx status code
+func (o *PutIntegrationsCredentialOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integrations credential o k response has a 5xx status code
+func (o *PutIntegrationsCredentialOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations credential o k response a status code equal to that given
+func (o *PutIntegrationsCredentialOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutIntegrationsCredentialOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialOK  %+v", 200, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutIntegrationsCredentialBadRequest() *PutIntegrationsCredentialBadReque
 	return &PutIntegrationsCredentialBadRequest{}
 }
 
-/*PutIntegrationsCredentialBadRequest handles this case with default header values.
+/*
+PutIntegrationsCredentialBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutIntegrationsCredentialBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations credential bad request response has a 2xx status code
+func (o *PutIntegrationsCredentialBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations credential bad request response has a 3xx status code
+func (o *PutIntegrationsCredentialBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations credential bad request response has a 4xx status code
+func (o *PutIntegrationsCredentialBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations credential bad request response has a 5xx status code
+func (o *PutIntegrationsCredentialBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations credential bad request response a status code equal to that given
+func (o *PutIntegrationsCredentialBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutIntegrationsCredentialBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutIntegrationsCredentialUnauthorized() *PutIntegrationsCredentialUnauth
 	return &PutIntegrationsCredentialUnauthorized{}
 }
 
-/*PutIntegrationsCredentialUnauthorized handles this case with default header values.
+/*
+PutIntegrationsCredentialUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutIntegrationsCredentialUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations credential unauthorized response has a 2xx status code
+func (o *PutIntegrationsCredentialUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations credential unauthorized response has a 3xx status code
+func (o *PutIntegrationsCredentialUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations credential unauthorized response has a 4xx status code
+func (o *PutIntegrationsCredentialUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations credential unauthorized response has a 5xx status code
+func (o *PutIntegrationsCredentialUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations credential unauthorized response a status code equal to that given
+func (o *PutIntegrationsCredentialUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutIntegrationsCredentialUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutIntegrationsCredentialForbidden() *PutIntegrationsCredentialForbidden
 	return &PutIntegrationsCredentialForbidden{}
 }
 
-/*PutIntegrationsCredentialForbidden handles this case with default header values.
+/*
+PutIntegrationsCredentialForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutIntegrationsCredentialForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations credential forbidden response has a 2xx status code
+func (o *PutIntegrationsCredentialForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations credential forbidden response has a 3xx status code
+func (o *PutIntegrationsCredentialForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations credential forbidden response has a 4xx status code
+func (o *PutIntegrationsCredentialForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations credential forbidden response has a 5xx status code
+func (o *PutIntegrationsCredentialForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations credential forbidden response a status code equal to that given
+func (o *PutIntegrationsCredentialForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutIntegrationsCredentialForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutIntegrationsCredentialNotFound() *PutIntegrationsCredentialNotFound {
 	return &PutIntegrationsCredentialNotFound{}
 }
 
-/*PutIntegrationsCredentialNotFound handles this case with default header values.
+/*
+PutIntegrationsCredentialNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutIntegrationsCredentialNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations credential not found response has a 2xx status code
+func (o *PutIntegrationsCredentialNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations credential not found response has a 3xx status code
+func (o *PutIntegrationsCredentialNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations credential not found response has a 4xx status code
+func (o *PutIntegrationsCredentialNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations credential not found response has a 5xx status code
+func (o *PutIntegrationsCredentialNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations credential not found response a status code equal to that given
+func (o *PutIntegrationsCredentialNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutIntegrationsCredentialNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutIntegrationsCredentialRequestTimeout() *PutIntegrationsCredentialRequ
 	return &PutIntegrationsCredentialRequestTimeout{}
 }
 
-/*PutIntegrationsCredentialRequestTimeout handles this case with default header values.
+/*
+PutIntegrationsCredentialRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutIntegrationsCredentialRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations credential request timeout response has a 2xx status code
+func (o *PutIntegrationsCredentialRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations credential request timeout response has a 3xx status code
+func (o *PutIntegrationsCredentialRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations credential request timeout response has a 4xx status code
+func (o *PutIntegrationsCredentialRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations credential request timeout response has a 5xx status code
+func (o *PutIntegrationsCredentialRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations credential request timeout response a status code equal to that given
+func (o *PutIntegrationsCredentialRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutIntegrationsCredentialRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutIntegrationsCredentialRequestEntityTooLarge() *PutIntegrationsCredent
 	return &PutIntegrationsCredentialRequestEntityTooLarge{}
 }
 
-/*PutIntegrationsCredentialRequestEntityTooLarge handles this case with default header values.
+/*
+PutIntegrationsCredentialRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutIntegrationsCredentialRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations credential request entity too large response has a 2xx status code
+func (o *PutIntegrationsCredentialRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations credential request entity too large response has a 3xx status code
+func (o *PutIntegrationsCredentialRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations credential request entity too large response has a 4xx status code
+func (o *PutIntegrationsCredentialRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations credential request entity too large response has a 5xx status code
+func (o *PutIntegrationsCredentialRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations credential request entity too large response a status code equal to that given
+func (o *PutIntegrationsCredentialRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutIntegrationsCredentialRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutIntegrationsCredentialUnsupportedMediaType() *PutIntegrationsCredenti
 	return &PutIntegrationsCredentialUnsupportedMediaType{}
 }
 
-/*PutIntegrationsCredentialUnsupportedMediaType handles this case with default header values.
+/*
+PutIntegrationsCredentialUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutIntegrationsCredentialUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations credential unsupported media type response has a 2xx status code
+func (o *PutIntegrationsCredentialUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations credential unsupported media type response has a 3xx status code
+func (o *PutIntegrationsCredentialUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations credential unsupported media type response has a 4xx status code
+func (o *PutIntegrationsCredentialUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations credential unsupported media type response has a 5xx status code
+func (o *PutIntegrationsCredentialUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations credential unsupported media type response a status code equal to that given
+func (o *PutIntegrationsCredentialUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutIntegrationsCredentialUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutIntegrationsCredentialTooManyRequests() *PutIntegrationsCredentialToo
 	return &PutIntegrationsCredentialTooManyRequests{}
 }
 
-/*PutIntegrationsCredentialTooManyRequests handles this case with default header values.
+/*
+PutIntegrationsCredentialTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutIntegrationsCredentialTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations credential too many requests response has a 2xx status code
+func (o *PutIntegrationsCredentialTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations credential too many requests response has a 3xx status code
+func (o *PutIntegrationsCredentialTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations credential too many requests response has a 4xx status code
+func (o *PutIntegrationsCredentialTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations credential too many requests response has a 5xx status code
+func (o *PutIntegrationsCredentialTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations credential too many requests response a status code equal to that given
+func (o *PutIntegrationsCredentialTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutIntegrationsCredentialTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutIntegrationsCredentialInternalServerError() *PutIntegrationsCredentia
 	return &PutIntegrationsCredentialInternalServerError{}
 }
 
-/*PutIntegrationsCredentialInternalServerError handles this case with default header values.
+/*
+PutIntegrationsCredentialInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutIntegrationsCredentialInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations credential internal server error response has a 2xx status code
+func (o *PutIntegrationsCredentialInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations credential internal server error response has a 3xx status code
+func (o *PutIntegrationsCredentialInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations credential internal server error response has a 4xx status code
+func (o *PutIntegrationsCredentialInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integrations credential internal server error response has a 5xx status code
+func (o *PutIntegrationsCredentialInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put integrations credential internal server error response a status code equal to that given
+func (o *PutIntegrationsCredentialInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutIntegrationsCredentialInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutIntegrationsCredentialServiceUnavailable() *PutIntegrationsCredential
 	return &PutIntegrationsCredentialServiceUnavailable{}
 }
 
-/*PutIntegrationsCredentialServiceUnavailable handles this case with default header values.
+/*
+PutIntegrationsCredentialServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutIntegrationsCredentialServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations credential service unavailable response has a 2xx status code
+func (o *PutIntegrationsCredentialServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations credential service unavailable response has a 3xx status code
+func (o *PutIntegrationsCredentialServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations credential service unavailable response has a 4xx status code
+func (o *PutIntegrationsCredentialServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integrations credential service unavailable response has a 5xx status code
+func (o *PutIntegrationsCredentialServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put integrations credential service unavailable response a status code equal to that given
+func (o *PutIntegrationsCredentialServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutIntegrationsCredentialServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutIntegrationsCredentialGatewayTimeout() *PutIntegrationsCredentialGate
 	return &PutIntegrationsCredentialGatewayTimeout{}
 }
 
-/*PutIntegrationsCredentialGatewayTimeout handles this case with default header values.
+/*
+PutIntegrationsCredentialGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutIntegrationsCredentialGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations credential gateway timeout response has a 2xx status code
+func (o *PutIntegrationsCredentialGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations credential gateway timeout response has a 3xx status code
+func (o *PutIntegrationsCredentialGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations credential gateway timeout response has a 4xx status code
+func (o *PutIntegrationsCredentialGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integrations credential gateway timeout response has a 5xx status code
+func (o *PutIntegrationsCredentialGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put integrations credential gateway timeout response a status code equal to that given
+func (o *PutIntegrationsCredentialGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutIntegrationsCredentialGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutIntegrationsCredentialGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/credentials/{credentialId}][%d] putIntegrationsCredentialGatewayTimeout  %+v", 504, o.Payload)
 }
 

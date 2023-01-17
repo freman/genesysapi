@@ -95,7 +95,6 @@ func (o *PutRecordingMediaretentionpolicyReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutRecordingMediaretentionpolicyOK() *PutRecordingMediaretentionpolicyOK
 	return &PutRecordingMediaretentionpolicyOK{}
 }
 
-/*PutRecordingMediaretentionpolicyOK handles this case with default header values.
+/*
+PutRecordingMediaretentionpolicyOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutRecordingMediaretentionpolicyOK struct {
 	Payload *models.Policy
 }
 
+// IsSuccess returns true when this put recording mediaretentionpolicy o k response has a 2xx status code
+func (o *PutRecordingMediaretentionpolicyOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put recording mediaretentionpolicy o k response has a 3xx status code
+func (o *PutRecordingMediaretentionpolicyOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording mediaretentionpolicy o k response has a 4xx status code
+func (o *PutRecordingMediaretentionpolicyOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording mediaretentionpolicy o k response has a 5xx status code
+func (o *PutRecordingMediaretentionpolicyOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording mediaretentionpolicy o k response a status code equal to that given
+func (o *PutRecordingMediaretentionpolicyOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutRecordingMediaretentionpolicyOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyOK  %+v", 200, o.Payload)
+}
+
+func (o *PutRecordingMediaretentionpolicyOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutRecordingMediaretentionpolicyBadRequest() *PutRecordingMediaretention
 	return &PutRecordingMediaretentionpolicyBadRequest{}
 }
 
-/*PutRecordingMediaretentionpolicyBadRequest handles this case with default header values.
+/*
+PutRecordingMediaretentionpolicyBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutRecordingMediaretentionpolicyBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording mediaretentionpolicy bad request response has a 2xx status code
+func (o *PutRecordingMediaretentionpolicyBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording mediaretentionpolicy bad request response has a 3xx status code
+func (o *PutRecordingMediaretentionpolicyBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording mediaretentionpolicy bad request response has a 4xx status code
+func (o *PutRecordingMediaretentionpolicyBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording mediaretentionpolicy bad request response has a 5xx status code
+func (o *PutRecordingMediaretentionpolicyBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording mediaretentionpolicy bad request response a status code equal to that given
+func (o *PutRecordingMediaretentionpolicyBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutRecordingMediaretentionpolicyBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutRecordingMediaretentionpolicyBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutRecordingMediaretentionpolicyUnauthorized() *PutRecordingMediaretenti
 	return &PutRecordingMediaretentionpolicyUnauthorized{}
 }
 
-/*PutRecordingMediaretentionpolicyUnauthorized handles this case with default header values.
+/*
+PutRecordingMediaretentionpolicyUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutRecordingMediaretentionpolicyUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording mediaretentionpolicy unauthorized response has a 2xx status code
+func (o *PutRecordingMediaretentionpolicyUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording mediaretentionpolicy unauthorized response has a 3xx status code
+func (o *PutRecordingMediaretentionpolicyUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording mediaretentionpolicy unauthorized response has a 4xx status code
+func (o *PutRecordingMediaretentionpolicyUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording mediaretentionpolicy unauthorized response has a 5xx status code
+func (o *PutRecordingMediaretentionpolicyUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording mediaretentionpolicy unauthorized response a status code equal to that given
+func (o *PutRecordingMediaretentionpolicyUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutRecordingMediaretentionpolicyUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutRecordingMediaretentionpolicyUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutRecordingMediaretentionpolicyForbidden() *PutRecordingMediaretentionp
 	return &PutRecordingMediaretentionpolicyForbidden{}
 }
 
-/*PutRecordingMediaretentionpolicyForbidden handles this case with default header values.
+/*
+PutRecordingMediaretentionpolicyForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutRecordingMediaretentionpolicyForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording mediaretentionpolicy forbidden response has a 2xx status code
+func (o *PutRecordingMediaretentionpolicyForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording mediaretentionpolicy forbidden response has a 3xx status code
+func (o *PutRecordingMediaretentionpolicyForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording mediaretentionpolicy forbidden response has a 4xx status code
+func (o *PutRecordingMediaretentionpolicyForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording mediaretentionpolicy forbidden response has a 5xx status code
+func (o *PutRecordingMediaretentionpolicyForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording mediaretentionpolicy forbidden response a status code equal to that given
+func (o *PutRecordingMediaretentionpolicyForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutRecordingMediaretentionpolicyForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutRecordingMediaretentionpolicyForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutRecordingMediaretentionpolicyNotFound() *PutRecordingMediaretentionpo
 	return &PutRecordingMediaretentionpolicyNotFound{}
 }
 
-/*PutRecordingMediaretentionpolicyNotFound handles this case with default header values.
+/*
+PutRecordingMediaretentionpolicyNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutRecordingMediaretentionpolicyNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording mediaretentionpolicy not found response has a 2xx status code
+func (o *PutRecordingMediaretentionpolicyNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording mediaretentionpolicy not found response has a 3xx status code
+func (o *PutRecordingMediaretentionpolicyNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording mediaretentionpolicy not found response has a 4xx status code
+func (o *PutRecordingMediaretentionpolicyNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording mediaretentionpolicy not found response has a 5xx status code
+func (o *PutRecordingMediaretentionpolicyNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording mediaretentionpolicy not found response a status code equal to that given
+func (o *PutRecordingMediaretentionpolicyNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutRecordingMediaretentionpolicyNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutRecordingMediaretentionpolicyNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutRecordingMediaretentionpolicyRequestTimeout() *PutRecordingMediareten
 	return &PutRecordingMediaretentionpolicyRequestTimeout{}
 }
 
-/*PutRecordingMediaretentionpolicyRequestTimeout handles this case with default header values.
+/*
+PutRecordingMediaretentionpolicyRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutRecordingMediaretentionpolicyRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording mediaretentionpolicy request timeout response has a 2xx status code
+func (o *PutRecordingMediaretentionpolicyRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording mediaretentionpolicy request timeout response has a 3xx status code
+func (o *PutRecordingMediaretentionpolicyRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording mediaretentionpolicy request timeout response has a 4xx status code
+func (o *PutRecordingMediaretentionpolicyRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording mediaretentionpolicy request timeout response has a 5xx status code
+func (o *PutRecordingMediaretentionpolicyRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording mediaretentionpolicy request timeout response a status code equal to that given
+func (o *PutRecordingMediaretentionpolicyRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutRecordingMediaretentionpolicyRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutRecordingMediaretentionpolicyRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutRecordingMediaretentionpolicyRequestEntityTooLarge() *PutRecordingMed
 	return &PutRecordingMediaretentionpolicyRequestEntityTooLarge{}
 }
 
-/*PutRecordingMediaretentionpolicyRequestEntityTooLarge handles this case with default header values.
+/*
+PutRecordingMediaretentionpolicyRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutRecordingMediaretentionpolicyRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording mediaretentionpolicy request entity too large response has a 2xx status code
+func (o *PutRecordingMediaretentionpolicyRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording mediaretentionpolicy request entity too large response has a 3xx status code
+func (o *PutRecordingMediaretentionpolicyRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording mediaretentionpolicy request entity too large response has a 4xx status code
+func (o *PutRecordingMediaretentionpolicyRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording mediaretentionpolicy request entity too large response has a 5xx status code
+func (o *PutRecordingMediaretentionpolicyRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording mediaretentionpolicy request entity too large response a status code equal to that given
+func (o *PutRecordingMediaretentionpolicyRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutRecordingMediaretentionpolicyRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutRecordingMediaretentionpolicyRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutRecordingMediaretentionpolicyUnsupportedMediaType() *PutRecordingMedi
 	return &PutRecordingMediaretentionpolicyUnsupportedMediaType{}
 }
 
-/*PutRecordingMediaretentionpolicyUnsupportedMediaType handles this case with default header values.
+/*
+PutRecordingMediaretentionpolicyUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutRecordingMediaretentionpolicyUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording mediaretentionpolicy unsupported media type response has a 2xx status code
+func (o *PutRecordingMediaretentionpolicyUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording mediaretentionpolicy unsupported media type response has a 3xx status code
+func (o *PutRecordingMediaretentionpolicyUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording mediaretentionpolicy unsupported media type response has a 4xx status code
+func (o *PutRecordingMediaretentionpolicyUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording mediaretentionpolicy unsupported media type response has a 5xx status code
+func (o *PutRecordingMediaretentionpolicyUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording mediaretentionpolicy unsupported media type response a status code equal to that given
+func (o *PutRecordingMediaretentionpolicyUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutRecordingMediaretentionpolicyUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutRecordingMediaretentionpolicyUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutRecordingMediaretentionpolicyTooManyRequests() *PutRecordingMediarete
 	return &PutRecordingMediaretentionpolicyTooManyRequests{}
 }
 
-/*PutRecordingMediaretentionpolicyTooManyRequests handles this case with default header values.
+/*
+PutRecordingMediaretentionpolicyTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutRecordingMediaretentionpolicyTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording mediaretentionpolicy too many requests response has a 2xx status code
+func (o *PutRecordingMediaretentionpolicyTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording mediaretentionpolicy too many requests response has a 3xx status code
+func (o *PutRecordingMediaretentionpolicyTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording mediaretentionpolicy too many requests response has a 4xx status code
+func (o *PutRecordingMediaretentionpolicyTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording mediaretentionpolicy too many requests response has a 5xx status code
+func (o *PutRecordingMediaretentionpolicyTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording mediaretentionpolicy too many requests response a status code equal to that given
+func (o *PutRecordingMediaretentionpolicyTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutRecordingMediaretentionpolicyTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutRecordingMediaretentionpolicyTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutRecordingMediaretentionpolicyInternalServerError() *PutRecordingMedia
 	return &PutRecordingMediaretentionpolicyInternalServerError{}
 }
 
-/*PutRecordingMediaretentionpolicyInternalServerError handles this case with default header values.
+/*
+PutRecordingMediaretentionpolicyInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutRecordingMediaretentionpolicyInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording mediaretentionpolicy internal server error response has a 2xx status code
+func (o *PutRecordingMediaretentionpolicyInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording mediaretentionpolicy internal server error response has a 3xx status code
+func (o *PutRecordingMediaretentionpolicyInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording mediaretentionpolicy internal server error response has a 4xx status code
+func (o *PutRecordingMediaretentionpolicyInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording mediaretentionpolicy internal server error response has a 5xx status code
+func (o *PutRecordingMediaretentionpolicyInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording mediaretentionpolicy internal server error response a status code equal to that given
+func (o *PutRecordingMediaretentionpolicyInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutRecordingMediaretentionpolicyInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutRecordingMediaretentionpolicyInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutRecordingMediaretentionpolicyServiceUnavailable() *PutRecordingMediar
 	return &PutRecordingMediaretentionpolicyServiceUnavailable{}
 }
 
-/*PutRecordingMediaretentionpolicyServiceUnavailable handles this case with default header values.
+/*
+PutRecordingMediaretentionpolicyServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutRecordingMediaretentionpolicyServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording mediaretentionpolicy service unavailable response has a 2xx status code
+func (o *PutRecordingMediaretentionpolicyServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording mediaretentionpolicy service unavailable response has a 3xx status code
+func (o *PutRecordingMediaretentionpolicyServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording mediaretentionpolicy service unavailable response has a 4xx status code
+func (o *PutRecordingMediaretentionpolicyServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording mediaretentionpolicy service unavailable response has a 5xx status code
+func (o *PutRecordingMediaretentionpolicyServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording mediaretentionpolicy service unavailable response a status code equal to that given
+func (o *PutRecordingMediaretentionpolicyServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutRecordingMediaretentionpolicyServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutRecordingMediaretentionpolicyServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutRecordingMediaretentionpolicyGatewayTimeout() *PutRecordingMediareten
 	return &PutRecordingMediaretentionpolicyGatewayTimeout{}
 }
 
-/*PutRecordingMediaretentionpolicyGatewayTimeout handles this case with default header values.
+/*
+PutRecordingMediaretentionpolicyGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutRecordingMediaretentionpolicyGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording mediaretentionpolicy gateway timeout response has a 2xx status code
+func (o *PutRecordingMediaretentionpolicyGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording mediaretentionpolicy gateway timeout response has a 3xx status code
+func (o *PutRecordingMediaretentionpolicyGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording mediaretentionpolicy gateway timeout response has a 4xx status code
+func (o *PutRecordingMediaretentionpolicyGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording mediaretentionpolicy gateway timeout response has a 5xx status code
+func (o *PutRecordingMediaretentionpolicyGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording mediaretentionpolicy gateway timeout response a status code equal to that given
+func (o *PutRecordingMediaretentionpolicyGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutRecordingMediaretentionpolicyGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutRecordingMediaretentionpolicyGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/mediaretentionpolicies/{policyId}][%d] putRecordingMediaretentionpolicyGatewayTimeout  %+v", 504, o.Payload)
 }
 

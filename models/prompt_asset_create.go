@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -101,7 +102,6 @@ func (m *PromptAssetCreate) validateLanguage(formats strfmt.Registry) error {
 }
 
 func (m *PromptAssetCreate) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -149,13 +149,113 @@ func (m *PromptAssetCreate) validateUploadStatusEnum(path, location string, valu
 }
 
 func (m *PromptAssetCreate) validateUploadStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UploadStatus) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateUploadStatusEnum("uploadStatus", "body", m.UploadStatus); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this prompt asset create based on the context it is used
+func (m *PromptAssetCreate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLanguageDefault(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMediaURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePromptID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUploadStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUploadURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PromptAssetCreate) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PromptAssetCreate) contextValidateLanguageDefault(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "languageDefault", "body", m.LanguageDefault); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PromptAssetCreate) contextValidateMediaURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "mediaUri", "body", string(m.MediaURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PromptAssetCreate) contextValidatePromptID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "promptId", "body", string(m.PromptID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PromptAssetCreate) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PromptAssetCreate) contextValidateUploadStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "uploadStatus", "body", string(m.UploadStatus)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PromptAssetCreate) contextValidateUploadURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "uploadUri", "body", string(m.UploadURI)); err != nil {
 		return err
 	}
 

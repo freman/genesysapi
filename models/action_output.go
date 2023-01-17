@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -58,7 +60,6 @@ func (m *ActionOutput) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ActionOutput) validateErrorSchema(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorSchema) { // not required
 		return nil
 	}
@@ -67,6 +68,8 @@ func (m *ActionOutput) validateErrorSchema(formats strfmt.Registry) error {
 		if err := m.ErrorSchema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errorSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorSchema")
 			}
 			return err
 		}
@@ -76,7 +79,6 @@ func (m *ActionOutput) validateErrorSchema(formats strfmt.Registry) error {
 }
 
 func (m *ActionOutput) validateSuccessSchema(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SuccessSchema) { // not required
 		return nil
 	}
@@ -85,6 +87,8 @@ func (m *ActionOutput) validateSuccessSchema(formats strfmt.Registry) error {
 		if err := m.SuccessSchema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("successSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("successSchema")
 			}
 			return err
 		}
@@ -94,7 +98,6 @@ func (m *ActionOutput) validateSuccessSchema(formats strfmt.Registry) error {
 }
 
 func (m *ActionOutput) validateSuccessSchemaFlattened(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SuccessSchemaFlattened) { // not required
 		return nil
 	}
@@ -103,6 +106,78 @@ func (m *ActionOutput) validateSuccessSchemaFlattened(formats strfmt.Registry) e
 		if err := m.SuccessSchemaFlattened.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("successSchemaFlattened")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("successSchemaFlattened")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this action output based on the context it is used
+func (m *ActionOutput) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateErrorSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSuccessSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSuccessSchemaFlattened(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ActionOutput) contextValidateErrorSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ErrorSchema != nil {
+		if err := m.ErrorSchema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorSchema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ActionOutput) contextValidateSuccessSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SuccessSchema != nil {
+		if err := m.SuccessSchema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("successSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("successSchema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ActionOutput) contextValidateSuccessSchemaFlattened(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SuccessSchemaFlattened != nil {
+		if err := m.SuccessSchemaFlattened.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("successSchemaFlattened")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("successSchemaFlattened")
 			}
 			return err
 		}

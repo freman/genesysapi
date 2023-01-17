@@ -95,7 +95,6 @@ func (o *PutOutboundAttemptlimitReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutOutboundAttemptlimitOK() *PutOutboundAttemptlimitOK {
 	return &PutOutboundAttemptlimitOK{}
 }
 
-/*PutOutboundAttemptlimitOK handles this case with default header values.
+/*
+PutOutboundAttemptlimitOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutOutboundAttemptlimitOK struct {
 	Payload *models.AttemptLimits
 }
 
+// IsSuccess returns true when this put outbound attemptlimit o k response has a 2xx status code
+func (o *PutOutboundAttemptlimitOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put outbound attemptlimit o k response has a 3xx status code
+func (o *PutOutboundAttemptlimitOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound attemptlimit o k response has a 4xx status code
+func (o *PutOutboundAttemptlimitOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound attemptlimit o k response has a 5xx status code
+func (o *PutOutboundAttemptlimitOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound attemptlimit o k response a status code equal to that given
+func (o *PutOutboundAttemptlimitOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOutboundAttemptlimitOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOutboundAttemptlimitOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutOutboundAttemptlimitBadRequest() *PutOutboundAttemptlimitBadRequest {
 	return &PutOutboundAttemptlimitBadRequest{}
 }
 
-/*PutOutboundAttemptlimitBadRequest handles this case with default header values.
+/*
+PutOutboundAttemptlimitBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutOutboundAttemptlimitBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound attemptlimit bad request response has a 2xx status code
+func (o *PutOutboundAttemptlimitBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound attemptlimit bad request response has a 3xx status code
+func (o *PutOutboundAttemptlimitBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound attemptlimit bad request response has a 4xx status code
+func (o *PutOutboundAttemptlimitBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound attemptlimit bad request response has a 5xx status code
+func (o *PutOutboundAttemptlimitBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound attemptlimit bad request response a status code equal to that given
+func (o *PutOutboundAttemptlimitBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOutboundAttemptlimitBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOutboundAttemptlimitBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutOutboundAttemptlimitUnauthorized() *PutOutboundAttemptlimitUnauthoriz
 	return &PutOutboundAttemptlimitUnauthorized{}
 }
 
-/*PutOutboundAttemptlimitUnauthorized handles this case with default header values.
+/*
+PutOutboundAttemptlimitUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutOutboundAttemptlimitUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound attemptlimit unauthorized response has a 2xx status code
+func (o *PutOutboundAttemptlimitUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound attemptlimit unauthorized response has a 3xx status code
+func (o *PutOutboundAttemptlimitUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound attemptlimit unauthorized response has a 4xx status code
+func (o *PutOutboundAttemptlimitUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound attemptlimit unauthorized response has a 5xx status code
+func (o *PutOutboundAttemptlimitUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound attemptlimit unauthorized response a status code equal to that given
+func (o *PutOutboundAttemptlimitUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOutboundAttemptlimitUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOutboundAttemptlimitUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutOutboundAttemptlimitForbidden() *PutOutboundAttemptlimitForbidden {
 	return &PutOutboundAttemptlimitForbidden{}
 }
 
-/*PutOutboundAttemptlimitForbidden handles this case with default header values.
+/*
+PutOutboundAttemptlimitForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutOutboundAttemptlimitForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound attemptlimit forbidden response has a 2xx status code
+func (o *PutOutboundAttemptlimitForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound attemptlimit forbidden response has a 3xx status code
+func (o *PutOutboundAttemptlimitForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound attemptlimit forbidden response has a 4xx status code
+func (o *PutOutboundAttemptlimitForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound attemptlimit forbidden response has a 5xx status code
+func (o *PutOutboundAttemptlimitForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound attemptlimit forbidden response a status code equal to that given
+func (o *PutOutboundAttemptlimitForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOutboundAttemptlimitForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOutboundAttemptlimitForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutOutboundAttemptlimitNotFound() *PutOutboundAttemptlimitNotFound {
 	return &PutOutboundAttemptlimitNotFound{}
 }
 
-/*PutOutboundAttemptlimitNotFound handles this case with default header values.
+/*
+PutOutboundAttemptlimitNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutOutboundAttemptlimitNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound attemptlimit not found response has a 2xx status code
+func (o *PutOutboundAttemptlimitNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound attemptlimit not found response has a 3xx status code
+func (o *PutOutboundAttemptlimitNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound attemptlimit not found response has a 4xx status code
+func (o *PutOutboundAttemptlimitNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound attemptlimit not found response has a 5xx status code
+func (o *PutOutboundAttemptlimitNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound attemptlimit not found response a status code equal to that given
+func (o *PutOutboundAttemptlimitNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOutboundAttemptlimitNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOutboundAttemptlimitNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutOutboundAttemptlimitRequestTimeout() *PutOutboundAttemptlimitRequestT
 	return &PutOutboundAttemptlimitRequestTimeout{}
 }
 
-/*PutOutboundAttemptlimitRequestTimeout handles this case with default header values.
+/*
+PutOutboundAttemptlimitRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutOutboundAttemptlimitRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound attemptlimit request timeout response has a 2xx status code
+func (o *PutOutboundAttemptlimitRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound attemptlimit request timeout response has a 3xx status code
+func (o *PutOutboundAttemptlimitRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound attemptlimit request timeout response has a 4xx status code
+func (o *PutOutboundAttemptlimitRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound attemptlimit request timeout response has a 5xx status code
+func (o *PutOutboundAttemptlimitRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound attemptlimit request timeout response a status code equal to that given
+func (o *PutOutboundAttemptlimitRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOutboundAttemptlimitRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOutboundAttemptlimitRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutOutboundAttemptlimitRequestEntityTooLarge() *PutOutboundAttemptlimitR
 	return &PutOutboundAttemptlimitRequestEntityTooLarge{}
 }
 
-/*PutOutboundAttemptlimitRequestEntityTooLarge handles this case with default header values.
+/*
+PutOutboundAttemptlimitRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutOutboundAttemptlimitRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound attemptlimit request entity too large response has a 2xx status code
+func (o *PutOutboundAttemptlimitRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound attemptlimit request entity too large response has a 3xx status code
+func (o *PutOutboundAttemptlimitRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound attemptlimit request entity too large response has a 4xx status code
+func (o *PutOutboundAttemptlimitRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound attemptlimit request entity too large response has a 5xx status code
+func (o *PutOutboundAttemptlimitRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound attemptlimit request entity too large response a status code equal to that given
+func (o *PutOutboundAttemptlimitRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOutboundAttemptlimitRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOutboundAttemptlimitRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutOutboundAttemptlimitUnsupportedMediaType() *PutOutboundAttemptlimitUn
 	return &PutOutboundAttemptlimitUnsupportedMediaType{}
 }
 
-/*PutOutboundAttemptlimitUnsupportedMediaType handles this case with default header values.
+/*
+PutOutboundAttemptlimitUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutOutboundAttemptlimitUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound attemptlimit unsupported media type response has a 2xx status code
+func (o *PutOutboundAttemptlimitUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound attemptlimit unsupported media type response has a 3xx status code
+func (o *PutOutboundAttemptlimitUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound attemptlimit unsupported media type response has a 4xx status code
+func (o *PutOutboundAttemptlimitUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound attemptlimit unsupported media type response has a 5xx status code
+func (o *PutOutboundAttemptlimitUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound attemptlimit unsupported media type response a status code equal to that given
+func (o *PutOutboundAttemptlimitUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOutboundAttemptlimitUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOutboundAttemptlimitUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutOutboundAttemptlimitTooManyRequests() *PutOutboundAttemptlimitTooMany
 	return &PutOutboundAttemptlimitTooManyRequests{}
 }
 
-/*PutOutboundAttemptlimitTooManyRequests handles this case with default header values.
+/*
+PutOutboundAttemptlimitTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutOutboundAttemptlimitTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound attemptlimit too many requests response has a 2xx status code
+func (o *PutOutboundAttemptlimitTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound attemptlimit too many requests response has a 3xx status code
+func (o *PutOutboundAttemptlimitTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound attemptlimit too many requests response has a 4xx status code
+func (o *PutOutboundAttemptlimitTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound attemptlimit too many requests response has a 5xx status code
+func (o *PutOutboundAttemptlimitTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound attemptlimit too many requests response a status code equal to that given
+func (o *PutOutboundAttemptlimitTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOutboundAttemptlimitTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOutboundAttemptlimitTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutOutboundAttemptlimitInternalServerError() *PutOutboundAttemptlimitInt
 	return &PutOutboundAttemptlimitInternalServerError{}
 }
 
-/*PutOutboundAttemptlimitInternalServerError handles this case with default header values.
+/*
+PutOutboundAttemptlimitInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutOutboundAttemptlimitInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound attemptlimit internal server error response has a 2xx status code
+func (o *PutOutboundAttemptlimitInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound attemptlimit internal server error response has a 3xx status code
+func (o *PutOutboundAttemptlimitInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound attemptlimit internal server error response has a 4xx status code
+func (o *PutOutboundAttemptlimitInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound attemptlimit internal server error response has a 5xx status code
+func (o *PutOutboundAttemptlimitInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound attemptlimit internal server error response a status code equal to that given
+func (o *PutOutboundAttemptlimitInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOutboundAttemptlimitInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOutboundAttemptlimitInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutOutboundAttemptlimitServiceUnavailable() *PutOutboundAttemptlimitServ
 	return &PutOutboundAttemptlimitServiceUnavailable{}
 }
 
-/*PutOutboundAttemptlimitServiceUnavailable handles this case with default header values.
+/*
+PutOutboundAttemptlimitServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutOutboundAttemptlimitServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound attemptlimit service unavailable response has a 2xx status code
+func (o *PutOutboundAttemptlimitServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound attemptlimit service unavailable response has a 3xx status code
+func (o *PutOutboundAttemptlimitServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound attemptlimit service unavailable response has a 4xx status code
+func (o *PutOutboundAttemptlimitServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound attemptlimit service unavailable response has a 5xx status code
+func (o *PutOutboundAttemptlimitServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound attemptlimit service unavailable response a status code equal to that given
+func (o *PutOutboundAttemptlimitServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOutboundAttemptlimitServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOutboundAttemptlimitServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutOutboundAttemptlimitGatewayTimeout() *PutOutboundAttemptlimitGatewayT
 	return &PutOutboundAttemptlimitGatewayTimeout{}
 }
 
-/*PutOutboundAttemptlimitGatewayTimeout handles this case with default header values.
+/*
+PutOutboundAttemptlimitGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutOutboundAttemptlimitGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound attemptlimit gateway timeout response has a 2xx status code
+func (o *PutOutboundAttemptlimitGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound attemptlimit gateway timeout response has a 3xx status code
+func (o *PutOutboundAttemptlimitGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound attemptlimit gateway timeout response has a 4xx status code
+func (o *PutOutboundAttemptlimitGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound attemptlimit gateway timeout response has a 5xx status code
+func (o *PutOutboundAttemptlimitGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound attemptlimit gateway timeout response a status code equal to that given
+func (o *PutOutboundAttemptlimitGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOutboundAttemptlimitGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOutboundAttemptlimitGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] putOutboundAttemptlimitGatewayTimeout  %+v", 504, o.Payload)
 }
 

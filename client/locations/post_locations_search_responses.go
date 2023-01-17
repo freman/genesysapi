@@ -95,7 +95,6 @@ func (o *PostLocationsSearchReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostLocationsSearchOK() *PostLocationsSearchOK {
 	return &PostLocationsSearchOK{}
 }
 
-/*PostLocationsSearchOK handles this case with default header values.
+/*
+PostLocationsSearchOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostLocationsSearchOK struct {
 	Payload *models.LocationsSearchResponse
 }
 
+// IsSuccess returns true when this post locations search o k response has a 2xx status code
+func (o *PostLocationsSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post locations search o k response has a 3xx status code
+func (o *PostLocationsSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations search o k response has a 4xx status code
+func (o *PostLocationsSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post locations search o k response has a 5xx status code
+func (o *PostLocationsSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations search o k response a status code equal to that given
+func (o *PostLocationsSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLocationsSearchOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLocationsSearchOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostLocationsSearchBadRequest() *PostLocationsSearchBadRequest {
 	return &PostLocationsSearchBadRequest{}
 }
 
-/*PostLocationsSearchBadRequest handles this case with default header values.
+/*
+PostLocationsSearchBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostLocationsSearchBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations search bad request response has a 2xx status code
+func (o *PostLocationsSearchBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations search bad request response has a 3xx status code
+func (o *PostLocationsSearchBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations search bad request response has a 4xx status code
+func (o *PostLocationsSearchBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations search bad request response has a 5xx status code
+func (o *PostLocationsSearchBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations search bad request response a status code equal to that given
+func (o *PostLocationsSearchBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLocationsSearchBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLocationsSearchBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostLocationsSearchUnauthorized() *PostLocationsSearchUnauthorized {
 	return &PostLocationsSearchUnauthorized{}
 }
 
-/*PostLocationsSearchUnauthorized handles this case with default header values.
+/*
+PostLocationsSearchUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostLocationsSearchUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations search unauthorized response has a 2xx status code
+func (o *PostLocationsSearchUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations search unauthorized response has a 3xx status code
+func (o *PostLocationsSearchUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations search unauthorized response has a 4xx status code
+func (o *PostLocationsSearchUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations search unauthorized response has a 5xx status code
+func (o *PostLocationsSearchUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations search unauthorized response a status code equal to that given
+func (o *PostLocationsSearchUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLocationsSearchUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLocationsSearchUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostLocationsSearchForbidden() *PostLocationsSearchForbidden {
 	return &PostLocationsSearchForbidden{}
 }
 
-/*PostLocationsSearchForbidden handles this case with default header values.
+/*
+PostLocationsSearchForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostLocationsSearchForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations search forbidden response has a 2xx status code
+func (o *PostLocationsSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations search forbidden response has a 3xx status code
+func (o *PostLocationsSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations search forbidden response has a 4xx status code
+func (o *PostLocationsSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations search forbidden response has a 5xx status code
+func (o *PostLocationsSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations search forbidden response a status code equal to that given
+func (o *PostLocationsSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLocationsSearchForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLocationsSearchForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostLocationsSearchNotFound() *PostLocationsSearchNotFound {
 	return &PostLocationsSearchNotFound{}
 }
 
-/*PostLocationsSearchNotFound handles this case with default header values.
+/*
+PostLocationsSearchNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostLocationsSearchNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations search not found response has a 2xx status code
+func (o *PostLocationsSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations search not found response has a 3xx status code
+func (o *PostLocationsSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations search not found response has a 4xx status code
+func (o *PostLocationsSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations search not found response has a 5xx status code
+func (o *PostLocationsSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations search not found response a status code equal to that given
+func (o *PostLocationsSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLocationsSearchNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLocationsSearchNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostLocationsSearchRequestTimeout() *PostLocationsSearchRequestTimeout {
 	return &PostLocationsSearchRequestTimeout{}
 }
 
-/*PostLocationsSearchRequestTimeout handles this case with default header values.
+/*
+PostLocationsSearchRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostLocationsSearchRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations search request timeout response has a 2xx status code
+func (o *PostLocationsSearchRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations search request timeout response has a 3xx status code
+func (o *PostLocationsSearchRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations search request timeout response has a 4xx status code
+func (o *PostLocationsSearchRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations search request timeout response has a 5xx status code
+func (o *PostLocationsSearchRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations search request timeout response a status code equal to that given
+func (o *PostLocationsSearchRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLocationsSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLocationsSearchRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostLocationsSearchRequestEntityTooLarge() *PostLocationsSearchRequestEn
 	return &PostLocationsSearchRequestEntityTooLarge{}
 }
 
-/*PostLocationsSearchRequestEntityTooLarge handles this case with default header values.
+/*
+PostLocationsSearchRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostLocationsSearchRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations search request entity too large response has a 2xx status code
+func (o *PostLocationsSearchRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations search request entity too large response has a 3xx status code
+func (o *PostLocationsSearchRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations search request entity too large response has a 4xx status code
+func (o *PostLocationsSearchRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations search request entity too large response has a 5xx status code
+func (o *PostLocationsSearchRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations search request entity too large response a status code equal to that given
+func (o *PostLocationsSearchRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLocationsSearchRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLocationsSearchRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostLocationsSearchUnsupportedMediaType() *PostLocationsSearchUnsupporte
 	return &PostLocationsSearchUnsupportedMediaType{}
 }
 
-/*PostLocationsSearchUnsupportedMediaType handles this case with default header values.
+/*
+PostLocationsSearchUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostLocationsSearchUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations search unsupported media type response has a 2xx status code
+func (o *PostLocationsSearchUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations search unsupported media type response has a 3xx status code
+func (o *PostLocationsSearchUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations search unsupported media type response has a 4xx status code
+func (o *PostLocationsSearchUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations search unsupported media type response has a 5xx status code
+func (o *PostLocationsSearchUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations search unsupported media type response a status code equal to that given
+func (o *PostLocationsSearchUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLocationsSearchUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLocationsSearchUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostLocationsSearchTooManyRequests() *PostLocationsSearchTooManyRequests
 	return &PostLocationsSearchTooManyRequests{}
 }
 
-/*PostLocationsSearchTooManyRequests handles this case with default header values.
+/*
+PostLocationsSearchTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostLocationsSearchTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations search too many requests response has a 2xx status code
+func (o *PostLocationsSearchTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations search too many requests response has a 3xx status code
+func (o *PostLocationsSearchTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations search too many requests response has a 4xx status code
+func (o *PostLocationsSearchTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations search too many requests response has a 5xx status code
+func (o *PostLocationsSearchTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations search too many requests response a status code equal to that given
+func (o *PostLocationsSearchTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLocationsSearchTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLocationsSearchTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostLocationsSearchInternalServerError() *PostLocationsSearchInternalSer
 	return &PostLocationsSearchInternalServerError{}
 }
 
-/*PostLocationsSearchInternalServerError handles this case with default header values.
+/*
+PostLocationsSearchInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostLocationsSearchInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations search internal server error response has a 2xx status code
+func (o *PostLocationsSearchInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations search internal server error response has a 3xx status code
+func (o *PostLocationsSearchInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations search internal server error response has a 4xx status code
+func (o *PostLocationsSearchInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post locations search internal server error response has a 5xx status code
+func (o *PostLocationsSearchInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post locations search internal server error response a status code equal to that given
+func (o *PostLocationsSearchInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLocationsSearchInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLocationsSearchInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostLocationsSearchServiceUnavailable() *PostLocationsSearchServiceUnava
 	return &PostLocationsSearchServiceUnavailable{}
 }
 
-/*PostLocationsSearchServiceUnavailable handles this case with default header values.
+/*
+PostLocationsSearchServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostLocationsSearchServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations search service unavailable response has a 2xx status code
+func (o *PostLocationsSearchServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations search service unavailable response has a 3xx status code
+func (o *PostLocationsSearchServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations search service unavailable response has a 4xx status code
+func (o *PostLocationsSearchServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post locations search service unavailable response has a 5xx status code
+func (o *PostLocationsSearchServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post locations search service unavailable response a status code equal to that given
+func (o *PostLocationsSearchServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLocationsSearchServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLocationsSearchServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostLocationsSearchGatewayTimeout() *PostLocationsSearchGatewayTimeout {
 	return &PostLocationsSearchGatewayTimeout{}
 }
 
-/*PostLocationsSearchGatewayTimeout handles this case with default header values.
+/*
+PostLocationsSearchGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostLocationsSearchGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations search gateway timeout response has a 2xx status code
+func (o *PostLocationsSearchGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations search gateway timeout response has a 3xx status code
+func (o *PostLocationsSearchGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations search gateway timeout response has a 4xx status code
+func (o *PostLocationsSearchGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post locations search gateway timeout response has a 5xx status code
+func (o *PostLocationsSearchGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post locations search gateway timeout response a status code equal to that given
+func (o *PostLocationsSearchGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLocationsSearchGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLocationsSearchGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations/search][%d] postLocationsSearchGatewayTimeout  %+v", 504, o.Payload)
 }
 

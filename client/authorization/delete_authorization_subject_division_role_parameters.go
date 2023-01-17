@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteAuthorizationSubjectDivisionRoleParams creates a new DeleteAuthorizationSubjectDivisionRoleParams object
-// with the default values initialized.
+// NewDeleteAuthorizationSubjectDivisionRoleParams creates a new DeleteAuthorizationSubjectDivisionRoleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteAuthorizationSubjectDivisionRoleParams() *DeleteAuthorizationSubjectDivisionRoleParams {
-	var ()
 	return &DeleteAuthorizationSubjectDivisionRoleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteAuthorizationSubjectDivisionRoleParamsWithTimeout creates a new DeleteAuthorizationSubjectDivisionRoleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteAuthorizationSubjectDivisionRoleParamsWithTimeout(timeout time.Duration) *DeleteAuthorizationSubjectDivisionRoleParams {
-	var ()
 	return &DeleteAuthorizationSubjectDivisionRoleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteAuthorizationSubjectDivisionRoleParamsWithContext creates a new DeleteAuthorizationSubjectDivisionRoleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteAuthorizationSubjectDivisionRoleParamsWithContext(ctx context.Context) *DeleteAuthorizationSubjectDivisionRoleParams {
-	var ()
 	return &DeleteAuthorizationSubjectDivisionRoleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteAuthorizationSubjectDivisionRoleParamsWithHTTPClient creates a new DeleteAuthorizationSubjectDivisionRoleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteAuthorizationSubjectDivisionRoleParamsWithHTTPClient(client *http.Client) *DeleteAuthorizationSubjectDivisionRoleParams {
-	var ()
 	return &DeleteAuthorizationSubjectDivisionRoleParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteAuthorizationSubjectDivisionRoleParams contains all the parameters to send to the API endpoint
-for the delete authorization subject division role operation typically these are written to a http.Request
+/*
+DeleteAuthorizationSubjectDivisionRoleParams contains all the parameters to send to the API endpoint
+
+	for the delete authorization subject division role operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteAuthorizationSubjectDivisionRoleParams struct {
 
-	/*DivisionID
-	  the id of the division of the grant
+	/* DivisionID.
 
+	   the id of the division of the grant
 	*/
 	DivisionID string
-	/*RoleID
-	  the id of the role of the grant
 
+	/* RoleID.
+
+	   the id of the role of the grant
 	*/
 	RoleID string
-	/*SubjectID
-	  Subject ID (user or group)
 
+	/* SubjectID.
+
+	   Subject ID (user or group)
 	*/
 	SubjectID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete authorization subject division role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteAuthorizationSubjectDivisionRoleParams) WithDefaults() *DeleteAuthorizationSubjectDivisionRoleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete authorization subject division role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteAuthorizationSubjectDivisionRoleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete authorization subject division role params

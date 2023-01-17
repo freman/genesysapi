@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostAnalyticsConversationsDetailsJobsParams creates a new PostAnalyticsConversationsDetailsJobsParams object
-// with the default values initialized.
+// NewPostAnalyticsConversationsDetailsJobsParams creates a new PostAnalyticsConversationsDetailsJobsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAnalyticsConversationsDetailsJobsParams() *PostAnalyticsConversationsDetailsJobsParams {
-	var ()
 	return &PostAnalyticsConversationsDetailsJobsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAnalyticsConversationsDetailsJobsParamsWithTimeout creates a new PostAnalyticsConversationsDetailsJobsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAnalyticsConversationsDetailsJobsParamsWithTimeout(timeout time.Duration) *PostAnalyticsConversationsDetailsJobsParams {
-	var ()
 	return &PostAnalyticsConversationsDetailsJobsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAnalyticsConversationsDetailsJobsParamsWithContext creates a new PostAnalyticsConversationsDetailsJobsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAnalyticsConversationsDetailsJobsParamsWithContext(ctx context.Context) *PostAnalyticsConversationsDetailsJobsParams {
-	var ()
 	return &PostAnalyticsConversationsDetailsJobsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostAnalyticsConversationsDetailsJobsParamsWithHTTPClient creates a new PostAnalyticsConversationsDetailsJobsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAnalyticsConversationsDetailsJobsParamsWithHTTPClient(client *http.Client) *PostAnalyticsConversationsDetailsJobsParams {
-	var ()
 	return &PostAnalyticsConversationsDetailsJobsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostAnalyticsConversationsDetailsJobsParams contains all the parameters to send to the API endpoint
-for the post analytics conversations details jobs operation typically these are written to a http.Request
+/*
+PostAnalyticsConversationsDetailsJobsParams contains all the parameters to send to the API endpoint
+
+	for the post analytics conversations details jobs operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAnalyticsConversationsDetailsJobsParams struct {
 
-	/*Body
-	  query
+	/* Body.
 
+	   query
 	*/
 	Body *models.AsyncConversationQuery
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post analytics conversations details jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsConversationsDetailsJobsParams) WithDefaults() *PostAnalyticsConversationsDetailsJobsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post analytics conversations details jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsConversationsDetailsJobsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post analytics conversations details jobs params
@@ -124,7 +140,6 @@ func (o *PostAnalyticsConversationsDetailsJobsParams) WriteToRequest(r runtime.C
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

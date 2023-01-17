@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -27,6 +29,11 @@ type AcknowledgeScreenRecordingRequest struct {
 
 // Validate validates this acknowledge screen recording request
 func (m *AcknowledgeScreenRecordingRequest) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this acknowledge screen recording request based on context it is used
+func (m *AcknowledgeScreenRecordingRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

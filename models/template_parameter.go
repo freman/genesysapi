@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -24,6 +26,11 @@ type TemplateParameter struct {
 
 // Validate validates this template parameter
 func (m *TemplateParameter) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this template parameter based on context it is used
+func (m *TemplateParameter) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

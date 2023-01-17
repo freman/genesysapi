@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetContentmanagementStatusStatusIDParams creates a new GetContentmanagementStatusStatusIDParams object
-// with the default values initialized.
+// NewGetContentmanagementStatusStatusIDParams creates a new GetContentmanagementStatusStatusIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetContentmanagementStatusStatusIDParams() *GetContentmanagementStatusStatusIDParams {
-	var ()
 	return &GetContentmanagementStatusStatusIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetContentmanagementStatusStatusIDParamsWithTimeout creates a new GetContentmanagementStatusStatusIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetContentmanagementStatusStatusIDParamsWithTimeout(timeout time.Duration) *GetContentmanagementStatusStatusIDParams {
-	var ()
 	return &GetContentmanagementStatusStatusIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetContentmanagementStatusStatusIDParamsWithContext creates a new GetContentmanagementStatusStatusIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetContentmanagementStatusStatusIDParamsWithContext(ctx context.Context) *GetContentmanagementStatusStatusIDParams {
-	var ()
 	return &GetContentmanagementStatusStatusIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetContentmanagementStatusStatusIDParamsWithHTTPClient creates a new GetContentmanagementStatusStatusIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetContentmanagementStatusStatusIDParamsWithHTTPClient(client *http.Client) *GetContentmanagementStatusStatusIDParams {
-	var ()
 	return &GetContentmanagementStatusStatusIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetContentmanagementStatusStatusIDParams contains all the parameters to send to the API endpoint
-for the get contentmanagement status status Id operation typically these are written to a http.Request
+/*
+GetContentmanagementStatusStatusIDParams contains all the parameters to send to the API endpoint
+
+	for the get contentmanagement status status Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetContentmanagementStatusStatusIDParams struct {
 
-	/*StatusID
-	  Status ID
+	/* StatusID.
 
+	   Status ID
 	*/
 	StatusID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get contentmanagement status status Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementStatusStatusIDParams) WithDefaults() *GetContentmanagementStatusStatusIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get contentmanagement status status Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementStatusStatusIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get contentmanagement status status Id params

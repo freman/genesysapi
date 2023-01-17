@@ -95,7 +95,6 @@ func (o *PostOutboundCampaignsProgressReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOutboundCampaignsProgressOK() *PostOutboundCampaignsProgressOK {
 	return &PostOutboundCampaignsProgressOK{}
 }
 
-/*PostOutboundCampaignsProgressOK handles this case with default header values.
+/*
+PostOutboundCampaignsProgressOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOutboundCampaignsProgressOK struct {
 	Payload []*models.CampaignProgress
 }
 
+// IsSuccess returns true when this post outbound campaigns progress o k response has a 2xx status code
+func (o *PostOutboundCampaignsProgressOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post outbound campaigns progress o k response has a 3xx status code
+func (o *PostOutboundCampaignsProgressOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaigns progress o k response has a 4xx status code
+func (o *PostOutboundCampaignsProgressOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound campaigns progress o k response has a 5xx status code
+func (o *PostOutboundCampaignsProgressOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaigns progress o k response a status code equal to that given
+func (o *PostOutboundCampaignsProgressOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOutboundCampaignsProgressOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOutboundCampaignsProgressOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewPostOutboundCampaignsProgressBadRequest() *PostOutboundCampaignsProgress
 	return &PostOutboundCampaignsProgressBadRequest{}
 }
 
-/*PostOutboundCampaignsProgressBadRequest handles this case with default header values.
+/*
+PostOutboundCampaignsProgressBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type PostOutboundCampaignsProgressBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaigns progress bad request response has a 2xx status code
+func (o *PostOutboundCampaignsProgressBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaigns progress bad request response has a 3xx status code
+func (o *PostOutboundCampaignsProgressBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaigns progress bad request response has a 4xx status code
+func (o *PostOutboundCampaignsProgressBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaigns progress bad request response has a 5xx status code
+func (o *PostOutboundCampaignsProgressBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaigns progress bad request response a status code equal to that given
+func (o *PostOutboundCampaignsProgressBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOutboundCampaignsProgressBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOutboundCampaignsProgressBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewPostOutboundCampaignsProgressUnauthorized() *PostOutboundCampaignsProgre
 	return &PostOutboundCampaignsProgressUnauthorized{}
 }
 
-/*PostOutboundCampaignsProgressUnauthorized handles this case with default header values.
+/*
+PostOutboundCampaignsProgressUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type PostOutboundCampaignsProgressUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaigns progress unauthorized response has a 2xx status code
+func (o *PostOutboundCampaignsProgressUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaigns progress unauthorized response has a 3xx status code
+func (o *PostOutboundCampaignsProgressUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaigns progress unauthorized response has a 4xx status code
+func (o *PostOutboundCampaignsProgressUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaigns progress unauthorized response has a 5xx status code
+func (o *PostOutboundCampaignsProgressUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaigns progress unauthorized response a status code equal to that given
+func (o *PostOutboundCampaignsProgressUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOutboundCampaignsProgressUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOutboundCampaignsProgressUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewPostOutboundCampaignsProgressForbidden() *PostOutboundCampaignsProgressF
 	return &PostOutboundCampaignsProgressForbidden{}
 }
 
-/*PostOutboundCampaignsProgressForbidden handles this case with default header values.
+/*
+PostOutboundCampaignsProgressForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type PostOutboundCampaignsProgressForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaigns progress forbidden response has a 2xx status code
+func (o *PostOutboundCampaignsProgressForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaigns progress forbidden response has a 3xx status code
+func (o *PostOutboundCampaignsProgressForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaigns progress forbidden response has a 4xx status code
+func (o *PostOutboundCampaignsProgressForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaigns progress forbidden response has a 5xx status code
+func (o *PostOutboundCampaignsProgressForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaigns progress forbidden response a status code equal to that given
+func (o *PostOutboundCampaignsProgressForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOutboundCampaignsProgressForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOutboundCampaignsProgressForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewPostOutboundCampaignsProgressNotFound() *PostOutboundCampaignsProgressNo
 	return &PostOutboundCampaignsProgressNotFound{}
 }
 
-/*PostOutboundCampaignsProgressNotFound handles this case with default header values.
+/*
+PostOutboundCampaignsProgressNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type PostOutboundCampaignsProgressNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaigns progress not found response has a 2xx status code
+func (o *PostOutboundCampaignsProgressNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaigns progress not found response has a 3xx status code
+func (o *PostOutboundCampaignsProgressNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaigns progress not found response has a 4xx status code
+func (o *PostOutboundCampaignsProgressNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaigns progress not found response has a 5xx status code
+func (o *PostOutboundCampaignsProgressNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaigns progress not found response a status code equal to that given
+func (o *PostOutboundCampaignsProgressNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOutboundCampaignsProgressNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOutboundCampaignsProgressNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewPostOutboundCampaignsProgressRequestTimeout() *PostOutboundCampaignsProg
 	return &PostOutboundCampaignsProgressRequestTimeout{}
 }
 
-/*PostOutboundCampaignsProgressRequestTimeout handles this case with default header values.
+/*
+PostOutboundCampaignsProgressRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type PostOutboundCampaignsProgressRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaigns progress request timeout response has a 2xx status code
+func (o *PostOutboundCampaignsProgressRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaigns progress request timeout response has a 3xx status code
+func (o *PostOutboundCampaignsProgressRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaigns progress request timeout response has a 4xx status code
+func (o *PostOutboundCampaignsProgressRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaigns progress request timeout response has a 5xx status code
+func (o *PostOutboundCampaignsProgressRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaigns progress request timeout response a status code equal to that given
+func (o *PostOutboundCampaignsProgressRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOutboundCampaignsProgressRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundCampaignsProgressRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewPostOutboundCampaignsProgressRequestEntityTooLarge() *PostOutboundCampai
 	return &PostOutboundCampaignsProgressRequestEntityTooLarge{}
 }
 
-/*PostOutboundCampaignsProgressRequestEntityTooLarge handles this case with default header values.
+/*
+PostOutboundCampaignsProgressRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type PostOutboundCampaignsProgressRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaigns progress request entity too large response has a 2xx status code
+func (o *PostOutboundCampaignsProgressRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaigns progress request entity too large response has a 3xx status code
+func (o *PostOutboundCampaignsProgressRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaigns progress request entity too large response has a 4xx status code
+func (o *PostOutboundCampaignsProgressRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaigns progress request entity too large response has a 5xx status code
+func (o *PostOutboundCampaignsProgressRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaigns progress request entity too large response a status code equal to that given
+func (o *PostOutboundCampaignsProgressRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOutboundCampaignsProgressRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOutboundCampaignsProgressRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewPostOutboundCampaignsProgressUnsupportedMediaType() *PostOutboundCampaig
 	return &PostOutboundCampaignsProgressUnsupportedMediaType{}
 }
 
-/*PostOutboundCampaignsProgressUnsupportedMediaType handles this case with default header values.
+/*
+PostOutboundCampaignsProgressUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type PostOutboundCampaignsProgressUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaigns progress unsupported media type response has a 2xx status code
+func (o *PostOutboundCampaignsProgressUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaigns progress unsupported media type response has a 3xx status code
+func (o *PostOutboundCampaignsProgressUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaigns progress unsupported media type response has a 4xx status code
+func (o *PostOutboundCampaignsProgressUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaigns progress unsupported media type response has a 5xx status code
+func (o *PostOutboundCampaignsProgressUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaigns progress unsupported media type response a status code equal to that given
+func (o *PostOutboundCampaignsProgressUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOutboundCampaignsProgressUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOutboundCampaignsProgressUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewPostOutboundCampaignsProgressTooManyRequests() *PostOutboundCampaignsPro
 	return &PostOutboundCampaignsProgressTooManyRequests{}
 }
 
-/*PostOutboundCampaignsProgressTooManyRequests handles this case with default header values.
+/*
+PostOutboundCampaignsProgressTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type PostOutboundCampaignsProgressTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaigns progress too many requests response has a 2xx status code
+func (o *PostOutboundCampaignsProgressTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaigns progress too many requests response has a 3xx status code
+func (o *PostOutboundCampaignsProgressTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaigns progress too many requests response has a 4xx status code
+func (o *PostOutboundCampaignsProgressTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound campaigns progress too many requests response has a 5xx status code
+func (o *PostOutboundCampaignsProgressTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound campaigns progress too many requests response a status code equal to that given
+func (o *PostOutboundCampaignsProgressTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOutboundCampaignsProgressTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOutboundCampaignsProgressTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewPostOutboundCampaignsProgressInternalServerError() *PostOutboundCampaign
 	return &PostOutboundCampaignsProgressInternalServerError{}
 }
 
-/*PostOutboundCampaignsProgressInternalServerError handles this case with default header values.
+/*
+PostOutboundCampaignsProgressInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type PostOutboundCampaignsProgressInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaigns progress internal server error response has a 2xx status code
+func (o *PostOutboundCampaignsProgressInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaigns progress internal server error response has a 3xx status code
+func (o *PostOutboundCampaignsProgressInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaigns progress internal server error response has a 4xx status code
+func (o *PostOutboundCampaignsProgressInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound campaigns progress internal server error response has a 5xx status code
+func (o *PostOutboundCampaignsProgressInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound campaigns progress internal server error response a status code equal to that given
+func (o *PostOutboundCampaignsProgressInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOutboundCampaignsProgressInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOutboundCampaignsProgressInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewPostOutboundCampaignsProgressServiceUnavailable() *PostOutboundCampaigns
 	return &PostOutboundCampaignsProgressServiceUnavailable{}
 }
 
-/*PostOutboundCampaignsProgressServiceUnavailable handles this case with default header values.
+/*
+PostOutboundCampaignsProgressServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type PostOutboundCampaignsProgressServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaigns progress service unavailable response has a 2xx status code
+func (o *PostOutboundCampaignsProgressServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaigns progress service unavailable response has a 3xx status code
+func (o *PostOutboundCampaignsProgressServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaigns progress service unavailable response has a 4xx status code
+func (o *PostOutboundCampaignsProgressServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound campaigns progress service unavailable response has a 5xx status code
+func (o *PostOutboundCampaignsProgressServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound campaigns progress service unavailable response a status code equal to that given
+func (o *PostOutboundCampaignsProgressServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOutboundCampaignsProgressServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOutboundCampaignsProgressServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewPostOutboundCampaignsProgressGatewayTimeout() *PostOutboundCampaignsProg
 	return &PostOutboundCampaignsProgressGatewayTimeout{}
 }
 
-/*PostOutboundCampaignsProgressGatewayTimeout handles this case with default header values.
+/*
+PostOutboundCampaignsProgressGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type PostOutboundCampaignsProgressGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound campaigns progress gateway timeout response has a 2xx status code
+func (o *PostOutboundCampaignsProgressGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound campaigns progress gateway timeout response has a 3xx status code
+func (o *PostOutboundCampaignsProgressGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound campaigns progress gateway timeout response has a 4xx status code
+func (o *PostOutboundCampaignsProgressGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound campaigns progress gateway timeout response has a 5xx status code
+func (o *PostOutboundCampaignsProgressGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound campaigns progress gateway timeout response a status code equal to that given
+func (o *PostOutboundCampaignsProgressGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOutboundCampaignsProgressGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOutboundCampaignsProgressGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/campaigns/progress][%d] postOutboundCampaignsProgressGatewayTimeout  %+v", 504, o.Payload)
 }
 

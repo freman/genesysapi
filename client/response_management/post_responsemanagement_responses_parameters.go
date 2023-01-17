@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostResponsemanagementResponsesParams creates a new PostResponsemanagementResponsesParams object
-// with the default values initialized.
+// NewPostResponsemanagementResponsesParams creates a new PostResponsemanagementResponsesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostResponsemanagementResponsesParams() *PostResponsemanagementResponsesParams {
-	var ()
 	return &PostResponsemanagementResponsesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostResponsemanagementResponsesParamsWithTimeout creates a new PostResponsemanagementResponsesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostResponsemanagementResponsesParamsWithTimeout(timeout time.Duration) *PostResponsemanagementResponsesParams {
-	var ()
 	return &PostResponsemanagementResponsesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostResponsemanagementResponsesParamsWithContext creates a new PostResponsemanagementResponsesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostResponsemanagementResponsesParamsWithContext(ctx context.Context) *PostResponsemanagementResponsesParams {
-	var ()
 	return &PostResponsemanagementResponsesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostResponsemanagementResponsesParamsWithHTTPClient creates a new PostResponsemanagementResponsesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostResponsemanagementResponsesParamsWithHTTPClient(client *http.Client) *PostResponsemanagementResponsesParams {
-	var ()
 	return &PostResponsemanagementResponsesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostResponsemanagementResponsesParams contains all the parameters to send to the API endpoint
-for the post responsemanagement responses operation typically these are written to a http.Request
+/*
+PostResponsemanagementResponsesParams contains all the parameters to send to the API endpoint
+
+	for the post responsemanagement responses operation.
+
+	Typically these are written to a http.Request.
 */
 type PostResponsemanagementResponsesParams struct {
 
-	/*Body
-	  Response
+	/* Body.
 
+	   Response
 	*/
 	Body *models.Response
-	/*Expand
-	  Expand instructions for the return value.
 
+	/* Expand.
+
+	   Expand instructions for the return value.
 	*/
 	Expand *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post responsemanagement responses params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostResponsemanagementResponsesParams) WithDefaults() *PostResponsemanagementResponsesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post responsemanagement responses params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostResponsemanagementResponsesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post responsemanagement responses params
@@ -140,7 +157,6 @@ func (o *PostResponsemanagementResponsesParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -151,16 +167,17 @@ func (o *PostResponsemanagementResponsesParams) WriteToRequest(r runtime.ClientR
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

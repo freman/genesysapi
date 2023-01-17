@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -68,7 +69,6 @@ func (m *TextBotExitAction) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TextBotExitAction) validateFlowLocation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlowLocation) { // not required
 		return nil
 	}
@@ -77,6 +77,8 @@ func (m *TextBotExitAction) validateFlowLocation(formats strfmt.Registry) error 
 		if err := m.FlowLocation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flowLocation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flowLocation")
 			}
 			return err
 		}
@@ -86,7 +88,6 @@ func (m *TextBotExitAction) validateFlowLocation(formats strfmt.Registry) error 
 }
 
 func (m *TextBotExitAction) validateFlowOutcomes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlowOutcomes) { // not required
 		return nil
 	}
@@ -100,6 +101,8 @@ func (m *TextBotExitAction) validateFlowOutcomes(formats strfmt.Registry) error 
 			if err := m.FlowOutcomes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("flowOutcomes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("flowOutcomes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -111,7 +114,6 @@ func (m *TextBotExitAction) validateFlowOutcomes(formats strfmt.Registry) error 
 }
 
 func (m *TextBotExitAction) validateOutputData(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OutputData) { // not required
 		return nil
 	}
@@ -120,6 +122,8 @@ func (m *TextBotExitAction) validateOutputData(formats strfmt.Registry) error {
 		if err := m.OutputData.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outputData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outputData")
 			}
 			return err
 		}
@@ -175,6 +179,80 @@ func (m *TextBotExitAction) validateReason(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateReasonEnum("reason", "body", *m.Reason); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this text bot exit action based on the context it is used
+func (m *TextBotExitAction) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFlowLocation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFlowOutcomes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutputData(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TextBotExitAction) contextValidateFlowLocation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FlowLocation != nil {
+		if err := m.FlowLocation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flowLocation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flowLocation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TextBotExitAction) contextValidateFlowOutcomes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.FlowOutcomes); i++ {
+
+		if m.FlowOutcomes[i] != nil {
+			if err := m.FlowOutcomes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("flowOutcomes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("flowOutcomes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *TextBotExitAction) contextValidateOutputData(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OutputData != nil {
+		if err := m.OutputData.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outputData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outputData")
+			}
+			return err
+		}
 	}
 
 	return nil

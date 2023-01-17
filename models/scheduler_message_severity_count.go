@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -77,7 +78,6 @@ func (m *SchedulerMessageSeverityCount) validateSeverityEnum(path, location stri
 }
 
 func (m *SchedulerMessageSeverityCount) validateSeverity(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Severity) { // not required
 		return nil
 	}
@@ -87,6 +87,11 @@ func (m *SchedulerMessageSeverityCount) validateSeverity(formats strfmt.Registry
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this scheduler message severity count based on context it is used
+func (m *SchedulerMessageSeverityCount) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

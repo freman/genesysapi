@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOutboundSchedulesCampaignParams creates a new PutOutboundSchedulesCampaignParams object
-// with the default values initialized.
+// NewPutOutboundSchedulesCampaignParams creates a new PutOutboundSchedulesCampaignParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOutboundSchedulesCampaignParams() *PutOutboundSchedulesCampaignParams {
-	var ()
 	return &PutOutboundSchedulesCampaignParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOutboundSchedulesCampaignParamsWithTimeout creates a new PutOutboundSchedulesCampaignParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOutboundSchedulesCampaignParamsWithTimeout(timeout time.Duration) *PutOutboundSchedulesCampaignParams {
-	var ()
 	return &PutOutboundSchedulesCampaignParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOutboundSchedulesCampaignParamsWithContext creates a new PutOutboundSchedulesCampaignParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOutboundSchedulesCampaignParamsWithContext(ctx context.Context) *PutOutboundSchedulesCampaignParams {
-	var ()
 	return &PutOutboundSchedulesCampaignParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOutboundSchedulesCampaignParamsWithHTTPClient creates a new PutOutboundSchedulesCampaignParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOutboundSchedulesCampaignParamsWithHTTPClient(client *http.Client) *PutOutboundSchedulesCampaignParams {
-	var ()
 	return &PutOutboundSchedulesCampaignParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOutboundSchedulesCampaignParams contains all the parameters to send to the API endpoint
-for the put outbound schedules campaign operation typically these are written to a http.Request
+/*
+PutOutboundSchedulesCampaignParams contains all the parameters to send to the API endpoint
+
+	for the put outbound schedules campaign operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOutboundSchedulesCampaignParams struct {
 
-	/*Body
-	  CampaignSchedule
+	/* Body.
 
+	   CampaignSchedule
 	*/
 	Body *models.CampaignSchedule
-	/*CampaignID
-	  Campaign ID
 
+	/* CampaignID.
+
+	   Campaign ID
 	*/
 	CampaignID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put outbound schedules campaign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundSchedulesCampaignParams) WithDefaults() *PutOutboundSchedulesCampaignParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put outbound schedules campaign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundSchedulesCampaignParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put outbound schedules campaign params
@@ -140,7 +157,6 @@ func (o *PutOutboundSchedulesCampaignParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

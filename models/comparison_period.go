@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -33,14 +34,6 @@ type ComparisonPeriod struct {
 	// Read Only: true
 	ID string `json:"id,omitempty"`
 
-	// Total interactions not routed by predictive routing (GPR was off)
-	// Read Only: true
-	InteractionCountOff int64 `json:"interactionCountOff,omitempty"`
-
-	// Total interactions handled by predictive routing (GPR was on)
-	// Read Only: true
-	InteractionCountOn int64 `json:"interactionCountOn,omitempty"`
-
 	// Key Performance Indicator optimised during the comparison period.
 	// Read Only: true
 	Kpi string `json:"kpi,omitempty"`
@@ -48,14 +41,6 @@ type ComparisonPeriod struct {
 	// KPI results for each metric
 	// Read Only: true
 	KpiResults []*KpiResult `json:"kpiResults"`
-
-	// Absolute metric (in which the KPI is based) total for the interactions not routed by predictive routing (GPR was off)
-	// Read Only: true
-	KpiTotalOff int64 `json:"kpiTotalOff,omitempty"`
-
-	// Absolute metric (in which the KPI is based) total for the interactions handled by predictive routing (GPR was on)
-	// Read Only: true
-	KpiTotalOn int64 `json:"kpiTotalOn,omitempty"`
 
 	// The URI for this object
 	// Read Only: true
@@ -90,7 +75,6 @@ func (m *ComparisonPeriod) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ComparisonPeriod) validateDateEnded(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateEnded) { // not required
 		return nil
 	}
@@ -103,7 +87,6 @@ func (m *ComparisonPeriod) validateDateEnded(formats strfmt.Registry) error {
 }
 
 func (m *ComparisonPeriod) validateDateStarted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStarted) { // not required
 		return nil
 	}
@@ -116,7 +99,6 @@ func (m *ComparisonPeriod) validateDateStarted(formats strfmt.Registry) error {
 }
 
 func (m *ComparisonPeriod) validateKpiResults(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KpiResults) { // not required
 		return nil
 	}
@@ -130,6 +112,8 @@ func (m *ComparisonPeriod) validateKpiResults(formats strfmt.Registry) error {
 			if err := m.KpiResults[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("kpiResults" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("kpiResults" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -141,12 +125,114 @@ func (m *ComparisonPeriod) validateKpiResults(formats strfmt.Registry) error {
 }
 
 func (m *ComparisonPeriod) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this comparison period based on the context it is used
+func (m *ComparisonPeriod) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateEnded(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateStarted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKpi(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKpiResults(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ComparisonPeriod) contextValidateDateEnded(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateEnded", "body", strfmt.DateTime(m.DateEnded)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ComparisonPeriod) contextValidateDateStarted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateStarted", "body", strfmt.DateTime(m.DateStarted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ComparisonPeriod) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ComparisonPeriod) contextValidateKpi(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "kpi", "body", string(m.Kpi)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ComparisonPeriod) contextValidateKpiResults(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "kpiResults", "body", []*KpiResult(m.KpiResults)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.KpiResults); i++ {
+
+		if m.KpiResults[i] != nil {
+			if err := m.KpiResults[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("kpiResults" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("kpiResults" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ComparisonPeriod) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

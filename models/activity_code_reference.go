@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -67,7 +68,6 @@ func (m *ActivityCodeReference) validateID(formats strfmt.Registry) error {
 }
 
 func (m *ActivityCodeReference) validateSecondaryPresences(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SecondaryPresences) { // not required
 		return nil
 	}
@@ -81,6 +81,8 @@ func (m *ActivityCodeReference) validateSecondaryPresences(formats strfmt.Regist
 			if err := m.SecondaryPresences[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("secondaryPresences" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("secondaryPresences" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -92,12 +94,58 @@ func (m *ActivityCodeReference) validateSecondaryPresences(formats strfmt.Regist
 }
 
 func (m *ActivityCodeReference) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this activity code reference based on the context it is used
+func (m *ActivityCodeReference) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSecondaryPresences(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ActivityCodeReference) contextValidateSecondaryPresences(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SecondaryPresences); i++ {
+
+		if m.SecondaryPresences[i] != nil {
+			if err := m.SecondaryPresences[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("secondaryPresences" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("secondaryPresences" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ActivityCodeReference) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

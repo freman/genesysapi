@@ -107,7 +107,6 @@ func (o *PostJourneyActionmapsReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -118,7 +117,8 @@ func NewPostJourneyActionmapsOK() *PostJourneyActionmapsOK {
 	return &PostJourneyActionmapsOK{}
 }
 
-/*PostJourneyActionmapsOK handles this case with default header values.
+/*
+PostJourneyActionmapsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -126,7 +126,36 @@ type PostJourneyActionmapsOK struct {
 	Payload *models.ActionMap
 }
 
+// IsSuccess returns true when this post journey actionmaps o k response has a 2xx status code
+func (o *PostJourneyActionmapsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post journey actionmaps o k response has a 3xx status code
+func (o *PostJourneyActionmapsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps o k response has a 4xx status code
+func (o *PostJourneyActionmapsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey actionmaps o k response has a 5xx status code
+func (o *PostJourneyActionmapsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actionmaps o k response a status code equal to that given
+func (o *PostJourneyActionmapsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostJourneyActionmapsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostJourneyActionmapsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsOK  %+v", 200, o.Payload)
 }
 
@@ -151,7 +180,8 @@ func NewPostJourneyActionmapsCreated() *PostJourneyActionmapsCreated {
 	return &PostJourneyActionmapsCreated{}
 }
 
-/*PostJourneyActionmapsCreated handles this case with default header values.
+/*
+PostJourneyActionmapsCreated describes a response with status code 201, with default header values.
 
 Action map created.
 */
@@ -159,7 +189,36 @@ type PostJourneyActionmapsCreated struct {
 	Payload *models.ActionMap
 }
 
+// IsSuccess returns true when this post journey actionmaps created response has a 2xx status code
+func (o *PostJourneyActionmapsCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post journey actionmaps created response has a 3xx status code
+func (o *PostJourneyActionmapsCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps created response has a 4xx status code
+func (o *PostJourneyActionmapsCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey actionmaps created response has a 5xx status code
+func (o *PostJourneyActionmapsCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actionmaps created response a status code equal to that given
+func (o *PostJourneyActionmapsCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostJourneyActionmapsCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostJourneyActionmapsCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsCreated  %+v", 201, o.Payload)
 }
 
@@ -184,7 +243,8 @@ func NewPostJourneyActionmapsBadRequest() *PostJourneyActionmapsBadRequest {
 	return &PostJourneyActionmapsBadRequest{}
 }
 
-/*PostJourneyActionmapsBadRequest handles this case with default header values.
+/*
+PostJourneyActionmapsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -192,7 +252,36 @@ type PostJourneyActionmapsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actionmaps bad request response has a 2xx status code
+func (o *PostJourneyActionmapsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actionmaps bad request response has a 3xx status code
+func (o *PostJourneyActionmapsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps bad request response has a 4xx status code
+func (o *PostJourneyActionmapsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actionmaps bad request response has a 5xx status code
+func (o *PostJourneyActionmapsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actionmaps bad request response a status code equal to that given
+func (o *PostJourneyActionmapsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostJourneyActionmapsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostJourneyActionmapsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -217,7 +306,8 @@ func NewPostJourneyActionmapsUnauthorized() *PostJourneyActionmapsUnauthorized {
 	return &PostJourneyActionmapsUnauthorized{}
 }
 
-/*PostJourneyActionmapsUnauthorized handles this case with default header values.
+/*
+PostJourneyActionmapsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -225,7 +315,36 @@ type PostJourneyActionmapsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actionmaps unauthorized response has a 2xx status code
+func (o *PostJourneyActionmapsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actionmaps unauthorized response has a 3xx status code
+func (o *PostJourneyActionmapsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps unauthorized response has a 4xx status code
+func (o *PostJourneyActionmapsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actionmaps unauthorized response has a 5xx status code
+func (o *PostJourneyActionmapsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actionmaps unauthorized response a status code equal to that given
+func (o *PostJourneyActionmapsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostJourneyActionmapsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostJourneyActionmapsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -250,7 +369,8 @@ func NewPostJourneyActionmapsForbidden() *PostJourneyActionmapsForbidden {
 	return &PostJourneyActionmapsForbidden{}
 }
 
-/*PostJourneyActionmapsForbidden handles this case with default header values.
+/*
+PostJourneyActionmapsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -258,7 +378,36 @@ type PostJourneyActionmapsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actionmaps forbidden response has a 2xx status code
+func (o *PostJourneyActionmapsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actionmaps forbidden response has a 3xx status code
+func (o *PostJourneyActionmapsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps forbidden response has a 4xx status code
+func (o *PostJourneyActionmapsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actionmaps forbidden response has a 5xx status code
+func (o *PostJourneyActionmapsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actionmaps forbidden response a status code equal to that given
+func (o *PostJourneyActionmapsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostJourneyActionmapsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostJourneyActionmapsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsForbidden  %+v", 403, o.Payload)
 }
 
@@ -283,7 +432,8 @@ func NewPostJourneyActionmapsNotFound() *PostJourneyActionmapsNotFound {
 	return &PostJourneyActionmapsNotFound{}
 }
 
-/*PostJourneyActionmapsNotFound handles this case with default header values.
+/*
+PostJourneyActionmapsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -291,7 +441,36 @@ type PostJourneyActionmapsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actionmaps not found response has a 2xx status code
+func (o *PostJourneyActionmapsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actionmaps not found response has a 3xx status code
+func (o *PostJourneyActionmapsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps not found response has a 4xx status code
+func (o *PostJourneyActionmapsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actionmaps not found response has a 5xx status code
+func (o *PostJourneyActionmapsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actionmaps not found response a status code equal to that given
+func (o *PostJourneyActionmapsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostJourneyActionmapsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostJourneyActionmapsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsNotFound  %+v", 404, o.Payload)
 }
 
@@ -316,7 +495,8 @@ func NewPostJourneyActionmapsRequestTimeout() *PostJourneyActionmapsRequestTimeo
 	return &PostJourneyActionmapsRequestTimeout{}
 }
 
-/*PostJourneyActionmapsRequestTimeout handles this case with default header values.
+/*
+PostJourneyActionmapsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -324,7 +504,36 @@ type PostJourneyActionmapsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actionmaps request timeout response has a 2xx status code
+func (o *PostJourneyActionmapsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actionmaps request timeout response has a 3xx status code
+func (o *PostJourneyActionmapsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps request timeout response has a 4xx status code
+func (o *PostJourneyActionmapsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actionmaps request timeout response has a 5xx status code
+func (o *PostJourneyActionmapsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actionmaps request timeout response a status code equal to that given
+func (o *PostJourneyActionmapsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostJourneyActionmapsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostJourneyActionmapsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -349,7 +558,8 @@ func NewPostJourneyActionmapsConflict() *PostJourneyActionmapsConflict {
 	return &PostJourneyActionmapsConflict{}
 }
 
-/*PostJourneyActionmapsConflict handles this case with default header values.
+/*
+PostJourneyActionmapsConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -357,7 +567,36 @@ type PostJourneyActionmapsConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actionmaps conflict response has a 2xx status code
+func (o *PostJourneyActionmapsConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actionmaps conflict response has a 3xx status code
+func (o *PostJourneyActionmapsConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps conflict response has a 4xx status code
+func (o *PostJourneyActionmapsConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actionmaps conflict response has a 5xx status code
+func (o *PostJourneyActionmapsConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actionmaps conflict response a status code equal to that given
+func (o *PostJourneyActionmapsConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostJourneyActionmapsConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostJourneyActionmapsConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsConflict  %+v", 409, o.Payload)
 }
 
@@ -382,7 +621,8 @@ func NewPostJourneyActionmapsRequestEntityTooLarge() *PostJourneyActionmapsReque
 	return &PostJourneyActionmapsRequestEntityTooLarge{}
 }
 
-/*PostJourneyActionmapsRequestEntityTooLarge handles this case with default header values.
+/*
+PostJourneyActionmapsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -390,7 +630,36 @@ type PostJourneyActionmapsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actionmaps request entity too large response has a 2xx status code
+func (o *PostJourneyActionmapsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actionmaps request entity too large response has a 3xx status code
+func (o *PostJourneyActionmapsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps request entity too large response has a 4xx status code
+func (o *PostJourneyActionmapsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actionmaps request entity too large response has a 5xx status code
+func (o *PostJourneyActionmapsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actionmaps request entity too large response a status code equal to that given
+func (o *PostJourneyActionmapsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostJourneyActionmapsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostJourneyActionmapsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -415,7 +684,8 @@ func NewPostJourneyActionmapsUnsupportedMediaType() *PostJourneyActionmapsUnsupp
 	return &PostJourneyActionmapsUnsupportedMediaType{}
 }
 
-/*PostJourneyActionmapsUnsupportedMediaType handles this case with default header values.
+/*
+PostJourneyActionmapsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -423,7 +693,36 @@ type PostJourneyActionmapsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actionmaps unsupported media type response has a 2xx status code
+func (o *PostJourneyActionmapsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actionmaps unsupported media type response has a 3xx status code
+func (o *PostJourneyActionmapsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps unsupported media type response has a 4xx status code
+func (o *PostJourneyActionmapsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actionmaps unsupported media type response has a 5xx status code
+func (o *PostJourneyActionmapsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actionmaps unsupported media type response a status code equal to that given
+func (o *PostJourneyActionmapsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostJourneyActionmapsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostJourneyActionmapsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -448,7 +747,8 @@ func NewPostJourneyActionmapsTooManyRequests() *PostJourneyActionmapsTooManyRequ
 	return &PostJourneyActionmapsTooManyRequests{}
 }
 
-/*PostJourneyActionmapsTooManyRequests handles this case with default header values.
+/*
+PostJourneyActionmapsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -456,7 +756,36 @@ type PostJourneyActionmapsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actionmaps too many requests response has a 2xx status code
+func (o *PostJourneyActionmapsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actionmaps too many requests response has a 3xx status code
+func (o *PostJourneyActionmapsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps too many requests response has a 4xx status code
+func (o *PostJourneyActionmapsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actionmaps too many requests response has a 5xx status code
+func (o *PostJourneyActionmapsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actionmaps too many requests response a status code equal to that given
+func (o *PostJourneyActionmapsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostJourneyActionmapsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostJourneyActionmapsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -481,7 +810,8 @@ func NewPostJourneyActionmapsInternalServerError() *PostJourneyActionmapsInterna
 	return &PostJourneyActionmapsInternalServerError{}
 }
 
-/*PostJourneyActionmapsInternalServerError handles this case with default header values.
+/*
+PostJourneyActionmapsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -489,7 +819,36 @@ type PostJourneyActionmapsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actionmaps internal server error response has a 2xx status code
+func (o *PostJourneyActionmapsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actionmaps internal server error response has a 3xx status code
+func (o *PostJourneyActionmapsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps internal server error response has a 4xx status code
+func (o *PostJourneyActionmapsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey actionmaps internal server error response has a 5xx status code
+func (o *PostJourneyActionmapsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post journey actionmaps internal server error response a status code equal to that given
+func (o *PostJourneyActionmapsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostJourneyActionmapsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostJourneyActionmapsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -514,7 +873,8 @@ func NewPostJourneyActionmapsServiceUnavailable() *PostJourneyActionmapsServiceU
 	return &PostJourneyActionmapsServiceUnavailable{}
 }
 
-/*PostJourneyActionmapsServiceUnavailable handles this case with default header values.
+/*
+PostJourneyActionmapsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -522,7 +882,36 @@ type PostJourneyActionmapsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actionmaps service unavailable response has a 2xx status code
+func (o *PostJourneyActionmapsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actionmaps service unavailable response has a 3xx status code
+func (o *PostJourneyActionmapsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps service unavailable response has a 4xx status code
+func (o *PostJourneyActionmapsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey actionmaps service unavailable response has a 5xx status code
+func (o *PostJourneyActionmapsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post journey actionmaps service unavailable response a status code equal to that given
+func (o *PostJourneyActionmapsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostJourneyActionmapsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostJourneyActionmapsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -547,7 +936,8 @@ func NewPostJourneyActionmapsGatewayTimeout() *PostJourneyActionmapsGatewayTimeo
 	return &PostJourneyActionmapsGatewayTimeout{}
 }
 
-/*PostJourneyActionmapsGatewayTimeout handles this case with default header values.
+/*
+PostJourneyActionmapsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -555,7 +945,36 @@ type PostJourneyActionmapsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actionmaps gateway timeout response has a 2xx status code
+func (o *PostJourneyActionmapsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actionmaps gateway timeout response has a 3xx status code
+func (o *PostJourneyActionmapsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actionmaps gateway timeout response has a 4xx status code
+func (o *PostJourneyActionmapsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey actionmaps gateway timeout response has a 5xx status code
+func (o *PostJourneyActionmapsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post journey actionmaps gateway timeout response a status code equal to that given
+func (o *PostJourneyActionmapsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostJourneyActionmapsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostJourneyActionmapsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actionmaps][%d] postJourneyActionmapsGatewayTimeout  %+v", 504, o.Payload)
 }
 

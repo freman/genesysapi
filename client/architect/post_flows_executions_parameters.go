@@ -18,56 +18,72 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostFlowsExecutionsParams creates a new PostFlowsExecutionsParams object
-// with the default values initialized.
+// NewPostFlowsExecutionsParams creates a new PostFlowsExecutionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostFlowsExecutionsParams() *PostFlowsExecutionsParams {
-	var ()
 	return &PostFlowsExecutionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostFlowsExecutionsParamsWithTimeout creates a new PostFlowsExecutionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostFlowsExecutionsParamsWithTimeout(timeout time.Duration) *PostFlowsExecutionsParams {
-	var ()
 	return &PostFlowsExecutionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostFlowsExecutionsParamsWithContext creates a new PostFlowsExecutionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostFlowsExecutionsParamsWithContext(ctx context.Context) *PostFlowsExecutionsParams {
-	var ()
 	return &PostFlowsExecutionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostFlowsExecutionsParamsWithHTTPClient creates a new PostFlowsExecutionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostFlowsExecutionsParamsWithHTTPClient(client *http.Client) *PostFlowsExecutionsParams {
-	var ()
 	return &PostFlowsExecutionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostFlowsExecutionsParams contains all the parameters to send to the API endpoint
-for the post flows executions operation typically these are written to a http.Request
+/*
+PostFlowsExecutionsParams contains all the parameters to send to the API endpoint
+
+	for the post flows executions operation.
+
+	Typically these are written to a http.Request.
 */
 type PostFlowsExecutionsParams struct {
 
-	/*FlowLaunchRequest*/
+	// FlowLaunchRequest.
 	FlowLaunchRequest *models.FlowExecutionLaunchRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post flows executions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsExecutionsParams) WithDefaults() *PostFlowsExecutionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post flows executions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsExecutionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post flows executions params
@@ -121,7 +137,6 @@ func (o *PostFlowsExecutionsParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
 	if o.FlowLaunchRequest != nil {
 		if err := r.SetBodyParam(o.FlowLaunchRequest); err != nil {
 			return err

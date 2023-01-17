@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPutFlowsDatatableRowParams creates a new PutFlowsDatatableRowParams object
-// with the default values initialized.
+// NewPutFlowsDatatableRowParams creates a new PutFlowsDatatableRowParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutFlowsDatatableRowParams() *PutFlowsDatatableRowParams {
-	var ()
 	return &PutFlowsDatatableRowParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutFlowsDatatableRowParamsWithTimeout creates a new PutFlowsDatatableRowParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutFlowsDatatableRowParamsWithTimeout(timeout time.Duration) *PutFlowsDatatableRowParams {
-	var ()
 	return &PutFlowsDatatableRowParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutFlowsDatatableRowParamsWithContext creates a new PutFlowsDatatableRowParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutFlowsDatatableRowParamsWithContext(ctx context.Context) *PutFlowsDatatableRowParams {
-	var ()
 	return &PutFlowsDatatableRowParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutFlowsDatatableRowParamsWithHTTPClient creates a new PutFlowsDatatableRowParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutFlowsDatatableRowParamsWithHTTPClient(client *http.Client) *PutFlowsDatatableRowParams {
-	var ()
 	return &PutFlowsDatatableRowParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutFlowsDatatableRowParams contains all the parameters to send to the API endpoint
-for the put flows datatable row operation typically these are written to a http.Request
+/*
+PutFlowsDatatableRowParams contains all the parameters to send to the API endpoint
+
+	for the put flows datatable row operation.
+
+	Typically these are written to a http.Request.
 */
 type PutFlowsDatatableRowParams struct {
 
-	/*Body
-	  datatable row
+	/* Body.
 
+	   datatable row
 	*/
 	Body map[string]interface{}
-	/*DatatableID
-	  id of datatable
 
+	/* DatatableID.
+
+	   id of datatable
 	*/
 	DatatableID string
-	/*RowID
-	  the key for the row
 
+	/* RowID.
+
+	   the key for the row
 	*/
 	RowID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put flows datatable row params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutFlowsDatatableRowParams) WithDefaults() *PutFlowsDatatableRowParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put flows datatable row params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutFlowsDatatableRowParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put flows datatable row params
@@ -154,7 +172,6 @@ func (o *PutFlowsDatatableRowParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGdprSubjectsParams creates a new GetGdprSubjectsParams object
-// with the default values initialized.
+// NewGetGdprSubjectsParams creates a new GetGdprSubjectsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGdprSubjectsParams() *GetGdprSubjectsParams {
-	var ()
 	return &GetGdprSubjectsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGdprSubjectsParamsWithTimeout creates a new GetGdprSubjectsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGdprSubjectsParamsWithTimeout(timeout time.Duration) *GetGdprSubjectsParams {
-	var ()
 	return &GetGdprSubjectsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGdprSubjectsParamsWithContext creates a new GetGdprSubjectsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGdprSubjectsParamsWithContext(ctx context.Context) *GetGdprSubjectsParams {
-	var ()
 	return &GetGdprSubjectsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGdprSubjectsParamsWithHTTPClient creates a new GetGdprSubjectsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGdprSubjectsParamsWithHTTPClient(client *http.Client) *GetGdprSubjectsParams {
-	var ()
 	return &GetGdprSubjectsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGdprSubjectsParams contains all the parameters to send to the API endpoint
-for the get gdpr subjects operation typically these are written to a http.Request
+/*
+GetGdprSubjectsParams contains all the parameters to send to the API endpoint
+
+	for the get gdpr subjects operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGdprSubjectsParams struct {
 
-	/*SearchType
-	  Search Type
+	/* SearchType.
 
+	   Search Type
 	*/
 	SearchType string
-	/*SearchValue
-	  Search Value
 
+	/* SearchValue.
+
+	   Search Value
 	*/
 	SearchValue string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gdpr subjects params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGdprSubjectsParams) WithDefaults() *GetGdprSubjectsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gdpr subjects params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGdprSubjectsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gdpr subjects params
@@ -143,6 +160,7 @@ func (o *GetGdprSubjectsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 	qrSearchType := o.SearchType
 	qSearchType := qrSearchType
 	if qSearchType != "" {
+
 		if err := r.SetQueryParam("searchType", qSearchType); err != nil {
 			return err
 		}
@@ -152,6 +170,7 @@ func (o *GetGdprSubjectsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 	qrSearchValue := o.SearchValue
 	qSearchValue := qrSearchValue
 	if qSearchValue != "" {
+
 		if err := r.SetQueryParam("searchValue", qSearchValue); err != nil {
 			return err
 		}

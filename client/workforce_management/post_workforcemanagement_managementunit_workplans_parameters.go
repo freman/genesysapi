@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementManagementunitWorkplansParams creates a new PostWorkforcemanagementManagementunitWorkplansParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementManagementunitWorkplansParams creates a new PostWorkforcemanagementManagementunitWorkplansParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementManagementunitWorkplansParams() *PostWorkforcemanagementManagementunitWorkplansParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplansParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWorkplansParamsWithTimeout creates a new PostWorkforcemanagementManagementunitWorkplansParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementManagementunitWorkplansParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementManagementunitWorkplansParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplansParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWorkplansParamsWithContext creates a new PostWorkforcemanagementManagementunitWorkplansParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementManagementunitWorkplansParamsWithContext(ctx context.Context) *PostWorkforcemanagementManagementunitWorkplansParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplansParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWorkplansParamsWithHTTPClient creates a new PostWorkforcemanagementManagementunitWorkplansParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementManagementunitWorkplansParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementManagementunitWorkplansParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplansParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplansParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement managementunit workplans operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementManagementunitWorkplansParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement managementunit workplans operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementManagementunitWorkplansParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.CreateWorkPlan
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
-	/*ValidationMode
-	  Allows to create work plan even if the validation result is invalid
 
+	/* ValidationMode.
+
+	   Allows to create work plan even if the validation result is invalid
 	*/
 	ValidationMode *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement managementunit workplans params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitWorkplansParams) WithDefaults() *PostWorkforcemanagementManagementunitWorkplansParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement managementunit workplans params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitWorkplansParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement managementunit workplans params
@@ -156,7 +174,6 @@ func (o *PostWorkforcemanagementManagementunitWorkplansParams) WriteToRequest(r 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -172,16 +189,17 @@ func (o *PostWorkforcemanagementManagementunitWorkplansParams) WriteToRequest(r 
 
 		// query param validationMode
 		var qrValidationMode string
+
 		if o.ValidationMode != nil {
 			qrValidationMode = *o.ValidationMode
 		}
 		qValidationMode := qrValidationMode
 		if qValidationMode != "" {
+
 			if err := r.SetQueryParam("validationMode", qValidationMode); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

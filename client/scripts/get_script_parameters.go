@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetScriptParams creates a new GetScriptParams object
-// with the default values initialized.
+// NewGetScriptParams creates a new GetScriptParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScriptParams() *GetScriptParams {
-	var ()
 	return &GetScriptParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScriptParamsWithTimeout creates a new GetScriptParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScriptParamsWithTimeout(timeout time.Duration) *GetScriptParams {
-	var ()
 	return &GetScriptParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScriptParamsWithContext creates a new GetScriptParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScriptParamsWithContext(ctx context.Context) *GetScriptParams {
-	var ()
 	return &GetScriptParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetScriptParamsWithHTTPClient creates a new GetScriptParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScriptParamsWithHTTPClient(client *http.Client) *GetScriptParams {
-	var ()
 	return &GetScriptParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetScriptParams contains all the parameters to send to the API endpoint
-for the get script operation typically these are written to a http.Request
+/*
+GetScriptParams contains all the parameters to send to the API endpoint
+
+	for the get script operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScriptParams struct {
 
-	/*ScriptID
-	  Script ID
+	/* ScriptID.
 
+	   Script ID
 	*/
 	ScriptID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get script params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScriptParams) WithDefaults() *GetScriptParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get script params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScriptParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get script params

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteExternalcontactsContactsSchemaParams creates a new DeleteExternalcontactsContactsSchemaParams object
-// with the default values initialized.
+// NewDeleteExternalcontactsContactsSchemaParams creates a new DeleteExternalcontactsContactsSchemaParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteExternalcontactsContactsSchemaParams() *DeleteExternalcontactsContactsSchemaParams {
-	var ()
 	return &DeleteExternalcontactsContactsSchemaParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteExternalcontactsContactsSchemaParamsWithTimeout creates a new DeleteExternalcontactsContactsSchemaParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteExternalcontactsContactsSchemaParamsWithTimeout(timeout time.Duration) *DeleteExternalcontactsContactsSchemaParams {
-	var ()
 	return &DeleteExternalcontactsContactsSchemaParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteExternalcontactsContactsSchemaParamsWithContext creates a new DeleteExternalcontactsContactsSchemaParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteExternalcontactsContactsSchemaParamsWithContext(ctx context.Context) *DeleteExternalcontactsContactsSchemaParams {
-	var ()
 	return &DeleteExternalcontactsContactsSchemaParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteExternalcontactsContactsSchemaParamsWithHTTPClient creates a new DeleteExternalcontactsContactsSchemaParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteExternalcontactsContactsSchemaParamsWithHTTPClient(client *http.Client) *DeleteExternalcontactsContactsSchemaParams {
-	var ()
 	return &DeleteExternalcontactsContactsSchemaParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteExternalcontactsContactsSchemaParams contains all the parameters to send to the API endpoint
-for the delete externalcontacts contacts schema operation typically these are written to a http.Request
+/*
+DeleteExternalcontactsContactsSchemaParams contains all the parameters to send to the API endpoint
+
+	for the delete externalcontacts contacts schema operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteExternalcontactsContactsSchemaParams struct {
 
-	/*SchemaID
-	  Schema ID
+	/* SchemaID.
 
+	   Schema ID
 	*/
 	SchemaID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete externalcontacts contacts schema params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteExternalcontactsContactsSchemaParams) WithDefaults() *DeleteExternalcontactsContactsSchemaParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete externalcontacts contacts schema params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteExternalcontactsContactsSchemaParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete externalcontacts contacts schema params

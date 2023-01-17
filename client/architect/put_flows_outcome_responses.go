@@ -107,7 +107,6 @@ func (o *PutFlowsOutcomeReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -118,7 +117,8 @@ func NewPutFlowsOutcomeOK() *PutFlowsOutcomeOK {
 	return &PutFlowsOutcomeOK{}
 }
 
-/*PutFlowsOutcomeOK handles this case with default header values.
+/*
+PutFlowsOutcomeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -126,7 +126,36 @@ type PutFlowsOutcomeOK struct {
 	Payload *models.Operation
 }
 
+// IsSuccess returns true when this put flows outcome o k response has a 2xx status code
+func (o *PutFlowsOutcomeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put flows outcome o k response has a 3xx status code
+func (o *PutFlowsOutcomeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome o k response has a 4xx status code
+func (o *PutFlowsOutcomeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put flows outcome o k response has a 5xx status code
+func (o *PutFlowsOutcomeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows outcome o k response a status code equal to that given
+func (o *PutFlowsOutcomeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutFlowsOutcomeOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeOK  %+v", 200, o.Payload)
+}
+
+func (o *PutFlowsOutcomeOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeOK  %+v", 200, o.Payload)
 }
 
@@ -151,7 +180,8 @@ func NewPutFlowsOutcomeBadRequest() *PutFlowsOutcomeBadRequest {
 	return &PutFlowsOutcomeBadRequest{}
 }
 
-/*PutFlowsOutcomeBadRequest handles this case with default header values.
+/*
+PutFlowsOutcomeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -159,7 +189,36 @@ type PutFlowsOutcomeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome bad request response has a 2xx status code
+func (o *PutFlowsOutcomeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome bad request response has a 3xx status code
+func (o *PutFlowsOutcomeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome bad request response has a 4xx status code
+func (o *PutFlowsOutcomeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows outcome bad request response has a 5xx status code
+func (o *PutFlowsOutcomeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows outcome bad request response a status code equal to that given
+func (o *PutFlowsOutcomeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutFlowsOutcomeBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutFlowsOutcomeBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -184,7 +243,8 @@ func NewPutFlowsOutcomeUnauthorized() *PutFlowsOutcomeUnauthorized {
 	return &PutFlowsOutcomeUnauthorized{}
 }
 
-/*PutFlowsOutcomeUnauthorized handles this case with default header values.
+/*
+PutFlowsOutcomeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -192,7 +252,36 @@ type PutFlowsOutcomeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome unauthorized response has a 2xx status code
+func (o *PutFlowsOutcomeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome unauthorized response has a 3xx status code
+func (o *PutFlowsOutcomeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome unauthorized response has a 4xx status code
+func (o *PutFlowsOutcomeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows outcome unauthorized response has a 5xx status code
+func (o *PutFlowsOutcomeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows outcome unauthorized response a status code equal to that given
+func (o *PutFlowsOutcomeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutFlowsOutcomeUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutFlowsOutcomeUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -217,7 +306,8 @@ func NewPutFlowsOutcomeForbidden() *PutFlowsOutcomeForbidden {
 	return &PutFlowsOutcomeForbidden{}
 }
 
-/*PutFlowsOutcomeForbidden handles this case with default header values.
+/*
+PutFlowsOutcomeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -225,7 +315,36 @@ type PutFlowsOutcomeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome forbidden response has a 2xx status code
+func (o *PutFlowsOutcomeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome forbidden response has a 3xx status code
+func (o *PutFlowsOutcomeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome forbidden response has a 4xx status code
+func (o *PutFlowsOutcomeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows outcome forbidden response has a 5xx status code
+func (o *PutFlowsOutcomeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows outcome forbidden response a status code equal to that given
+func (o *PutFlowsOutcomeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutFlowsOutcomeForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutFlowsOutcomeForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeForbidden  %+v", 403, o.Payload)
 }
 
@@ -250,7 +369,8 @@ func NewPutFlowsOutcomeNotFound() *PutFlowsOutcomeNotFound {
 	return &PutFlowsOutcomeNotFound{}
 }
 
-/*PutFlowsOutcomeNotFound handles this case with default header values.
+/*
+PutFlowsOutcomeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -258,7 +378,36 @@ type PutFlowsOutcomeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome not found response has a 2xx status code
+func (o *PutFlowsOutcomeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome not found response has a 3xx status code
+func (o *PutFlowsOutcomeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome not found response has a 4xx status code
+func (o *PutFlowsOutcomeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows outcome not found response has a 5xx status code
+func (o *PutFlowsOutcomeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows outcome not found response a status code equal to that given
+func (o *PutFlowsOutcomeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutFlowsOutcomeNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutFlowsOutcomeNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeNotFound  %+v", 404, o.Payload)
 }
 
@@ -283,7 +432,8 @@ func NewPutFlowsOutcomeMethodNotAllowed() *PutFlowsOutcomeMethodNotAllowed {
 	return &PutFlowsOutcomeMethodNotAllowed{}
 }
 
-/*PutFlowsOutcomeMethodNotAllowed handles this case with default header values.
+/*
+PutFlowsOutcomeMethodNotAllowed describes a response with status code 405, with default header values.
 
 Method Not Allowed
 */
@@ -291,7 +441,36 @@ type PutFlowsOutcomeMethodNotAllowed struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome method not allowed response has a 2xx status code
+func (o *PutFlowsOutcomeMethodNotAllowed) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome method not allowed response has a 3xx status code
+func (o *PutFlowsOutcomeMethodNotAllowed) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome method not allowed response has a 4xx status code
+func (o *PutFlowsOutcomeMethodNotAllowed) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows outcome method not allowed response has a 5xx status code
+func (o *PutFlowsOutcomeMethodNotAllowed) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows outcome method not allowed response a status code equal to that given
+func (o *PutFlowsOutcomeMethodNotAllowed) IsCode(code int) bool {
+	return code == 405
+}
+
 func (o *PutFlowsOutcomeMethodNotAllowed) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeMethodNotAllowed  %+v", 405, o.Payload)
+}
+
+func (o *PutFlowsOutcomeMethodNotAllowed) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeMethodNotAllowed  %+v", 405, o.Payload)
 }
 
@@ -316,7 +495,8 @@ func NewPutFlowsOutcomeRequestTimeout() *PutFlowsOutcomeRequestTimeout {
 	return &PutFlowsOutcomeRequestTimeout{}
 }
 
-/*PutFlowsOutcomeRequestTimeout handles this case with default header values.
+/*
+PutFlowsOutcomeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -324,7 +504,36 @@ type PutFlowsOutcomeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome request timeout response has a 2xx status code
+func (o *PutFlowsOutcomeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome request timeout response has a 3xx status code
+func (o *PutFlowsOutcomeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome request timeout response has a 4xx status code
+func (o *PutFlowsOutcomeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows outcome request timeout response has a 5xx status code
+func (o *PutFlowsOutcomeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows outcome request timeout response a status code equal to that given
+func (o *PutFlowsOutcomeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutFlowsOutcomeRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutFlowsOutcomeRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -349,7 +558,8 @@ func NewPutFlowsOutcomeConflict() *PutFlowsOutcomeConflict {
 	return &PutFlowsOutcomeConflict{}
 }
 
-/*PutFlowsOutcomeConflict handles this case with default header values.
+/*
+PutFlowsOutcomeConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -357,7 +567,36 @@ type PutFlowsOutcomeConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome conflict response has a 2xx status code
+func (o *PutFlowsOutcomeConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome conflict response has a 3xx status code
+func (o *PutFlowsOutcomeConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome conflict response has a 4xx status code
+func (o *PutFlowsOutcomeConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows outcome conflict response has a 5xx status code
+func (o *PutFlowsOutcomeConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows outcome conflict response a status code equal to that given
+func (o *PutFlowsOutcomeConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutFlowsOutcomeConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutFlowsOutcomeConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeConflict  %+v", 409, o.Payload)
 }
 
@@ -382,7 +621,8 @@ func NewPutFlowsOutcomeRequestEntityTooLarge() *PutFlowsOutcomeRequestEntityTooL
 	return &PutFlowsOutcomeRequestEntityTooLarge{}
 }
 
-/*PutFlowsOutcomeRequestEntityTooLarge handles this case with default header values.
+/*
+PutFlowsOutcomeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -390,7 +630,36 @@ type PutFlowsOutcomeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome request entity too large response has a 2xx status code
+func (o *PutFlowsOutcomeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome request entity too large response has a 3xx status code
+func (o *PutFlowsOutcomeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome request entity too large response has a 4xx status code
+func (o *PutFlowsOutcomeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows outcome request entity too large response has a 5xx status code
+func (o *PutFlowsOutcomeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows outcome request entity too large response a status code equal to that given
+func (o *PutFlowsOutcomeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutFlowsOutcomeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutFlowsOutcomeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -415,7 +684,8 @@ func NewPutFlowsOutcomeUnsupportedMediaType() *PutFlowsOutcomeUnsupportedMediaTy
 	return &PutFlowsOutcomeUnsupportedMediaType{}
 }
 
-/*PutFlowsOutcomeUnsupportedMediaType handles this case with default header values.
+/*
+PutFlowsOutcomeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -423,7 +693,36 @@ type PutFlowsOutcomeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome unsupported media type response has a 2xx status code
+func (o *PutFlowsOutcomeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome unsupported media type response has a 3xx status code
+func (o *PutFlowsOutcomeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome unsupported media type response has a 4xx status code
+func (o *PutFlowsOutcomeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows outcome unsupported media type response has a 5xx status code
+func (o *PutFlowsOutcomeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows outcome unsupported media type response a status code equal to that given
+func (o *PutFlowsOutcomeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutFlowsOutcomeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutFlowsOutcomeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -448,7 +747,8 @@ func NewPutFlowsOutcomeTooManyRequests() *PutFlowsOutcomeTooManyRequests {
 	return &PutFlowsOutcomeTooManyRequests{}
 }
 
-/*PutFlowsOutcomeTooManyRequests handles this case with default header values.
+/*
+PutFlowsOutcomeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -456,7 +756,36 @@ type PutFlowsOutcomeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome too many requests response has a 2xx status code
+func (o *PutFlowsOutcomeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome too many requests response has a 3xx status code
+func (o *PutFlowsOutcomeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome too many requests response has a 4xx status code
+func (o *PutFlowsOutcomeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows outcome too many requests response has a 5xx status code
+func (o *PutFlowsOutcomeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows outcome too many requests response a status code equal to that given
+func (o *PutFlowsOutcomeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutFlowsOutcomeTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutFlowsOutcomeTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -481,7 +810,8 @@ func NewPutFlowsOutcomeInternalServerError() *PutFlowsOutcomeInternalServerError
 	return &PutFlowsOutcomeInternalServerError{}
 }
 
-/*PutFlowsOutcomeInternalServerError handles this case with default header values.
+/*
+PutFlowsOutcomeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -489,7 +819,36 @@ type PutFlowsOutcomeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome internal server error response has a 2xx status code
+func (o *PutFlowsOutcomeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome internal server error response has a 3xx status code
+func (o *PutFlowsOutcomeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome internal server error response has a 4xx status code
+func (o *PutFlowsOutcomeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put flows outcome internal server error response has a 5xx status code
+func (o *PutFlowsOutcomeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put flows outcome internal server error response a status code equal to that given
+func (o *PutFlowsOutcomeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutFlowsOutcomeInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutFlowsOutcomeInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -514,7 +873,8 @@ func NewPutFlowsOutcomeServiceUnavailable() *PutFlowsOutcomeServiceUnavailable {
 	return &PutFlowsOutcomeServiceUnavailable{}
 }
 
-/*PutFlowsOutcomeServiceUnavailable handles this case with default header values.
+/*
+PutFlowsOutcomeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -522,7 +882,36 @@ type PutFlowsOutcomeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome service unavailable response has a 2xx status code
+func (o *PutFlowsOutcomeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome service unavailable response has a 3xx status code
+func (o *PutFlowsOutcomeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome service unavailable response has a 4xx status code
+func (o *PutFlowsOutcomeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put flows outcome service unavailable response has a 5xx status code
+func (o *PutFlowsOutcomeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put flows outcome service unavailable response a status code equal to that given
+func (o *PutFlowsOutcomeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutFlowsOutcomeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutFlowsOutcomeServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -547,7 +936,8 @@ func NewPutFlowsOutcomeGatewayTimeout() *PutFlowsOutcomeGatewayTimeout {
 	return &PutFlowsOutcomeGatewayTimeout{}
 }
 
-/*PutFlowsOutcomeGatewayTimeout handles this case with default header values.
+/*
+PutFlowsOutcomeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -555,7 +945,36 @@ type PutFlowsOutcomeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows outcome gateway timeout response has a 2xx status code
+func (o *PutFlowsOutcomeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows outcome gateway timeout response has a 3xx status code
+func (o *PutFlowsOutcomeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows outcome gateway timeout response has a 4xx status code
+func (o *PutFlowsOutcomeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put flows outcome gateway timeout response has a 5xx status code
+func (o *PutFlowsOutcomeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put flows outcome gateway timeout response a status code equal to that given
+func (o *PutFlowsOutcomeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutFlowsOutcomeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutFlowsOutcomeGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/outcomes/{flowOutcomeId}][%d] putFlowsOutcomeGatewayTimeout  %+v", 504, o.Payload)
 }
 

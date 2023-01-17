@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostWebchatGuestConversationMemberTypingParams creates a new PostWebchatGuestConversationMemberTypingParams object
-// with the default values initialized.
+// NewPostWebchatGuestConversationMemberTypingParams creates a new PostWebchatGuestConversationMemberTypingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWebchatGuestConversationMemberTypingParams() *PostWebchatGuestConversationMemberTypingParams {
-	var ()
 	return &PostWebchatGuestConversationMemberTypingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWebchatGuestConversationMemberTypingParamsWithTimeout creates a new PostWebchatGuestConversationMemberTypingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWebchatGuestConversationMemberTypingParamsWithTimeout(timeout time.Duration) *PostWebchatGuestConversationMemberTypingParams {
-	var ()
 	return &PostWebchatGuestConversationMemberTypingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWebchatGuestConversationMemberTypingParamsWithContext creates a new PostWebchatGuestConversationMemberTypingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWebchatGuestConversationMemberTypingParamsWithContext(ctx context.Context) *PostWebchatGuestConversationMemberTypingParams {
-	var ()
 	return &PostWebchatGuestConversationMemberTypingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWebchatGuestConversationMemberTypingParamsWithHTTPClient creates a new PostWebchatGuestConversationMemberTypingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWebchatGuestConversationMemberTypingParamsWithHTTPClient(client *http.Client) *PostWebchatGuestConversationMemberTypingParams {
-	var ()
 	return &PostWebchatGuestConversationMemberTypingParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWebchatGuestConversationMemberTypingParams contains all the parameters to send to the API endpoint
-for the post webchat guest conversation member typing operation typically these are written to a http.Request
+/*
+PostWebchatGuestConversationMemberTypingParams contains all the parameters to send to the API endpoint
+
+	for the post webchat guest conversation member typing operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWebchatGuestConversationMemberTypingParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*MemberID
-	  memberId
 
+	/* MemberID.
+
+	   memberId
 	*/
 	MemberID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post webchat guest conversation member typing params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWebchatGuestConversationMemberTypingParams) WithDefaults() *PostWebchatGuestConversationMemberTypingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post webchat guest conversation member typing params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWebchatGuestConversationMemberTypingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post webchat guest conversation member typing params

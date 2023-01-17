@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostOutboundContactlistExportParams creates a new PostOutboundContactlistExportParams object
-// with the default values initialized.
+// NewPostOutboundContactlistExportParams creates a new PostOutboundContactlistExportParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundContactlistExportParams() *PostOutboundContactlistExportParams {
-	var ()
 	return &PostOutboundContactlistExportParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundContactlistExportParamsWithTimeout creates a new PostOutboundContactlistExportParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundContactlistExportParamsWithTimeout(timeout time.Duration) *PostOutboundContactlistExportParams {
-	var ()
 	return &PostOutboundContactlistExportParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundContactlistExportParamsWithContext creates a new PostOutboundContactlistExportParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundContactlistExportParamsWithContext(ctx context.Context) *PostOutboundContactlistExportParams {
-	var ()
 	return &PostOutboundContactlistExportParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundContactlistExportParamsWithHTTPClient creates a new PostOutboundContactlistExportParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundContactlistExportParamsWithHTTPClient(client *http.Client) *PostOutboundContactlistExportParams {
-	var ()
 	return &PostOutboundContactlistExportParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundContactlistExportParams contains all the parameters to send to the API endpoint
-for the post outbound contactlist export operation typically these are written to a http.Request
+/*
+PostOutboundContactlistExportParams contains all the parameters to send to the API endpoint
+
+	for the post outbound contactlist export operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundContactlistExportParams struct {
 
-	/*ContactListID
-	  ContactList ID
+	/* ContactListID.
 
+	   ContactList ID
 	*/
 	ContactListID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound contactlist export params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundContactlistExportParams) WithDefaults() *PostOutboundContactlistExportParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound contactlist export params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundContactlistExportParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound contactlist export params

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAnalyticsReportingScheduleHistoryLatestParams creates a new GetAnalyticsReportingScheduleHistoryLatestParams object
-// with the default values initialized.
+// NewGetAnalyticsReportingScheduleHistoryLatestParams creates a new GetAnalyticsReportingScheduleHistoryLatestParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAnalyticsReportingScheduleHistoryLatestParams() *GetAnalyticsReportingScheduleHistoryLatestParams {
-	var ()
 	return &GetAnalyticsReportingScheduleHistoryLatestParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAnalyticsReportingScheduleHistoryLatestParamsWithTimeout creates a new GetAnalyticsReportingScheduleHistoryLatestParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAnalyticsReportingScheduleHistoryLatestParamsWithTimeout(timeout time.Duration) *GetAnalyticsReportingScheduleHistoryLatestParams {
-	var ()
 	return &GetAnalyticsReportingScheduleHistoryLatestParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAnalyticsReportingScheduleHistoryLatestParamsWithContext creates a new GetAnalyticsReportingScheduleHistoryLatestParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAnalyticsReportingScheduleHistoryLatestParamsWithContext(ctx context.Context) *GetAnalyticsReportingScheduleHistoryLatestParams {
-	var ()
 	return &GetAnalyticsReportingScheduleHistoryLatestParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAnalyticsReportingScheduleHistoryLatestParamsWithHTTPClient creates a new GetAnalyticsReportingScheduleHistoryLatestParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAnalyticsReportingScheduleHistoryLatestParamsWithHTTPClient(client *http.Client) *GetAnalyticsReportingScheduleHistoryLatestParams {
-	var ()
 	return &GetAnalyticsReportingScheduleHistoryLatestParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAnalyticsReportingScheduleHistoryLatestParams contains all the parameters to send to the API endpoint
-for the get analytics reporting schedule history latest operation typically these are written to a http.Request
+/*
+GetAnalyticsReportingScheduleHistoryLatestParams contains all the parameters to send to the API endpoint
+
+	for the get analytics reporting schedule history latest operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAnalyticsReportingScheduleHistoryLatestParams struct {
 
-	/*ScheduleID
-	  Schedule ID
+	/* ScheduleID.
 
+	   Schedule ID
 	*/
 	ScheduleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get analytics reporting schedule history latest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAnalyticsReportingScheduleHistoryLatestParams) WithDefaults() *GetAnalyticsReportingScheduleHistoryLatestParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get analytics reporting schedule history latest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAnalyticsReportingScheduleHistoryLatestParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get analytics reporting schedule history latest params

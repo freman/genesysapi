@@ -95,7 +95,6 @@ func (o *PostSpeechandtextanalyticsProgramsPublishjobsReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostSpeechandtextanalyticsProgramsPublishjobsOK() *PostSpeechandtextanal
 	return &PostSpeechandtextanalyticsProgramsPublishjobsOK{}
 }
 
-/*PostSpeechandtextanalyticsProgramsPublishjobsOK handles this case with default header values.
+/*
+PostSpeechandtextanalyticsProgramsPublishjobsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostSpeechandtextanalyticsProgramsPublishjobsOK struct {
 	Payload *models.ProgramJob
 }
 
+// IsSuccess returns true when this post speechandtextanalytics programs publishjobs o k response has a 2xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post speechandtextanalytics programs publishjobs o k response has a 3xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics programs publishjobs o k response has a 4xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post speechandtextanalytics programs publishjobs o k response has a 5xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics programs publishjobs o k response a status code equal to that given
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostSpeechandtextanalyticsProgramsPublishjobsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostSpeechandtextanalyticsProgramsPublishjobsBadRequest() *PostSpeechand
 	return &PostSpeechandtextanalyticsProgramsPublishjobsBadRequest{}
 }
 
-/*PostSpeechandtextanalyticsProgramsPublishjobsBadRequest handles this case with default header values.
+/*
+PostSpeechandtextanalyticsProgramsPublishjobsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostSpeechandtextanalyticsProgramsPublishjobsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics programs publishjobs bad request response has a 2xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics programs publishjobs bad request response has a 3xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics programs publishjobs bad request response has a 4xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics programs publishjobs bad request response has a 5xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics programs publishjobs bad request response a status code equal to that given
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostSpeechandtextanalyticsProgramsPublishjobsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostSpeechandtextanalyticsProgramsPublishjobsUnauthorized() *PostSpeecha
 	return &PostSpeechandtextanalyticsProgramsPublishjobsUnauthorized{}
 }
 
-/*PostSpeechandtextanalyticsProgramsPublishjobsUnauthorized handles this case with default header values.
+/*
+PostSpeechandtextanalyticsProgramsPublishjobsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostSpeechandtextanalyticsProgramsPublishjobsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics programs publishjobs unauthorized response has a 2xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics programs publishjobs unauthorized response has a 3xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics programs publishjobs unauthorized response has a 4xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics programs publishjobs unauthorized response has a 5xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics programs publishjobs unauthorized response a status code equal to that given
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostSpeechandtextanalyticsProgramsPublishjobsForbidden() *PostSpeechandt
 	return &PostSpeechandtextanalyticsProgramsPublishjobsForbidden{}
 }
 
-/*PostSpeechandtextanalyticsProgramsPublishjobsForbidden handles this case with default header values.
+/*
+PostSpeechandtextanalyticsProgramsPublishjobsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostSpeechandtextanalyticsProgramsPublishjobsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics programs publishjobs forbidden response has a 2xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics programs publishjobs forbidden response has a 3xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics programs publishjobs forbidden response has a 4xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics programs publishjobs forbidden response has a 5xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics programs publishjobs forbidden response a status code equal to that given
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostSpeechandtextanalyticsProgramsPublishjobsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostSpeechandtextanalyticsProgramsPublishjobsNotFound() *PostSpeechandte
 	return &PostSpeechandtextanalyticsProgramsPublishjobsNotFound{}
 }
 
-/*PostSpeechandtextanalyticsProgramsPublishjobsNotFound handles this case with default header values.
+/*
+PostSpeechandtextanalyticsProgramsPublishjobsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostSpeechandtextanalyticsProgramsPublishjobsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics programs publishjobs not found response has a 2xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics programs publishjobs not found response has a 3xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics programs publishjobs not found response has a 4xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics programs publishjobs not found response has a 5xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics programs publishjobs not found response a status code equal to that given
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostSpeechandtextanalyticsProgramsPublishjobsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostSpeechandtextanalyticsProgramsPublishjobsRequestTimeout() *PostSpeec
 	return &PostSpeechandtextanalyticsProgramsPublishjobsRequestTimeout{}
 }
 
-/*PostSpeechandtextanalyticsProgramsPublishjobsRequestTimeout handles this case with default header values.
+/*
+PostSpeechandtextanalyticsProgramsPublishjobsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostSpeechandtextanalyticsProgramsPublishjobsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics programs publishjobs request timeout response has a 2xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics programs publishjobs request timeout response has a 3xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics programs publishjobs request timeout response has a 4xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics programs publishjobs request timeout response has a 5xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics programs publishjobs request timeout response a status code equal to that given
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge() *Po
 	return &PostSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge{}
 }
 
-/*PostSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge handles this case with default header values.
+/*
+PostSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics programs publishjobs request entity too large response has a 2xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics programs publishjobs request entity too large response has a 3xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics programs publishjobs request entity too large response has a 4xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics programs publishjobs request entity too large response has a 5xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics programs publishjobs request entity too large response a status code equal to that given
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType() *Pos
 	return &PostSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType{}
 }
 
-/*PostSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType handles this case with default header values.
+/*
+PostSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics programs publishjobs unsupported media type response has a 2xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics programs publishjobs unsupported media type response has a 3xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics programs publishjobs unsupported media type response has a 4xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics programs publishjobs unsupported media type response has a 5xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics programs publishjobs unsupported media type response a status code equal to that given
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostSpeechandtextanalyticsProgramsPublishjobsTooManyRequests() *PostSpee
 	return &PostSpeechandtextanalyticsProgramsPublishjobsTooManyRequests{}
 }
 
-/*PostSpeechandtextanalyticsProgramsPublishjobsTooManyRequests handles this case with default header values.
+/*
+PostSpeechandtextanalyticsProgramsPublishjobsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostSpeechandtextanalyticsProgramsPublishjobsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics programs publishjobs too many requests response has a 2xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics programs publishjobs too many requests response has a 3xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics programs publishjobs too many requests response has a 4xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics programs publishjobs too many requests response has a 5xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics programs publishjobs too many requests response a status code equal to that given
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostSpeechandtextanalyticsProgramsPublishjobsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostSpeechandtextanalyticsProgramsPublishjobsInternalServerError() *Post
 	return &PostSpeechandtextanalyticsProgramsPublishjobsInternalServerError{}
 }
 
-/*PostSpeechandtextanalyticsProgramsPublishjobsInternalServerError handles this case with default header values.
+/*
+PostSpeechandtextanalyticsProgramsPublishjobsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostSpeechandtextanalyticsProgramsPublishjobsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics programs publishjobs internal server error response has a 2xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics programs publishjobs internal server error response has a 3xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics programs publishjobs internal server error response has a 4xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post speechandtextanalytics programs publishjobs internal server error response has a 5xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post speechandtextanalytics programs publishjobs internal server error response a status code equal to that given
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostSpeechandtextanalyticsProgramsPublishjobsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable() *PostS
 	return &PostSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable{}
 }
 
-/*PostSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable handles this case with default header values.
+/*
+PostSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics programs publishjobs service unavailable response has a 2xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics programs publishjobs service unavailable response has a 3xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics programs publishjobs service unavailable response has a 4xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post speechandtextanalytics programs publishjobs service unavailable response has a 5xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post speechandtextanalytics programs publishjobs service unavailable response a status code equal to that given
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout() *PostSpeec
 	return &PostSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout{}
 }
 
-/*PostSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout handles this case with default header values.
+/*
+PostSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics programs publishjobs gateway timeout response has a 2xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics programs publishjobs gateway timeout response has a 3xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics programs publishjobs gateway timeout response has a 4xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post speechandtextanalytics programs publishjobs gateway timeout response has a 5xx status code
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post speechandtextanalytics programs publishjobs gateway timeout response a status code equal to that given
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/programs/publishjobs][%d] postSpeechandtextanalyticsProgramsPublishjobsGatewayTimeout  %+v", 504, o.Payload)
 }
 

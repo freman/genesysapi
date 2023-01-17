@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostQualitySurveysScoringParams creates a new PostQualitySurveysScoringParams object
-// with the default values initialized.
+// NewPostQualitySurveysScoringParams creates a new PostQualitySurveysScoringParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostQualitySurveysScoringParams() *PostQualitySurveysScoringParams {
-	var ()
 	return &PostQualitySurveysScoringParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostQualitySurveysScoringParamsWithTimeout creates a new PostQualitySurveysScoringParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostQualitySurveysScoringParamsWithTimeout(timeout time.Duration) *PostQualitySurveysScoringParams {
-	var ()
 	return &PostQualitySurveysScoringParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostQualitySurveysScoringParamsWithContext creates a new PostQualitySurveysScoringParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostQualitySurveysScoringParamsWithContext(ctx context.Context) *PostQualitySurveysScoringParams {
-	var ()
 	return &PostQualitySurveysScoringParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostQualitySurveysScoringParamsWithHTTPClient creates a new PostQualitySurveysScoringParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostQualitySurveysScoringParamsWithHTTPClient(client *http.Client) *PostQualitySurveysScoringParams {
-	var ()
 	return &PostQualitySurveysScoringParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostQualitySurveysScoringParams contains all the parameters to send to the API endpoint
-for the post quality surveys scoring operation typically these are written to a http.Request
+/*
+PostQualitySurveysScoringParams contains all the parameters to send to the API endpoint
+
+	for the post quality surveys scoring operation.
+
+	Typically these are written to a http.Request.
 */
 type PostQualitySurveysScoringParams struct {
 
-	/*Body
-	  surveyAndScoringSet
+	/* Body.
 
+	   surveyAndScoringSet
 	*/
 	Body *models.SurveyFormAndScoringSet
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post quality surveys scoring params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostQualitySurveysScoringParams) WithDefaults() *PostQualitySurveysScoringParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post quality surveys scoring params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostQualitySurveysScoringParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post quality surveys scoring params
@@ -124,7 +140,6 @@ func (o *PostQualitySurveysScoringParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -16,52 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetLanguageunderstandingMinersParams creates a new GetLanguageunderstandingMinersParams object
-// with the default values initialized.
+// NewGetLanguageunderstandingMinersParams creates a new GetLanguageunderstandingMinersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLanguageunderstandingMinersParams() *GetLanguageunderstandingMinersParams {
-
 	return &GetLanguageunderstandingMinersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLanguageunderstandingMinersParamsWithTimeout creates a new GetLanguageunderstandingMinersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLanguageunderstandingMinersParamsWithTimeout(timeout time.Duration) *GetLanguageunderstandingMinersParams {
-
 	return &GetLanguageunderstandingMinersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLanguageunderstandingMinersParamsWithContext creates a new GetLanguageunderstandingMinersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLanguageunderstandingMinersParamsWithContext(ctx context.Context) *GetLanguageunderstandingMinersParams {
-
 	return &GetLanguageunderstandingMinersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLanguageunderstandingMinersParamsWithHTTPClient creates a new GetLanguageunderstandingMinersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLanguageunderstandingMinersParamsWithHTTPClient(client *http.Client) *GetLanguageunderstandingMinersParams {
-
 	return &GetLanguageunderstandingMinersParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLanguageunderstandingMinersParams contains all the parameters to send to the API endpoint
-for the get languageunderstanding miners operation typically these are written to a http.Request
+/*
+GetLanguageunderstandingMinersParams contains all the parameters to send to the API endpoint
+
+	for the get languageunderstanding miners operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLanguageunderstandingMinersParams struct {
+
+	/* MinerType.
+
+	   Type of miner, either intent or topic
+	*/
+	MinerType *string
+
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get languageunderstanding miners params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingMinersParams) WithDefaults() *GetLanguageunderstandingMinersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get languageunderstanding miners params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingMinersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get languageunderstanding miners params
@@ -97,6 +120,17 @@ func (o *GetLanguageunderstandingMinersParams) SetHTTPClient(client *http.Client
 	o.HTTPClient = client
 }
 
+// WithMinerType adds the minerType to the get languageunderstanding miners params
+func (o *GetLanguageunderstandingMinersParams) WithMinerType(minerType *string) *GetLanguageunderstandingMinersParams {
+	o.SetMinerType(minerType)
+	return o
+}
+
+// SetMinerType adds the minerType to the get languageunderstanding miners params
+func (o *GetLanguageunderstandingMinersParams) SetMinerType(minerType *string) {
+	o.MinerType = minerType
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetLanguageunderstandingMinersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -104,6 +138,23 @@ func (o *GetLanguageunderstandingMinersParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
+
+	if o.MinerType != nil {
+
+		// query param minerType
+		var qrMinerType string
+
+		if o.MinerType != nil {
+			qrMinerType = *o.MinerType
+		}
+		qMinerType := qrMinerType
+		if qMinerType != "" {
+
+			if err := r.SetQueryParam("minerType", qMinerType); err != nil {
+				return err
+			}
+		}
+	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -142,7 +143,6 @@ func (m *CoachingNotification) validateActionTypeEnum(path, location string, val
 }
 
 func (m *CoachingNotification) validateActionType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionType) { // not required
 		return nil
 	}
@@ -156,7 +156,6 @@ func (m *CoachingNotification) validateActionType(formats strfmt.Registry) error
 }
 
 func (m *CoachingNotification) validateAppointment(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Appointment) { // not required
 		return nil
 	}
@@ -165,6 +164,8 @@ func (m *CoachingNotification) validateAppointment(formats strfmt.Registry) erro
 		if err := m.Appointment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appointment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appointment")
 			}
 			return err
 		}
@@ -174,7 +175,6 @@ func (m *CoachingNotification) validateAppointment(formats strfmt.Registry) erro
 }
 
 func (m *CoachingNotification) validateDateStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStart) { // not required
 		return nil
 	}
@@ -219,7 +219,6 @@ func (m *CoachingNotification) validateRelationshipEnum(path, location string, v
 }
 
 func (m *CoachingNotification) validateRelationship(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Relationship) { // not required
 		return nil
 	}
@@ -233,7 +232,6 @@ func (m *CoachingNotification) validateRelationship(formats strfmt.Registry) err
 }
 
 func (m *CoachingNotification) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -281,7 +279,6 @@ func (m *CoachingNotification) validateStatusEnum(path, location string, value s
 }
 
 func (m *CoachingNotification) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -295,7 +292,6 @@ func (m *CoachingNotification) validateStatus(formats strfmt.Registry) error {
 }
 
 func (m *CoachingNotification) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -304,6 +300,162 @@ func (m *CoachingNotification) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this coaching notification based on the context it is used
+func (m *CoachingNotification) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActionType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAppointment(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateStart(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLengthInMinutes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRelationship(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CoachingNotification) contextValidateActionType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "actionType", "body", string(m.ActionType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingNotification) contextValidateAppointment(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Appointment != nil {
+		if err := m.Appointment.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("appointment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appointment")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CoachingNotification) contextValidateDateStart(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateStart", "body", strfmt.DateTime(m.DateStart)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingNotification) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingNotification) contextValidateLengthInMinutes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "lengthInMinutes", "body", int32(m.LengthInMinutes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingNotification) contextValidateName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "name", "body", string(m.Name)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingNotification) contextValidateRelationship(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "relationship", "body", string(m.Relationship)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingNotification) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingNotification) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingNotification) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

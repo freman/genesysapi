@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchWorkforcemanagementBusinessunitPlanninggroupParams creates a new PatchWorkforcemanagementBusinessunitPlanninggroupParams object
-// with the default values initialized.
+// NewPatchWorkforcemanagementBusinessunitPlanninggroupParams creates a new PatchWorkforcemanagementBusinessunitPlanninggroupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchWorkforcemanagementBusinessunitPlanninggroupParams() *PatchWorkforcemanagementBusinessunitPlanninggroupParams {
-	var ()
 	return &PatchWorkforcemanagementBusinessunitPlanninggroupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchWorkforcemanagementBusinessunitPlanninggroupParamsWithTimeout creates a new PatchWorkforcemanagementBusinessunitPlanninggroupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchWorkforcemanagementBusinessunitPlanninggroupParamsWithTimeout(timeout time.Duration) *PatchWorkforcemanagementBusinessunitPlanninggroupParams {
-	var ()
 	return &PatchWorkforcemanagementBusinessunitPlanninggroupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchWorkforcemanagementBusinessunitPlanninggroupParamsWithContext creates a new PatchWorkforcemanagementBusinessunitPlanninggroupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchWorkforcemanagementBusinessunitPlanninggroupParamsWithContext(ctx context.Context) *PatchWorkforcemanagementBusinessunitPlanninggroupParams {
-	var ()
 	return &PatchWorkforcemanagementBusinessunitPlanninggroupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchWorkforcemanagementBusinessunitPlanninggroupParamsWithHTTPClient creates a new PatchWorkforcemanagementBusinessunitPlanninggroupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchWorkforcemanagementBusinessunitPlanninggroupParamsWithHTTPClient(client *http.Client) *PatchWorkforcemanagementBusinessunitPlanninggroupParams {
-	var ()
 	return &PatchWorkforcemanagementBusinessunitPlanninggroupParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchWorkforcemanagementBusinessunitPlanninggroupParams contains all the parameters to send to the API endpoint
-for the patch workforcemanagement businessunit planninggroup operation typically these are written to a http.Request
+/*
+PatchWorkforcemanagementBusinessunitPlanninggroupParams contains all the parameters to send to the API endpoint
+
+	for the patch workforcemanagement businessunit planninggroup operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchWorkforcemanagementBusinessunitPlanninggroupParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.UpdatePlanningGroupRequest
-	/*BusinessUnitID
-	  The ID of the business unit.
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit.
 	*/
 	BusinessUnitID string
-	/*PlanningGroupID
-	  The ID of a planning group to update
 
+	/* PlanningGroupID.
+
+	   The ID of a planning group to update
 	*/
 	PlanningGroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch workforcemanagement businessunit planninggroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWorkforcemanagementBusinessunitPlanninggroupParams) WithDefaults() *PatchWorkforcemanagementBusinessunitPlanninggroupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch workforcemanagement businessunit planninggroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWorkforcemanagementBusinessunitPlanninggroupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch workforcemanagement businessunit planninggroup params
@@ -156,7 +174,6 @@ func (o *PatchWorkforcemanagementBusinessunitPlanninggroupParams) WriteToRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

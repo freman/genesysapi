@@ -19,69 +19,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchUserQueuesParams creates a new PatchUserQueuesParams object
-// with the default values initialized.
+// NewPatchUserQueuesParams creates a new PatchUserQueuesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchUserQueuesParams() *PatchUserQueuesParams {
-	var ()
 	return &PatchUserQueuesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchUserQueuesParamsWithTimeout creates a new PatchUserQueuesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchUserQueuesParamsWithTimeout(timeout time.Duration) *PatchUserQueuesParams {
-	var ()
 	return &PatchUserQueuesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchUserQueuesParamsWithContext creates a new PatchUserQueuesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchUserQueuesParamsWithContext(ctx context.Context) *PatchUserQueuesParams {
-	var ()
 	return &PatchUserQueuesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchUserQueuesParamsWithHTTPClient creates a new PatchUserQueuesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchUserQueuesParamsWithHTTPClient(client *http.Client) *PatchUserQueuesParams {
-	var ()
 	return &PatchUserQueuesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchUserQueuesParams contains all the parameters to send to the API endpoint
-for the patch user queues operation typically these are written to a http.Request
+/*
+PatchUserQueuesParams contains all the parameters to send to the API endpoint
+
+	for the patch user queues operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchUserQueuesParams struct {
 
-	/*Body
-	  User Queues
+	/* Body.
 
+	   User Queues
 	*/
 	Body []*models.UserQueue
-	/*DivisionID
-	  Division ID(s)
 
+	/* DivisionID.
+
+	   Division ID(s)
 	*/
 	DivisionID []string
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch user queues params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchUserQueuesParams) WithDefaults() *PatchUserQueuesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch user queues params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchUserQueuesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch user queues params
@@ -157,19 +175,21 @@ func (o *PatchUserQueuesParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
 		}
 	}
 
-	valuesDivisionID := o.DivisionID
+	if o.DivisionID != nil {
 
-	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
-	// query array param divisionId
-	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
-		return err
+		// binding items for divisionId
+		joinedDivisionID := o.bindParamDivisionID(reg)
+
+		// query array param divisionId
+		if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+			return err
+		}
 	}
 
 	// path param userId
@@ -181,4 +201,21 @@ func (o *PatchUserQueuesParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamPatchUserQueues binds the parameter divisionId
+func (o *PatchUserQueuesParams) bindParamDivisionID(formats strfmt.Registry) []string {
+	divisionIDIR := o.DivisionID
+
+	var divisionIDIC []string
+	for _, divisionIDIIR := range divisionIDIR { // explode []string
+
+		divisionIDIIV := divisionIDIIR // string as string
+		divisionIDIC = append(divisionIDIC, divisionIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	divisionIDIS := swag.JoinByFormat(divisionIDIC, "multi")
+
+	return divisionIDIS
 }

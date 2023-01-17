@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -107,7 +108,6 @@ func (m *ArchitectJobStateResponse) validateCommandEnum(path, location string, v
 }
 
 func (m *ArchitectJobStateResponse) validateCommand(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Command) { // not required
 		return nil
 	}
@@ -121,7 +121,6 @@ func (m *ArchitectJobStateResponse) validateCommand(formats strfmt.Registry) err
 }
 
 func (m *ArchitectJobStateResponse) validateFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Flow) { // not required
 		return nil
 	}
@@ -130,6 +129,8 @@ func (m *ArchitectJobStateResponse) validateFlow(formats strfmt.Registry) error 
 		if err := m.Flow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
 			}
 			return err
 		}
@@ -139,7 +140,6 @@ func (m *ArchitectJobStateResponse) validateFlow(formats strfmt.Registry) error 
 }
 
 func (m *ArchitectJobStateResponse) validateMessages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Messages) { // not required
 		return nil
 	}
@@ -153,6 +153,8 @@ func (m *ArchitectJobStateResponse) validateMessages(formats strfmt.Registry) er
 			if err := m.Messages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("messages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -164,7 +166,6 @@ func (m *ArchitectJobStateResponse) validateMessages(formats strfmt.Registry) er
 }
 
 func (m *ArchitectJobStateResponse) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -212,13 +213,92 @@ func (m *ArchitectJobStateResponse) validateStatusEnum(path, location string, va
 }
 
 func (m *ArchitectJobStateResponse) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this architect job state response based on the context it is used
+func (m *ArchitectJobStateResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ArchitectJobStateResponse) contextValidateFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Flow != nil {
+		if err := m.Flow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ArchitectJobStateResponse) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ArchitectJobStateResponse) contextValidateMessages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Messages); i++ {
+
+		if m.Messages[i] != nil {
+			if err := m.Messages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("messages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ArchitectJobStateResponse) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

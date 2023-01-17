@@ -95,7 +95,6 @@ func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesReader) ReadRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWorkforcemanagementBusinessunitServicegoaltemplatesOK() *GetWorkforce
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplatesOK{}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplatesOK handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplatesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWorkforcemanagementBusinessunitServicegoaltemplatesOK struct {
 	Payload *models.ServiceGoalTemplateList
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit servicegoaltemplates o k response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit servicegoaltemplates o k response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit servicegoaltemplates o k response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit servicegoaltemplates o k response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit servicegoaltemplates o k response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest() *GetW
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest{}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit servicegoaltemplates bad request response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit servicegoaltemplates bad request response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit servicegoaltemplates bad request response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit servicegoaltemplates bad request response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit servicegoaltemplates bad request response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized() *Ge
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized{}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit servicegoaltemplates unauthorized response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit servicegoaltemplates unauthorized response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit servicegoaltemplates unauthorized response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit servicegoaltemplates unauthorized response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit servicegoaltemplates unauthorized response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWorkforcemanagementBusinessunitServicegoaltemplatesForbidden() *GetWo
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplatesForbidden{}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplatesForbidden handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplatesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWorkforcemanagementBusinessunitServicegoaltemplatesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit servicegoaltemplates forbidden response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit servicegoaltemplates forbidden response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit servicegoaltemplates forbidden response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit servicegoaltemplates forbidden response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit servicegoaltemplates forbidden response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWorkforcemanagementBusinessunitServicegoaltemplatesNotFound() *GetWor
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplatesNotFound{}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplatesNotFound handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplatesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWorkforcemanagementBusinessunitServicegoaltemplatesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit servicegoaltemplates not found response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit servicegoaltemplates not found response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit servicegoaltemplates not found response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit servicegoaltemplates not found response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit servicegoaltemplates not found response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout() *
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout{}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit servicegoaltemplates request timeout response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit servicegoaltemplates request timeout response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit servicegoaltemplates request timeout response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit servicegoaltemplates request timeout response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit servicegoaltemplates request timeout response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLa
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge{}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit servicegoaltemplates request entity too large response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit servicegoaltemplates request entity too large response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit servicegoaltemplates request entity too large response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit servicegoaltemplates request entity too large response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit servicegoaltemplates request entity too large response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaTy
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType{}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit servicegoaltemplates unsupported media type response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit servicegoaltemplates unsupported media type response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit servicegoaltemplates unsupported media type response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit servicegoaltemplates unsupported media type response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit servicegoaltemplates unsupported media type response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests() 
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests{}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit servicegoaltemplates too many requests response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit servicegoaltemplates too many requests response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit servicegoaltemplates too many requests response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit servicegoaltemplates too many requests response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit servicegoaltemplates too many requests response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerErro
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError{}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit servicegoaltemplates internal server error response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit servicegoaltemplates internal server error response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit servicegoaltemplates internal server error response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit servicegoaltemplates internal server error response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit servicegoaltemplates internal server error response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable{}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit servicegoaltemplates service unavailable response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit servicegoaltemplates service unavailable response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit servicegoaltemplates service unavailable response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit servicegoaltemplates service unavailable response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit servicegoaltemplates service unavailable response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout() *
 	return &GetWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout{}
 }
 
-/*GetWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit servicegoaltemplates gateway timeout response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit servicegoaltemplates gateway timeout response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit servicegoaltemplates gateway timeout response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit servicegoaltemplates gateway timeout response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit servicegoaltemplates gateway timeout response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates][%d] getWorkforcemanagementBusinessunitServicegoaltemplatesGatewayTimeout  %+v", 504, o.Payload)
 }
 

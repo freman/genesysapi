@@ -101,7 +101,6 @@ func (o *PostAuthorizationDivisionObjectReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewPostAuthorizationDivisionObjectNoContent() *PostAuthorizationDivisionObj
 	return &PostAuthorizationDivisionObjectNoContent{}
 }
 
-/*PostAuthorizationDivisionObjectNoContent handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectNoContent describes a response with status code 204, with default header values.
 
 The divisions were updated successfully
 */
 type PostAuthorizationDivisionObjectNoContent struct {
 }
 
+// IsSuccess returns true when this post authorization division object no content response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post authorization division object no content response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object no content response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization division object no content response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization division object no content response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PostAuthorizationDivisionObjectNoContent) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectNoContent ", 204)
+}
+
+func (o *PostAuthorizationDivisionObjectNoContent) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectNoContent ", 204)
 }
 
@@ -133,7 +162,8 @@ func NewPostAuthorizationDivisionObjectBadRequest() *PostAuthorizationDivisionOb
 	return &PostAuthorizationDivisionObjectBadRequest{}
 }
 
-/*PostAuthorizationDivisionObjectBadRequest handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type PostAuthorizationDivisionObjectBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization division object bad request response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization division object bad request response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object bad request response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization division object bad request response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization division object bad request response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAuthorizationDivisionObjectBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAuthorizationDivisionObjectBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewPostAuthorizationDivisionObjectUnauthorized() *PostAuthorizationDivision
 	return &PostAuthorizationDivisionObjectUnauthorized{}
 }
 
-/*PostAuthorizationDivisionObjectUnauthorized handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type PostAuthorizationDivisionObjectUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization division object unauthorized response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization division object unauthorized response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object unauthorized response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization division object unauthorized response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization division object unauthorized response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAuthorizationDivisionObjectUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAuthorizationDivisionObjectUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewPostAuthorizationDivisionObjectForbidden() *PostAuthorizationDivisionObj
 	return &PostAuthorizationDivisionObjectForbidden{}
 }
 
-/*PostAuthorizationDivisionObjectForbidden handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type PostAuthorizationDivisionObjectForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization division object forbidden response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization division object forbidden response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object forbidden response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization division object forbidden response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization division object forbidden response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAuthorizationDivisionObjectForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAuthorizationDivisionObjectForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewPostAuthorizationDivisionObjectNotFound() *PostAuthorizationDivisionObje
 	return &PostAuthorizationDivisionObjectNotFound{}
 }
 
-/*PostAuthorizationDivisionObjectNotFound handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type PostAuthorizationDivisionObjectNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization division object not found response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization division object not found response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object not found response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization division object not found response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization division object not found response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAuthorizationDivisionObjectNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAuthorizationDivisionObjectNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewPostAuthorizationDivisionObjectRequestTimeout() *PostAuthorizationDivisi
 	return &PostAuthorizationDivisionObjectRequestTimeout{}
 }
 
-/*PostAuthorizationDivisionObjectRequestTimeout handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type PostAuthorizationDivisionObjectRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization division object request timeout response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization division object request timeout response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object request timeout response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization division object request timeout response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization division object request timeout response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAuthorizationDivisionObjectRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAuthorizationDivisionObjectRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewPostAuthorizationDivisionObjectConflict() *PostAuthorizationDivisionObje
 	return &PostAuthorizationDivisionObjectConflict{}
 }
 
-/*PostAuthorizationDivisionObjectConflict handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type PostAuthorizationDivisionObjectConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization division object conflict response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization division object conflict response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object conflict response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization division object conflict response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization division object conflict response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostAuthorizationDivisionObjectConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostAuthorizationDivisionObjectConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewPostAuthorizationDivisionObjectRequestEntityTooLarge() *PostAuthorizatio
 	return &PostAuthorizationDivisionObjectRequestEntityTooLarge{}
 }
 
-/*PostAuthorizationDivisionObjectRequestEntityTooLarge handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type PostAuthorizationDivisionObjectRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization division object request entity too large response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization division object request entity too large response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object request entity too large response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization division object request entity too large response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization division object request entity too large response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAuthorizationDivisionObjectRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAuthorizationDivisionObjectRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewPostAuthorizationDivisionObjectUnsupportedMediaType() *PostAuthorization
 	return &PostAuthorizationDivisionObjectUnsupportedMediaType{}
 }
 
-/*PostAuthorizationDivisionObjectUnsupportedMediaType handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type PostAuthorizationDivisionObjectUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization division object unsupported media type response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization division object unsupported media type response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object unsupported media type response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization division object unsupported media type response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization division object unsupported media type response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAuthorizationDivisionObjectUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAuthorizationDivisionObjectUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewPostAuthorizationDivisionObjectTooManyRequests() *PostAuthorizationDivis
 	return &PostAuthorizationDivisionObjectTooManyRequests{}
 }
 
-/*PostAuthorizationDivisionObjectTooManyRequests handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type PostAuthorizationDivisionObjectTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization division object too many requests response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization division object too many requests response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object too many requests response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization division object too many requests response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization division object too many requests response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAuthorizationDivisionObjectTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAuthorizationDivisionObjectTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewPostAuthorizationDivisionObjectInternalServerError() *PostAuthorizationD
 	return &PostAuthorizationDivisionObjectInternalServerError{}
 }
 
-/*PostAuthorizationDivisionObjectInternalServerError handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type PostAuthorizationDivisionObjectInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization division object internal server error response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization division object internal server error response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object internal server error response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization division object internal server error response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization division object internal server error response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAuthorizationDivisionObjectInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAuthorizationDivisionObjectInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewPostAuthorizationDivisionObjectServiceUnavailable() *PostAuthorizationDi
 	return &PostAuthorizationDivisionObjectServiceUnavailable{}
 }
 
-/*PostAuthorizationDivisionObjectServiceUnavailable handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type PostAuthorizationDivisionObjectServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization division object service unavailable response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization division object service unavailable response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object service unavailable response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization division object service unavailable response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization division object service unavailable response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAuthorizationDivisionObjectServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAuthorizationDivisionObjectServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewPostAuthorizationDivisionObjectGatewayTimeout() *PostAuthorizationDivisi
 	return &PostAuthorizationDivisionObjectGatewayTimeout{}
 }
 
-/*PostAuthorizationDivisionObjectGatewayTimeout handles this case with default header values.
+/*
+PostAuthorizationDivisionObjectGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type PostAuthorizationDivisionObjectGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization division object gateway timeout response has a 2xx status code
+func (o *PostAuthorizationDivisionObjectGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization division object gateway timeout response has a 3xx status code
+func (o *PostAuthorizationDivisionObjectGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization division object gateway timeout response has a 4xx status code
+func (o *PostAuthorizationDivisionObjectGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization division object gateway timeout response has a 5xx status code
+func (o *PostAuthorizationDivisionObjectGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization division object gateway timeout response a status code equal to that given
+func (o *PostAuthorizationDivisionObjectGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAuthorizationDivisionObjectGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAuthorizationDivisionObjectGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/divisions/{divisionId}/objects/{objectType}][%d] postAuthorizationDivisionObjectGatewayTimeout  %+v", 504, o.Payload)
 }
 

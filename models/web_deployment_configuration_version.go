@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -49,6 +50,7 @@ type WebDeploymentConfigurationVersion struct {
 	DatePublished strfmt.DateTime `json:"datePublished,omitempty"`
 
 	// The default language to use for the configuration required if the messenger is enabled
+	// Example: en-us, de-de
 	DefaultLanguage string `json:"defaultLanguage,omitempty"`
 
 	// The description of the configuration
@@ -65,6 +67,7 @@ type WebDeploymentConfigurationVersion struct {
 	JourneyEvents *JourneyEventsSettings `json:"journeyEvents,omitempty"`
 
 	// A list of languages supported on the configuration required if the messenger is enabled
+	// Example: en-us, de-de
 	Languages []string `json:"languages"`
 
 	// A reference to the user who most recently modified the configuration version
@@ -98,6 +101,7 @@ type WebDeploymentConfigurationVersion struct {
 	SupportCenter *SupportCenterSettings `json:"supportCenter,omitempty"`
 
 	// The version of the configuration
+	// Example: DRAFT, 1, 2
 	// Read Only: true
 	Version string `json:"version,omitempty"`
 }
@@ -181,7 +185,6 @@ func (m *WebDeploymentConfigurationVersion) Validate(formats strfmt.Registry) er
 }
 
 func (m *WebDeploymentConfigurationVersion) validateAuthenticationSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AuthenticationSettings) { // not required
 		return nil
 	}
@@ -190,6 +193,8 @@ func (m *WebDeploymentConfigurationVersion) validateAuthenticationSettings(forma
 		if err := m.AuthenticationSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("authenticationSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("authenticationSettings")
 			}
 			return err
 		}
@@ -199,7 +204,6 @@ func (m *WebDeploymentConfigurationVersion) validateAuthenticationSettings(forma
 }
 
 func (m *WebDeploymentConfigurationVersion) validateCobrowse(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Cobrowse) { // not required
 		return nil
 	}
@@ -208,6 +212,8 @@ func (m *WebDeploymentConfigurationVersion) validateCobrowse(formats strfmt.Regi
 		if err := m.Cobrowse.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cobrowse")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cobrowse")
 			}
 			return err
 		}
@@ -217,7 +223,6 @@ func (m *WebDeploymentConfigurationVersion) validateCobrowse(formats strfmt.Regi
 }
 
 func (m *WebDeploymentConfigurationVersion) validateCreatedUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedUser) { // not required
 		return nil
 	}
@@ -226,6 +231,8 @@ func (m *WebDeploymentConfigurationVersion) validateCreatedUser(formats strfmt.R
 		if err := m.CreatedUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdUser")
 			}
 			return err
 		}
@@ -235,7 +242,6 @@ func (m *WebDeploymentConfigurationVersion) validateCreatedUser(formats strfmt.R
 }
 
 func (m *WebDeploymentConfigurationVersion) validateCustomI18nLabels(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CustomI18nLabels) { // not required
 		return nil
 	}
@@ -249,6 +255,8 @@ func (m *WebDeploymentConfigurationVersion) validateCustomI18nLabels(formats str
 			if err := m.CustomI18nLabels[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("customI18nLabels" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("customI18nLabels" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -260,7 +268,6 @@ func (m *WebDeploymentConfigurationVersion) validateCustomI18nLabels(formats str
 }
 
 func (m *WebDeploymentConfigurationVersion) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -273,7 +280,6 @@ func (m *WebDeploymentConfigurationVersion) validateDateCreated(formats strfmt.R
 }
 
 func (m *WebDeploymentConfigurationVersion) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -286,7 +292,6 @@ func (m *WebDeploymentConfigurationVersion) validateDateModified(formats strfmt.
 }
 
 func (m *WebDeploymentConfigurationVersion) validateDatePublished(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DatePublished) { // not required
 		return nil
 	}
@@ -299,7 +304,6 @@ func (m *WebDeploymentConfigurationVersion) validateDatePublished(formats strfmt
 }
 
 func (m *WebDeploymentConfigurationVersion) validateHeadlessMode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HeadlessMode) { // not required
 		return nil
 	}
@@ -308,6 +312,8 @@ func (m *WebDeploymentConfigurationVersion) validateHeadlessMode(formats strfmt.
 		if err := m.HeadlessMode.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("headlessMode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("headlessMode")
 			}
 			return err
 		}
@@ -317,7 +323,6 @@ func (m *WebDeploymentConfigurationVersion) validateHeadlessMode(formats strfmt.
 }
 
 func (m *WebDeploymentConfigurationVersion) validateJourneyEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.JourneyEvents) { // not required
 		return nil
 	}
@@ -326,6 +331,8 @@ func (m *WebDeploymentConfigurationVersion) validateJourneyEvents(formats strfmt
 		if err := m.JourneyEvents.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("journeyEvents")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journeyEvents")
 			}
 			return err
 		}
@@ -335,7 +342,6 @@ func (m *WebDeploymentConfigurationVersion) validateJourneyEvents(formats strfmt
 }
 
 func (m *WebDeploymentConfigurationVersion) validateLastModifiedUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastModifiedUser) { // not required
 		return nil
 	}
@@ -344,6 +350,8 @@ func (m *WebDeploymentConfigurationVersion) validateLastModifiedUser(formats str
 		if err := m.LastModifiedUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastModifiedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastModifiedUser")
 			}
 			return err
 		}
@@ -353,7 +361,6 @@ func (m *WebDeploymentConfigurationVersion) validateLastModifiedUser(formats str
 }
 
 func (m *WebDeploymentConfigurationVersion) validateMessenger(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Messenger) { // not required
 		return nil
 	}
@@ -362,6 +369,8 @@ func (m *WebDeploymentConfigurationVersion) validateMessenger(formats strfmt.Reg
 		if err := m.Messenger.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messenger")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messenger")
 			}
 			return err
 		}
@@ -380,7 +389,6 @@ func (m *WebDeploymentConfigurationVersion) validateName(formats strfmt.Registry
 }
 
 func (m *WebDeploymentConfigurationVersion) validatePosition(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Position) { // not required
 		return nil
 	}
@@ -389,6 +397,8 @@ func (m *WebDeploymentConfigurationVersion) validatePosition(formats strfmt.Regi
 		if err := m.Position.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
 			}
 			return err
 		}
@@ -398,7 +408,6 @@ func (m *WebDeploymentConfigurationVersion) validatePosition(formats strfmt.Regi
 }
 
 func (m *WebDeploymentConfigurationVersion) validatePublishedUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PublishedUser) { // not required
 		return nil
 	}
@@ -407,6 +416,8 @@ func (m *WebDeploymentConfigurationVersion) validatePublishedUser(formats strfmt
 		if err := m.PublishedUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("publishedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedUser")
 			}
 			return err
 		}
@@ -416,7 +427,6 @@ func (m *WebDeploymentConfigurationVersion) validatePublishedUser(formats strfmt
 }
 
 func (m *WebDeploymentConfigurationVersion) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -467,7 +477,6 @@ func (m *WebDeploymentConfigurationVersion) validateStatusEnum(path, location st
 }
 
 func (m *WebDeploymentConfigurationVersion) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -481,7 +490,6 @@ func (m *WebDeploymentConfigurationVersion) validateStatus(formats strfmt.Regist
 }
 
 func (m *WebDeploymentConfigurationVersion) validateSupportCenter(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SupportCenter) { // not required
 		return nil
 	}
@@ -490,9 +498,323 @@ func (m *WebDeploymentConfigurationVersion) validateSupportCenter(formats strfmt
 		if err := m.SupportCenter.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("supportCenter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportCenter")
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this web deployment configuration version based on the context it is used
+func (m *WebDeploymentConfigurationVersion) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAuthenticationSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCobrowse(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCustomI18nLabels(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDatePublished(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHeadlessMode(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateJourneyEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastModifiedUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessenger(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePosition(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePublishedUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupportCenter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateAuthenticationSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AuthenticationSettings != nil {
+		if err := m.AuthenticationSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("authenticationSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("authenticationSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateCobrowse(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Cobrowse != nil {
+		if err := m.Cobrowse.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cobrowse")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cobrowse")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateCreatedUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedUser != nil {
+		if err := m.CreatedUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateCustomI18nLabels(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CustomI18nLabels); i++ {
+
+		if m.CustomI18nLabels[i] != nil {
+			if err := m.CustomI18nLabels[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("customI18nLabels" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("customI18nLabels" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateDatePublished(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "datePublished", "body", strfmt.DateTime(m.DatePublished)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateHeadlessMode(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HeadlessMode != nil {
+		if err := m.HeadlessMode.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("headlessMode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("headlessMode")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateJourneyEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.JourneyEvents != nil {
+		if err := m.JourneyEvents.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("journeyEvents")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journeyEvents")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateLastModifiedUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastModifiedUser != nil {
+		if err := m.LastModifiedUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastModifiedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastModifiedUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateMessenger(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Messenger != nil {
+		if err := m.Messenger.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messenger")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messenger")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidatePosition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Position != nil {
+		if err := m.Position.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidatePublishedUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PublishedUser != nil {
+		if err := m.PublishedUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("publishedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateSupportCenter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SupportCenter != nil {
+		if err := m.SupportCenter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportCenter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportCenter")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebDeploymentConfigurationVersion) contextValidateVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "version", "body", string(m.Version)); err != nil {
+		return err
 	}
 
 	return nil

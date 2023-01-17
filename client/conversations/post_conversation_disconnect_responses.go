@@ -95,7 +95,6 @@ func (o *PostConversationDisconnectReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostConversationDisconnectAccepted() *PostConversationDisconnectAccepted
 	return &PostConversationDisconnectAccepted{}
 }
 
-/*PostConversationDisconnectAccepted handles this case with default header values.
+/*
+PostConversationDisconnectAccepted describes a response with status code 202, with default header values.
 
 Accepted
 */
@@ -114,7 +114,36 @@ type PostConversationDisconnectAccepted struct {
 	Payload string
 }
 
+// IsSuccess returns true when this post conversation disconnect accepted response has a 2xx status code
+func (o *PostConversationDisconnectAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversation disconnect accepted response has a 3xx status code
+func (o *PostConversationDisconnectAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation disconnect accepted response has a 4xx status code
+func (o *PostConversationDisconnectAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation disconnect accepted response has a 5xx status code
+func (o *PostConversationDisconnectAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation disconnect accepted response a status code equal to that given
+func (o *PostConversationDisconnectAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostConversationDisconnectAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostConversationDisconnectAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectAccepted  %+v", 202, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewPostConversationDisconnectBadRequest() *PostConversationDisconnectBadReq
 	return &PostConversationDisconnectBadRequest{}
 }
 
-/*PostConversationDisconnectBadRequest handles this case with default header values.
+/*
+PostConversationDisconnectBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type PostConversationDisconnectBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation disconnect bad request response has a 2xx status code
+func (o *PostConversationDisconnectBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation disconnect bad request response has a 3xx status code
+func (o *PostConversationDisconnectBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation disconnect bad request response has a 4xx status code
+func (o *PostConversationDisconnectBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation disconnect bad request response has a 5xx status code
+func (o *PostConversationDisconnectBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation disconnect bad request response a status code equal to that given
+func (o *PostConversationDisconnectBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationDisconnectBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationDisconnectBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewPostConversationDisconnectUnauthorized() *PostConversationDisconnectUnau
 	return &PostConversationDisconnectUnauthorized{}
 }
 
-/*PostConversationDisconnectUnauthorized handles this case with default header values.
+/*
+PostConversationDisconnectUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type PostConversationDisconnectUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation disconnect unauthorized response has a 2xx status code
+func (o *PostConversationDisconnectUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation disconnect unauthorized response has a 3xx status code
+func (o *PostConversationDisconnectUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation disconnect unauthorized response has a 4xx status code
+func (o *PostConversationDisconnectUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation disconnect unauthorized response has a 5xx status code
+func (o *PostConversationDisconnectUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation disconnect unauthorized response a status code equal to that given
+func (o *PostConversationDisconnectUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationDisconnectUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationDisconnectUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewPostConversationDisconnectForbidden() *PostConversationDisconnectForbidd
 	return &PostConversationDisconnectForbidden{}
 }
 
-/*PostConversationDisconnectForbidden handles this case with default header values.
+/*
+PostConversationDisconnectForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type PostConversationDisconnectForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation disconnect forbidden response has a 2xx status code
+func (o *PostConversationDisconnectForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation disconnect forbidden response has a 3xx status code
+func (o *PostConversationDisconnectForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation disconnect forbidden response has a 4xx status code
+func (o *PostConversationDisconnectForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation disconnect forbidden response has a 5xx status code
+func (o *PostConversationDisconnectForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation disconnect forbidden response a status code equal to that given
+func (o *PostConversationDisconnectForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationDisconnectForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationDisconnectForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewPostConversationDisconnectNotFound() *PostConversationDisconnectNotFound
 	return &PostConversationDisconnectNotFound{}
 }
 
-/*PostConversationDisconnectNotFound handles this case with default header values.
+/*
+PostConversationDisconnectNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type PostConversationDisconnectNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation disconnect not found response has a 2xx status code
+func (o *PostConversationDisconnectNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation disconnect not found response has a 3xx status code
+func (o *PostConversationDisconnectNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation disconnect not found response has a 4xx status code
+func (o *PostConversationDisconnectNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation disconnect not found response has a 5xx status code
+func (o *PostConversationDisconnectNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation disconnect not found response a status code equal to that given
+func (o *PostConversationDisconnectNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationDisconnectNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationDisconnectNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewPostConversationDisconnectRequestTimeout() *PostConversationDisconnectRe
 	return &PostConversationDisconnectRequestTimeout{}
 }
 
-/*PostConversationDisconnectRequestTimeout handles this case with default header values.
+/*
+PostConversationDisconnectRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type PostConversationDisconnectRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation disconnect request timeout response has a 2xx status code
+func (o *PostConversationDisconnectRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation disconnect request timeout response has a 3xx status code
+func (o *PostConversationDisconnectRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation disconnect request timeout response has a 4xx status code
+func (o *PostConversationDisconnectRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation disconnect request timeout response has a 5xx status code
+func (o *PostConversationDisconnectRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation disconnect request timeout response a status code equal to that given
+func (o *PostConversationDisconnectRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationDisconnectRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationDisconnectRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewPostConversationDisconnectRequestEntityTooLarge() *PostConversationDisco
 	return &PostConversationDisconnectRequestEntityTooLarge{}
 }
 
-/*PostConversationDisconnectRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationDisconnectRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type PostConversationDisconnectRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation disconnect request entity too large response has a 2xx status code
+func (o *PostConversationDisconnectRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation disconnect request entity too large response has a 3xx status code
+func (o *PostConversationDisconnectRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation disconnect request entity too large response has a 4xx status code
+func (o *PostConversationDisconnectRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation disconnect request entity too large response has a 5xx status code
+func (o *PostConversationDisconnectRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation disconnect request entity too large response a status code equal to that given
+func (o *PostConversationDisconnectRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationDisconnectRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationDisconnectRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewPostConversationDisconnectUnsupportedMediaType() *PostConversationDiscon
 	return &PostConversationDisconnectUnsupportedMediaType{}
 }
 
-/*PostConversationDisconnectUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationDisconnectUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type PostConversationDisconnectUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation disconnect unsupported media type response has a 2xx status code
+func (o *PostConversationDisconnectUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation disconnect unsupported media type response has a 3xx status code
+func (o *PostConversationDisconnectUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation disconnect unsupported media type response has a 4xx status code
+func (o *PostConversationDisconnectUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation disconnect unsupported media type response has a 5xx status code
+func (o *PostConversationDisconnectUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation disconnect unsupported media type response a status code equal to that given
+func (o *PostConversationDisconnectUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationDisconnectUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationDisconnectUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewPostConversationDisconnectTooManyRequests() *PostConversationDisconnectT
 	return &PostConversationDisconnectTooManyRequests{}
 }
 
-/*PostConversationDisconnectTooManyRequests handles this case with default header values.
+/*
+PostConversationDisconnectTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type PostConversationDisconnectTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation disconnect too many requests response has a 2xx status code
+func (o *PostConversationDisconnectTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation disconnect too many requests response has a 3xx status code
+func (o *PostConversationDisconnectTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation disconnect too many requests response has a 4xx status code
+func (o *PostConversationDisconnectTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation disconnect too many requests response has a 5xx status code
+func (o *PostConversationDisconnectTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation disconnect too many requests response a status code equal to that given
+func (o *PostConversationDisconnectTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationDisconnectTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationDisconnectTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewPostConversationDisconnectInternalServerError() *PostConversationDisconn
 	return &PostConversationDisconnectInternalServerError{}
 }
 
-/*PostConversationDisconnectInternalServerError handles this case with default header values.
+/*
+PostConversationDisconnectInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type PostConversationDisconnectInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation disconnect internal server error response has a 2xx status code
+func (o *PostConversationDisconnectInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation disconnect internal server error response has a 3xx status code
+func (o *PostConversationDisconnectInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation disconnect internal server error response has a 4xx status code
+func (o *PostConversationDisconnectInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation disconnect internal server error response has a 5xx status code
+func (o *PostConversationDisconnectInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversation disconnect internal server error response a status code equal to that given
+func (o *PostConversationDisconnectInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationDisconnectInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationDisconnectInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewPostConversationDisconnectServiceUnavailable() *PostConversationDisconne
 	return &PostConversationDisconnectServiceUnavailable{}
 }
 
-/*PostConversationDisconnectServiceUnavailable handles this case with default header values.
+/*
+PostConversationDisconnectServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type PostConversationDisconnectServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation disconnect service unavailable response has a 2xx status code
+func (o *PostConversationDisconnectServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation disconnect service unavailable response has a 3xx status code
+func (o *PostConversationDisconnectServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation disconnect service unavailable response has a 4xx status code
+func (o *PostConversationDisconnectServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation disconnect service unavailable response has a 5xx status code
+func (o *PostConversationDisconnectServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversation disconnect service unavailable response a status code equal to that given
+func (o *PostConversationDisconnectServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationDisconnectServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationDisconnectServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewPostConversationDisconnectGatewayTimeout() *PostConversationDisconnectGa
 	return &PostConversationDisconnectGatewayTimeout{}
 }
 
-/*PostConversationDisconnectGatewayTimeout handles this case with default header values.
+/*
+PostConversationDisconnectGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type PostConversationDisconnectGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation disconnect gateway timeout response has a 2xx status code
+func (o *PostConversationDisconnectGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation disconnect gateway timeout response has a 3xx status code
+func (o *PostConversationDisconnectGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation disconnect gateway timeout response has a 4xx status code
+func (o *PostConversationDisconnectGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation disconnect gateway timeout response has a 5xx status code
+func (o *PostConversationDisconnectGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversation disconnect gateway timeout response a status code equal to that given
+func (o *PostConversationDisconnectGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationDisconnectGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationDisconnectGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/disconnect][%d] postConversationDisconnectGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *PostUserPasswordReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostUserPasswordNoContent() *PostUserPasswordNoContent {
 	return &PostUserPasswordNoContent{}
 }
 
-/*PostUserPasswordNoContent handles this case with default header values.
+/*
+PostUserPasswordNoContent describes a response with status code 204, with default header values.
 
 Password changed
 */
 type PostUserPasswordNoContent struct {
 }
 
+// IsSuccess returns true when this post user password no content response has a 2xx status code
+func (o *PostUserPasswordNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post user password no content response has a 3xx status code
+func (o *PostUserPasswordNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user password no content response has a 4xx status code
+func (o *PostUserPasswordNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post user password no content response has a 5xx status code
+func (o *PostUserPasswordNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user password no content response a status code equal to that given
+func (o *PostUserPasswordNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PostUserPasswordNoContent) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordNoContent ", 204)
+}
+
+func (o *PostUserPasswordNoContent) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewPostUserPasswordBadRequest() *PostUserPasswordBadRequest {
 	return &PostUserPasswordBadRequest{}
 }
 
-/*PostUserPasswordBadRequest handles this case with default header values.
+/*
+PostUserPasswordBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostUserPasswordBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user password bad request response has a 2xx status code
+func (o *PostUserPasswordBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user password bad request response has a 3xx status code
+func (o *PostUserPasswordBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user password bad request response has a 4xx status code
+func (o *PostUserPasswordBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user password bad request response has a 5xx status code
+func (o *PostUserPasswordBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user password bad request response a status code equal to that given
+func (o *PostUserPasswordBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostUserPasswordBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostUserPasswordBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostUserPasswordUnauthorized() *PostUserPasswordUnauthorized {
 	return &PostUserPasswordUnauthorized{}
 }
 
-/*PostUserPasswordUnauthorized handles this case with default header values.
+/*
+PostUserPasswordUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostUserPasswordUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user password unauthorized response has a 2xx status code
+func (o *PostUserPasswordUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user password unauthorized response has a 3xx status code
+func (o *PostUserPasswordUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user password unauthorized response has a 4xx status code
+func (o *PostUserPasswordUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user password unauthorized response has a 5xx status code
+func (o *PostUserPasswordUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user password unauthorized response a status code equal to that given
+func (o *PostUserPasswordUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostUserPasswordUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostUserPasswordUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostUserPasswordForbidden() *PostUserPasswordForbidden {
 	return &PostUserPasswordForbidden{}
 }
 
-/*PostUserPasswordForbidden handles this case with default header values.
+/*
+PostUserPasswordForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostUserPasswordForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user password forbidden response has a 2xx status code
+func (o *PostUserPasswordForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user password forbidden response has a 3xx status code
+func (o *PostUserPasswordForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user password forbidden response has a 4xx status code
+func (o *PostUserPasswordForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user password forbidden response has a 5xx status code
+func (o *PostUserPasswordForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user password forbidden response a status code equal to that given
+func (o *PostUserPasswordForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostUserPasswordForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostUserPasswordForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostUserPasswordNotFound() *PostUserPasswordNotFound {
 	return &PostUserPasswordNotFound{}
 }
 
-/*PostUserPasswordNotFound handles this case with default header values.
+/*
+PostUserPasswordNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostUserPasswordNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user password not found response has a 2xx status code
+func (o *PostUserPasswordNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user password not found response has a 3xx status code
+func (o *PostUserPasswordNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user password not found response has a 4xx status code
+func (o *PostUserPasswordNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user password not found response has a 5xx status code
+func (o *PostUserPasswordNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user password not found response a status code equal to that given
+func (o *PostUserPasswordNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostUserPasswordNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostUserPasswordNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostUserPasswordRequestTimeout() *PostUserPasswordRequestTimeout {
 	return &PostUserPasswordRequestTimeout{}
 }
 
-/*PostUserPasswordRequestTimeout handles this case with default header values.
+/*
+PostUserPasswordRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostUserPasswordRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user password request timeout response has a 2xx status code
+func (o *PostUserPasswordRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user password request timeout response has a 3xx status code
+func (o *PostUserPasswordRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user password request timeout response has a 4xx status code
+func (o *PostUserPasswordRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user password request timeout response has a 5xx status code
+func (o *PostUserPasswordRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user password request timeout response a status code equal to that given
+func (o *PostUserPasswordRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostUserPasswordRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUserPasswordRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostUserPasswordRequestEntityTooLarge() *PostUserPasswordRequestEntityTo
 	return &PostUserPasswordRequestEntityTooLarge{}
 }
 
-/*PostUserPasswordRequestEntityTooLarge handles this case with default header values.
+/*
+PostUserPasswordRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostUserPasswordRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user password request entity too large response has a 2xx status code
+func (o *PostUserPasswordRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user password request entity too large response has a 3xx status code
+func (o *PostUserPasswordRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user password request entity too large response has a 4xx status code
+func (o *PostUserPasswordRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user password request entity too large response has a 5xx status code
+func (o *PostUserPasswordRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user password request entity too large response a status code equal to that given
+func (o *PostUserPasswordRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostUserPasswordRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostUserPasswordRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostUserPasswordUnsupportedMediaType() *PostUserPasswordUnsupportedMedia
 	return &PostUserPasswordUnsupportedMediaType{}
 }
 
-/*PostUserPasswordUnsupportedMediaType handles this case with default header values.
+/*
+PostUserPasswordUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostUserPasswordUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user password unsupported media type response has a 2xx status code
+func (o *PostUserPasswordUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user password unsupported media type response has a 3xx status code
+func (o *PostUserPasswordUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user password unsupported media type response has a 4xx status code
+func (o *PostUserPasswordUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user password unsupported media type response has a 5xx status code
+func (o *PostUserPasswordUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user password unsupported media type response a status code equal to that given
+func (o *PostUserPasswordUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostUserPasswordUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostUserPasswordUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostUserPasswordTooManyRequests() *PostUserPasswordTooManyRequests {
 	return &PostUserPasswordTooManyRequests{}
 }
 
-/*PostUserPasswordTooManyRequests handles this case with default header values.
+/*
+PostUserPasswordTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostUserPasswordTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user password too many requests response has a 2xx status code
+func (o *PostUserPasswordTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user password too many requests response has a 3xx status code
+func (o *PostUserPasswordTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user password too many requests response has a 4xx status code
+func (o *PostUserPasswordTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user password too many requests response has a 5xx status code
+func (o *PostUserPasswordTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user password too many requests response a status code equal to that given
+func (o *PostUserPasswordTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostUserPasswordTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostUserPasswordTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostUserPasswordInternalServerError() *PostUserPasswordInternalServerErr
 	return &PostUserPasswordInternalServerError{}
 }
 
-/*PostUserPasswordInternalServerError handles this case with default header values.
+/*
+PostUserPasswordInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostUserPasswordInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user password internal server error response has a 2xx status code
+func (o *PostUserPasswordInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user password internal server error response has a 3xx status code
+func (o *PostUserPasswordInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user password internal server error response has a 4xx status code
+func (o *PostUserPasswordInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post user password internal server error response has a 5xx status code
+func (o *PostUserPasswordInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post user password internal server error response a status code equal to that given
+func (o *PostUserPasswordInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostUserPasswordInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostUserPasswordInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostUserPasswordServiceUnavailable() *PostUserPasswordServiceUnavailable
 	return &PostUserPasswordServiceUnavailable{}
 }
 
-/*PostUserPasswordServiceUnavailable handles this case with default header values.
+/*
+PostUserPasswordServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostUserPasswordServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user password service unavailable response has a 2xx status code
+func (o *PostUserPasswordServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user password service unavailable response has a 3xx status code
+func (o *PostUserPasswordServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user password service unavailable response has a 4xx status code
+func (o *PostUserPasswordServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post user password service unavailable response has a 5xx status code
+func (o *PostUserPasswordServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post user password service unavailable response a status code equal to that given
+func (o *PostUserPasswordServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostUserPasswordServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostUserPasswordServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostUserPasswordGatewayTimeout() *PostUserPasswordGatewayTimeout {
 	return &PostUserPasswordGatewayTimeout{}
 }
 
-/*PostUserPasswordGatewayTimeout handles this case with default header values.
+/*
+PostUserPasswordGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostUserPasswordGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user password gateway timeout response has a 2xx status code
+func (o *PostUserPasswordGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user password gateway timeout response has a 3xx status code
+func (o *PostUserPasswordGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user password gateway timeout response has a 4xx status code
+func (o *PostUserPasswordGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post user password gateway timeout response has a 5xx status code
+func (o *PostUserPasswordGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post user password gateway timeout response a status code equal to that given
+func (o *PostUserPasswordGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostUserPasswordGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostUserPasswordGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/password][%d] postUserPasswordGatewayTimeout  %+v", 504, o.Payload)
 }
 

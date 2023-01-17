@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -44,7 +46,6 @@ func (m *OutcomeAchievement) Validate(formats strfmt.Registry) error {
 }
 
 func (m *OutcomeAchievement) validateAchievedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AchievedDate) { // not required
 		return nil
 	}
@@ -57,7 +58,6 @@ func (m *OutcomeAchievement) validateAchievedDate(formats strfmt.Registry) error
 }
 
 func (m *OutcomeAchievement) validateOutcome(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Outcome) { // not required
 		return nil
 	}
@@ -66,6 +66,38 @@ func (m *OutcomeAchievement) validateOutcome(formats strfmt.Registry) error {
 		if err := m.Outcome.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outcome")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outcome")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this outcome achievement based on the context it is used
+func (m *OutcomeAchievement) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateOutcome(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OutcomeAchievement) contextValidateOutcome(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Outcome != nil {
+		if err := m.Outcome.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outcome")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outcome")
 			}
 			return err
 		}

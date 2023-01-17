@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // TopicDuration topic duration
@@ -22,6 +26,29 @@ type TopicDuration struct {
 
 // Validate validates this topic duration
 func (m *TopicDuration) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this topic duration based on the context it is used
+func (m *TopicDuration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateTotalMilliseconds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TopicDuration) contextValidateTotalMilliseconds(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalMilliseconds", "body", int64(m.TotalMilliseconds)); err != nil {
+		return err
+	}
+
 	return nil
 }
 

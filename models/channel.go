@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -48,7 +50,6 @@ func (m *Channel) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Channel) validateConnectURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectURI) { // not required
 		return nil
 	}
@@ -61,7 +62,6 @@ func (m *Channel) validateConnectURI(formats strfmt.Registry) error {
 }
 
 func (m *Channel) validateExpires(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Expires) { // not required
 		return nil
 	}
@@ -70,6 +70,11 @@ func (m *Channel) validateExpires(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this channel based on context it is used
+func (m *Channel) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

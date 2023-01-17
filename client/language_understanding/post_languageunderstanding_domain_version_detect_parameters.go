@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostLanguageunderstandingDomainVersionDetectParams creates a new PostLanguageunderstandingDomainVersionDetectParams object
-// with the default values initialized.
+// NewPostLanguageunderstandingDomainVersionDetectParams creates a new PostLanguageunderstandingDomainVersionDetectParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostLanguageunderstandingDomainVersionDetectParams() *PostLanguageunderstandingDomainVersionDetectParams {
-	var ()
 	return &PostLanguageunderstandingDomainVersionDetectParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostLanguageunderstandingDomainVersionDetectParamsWithTimeout creates a new PostLanguageunderstandingDomainVersionDetectParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostLanguageunderstandingDomainVersionDetectParamsWithTimeout(timeout time.Duration) *PostLanguageunderstandingDomainVersionDetectParams {
-	var ()
 	return &PostLanguageunderstandingDomainVersionDetectParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostLanguageunderstandingDomainVersionDetectParamsWithContext creates a new PostLanguageunderstandingDomainVersionDetectParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostLanguageunderstandingDomainVersionDetectParamsWithContext(ctx context.Context) *PostLanguageunderstandingDomainVersionDetectParams {
-	var ()
 	return &PostLanguageunderstandingDomainVersionDetectParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostLanguageunderstandingDomainVersionDetectParamsWithHTTPClient creates a new PostLanguageunderstandingDomainVersionDetectParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostLanguageunderstandingDomainVersionDetectParamsWithHTTPClient(client *http.Client) *PostLanguageunderstandingDomainVersionDetectParams {
-	var ()
 	return &PostLanguageunderstandingDomainVersionDetectParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectParams contains all the parameters to send to the API endpoint
-for the post languageunderstanding domain version detect operation typically these are written to a http.Request
+/*
+PostLanguageunderstandingDomainVersionDetectParams contains all the parameters to send to the API endpoint
+
+	for the post languageunderstanding domain version detect operation.
+
+	Typically these are written to a http.Request.
 */
 type PostLanguageunderstandingDomainVersionDetectParams struct {
 
-	/*Body
-	  The input data to perform detection on.
+	/* Body.
 
+	   The input data to perform detection on.
 	*/
 	Body *models.NluDetectionRequest
-	/*DomainID
-	  ID of the NLU domain.
 
+	/* DomainID.
+
+	   ID of the NLU domain.
 	*/
 	DomainID string
-	/*DomainVersionID
-	  ID of the NLU domain version.
 
+	/* DomainVersionID.
+
+	   ID of the NLU domain version.
 	*/
 	DomainVersionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post languageunderstanding domain version detect params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLanguageunderstandingDomainVersionDetectParams) WithDefaults() *PostLanguageunderstandingDomainVersionDetectParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post languageunderstanding domain version detect params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLanguageunderstandingDomainVersionDetectParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post languageunderstanding domain version detect params
@@ -156,7 +174,6 @@ func (o *PostLanguageunderstandingDomainVersionDetectParams) WriteToRequest(r ru
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

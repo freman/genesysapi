@@ -95,7 +95,6 @@ func (o *GetWidgetsDeploymentReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWidgetsDeploymentOK() *GetWidgetsDeploymentOK {
 	return &GetWidgetsDeploymentOK{}
 }
 
-/*GetWidgetsDeploymentOK handles this case with default header values.
+/*
+GetWidgetsDeploymentOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWidgetsDeploymentOK struct {
 	Payload *models.WidgetDeployment
 }
 
+// IsSuccess returns true when this get widgets deployment o k response has a 2xx status code
+func (o *GetWidgetsDeploymentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get widgets deployment o k response has a 3xx status code
+func (o *GetWidgetsDeploymentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get widgets deployment o k response has a 4xx status code
+func (o *GetWidgetsDeploymentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get widgets deployment o k response has a 5xx status code
+func (o *GetWidgetsDeploymentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get widgets deployment o k response a status code equal to that given
+func (o *GetWidgetsDeploymentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWidgetsDeploymentOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWidgetsDeploymentOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWidgetsDeploymentBadRequest() *GetWidgetsDeploymentBadRequest {
 	return &GetWidgetsDeploymentBadRequest{}
 }
 
-/*GetWidgetsDeploymentBadRequest handles this case with default header values.
+/*
+GetWidgetsDeploymentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWidgetsDeploymentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get widgets deployment bad request response has a 2xx status code
+func (o *GetWidgetsDeploymentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get widgets deployment bad request response has a 3xx status code
+func (o *GetWidgetsDeploymentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get widgets deployment bad request response has a 4xx status code
+func (o *GetWidgetsDeploymentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get widgets deployment bad request response has a 5xx status code
+func (o *GetWidgetsDeploymentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get widgets deployment bad request response a status code equal to that given
+func (o *GetWidgetsDeploymentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWidgetsDeploymentBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWidgetsDeploymentBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWidgetsDeploymentUnauthorized() *GetWidgetsDeploymentUnauthorized {
 	return &GetWidgetsDeploymentUnauthorized{}
 }
 
-/*GetWidgetsDeploymentUnauthorized handles this case with default header values.
+/*
+GetWidgetsDeploymentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWidgetsDeploymentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get widgets deployment unauthorized response has a 2xx status code
+func (o *GetWidgetsDeploymentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get widgets deployment unauthorized response has a 3xx status code
+func (o *GetWidgetsDeploymentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get widgets deployment unauthorized response has a 4xx status code
+func (o *GetWidgetsDeploymentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get widgets deployment unauthorized response has a 5xx status code
+func (o *GetWidgetsDeploymentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get widgets deployment unauthorized response a status code equal to that given
+func (o *GetWidgetsDeploymentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWidgetsDeploymentUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWidgetsDeploymentUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWidgetsDeploymentForbidden() *GetWidgetsDeploymentForbidden {
 	return &GetWidgetsDeploymentForbidden{}
 }
 
-/*GetWidgetsDeploymentForbidden handles this case with default header values.
+/*
+GetWidgetsDeploymentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWidgetsDeploymentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get widgets deployment forbidden response has a 2xx status code
+func (o *GetWidgetsDeploymentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get widgets deployment forbidden response has a 3xx status code
+func (o *GetWidgetsDeploymentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get widgets deployment forbidden response has a 4xx status code
+func (o *GetWidgetsDeploymentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get widgets deployment forbidden response has a 5xx status code
+func (o *GetWidgetsDeploymentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get widgets deployment forbidden response a status code equal to that given
+func (o *GetWidgetsDeploymentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWidgetsDeploymentForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWidgetsDeploymentForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWidgetsDeploymentNotFound() *GetWidgetsDeploymentNotFound {
 	return &GetWidgetsDeploymentNotFound{}
 }
 
-/*GetWidgetsDeploymentNotFound handles this case with default header values.
+/*
+GetWidgetsDeploymentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWidgetsDeploymentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get widgets deployment not found response has a 2xx status code
+func (o *GetWidgetsDeploymentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get widgets deployment not found response has a 3xx status code
+func (o *GetWidgetsDeploymentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get widgets deployment not found response has a 4xx status code
+func (o *GetWidgetsDeploymentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get widgets deployment not found response has a 5xx status code
+func (o *GetWidgetsDeploymentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get widgets deployment not found response a status code equal to that given
+func (o *GetWidgetsDeploymentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWidgetsDeploymentNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWidgetsDeploymentNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWidgetsDeploymentRequestTimeout() *GetWidgetsDeploymentRequestTimeout
 	return &GetWidgetsDeploymentRequestTimeout{}
 }
 
-/*GetWidgetsDeploymentRequestTimeout handles this case with default header values.
+/*
+GetWidgetsDeploymentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWidgetsDeploymentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get widgets deployment request timeout response has a 2xx status code
+func (o *GetWidgetsDeploymentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get widgets deployment request timeout response has a 3xx status code
+func (o *GetWidgetsDeploymentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get widgets deployment request timeout response has a 4xx status code
+func (o *GetWidgetsDeploymentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get widgets deployment request timeout response has a 5xx status code
+func (o *GetWidgetsDeploymentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get widgets deployment request timeout response a status code equal to that given
+func (o *GetWidgetsDeploymentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWidgetsDeploymentRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWidgetsDeploymentRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWidgetsDeploymentRequestEntityTooLarge() *GetWidgetsDeploymentRequest
 	return &GetWidgetsDeploymentRequestEntityTooLarge{}
 }
 
-/*GetWidgetsDeploymentRequestEntityTooLarge handles this case with default header values.
+/*
+GetWidgetsDeploymentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWidgetsDeploymentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get widgets deployment request entity too large response has a 2xx status code
+func (o *GetWidgetsDeploymentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get widgets deployment request entity too large response has a 3xx status code
+func (o *GetWidgetsDeploymentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get widgets deployment request entity too large response has a 4xx status code
+func (o *GetWidgetsDeploymentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get widgets deployment request entity too large response has a 5xx status code
+func (o *GetWidgetsDeploymentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get widgets deployment request entity too large response a status code equal to that given
+func (o *GetWidgetsDeploymentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWidgetsDeploymentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWidgetsDeploymentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWidgetsDeploymentUnsupportedMediaType() *GetWidgetsDeploymentUnsuppor
 	return &GetWidgetsDeploymentUnsupportedMediaType{}
 }
 
-/*GetWidgetsDeploymentUnsupportedMediaType handles this case with default header values.
+/*
+GetWidgetsDeploymentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWidgetsDeploymentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get widgets deployment unsupported media type response has a 2xx status code
+func (o *GetWidgetsDeploymentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get widgets deployment unsupported media type response has a 3xx status code
+func (o *GetWidgetsDeploymentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get widgets deployment unsupported media type response has a 4xx status code
+func (o *GetWidgetsDeploymentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get widgets deployment unsupported media type response has a 5xx status code
+func (o *GetWidgetsDeploymentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get widgets deployment unsupported media type response a status code equal to that given
+func (o *GetWidgetsDeploymentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWidgetsDeploymentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWidgetsDeploymentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWidgetsDeploymentTooManyRequests() *GetWidgetsDeploymentTooManyReques
 	return &GetWidgetsDeploymentTooManyRequests{}
 }
 
-/*GetWidgetsDeploymentTooManyRequests handles this case with default header values.
+/*
+GetWidgetsDeploymentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWidgetsDeploymentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get widgets deployment too many requests response has a 2xx status code
+func (o *GetWidgetsDeploymentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get widgets deployment too many requests response has a 3xx status code
+func (o *GetWidgetsDeploymentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get widgets deployment too many requests response has a 4xx status code
+func (o *GetWidgetsDeploymentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get widgets deployment too many requests response has a 5xx status code
+func (o *GetWidgetsDeploymentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get widgets deployment too many requests response a status code equal to that given
+func (o *GetWidgetsDeploymentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWidgetsDeploymentTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWidgetsDeploymentTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWidgetsDeploymentInternalServerError() *GetWidgetsDeploymentInternalS
 	return &GetWidgetsDeploymentInternalServerError{}
 }
 
-/*GetWidgetsDeploymentInternalServerError handles this case with default header values.
+/*
+GetWidgetsDeploymentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWidgetsDeploymentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get widgets deployment internal server error response has a 2xx status code
+func (o *GetWidgetsDeploymentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get widgets deployment internal server error response has a 3xx status code
+func (o *GetWidgetsDeploymentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get widgets deployment internal server error response has a 4xx status code
+func (o *GetWidgetsDeploymentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get widgets deployment internal server error response has a 5xx status code
+func (o *GetWidgetsDeploymentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get widgets deployment internal server error response a status code equal to that given
+func (o *GetWidgetsDeploymentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWidgetsDeploymentInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWidgetsDeploymentInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWidgetsDeploymentServiceUnavailable() *GetWidgetsDeploymentServiceUna
 	return &GetWidgetsDeploymentServiceUnavailable{}
 }
 
-/*GetWidgetsDeploymentServiceUnavailable handles this case with default header values.
+/*
+GetWidgetsDeploymentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWidgetsDeploymentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get widgets deployment service unavailable response has a 2xx status code
+func (o *GetWidgetsDeploymentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get widgets deployment service unavailable response has a 3xx status code
+func (o *GetWidgetsDeploymentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get widgets deployment service unavailable response has a 4xx status code
+func (o *GetWidgetsDeploymentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get widgets deployment service unavailable response has a 5xx status code
+func (o *GetWidgetsDeploymentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get widgets deployment service unavailable response a status code equal to that given
+func (o *GetWidgetsDeploymentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWidgetsDeploymentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWidgetsDeploymentServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWidgetsDeploymentGatewayTimeout() *GetWidgetsDeploymentGatewayTimeout
 	return &GetWidgetsDeploymentGatewayTimeout{}
 }
 
-/*GetWidgetsDeploymentGatewayTimeout handles this case with default header values.
+/*
+GetWidgetsDeploymentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWidgetsDeploymentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get widgets deployment gateway timeout response has a 2xx status code
+func (o *GetWidgetsDeploymentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get widgets deployment gateway timeout response has a 3xx status code
+func (o *GetWidgetsDeploymentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get widgets deployment gateway timeout response has a 4xx status code
+func (o *GetWidgetsDeploymentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get widgets deployment gateway timeout response has a 5xx status code
+func (o *GetWidgetsDeploymentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get widgets deployment gateway timeout response a status code equal to that given
+func (o *GetWidgetsDeploymentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWidgetsDeploymentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWidgetsDeploymentGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/widgets/deployments/{deploymentId}][%d] getWidgetsDeploymentGatewayTimeout  %+v", 504, o.Payload)
 }
 

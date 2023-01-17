@@ -95,7 +95,6 @@ func (o *PostOutboundSequencesReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOutboundSequencesOK() *PostOutboundSequencesOK {
 	return &PostOutboundSequencesOK{}
 }
 
-/*PostOutboundSequencesOK handles this case with default header values.
+/*
+PostOutboundSequencesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOutboundSequencesOK struct {
 	Payload *models.CampaignSequence
 }
 
+// IsSuccess returns true when this post outbound sequences o k response has a 2xx status code
+func (o *PostOutboundSequencesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post outbound sequences o k response has a 3xx status code
+func (o *PostOutboundSequencesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound sequences o k response has a 4xx status code
+func (o *PostOutboundSequencesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound sequences o k response has a 5xx status code
+func (o *PostOutboundSequencesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound sequences o k response a status code equal to that given
+func (o *PostOutboundSequencesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOutboundSequencesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOutboundSequencesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostOutboundSequencesBadRequest() *PostOutboundSequencesBadRequest {
 	return &PostOutboundSequencesBadRequest{}
 }
 
-/*PostOutboundSequencesBadRequest handles this case with default header values.
+/*
+PostOutboundSequencesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostOutboundSequencesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound sequences bad request response has a 2xx status code
+func (o *PostOutboundSequencesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound sequences bad request response has a 3xx status code
+func (o *PostOutboundSequencesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound sequences bad request response has a 4xx status code
+func (o *PostOutboundSequencesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound sequences bad request response has a 5xx status code
+func (o *PostOutboundSequencesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound sequences bad request response a status code equal to that given
+func (o *PostOutboundSequencesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOutboundSequencesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOutboundSequencesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostOutboundSequencesUnauthorized() *PostOutboundSequencesUnauthorized {
 	return &PostOutboundSequencesUnauthorized{}
 }
 
-/*PostOutboundSequencesUnauthorized handles this case with default header values.
+/*
+PostOutboundSequencesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostOutboundSequencesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound sequences unauthorized response has a 2xx status code
+func (o *PostOutboundSequencesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound sequences unauthorized response has a 3xx status code
+func (o *PostOutboundSequencesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound sequences unauthorized response has a 4xx status code
+func (o *PostOutboundSequencesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound sequences unauthorized response has a 5xx status code
+func (o *PostOutboundSequencesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound sequences unauthorized response a status code equal to that given
+func (o *PostOutboundSequencesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOutboundSequencesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOutboundSequencesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostOutboundSequencesForbidden() *PostOutboundSequencesForbidden {
 	return &PostOutboundSequencesForbidden{}
 }
 
-/*PostOutboundSequencesForbidden handles this case with default header values.
+/*
+PostOutboundSequencesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostOutboundSequencesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound sequences forbidden response has a 2xx status code
+func (o *PostOutboundSequencesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound sequences forbidden response has a 3xx status code
+func (o *PostOutboundSequencesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound sequences forbidden response has a 4xx status code
+func (o *PostOutboundSequencesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound sequences forbidden response has a 5xx status code
+func (o *PostOutboundSequencesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound sequences forbidden response a status code equal to that given
+func (o *PostOutboundSequencesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOutboundSequencesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOutboundSequencesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostOutboundSequencesNotFound() *PostOutboundSequencesNotFound {
 	return &PostOutboundSequencesNotFound{}
 }
 
-/*PostOutboundSequencesNotFound handles this case with default header values.
+/*
+PostOutboundSequencesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostOutboundSequencesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound sequences not found response has a 2xx status code
+func (o *PostOutboundSequencesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound sequences not found response has a 3xx status code
+func (o *PostOutboundSequencesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound sequences not found response has a 4xx status code
+func (o *PostOutboundSequencesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound sequences not found response has a 5xx status code
+func (o *PostOutboundSequencesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound sequences not found response a status code equal to that given
+func (o *PostOutboundSequencesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOutboundSequencesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOutboundSequencesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostOutboundSequencesRequestTimeout() *PostOutboundSequencesRequestTimeo
 	return &PostOutboundSequencesRequestTimeout{}
 }
 
-/*PostOutboundSequencesRequestTimeout handles this case with default header values.
+/*
+PostOutboundSequencesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostOutboundSequencesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound sequences request timeout response has a 2xx status code
+func (o *PostOutboundSequencesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound sequences request timeout response has a 3xx status code
+func (o *PostOutboundSequencesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound sequences request timeout response has a 4xx status code
+func (o *PostOutboundSequencesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound sequences request timeout response has a 5xx status code
+func (o *PostOutboundSequencesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound sequences request timeout response a status code equal to that given
+func (o *PostOutboundSequencesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOutboundSequencesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundSequencesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostOutboundSequencesRequestEntityTooLarge() *PostOutboundSequencesReque
 	return &PostOutboundSequencesRequestEntityTooLarge{}
 }
 
-/*PostOutboundSequencesRequestEntityTooLarge handles this case with default header values.
+/*
+PostOutboundSequencesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostOutboundSequencesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound sequences request entity too large response has a 2xx status code
+func (o *PostOutboundSequencesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound sequences request entity too large response has a 3xx status code
+func (o *PostOutboundSequencesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound sequences request entity too large response has a 4xx status code
+func (o *PostOutboundSequencesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound sequences request entity too large response has a 5xx status code
+func (o *PostOutboundSequencesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound sequences request entity too large response a status code equal to that given
+func (o *PostOutboundSequencesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOutboundSequencesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOutboundSequencesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostOutboundSequencesUnsupportedMediaType() *PostOutboundSequencesUnsupp
 	return &PostOutboundSequencesUnsupportedMediaType{}
 }
 
-/*PostOutboundSequencesUnsupportedMediaType handles this case with default header values.
+/*
+PostOutboundSequencesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostOutboundSequencesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound sequences unsupported media type response has a 2xx status code
+func (o *PostOutboundSequencesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound sequences unsupported media type response has a 3xx status code
+func (o *PostOutboundSequencesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound sequences unsupported media type response has a 4xx status code
+func (o *PostOutboundSequencesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound sequences unsupported media type response has a 5xx status code
+func (o *PostOutboundSequencesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound sequences unsupported media type response a status code equal to that given
+func (o *PostOutboundSequencesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOutboundSequencesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOutboundSequencesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostOutboundSequencesTooManyRequests() *PostOutboundSequencesTooManyRequ
 	return &PostOutboundSequencesTooManyRequests{}
 }
 
-/*PostOutboundSequencesTooManyRequests handles this case with default header values.
+/*
+PostOutboundSequencesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostOutboundSequencesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound sequences too many requests response has a 2xx status code
+func (o *PostOutboundSequencesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound sequences too many requests response has a 3xx status code
+func (o *PostOutboundSequencesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound sequences too many requests response has a 4xx status code
+func (o *PostOutboundSequencesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound sequences too many requests response has a 5xx status code
+func (o *PostOutboundSequencesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound sequences too many requests response a status code equal to that given
+func (o *PostOutboundSequencesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOutboundSequencesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOutboundSequencesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostOutboundSequencesInternalServerError() *PostOutboundSequencesInterna
 	return &PostOutboundSequencesInternalServerError{}
 }
 
-/*PostOutboundSequencesInternalServerError handles this case with default header values.
+/*
+PostOutboundSequencesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostOutboundSequencesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound sequences internal server error response has a 2xx status code
+func (o *PostOutboundSequencesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound sequences internal server error response has a 3xx status code
+func (o *PostOutboundSequencesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound sequences internal server error response has a 4xx status code
+func (o *PostOutboundSequencesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound sequences internal server error response has a 5xx status code
+func (o *PostOutboundSequencesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound sequences internal server error response a status code equal to that given
+func (o *PostOutboundSequencesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOutboundSequencesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOutboundSequencesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostOutboundSequencesServiceUnavailable() *PostOutboundSequencesServiceU
 	return &PostOutboundSequencesServiceUnavailable{}
 }
 
-/*PostOutboundSequencesServiceUnavailable handles this case with default header values.
+/*
+PostOutboundSequencesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostOutboundSequencesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound sequences service unavailable response has a 2xx status code
+func (o *PostOutboundSequencesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound sequences service unavailable response has a 3xx status code
+func (o *PostOutboundSequencesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound sequences service unavailable response has a 4xx status code
+func (o *PostOutboundSequencesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound sequences service unavailable response has a 5xx status code
+func (o *PostOutboundSequencesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound sequences service unavailable response a status code equal to that given
+func (o *PostOutboundSequencesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOutboundSequencesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOutboundSequencesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostOutboundSequencesGatewayTimeout() *PostOutboundSequencesGatewayTimeo
 	return &PostOutboundSequencesGatewayTimeout{}
 }
 
-/*PostOutboundSequencesGatewayTimeout handles this case with default header values.
+/*
+PostOutboundSequencesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostOutboundSequencesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound sequences gateway timeout response has a 2xx status code
+func (o *PostOutboundSequencesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound sequences gateway timeout response has a 3xx status code
+func (o *PostOutboundSequencesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound sequences gateway timeout response has a 4xx status code
+func (o *PostOutboundSequencesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound sequences gateway timeout response has a 5xx status code
+func (o *PostOutboundSequencesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound sequences gateway timeout response a status code equal to that given
+func (o *PostOutboundSequencesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOutboundSequencesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOutboundSequencesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/sequences][%d] postOutboundSequencesGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -112,7 +113,6 @@ func (m *WhatsAppIntegrationUpdateRequest) validateActionEnum(path, location str
 }
 
 func (m *WhatsAppIntegrationUpdateRequest) validateAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Action) { // not required
 		return nil
 	}
@@ -155,7 +155,6 @@ func (m *WhatsAppIntegrationUpdateRequest) validateAuthenticationMethodEnum(path
 }
 
 func (m *WhatsAppIntegrationUpdateRequest) validateAuthenticationMethod(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AuthenticationMethod) { // not required
 		return nil
 	}
@@ -169,7 +168,6 @@ func (m *WhatsAppIntegrationUpdateRequest) validateAuthenticationMethod(formats 
 }
 
 func (m *WhatsAppIntegrationUpdateRequest) validateMessagingSetting(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessagingSetting) { // not required
 		return nil
 	}
@@ -178,6 +176,8 @@ func (m *WhatsAppIntegrationUpdateRequest) validateMessagingSetting(formats strf
 		if err := m.MessagingSetting.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messagingSetting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingSetting")
 			}
 			return err
 		}
@@ -187,7 +187,6 @@ func (m *WhatsAppIntegrationUpdateRequest) validateMessagingSetting(formats strf
 }
 
 func (m *WhatsAppIntegrationUpdateRequest) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -200,7 +199,6 @@ func (m *WhatsAppIntegrationUpdateRequest) validateSelfURI(formats strfmt.Regist
 }
 
 func (m *WhatsAppIntegrationUpdateRequest) validateSupportedContent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SupportedContent) { // not required
 		return nil
 	}
@@ -209,6 +207,84 @@ func (m *WhatsAppIntegrationUpdateRequest) validateSupportedContent(formats strf
 		if err := m.SupportedContent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("supportedContent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportedContent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this whats app integration update request based on the context it is used
+func (m *WhatsAppIntegrationUpdateRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessagingSetting(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupportedContent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WhatsAppIntegrationUpdateRequest) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegrationUpdateRequest) contextValidateMessagingSetting(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessagingSetting != nil {
+		if err := m.MessagingSetting.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingSetting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingSetting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegrationUpdateRequest) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegrationUpdateRequest) contextValidateSupportedContent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SupportedContent != nil {
+		if err := m.SupportedContent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportedContent")
 			}
 			return err
 		}

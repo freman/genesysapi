@@ -95,7 +95,6 @@ func (o *GetGreetingsReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGreetingsOK() *GetGreetingsOK {
 	return &GetGreetingsOK{}
 }
 
-/*GetGreetingsOK handles this case with default header values.
+/*
+GetGreetingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGreetingsOK struct {
 	Payload *models.DomainEntityListing
 }
 
+// IsSuccess returns true when this get greetings o k response has a 2xx status code
+func (o *GetGreetingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get greetings o k response has a 3xx status code
+func (o *GetGreetingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greetings o k response has a 4xx status code
+func (o *GetGreetingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get greetings o k response has a 5xx status code
+func (o *GetGreetingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greetings o k response a status code equal to that given
+func (o *GetGreetingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGreetingsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGreetingsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGreetingsBadRequest() *GetGreetingsBadRequest {
 	return &GetGreetingsBadRequest{}
 }
 
-/*GetGreetingsBadRequest handles this case with default header values.
+/*
+GetGreetingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGreetingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greetings bad request response has a 2xx status code
+func (o *GetGreetingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greetings bad request response has a 3xx status code
+func (o *GetGreetingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greetings bad request response has a 4xx status code
+func (o *GetGreetingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greetings bad request response has a 5xx status code
+func (o *GetGreetingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greetings bad request response a status code equal to that given
+func (o *GetGreetingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGreetingsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGreetingsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGreetingsUnauthorized() *GetGreetingsUnauthorized {
 	return &GetGreetingsUnauthorized{}
 }
 
-/*GetGreetingsUnauthorized handles this case with default header values.
+/*
+GetGreetingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGreetingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greetings unauthorized response has a 2xx status code
+func (o *GetGreetingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greetings unauthorized response has a 3xx status code
+func (o *GetGreetingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greetings unauthorized response has a 4xx status code
+func (o *GetGreetingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greetings unauthorized response has a 5xx status code
+func (o *GetGreetingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greetings unauthorized response a status code equal to that given
+func (o *GetGreetingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGreetingsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGreetingsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGreetingsForbidden() *GetGreetingsForbidden {
 	return &GetGreetingsForbidden{}
 }
 
-/*GetGreetingsForbidden handles this case with default header values.
+/*
+GetGreetingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGreetingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greetings forbidden response has a 2xx status code
+func (o *GetGreetingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greetings forbidden response has a 3xx status code
+func (o *GetGreetingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greetings forbidden response has a 4xx status code
+func (o *GetGreetingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greetings forbidden response has a 5xx status code
+func (o *GetGreetingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greetings forbidden response a status code equal to that given
+func (o *GetGreetingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGreetingsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGreetingsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGreetingsNotFound() *GetGreetingsNotFound {
 	return &GetGreetingsNotFound{}
 }
 
-/*GetGreetingsNotFound handles this case with default header values.
+/*
+GetGreetingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGreetingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greetings not found response has a 2xx status code
+func (o *GetGreetingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greetings not found response has a 3xx status code
+func (o *GetGreetingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greetings not found response has a 4xx status code
+func (o *GetGreetingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greetings not found response has a 5xx status code
+func (o *GetGreetingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greetings not found response a status code equal to that given
+func (o *GetGreetingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGreetingsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGreetingsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGreetingsRequestTimeout() *GetGreetingsRequestTimeout {
 	return &GetGreetingsRequestTimeout{}
 }
 
-/*GetGreetingsRequestTimeout handles this case with default header values.
+/*
+GetGreetingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGreetingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greetings request timeout response has a 2xx status code
+func (o *GetGreetingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greetings request timeout response has a 3xx status code
+func (o *GetGreetingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greetings request timeout response has a 4xx status code
+func (o *GetGreetingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greetings request timeout response has a 5xx status code
+func (o *GetGreetingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greetings request timeout response a status code equal to that given
+func (o *GetGreetingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGreetingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGreetingsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGreetingsRequestEntityTooLarge() *GetGreetingsRequestEntityTooLarge {
 	return &GetGreetingsRequestEntityTooLarge{}
 }
 
-/*GetGreetingsRequestEntityTooLarge handles this case with default header values.
+/*
+GetGreetingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGreetingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greetings request entity too large response has a 2xx status code
+func (o *GetGreetingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greetings request entity too large response has a 3xx status code
+func (o *GetGreetingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greetings request entity too large response has a 4xx status code
+func (o *GetGreetingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greetings request entity too large response has a 5xx status code
+func (o *GetGreetingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greetings request entity too large response a status code equal to that given
+func (o *GetGreetingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGreetingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGreetingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGreetingsUnsupportedMediaType() *GetGreetingsUnsupportedMediaType {
 	return &GetGreetingsUnsupportedMediaType{}
 }
 
-/*GetGreetingsUnsupportedMediaType handles this case with default header values.
+/*
+GetGreetingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGreetingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greetings unsupported media type response has a 2xx status code
+func (o *GetGreetingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greetings unsupported media type response has a 3xx status code
+func (o *GetGreetingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greetings unsupported media type response has a 4xx status code
+func (o *GetGreetingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greetings unsupported media type response has a 5xx status code
+func (o *GetGreetingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greetings unsupported media type response a status code equal to that given
+func (o *GetGreetingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGreetingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGreetingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGreetingsTooManyRequests() *GetGreetingsTooManyRequests {
 	return &GetGreetingsTooManyRequests{}
 }
 
-/*GetGreetingsTooManyRequests handles this case with default header values.
+/*
+GetGreetingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGreetingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greetings too many requests response has a 2xx status code
+func (o *GetGreetingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greetings too many requests response has a 3xx status code
+func (o *GetGreetingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greetings too many requests response has a 4xx status code
+func (o *GetGreetingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greetings too many requests response has a 5xx status code
+func (o *GetGreetingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greetings too many requests response a status code equal to that given
+func (o *GetGreetingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGreetingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGreetingsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGreetingsInternalServerError() *GetGreetingsInternalServerError {
 	return &GetGreetingsInternalServerError{}
 }
 
-/*GetGreetingsInternalServerError handles this case with default header values.
+/*
+GetGreetingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGreetingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greetings internal server error response has a 2xx status code
+func (o *GetGreetingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greetings internal server error response has a 3xx status code
+func (o *GetGreetingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greetings internal server error response has a 4xx status code
+func (o *GetGreetingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get greetings internal server error response has a 5xx status code
+func (o *GetGreetingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get greetings internal server error response a status code equal to that given
+func (o *GetGreetingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGreetingsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGreetingsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGreetingsServiceUnavailable() *GetGreetingsServiceUnavailable {
 	return &GetGreetingsServiceUnavailable{}
 }
 
-/*GetGreetingsServiceUnavailable handles this case with default header values.
+/*
+GetGreetingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGreetingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greetings service unavailable response has a 2xx status code
+func (o *GetGreetingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greetings service unavailable response has a 3xx status code
+func (o *GetGreetingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greetings service unavailable response has a 4xx status code
+func (o *GetGreetingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get greetings service unavailable response has a 5xx status code
+func (o *GetGreetingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get greetings service unavailable response a status code equal to that given
+func (o *GetGreetingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGreetingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGreetingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGreetingsGatewayTimeout() *GetGreetingsGatewayTimeout {
 	return &GetGreetingsGatewayTimeout{}
 }
 
-/*GetGreetingsGatewayTimeout handles this case with default header values.
+/*
+GetGreetingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGreetingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greetings gateway timeout response has a 2xx status code
+func (o *GetGreetingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greetings gateway timeout response has a 3xx status code
+func (o *GetGreetingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greetings gateway timeout response has a 4xx status code
+func (o *GetGreetingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get greetings gateway timeout response has a 5xx status code
+func (o *GetGreetingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get greetings gateway timeout response a status code equal to that given
+func (o *GetGreetingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGreetingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGreetingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings][%d] getGreetingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

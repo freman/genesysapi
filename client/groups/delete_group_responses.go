@@ -106,7 +106,8 @@ func NewDeleteGroupBadRequest() *DeleteGroupBadRequest {
 	return &DeleteGroupBadRequest{}
 }
 
-/*DeleteGroupBadRequest handles this case with default header values.
+/*
+DeleteGroupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type DeleteGroupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete group bad request response has a 2xx status code
+func (o *DeleteGroupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete group bad request response has a 3xx status code
+func (o *DeleteGroupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete group bad request response has a 4xx status code
+func (o *DeleteGroupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete group bad request response has a 5xx status code
+func (o *DeleteGroupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete group bad request response a status code equal to that given
+func (o *DeleteGroupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteGroupBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteGroupBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewDeleteGroupUnauthorized() *DeleteGroupUnauthorized {
 	return &DeleteGroupUnauthorized{}
 }
 
-/*DeleteGroupUnauthorized handles this case with default header values.
+/*
+DeleteGroupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type DeleteGroupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete group unauthorized response has a 2xx status code
+func (o *DeleteGroupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete group unauthorized response has a 3xx status code
+func (o *DeleteGroupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete group unauthorized response has a 4xx status code
+func (o *DeleteGroupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete group unauthorized response has a 5xx status code
+func (o *DeleteGroupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete group unauthorized response a status code equal to that given
+func (o *DeleteGroupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteGroupUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteGroupUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewDeleteGroupForbidden() *DeleteGroupForbidden {
 	return &DeleteGroupForbidden{}
 }
 
-/*DeleteGroupForbidden handles this case with default header values.
+/*
+DeleteGroupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type DeleteGroupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete group forbidden response has a 2xx status code
+func (o *DeleteGroupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete group forbidden response has a 3xx status code
+func (o *DeleteGroupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete group forbidden response has a 4xx status code
+func (o *DeleteGroupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete group forbidden response has a 5xx status code
+func (o *DeleteGroupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete group forbidden response a status code equal to that given
+func (o *DeleteGroupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteGroupForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteGroupForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewDeleteGroupNotFound() *DeleteGroupNotFound {
 	return &DeleteGroupNotFound{}
 }
 
-/*DeleteGroupNotFound handles this case with default header values.
+/*
+DeleteGroupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type DeleteGroupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete group not found response has a 2xx status code
+func (o *DeleteGroupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete group not found response has a 3xx status code
+func (o *DeleteGroupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete group not found response has a 4xx status code
+func (o *DeleteGroupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete group not found response has a 5xx status code
+func (o *DeleteGroupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete group not found response a status code equal to that given
+func (o *DeleteGroupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteGroupNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteGroupNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewDeleteGroupRequestTimeout() *DeleteGroupRequestTimeout {
 	return &DeleteGroupRequestTimeout{}
 }
 
-/*DeleteGroupRequestTimeout handles this case with default header values.
+/*
+DeleteGroupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type DeleteGroupRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete group request timeout response has a 2xx status code
+func (o *DeleteGroupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete group request timeout response has a 3xx status code
+func (o *DeleteGroupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete group request timeout response has a 4xx status code
+func (o *DeleteGroupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete group request timeout response has a 5xx status code
+func (o *DeleteGroupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete group request timeout response a status code equal to that given
+func (o *DeleteGroupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteGroupRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteGroupRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewDeleteGroupRequestEntityTooLarge() *DeleteGroupRequestEntityTooLarge {
 	return &DeleteGroupRequestEntityTooLarge{}
 }
 
-/*DeleteGroupRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteGroupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type DeleteGroupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete group request entity too large response has a 2xx status code
+func (o *DeleteGroupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete group request entity too large response has a 3xx status code
+func (o *DeleteGroupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete group request entity too large response has a 4xx status code
+func (o *DeleteGroupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete group request entity too large response has a 5xx status code
+func (o *DeleteGroupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete group request entity too large response a status code equal to that given
+func (o *DeleteGroupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteGroupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteGroupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewDeleteGroupUnsupportedMediaType() *DeleteGroupUnsupportedMediaType {
 	return &DeleteGroupUnsupportedMediaType{}
 }
 
-/*DeleteGroupUnsupportedMediaType handles this case with default header values.
+/*
+DeleteGroupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type DeleteGroupUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete group unsupported media type response has a 2xx status code
+func (o *DeleteGroupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete group unsupported media type response has a 3xx status code
+func (o *DeleteGroupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete group unsupported media type response has a 4xx status code
+func (o *DeleteGroupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete group unsupported media type response has a 5xx status code
+func (o *DeleteGroupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete group unsupported media type response a status code equal to that given
+func (o *DeleteGroupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteGroupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteGroupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewDeleteGroupTooManyRequests() *DeleteGroupTooManyRequests {
 	return &DeleteGroupTooManyRequests{}
 }
 
-/*DeleteGroupTooManyRequests handles this case with default header values.
+/*
+DeleteGroupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type DeleteGroupTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete group too many requests response has a 2xx status code
+func (o *DeleteGroupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete group too many requests response has a 3xx status code
+func (o *DeleteGroupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete group too many requests response has a 4xx status code
+func (o *DeleteGroupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete group too many requests response has a 5xx status code
+func (o *DeleteGroupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete group too many requests response a status code equal to that given
+func (o *DeleteGroupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteGroupTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteGroupTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewDeleteGroupInternalServerError() *DeleteGroupInternalServerError {
 	return &DeleteGroupInternalServerError{}
 }
 
-/*DeleteGroupInternalServerError handles this case with default header values.
+/*
+DeleteGroupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type DeleteGroupInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete group internal server error response has a 2xx status code
+func (o *DeleteGroupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete group internal server error response has a 3xx status code
+func (o *DeleteGroupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete group internal server error response has a 4xx status code
+func (o *DeleteGroupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete group internal server error response has a 5xx status code
+func (o *DeleteGroupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete group internal server error response a status code equal to that given
+func (o *DeleteGroupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteGroupInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteGroupInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewDeleteGroupServiceUnavailable() *DeleteGroupServiceUnavailable {
 	return &DeleteGroupServiceUnavailable{}
 }
 
-/*DeleteGroupServiceUnavailable handles this case with default header values.
+/*
+DeleteGroupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type DeleteGroupServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete group service unavailable response has a 2xx status code
+func (o *DeleteGroupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete group service unavailable response has a 3xx status code
+func (o *DeleteGroupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete group service unavailable response has a 4xx status code
+func (o *DeleteGroupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete group service unavailable response has a 5xx status code
+func (o *DeleteGroupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete group service unavailable response a status code equal to that given
+func (o *DeleteGroupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteGroupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteGroupServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewDeleteGroupGatewayTimeout() *DeleteGroupGatewayTimeout {
 	return &DeleteGroupGatewayTimeout{}
 }
 
-/*DeleteGroupGatewayTimeout handles this case with default header values.
+/*
+DeleteGroupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type DeleteGroupGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete group gateway timeout response has a 2xx status code
+func (o *DeleteGroupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete group gateway timeout response has a 3xx status code
+func (o *DeleteGroupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete group gateway timeout response has a 4xx status code
+func (o *DeleteGroupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete group gateway timeout response has a 5xx status code
+func (o *DeleteGroupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete group gateway timeout response a status code equal to that given
+func (o *DeleteGroupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteGroupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteGroupGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroupGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewDeleteGroupDefault(code int) *DeleteGroupDefault {
 	}
 }
 
-/*DeleteGroupDefault handles this case with default header values.
+/*
+DeleteGroupDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *DeleteGroupDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete group default response has a 2xx status code
+func (o *DeleteGroupDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete group default response has a 3xx status code
+func (o *DeleteGroupDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete group default response has a 4xx status code
+func (o *DeleteGroupDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete group default response has a 5xx status code
+func (o *DeleteGroupDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete group default response a status code equal to that given
+func (o *DeleteGroupDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteGroupDefault) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroup default ", o._statusCode)
+}
+
+func (o *DeleteGroupDefault) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/groups/{groupId}][%d] deleteGroup default ", o._statusCode)
 }
 

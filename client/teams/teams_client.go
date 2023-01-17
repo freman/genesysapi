@@ -22,9 +22,17 @@ type API interface {
 	*/
 	DeleteTeam(ctx context.Context, params *DeleteTeamParams) (*DeleteTeamNoContent, error)
 	/*
+	   DeleteTeamMembers deletes team members
+	*/
+	DeleteTeamMembers(ctx context.Context, params *DeleteTeamMembersParams) (*DeleteTeamMembersNoContent, error)
+	/*
 	   GetTeam gets team
 	*/
 	GetTeam(ctx context.Context, params *GetTeamParams) (*GetTeamOK, error)
+	/*
+	   GetTeamMembers gets team membership
+	*/
+	GetTeamMembers(ctx context.Context, params *GetTeamMembersParams) (*GetTeamMembersOK, error)
 	/*
 	   GetTeams gets team listing
 	*/
@@ -33,6 +41,10 @@ type API interface {
 	   PatchTeam updates team
 	*/
 	PatchTeam(ctx context.Context, params *PatchTeamParams) (*PatchTeamOK, error)
+	/*
+	   PostTeamMembers adds team members
+	*/
+	PostTeamMembers(ctx context.Context, params *PostTeamMembersParams) (*PostTeamMembersOK, error)
 	/*
 	   PostTeams creates a team
 	*/
@@ -87,6 +99,31 @@ func (a *Client) DeleteTeam(ctx context.Context, params *DeleteTeamParams) (*Del
 }
 
 /*
+DeleteTeamMembers deletes team members
+*/
+func (a *Client) DeleteTeamMembers(ctx context.Context, params *DeleteTeamMembersParams) (*DeleteTeamMembersNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteTeamMembers",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/teams/{teamId}/members",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteTeamMembersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteTeamMembersNoContent), nil
+
+}
+
+/*
 GetTeam gets team
 */
 func (a *Client) GetTeam(ctx context.Context, params *GetTeamParams) (*GetTeamOK, error) {
@@ -108,6 +145,31 @@ func (a *Client) GetTeam(ctx context.Context, params *GetTeamParams) (*GetTeamOK
 		return nil, err
 	}
 	return result.(*GetTeamOK), nil
+
+}
+
+/*
+GetTeamMembers gets team membership
+*/
+func (a *Client) GetTeamMembers(ctx context.Context, params *GetTeamMembersParams) (*GetTeamMembersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getTeamMembers",
+		Method:             "GET",
+		PathPattern:        "/api/v2/teams/{teamId}/members",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetTeamMembersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetTeamMembersOK), nil
 
 }
 
@@ -158,6 +220,31 @@ func (a *Client) PatchTeam(ctx context.Context, params *PatchTeamParams) (*Patch
 		return nil, err
 	}
 	return result.(*PatchTeamOK), nil
+
+}
+
+/*
+PostTeamMembers adds team members
+*/
+func (a *Client) PostTeamMembers(ctx context.Context, params *PostTeamMembersParams) (*PostTeamMembersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postTeamMembers",
+		Method:             "POST",
+		PathPattern:        "/api/v2/teams/{teamId}/members",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostTeamMembersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostTeamMembersOK), nil
 
 }
 

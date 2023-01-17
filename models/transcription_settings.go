@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -105,6 +106,11 @@ func (m *TranscriptionSettings) validateTranscriptionConfidenceThreshold(formats
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this transcription settings based on context it is used
+func (m *TranscriptionSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

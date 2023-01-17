@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementBusinessunitPlanninggroupsParams creates a new PostWorkforcemanagementBusinessunitPlanninggroupsParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementBusinessunitPlanninggroupsParams creates a new PostWorkforcemanagementBusinessunitPlanninggroupsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementBusinessunitPlanninggroupsParams() *PostWorkforcemanagementBusinessunitPlanninggroupsParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitPlanninggroupsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitPlanninggroupsParamsWithTimeout creates a new PostWorkforcemanagementBusinessunitPlanninggroupsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementBusinessunitPlanninggroupsParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementBusinessunitPlanninggroupsParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitPlanninggroupsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitPlanninggroupsParamsWithContext creates a new PostWorkforcemanagementBusinessunitPlanninggroupsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementBusinessunitPlanninggroupsParamsWithContext(ctx context.Context) *PostWorkforcemanagementBusinessunitPlanninggroupsParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitPlanninggroupsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitPlanninggroupsParamsWithHTTPClient creates a new PostWorkforcemanagementBusinessunitPlanninggroupsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementBusinessunitPlanninggroupsParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementBusinessunitPlanninggroupsParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitPlanninggroupsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementBusinessunitPlanninggroupsParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement businessunit planninggroups operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementBusinessunitPlanninggroupsParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement businessunit planninggroups operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementBusinessunitPlanninggroupsParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.CreatePlanningGroupRequest
-	/*BusinessUnitID
-	  The ID of the business unit.
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit.
 	*/
 	BusinessUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement businessunit planninggroups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitPlanninggroupsParams) WithDefaults() *PostWorkforcemanagementBusinessunitPlanninggroupsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement businessunit planninggroups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitPlanninggroupsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement businessunit planninggroups params
@@ -140,7 +157,6 @@ func (o *PostWorkforcemanagementBusinessunitPlanninggroupsParams) WriteToRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

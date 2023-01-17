@@ -19,74 +19,93 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostContentmanagementDocumentParams creates a new PostContentmanagementDocumentParams object
-// with the default values initialized.
+// NewPostContentmanagementDocumentParams creates a new PostContentmanagementDocumentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostContentmanagementDocumentParams() *PostContentmanagementDocumentParams {
-	var ()
 	return &PostContentmanagementDocumentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostContentmanagementDocumentParamsWithTimeout creates a new PostContentmanagementDocumentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostContentmanagementDocumentParamsWithTimeout(timeout time.Duration) *PostContentmanagementDocumentParams {
-	var ()
 	return &PostContentmanagementDocumentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostContentmanagementDocumentParamsWithContext creates a new PostContentmanagementDocumentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostContentmanagementDocumentParamsWithContext(ctx context.Context) *PostContentmanagementDocumentParams {
-	var ()
 	return &PostContentmanagementDocumentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostContentmanagementDocumentParamsWithHTTPClient creates a new PostContentmanagementDocumentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostContentmanagementDocumentParamsWithHTTPClient(client *http.Client) *PostContentmanagementDocumentParams {
-	var ()
 	return &PostContentmanagementDocumentParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostContentmanagementDocumentParams contains all the parameters to send to the API endpoint
-for the post contentmanagement document operation typically these are written to a http.Request
+/*
+PostContentmanagementDocumentParams contains all the parameters to send to the API endpoint
+
+	for the post contentmanagement document operation.
+
+	Typically these are written to a http.Request.
 */
 type PostContentmanagementDocumentParams struct {
 
-	/*Body
-	  Document
+	/* Body.
 
+	   Document
 	*/
 	Body *models.DocumentUpdate
-	/*DocumentID
-	  Document ID
 
+	/* DocumentID.
+
+	   Document ID
 	*/
 	DocumentID string
-	/*Expand
-	  Expand some document fields
 
+	/* Expand.
+
+	   Expand some document fields
 	*/
 	Expand *string
-	/*Override
-	  Override any lock on the document
 
+	/* Override.
+
+	   Override any lock on the document
 	*/
 	Override *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post contentmanagement document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostContentmanagementDocumentParams) WithDefaults() *PostContentmanagementDocumentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post contentmanagement document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostContentmanagementDocumentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post contentmanagement document params
@@ -173,7 +192,6 @@ func (o *PostContentmanagementDocumentParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -189,32 +207,34 @@ func (o *PostContentmanagementDocumentParams) WriteToRequest(r runtime.ClientReq
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Override != nil {
 
 		// query param override
 		var qrOverride bool
+
 		if o.Override != nil {
 			qrOverride = *o.Override
 		}
 		qOverride := swag.FormatBool(qrOverride)
 		if qOverride != "" {
+
 			if err := r.SetQueryParam("override", qOverride); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

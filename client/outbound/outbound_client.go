@@ -70,6 +70,16 @@ type API interface {
 	*/
 	DeleteOutboundDnclist(ctx context.Context, params *DeleteOutboundDnclistParams) (*DeleteOutboundDnclistOK, error)
 	/*
+	   DeleteOutboundDnclistEmailaddresses deletes all or expired email addresses from a d n c list
+	   This operation is Only for Internal DNC lists of email addresses
+	*/
+	DeleteOutboundDnclistEmailaddresses(ctx context.Context, params *DeleteOutboundDnclistEmailaddressesParams) (*DeleteOutboundDnclistEmailaddressesNoContent, error)
+	/*
+	   DeleteOutboundDnclistPhonenumbers deletes all or expired phone numbers from a d n c list
+	   This operation is Only for Internal DNC lists of phone numbers
+	*/
+	DeleteOutboundDnclistPhonenumbers(ctx context.Context, params *DeleteOutboundDnclistPhonenumbersParams) (*DeleteOutboundDnclistPhonenumbersNoContent, error)
+	/*
 	   DeleteOutboundMessagingcampaign deletes an outbound messaging campaign
 	*/
 	DeleteOutboundMessagingcampaign(ctx context.Context, params *DeleteOutboundMessagingcampaignParams) (*DeleteOutboundMessagingcampaignOK, *DeleteOutboundMessagingcampaignNoContent, error)
@@ -342,6 +352,16 @@ type API interface {
 	*/
 	GetOutboundWrapupcodemappings(ctx context.Context, params *GetOutboundWrapupcodemappingsParams) (*GetOutboundWrapupcodemappingsOK, error)
 	/*
+	   PatchOutboundDnclistEmailaddresses adds emails to or delete emails from a d n c list
+	   Only Internal DNC lists may be added to or deleted from
+	*/
+	PatchOutboundDnclistEmailaddresses(ctx context.Context, params *PatchOutboundDnclistEmailaddressesParams) (*PatchOutboundDnclistEmailaddressesNoContent, error)
+	/*
+	   PatchOutboundDnclistPhonenumbers adds numbers to or delete numbers from a d n c list
+	   Only Internal DNC lists may be added to deleted from
+	*/
+	PatchOutboundDnclistPhonenumbers(ctx context.Context, params *PatchOutboundDnclistPhonenumbersParams) (*PatchOutboundDnclistPhonenumbersNoContent, error)
+	/*
 	   PatchOutboundSettings updates the outbound settings for this organization
 	*/
 	PatchOutboundSettings(ctx context.Context, params *PatchOutboundSettingsParams) (*PatchOutboundSettingsNoContent, error)
@@ -419,6 +439,11 @@ type API interface {
 	   PostOutboundDigitalrulesets creates an outbound digital rule set
 	*/
 	PostOutboundDigitalrulesets(ctx context.Context, params *PostOutboundDigitalrulesetsParams) (*PostOutboundDigitalrulesetsOK, error)
+	/*
+	   PostOutboundDnclistEmailaddresses adds email addresses to a d n c list
+	   Only Internal DNC lists may be appended to
+	*/
+	PostOutboundDnclistEmailaddresses(ctx context.Context, params *PostOutboundDnclistEmailaddressesParams) (*PostOutboundDnclistEmailaddressesNoContent, error)
 	/*
 	   PostOutboundDnclistExport initiates the export of a dnc list
 	   Returns 200 if received OK.
@@ -868,6 +893,60 @@ func (a *Client) DeleteOutboundDnclist(ctx context.Context, params *DeleteOutbou
 		return nil, err
 	}
 	return result.(*DeleteOutboundDnclistOK), nil
+
+}
+
+/*
+DeleteOutboundDnclistEmailaddresses deletes all or expired email addresses from a d n c list
+
+This operation is Only for Internal DNC lists of email addresses
+*/
+func (a *Client) DeleteOutboundDnclistEmailaddresses(ctx context.Context, params *DeleteOutboundDnclistEmailaddressesParams) (*DeleteOutboundDnclistEmailaddressesNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOutboundDnclistEmailaddresses",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/outbound/dnclists/{dncListId}/emailaddresses",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOutboundDnclistEmailaddressesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteOutboundDnclistEmailaddressesNoContent), nil
+
+}
+
+/*
+DeleteOutboundDnclistPhonenumbers deletes all or expired phone numbers from a d n c list
+
+This operation is Only for Internal DNC lists of phone numbers
+*/
+func (a *Client) DeleteOutboundDnclistPhonenumbers(ctx context.Context, params *DeleteOutboundDnclistPhonenumbersParams) (*DeleteOutboundDnclistPhonenumbersNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteOutboundDnclistPhonenumbers",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/outbound/dnclists/{dncListId}/phonenumbers",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteOutboundDnclistPhonenumbersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteOutboundDnclistPhonenumbersNoContent), nil
 
 }
 
@@ -2550,6 +2629,60 @@ func (a *Client) GetOutboundWrapupcodemappings(ctx context.Context, params *GetO
 }
 
 /*
+PatchOutboundDnclistEmailaddresses adds emails to or delete emails from a d n c list
+
+Only Internal DNC lists may be added to or deleted from
+*/
+func (a *Client) PatchOutboundDnclistEmailaddresses(ctx context.Context, params *PatchOutboundDnclistEmailaddressesParams) (*PatchOutboundDnclistEmailaddressesNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchOutboundDnclistEmailaddresses",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/outbound/dnclists/{dncListId}/emailaddresses",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchOutboundDnclistEmailaddressesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchOutboundDnclistEmailaddressesNoContent), nil
+
+}
+
+/*
+PatchOutboundDnclistPhonenumbers adds numbers to or delete numbers from a d n c list
+
+Only Internal DNC lists may be added to deleted from
+*/
+func (a *Client) PatchOutboundDnclistPhonenumbers(ctx context.Context, params *PatchOutboundDnclistPhonenumbersParams) (*PatchOutboundDnclistPhonenumbersNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchOutboundDnclistPhonenumbers",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/outbound/dnclists/{dncListId}/phonenumbers",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchOutboundDnclistPhonenumbersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchOutboundDnclistPhonenumbersNoContent), nil
+
+}
+
+/*
 PatchOutboundSettings updates the outbound settings for this organization
 */
 func (a *Client) PatchOutboundSettings(ctx context.Context, params *PatchOutboundSettingsParams) (*PatchOutboundSettingsNoContent, error) {
@@ -3031,6 +3164,33 @@ func (a *Client) PostOutboundDigitalrulesets(ctx context.Context, params *PostOu
 		return nil, err
 	}
 	return result.(*PostOutboundDigitalrulesetsOK), nil
+
+}
+
+/*
+PostOutboundDnclistEmailaddresses adds email addresses to a d n c list
+
+Only Internal DNC lists may be appended to
+*/
+func (a *Client) PostOutboundDnclistEmailaddresses(ctx context.Context, params *PostOutboundDnclistEmailaddressesParams) (*PostOutboundDnclistEmailaddressesNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postOutboundDnclistEmailaddresses",
+		Method:             "POST",
+		PathPattern:        "/api/v2/outbound/dnclists/{dncListId}/emailaddresses",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostOutboundDnclistEmailaddressesReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostOutboundDnclistEmailaddressesNoContent), nil
 
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -87,7 +88,6 @@ func (m *JourneyEventsSettings) Validate(formats strfmt.Registry) error {
 }
 
 func (m *JourneyEventsSettings) validateClickEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ClickEvents) { // not required
 		return nil
 	}
@@ -101,6 +101,8 @@ func (m *JourneyEventsSettings) validateClickEvents(formats strfmt.Registry) err
 			if err := m.ClickEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("clickEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("clickEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -112,7 +114,6 @@ func (m *JourneyEventsSettings) validateClickEvents(formats strfmt.Registry) err
 }
 
 func (m *JourneyEventsSettings) validateFormsTrackEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FormsTrackEvents) { // not required
 		return nil
 	}
@@ -126,6 +127,8 @@ func (m *JourneyEventsSettings) validateFormsTrackEvents(formats strfmt.Registry
 			if err := m.FormsTrackEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("formsTrackEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("formsTrackEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -137,7 +140,6 @@ func (m *JourneyEventsSettings) validateFormsTrackEvents(formats strfmt.Registry
 }
 
 func (m *JourneyEventsSettings) validateIdleEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IdleEvents) { // not required
 		return nil
 	}
@@ -151,6 +153,8 @@ func (m *JourneyEventsSettings) validateIdleEvents(formats strfmt.Registry) erro
 			if err := m.IdleEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("idleEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("idleEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -162,7 +166,6 @@ func (m *JourneyEventsSettings) validateIdleEvents(formats strfmt.Registry) erro
 }
 
 func (m *JourneyEventsSettings) validateInViewportEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InViewportEvents) { // not required
 		return nil
 	}
@@ -176,6 +179,8 @@ func (m *JourneyEventsSettings) validateInViewportEvents(formats strfmt.Registry
 			if err := m.InViewportEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("inViewportEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("inViewportEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -219,7 +224,6 @@ func (m *JourneyEventsSettings) validatePageviewConfigEnum(path, location string
 }
 
 func (m *JourneyEventsSettings) validatePageviewConfig(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PageviewConfig) { // not required
 		return nil
 	}
@@ -233,7 +237,6 @@ func (m *JourneyEventsSettings) validatePageviewConfig(formats strfmt.Registry) 
 }
 
 func (m *JourneyEventsSettings) validateScrollDepthEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScrollDepthEvents) { // not required
 		return nil
 	}
@@ -247,6 +250,138 @@ func (m *JourneyEventsSettings) validateScrollDepthEvents(formats strfmt.Registr
 			if err := m.ScrollDepthEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("scrollDepthEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scrollDepthEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this journey events settings based on the context it is used
+func (m *JourneyEventsSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateClickEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFormsTrackEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIdleEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInViewportEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScrollDepthEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *JourneyEventsSettings) contextValidateClickEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ClickEvents); i++ {
+
+		if m.ClickEvents[i] != nil {
+			if err := m.ClickEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("clickEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("clickEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *JourneyEventsSettings) contextValidateFormsTrackEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.FormsTrackEvents); i++ {
+
+		if m.FormsTrackEvents[i] != nil {
+			if err := m.FormsTrackEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("formsTrackEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("formsTrackEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *JourneyEventsSettings) contextValidateIdleEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.IdleEvents); i++ {
+
+		if m.IdleEvents[i] != nil {
+			if err := m.IdleEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("idleEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("idleEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *JourneyEventsSettings) contextValidateInViewportEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.InViewportEvents); i++ {
+
+		if m.InViewportEvents[i] != nil {
+			if err := m.InViewportEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("inViewportEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("inViewportEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *JourneyEventsSettings) contextValidateScrollDepthEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ScrollDepthEvents); i++ {
+
+		if m.ScrollDepthEvents[i] != nil {
+			if err := m.ScrollDepthEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scrollDepthEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scrollDepthEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

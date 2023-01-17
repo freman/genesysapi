@@ -16,61 +16,80 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationProfilesUserParams creates a new GetGamificationProfilesUserParams object
-// with the default values initialized.
+// NewGetGamificationProfilesUserParams creates a new GetGamificationProfilesUserParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationProfilesUserParams() *GetGamificationProfilesUserParams {
-	var ()
 	return &GetGamificationProfilesUserParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationProfilesUserParamsWithTimeout creates a new GetGamificationProfilesUserParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationProfilesUserParamsWithTimeout(timeout time.Duration) *GetGamificationProfilesUserParams {
-	var ()
 	return &GetGamificationProfilesUserParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationProfilesUserParamsWithContext creates a new GetGamificationProfilesUserParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationProfilesUserParamsWithContext(ctx context.Context) *GetGamificationProfilesUserParams {
-	var ()
 	return &GetGamificationProfilesUserParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationProfilesUserParamsWithHTTPClient creates a new GetGamificationProfilesUserParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationProfilesUserParamsWithHTTPClient(client *http.Client) *GetGamificationProfilesUserParams {
-	var ()
 	return &GetGamificationProfilesUserParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationProfilesUserParams contains all the parameters to send to the API endpoint
-for the get gamification profiles user operation typically these are written to a http.Request
+/*
+GetGamificationProfilesUserParams contains all the parameters to send to the API endpoint
+
+	for the get gamification profiles user operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationProfilesUserParams struct {
 
-	/*UserID*/
+	// UserID.
 	UserID string
-	/*Workday
-	  Target querying workday. If not provided, then queries the current performance profile. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* Workday.
+
+	   Target querying workday. If not provided, then queries the current performance profile. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	Workday *strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification profiles user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationProfilesUserParams) WithDefaults() *GetGamificationProfilesUserParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification profiles user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationProfilesUserParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification profiles user params
@@ -145,16 +164,17 @@ func (o *GetGamificationProfilesUserParams) WriteToRequest(r runtime.ClientReque
 
 		// query param workday
 		var qrWorkday strfmt.Date
+
 		if o.Workday != nil {
 			qrWorkday = *o.Workday
 		}
 		qWorkday := qrWorkday.String()
 		if qWorkday != "" {
+
 			if err := r.SetQueryParam("workday", qWorkday); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

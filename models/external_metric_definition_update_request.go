@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -86,7 +87,6 @@ func (m *ExternalMetricDefinitionUpdateRequest) validateDefaultObjectiveTypeEnum
 }
 
 func (m *ExternalMetricDefinitionUpdateRequest) validateDefaultObjectiveType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DefaultObjectiveType) { // not required
 		return nil
 	}
@@ -100,7 +100,6 @@ func (m *ExternalMetricDefinitionUpdateRequest) validateDefaultObjectiveType(for
 }
 
 func (m *ExternalMetricDefinitionUpdateRequest) validatePrecision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Precision) { // not required
 		return nil
 	}
@@ -113,6 +112,11 @@ func (m *ExternalMetricDefinitionUpdateRequest) validatePrecision(formats strfmt
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this external metric definition update request based on context it is used
+func (m *ExternalMetricDefinitionUpdateRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

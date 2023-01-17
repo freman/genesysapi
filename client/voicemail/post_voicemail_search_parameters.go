@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostVoicemailSearchParams creates a new PostVoicemailSearchParams object
-// with the default values initialized.
+// NewPostVoicemailSearchParams creates a new PostVoicemailSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostVoicemailSearchParams() *PostVoicemailSearchParams {
-	var ()
 	return &PostVoicemailSearchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostVoicemailSearchParamsWithTimeout creates a new PostVoicemailSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostVoicemailSearchParamsWithTimeout(timeout time.Duration) *PostVoicemailSearchParams {
-	var ()
 	return &PostVoicemailSearchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostVoicemailSearchParamsWithContext creates a new PostVoicemailSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostVoicemailSearchParamsWithContext(ctx context.Context) *PostVoicemailSearchParams {
-	var ()
 	return &PostVoicemailSearchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostVoicemailSearchParamsWithHTTPClient creates a new PostVoicemailSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostVoicemailSearchParamsWithHTTPClient(client *http.Client) *PostVoicemailSearchParams {
-	var ()
 	return &PostVoicemailSearchParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostVoicemailSearchParams contains all the parameters to send to the API endpoint
-for the post voicemail search operation typically these are written to a http.Request
+/*
+PostVoicemailSearchParams contains all the parameters to send to the API endpoint
+
+	for the post voicemail search operation.
+
+	Typically these are written to a http.Request.
 */
 type PostVoicemailSearchParams struct {
 
-	/*Body
-	  Search request options
+	/* Body.
 
+	   Search request options
 	*/
 	Body *models.VoicemailSearchRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post voicemail search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostVoicemailSearchParams) WithDefaults() *PostVoicemailSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post voicemail search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostVoicemailSearchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post voicemail search params
@@ -124,7 +140,6 @@ func (o *PostVoicemailSearchParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

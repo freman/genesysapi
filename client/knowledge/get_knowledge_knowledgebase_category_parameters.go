@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetKnowledgeKnowledgebaseCategoryParams creates a new GetKnowledgeKnowledgebaseCategoryParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseCategoryParams creates a new GetKnowledgeKnowledgebaseCategoryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseCategoryParams() *GetKnowledgeKnowledgebaseCategoryParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseCategoryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseCategoryParamsWithTimeout creates a new GetKnowledgeKnowledgebaseCategoryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseCategoryParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseCategoryParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseCategoryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseCategoryParamsWithContext creates a new GetKnowledgeKnowledgebaseCategoryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseCategoryParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseCategoryParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseCategoryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseCategoryParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseCategoryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseCategoryParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseCategoryParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseCategoryParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase category operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseCategoryParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase category operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseCategoryParams struct {
 
-	/*CategoryID
-	  Category ID
+	/* CategoryID.
 
+	   Category ID
 	*/
 	CategoryID string
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase category params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseCategoryParams) WithDefaults() *GetKnowledgeKnowledgebaseCategoryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase category params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseCategoryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase category params

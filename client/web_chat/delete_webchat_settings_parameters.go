@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteWebchatSettingsParams creates a new DeleteWebchatSettingsParams object
-// with the default values initialized.
+// NewDeleteWebchatSettingsParams creates a new DeleteWebchatSettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteWebchatSettingsParams() *DeleteWebchatSettingsParams {
-
 	return &DeleteWebchatSettingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteWebchatSettingsParamsWithTimeout creates a new DeleteWebchatSettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteWebchatSettingsParamsWithTimeout(timeout time.Duration) *DeleteWebchatSettingsParams {
-
 	return &DeleteWebchatSettingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteWebchatSettingsParamsWithContext creates a new DeleteWebchatSettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteWebchatSettingsParamsWithContext(ctx context.Context) *DeleteWebchatSettingsParams {
-
 	return &DeleteWebchatSettingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteWebchatSettingsParamsWithHTTPClient creates a new DeleteWebchatSettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteWebchatSettingsParamsWithHTTPClient(client *http.Client) *DeleteWebchatSettingsParams {
-
 	return &DeleteWebchatSettingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteWebchatSettingsParams contains all the parameters to send to the API endpoint
-for the delete webchat settings operation typically these are written to a http.Request
+/*
+DeleteWebchatSettingsParams contains all the parameters to send to the API endpoint
+
+	for the delete webchat settings operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteWebchatSettingsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete webchat settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWebchatSettingsParams) WithDefaults() *DeleteWebchatSettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete webchat settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWebchatSettingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete webchat settings params

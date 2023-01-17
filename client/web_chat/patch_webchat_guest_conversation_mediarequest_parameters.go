@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchWebchatGuestConversationMediarequestParams creates a new PatchWebchatGuestConversationMediarequestParams object
-// with the default values initialized.
+// NewPatchWebchatGuestConversationMediarequestParams creates a new PatchWebchatGuestConversationMediarequestParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchWebchatGuestConversationMediarequestParams() *PatchWebchatGuestConversationMediarequestParams {
-	var ()
 	return &PatchWebchatGuestConversationMediarequestParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchWebchatGuestConversationMediarequestParamsWithTimeout creates a new PatchWebchatGuestConversationMediarequestParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchWebchatGuestConversationMediarequestParamsWithTimeout(timeout time.Duration) *PatchWebchatGuestConversationMediarequestParams {
-	var ()
 	return &PatchWebchatGuestConversationMediarequestParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchWebchatGuestConversationMediarequestParamsWithContext creates a new PatchWebchatGuestConversationMediarequestParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchWebchatGuestConversationMediarequestParamsWithContext(ctx context.Context) *PatchWebchatGuestConversationMediarequestParams {
-	var ()
 	return &PatchWebchatGuestConversationMediarequestParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchWebchatGuestConversationMediarequestParamsWithHTTPClient creates a new PatchWebchatGuestConversationMediarequestParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchWebchatGuestConversationMediarequestParamsWithHTTPClient(client *http.Client) *PatchWebchatGuestConversationMediarequestParams {
-	var ()
 	return &PatchWebchatGuestConversationMediarequestParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchWebchatGuestConversationMediarequestParams contains all the parameters to send to the API endpoint
-for the patch webchat guest conversation mediarequest operation typically these are written to a http.Request
+/*
+PatchWebchatGuestConversationMediarequestParams contains all the parameters to send to the API endpoint
+
+	for the patch webchat guest conversation mediarequest operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchWebchatGuestConversationMediarequestParams struct {
 
-	/*Body
-	  Request
+	/* Body.
 
+	   Request
 	*/
 	Body *models.WebChatGuestMediaRequest
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*MediaRequestID
-	  mediaRequestId
 
+	/* MediaRequestID.
+
+	   mediaRequestId
 	*/
 	MediaRequestID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch webchat guest conversation mediarequest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWebchatGuestConversationMediarequestParams) WithDefaults() *PatchWebchatGuestConversationMediarequestParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch webchat guest conversation mediarequest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWebchatGuestConversationMediarequestParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch webchat guest conversation mediarequest params
@@ -156,7 +174,6 @@ func (o *PatchWebchatGuestConversationMediarequestParams) WriteToRequest(r runti
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

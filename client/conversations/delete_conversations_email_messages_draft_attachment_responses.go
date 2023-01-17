@@ -95,7 +95,6 @@ func (o *DeleteConversationsEmailMessagesDraftAttachmentReader) ReadResponse(res
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteConversationsEmailMessagesDraftAttachmentOK() *DeleteConversations
 	return &DeleteConversationsEmailMessagesDraftAttachmentOK{}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentOK handles this case with default header values.
+/*
+DeleteConversationsEmailMessagesDraftAttachmentOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteConversationsEmailMessagesDraftAttachmentOK struct {
 }
 
+// IsSuccess returns true when this delete conversations email messages draft attachment o k response has a 2xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete conversations email messages draft attachment o k response has a 3xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations email messages draft attachment o k response has a 4xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations email messages draft attachment o k response has a 5xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations email messages draft attachment o k response a status code equal to that given
+func (o *DeleteConversationsEmailMessagesDraftAttachmentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteConversationsEmailMessagesDraftAttachmentOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentOK ", 200)
+}
+
+func (o *DeleteConversationsEmailMessagesDraftAttachmentOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteConversationsEmailMessagesDraftAttachmentBadRequest() *DeleteConve
 	return &DeleteConversationsEmailMessagesDraftAttachmentBadRequest{}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentBadRequest handles this case with default header values.
+/*
+DeleteConversationsEmailMessagesDraftAttachmentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteConversationsEmailMessagesDraftAttachmentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations email messages draft attachment bad request response has a 2xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations email messages draft attachment bad request response has a 3xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations email messages draft attachment bad request response has a 4xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations email messages draft attachment bad request response has a 5xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations email messages draft attachment bad request response a status code equal to that given
+func (o *DeleteConversationsEmailMessagesDraftAttachmentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteConversationsEmailMessagesDraftAttachmentBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteConversationsEmailMessagesDraftAttachmentBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteConversationsEmailMessagesDraftAttachmentUnauthorized() *DeleteCon
 	return &DeleteConversationsEmailMessagesDraftAttachmentUnauthorized{}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentUnauthorized handles this case with default header values.
+/*
+DeleteConversationsEmailMessagesDraftAttachmentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteConversationsEmailMessagesDraftAttachmentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations email messages draft attachment unauthorized response has a 2xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations email messages draft attachment unauthorized response has a 3xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations email messages draft attachment unauthorized response has a 4xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations email messages draft attachment unauthorized response has a 5xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations email messages draft attachment unauthorized response a status code equal to that given
+func (o *DeleteConversationsEmailMessagesDraftAttachmentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteConversationsEmailMessagesDraftAttachmentUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteConversationsEmailMessagesDraftAttachmentUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteConversationsEmailMessagesDraftAttachmentForbidden() *DeleteConver
 	return &DeleteConversationsEmailMessagesDraftAttachmentForbidden{}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentForbidden handles this case with default header values.
+/*
+DeleteConversationsEmailMessagesDraftAttachmentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteConversationsEmailMessagesDraftAttachmentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations email messages draft attachment forbidden response has a 2xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations email messages draft attachment forbidden response has a 3xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations email messages draft attachment forbidden response has a 4xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations email messages draft attachment forbidden response has a 5xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations email messages draft attachment forbidden response a status code equal to that given
+func (o *DeleteConversationsEmailMessagesDraftAttachmentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteConversationsEmailMessagesDraftAttachmentForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteConversationsEmailMessagesDraftAttachmentForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteConversationsEmailMessagesDraftAttachmentNotFound() *DeleteConvers
 	return &DeleteConversationsEmailMessagesDraftAttachmentNotFound{}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentNotFound handles this case with default header values.
+/*
+DeleteConversationsEmailMessagesDraftAttachmentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteConversationsEmailMessagesDraftAttachmentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations email messages draft attachment not found response has a 2xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations email messages draft attachment not found response has a 3xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations email messages draft attachment not found response has a 4xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations email messages draft attachment not found response has a 5xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations email messages draft attachment not found response a status code equal to that given
+func (o *DeleteConversationsEmailMessagesDraftAttachmentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteConversationsEmailMessagesDraftAttachmentNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteConversationsEmailMessagesDraftAttachmentNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteConversationsEmailMessagesDraftAttachmentRequestTimeout() *DeleteC
 	return &DeleteConversationsEmailMessagesDraftAttachmentRequestTimeout{}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentRequestTimeout handles this case with default header values.
+/*
+DeleteConversationsEmailMessagesDraftAttachmentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteConversationsEmailMessagesDraftAttachmentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations email messages draft attachment request timeout response has a 2xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations email messages draft attachment request timeout response has a 3xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations email messages draft attachment request timeout response has a 4xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations email messages draft attachment request timeout response has a 5xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations email messages draft attachment request timeout response a status code equal to that given
+func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge() *
 	return &DeleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge{}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations email messages draft attachment request entity too large response has a 2xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations email messages draft attachment request entity too large response has a 3xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations email messages draft attachment request entity too large response has a 4xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations email messages draft attachment request entity too large response has a 5xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations email messages draft attachment request entity too large response a status code equal to that given
+func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType() *D
 	return &DeleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType{}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType handles this case with default header values.
+/*
+DeleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations email messages draft attachment unsupported media type response has a 2xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations email messages draft attachment unsupported media type response has a 3xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations email messages draft attachment unsupported media type response has a 4xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations email messages draft attachment unsupported media type response has a 5xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations email messages draft attachment unsupported media type response a status code equal to that given
+func (o *DeleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteConversationsEmailMessagesDraftAttachmentTooManyRequests() *Delete
 	return &DeleteConversationsEmailMessagesDraftAttachmentTooManyRequests{}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentTooManyRequests handles this case with default header values.
+/*
+DeleteConversationsEmailMessagesDraftAttachmentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteConversationsEmailMessagesDraftAttachmentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations email messages draft attachment too many requests response has a 2xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations email messages draft attachment too many requests response has a 3xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations email messages draft attachment too many requests response has a 4xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations email messages draft attachment too many requests response has a 5xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations email messages draft attachment too many requests response a status code equal to that given
+func (o *DeleteConversationsEmailMessagesDraftAttachmentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteConversationsEmailMessagesDraftAttachmentTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteConversationsEmailMessagesDraftAttachmentTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteConversationsEmailMessagesDraftAttachmentInternalServerError() *De
 	return &DeleteConversationsEmailMessagesDraftAttachmentInternalServerError{}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentInternalServerError handles this case with default header values.
+/*
+DeleteConversationsEmailMessagesDraftAttachmentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteConversationsEmailMessagesDraftAttachmentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations email messages draft attachment internal server error response has a 2xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations email messages draft attachment internal server error response has a 3xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations email messages draft attachment internal server error response has a 4xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations email messages draft attachment internal server error response has a 5xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations email messages draft attachment internal server error response a status code equal to that given
+func (o *DeleteConversationsEmailMessagesDraftAttachmentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteConversationsEmailMessagesDraftAttachmentInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteConversationsEmailMessagesDraftAttachmentInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteConversationsEmailMessagesDraftAttachmentServiceUnavailable() *Del
 	return &DeleteConversationsEmailMessagesDraftAttachmentServiceUnavailable{}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentServiceUnavailable handles this case with default header values.
+/*
+DeleteConversationsEmailMessagesDraftAttachmentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteConversationsEmailMessagesDraftAttachmentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations email messages draft attachment service unavailable response has a 2xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations email messages draft attachment service unavailable response has a 3xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations email messages draft attachment service unavailable response has a 4xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations email messages draft attachment service unavailable response has a 5xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations email messages draft attachment service unavailable response a status code equal to that given
+func (o *DeleteConversationsEmailMessagesDraftAttachmentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteConversationsEmailMessagesDraftAttachmentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteConversationsEmailMessagesDraftAttachmentServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteConversationsEmailMessagesDraftAttachmentGatewayTimeout() *DeleteC
 	return &DeleteConversationsEmailMessagesDraftAttachmentGatewayTimeout{}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentGatewayTimeout handles this case with default header values.
+/*
+DeleteConversationsEmailMessagesDraftAttachmentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteConversationsEmailMessagesDraftAttachmentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations email messages draft attachment gateway timeout response has a 2xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations email messages draft attachment gateway timeout response has a 3xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations email messages draft attachment gateway timeout response has a 4xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations email messages draft attachment gateway timeout response has a 5xx status code
+func (o *DeleteConversationsEmailMessagesDraftAttachmentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations email messages draft attachment gateway timeout response a status code equal to that given
+func (o *DeleteConversationsEmailMessagesDraftAttachmentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteConversationsEmailMessagesDraftAttachmentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteConversationsEmailMessagesDraftAttachmentGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/emails/{conversationId}/messages/draft/attachments/{attachmentId}][%d] deleteConversationsEmailMessagesDraftAttachmentGatewayTimeout  %+v", 504, o.Payload)
 }
 

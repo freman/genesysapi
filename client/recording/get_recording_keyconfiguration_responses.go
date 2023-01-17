@@ -95,7 +95,6 @@ func (o *GetRecordingKeyconfigurationReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRecordingKeyconfigurationOK() *GetRecordingKeyconfigurationOK {
 	return &GetRecordingKeyconfigurationOK{}
 }
 
-/*GetRecordingKeyconfigurationOK handles this case with default header values.
+/*
+GetRecordingKeyconfigurationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRecordingKeyconfigurationOK struct {
 	Payload *models.RecordingEncryptionConfiguration
 }
 
+// IsSuccess returns true when this get recording keyconfiguration o k response has a 2xx status code
+func (o *GetRecordingKeyconfigurationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get recording keyconfiguration o k response has a 3xx status code
+func (o *GetRecordingKeyconfigurationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording keyconfiguration o k response has a 4xx status code
+func (o *GetRecordingKeyconfigurationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording keyconfiguration o k response has a 5xx status code
+func (o *GetRecordingKeyconfigurationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording keyconfiguration o k response a status code equal to that given
+func (o *GetRecordingKeyconfigurationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRecordingKeyconfigurationOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRecordingKeyconfigurationOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRecordingKeyconfigurationBadRequest() *GetRecordingKeyconfigurationBa
 	return &GetRecordingKeyconfigurationBadRequest{}
 }
 
-/*GetRecordingKeyconfigurationBadRequest handles this case with default header values.
+/*
+GetRecordingKeyconfigurationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRecordingKeyconfigurationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording keyconfiguration bad request response has a 2xx status code
+func (o *GetRecordingKeyconfigurationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording keyconfiguration bad request response has a 3xx status code
+func (o *GetRecordingKeyconfigurationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording keyconfiguration bad request response has a 4xx status code
+func (o *GetRecordingKeyconfigurationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording keyconfiguration bad request response has a 5xx status code
+func (o *GetRecordingKeyconfigurationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording keyconfiguration bad request response a status code equal to that given
+func (o *GetRecordingKeyconfigurationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRecordingKeyconfigurationBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRecordingKeyconfigurationBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRecordingKeyconfigurationUnauthorized() *GetRecordingKeyconfiguration
 	return &GetRecordingKeyconfigurationUnauthorized{}
 }
 
-/*GetRecordingKeyconfigurationUnauthorized handles this case with default header values.
+/*
+GetRecordingKeyconfigurationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRecordingKeyconfigurationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording keyconfiguration unauthorized response has a 2xx status code
+func (o *GetRecordingKeyconfigurationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording keyconfiguration unauthorized response has a 3xx status code
+func (o *GetRecordingKeyconfigurationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording keyconfiguration unauthorized response has a 4xx status code
+func (o *GetRecordingKeyconfigurationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording keyconfiguration unauthorized response has a 5xx status code
+func (o *GetRecordingKeyconfigurationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording keyconfiguration unauthorized response a status code equal to that given
+func (o *GetRecordingKeyconfigurationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRecordingKeyconfigurationUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRecordingKeyconfigurationUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRecordingKeyconfigurationForbidden() *GetRecordingKeyconfigurationFor
 	return &GetRecordingKeyconfigurationForbidden{}
 }
 
-/*GetRecordingKeyconfigurationForbidden handles this case with default header values.
+/*
+GetRecordingKeyconfigurationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRecordingKeyconfigurationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording keyconfiguration forbidden response has a 2xx status code
+func (o *GetRecordingKeyconfigurationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording keyconfiguration forbidden response has a 3xx status code
+func (o *GetRecordingKeyconfigurationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording keyconfiguration forbidden response has a 4xx status code
+func (o *GetRecordingKeyconfigurationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording keyconfiguration forbidden response has a 5xx status code
+func (o *GetRecordingKeyconfigurationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording keyconfiguration forbidden response a status code equal to that given
+func (o *GetRecordingKeyconfigurationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRecordingKeyconfigurationForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRecordingKeyconfigurationForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRecordingKeyconfigurationNotFound() *GetRecordingKeyconfigurationNotF
 	return &GetRecordingKeyconfigurationNotFound{}
 }
 
-/*GetRecordingKeyconfigurationNotFound handles this case with default header values.
+/*
+GetRecordingKeyconfigurationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRecordingKeyconfigurationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording keyconfiguration not found response has a 2xx status code
+func (o *GetRecordingKeyconfigurationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording keyconfiguration not found response has a 3xx status code
+func (o *GetRecordingKeyconfigurationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording keyconfiguration not found response has a 4xx status code
+func (o *GetRecordingKeyconfigurationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording keyconfiguration not found response has a 5xx status code
+func (o *GetRecordingKeyconfigurationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording keyconfiguration not found response a status code equal to that given
+func (o *GetRecordingKeyconfigurationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRecordingKeyconfigurationNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRecordingKeyconfigurationNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRecordingKeyconfigurationRequestTimeout() *GetRecordingKeyconfigurati
 	return &GetRecordingKeyconfigurationRequestTimeout{}
 }
 
-/*GetRecordingKeyconfigurationRequestTimeout handles this case with default header values.
+/*
+GetRecordingKeyconfigurationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRecordingKeyconfigurationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording keyconfiguration request timeout response has a 2xx status code
+func (o *GetRecordingKeyconfigurationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording keyconfiguration request timeout response has a 3xx status code
+func (o *GetRecordingKeyconfigurationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording keyconfiguration request timeout response has a 4xx status code
+func (o *GetRecordingKeyconfigurationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording keyconfiguration request timeout response has a 5xx status code
+func (o *GetRecordingKeyconfigurationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording keyconfiguration request timeout response a status code equal to that given
+func (o *GetRecordingKeyconfigurationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRecordingKeyconfigurationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingKeyconfigurationRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRecordingKeyconfigurationRequestEntityTooLarge() *GetRecordingKeyconf
 	return &GetRecordingKeyconfigurationRequestEntityTooLarge{}
 }
 
-/*GetRecordingKeyconfigurationRequestEntityTooLarge handles this case with default header values.
+/*
+GetRecordingKeyconfigurationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRecordingKeyconfigurationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording keyconfiguration request entity too large response has a 2xx status code
+func (o *GetRecordingKeyconfigurationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording keyconfiguration request entity too large response has a 3xx status code
+func (o *GetRecordingKeyconfigurationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording keyconfiguration request entity too large response has a 4xx status code
+func (o *GetRecordingKeyconfigurationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording keyconfiguration request entity too large response has a 5xx status code
+func (o *GetRecordingKeyconfigurationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording keyconfiguration request entity too large response a status code equal to that given
+func (o *GetRecordingKeyconfigurationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRecordingKeyconfigurationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRecordingKeyconfigurationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRecordingKeyconfigurationUnsupportedMediaType() *GetRecordingKeyconfi
 	return &GetRecordingKeyconfigurationUnsupportedMediaType{}
 }
 
-/*GetRecordingKeyconfigurationUnsupportedMediaType handles this case with default header values.
+/*
+GetRecordingKeyconfigurationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRecordingKeyconfigurationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording keyconfiguration unsupported media type response has a 2xx status code
+func (o *GetRecordingKeyconfigurationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording keyconfiguration unsupported media type response has a 3xx status code
+func (o *GetRecordingKeyconfigurationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording keyconfiguration unsupported media type response has a 4xx status code
+func (o *GetRecordingKeyconfigurationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording keyconfiguration unsupported media type response has a 5xx status code
+func (o *GetRecordingKeyconfigurationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording keyconfiguration unsupported media type response a status code equal to that given
+func (o *GetRecordingKeyconfigurationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRecordingKeyconfigurationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRecordingKeyconfigurationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRecordingKeyconfigurationTooManyRequests() *GetRecordingKeyconfigurat
 	return &GetRecordingKeyconfigurationTooManyRequests{}
 }
 
-/*GetRecordingKeyconfigurationTooManyRequests handles this case with default header values.
+/*
+GetRecordingKeyconfigurationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRecordingKeyconfigurationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording keyconfiguration too many requests response has a 2xx status code
+func (o *GetRecordingKeyconfigurationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording keyconfiguration too many requests response has a 3xx status code
+func (o *GetRecordingKeyconfigurationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording keyconfiguration too many requests response has a 4xx status code
+func (o *GetRecordingKeyconfigurationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording keyconfiguration too many requests response has a 5xx status code
+func (o *GetRecordingKeyconfigurationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording keyconfiguration too many requests response a status code equal to that given
+func (o *GetRecordingKeyconfigurationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRecordingKeyconfigurationTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRecordingKeyconfigurationTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRecordingKeyconfigurationInternalServerError() *GetRecordingKeyconfig
 	return &GetRecordingKeyconfigurationInternalServerError{}
 }
 
-/*GetRecordingKeyconfigurationInternalServerError handles this case with default header values.
+/*
+GetRecordingKeyconfigurationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRecordingKeyconfigurationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording keyconfiguration internal server error response has a 2xx status code
+func (o *GetRecordingKeyconfigurationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording keyconfiguration internal server error response has a 3xx status code
+func (o *GetRecordingKeyconfigurationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording keyconfiguration internal server error response has a 4xx status code
+func (o *GetRecordingKeyconfigurationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording keyconfiguration internal server error response has a 5xx status code
+func (o *GetRecordingKeyconfigurationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording keyconfiguration internal server error response a status code equal to that given
+func (o *GetRecordingKeyconfigurationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRecordingKeyconfigurationInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRecordingKeyconfigurationInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRecordingKeyconfigurationServiceUnavailable() *GetRecordingKeyconfigu
 	return &GetRecordingKeyconfigurationServiceUnavailable{}
 }
 
-/*GetRecordingKeyconfigurationServiceUnavailable handles this case with default header values.
+/*
+GetRecordingKeyconfigurationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRecordingKeyconfigurationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording keyconfiguration service unavailable response has a 2xx status code
+func (o *GetRecordingKeyconfigurationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording keyconfiguration service unavailable response has a 3xx status code
+func (o *GetRecordingKeyconfigurationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording keyconfiguration service unavailable response has a 4xx status code
+func (o *GetRecordingKeyconfigurationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording keyconfiguration service unavailable response has a 5xx status code
+func (o *GetRecordingKeyconfigurationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording keyconfiguration service unavailable response a status code equal to that given
+func (o *GetRecordingKeyconfigurationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRecordingKeyconfigurationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRecordingKeyconfigurationServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRecordingKeyconfigurationGatewayTimeout() *GetRecordingKeyconfigurati
 	return &GetRecordingKeyconfigurationGatewayTimeout{}
 }
 
-/*GetRecordingKeyconfigurationGatewayTimeout handles this case with default header values.
+/*
+GetRecordingKeyconfigurationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRecordingKeyconfigurationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording keyconfiguration gateway timeout response has a 2xx status code
+func (o *GetRecordingKeyconfigurationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording keyconfiguration gateway timeout response has a 3xx status code
+func (o *GetRecordingKeyconfigurationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording keyconfiguration gateway timeout response has a 4xx status code
+func (o *GetRecordingKeyconfigurationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording keyconfiguration gateway timeout response has a 5xx status code
+func (o *GetRecordingKeyconfigurationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording keyconfiguration gateway timeout response a status code equal to that given
+func (o *GetRecordingKeyconfigurationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRecordingKeyconfigurationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRecordingKeyconfigurationGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/keyconfigurations/{keyConfigurationId}][%d] getRecordingKeyconfigurationGatewayTimeout  %+v", 504, o.Payload)
 }
 

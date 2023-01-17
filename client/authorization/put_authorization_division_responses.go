@@ -95,7 +95,6 @@ func (o *PutAuthorizationDivisionReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutAuthorizationDivisionOK() *PutAuthorizationDivisionOK {
 	return &PutAuthorizationDivisionOK{}
 }
 
-/*PutAuthorizationDivisionOK handles this case with default header values.
+/*
+PutAuthorizationDivisionOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutAuthorizationDivisionOK struct {
 	Payload *models.AuthzDivision
 }
 
+// IsSuccess returns true when this put authorization division o k response has a 2xx status code
+func (o *PutAuthorizationDivisionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put authorization division o k response has a 3xx status code
+func (o *PutAuthorizationDivisionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization division o k response has a 4xx status code
+func (o *PutAuthorizationDivisionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization division o k response has a 5xx status code
+func (o *PutAuthorizationDivisionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization division o k response a status code equal to that given
+func (o *PutAuthorizationDivisionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutAuthorizationDivisionOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionOK  %+v", 200, o.Payload)
+}
+
+func (o *PutAuthorizationDivisionOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutAuthorizationDivisionBadRequest() *PutAuthorizationDivisionBadRequest
 	return &PutAuthorizationDivisionBadRequest{}
 }
 
-/*PutAuthorizationDivisionBadRequest handles this case with default header values.
+/*
+PutAuthorizationDivisionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutAuthorizationDivisionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization division bad request response has a 2xx status code
+func (o *PutAuthorizationDivisionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization division bad request response has a 3xx status code
+func (o *PutAuthorizationDivisionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization division bad request response has a 4xx status code
+func (o *PutAuthorizationDivisionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization division bad request response has a 5xx status code
+func (o *PutAuthorizationDivisionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization division bad request response a status code equal to that given
+func (o *PutAuthorizationDivisionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutAuthorizationDivisionBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutAuthorizationDivisionBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutAuthorizationDivisionUnauthorized() *PutAuthorizationDivisionUnauthor
 	return &PutAuthorizationDivisionUnauthorized{}
 }
 
-/*PutAuthorizationDivisionUnauthorized handles this case with default header values.
+/*
+PutAuthorizationDivisionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutAuthorizationDivisionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization division unauthorized response has a 2xx status code
+func (o *PutAuthorizationDivisionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization division unauthorized response has a 3xx status code
+func (o *PutAuthorizationDivisionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization division unauthorized response has a 4xx status code
+func (o *PutAuthorizationDivisionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization division unauthorized response has a 5xx status code
+func (o *PutAuthorizationDivisionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization division unauthorized response a status code equal to that given
+func (o *PutAuthorizationDivisionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutAuthorizationDivisionUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutAuthorizationDivisionUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutAuthorizationDivisionForbidden() *PutAuthorizationDivisionForbidden {
 	return &PutAuthorizationDivisionForbidden{}
 }
 
-/*PutAuthorizationDivisionForbidden handles this case with default header values.
+/*
+PutAuthorizationDivisionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutAuthorizationDivisionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization division forbidden response has a 2xx status code
+func (o *PutAuthorizationDivisionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization division forbidden response has a 3xx status code
+func (o *PutAuthorizationDivisionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization division forbidden response has a 4xx status code
+func (o *PutAuthorizationDivisionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization division forbidden response has a 5xx status code
+func (o *PutAuthorizationDivisionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization division forbidden response a status code equal to that given
+func (o *PutAuthorizationDivisionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutAuthorizationDivisionForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutAuthorizationDivisionForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutAuthorizationDivisionNotFound() *PutAuthorizationDivisionNotFound {
 	return &PutAuthorizationDivisionNotFound{}
 }
 
-/*PutAuthorizationDivisionNotFound handles this case with default header values.
+/*
+PutAuthorizationDivisionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutAuthorizationDivisionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization division not found response has a 2xx status code
+func (o *PutAuthorizationDivisionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization division not found response has a 3xx status code
+func (o *PutAuthorizationDivisionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization division not found response has a 4xx status code
+func (o *PutAuthorizationDivisionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization division not found response has a 5xx status code
+func (o *PutAuthorizationDivisionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization division not found response a status code equal to that given
+func (o *PutAuthorizationDivisionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutAuthorizationDivisionNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutAuthorizationDivisionNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutAuthorizationDivisionRequestTimeout() *PutAuthorizationDivisionReques
 	return &PutAuthorizationDivisionRequestTimeout{}
 }
 
-/*PutAuthorizationDivisionRequestTimeout handles this case with default header values.
+/*
+PutAuthorizationDivisionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutAuthorizationDivisionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization division request timeout response has a 2xx status code
+func (o *PutAuthorizationDivisionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization division request timeout response has a 3xx status code
+func (o *PutAuthorizationDivisionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization division request timeout response has a 4xx status code
+func (o *PutAuthorizationDivisionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization division request timeout response has a 5xx status code
+func (o *PutAuthorizationDivisionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization division request timeout response a status code equal to that given
+func (o *PutAuthorizationDivisionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutAuthorizationDivisionRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutAuthorizationDivisionRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutAuthorizationDivisionRequestEntityTooLarge() *PutAuthorizationDivisio
 	return &PutAuthorizationDivisionRequestEntityTooLarge{}
 }
 
-/*PutAuthorizationDivisionRequestEntityTooLarge handles this case with default header values.
+/*
+PutAuthorizationDivisionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutAuthorizationDivisionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization division request entity too large response has a 2xx status code
+func (o *PutAuthorizationDivisionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization division request entity too large response has a 3xx status code
+func (o *PutAuthorizationDivisionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization division request entity too large response has a 4xx status code
+func (o *PutAuthorizationDivisionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization division request entity too large response has a 5xx status code
+func (o *PutAuthorizationDivisionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization division request entity too large response a status code equal to that given
+func (o *PutAuthorizationDivisionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutAuthorizationDivisionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutAuthorizationDivisionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutAuthorizationDivisionUnsupportedMediaType() *PutAuthorizationDivision
 	return &PutAuthorizationDivisionUnsupportedMediaType{}
 }
 
-/*PutAuthorizationDivisionUnsupportedMediaType handles this case with default header values.
+/*
+PutAuthorizationDivisionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutAuthorizationDivisionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization division unsupported media type response has a 2xx status code
+func (o *PutAuthorizationDivisionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization division unsupported media type response has a 3xx status code
+func (o *PutAuthorizationDivisionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization division unsupported media type response has a 4xx status code
+func (o *PutAuthorizationDivisionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization division unsupported media type response has a 5xx status code
+func (o *PutAuthorizationDivisionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization division unsupported media type response a status code equal to that given
+func (o *PutAuthorizationDivisionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutAuthorizationDivisionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutAuthorizationDivisionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutAuthorizationDivisionTooManyRequests() *PutAuthorizationDivisionTooMa
 	return &PutAuthorizationDivisionTooManyRequests{}
 }
 
-/*PutAuthorizationDivisionTooManyRequests handles this case with default header values.
+/*
+PutAuthorizationDivisionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutAuthorizationDivisionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization division too many requests response has a 2xx status code
+func (o *PutAuthorizationDivisionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization division too many requests response has a 3xx status code
+func (o *PutAuthorizationDivisionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization division too many requests response has a 4xx status code
+func (o *PutAuthorizationDivisionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization division too many requests response has a 5xx status code
+func (o *PutAuthorizationDivisionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization division too many requests response a status code equal to that given
+func (o *PutAuthorizationDivisionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutAuthorizationDivisionTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutAuthorizationDivisionTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutAuthorizationDivisionInternalServerError() *PutAuthorizationDivisionI
 	return &PutAuthorizationDivisionInternalServerError{}
 }
 
-/*PutAuthorizationDivisionInternalServerError handles this case with default header values.
+/*
+PutAuthorizationDivisionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutAuthorizationDivisionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization division internal server error response has a 2xx status code
+func (o *PutAuthorizationDivisionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization division internal server error response has a 3xx status code
+func (o *PutAuthorizationDivisionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization division internal server error response has a 4xx status code
+func (o *PutAuthorizationDivisionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization division internal server error response has a 5xx status code
+func (o *PutAuthorizationDivisionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put authorization division internal server error response a status code equal to that given
+func (o *PutAuthorizationDivisionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutAuthorizationDivisionInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutAuthorizationDivisionInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutAuthorizationDivisionServiceUnavailable() *PutAuthorizationDivisionSe
 	return &PutAuthorizationDivisionServiceUnavailable{}
 }
 
-/*PutAuthorizationDivisionServiceUnavailable handles this case with default header values.
+/*
+PutAuthorizationDivisionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutAuthorizationDivisionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization division service unavailable response has a 2xx status code
+func (o *PutAuthorizationDivisionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization division service unavailable response has a 3xx status code
+func (o *PutAuthorizationDivisionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization division service unavailable response has a 4xx status code
+func (o *PutAuthorizationDivisionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization division service unavailable response has a 5xx status code
+func (o *PutAuthorizationDivisionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put authorization division service unavailable response a status code equal to that given
+func (o *PutAuthorizationDivisionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutAuthorizationDivisionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutAuthorizationDivisionServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutAuthorizationDivisionGatewayTimeout() *PutAuthorizationDivisionGatewa
 	return &PutAuthorizationDivisionGatewayTimeout{}
 }
 
-/*PutAuthorizationDivisionGatewayTimeout handles this case with default header values.
+/*
+PutAuthorizationDivisionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutAuthorizationDivisionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization division gateway timeout response has a 2xx status code
+func (o *PutAuthorizationDivisionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization division gateway timeout response has a 3xx status code
+func (o *PutAuthorizationDivisionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization division gateway timeout response has a 4xx status code
+func (o *PutAuthorizationDivisionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization division gateway timeout response has a 5xx status code
+func (o *PutAuthorizationDivisionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put authorization division gateway timeout response a status code equal to that given
+func (o *PutAuthorizationDivisionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutAuthorizationDivisionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutAuthorizationDivisionGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/divisions/{divisionId}][%d] putAuthorizationDivisionGatewayTimeout  %+v", 504, o.Payload)
 }
 

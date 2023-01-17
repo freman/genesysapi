@@ -18,81 +18,100 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostAuthorizationRoleParams creates a new PostAuthorizationRoleParams object
-// with the default values initialized.
+// NewPostAuthorizationRoleParams creates a new PostAuthorizationRoleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAuthorizationRoleParams() *PostAuthorizationRoleParams {
-	var (
-		subjectTypeDefault = string("PC_USER")
-	)
 	return &PostAuthorizationRoleParams{
-		SubjectType: &subjectTypeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAuthorizationRoleParamsWithTimeout creates a new PostAuthorizationRoleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAuthorizationRoleParamsWithTimeout(timeout time.Duration) *PostAuthorizationRoleParams {
-	var (
-		subjectTypeDefault = string("PC_USER")
-	)
 	return &PostAuthorizationRoleParams{
-		SubjectType: &subjectTypeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAuthorizationRoleParamsWithContext creates a new PostAuthorizationRoleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAuthorizationRoleParamsWithContext(ctx context.Context) *PostAuthorizationRoleParams {
-	var (
-		subjectTypeDefault = string("PC_USER")
-	)
 	return &PostAuthorizationRoleParams{
-		SubjectType: &subjectTypeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostAuthorizationRoleParamsWithHTTPClient creates a new PostAuthorizationRoleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAuthorizationRoleParamsWithHTTPClient(client *http.Client) *PostAuthorizationRoleParams {
-	var (
-		subjectTypeDefault = string("PC_USER")
-	)
 	return &PostAuthorizationRoleParams{
-		SubjectType: &subjectTypeDefault,
-		HTTPClient:  client,
+		HTTPClient: client,
 	}
 }
 
-/*PostAuthorizationRoleParams contains all the parameters to send to the API endpoint
-for the post authorization role operation typically these are written to a http.Request
+/*
+PostAuthorizationRoleParams contains all the parameters to send to the API endpoint
+
+	for the post authorization role operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAuthorizationRoleParams struct {
 
-	/*Body
-	  Subjects and Divisions
+	/* Body.
 
+	   Subjects and Divisions
 	*/
 	Body *models.SubjectDivisions
-	/*RoleID
-	  Role ID
 
+	/* RoleID.
+
+	   Role ID
 	*/
 	RoleID string
-	/*SubjectType
-	  what the type of the subjects are (PC_GROUP, PC_USER or PC_OAUTH_CLIENT)
 
+	/* SubjectType.
+
+	   what the type of the subjects are (PC_GROUP, PC_USER or PC_OAUTH_CLIENT)
+
+	   Default: "PC_USER"
 	*/
 	SubjectType *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post authorization role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuthorizationRoleParams) WithDefaults() *PostAuthorizationRoleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post authorization role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuthorizationRoleParams) SetDefaults() {
+	var (
+		subjectTypeDefault = string("PC_USER")
+	)
+
+	val := PostAuthorizationRoleParams{
+		SubjectType: &subjectTypeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post authorization role params
@@ -168,7 +187,6 @@ func (o *PostAuthorizationRoleParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -184,16 +202,17 @@ func (o *PostAuthorizationRoleParams) WriteToRequest(r runtime.ClientRequest, re
 
 		// query param subjectType
 		var qrSubjectType string
+
 		if o.SubjectType != nil {
 			qrSubjectType = *o.SubjectType
 		}
 		qSubjectType := qrSubjectType
 		if qSubjectType != "" {
+
 			if err := r.SetQueryParam("subjectType", qSubjectType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

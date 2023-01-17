@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteKnowledgeKnowledgebaseLabelParams creates a new DeleteKnowledgeKnowledgebaseLabelParams object
-// with the default values initialized.
+// NewDeleteKnowledgeKnowledgebaseLabelParams creates a new DeleteKnowledgeKnowledgebaseLabelParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteKnowledgeKnowledgebaseLabelParams() *DeleteKnowledgeKnowledgebaseLabelParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseLabelParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteKnowledgeKnowledgebaseLabelParamsWithTimeout creates a new DeleteKnowledgeKnowledgebaseLabelParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteKnowledgeKnowledgebaseLabelParamsWithTimeout(timeout time.Duration) *DeleteKnowledgeKnowledgebaseLabelParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseLabelParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteKnowledgeKnowledgebaseLabelParamsWithContext creates a new DeleteKnowledgeKnowledgebaseLabelParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteKnowledgeKnowledgebaseLabelParamsWithContext(ctx context.Context) *DeleteKnowledgeKnowledgebaseLabelParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseLabelParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteKnowledgeKnowledgebaseLabelParamsWithHTTPClient creates a new DeleteKnowledgeKnowledgebaseLabelParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteKnowledgeKnowledgebaseLabelParamsWithHTTPClient(client *http.Client) *DeleteKnowledgeKnowledgebaseLabelParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseLabelParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteKnowledgeKnowledgebaseLabelParams contains all the parameters to send to the API endpoint
-for the delete knowledge knowledgebase label operation typically these are written to a http.Request
+/*
+DeleteKnowledgeKnowledgebaseLabelParams contains all the parameters to send to the API endpoint
+
+	for the delete knowledge knowledgebase label operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteKnowledgeKnowledgebaseLabelParams struct {
 
-	/*KnowledgeBaseID
-	  Knowledge base ID
+	/* KnowledgeBaseID.
 
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LabelID
-	  Label ID
 
+	/* LabelID.
+
+	   Label ID
 	*/
 	LabelID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete knowledge knowledgebase label params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteKnowledgeKnowledgebaseLabelParams) WithDefaults() *DeleteKnowledgeKnowledgebaseLabelParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete knowledge knowledgebase label params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteKnowledgeKnowledgebaseLabelParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete knowledge knowledgebase label params

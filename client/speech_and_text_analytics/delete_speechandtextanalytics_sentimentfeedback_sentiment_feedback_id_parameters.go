@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams creates a new DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams object
-// with the default values initialized.
+// NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams creates a new DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams() *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams {
-	var ()
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParamsWithTimeout creates a new DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParamsWithTimeout(timeout time.Duration) *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams {
-	var ()
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParamsWithContext creates a new DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParamsWithContext(ctx context.Context) *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams {
-	var ()
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParamsWithHTTPClient creates a new DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParamsWithHTTPClient(client *http.Client) *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams {
-	var ()
 	return &DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams contains all the parameters to send to the API endpoint
-for the delete speechandtextanalytics sentimentfeedback sentiment feedback Id operation typically these are written to a http.Request
+/*
+DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams contains all the parameters to send to the API endpoint
+
+	for the delete speechandtextanalytics sentimentfeedback sentiment feedback Id operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams struct {
 
-	/*SentimentFeedbackID
-	  The Id of the SentimentFeedback
+	/* SentimentFeedbackID.
 
+	   The Id of the SentimentFeedback
 	*/
 	SentimentFeedbackID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete speechandtextanalytics sentimentfeedback sentiment feedback Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams) WithDefaults() *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete speechandtextanalytics sentimentfeedback sentiment feedback Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteSpeechandtextanalyticsSentimentfeedbackSentimentFeedbackIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete speechandtextanalytics sentimentfeedback sentiment feedback Id params

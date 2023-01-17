@@ -17,135 +17,153 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetTelephonyProvidersEdgesTrunkbasesettingsParams creates a new GetTelephonyProvidersEdgesTrunkbasesettingsParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesTrunkbasesettingsParams creates a new GetTelephonyProvidersEdgesTrunkbasesettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesTrunkbasesettingsParams() *GetTelephonyProvidersEdgesTrunkbasesettingsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunkbasesettingsParamsWithTimeout creates a new GetTelephonyProvidersEdgesTrunkbasesettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesTrunkbasesettingsParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesTrunkbasesettingsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunkbasesettingsParamsWithContext creates a new GetTelephonyProvidersEdgesTrunkbasesettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesTrunkbasesettingsParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesTrunkbasesettingsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunkbasesettingsParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesTrunkbasesettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesTrunkbasesettingsParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesTrunkbasesettingsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetTelephonyProvidersEdgesTrunkbasesettingsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesTrunkbasesettingsParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges trunkbasesettings operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesTrunkbasesettingsParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges trunkbasesettings operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesTrunkbasesettingsParams struct {
 
-	/*Expand
-	  Fields to expand in the response, comma-separated
+	/* Expand.
 
+	   Fields to expand in the response, comma-separated
 	*/
 	Expand []string
-	/*IgnoreHidden
-	  Set this to true to not receive trunk properties that are meant to be hidden or for internal system usage only.
 
+	/* IgnoreHidden.
+
+	   Set this to true to not receive trunk properties that are meant to be hidden or for internal system usage only.
 	*/
 	IgnoreHidden *bool
-	/*Managed
-	  Filter by managed
 
+	/* Managed.
+
+	   Filter by managed
 	*/
 	Managed *bool
-	/*Name
-	  Name of the TrunkBase to filter by
 
+	/* Name.
+
+	   Name of the TrunkBase to filter by
 	*/
 	Name *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*RecordingEnabled
-	  Filter trunks by recording enabled
 
+	/* RecordingEnabled.
+
+	   Filter trunks by recording enabled
 	*/
 	RecordingEnabled *bool
-	/*SortBy
-	  Value by which to sort
 
+	/* SortBy.
+
+	   Value by which to sort
+
+	   Default: "name"
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "ASC"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges trunkbasesettings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsParams) WithDefaults() *GetTelephonyProvidersEdgesTrunkbasesettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges trunkbasesettings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("name")
+
+		sortOrderDefault = string("ASC")
+	)
+
+	val := GetTelephonyProvidersEdgesTrunkbasesettingsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges trunkbasesettings params
@@ -288,144 +306,172 @@ func (o *GetTelephonyProvidersEdgesTrunkbasesettingsParams) WriteToRequest(r run
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.IgnoreHidden != nil {
 
 		// query param ignoreHidden
 		var qrIgnoreHidden bool
+
 		if o.IgnoreHidden != nil {
 			qrIgnoreHidden = *o.IgnoreHidden
 		}
 		qIgnoreHidden := swag.FormatBool(qrIgnoreHidden)
 		if qIgnoreHidden != "" {
+
 			if err := r.SetQueryParam("ignoreHidden", qIgnoreHidden); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Managed != nil {
 
 		// query param managed
 		var qrManaged bool
+
 		if o.Managed != nil {
 			qrManaged = *o.Managed
 		}
 		qManaged := swag.FormatBool(qrManaged)
 		if qManaged != "" {
+
 			if err := r.SetQueryParam("managed", qManaged); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.RecordingEnabled != nil {
 
 		// query param recordingEnabled
 		var qrRecordingEnabled bool
+
 		if o.RecordingEnabled != nil {
 			qrRecordingEnabled = *o.RecordingEnabled
 		}
 		qRecordingEnabled := swag.FormatBool(qrRecordingEnabled)
 		if qRecordingEnabled != "" {
+
 			if err := r.SetQueryParam("recordingEnabled", qRecordingEnabled); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetTelephonyProvidersEdgesTrunkbasesettings binds the parameter expand
+func (o *GetTelephonyProvidersEdgesTrunkbasesettingsParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

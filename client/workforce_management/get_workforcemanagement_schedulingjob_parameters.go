@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementSchedulingjobParams creates a new GetWorkforcemanagementSchedulingjobParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementSchedulingjobParams creates a new GetWorkforcemanagementSchedulingjobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementSchedulingjobParams() *GetWorkforcemanagementSchedulingjobParams {
-	var ()
 	return &GetWorkforcemanagementSchedulingjobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementSchedulingjobParamsWithTimeout creates a new GetWorkforcemanagementSchedulingjobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementSchedulingjobParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementSchedulingjobParams {
-	var ()
 	return &GetWorkforcemanagementSchedulingjobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementSchedulingjobParamsWithContext creates a new GetWorkforcemanagementSchedulingjobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementSchedulingjobParamsWithContext(ctx context.Context) *GetWorkforcemanagementSchedulingjobParams {
-	var ()
 	return &GetWorkforcemanagementSchedulingjobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementSchedulingjobParamsWithHTTPClient creates a new GetWorkforcemanagementSchedulingjobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementSchedulingjobParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementSchedulingjobParams {
-	var ()
 	return &GetWorkforcemanagementSchedulingjobParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementSchedulingjobParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement schedulingjob operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementSchedulingjobParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement schedulingjob operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementSchedulingjobParams struct {
 
-	/*JobID
-	  The id of the scheduling job
+	/* JobID.
 
+	   The id of the scheduling job
 	*/
 	JobID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement schedulingjob params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementSchedulingjobParams) WithDefaults() *GetWorkforcemanagementSchedulingjobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement schedulingjob params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementSchedulingjobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement schedulingjob params

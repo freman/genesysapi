@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteResponsemanagementLibraryParams creates a new DeleteResponsemanagementLibraryParams object
-// with the default values initialized.
+// NewDeleteResponsemanagementLibraryParams creates a new DeleteResponsemanagementLibraryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteResponsemanagementLibraryParams() *DeleteResponsemanagementLibraryParams {
-	var ()
 	return &DeleteResponsemanagementLibraryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteResponsemanagementLibraryParamsWithTimeout creates a new DeleteResponsemanagementLibraryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteResponsemanagementLibraryParamsWithTimeout(timeout time.Duration) *DeleteResponsemanagementLibraryParams {
-	var ()
 	return &DeleteResponsemanagementLibraryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteResponsemanagementLibraryParamsWithContext creates a new DeleteResponsemanagementLibraryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteResponsemanagementLibraryParamsWithContext(ctx context.Context) *DeleteResponsemanagementLibraryParams {
-	var ()
 	return &DeleteResponsemanagementLibraryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteResponsemanagementLibraryParamsWithHTTPClient creates a new DeleteResponsemanagementLibraryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteResponsemanagementLibraryParamsWithHTTPClient(client *http.Client) *DeleteResponsemanagementLibraryParams {
-	var ()
 	return &DeleteResponsemanagementLibraryParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteResponsemanagementLibraryParams contains all the parameters to send to the API endpoint
-for the delete responsemanagement library operation typically these are written to a http.Request
+/*
+DeleteResponsemanagementLibraryParams contains all the parameters to send to the API endpoint
+
+	for the delete responsemanagement library operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteResponsemanagementLibraryParams struct {
 
-	/*LibraryID
-	  Library ID
+	/* LibraryID.
 
+	   Library ID
 	*/
 	LibraryID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete responsemanagement library params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteResponsemanagementLibraryParams) WithDefaults() *DeleteResponsemanagementLibraryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete responsemanagement library params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteResponsemanagementLibraryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete responsemanagement library params

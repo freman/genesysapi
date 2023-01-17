@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -54,7 +55,6 @@ func (m *ImportReport) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ImportReport) validateErrors(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Errors) { // not required
 		return nil
 	}
@@ -68,6 +68,8 @@ func (m *ImportReport) validateErrors(formats strfmt.Registry) error {
 			if err := m.Errors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -79,7 +81,6 @@ func (m *ImportReport) validateErrors(formats strfmt.Registry) error {
 }
 
 func (m *ImportReport) validateImported(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Imported) { // not required
 		return nil
 	}
@@ -88,6 +89,8 @@ func (m *ImportReport) validateImported(formats strfmt.Registry) error {
 		if err := m.Imported.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("imported")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imported")
 			}
 			return err
 		}
@@ -97,7 +100,6 @@ func (m *ImportReport) validateImported(formats strfmt.Registry) error {
 }
 
 func (m *ImportReport) validateValidated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Validated) { // not required
 		return nil
 	}
@@ -106,6 +108,82 @@ func (m *ImportReport) validateValidated(formats strfmt.Registry) error {
 		if err := m.Validated.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("validated")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("validated")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this import report based on the context it is used
+func (m *ImportReport) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateImported(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateValidated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ImportReport) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Errors); i++ {
+
+		if m.Errors[i] != nil {
+			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ImportReport) contextValidateImported(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Imported != nil {
+		if err := m.Imported.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("imported")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("imported")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ImportReport) contextValidateValidated(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Validated != nil {
+		if err := m.Validated.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("validated")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("validated")
 			}
 			return err
 		}

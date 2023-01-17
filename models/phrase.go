@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -90,7 +91,6 @@ func (m *Phrase) validateSentimentEnum(path, location string, value string) erro
 }
 
 func (m *Phrase) validateSentiment(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Sentiment) { // not required
 		return nil
 	}
@@ -145,7 +145,6 @@ func (m *Phrase) validateStrictnessEnum(path, location string, value string) err
 }
 
 func (m *Phrase) validateStrictness(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Strictness) { // not required
 		return nil
 	}
@@ -164,6 +163,11 @@ func (m *Phrase) validateText(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this phrase based on context it is used
+func (m *Phrase) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -50,7 +52,6 @@ func (m *AdherenceSettings) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AdherenceSettings) validateIgnoredActivityCategories(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IgnoredActivityCategories) { // not required
 		return nil
 	}
@@ -59,6 +60,38 @@ func (m *AdherenceSettings) validateIgnoredActivityCategories(formats strfmt.Reg
 		if err := m.IgnoredActivityCategories.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ignoredActivityCategories")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ignoredActivityCategories")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this adherence settings based on the context it is used
+func (m *AdherenceSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateIgnoredActivityCategories(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AdherenceSettings) contextValidateIgnoredActivityCategories(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IgnoredActivityCategories != nil {
+		if err := m.IgnoredActivityCategories.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ignoredActivityCategories")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ignoredActivityCategories")
 			}
 			return err
 		}

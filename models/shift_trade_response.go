@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -145,7 +146,6 @@ func (m *ShiftTradeResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ShiftTradeResponse) validateExpiration(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Expiration) { // not required
 		return nil
 	}
@@ -158,7 +158,6 @@ func (m *ShiftTradeResponse) validateExpiration(formats strfmt.Registry) error {
 }
 
 func (m *ShiftTradeResponse) validateInitiatingShiftEnd(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitiatingShiftEnd) { // not required
 		return nil
 	}
@@ -171,7 +170,6 @@ func (m *ShiftTradeResponse) validateInitiatingShiftEnd(formats strfmt.Registry)
 }
 
 func (m *ShiftTradeResponse) validateInitiatingShiftStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitiatingShiftStart) { // not required
 		return nil
 	}
@@ -184,7 +182,6 @@ func (m *ShiftTradeResponse) validateInitiatingShiftStart(formats strfmt.Registr
 }
 
 func (m *ShiftTradeResponse) validateInitiatingUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitiatingUser) { // not required
 		return nil
 	}
@@ -193,6 +190,8 @@ func (m *ShiftTradeResponse) validateInitiatingUser(formats strfmt.Registry) err
 		if err := m.InitiatingUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("initiatingUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("initiatingUser")
 			}
 			return err
 		}
@@ -202,7 +201,6 @@ func (m *ShiftTradeResponse) validateInitiatingUser(formats strfmt.Registry) err
 }
 
 func (m *ShiftTradeResponse) validateMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metadata) { // not required
 		return nil
 	}
@@ -211,6 +209,8 @@ func (m *ShiftTradeResponse) validateMetadata(formats strfmt.Registry) error {
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -220,7 +220,6 @@ func (m *ShiftTradeResponse) validateMetadata(formats strfmt.Registry) error {
 }
 
 func (m *ShiftTradeResponse) validateReceivingShiftEnd(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReceivingShiftEnd) { // not required
 		return nil
 	}
@@ -233,7 +232,6 @@ func (m *ShiftTradeResponse) validateReceivingShiftEnd(formats strfmt.Registry) 
 }
 
 func (m *ShiftTradeResponse) validateReceivingShiftStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReceivingShiftStart) { // not required
 		return nil
 	}
@@ -246,7 +244,6 @@ func (m *ShiftTradeResponse) validateReceivingShiftStart(formats strfmt.Registry
 }
 
 func (m *ShiftTradeResponse) validateReceivingUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReceivingUser) { // not required
 		return nil
 	}
@@ -255,6 +252,8 @@ func (m *ShiftTradeResponse) validateReceivingUser(formats strfmt.Registry) erro
 		if err := m.ReceivingUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("receivingUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("receivingUser")
 			}
 			return err
 		}
@@ -264,7 +263,6 @@ func (m *ShiftTradeResponse) validateReceivingUser(formats strfmt.Registry) erro
 }
 
 func (m *ShiftTradeResponse) validateReviewedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReviewedBy) { // not required
 		return nil
 	}
@@ -273,6 +271,8 @@ func (m *ShiftTradeResponse) validateReviewedBy(formats strfmt.Registry) error {
 		if err := m.ReviewedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("reviewedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reviewedBy")
 			}
 			return err
 		}
@@ -282,7 +282,6 @@ func (m *ShiftTradeResponse) validateReviewedBy(formats strfmt.Registry) error {
 }
 
 func (m *ShiftTradeResponse) validateReviewedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReviewedDate) { // not required
 		return nil
 	}
@@ -295,7 +294,6 @@ func (m *ShiftTradeResponse) validateReviewedDate(formats strfmt.Registry) error
 }
 
 func (m *ShiftTradeResponse) validateSchedule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Schedule) { // not required
 		return nil
 	}
@@ -304,6 +302,8 @@ func (m *ShiftTradeResponse) validateSchedule(formats strfmt.Registry) error {
 		if err := m.Schedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedule")
 			}
 			return err
 		}
@@ -354,7 +354,6 @@ func (m *ShiftTradeResponse) validateStateEnum(path, location string, value stri
 }
 
 func (m *ShiftTradeResponse) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -368,13 +367,122 @@ func (m *ShiftTradeResponse) validateState(formats strfmt.Registry) error {
 }
 
 func (m *ShiftTradeResponse) validateWeekDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WeekDate) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("weekDate", "body", "date", m.WeekDate.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this shift trade response based on the context it is used
+func (m *ShiftTradeResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateInitiatingUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReceivingUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReviewedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchedule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ShiftTradeResponse) contextValidateInitiatingUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InitiatingUser != nil {
+		if err := m.InitiatingUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("initiatingUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("initiatingUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ShiftTradeResponse) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ShiftTradeResponse) contextValidateReceivingUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReceivingUser != nil {
+		if err := m.ReceivingUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("receivingUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("receivingUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ShiftTradeResponse) contextValidateReviewedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReviewedBy != nil {
+		if err := m.ReviewedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("reviewedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reviewedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ShiftTradeResponse) contextValidateSchedule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Schedule != nil {
+		if err := m.Schedule.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedule")
+			}
+			return err
+		}
 	}
 
 	return nil

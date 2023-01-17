@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -17,6 +19,9 @@ import (
 // swagger:model PhoneEstablishedEvent
 type PhoneEstablishedEvent struct {
 
+	// The automatic number identification if it is available for this conversation.
+	Ani string `json:"ani,omitempty"`
+
 	// A unique Id (V4 UUID) identifying this communication
 	// Required: true
 	CommunicationID *string `json:"communicationId"`
@@ -24,6 +29,9 @@ type PhoneEstablishedEvent struct {
 	// A unique Id (V4 UUID) identifying this conversation
 	// Required: true
 	ConversationID *string `json:"conversationId"`
+
+	// The dialed number identification if it is available for this conversation.
+	Dnis string `json:"dnis,omitempty"`
 
 	// A Date Time representing the time this event occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Required: true
@@ -130,6 +138,8 @@ func (m *PhoneEstablishedEvent) validateInitialConfiguration(formats strfmt.Regi
 		if err := m.InitialConfiguration.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("initialConfiguration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("initialConfiguration")
 			}
 			return err
 		}
@@ -148,6 +158,58 @@ func (m *PhoneEstablishedEvent) validateSourceConfiguration(formats strfmt.Regis
 		if err := m.SourceConfiguration.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sourceConfiguration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sourceConfiguration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this phone established event based on the context it is used
+func (m *PhoneEstablishedEvent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateInitialConfiguration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSourceConfiguration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PhoneEstablishedEvent) contextValidateInitialConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InitialConfiguration != nil {
+		if err := m.InitialConfiguration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("initialConfiguration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("initialConfiguration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PhoneEstablishedEvent) contextValidateSourceConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SourceConfiguration != nil {
+		if err := m.SourceConfiguration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sourceConfiguration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sourceConfiguration")
 			}
 			return err
 		}

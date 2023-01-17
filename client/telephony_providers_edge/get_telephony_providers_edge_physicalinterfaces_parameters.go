@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgePhysicalinterfacesParams creates a new GetTelephonyProvidersEdgePhysicalinterfacesParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgePhysicalinterfacesParams creates a new GetTelephonyProvidersEdgePhysicalinterfacesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgePhysicalinterfacesParams() *GetTelephonyProvidersEdgePhysicalinterfacesParams {
-	var ()
 	return &GetTelephonyProvidersEdgePhysicalinterfacesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgePhysicalinterfacesParamsWithTimeout creates a new GetTelephonyProvidersEdgePhysicalinterfacesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgePhysicalinterfacesParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgePhysicalinterfacesParams {
-	var ()
 	return &GetTelephonyProvidersEdgePhysicalinterfacesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgePhysicalinterfacesParamsWithContext creates a new GetTelephonyProvidersEdgePhysicalinterfacesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgePhysicalinterfacesParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgePhysicalinterfacesParams {
-	var ()
 	return &GetTelephonyProvidersEdgePhysicalinterfacesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgePhysicalinterfacesParamsWithHTTPClient creates a new GetTelephonyProvidersEdgePhysicalinterfacesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgePhysicalinterfacesParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgePhysicalinterfacesParams {
-	var ()
 	return &GetTelephonyProvidersEdgePhysicalinterfacesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgePhysicalinterfacesParams contains all the parameters to send to the API endpoint
-for the get telephony providers edge physicalinterfaces operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgePhysicalinterfacesParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edge physicalinterfaces operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgePhysicalinterfacesParams struct {
 
-	/*EdgeID
-	  Edge ID
+	/* EdgeID.
 
+	   Edge ID
 	*/
 	EdgeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edge physicalinterfaces params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgePhysicalinterfacesParams) WithDefaults() *GetTelephonyProvidersEdgePhysicalinterfacesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edge physicalinterfaces params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgePhysicalinterfacesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edge physicalinterfaces params

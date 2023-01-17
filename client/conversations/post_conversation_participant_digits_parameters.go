@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationParticipantDigitsParams creates a new PostConversationParticipantDigitsParams object
-// with the default values initialized.
+// NewPostConversationParticipantDigitsParams creates a new PostConversationParticipantDigitsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationParticipantDigitsParams() *PostConversationParticipantDigitsParams {
-	var ()
 	return &PostConversationParticipantDigitsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationParticipantDigitsParamsWithTimeout creates a new PostConversationParticipantDigitsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationParticipantDigitsParamsWithTimeout(timeout time.Duration) *PostConversationParticipantDigitsParams {
-	var ()
 	return &PostConversationParticipantDigitsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationParticipantDigitsParamsWithContext creates a new PostConversationParticipantDigitsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationParticipantDigitsParamsWithContext(ctx context.Context) *PostConversationParticipantDigitsParams {
-	var ()
 	return &PostConversationParticipantDigitsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationParticipantDigitsParamsWithHTTPClient creates a new PostConversationParticipantDigitsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationParticipantDigitsParamsWithHTTPClient(client *http.Client) *PostConversationParticipantDigitsParams {
-	var ()
 	return &PostConversationParticipantDigitsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationParticipantDigitsParams contains all the parameters to send to the API endpoint
-for the post conversation participant digits operation typically these are written to a http.Request
+/*
+PostConversationParticipantDigitsParams contains all the parameters to send to the API endpoint
+
+	for the post conversation participant digits operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationParticipantDigitsParams struct {
 
-	/*Body
-	  Digits
+	/* Body.
 
+	   Digits
 	*/
 	Body *models.Digits
-	/*ConversationID
-	  conversation ID
 
+	/* ConversationID.
+
+	   conversation ID
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participant ID
 
+	/* ParticipantID.
+
+	   participant ID
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversation participant digits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationParticipantDigitsParams) WithDefaults() *PostConversationParticipantDigitsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversation participant digits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationParticipantDigitsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversation participant digits params
@@ -156,7 +174,6 @@ func (o *PostConversationParticipantDigitsParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+	"encoding/json"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -35,6 +37,10 @@ type KnowledgeDocumentGuestSearch struct {
 	// Min Length: 3
 	Query *string `json:"query"`
 
+	// The type of the query that initiates the search.
+	// Enum: [AutoSearch ManualSearch Suggestion]
+	QueryType string `json:"queryType,omitempty"`
+
 	// Documents that matched the search query.
 	// Read Only: true
 	Results []*KnowledgeDocumentGuestSearchResult `json:"results"`
@@ -60,6 +66,10 @@ func (m *KnowledgeDocumentGuestSearch) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateQueryType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateResults(formats); err != nil {
 		res = append(res, err)
 	}
@@ -76,11 +86,56 @@ func (m *KnowledgeDocumentGuestSearch) validateQuery(formats strfmt.Registry) er
 		return err
 	}
 
-	if err := validate.MinLength("query", "body", string(*m.Query), 3); err != nil {
+	if err := validate.MinLength("query", "body", *m.Query, 3); err != nil {
 		return err
 	}
 
-	if err := validate.MaxLength("query", "body", string(*m.Query), 2147483647); err != nil {
+	if err := validate.MaxLength("query", "body", *m.Query, 2147483647); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var knowledgeDocumentGuestSearchTypeQueryTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["AutoSearch","ManualSearch","Suggestion"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		knowledgeDocumentGuestSearchTypeQueryTypePropEnum = append(knowledgeDocumentGuestSearchTypeQueryTypePropEnum, v)
+	}
+}
+
+const (
+
+	// KnowledgeDocumentGuestSearchQueryTypeAutoSearch captures enum value "AutoSearch"
+	KnowledgeDocumentGuestSearchQueryTypeAutoSearch string = "AutoSearch"
+
+	// KnowledgeDocumentGuestSearchQueryTypeManualSearch captures enum value "ManualSearch"
+	KnowledgeDocumentGuestSearchQueryTypeManualSearch string = "ManualSearch"
+
+	// KnowledgeDocumentGuestSearchQueryTypeSuggestion captures enum value "Suggestion"
+	KnowledgeDocumentGuestSearchQueryTypeSuggestion string = "Suggestion"
+)
+
+// prop value enum
+func (m *KnowledgeDocumentGuestSearch) validateQueryTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, knowledgeDocumentGuestSearchTypeQueryTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *KnowledgeDocumentGuestSearch) validateQueryType(formats strfmt.Registry) error {
+	if swag.IsZero(m.QueryType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateQueryTypeEnum("queryType", "body", m.QueryType); err != nil {
 		return err
 	}
 
@@ -88,7 +143,6 @@ func (m *KnowledgeDocumentGuestSearch) validateQuery(formats strfmt.Registry) er
 }
 
 func (m *KnowledgeDocumentGuestSearch) validateResults(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Results) { // not required
 		return nil
 	}
@@ -102,11 +156,103 @@ func (m *KnowledgeDocumentGuestSearch) validateResults(formats strfmt.Registry) 
 			if err := m.Results[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("results" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("results" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge document guest search based on the context it is used
+func (m *KnowledgeDocumentGuestSearch) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePageCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResults(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSearchID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSessionID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotal(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeDocumentGuestSearch) contextValidatePageCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "pageCount", "body", int32(m.PageCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentGuestSearch) contextValidateResults(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "results", "body", []*KnowledgeDocumentGuestSearchResult(m.Results)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Results); i++ {
+
+		if m.Results[i] != nil {
+			if err := m.Results[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("results" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("results" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentGuestSearch) contextValidateSearchID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "searchId", "body", string(m.SearchID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentGuestSearch) contextValidateSessionID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "sessionId", "body", string(m.SessionID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentGuestSearch) contextValidateTotal(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "total", "body", int32(m.Total)); err != nil {
+		return err
 	}
 
 	return nil

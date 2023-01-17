@@ -95,7 +95,6 @@ func (o *GetRoutingWrapupcodesReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingWrapupcodesOK() *GetRoutingWrapupcodesOK {
 	return &GetRoutingWrapupcodesOK{}
 }
 
-/*GetRoutingWrapupcodesOK handles this case with default header values.
+/*
+GetRoutingWrapupcodesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingWrapupcodesOK struct {
 	Payload *models.WrapupCodeEntityListing
 }
 
+// IsSuccess returns true when this get routing wrapupcodes o k response has a 2xx status code
+func (o *GetRoutingWrapupcodesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing wrapupcodes o k response has a 3xx status code
+func (o *GetRoutingWrapupcodesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing wrapupcodes o k response has a 4xx status code
+func (o *GetRoutingWrapupcodesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing wrapupcodes o k response has a 5xx status code
+func (o *GetRoutingWrapupcodesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing wrapupcodes o k response a status code equal to that given
+func (o *GetRoutingWrapupcodesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingWrapupcodesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingWrapupcodesBadRequest() *GetRoutingWrapupcodesBadRequest {
 	return &GetRoutingWrapupcodesBadRequest{}
 }
 
-/*GetRoutingWrapupcodesBadRequest handles this case with default header values.
+/*
+GetRoutingWrapupcodesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingWrapupcodesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing wrapupcodes bad request response has a 2xx status code
+func (o *GetRoutingWrapupcodesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing wrapupcodes bad request response has a 3xx status code
+func (o *GetRoutingWrapupcodesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing wrapupcodes bad request response has a 4xx status code
+func (o *GetRoutingWrapupcodesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing wrapupcodes bad request response has a 5xx status code
+func (o *GetRoutingWrapupcodesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing wrapupcodes bad request response a status code equal to that given
+func (o *GetRoutingWrapupcodesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingWrapupcodesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingWrapupcodesUnauthorized() *GetRoutingWrapupcodesUnauthorized {
 	return &GetRoutingWrapupcodesUnauthorized{}
 }
 
-/*GetRoutingWrapupcodesUnauthorized handles this case with default header values.
+/*
+GetRoutingWrapupcodesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingWrapupcodesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing wrapupcodes unauthorized response has a 2xx status code
+func (o *GetRoutingWrapupcodesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing wrapupcodes unauthorized response has a 3xx status code
+func (o *GetRoutingWrapupcodesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing wrapupcodes unauthorized response has a 4xx status code
+func (o *GetRoutingWrapupcodesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing wrapupcodes unauthorized response has a 5xx status code
+func (o *GetRoutingWrapupcodesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing wrapupcodes unauthorized response a status code equal to that given
+func (o *GetRoutingWrapupcodesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingWrapupcodesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingWrapupcodesForbidden() *GetRoutingWrapupcodesForbidden {
 	return &GetRoutingWrapupcodesForbidden{}
 }
 
-/*GetRoutingWrapupcodesForbidden handles this case with default header values.
+/*
+GetRoutingWrapupcodesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingWrapupcodesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing wrapupcodes forbidden response has a 2xx status code
+func (o *GetRoutingWrapupcodesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing wrapupcodes forbidden response has a 3xx status code
+func (o *GetRoutingWrapupcodesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing wrapupcodes forbidden response has a 4xx status code
+func (o *GetRoutingWrapupcodesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing wrapupcodes forbidden response has a 5xx status code
+func (o *GetRoutingWrapupcodesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing wrapupcodes forbidden response a status code equal to that given
+func (o *GetRoutingWrapupcodesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingWrapupcodesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingWrapupcodesNotFound() *GetRoutingWrapupcodesNotFound {
 	return &GetRoutingWrapupcodesNotFound{}
 }
 
-/*GetRoutingWrapupcodesNotFound handles this case with default header values.
+/*
+GetRoutingWrapupcodesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingWrapupcodesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing wrapupcodes not found response has a 2xx status code
+func (o *GetRoutingWrapupcodesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing wrapupcodes not found response has a 3xx status code
+func (o *GetRoutingWrapupcodesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing wrapupcodes not found response has a 4xx status code
+func (o *GetRoutingWrapupcodesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing wrapupcodes not found response has a 5xx status code
+func (o *GetRoutingWrapupcodesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing wrapupcodes not found response a status code equal to that given
+func (o *GetRoutingWrapupcodesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingWrapupcodesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingWrapupcodesRequestTimeout() *GetRoutingWrapupcodesRequestTimeo
 	return &GetRoutingWrapupcodesRequestTimeout{}
 }
 
-/*GetRoutingWrapupcodesRequestTimeout handles this case with default header values.
+/*
+GetRoutingWrapupcodesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingWrapupcodesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing wrapupcodes request timeout response has a 2xx status code
+func (o *GetRoutingWrapupcodesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing wrapupcodes request timeout response has a 3xx status code
+func (o *GetRoutingWrapupcodesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing wrapupcodes request timeout response has a 4xx status code
+func (o *GetRoutingWrapupcodesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing wrapupcodes request timeout response has a 5xx status code
+func (o *GetRoutingWrapupcodesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing wrapupcodes request timeout response a status code equal to that given
+func (o *GetRoutingWrapupcodesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingWrapupcodesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingWrapupcodesRequestEntityTooLarge() *GetRoutingWrapupcodesReque
 	return &GetRoutingWrapupcodesRequestEntityTooLarge{}
 }
 
-/*GetRoutingWrapupcodesRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingWrapupcodesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingWrapupcodesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing wrapupcodes request entity too large response has a 2xx status code
+func (o *GetRoutingWrapupcodesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing wrapupcodes request entity too large response has a 3xx status code
+func (o *GetRoutingWrapupcodesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing wrapupcodes request entity too large response has a 4xx status code
+func (o *GetRoutingWrapupcodesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing wrapupcodes request entity too large response has a 5xx status code
+func (o *GetRoutingWrapupcodesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing wrapupcodes request entity too large response a status code equal to that given
+func (o *GetRoutingWrapupcodesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingWrapupcodesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingWrapupcodesUnsupportedMediaType() *GetRoutingWrapupcodesUnsupp
 	return &GetRoutingWrapupcodesUnsupportedMediaType{}
 }
 
-/*GetRoutingWrapupcodesUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingWrapupcodesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingWrapupcodesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing wrapupcodes unsupported media type response has a 2xx status code
+func (o *GetRoutingWrapupcodesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing wrapupcodes unsupported media type response has a 3xx status code
+func (o *GetRoutingWrapupcodesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing wrapupcodes unsupported media type response has a 4xx status code
+func (o *GetRoutingWrapupcodesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing wrapupcodes unsupported media type response has a 5xx status code
+func (o *GetRoutingWrapupcodesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing wrapupcodes unsupported media type response a status code equal to that given
+func (o *GetRoutingWrapupcodesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingWrapupcodesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingWrapupcodesTooManyRequests() *GetRoutingWrapupcodesTooManyRequ
 	return &GetRoutingWrapupcodesTooManyRequests{}
 }
 
-/*GetRoutingWrapupcodesTooManyRequests handles this case with default header values.
+/*
+GetRoutingWrapupcodesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingWrapupcodesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing wrapupcodes too many requests response has a 2xx status code
+func (o *GetRoutingWrapupcodesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing wrapupcodes too many requests response has a 3xx status code
+func (o *GetRoutingWrapupcodesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing wrapupcodes too many requests response has a 4xx status code
+func (o *GetRoutingWrapupcodesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing wrapupcodes too many requests response has a 5xx status code
+func (o *GetRoutingWrapupcodesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing wrapupcodes too many requests response a status code equal to that given
+func (o *GetRoutingWrapupcodesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingWrapupcodesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingWrapupcodesInternalServerError() *GetRoutingWrapupcodesInterna
 	return &GetRoutingWrapupcodesInternalServerError{}
 }
 
-/*GetRoutingWrapupcodesInternalServerError handles this case with default header values.
+/*
+GetRoutingWrapupcodesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingWrapupcodesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing wrapupcodes internal server error response has a 2xx status code
+func (o *GetRoutingWrapupcodesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing wrapupcodes internal server error response has a 3xx status code
+func (o *GetRoutingWrapupcodesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing wrapupcodes internal server error response has a 4xx status code
+func (o *GetRoutingWrapupcodesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing wrapupcodes internal server error response has a 5xx status code
+func (o *GetRoutingWrapupcodesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing wrapupcodes internal server error response a status code equal to that given
+func (o *GetRoutingWrapupcodesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingWrapupcodesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingWrapupcodesServiceUnavailable() *GetRoutingWrapupcodesServiceU
 	return &GetRoutingWrapupcodesServiceUnavailable{}
 }
 
-/*GetRoutingWrapupcodesServiceUnavailable handles this case with default header values.
+/*
+GetRoutingWrapupcodesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingWrapupcodesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing wrapupcodes service unavailable response has a 2xx status code
+func (o *GetRoutingWrapupcodesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing wrapupcodes service unavailable response has a 3xx status code
+func (o *GetRoutingWrapupcodesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing wrapupcodes service unavailable response has a 4xx status code
+func (o *GetRoutingWrapupcodesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing wrapupcodes service unavailable response has a 5xx status code
+func (o *GetRoutingWrapupcodesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing wrapupcodes service unavailable response a status code equal to that given
+func (o *GetRoutingWrapupcodesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingWrapupcodesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingWrapupcodesGatewayTimeout() *GetRoutingWrapupcodesGatewayTimeo
 	return &GetRoutingWrapupcodesGatewayTimeout{}
 }
 
-/*GetRoutingWrapupcodesGatewayTimeout handles this case with default header values.
+/*
+GetRoutingWrapupcodesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingWrapupcodesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing wrapupcodes gateway timeout response has a 2xx status code
+func (o *GetRoutingWrapupcodesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing wrapupcodes gateway timeout response has a 3xx status code
+func (o *GetRoutingWrapupcodesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing wrapupcodes gateway timeout response has a 4xx status code
+func (o *GetRoutingWrapupcodesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing wrapupcodes gateway timeout response has a 5xx status code
+func (o *GetRoutingWrapupcodesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing wrapupcodes gateway timeout response a status code equal to that given
+func (o *GetRoutingWrapupcodesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingWrapupcodesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingWrapupcodesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/wrapupcodes][%d] getRoutingWrapupcodesGatewayTimeout  %+v", 504, o.Payload)
 }
 

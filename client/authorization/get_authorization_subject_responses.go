@@ -95,7 +95,6 @@ func (o *GetAuthorizationSubjectReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetAuthorizationSubjectOK() *GetAuthorizationSubjectOK {
 	return &GetAuthorizationSubjectOK{}
 }
 
-/*GetAuthorizationSubjectOK handles this case with default header values.
+/*
+GetAuthorizationSubjectOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetAuthorizationSubjectOK struct {
 	Payload *models.AuthzSubject
 }
 
+// IsSuccess returns true when this get authorization subject o k response has a 2xx status code
+func (o *GetAuthorizationSubjectOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get authorization subject o k response has a 3xx status code
+func (o *GetAuthorizationSubjectOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization subject o k response has a 4xx status code
+func (o *GetAuthorizationSubjectOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get authorization subject o k response has a 5xx status code
+func (o *GetAuthorizationSubjectOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization subject o k response a status code equal to that given
+func (o *GetAuthorizationSubjectOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAuthorizationSubjectOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectOK  %+v", 200, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetAuthorizationSubjectBadRequest() *GetAuthorizationSubjectBadRequest {
 	return &GetAuthorizationSubjectBadRequest{}
 }
 
-/*GetAuthorizationSubjectBadRequest handles this case with default header values.
+/*
+GetAuthorizationSubjectBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetAuthorizationSubjectBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization subject bad request response has a 2xx status code
+func (o *GetAuthorizationSubjectBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization subject bad request response has a 3xx status code
+func (o *GetAuthorizationSubjectBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization subject bad request response has a 4xx status code
+func (o *GetAuthorizationSubjectBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization subject bad request response has a 5xx status code
+func (o *GetAuthorizationSubjectBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization subject bad request response a status code equal to that given
+func (o *GetAuthorizationSubjectBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAuthorizationSubjectBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetAuthorizationSubjectUnauthorized() *GetAuthorizationSubjectUnauthoriz
 	return &GetAuthorizationSubjectUnauthorized{}
 }
 
-/*GetAuthorizationSubjectUnauthorized handles this case with default header values.
+/*
+GetAuthorizationSubjectUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetAuthorizationSubjectUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization subject unauthorized response has a 2xx status code
+func (o *GetAuthorizationSubjectUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization subject unauthorized response has a 3xx status code
+func (o *GetAuthorizationSubjectUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization subject unauthorized response has a 4xx status code
+func (o *GetAuthorizationSubjectUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization subject unauthorized response has a 5xx status code
+func (o *GetAuthorizationSubjectUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization subject unauthorized response a status code equal to that given
+func (o *GetAuthorizationSubjectUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetAuthorizationSubjectUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetAuthorizationSubjectForbidden() *GetAuthorizationSubjectForbidden {
 	return &GetAuthorizationSubjectForbidden{}
 }
 
-/*GetAuthorizationSubjectForbidden handles this case with default header values.
+/*
+GetAuthorizationSubjectForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetAuthorizationSubjectForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization subject forbidden response has a 2xx status code
+func (o *GetAuthorizationSubjectForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization subject forbidden response has a 3xx status code
+func (o *GetAuthorizationSubjectForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization subject forbidden response has a 4xx status code
+func (o *GetAuthorizationSubjectForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization subject forbidden response has a 5xx status code
+func (o *GetAuthorizationSubjectForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization subject forbidden response a status code equal to that given
+func (o *GetAuthorizationSubjectForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAuthorizationSubjectForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetAuthorizationSubjectNotFound() *GetAuthorizationSubjectNotFound {
 	return &GetAuthorizationSubjectNotFound{}
 }
 
-/*GetAuthorizationSubjectNotFound handles this case with default header values.
+/*
+GetAuthorizationSubjectNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetAuthorizationSubjectNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization subject not found response has a 2xx status code
+func (o *GetAuthorizationSubjectNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization subject not found response has a 3xx status code
+func (o *GetAuthorizationSubjectNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization subject not found response has a 4xx status code
+func (o *GetAuthorizationSubjectNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization subject not found response has a 5xx status code
+func (o *GetAuthorizationSubjectNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization subject not found response a status code equal to that given
+func (o *GetAuthorizationSubjectNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAuthorizationSubjectNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetAuthorizationSubjectRequestTimeout() *GetAuthorizationSubjectRequestT
 	return &GetAuthorizationSubjectRequestTimeout{}
 }
 
-/*GetAuthorizationSubjectRequestTimeout handles this case with default header values.
+/*
+GetAuthorizationSubjectRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetAuthorizationSubjectRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization subject request timeout response has a 2xx status code
+func (o *GetAuthorizationSubjectRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization subject request timeout response has a 3xx status code
+func (o *GetAuthorizationSubjectRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization subject request timeout response has a 4xx status code
+func (o *GetAuthorizationSubjectRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization subject request timeout response has a 5xx status code
+func (o *GetAuthorizationSubjectRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization subject request timeout response a status code equal to that given
+func (o *GetAuthorizationSubjectRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetAuthorizationSubjectRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetAuthorizationSubjectRequestEntityTooLarge() *GetAuthorizationSubjectR
 	return &GetAuthorizationSubjectRequestEntityTooLarge{}
 }
 
-/*GetAuthorizationSubjectRequestEntityTooLarge handles this case with default header values.
+/*
+GetAuthorizationSubjectRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetAuthorizationSubjectRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization subject request entity too large response has a 2xx status code
+func (o *GetAuthorizationSubjectRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization subject request entity too large response has a 3xx status code
+func (o *GetAuthorizationSubjectRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization subject request entity too large response has a 4xx status code
+func (o *GetAuthorizationSubjectRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization subject request entity too large response has a 5xx status code
+func (o *GetAuthorizationSubjectRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization subject request entity too large response a status code equal to that given
+func (o *GetAuthorizationSubjectRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetAuthorizationSubjectRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetAuthorizationSubjectUnsupportedMediaType() *GetAuthorizationSubjectUn
 	return &GetAuthorizationSubjectUnsupportedMediaType{}
 }
 
-/*GetAuthorizationSubjectUnsupportedMediaType handles this case with default header values.
+/*
+GetAuthorizationSubjectUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetAuthorizationSubjectUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization subject unsupported media type response has a 2xx status code
+func (o *GetAuthorizationSubjectUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization subject unsupported media type response has a 3xx status code
+func (o *GetAuthorizationSubjectUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization subject unsupported media type response has a 4xx status code
+func (o *GetAuthorizationSubjectUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization subject unsupported media type response has a 5xx status code
+func (o *GetAuthorizationSubjectUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization subject unsupported media type response a status code equal to that given
+func (o *GetAuthorizationSubjectUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetAuthorizationSubjectUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetAuthorizationSubjectTooManyRequests() *GetAuthorizationSubjectTooMany
 	return &GetAuthorizationSubjectTooManyRequests{}
 }
 
-/*GetAuthorizationSubjectTooManyRequests handles this case with default header values.
+/*
+GetAuthorizationSubjectTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetAuthorizationSubjectTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization subject too many requests response has a 2xx status code
+func (o *GetAuthorizationSubjectTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization subject too many requests response has a 3xx status code
+func (o *GetAuthorizationSubjectTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization subject too many requests response has a 4xx status code
+func (o *GetAuthorizationSubjectTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization subject too many requests response has a 5xx status code
+func (o *GetAuthorizationSubjectTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization subject too many requests response a status code equal to that given
+func (o *GetAuthorizationSubjectTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAuthorizationSubjectTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetAuthorizationSubjectInternalServerError() *GetAuthorizationSubjectInt
 	return &GetAuthorizationSubjectInternalServerError{}
 }
 
-/*GetAuthorizationSubjectInternalServerError handles this case with default header values.
+/*
+GetAuthorizationSubjectInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetAuthorizationSubjectInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization subject internal server error response has a 2xx status code
+func (o *GetAuthorizationSubjectInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization subject internal server error response has a 3xx status code
+func (o *GetAuthorizationSubjectInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization subject internal server error response has a 4xx status code
+func (o *GetAuthorizationSubjectInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get authorization subject internal server error response has a 5xx status code
+func (o *GetAuthorizationSubjectInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get authorization subject internal server error response a status code equal to that given
+func (o *GetAuthorizationSubjectInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAuthorizationSubjectInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetAuthorizationSubjectServiceUnavailable() *GetAuthorizationSubjectServ
 	return &GetAuthorizationSubjectServiceUnavailable{}
 }
 
-/*GetAuthorizationSubjectServiceUnavailable handles this case with default header values.
+/*
+GetAuthorizationSubjectServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetAuthorizationSubjectServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization subject service unavailable response has a 2xx status code
+func (o *GetAuthorizationSubjectServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization subject service unavailable response has a 3xx status code
+func (o *GetAuthorizationSubjectServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization subject service unavailable response has a 4xx status code
+func (o *GetAuthorizationSubjectServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get authorization subject service unavailable response has a 5xx status code
+func (o *GetAuthorizationSubjectServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get authorization subject service unavailable response a status code equal to that given
+func (o *GetAuthorizationSubjectServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetAuthorizationSubjectServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetAuthorizationSubjectGatewayTimeout() *GetAuthorizationSubjectGatewayT
 	return &GetAuthorizationSubjectGatewayTimeout{}
 }
 
-/*GetAuthorizationSubjectGatewayTimeout handles this case with default header values.
+/*
+GetAuthorizationSubjectGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetAuthorizationSubjectGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization subject gateway timeout response has a 2xx status code
+func (o *GetAuthorizationSubjectGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization subject gateway timeout response has a 3xx status code
+func (o *GetAuthorizationSubjectGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization subject gateway timeout response has a 4xx status code
+func (o *GetAuthorizationSubjectGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get authorization subject gateway timeout response has a 5xx status code
+func (o *GetAuthorizationSubjectGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get authorization subject gateway timeout response a status code equal to that given
+func (o *GetAuthorizationSubjectGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetAuthorizationSubjectGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetAuthorizationSubjectGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/subjects/{subjectId}][%d] getAuthorizationSubjectGatewayTimeout  %+v", 504, o.Payload)
 }
 

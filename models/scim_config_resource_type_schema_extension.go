@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // ScimConfigResourceTypeSchemaExtension Defines a SCIM resource type's schema extension.
@@ -26,6 +30,42 @@ type ScimConfigResourceTypeSchemaExtension struct {
 
 // Validate validates this scim config resource type schema extension
 func (m *ScimConfigResourceTypeSchemaExtension) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this scim config resource type schema extension based on the context it is used
+func (m *ScimConfigResourceTypeSchemaExtension) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRequired(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimConfigResourceTypeSchemaExtension) contextValidateRequired(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "required", "body", m.Required); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimConfigResourceTypeSchemaExtension) contextValidateSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "schema", "body", string(m.Schema)); err != nil {
+		return err
+	}
+
 	return nil
 }
 

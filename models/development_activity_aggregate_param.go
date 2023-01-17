@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -71,6 +72,8 @@ func (m *DevelopmentActivityAggregateParam) validateFilter(formats strfmt.Regist
 		if err := m.Filter.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
 			}
 			return err
 		}
@@ -99,7 +102,6 @@ func (m *DevelopmentActivityAggregateParam) validateGroupByItemsEnum(path, locat
 }
 
 func (m *DevelopmentActivityAggregateParam) validateGroupBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GroupBy) { // not required
 		return nil
 	}
@@ -145,7 +147,6 @@ func (m *DevelopmentActivityAggregateParam) validateMetricsItemsEnum(path, locat
 }
 
 func (m *DevelopmentActivityAggregateParam) validateMetrics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metrics) { // not required
 		return nil
 	}
@@ -157,6 +158,36 @@ func (m *DevelopmentActivityAggregateParam) validateMetrics(formats strfmt.Regis
 			return err
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this development activity aggregate param based on the context it is used
+func (m *DevelopmentActivityAggregateParam) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFilter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DevelopmentActivityAggregateParam) contextValidateFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Filter != nil {
+		if err := m.Filter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
+			}
+			return err
+		}
 	}
 
 	return nil

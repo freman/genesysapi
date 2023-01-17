@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchRecordingsScreensessionParams creates a new PatchRecordingsScreensessionParams object
-// with the default values initialized.
+// NewPatchRecordingsScreensessionParams creates a new PatchRecordingsScreensessionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchRecordingsScreensessionParams() *PatchRecordingsScreensessionParams {
-	var ()
 	return &PatchRecordingsScreensessionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchRecordingsScreensessionParamsWithTimeout creates a new PatchRecordingsScreensessionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchRecordingsScreensessionParamsWithTimeout(timeout time.Duration) *PatchRecordingsScreensessionParams {
-	var ()
 	return &PatchRecordingsScreensessionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchRecordingsScreensessionParamsWithContext creates a new PatchRecordingsScreensessionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchRecordingsScreensessionParamsWithContext(ctx context.Context) *PatchRecordingsScreensessionParams {
-	var ()
 	return &PatchRecordingsScreensessionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchRecordingsScreensessionParamsWithHTTPClient creates a new PatchRecordingsScreensessionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchRecordingsScreensessionParamsWithHTTPClient(client *http.Client) *PatchRecordingsScreensessionParams {
-	var ()
 	return &PatchRecordingsScreensessionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchRecordingsScreensessionParams contains all the parameters to send to the API endpoint
-for the patch recordings screensession operation typically these are written to a http.Request
+/*
+PatchRecordingsScreensessionParams contains all the parameters to send to the API endpoint
+
+	for the patch recordings screensession operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchRecordingsScreensessionParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.ScreenRecordingSessionRequest
-	/*RecordingSessionID
-	  Screen recording session ID
 
+	/* RecordingSessionID.
+
+	   Screen recording session ID
 	*/
 	RecordingSessionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch recordings screensession params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchRecordingsScreensessionParams) WithDefaults() *PatchRecordingsScreensessionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch recordings screensession params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchRecordingsScreensessionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch recordings screensession params
@@ -137,7 +154,6 @@ func (o *PatchRecordingsScreensessionParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

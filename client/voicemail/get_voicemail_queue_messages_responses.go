@@ -95,7 +95,6 @@ func (o *GetVoicemailQueueMessagesReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetVoicemailQueueMessagesOK() *GetVoicemailQueueMessagesOK {
 	return &GetVoicemailQueueMessagesOK{}
 }
 
-/*GetVoicemailQueueMessagesOK handles this case with default header values.
+/*
+GetVoicemailQueueMessagesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetVoicemailQueueMessagesOK struct {
 	Payload *models.VoicemailMessageEntityListing
 }
 
+// IsSuccess returns true when this get voicemail queue messages o k response has a 2xx status code
+func (o *GetVoicemailQueueMessagesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get voicemail queue messages o k response has a 3xx status code
+func (o *GetVoicemailQueueMessagesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail queue messages o k response has a 4xx status code
+func (o *GetVoicemailQueueMessagesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get voicemail queue messages o k response has a 5xx status code
+func (o *GetVoicemailQueueMessagesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail queue messages o k response a status code equal to that given
+func (o *GetVoicemailQueueMessagesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetVoicemailQueueMessagesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetVoicemailQueueMessagesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetVoicemailQueueMessagesBadRequest() *GetVoicemailQueueMessagesBadReque
 	return &GetVoicemailQueueMessagesBadRequest{}
 }
 
-/*GetVoicemailQueueMessagesBadRequest handles this case with default header values.
+/*
+GetVoicemailQueueMessagesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetVoicemailQueueMessagesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail queue messages bad request response has a 2xx status code
+func (o *GetVoicemailQueueMessagesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail queue messages bad request response has a 3xx status code
+func (o *GetVoicemailQueueMessagesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail queue messages bad request response has a 4xx status code
+func (o *GetVoicemailQueueMessagesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail queue messages bad request response has a 5xx status code
+func (o *GetVoicemailQueueMessagesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail queue messages bad request response a status code equal to that given
+func (o *GetVoicemailQueueMessagesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetVoicemailQueueMessagesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetVoicemailQueueMessagesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetVoicemailQueueMessagesUnauthorized() *GetVoicemailQueueMessagesUnauth
 	return &GetVoicemailQueueMessagesUnauthorized{}
 }
 
-/*GetVoicemailQueueMessagesUnauthorized handles this case with default header values.
+/*
+GetVoicemailQueueMessagesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetVoicemailQueueMessagesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail queue messages unauthorized response has a 2xx status code
+func (o *GetVoicemailQueueMessagesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail queue messages unauthorized response has a 3xx status code
+func (o *GetVoicemailQueueMessagesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail queue messages unauthorized response has a 4xx status code
+func (o *GetVoicemailQueueMessagesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail queue messages unauthorized response has a 5xx status code
+func (o *GetVoicemailQueueMessagesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail queue messages unauthorized response a status code equal to that given
+func (o *GetVoicemailQueueMessagesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetVoicemailQueueMessagesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetVoicemailQueueMessagesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetVoicemailQueueMessagesForbidden() *GetVoicemailQueueMessagesForbidden
 	return &GetVoicemailQueueMessagesForbidden{}
 }
 
-/*GetVoicemailQueueMessagesForbidden handles this case with default header values.
+/*
+GetVoicemailQueueMessagesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetVoicemailQueueMessagesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail queue messages forbidden response has a 2xx status code
+func (o *GetVoicemailQueueMessagesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail queue messages forbidden response has a 3xx status code
+func (o *GetVoicemailQueueMessagesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail queue messages forbidden response has a 4xx status code
+func (o *GetVoicemailQueueMessagesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail queue messages forbidden response has a 5xx status code
+func (o *GetVoicemailQueueMessagesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail queue messages forbidden response a status code equal to that given
+func (o *GetVoicemailQueueMessagesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetVoicemailQueueMessagesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetVoicemailQueueMessagesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetVoicemailQueueMessagesNotFound() *GetVoicemailQueueMessagesNotFound {
 	return &GetVoicemailQueueMessagesNotFound{}
 }
 
-/*GetVoicemailQueueMessagesNotFound handles this case with default header values.
+/*
+GetVoicemailQueueMessagesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetVoicemailQueueMessagesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail queue messages not found response has a 2xx status code
+func (o *GetVoicemailQueueMessagesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail queue messages not found response has a 3xx status code
+func (o *GetVoicemailQueueMessagesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail queue messages not found response has a 4xx status code
+func (o *GetVoicemailQueueMessagesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail queue messages not found response has a 5xx status code
+func (o *GetVoicemailQueueMessagesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail queue messages not found response a status code equal to that given
+func (o *GetVoicemailQueueMessagesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetVoicemailQueueMessagesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetVoicemailQueueMessagesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetVoicemailQueueMessagesRequestTimeout() *GetVoicemailQueueMessagesRequ
 	return &GetVoicemailQueueMessagesRequestTimeout{}
 }
 
-/*GetVoicemailQueueMessagesRequestTimeout handles this case with default header values.
+/*
+GetVoicemailQueueMessagesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetVoicemailQueueMessagesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail queue messages request timeout response has a 2xx status code
+func (o *GetVoicemailQueueMessagesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail queue messages request timeout response has a 3xx status code
+func (o *GetVoicemailQueueMessagesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail queue messages request timeout response has a 4xx status code
+func (o *GetVoicemailQueueMessagesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail queue messages request timeout response has a 5xx status code
+func (o *GetVoicemailQueueMessagesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail queue messages request timeout response a status code equal to that given
+func (o *GetVoicemailQueueMessagesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetVoicemailQueueMessagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetVoicemailQueueMessagesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetVoicemailQueueMessagesRequestEntityTooLarge() *GetVoicemailQueueMessa
 	return &GetVoicemailQueueMessagesRequestEntityTooLarge{}
 }
 
-/*GetVoicemailQueueMessagesRequestEntityTooLarge handles this case with default header values.
+/*
+GetVoicemailQueueMessagesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetVoicemailQueueMessagesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail queue messages request entity too large response has a 2xx status code
+func (o *GetVoicemailQueueMessagesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail queue messages request entity too large response has a 3xx status code
+func (o *GetVoicemailQueueMessagesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail queue messages request entity too large response has a 4xx status code
+func (o *GetVoicemailQueueMessagesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail queue messages request entity too large response has a 5xx status code
+func (o *GetVoicemailQueueMessagesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail queue messages request entity too large response a status code equal to that given
+func (o *GetVoicemailQueueMessagesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetVoicemailQueueMessagesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetVoicemailQueueMessagesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetVoicemailQueueMessagesUnsupportedMediaType() *GetVoicemailQueueMessag
 	return &GetVoicemailQueueMessagesUnsupportedMediaType{}
 }
 
-/*GetVoicemailQueueMessagesUnsupportedMediaType handles this case with default header values.
+/*
+GetVoicemailQueueMessagesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetVoicemailQueueMessagesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail queue messages unsupported media type response has a 2xx status code
+func (o *GetVoicemailQueueMessagesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail queue messages unsupported media type response has a 3xx status code
+func (o *GetVoicemailQueueMessagesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail queue messages unsupported media type response has a 4xx status code
+func (o *GetVoicemailQueueMessagesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail queue messages unsupported media type response has a 5xx status code
+func (o *GetVoicemailQueueMessagesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail queue messages unsupported media type response a status code equal to that given
+func (o *GetVoicemailQueueMessagesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetVoicemailQueueMessagesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetVoicemailQueueMessagesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetVoicemailQueueMessagesTooManyRequests() *GetVoicemailQueueMessagesToo
 	return &GetVoicemailQueueMessagesTooManyRequests{}
 }
 
-/*GetVoicemailQueueMessagesTooManyRequests handles this case with default header values.
+/*
+GetVoicemailQueueMessagesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetVoicemailQueueMessagesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail queue messages too many requests response has a 2xx status code
+func (o *GetVoicemailQueueMessagesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail queue messages too many requests response has a 3xx status code
+func (o *GetVoicemailQueueMessagesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail queue messages too many requests response has a 4xx status code
+func (o *GetVoicemailQueueMessagesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail queue messages too many requests response has a 5xx status code
+func (o *GetVoicemailQueueMessagesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail queue messages too many requests response a status code equal to that given
+func (o *GetVoicemailQueueMessagesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetVoicemailQueueMessagesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetVoicemailQueueMessagesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetVoicemailQueueMessagesInternalServerError() *GetVoicemailQueueMessage
 	return &GetVoicemailQueueMessagesInternalServerError{}
 }
 
-/*GetVoicemailQueueMessagesInternalServerError handles this case with default header values.
+/*
+GetVoicemailQueueMessagesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetVoicemailQueueMessagesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail queue messages internal server error response has a 2xx status code
+func (o *GetVoicemailQueueMessagesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail queue messages internal server error response has a 3xx status code
+func (o *GetVoicemailQueueMessagesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail queue messages internal server error response has a 4xx status code
+func (o *GetVoicemailQueueMessagesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get voicemail queue messages internal server error response has a 5xx status code
+func (o *GetVoicemailQueueMessagesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get voicemail queue messages internal server error response a status code equal to that given
+func (o *GetVoicemailQueueMessagesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetVoicemailQueueMessagesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetVoicemailQueueMessagesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetVoicemailQueueMessagesServiceUnavailable() *GetVoicemailQueueMessages
 	return &GetVoicemailQueueMessagesServiceUnavailable{}
 }
 
-/*GetVoicemailQueueMessagesServiceUnavailable handles this case with default header values.
+/*
+GetVoicemailQueueMessagesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetVoicemailQueueMessagesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail queue messages service unavailable response has a 2xx status code
+func (o *GetVoicemailQueueMessagesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail queue messages service unavailable response has a 3xx status code
+func (o *GetVoicemailQueueMessagesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail queue messages service unavailable response has a 4xx status code
+func (o *GetVoicemailQueueMessagesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get voicemail queue messages service unavailable response has a 5xx status code
+func (o *GetVoicemailQueueMessagesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get voicemail queue messages service unavailable response a status code equal to that given
+func (o *GetVoicemailQueueMessagesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetVoicemailQueueMessagesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetVoicemailQueueMessagesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetVoicemailQueueMessagesGatewayTimeout() *GetVoicemailQueueMessagesGate
 	return &GetVoicemailQueueMessagesGatewayTimeout{}
 }
 
-/*GetVoicemailQueueMessagesGatewayTimeout handles this case with default header values.
+/*
+GetVoicemailQueueMessagesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetVoicemailQueueMessagesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail queue messages gateway timeout response has a 2xx status code
+func (o *GetVoicemailQueueMessagesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail queue messages gateway timeout response has a 3xx status code
+func (o *GetVoicemailQueueMessagesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail queue messages gateway timeout response has a 4xx status code
+func (o *GetVoicemailQueueMessagesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get voicemail queue messages gateway timeout response has a 5xx status code
+func (o *GetVoicemailQueueMessagesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get voicemail queue messages gateway timeout response a status code equal to that given
+func (o *GetVoicemailQueueMessagesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetVoicemailQueueMessagesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetVoicemailQueueMessagesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/queues/{queueId}/messages][%d] getVoicemailQueueMessagesGatewayTimeout  %+v", 504, o.Payload)
 }
 

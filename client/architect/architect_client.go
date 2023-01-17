@@ -2822,10 +2822,11 @@ PostFlowsDatatableRows creates a new row entry for the datatable
 
 Will add the passed in row entry to the datatable with the given datatableId after verifying it against the schema.  The DataTableRow should be a json-ized' stream of key -> value pairs
 {
-    "Field1": "XYZZY",
-    "Field2": false,
-    "KEY": "27272"
-}
+
+	    "Field1": "XYZZY",
+	    "Field2": false,
+	    "KEY": "27272"
+	}
 */
 func (a *Client) PostFlowsDatatableRows(ctx context.Context, params *PostFlowsDatatableRowsParams) (*PostFlowsDatatableRowsOK, error) {
 
@@ -3217,11 +3218,12 @@ func (a *Client) PutFlowsDatatable(ctx context.Context, params *PutFlowsDatatabl
 PutFlowsDatatableRow updates a row entry
 
 Updates a row with the given rowId (the value of the key field) to the new values.  The DataTableRow should be a json-ized' stream of key -> value pairs
-{
-    "Field1": "XYZZY",
-    "Field2": false,
-    "KEY": "27272"
-}
+
+	{
+	    "Field1": "XYZZY",
+	    "Field2": false,
+	    "KEY": "27272"
+	}
 */
 func (a *Client) PutFlowsDatatableRow(ctx context.Context, params *PutFlowsDatatableRowParams) (*PutFlowsDatatableRowOK, error) {
 

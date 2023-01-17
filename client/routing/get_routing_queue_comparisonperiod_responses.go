@@ -95,7 +95,6 @@ func (o *GetRoutingQueueComparisonperiodReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingQueueComparisonperiodOK() *GetRoutingQueueComparisonperiodOK {
 	return &GetRoutingQueueComparisonperiodOK{}
 }
 
-/*GetRoutingQueueComparisonperiodOK handles this case with default header values.
+/*
+GetRoutingQueueComparisonperiodOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingQueueComparisonperiodOK struct {
 	Payload *models.ComparisonPeriod
 }
 
+// IsSuccess returns true when this get routing queue comparisonperiod o k response has a 2xx status code
+func (o *GetRoutingQueueComparisonperiodOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing queue comparisonperiod o k response has a 3xx status code
+func (o *GetRoutingQueueComparisonperiodOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue comparisonperiod o k response has a 4xx status code
+func (o *GetRoutingQueueComparisonperiodOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing queue comparisonperiod o k response has a 5xx status code
+func (o *GetRoutingQueueComparisonperiodOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue comparisonperiod o k response a status code equal to that given
+func (o *GetRoutingQueueComparisonperiodOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingQueueComparisonperiodOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingQueueComparisonperiodOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingQueueComparisonperiodBadRequest() *GetRoutingQueueComparisonpe
 	return &GetRoutingQueueComparisonperiodBadRequest{}
 }
 
-/*GetRoutingQueueComparisonperiodBadRequest handles this case with default header values.
+/*
+GetRoutingQueueComparisonperiodBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingQueueComparisonperiodBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue comparisonperiod bad request response has a 2xx status code
+func (o *GetRoutingQueueComparisonperiodBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue comparisonperiod bad request response has a 3xx status code
+func (o *GetRoutingQueueComparisonperiodBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue comparisonperiod bad request response has a 4xx status code
+func (o *GetRoutingQueueComparisonperiodBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue comparisonperiod bad request response has a 5xx status code
+func (o *GetRoutingQueueComparisonperiodBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue comparisonperiod bad request response a status code equal to that given
+func (o *GetRoutingQueueComparisonperiodBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingQueueComparisonperiodBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingQueueComparisonperiodBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingQueueComparisonperiodUnauthorized() *GetRoutingQueueComparison
 	return &GetRoutingQueueComparisonperiodUnauthorized{}
 }
 
-/*GetRoutingQueueComparisonperiodUnauthorized handles this case with default header values.
+/*
+GetRoutingQueueComparisonperiodUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingQueueComparisonperiodUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue comparisonperiod unauthorized response has a 2xx status code
+func (o *GetRoutingQueueComparisonperiodUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue comparisonperiod unauthorized response has a 3xx status code
+func (o *GetRoutingQueueComparisonperiodUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue comparisonperiod unauthorized response has a 4xx status code
+func (o *GetRoutingQueueComparisonperiodUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue comparisonperiod unauthorized response has a 5xx status code
+func (o *GetRoutingQueueComparisonperiodUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue comparisonperiod unauthorized response a status code equal to that given
+func (o *GetRoutingQueueComparisonperiodUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingQueueComparisonperiodUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingQueueComparisonperiodUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingQueueComparisonperiodForbidden() *GetRoutingQueueComparisonper
 	return &GetRoutingQueueComparisonperiodForbidden{}
 }
 
-/*GetRoutingQueueComparisonperiodForbidden handles this case with default header values.
+/*
+GetRoutingQueueComparisonperiodForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingQueueComparisonperiodForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue comparisonperiod forbidden response has a 2xx status code
+func (o *GetRoutingQueueComparisonperiodForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue comparisonperiod forbidden response has a 3xx status code
+func (o *GetRoutingQueueComparisonperiodForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue comparisonperiod forbidden response has a 4xx status code
+func (o *GetRoutingQueueComparisonperiodForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue comparisonperiod forbidden response has a 5xx status code
+func (o *GetRoutingQueueComparisonperiodForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue comparisonperiod forbidden response a status code equal to that given
+func (o *GetRoutingQueueComparisonperiodForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingQueueComparisonperiodForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingQueueComparisonperiodForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingQueueComparisonperiodNotFound() *GetRoutingQueueComparisonperi
 	return &GetRoutingQueueComparisonperiodNotFound{}
 }
 
-/*GetRoutingQueueComparisonperiodNotFound handles this case with default header values.
+/*
+GetRoutingQueueComparisonperiodNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingQueueComparisonperiodNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue comparisonperiod not found response has a 2xx status code
+func (o *GetRoutingQueueComparisonperiodNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue comparisonperiod not found response has a 3xx status code
+func (o *GetRoutingQueueComparisonperiodNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue comparisonperiod not found response has a 4xx status code
+func (o *GetRoutingQueueComparisonperiodNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue comparisonperiod not found response has a 5xx status code
+func (o *GetRoutingQueueComparisonperiodNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue comparisonperiod not found response a status code equal to that given
+func (o *GetRoutingQueueComparisonperiodNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingQueueComparisonperiodNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingQueueComparisonperiodNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingQueueComparisonperiodRequestTimeout() *GetRoutingQueueComparis
 	return &GetRoutingQueueComparisonperiodRequestTimeout{}
 }
 
-/*GetRoutingQueueComparisonperiodRequestTimeout handles this case with default header values.
+/*
+GetRoutingQueueComparisonperiodRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingQueueComparisonperiodRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue comparisonperiod request timeout response has a 2xx status code
+func (o *GetRoutingQueueComparisonperiodRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue comparisonperiod request timeout response has a 3xx status code
+func (o *GetRoutingQueueComparisonperiodRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue comparisonperiod request timeout response has a 4xx status code
+func (o *GetRoutingQueueComparisonperiodRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue comparisonperiod request timeout response has a 5xx status code
+func (o *GetRoutingQueueComparisonperiodRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue comparisonperiod request timeout response a status code equal to that given
+func (o *GetRoutingQueueComparisonperiodRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingQueueComparisonperiodRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingQueueComparisonperiodRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingQueueComparisonperiodRequestEntityTooLarge() *GetRoutingQueueC
 	return &GetRoutingQueueComparisonperiodRequestEntityTooLarge{}
 }
 
-/*GetRoutingQueueComparisonperiodRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingQueueComparisonperiodRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingQueueComparisonperiodRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue comparisonperiod request entity too large response has a 2xx status code
+func (o *GetRoutingQueueComparisonperiodRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue comparisonperiod request entity too large response has a 3xx status code
+func (o *GetRoutingQueueComparisonperiodRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue comparisonperiod request entity too large response has a 4xx status code
+func (o *GetRoutingQueueComparisonperiodRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue comparisonperiod request entity too large response has a 5xx status code
+func (o *GetRoutingQueueComparisonperiodRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue comparisonperiod request entity too large response a status code equal to that given
+func (o *GetRoutingQueueComparisonperiodRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingQueueComparisonperiodRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingQueueComparisonperiodRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingQueueComparisonperiodUnsupportedMediaType() *GetRoutingQueueCo
 	return &GetRoutingQueueComparisonperiodUnsupportedMediaType{}
 }
 
-/*GetRoutingQueueComparisonperiodUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingQueueComparisonperiodUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingQueueComparisonperiodUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue comparisonperiod unsupported media type response has a 2xx status code
+func (o *GetRoutingQueueComparisonperiodUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue comparisonperiod unsupported media type response has a 3xx status code
+func (o *GetRoutingQueueComparisonperiodUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue comparisonperiod unsupported media type response has a 4xx status code
+func (o *GetRoutingQueueComparisonperiodUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue comparisonperiod unsupported media type response has a 5xx status code
+func (o *GetRoutingQueueComparisonperiodUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue comparisonperiod unsupported media type response a status code equal to that given
+func (o *GetRoutingQueueComparisonperiodUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingQueueComparisonperiodUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingQueueComparisonperiodUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingQueueComparisonperiodTooManyRequests() *GetRoutingQueueCompari
 	return &GetRoutingQueueComparisonperiodTooManyRequests{}
 }
 
-/*GetRoutingQueueComparisonperiodTooManyRequests handles this case with default header values.
+/*
+GetRoutingQueueComparisonperiodTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingQueueComparisonperiodTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue comparisonperiod too many requests response has a 2xx status code
+func (o *GetRoutingQueueComparisonperiodTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue comparisonperiod too many requests response has a 3xx status code
+func (o *GetRoutingQueueComparisonperiodTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue comparisonperiod too many requests response has a 4xx status code
+func (o *GetRoutingQueueComparisonperiodTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue comparisonperiod too many requests response has a 5xx status code
+func (o *GetRoutingQueueComparisonperiodTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue comparisonperiod too many requests response a status code equal to that given
+func (o *GetRoutingQueueComparisonperiodTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingQueueComparisonperiodTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingQueueComparisonperiodTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingQueueComparisonperiodInternalServerError() *GetRoutingQueueCom
 	return &GetRoutingQueueComparisonperiodInternalServerError{}
 }
 
-/*GetRoutingQueueComparisonperiodInternalServerError handles this case with default header values.
+/*
+GetRoutingQueueComparisonperiodInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingQueueComparisonperiodInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue comparisonperiod internal server error response has a 2xx status code
+func (o *GetRoutingQueueComparisonperiodInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue comparisonperiod internal server error response has a 3xx status code
+func (o *GetRoutingQueueComparisonperiodInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue comparisonperiod internal server error response has a 4xx status code
+func (o *GetRoutingQueueComparisonperiodInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing queue comparisonperiod internal server error response has a 5xx status code
+func (o *GetRoutingQueueComparisonperiodInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing queue comparisonperiod internal server error response a status code equal to that given
+func (o *GetRoutingQueueComparisonperiodInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingQueueComparisonperiodInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingQueueComparisonperiodInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingQueueComparisonperiodServiceUnavailable() *GetRoutingQueueComp
 	return &GetRoutingQueueComparisonperiodServiceUnavailable{}
 }
 
-/*GetRoutingQueueComparisonperiodServiceUnavailable handles this case with default header values.
+/*
+GetRoutingQueueComparisonperiodServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingQueueComparisonperiodServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue comparisonperiod service unavailable response has a 2xx status code
+func (o *GetRoutingQueueComparisonperiodServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue comparisonperiod service unavailable response has a 3xx status code
+func (o *GetRoutingQueueComparisonperiodServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue comparisonperiod service unavailable response has a 4xx status code
+func (o *GetRoutingQueueComparisonperiodServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing queue comparisonperiod service unavailable response has a 5xx status code
+func (o *GetRoutingQueueComparisonperiodServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing queue comparisonperiod service unavailable response a status code equal to that given
+func (o *GetRoutingQueueComparisonperiodServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingQueueComparisonperiodServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingQueueComparisonperiodServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingQueueComparisonperiodGatewayTimeout() *GetRoutingQueueComparis
 	return &GetRoutingQueueComparisonperiodGatewayTimeout{}
 }
 
-/*GetRoutingQueueComparisonperiodGatewayTimeout handles this case with default header values.
+/*
+GetRoutingQueueComparisonperiodGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingQueueComparisonperiodGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue comparisonperiod gateway timeout response has a 2xx status code
+func (o *GetRoutingQueueComparisonperiodGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue comparisonperiod gateway timeout response has a 3xx status code
+func (o *GetRoutingQueueComparisonperiodGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue comparisonperiod gateway timeout response has a 4xx status code
+func (o *GetRoutingQueueComparisonperiodGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing queue comparisonperiod gateway timeout response has a 5xx status code
+func (o *GetRoutingQueueComparisonperiodGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing queue comparisonperiod gateway timeout response a status code equal to that given
+func (o *GetRoutingQueueComparisonperiodGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingQueueComparisonperiodGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingQueueComparisonperiodGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/comparisonperiods/{comparisonPeriodId}][%d] getRoutingQueueComparisonperiodGatewayTimeout  %+v", 504, o.Payload)
 }
 

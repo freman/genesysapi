@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchJourneyOutcomeParams creates a new PatchJourneyOutcomeParams object
-// with the default values initialized.
+// NewPatchJourneyOutcomeParams creates a new PatchJourneyOutcomeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchJourneyOutcomeParams() *PatchJourneyOutcomeParams {
-	var ()
 	return &PatchJourneyOutcomeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchJourneyOutcomeParamsWithTimeout creates a new PatchJourneyOutcomeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchJourneyOutcomeParamsWithTimeout(timeout time.Duration) *PatchJourneyOutcomeParams {
-	var ()
 	return &PatchJourneyOutcomeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchJourneyOutcomeParamsWithContext creates a new PatchJourneyOutcomeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchJourneyOutcomeParamsWithContext(ctx context.Context) *PatchJourneyOutcomeParams {
-	var ()
 	return &PatchJourneyOutcomeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchJourneyOutcomeParamsWithHTTPClient creates a new PatchJourneyOutcomeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchJourneyOutcomeParamsWithHTTPClient(client *http.Client) *PatchJourneyOutcomeParams {
-	var ()
 	return &PatchJourneyOutcomeParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchJourneyOutcomeParams contains all the parameters to send to the API endpoint
-for the patch journey outcome operation typically these are written to a http.Request
+/*
+PatchJourneyOutcomeParams contains all the parameters to send to the API endpoint
+
+	for the patch journey outcome operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchJourneyOutcomeParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.PatchOutcome
-	/*OutcomeID
-	  ID of the outcome.
 
+	/* OutcomeID.
+
+	   ID of the outcome.
 	*/
 	OutcomeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch journey outcome params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchJourneyOutcomeParams) WithDefaults() *PatchJourneyOutcomeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch journey outcome params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchJourneyOutcomeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch journey outcome params
@@ -137,7 +154,6 @@ func (o *PatchJourneyOutcomeParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

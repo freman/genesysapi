@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -78,7 +79,6 @@ func (m *ShiftTradeNotification) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ShiftTradeNotification) validateInitiatingShiftDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitiatingShiftDate) { // not required
 		return nil
 	}
@@ -91,7 +91,6 @@ func (m *ShiftTradeNotification) validateInitiatingShiftDate(formats strfmt.Regi
 }
 
 func (m *ShiftTradeNotification) validateInitiatingUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitiatingUser) { // not required
 		return nil
 	}
@@ -100,6 +99,8 @@ func (m *ShiftTradeNotification) validateInitiatingUser(formats strfmt.Registry)
 		if err := m.InitiatingUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("initiatingUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("initiatingUser")
 			}
 			return err
 		}
@@ -150,7 +151,6 @@ func (m *ShiftTradeNotification) validateNewStateEnum(path, location string, val
 }
 
 func (m *ShiftTradeNotification) validateNewState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NewState) { // not required
 		return nil
 	}
@@ -164,7 +164,6 @@ func (m *ShiftTradeNotification) validateNewState(formats strfmt.Registry) error
 }
 
 func (m *ShiftTradeNotification) validateReceivingShiftDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReceivingShiftDate) { // not required
 		return nil
 	}
@@ -177,7 +176,6 @@ func (m *ShiftTradeNotification) validateReceivingShiftDate(formats strfmt.Regis
 }
 
 func (m *ShiftTradeNotification) validateReceivingUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReceivingUser) { // not required
 		return nil
 	}
@@ -186,6 +184,58 @@ func (m *ShiftTradeNotification) validateReceivingUser(formats strfmt.Registry) 
 		if err := m.ReceivingUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("receivingUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("receivingUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this shift trade notification based on the context it is used
+func (m *ShiftTradeNotification) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateInitiatingUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReceivingUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ShiftTradeNotification) contextValidateInitiatingUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InitiatingUser != nil {
+		if err := m.InitiatingUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("initiatingUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("initiatingUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ShiftTradeNotification) contextValidateReceivingUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReceivingUser != nil {
+		if err := m.ReceivingUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("receivingUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("receivingUser")
 			}
 			return err
 		}

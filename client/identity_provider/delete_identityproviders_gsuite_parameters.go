@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteIdentityprovidersGsuiteParams creates a new DeleteIdentityprovidersGsuiteParams object
-// with the default values initialized.
+// NewDeleteIdentityprovidersGsuiteParams creates a new DeleteIdentityprovidersGsuiteParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteIdentityprovidersGsuiteParams() *DeleteIdentityprovidersGsuiteParams {
-
 	return &DeleteIdentityprovidersGsuiteParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteIdentityprovidersGsuiteParamsWithTimeout creates a new DeleteIdentityprovidersGsuiteParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteIdentityprovidersGsuiteParamsWithTimeout(timeout time.Duration) *DeleteIdentityprovidersGsuiteParams {
-
 	return &DeleteIdentityprovidersGsuiteParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteIdentityprovidersGsuiteParamsWithContext creates a new DeleteIdentityprovidersGsuiteParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteIdentityprovidersGsuiteParamsWithContext(ctx context.Context) *DeleteIdentityprovidersGsuiteParams {
-
 	return &DeleteIdentityprovidersGsuiteParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteIdentityprovidersGsuiteParamsWithHTTPClient creates a new DeleteIdentityprovidersGsuiteParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteIdentityprovidersGsuiteParamsWithHTTPClient(client *http.Client) *DeleteIdentityprovidersGsuiteParams {
-
 	return &DeleteIdentityprovidersGsuiteParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteIdentityprovidersGsuiteParams contains all the parameters to send to the API endpoint
-for the delete identityproviders gsuite operation typically these are written to a http.Request
+/*
+DeleteIdentityprovidersGsuiteParams contains all the parameters to send to the API endpoint
+
+	for the delete identityproviders gsuite operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteIdentityprovidersGsuiteParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete identityproviders gsuite params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteIdentityprovidersGsuiteParams) WithDefaults() *DeleteIdentityprovidersGsuiteParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete identityproviders gsuite params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteIdentityprovidersGsuiteParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete identityproviders gsuite params

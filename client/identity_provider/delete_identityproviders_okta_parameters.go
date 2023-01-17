@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteIdentityprovidersOktaParams creates a new DeleteIdentityprovidersOktaParams object
-// with the default values initialized.
+// NewDeleteIdentityprovidersOktaParams creates a new DeleteIdentityprovidersOktaParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteIdentityprovidersOktaParams() *DeleteIdentityprovidersOktaParams {
-
 	return &DeleteIdentityprovidersOktaParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteIdentityprovidersOktaParamsWithTimeout creates a new DeleteIdentityprovidersOktaParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteIdentityprovidersOktaParamsWithTimeout(timeout time.Duration) *DeleteIdentityprovidersOktaParams {
-
 	return &DeleteIdentityprovidersOktaParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteIdentityprovidersOktaParamsWithContext creates a new DeleteIdentityprovidersOktaParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteIdentityprovidersOktaParamsWithContext(ctx context.Context) *DeleteIdentityprovidersOktaParams {
-
 	return &DeleteIdentityprovidersOktaParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteIdentityprovidersOktaParamsWithHTTPClient creates a new DeleteIdentityprovidersOktaParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteIdentityprovidersOktaParamsWithHTTPClient(client *http.Client) *DeleteIdentityprovidersOktaParams {
-
 	return &DeleteIdentityprovidersOktaParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteIdentityprovidersOktaParams contains all the parameters to send to the API endpoint
-for the delete identityproviders okta operation typically these are written to a http.Request
+/*
+DeleteIdentityprovidersOktaParams contains all the parameters to send to the API endpoint
+
+	for the delete identityproviders okta operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteIdentityprovidersOktaParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete identityproviders okta params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteIdentityprovidersOktaParams) WithDefaults() *DeleteIdentityprovidersOktaParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete identityproviders okta params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteIdentityprovidersOktaParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete identityproviders okta params

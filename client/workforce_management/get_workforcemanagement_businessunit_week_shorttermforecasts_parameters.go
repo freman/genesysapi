@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsParams creates a new GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsParams creates a new GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsParams() *GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsParamsWithTimeout creates a new GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsParamsWithContext creates a new GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsParamsWithContext(ctx context.Context) *GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsParamsWithHTTPClient creates a new GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement businessunit week shorttermforecasts operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement businessunit week shorttermforecasts operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams struct {
 
-	/*BusinessUnitID
-	  The ID of the business unit to which the forecast belongs
+	/* BusinessUnitID.
 
+	   The ID of the business unit to which the forecast belongs
 	*/
 	BusinessUnitID string
-	/*WeekDateID
-	  The week start date of the forecast in yyyy-MM-dd format or 'recent' (without quotes) to fetch recent forecasts
 
+	/* WeekDateID.
+
+	   The week start date of the forecast in yyyy-MM-dd format or 'recent' (without quotes) to fetch recent forecasts
 	*/
 	WeekDateID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement businessunit week shorttermforecasts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams) WithDefaults() *GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement businessunit week shorttermforecasts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement businessunit week shorttermforecasts params

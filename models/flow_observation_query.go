@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -74,7 +75,6 @@ func (m *FlowObservationQuery) validateDetailMetricsItemsEnum(path, location str
 }
 
 func (m *FlowObservationQuery) validateDetailMetrics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DetailMetrics) { // not required
 		return nil
 	}
@@ -101,6 +101,8 @@ func (m *FlowObservationQuery) validateFilter(formats strfmt.Registry) error {
 		if err := m.Filter.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
 			}
 			return err
 		}
@@ -141,6 +143,36 @@ func (m *FlowObservationQuery) validateMetrics(formats strfmt.Registry) error {
 			return err
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this flow observation query based on the context it is used
+func (m *FlowObservationQuery) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFilter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FlowObservationQuery) contextValidateFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Filter != nil {
+		if err := m.Filter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
+			}
+			return err
+		}
 	}
 
 	return nil

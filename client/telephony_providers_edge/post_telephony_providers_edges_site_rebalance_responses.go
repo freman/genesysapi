@@ -95,7 +95,6 @@ func (o *PostTelephonyProvidersEdgesSiteRebalanceReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostTelephonyProvidersEdgesSiteRebalanceAccepted() *PostTelephonyProvide
 	return &PostTelephonyProvidersEdgesSiteRebalanceAccepted{}
 }
 
-/*PostTelephonyProvidersEdgesSiteRebalanceAccepted handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesSiteRebalanceAccepted describes a response with status code 202, with default header values.
 
 Accepted - Processing the Rebalance
 */
 type PostTelephonyProvidersEdgesSiteRebalanceAccepted struct {
 }
 
+// IsSuccess returns true when this post telephony providers edges site rebalance accepted response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post telephony providers edges site rebalance accepted response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges site rebalance accepted response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edges site rebalance accepted response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges site rebalance accepted response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesSiteRebalanceAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostTelephonyProvidersEdgesSiteRebalanceAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceAccepted ", 202)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteRebalanceAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceAccepted ", 202)
 }
 
@@ -127,7 +156,8 @@ func NewPostTelephonyProvidersEdgesSiteRebalanceBadRequest() *PostTelephonyProvi
 	return &PostTelephonyProvidersEdgesSiteRebalanceBadRequest{}
 }
 
-/*PostTelephonyProvidersEdgesSiteRebalanceBadRequest handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesSiteRebalanceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostTelephonyProvidersEdgesSiteRebalanceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges site rebalance bad request response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges site rebalance bad request response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges site rebalance bad request response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges site rebalance bad request response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges site rebalance bad request response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesSiteRebalanceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostTelephonyProvidersEdgesSiteRebalanceBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteRebalanceBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostTelephonyProvidersEdgesSiteRebalanceUnauthorized() *PostTelephonyPro
 	return &PostTelephonyProvidersEdgesSiteRebalanceUnauthorized{}
 }
 
-/*PostTelephonyProvidersEdgesSiteRebalanceUnauthorized handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesSiteRebalanceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostTelephonyProvidersEdgesSiteRebalanceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges site rebalance unauthorized response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges site rebalance unauthorized response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges site rebalance unauthorized response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges site rebalance unauthorized response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges site rebalance unauthorized response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesSiteRebalanceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostTelephonyProvidersEdgesSiteRebalanceUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteRebalanceUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostTelephonyProvidersEdgesSiteRebalanceForbidden() *PostTelephonyProvid
 	return &PostTelephonyProvidersEdgesSiteRebalanceForbidden{}
 }
 
-/*PostTelephonyProvidersEdgesSiteRebalanceForbidden handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesSiteRebalanceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostTelephonyProvidersEdgesSiteRebalanceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges site rebalance forbidden response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges site rebalance forbidden response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges site rebalance forbidden response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges site rebalance forbidden response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges site rebalance forbidden response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesSiteRebalanceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostTelephonyProvidersEdgesSiteRebalanceForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteRebalanceForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostTelephonyProvidersEdgesSiteRebalanceNotFound() *PostTelephonyProvide
 	return &PostTelephonyProvidersEdgesSiteRebalanceNotFound{}
 }
 
-/*PostTelephonyProvidersEdgesSiteRebalanceNotFound handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesSiteRebalanceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostTelephonyProvidersEdgesSiteRebalanceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges site rebalance not found response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges site rebalance not found response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges site rebalance not found response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges site rebalance not found response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges site rebalance not found response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesSiteRebalanceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostTelephonyProvidersEdgesSiteRebalanceNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteRebalanceNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostTelephonyProvidersEdgesSiteRebalanceRequestTimeout() *PostTelephonyP
 	return &PostTelephonyProvidersEdgesSiteRebalanceRequestTimeout{}
 }
 
-/*PostTelephonyProvidersEdgesSiteRebalanceRequestTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesSiteRebalanceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostTelephonyProvidersEdgesSiteRebalanceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges site rebalance request timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges site rebalance request timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges site rebalance request timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges site rebalance request timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges site rebalance request timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge() *PostTel
 	return &PostTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge{}
 }
 
-/*PostTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges site rebalance request entity too large response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges site rebalance request entity too large response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges site rebalance request entity too large response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges site rebalance request entity too large response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges site rebalance request entity too large response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType() *PostTele
 	return &PostTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType{}
 }
 
-/*PostTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges site rebalance unsupported media type response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges site rebalance unsupported media type response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges site rebalance unsupported media type response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges site rebalance unsupported media type response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges site rebalance unsupported media type response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostTelephonyProvidersEdgesSiteRebalanceTooManyRequests() *PostTelephony
 	return &PostTelephonyProvidersEdgesSiteRebalanceTooManyRequests{}
 }
 
-/*PostTelephonyProvidersEdgesSiteRebalanceTooManyRequests handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesSiteRebalanceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostTelephonyProvidersEdgesSiteRebalanceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges site rebalance too many requests response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges site rebalance too many requests response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges site rebalance too many requests response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges site rebalance too many requests response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges site rebalance too many requests response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesSiteRebalanceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostTelephonyProvidersEdgesSiteRebalanceTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteRebalanceTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostTelephonyProvidersEdgesSiteRebalanceInternalServerError() *PostTelep
 	return &PostTelephonyProvidersEdgesSiteRebalanceInternalServerError{}
 }
 
-/*PostTelephonyProvidersEdgesSiteRebalanceInternalServerError handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesSiteRebalanceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostTelephonyProvidersEdgesSiteRebalanceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges site rebalance internal server error response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges site rebalance internal server error response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges site rebalance internal server error response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edges site rebalance internal server error response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edges site rebalance internal server error response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesSiteRebalanceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostTelephonyProvidersEdgesSiteRebalanceInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteRebalanceInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostTelephonyProvidersEdgesSiteRebalanceServiceUnavailable() *PostTeleph
 	return &PostTelephonyProvidersEdgesSiteRebalanceServiceUnavailable{}
 }
 
-/*PostTelephonyProvidersEdgesSiteRebalanceServiceUnavailable handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesSiteRebalanceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostTelephonyProvidersEdgesSiteRebalanceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges site rebalance service unavailable response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges site rebalance service unavailable response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges site rebalance service unavailable response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edges site rebalance service unavailable response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edges site rebalance service unavailable response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesSiteRebalanceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostTelephonyProvidersEdgesSiteRebalanceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteRebalanceServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostTelephonyProvidersEdgesSiteRebalanceGatewayTimeout() *PostTelephonyP
 	return &PostTelephonyProvidersEdgesSiteRebalanceGatewayTimeout{}
 }
 
-/*PostTelephonyProvidersEdgesSiteRebalanceGatewayTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesSiteRebalanceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostTelephonyProvidersEdgesSiteRebalanceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges site rebalance gateway timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges site rebalance gateway timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges site rebalance gateway timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edges site rebalance gateway timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesSiteRebalanceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edges site rebalance gateway timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesSiteRebalanceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostTelephonyProvidersEdgesSiteRebalanceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesSiteRebalanceGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/sites/{siteId}/rebalance][%d] postTelephonyProvidersEdgesSiteRebalanceGatewayTimeout  %+v", 504, o.Payload)
 }
 

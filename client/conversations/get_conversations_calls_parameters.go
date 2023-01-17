@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConversationsCallsParams creates a new GetConversationsCallsParams object
-// with the default values initialized.
+// NewGetConversationsCallsParams creates a new GetConversationsCallsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationsCallsParams() *GetConversationsCallsParams {
-
 	return &GetConversationsCallsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationsCallsParamsWithTimeout creates a new GetConversationsCallsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationsCallsParamsWithTimeout(timeout time.Duration) *GetConversationsCallsParams {
-
 	return &GetConversationsCallsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationsCallsParamsWithContext creates a new GetConversationsCallsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationsCallsParamsWithContext(ctx context.Context) *GetConversationsCallsParams {
-
 	return &GetConversationsCallsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationsCallsParamsWithHTTPClient creates a new GetConversationsCallsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationsCallsParamsWithHTTPClient(client *http.Client) *GetConversationsCallsParams {
-
 	return &GetConversationsCallsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationsCallsParams contains all the parameters to send to the API endpoint
-for the get conversations calls operation typically these are written to a http.Request
+/*
+GetConversationsCallsParams contains all the parameters to send to the API endpoint
+
+	for the get conversations calls operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationsCallsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversations calls params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsCallsParams) WithDefaults() *GetConversationsCallsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversations calls params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsCallsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get conversations calls params

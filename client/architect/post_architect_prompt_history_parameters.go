@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostArchitectPromptHistoryParams creates a new PostArchitectPromptHistoryParams object
-// with the default values initialized.
+// NewPostArchitectPromptHistoryParams creates a new PostArchitectPromptHistoryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostArchitectPromptHistoryParams() *PostArchitectPromptHistoryParams {
-	var ()
 	return &PostArchitectPromptHistoryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostArchitectPromptHistoryParamsWithTimeout creates a new PostArchitectPromptHistoryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostArchitectPromptHistoryParamsWithTimeout(timeout time.Duration) *PostArchitectPromptHistoryParams {
-	var ()
 	return &PostArchitectPromptHistoryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostArchitectPromptHistoryParamsWithContext creates a new PostArchitectPromptHistoryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostArchitectPromptHistoryParamsWithContext(ctx context.Context) *PostArchitectPromptHistoryParams {
-	var ()
 	return &PostArchitectPromptHistoryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostArchitectPromptHistoryParamsWithHTTPClient creates a new PostArchitectPromptHistoryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostArchitectPromptHistoryParamsWithHTTPClient(client *http.Client) *PostArchitectPromptHistoryParams {
-	var ()
 	return &PostArchitectPromptHistoryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostArchitectPromptHistoryParams contains all the parameters to send to the API endpoint
-for the post architect prompt history operation typically these are written to a http.Request
+/*
+PostArchitectPromptHistoryParams contains all the parameters to send to the API endpoint
+
+	for the post architect prompt history operation.
+
+	Typically these are written to a http.Request.
 */
 type PostArchitectPromptHistoryParams struct {
 
-	/*PromptID
-	  Prompt ID
+	/* PromptID.
 
+	   Prompt ID
 	*/
 	PromptID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post architect prompt history params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostArchitectPromptHistoryParams) WithDefaults() *PostArchitectPromptHistoryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post architect prompt history params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostArchitectPromptHistoryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post architect prompt history params

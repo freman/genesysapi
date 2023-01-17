@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -125,14 +126,14 @@ const (
 	// OAuthClientRequestAuthorizedGrantTypeTOKEN captures enum value "TOKEN"
 	OAuthClientRequestAuthorizedGrantTypeTOKEN string = "TOKEN"
 
-	// OAuthClientRequestAuthorizedGrantTypeSAML2BEARER captures enum value "SAML2-BEARER"
-	OAuthClientRequestAuthorizedGrantTypeSAML2BEARER string = "SAML2-BEARER"
+	// OAuthClientRequestAuthorizedGrantTypeSAML2DashBEARER captures enum value "SAML2-BEARER"
+	OAuthClientRequestAuthorizedGrantTypeSAML2DashBEARER string = "SAML2-BEARER"
 
 	// OAuthClientRequestAuthorizedGrantTypePASSWORD captures enum value "PASSWORD"
 	OAuthClientRequestAuthorizedGrantTypePASSWORD string = "PASSWORD"
 
-	// OAuthClientRequestAuthorizedGrantTypeCLIENTCREDENTIALS captures enum value "CLIENT-CREDENTIALS"
-	OAuthClientRequestAuthorizedGrantTypeCLIENTCREDENTIALS string = "CLIENT-CREDENTIALS"
+	// OAuthClientRequestAuthorizedGrantTypeCLIENTDashCREDENTIALS captures enum value "CLIENT-CREDENTIALS"
+	OAuthClientRequestAuthorizedGrantTypeCLIENTDashCREDENTIALS string = "CLIENT-CREDENTIALS"
 )
 
 // prop value enum
@@ -158,7 +159,6 @@ func (m *OAuthClientRequest) validateAuthorizedGrantType(formats strfmt.Registry
 }
 
 func (m *OAuthClientRequest) validateDateToDelete(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateToDelete) { // not required
 		return nil
 	}
@@ -180,7 +180,6 @@ func (m *OAuthClientRequest) validateName(formats strfmt.Registry) error {
 }
 
 func (m *OAuthClientRequest) validateRegisteredRedirectURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RegisteredRedirectURI) { // not required
 		return nil
 	}
@@ -197,7 +196,6 @@ func (m *OAuthClientRequest) validateRegisteredRedirectURI(formats strfmt.Regist
 }
 
 func (m *OAuthClientRequest) validateRoleDivisions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoleDivisions) { // not required
 		return nil
 	}
@@ -215,6 +213,8 @@ func (m *OAuthClientRequest) validateRoleDivisions(formats strfmt.Registry) erro
 			if err := m.RoleDivisions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("roleDivisions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("roleDivisions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -226,7 +226,6 @@ func (m *OAuthClientRequest) validateRoleDivisions(formats strfmt.Registry) erro
 }
 
 func (m *OAuthClientRequest) validateRoleIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoleIds) { // not required
 		return nil
 	}
@@ -271,7 +270,6 @@ func (m *OAuthClientRequest) validateStateEnum(path, location string, value stri
 }
 
 func (m *OAuthClientRequest) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -279,6 +277,40 @@ func (m *OAuthClientRequest) validateState(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this o auth client request based on the context it is used
+func (m *OAuthClientRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRoleDivisions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OAuthClientRequest) contextValidateRoleDivisions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RoleDivisions); i++ {
+
+		if m.RoleDivisions[i] != nil {
+			if err := m.RoleDivisions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("roleDivisions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("roleDivisions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

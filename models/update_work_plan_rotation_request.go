@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -66,7 +67,6 @@ func (m *UpdateWorkPlanRotationRequest) Validate(formats strfmt.Registry) error 
 }
 
 func (m *UpdateWorkPlanRotationRequest) validateAgents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Agents) { // not required
 		return nil
 	}
@@ -80,6 +80,8 @@ func (m *UpdateWorkPlanRotationRequest) validateAgents(formats strfmt.Registry) 
 			if err := m.Agents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("agents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -91,7 +93,6 @@ func (m *UpdateWorkPlanRotationRequest) validateAgents(formats strfmt.Registry) 
 }
 
 func (m *UpdateWorkPlanRotationRequest) validateDateRange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateRange) { // not required
 		return nil
 	}
@@ -100,6 +101,8 @@ func (m *UpdateWorkPlanRotationRequest) validateDateRange(formats strfmt.Registr
 		if err := m.DateRange.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dateRange")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dateRange")
 			}
 			return err
 		}
@@ -118,6 +121,8 @@ func (m *UpdateWorkPlanRotationRequest) validateMetadata(formats strfmt.Registry
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -127,7 +132,6 @@ func (m *UpdateWorkPlanRotationRequest) validateMetadata(formats strfmt.Registry
 }
 
 func (m *UpdateWorkPlanRotationRequest) validatePattern(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Pattern) { // not required
 		return nil
 	}
@@ -136,6 +140,102 @@ func (m *UpdateWorkPlanRotationRequest) validatePattern(formats strfmt.Registry)
 		if err := m.Pattern.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pattern")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pattern")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this update work plan rotation request based on the context it is used
+func (m *UpdateWorkPlanRotationRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePattern(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UpdateWorkPlanRotationRequest) contextValidateAgents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Agents); i++ {
+
+		if m.Agents[i] != nil {
+			if err := m.Agents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("agents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UpdateWorkPlanRotationRequest) contextValidateDateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DateRange != nil {
+		if err := m.DateRange.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dateRange")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dateRange")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateWorkPlanRotationRequest) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateWorkPlanRotationRequest) contextValidatePattern(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Pattern != nil {
+		if err := m.Pattern.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pattern")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pattern")
 			}
 			return err
 		}

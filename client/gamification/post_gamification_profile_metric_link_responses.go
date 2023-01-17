@@ -95,7 +95,6 @@ func (o *PostGamificationProfileMetricLinkReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostGamificationProfileMetricLinkCreated() *PostGamificationProfileMetri
 	return &PostGamificationProfileMetricLinkCreated{}
 }
 
-/*PostGamificationProfileMetricLinkCreated handles this case with default header values.
+/*
+PostGamificationProfileMetricLinkCreated describes a response with status code 201, with default header values.
 
 Linked Metric successfully created
 */
@@ -114,7 +114,36 @@ type PostGamificationProfileMetricLinkCreated struct {
 	Payload *models.Metric
 }
 
+// IsSuccess returns true when this post gamification profile metric link created response has a 2xx status code
+func (o *PostGamificationProfileMetricLinkCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post gamification profile metric link created response has a 3xx status code
+func (o *PostGamificationProfileMetricLinkCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile metric link created response has a 4xx status code
+func (o *PostGamificationProfileMetricLinkCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post gamification profile metric link created response has a 5xx status code
+func (o *PostGamificationProfileMetricLinkCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile metric link created response a status code equal to that given
+func (o *PostGamificationProfileMetricLinkCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostGamificationProfileMetricLinkCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostGamificationProfileMetricLinkCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkCreated  %+v", 201, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostGamificationProfileMetricLinkBadRequest() *PostGamificationProfileMe
 	return &PostGamificationProfileMetricLinkBadRequest{}
 }
 
-/*PostGamificationProfileMetricLinkBadRequest handles this case with default header values.
+/*
+PostGamificationProfileMetricLinkBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostGamificationProfileMetricLinkBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile metric link bad request response has a 2xx status code
+func (o *PostGamificationProfileMetricLinkBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile metric link bad request response has a 3xx status code
+func (o *PostGamificationProfileMetricLinkBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile metric link bad request response has a 4xx status code
+func (o *PostGamificationProfileMetricLinkBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile metric link bad request response has a 5xx status code
+func (o *PostGamificationProfileMetricLinkBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile metric link bad request response a status code equal to that given
+func (o *PostGamificationProfileMetricLinkBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostGamificationProfileMetricLinkBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostGamificationProfileMetricLinkBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostGamificationProfileMetricLinkUnauthorized() *PostGamificationProfile
 	return &PostGamificationProfileMetricLinkUnauthorized{}
 }
 
-/*PostGamificationProfileMetricLinkUnauthorized handles this case with default header values.
+/*
+PostGamificationProfileMetricLinkUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostGamificationProfileMetricLinkUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile metric link unauthorized response has a 2xx status code
+func (o *PostGamificationProfileMetricLinkUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile metric link unauthorized response has a 3xx status code
+func (o *PostGamificationProfileMetricLinkUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile metric link unauthorized response has a 4xx status code
+func (o *PostGamificationProfileMetricLinkUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile metric link unauthorized response has a 5xx status code
+func (o *PostGamificationProfileMetricLinkUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile metric link unauthorized response a status code equal to that given
+func (o *PostGamificationProfileMetricLinkUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostGamificationProfileMetricLinkUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostGamificationProfileMetricLinkUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostGamificationProfileMetricLinkForbidden() *PostGamificationProfileMet
 	return &PostGamificationProfileMetricLinkForbidden{}
 }
 
-/*PostGamificationProfileMetricLinkForbidden handles this case with default header values.
+/*
+PostGamificationProfileMetricLinkForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostGamificationProfileMetricLinkForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile metric link forbidden response has a 2xx status code
+func (o *PostGamificationProfileMetricLinkForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile metric link forbidden response has a 3xx status code
+func (o *PostGamificationProfileMetricLinkForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile metric link forbidden response has a 4xx status code
+func (o *PostGamificationProfileMetricLinkForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile metric link forbidden response has a 5xx status code
+func (o *PostGamificationProfileMetricLinkForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile metric link forbidden response a status code equal to that given
+func (o *PostGamificationProfileMetricLinkForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostGamificationProfileMetricLinkForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostGamificationProfileMetricLinkForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostGamificationProfileMetricLinkNotFound() *PostGamificationProfileMetr
 	return &PostGamificationProfileMetricLinkNotFound{}
 }
 
-/*PostGamificationProfileMetricLinkNotFound handles this case with default header values.
+/*
+PostGamificationProfileMetricLinkNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostGamificationProfileMetricLinkNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile metric link not found response has a 2xx status code
+func (o *PostGamificationProfileMetricLinkNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile metric link not found response has a 3xx status code
+func (o *PostGamificationProfileMetricLinkNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile metric link not found response has a 4xx status code
+func (o *PostGamificationProfileMetricLinkNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile metric link not found response has a 5xx status code
+func (o *PostGamificationProfileMetricLinkNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile metric link not found response a status code equal to that given
+func (o *PostGamificationProfileMetricLinkNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostGamificationProfileMetricLinkNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostGamificationProfileMetricLinkNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostGamificationProfileMetricLinkRequestTimeout() *PostGamificationProfi
 	return &PostGamificationProfileMetricLinkRequestTimeout{}
 }
 
-/*PostGamificationProfileMetricLinkRequestTimeout handles this case with default header values.
+/*
+PostGamificationProfileMetricLinkRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostGamificationProfileMetricLinkRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile metric link request timeout response has a 2xx status code
+func (o *PostGamificationProfileMetricLinkRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile metric link request timeout response has a 3xx status code
+func (o *PostGamificationProfileMetricLinkRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile metric link request timeout response has a 4xx status code
+func (o *PostGamificationProfileMetricLinkRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile metric link request timeout response has a 5xx status code
+func (o *PostGamificationProfileMetricLinkRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile metric link request timeout response a status code equal to that given
+func (o *PostGamificationProfileMetricLinkRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostGamificationProfileMetricLinkRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostGamificationProfileMetricLinkRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostGamificationProfileMetricLinkRequestEntityTooLarge() *PostGamificati
 	return &PostGamificationProfileMetricLinkRequestEntityTooLarge{}
 }
 
-/*PostGamificationProfileMetricLinkRequestEntityTooLarge handles this case with default header values.
+/*
+PostGamificationProfileMetricLinkRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostGamificationProfileMetricLinkRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile metric link request entity too large response has a 2xx status code
+func (o *PostGamificationProfileMetricLinkRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile metric link request entity too large response has a 3xx status code
+func (o *PostGamificationProfileMetricLinkRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile metric link request entity too large response has a 4xx status code
+func (o *PostGamificationProfileMetricLinkRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile metric link request entity too large response has a 5xx status code
+func (o *PostGamificationProfileMetricLinkRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile metric link request entity too large response a status code equal to that given
+func (o *PostGamificationProfileMetricLinkRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostGamificationProfileMetricLinkRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostGamificationProfileMetricLinkRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostGamificationProfileMetricLinkUnsupportedMediaType() *PostGamificatio
 	return &PostGamificationProfileMetricLinkUnsupportedMediaType{}
 }
 
-/*PostGamificationProfileMetricLinkUnsupportedMediaType handles this case with default header values.
+/*
+PostGamificationProfileMetricLinkUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostGamificationProfileMetricLinkUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile metric link unsupported media type response has a 2xx status code
+func (o *PostGamificationProfileMetricLinkUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile metric link unsupported media type response has a 3xx status code
+func (o *PostGamificationProfileMetricLinkUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile metric link unsupported media type response has a 4xx status code
+func (o *PostGamificationProfileMetricLinkUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile metric link unsupported media type response has a 5xx status code
+func (o *PostGamificationProfileMetricLinkUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile metric link unsupported media type response a status code equal to that given
+func (o *PostGamificationProfileMetricLinkUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostGamificationProfileMetricLinkUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostGamificationProfileMetricLinkUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostGamificationProfileMetricLinkTooManyRequests() *PostGamificationProf
 	return &PostGamificationProfileMetricLinkTooManyRequests{}
 }
 
-/*PostGamificationProfileMetricLinkTooManyRequests handles this case with default header values.
+/*
+PostGamificationProfileMetricLinkTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostGamificationProfileMetricLinkTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile metric link too many requests response has a 2xx status code
+func (o *PostGamificationProfileMetricLinkTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile metric link too many requests response has a 3xx status code
+func (o *PostGamificationProfileMetricLinkTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile metric link too many requests response has a 4xx status code
+func (o *PostGamificationProfileMetricLinkTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile metric link too many requests response has a 5xx status code
+func (o *PostGamificationProfileMetricLinkTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile metric link too many requests response a status code equal to that given
+func (o *PostGamificationProfileMetricLinkTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostGamificationProfileMetricLinkTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostGamificationProfileMetricLinkTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostGamificationProfileMetricLinkInternalServerError() *PostGamification
 	return &PostGamificationProfileMetricLinkInternalServerError{}
 }
 
-/*PostGamificationProfileMetricLinkInternalServerError handles this case with default header values.
+/*
+PostGamificationProfileMetricLinkInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostGamificationProfileMetricLinkInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile metric link internal server error response has a 2xx status code
+func (o *PostGamificationProfileMetricLinkInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile metric link internal server error response has a 3xx status code
+func (o *PostGamificationProfileMetricLinkInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile metric link internal server error response has a 4xx status code
+func (o *PostGamificationProfileMetricLinkInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post gamification profile metric link internal server error response has a 5xx status code
+func (o *PostGamificationProfileMetricLinkInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post gamification profile metric link internal server error response a status code equal to that given
+func (o *PostGamificationProfileMetricLinkInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostGamificationProfileMetricLinkInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostGamificationProfileMetricLinkInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostGamificationProfileMetricLinkServiceUnavailable() *PostGamificationP
 	return &PostGamificationProfileMetricLinkServiceUnavailable{}
 }
 
-/*PostGamificationProfileMetricLinkServiceUnavailable handles this case with default header values.
+/*
+PostGamificationProfileMetricLinkServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostGamificationProfileMetricLinkServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile metric link service unavailable response has a 2xx status code
+func (o *PostGamificationProfileMetricLinkServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile metric link service unavailable response has a 3xx status code
+func (o *PostGamificationProfileMetricLinkServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile metric link service unavailable response has a 4xx status code
+func (o *PostGamificationProfileMetricLinkServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post gamification profile metric link service unavailable response has a 5xx status code
+func (o *PostGamificationProfileMetricLinkServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post gamification profile metric link service unavailable response a status code equal to that given
+func (o *PostGamificationProfileMetricLinkServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostGamificationProfileMetricLinkServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostGamificationProfileMetricLinkServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostGamificationProfileMetricLinkGatewayTimeout() *PostGamificationProfi
 	return &PostGamificationProfileMetricLinkGatewayTimeout{}
 }
 
-/*PostGamificationProfileMetricLinkGatewayTimeout handles this case with default header values.
+/*
+PostGamificationProfileMetricLinkGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostGamificationProfileMetricLinkGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile metric link gateway timeout response has a 2xx status code
+func (o *PostGamificationProfileMetricLinkGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile metric link gateway timeout response has a 3xx status code
+func (o *PostGamificationProfileMetricLinkGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile metric link gateway timeout response has a 4xx status code
+func (o *PostGamificationProfileMetricLinkGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post gamification profile metric link gateway timeout response has a 5xx status code
+func (o *PostGamificationProfileMetricLinkGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post gamification profile metric link gateway timeout response a status code equal to that given
+func (o *PostGamificationProfileMetricLinkGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostGamificationProfileMetricLinkGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostGamificationProfileMetricLinkGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{sourceProfileId}/metrics/{sourceMetricId}/link][%d] postGamificationProfileMetricLinkGatewayTimeout  %+v", 504, o.Payload)
 }
 

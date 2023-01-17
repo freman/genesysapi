@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -24,6 +26,11 @@ type AvailableTranslations struct {
 
 // Validate validates this available translations
 func (m *AvailableTranslations) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this available translations based on context it is used
+func (m *AvailableTranslations) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

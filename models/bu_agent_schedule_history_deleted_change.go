@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -50,7 +51,6 @@ func (m *BuAgentScheduleHistoryDeletedChange) Validate(formats strfmt.Registry) 
 }
 
 func (m *BuAgentScheduleHistoryDeletedChange) validateFullDayTimeOffMarkerDates(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FullDayTimeOffMarkerDates) { // not required
 		return nil
 	}
@@ -71,7 +71,6 @@ func (m *BuAgentScheduleHistoryDeletedChange) validateFullDayTimeOffMarkerDates(
 }
 
 func (m *BuAgentScheduleHistoryDeletedChange) validateShiftIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShiftIds) { // not required
 		return nil
 	}
@@ -80,6 +79,11 @@ func (m *BuAgentScheduleHistoryDeletedChange) validateShiftIds(formats strfmt.Re
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this bu agent schedule history deleted change based on context it is used
+func (m *BuAgentScheduleHistoryDeletedChange) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

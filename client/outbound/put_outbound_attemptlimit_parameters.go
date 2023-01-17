@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOutboundAttemptlimitParams creates a new PutOutboundAttemptlimitParams object
-// with the default values initialized.
+// NewPutOutboundAttemptlimitParams creates a new PutOutboundAttemptlimitParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOutboundAttemptlimitParams() *PutOutboundAttemptlimitParams {
-	var ()
 	return &PutOutboundAttemptlimitParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOutboundAttemptlimitParamsWithTimeout creates a new PutOutboundAttemptlimitParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOutboundAttemptlimitParamsWithTimeout(timeout time.Duration) *PutOutboundAttemptlimitParams {
-	var ()
 	return &PutOutboundAttemptlimitParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOutboundAttemptlimitParamsWithContext creates a new PutOutboundAttemptlimitParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOutboundAttemptlimitParamsWithContext(ctx context.Context) *PutOutboundAttemptlimitParams {
-	var ()
 	return &PutOutboundAttemptlimitParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOutboundAttemptlimitParamsWithHTTPClient creates a new PutOutboundAttemptlimitParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOutboundAttemptlimitParamsWithHTTPClient(client *http.Client) *PutOutboundAttemptlimitParams {
-	var ()
 	return &PutOutboundAttemptlimitParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOutboundAttemptlimitParams contains all the parameters to send to the API endpoint
-for the put outbound attemptlimit operation typically these are written to a http.Request
+/*
+PutOutboundAttemptlimitParams contains all the parameters to send to the API endpoint
+
+	for the put outbound attemptlimit operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOutboundAttemptlimitParams struct {
 
-	/*AttemptLimitsID
-	  Attempt limits ID
+	/* AttemptLimitsID.
 
+	   Attempt limits ID
 	*/
 	AttemptLimitsID string
-	/*Body
-	  AttemptLimits
 
+	/* Body.
+
+	   AttemptLimits
 	*/
 	Body *models.AttemptLimits
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put outbound attemptlimit params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundAttemptlimitParams) WithDefaults() *PutOutboundAttemptlimitParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put outbound attemptlimit params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundAttemptlimitParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put outbound attemptlimit params
@@ -145,7 +162,6 @@ func (o *PutOutboundAttemptlimitParams) WriteToRequest(r runtime.ClientRequest, 
 	if err := r.SetPathParam("attemptLimitsId", o.AttemptLimitsID); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

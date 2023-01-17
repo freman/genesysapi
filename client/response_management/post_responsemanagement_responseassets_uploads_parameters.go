@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostResponsemanagementResponseassetsUploadsParams creates a new PostResponsemanagementResponseassetsUploadsParams object
-// with the default values initialized.
+// NewPostResponsemanagementResponseassetsUploadsParams creates a new PostResponsemanagementResponseassetsUploadsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostResponsemanagementResponseassetsUploadsParams() *PostResponsemanagementResponseassetsUploadsParams {
-	var ()
 	return &PostResponsemanagementResponseassetsUploadsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostResponsemanagementResponseassetsUploadsParamsWithTimeout creates a new PostResponsemanagementResponseassetsUploadsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostResponsemanagementResponseassetsUploadsParamsWithTimeout(timeout time.Duration) *PostResponsemanagementResponseassetsUploadsParams {
-	var ()
 	return &PostResponsemanagementResponseassetsUploadsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostResponsemanagementResponseassetsUploadsParamsWithContext creates a new PostResponsemanagementResponseassetsUploadsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostResponsemanagementResponseassetsUploadsParamsWithContext(ctx context.Context) *PostResponsemanagementResponseassetsUploadsParams {
-	var ()
 	return &PostResponsemanagementResponseassetsUploadsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostResponsemanagementResponseassetsUploadsParamsWithHTTPClient creates a new PostResponsemanagementResponseassetsUploadsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostResponsemanagementResponseassetsUploadsParamsWithHTTPClient(client *http.Client) *PostResponsemanagementResponseassetsUploadsParams {
-	var ()
 	return &PostResponsemanagementResponseassetsUploadsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostResponsemanagementResponseassetsUploadsParams contains all the parameters to send to the API endpoint
-for the post responsemanagement responseassets uploads operation typically these are written to a http.Request
+/*
+PostResponsemanagementResponseassetsUploadsParams contains all the parameters to send to the API endpoint
+
+	for the post responsemanagement responseassets uploads operation.
+
+	Typically these are written to a http.Request.
 */
 type PostResponsemanagementResponseassetsUploadsParams struct {
 
-	/*Body
-	  request
+	/* Body.
 
+	   request
 	*/
 	Body *models.CreateResponseAssetRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post responsemanagement responseassets uploads params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostResponsemanagementResponseassetsUploadsParams) WithDefaults() *PostResponsemanagementResponseassetsUploadsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post responsemanagement responseassets uploads params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostResponsemanagementResponseassetsUploadsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post responsemanagement responseassets uploads params
@@ -124,7 +140,6 @@ func (o *PostResponsemanagementResponseassetsUploadsParams) WriteToRequest(r run
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

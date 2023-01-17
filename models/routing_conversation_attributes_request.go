@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -53,7 +54,6 @@ func (m *RoutingConversationAttributesRequest) Validate(formats strfmt.Registry)
 }
 
 func (m *RoutingConversationAttributesRequest) validatePriority(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Priority) { // not required
 		return nil
 	}
@@ -70,7 +70,6 @@ func (m *RoutingConversationAttributesRequest) validatePriority(formats strfmt.R
 }
 
 func (m *RoutingConversationAttributesRequest) validateRequestScoredAgents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RequestScoredAgents) { // not required
 		return nil
 	}
@@ -84,6 +83,42 @@ func (m *RoutingConversationAttributesRequest) validateRequestScoredAgents(forma
 			if err := m.RequestScoredAgents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("requestScoredAgents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("requestScoredAgents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this routing conversation attributes request based on the context it is used
+func (m *RoutingConversationAttributesRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRequestScoredAgents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RoutingConversationAttributesRequest) contextValidateRequestScoredAgents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RequestScoredAgents); i++ {
+
+		if m.RequestScoredAgents[i] != nil {
+			if err := m.RequestScoredAgents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("requestScoredAgents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("requestScoredAgents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

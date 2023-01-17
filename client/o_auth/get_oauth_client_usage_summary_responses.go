@@ -101,7 +101,6 @@ func (o *GetOauthClientUsageSummaryReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetOauthClientUsageSummaryOK() *GetOauthClientUsageSummaryOK {
 	return &GetOauthClientUsageSummaryOK{}
 }
 
-/*GetOauthClientUsageSummaryOK handles this case with default header values.
+/*
+GetOauthClientUsageSummaryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type GetOauthClientUsageSummaryOK struct {
 	Payload *models.UsageExecutionResult
 }
 
+// IsSuccess returns true when this get oauth client usage summary o k response has a 2xx status code
+func (o *GetOauthClientUsageSummaryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get oauth client usage summary o k response has a 3xx status code
+func (o *GetOauthClientUsageSummaryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary o k response has a 4xx status code
+func (o *GetOauthClientUsageSummaryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth client usage summary o k response has a 5xx status code
+func (o *GetOauthClientUsageSummaryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth client usage summary o k response a status code equal to that given
+func (o *GetOauthClientUsageSummaryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOauthClientUsageSummaryOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewGetOauthClientUsageSummaryAccepted() *GetOauthClientUsageSummaryAccepted
 	return &GetOauthClientUsageSummaryAccepted{}
 }
 
-/*GetOauthClientUsageSummaryAccepted handles this case with default header values.
+/*
+GetOauthClientUsageSummaryAccepted describes a response with status code 202, with default header values.
 
 Execution not completed, check back for results
 */
@@ -153,7 +183,36 @@ type GetOauthClientUsageSummaryAccepted struct {
 	Payload *models.UsageExecutionResult
 }
 
+// IsSuccess returns true when this get oauth client usage summary accepted response has a 2xx status code
+func (o *GetOauthClientUsageSummaryAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get oauth client usage summary accepted response has a 3xx status code
+func (o *GetOauthClientUsageSummaryAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary accepted response has a 4xx status code
+func (o *GetOauthClientUsageSummaryAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth client usage summary accepted response has a 5xx status code
+func (o *GetOauthClientUsageSummaryAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth client usage summary accepted response a status code equal to that given
+func (o *GetOauthClientUsageSummaryAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *GetOauthClientUsageSummaryAccepted) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryAccepted  %+v", 202, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryAccepted) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewGetOauthClientUsageSummaryBadRequest() *GetOauthClientUsageSummaryBadReq
 	return &GetOauthClientUsageSummaryBadRequest{}
 }
 
-/*GetOauthClientUsageSummaryBadRequest handles this case with default header values.
+/*
+GetOauthClientUsageSummaryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type GetOauthClientUsageSummaryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth client usage summary bad request response has a 2xx status code
+func (o *GetOauthClientUsageSummaryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth client usage summary bad request response has a 3xx status code
+func (o *GetOauthClientUsageSummaryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary bad request response has a 4xx status code
+func (o *GetOauthClientUsageSummaryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth client usage summary bad request response has a 5xx status code
+func (o *GetOauthClientUsageSummaryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth client usage summary bad request response a status code equal to that given
+func (o *GetOauthClientUsageSummaryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOauthClientUsageSummaryBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewGetOauthClientUsageSummaryUnauthorized() *GetOauthClientUsageSummaryUnau
 	return &GetOauthClientUsageSummaryUnauthorized{}
 }
 
-/*GetOauthClientUsageSummaryUnauthorized handles this case with default header values.
+/*
+GetOauthClientUsageSummaryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type GetOauthClientUsageSummaryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth client usage summary unauthorized response has a 2xx status code
+func (o *GetOauthClientUsageSummaryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth client usage summary unauthorized response has a 3xx status code
+func (o *GetOauthClientUsageSummaryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary unauthorized response has a 4xx status code
+func (o *GetOauthClientUsageSummaryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth client usage summary unauthorized response has a 5xx status code
+func (o *GetOauthClientUsageSummaryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth client usage summary unauthorized response a status code equal to that given
+func (o *GetOauthClientUsageSummaryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOauthClientUsageSummaryUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewGetOauthClientUsageSummaryForbidden() *GetOauthClientUsageSummaryForbidd
 	return &GetOauthClientUsageSummaryForbidden{}
 }
 
-/*GetOauthClientUsageSummaryForbidden handles this case with default header values.
+/*
+GetOauthClientUsageSummaryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type GetOauthClientUsageSummaryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth client usage summary forbidden response has a 2xx status code
+func (o *GetOauthClientUsageSummaryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth client usage summary forbidden response has a 3xx status code
+func (o *GetOauthClientUsageSummaryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary forbidden response has a 4xx status code
+func (o *GetOauthClientUsageSummaryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth client usage summary forbidden response has a 5xx status code
+func (o *GetOauthClientUsageSummaryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth client usage summary forbidden response a status code equal to that given
+func (o *GetOauthClientUsageSummaryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOauthClientUsageSummaryForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewGetOauthClientUsageSummaryNotFound() *GetOauthClientUsageSummaryNotFound
 	return &GetOauthClientUsageSummaryNotFound{}
 }
 
-/*GetOauthClientUsageSummaryNotFound handles this case with default header values.
+/*
+GetOauthClientUsageSummaryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type GetOauthClientUsageSummaryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth client usage summary not found response has a 2xx status code
+func (o *GetOauthClientUsageSummaryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth client usage summary not found response has a 3xx status code
+func (o *GetOauthClientUsageSummaryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary not found response has a 4xx status code
+func (o *GetOauthClientUsageSummaryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth client usage summary not found response has a 5xx status code
+func (o *GetOauthClientUsageSummaryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth client usage summary not found response a status code equal to that given
+func (o *GetOauthClientUsageSummaryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOauthClientUsageSummaryNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewGetOauthClientUsageSummaryRequestTimeout() *GetOauthClientUsageSummaryRe
 	return &GetOauthClientUsageSummaryRequestTimeout{}
 }
 
-/*GetOauthClientUsageSummaryRequestTimeout handles this case with default header values.
+/*
+GetOauthClientUsageSummaryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type GetOauthClientUsageSummaryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth client usage summary request timeout response has a 2xx status code
+func (o *GetOauthClientUsageSummaryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth client usage summary request timeout response has a 3xx status code
+func (o *GetOauthClientUsageSummaryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary request timeout response has a 4xx status code
+func (o *GetOauthClientUsageSummaryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth client usage summary request timeout response has a 5xx status code
+func (o *GetOauthClientUsageSummaryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth client usage summary request timeout response a status code equal to that given
+func (o *GetOauthClientUsageSummaryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOauthClientUsageSummaryRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewGetOauthClientUsageSummaryRequestEntityTooLarge() *GetOauthClientUsageSu
 	return &GetOauthClientUsageSummaryRequestEntityTooLarge{}
 }
 
-/*GetOauthClientUsageSummaryRequestEntityTooLarge handles this case with default header values.
+/*
+GetOauthClientUsageSummaryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type GetOauthClientUsageSummaryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth client usage summary request entity too large response has a 2xx status code
+func (o *GetOauthClientUsageSummaryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth client usage summary request entity too large response has a 3xx status code
+func (o *GetOauthClientUsageSummaryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary request entity too large response has a 4xx status code
+func (o *GetOauthClientUsageSummaryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth client usage summary request entity too large response has a 5xx status code
+func (o *GetOauthClientUsageSummaryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth client usage summary request entity too large response a status code equal to that given
+func (o *GetOauthClientUsageSummaryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOauthClientUsageSummaryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewGetOauthClientUsageSummaryUnsupportedMediaType() *GetOauthClientUsageSum
 	return &GetOauthClientUsageSummaryUnsupportedMediaType{}
 }
 
-/*GetOauthClientUsageSummaryUnsupportedMediaType handles this case with default header values.
+/*
+GetOauthClientUsageSummaryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type GetOauthClientUsageSummaryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth client usage summary unsupported media type response has a 2xx status code
+func (o *GetOauthClientUsageSummaryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth client usage summary unsupported media type response has a 3xx status code
+func (o *GetOauthClientUsageSummaryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary unsupported media type response has a 4xx status code
+func (o *GetOauthClientUsageSummaryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth client usage summary unsupported media type response has a 5xx status code
+func (o *GetOauthClientUsageSummaryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth client usage summary unsupported media type response a status code equal to that given
+func (o *GetOauthClientUsageSummaryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOauthClientUsageSummaryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewGetOauthClientUsageSummaryTooManyRequests() *GetOauthClientUsageSummaryT
 	return &GetOauthClientUsageSummaryTooManyRequests{}
 }
 
-/*GetOauthClientUsageSummaryTooManyRequests handles this case with default header values.
+/*
+GetOauthClientUsageSummaryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type GetOauthClientUsageSummaryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth client usage summary too many requests response has a 2xx status code
+func (o *GetOauthClientUsageSummaryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth client usage summary too many requests response has a 3xx status code
+func (o *GetOauthClientUsageSummaryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary too many requests response has a 4xx status code
+func (o *GetOauthClientUsageSummaryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth client usage summary too many requests response has a 5xx status code
+func (o *GetOauthClientUsageSummaryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth client usage summary too many requests response a status code equal to that given
+func (o *GetOauthClientUsageSummaryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOauthClientUsageSummaryTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewGetOauthClientUsageSummaryInternalServerError() *GetOauthClientUsageSumm
 	return &GetOauthClientUsageSummaryInternalServerError{}
 }
 
-/*GetOauthClientUsageSummaryInternalServerError handles this case with default header values.
+/*
+GetOauthClientUsageSummaryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type GetOauthClientUsageSummaryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth client usage summary internal server error response has a 2xx status code
+func (o *GetOauthClientUsageSummaryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth client usage summary internal server error response has a 3xx status code
+func (o *GetOauthClientUsageSummaryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary internal server error response has a 4xx status code
+func (o *GetOauthClientUsageSummaryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth client usage summary internal server error response has a 5xx status code
+func (o *GetOauthClientUsageSummaryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get oauth client usage summary internal server error response a status code equal to that given
+func (o *GetOauthClientUsageSummaryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOauthClientUsageSummaryInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewGetOauthClientUsageSummaryServiceUnavailable() *GetOauthClientUsageSumma
 	return &GetOauthClientUsageSummaryServiceUnavailable{}
 }
 
-/*GetOauthClientUsageSummaryServiceUnavailable handles this case with default header values.
+/*
+GetOauthClientUsageSummaryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type GetOauthClientUsageSummaryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth client usage summary service unavailable response has a 2xx status code
+func (o *GetOauthClientUsageSummaryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth client usage summary service unavailable response has a 3xx status code
+func (o *GetOauthClientUsageSummaryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary service unavailable response has a 4xx status code
+func (o *GetOauthClientUsageSummaryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth client usage summary service unavailable response has a 5xx status code
+func (o *GetOauthClientUsageSummaryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get oauth client usage summary service unavailable response a status code equal to that given
+func (o *GetOauthClientUsageSummaryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOauthClientUsageSummaryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewGetOauthClientUsageSummaryGatewayTimeout() *GetOauthClientUsageSummaryGa
 	return &GetOauthClientUsageSummaryGatewayTimeout{}
 }
 
-/*GetOauthClientUsageSummaryGatewayTimeout handles this case with default header values.
+/*
+GetOauthClientUsageSummaryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type GetOauthClientUsageSummaryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth client usage summary gateway timeout response has a 2xx status code
+func (o *GetOauthClientUsageSummaryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth client usage summary gateway timeout response has a 3xx status code
+func (o *GetOauthClientUsageSummaryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth client usage summary gateway timeout response has a 4xx status code
+func (o *GetOauthClientUsageSummaryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth client usage summary gateway timeout response has a 5xx status code
+func (o *GetOauthClientUsageSummaryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get oauth client usage summary gateway timeout response a status code equal to that given
+func (o *GetOauthClientUsageSummaryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOauthClientUsageSummaryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOauthClientUsageSummaryGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients/{clientId}/usage/summary][%d] getOauthClientUsageSummaryGatewayTimeout  %+v", 504, o.Payload)
 }
 

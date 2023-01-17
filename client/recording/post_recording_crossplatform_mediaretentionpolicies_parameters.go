@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRecordingCrossplatformMediaretentionpoliciesParams creates a new PostRecordingCrossplatformMediaretentionpoliciesParams object
-// with the default values initialized.
+// NewPostRecordingCrossplatformMediaretentionpoliciesParams creates a new PostRecordingCrossplatformMediaretentionpoliciesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRecordingCrossplatformMediaretentionpoliciesParams() *PostRecordingCrossplatformMediaretentionpoliciesParams {
-	var ()
 	return &PostRecordingCrossplatformMediaretentionpoliciesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRecordingCrossplatformMediaretentionpoliciesParamsWithTimeout creates a new PostRecordingCrossplatformMediaretentionpoliciesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRecordingCrossplatformMediaretentionpoliciesParamsWithTimeout(timeout time.Duration) *PostRecordingCrossplatformMediaretentionpoliciesParams {
-	var ()
 	return &PostRecordingCrossplatformMediaretentionpoliciesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRecordingCrossplatformMediaretentionpoliciesParamsWithContext creates a new PostRecordingCrossplatformMediaretentionpoliciesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRecordingCrossplatformMediaretentionpoliciesParamsWithContext(ctx context.Context) *PostRecordingCrossplatformMediaretentionpoliciesParams {
-	var ()
 	return &PostRecordingCrossplatformMediaretentionpoliciesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRecordingCrossplatformMediaretentionpoliciesParamsWithHTTPClient creates a new PostRecordingCrossplatformMediaretentionpoliciesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRecordingCrossplatformMediaretentionpoliciesParamsWithHTTPClient(client *http.Client) *PostRecordingCrossplatformMediaretentionpoliciesParams {
-	var ()
 	return &PostRecordingCrossplatformMediaretentionpoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesParams contains all the parameters to send to the API endpoint
-for the post recording crossplatform mediaretentionpolicies operation typically these are written to a http.Request
+/*
+PostRecordingCrossplatformMediaretentionpoliciesParams contains all the parameters to send to the API endpoint
+
+	for the post recording crossplatform mediaretentionpolicies operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRecordingCrossplatformMediaretentionpoliciesParams struct {
 
-	/*Body
-	  Policy
+	/* Body.
 
+	   Policy
 	*/
 	Body *models.CrossPlatformPolicyCreate
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post recording crossplatform mediaretentionpolicies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingCrossplatformMediaretentionpoliciesParams) WithDefaults() *PostRecordingCrossplatformMediaretentionpoliciesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post recording crossplatform mediaretentionpolicies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingCrossplatformMediaretentionpoliciesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post recording crossplatform mediaretentionpolicies params
@@ -124,7 +140,6 @@ func (o *PostRecordingCrossplatformMediaretentionpoliciesParams) WriteToRequest(
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

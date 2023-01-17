@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -113,7 +114,6 @@ func (m *AsyncUserDetailsQuery) validateOrderEnum(path, location string, value s
 }
 
 func (m *AsyncUserDetailsQuery) validateOrder(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Order) { // not required
 		return nil
 	}
@@ -127,7 +127,6 @@ func (m *AsyncUserDetailsQuery) validateOrder(formats strfmt.Registry) error {
 }
 
 func (m *AsyncUserDetailsQuery) validatePresenceFilters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PresenceFilters) { // not required
 		return nil
 	}
@@ -141,6 +140,8 @@ func (m *AsyncUserDetailsQuery) validatePresenceFilters(formats strfmt.Registry)
 			if err := m.PresenceFilters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("presenceFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("presenceFilters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -152,7 +153,6 @@ func (m *AsyncUserDetailsQuery) validatePresenceFilters(formats strfmt.Registry)
 }
 
 func (m *AsyncUserDetailsQuery) validateRoutingStatusFilters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingStatusFilters) { // not required
 		return nil
 	}
@@ -166,6 +166,8 @@ func (m *AsyncUserDetailsQuery) validateRoutingStatusFilters(formats strfmt.Regi
 			if err := m.RoutingStatusFilters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("routingStatusFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingStatusFilters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -177,7 +179,6 @@ func (m *AsyncUserDetailsQuery) validateRoutingStatusFilters(formats strfmt.Regi
 }
 
 func (m *AsyncUserDetailsQuery) validateUserFilters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserFilters) { // not required
 		return nil
 	}
@@ -191,6 +192,90 @@ func (m *AsyncUserDetailsQuery) validateUserFilters(formats strfmt.Registry) err
 			if err := m.UserFilters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("userFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this async user details query based on the context it is used
+func (m *AsyncUserDetailsQuery) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePresenceFilters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutingStatusFilters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserFilters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AsyncUserDetailsQuery) contextValidatePresenceFilters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PresenceFilters); i++ {
+
+		if m.PresenceFilters[i] != nil {
+			if err := m.PresenceFilters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("presenceFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("presenceFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AsyncUserDetailsQuery) contextValidateRoutingStatusFilters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RoutingStatusFilters); i++ {
+
+		if m.RoutingStatusFilters[i] != nil {
+			if err := m.RoutingStatusFilters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("routingStatusFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingStatusFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AsyncUserDetailsQuery) contextValidateUserFilters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.UserFilters); i++ {
+
+		if m.UserFilters[i] != nil {
+			if err := m.UserFilters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("userFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userFilters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

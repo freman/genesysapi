@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingSettingsTranscriptionParams creates a new GetRoutingSettingsTranscriptionParams object
-// with the default values initialized.
+// NewGetRoutingSettingsTranscriptionParams creates a new GetRoutingSettingsTranscriptionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingSettingsTranscriptionParams() *GetRoutingSettingsTranscriptionParams {
-
 	return &GetRoutingSettingsTranscriptionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingSettingsTranscriptionParamsWithTimeout creates a new GetRoutingSettingsTranscriptionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingSettingsTranscriptionParamsWithTimeout(timeout time.Duration) *GetRoutingSettingsTranscriptionParams {
-
 	return &GetRoutingSettingsTranscriptionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingSettingsTranscriptionParamsWithContext creates a new GetRoutingSettingsTranscriptionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingSettingsTranscriptionParamsWithContext(ctx context.Context) *GetRoutingSettingsTranscriptionParams {
-
 	return &GetRoutingSettingsTranscriptionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingSettingsTranscriptionParamsWithHTTPClient creates a new GetRoutingSettingsTranscriptionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingSettingsTranscriptionParamsWithHTTPClient(client *http.Client) *GetRoutingSettingsTranscriptionParams {
-
 	return &GetRoutingSettingsTranscriptionParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingSettingsTranscriptionParams contains all the parameters to send to the API endpoint
-for the get routing settings transcription operation typically these are written to a http.Request
+/*
+GetRoutingSettingsTranscriptionParams contains all the parameters to send to the API endpoint
+
+	for the get routing settings transcription operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingSettingsTranscriptionParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing settings transcription params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingSettingsTranscriptionParams) WithDefaults() *GetRoutingSettingsTranscriptionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing settings transcription params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingSettingsTranscriptionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing settings transcription params

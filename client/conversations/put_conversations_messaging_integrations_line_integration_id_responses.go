@@ -95,7 +95,6 @@ func (o *PutConversationsMessagingIntegrationsLineIntegrationIDReader) ReadRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutConversationsMessagingIntegrationsLineIntegrationIDOK() *PutConversat
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDOK{}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDOK handles this case with default header values.
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutConversationsMessagingIntegrationsLineIntegrationIDOK struct {
 	Payload *models.LineIntegration
 }
 
+// IsSuccess returns true when this put conversations messaging integrations line integration Id o k response has a 2xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversations messaging integrations line integration Id o k response has a 3xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging integrations line integration Id o k response has a 4xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations messaging integrations line integration Id o k response has a 5xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging integrations line integration Id o k response a status code equal to that given
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutConversationsMessagingIntegrationsLineIntegrationIDOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdOK  %+v", 200, o.Payload)
+}
+
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutConversationsMessagingIntegrationsLineIntegrationIDBadRequest() *PutC
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDBadRequest{}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDBadRequest handles this case with default header values.
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutConversationsMessagingIntegrationsLineIntegrationIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging integrations line integration Id bad request response has a 2xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging integrations line integration Id bad request response has a 3xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging integrations line integration Id bad request response has a 4xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging integrations line integration Id bad request response has a 5xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging integrations line integration Id bad request response a status code equal to that given
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutConversationsMessagingIntegrationsLineIntegrationIDBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutConversationsMessagingIntegrationsLineIntegrationIDUnauthorized() *Pu
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDUnauthorized{}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDUnauthorized handles this case with default header values.
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutConversationsMessagingIntegrationsLineIntegrationIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging integrations line integration Id unauthorized response has a 2xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging integrations line integration Id unauthorized response has a 3xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging integrations line integration Id unauthorized response has a 4xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging integrations line integration Id unauthorized response has a 5xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging integrations line integration Id unauthorized response a status code equal to that given
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutConversationsMessagingIntegrationsLineIntegrationIDForbidden() *PutCo
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDForbidden{}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDForbidden handles this case with default header values.
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutConversationsMessagingIntegrationsLineIntegrationIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging integrations line integration Id forbidden response has a 2xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging integrations line integration Id forbidden response has a 3xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging integrations line integration Id forbidden response has a 4xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging integrations line integration Id forbidden response has a 5xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging integrations line integration Id forbidden response a status code equal to that given
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutConversationsMessagingIntegrationsLineIntegrationIDForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutConversationsMessagingIntegrationsLineIntegrationIDNotFound() *PutCon
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDNotFound{}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDNotFound handles this case with default header values.
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutConversationsMessagingIntegrationsLineIntegrationIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging integrations line integration Id not found response has a 2xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging integrations line integration Id not found response has a 3xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging integrations line integration Id not found response has a 4xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging integrations line integration Id not found response has a 5xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging integrations line integration Id not found response a status code equal to that given
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutConversationsMessagingIntegrationsLineIntegrationIDNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout() *
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout{}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout handles this case with default header values.
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging integrations line integration Id request timeout response has a 2xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging integrations line integration Id request timeout response has a 3xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging integrations line integration Id request timeout response has a 4xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging integrations line integration Id request timeout response has a 5xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging integrations line integration Id request timeout response a status code equal to that given
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLa
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge{}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge handles this case with default header values.
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging integrations line integration Id request entity too large response has a 2xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging integrations line integration Id request entity too large response has a 3xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging integrations line integration Id request entity too large response has a 4xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging integrations line integration Id request entity too large response has a 5xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging integrations line integration Id request entity too large response a status code equal to that given
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutConversationsMessagingIntegrationsLineIntegrationIDUnsupportedMediaTy
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDUnsupportedMediaType{}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDUnsupportedMediaType handles this case with default header values.
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutConversationsMessagingIntegrationsLineIntegrationIDUnsupportedMediaType 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging integrations line integration Id unsupported media type response has a 2xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging integrations line integration Id unsupported media type response has a 3xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging integrations line integration Id unsupported media type response has a 4xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging integrations line integration Id unsupported media type response has a 5xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging integrations line integration Id unsupported media type response a status code equal to that given
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests() 
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests{}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests handles this case with default header values.
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging integrations line integration Id too many requests response has a 2xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging integrations line integration Id too many requests response has a 3xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging integrations line integration Id too many requests response has a 4xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging integrations line integration Id too many requests response has a 5xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging integrations line integration Id too many requests response a status code equal to that given
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutConversationsMessagingIntegrationsLineIntegrationIDInternalServerErro
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDInternalServerError{}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDInternalServerError handles this case with default header values.
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutConversationsMessagingIntegrationsLineIntegrationIDInternalServerError s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging integrations line integration Id internal server error response has a 2xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging integrations line integration Id internal server error response has a 3xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging integrations line integration Id internal server error response has a 4xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations messaging integrations line integration Id internal server error response has a 5xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations messaging integrations line integration Id internal server error response a status code equal to that given
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutConversationsMessagingIntegrationsLineIntegrationIDInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutConversationsMessagingIntegrationsLineIntegrationIDServiceUnavailable
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDServiceUnavailable{}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDServiceUnavailable handles this case with default header values.
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutConversationsMessagingIntegrationsLineIntegrationIDServiceUnavailable st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging integrations line integration Id service unavailable response has a 2xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging integrations line integration Id service unavailable response has a 3xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging integrations line integration Id service unavailable response has a 4xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations messaging integrations line integration Id service unavailable response has a 5xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations messaging integrations line integration Id service unavailable response a status code equal to that given
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutConversationsMessagingIntegrationsLineIntegrationIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutConversationsMessagingIntegrationsLineIntegrationIDGatewayTimeout() *
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDGatewayTimeout{}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDGatewayTimeout handles this case with default header values.
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutConversationsMessagingIntegrationsLineIntegrationIDGatewayTimeout struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging integrations line integration Id gateway timeout response has a 2xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging integrations line integration Id gateway timeout response has a 3xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging integrations line integration Id gateway timeout response has a 4xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations messaging integrations line integration Id gateway timeout response has a 5xx status code
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations messaging integrations line integration Id gateway timeout response a status code equal to that given
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutConversationsMessagingIntegrationsLineIntegrationIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/integrations/line/{integrationId}][%d] putConversationsMessagingIntegrationsLineIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

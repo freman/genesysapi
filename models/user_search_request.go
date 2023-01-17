@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -109,7 +110,6 @@ func (m *UserSearchRequest) validateIntegrationPresenceSourceEnum(path, location
 }
 
 func (m *UserSearchRequest) validateIntegrationPresenceSource(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IntegrationPresenceSource) { // not required
 		return nil
 	}
@@ -123,7 +123,6 @@ func (m *UserSearchRequest) validateIntegrationPresenceSource(formats strfmt.Reg
 }
 
 func (m *UserSearchRequest) validateQuery(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Query) { // not required
 		return nil
 	}
@@ -137,6 +136,8 @@ func (m *UserSearchRequest) validateQuery(formats strfmt.Registry) error {
 			if err := m.Query[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("query" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("query" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -148,7 +149,6 @@ func (m *UserSearchRequest) validateQuery(formats strfmt.Registry) error {
 }
 
 func (m *UserSearchRequest) validateSort(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Sort) { // not required
 		return nil
 	}
@@ -162,6 +162,8 @@ func (m *UserSearchRequest) validateSort(formats strfmt.Registry) error {
 			if err := m.Sort[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sort" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sort" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -205,7 +207,6 @@ func (m *UserSearchRequest) validateSortOrderEnum(path, location string, value s
 }
 
 func (m *UserSearchRequest) validateSortOrder(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SortOrder) { // not required
 		return nil
 	}
@@ -213,6 +214,64 @@ func (m *UserSearchRequest) validateSortOrder(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateSortOrderEnum("sortOrder", "body", m.SortOrder); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user search request based on the context it is used
+func (m *UserSearchRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateQuery(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSort(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserSearchRequest) contextValidateQuery(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Query); i++ {
+
+		if m.Query[i] != nil {
+			if err := m.Query[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("query" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("query" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserSearchRequest) contextValidateSort(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Sort); i++ {
+
+		if m.Sort[i] != nil {
+			if err := m.Sort[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sort" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sort" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // AgentOwnedMappingPreview agent owned mapping preview
@@ -42,6 +46,94 @@ type AgentOwnedMappingPreview struct {
 
 // Validate validates this agent owned mapping preview
 func (m *AgentOwnedMappingPreview) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this agent owned mapping preview based on the context it is used
+func (m *AgentOwnedMappingPreview) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgentOwnedColumn(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmail(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExists(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIsQueueMember(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRecordCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AgentOwnedMappingPreview) contextValidateAgentOwnedColumn(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "agentOwnedColumn", "body", string(m.AgentOwnedColumn)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AgentOwnedMappingPreview) contextValidateEmail(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "email", "body", string(m.Email)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AgentOwnedMappingPreview) contextValidateExists(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "exists", "body", m.Exists); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AgentOwnedMappingPreview) contextValidateIsQueueMember(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isQueueMember", "body", m.IsQueueMember); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AgentOwnedMappingPreview) contextValidateRecordCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "recordCount", "body", int32(m.RecordCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AgentOwnedMappingPreview) contextValidateUserID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "userId", "body", string(m.UserID)); err != nil {
+		return err
+	}
+
 	return nil
 }
 

@@ -101,7 +101,6 @@ func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDReader) Re
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK() *Delet
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK struct {
 	Payload *models.WhatsAppIntegration
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id o k response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id o k response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id o k response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id o k response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id o k response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdOK  %+v", 200, o.Payload)
 }
 
@@ -145,14 +174,44 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted() 
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted describes a response with status code 202, with default header values.
 
 Request Accepted
 */
 type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted struct {
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id accepted response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id accepted response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id accepted response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id accepted response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id accepted response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdAccepted ", 202)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDAccepted) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdAccepted ", 202)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest(
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -174,7 +234,36 @@ type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id bad request response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id bad request response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id bad request response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id bad request response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id bad request response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorize
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -207,7 +297,36 @@ type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id unauthorized response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id unauthorized response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id unauthorized response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id unauthorized response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id unauthorized response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden()
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -240,7 +360,36 @@ type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id forbidden response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id forbidden response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id forbidden response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id forbidden response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id forbidden response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound() 
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -273,7 +423,36 @@ type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id not found response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id not found response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id not found response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id not found response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id not found response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTime
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -306,7 +486,36 @@ type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id request timeout response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id request timeout response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id request timeout response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id request timeout response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id request timeout response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEnti
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityT
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id request entity too large response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id request entity too large response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id request entity too large response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id request entity too large response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id request entity too large response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupported
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMed
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id unsupported media type response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id unsupported media type response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id unsupported media type response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id unsupported media type response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id unsupported media type response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequ
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequest
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id too many requests response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id too many requests response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id too many requests response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id too many requests response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id too many requests response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDInternalSer
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServer
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id internal server error response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id internal server error response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id internal server error response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id internal server error response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id internal server error response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnav
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavail
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id service unavailable response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id service unavailable response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id service unavailable response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id service unavailable response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id service unavailable response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTime
 	return &DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout{}
 }
 
-/*DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations whatsapp integration Id gateway timeout response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations whatsapp integration Id gateway timeout response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations whatsapp integration Id gateway timeout response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations whatsapp integration Id gateway timeout response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations messaging integrations whatsapp integration Id gateway timeout response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] deleteConversationsMessagingIntegrationsWhatsappIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *PostWorkforcemanagementAdherenceHistoricalReader) ReadResponse(response
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostWorkforcemanagementAdherenceHistoricalAccepted() *PostWorkforcemanag
 	return &PostWorkforcemanagementAdherenceHistoricalAccepted{}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalAccepted handles this case with default header values.
+/*
+PostWorkforcemanagementAdherenceHistoricalAccepted describes a response with status code 202, with default header values.
 
 Processing request
 */
@@ -114,7 +114,36 @@ type PostWorkforcemanagementAdherenceHistoricalAccepted struct {
 	Payload *models.WfmHistoricalAdherenceResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement adherence historical accepted response has a 2xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement adherence historical accepted response has a 3xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement adherence historical accepted response has a 4xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement adherence historical accepted response has a 5xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement adherence historical accepted response a status code equal to that given
+func (o *PostWorkforcemanagementAdherenceHistoricalAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostWorkforcemanagementAdherenceHistoricalAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostWorkforcemanagementAdherenceHistoricalAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalAccepted  %+v", 202, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostWorkforcemanagementAdherenceHistoricalBadRequest() *PostWorkforceman
 	return &PostWorkforcemanagementAdherenceHistoricalBadRequest{}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementAdherenceHistoricalBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostWorkforcemanagementAdherenceHistoricalBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement adherence historical bad request response has a 2xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement adherence historical bad request response has a 3xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement adherence historical bad request response has a 4xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement adherence historical bad request response has a 5xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement adherence historical bad request response a status code equal to that given
+func (o *PostWorkforcemanagementAdherenceHistoricalBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementAdherenceHistoricalBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementAdherenceHistoricalBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostWorkforcemanagementAdherenceHistoricalUnauthorized() *PostWorkforcem
 	return &PostWorkforcemanagementAdherenceHistoricalUnauthorized{}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementAdherenceHistoricalUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostWorkforcemanagementAdherenceHistoricalUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement adherence historical unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement adherence historical unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement adherence historical unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement adherence historical unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement adherence historical unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementAdherenceHistoricalUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementAdherenceHistoricalUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementAdherenceHistoricalUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostWorkforcemanagementAdherenceHistoricalForbidden() *PostWorkforcemana
 	return &PostWorkforcemanagementAdherenceHistoricalForbidden{}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementAdherenceHistoricalForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostWorkforcemanagementAdherenceHistoricalForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement adherence historical forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement adherence historical forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement adherence historical forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement adherence historical forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement adherence historical forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementAdherenceHistoricalForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementAdherenceHistoricalForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementAdherenceHistoricalForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostWorkforcemanagementAdherenceHistoricalNotFound() *PostWorkforcemanag
 	return &PostWorkforcemanagementAdherenceHistoricalNotFound{}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementAdherenceHistoricalNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostWorkforcemanagementAdherenceHistoricalNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement adherence historical not found response has a 2xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement adherence historical not found response has a 3xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement adherence historical not found response has a 4xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement adherence historical not found response has a 5xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement adherence historical not found response a status code equal to that given
+func (o *PostWorkforcemanagementAdherenceHistoricalNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementAdherenceHistoricalNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementAdherenceHistoricalNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostWorkforcemanagementAdherenceHistoricalRequestTimeout() *PostWorkforc
 	return &PostWorkforcemanagementAdherenceHistoricalRequestTimeout{}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementAdherenceHistoricalRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostWorkforcemanagementAdherenceHistoricalRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement adherence historical request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement adherence historical request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement adherence historical request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement adherence historical request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement adherence historical request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementAdherenceHistoricalRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementAdherenceHistoricalRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementAdherenceHistoricalRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge() *PostW
 	return &PostWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement adherence historical request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement adherence historical request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement adherence historical request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement adherence historical request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement adherence historical request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostWorkforcemanagementAdherenceHistoricalUnsupportedMediaType() *PostWo
 	return &PostWorkforcemanagementAdherenceHistoricalUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementAdherenceHistoricalUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostWorkforcemanagementAdherenceHistoricalUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement adherence historical unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement adherence historical unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement adherence historical unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement adherence historical unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement adherence historical unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementAdherenceHistoricalUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementAdherenceHistoricalUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementAdherenceHistoricalUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostWorkforcemanagementAdherenceHistoricalTooManyRequests() *PostWorkfor
 	return &PostWorkforcemanagementAdherenceHistoricalTooManyRequests{}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementAdherenceHistoricalTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostWorkforcemanagementAdherenceHistoricalTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement adherence historical too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement adherence historical too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement adherence historical too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement adherence historical too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement adherence historical too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementAdherenceHistoricalTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementAdherenceHistoricalTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementAdherenceHistoricalTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostWorkforcemanagementAdherenceHistoricalInternalServerError() *PostWor
 	return &PostWorkforcemanagementAdherenceHistoricalInternalServerError{}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementAdherenceHistoricalInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostWorkforcemanagementAdherenceHistoricalInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement adherence historical internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement adherence historical internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement adherence historical internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement adherence historical internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement adherence historical internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementAdherenceHistoricalInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementAdherenceHistoricalInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementAdherenceHistoricalInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostWorkforcemanagementAdherenceHistoricalServiceUnavailable() *PostWork
 	return &PostWorkforcemanagementAdherenceHistoricalServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementAdherenceHistoricalServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostWorkforcemanagementAdherenceHistoricalServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement adherence historical service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement adherence historical service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement adherence historical service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement adherence historical service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement adherence historical service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementAdherenceHistoricalServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementAdherenceHistoricalServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementAdherenceHistoricalServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostWorkforcemanagementAdherenceHistoricalGatewayTimeout() *PostWorkforc
 	return &PostWorkforcemanagementAdherenceHistoricalGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementAdherenceHistoricalGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostWorkforcemanagementAdherenceHistoricalGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement adherence historical gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement adherence historical gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement adherence historical gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement adherence historical gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementAdherenceHistoricalGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement adherence historical gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementAdherenceHistoricalGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementAdherenceHistoricalGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementAdherenceHistoricalGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/adherence/historical][%d] postWorkforcemanagementAdherenceHistoricalGatewayTimeout  %+v", 504, o.Payload)
 }
 

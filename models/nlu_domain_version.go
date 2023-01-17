@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -143,7 +144,6 @@ func (m *NluDomainVersion) Validate(formats strfmt.Registry) error {
 }
 
 func (m *NluDomainVersion) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -156,7 +156,6 @@ func (m *NluDomainVersion) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *NluDomainVersion) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -169,7 +168,6 @@ func (m *NluDomainVersion) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *NluDomainVersion) validateDatePublished(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DatePublished) { // not required
 		return nil
 	}
@@ -182,7 +180,6 @@ func (m *NluDomainVersion) validateDatePublished(formats strfmt.Registry) error 
 }
 
 func (m *NluDomainVersion) validateDateTrained(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateTrained) { // not required
 		return nil
 	}
@@ -195,7 +192,6 @@ func (m *NluDomainVersion) validateDateTrained(formats strfmt.Registry) error {
 }
 
 func (m *NluDomainVersion) validateDomain(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Domain) { // not required
 		return nil
 	}
@@ -204,6 +200,8 @@ func (m *NluDomainVersion) validateDomain(formats strfmt.Registry) error {
 		if err := m.Domain.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("domain")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("domain")
 			}
 			return err
 		}
@@ -213,7 +211,6 @@ func (m *NluDomainVersion) validateDomain(formats strfmt.Registry) error {
 }
 
 func (m *NluDomainVersion) validateEntities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Entities) { // not required
 		return nil
 	}
@@ -227,6 +224,8 @@ func (m *NluDomainVersion) validateEntities(formats strfmt.Registry) error {
 			if err := m.Entities[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entities" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -238,7 +237,6 @@ func (m *NluDomainVersion) validateEntities(formats strfmt.Registry) error {
 }
 
 func (m *NluDomainVersion) validateEntityTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EntityTypes) { // not required
 		return nil
 	}
@@ -252,6 +250,8 @@ func (m *NluDomainVersion) validateEntityTypes(formats strfmt.Registry) error {
 			if err := m.EntityTypes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("entityTypes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entityTypes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -298,7 +298,6 @@ func (m *NluDomainVersion) validateEvaluationStatusEnum(path, location string, v
 }
 
 func (m *NluDomainVersion) validateEvaluationStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EvaluationStatus) { // not required
 		return nil
 	}
@@ -312,7 +311,6 @@ func (m *NluDomainVersion) validateEvaluationStatus(formats strfmt.Registry) err
 }
 
 func (m *NluDomainVersion) validateIntents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Intents) { // not required
 		return nil
 	}
@@ -326,6 +324,8 @@ func (m *NluDomainVersion) validateIntents(formats strfmt.Registry) error {
 			if err := m.Intents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -346,7 +346,6 @@ func (m *NluDomainVersion) validateLanguage(formats strfmt.Registry) error {
 }
 
 func (m *NluDomainVersion) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -397,13 +396,231 @@ func (m *NluDomainVersion) validateTrainingStatusEnum(path, location string, val
 }
 
 func (m *NluDomainVersion) validateTrainingStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TrainingStatus) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateTrainingStatusEnum("trainingStatus", "body", m.TrainingStatus); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this nlu domain version based on the context it is used
+func (m *NluDomainVersion) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDatePublished(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateTrained(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDomain(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEntities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEntityTypes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvaluationStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePublished(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrainingStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidateDatePublished(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "datePublished", "body", strfmt.DateTime(m.DatePublished)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidateDateTrained(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateTrained", "body", strfmt.DateTime(m.DateTrained)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidateDomain(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Domain != nil {
+		if err := m.Domain.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("domain")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("domain")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidateEntities(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Entities); i++ {
+
+		if m.Entities[i] != nil {
+			if err := m.Entities[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidateEntityTypes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.EntityTypes); i++ {
+
+		if m.EntityTypes[i] != nil {
+			if err := m.EntityTypes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("entityTypes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entityTypes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidateEvaluationStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "evaluationStatus", "body", string(m.EvaluationStatus)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidateIntents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Intents); i++ {
+
+		if m.Intents[i] != nil {
+			if err := m.Intents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidatePublished(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "published", "body", m.Published); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluDomainVersion) contextValidateTrainingStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "trainingStatus", "body", string(m.TrainingStatus)); err != nil {
 		return err
 	}
 

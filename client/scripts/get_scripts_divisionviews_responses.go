@@ -95,7 +95,6 @@ func (o *GetScriptsDivisionviewsReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetScriptsDivisionviewsOK() *GetScriptsDivisionviewsOK {
 	return &GetScriptsDivisionviewsOK{}
 }
 
-/*GetScriptsDivisionviewsOK handles this case with default header values.
+/*
+GetScriptsDivisionviewsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetScriptsDivisionviewsOK struct {
 	Payload *models.ScriptEntityListing
 }
 
+// IsSuccess returns true when this get scripts divisionviews o k response has a 2xx status code
+func (o *GetScriptsDivisionviewsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get scripts divisionviews o k response has a 3xx status code
+func (o *GetScriptsDivisionviewsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts divisionviews o k response has a 4xx status code
+func (o *GetScriptsDivisionviewsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scripts divisionviews o k response has a 5xx status code
+func (o *GetScriptsDivisionviewsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts divisionviews o k response a status code equal to that given
+func (o *GetScriptsDivisionviewsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetScriptsDivisionviewsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetScriptsDivisionviewsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetScriptsDivisionviewsBadRequest() *GetScriptsDivisionviewsBadRequest {
 	return &GetScriptsDivisionviewsBadRequest{}
 }
 
-/*GetScriptsDivisionviewsBadRequest handles this case with default header values.
+/*
+GetScriptsDivisionviewsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetScriptsDivisionviewsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts divisionviews bad request response has a 2xx status code
+func (o *GetScriptsDivisionviewsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts divisionviews bad request response has a 3xx status code
+func (o *GetScriptsDivisionviewsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts divisionviews bad request response has a 4xx status code
+func (o *GetScriptsDivisionviewsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts divisionviews bad request response has a 5xx status code
+func (o *GetScriptsDivisionviewsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts divisionviews bad request response a status code equal to that given
+func (o *GetScriptsDivisionviewsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetScriptsDivisionviewsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetScriptsDivisionviewsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetScriptsDivisionviewsUnauthorized() *GetScriptsDivisionviewsUnauthoriz
 	return &GetScriptsDivisionviewsUnauthorized{}
 }
 
-/*GetScriptsDivisionviewsUnauthorized handles this case with default header values.
+/*
+GetScriptsDivisionviewsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetScriptsDivisionviewsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts divisionviews unauthorized response has a 2xx status code
+func (o *GetScriptsDivisionviewsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts divisionviews unauthorized response has a 3xx status code
+func (o *GetScriptsDivisionviewsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts divisionviews unauthorized response has a 4xx status code
+func (o *GetScriptsDivisionviewsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts divisionviews unauthorized response has a 5xx status code
+func (o *GetScriptsDivisionviewsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts divisionviews unauthorized response a status code equal to that given
+func (o *GetScriptsDivisionviewsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetScriptsDivisionviewsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetScriptsDivisionviewsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetScriptsDivisionviewsForbidden() *GetScriptsDivisionviewsForbidden {
 	return &GetScriptsDivisionviewsForbidden{}
 }
 
-/*GetScriptsDivisionviewsForbidden handles this case with default header values.
+/*
+GetScriptsDivisionviewsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetScriptsDivisionviewsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts divisionviews forbidden response has a 2xx status code
+func (o *GetScriptsDivisionviewsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts divisionviews forbidden response has a 3xx status code
+func (o *GetScriptsDivisionviewsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts divisionviews forbidden response has a 4xx status code
+func (o *GetScriptsDivisionviewsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts divisionviews forbidden response has a 5xx status code
+func (o *GetScriptsDivisionviewsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts divisionviews forbidden response a status code equal to that given
+func (o *GetScriptsDivisionviewsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetScriptsDivisionviewsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetScriptsDivisionviewsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetScriptsDivisionviewsNotFound() *GetScriptsDivisionviewsNotFound {
 	return &GetScriptsDivisionviewsNotFound{}
 }
 
-/*GetScriptsDivisionviewsNotFound handles this case with default header values.
+/*
+GetScriptsDivisionviewsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetScriptsDivisionviewsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts divisionviews not found response has a 2xx status code
+func (o *GetScriptsDivisionviewsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts divisionviews not found response has a 3xx status code
+func (o *GetScriptsDivisionviewsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts divisionviews not found response has a 4xx status code
+func (o *GetScriptsDivisionviewsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts divisionviews not found response has a 5xx status code
+func (o *GetScriptsDivisionviewsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts divisionviews not found response a status code equal to that given
+func (o *GetScriptsDivisionviewsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetScriptsDivisionviewsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetScriptsDivisionviewsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetScriptsDivisionviewsRequestTimeout() *GetScriptsDivisionviewsRequestT
 	return &GetScriptsDivisionviewsRequestTimeout{}
 }
 
-/*GetScriptsDivisionviewsRequestTimeout handles this case with default header values.
+/*
+GetScriptsDivisionviewsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetScriptsDivisionviewsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts divisionviews request timeout response has a 2xx status code
+func (o *GetScriptsDivisionviewsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts divisionviews request timeout response has a 3xx status code
+func (o *GetScriptsDivisionviewsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts divisionviews request timeout response has a 4xx status code
+func (o *GetScriptsDivisionviewsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts divisionviews request timeout response has a 5xx status code
+func (o *GetScriptsDivisionviewsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts divisionviews request timeout response a status code equal to that given
+func (o *GetScriptsDivisionviewsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetScriptsDivisionviewsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScriptsDivisionviewsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetScriptsDivisionviewsRequestEntityTooLarge() *GetScriptsDivisionviewsR
 	return &GetScriptsDivisionviewsRequestEntityTooLarge{}
 }
 
-/*GetScriptsDivisionviewsRequestEntityTooLarge handles this case with default header values.
+/*
+GetScriptsDivisionviewsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetScriptsDivisionviewsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts divisionviews request entity too large response has a 2xx status code
+func (o *GetScriptsDivisionviewsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts divisionviews request entity too large response has a 3xx status code
+func (o *GetScriptsDivisionviewsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts divisionviews request entity too large response has a 4xx status code
+func (o *GetScriptsDivisionviewsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts divisionviews request entity too large response has a 5xx status code
+func (o *GetScriptsDivisionviewsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts divisionviews request entity too large response a status code equal to that given
+func (o *GetScriptsDivisionviewsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetScriptsDivisionviewsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetScriptsDivisionviewsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetScriptsDivisionviewsUnsupportedMediaType() *GetScriptsDivisionviewsUn
 	return &GetScriptsDivisionviewsUnsupportedMediaType{}
 }
 
-/*GetScriptsDivisionviewsUnsupportedMediaType handles this case with default header values.
+/*
+GetScriptsDivisionviewsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetScriptsDivisionviewsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts divisionviews unsupported media type response has a 2xx status code
+func (o *GetScriptsDivisionviewsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts divisionviews unsupported media type response has a 3xx status code
+func (o *GetScriptsDivisionviewsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts divisionviews unsupported media type response has a 4xx status code
+func (o *GetScriptsDivisionviewsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts divisionviews unsupported media type response has a 5xx status code
+func (o *GetScriptsDivisionviewsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts divisionviews unsupported media type response a status code equal to that given
+func (o *GetScriptsDivisionviewsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetScriptsDivisionviewsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetScriptsDivisionviewsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetScriptsDivisionviewsTooManyRequests() *GetScriptsDivisionviewsTooMany
 	return &GetScriptsDivisionviewsTooManyRequests{}
 }
 
-/*GetScriptsDivisionviewsTooManyRequests handles this case with default header values.
+/*
+GetScriptsDivisionviewsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetScriptsDivisionviewsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts divisionviews too many requests response has a 2xx status code
+func (o *GetScriptsDivisionviewsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts divisionviews too many requests response has a 3xx status code
+func (o *GetScriptsDivisionviewsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts divisionviews too many requests response has a 4xx status code
+func (o *GetScriptsDivisionviewsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts divisionviews too many requests response has a 5xx status code
+func (o *GetScriptsDivisionviewsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts divisionviews too many requests response a status code equal to that given
+func (o *GetScriptsDivisionviewsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetScriptsDivisionviewsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetScriptsDivisionviewsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetScriptsDivisionviewsInternalServerError() *GetScriptsDivisionviewsInt
 	return &GetScriptsDivisionviewsInternalServerError{}
 }
 
-/*GetScriptsDivisionviewsInternalServerError handles this case with default header values.
+/*
+GetScriptsDivisionviewsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetScriptsDivisionviewsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts divisionviews internal server error response has a 2xx status code
+func (o *GetScriptsDivisionviewsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts divisionviews internal server error response has a 3xx status code
+func (o *GetScriptsDivisionviewsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts divisionviews internal server error response has a 4xx status code
+func (o *GetScriptsDivisionviewsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scripts divisionviews internal server error response has a 5xx status code
+func (o *GetScriptsDivisionviewsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scripts divisionviews internal server error response a status code equal to that given
+func (o *GetScriptsDivisionviewsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetScriptsDivisionviewsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetScriptsDivisionviewsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetScriptsDivisionviewsServiceUnavailable() *GetScriptsDivisionviewsServ
 	return &GetScriptsDivisionviewsServiceUnavailable{}
 }
 
-/*GetScriptsDivisionviewsServiceUnavailable handles this case with default header values.
+/*
+GetScriptsDivisionviewsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetScriptsDivisionviewsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts divisionviews service unavailable response has a 2xx status code
+func (o *GetScriptsDivisionviewsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts divisionviews service unavailable response has a 3xx status code
+func (o *GetScriptsDivisionviewsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts divisionviews service unavailable response has a 4xx status code
+func (o *GetScriptsDivisionviewsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scripts divisionviews service unavailable response has a 5xx status code
+func (o *GetScriptsDivisionviewsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scripts divisionviews service unavailable response a status code equal to that given
+func (o *GetScriptsDivisionviewsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetScriptsDivisionviewsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetScriptsDivisionviewsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetScriptsDivisionviewsGatewayTimeout() *GetScriptsDivisionviewsGatewayT
 	return &GetScriptsDivisionviewsGatewayTimeout{}
 }
 
-/*GetScriptsDivisionviewsGatewayTimeout handles this case with default header values.
+/*
+GetScriptsDivisionviewsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetScriptsDivisionviewsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts divisionviews gateway timeout response has a 2xx status code
+func (o *GetScriptsDivisionviewsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts divisionviews gateway timeout response has a 3xx status code
+func (o *GetScriptsDivisionviewsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts divisionviews gateway timeout response has a 4xx status code
+func (o *GetScriptsDivisionviewsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scripts divisionviews gateway timeout response has a 5xx status code
+func (o *GetScriptsDivisionviewsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scripts divisionviews gateway timeout response a status code equal to that given
+func (o *GetScriptsDivisionviewsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetScriptsDivisionviewsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetScriptsDivisionviewsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/divisionviews][%d] getScriptsDivisionviewsGatewayTimeout  %+v", 504, o.Payload)
 }
 

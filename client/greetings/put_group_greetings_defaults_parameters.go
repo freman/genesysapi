@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutGroupGreetingsDefaultsParams creates a new PutGroupGreetingsDefaultsParams object
-// with the default values initialized.
+// NewPutGroupGreetingsDefaultsParams creates a new PutGroupGreetingsDefaultsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutGroupGreetingsDefaultsParams() *PutGroupGreetingsDefaultsParams {
-	var ()
 	return &PutGroupGreetingsDefaultsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutGroupGreetingsDefaultsParamsWithTimeout creates a new PutGroupGreetingsDefaultsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutGroupGreetingsDefaultsParamsWithTimeout(timeout time.Duration) *PutGroupGreetingsDefaultsParams {
-	var ()
 	return &PutGroupGreetingsDefaultsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutGroupGreetingsDefaultsParamsWithContext creates a new PutGroupGreetingsDefaultsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutGroupGreetingsDefaultsParamsWithContext(ctx context.Context) *PutGroupGreetingsDefaultsParams {
-	var ()
 	return &PutGroupGreetingsDefaultsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutGroupGreetingsDefaultsParamsWithHTTPClient creates a new PutGroupGreetingsDefaultsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutGroupGreetingsDefaultsParamsWithHTTPClient(client *http.Client) *PutGroupGreetingsDefaultsParams {
-	var ()
 	return &PutGroupGreetingsDefaultsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutGroupGreetingsDefaultsParams contains all the parameters to send to the API endpoint
-for the put group greetings defaults operation typically these are written to a http.Request
+/*
+PutGroupGreetingsDefaultsParams contains all the parameters to send to the API endpoint
+
+	for the put group greetings defaults operation.
+
+	Typically these are written to a http.Request.
 */
 type PutGroupGreetingsDefaultsParams struct {
 
-	/*Body
-	  The updated defaultGreetingList
+	/* Body.
 
+	   The updated defaultGreetingList
 	*/
 	Body *models.DefaultGreetingList
-	/*GroupID
-	  Group ID
 
+	/* GroupID.
+
+	   Group ID
 	*/
 	GroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put group greetings defaults params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutGroupGreetingsDefaultsParams) WithDefaults() *PutGroupGreetingsDefaultsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put group greetings defaults params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutGroupGreetingsDefaultsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put group greetings defaults params
@@ -140,7 +157,6 @@ func (o *PutGroupGreetingsDefaultsParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

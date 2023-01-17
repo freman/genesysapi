@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -102,7 +103,6 @@ func (m *AnalyticsParticipant) validateFlaggedReasonEnum(path, location string, 
 }
 
 func (m *AnalyticsParticipant) validateFlaggedReason(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlaggedReason) { // not required
 		return nil
 	}
@@ -193,7 +193,6 @@ func (m *AnalyticsParticipant) validatePurposeEnum(path, location string, value 
 }
 
 func (m *AnalyticsParticipant) validatePurpose(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Purpose) { // not required
 		return nil
 	}
@@ -207,7 +206,6 @@ func (m *AnalyticsParticipant) validatePurpose(formats strfmt.Registry) error {
 }
 
 func (m *AnalyticsParticipant) validateSessions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Sessions) { // not required
 		return nil
 	}
@@ -221,6 +219,42 @@ func (m *AnalyticsParticipant) validateSessions(formats strfmt.Registry) error {
 			if err := m.Sessions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sessions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sessions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this analytics participant based on the context it is used
+func (m *AnalyticsParticipant) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSessions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AnalyticsParticipant) contextValidateSessions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Sessions); i++ {
+
+		if m.Sessions[i] != nil {
+			if err := m.Sessions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sessions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sessions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

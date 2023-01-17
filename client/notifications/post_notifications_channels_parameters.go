@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostNotificationsChannelsParams creates a new PostNotificationsChannelsParams object
-// with the default values initialized.
+// NewPostNotificationsChannelsParams creates a new PostNotificationsChannelsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostNotificationsChannelsParams() *PostNotificationsChannelsParams {
-
 	return &PostNotificationsChannelsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostNotificationsChannelsParamsWithTimeout creates a new PostNotificationsChannelsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostNotificationsChannelsParamsWithTimeout(timeout time.Duration) *PostNotificationsChannelsParams {
-
 	return &PostNotificationsChannelsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostNotificationsChannelsParamsWithContext creates a new PostNotificationsChannelsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostNotificationsChannelsParamsWithContext(ctx context.Context) *PostNotificationsChannelsParams {
-
 	return &PostNotificationsChannelsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostNotificationsChannelsParamsWithHTTPClient creates a new PostNotificationsChannelsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostNotificationsChannelsParamsWithHTTPClient(client *http.Client) *PostNotificationsChannelsParams {
-
 	return &PostNotificationsChannelsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostNotificationsChannelsParams contains all the parameters to send to the API endpoint
-for the post notifications channels operation typically these are written to a http.Request
+/*
+PostNotificationsChannelsParams contains all the parameters to send to the API endpoint
+
+	for the post notifications channels operation.
+
+	Typically these are written to a http.Request.
 */
 type PostNotificationsChannelsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post notifications channels params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostNotificationsChannelsParams) WithDefaults() *PostNotificationsChannelsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post notifications channels params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostNotificationsChannelsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post notifications channels params

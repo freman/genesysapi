@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetSpeechandtextanalyticsProgramsPublishjobParams creates a new GetSpeechandtextanalyticsProgramsPublishjobParams object
-// with the default values initialized.
+// NewGetSpeechandtextanalyticsProgramsPublishjobParams creates a new GetSpeechandtextanalyticsProgramsPublishjobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSpeechandtextanalyticsProgramsPublishjobParams() *GetSpeechandtextanalyticsProgramsPublishjobParams {
-	var ()
 	return &GetSpeechandtextanalyticsProgramsPublishjobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsProgramsPublishjobParamsWithTimeout creates a new GetSpeechandtextanalyticsProgramsPublishjobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSpeechandtextanalyticsProgramsPublishjobParamsWithTimeout(timeout time.Duration) *GetSpeechandtextanalyticsProgramsPublishjobParams {
-	var ()
 	return &GetSpeechandtextanalyticsProgramsPublishjobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsProgramsPublishjobParamsWithContext creates a new GetSpeechandtextanalyticsProgramsPublishjobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSpeechandtextanalyticsProgramsPublishjobParamsWithContext(ctx context.Context) *GetSpeechandtextanalyticsProgramsPublishjobParams {
-	var ()
 	return &GetSpeechandtextanalyticsProgramsPublishjobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetSpeechandtextanalyticsProgramsPublishjobParamsWithHTTPClient creates a new GetSpeechandtextanalyticsProgramsPublishjobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSpeechandtextanalyticsProgramsPublishjobParamsWithHTTPClient(client *http.Client) *GetSpeechandtextanalyticsProgramsPublishjobParams {
-	var ()
 	return &GetSpeechandtextanalyticsProgramsPublishjobParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetSpeechandtextanalyticsProgramsPublishjobParams contains all the parameters to send to the API endpoint
-for the get speechandtextanalytics programs publishjob operation typically these are written to a http.Request
+/*
+GetSpeechandtextanalyticsProgramsPublishjobParams contains all the parameters to send to the API endpoint
+
+	for the get speechandtextanalytics programs publishjob operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSpeechandtextanalyticsProgramsPublishjobParams struct {
 
-	/*JobID
-	  The id of the publish programs job
+	/* JobID.
 
+	   The id of the publish programs job
 	*/
 	JobID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get speechandtextanalytics programs publishjob params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsProgramsPublishjobParams) WithDefaults() *GetSpeechandtextanalyticsProgramsPublishjobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get speechandtextanalytics programs publishjob params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsProgramsPublishjobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get speechandtextanalytics programs publishjob params

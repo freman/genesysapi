@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -112,7 +113,6 @@ func (m *Condition) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Condition) validateContactColumnToDataActionFieldMappings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactColumnToDataActionFieldMappings) { // not required
 		return nil
 	}
@@ -126,6 +126,8 @@ func (m *Condition) validateContactColumnToDataActionFieldMappings(formats strfm
 			if err := m.ContactColumnToDataActionFieldMappings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("contactColumnToDataActionFieldMappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contactColumnToDataActionFieldMappings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -137,7 +139,6 @@ func (m *Condition) validateContactColumnToDataActionFieldMappings(formats strfm
 }
 
 func (m *Condition) validateDataAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DataAction) { // not required
 		return nil
 	}
@@ -146,6 +147,8 @@ func (m *Condition) validateDataAction(formats strfmt.Registry) error {
 		if err := m.DataAction.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dataAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dataAction")
 			}
 			return err
 		}
@@ -211,7 +214,6 @@ func (m *Condition) validateOperatorEnum(path, location string, value string) er
 }
 
 func (m *Condition) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -225,7 +227,6 @@ func (m *Condition) validateOperator(formats strfmt.Registry) error {
 }
 
 func (m *Condition) validatePredicates(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Predicates) { // not required
 		return nil
 	}
@@ -239,6 +240,8 @@ func (m *Condition) validatePredicates(formats strfmt.Registry) error {
 			if err := m.Predicates[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("predicates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("predicates" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -285,7 +288,6 @@ func (m *Condition) validatePropertyTypeEnum(path, location string, value string
 }
 
 func (m *Condition) validatePropertyType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PropertyType) { // not required
 		return nil
 	}
@@ -346,7 +348,6 @@ func (m *Condition) validateTypeEnum(path, location string, value string) error 
 }
 
 func (m *Condition) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -395,7 +396,6 @@ func (m *Condition) validateValueTypeEnum(path, location string, value string) e
 }
 
 func (m *Condition) validateValueType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ValueType) { // not required
 		return nil
 	}
@@ -403,6 +403,84 @@ func (m *Condition) validateValueType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateValueTypeEnum("valueType", "body", m.ValueType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this condition based on the context it is used
+func (m *Condition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContactColumnToDataActionFieldMappings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDataAction(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePredicates(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Condition) contextValidateContactColumnToDataActionFieldMappings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ContactColumnToDataActionFieldMappings); i++ {
+
+		if m.ContactColumnToDataActionFieldMappings[i] != nil {
+			if err := m.ContactColumnToDataActionFieldMappings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("contactColumnToDataActionFieldMappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contactColumnToDataActionFieldMappings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Condition) contextValidateDataAction(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DataAction != nil {
+		if err := m.DataAction.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dataAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dataAction")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Condition) contextValidatePredicates(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Predicates); i++ {
+
+		if m.Predicates[i] != nil {
+			if err := m.Predicates[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("predicates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("predicates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

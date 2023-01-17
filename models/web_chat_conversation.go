@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -52,7 +54,6 @@ func (m *WebChatConversation) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WebChatConversation) validateMember(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Member) { // not required
 		return nil
 	}
@@ -61,6 +62,8 @@ func (m *WebChatConversation) validateMember(formats strfmt.Registry) error {
 		if err := m.Member.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("member")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("member")
 			}
 			return err
 		}
@@ -70,12 +73,67 @@ func (m *WebChatConversation) validateMember(formats strfmt.Registry) error {
 }
 
 func (m *WebChatConversation) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this web chat conversation based on the context it is used
+func (m *WebChatConversation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMember(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WebChatConversation) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebChatConversation) contextValidateMember(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Member != nil {
+		if err := m.Member.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("member")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("member")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebChatConversation) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

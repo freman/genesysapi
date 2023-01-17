@@ -95,7 +95,6 @@ func (o *GetFieldconfigReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetFieldconfigOK() *GetFieldconfigOK {
 	return &GetFieldconfigOK{}
 }
 
-/*GetFieldconfigOK handles this case with default header values.
+/*
+GetFieldconfigOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetFieldconfigOK struct {
 	Payload *models.FieldConfig
 }
 
+// IsSuccess returns true when this get fieldconfig o k response has a 2xx status code
+func (o *GetFieldconfigOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get fieldconfig o k response has a 3xx status code
+func (o *GetFieldconfigOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fieldconfig o k response has a 4xx status code
+func (o *GetFieldconfigOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get fieldconfig o k response has a 5xx status code
+func (o *GetFieldconfigOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fieldconfig o k response a status code equal to that given
+func (o *GetFieldconfigOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetFieldconfigOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigOK  %+v", 200, o.Payload)
+}
+
+func (o *GetFieldconfigOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetFieldconfigBadRequest() *GetFieldconfigBadRequest {
 	return &GetFieldconfigBadRequest{}
 }
 
-/*GetFieldconfigBadRequest handles this case with default header values.
+/*
+GetFieldconfigBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetFieldconfigBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fieldconfig bad request response has a 2xx status code
+func (o *GetFieldconfigBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fieldconfig bad request response has a 3xx status code
+func (o *GetFieldconfigBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fieldconfig bad request response has a 4xx status code
+func (o *GetFieldconfigBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fieldconfig bad request response has a 5xx status code
+func (o *GetFieldconfigBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fieldconfig bad request response a status code equal to that given
+func (o *GetFieldconfigBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetFieldconfigBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetFieldconfigBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetFieldconfigUnauthorized() *GetFieldconfigUnauthorized {
 	return &GetFieldconfigUnauthorized{}
 }
 
-/*GetFieldconfigUnauthorized handles this case with default header values.
+/*
+GetFieldconfigUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetFieldconfigUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fieldconfig unauthorized response has a 2xx status code
+func (o *GetFieldconfigUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fieldconfig unauthorized response has a 3xx status code
+func (o *GetFieldconfigUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fieldconfig unauthorized response has a 4xx status code
+func (o *GetFieldconfigUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fieldconfig unauthorized response has a 5xx status code
+func (o *GetFieldconfigUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fieldconfig unauthorized response a status code equal to that given
+func (o *GetFieldconfigUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetFieldconfigUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetFieldconfigUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetFieldconfigForbidden() *GetFieldconfigForbidden {
 	return &GetFieldconfigForbidden{}
 }
 
-/*GetFieldconfigForbidden handles this case with default header values.
+/*
+GetFieldconfigForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetFieldconfigForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fieldconfig forbidden response has a 2xx status code
+func (o *GetFieldconfigForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fieldconfig forbidden response has a 3xx status code
+func (o *GetFieldconfigForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fieldconfig forbidden response has a 4xx status code
+func (o *GetFieldconfigForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fieldconfig forbidden response has a 5xx status code
+func (o *GetFieldconfigForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fieldconfig forbidden response a status code equal to that given
+func (o *GetFieldconfigForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetFieldconfigForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetFieldconfigForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetFieldconfigNotFound() *GetFieldconfigNotFound {
 	return &GetFieldconfigNotFound{}
 }
 
-/*GetFieldconfigNotFound handles this case with default header values.
+/*
+GetFieldconfigNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetFieldconfigNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fieldconfig not found response has a 2xx status code
+func (o *GetFieldconfigNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fieldconfig not found response has a 3xx status code
+func (o *GetFieldconfigNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fieldconfig not found response has a 4xx status code
+func (o *GetFieldconfigNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fieldconfig not found response has a 5xx status code
+func (o *GetFieldconfigNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fieldconfig not found response a status code equal to that given
+func (o *GetFieldconfigNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetFieldconfigNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetFieldconfigNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetFieldconfigRequestTimeout() *GetFieldconfigRequestTimeout {
 	return &GetFieldconfigRequestTimeout{}
 }
 
-/*GetFieldconfigRequestTimeout handles this case with default header values.
+/*
+GetFieldconfigRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetFieldconfigRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fieldconfig request timeout response has a 2xx status code
+func (o *GetFieldconfigRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fieldconfig request timeout response has a 3xx status code
+func (o *GetFieldconfigRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fieldconfig request timeout response has a 4xx status code
+func (o *GetFieldconfigRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fieldconfig request timeout response has a 5xx status code
+func (o *GetFieldconfigRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fieldconfig request timeout response a status code equal to that given
+func (o *GetFieldconfigRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetFieldconfigRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFieldconfigRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetFieldconfigRequestEntityTooLarge() *GetFieldconfigRequestEntityTooLar
 	return &GetFieldconfigRequestEntityTooLarge{}
 }
 
-/*GetFieldconfigRequestEntityTooLarge handles this case with default header values.
+/*
+GetFieldconfigRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetFieldconfigRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fieldconfig request entity too large response has a 2xx status code
+func (o *GetFieldconfigRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fieldconfig request entity too large response has a 3xx status code
+func (o *GetFieldconfigRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fieldconfig request entity too large response has a 4xx status code
+func (o *GetFieldconfigRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fieldconfig request entity too large response has a 5xx status code
+func (o *GetFieldconfigRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fieldconfig request entity too large response a status code equal to that given
+func (o *GetFieldconfigRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetFieldconfigRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetFieldconfigRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetFieldconfigUnsupportedMediaType() *GetFieldconfigUnsupportedMediaType
 	return &GetFieldconfigUnsupportedMediaType{}
 }
 
-/*GetFieldconfigUnsupportedMediaType handles this case with default header values.
+/*
+GetFieldconfigUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetFieldconfigUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fieldconfig unsupported media type response has a 2xx status code
+func (o *GetFieldconfigUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fieldconfig unsupported media type response has a 3xx status code
+func (o *GetFieldconfigUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fieldconfig unsupported media type response has a 4xx status code
+func (o *GetFieldconfigUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fieldconfig unsupported media type response has a 5xx status code
+func (o *GetFieldconfigUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fieldconfig unsupported media type response a status code equal to that given
+func (o *GetFieldconfigUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetFieldconfigUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetFieldconfigUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetFieldconfigTooManyRequests() *GetFieldconfigTooManyRequests {
 	return &GetFieldconfigTooManyRequests{}
 }
 
-/*GetFieldconfigTooManyRequests handles this case with default header values.
+/*
+GetFieldconfigTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetFieldconfigTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fieldconfig too many requests response has a 2xx status code
+func (o *GetFieldconfigTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fieldconfig too many requests response has a 3xx status code
+func (o *GetFieldconfigTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fieldconfig too many requests response has a 4xx status code
+func (o *GetFieldconfigTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fieldconfig too many requests response has a 5xx status code
+func (o *GetFieldconfigTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fieldconfig too many requests response a status code equal to that given
+func (o *GetFieldconfigTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetFieldconfigTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetFieldconfigTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetFieldconfigInternalServerError() *GetFieldconfigInternalServerError {
 	return &GetFieldconfigInternalServerError{}
 }
 
-/*GetFieldconfigInternalServerError handles this case with default header values.
+/*
+GetFieldconfigInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetFieldconfigInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fieldconfig internal server error response has a 2xx status code
+func (o *GetFieldconfigInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fieldconfig internal server error response has a 3xx status code
+func (o *GetFieldconfigInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fieldconfig internal server error response has a 4xx status code
+func (o *GetFieldconfigInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get fieldconfig internal server error response has a 5xx status code
+func (o *GetFieldconfigInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get fieldconfig internal server error response a status code equal to that given
+func (o *GetFieldconfigInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetFieldconfigInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetFieldconfigInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetFieldconfigServiceUnavailable() *GetFieldconfigServiceUnavailable {
 	return &GetFieldconfigServiceUnavailable{}
 }
 
-/*GetFieldconfigServiceUnavailable handles this case with default header values.
+/*
+GetFieldconfigServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetFieldconfigServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fieldconfig service unavailable response has a 2xx status code
+func (o *GetFieldconfigServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fieldconfig service unavailable response has a 3xx status code
+func (o *GetFieldconfigServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fieldconfig service unavailable response has a 4xx status code
+func (o *GetFieldconfigServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get fieldconfig service unavailable response has a 5xx status code
+func (o *GetFieldconfigServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get fieldconfig service unavailable response a status code equal to that given
+func (o *GetFieldconfigServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetFieldconfigServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetFieldconfigServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetFieldconfigGatewayTimeout() *GetFieldconfigGatewayTimeout {
 	return &GetFieldconfigGatewayTimeout{}
 }
 
-/*GetFieldconfigGatewayTimeout handles this case with default header values.
+/*
+GetFieldconfigGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetFieldconfigGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fieldconfig gateway timeout response has a 2xx status code
+func (o *GetFieldconfigGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fieldconfig gateway timeout response has a 3xx status code
+func (o *GetFieldconfigGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fieldconfig gateway timeout response has a 4xx status code
+func (o *GetFieldconfigGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get fieldconfig gateway timeout response has a 5xx status code
+func (o *GetFieldconfigGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get fieldconfig gateway timeout response a status code equal to that given
+func (o *GetFieldconfigGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetFieldconfigGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetFieldconfigGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/fieldconfig][%d] getFieldconfigGatewayTimeout  %+v", 504, o.Payload)
 }
 

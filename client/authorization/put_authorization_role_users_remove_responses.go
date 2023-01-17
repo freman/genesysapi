@@ -95,7 +95,6 @@ func (o *PutAuthorizationRoleUsersRemoveReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutAuthorizationRoleUsersRemoveOK() *PutAuthorizationRoleUsersRemoveOK {
 	return &PutAuthorizationRoleUsersRemoveOK{}
 }
 
-/*PutAuthorizationRoleUsersRemoveOK handles this case with default header values.
+/*
+PutAuthorizationRoleUsersRemoveOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutAuthorizationRoleUsersRemoveOK struct {
 	Payload []string
 }
 
+// IsSuccess returns true when this put authorization role users remove o k response has a 2xx status code
+func (o *PutAuthorizationRoleUsersRemoveOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put authorization role users remove o k response has a 3xx status code
+func (o *PutAuthorizationRoleUsersRemoveOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users remove o k response has a 4xx status code
+func (o *PutAuthorizationRoleUsersRemoveOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization role users remove o k response has a 5xx status code
+func (o *PutAuthorizationRoleUsersRemoveOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users remove o k response a status code equal to that given
+func (o *PutAuthorizationRoleUsersRemoveOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutAuthorizationRoleUsersRemoveOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveOK  %+v", 200, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersRemoveOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewPutAuthorizationRoleUsersRemoveBadRequest() *PutAuthorizationRoleUsersRe
 	return &PutAuthorizationRoleUsersRemoveBadRequest{}
 }
 
-/*PutAuthorizationRoleUsersRemoveBadRequest handles this case with default header values.
+/*
+PutAuthorizationRoleUsersRemoveBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type PutAuthorizationRoleUsersRemoveBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users remove bad request response has a 2xx status code
+func (o *PutAuthorizationRoleUsersRemoveBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users remove bad request response has a 3xx status code
+func (o *PutAuthorizationRoleUsersRemoveBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users remove bad request response has a 4xx status code
+func (o *PutAuthorizationRoleUsersRemoveBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users remove bad request response has a 5xx status code
+func (o *PutAuthorizationRoleUsersRemoveBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users remove bad request response a status code equal to that given
+func (o *PutAuthorizationRoleUsersRemoveBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutAuthorizationRoleUsersRemoveBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersRemoveBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewPutAuthorizationRoleUsersRemoveUnauthorized() *PutAuthorizationRoleUsers
 	return &PutAuthorizationRoleUsersRemoveUnauthorized{}
 }
 
-/*PutAuthorizationRoleUsersRemoveUnauthorized handles this case with default header values.
+/*
+PutAuthorizationRoleUsersRemoveUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type PutAuthorizationRoleUsersRemoveUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users remove unauthorized response has a 2xx status code
+func (o *PutAuthorizationRoleUsersRemoveUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users remove unauthorized response has a 3xx status code
+func (o *PutAuthorizationRoleUsersRemoveUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users remove unauthorized response has a 4xx status code
+func (o *PutAuthorizationRoleUsersRemoveUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users remove unauthorized response has a 5xx status code
+func (o *PutAuthorizationRoleUsersRemoveUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users remove unauthorized response a status code equal to that given
+func (o *PutAuthorizationRoleUsersRemoveUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutAuthorizationRoleUsersRemoveUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersRemoveUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewPutAuthorizationRoleUsersRemoveForbidden() *PutAuthorizationRoleUsersRem
 	return &PutAuthorizationRoleUsersRemoveForbidden{}
 }
 
-/*PutAuthorizationRoleUsersRemoveForbidden handles this case with default header values.
+/*
+PutAuthorizationRoleUsersRemoveForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type PutAuthorizationRoleUsersRemoveForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users remove forbidden response has a 2xx status code
+func (o *PutAuthorizationRoleUsersRemoveForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users remove forbidden response has a 3xx status code
+func (o *PutAuthorizationRoleUsersRemoveForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users remove forbidden response has a 4xx status code
+func (o *PutAuthorizationRoleUsersRemoveForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users remove forbidden response has a 5xx status code
+func (o *PutAuthorizationRoleUsersRemoveForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users remove forbidden response a status code equal to that given
+func (o *PutAuthorizationRoleUsersRemoveForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutAuthorizationRoleUsersRemoveForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersRemoveForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewPutAuthorizationRoleUsersRemoveNotFound() *PutAuthorizationRoleUsersRemo
 	return &PutAuthorizationRoleUsersRemoveNotFound{}
 }
 
-/*PutAuthorizationRoleUsersRemoveNotFound handles this case with default header values.
+/*
+PutAuthorizationRoleUsersRemoveNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type PutAuthorizationRoleUsersRemoveNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users remove not found response has a 2xx status code
+func (o *PutAuthorizationRoleUsersRemoveNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users remove not found response has a 3xx status code
+func (o *PutAuthorizationRoleUsersRemoveNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users remove not found response has a 4xx status code
+func (o *PutAuthorizationRoleUsersRemoveNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users remove not found response has a 5xx status code
+func (o *PutAuthorizationRoleUsersRemoveNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users remove not found response a status code equal to that given
+func (o *PutAuthorizationRoleUsersRemoveNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutAuthorizationRoleUsersRemoveNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersRemoveNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewPutAuthorizationRoleUsersRemoveRequestTimeout() *PutAuthorizationRoleUse
 	return &PutAuthorizationRoleUsersRemoveRequestTimeout{}
 }
 
-/*PutAuthorizationRoleUsersRemoveRequestTimeout handles this case with default header values.
+/*
+PutAuthorizationRoleUsersRemoveRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type PutAuthorizationRoleUsersRemoveRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users remove request timeout response has a 2xx status code
+func (o *PutAuthorizationRoleUsersRemoveRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users remove request timeout response has a 3xx status code
+func (o *PutAuthorizationRoleUsersRemoveRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users remove request timeout response has a 4xx status code
+func (o *PutAuthorizationRoleUsersRemoveRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users remove request timeout response has a 5xx status code
+func (o *PutAuthorizationRoleUsersRemoveRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users remove request timeout response a status code equal to that given
+func (o *PutAuthorizationRoleUsersRemoveRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutAuthorizationRoleUsersRemoveRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersRemoveRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewPutAuthorizationRoleUsersRemoveRequestEntityTooLarge() *PutAuthorization
 	return &PutAuthorizationRoleUsersRemoveRequestEntityTooLarge{}
 }
 
-/*PutAuthorizationRoleUsersRemoveRequestEntityTooLarge handles this case with default header values.
+/*
+PutAuthorizationRoleUsersRemoveRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type PutAuthorizationRoleUsersRemoveRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users remove request entity too large response has a 2xx status code
+func (o *PutAuthorizationRoleUsersRemoveRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users remove request entity too large response has a 3xx status code
+func (o *PutAuthorizationRoleUsersRemoveRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users remove request entity too large response has a 4xx status code
+func (o *PutAuthorizationRoleUsersRemoveRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users remove request entity too large response has a 5xx status code
+func (o *PutAuthorizationRoleUsersRemoveRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users remove request entity too large response a status code equal to that given
+func (o *PutAuthorizationRoleUsersRemoveRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutAuthorizationRoleUsersRemoveRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersRemoveRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewPutAuthorizationRoleUsersRemoveUnsupportedMediaType() *PutAuthorizationR
 	return &PutAuthorizationRoleUsersRemoveUnsupportedMediaType{}
 }
 
-/*PutAuthorizationRoleUsersRemoveUnsupportedMediaType handles this case with default header values.
+/*
+PutAuthorizationRoleUsersRemoveUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type PutAuthorizationRoleUsersRemoveUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users remove unsupported media type response has a 2xx status code
+func (o *PutAuthorizationRoleUsersRemoveUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users remove unsupported media type response has a 3xx status code
+func (o *PutAuthorizationRoleUsersRemoveUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users remove unsupported media type response has a 4xx status code
+func (o *PutAuthorizationRoleUsersRemoveUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users remove unsupported media type response has a 5xx status code
+func (o *PutAuthorizationRoleUsersRemoveUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users remove unsupported media type response a status code equal to that given
+func (o *PutAuthorizationRoleUsersRemoveUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutAuthorizationRoleUsersRemoveUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersRemoveUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewPutAuthorizationRoleUsersRemoveTooManyRequests() *PutAuthorizationRoleUs
 	return &PutAuthorizationRoleUsersRemoveTooManyRequests{}
 }
 
-/*PutAuthorizationRoleUsersRemoveTooManyRequests handles this case with default header values.
+/*
+PutAuthorizationRoleUsersRemoveTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type PutAuthorizationRoleUsersRemoveTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users remove too many requests response has a 2xx status code
+func (o *PutAuthorizationRoleUsersRemoveTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users remove too many requests response has a 3xx status code
+func (o *PutAuthorizationRoleUsersRemoveTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users remove too many requests response has a 4xx status code
+func (o *PutAuthorizationRoleUsersRemoveTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put authorization role users remove too many requests response has a 5xx status code
+func (o *PutAuthorizationRoleUsersRemoveTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put authorization role users remove too many requests response a status code equal to that given
+func (o *PutAuthorizationRoleUsersRemoveTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutAuthorizationRoleUsersRemoveTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersRemoveTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewPutAuthorizationRoleUsersRemoveInternalServerError() *PutAuthorizationRo
 	return &PutAuthorizationRoleUsersRemoveInternalServerError{}
 }
 
-/*PutAuthorizationRoleUsersRemoveInternalServerError handles this case with default header values.
+/*
+PutAuthorizationRoleUsersRemoveInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type PutAuthorizationRoleUsersRemoveInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users remove internal server error response has a 2xx status code
+func (o *PutAuthorizationRoleUsersRemoveInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users remove internal server error response has a 3xx status code
+func (o *PutAuthorizationRoleUsersRemoveInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users remove internal server error response has a 4xx status code
+func (o *PutAuthorizationRoleUsersRemoveInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization role users remove internal server error response has a 5xx status code
+func (o *PutAuthorizationRoleUsersRemoveInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put authorization role users remove internal server error response a status code equal to that given
+func (o *PutAuthorizationRoleUsersRemoveInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutAuthorizationRoleUsersRemoveInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersRemoveInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewPutAuthorizationRoleUsersRemoveServiceUnavailable() *PutAuthorizationRol
 	return &PutAuthorizationRoleUsersRemoveServiceUnavailable{}
 }
 
-/*PutAuthorizationRoleUsersRemoveServiceUnavailable handles this case with default header values.
+/*
+PutAuthorizationRoleUsersRemoveServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type PutAuthorizationRoleUsersRemoveServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users remove service unavailable response has a 2xx status code
+func (o *PutAuthorizationRoleUsersRemoveServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users remove service unavailable response has a 3xx status code
+func (o *PutAuthorizationRoleUsersRemoveServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users remove service unavailable response has a 4xx status code
+func (o *PutAuthorizationRoleUsersRemoveServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization role users remove service unavailable response has a 5xx status code
+func (o *PutAuthorizationRoleUsersRemoveServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put authorization role users remove service unavailable response a status code equal to that given
+func (o *PutAuthorizationRoleUsersRemoveServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutAuthorizationRoleUsersRemoveServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersRemoveServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewPutAuthorizationRoleUsersRemoveGatewayTimeout() *PutAuthorizationRoleUse
 	return &PutAuthorizationRoleUsersRemoveGatewayTimeout{}
 }
 
-/*PutAuthorizationRoleUsersRemoveGatewayTimeout handles this case with default header values.
+/*
+PutAuthorizationRoleUsersRemoveGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type PutAuthorizationRoleUsersRemoveGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put authorization role users remove gateway timeout response has a 2xx status code
+func (o *PutAuthorizationRoleUsersRemoveGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put authorization role users remove gateway timeout response has a 3xx status code
+func (o *PutAuthorizationRoleUsersRemoveGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put authorization role users remove gateway timeout response has a 4xx status code
+func (o *PutAuthorizationRoleUsersRemoveGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put authorization role users remove gateway timeout response has a 5xx status code
+func (o *PutAuthorizationRoleUsersRemoveGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put authorization role users remove gateway timeout response a status code equal to that given
+func (o *PutAuthorizationRoleUsersRemoveGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutAuthorizationRoleUsersRemoveGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutAuthorizationRoleUsersRemoveGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/authorization/roles/{roleId}/users/remove][%d] putAuthorizationRoleUsersRemoveGatewayTimeout  %+v", 504, o.Payload)
 }
 

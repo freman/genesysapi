@@ -101,7 +101,6 @@ func (o *PatchWorkforcemanagementBusinessunitActivitycodeReader) ReadResponse(re
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeOK() *PatchWorkforcemana
 	return &PatchWorkforcemanagementBusinessunitActivitycodeOK{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeOK handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeOK struct {
 	Payload *models.BusinessUnitActivityCode
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode o k response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode o k response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode o k response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode o k response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode o k response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeBadRequest() *PatchWorkf
 	return &PatchWorkforcemanagementBusinessunitActivitycodeBadRequest{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeBadRequest handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode bad request response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode bad request response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode bad request response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode bad request response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode bad request response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeUnauthorized() *PatchWor
 	return &PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode unauthorized response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode unauthorized response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode unauthorized response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode unauthorized response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode unauthorized response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeForbidden() *PatchWorkfo
 	return &PatchWorkforcemanagementBusinessunitActivitycodeForbidden{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeForbidden handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode forbidden response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode forbidden response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode forbidden response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode forbidden response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode forbidden response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeNotFound() *PatchWorkfor
 	return &PatchWorkforcemanagementBusinessunitActivitycodeNotFound{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeNotFound handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode not found response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode not found response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode not found response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode not found response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode not found response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeRequestTimeout() *PatchW
 	return &PatchWorkforcemanagementBusinessunitActivitycodeRequestTimeout{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeRequestTimeout handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode request timeout response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode request timeout response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode request timeout response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode request timeout response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode request timeout response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeConflict() *PatchWorkfor
 	return &PatchWorkforcemanagementBusinessunitActivitycodeConflict{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeConflict handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode conflict response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode conflict response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode conflict response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode conflict response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode conflict response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge() 
 	return &PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode request entity too large response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode request entity too large response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode request entity too large response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode request entity too large response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode request entity too large response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType() *
 	return &PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode unsupported media type response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode unsupported media type response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode unsupported media type response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode unsupported media type response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode unsupported media type response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests() *Patch
 	return &PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode too many requests response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode too many requests response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode too many requests response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode too many requests response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode too many requests response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeInternalServerError() *P
 	return &PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode internal server error response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode internal server error response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode internal server error response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode internal server error response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode internal server error response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable() *Pa
 	return &PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode service unavailable response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode service unavailable response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode service unavailable response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode service unavailable response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode service unavailable response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout() *PatchW
 	return &PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout{}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit activitycode gateway timeout response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit activitycode gateway timeout response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit activitycode gateway timeout response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit activitycode gateway timeout response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit activitycode gateway timeout response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes/{activityCodeId}][%d] patchWorkforcemanagementBusinessunitActivitycodeGatewayTimeout  %+v", 504, o.Payload)
 }
 

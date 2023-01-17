@@ -95,7 +95,6 @@ func (o *DeleteIdentityprovidersPureengageReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteIdentityprovidersPureengageOK() *DeleteIdentityprovidersPureengage
 	return &DeleteIdentityprovidersPureengageOK{}
 }
 
-/*DeleteIdentityprovidersPureengageOK handles this case with default header values.
+/*
+DeleteIdentityprovidersPureengageOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteIdentityprovidersPureengageOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete identityproviders pureengage o k response has a 2xx status code
+func (o *DeleteIdentityprovidersPureengageOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete identityproviders pureengage o k response has a 3xx status code
+func (o *DeleteIdentityprovidersPureengageOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders pureengage o k response has a 4xx status code
+func (o *DeleteIdentityprovidersPureengageOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders pureengage o k response has a 5xx status code
+func (o *DeleteIdentityprovidersPureengageOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders pureengage o k response a status code equal to that given
+func (o *DeleteIdentityprovidersPureengageOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteIdentityprovidersPureengageOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewDeleteIdentityprovidersPureengageBadRequest() *DeleteIdentityprovidersPu
 	return &DeleteIdentityprovidersPureengageBadRequest{}
 }
 
-/*DeleteIdentityprovidersPureengageBadRequest handles this case with default header values.
+/*
+DeleteIdentityprovidersPureengageBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type DeleteIdentityprovidersPureengageBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders pureengage bad request response has a 2xx status code
+func (o *DeleteIdentityprovidersPureengageBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders pureengage bad request response has a 3xx status code
+func (o *DeleteIdentityprovidersPureengageBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders pureengage bad request response has a 4xx status code
+func (o *DeleteIdentityprovidersPureengageBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders pureengage bad request response has a 5xx status code
+func (o *DeleteIdentityprovidersPureengageBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders pureengage bad request response a status code equal to that given
+func (o *DeleteIdentityprovidersPureengageBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteIdentityprovidersPureengageBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteIdentityprovidersPureengageUnauthorized() *DeleteIdentityproviders
 	return &DeleteIdentityprovidersPureengageUnauthorized{}
 }
 
-/*DeleteIdentityprovidersPureengageUnauthorized handles this case with default header values.
+/*
+DeleteIdentityprovidersPureengageUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type DeleteIdentityprovidersPureengageUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders pureengage unauthorized response has a 2xx status code
+func (o *DeleteIdentityprovidersPureengageUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders pureengage unauthorized response has a 3xx status code
+func (o *DeleteIdentityprovidersPureengageUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders pureengage unauthorized response has a 4xx status code
+func (o *DeleteIdentityprovidersPureengageUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders pureengage unauthorized response has a 5xx status code
+func (o *DeleteIdentityprovidersPureengageUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders pureengage unauthorized response a status code equal to that given
+func (o *DeleteIdentityprovidersPureengageUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteIdentityprovidersPureengageUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteIdentityprovidersPureengageForbidden() *DeleteIdentityprovidersPur
 	return &DeleteIdentityprovidersPureengageForbidden{}
 }
 
-/*DeleteIdentityprovidersPureengageForbidden handles this case with default header values.
+/*
+DeleteIdentityprovidersPureengageForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type DeleteIdentityprovidersPureengageForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders pureengage forbidden response has a 2xx status code
+func (o *DeleteIdentityprovidersPureengageForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders pureengage forbidden response has a 3xx status code
+func (o *DeleteIdentityprovidersPureengageForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders pureengage forbidden response has a 4xx status code
+func (o *DeleteIdentityprovidersPureengageForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders pureengage forbidden response has a 5xx status code
+func (o *DeleteIdentityprovidersPureengageForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders pureengage forbidden response a status code equal to that given
+func (o *DeleteIdentityprovidersPureengageForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteIdentityprovidersPureengageForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteIdentityprovidersPureengageNotFound() *DeleteIdentityprovidersPure
 	return &DeleteIdentityprovidersPureengageNotFound{}
 }
 
-/*DeleteIdentityprovidersPureengageNotFound handles this case with default header values.
+/*
+DeleteIdentityprovidersPureengageNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type DeleteIdentityprovidersPureengageNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders pureengage not found response has a 2xx status code
+func (o *DeleteIdentityprovidersPureengageNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders pureengage not found response has a 3xx status code
+func (o *DeleteIdentityprovidersPureengageNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders pureengage not found response has a 4xx status code
+func (o *DeleteIdentityprovidersPureengageNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders pureengage not found response has a 5xx status code
+func (o *DeleteIdentityprovidersPureengageNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders pureengage not found response a status code equal to that given
+func (o *DeleteIdentityprovidersPureengageNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteIdentityprovidersPureengageNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteIdentityprovidersPureengageRequestTimeout() *DeleteIdentityprovide
 	return &DeleteIdentityprovidersPureengageRequestTimeout{}
 }
 
-/*DeleteIdentityprovidersPureengageRequestTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersPureengageRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type DeleteIdentityprovidersPureengageRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders pureengage request timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersPureengageRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders pureengage request timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersPureengageRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders pureengage request timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersPureengageRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders pureengage request timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersPureengageRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders pureengage request timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersPureengageRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteIdentityprovidersPureengageRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteIdentityprovidersPureengageRequestEntityTooLarge() *DeleteIdentity
 	return &DeleteIdentityprovidersPureengageRequestEntityTooLarge{}
 }
 
-/*DeleteIdentityprovidersPureengageRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteIdentityprovidersPureengageRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type DeleteIdentityprovidersPureengageRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders pureengage request entity too large response has a 2xx status code
+func (o *DeleteIdentityprovidersPureengageRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders pureengage request entity too large response has a 3xx status code
+func (o *DeleteIdentityprovidersPureengageRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders pureengage request entity too large response has a 4xx status code
+func (o *DeleteIdentityprovidersPureengageRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders pureengage request entity too large response has a 5xx status code
+func (o *DeleteIdentityprovidersPureengageRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders pureengage request entity too large response a status code equal to that given
+func (o *DeleteIdentityprovidersPureengageRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteIdentityprovidersPureengageRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteIdentityprovidersPureengageUnsupportedMediaType() *DeleteIdentityp
 	return &DeleteIdentityprovidersPureengageUnsupportedMediaType{}
 }
 
-/*DeleteIdentityprovidersPureengageUnsupportedMediaType handles this case with default header values.
+/*
+DeleteIdentityprovidersPureengageUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type DeleteIdentityprovidersPureengageUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders pureengage unsupported media type response has a 2xx status code
+func (o *DeleteIdentityprovidersPureengageUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders pureengage unsupported media type response has a 3xx status code
+func (o *DeleteIdentityprovidersPureengageUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders pureengage unsupported media type response has a 4xx status code
+func (o *DeleteIdentityprovidersPureengageUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders pureengage unsupported media type response has a 5xx status code
+func (o *DeleteIdentityprovidersPureengageUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders pureengage unsupported media type response a status code equal to that given
+func (o *DeleteIdentityprovidersPureengageUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteIdentityprovidersPureengageUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteIdentityprovidersPureengageTooManyRequests() *DeleteIdentityprovid
 	return &DeleteIdentityprovidersPureengageTooManyRequests{}
 }
 
-/*DeleteIdentityprovidersPureengageTooManyRequests handles this case with default header values.
+/*
+DeleteIdentityprovidersPureengageTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type DeleteIdentityprovidersPureengageTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders pureengage too many requests response has a 2xx status code
+func (o *DeleteIdentityprovidersPureengageTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders pureengage too many requests response has a 3xx status code
+func (o *DeleteIdentityprovidersPureengageTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders pureengage too many requests response has a 4xx status code
+func (o *DeleteIdentityprovidersPureengageTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders pureengage too many requests response has a 5xx status code
+func (o *DeleteIdentityprovidersPureengageTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders pureengage too many requests response a status code equal to that given
+func (o *DeleteIdentityprovidersPureengageTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteIdentityprovidersPureengageTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteIdentityprovidersPureengageInternalServerError() *DeleteIdentitypr
 	return &DeleteIdentityprovidersPureengageInternalServerError{}
 }
 
-/*DeleteIdentityprovidersPureengageInternalServerError handles this case with default header values.
+/*
+DeleteIdentityprovidersPureengageInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type DeleteIdentityprovidersPureengageInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders pureengage internal server error response has a 2xx status code
+func (o *DeleteIdentityprovidersPureengageInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders pureengage internal server error response has a 3xx status code
+func (o *DeleteIdentityprovidersPureengageInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders pureengage internal server error response has a 4xx status code
+func (o *DeleteIdentityprovidersPureengageInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders pureengage internal server error response has a 5xx status code
+func (o *DeleteIdentityprovidersPureengageInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders pureengage internal server error response a status code equal to that given
+func (o *DeleteIdentityprovidersPureengageInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteIdentityprovidersPureengageInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteIdentityprovidersPureengageServiceUnavailable() *DeleteIdentitypro
 	return &DeleteIdentityprovidersPureengageServiceUnavailable{}
 }
 
-/*DeleteIdentityprovidersPureengageServiceUnavailable handles this case with default header values.
+/*
+DeleteIdentityprovidersPureengageServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type DeleteIdentityprovidersPureengageServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders pureengage service unavailable response has a 2xx status code
+func (o *DeleteIdentityprovidersPureengageServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders pureengage service unavailable response has a 3xx status code
+func (o *DeleteIdentityprovidersPureengageServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders pureengage service unavailable response has a 4xx status code
+func (o *DeleteIdentityprovidersPureengageServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders pureengage service unavailable response has a 5xx status code
+func (o *DeleteIdentityprovidersPureengageServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders pureengage service unavailable response a status code equal to that given
+func (o *DeleteIdentityprovidersPureengageServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteIdentityprovidersPureengageServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteIdentityprovidersPureengageGatewayTimeout() *DeleteIdentityprovide
 	return &DeleteIdentityprovidersPureengageGatewayTimeout{}
 }
 
-/*DeleteIdentityprovidersPureengageGatewayTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersPureengageGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type DeleteIdentityprovidersPureengageGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders pureengage gateway timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersPureengageGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders pureengage gateway timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersPureengageGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders pureengage gateway timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersPureengageGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders pureengage gateway timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersPureengageGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders pureengage gateway timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersPureengageGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteIdentityprovidersPureengageGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPureengageGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/pureengage][%d] deleteIdentityprovidersPureengageGatewayTimeout  %+v", 504, o.Payload)
 }
 

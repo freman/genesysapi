@@ -101,7 +101,6 @@ func (o *PostWorkforcemanagementCalendarURLIcsReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostWorkforcemanagementCalendarURLIcsOK() *PostWorkforcemanagementCalend
 	return &PostWorkforcemanagementCalendarURLIcsOK{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsOK handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostWorkforcemanagementCalendarURLIcsOK struct {
 	Payload *models.CalendarURLResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics o k response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics o k response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics o k response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics o k response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics o k response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostWorkforcemanagementCalendarURLIcsCreated() *PostWorkforcemanagementC
 	return &PostWorkforcemanagementCalendarURLIcsCreated{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsCreated handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsCreated describes a response with status code 201, with default header values.
 
 PostWorkforcemanagementCalendarURLIcsCreated post workforcemanagement calendar Url ics created
 */
@@ -153,7 +183,36 @@ type PostWorkforcemanagementCalendarURLIcsCreated struct {
 	Payload *models.CalendarURLResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics created response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics created response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics created response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics created response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics created response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsCreated  %+v", 201, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostWorkforcemanagementCalendarURLIcsBadRequest() *PostWorkforcemanageme
 	return &PostWorkforcemanagementCalendarURLIcsBadRequest{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostWorkforcemanagementCalendarURLIcsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics bad request response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics bad request response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics bad request response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics bad request response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics bad request response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostWorkforcemanagementCalendarURLIcsUnauthorized() *PostWorkforcemanage
 	return &PostWorkforcemanagementCalendarURLIcsUnauthorized{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostWorkforcemanagementCalendarURLIcsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostWorkforcemanagementCalendarURLIcsForbidden() *PostWorkforcemanagemen
 	return &PostWorkforcemanagementCalendarURLIcsForbidden{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostWorkforcemanagementCalendarURLIcsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostWorkforcemanagementCalendarURLIcsNotFound() *PostWorkforcemanagement
 	return &PostWorkforcemanagementCalendarURLIcsNotFound{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostWorkforcemanagementCalendarURLIcsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics not found response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics not found response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics not found response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics not found response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics not found response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostWorkforcemanagementCalendarURLIcsRequestTimeout() *PostWorkforcemana
 	return &PostWorkforcemanagementCalendarURLIcsRequestTimeout{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostWorkforcemanagementCalendarURLIcsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostWorkforcemanagementCalendarURLIcsRequestEntityTooLarge() *PostWorkfo
 	return &PostWorkforcemanagementCalendarURLIcsRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostWorkforcemanagementCalendarURLIcsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostWorkforcemanagementCalendarURLIcsUnsupportedMediaType() *PostWorkfor
 	return &PostWorkforcemanagementCalendarURLIcsUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostWorkforcemanagementCalendarURLIcsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostWorkforcemanagementCalendarURLIcsTooManyRequests() *PostWorkforceman
 	return &PostWorkforcemanagementCalendarURLIcsTooManyRequests{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostWorkforcemanagementCalendarURLIcsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostWorkforcemanagementCalendarURLIcsInternalServerError() *PostWorkforc
 	return &PostWorkforcemanagementCalendarURLIcsInternalServerError{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostWorkforcemanagementCalendarURLIcsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostWorkforcemanagementCalendarURLIcsServiceUnavailable() *PostWorkforce
 	return &PostWorkforcemanagementCalendarURLIcsServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostWorkforcemanagementCalendarURLIcsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostWorkforcemanagementCalendarURLIcsGatewayTimeout() *PostWorkforcemana
 	return &PostWorkforcemanagementCalendarURLIcsGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementCalendarURLIcsGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementCalendarURLIcsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostWorkforcemanagementCalendarURLIcsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement calendar Url ics gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement calendar Url ics gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement calendar Url ics gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement calendar Url ics gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementCalendarURLIcsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement calendar Url ics gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementCalendarURLIcsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementCalendarURLIcsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementCalendarURLIcsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/calendar/url/ics][%d] postWorkforcemanagementCalendarUrlIcsGatewayTimeout  %+v", 504, o.Payload)
 }
 

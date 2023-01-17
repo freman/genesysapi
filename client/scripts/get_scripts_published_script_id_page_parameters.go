@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetScriptsPublishedScriptIDPageParams creates a new GetScriptsPublishedScriptIDPageParams object
-// with the default values initialized.
+// NewGetScriptsPublishedScriptIDPageParams creates a new GetScriptsPublishedScriptIDPageParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScriptsPublishedScriptIDPageParams() *GetScriptsPublishedScriptIDPageParams {
-	var ()
 	return &GetScriptsPublishedScriptIDPageParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScriptsPublishedScriptIDPageParamsWithTimeout creates a new GetScriptsPublishedScriptIDPageParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScriptsPublishedScriptIDPageParamsWithTimeout(timeout time.Duration) *GetScriptsPublishedScriptIDPageParams {
-	var ()
 	return &GetScriptsPublishedScriptIDPageParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScriptsPublishedScriptIDPageParamsWithContext creates a new GetScriptsPublishedScriptIDPageParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScriptsPublishedScriptIDPageParamsWithContext(ctx context.Context) *GetScriptsPublishedScriptIDPageParams {
-	var ()
 	return &GetScriptsPublishedScriptIDPageParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetScriptsPublishedScriptIDPageParamsWithHTTPClient creates a new GetScriptsPublishedScriptIDPageParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScriptsPublishedScriptIDPageParamsWithHTTPClient(client *http.Client) *GetScriptsPublishedScriptIDPageParams {
-	var ()
 	return &GetScriptsPublishedScriptIDPageParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetScriptsPublishedScriptIDPageParams contains all the parameters to send to the API endpoint
-for the get scripts published script Id page operation typically these are written to a http.Request
+/*
+GetScriptsPublishedScriptIDPageParams contains all the parameters to send to the API endpoint
+
+	for the get scripts published script Id page operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScriptsPublishedScriptIDPageParams struct {
 
-	/*PageID
-	  Page ID
+	/* PageID.
 
+	   Page ID
 	*/
 	PageID string
-	/*ScriptDataVersion
-	  Advanced usage - controls the data version of the script
 
+	/* ScriptDataVersion.
+
+	   Advanced usage - controls the data version of the script
 	*/
 	ScriptDataVersion *string
-	/*ScriptID
-	  Script ID
 
+	/* ScriptID.
+
+	   Script ID
 	*/
 	ScriptID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get scripts published script Id page params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScriptsPublishedScriptIDPageParams) WithDefaults() *GetScriptsPublishedScriptIDPageParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get scripts published script Id page params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScriptsPublishedScriptIDPageParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get scripts published script Id page params
@@ -164,16 +182,17 @@ func (o *GetScriptsPublishedScriptIDPageParams) WriteToRequest(r runtime.ClientR
 
 		// query param scriptDataVersion
 		var qrScriptDataVersion string
+
 		if o.ScriptDataVersion != nil {
 			qrScriptDataVersion = *o.ScriptDataVersion
 		}
 		qScriptDataVersion := qrScriptDataVersion
 		if qScriptDataVersion != "" {
+
 			if err := r.SetQueryParam("scriptDataVersion", qScriptDataVersion); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param scriptId

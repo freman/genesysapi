@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -96,7 +97,6 @@ func (m *PhoneStatus) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PhoneStatus) validateEdge(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Edge) { // not required
 		return nil
 	}
@@ -105,6 +105,8 @@ func (m *PhoneStatus) validateEdge(formats strfmt.Registry) error {
 		if err := m.Edge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edge")
 			}
 			return err
 		}
@@ -149,7 +151,6 @@ func (m *PhoneStatus) validateEdgesStatusEnum(path, location string, value strin
 }
 
 func (m *PhoneStatus) validateEdgesStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EdgesStatus) { // not required
 		return nil
 	}
@@ -163,7 +164,6 @@ func (m *PhoneStatus) validateEdgesStatus(formats strfmt.Registry) error {
 }
 
 func (m *PhoneStatus) validateLineStatuses(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LineStatuses) { // not required
 		return nil
 	}
@@ -177,6 +177,8 @@ func (m *PhoneStatus) validateLineStatuses(formats strfmt.Registry) error {
 			if err := m.LineStatuses[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("lineStatuses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("lineStatuses" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -223,7 +225,6 @@ func (m *PhoneStatus) validateOperationalStatusEnum(path, location string, value
 }
 
 func (m *PhoneStatus) validateOperationalStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OperationalStatus) { // not required
 		return nil
 	}
@@ -266,7 +267,6 @@ func (m *PhoneStatus) validatePhoneAssignmentToEdgeTypeEnum(path, location strin
 }
 
 func (m *PhoneStatus) validatePhoneAssignmentToEdgeType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PhoneAssignmentToEdgeType) { // not required
 		return nil
 	}
@@ -280,7 +280,6 @@ func (m *PhoneStatus) validatePhoneAssignmentToEdgeType(formats strfmt.Registry)
 }
 
 func (m *PhoneStatus) validateProvision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Provision) { // not required
 		return nil
 	}
@@ -289,6 +288,8 @@ func (m *PhoneStatus) validateProvision(formats strfmt.Registry) error {
 		if err := m.Provision.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("provision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("provision")
 			}
 			return err
 		}
@@ -298,12 +299,111 @@ func (m *PhoneStatus) validateProvision(formats strfmt.Registry) error {
 }
 
 func (m *PhoneStatus) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this phone status based on the context it is used
+func (m *PhoneStatus) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEdge(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLineStatuses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProvision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PhoneStatus) contextValidateEdge(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Edge != nil {
+		if err := m.Edge.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("edge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PhoneStatus) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PhoneStatus) contextValidateLineStatuses(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.LineStatuses); i++ {
+
+		if m.LineStatuses[i] != nil {
+			if err := m.LineStatuses[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("lineStatuses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("lineStatuses" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *PhoneStatus) contextValidateProvision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Provision != nil {
+		if err := m.Provision.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("provision")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("provision")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PhoneStatus) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

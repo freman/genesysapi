@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPutConversationParticipantFlaggedreasonParams creates a new PutConversationParticipantFlaggedreasonParams object
-// with the default values initialized.
+// NewPutConversationParticipantFlaggedreasonParams creates a new PutConversationParticipantFlaggedreasonParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutConversationParticipantFlaggedreasonParams() *PutConversationParticipantFlaggedreasonParams {
-	var ()
 	return &PutConversationParticipantFlaggedreasonParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutConversationParticipantFlaggedreasonParamsWithTimeout creates a new PutConversationParticipantFlaggedreasonParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutConversationParticipantFlaggedreasonParamsWithTimeout(timeout time.Duration) *PutConversationParticipantFlaggedreasonParams {
-	var ()
 	return &PutConversationParticipantFlaggedreasonParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutConversationParticipantFlaggedreasonParamsWithContext creates a new PutConversationParticipantFlaggedreasonParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutConversationParticipantFlaggedreasonParamsWithContext(ctx context.Context) *PutConversationParticipantFlaggedreasonParams {
-	var ()
 	return &PutConversationParticipantFlaggedreasonParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutConversationParticipantFlaggedreasonParamsWithHTTPClient creates a new PutConversationParticipantFlaggedreasonParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutConversationParticipantFlaggedreasonParamsWithHTTPClient(client *http.Client) *PutConversationParticipantFlaggedreasonParams {
-	var ()
 	return &PutConversationParticipantFlaggedreasonParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutConversationParticipantFlaggedreasonParams contains all the parameters to send to the API endpoint
-for the put conversation participant flaggedreason operation typically these are written to a http.Request
+/*
+PutConversationParticipantFlaggedreasonParams contains all the parameters to send to the API endpoint
+
+	for the put conversation participant flaggedreason operation.
+
+	Typically these are written to a http.Request.
 */
 type PutConversationParticipantFlaggedreasonParams struct {
 
-	/*ConversationID
-	  conversation ID
+	/* ConversationID.
 
+	   conversation ID
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participant ID
 
+	/* ParticipantID.
+
+	   participant ID
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put conversation participant flaggedreason params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationParticipantFlaggedreasonParams) WithDefaults() *PutConversationParticipantFlaggedreasonParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put conversation participant flaggedreason params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationParticipantFlaggedreasonParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put conversation participant flaggedreason params

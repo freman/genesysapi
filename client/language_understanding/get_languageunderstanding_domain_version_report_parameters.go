@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetLanguageunderstandingDomainVersionReportParams creates a new GetLanguageunderstandingDomainVersionReportParams object
-// with the default values initialized.
+// NewGetLanguageunderstandingDomainVersionReportParams creates a new GetLanguageunderstandingDomainVersionReportParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLanguageunderstandingDomainVersionReportParams() *GetLanguageunderstandingDomainVersionReportParams {
-	var ()
 	return &GetLanguageunderstandingDomainVersionReportParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLanguageunderstandingDomainVersionReportParamsWithTimeout creates a new GetLanguageunderstandingDomainVersionReportParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLanguageunderstandingDomainVersionReportParamsWithTimeout(timeout time.Duration) *GetLanguageunderstandingDomainVersionReportParams {
-	var ()
 	return &GetLanguageunderstandingDomainVersionReportParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLanguageunderstandingDomainVersionReportParamsWithContext creates a new GetLanguageunderstandingDomainVersionReportParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLanguageunderstandingDomainVersionReportParamsWithContext(ctx context.Context) *GetLanguageunderstandingDomainVersionReportParams {
-	var ()
 	return &GetLanguageunderstandingDomainVersionReportParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLanguageunderstandingDomainVersionReportParamsWithHTTPClient creates a new GetLanguageunderstandingDomainVersionReportParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLanguageunderstandingDomainVersionReportParamsWithHTTPClient(client *http.Client) *GetLanguageunderstandingDomainVersionReportParams {
-	var ()
 	return &GetLanguageunderstandingDomainVersionReportParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLanguageunderstandingDomainVersionReportParams contains all the parameters to send to the API endpoint
-for the get languageunderstanding domain version report operation typically these are written to a http.Request
+/*
+GetLanguageunderstandingDomainVersionReportParams contains all the parameters to send to the API endpoint
+
+	for the get languageunderstanding domain version report operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLanguageunderstandingDomainVersionReportParams struct {
 
-	/*DomainID
-	  ID of the NLU domain.
+	/* DomainID.
 
+	   ID of the NLU domain.
 	*/
 	DomainID string
-	/*DomainVersionID
-	  ID of the NLU domain version.
 
+	/* DomainVersionID.
+
+	   ID of the NLU domain version.
 	*/
 	DomainVersionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get languageunderstanding domain version report params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingDomainVersionReportParams) WithDefaults() *GetLanguageunderstandingDomainVersionReportParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get languageunderstanding domain version report params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingDomainVersionReportParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get languageunderstanding domain version report params

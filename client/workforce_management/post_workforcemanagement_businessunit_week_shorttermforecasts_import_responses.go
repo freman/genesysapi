@@ -101,7 +101,6 @@ func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportReader) 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK() *Pos
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK struct {
 	Payload *models.ImportForecastResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import o k response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import o k response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import o k response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import o k response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import o k response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted(
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted describes a response with status code 202, with default header values.
 
 The forecast import is processing
 */
@@ -153,7 +183,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted str
 	Payload *models.ImportForecastResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import accepted response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import accepted response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import accepted response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import accepted response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import accepted response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadReques
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import bad request response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import bad request response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import bad request response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import bad request response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import bad request response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthori
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound(
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import not found response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import not found response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import not found response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import not found response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import not found response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTi
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeout{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeo
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEn
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntit
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupport
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedM
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRe
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRequests{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyReque
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalS
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServerError{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServ
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUn
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnava
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTi
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeo
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit week shorttermforecasts import gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit week shorttermforecasts import gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit week shorttermforecasts import gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit week shorttermforecasts import gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit week shorttermforecasts import gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/import][%d] postWorkforcemanagementBusinessunitWeekShorttermforecastsImportGatewayTimeout  %+v", 504, o.Payload)
 }
 

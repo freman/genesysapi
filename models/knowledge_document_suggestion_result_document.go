@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -80,6 +82,8 @@ func (m *KnowledgeDocumentSuggestionResultDocument) validateKnowledgeBase(format
 		if err := m.KnowledgeBase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
 			}
 			return err
 		}
@@ -89,7 +93,6 @@ func (m *KnowledgeDocumentSuggestionResultDocument) validateKnowledgeBase(format
 }
 
 func (m *KnowledgeDocumentSuggestionResultDocument) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -104,6 +107,49 @@ func (m *KnowledgeDocumentSuggestionResultDocument) validateSelfURI(formats strf
 func (m *KnowledgeDocumentSuggestionResultDocument) validateTitle(formats strfmt.Registry) error {
 
 	if err := validate.Required("title", "body", m.Title); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge document suggestion result document based on the context it is used
+func (m *KnowledgeDocumentSuggestionResultDocument) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateKnowledgeBase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeDocumentSuggestionResultDocument) contextValidateKnowledgeBase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KnowledgeBase != nil {
+		if err := m.KnowledgeBase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentSuggestionResultDocument) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

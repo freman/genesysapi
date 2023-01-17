@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetQualityPublishedformParams creates a new GetQualityPublishedformParams object
-// with the default values initialized.
+// NewGetQualityPublishedformParams creates a new GetQualityPublishedformParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetQualityPublishedformParams() *GetQualityPublishedformParams {
-	var ()
 	return &GetQualityPublishedformParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetQualityPublishedformParamsWithTimeout creates a new GetQualityPublishedformParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetQualityPublishedformParamsWithTimeout(timeout time.Duration) *GetQualityPublishedformParams {
-	var ()
 	return &GetQualityPublishedformParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetQualityPublishedformParamsWithContext creates a new GetQualityPublishedformParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetQualityPublishedformParamsWithContext(ctx context.Context) *GetQualityPublishedformParams {
-	var ()
 	return &GetQualityPublishedformParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetQualityPublishedformParamsWithHTTPClient creates a new GetQualityPublishedformParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetQualityPublishedformParamsWithHTTPClient(client *http.Client) *GetQualityPublishedformParams {
-	var ()
 	return &GetQualityPublishedformParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetQualityPublishedformParams contains all the parameters to send to the API endpoint
-for the get quality publishedform operation typically these are written to a http.Request
+/*
+GetQualityPublishedformParams contains all the parameters to send to the API endpoint
+
+	for the get quality publishedform operation.
+
+	Typically these are written to a http.Request.
 */
 type GetQualityPublishedformParams struct {
 
-	/*FormID
-	  Form ID
+	/* FormID.
 
+	   Form ID
 	*/
 	FormID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get quality publishedform params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityPublishedformParams) WithDefaults() *GetQualityPublishedformParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get quality publishedform params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityPublishedformParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get quality publishedform params

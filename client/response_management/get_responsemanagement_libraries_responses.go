@@ -95,7 +95,6 @@ func (o *GetResponsemanagementLibrariesReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetResponsemanagementLibrariesOK() *GetResponsemanagementLibrariesOK {
 	return &GetResponsemanagementLibrariesOK{}
 }
 
-/*GetResponsemanagementLibrariesOK handles this case with default header values.
+/*
+GetResponsemanagementLibrariesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetResponsemanagementLibrariesOK struct {
 	Payload *models.LibraryEntityListing
 }
 
+// IsSuccess returns true when this get responsemanagement libraries o k response has a 2xx status code
+func (o *GetResponsemanagementLibrariesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get responsemanagement libraries o k response has a 3xx status code
+func (o *GetResponsemanagementLibrariesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get responsemanagement libraries o k response has a 4xx status code
+func (o *GetResponsemanagementLibrariesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get responsemanagement libraries o k response has a 5xx status code
+func (o *GetResponsemanagementLibrariesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get responsemanagement libraries o k response a status code equal to that given
+func (o *GetResponsemanagementLibrariesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetResponsemanagementLibrariesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetResponsemanagementLibrariesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetResponsemanagementLibrariesBadRequest() *GetResponsemanagementLibrari
 	return &GetResponsemanagementLibrariesBadRequest{}
 }
 
-/*GetResponsemanagementLibrariesBadRequest handles this case with default header values.
+/*
+GetResponsemanagementLibrariesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetResponsemanagementLibrariesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get responsemanagement libraries bad request response has a 2xx status code
+func (o *GetResponsemanagementLibrariesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get responsemanagement libraries bad request response has a 3xx status code
+func (o *GetResponsemanagementLibrariesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get responsemanagement libraries bad request response has a 4xx status code
+func (o *GetResponsemanagementLibrariesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get responsemanagement libraries bad request response has a 5xx status code
+func (o *GetResponsemanagementLibrariesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get responsemanagement libraries bad request response a status code equal to that given
+func (o *GetResponsemanagementLibrariesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetResponsemanagementLibrariesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetResponsemanagementLibrariesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetResponsemanagementLibrariesUnauthorized() *GetResponsemanagementLibra
 	return &GetResponsemanagementLibrariesUnauthorized{}
 }
 
-/*GetResponsemanagementLibrariesUnauthorized handles this case with default header values.
+/*
+GetResponsemanagementLibrariesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetResponsemanagementLibrariesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get responsemanagement libraries unauthorized response has a 2xx status code
+func (o *GetResponsemanagementLibrariesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get responsemanagement libraries unauthorized response has a 3xx status code
+func (o *GetResponsemanagementLibrariesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get responsemanagement libraries unauthorized response has a 4xx status code
+func (o *GetResponsemanagementLibrariesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get responsemanagement libraries unauthorized response has a 5xx status code
+func (o *GetResponsemanagementLibrariesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get responsemanagement libraries unauthorized response a status code equal to that given
+func (o *GetResponsemanagementLibrariesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetResponsemanagementLibrariesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetResponsemanagementLibrariesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetResponsemanagementLibrariesForbidden() *GetResponsemanagementLibrarie
 	return &GetResponsemanagementLibrariesForbidden{}
 }
 
-/*GetResponsemanagementLibrariesForbidden handles this case with default header values.
+/*
+GetResponsemanagementLibrariesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetResponsemanagementLibrariesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get responsemanagement libraries forbidden response has a 2xx status code
+func (o *GetResponsemanagementLibrariesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get responsemanagement libraries forbidden response has a 3xx status code
+func (o *GetResponsemanagementLibrariesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get responsemanagement libraries forbidden response has a 4xx status code
+func (o *GetResponsemanagementLibrariesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get responsemanagement libraries forbidden response has a 5xx status code
+func (o *GetResponsemanagementLibrariesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get responsemanagement libraries forbidden response a status code equal to that given
+func (o *GetResponsemanagementLibrariesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetResponsemanagementLibrariesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetResponsemanagementLibrariesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetResponsemanagementLibrariesNotFound() *GetResponsemanagementLibraries
 	return &GetResponsemanagementLibrariesNotFound{}
 }
 
-/*GetResponsemanagementLibrariesNotFound handles this case with default header values.
+/*
+GetResponsemanagementLibrariesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetResponsemanagementLibrariesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get responsemanagement libraries not found response has a 2xx status code
+func (o *GetResponsemanagementLibrariesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get responsemanagement libraries not found response has a 3xx status code
+func (o *GetResponsemanagementLibrariesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get responsemanagement libraries not found response has a 4xx status code
+func (o *GetResponsemanagementLibrariesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get responsemanagement libraries not found response has a 5xx status code
+func (o *GetResponsemanagementLibrariesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get responsemanagement libraries not found response a status code equal to that given
+func (o *GetResponsemanagementLibrariesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetResponsemanagementLibrariesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetResponsemanagementLibrariesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetResponsemanagementLibrariesRequestTimeout() *GetResponsemanagementLib
 	return &GetResponsemanagementLibrariesRequestTimeout{}
 }
 
-/*GetResponsemanagementLibrariesRequestTimeout handles this case with default header values.
+/*
+GetResponsemanagementLibrariesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetResponsemanagementLibrariesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get responsemanagement libraries request timeout response has a 2xx status code
+func (o *GetResponsemanagementLibrariesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get responsemanagement libraries request timeout response has a 3xx status code
+func (o *GetResponsemanagementLibrariesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get responsemanagement libraries request timeout response has a 4xx status code
+func (o *GetResponsemanagementLibrariesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get responsemanagement libraries request timeout response has a 5xx status code
+func (o *GetResponsemanagementLibrariesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get responsemanagement libraries request timeout response a status code equal to that given
+func (o *GetResponsemanagementLibrariesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetResponsemanagementLibrariesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetResponsemanagementLibrariesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetResponsemanagementLibrariesRequestEntityTooLarge() *GetResponsemanage
 	return &GetResponsemanagementLibrariesRequestEntityTooLarge{}
 }
 
-/*GetResponsemanagementLibrariesRequestEntityTooLarge handles this case with default header values.
+/*
+GetResponsemanagementLibrariesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetResponsemanagementLibrariesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get responsemanagement libraries request entity too large response has a 2xx status code
+func (o *GetResponsemanagementLibrariesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get responsemanagement libraries request entity too large response has a 3xx status code
+func (o *GetResponsemanagementLibrariesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get responsemanagement libraries request entity too large response has a 4xx status code
+func (o *GetResponsemanagementLibrariesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get responsemanagement libraries request entity too large response has a 5xx status code
+func (o *GetResponsemanagementLibrariesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get responsemanagement libraries request entity too large response a status code equal to that given
+func (o *GetResponsemanagementLibrariesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetResponsemanagementLibrariesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetResponsemanagementLibrariesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetResponsemanagementLibrariesUnsupportedMediaType() *GetResponsemanagem
 	return &GetResponsemanagementLibrariesUnsupportedMediaType{}
 }
 
-/*GetResponsemanagementLibrariesUnsupportedMediaType handles this case with default header values.
+/*
+GetResponsemanagementLibrariesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetResponsemanagementLibrariesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get responsemanagement libraries unsupported media type response has a 2xx status code
+func (o *GetResponsemanagementLibrariesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get responsemanagement libraries unsupported media type response has a 3xx status code
+func (o *GetResponsemanagementLibrariesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get responsemanagement libraries unsupported media type response has a 4xx status code
+func (o *GetResponsemanagementLibrariesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get responsemanagement libraries unsupported media type response has a 5xx status code
+func (o *GetResponsemanagementLibrariesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get responsemanagement libraries unsupported media type response a status code equal to that given
+func (o *GetResponsemanagementLibrariesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetResponsemanagementLibrariesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetResponsemanagementLibrariesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetResponsemanagementLibrariesTooManyRequests() *GetResponsemanagementLi
 	return &GetResponsemanagementLibrariesTooManyRequests{}
 }
 
-/*GetResponsemanagementLibrariesTooManyRequests handles this case with default header values.
+/*
+GetResponsemanagementLibrariesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetResponsemanagementLibrariesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get responsemanagement libraries too many requests response has a 2xx status code
+func (o *GetResponsemanagementLibrariesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get responsemanagement libraries too many requests response has a 3xx status code
+func (o *GetResponsemanagementLibrariesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get responsemanagement libraries too many requests response has a 4xx status code
+func (o *GetResponsemanagementLibrariesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get responsemanagement libraries too many requests response has a 5xx status code
+func (o *GetResponsemanagementLibrariesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get responsemanagement libraries too many requests response a status code equal to that given
+func (o *GetResponsemanagementLibrariesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetResponsemanagementLibrariesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetResponsemanagementLibrariesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetResponsemanagementLibrariesInternalServerError() *GetResponsemanageme
 	return &GetResponsemanagementLibrariesInternalServerError{}
 }
 
-/*GetResponsemanagementLibrariesInternalServerError handles this case with default header values.
+/*
+GetResponsemanagementLibrariesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetResponsemanagementLibrariesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get responsemanagement libraries internal server error response has a 2xx status code
+func (o *GetResponsemanagementLibrariesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get responsemanagement libraries internal server error response has a 3xx status code
+func (o *GetResponsemanagementLibrariesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get responsemanagement libraries internal server error response has a 4xx status code
+func (o *GetResponsemanagementLibrariesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get responsemanagement libraries internal server error response has a 5xx status code
+func (o *GetResponsemanagementLibrariesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get responsemanagement libraries internal server error response a status code equal to that given
+func (o *GetResponsemanagementLibrariesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetResponsemanagementLibrariesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetResponsemanagementLibrariesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetResponsemanagementLibrariesServiceUnavailable() *GetResponsemanagemen
 	return &GetResponsemanagementLibrariesServiceUnavailable{}
 }
 
-/*GetResponsemanagementLibrariesServiceUnavailable handles this case with default header values.
+/*
+GetResponsemanagementLibrariesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetResponsemanagementLibrariesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get responsemanagement libraries service unavailable response has a 2xx status code
+func (o *GetResponsemanagementLibrariesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get responsemanagement libraries service unavailable response has a 3xx status code
+func (o *GetResponsemanagementLibrariesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get responsemanagement libraries service unavailable response has a 4xx status code
+func (o *GetResponsemanagementLibrariesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get responsemanagement libraries service unavailable response has a 5xx status code
+func (o *GetResponsemanagementLibrariesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get responsemanagement libraries service unavailable response a status code equal to that given
+func (o *GetResponsemanagementLibrariesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetResponsemanagementLibrariesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetResponsemanagementLibrariesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetResponsemanagementLibrariesGatewayTimeout() *GetResponsemanagementLib
 	return &GetResponsemanagementLibrariesGatewayTimeout{}
 }
 
-/*GetResponsemanagementLibrariesGatewayTimeout handles this case with default header values.
+/*
+GetResponsemanagementLibrariesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetResponsemanagementLibrariesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get responsemanagement libraries gateway timeout response has a 2xx status code
+func (o *GetResponsemanagementLibrariesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get responsemanagement libraries gateway timeout response has a 3xx status code
+func (o *GetResponsemanagementLibrariesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get responsemanagement libraries gateway timeout response has a 4xx status code
+func (o *GetResponsemanagementLibrariesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get responsemanagement libraries gateway timeout response has a 5xx status code
+func (o *GetResponsemanagementLibrariesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get responsemanagement libraries gateway timeout response a status code equal to that given
+func (o *GetResponsemanagementLibrariesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetResponsemanagementLibrariesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetResponsemanagementLibrariesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/responsemanagement/libraries][%d] getResponsemanagementLibrariesGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -21,7 +22,7 @@ type GeneralProgramJobRequest struct {
 
 	// The dialect of the topics to link with the general program, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard
 	// Required: true
-	// Enum: [en-US es-US en-AU en-GB en-ZA es-ES en-IN fr-FR fr-CA it-IT de-DE pt-BR pl-PL pt-PT nl-NL ko-KR]
+	// Enum: [en-US es-US en-AU en-GB en-ZA es-ES en-IN fr-FR fr-CA it-IT de-DE pt-BR pl-PL pt-PT nl-NL ko-KR ja-JP]
 	Dialect *string `json:"dialect"`
 
 	// The mode to use for the general program job, default value is Skip
@@ -51,7 +52,7 @@ var generalProgramJobRequestTypeDialectPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["en-US","es-US","en-AU","en-GB","en-ZA","es-ES","en-IN","fr-FR","fr-CA","it-IT","de-DE","pt-BR","pl-PL","pt-PT","nl-NL","ko-KR"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["en-US","es-US","en-AU","en-GB","en-ZA","es-ES","en-IN","fr-FR","fr-CA","it-IT","de-DE","pt-BR","pl-PL","pt-PT","nl-NL","ko-KR","ja-JP"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -61,53 +62,56 @@ func init() {
 
 const (
 
-	// GeneralProgramJobRequestDialectEnUS captures enum value "en-US"
-	GeneralProgramJobRequestDialectEnUS string = "en-US"
+	// GeneralProgramJobRequestDialectEnDashUS captures enum value "en-US"
+	GeneralProgramJobRequestDialectEnDashUS string = "en-US"
 
-	// GeneralProgramJobRequestDialectEsUS captures enum value "es-US"
-	GeneralProgramJobRequestDialectEsUS string = "es-US"
+	// GeneralProgramJobRequestDialectEsDashUS captures enum value "es-US"
+	GeneralProgramJobRequestDialectEsDashUS string = "es-US"
 
-	// GeneralProgramJobRequestDialectEnAU captures enum value "en-AU"
-	GeneralProgramJobRequestDialectEnAU string = "en-AU"
+	// GeneralProgramJobRequestDialectEnDashAU captures enum value "en-AU"
+	GeneralProgramJobRequestDialectEnDashAU string = "en-AU"
 
-	// GeneralProgramJobRequestDialectEnGB captures enum value "en-GB"
-	GeneralProgramJobRequestDialectEnGB string = "en-GB"
+	// GeneralProgramJobRequestDialectEnDashGB captures enum value "en-GB"
+	GeneralProgramJobRequestDialectEnDashGB string = "en-GB"
 
-	// GeneralProgramJobRequestDialectEnZA captures enum value "en-ZA"
-	GeneralProgramJobRequestDialectEnZA string = "en-ZA"
+	// GeneralProgramJobRequestDialectEnDashZA captures enum value "en-ZA"
+	GeneralProgramJobRequestDialectEnDashZA string = "en-ZA"
 
-	// GeneralProgramJobRequestDialectEsES captures enum value "es-ES"
-	GeneralProgramJobRequestDialectEsES string = "es-ES"
+	// GeneralProgramJobRequestDialectEsDashES captures enum value "es-ES"
+	GeneralProgramJobRequestDialectEsDashES string = "es-ES"
 
-	// GeneralProgramJobRequestDialectEnIN captures enum value "en-IN"
-	GeneralProgramJobRequestDialectEnIN string = "en-IN"
+	// GeneralProgramJobRequestDialectEnDashIN captures enum value "en-IN"
+	GeneralProgramJobRequestDialectEnDashIN string = "en-IN"
 
-	// GeneralProgramJobRequestDialectFrFR captures enum value "fr-FR"
-	GeneralProgramJobRequestDialectFrFR string = "fr-FR"
+	// GeneralProgramJobRequestDialectFrDashFR captures enum value "fr-FR"
+	GeneralProgramJobRequestDialectFrDashFR string = "fr-FR"
 
-	// GeneralProgramJobRequestDialectFrCA captures enum value "fr-CA"
-	GeneralProgramJobRequestDialectFrCA string = "fr-CA"
+	// GeneralProgramJobRequestDialectFrDashCA captures enum value "fr-CA"
+	GeneralProgramJobRequestDialectFrDashCA string = "fr-CA"
 
-	// GeneralProgramJobRequestDialectItIT captures enum value "it-IT"
-	GeneralProgramJobRequestDialectItIT string = "it-IT"
+	// GeneralProgramJobRequestDialectItDashIT captures enum value "it-IT"
+	GeneralProgramJobRequestDialectItDashIT string = "it-IT"
 
-	// GeneralProgramJobRequestDialectDeDE captures enum value "de-DE"
-	GeneralProgramJobRequestDialectDeDE string = "de-DE"
+	// GeneralProgramJobRequestDialectDeDashDE captures enum value "de-DE"
+	GeneralProgramJobRequestDialectDeDashDE string = "de-DE"
 
-	// GeneralProgramJobRequestDialectPtBR captures enum value "pt-BR"
-	GeneralProgramJobRequestDialectPtBR string = "pt-BR"
+	// GeneralProgramJobRequestDialectPtDashBR captures enum value "pt-BR"
+	GeneralProgramJobRequestDialectPtDashBR string = "pt-BR"
 
-	// GeneralProgramJobRequestDialectPlPL captures enum value "pl-PL"
-	GeneralProgramJobRequestDialectPlPL string = "pl-PL"
+	// GeneralProgramJobRequestDialectPlDashPL captures enum value "pl-PL"
+	GeneralProgramJobRequestDialectPlDashPL string = "pl-PL"
 
-	// GeneralProgramJobRequestDialectPtPT captures enum value "pt-PT"
-	GeneralProgramJobRequestDialectPtPT string = "pt-PT"
+	// GeneralProgramJobRequestDialectPtDashPT captures enum value "pt-PT"
+	GeneralProgramJobRequestDialectPtDashPT string = "pt-PT"
 
-	// GeneralProgramJobRequestDialectNlNL captures enum value "nl-NL"
-	GeneralProgramJobRequestDialectNlNL string = "nl-NL"
+	// GeneralProgramJobRequestDialectNlDashNL captures enum value "nl-NL"
+	GeneralProgramJobRequestDialectNlDashNL string = "nl-NL"
 
-	// GeneralProgramJobRequestDialectKoKR captures enum value "ko-KR"
-	GeneralProgramJobRequestDialectKoKR string = "ko-KR"
+	// GeneralProgramJobRequestDialectKoDashKR captures enum value "ko-KR"
+	GeneralProgramJobRequestDialectKoDashKR string = "ko-KR"
+
+	// GeneralProgramJobRequestDialectJaDashJP captures enum value "ja-JP"
+	GeneralProgramJobRequestDialectJaDashJP string = "ja-JP"
 )
 
 // prop value enum
@@ -162,7 +166,6 @@ func (m *GeneralProgramJobRequest) validateModeEnum(path, location string, value
 }
 
 func (m *GeneralProgramJobRequest) validateMode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Mode) { // not required
 		return nil
 	}
@@ -172,6 +175,11 @@ func (m *GeneralProgramJobRequest) validateMode(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this general program job request based on context it is used
+func (m *GeneralProgramJobRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

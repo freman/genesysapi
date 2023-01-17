@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutTelephonyProvidersEdgesExtensionpoolParams creates a new PutTelephonyProvidersEdgesExtensionpoolParams object
-// with the default values initialized.
+// NewPutTelephonyProvidersEdgesExtensionpoolParams creates a new PutTelephonyProvidersEdgesExtensionpoolParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutTelephonyProvidersEdgesExtensionpoolParams() *PutTelephonyProvidersEdgesExtensionpoolParams {
-	var ()
 	return &PutTelephonyProvidersEdgesExtensionpoolParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutTelephonyProvidersEdgesExtensionpoolParamsWithTimeout creates a new PutTelephonyProvidersEdgesExtensionpoolParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutTelephonyProvidersEdgesExtensionpoolParamsWithTimeout(timeout time.Duration) *PutTelephonyProvidersEdgesExtensionpoolParams {
-	var ()
 	return &PutTelephonyProvidersEdgesExtensionpoolParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutTelephonyProvidersEdgesExtensionpoolParamsWithContext creates a new PutTelephonyProvidersEdgesExtensionpoolParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutTelephonyProvidersEdgesExtensionpoolParamsWithContext(ctx context.Context) *PutTelephonyProvidersEdgesExtensionpoolParams {
-	var ()
 	return &PutTelephonyProvidersEdgesExtensionpoolParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutTelephonyProvidersEdgesExtensionpoolParamsWithHTTPClient creates a new PutTelephonyProvidersEdgesExtensionpoolParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutTelephonyProvidersEdgesExtensionpoolParamsWithHTTPClient(client *http.Client) *PutTelephonyProvidersEdgesExtensionpoolParams {
-	var ()
 	return &PutTelephonyProvidersEdgesExtensionpoolParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutTelephonyProvidersEdgesExtensionpoolParams contains all the parameters to send to the API endpoint
-for the put telephony providers edges extensionpool operation typically these are written to a http.Request
+/*
+PutTelephonyProvidersEdgesExtensionpoolParams contains all the parameters to send to the API endpoint
+
+	for the put telephony providers edges extensionpool operation.
+
+	Typically these are written to a http.Request.
 */
 type PutTelephonyProvidersEdgesExtensionpoolParams struct {
 
-	/*Body
-	  ExtensionPool
+	/* Body.
 
+	   ExtensionPool
 	*/
 	Body *models.ExtensionPool
-	/*ExtensionPoolID
-	  Extension pool ID
 
+	/* ExtensionPoolID.
+
+	   Extension pool ID
 	*/
 	ExtensionPoolID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put telephony providers edges extensionpool params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutTelephonyProvidersEdgesExtensionpoolParams) WithDefaults() *PutTelephonyProvidersEdgesExtensionpoolParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put telephony providers edges extensionpool params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutTelephonyProvidersEdgesExtensionpoolParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put telephony providers edges extensionpool params
@@ -140,7 +157,6 @@ func (o *PutTelephonyProvidersEdgesExtensionpoolParams) WriteToRequest(r runtime
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

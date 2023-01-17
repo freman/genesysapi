@@ -95,7 +95,6 @@ func (o *GetDateReader) ReadResponse(response runtime.ClientResponse, consumer r
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetDateOK() *GetDateOK {
 	return &GetDateOK{}
 }
 
-/*GetDateOK handles this case with default header values.
+/*
+GetDateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetDateOK struct {
 	Payload *models.ServerDate
 }
 
+// IsSuccess returns true when this get date o k response has a 2xx status code
+func (o *GetDateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get date o k response has a 3xx status code
+func (o *GetDateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get date o k response has a 4xx status code
+func (o *GetDateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get date o k response has a 5xx status code
+func (o *GetDateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get date o k response a status code equal to that given
+func (o *GetDateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetDateOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/date][%d] getDateOK  %+v", 200, o.Payload)
+}
+
+func (o *GetDateOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/date][%d] getDateOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetDateBadRequest() *GetDateBadRequest {
 	return &GetDateBadRequest{}
 }
 
-/*GetDateBadRequest handles this case with default header values.
+/*
+GetDateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetDateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get date bad request response has a 2xx status code
+func (o *GetDateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get date bad request response has a 3xx status code
+func (o *GetDateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get date bad request response has a 4xx status code
+func (o *GetDateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get date bad request response has a 5xx status code
+func (o *GetDateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get date bad request response a status code equal to that given
+func (o *GetDateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetDateBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/date][%d] getDateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetDateBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/date][%d] getDateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetDateUnauthorized() *GetDateUnauthorized {
 	return &GetDateUnauthorized{}
 }
 
-/*GetDateUnauthorized handles this case with default header values.
+/*
+GetDateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetDateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get date unauthorized response has a 2xx status code
+func (o *GetDateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get date unauthorized response has a 3xx status code
+func (o *GetDateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get date unauthorized response has a 4xx status code
+func (o *GetDateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get date unauthorized response has a 5xx status code
+func (o *GetDateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get date unauthorized response a status code equal to that given
+func (o *GetDateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetDateUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/date][%d] getDateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetDateUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/date][%d] getDateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetDateForbidden() *GetDateForbidden {
 	return &GetDateForbidden{}
 }
 
-/*GetDateForbidden handles this case with default header values.
+/*
+GetDateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetDateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get date forbidden response has a 2xx status code
+func (o *GetDateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get date forbidden response has a 3xx status code
+func (o *GetDateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get date forbidden response has a 4xx status code
+func (o *GetDateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get date forbidden response has a 5xx status code
+func (o *GetDateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get date forbidden response a status code equal to that given
+func (o *GetDateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetDateForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/date][%d] getDateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetDateForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/date][%d] getDateForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetDateNotFound() *GetDateNotFound {
 	return &GetDateNotFound{}
 }
 
-/*GetDateNotFound handles this case with default header values.
+/*
+GetDateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetDateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get date not found response has a 2xx status code
+func (o *GetDateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get date not found response has a 3xx status code
+func (o *GetDateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get date not found response has a 4xx status code
+func (o *GetDateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get date not found response has a 5xx status code
+func (o *GetDateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get date not found response a status code equal to that given
+func (o *GetDateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetDateNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/date][%d] getDateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetDateNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/date][%d] getDateNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetDateRequestTimeout() *GetDateRequestTimeout {
 	return &GetDateRequestTimeout{}
 }
 
-/*GetDateRequestTimeout handles this case with default header values.
+/*
+GetDateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetDateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get date request timeout response has a 2xx status code
+func (o *GetDateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get date request timeout response has a 3xx status code
+func (o *GetDateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get date request timeout response has a 4xx status code
+func (o *GetDateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get date request timeout response has a 5xx status code
+func (o *GetDateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get date request timeout response a status code equal to that given
+func (o *GetDateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetDateRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/date][%d] getDateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetDateRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/date][%d] getDateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetDateRequestEntityTooLarge() *GetDateRequestEntityTooLarge {
 	return &GetDateRequestEntityTooLarge{}
 }
 
-/*GetDateRequestEntityTooLarge handles this case with default header values.
+/*
+GetDateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetDateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get date request entity too large response has a 2xx status code
+func (o *GetDateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get date request entity too large response has a 3xx status code
+func (o *GetDateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get date request entity too large response has a 4xx status code
+func (o *GetDateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get date request entity too large response has a 5xx status code
+func (o *GetDateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get date request entity too large response a status code equal to that given
+func (o *GetDateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetDateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/date][%d] getDateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetDateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/date][%d] getDateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetDateUnsupportedMediaType() *GetDateUnsupportedMediaType {
 	return &GetDateUnsupportedMediaType{}
 }
 
-/*GetDateUnsupportedMediaType handles this case with default header values.
+/*
+GetDateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetDateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get date unsupported media type response has a 2xx status code
+func (o *GetDateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get date unsupported media type response has a 3xx status code
+func (o *GetDateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get date unsupported media type response has a 4xx status code
+func (o *GetDateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get date unsupported media type response has a 5xx status code
+func (o *GetDateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get date unsupported media type response a status code equal to that given
+func (o *GetDateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetDateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/date][%d] getDateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetDateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/date][%d] getDateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetDateTooManyRequests() *GetDateTooManyRequests {
 	return &GetDateTooManyRequests{}
 }
 
-/*GetDateTooManyRequests handles this case with default header values.
+/*
+GetDateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetDateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get date too many requests response has a 2xx status code
+func (o *GetDateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get date too many requests response has a 3xx status code
+func (o *GetDateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get date too many requests response has a 4xx status code
+func (o *GetDateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get date too many requests response has a 5xx status code
+func (o *GetDateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get date too many requests response a status code equal to that given
+func (o *GetDateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetDateTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/date][%d] getDateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetDateTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/date][%d] getDateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetDateInternalServerError() *GetDateInternalServerError {
 	return &GetDateInternalServerError{}
 }
 
-/*GetDateInternalServerError handles this case with default header values.
+/*
+GetDateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetDateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get date internal server error response has a 2xx status code
+func (o *GetDateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get date internal server error response has a 3xx status code
+func (o *GetDateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get date internal server error response has a 4xx status code
+func (o *GetDateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get date internal server error response has a 5xx status code
+func (o *GetDateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get date internal server error response a status code equal to that given
+func (o *GetDateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetDateInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/date][%d] getDateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetDateInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/date][%d] getDateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetDateServiceUnavailable() *GetDateServiceUnavailable {
 	return &GetDateServiceUnavailable{}
 }
 
-/*GetDateServiceUnavailable handles this case with default header values.
+/*
+GetDateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetDateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get date service unavailable response has a 2xx status code
+func (o *GetDateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get date service unavailable response has a 3xx status code
+func (o *GetDateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get date service unavailable response has a 4xx status code
+func (o *GetDateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get date service unavailable response has a 5xx status code
+func (o *GetDateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get date service unavailable response a status code equal to that given
+func (o *GetDateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetDateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/date][%d] getDateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetDateServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/date][%d] getDateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetDateGatewayTimeout() *GetDateGatewayTimeout {
 	return &GetDateGatewayTimeout{}
 }
 
-/*GetDateGatewayTimeout handles this case with default header values.
+/*
+GetDateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetDateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get date gateway timeout response has a 2xx status code
+func (o *GetDateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get date gateway timeout response has a 3xx status code
+func (o *GetDateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get date gateway timeout response has a 4xx status code
+func (o *GetDateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get date gateway timeout response has a 5xx status code
+func (o *GetDateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get date gateway timeout response a status code equal to that given
+func (o *GetDateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetDateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/date][%d] getDateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetDateGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/date][%d] getDateGatewayTimeout  %+v", 504, o.Payload)
 }
 

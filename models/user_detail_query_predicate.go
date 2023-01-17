@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -91,7 +92,6 @@ func (m *UserDetailQueryPredicate) validateDimensionEnum(path, location string, 
 }
 
 func (m *UserDetailQueryPredicate) validateDimension(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Dimension) { // not required
 		return nil
 	}
@@ -137,7 +137,6 @@ func (m *UserDetailQueryPredicate) validateOperatorEnum(path, location string, v
 }
 
 func (m *UserDetailQueryPredicate) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -151,7 +150,6 @@ func (m *UserDetailQueryPredicate) validateOperator(formats strfmt.Registry) err
 }
 
 func (m *UserDetailQueryPredicate) validateRange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Range) { // not required
 		return nil
 	}
@@ -160,6 +158,8 @@ func (m *UserDetailQueryPredicate) validateRange(formats strfmt.Registry) error 
 		if err := m.Range.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
 			}
 			return err
 		}
@@ -201,7 +201,6 @@ func (m *UserDetailQueryPredicate) validateTypeEnum(path, location string, value
 }
 
 func (m *UserDetailQueryPredicate) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -209,6 +208,36 @@ func (m *UserDetailQueryPredicate) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user detail query predicate based on the context it is used
+func (m *UserDetailQueryPredicate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserDetailQueryPredicate) contextValidateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Range != nil {
+		if err := m.Range.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetCoachingAppointmentAnnotationParams creates a new GetCoachingAppointmentAnnotationParams object
-// with the default values initialized.
+// NewGetCoachingAppointmentAnnotationParams creates a new GetCoachingAppointmentAnnotationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetCoachingAppointmentAnnotationParams() *GetCoachingAppointmentAnnotationParams {
-	var ()
 	return &GetCoachingAppointmentAnnotationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetCoachingAppointmentAnnotationParamsWithTimeout creates a new GetCoachingAppointmentAnnotationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetCoachingAppointmentAnnotationParamsWithTimeout(timeout time.Duration) *GetCoachingAppointmentAnnotationParams {
-	var ()
 	return &GetCoachingAppointmentAnnotationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetCoachingAppointmentAnnotationParamsWithContext creates a new GetCoachingAppointmentAnnotationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetCoachingAppointmentAnnotationParamsWithContext(ctx context.Context) *GetCoachingAppointmentAnnotationParams {
-	var ()
 	return &GetCoachingAppointmentAnnotationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetCoachingAppointmentAnnotationParamsWithHTTPClient creates a new GetCoachingAppointmentAnnotationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetCoachingAppointmentAnnotationParamsWithHTTPClient(client *http.Client) *GetCoachingAppointmentAnnotationParams {
-	var ()
 	return &GetCoachingAppointmentAnnotationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetCoachingAppointmentAnnotationParams contains all the parameters to send to the API endpoint
-for the get coaching appointment annotation operation typically these are written to a http.Request
+/*
+GetCoachingAppointmentAnnotationParams contains all the parameters to send to the API endpoint
+
+	for the get coaching appointment annotation operation.
+
+	Typically these are written to a http.Request.
 */
 type GetCoachingAppointmentAnnotationParams struct {
 
-	/*AnnotationID
-	  The ID of the annotation.
+	/* AnnotationID.
 
+	   The ID of the annotation.
 	*/
 	AnnotationID string
-	/*AppointmentID
-	  The ID of the coaching appointment.
 
+	/* AppointmentID.
+
+	   The ID of the coaching appointment.
 	*/
 	AppointmentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get coaching appointment annotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCoachingAppointmentAnnotationParams) WithDefaults() *GetCoachingAppointmentAnnotationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get coaching appointment annotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetCoachingAppointmentAnnotationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get coaching appointment annotation params

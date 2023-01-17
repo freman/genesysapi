@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementBusinessunitActivitycodesParams creates a new GetWorkforcemanagementBusinessunitActivitycodesParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementBusinessunitActivitycodesParams creates a new GetWorkforcemanagementBusinessunitActivitycodesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementBusinessunitActivitycodesParams() *GetWorkforcemanagementBusinessunitActivitycodesParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitActivitycodesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitActivitycodesParamsWithTimeout creates a new GetWorkforcemanagementBusinessunitActivitycodesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementBusinessunitActivitycodesParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementBusinessunitActivitycodesParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitActivitycodesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitActivitycodesParamsWithContext creates a new GetWorkforcemanagementBusinessunitActivitycodesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementBusinessunitActivitycodesParamsWithContext(ctx context.Context) *GetWorkforcemanagementBusinessunitActivitycodesParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitActivitycodesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitActivitycodesParamsWithHTTPClient creates a new GetWorkforcemanagementBusinessunitActivitycodesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementBusinessunitActivitycodesParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementBusinessunitActivitycodesParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitActivitycodesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementBusinessunitActivitycodesParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement businessunit activitycodes operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementBusinessunitActivitycodesParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement businessunit activitycodes operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementBusinessunitActivitycodesParams struct {
 
-	/*BusinessUnitID
-	  The ID of the business unit, or 'mine' for the business unit of the logged-in user.
+	/* BusinessUnitID.
 
+	   The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 	*/
 	BusinessUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement businessunit activitycodes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitActivitycodesParams) WithDefaults() *GetWorkforcemanagementBusinessunitActivitycodesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement businessunit activitycodes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitActivitycodesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement businessunit activitycodes params

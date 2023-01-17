@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchConversationParticipantAttributesParams creates a new PatchConversationParticipantAttributesParams object
-// with the default values initialized.
+// NewPatchConversationParticipantAttributesParams creates a new PatchConversationParticipantAttributesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchConversationParticipantAttributesParams() *PatchConversationParticipantAttributesParams {
-	var ()
 	return &PatchConversationParticipantAttributesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchConversationParticipantAttributesParamsWithTimeout creates a new PatchConversationParticipantAttributesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchConversationParticipantAttributesParamsWithTimeout(timeout time.Duration) *PatchConversationParticipantAttributesParams {
-	var ()
 	return &PatchConversationParticipantAttributesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchConversationParticipantAttributesParamsWithContext creates a new PatchConversationParticipantAttributesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchConversationParticipantAttributesParamsWithContext(ctx context.Context) *PatchConversationParticipantAttributesParams {
-	var ()
 	return &PatchConversationParticipantAttributesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchConversationParticipantAttributesParamsWithHTTPClient creates a new PatchConversationParticipantAttributesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchConversationParticipantAttributesParamsWithHTTPClient(client *http.Client) *PatchConversationParticipantAttributesParams {
-	var ()
 	return &PatchConversationParticipantAttributesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchConversationParticipantAttributesParams contains all the parameters to send to the API endpoint
-for the patch conversation participant attributes operation typically these are written to a http.Request
+/*
+PatchConversationParticipantAttributesParams contains all the parameters to send to the API endpoint
+
+	for the patch conversation participant attributes operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchConversationParticipantAttributesParams struct {
 
-	/*Body
-	  Participant attributes
+	/* Body.
 
+	   Participant attributes
 	*/
 	Body *models.ParticipantAttributes
-	/*ConversationID
-	  conversation ID
 
+	/* ConversationID.
+
+	   conversation ID
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participant ID
 
+	/* ParticipantID.
+
+	   participant ID
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch conversation participant attributes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationParticipantAttributesParams) WithDefaults() *PatchConversationParticipantAttributesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch conversation participant attributes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationParticipantAttributesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch conversation participant attributes params
@@ -156,7 +174,6 @@ func (o *PatchConversationParticipantAttributesParams) WriteToRequest(r runtime.
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

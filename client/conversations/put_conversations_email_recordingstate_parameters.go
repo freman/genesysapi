@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutConversationsEmailRecordingstateParams creates a new PutConversationsEmailRecordingstateParams object
-// with the default values initialized.
+// NewPutConversationsEmailRecordingstateParams creates a new PutConversationsEmailRecordingstateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutConversationsEmailRecordingstateParams() *PutConversationsEmailRecordingstateParams {
-	var ()
 	return &PutConversationsEmailRecordingstateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutConversationsEmailRecordingstateParamsWithTimeout creates a new PutConversationsEmailRecordingstateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutConversationsEmailRecordingstateParamsWithTimeout(timeout time.Duration) *PutConversationsEmailRecordingstateParams {
-	var ()
 	return &PutConversationsEmailRecordingstateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutConversationsEmailRecordingstateParamsWithContext creates a new PutConversationsEmailRecordingstateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutConversationsEmailRecordingstateParamsWithContext(ctx context.Context) *PutConversationsEmailRecordingstateParams {
-	var ()
 	return &PutConversationsEmailRecordingstateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutConversationsEmailRecordingstateParamsWithHTTPClient creates a new PutConversationsEmailRecordingstateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutConversationsEmailRecordingstateParamsWithHTTPClient(client *http.Client) *PutConversationsEmailRecordingstateParams {
-	var ()
 	return &PutConversationsEmailRecordingstateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutConversationsEmailRecordingstateParams contains all the parameters to send to the API endpoint
-for the put conversations email recordingstate operation typically these are written to a http.Request
+/*
+PutConversationsEmailRecordingstateParams contains all the parameters to send to the API endpoint
+
+	for the put conversations email recordingstate operation.
+
+	Typically these are written to a http.Request.
 */
 type PutConversationsEmailRecordingstateParams struct {
 
-	/*Body
-	  SetRecordingState
+	/* Body.
 
+	   SetRecordingState
 	*/
 	Body *models.SetRecordingState
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put conversations email recordingstate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationsEmailRecordingstateParams) WithDefaults() *PutConversationsEmailRecordingstateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put conversations email recordingstate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationsEmailRecordingstateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put conversations email recordingstate params
@@ -140,7 +157,6 @@ func (o *PutConversationsEmailRecordingstateParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostKnowledgeKnowledgebaseLanguageTrainingPromoteParams creates a new PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams object
-// with the default values initialized.
+// NewPostKnowledgeKnowledgebaseLanguageTrainingPromoteParams creates a new PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostKnowledgeKnowledgebaseLanguageTrainingPromoteParams() *PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseLanguageTrainingPromoteParamsWithTimeout creates a new PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostKnowledgeKnowledgebaseLanguageTrainingPromoteParamsWithTimeout(timeout time.Duration) *PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseLanguageTrainingPromoteParamsWithContext creates a new PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostKnowledgeKnowledgebaseLanguageTrainingPromoteParamsWithContext(ctx context.Context) *PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseLanguageTrainingPromoteParamsWithHTTPClient creates a new PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostKnowledgeKnowledgebaseLanguageTrainingPromoteParamsWithHTTPClient(client *http.Client) *PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams contains all the parameters to send to the API endpoint
-for the post knowledge knowledgebase language training promote operation typically these are written to a http.Request
+/*
+PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams contains all the parameters to send to the API endpoint
+
+	for the post knowledge knowledgebase language training promote operation.
+
+	Typically these are written to a http.Request.
 */
 type PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams struct {
 
-	/*KnowledgeBaseID
-	  Knowledge base ID
+	/* KnowledgeBaseID.
 
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LanguageCode
-	  Language code, format: iso2-LOCALE
 
+	/* LanguageCode.
+
+	   Language code, format: iso2-LOCALE
 	*/
 	LanguageCode string
-	/*TrainingID
-	  Training ID
 
+	/* TrainingID.
+
+	   Training ID
 	*/
 	TrainingID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post knowledge knowledgebase language training promote params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams) WithDefaults() *PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post knowledge knowledgebase language training promote params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseLanguageTrainingPromoteParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post knowledge knowledgebase language training promote params

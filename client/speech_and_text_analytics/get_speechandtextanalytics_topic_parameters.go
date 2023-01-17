@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetSpeechandtextanalyticsTopicParams creates a new GetSpeechandtextanalyticsTopicParams object
-// with the default values initialized.
+// NewGetSpeechandtextanalyticsTopicParams creates a new GetSpeechandtextanalyticsTopicParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSpeechandtextanalyticsTopicParams() *GetSpeechandtextanalyticsTopicParams {
-	var ()
 	return &GetSpeechandtextanalyticsTopicParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsTopicParamsWithTimeout creates a new GetSpeechandtextanalyticsTopicParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSpeechandtextanalyticsTopicParamsWithTimeout(timeout time.Duration) *GetSpeechandtextanalyticsTopicParams {
-	var ()
 	return &GetSpeechandtextanalyticsTopicParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsTopicParamsWithContext creates a new GetSpeechandtextanalyticsTopicParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSpeechandtextanalyticsTopicParamsWithContext(ctx context.Context) *GetSpeechandtextanalyticsTopicParams {
-	var ()
 	return &GetSpeechandtextanalyticsTopicParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetSpeechandtextanalyticsTopicParamsWithHTTPClient creates a new GetSpeechandtextanalyticsTopicParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSpeechandtextanalyticsTopicParamsWithHTTPClient(client *http.Client) *GetSpeechandtextanalyticsTopicParams {
-	var ()
 	return &GetSpeechandtextanalyticsTopicParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetSpeechandtextanalyticsTopicParams contains all the parameters to send to the API endpoint
-for the get speechandtextanalytics topic operation typically these are written to a http.Request
+/*
+GetSpeechandtextanalyticsTopicParams contains all the parameters to send to the API endpoint
+
+	for the get speechandtextanalytics topic operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSpeechandtextanalyticsTopicParams struct {
 
-	/*TopicID
-	  The id of the topic
+	/* TopicID.
 
+	   The id of the topic
 	*/
 	TopicID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get speechandtextanalytics topic params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsTopicParams) WithDefaults() *GetSpeechandtextanalyticsTopicParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get speechandtextanalytics topic params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsTopicParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get speechandtextanalytics topic params

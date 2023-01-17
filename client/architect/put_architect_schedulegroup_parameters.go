@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutArchitectSchedulegroupParams creates a new PutArchitectSchedulegroupParams object
-// with the default values initialized.
+// NewPutArchitectSchedulegroupParams creates a new PutArchitectSchedulegroupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutArchitectSchedulegroupParams() *PutArchitectSchedulegroupParams {
-	var ()
 	return &PutArchitectSchedulegroupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutArchitectSchedulegroupParamsWithTimeout creates a new PutArchitectSchedulegroupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutArchitectSchedulegroupParamsWithTimeout(timeout time.Duration) *PutArchitectSchedulegroupParams {
-	var ()
 	return &PutArchitectSchedulegroupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutArchitectSchedulegroupParamsWithContext creates a new PutArchitectSchedulegroupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutArchitectSchedulegroupParamsWithContext(ctx context.Context) *PutArchitectSchedulegroupParams {
-	var ()
 	return &PutArchitectSchedulegroupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutArchitectSchedulegroupParamsWithHTTPClient creates a new PutArchitectSchedulegroupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutArchitectSchedulegroupParamsWithHTTPClient(client *http.Client) *PutArchitectSchedulegroupParams {
-	var ()
 	return &PutArchitectSchedulegroupParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutArchitectSchedulegroupParams contains all the parameters to send to the API endpoint
-for the put architect schedulegroup operation typically these are written to a http.Request
+/*
+PutArchitectSchedulegroupParams contains all the parameters to send to the API endpoint
+
+	for the put architect schedulegroup operation.
+
+	Typically these are written to a http.Request.
 */
 type PutArchitectSchedulegroupParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.ScheduleGroup
-	/*ScheduleGroupID
-	  Schedule group ID
 
+	/* ScheduleGroupID.
+
+	   Schedule group ID
 	*/
 	ScheduleGroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put architect schedulegroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutArchitectSchedulegroupParams) WithDefaults() *PutArchitectSchedulegroupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put architect schedulegroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutArchitectSchedulegroupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put architect schedulegroup params
@@ -137,7 +154,6 @@ func (o *PutArchitectSchedulegroupParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

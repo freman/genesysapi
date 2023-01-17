@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -114,11 +115,11 @@ const (
 	// FaxSendRequestContentTypeApplicationMsword captures enum value "application/msword"
 	FaxSendRequestContentTypeApplicationMsword string = "application/msword"
 
-	// FaxSendRequestContentTypeApplicationVndOasisOpendocumentText captures enum value "application/vnd.oasis.opendocument.text"
-	FaxSendRequestContentTypeApplicationVndOasisOpendocumentText string = "application/vnd.oasis.opendocument.text"
+	// FaxSendRequestContentTypeApplicationVndDotOasisDotOpendocumentDotText captures enum value "application/vnd.oasis.opendocument.text"
+	FaxSendRequestContentTypeApplicationVndDotOasisDotOpendocumentDotText string = "application/vnd.oasis.opendocument.text"
 
-	// FaxSendRequestContentTypeApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument captures enum value "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-	FaxSendRequestContentTypeApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument string = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+	// FaxSendRequestContentTypeApplicationVndDotOpenxmlformatsDashOfficedocumentDotWordprocessingmlDotDocument captures enum value "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+	FaxSendRequestContentTypeApplicationVndDotOpenxmlformatsDashOfficedocumentDotWordprocessingmlDotDocument string = "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
 )
 
 // prop value enum
@@ -130,7 +131,6 @@ func (m *FaxSendRequest) validateContentTypeEnum(path, location string, value st
 }
 
 func (m *FaxSendRequest) validateContentType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContentType) { // not required
 		return nil
 	}
@@ -144,7 +144,6 @@ func (m *FaxSendRequest) validateContentType(formats strfmt.Registry) error {
 }
 
 func (m *FaxSendRequest) validateCoverSheet(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CoverSheet) { // not required
 		return nil
 	}
@@ -153,6 +152,8 @@ func (m *FaxSendRequest) validateCoverSheet(formats strfmt.Registry) error {
 		if err := m.CoverSheet.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("coverSheet")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("coverSheet")
 			}
 			return err
 		}
@@ -162,7 +163,6 @@ func (m *FaxSendRequest) validateCoverSheet(formats strfmt.Registry) error {
 }
 
 func (m *FaxSendRequest) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -175,7 +175,6 @@ func (m *FaxSendRequest) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *FaxSendRequest) validateWorkspace(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Workspace) { // not required
 		return nil
 	}
@@ -184,6 +183,84 @@ func (m *FaxSendRequest) validateWorkspace(formats strfmt.Registry) error {
 		if err := m.Workspace.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workspace")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this fax send request based on the context it is used
+func (m *FaxSendRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCoverSheet(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkspace(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FaxSendRequest) contextValidateCoverSheet(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CoverSheet != nil {
+		if err := m.CoverSheet.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("coverSheet")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("coverSheet")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FaxSendRequest) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FaxSendRequest) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FaxSendRequest) contextValidateWorkspace(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Workspace != nil {
+		if err := m.Workspace.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workspace")
 			}
 			return err
 		}

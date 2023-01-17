@@ -101,7 +101,6 @@ func (o *PostFlowsJobsReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostFlowsJobsOK() *PostFlowsJobsOK {
 	return &PostFlowsJobsOK{}
 }
 
-/*PostFlowsJobsOK handles this case with default header values.
+/*
+PostFlowsJobsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostFlowsJobsOK struct {
 	Payload *models.RegisterArchitectJobResponse
 }
 
+// IsSuccess returns true when this post flows jobs o k response has a 2xx status code
+func (o *PostFlowsJobsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post flows jobs o k response has a 3xx status code
+func (o *PostFlowsJobsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs o k response has a 4xx status code
+func (o *PostFlowsJobsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows jobs o k response has a 5xx status code
+func (o *PostFlowsJobsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows jobs o k response a status code equal to that given
+func (o *PostFlowsJobsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostFlowsJobsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostFlowsJobsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostFlowsJobsAccepted() *PostFlowsJobsAccepted {
 	return &PostFlowsJobsAccepted{}
 }
 
-/*PostFlowsJobsAccepted handles this case with default header values.
+/*
+PostFlowsJobsAccepted describes a response with status code 202, with default header values.
 
 Architect Job registered.
 */
@@ -153,7 +183,36 @@ type PostFlowsJobsAccepted struct {
 	Payload *models.RegisterArchitectJobResponse
 }
 
+// IsSuccess returns true when this post flows jobs accepted response has a 2xx status code
+func (o *PostFlowsJobsAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post flows jobs accepted response has a 3xx status code
+func (o *PostFlowsJobsAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs accepted response has a 4xx status code
+func (o *PostFlowsJobsAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows jobs accepted response has a 5xx status code
+func (o *PostFlowsJobsAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows jobs accepted response a status code equal to that given
+func (o *PostFlowsJobsAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostFlowsJobsAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostFlowsJobsAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostFlowsJobsBadRequest() *PostFlowsJobsBadRequest {
 	return &PostFlowsJobsBadRequest{}
 }
 
-/*PostFlowsJobsBadRequest handles this case with default header values.
+/*
+PostFlowsJobsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostFlowsJobsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows jobs bad request response has a 2xx status code
+func (o *PostFlowsJobsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows jobs bad request response has a 3xx status code
+func (o *PostFlowsJobsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs bad request response has a 4xx status code
+func (o *PostFlowsJobsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows jobs bad request response has a 5xx status code
+func (o *PostFlowsJobsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows jobs bad request response a status code equal to that given
+func (o *PostFlowsJobsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostFlowsJobsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostFlowsJobsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostFlowsJobsUnauthorized() *PostFlowsJobsUnauthorized {
 	return &PostFlowsJobsUnauthorized{}
 }
 
-/*PostFlowsJobsUnauthorized handles this case with default header values.
+/*
+PostFlowsJobsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostFlowsJobsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows jobs unauthorized response has a 2xx status code
+func (o *PostFlowsJobsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows jobs unauthorized response has a 3xx status code
+func (o *PostFlowsJobsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs unauthorized response has a 4xx status code
+func (o *PostFlowsJobsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows jobs unauthorized response has a 5xx status code
+func (o *PostFlowsJobsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows jobs unauthorized response a status code equal to that given
+func (o *PostFlowsJobsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostFlowsJobsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostFlowsJobsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostFlowsJobsForbidden() *PostFlowsJobsForbidden {
 	return &PostFlowsJobsForbidden{}
 }
 
-/*PostFlowsJobsForbidden handles this case with default header values.
+/*
+PostFlowsJobsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostFlowsJobsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows jobs forbidden response has a 2xx status code
+func (o *PostFlowsJobsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows jobs forbidden response has a 3xx status code
+func (o *PostFlowsJobsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs forbidden response has a 4xx status code
+func (o *PostFlowsJobsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows jobs forbidden response has a 5xx status code
+func (o *PostFlowsJobsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows jobs forbidden response a status code equal to that given
+func (o *PostFlowsJobsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostFlowsJobsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostFlowsJobsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostFlowsJobsNotFound() *PostFlowsJobsNotFound {
 	return &PostFlowsJobsNotFound{}
 }
 
-/*PostFlowsJobsNotFound handles this case with default header values.
+/*
+PostFlowsJobsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostFlowsJobsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows jobs not found response has a 2xx status code
+func (o *PostFlowsJobsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows jobs not found response has a 3xx status code
+func (o *PostFlowsJobsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs not found response has a 4xx status code
+func (o *PostFlowsJobsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows jobs not found response has a 5xx status code
+func (o *PostFlowsJobsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows jobs not found response a status code equal to that given
+func (o *PostFlowsJobsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostFlowsJobsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostFlowsJobsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostFlowsJobsRequestTimeout() *PostFlowsJobsRequestTimeout {
 	return &PostFlowsJobsRequestTimeout{}
 }
 
-/*PostFlowsJobsRequestTimeout handles this case with default header values.
+/*
+PostFlowsJobsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostFlowsJobsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows jobs request timeout response has a 2xx status code
+func (o *PostFlowsJobsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows jobs request timeout response has a 3xx status code
+func (o *PostFlowsJobsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs request timeout response has a 4xx status code
+func (o *PostFlowsJobsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows jobs request timeout response has a 5xx status code
+func (o *PostFlowsJobsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows jobs request timeout response a status code equal to that given
+func (o *PostFlowsJobsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostFlowsJobsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowsJobsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostFlowsJobsRequestEntityTooLarge() *PostFlowsJobsRequestEntityTooLarge
 	return &PostFlowsJobsRequestEntityTooLarge{}
 }
 
-/*PostFlowsJobsRequestEntityTooLarge handles this case with default header values.
+/*
+PostFlowsJobsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostFlowsJobsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows jobs request entity too large response has a 2xx status code
+func (o *PostFlowsJobsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows jobs request entity too large response has a 3xx status code
+func (o *PostFlowsJobsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs request entity too large response has a 4xx status code
+func (o *PostFlowsJobsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows jobs request entity too large response has a 5xx status code
+func (o *PostFlowsJobsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows jobs request entity too large response a status code equal to that given
+func (o *PostFlowsJobsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostFlowsJobsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostFlowsJobsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostFlowsJobsUnsupportedMediaType() *PostFlowsJobsUnsupportedMediaType {
 	return &PostFlowsJobsUnsupportedMediaType{}
 }
 
-/*PostFlowsJobsUnsupportedMediaType handles this case with default header values.
+/*
+PostFlowsJobsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostFlowsJobsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows jobs unsupported media type response has a 2xx status code
+func (o *PostFlowsJobsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows jobs unsupported media type response has a 3xx status code
+func (o *PostFlowsJobsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs unsupported media type response has a 4xx status code
+func (o *PostFlowsJobsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows jobs unsupported media type response has a 5xx status code
+func (o *PostFlowsJobsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows jobs unsupported media type response a status code equal to that given
+func (o *PostFlowsJobsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostFlowsJobsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostFlowsJobsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostFlowsJobsTooManyRequests() *PostFlowsJobsTooManyRequests {
 	return &PostFlowsJobsTooManyRequests{}
 }
 
-/*PostFlowsJobsTooManyRequests handles this case with default header values.
+/*
+PostFlowsJobsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostFlowsJobsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows jobs too many requests response has a 2xx status code
+func (o *PostFlowsJobsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows jobs too many requests response has a 3xx status code
+func (o *PostFlowsJobsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs too many requests response has a 4xx status code
+func (o *PostFlowsJobsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows jobs too many requests response has a 5xx status code
+func (o *PostFlowsJobsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows jobs too many requests response a status code equal to that given
+func (o *PostFlowsJobsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostFlowsJobsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostFlowsJobsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostFlowsJobsInternalServerError() *PostFlowsJobsInternalServerError {
 	return &PostFlowsJobsInternalServerError{}
 }
 
-/*PostFlowsJobsInternalServerError handles this case with default header values.
+/*
+PostFlowsJobsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostFlowsJobsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows jobs internal server error response has a 2xx status code
+func (o *PostFlowsJobsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows jobs internal server error response has a 3xx status code
+func (o *PostFlowsJobsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs internal server error response has a 4xx status code
+func (o *PostFlowsJobsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows jobs internal server error response has a 5xx status code
+func (o *PostFlowsJobsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows jobs internal server error response a status code equal to that given
+func (o *PostFlowsJobsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostFlowsJobsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostFlowsJobsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostFlowsJobsServiceUnavailable() *PostFlowsJobsServiceUnavailable {
 	return &PostFlowsJobsServiceUnavailable{}
 }
 
-/*PostFlowsJobsServiceUnavailable handles this case with default header values.
+/*
+PostFlowsJobsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostFlowsJobsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows jobs service unavailable response has a 2xx status code
+func (o *PostFlowsJobsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows jobs service unavailable response has a 3xx status code
+func (o *PostFlowsJobsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs service unavailable response has a 4xx status code
+func (o *PostFlowsJobsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows jobs service unavailable response has a 5xx status code
+func (o *PostFlowsJobsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows jobs service unavailable response a status code equal to that given
+func (o *PostFlowsJobsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostFlowsJobsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostFlowsJobsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostFlowsJobsGatewayTimeout() *PostFlowsJobsGatewayTimeout {
 	return &PostFlowsJobsGatewayTimeout{}
 }
 
-/*PostFlowsJobsGatewayTimeout handles this case with default header values.
+/*
+PostFlowsJobsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostFlowsJobsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows jobs gateway timeout response has a 2xx status code
+func (o *PostFlowsJobsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows jobs gateway timeout response has a 3xx status code
+func (o *PostFlowsJobsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows jobs gateway timeout response has a 4xx status code
+func (o *PostFlowsJobsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows jobs gateway timeout response has a 5xx status code
+func (o *PostFlowsJobsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows jobs gateway timeout response a status code equal to that given
+func (o *PostFlowsJobsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostFlowsJobsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostFlowsJobsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/jobs][%d] postFlowsJobsGatewayTimeout  %+v", 504, o.Payload)
 }
 

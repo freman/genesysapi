@@ -101,7 +101,6 @@ func (o *PostUsageQueryReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostUsageQueryOK() *PostUsageQueryOK {
 	return &PostUsageQueryOK{}
 }
 
-/*PostUsageQueryOK handles this case with default header values.
+/*
+PostUsageQueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostUsageQueryOK struct {
 	Payload *models.UsageExecutionResult
 }
 
+// IsSuccess returns true when this post usage query o k response has a 2xx status code
+func (o *PostUsageQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post usage query o k response has a 3xx status code
+func (o *PostUsageQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query o k response has a 4xx status code
+func (o *PostUsageQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post usage query o k response has a 5xx status code
+func (o *PostUsageQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post usage query o k response a status code equal to that given
+func (o *PostUsageQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostUsageQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostUsageQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostUsageQueryAccepted() *PostUsageQueryAccepted {
 	return &PostUsageQueryAccepted{}
 }
 
-/*PostUsageQueryAccepted handles this case with default header values.
+/*
+PostUsageQueryAccepted describes a response with status code 202, with default header values.
 
 Execution not completed, check back for results
 */
@@ -153,7 +183,36 @@ type PostUsageQueryAccepted struct {
 	Payload *models.UsageExecutionResult
 }
 
+// IsSuccess returns true when this post usage query accepted response has a 2xx status code
+func (o *PostUsageQueryAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post usage query accepted response has a 3xx status code
+func (o *PostUsageQueryAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query accepted response has a 4xx status code
+func (o *PostUsageQueryAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post usage query accepted response has a 5xx status code
+func (o *PostUsageQueryAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post usage query accepted response a status code equal to that given
+func (o *PostUsageQueryAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostUsageQueryAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostUsageQueryAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostUsageQueryBadRequest() *PostUsageQueryBadRequest {
 	return &PostUsageQueryBadRequest{}
 }
 
-/*PostUsageQueryBadRequest handles this case with default header values.
+/*
+PostUsageQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostUsageQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post usage query bad request response has a 2xx status code
+func (o *PostUsageQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post usage query bad request response has a 3xx status code
+func (o *PostUsageQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query bad request response has a 4xx status code
+func (o *PostUsageQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post usage query bad request response has a 5xx status code
+func (o *PostUsageQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post usage query bad request response a status code equal to that given
+func (o *PostUsageQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostUsageQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostUsageQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostUsageQueryUnauthorized() *PostUsageQueryUnauthorized {
 	return &PostUsageQueryUnauthorized{}
 }
 
-/*PostUsageQueryUnauthorized handles this case with default header values.
+/*
+PostUsageQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostUsageQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post usage query unauthorized response has a 2xx status code
+func (o *PostUsageQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post usage query unauthorized response has a 3xx status code
+func (o *PostUsageQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query unauthorized response has a 4xx status code
+func (o *PostUsageQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post usage query unauthorized response has a 5xx status code
+func (o *PostUsageQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post usage query unauthorized response a status code equal to that given
+func (o *PostUsageQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostUsageQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostUsageQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostUsageQueryForbidden() *PostUsageQueryForbidden {
 	return &PostUsageQueryForbidden{}
 }
 
-/*PostUsageQueryForbidden handles this case with default header values.
+/*
+PostUsageQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostUsageQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post usage query forbidden response has a 2xx status code
+func (o *PostUsageQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post usage query forbidden response has a 3xx status code
+func (o *PostUsageQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query forbidden response has a 4xx status code
+func (o *PostUsageQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post usage query forbidden response has a 5xx status code
+func (o *PostUsageQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post usage query forbidden response a status code equal to that given
+func (o *PostUsageQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostUsageQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostUsageQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostUsageQueryNotFound() *PostUsageQueryNotFound {
 	return &PostUsageQueryNotFound{}
 }
 
-/*PostUsageQueryNotFound handles this case with default header values.
+/*
+PostUsageQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostUsageQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post usage query not found response has a 2xx status code
+func (o *PostUsageQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post usage query not found response has a 3xx status code
+func (o *PostUsageQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query not found response has a 4xx status code
+func (o *PostUsageQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post usage query not found response has a 5xx status code
+func (o *PostUsageQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post usage query not found response a status code equal to that given
+func (o *PostUsageQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostUsageQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostUsageQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostUsageQueryRequestTimeout() *PostUsageQueryRequestTimeout {
 	return &PostUsageQueryRequestTimeout{}
 }
 
-/*PostUsageQueryRequestTimeout handles this case with default header values.
+/*
+PostUsageQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostUsageQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post usage query request timeout response has a 2xx status code
+func (o *PostUsageQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post usage query request timeout response has a 3xx status code
+func (o *PostUsageQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query request timeout response has a 4xx status code
+func (o *PostUsageQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post usage query request timeout response has a 5xx status code
+func (o *PostUsageQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post usage query request timeout response a status code equal to that given
+func (o *PostUsageQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostUsageQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUsageQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostUsageQueryRequestEntityTooLarge() *PostUsageQueryRequestEntityTooLar
 	return &PostUsageQueryRequestEntityTooLarge{}
 }
 
-/*PostUsageQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostUsageQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostUsageQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post usage query request entity too large response has a 2xx status code
+func (o *PostUsageQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post usage query request entity too large response has a 3xx status code
+func (o *PostUsageQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query request entity too large response has a 4xx status code
+func (o *PostUsageQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post usage query request entity too large response has a 5xx status code
+func (o *PostUsageQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post usage query request entity too large response a status code equal to that given
+func (o *PostUsageQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostUsageQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostUsageQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostUsageQueryUnsupportedMediaType() *PostUsageQueryUnsupportedMediaType
 	return &PostUsageQueryUnsupportedMediaType{}
 }
 
-/*PostUsageQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostUsageQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostUsageQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post usage query unsupported media type response has a 2xx status code
+func (o *PostUsageQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post usage query unsupported media type response has a 3xx status code
+func (o *PostUsageQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query unsupported media type response has a 4xx status code
+func (o *PostUsageQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post usage query unsupported media type response has a 5xx status code
+func (o *PostUsageQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post usage query unsupported media type response a status code equal to that given
+func (o *PostUsageQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostUsageQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostUsageQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostUsageQueryTooManyRequests() *PostUsageQueryTooManyRequests {
 	return &PostUsageQueryTooManyRequests{}
 }
 
-/*PostUsageQueryTooManyRequests handles this case with default header values.
+/*
+PostUsageQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostUsageQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post usage query too many requests response has a 2xx status code
+func (o *PostUsageQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post usage query too many requests response has a 3xx status code
+func (o *PostUsageQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query too many requests response has a 4xx status code
+func (o *PostUsageQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post usage query too many requests response has a 5xx status code
+func (o *PostUsageQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post usage query too many requests response a status code equal to that given
+func (o *PostUsageQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostUsageQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostUsageQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostUsageQueryInternalServerError() *PostUsageQueryInternalServerError {
 	return &PostUsageQueryInternalServerError{}
 }
 
-/*PostUsageQueryInternalServerError handles this case with default header values.
+/*
+PostUsageQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostUsageQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post usage query internal server error response has a 2xx status code
+func (o *PostUsageQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post usage query internal server error response has a 3xx status code
+func (o *PostUsageQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query internal server error response has a 4xx status code
+func (o *PostUsageQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post usage query internal server error response has a 5xx status code
+func (o *PostUsageQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post usage query internal server error response a status code equal to that given
+func (o *PostUsageQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostUsageQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostUsageQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostUsageQueryServiceUnavailable() *PostUsageQueryServiceUnavailable {
 	return &PostUsageQueryServiceUnavailable{}
 }
 
-/*PostUsageQueryServiceUnavailable handles this case with default header values.
+/*
+PostUsageQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostUsageQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post usage query service unavailable response has a 2xx status code
+func (o *PostUsageQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post usage query service unavailable response has a 3xx status code
+func (o *PostUsageQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query service unavailable response has a 4xx status code
+func (o *PostUsageQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post usage query service unavailable response has a 5xx status code
+func (o *PostUsageQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post usage query service unavailable response a status code equal to that given
+func (o *PostUsageQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostUsageQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostUsageQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostUsageQueryGatewayTimeout() *PostUsageQueryGatewayTimeout {
 	return &PostUsageQueryGatewayTimeout{}
 }
 
-/*PostUsageQueryGatewayTimeout handles this case with default header values.
+/*
+PostUsageQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostUsageQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post usage query gateway timeout response has a 2xx status code
+func (o *PostUsageQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post usage query gateway timeout response has a 3xx status code
+func (o *PostUsageQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post usage query gateway timeout response has a 4xx status code
+func (o *PostUsageQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post usage query gateway timeout response has a 5xx status code
+func (o *PostUsageQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post usage query gateway timeout response a status code equal to that given
+func (o *PostUsageQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostUsageQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostUsageQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/usage/query][%d] postUsageQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

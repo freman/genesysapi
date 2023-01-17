@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -59,7 +61,6 @@ func (m *EmailConfig) Validate(formats strfmt.Registry) error {
 }
 
 func (m *EmailConfig) validateContentTemplate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContentTemplate) { // not required
 		return nil
 	}
@@ -68,6 +69,8 @@ func (m *EmailConfig) validateContentTemplate(formats strfmt.Registry) error {
 		if err := m.ContentTemplate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contentTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contentTemplate")
 			}
 			return err
 		}
@@ -95,6 +98,8 @@ func (m *EmailConfig) validateFromAddress(formats strfmt.Registry) error {
 		if err := m.FromAddress.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("fromAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fromAddress")
 			}
 			return err
 		}
@@ -104,7 +109,6 @@ func (m *EmailConfig) validateFromAddress(formats strfmt.Registry) error {
 }
 
 func (m *EmailConfig) validateReplyToAddress(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReplyToAddress) { // not required
 		return nil
 	}
@@ -113,6 +117,78 @@ func (m *EmailConfig) validateReplyToAddress(formats strfmt.Registry) error {
 		if err := m.ReplyToAddress.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("replyToAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("replyToAddress")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this email config based on the context it is used
+func (m *EmailConfig) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContentTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFromAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReplyToAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EmailConfig) contextValidateContentTemplate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContentTemplate != nil {
+		if err := m.ContentTemplate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contentTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contentTemplate")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EmailConfig) contextValidateFromAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FromAddress != nil {
+		if err := m.FromAddress.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fromAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fromAddress")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EmailConfig) contextValidateReplyToAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReplyToAddress != nil {
+		if err := m.ReplyToAddress.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("replyToAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("replyToAddress")
 			}
 			return err
 		}

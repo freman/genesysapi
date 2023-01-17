@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -97,7 +98,6 @@ func (m *ContactListFilter) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ContactListFilter) validateClauses(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Clauses) { // not required
 		return nil
 	}
@@ -111,6 +111,8 @@ func (m *ContactListFilter) validateClauses(formats strfmt.Registry) error {
 			if err := m.Clauses[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("clauses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("clauses" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -131,6 +133,8 @@ func (m *ContactListFilter) validateContactList(formats strfmt.Registry) error {
 		if err := m.ContactList.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contactList")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactList")
 			}
 			return err
 		}
@@ -140,7 +144,6 @@ func (m *ContactListFilter) validateContactList(formats strfmt.Registry) error {
 }
 
 func (m *ContactListFilter) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -153,7 +156,6 @@ func (m *ContactListFilter) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *ContactListFilter) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -195,7 +197,6 @@ func (m *ContactListFilter) validateFilterTypeEnum(path, location string, value 
 }
 
 func (m *ContactListFilter) validateFilterType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FilterType) { // not required
 		return nil
 	}
@@ -218,12 +219,117 @@ func (m *ContactListFilter) validateName(formats strfmt.Registry) error {
 }
 
 func (m *ContactListFilter) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this contact list filter based on the context it is used
+func (m *ContactListFilter) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateClauses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContactList(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ContactListFilter) contextValidateClauses(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Clauses); i++ {
+
+		if m.Clauses[i] != nil {
+			if err := m.Clauses[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("clauses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("clauses" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ContactListFilter) contextValidateContactList(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContactList != nil {
+		if err := m.ContactList.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contactList")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactList")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ContactListFilter) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ContactListFilter) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ContactListFilter) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ContactListFilter) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

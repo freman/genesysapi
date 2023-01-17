@@ -95,7 +95,6 @@ func (o *GetRoutingPredictorModelFeaturesReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingPredictorModelFeaturesOK() *GetRoutingPredictorModelFeaturesOK
 	return &GetRoutingPredictorModelFeaturesOK{}
 }
 
-/*GetRoutingPredictorModelFeaturesOK handles this case with default header values.
+/*
+GetRoutingPredictorModelFeaturesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingPredictorModelFeaturesOK struct {
 	Payload *models.PredictorModelFeatureListing
 }
 
+// IsSuccess returns true when this get routing predictor model features o k response has a 2xx status code
+func (o *GetRoutingPredictorModelFeaturesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing predictor model features o k response has a 3xx status code
+func (o *GetRoutingPredictorModelFeaturesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor model features o k response has a 4xx status code
+func (o *GetRoutingPredictorModelFeaturesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing predictor model features o k response has a 5xx status code
+func (o *GetRoutingPredictorModelFeaturesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor model features o k response a status code equal to that given
+func (o *GetRoutingPredictorModelFeaturesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingPredictorModelFeaturesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelFeaturesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingPredictorModelFeaturesBadRequest() *GetRoutingPredictorModelFe
 	return &GetRoutingPredictorModelFeaturesBadRequest{}
 }
 
-/*GetRoutingPredictorModelFeaturesBadRequest handles this case with default header values.
+/*
+GetRoutingPredictorModelFeaturesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingPredictorModelFeaturesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor model features bad request response has a 2xx status code
+func (o *GetRoutingPredictorModelFeaturesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor model features bad request response has a 3xx status code
+func (o *GetRoutingPredictorModelFeaturesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor model features bad request response has a 4xx status code
+func (o *GetRoutingPredictorModelFeaturesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor model features bad request response has a 5xx status code
+func (o *GetRoutingPredictorModelFeaturesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor model features bad request response a status code equal to that given
+func (o *GetRoutingPredictorModelFeaturesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingPredictorModelFeaturesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelFeaturesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingPredictorModelFeaturesUnauthorized() *GetRoutingPredictorModel
 	return &GetRoutingPredictorModelFeaturesUnauthorized{}
 }
 
-/*GetRoutingPredictorModelFeaturesUnauthorized handles this case with default header values.
+/*
+GetRoutingPredictorModelFeaturesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingPredictorModelFeaturesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor model features unauthorized response has a 2xx status code
+func (o *GetRoutingPredictorModelFeaturesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor model features unauthorized response has a 3xx status code
+func (o *GetRoutingPredictorModelFeaturesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor model features unauthorized response has a 4xx status code
+func (o *GetRoutingPredictorModelFeaturesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor model features unauthorized response has a 5xx status code
+func (o *GetRoutingPredictorModelFeaturesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor model features unauthorized response a status code equal to that given
+func (o *GetRoutingPredictorModelFeaturesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingPredictorModelFeaturesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelFeaturesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingPredictorModelFeaturesForbidden() *GetRoutingPredictorModelFea
 	return &GetRoutingPredictorModelFeaturesForbidden{}
 }
 
-/*GetRoutingPredictorModelFeaturesForbidden handles this case with default header values.
+/*
+GetRoutingPredictorModelFeaturesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingPredictorModelFeaturesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor model features forbidden response has a 2xx status code
+func (o *GetRoutingPredictorModelFeaturesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor model features forbidden response has a 3xx status code
+func (o *GetRoutingPredictorModelFeaturesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor model features forbidden response has a 4xx status code
+func (o *GetRoutingPredictorModelFeaturesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor model features forbidden response has a 5xx status code
+func (o *GetRoutingPredictorModelFeaturesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor model features forbidden response a status code equal to that given
+func (o *GetRoutingPredictorModelFeaturesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingPredictorModelFeaturesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelFeaturesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingPredictorModelFeaturesNotFound() *GetRoutingPredictorModelFeat
 	return &GetRoutingPredictorModelFeaturesNotFound{}
 }
 
-/*GetRoutingPredictorModelFeaturesNotFound handles this case with default header values.
+/*
+GetRoutingPredictorModelFeaturesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingPredictorModelFeaturesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor model features not found response has a 2xx status code
+func (o *GetRoutingPredictorModelFeaturesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor model features not found response has a 3xx status code
+func (o *GetRoutingPredictorModelFeaturesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor model features not found response has a 4xx status code
+func (o *GetRoutingPredictorModelFeaturesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor model features not found response has a 5xx status code
+func (o *GetRoutingPredictorModelFeaturesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor model features not found response a status code equal to that given
+func (o *GetRoutingPredictorModelFeaturesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingPredictorModelFeaturesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelFeaturesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingPredictorModelFeaturesRequestTimeout() *GetRoutingPredictorMod
 	return &GetRoutingPredictorModelFeaturesRequestTimeout{}
 }
 
-/*GetRoutingPredictorModelFeaturesRequestTimeout handles this case with default header values.
+/*
+GetRoutingPredictorModelFeaturesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingPredictorModelFeaturesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor model features request timeout response has a 2xx status code
+func (o *GetRoutingPredictorModelFeaturesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor model features request timeout response has a 3xx status code
+func (o *GetRoutingPredictorModelFeaturesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor model features request timeout response has a 4xx status code
+func (o *GetRoutingPredictorModelFeaturesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor model features request timeout response has a 5xx status code
+func (o *GetRoutingPredictorModelFeaturesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor model features request timeout response a status code equal to that given
+func (o *GetRoutingPredictorModelFeaturesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingPredictorModelFeaturesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelFeaturesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingPredictorModelFeaturesRequestEntityTooLarge() *GetRoutingPredi
 	return &GetRoutingPredictorModelFeaturesRequestEntityTooLarge{}
 }
 
-/*GetRoutingPredictorModelFeaturesRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingPredictorModelFeaturesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingPredictorModelFeaturesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor model features request entity too large response has a 2xx status code
+func (o *GetRoutingPredictorModelFeaturesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor model features request entity too large response has a 3xx status code
+func (o *GetRoutingPredictorModelFeaturesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor model features request entity too large response has a 4xx status code
+func (o *GetRoutingPredictorModelFeaturesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor model features request entity too large response has a 5xx status code
+func (o *GetRoutingPredictorModelFeaturesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor model features request entity too large response a status code equal to that given
+func (o *GetRoutingPredictorModelFeaturesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingPredictorModelFeaturesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelFeaturesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingPredictorModelFeaturesUnsupportedMediaType() *GetRoutingPredic
 	return &GetRoutingPredictorModelFeaturesUnsupportedMediaType{}
 }
 
-/*GetRoutingPredictorModelFeaturesUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingPredictorModelFeaturesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingPredictorModelFeaturesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor model features unsupported media type response has a 2xx status code
+func (o *GetRoutingPredictorModelFeaturesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor model features unsupported media type response has a 3xx status code
+func (o *GetRoutingPredictorModelFeaturesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor model features unsupported media type response has a 4xx status code
+func (o *GetRoutingPredictorModelFeaturesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor model features unsupported media type response has a 5xx status code
+func (o *GetRoutingPredictorModelFeaturesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor model features unsupported media type response a status code equal to that given
+func (o *GetRoutingPredictorModelFeaturesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingPredictorModelFeaturesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelFeaturesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingPredictorModelFeaturesTooManyRequests() *GetRoutingPredictorMo
 	return &GetRoutingPredictorModelFeaturesTooManyRequests{}
 }
 
-/*GetRoutingPredictorModelFeaturesTooManyRequests handles this case with default header values.
+/*
+GetRoutingPredictorModelFeaturesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingPredictorModelFeaturesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor model features too many requests response has a 2xx status code
+func (o *GetRoutingPredictorModelFeaturesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor model features too many requests response has a 3xx status code
+func (o *GetRoutingPredictorModelFeaturesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor model features too many requests response has a 4xx status code
+func (o *GetRoutingPredictorModelFeaturesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor model features too many requests response has a 5xx status code
+func (o *GetRoutingPredictorModelFeaturesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor model features too many requests response a status code equal to that given
+func (o *GetRoutingPredictorModelFeaturesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingPredictorModelFeaturesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelFeaturesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingPredictorModelFeaturesInternalServerError() *GetRoutingPredict
 	return &GetRoutingPredictorModelFeaturesInternalServerError{}
 }
 
-/*GetRoutingPredictorModelFeaturesInternalServerError handles this case with default header values.
+/*
+GetRoutingPredictorModelFeaturesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingPredictorModelFeaturesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor model features internal server error response has a 2xx status code
+func (o *GetRoutingPredictorModelFeaturesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor model features internal server error response has a 3xx status code
+func (o *GetRoutingPredictorModelFeaturesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor model features internal server error response has a 4xx status code
+func (o *GetRoutingPredictorModelFeaturesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing predictor model features internal server error response has a 5xx status code
+func (o *GetRoutingPredictorModelFeaturesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing predictor model features internal server error response a status code equal to that given
+func (o *GetRoutingPredictorModelFeaturesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingPredictorModelFeaturesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelFeaturesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingPredictorModelFeaturesServiceUnavailable() *GetRoutingPredicto
 	return &GetRoutingPredictorModelFeaturesServiceUnavailable{}
 }
 
-/*GetRoutingPredictorModelFeaturesServiceUnavailable handles this case with default header values.
+/*
+GetRoutingPredictorModelFeaturesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingPredictorModelFeaturesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor model features service unavailable response has a 2xx status code
+func (o *GetRoutingPredictorModelFeaturesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor model features service unavailable response has a 3xx status code
+func (o *GetRoutingPredictorModelFeaturesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor model features service unavailable response has a 4xx status code
+func (o *GetRoutingPredictorModelFeaturesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing predictor model features service unavailable response has a 5xx status code
+func (o *GetRoutingPredictorModelFeaturesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing predictor model features service unavailable response a status code equal to that given
+func (o *GetRoutingPredictorModelFeaturesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingPredictorModelFeaturesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelFeaturesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingPredictorModelFeaturesGatewayTimeout() *GetRoutingPredictorMod
 	return &GetRoutingPredictorModelFeaturesGatewayTimeout{}
 }
 
-/*GetRoutingPredictorModelFeaturesGatewayTimeout handles this case with default header values.
+/*
+GetRoutingPredictorModelFeaturesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingPredictorModelFeaturesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor model features gateway timeout response has a 2xx status code
+func (o *GetRoutingPredictorModelFeaturesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor model features gateway timeout response has a 3xx status code
+func (o *GetRoutingPredictorModelFeaturesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor model features gateway timeout response has a 4xx status code
+func (o *GetRoutingPredictorModelFeaturesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing predictor model features gateway timeout response has a 5xx status code
+func (o *GetRoutingPredictorModelFeaturesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing predictor model features gateway timeout response a status code equal to that given
+func (o *GetRoutingPredictorModelFeaturesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingPredictorModelFeaturesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelFeaturesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models/{modelId}/features][%d] getRoutingPredictorModelFeaturesGatewayTimeout  %+v", 504, o.Payload)
 }
 

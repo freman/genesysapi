@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -55,7 +56,6 @@ func (m *AvailableTimeOffRequest) validateActivityCodeID(formats strfmt.Registry
 }
 
 func (m *AvailableTimeOffRequest) validateDateRanges(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateRanges) { // not required
 		return nil
 	}
@@ -69,6 +69,42 @@ func (m *AvailableTimeOffRequest) validateDateRanges(formats strfmt.Registry) er
 			if err := m.DateRanges[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dateRanges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dateRanges" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this available time off request based on the context it is used
+func (m *AvailableTimeOffRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateRanges(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AvailableTimeOffRequest) contextValidateDateRanges(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DateRanges); i++ {
+
+		if m.DateRanges[i] != nil {
+			if err := m.DateRanges[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("dateRanges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dateRanges" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

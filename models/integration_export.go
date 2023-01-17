@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -49,6 +51,38 @@ func (m *IntegrationExport) validateIntegration(formats strfmt.Registry) error {
 		if err := m.Integration.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("integration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this integration export based on the context it is used
+func (m *IntegrationExport) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateIntegration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *IntegrationExport) contextValidateIntegration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Integration != nil {
+		if err := m.Integration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integration")
 			}
 			return err
 		}

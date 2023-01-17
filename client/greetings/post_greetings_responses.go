@@ -95,7 +95,6 @@ func (o *PostGreetingsReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostGreetingsOK() *PostGreetingsOK {
 	return &PostGreetingsOK{}
 }
 
-/*PostGreetingsOK handles this case with default header values.
+/*
+PostGreetingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostGreetingsOK struct {
 	Payload *models.Greeting
 }
 
+// IsSuccess returns true when this post greetings o k response has a 2xx status code
+func (o *PostGreetingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post greetings o k response has a 3xx status code
+func (o *PostGreetingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post greetings o k response has a 4xx status code
+func (o *PostGreetingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post greetings o k response has a 5xx status code
+func (o *PostGreetingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post greetings o k response a status code equal to that given
+func (o *PostGreetingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostGreetingsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostGreetingsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostGreetingsBadRequest() *PostGreetingsBadRequest {
 	return &PostGreetingsBadRequest{}
 }
 
-/*PostGreetingsBadRequest handles this case with default header values.
+/*
+PostGreetingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostGreetingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post greetings bad request response has a 2xx status code
+func (o *PostGreetingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post greetings bad request response has a 3xx status code
+func (o *PostGreetingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post greetings bad request response has a 4xx status code
+func (o *PostGreetingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post greetings bad request response has a 5xx status code
+func (o *PostGreetingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post greetings bad request response a status code equal to that given
+func (o *PostGreetingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostGreetingsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostGreetingsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostGreetingsUnauthorized() *PostGreetingsUnauthorized {
 	return &PostGreetingsUnauthorized{}
 }
 
-/*PostGreetingsUnauthorized handles this case with default header values.
+/*
+PostGreetingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostGreetingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post greetings unauthorized response has a 2xx status code
+func (o *PostGreetingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post greetings unauthorized response has a 3xx status code
+func (o *PostGreetingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post greetings unauthorized response has a 4xx status code
+func (o *PostGreetingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post greetings unauthorized response has a 5xx status code
+func (o *PostGreetingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post greetings unauthorized response a status code equal to that given
+func (o *PostGreetingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostGreetingsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostGreetingsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostGreetingsForbidden() *PostGreetingsForbidden {
 	return &PostGreetingsForbidden{}
 }
 
-/*PostGreetingsForbidden handles this case with default header values.
+/*
+PostGreetingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostGreetingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post greetings forbidden response has a 2xx status code
+func (o *PostGreetingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post greetings forbidden response has a 3xx status code
+func (o *PostGreetingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post greetings forbidden response has a 4xx status code
+func (o *PostGreetingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post greetings forbidden response has a 5xx status code
+func (o *PostGreetingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post greetings forbidden response a status code equal to that given
+func (o *PostGreetingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostGreetingsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostGreetingsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostGreetingsNotFound() *PostGreetingsNotFound {
 	return &PostGreetingsNotFound{}
 }
 
-/*PostGreetingsNotFound handles this case with default header values.
+/*
+PostGreetingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostGreetingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post greetings not found response has a 2xx status code
+func (o *PostGreetingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post greetings not found response has a 3xx status code
+func (o *PostGreetingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post greetings not found response has a 4xx status code
+func (o *PostGreetingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post greetings not found response has a 5xx status code
+func (o *PostGreetingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post greetings not found response a status code equal to that given
+func (o *PostGreetingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostGreetingsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostGreetingsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostGreetingsRequestTimeout() *PostGreetingsRequestTimeout {
 	return &PostGreetingsRequestTimeout{}
 }
 
-/*PostGreetingsRequestTimeout handles this case with default header values.
+/*
+PostGreetingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostGreetingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post greetings request timeout response has a 2xx status code
+func (o *PostGreetingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post greetings request timeout response has a 3xx status code
+func (o *PostGreetingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post greetings request timeout response has a 4xx status code
+func (o *PostGreetingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post greetings request timeout response has a 5xx status code
+func (o *PostGreetingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post greetings request timeout response a status code equal to that given
+func (o *PostGreetingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostGreetingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostGreetingsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostGreetingsRequestEntityTooLarge() *PostGreetingsRequestEntityTooLarge
 	return &PostGreetingsRequestEntityTooLarge{}
 }
 
-/*PostGreetingsRequestEntityTooLarge handles this case with default header values.
+/*
+PostGreetingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostGreetingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post greetings request entity too large response has a 2xx status code
+func (o *PostGreetingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post greetings request entity too large response has a 3xx status code
+func (o *PostGreetingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post greetings request entity too large response has a 4xx status code
+func (o *PostGreetingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post greetings request entity too large response has a 5xx status code
+func (o *PostGreetingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post greetings request entity too large response a status code equal to that given
+func (o *PostGreetingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostGreetingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostGreetingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostGreetingsUnsupportedMediaType() *PostGreetingsUnsupportedMediaType {
 	return &PostGreetingsUnsupportedMediaType{}
 }
 
-/*PostGreetingsUnsupportedMediaType handles this case with default header values.
+/*
+PostGreetingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostGreetingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post greetings unsupported media type response has a 2xx status code
+func (o *PostGreetingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post greetings unsupported media type response has a 3xx status code
+func (o *PostGreetingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post greetings unsupported media type response has a 4xx status code
+func (o *PostGreetingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post greetings unsupported media type response has a 5xx status code
+func (o *PostGreetingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post greetings unsupported media type response a status code equal to that given
+func (o *PostGreetingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostGreetingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostGreetingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostGreetingsTooManyRequests() *PostGreetingsTooManyRequests {
 	return &PostGreetingsTooManyRequests{}
 }
 
-/*PostGreetingsTooManyRequests handles this case with default header values.
+/*
+PostGreetingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostGreetingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post greetings too many requests response has a 2xx status code
+func (o *PostGreetingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post greetings too many requests response has a 3xx status code
+func (o *PostGreetingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post greetings too many requests response has a 4xx status code
+func (o *PostGreetingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post greetings too many requests response has a 5xx status code
+func (o *PostGreetingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post greetings too many requests response a status code equal to that given
+func (o *PostGreetingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostGreetingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostGreetingsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostGreetingsInternalServerError() *PostGreetingsInternalServerError {
 	return &PostGreetingsInternalServerError{}
 }
 
-/*PostGreetingsInternalServerError handles this case with default header values.
+/*
+PostGreetingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostGreetingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post greetings internal server error response has a 2xx status code
+func (o *PostGreetingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post greetings internal server error response has a 3xx status code
+func (o *PostGreetingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post greetings internal server error response has a 4xx status code
+func (o *PostGreetingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post greetings internal server error response has a 5xx status code
+func (o *PostGreetingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post greetings internal server error response a status code equal to that given
+func (o *PostGreetingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostGreetingsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostGreetingsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostGreetingsServiceUnavailable() *PostGreetingsServiceUnavailable {
 	return &PostGreetingsServiceUnavailable{}
 }
 
-/*PostGreetingsServiceUnavailable handles this case with default header values.
+/*
+PostGreetingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostGreetingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post greetings service unavailable response has a 2xx status code
+func (o *PostGreetingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post greetings service unavailable response has a 3xx status code
+func (o *PostGreetingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post greetings service unavailable response has a 4xx status code
+func (o *PostGreetingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post greetings service unavailable response has a 5xx status code
+func (o *PostGreetingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post greetings service unavailable response a status code equal to that given
+func (o *PostGreetingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostGreetingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostGreetingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostGreetingsGatewayTimeout() *PostGreetingsGatewayTimeout {
 	return &PostGreetingsGatewayTimeout{}
 }
 
-/*PostGreetingsGatewayTimeout handles this case with default header values.
+/*
+PostGreetingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostGreetingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post greetings gateway timeout response has a 2xx status code
+func (o *PostGreetingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post greetings gateway timeout response has a 3xx status code
+func (o *PostGreetingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post greetings gateway timeout response has a 4xx status code
+func (o *PostGreetingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post greetings gateway timeout response has a 5xx status code
+func (o *PostGreetingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post greetings gateway timeout response a status code equal to that given
+func (o *PostGreetingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostGreetingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostGreetingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/greetings][%d] postGreetingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

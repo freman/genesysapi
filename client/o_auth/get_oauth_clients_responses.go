@@ -95,7 +95,6 @@ func (o *GetOauthClientsReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOauthClientsOK() *GetOauthClientsOK {
 	return &GetOauthClientsOK{}
 }
 
-/*GetOauthClientsOK handles this case with default header values.
+/*
+GetOauthClientsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOauthClientsOK struct {
 	Payload *models.OAuthClientEntityListing
 }
 
+// IsSuccess returns true when this get oauth clients o k response has a 2xx status code
+func (o *GetOauthClientsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get oauth clients o k response has a 3xx status code
+func (o *GetOauthClientsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth clients o k response has a 4xx status code
+func (o *GetOauthClientsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth clients o k response has a 5xx status code
+func (o *GetOauthClientsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth clients o k response a status code equal to that given
+func (o *GetOauthClientsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOauthClientsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOauthClientsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOauthClientsBadRequest() *GetOauthClientsBadRequest {
 	return &GetOauthClientsBadRequest{}
 }
 
-/*GetOauthClientsBadRequest handles this case with default header values.
+/*
+GetOauthClientsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOauthClientsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth clients bad request response has a 2xx status code
+func (o *GetOauthClientsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth clients bad request response has a 3xx status code
+func (o *GetOauthClientsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth clients bad request response has a 4xx status code
+func (o *GetOauthClientsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth clients bad request response has a 5xx status code
+func (o *GetOauthClientsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth clients bad request response a status code equal to that given
+func (o *GetOauthClientsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOauthClientsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOauthClientsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOauthClientsUnauthorized() *GetOauthClientsUnauthorized {
 	return &GetOauthClientsUnauthorized{}
 }
 
-/*GetOauthClientsUnauthorized handles this case with default header values.
+/*
+GetOauthClientsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOauthClientsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth clients unauthorized response has a 2xx status code
+func (o *GetOauthClientsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth clients unauthorized response has a 3xx status code
+func (o *GetOauthClientsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth clients unauthorized response has a 4xx status code
+func (o *GetOauthClientsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth clients unauthorized response has a 5xx status code
+func (o *GetOauthClientsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth clients unauthorized response a status code equal to that given
+func (o *GetOauthClientsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOauthClientsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOauthClientsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOauthClientsForbidden() *GetOauthClientsForbidden {
 	return &GetOauthClientsForbidden{}
 }
 
-/*GetOauthClientsForbidden handles this case with default header values.
+/*
+GetOauthClientsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOauthClientsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth clients forbidden response has a 2xx status code
+func (o *GetOauthClientsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth clients forbidden response has a 3xx status code
+func (o *GetOauthClientsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth clients forbidden response has a 4xx status code
+func (o *GetOauthClientsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth clients forbidden response has a 5xx status code
+func (o *GetOauthClientsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth clients forbidden response a status code equal to that given
+func (o *GetOauthClientsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOauthClientsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOauthClientsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOauthClientsNotFound() *GetOauthClientsNotFound {
 	return &GetOauthClientsNotFound{}
 }
 
-/*GetOauthClientsNotFound handles this case with default header values.
+/*
+GetOauthClientsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOauthClientsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth clients not found response has a 2xx status code
+func (o *GetOauthClientsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth clients not found response has a 3xx status code
+func (o *GetOauthClientsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth clients not found response has a 4xx status code
+func (o *GetOauthClientsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth clients not found response has a 5xx status code
+func (o *GetOauthClientsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth clients not found response a status code equal to that given
+func (o *GetOauthClientsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOauthClientsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOauthClientsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOauthClientsRequestTimeout() *GetOauthClientsRequestTimeout {
 	return &GetOauthClientsRequestTimeout{}
 }
 
-/*GetOauthClientsRequestTimeout handles this case with default header values.
+/*
+GetOauthClientsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOauthClientsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth clients request timeout response has a 2xx status code
+func (o *GetOauthClientsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth clients request timeout response has a 3xx status code
+func (o *GetOauthClientsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth clients request timeout response has a 4xx status code
+func (o *GetOauthClientsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth clients request timeout response has a 5xx status code
+func (o *GetOauthClientsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth clients request timeout response a status code equal to that given
+func (o *GetOauthClientsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOauthClientsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOauthClientsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOauthClientsRequestEntityTooLarge() *GetOauthClientsRequestEntityTooL
 	return &GetOauthClientsRequestEntityTooLarge{}
 }
 
-/*GetOauthClientsRequestEntityTooLarge handles this case with default header values.
+/*
+GetOauthClientsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOauthClientsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth clients request entity too large response has a 2xx status code
+func (o *GetOauthClientsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth clients request entity too large response has a 3xx status code
+func (o *GetOauthClientsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth clients request entity too large response has a 4xx status code
+func (o *GetOauthClientsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth clients request entity too large response has a 5xx status code
+func (o *GetOauthClientsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth clients request entity too large response a status code equal to that given
+func (o *GetOauthClientsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOauthClientsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOauthClientsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOauthClientsUnsupportedMediaType() *GetOauthClientsUnsupportedMediaTy
 	return &GetOauthClientsUnsupportedMediaType{}
 }
 
-/*GetOauthClientsUnsupportedMediaType handles this case with default header values.
+/*
+GetOauthClientsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOauthClientsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth clients unsupported media type response has a 2xx status code
+func (o *GetOauthClientsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth clients unsupported media type response has a 3xx status code
+func (o *GetOauthClientsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth clients unsupported media type response has a 4xx status code
+func (o *GetOauthClientsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth clients unsupported media type response has a 5xx status code
+func (o *GetOauthClientsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth clients unsupported media type response a status code equal to that given
+func (o *GetOauthClientsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOauthClientsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOauthClientsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOauthClientsTooManyRequests() *GetOauthClientsTooManyRequests {
 	return &GetOauthClientsTooManyRequests{}
 }
 
-/*GetOauthClientsTooManyRequests handles this case with default header values.
+/*
+GetOauthClientsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOauthClientsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth clients too many requests response has a 2xx status code
+func (o *GetOauthClientsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth clients too many requests response has a 3xx status code
+func (o *GetOauthClientsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth clients too many requests response has a 4xx status code
+func (o *GetOauthClientsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth clients too many requests response has a 5xx status code
+func (o *GetOauthClientsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth clients too many requests response a status code equal to that given
+func (o *GetOauthClientsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOauthClientsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOauthClientsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOauthClientsInternalServerError() *GetOauthClientsInternalServerError
 	return &GetOauthClientsInternalServerError{}
 }
 
-/*GetOauthClientsInternalServerError handles this case with default header values.
+/*
+GetOauthClientsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOauthClientsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth clients internal server error response has a 2xx status code
+func (o *GetOauthClientsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth clients internal server error response has a 3xx status code
+func (o *GetOauthClientsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth clients internal server error response has a 4xx status code
+func (o *GetOauthClientsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth clients internal server error response has a 5xx status code
+func (o *GetOauthClientsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get oauth clients internal server error response a status code equal to that given
+func (o *GetOauthClientsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOauthClientsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOauthClientsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOauthClientsServiceUnavailable() *GetOauthClientsServiceUnavailable {
 	return &GetOauthClientsServiceUnavailable{}
 }
 
-/*GetOauthClientsServiceUnavailable handles this case with default header values.
+/*
+GetOauthClientsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOauthClientsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth clients service unavailable response has a 2xx status code
+func (o *GetOauthClientsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth clients service unavailable response has a 3xx status code
+func (o *GetOauthClientsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth clients service unavailable response has a 4xx status code
+func (o *GetOauthClientsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth clients service unavailable response has a 5xx status code
+func (o *GetOauthClientsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get oauth clients service unavailable response a status code equal to that given
+func (o *GetOauthClientsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOauthClientsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOauthClientsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOauthClientsGatewayTimeout() *GetOauthClientsGatewayTimeout {
 	return &GetOauthClientsGatewayTimeout{}
 }
 
-/*GetOauthClientsGatewayTimeout handles this case with default header values.
+/*
+GetOauthClientsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOauthClientsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth clients gateway timeout response has a 2xx status code
+func (o *GetOauthClientsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth clients gateway timeout response has a 3xx status code
+func (o *GetOauthClientsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth clients gateway timeout response has a 4xx status code
+func (o *GetOauthClientsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth clients gateway timeout response has a 5xx status code
+func (o *GetOauthClientsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get oauth clients gateway timeout response a status code equal to that given
+func (o *GetOauthClientsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOauthClientsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOauthClientsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/clients][%d] getOauthClientsGatewayTimeout  %+v", 504, o.Payload)
 }
 

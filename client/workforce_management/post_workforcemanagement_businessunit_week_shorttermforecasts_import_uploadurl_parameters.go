@@ -18,69 +18,89 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams() *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParamsWithTimeout creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParamsWithContext creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParamsWithContext(ctx context.Context) *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParamsWithHTTPClient creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement businessunit week shorttermforecasts import uploadurl operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement businessunit week shorttermforecasts import uploadurl operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.UploadURLRequestBody
-	/*BusinessUnitID
-	  The ID of the business unit to which the forecast belongs
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit to which the forecast belongs
 	*/
 	BusinessUnitID string
-	/*WeekDateID
-	  First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekDateID.
+
+	   First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekDateID strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement businessunit week shorttermforecasts import uploadurl params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams) WithDefaults() *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement businessunit week shorttermforecasts import uploadurl params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadurlParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement businessunit week shorttermforecasts import uploadurl params
@@ -156,7 +176,6 @@ func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsImportUploadur
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

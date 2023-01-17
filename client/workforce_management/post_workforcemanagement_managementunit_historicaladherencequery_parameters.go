@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementManagementunitHistoricaladherencequeryParams creates a new PostWorkforcemanagementManagementunitHistoricaladherencequeryParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementManagementunitHistoricaladherencequeryParams creates a new PostWorkforcemanagementManagementunitHistoricaladherencequeryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryParams() *PostWorkforcemanagementManagementunitHistoricaladherencequeryParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitHistoricaladherencequeryParamsWithTimeout creates a new PostWorkforcemanagementManagementunitHistoricaladherencequeryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementManagementunitHistoricaladherencequeryParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitHistoricaladherencequeryParamsWithContext creates a new PostWorkforcemanagementManagementunitHistoricaladherencequeryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryParamsWithContext(ctx context.Context) *PostWorkforcemanagementManagementunitHistoricaladherencequeryParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitHistoricaladherencequeryParamsWithHTTPClient creates a new PostWorkforcemanagementManagementunitHistoricaladherencequeryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementManagementunitHistoricaladherencequeryParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement managementunit historicaladherencequery operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement managementunit historicaladherencequery operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementManagementunitHistoricaladherencequeryParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.WfmHistoricalAdherenceQuery
-	/*ManagementUnitID
-	  The ID of the management unit
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit
 	*/
 	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement managementunit historicaladherencequery params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryParams) WithDefaults() *PostWorkforcemanagementManagementunitHistoricaladherencequeryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement managementunit historicaladherencequery params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement managementunit historicaladherencequery params
@@ -140,7 +157,6 @@ func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryParams) Wr
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

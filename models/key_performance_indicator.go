@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -123,7 +124,6 @@ func (m *KeyPerformanceIndicator) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KeyPerformanceIndicator) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -136,7 +136,6 @@ func (m *KeyPerformanceIndicator) validateDateCreated(formats strfmt.Registry) e
 }
 
 func (m *KeyPerformanceIndicator) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -178,7 +177,6 @@ func (m *KeyPerformanceIndicator) validateKpiGroupEnum(path, location string, va
 }
 
 func (m *KeyPerformanceIndicator) validateKpiGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KpiGroup) { // not required
 		return nil
 	}
@@ -230,7 +228,6 @@ func (m *KeyPerformanceIndicator) validateKpiTypeEnum(path, location string, val
 }
 
 func (m *KeyPerformanceIndicator) validateKpiType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KpiType) { // not required
 		return nil
 	}
@@ -273,7 +270,6 @@ func (m *KeyPerformanceIndicator) validateOptimizationTypeEnum(path, location st
 }
 
 func (m *KeyPerformanceIndicator) validateOptimizationType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OptimizationType) { // not required
 		return nil
 	}
@@ -287,7 +283,6 @@ func (m *KeyPerformanceIndicator) validateOptimizationType(formats strfmt.Regist
 }
 
 func (m *KeyPerformanceIndicator) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -326,7 +321,6 @@ func (m *KeyPerformanceIndicator) validateSourceEnum(path, location string, valu
 }
 
 func (m *KeyPerformanceIndicator) validateSource(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Source) { // not required
 		return nil
 	}
@@ -369,7 +363,6 @@ func (m *KeyPerformanceIndicator) validateStatusEnum(path, location string, valu
 }
 
 func (m *KeyPerformanceIndicator) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -383,7 +376,6 @@ func (m *KeyPerformanceIndicator) validateStatus(formats strfmt.Registry) error 
 }
 
 func (m *KeyPerformanceIndicator) validateWrapUpCodeConfig(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WrapUpCodeConfig) { // not required
 		return nil
 	}
@@ -392,6 +384,181 @@ func (m *KeyPerformanceIndicator) validateWrapUpCodeConfig(formats strfmt.Regist
 		if err := m.WrapUpCodeConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapUpCodeConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapUpCodeConfig")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this key performance indicator based on the context it is used
+func (m *KeyPerformanceIndicator) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDescription(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKpiGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKpiType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOptimizationType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSource(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapUpCodeConfig(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateDescription(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "description", "body", string(m.Description)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateKpiGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "kpiGroup", "body", string(m.KpiGroup)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateKpiType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "kpiType", "body", string(m.KpiType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "name", "body", string(m.Name)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateOptimizationType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "optimizationType", "body", string(m.OptimizationType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateSource(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "source", "body", string(m.Source)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KeyPerformanceIndicator) contextValidateWrapUpCodeConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WrapUpCodeConfig != nil {
+		if err := m.WrapUpCodeConfig.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapUpCodeConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapUpCodeConfig")
 			}
 			return err
 		}

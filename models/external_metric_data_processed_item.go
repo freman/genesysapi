@@ -6,6 +6,9 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+	"encoding/json"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -17,7 +20,7 @@ import (
 // swagger:model ExternalMetricDataProcessedItem
 type ExternalMetricDataProcessedItem struct {
 
-	// The number of data points. The default value is 1.
+	// The number of data points. The default value is 0 when type is Cumulative and the metric data already exists, otherwise 1. When total count reaches 0, the metric data will be deleted.
 	Count int32 `json:"count,omitempty"`
 
 	// The date of the metric data. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
@@ -28,6 +31,16 @@ type ExternalMetricDataProcessedItem struct {
 	// The ID of the external metric definition
 	// Required: true
 	MetricID *string `json:"metricId"`
+
+	// The total number of data points.
+	TotalCount int32 `json:"totalCount,omitempty"`
+
+	// The total value of the metric data.
+	TotalValue float64 `json:"totalValue,omitempty"`
+
+	// The type of the metric data. The default value is Total.
+	// Enum: [Total Cumulative]
+	Type string `json:"type,omitempty"`
 
 	// The user main email used in user's GenesysCloud account. Must provide either userId or userEmail, but not both.
 	UserEmail string `json:"userEmail,omitempty"`
@@ -49,6 +62,10 @@ func (m *ExternalMetricDataProcessedItem) Validate(formats strfmt.Registry) erro
 	}
 
 	if err := m.validateMetricID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -84,12 +101,59 @@ func (m *ExternalMetricDataProcessedItem) validateMetricID(formats strfmt.Regist
 	return nil
 }
 
+var externalMetricDataProcessedItemTypeTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Total","Cumulative"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		externalMetricDataProcessedItemTypeTypePropEnum = append(externalMetricDataProcessedItemTypeTypePropEnum, v)
+	}
+}
+
+const (
+
+	// ExternalMetricDataProcessedItemTypeTotal captures enum value "Total"
+	ExternalMetricDataProcessedItemTypeTotal string = "Total"
+
+	// ExternalMetricDataProcessedItemTypeCumulative captures enum value "Cumulative"
+	ExternalMetricDataProcessedItemTypeCumulative string = "Cumulative"
+)
+
+// prop value enum
+func (m *ExternalMetricDataProcessedItem) validateTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, externalMetricDataProcessedItemTypeTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *ExternalMetricDataProcessedItem) validateType(formats strfmt.Registry) error {
+	if swag.IsZero(m.Type) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ExternalMetricDataProcessedItem) validateValue(formats strfmt.Registry) error {
 
 	if err := validate.Required("value", "body", m.Value); err != nil {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this external metric data processed item based on context it is used
+func (m *ExternalMetricDataProcessedItem) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetExternalcontactsContactIdentifiersParams creates a new GetExternalcontactsContactIdentifiersParams object
-// with the default values initialized.
+// NewGetExternalcontactsContactIdentifiersParams creates a new GetExternalcontactsContactIdentifiersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetExternalcontactsContactIdentifiersParams() *GetExternalcontactsContactIdentifiersParams {
-	var ()
 	return &GetExternalcontactsContactIdentifiersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetExternalcontactsContactIdentifiersParamsWithTimeout creates a new GetExternalcontactsContactIdentifiersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetExternalcontactsContactIdentifiersParamsWithTimeout(timeout time.Duration) *GetExternalcontactsContactIdentifiersParams {
-	var ()
 	return &GetExternalcontactsContactIdentifiersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetExternalcontactsContactIdentifiersParamsWithContext creates a new GetExternalcontactsContactIdentifiersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetExternalcontactsContactIdentifiersParamsWithContext(ctx context.Context) *GetExternalcontactsContactIdentifiersParams {
-	var ()
 	return &GetExternalcontactsContactIdentifiersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetExternalcontactsContactIdentifiersParamsWithHTTPClient creates a new GetExternalcontactsContactIdentifiersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetExternalcontactsContactIdentifiersParamsWithHTTPClient(client *http.Client) *GetExternalcontactsContactIdentifiersParams {
-	var ()
 	return &GetExternalcontactsContactIdentifiersParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetExternalcontactsContactIdentifiersParams contains all the parameters to send to the API endpoint
-for the get externalcontacts contact identifiers operation typically these are written to a http.Request
+/*
+GetExternalcontactsContactIdentifiersParams contains all the parameters to send to the API endpoint
+
+	for the get externalcontacts contact identifiers operation.
+
+	Typically these are written to a http.Request.
 */
 type GetExternalcontactsContactIdentifiersParams struct {
 
-	/*ContactID
-	  ExternalContact ID
+	/* ContactID.
 
+	   ExternalContact ID
 	*/
 	ContactID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get externalcontacts contact identifiers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsContactIdentifiersParams) WithDefaults() *GetExternalcontactsContactIdentifiersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get externalcontacts contact identifiers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsContactIdentifiersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get externalcontacts contact identifiers params

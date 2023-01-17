@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteKnowledgeKnowledgebaseLanguageCategoryParams creates a new DeleteKnowledgeKnowledgebaseLanguageCategoryParams object
-// with the default values initialized.
+// NewDeleteKnowledgeKnowledgebaseLanguageCategoryParams creates a new DeleteKnowledgeKnowledgebaseLanguageCategoryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteKnowledgeKnowledgebaseLanguageCategoryParams() *DeleteKnowledgeKnowledgebaseLanguageCategoryParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteKnowledgeKnowledgebaseLanguageCategoryParamsWithTimeout creates a new DeleteKnowledgeKnowledgebaseLanguageCategoryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteKnowledgeKnowledgebaseLanguageCategoryParamsWithTimeout(timeout time.Duration) *DeleteKnowledgeKnowledgebaseLanguageCategoryParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteKnowledgeKnowledgebaseLanguageCategoryParamsWithContext creates a new DeleteKnowledgeKnowledgebaseLanguageCategoryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteKnowledgeKnowledgebaseLanguageCategoryParamsWithContext(ctx context.Context) *DeleteKnowledgeKnowledgebaseLanguageCategoryParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteKnowledgeKnowledgebaseLanguageCategoryParamsWithHTTPClient creates a new DeleteKnowledgeKnowledgebaseLanguageCategoryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteKnowledgeKnowledgebaseLanguageCategoryParamsWithHTTPClient(client *http.Client) *DeleteKnowledgeKnowledgebaseLanguageCategoryParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryParams contains all the parameters to send to the API endpoint
-for the delete knowledge knowledgebase language category operation typically these are written to a http.Request
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryParams contains all the parameters to send to the API endpoint
+
+	for the delete knowledge knowledgebase language category operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteKnowledgeKnowledgebaseLanguageCategoryParams struct {
 
-	/*CategoryID
-	  Category ID
+	/* CategoryID.
 
+	   Category ID
 	*/
 	CategoryID string
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LanguageCode
-	  Language code, format: iso2-LOCALE
 
+	/* LanguageCode.
+
+	   Language code, format: iso2-LOCALE
 	*/
 	LanguageCode string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete knowledge knowledgebase language category params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryParams) WithDefaults() *DeleteKnowledgeKnowledgebaseLanguageCategoryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete knowledge knowledgebase language category params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete knowledge knowledgebase language category params

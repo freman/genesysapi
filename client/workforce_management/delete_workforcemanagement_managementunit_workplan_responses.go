@@ -95,7 +95,6 @@ func (o *DeleteWorkforcemanagementManagementunitWorkplanReader) ReadResponse(res
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteWorkforcemanagementManagementunitWorkplanNoContent() *DeleteWorkfo
 	return &DeleteWorkforcemanagementManagementunitWorkplanNoContent{}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanNoContent handles this case with default header values.
+/*
+DeleteWorkforcemanagementManagementunitWorkplanNoContent describes a response with status code 204, with default header values.
 
 The work plan was deleted successfully
 */
 type DeleteWorkforcemanagementManagementunitWorkplanNoContent struct {
 }
 
+// IsSuccess returns true when this delete workforcemanagement managementunit workplan no content response has a 2xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete workforcemanagement managementunit workplan no content response has a 3xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement managementunit workplan no content response has a 4xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete workforcemanagement managementunit workplan no content response has a 5xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement managementunit workplan no content response a status code equal to that given
+func (o *DeleteWorkforcemanagementManagementunitWorkplanNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteWorkforcemanagementManagementunitWorkplanNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanNoContent ", 204)
+}
+
+func (o *DeleteWorkforcemanagementManagementunitWorkplanNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteWorkforcemanagementManagementunitWorkplanBadRequest() *DeleteWorkf
 	return &DeleteWorkforcemanagementManagementunitWorkplanBadRequest{}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanBadRequest handles this case with default header values.
+/*
+DeleteWorkforcemanagementManagementunitWorkplanBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteWorkforcemanagementManagementunitWorkplanBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement managementunit workplan bad request response has a 2xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement managementunit workplan bad request response has a 3xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement managementunit workplan bad request response has a 4xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement managementunit workplan bad request response has a 5xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement managementunit workplan bad request response a status code equal to that given
+func (o *DeleteWorkforcemanagementManagementunitWorkplanBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteWorkforcemanagementManagementunitWorkplanBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementManagementunitWorkplanBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteWorkforcemanagementManagementunitWorkplanUnauthorized() *DeleteWor
 	return &DeleteWorkforcemanagementManagementunitWorkplanUnauthorized{}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanUnauthorized handles this case with default header values.
+/*
+DeleteWorkforcemanagementManagementunitWorkplanUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteWorkforcemanagementManagementunitWorkplanUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement managementunit workplan unauthorized response has a 2xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement managementunit workplan unauthorized response has a 3xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement managementunit workplan unauthorized response has a 4xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement managementunit workplan unauthorized response has a 5xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement managementunit workplan unauthorized response a status code equal to that given
+func (o *DeleteWorkforcemanagementManagementunitWorkplanUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteWorkforcemanagementManagementunitWorkplanUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementManagementunitWorkplanUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteWorkforcemanagementManagementunitWorkplanForbidden() *DeleteWorkfo
 	return &DeleteWorkforcemanagementManagementunitWorkplanForbidden{}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanForbidden handles this case with default header values.
+/*
+DeleteWorkforcemanagementManagementunitWorkplanForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteWorkforcemanagementManagementunitWorkplanForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement managementunit workplan forbidden response has a 2xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement managementunit workplan forbidden response has a 3xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement managementunit workplan forbidden response has a 4xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement managementunit workplan forbidden response has a 5xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement managementunit workplan forbidden response a status code equal to that given
+func (o *DeleteWorkforcemanagementManagementunitWorkplanForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteWorkforcemanagementManagementunitWorkplanForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementManagementunitWorkplanForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteWorkforcemanagementManagementunitWorkplanNotFound() *DeleteWorkfor
 	return &DeleteWorkforcemanagementManagementunitWorkplanNotFound{}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanNotFound handles this case with default header values.
+/*
+DeleteWorkforcemanagementManagementunitWorkplanNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteWorkforcemanagementManagementunitWorkplanNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement managementunit workplan not found response has a 2xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement managementunit workplan not found response has a 3xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement managementunit workplan not found response has a 4xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement managementunit workplan not found response has a 5xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement managementunit workplan not found response a status code equal to that given
+func (o *DeleteWorkforcemanagementManagementunitWorkplanNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteWorkforcemanagementManagementunitWorkplanNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementManagementunitWorkplanNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteWorkforcemanagementManagementunitWorkplanRequestTimeout() *DeleteW
 	return &DeleteWorkforcemanagementManagementunitWorkplanRequestTimeout{}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanRequestTimeout handles this case with default header values.
+/*
+DeleteWorkforcemanagementManagementunitWorkplanRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteWorkforcemanagementManagementunitWorkplanRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement managementunit workplan request timeout response has a 2xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement managementunit workplan request timeout response has a 3xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement managementunit workplan request timeout response has a 4xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement managementunit workplan request timeout response has a 5xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement managementunit workplan request timeout response a status code equal to that given
+func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge() *
 	return &DeleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge{}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement managementunit workplan request entity too large response has a 2xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement managementunit workplan request entity too large response has a 3xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement managementunit workplan request entity too large response has a 4xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement managementunit workplan request entity too large response has a 5xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement managementunit workplan request entity too large response a status code equal to that given
+func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType() *D
 	return &DeleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType{}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType handles this case with default header values.
+/*
+DeleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement managementunit workplan unsupported media type response has a 2xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement managementunit workplan unsupported media type response has a 3xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement managementunit workplan unsupported media type response has a 4xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement managementunit workplan unsupported media type response has a 5xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement managementunit workplan unsupported media type response a status code equal to that given
+func (o *DeleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteWorkforcemanagementManagementunitWorkplanTooManyRequests() *Delete
 	return &DeleteWorkforcemanagementManagementunitWorkplanTooManyRequests{}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanTooManyRequests handles this case with default header values.
+/*
+DeleteWorkforcemanagementManagementunitWorkplanTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteWorkforcemanagementManagementunitWorkplanTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement managementunit workplan too many requests response has a 2xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement managementunit workplan too many requests response has a 3xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement managementunit workplan too many requests response has a 4xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement managementunit workplan too many requests response has a 5xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement managementunit workplan too many requests response a status code equal to that given
+func (o *DeleteWorkforcemanagementManagementunitWorkplanTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteWorkforcemanagementManagementunitWorkplanTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementManagementunitWorkplanTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteWorkforcemanagementManagementunitWorkplanInternalServerError() *De
 	return &DeleteWorkforcemanagementManagementunitWorkplanInternalServerError{}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanInternalServerError handles this case with default header values.
+/*
+DeleteWorkforcemanagementManagementunitWorkplanInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteWorkforcemanagementManagementunitWorkplanInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement managementunit workplan internal server error response has a 2xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement managementunit workplan internal server error response has a 3xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement managementunit workplan internal server error response has a 4xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete workforcemanagement managementunit workplan internal server error response has a 5xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete workforcemanagement managementunit workplan internal server error response a status code equal to that given
+func (o *DeleteWorkforcemanagementManagementunitWorkplanInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteWorkforcemanagementManagementunitWorkplanInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementManagementunitWorkplanInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteWorkforcemanagementManagementunitWorkplanServiceUnavailable() *Del
 	return &DeleteWorkforcemanagementManagementunitWorkplanServiceUnavailable{}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanServiceUnavailable handles this case with default header values.
+/*
+DeleteWorkforcemanagementManagementunitWorkplanServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteWorkforcemanagementManagementunitWorkplanServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement managementunit workplan service unavailable response has a 2xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement managementunit workplan service unavailable response has a 3xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement managementunit workplan service unavailable response has a 4xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete workforcemanagement managementunit workplan service unavailable response has a 5xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete workforcemanagement managementunit workplan service unavailable response a status code equal to that given
+func (o *DeleteWorkforcemanagementManagementunitWorkplanServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteWorkforcemanagementManagementunitWorkplanServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementManagementunitWorkplanServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteWorkforcemanagementManagementunitWorkplanGatewayTimeout() *DeleteW
 	return &DeleteWorkforcemanagementManagementunitWorkplanGatewayTimeout{}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanGatewayTimeout handles this case with default header values.
+/*
+DeleteWorkforcemanagementManagementunitWorkplanGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteWorkforcemanagementManagementunitWorkplanGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement managementunit workplan gateway timeout response has a 2xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement managementunit workplan gateway timeout response has a 3xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement managementunit workplan gateway timeout response has a 4xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete workforcemanagement managementunit workplan gateway timeout response has a 5xx status code
+func (o *DeleteWorkforcemanagementManagementunitWorkplanGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete workforcemanagement managementunit workplan gateway timeout response a status code equal to that given
+func (o *DeleteWorkforcemanagementManagementunitWorkplanGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteWorkforcemanagementManagementunitWorkplanGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementManagementunitWorkplanGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/managementunits/{managementUnitId}/workplans/{workPlanId}][%d] deleteWorkforcemanagementManagementunitWorkplanGatewayTimeout  %+v", 504, o.Payload)
 }
 

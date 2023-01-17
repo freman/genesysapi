@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutTelephonyProvidersEdgeLogicalinterfaceParams creates a new PutTelephonyProvidersEdgeLogicalinterfaceParams object
-// with the default values initialized.
+// NewPutTelephonyProvidersEdgeLogicalinterfaceParams creates a new PutTelephonyProvidersEdgeLogicalinterfaceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutTelephonyProvidersEdgeLogicalinterfaceParams() *PutTelephonyProvidersEdgeLogicalinterfaceParams {
-	var ()
 	return &PutTelephonyProvidersEdgeLogicalinterfaceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutTelephonyProvidersEdgeLogicalinterfaceParamsWithTimeout creates a new PutTelephonyProvidersEdgeLogicalinterfaceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutTelephonyProvidersEdgeLogicalinterfaceParamsWithTimeout(timeout time.Duration) *PutTelephonyProvidersEdgeLogicalinterfaceParams {
-	var ()
 	return &PutTelephonyProvidersEdgeLogicalinterfaceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutTelephonyProvidersEdgeLogicalinterfaceParamsWithContext creates a new PutTelephonyProvidersEdgeLogicalinterfaceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutTelephonyProvidersEdgeLogicalinterfaceParamsWithContext(ctx context.Context) *PutTelephonyProvidersEdgeLogicalinterfaceParams {
-	var ()
 	return &PutTelephonyProvidersEdgeLogicalinterfaceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutTelephonyProvidersEdgeLogicalinterfaceParamsWithHTTPClient creates a new PutTelephonyProvidersEdgeLogicalinterfaceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutTelephonyProvidersEdgeLogicalinterfaceParamsWithHTTPClient(client *http.Client) *PutTelephonyProvidersEdgeLogicalinterfaceParams {
-	var ()
 	return &PutTelephonyProvidersEdgeLogicalinterfaceParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutTelephonyProvidersEdgeLogicalinterfaceParams contains all the parameters to send to the API endpoint
-for the put telephony providers edge logicalinterface operation typically these are written to a http.Request
+/*
+PutTelephonyProvidersEdgeLogicalinterfaceParams contains all the parameters to send to the API endpoint
+
+	for the put telephony providers edge logicalinterface operation.
+
+	Typically these are written to a http.Request.
 */
 type PutTelephonyProvidersEdgeLogicalinterfaceParams struct {
 
-	/*Body
-	  Logical interface
+	/* Body.
 
+	   Logical interface
 	*/
 	Body *models.DomainLogicalInterface
-	/*EdgeID
-	  Edge ID
 
+	/* EdgeID.
+
+	   Edge ID
 	*/
 	EdgeID string
-	/*InterfaceID
-	  Interface ID
 
+	/* InterfaceID.
+
+	   Interface ID
 	*/
 	InterfaceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put telephony providers edge logicalinterface params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutTelephonyProvidersEdgeLogicalinterfaceParams) WithDefaults() *PutTelephonyProvidersEdgeLogicalinterfaceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put telephony providers edge logicalinterface params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutTelephonyProvidersEdgeLogicalinterfaceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put telephony providers edge logicalinterface params
@@ -156,7 +174,6 @@ func (o *PutTelephonyProvidersEdgeLogicalinterfaceParams) WriteToRequest(r runti
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

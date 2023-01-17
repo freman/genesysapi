@@ -17,81 +17,98 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetConversationsMessageMessageParams creates a new GetConversationsMessageMessageParams object
-// with the default values initialized.
+// NewGetConversationsMessageMessageParams creates a new GetConversationsMessageMessageParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationsMessageMessageParams() *GetConversationsMessageMessageParams {
-	var (
-		useNormalizedMessageDefault = bool(false)
-	)
 	return &GetConversationsMessageMessageParams{
-		UseNormalizedMessage: &useNormalizedMessageDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationsMessageMessageParamsWithTimeout creates a new GetConversationsMessageMessageParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationsMessageMessageParamsWithTimeout(timeout time.Duration) *GetConversationsMessageMessageParams {
-	var (
-		useNormalizedMessageDefault = bool(false)
-	)
 	return &GetConversationsMessageMessageParams{
-		UseNormalizedMessage: &useNormalizedMessageDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationsMessageMessageParamsWithContext creates a new GetConversationsMessageMessageParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationsMessageMessageParamsWithContext(ctx context.Context) *GetConversationsMessageMessageParams {
-	var (
-		useNormalizedMessageDefault = bool(false)
-	)
 	return &GetConversationsMessageMessageParams{
-		UseNormalizedMessage: &useNormalizedMessageDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationsMessageMessageParamsWithHTTPClient creates a new GetConversationsMessageMessageParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationsMessageMessageParamsWithHTTPClient(client *http.Client) *GetConversationsMessageMessageParams {
-	var (
-		useNormalizedMessageDefault = bool(false)
-	)
 	return &GetConversationsMessageMessageParams{
-		UseNormalizedMessage: &useNormalizedMessageDefault,
-		HTTPClient:           client,
+		HTTPClient: client,
 	}
 }
 
-/*GetConversationsMessageMessageParams contains all the parameters to send to the API endpoint
-for the get conversations message message operation typically these are written to a http.Request
+/*
+GetConversationsMessageMessageParams contains all the parameters to send to the API endpoint
+
+	for the get conversations message message operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationsMessageMessageParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*MessageID
-	  messageId
 
+	/* MessageID.
+
+	   messageId
 	*/
 	MessageID string
-	/*UseNormalizedMessage
-	  If true, response removes deprecated fields (textBody, media, stickers)
 
+	/* UseNormalizedMessage.
+
+	   If true, response removes deprecated fields (textBody, media, stickers)
 	*/
 	UseNormalizedMessage *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversations message message params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsMessageMessageParams) WithDefaults() *GetConversationsMessageMessageParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversations message message params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsMessageMessageParams) SetDefaults() {
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
+
+	val := GetConversationsMessageMessageParams{
+		UseNormalizedMessage: &useNormalizedMessageDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get conversations message message params
@@ -182,16 +199,17 @@ func (o *GetConversationsMessageMessageParams) WriteToRequest(r runtime.ClientRe
 
 		// query param useNormalizedMessage
 		var qrUseNormalizedMessage bool
+
 		if o.UseNormalizedMessage != nil {
 			qrUseNormalizedMessage = *o.UseNormalizedMessage
 		}
 		qUseNormalizedMessage := swag.FormatBool(qrUseNormalizedMessage)
 		if qUseNormalizedMessage != "" {
+
 			if err := r.SetQueryParam("useNormalizedMessage", qUseNormalizedMessage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

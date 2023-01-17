@@ -18,66 +18,84 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDParams creates a new PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams object
-// with the default values initialized.
+// NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDParams creates a new PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDParams() *PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams {
-	var ()
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDParamsWithTimeout creates a new PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDParamsWithTimeout(timeout time.Duration) *PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams {
-	var ()
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDParamsWithContext creates a new PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDParamsWithContext(ctx context.Context) *PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams {
-	var ()
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDParamsWithHTTPClient creates a new PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchKnowledgeGuestSessionDocumentsSearchSearchIDParamsWithHTTPClient(client *http.Client) *PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams {
-	var ()
 	return &PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams contains all the parameters to send to the API endpoint
-for the patch knowledge guest session documents search search Id operation typically these are written to a http.Request
+/*
+PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams contains all the parameters to send to the API endpoint
+
+	for the patch knowledge guest session documents search search Id operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.SearchUpdateRequest
-	/*SearchID
-	  Search Result ID
 
+	/* SearchID.
+
+	   Search Result ID
 	*/
 	SearchID string
-	/*SessionID
-	  Knowledge guest session ID.
 
+	/* SessionID.
+
+	   Knowledge guest session ID.
 	*/
 	SessionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch knowledge guest session documents search search Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams) WithDefaults() *PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch knowledge guest session documents search search Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch knowledge guest session documents search search Id params
@@ -153,7 +171,6 @@ func (o *PatchKnowledgeGuestSessionDocumentsSearchSearchIDParams) WriteToRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

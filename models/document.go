@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -214,7 +215,6 @@ func (m *Document) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateAttributes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Attributes) { // not required
 		return nil
 	}
@@ -228,6 +228,8 @@ func (m *Document) validateAttributes(formats strfmt.Registry) error {
 			if err := m.Attributes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("attributes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attributes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -239,7 +241,6 @@ func (m *Document) validateAttributes(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateContentURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContentURI) { // not required
 		return nil
 	}
@@ -252,7 +253,6 @@ func (m *Document) validateContentURI(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -261,6 +261,8 @@ func (m *Document) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -270,7 +272,6 @@ func (m *Document) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -283,7 +284,6 @@ func (m *Document) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -296,7 +296,6 @@ func (m *Document) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateDateUploaded(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateUploaded) { // not required
 		return nil
 	}
@@ -309,7 +308,6 @@ func (m *Document) validateDateUploaded(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateDownloadSharingURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DownloadSharingURI) { // not required
 		return nil
 	}
@@ -322,7 +320,6 @@ func (m *Document) validateDownloadSharingURI(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateLockInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LockInfo) { // not required
 		return nil
 	}
@@ -331,6 +328,8 @@ func (m *Document) validateLockInfo(formats strfmt.Registry) error {
 		if err := m.LockInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lockInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lockInfo")
 			}
 			return err
 		}
@@ -340,7 +339,6 @@ func (m *Document) validateLockInfo(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -385,7 +383,6 @@ func (m *Document) validateSharingStatusEnum(path, location string, value string
 }
 
 func (m *Document) validateSharingStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SharingStatus) { // not required
 		return nil
 	}
@@ -399,7 +396,6 @@ func (m *Document) validateSharingStatus(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateSharingURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SharingURI) { // not required
 		return nil
 	}
@@ -444,7 +440,6 @@ func (m *Document) validateSystemTypeEnum(path, location string, value string) e
 }
 
 func (m *Document) validateSystemType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SystemType) { // not required
 		return nil
 	}
@@ -458,7 +453,6 @@ func (m *Document) validateSystemType(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateTagValues(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TagValues) { // not required
 		return nil
 	}
@@ -472,6 +466,8 @@ func (m *Document) validateTagValues(formats strfmt.Registry) error {
 			if err := m.TagValues[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("tagValues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tagValues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -483,7 +479,6 @@ func (m *Document) validateTagValues(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateThumbnails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Thumbnails) { // not required
 		return nil
 	}
@@ -497,6 +492,8 @@ func (m *Document) validateThumbnails(formats strfmt.Registry) error {
 			if err := m.Thumbnails[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("thumbnails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("thumbnails" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -508,7 +505,6 @@ func (m *Document) validateThumbnails(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateUploadDestinationURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UploadDestinationURI) { // not required
 		return nil
 	}
@@ -550,7 +546,6 @@ func (m *Document) validateUploadMethodEnum(path, location string, value string)
 }
 
 func (m *Document) validateUploadMethod(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UploadMethod) { // not required
 		return nil
 	}
@@ -564,7 +559,6 @@ func (m *Document) validateUploadMethod(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateUploadStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UploadStatus) { // not required
 		return nil
 	}
@@ -573,6 +567,8 @@ func (m *Document) validateUploadStatus(formats strfmt.Registry) error {
 		if err := m.UploadStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uploadStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uploadStatus")
 			}
 			return err
 		}
@@ -582,7 +578,6 @@ func (m *Document) validateUploadStatus(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateUploadedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UploadedBy) { // not required
 		return nil
 	}
@@ -591,6 +586,8 @@ func (m *Document) validateUploadedBy(formats strfmt.Registry) error {
 		if err := m.UploadedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uploadedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uploadedBy")
 			}
 			return err
 		}
@@ -600,7 +597,6 @@ func (m *Document) validateUploadedBy(formats strfmt.Registry) error {
 }
 
 func (m *Document) validateWorkspace(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Workspace) { // not required
 		return nil
 	}
@@ -609,6 +605,216 @@ func (m *Document) validateWorkspace(formats strfmt.Registry) error {
 		if err := m.Workspace.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workspace")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this document based on the context it is used
+func (m *Document) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttributes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLockInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTagValues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateThumbnails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUploadStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUploadedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkspace(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Document) contextValidateAttributes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Attributes); i++ {
+
+		if m.Attributes[i] != nil {
+			if err := m.Attributes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("attributes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attributes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Document) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Document) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Document) contextValidateLockInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LockInfo != nil {
+		if err := m.LockInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lockInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lockInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Document) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Document) contextValidateTagValues(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TagValues); i++ {
+
+		if m.TagValues[i] != nil {
+			if err := m.TagValues[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("tagValues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("tagValues" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Document) contextValidateThumbnails(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Thumbnails); i++ {
+
+		if m.Thumbnails[i] != nil {
+			if err := m.Thumbnails[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("thumbnails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("thumbnails" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Document) contextValidateUploadStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UploadStatus != nil {
+		if err := m.UploadStatus.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("uploadStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uploadStatus")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Document) contextValidateUploadedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UploadedBy != nil {
+		if err := m.UploadedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("uploadedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uploadedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Document) contextValidateWorkspace(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Workspace != nil {
+		if err := m.Workspace.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workspace")
 			}
 			return err
 		}

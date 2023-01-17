@@ -95,7 +95,6 @@ func (o *GetAuditsQueryRealtimeServicemappingReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetAuditsQueryRealtimeServicemappingOK() *GetAuditsQueryRealtimeServicem
 	return &GetAuditsQueryRealtimeServicemappingOK{}
 }
 
-/*GetAuditsQueryRealtimeServicemappingOK handles this case with default header values.
+/*
+GetAuditsQueryRealtimeServicemappingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetAuditsQueryRealtimeServicemappingOK struct {
 	Payload *models.AuditQueryServiceMapping
 }
 
+// IsSuccess returns true when this get audits query realtime servicemapping o k response has a 2xx status code
+func (o *GetAuditsQueryRealtimeServicemappingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get audits query realtime servicemapping o k response has a 3xx status code
+func (o *GetAuditsQueryRealtimeServicemappingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query realtime servicemapping o k response has a 4xx status code
+func (o *GetAuditsQueryRealtimeServicemappingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query realtime servicemapping o k response has a 5xx status code
+func (o *GetAuditsQueryRealtimeServicemappingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query realtime servicemapping o k response a status code equal to that given
+func (o *GetAuditsQueryRealtimeServicemappingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAuditsQueryRealtimeServicemappingOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingOK  %+v", 200, o.Payload)
+}
+
+func (o *GetAuditsQueryRealtimeServicemappingOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetAuditsQueryRealtimeServicemappingBadRequest() *GetAuditsQueryRealtime
 	return &GetAuditsQueryRealtimeServicemappingBadRequest{}
 }
 
-/*GetAuditsQueryRealtimeServicemappingBadRequest handles this case with default header values.
+/*
+GetAuditsQueryRealtimeServicemappingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetAuditsQueryRealtimeServicemappingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query realtime servicemapping bad request response has a 2xx status code
+func (o *GetAuditsQueryRealtimeServicemappingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query realtime servicemapping bad request response has a 3xx status code
+func (o *GetAuditsQueryRealtimeServicemappingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query realtime servicemapping bad request response has a 4xx status code
+func (o *GetAuditsQueryRealtimeServicemappingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query realtime servicemapping bad request response has a 5xx status code
+func (o *GetAuditsQueryRealtimeServicemappingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query realtime servicemapping bad request response a status code equal to that given
+func (o *GetAuditsQueryRealtimeServicemappingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAuditsQueryRealtimeServicemappingBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetAuditsQueryRealtimeServicemappingBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetAuditsQueryRealtimeServicemappingUnauthorized() *GetAuditsQueryRealti
 	return &GetAuditsQueryRealtimeServicemappingUnauthorized{}
 }
 
-/*GetAuditsQueryRealtimeServicemappingUnauthorized handles this case with default header values.
+/*
+GetAuditsQueryRealtimeServicemappingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetAuditsQueryRealtimeServicemappingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query realtime servicemapping unauthorized response has a 2xx status code
+func (o *GetAuditsQueryRealtimeServicemappingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query realtime servicemapping unauthorized response has a 3xx status code
+func (o *GetAuditsQueryRealtimeServicemappingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query realtime servicemapping unauthorized response has a 4xx status code
+func (o *GetAuditsQueryRealtimeServicemappingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query realtime servicemapping unauthorized response has a 5xx status code
+func (o *GetAuditsQueryRealtimeServicemappingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query realtime servicemapping unauthorized response a status code equal to that given
+func (o *GetAuditsQueryRealtimeServicemappingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetAuditsQueryRealtimeServicemappingUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetAuditsQueryRealtimeServicemappingUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetAuditsQueryRealtimeServicemappingForbidden() *GetAuditsQueryRealtimeS
 	return &GetAuditsQueryRealtimeServicemappingForbidden{}
 }
 
-/*GetAuditsQueryRealtimeServicemappingForbidden handles this case with default header values.
+/*
+GetAuditsQueryRealtimeServicemappingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetAuditsQueryRealtimeServicemappingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query realtime servicemapping forbidden response has a 2xx status code
+func (o *GetAuditsQueryRealtimeServicemappingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query realtime servicemapping forbidden response has a 3xx status code
+func (o *GetAuditsQueryRealtimeServicemappingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query realtime servicemapping forbidden response has a 4xx status code
+func (o *GetAuditsQueryRealtimeServicemappingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query realtime servicemapping forbidden response has a 5xx status code
+func (o *GetAuditsQueryRealtimeServicemappingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query realtime servicemapping forbidden response a status code equal to that given
+func (o *GetAuditsQueryRealtimeServicemappingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAuditsQueryRealtimeServicemappingForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetAuditsQueryRealtimeServicemappingForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetAuditsQueryRealtimeServicemappingNotFound() *GetAuditsQueryRealtimeSe
 	return &GetAuditsQueryRealtimeServicemappingNotFound{}
 }
 
-/*GetAuditsQueryRealtimeServicemappingNotFound handles this case with default header values.
+/*
+GetAuditsQueryRealtimeServicemappingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetAuditsQueryRealtimeServicemappingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query realtime servicemapping not found response has a 2xx status code
+func (o *GetAuditsQueryRealtimeServicemappingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query realtime servicemapping not found response has a 3xx status code
+func (o *GetAuditsQueryRealtimeServicemappingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query realtime servicemapping not found response has a 4xx status code
+func (o *GetAuditsQueryRealtimeServicemappingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query realtime servicemapping not found response has a 5xx status code
+func (o *GetAuditsQueryRealtimeServicemappingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query realtime servicemapping not found response a status code equal to that given
+func (o *GetAuditsQueryRealtimeServicemappingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAuditsQueryRealtimeServicemappingNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetAuditsQueryRealtimeServicemappingNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetAuditsQueryRealtimeServicemappingRequestTimeout() *GetAuditsQueryReal
 	return &GetAuditsQueryRealtimeServicemappingRequestTimeout{}
 }
 
-/*GetAuditsQueryRealtimeServicemappingRequestTimeout handles this case with default header values.
+/*
+GetAuditsQueryRealtimeServicemappingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetAuditsQueryRealtimeServicemappingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query realtime servicemapping request timeout response has a 2xx status code
+func (o *GetAuditsQueryRealtimeServicemappingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query realtime servicemapping request timeout response has a 3xx status code
+func (o *GetAuditsQueryRealtimeServicemappingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query realtime servicemapping request timeout response has a 4xx status code
+func (o *GetAuditsQueryRealtimeServicemappingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query realtime servicemapping request timeout response has a 5xx status code
+func (o *GetAuditsQueryRealtimeServicemappingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query realtime servicemapping request timeout response a status code equal to that given
+func (o *GetAuditsQueryRealtimeServicemappingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetAuditsQueryRealtimeServicemappingRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAuditsQueryRealtimeServicemappingRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetAuditsQueryRealtimeServicemappingRequestEntityTooLarge() *GetAuditsQu
 	return &GetAuditsQueryRealtimeServicemappingRequestEntityTooLarge{}
 }
 
-/*GetAuditsQueryRealtimeServicemappingRequestEntityTooLarge handles this case with default header values.
+/*
+GetAuditsQueryRealtimeServicemappingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetAuditsQueryRealtimeServicemappingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query realtime servicemapping request entity too large response has a 2xx status code
+func (o *GetAuditsQueryRealtimeServicemappingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query realtime servicemapping request entity too large response has a 3xx status code
+func (o *GetAuditsQueryRealtimeServicemappingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query realtime servicemapping request entity too large response has a 4xx status code
+func (o *GetAuditsQueryRealtimeServicemappingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query realtime servicemapping request entity too large response has a 5xx status code
+func (o *GetAuditsQueryRealtimeServicemappingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query realtime servicemapping request entity too large response a status code equal to that given
+func (o *GetAuditsQueryRealtimeServicemappingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetAuditsQueryRealtimeServicemappingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetAuditsQueryRealtimeServicemappingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetAuditsQueryRealtimeServicemappingUnsupportedMediaType() *GetAuditsQue
 	return &GetAuditsQueryRealtimeServicemappingUnsupportedMediaType{}
 }
 
-/*GetAuditsQueryRealtimeServicemappingUnsupportedMediaType handles this case with default header values.
+/*
+GetAuditsQueryRealtimeServicemappingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetAuditsQueryRealtimeServicemappingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query realtime servicemapping unsupported media type response has a 2xx status code
+func (o *GetAuditsQueryRealtimeServicemappingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query realtime servicemapping unsupported media type response has a 3xx status code
+func (o *GetAuditsQueryRealtimeServicemappingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query realtime servicemapping unsupported media type response has a 4xx status code
+func (o *GetAuditsQueryRealtimeServicemappingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query realtime servicemapping unsupported media type response has a 5xx status code
+func (o *GetAuditsQueryRealtimeServicemappingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query realtime servicemapping unsupported media type response a status code equal to that given
+func (o *GetAuditsQueryRealtimeServicemappingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetAuditsQueryRealtimeServicemappingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetAuditsQueryRealtimeServicemappingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetAuditsQueryRealtimeServicemappingTooManyRequests() *GetAuditsQueryRea
 	return &GetAuditsQueryRealtimeServicemappingTooManyRequests{}
 }
 
-/*GetAuditsQueryRealtimeServicemappingTooManyRequests handles this case with default header values.
+/*
+GetAuditsQueryRealtimeServicemappingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetAuditsQueryRealtimeServicemappingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query realtime servicemapping too many requests response has a 2xx status code
+func (o *GetAuditsQueryRealtimeServicemappingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query realtime servicemapping too many requests response has a 3xx status code
+func (o *GetAuditsQueryRealtimeServicemappingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query realtime servicemapping too many requests response has a 4xx status code
+func (o *GetAuditsQueryRealtimeServicemappingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query realtime servicemapping too many requests response has a 5xx status code
+func (o *GetAuditsQueryRealtimeServicemappingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query realtime servicemapping too many requests response a status code equal to that given
+func (o *GetAuditsQueryRealtimeServicemappingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAuditsQueryRealtimeServicemappingTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetAuditsQueryRealtimeServicemappingTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetAuditsQueryRealtimeServicemappingInternalServerError() *GetAuditsQuer
 	return &GetAuditsQueryRealtimeServicemappingInternalServerError{}
 }
 
-/*GetAuditsQueryRealtimeServicemappingInternalServerError handles this case with default header values.
+/*
+GetAuditsQueryRealtimeServicemappingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetAuditsQueryRealtimeServicemappingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query realtime servicemapping internal server error response has a 2xx status code
+func (o *GetAuditsQueryRealtimeServicemappingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query realtime servicemapping internal server error response has a 3xx status code
+func (o *GetAuditsQueryRealtimeServicemappingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query realtime servicemapping internal server error response has a 4xx status code
+func (o *GetAuditsQueryRealtimeServicemappingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query realtime servicemapping internal server error response has a 5xx status code
+func (o *GetAuditsQueryRealtimeServicemappingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get audits query realtime servicemapping internal server error response a status code equal to that given
+func (o *GetAuditsQueryRealtimeServicemappingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAuditsQueryRealtimeServicemappingInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetAuditsQueryRealtimeServicemappingInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetAuditsQueryRealtimeServicemappingServiceUnavailable() *GetAuditsQuery
 	return &GetAuditsQueryRealtimeServicemappingServiceUnavailable{}
 }
 
-/*GetAuditsQueryRealtimeServicemappingServiceUnavailable handles this case with default header values.
+/*
+GetAuditsQueryRealtimeServicemappingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetAuditsQueryRealtimeServicemappingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query realtime servicemapping service unavailable response has a 2xx status code
+func (o *GetAuditsQueryRealtimeServicemappingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query realtime servicemapping service unavailable response has a 3xx status code
+func (o *GetAuditsQueryRealtimeServicemappingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query realtime servicemapping service unavailable response has a 4xx status code
+func (o *GetAuditsQueryRealtimeServicemappingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query realtime servicemapping service unavailable response has a 5xx status code
+func (o *GetAuditsQueryRealtimeServicemappingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get audits query realtime servicemapping service unavailable response a status code equal to that given
+func (o *GetAuditsQueryRealtimeServicemappingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetAuditsQueryRealtimeServicemappingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetAuditsQueryRealtimeServicemappingServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetAuditsQueryRealtimeServicemappingGatewayTimeout() *GetAuditsQueryReal
 	return &GetAuditsQueryRealtimeServicemappingGatewayTimeout{}
 }
 
-/*GetAuditsQueryRealtimeServicemappingGatewayTimeout handles this case with default header values.
+/*
+GetAuditsQueryRealtimeServicemappingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetAuditsQueryRealtimeServicemappingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query realtime servicemapping gateway timeout response has a 2xx status code
+func (o *GetAuditsQueryRealtimeServicemappingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query realtime servicemapping gateway timeout response has a 3xx status code
+func (o *GetAuditsQueryRealtimeServicemappingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query realtime servicemapping gateway timeout response has a 4xx status code
+func (o *GetAuditsQueryRealtimeServicemappingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query realtime servicemapping gateway timeout response has a 5xx status code
+func (o *GetAuditsQueryRealtimeServicemappingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get audits query realtime servicemapping gateway timeout response a status code equal to that given
+func (o *GetAuditsQueryRealtimeServicemappingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetAuditsQueryRealtimeServicemappingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetAuditsQueryRealtimeServicemappingGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/realtime/servicemapping][%d] getAuditsQueryRealtimeServicemappingGatewayTimeout  %+v", 504, o.Payload)
 }
 

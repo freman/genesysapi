@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -30,6 +31,9 @@ type NluFeedbackResponse struct {
 
 	// Detected intent of the utterance
 	Intents []*IntentFeedback `json:"intents"`
+
+	// The language of the version to which feedback is linked, e.g. en-us, de-de
+	Language string `json:"language,omitempty"`
 
 	// The URI for this object
 	// Read Only: true
@@ -71,7 +75,6 @@ func (m *NluFeedbackResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *NluFeedbackResponse) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -84,7 +87,6 @@ func (m *NluFeedbackResponse) validateDateCreated(formats strfmt.Registry) error
 }
 
 func (m *NluFeedbackResponse) validateIntents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Intents) { // not required
 		return nil
 	}
@@ -98,6 +100,8 @@ func (m *NluFeedbackResponse) validateIntents(formats strfmt.Registry) error {
 			if err := m.Intents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -109,7 +113,6 @@ func (m *NluFeedbackResponse) validateIntents(formats strfmt.Registry) error {
 }
 
 func (m *NluFeedbackResponse) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -122,7 +125,6 @@ func (m *NluFeedbackResponse) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *NluFeedbackResponse) validateVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Version) { // not required
 		return nil
 	}
@@ -131,6 +133,101 @@ func (m *NluFeedbackResponse) validateVersion(formats strfmt.Registry) error {
 		if err := m.Version.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("version")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this nlu feedback response based on the context it is used
+func (m *NluFeedbackResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *NluFeedbackResponse) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluFeedbackResponse) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluFeedbackResponse) contextValidateIntents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Intents); i++ {
+
+		if m.Intents[i] != nil {
+			if err := m.Intents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *NluFeedbackResponse) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *NluFeedbackResponse) contextValidateVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Version != nil {
+		if err := m.Version.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("version")
 			}
 			return err
 		}

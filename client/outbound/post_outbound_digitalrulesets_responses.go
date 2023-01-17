@@ -95,7 +95,6 @@ func (o *PostOutboundDigitalrulesetsReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOutboundDigitalrulesetsOK() *PostOutboundDigitalrulesetsOK {
 	return &PostOutboundDigitalrulesetsOK{}
 }
 
-/*PostOutboundDigitalrulesetsOK handles this case with default header values.
+/*
+PostOutboundDigitalrulesetsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOutboundDigitalrulesetsOK struct {
 	Payload *models.DigitalRuleSet
 }
 
+// IsSuccess returns true when this post outbound digitalrulesets o k response has a 2xx status code
+func (o *PostOutboundDigitalrulesetsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post outbound digitalrulesets o k response has a 3xx status code
+func (o *PostOutboundDigitalrulesetsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound digitalrulesets o k response has a 4xx status code
+func (o *PostOutboundDigitalrulesetsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound digitalrulesets o k response has a 5xx status code
+func (o *PostOutboundDigitalrulesetsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound digitalrulesets o k response a status code equal to that given
+func (o *PostOutboundDigitalrulesetsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOutboundDigitalrulesetsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOutboundDigitalrulesetsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostOutboundDigitalrulesetsBadRequest() *PostOutboundDigitalrulesetsBadR
 	return &PostOutboundDigitalrulesetsBadRequest{}
 }
 
-/*PostOutboundDigitalrulesetsBadRequest handles this case with default header values.
+/*
+PostOutboundDigitalrulesetsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostOutboundDigitalrulesetsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound digitalrulesets bad request response has a 2xx status code
+func (o *PostOutboundDigitalrulesetsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound digitalrulesets bad request response has a 3xx status code
+func (o *PostOutboundDigitalrulesetsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound digitalrulesets bad request response has a 4xx status code
+func (o *PostOutboundDigitalrulesetsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound digitalrulesets bad request response has a 5xx status code
+func (o *PostOutboundDigitalrulesetsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound digitalrulesets bad request response a status code equal to that given
+func (o *PostOutboundDigitalrulesetsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOutboundDigitalrulesetsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOutboundDigitalrulesetsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostOutboundDigitalrulesetsUnauthorized() *PostOutboundDigitalrulesetsUn
 	return &PostOutboundDigitalrulesetsUnauthorized{}
 }
 
-/*PostOutboundDigitalrulesetsUnauthorized handles this case with default header values.
+/*
+PostOutboundDigitalrulesetsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostOutboundDigitalrulesetsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound digitalrulesets unauthorized response has a 2xx status code
+func (o *PostOutboundDigitalrulesetsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound digitalrulesets unauthorized response has a 3xx status code
+func (o *PostOutboundDigitalrulesetsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound digitalrulesets unauthorized response has a 4xx status code
+func (o *PostOutboundDigitalrulesetsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound digitalrulesets unauthorized response has a 5xx status code
+func (o *PostOutboundDigitalrulesetsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound digitalrulesets unauthorized response a status code equal to that given
+func (o *PostOutboundDigitalrulesetsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOutboundDigitalrulesetsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOutboundDigitalrulesetsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostOutboundDigitalrulesetsForbidden() *PostOutboundDigitalrulesetsForbi
 	return &PostOutboundDigitalrulesetsForbidden{}
 }
 
-/*PostOutboundDigitalrulesetsForbidden handles this case with default header values.
+/*
+PostOutboundDigitalrulesetsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostOutboundDigitalrulesetsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound digitalrulesets forbidden response has a 2xx status code
+func (o *PostOutboundDigitalrulesetsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound digitalrulesets forbidden response has a 3xx status code
+func (o *PostOutboundDigitalrulesetsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound digitalrulesets forbidden response has a 4xx status code
+func (o *PostOutboundDigitalrulesetsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound digitalrulesets forbidden response has a 5xx status code
+func (o *PostOutboundDigitalrulesetsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound digitalrulesets forbidden response a status code equal to that given
+func (o *PostOutboundDigitalrulesetsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOutboundDigitalrulesetsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOutboundDigitalrulesetsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostOutboundDigitalrulesetsNotFound() *PostOutboundDigitalrulesetsNotFou
 	return &PostOutboundDigitalrulesetsNotFound{}
 }
 
-/*PostOutboundDigitalrulesetsNotFound handles this case with default header values.
+/*
+PostOutboundDigitalrulesetsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostOutboundDigitalrulesetsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound digitalrulesets not found response has a 2xx status code
+func (o *PostOutboundDigitalrulesetsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound digitalrulesets not found response has a 3xx status code
+func (o *PostOutboundDigitalrulesetsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound digitalrulesets not found response has a 4xx status code
+func (o *PostOutboundDigitalrulesetsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound digitalrulesets not found response has a 5xx status code
+func (o *PostOutboundDigitalrulesetsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound digitalrulesets not found response a status code equal to that given
+func (o *PostOutboundDigitalrulesetsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOutboundDigitalrulesetsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOutboundDigitalrulesetsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostOutboundDigitalrulesetsRequestTimeout() *PostOutboundDigitalrulesets
 	return &PostOutboundDigitalrulesetsRequestTimeout{}
 }
 
-/*PostOutboundDigitalrulesetsRequestTimeout handles this case with default header values.
+/*
+PostOutboundDigitalrulesetsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostOutboundDigitalrulesetsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound digitalrulesets request timeout response has a 2xx status code
+func (o *PostOutboundDigitalrulesetsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound digitalrulesets request timeout response has a 3xx status code
+func (o *PostOutboundDigitalrulesetsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound digitalrulesets request timeout response has a 4xx status code
+func (o *PostOutboundDigitalrulesetsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound digitalrulesets request timeout response has a 5xx status code
+func (o *PostOutboundDigitalrulesetsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound digitalrulesets request timeout response a status code equal to that given
+func (o *PostOutboundDigitalrulesetsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOutboundDigitalrulesetsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundDigitalrulesetsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostOutboundDigitalrulesetsRequestEntityTooLarge() *PostOutboundDigitalr
 	return &PostOutboundDigitalrulesetsRequestEntityTooLarge{}
 }
 
-/*PostOutboundDigitalrulesetsRequestEntityTooLarge handles this case with default header values.
+/*
+PostOutboundDigitalrulesetsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostOutboundDigitalrulesetsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound digitalrulesets request entity too large response has a 2xx status code
+func (o *PostOutboundDigitalrulesetsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound digitalrulesets request entity too large response has a 3xx status code
+func (o *PostOutboundDigitalrulesetsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound digitalrulesets request entity too large response has a 4xx status code
+func (o *PostOutboundDigitalrulesetsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound digitalrulesets request entity too large response has a 5xx status code
+func (o *PostOutboundDigitalrulesetsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound digitalrulesets request entity too large response a status code equal to that given
+func (o *PostOutboundDigitalrulesetsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOutboundDigitalrulesetsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOutboundDigitalrulesetsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostOutboundDigitalrulesetsUnsupportedMediaType() *PostOutboundDigitalru
 	return &PostOutboundDigitalrulesetsUnsupportedMediaType{}
 }
 
-/*PostOutboundDigitalrulesetsUnsupportedMediaType handles this case with default header values.
+/*
+PostOutboundDigitalrulesetsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostOutboundDigitalrulesetsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound digitalrulesets unsupported media type response has a 2xx status code
+func (o *PostOutboundDigitalrulesetsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound digitalrulesets unsupported media type response has a 3xx status code
+func (o *PostOutboundDigitalrulesetsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound digitalrulesets unsupported media type response has a 4xx status code
+func (o *PostOutboundDigitalrulesetsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound digitalrulesets unsupported media type response has a 5xx status code
+func (o *PostOutboundDigitalrulesetsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound digitalrulesets unsupported media type response a status code equal to that given
+func (o *PostOutboundDigitalrulesetsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOutboundDigitalrulesetsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOutboundDigitalrulesetsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostOutboundDigitalrulesetsTooManyRequests() *PostOutboundDigitalruleset
 	return &PostOutboundDigitalrulesetsTooManyRequests{}
 }
 
-/*PostOutboundDigitalrulesetsTooManyRequests handles this case with default header values.
+/*
+PostOutboundDigitalrulesetsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostOutboundDigitalrulesetsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound digitalrulesets too many requests response has a 2xx status code
+func (o *PostOutboundDigitalrulesetsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound digitalrulesets too many requests response has a 3xx status code
+func (o *PostOutboundDigitalrulesetsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound digitalrulesets too many requests response has a 4xx status code
+func (o *PostOutboundDigitalrulesetsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound digitalrulesets too many requests response has a 5xx status code
+func (o *PostOutboundDigitalrulesetsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound digitalrulesets too many requests response a status code equal to that given
+func (o *PostOutboundDigitalrulesetsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOutboundDigitalrulesetsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOutboundDigitalrulesetsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostOutboundDigitalrulesetsInternalServerError() *PostOutboundDigitalrul
 	return &PostOutboundDigitalrulesetsInternalServerError{}
 }
 
-/*PostOutboundDigitalrulesetsInternalServerError handles this case with default header values.
+/*
+PostOutboundDigitalrulesetsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostOutboundDigitalrulesetsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound digitalrulesets internal server error response has a 2xx status code
+func (o *PostOutboundDigitalrulesetsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound digitalrulesets internal server error response has a 3xx status code
+func (o *PostOutboundDigitalrulesetsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound digitalrulesets internal server error response has a 4xx status code
+func (o *PostOutboundDigitalrulesetsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound digitalrulesets internal server error response has a 5xx status code
+func (o *PostOutboundDigitalrulesetsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound digitalrulesets internal server error response a status code equal to that given
+func (o *PostOutboundDigitalrulesetsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOutboundDigitalrulesetsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOutboundDigitalrulesetsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostOutboundDigitalrulesetsServiceUnavailable() *PostOutboundDigitalrule
 	return &PostOutboundDigitalrulesetsServiceUnavailable{}
 }
 
-/*PostOutboundDigitalrulesetsServiceUnavailable handles this case with default header values.
+/*
+PostOutboundDigitalrulesetsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostOutboundDigitalrulesetsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound digitalrulesets service unavailable response has a 2xx status code
+func (o *PostOutboundDigitalrulesetsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound digitalrulesets service unavailable response has a 3xx status code
+func (o *PostOutboundDigitalrulesetsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound digitalrulesets service unavailable response has a 4xx status code
+func (o *PostOutboundDigitalrulesetsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound digitalrulesets service unavailable response has a 5xx status code
+func (o *PostOutboundDigitalrulesetsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound digitalrulesets service unavailable response a status code equal to that given
+func (o *PostOutboundDigitalrulesetsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOutboundDigitalrulesetsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOutboundDigitalrulesetsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostOutboundDigitalrulesetsGatewayTimeout() *PostOutboundDigitalrulesets
 	return &PostOutboundDigitalrulesetsGatewayTimeout{}
 }
 
-/*PostOutboundDigitalrulesetsGatewayTimeout handles this case with default header values.
+/*
+PostOutboundDigitalrulesetsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostOutboundDigitalrulesetsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound digitalrulesets gateway timeout response has a 2xx status code
+func (o *PostOutboundDigitalrulesetsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound digitalrulesets gateway timeout response has a 3xx status code
+func (o *PostOutboundDigitalrulesetsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound digitalrulesets gateway timeout response has a 4xx status code
+func (o *PostOutboundDigitalrulesetsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound digitalrulesets gateway timeout response has a 5xx status code
+func (o *PostOutboundDigitalrulesetsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound digitalrulesets gateway timeout response a status code equal to that given
+func (o *PostOutboundDigitalrulesetsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOutboundDigitalrulesetsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOutboundDigitalrulesetsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/digitalrulesets][%d] postOutboundDigitalrulesetsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *GetIdentityprovidersOneloginReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIdentityprovidersOneloginOK() *GetIdentityprovidersOneloginOK {
 	return &GetIdentityprovidersOneloginOK{}
 }
 
-/*GetIdentityprovidersOneloginOK handles this case with default header values.
+/*
+GetIdentityprovidersOneloginOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIdentityprovidersOneloginOK struct {
 	Payload *models.OneLogin
 }
 
+// IsSuccess returns true when this get identityproviders onelogin o k response has a 2xx status code
+func (o *GetIdentityprovidersOneloginOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get identityproviders onelogin o k response has a 3xx status code
+func (o *GetIdentityprovidersOneloginOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders onelogin o k response has a 4xx status code
+func (o *GetIdentityprovidersOneloginOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders onelogin o k response has a 5xx status code
+func (o *GetIdentityprovidersOneloginOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders onelogin o k response a status code equal to that given
+func (o *GetIdentityprovidersOneloginOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIdentityprovidersOneloginOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIdentityprovidersOneloginOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIdentityprovidersOneloginBadRequest() *GetIdentityprovidersOneloginBa
 	return &GetIdentityprovidersOneloginBadRequest{}
 }
 
-/*GetIdentityprovidersOneloginBadRequest handles this case with default header values.
+/*
+GetIdentityprovidersOneloginBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIdentityprovidersOneloginBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders onelogin bad request response has a 2xx status code
+func (o *GetIdentityprovidersOneloginBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders onelogin bad request response has a 3xx status code
+func (o *GetIdentityprovidersOneloginBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders onelogin bad request response has a 4xx status code
+func (o *GetIdentityprovidersOneloginBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders onelogin bad request response has a 5xx status code
+func (o *GetIdentityprovidersOneloginBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders onelogin bad request response a status code equal to that given
+func (o *GetIdentityprovidersOneloginBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIdentityprovidersOneloginBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIdentityprovidersOneloginBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIdentityprovidersOneloginUnauthorized() *GetIdentityprovidersOnelogin
 	return &GetIdentityprovidersOneloginUnauthorized{}
 }
 
-/*GetIdentityprovidersOneloginUnauthorized handles this case with default header values.
+/*
+GetIdentityprovidersOneloginUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIdentityprovidersOneloginUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders onelogin unauthorized response has a 2xx status code
+func (o *GetIdentityprovidersOneloginUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders onelogin unauthorized response has a 3xx status code
+func (o *GetIdentityprovidersOneloginUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders onelogin unauthorized response has a 4xx status code
+func (o *GetIdentityprovidersOneloginUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders onelogin unauthorized response has a 5xx status code
+func (o *GetIdentityprovidersOneloginUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders onelogin unauthorized response a status code equal to that given
+func (o *GetIdentityprovidersOneloginUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIdentityprovidersOneloginUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIdentityprovidersOneloginUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIdentityprovidersOneloginForbidden() *GetIdentityprovidersOneloginFor
 	return &GetIdentityprovidersOneloginForbidden{}
 }
 
-/*GetIdentityprovidersOneloginForbidden handles this case with default header values.
+/*
+GetIdentityprovidersOneloginForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIdentityprovidersOneloginForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders onelogin forbidden response has a 2xx status code
+func (o *GetIdentityprovidersOneloginForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders onelogin forbidden response has a 3xx status code
+func (o *GetIdentityprovidersOneloginForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders onelogin forbidden response has a 4xx status code
+func (o *GetIdentityprovidersOneloginForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders onelogin forbidden response has a 5xx status code
+func (o *GetIdentityprovidersOneloginForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders onelogin forbidden response a status code equal to that given
+func (o *GetIdentityprovidersOneloginForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIdentityprovidersOneloginForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIdentityprovidersOneloginForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIdentityprovidersOneloginNotFound() *GetIdentityprovidersOneloginNotF
 	return &GetIdentityprovidersOneloginNotFound{}
 }
 
-/*GetIdentityprovidersOneloginNotFound handles this case with default header values.
+/*
+GetIdentityprovidersOneloginNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIdentityprovidersOneloginNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders onelogin not found response has a 2xx status code
+func (o *GetIdentityprovidersOneloginNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders onelogin not found response has a 3xx status code
+func (o *GetIdentityprovidersOneloginNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders onelogin not found response has a 4xx status code
+func (o *GetIdentityprovidersOneloginNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders onelogin not found response has a 5xx status code
+func (o *GetIdentityprovidersOneloginNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders onelogin not found response a status code equal to that given
+func (o *GetIdentityprovidersOneloginNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIdentityprovidersOneloginNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIdentityprovidersOneloginNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIdentityprovidersOneloginRequestTimeout() *GetIdentityprovidersOnelog
 	return &GetIdentityprovidersOneloginRequestTimeout{}
 }
 
-/*GetIdentityprovidersOneloginRequestTimeout handles this case with default header values.
+/*
+GetIdentityprovidersOneloginRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIdentityprovidersOneloginRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders onelogin request timeout response has a 2xx status code
+func (o *GetIdentityprovidersOneloginRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders onelogin request timeout response has a 3xx status code
+func (o *GetIdentityprovidersOneloginRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders onelogin request timeout response has a 4xx status code
+func (o *GetIdentityprovidersOneloginRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders onelogin request timeout response has a 5xx status code
+func (o *GetIdentityprovidersOneloginRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders onelogin request timeout response a status code equal to that given
+func (o *GetIdentityprovidersOneloginRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIdentityprovidersOneloginRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIdentityprovidersOneloginRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIdentityprovidersOneloginRequestEntityTooLarge() *GetIdentityprovider
 	return &GetIdentityprovidersOneloginRequestEntityTooLarge{}
 }
 
-/*GetIdentityprovidersOneloginRequestEntityTooLarge handles this case with default header values.
+/*
+GetIdentityprovidersOneloginRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIdentityprovidersOneloginRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders onelogin request entity too large response has a 2xx status code
+func (o *GetIdentityprovidersOneloginRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders onelogin request entity too large response has a 3xx status code
+func (o *GetIdentityprovidersOneloginRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders onelogin request entity too large response has a 4xx status code
+func (o *GetIdentityprovidersOneloginRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders onelogin request entity too large response has a 5xx status code
+func (o *GetIdentityprovidersOneloginRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders onelogin request entity too large response a status code equal to that given
+func (o *GetIdentityprovidersOneloginRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIdentityprovidersOneloginRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIdentityprovidersOneloginRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIdentityprovidersOneloginUnsupportedMediaType() *GetIdentityproviders
 	return &GetIdentityprovidersOneloginUnsupportedMediaType{}
 }
 
-/*GetIdentityprovidersOneloginUnsupportedMediaType handles this case with default header values.
+/*
+GetIdentityprovidersOneloginUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIdentityprovidersOneloginUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders onelogin unsupported media type response has a 2xx status code
+func (o *GetIdentityprovidersOneloginUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders onelogin unsupported media type response has a 3xx status code
+func (o *GetIdentityprovidersOneloginUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders onelogin unsupported media type response has a 4xx status code
+func (o *GetIdentityprovidersOneloginUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders onelogin unsupported media type response has a 5xx status code
+func (o *GetIdentityprovidersOneloginUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders onelogin unsupported media type response a status code equal to that given
+func (o *GetIdentityprovidersOneloginUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIdentityprovidersOneloginUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIdentityprovidersOneloginUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIdentityprovidersOneloginTooManyRequests() *GetIdentityprovidersOnelo
 	return &GetIdentityprovidersOneloginTooManyRequests{}
 }
 
-/*GetIdentityprovidersOneloginTooManyRequests handles this case with default header values.
+/*
+GetIdentityprovidersOneloginTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIdentityprovidersOneloginTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders onelogin too many requests response has a 2xx status code
+func (o *GetIdentityprovidersOneloginTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders onelogin too many requests response has a 3xx status code
+func (o *GetIdentityprovidersOneloginTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders onelogin too many requests response has a 4xx status code
+func (o *GetIdentityprovidersOneloginTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders onelogin too many requests response has a 5xx status code
+func (o *GetIdentityprovidersOneloginTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders onelogin too many requests response a status code equal to that given
+func (o *GetIdentityprovidersOneloginTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIdentityprovidersOneloginTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIdentityprovidersOneloginTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIdentityprovidersOneloginInternalServerError() *GetIdentityprovidersO
 	return &GetIdentityprovidersOneloginInternalServerError{}
 }
 
-/*GetIdentityprovidersOneloginInternalServerError handles this case with default header values.
+/*
+GetIdentityprovidersOneloginInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIdentityprovidersOneloginInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders onelogin internal server error response has a 2xx status code
+func (o *GetIdentityprovidersOneloginInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders onelogin internal server error response has a 3xx status code
+func (o *GetIdentityprovidersOneloginInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders onelogin internal server error response has a 4xx status code
+func (o *GetIdentityprovidersOneloginInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders onelogin internal server error response has a 5xx status code
+func (o *GetIdentityprovidersOneloginInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders onelogin internal server error response a status code equal to that given
+func (o *GetIdentityprovidersOneloginInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIdentityprovidersOneloginInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIdentityprovidersOneloginInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIdentityprovidersOneloginServiceUnavailable() *GetIdentityprovidersOn
 	return &GetIdentityprovidersOneloginServiceUnavailable{}
 }
 
-/*GetIdentityprovidersOneloginServiceUnavailable handles this case with default header values.
+/*
+GetIdentityprovidersOneloginServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIdentityprovidersOneloginServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders onelogin service unavailable response has a 2xx status code
+func (o *GetIdentityprovidersOneloginServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders onelogin service unavailable response has a 3xx status code
+func (o *GetIdentityprovidersOneloginServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders onelogin service unavailable response has a 4xx status code
+func (o *GetIdentityprovidersOneloginServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders onelogin service unavailable response has a 5xx status code
+func (o *GetIdentityprovidersOneloginServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders onelogin service unavailable response a status code equal to that given
+func (o *GetIdentityprovidersOneloginServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIdentityprovidersOneloginServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIdentityprovidersOneloginServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIdentityprovidersOneloginGatewayTimeout() *GetIdentityprovidersOnelog
 	return &GetIdentityprovidersOneloginGatewayTimeout{}
 }
 
-/*GetIdentityprovidersOneloginGatewayTimeout handles this case with default header values.
+/*
+GetIdentityprovidersOneloginGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIdentityprovidersOneloginGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders onelogin gateway timeout response has a 2xx status code
+func (o *GetIdentityprovidersOneloginGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders onelogin gateway timeout response has a 3xx status code
+func (o *GetIdentityprovidersOneloginGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders onelogin gateway timeout response has a 4xx status code
+func (o *GetIdentityprovidersOneloginGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders onelogin gateway timeout response has a 5xx status code
+func (o *GetIdentityprovidersOneloginGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders onelogin gateway timeout response a status code equal to that given
+func (o *GetIdentityprovidersOneloginGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIdentityprovidersOneloginGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIdentityprovidersOneloginGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/onelogin][%d] getIdentityprovidersOneloginGatewayTimeout  %+v", 504, o.Payload)
 }
 

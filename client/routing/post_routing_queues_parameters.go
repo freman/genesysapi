@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRoutingQueuesParams creates a new PostRoutingQueuesParams object
-// with the default values initialized.
+// NewPostRoutingQueuesParams creates a new PostRoutingQueuesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRoutingQueuesParams() *PostRoutingQueuesParams {
-	var ()
 	return &PostRoutingQueuesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRoutingQueuesParamsWithTimeout creates a new PostRoutingQueuesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRoutingQueuesParamsWithTimeout(timeout time.Duration) *PostRoutingQueuesParams {
-	var ()
 	return &PostRoutingQueuesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRoutingQueuesParamsWithContext creates a new PostRoutingQueuesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRoutingQueuesParamsWithContext(ctx context.Context) *PostRoutingQueuesParams {
-	var ()
 	return &PostRoutingQueuesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRoutingQueuesParamsWithHTTPClient creates a new PostRoutingQueuesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRoutingQueuesParamsWithHTTPClient(client *http.Client) *PostRoutingQueuesParams {
-	var ()
 	return &PostRoutingQueuesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRoutingQueuesParams contains all the parameters to send to the API endpoint
-for the post routing queues operation typically these are written to a http.Request
+/*
+PostRoutingQueuesParams contains all the parameters to send to the API endpoint
+
+	for the post routing queues operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRoutingQueuesParams struct {
 
-	/*Body
-	  Queue
+	/* Body.
 
+	   Queue
 	*/
 	Body *models.CreateQueueRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post routing queues params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingQueuesParams) WithDefaults() *PostRoutingQueuesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post routing queues params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingQueuesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post routing queues params
@@ -124,7 +140,6 @@ func (o *PostRoutingQueuesParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

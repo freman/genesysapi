@@ -95,7 +95,6 @@ func (o *GetOutboundWrapupcodemappingsReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOutboundWrapupcodemappingsOK() *GetOutboundWrapupcodemappingsOK {
 	return &GetOutboundWrapupcodemappingsOK{}
 }
 
-/*GetOutboundWrapupcodemappingsOK handles this case with default header values.
+/*
+GetOutboundWrapupcodemappingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOutboundWrapupcodemappingsOK struct {
 	Payload *models.WrapUpCodeMapping
 }
 
+// IsSuccess returns true when this get outbound wrapupcodemappings o k response has a 2xx status code
+func (o *GetOutboundWrapupcodemappingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get outbound wrapupcodemappings o k response has a 3xx status code
+func (o *GetOutboundWrapupcodemappingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound wrapupcodemappings o k response has a 4xx status code
+func (o *GetOutboundWrapupcodemappingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound wrapupcodemappings o k response has a 5xx status code
+func (o *GetOutboundWrapupcodemappingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound wrapupcodemappings o k response a status code equal to that given
+func (o *GetOutboundWrapupcodemappingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOutboundWrapupcodemappingsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOutboundWrapupcodemappingsBadRequest() *GetOutboundWrapupcodemappings
 	return &GetOutboundWrapupcodemappingsBadRequest{}
 }
 
-/*GetOutboundWrapupcodemappingsBadRequest handles this case with default header values.
+/*
+GetOutboundWrapupcodemappingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOutboundWrapupcodemappingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound wrapupcodemappings bad request response has a 2xx status code
+func (o *GetOutboundWrapupcodemappingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound wrapupcodemappings bad request response has a 3xx status code
+func (o *GetOutboundWrapupcodemappingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound wrapupcodemappings bad request response has a 4xx status code
+func (o *GetOutboundWrapupcodemappingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound wrapupcodemappings bad request response has a 5xx status code
+func (o *GetOutboundWrapupcodemappingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound wrapupcodemappings bad request response a status code equal to that given
+func (o *GetOutboundWrapupcodemappingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOutboundWrapupcodemappingsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOutboundWrapupcodemappingsUnauthorized() *GetOutboundWrapupcodemappin
 	return &GetOutboundWrapupcodemappingsUnauthorized{}
 }
 
-/*GetOutboundWrapupcodemappingsUnauthorized handles this case with default header values.
+/*
+GetOutboundWrapupcodemappingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOutboundWrapupcodemappingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound wrapupcodemappings unauthorized response has a 2xx status code
+func (o *GetOutboundWrapupcodemappingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound wrapupcodemappings unauthorized response has a 3xx status code
+func (o *GetOutboundWrapupcodemappingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound wrapupcodemappings unauthorized response has a 4xx status code
+func (o *GetOutboundWrapupcodemappingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound wrapupcodemappings unauthorized response has a 5xx status code
+func (o *GetOutboundWrapupcodemappingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound wrapupcodemappings unauthorized response a status code equal to that given
+func (o *GetOutboundWrapupcodemappingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOutboundWrapupcodemappingsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOutboundWrapupcodemappingsForbidden() *GetOutboundWrapupcodemappingsF
 	return &GetOutboundWrapupcodemappingsForbidden{}
 }
 
-/*GetOutboundWrapupcodemappingsForbidden handles this case with default header values.
+/*
+GetOutboundWrapupcodemappingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOutboundWrapupcodemappingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound wrapupcodemappings forbidden response has a 2xx status code
+func (o *GetOutboundWrapupcodemappingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound wrapupcodemappings forbidden response has a 3xx status code
+func (o *GetOutboundWrapupcodemappingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound wrapupcodemappings forbidden response has a 4xx status code
+func (o *GetOutboundWrapupcodemappingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound wrapupcodemappings forbidden response has a 5xx status code
+func (o *GetOutboundWrapupcodemappingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound wrapupcodemappings forbidden response a status code equal to that given
+func (o *GetOutboundWrapupcodemappingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOutboundWrapupcodemappingsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOutboundWrapupcodemappingsNotFound() *GetOutboundWrapupcodemappingsNo
 	return &GetOutboundWrapupcodemappingsNotFound{}
 }
 
-/*GetOutboundWrapupcodemappingsNotFound handles this case with default header values.
+/*
+GetOutboundWrapupcodemappingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOutboundWrapupcodemappingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound wrapupcodemappings not found response has a 2xx status code
+func (o *GetOutboundWrapupcodemappingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound wrapupcodemappings not found response has a 3xx status code
+func (o *GetOutboundWrapupcodemappingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound wrapupcodemappings not found response has a 4xx status code
+func (o *GetOutboundWrapupcodemappingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound wrapupcodemappings not found response has a 5xx status code
+func (o *GetOutboundWrapupcodemappingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound wrapupcodemappings not found response a status code equal to that given
+func (o *GetOutboundWrapupcodemappingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOutboundWrapupcodemappingsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOutboundWrapupcodemappingsRequestTimeout() *GetOutboundWrapupcodemapp
 	return &GetOutboundWrapupcodemappingsRequestTimeout{}
 }
 
-/*GetOutboundWrapupcodemappingsRequestTimeout handles this case with default header values.
+/*
+GetOutboundWrapupcodemappingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOutboundWrapupcodemappingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound wrapupcodemappings request timeout response has a 2xx status code
+func (o *GetOutboundWrapupcodemappingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound wrapupcodemappings request timeout response has a 3xx status code
+func (o *GetOutboundWrapupcodemappingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound wrapupcodemappings request timeout response has a 4xx status code
+func (o *GetOutboundWrapupcodemappingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound wrapupcodemappings request timeout response has a 5xx status code
+func (o *GetOutboundWrapupcodemappingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound wrapupcodemappings request timeout response a status code equal to that given
+func (o *GetOutboundWrapupcodemappingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOutboundWrapupcodemappingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOutboundWrapupcodemappingsRequestEntityTooLarge() *GetOutboundWrapupc
 	return &GetOutboundWrapupcodemappingsRequestEntityTooLarge{}
 }
 
-/*GetOutboundWrapupcodemappingsRequestEntityTooLarge handles this case with default header values.
+/*
+GetOutboundWrapupcodemappingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOutboundWrapupcodemappingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound wrapupcodemappings request entity too large response has a 2xx status code
+func (o *GetOutboundWrapupcodemappingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound wrapupcodemappings request entity too large response has a 3xx status code
+func (o *GetOutboundWrapupcodemappingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound wrapupcodemappings request entity too large response has a 4xx status code
+func (o *GetOutboundWrapupcodemappingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound wrapupcodemappings request entity too large response has a 5xx status code
+func (o *GetOutboundWrapupcodemappingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound wrapupcodemappings request entity too large response a status code equal to that given
+func (o *GetOutboundWrapupcodemappingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOutboundWrapupcodemappingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOutboundWrapupcodemappingsUnsupportedMediaType() *GetOutboundWrapupco
 	return &GetOutboundWrapupcodemappingsUnsupportedMediaType{}
 }
 
-/*GetOutboundWrapupcodemappingsUnsupportedMediaType handles this case with default header values.
+/*
+GetOutboundWrapupcodemappingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOutboundWrapupcodemappingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound wrapupcodemappings unsupported media type response has a 2xx status code
+func (o *GetOutboundWrapupcodemappingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound wrapupcodemappings unsupported media type response has a 3xx status code
+func (o *GetOutboundWrapupcodemappingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound wrapupcodemappings unsupported media type response has a 4xx status code
+func (o *GetOutboundWrapupcodemappingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound wrapupcodemappings unsupported media type response has a 5xx status code
+func (o *GetOutboundWrapupcodemappingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound wrapupcodemappings unsupported media type response a status code equal to that given
+func (o *GetOutboundWrapupcodemappingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOutboundWrapupcodemappingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOutboundWrapupcodemappingsTooManyRequests() *GetOutboundWrapupcodemap
 	return &GetOutboundWrapupcodemappingsTooManyRequests{}
 }
 
-/*GetOutboundWrapupcodemappingsTooManyRequests handles this case with default header values.
+/*
+GetOutboundWrapupcodemappingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOutboundWrapupcodemappingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound wrapupcodemappings too many requests response has a 2xx status code
+func (o *GetOutboundWrapupcodemappingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound wrapupcodemappings too many requests response has a 3xx status code
+func (o *GetOutboundWrapupcodemappingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound wrapupcodemappings too many requests response has a 4xx status code
+func (o *GetOutboundWrapupcodemappingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound wrapupcodemappings too many requests response has a 5xx status code
+func (o *GetOutboundWrapupcodemappingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound wrapupcodemappings too many requests response a status code equal to that given
+func (o *GetOutboundWrapupcodemappingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOutboundWrapupcodemappingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOutboundWrapupcodemappingsInternalServerError() *GetOutboundWrapupcod
 	return &GetOutboundWrapupcodemappingsInternalServerError{}
 }
 
-/*GetOutboundWrapupcodemappingsInternalServerError handles this case with default header values.
+/*
+GetOutboundWrapupcodemappingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOutboundWrapupcodemappingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound wrapupcodemappings internal server error response has a 2xx status code
+func (o *GetOutboundWrapupcodemappingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound wrapupcodemappings internal server error response has a 3xx status code
+func (o *GetOutboundWrapupcodemappingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound wrapupcodemappings internal server error response has a 4xx status code
+func (o *GetOutboundWrapupcodemappingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound wrapupcodemappings internal server error response has a 5xx status code
+func (o *GetOutboundWrapupcodemappingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound wrapupcodemappings internal server error response a status code equal to that given
+func (o *GetOutboundWrapupcodemappingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOutboundWrapupcodemappingsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOutboundWrapupcodemappingsServiceUnavailable() *GetOutboundWrapupcode
 	return &GetOutboundWrapupcodemappingsServiceUnavailable{}
 }
 
-/*GetOutboundWrapupcodemappingsServiceUnavailable handles this case with default header values.
+/*
+GetOutboundWrapupcodemappingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOutboundWrapupcodemappingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound wrapupcodemappings service unavailable response has a 2xx status code
+func (o *GetOutboundWrapupcodemappingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound wrapupcodemappings service unavailable response has a 3xx status code
+func (o *GetOutboundWrapupcodemappingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound wrapupcodemappings service unavailable response has a 4xx status code
+func (o *GetOutboundWrapupcodemappingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound wrapupcodemappings service unavailable response has a 5xx status code
+func (o *GetOutboundWrapupcodemappingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound wrapupcodemappings service unavailable response a status code equal to that given
+func (o *GetOutboundWrapupcodemappingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOutboundWrapupcodemappingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOutboundWrapupcodemappingsGatewayTimeout() *GetOutboundWrapupcodemapp
 	return &GetOutboundWrapupcodemappingsGatewayTimeout{}
 }
 
-/*GetOutboundWrapupcodemappingsGatewayTimeout handles this case with default header values.
+/*
+GetOutboundWrapupcodemappingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOutboundWrapupcodemappingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound wrapupcodemappings gateway timeout response has a 2xx status code
+func (o *GetOutboundWrapupcodemappingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound wrapupcodemappings gateway timeout response has a 3xx status code
+func (o *GetOutboundWrapupcodemappingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound wrapupcodemappings gateway timeout response has a 4xx status code
+func (o *GetOutboundWrapupcodemappingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound wrapupcodemappings gateway timeout response has a 5xx status code
+func (o *GetOutboundWrapupcodemappingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound wrapupcodemappings gateway timeout response a status code equal to that given
+func (o *GetOutboundWrapupcodemappingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOutboundWrapupcodemappingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOutboundWrapupcodemappingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/wrapupcodemappings][%d] getOutboundWrapupcodemappingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

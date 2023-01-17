@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -119,7 +120,6 @@ func (m *KnowledgeImport) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeImport) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -132,7 +132,6 @@ func (m *KnowledgeImport) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeImport) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -188,7 +187,6 @@ func (m *KnowledgeImport) validateFileType(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeImport) validateKnowledgeBase(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KnowledgeBase) { // not required
 		return nil
 	}
@@ -197,6 +195,8 @@ func (m *KnowledgeImport) validateKnowledgeBase(formats strfmt.Registry) error {
 		if err := m.KnowledgeBase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
 			}
 			return err
 		}
@@ -219,89 +219,89 @@ func init() {
 
 const (
 
-	// KnowledgeImportLanguageCodeEnUS captures enum value "en-US"
-	KnowledgeImportLanguageCodeEnUS string = "en-US"
+	// KnowledgeImportLanguageCodeEnDashUS captures enum value "en-US"
+	KnowledgeImportLanguageCodeEnDashUS string = "en-US"
 
-	// KnowledgeImportLanguageCodeEnUK captures enum value "en-UK"
-	KnowledgeImportLanguageCodeEnUK string = "en-UK"
+	// KnowledgeImportLanguageCodeEnDashUK captures enum value "en-UK"
+	KnowledgeImportLanguageCodeEnDashUK string = "en-UK"
 
-	// KnowledgeImportLanguageCodeEnAU captures enum value "en-AU"
-	KnowledgeImportLanguageCodeEnAU string = "en-AU"
+	// KnowledgeImportLanguageCodeEnDashAU captures enum value "en-AU"
+	KnowledgeImportLanguageCodeEnDashAU string = "en-AU"
 
-	// KnowledgeImportLanguageCodeEnCA captures enum value "en-CA"
-	KnowledgeImportLanguageCodeEnCA string = "en-CA"
+	// KnowledgeImportLanguageCodeEnDashCA captures enum value "en-CA"
+	KnowledgeImportLanguageCodeEnDashCA string = "en-CA"
 
-	// KnowledgeImportLanguageCodeEnHK captures enum value "en-HK"
-	KnowledgeImportLanguageCodeEnHK string = "en-HK"
+	// KnowledgeImportLanguageCodeEnDashHK captures enum value "en-HK"
+	KnowledgeImportLanguageCodeEnDashHK string = "en-HK"
 
-	// KnowledgeImportLanguageCodeEnIN captures enum value "en-IN"
-	KnowledgeImportLanguageCodeEnIN string = "en-IN"
+	// KnowledgeImportLanguageCodeEnDashIN captures enum value "en-IN"
+	KnowledgeImportLanguageCodeEnDashIN string = "en-IN"
 
-	// KnowledgeImportLanguageCodeEnIE captures enum value "en-IE"
-	KnowledgeImportLanguageCodeEnIE string = "en-IE"
+	// KnowledgeImportLanguageCodeEnDashIE captures enum value "en-IE"
+	KnowledgeImportLanguageCodeEnDashIE string = "en-IE"
 
-	// KnowledgeImportLanguageCodeEnNZ captures enum value "en-NZ"
-	KnowledgeImportLanguageCodeEnNZ string = "en-NZ"
+	// KnowledgeImportLanguageCodeEnDashNZ captures enum value "en-NZ"
+	KnowledgeImportLanguageCodeEnDashNZ string = "en-NZ"
 
-	// KnowledgeImportLanguageCodeEnPH captures enum value "en-PH"
-	KnowledgeImportLanguageCodeEnPH string = "en-PH"
+	// KnowledgeImportLanguageCodeEnDashPH captures enum value "en-PH"
+	KnowledgeImportLanguageCodeEnDashPH string = "en-PH"
 
-	// KnowledgeImportLanguageCodeEnSG captures enum value "en-SG"
-	KnowledgeImportLanguageCodeEnSG string = "en-SG"
+	// KnowledgeImportLanguageCodeEnDashSG captures enum value "en-SG"
+	KnowledgeImportLanguageCodeEnDashSG string = "en-SG"
 
-	// KnowledgeImportLanguageCodeEnZA captures enum value "en-ZA"
-	KnowledgeImportLanguageCodeEnZA string = "en-ZA"
+	// KnowledgeImportLanguageCodeEnDashZA captures enum value "en-ZA"
+	KnowledgeImportLanguageCodeEnDashZA string = "en-ZA"
 
-	// KnowledgeImportLanguageCodeDeDE captures enum value "de-DE"
-	KnowledgeImportLanguageCodeDeDE string = "de-DE"
+	// KnowledgeImportLanguageCodeDeDashDE captures enum value "de-DE"
+	KnowledgeImportLanguageCodeDeDashDE string = "de-DE"
 
-	// KnowledgeImportLanguageCodeDeAT captures enum value "de-AT"
-	KnowledgeImportLanguageCodeDeAT string = "de-AT"
+	// KnowledgeImportLanguageCodeDeDashAT captures enum value "de-AT"
+	KnowledgeImportLanguageCodeDeDashAT string = "de-AT"
 
-	// KnowledgeImportLanguageCodeDeCH captures enum value "de-CH"
-	KnowledgeImportLanguageCodeDeCH string = "de-CH"
+	// KnowledgeImportLanguageCodeDeDashCH captures enum value "de-CH"
+	KnowledgeImportLanguageCodeDeDashCH string = "de-CH"
 
-	// KnowledgeImportLanguageCodeEsAR captures enum value "es-AR"
-	KnowledgeImportLanguageCodeEsAR string = "es-AR"
+	// KnowledgeImportLanguageCodeEsDashAR captures enum value "es-AR"
+	KnowledgeImportLanguageCodeEsDashAR string = "es-AR"
 
-	// KnowledgeImportLanguageCodeEsCO captures enum value "es-CO"
-	KnowledgeImportLanguageCodeEsCO string = "es-CO"
+	// KnowledgeImportLanguageCodeEsDashCO captures enum value "es-CO"
+	KnowledgeImportLanguageCodeEsDashCO string = "es-CO"
 
-	// KnowledgeImportLanguageCodeEsMX captures enum value "es-MX"
-	KnowledgeImportLanguageCodeEsMX string = "es-MX"
+	// KnowledgeImportLanguageCodeEsDashMX captures enum value "es-MX"
+	KnowledgeImportLanguageCodeEsDashMX string = "es-MX"
 
-	// KnowledgeImportLanguageCodeEsUS captures enum value "es-US"
-	KnowledgeImportLanguageCodeEsUS string = "es-US"
+	// KnowledgeImportLanguageCodeEsDashUS captures enum value "es-US"
+	KnowledgeImportLanguageCodeEsDashUS string = "es-US"
 
-	// KnowledgeImportLanguageCodeEsES captures enum value "es-ES"
-	KnowledgeImportLanguageCodeEsES string = "es-ES"
+	// KnowledgeImportLanguageCodeEsDashES captures enum value "es-ES"
+	KnowledgeImportLanguageCodeEsDashES string = "es-ES"
 
-	// KnowledgeImportLanguageCodeFrFR captures enum value "fr-FR"
-	KnowledgeImportLanguageCodeFrFR string = "fr-FR"
+	// KnowledgeImportLanguageCodeFrDashFR captures enum value "fr-FR"
+	KnowledgeImportLanguageCodeFrDashFR string = "fr-FR"
 
-	// KnowledgeImportLanguageCodeFrBE captures enum value "fr-BE"
-	KnowledgeImportLanguageCodeFrBE string = "fr-BE"
+	// KnowledgeImportLanguageCodeFrDashBE captures enum value "fr-BE"
+	KnowledgeImportLanguageCodeFrDashBE string = "fr-BE"
 
-	// KnowledgeImportLanguageCodeFrCA captures enum value "fr-CA"
-	KnowledgeImportLanguageCodeFrCA string = "fr-CA"
+	// KnowledgeImportLanguageCodeFrDashCA captures enum value "fr-CA"
+	KnowledgeImportLanguageCodeFrDashCA string = "fr-CA"
 
-	// KnowledgeImportLanguageCodeFrCH captures enum value "fr-CH"
-	KnowledgeImportLanguageCodeFrCH string = "fr-CH"
+	// KnowledgeImportLanguageCodeFrDashCH captures enum value "fr-CH"
+	KnowledgeImportLanguageCodeFrDashCH string = "fr-CH"
 
-	// KnowledgeImportLanguageCodePtBR captures enum value "pt-BR"
-	KnowledgeImportLanguageCodePtBR string = "pt-BR"
+	// KnowledgeImportLanguageCodePtDashBR captures enum value "pt-BR"
+	KnowledgeImportLanguageCodePtDashBR string = "pt-BR"
 
-	// KnowledgeImportLanguageCodePtPT captures enum value "pt-PT"
-	KnowledgeImportLanguageCodePtPT string = "pt-PT"
+	// KnowledgeImportLanguageCodePtDashPT captures enum value "pt-PT"
+	KnowledgeImportLanguageCodePtDashPT string = "pt-PT"
 
-	// KnowledgeImportLanguageCodeNlNL captures enum value "nl-NL"
-	KnowledgeImportLanguageCodeNlNL string = "nl-NL"
+	// KnowledgeImportLanguageCodeNlDashNL captures enum value "nl-NL"
+	KnowledgeImportLanguageCodeNlDashNL string = "nl-NL"
 
-	// KnowledgeImportLanguageCodeNlBE captures enum value "nl-BE"
-	KnowledgeImportLanguageCodeNlBE string = "nl-BE"
+	// KnowledgeImportLanguageCodeNlDashBE captures enum value "nl-BE"
+	KnowledgeImportLanguageCodeNlDashBE string = "nl-BE"
 
-	// KnowledgeImportLanguageCodeItIT captures enum value "it-IT"
-	KnowledgeImportLanguageCodeItIT string = "it-IT"
+	// KnowledgeImportLanguageCodeItDashIT captures enum value "it-IT"
+	KnowledgeImportLanguageCodeItDashIT string = "it-IT"
 )
 
 // prop value enum
@@ -313,7 +313,6 @@ func (m *KnowledgeImport) validateLanguageCodeEnum(path, location string, value 
 }
 
 func (m *KnowledgeImport) validateLanguageCode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LanguageCode) { // not required
 		return nil
 	}
@@ -327,7 +326,6 @@ func (m *KnowledgeImport) validateLanguageCode(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeImport) validateReport(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Report) { // not required
 		return nil
 	}
@@ -336,6 +334,8 @@ func (m *KnowledgeImport) validateReport(formats strfmt.Registry) error {
 		if err := m.Report.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("report")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report")
 			}
 			return err
 		}
@@ -345,7 +345,6 @@ func (m *KnowledgeImport) validateReport(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeImport) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -414,7 +413,6 @@ func (m *KnowledgeImport) validateStatusEnum(path, location string, value string
 }
 
 func (m *KnowledgeImport) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -430,6 +428,134 @@ func (m *KnowledgeImport) validateStatus(formats strfmt.Registry) error {
 func (m *KnowledgeImport) validateUploadKey(formats strfmt.Registry) error {
 
 	if err := validate.Required("uploadKey", "body", m.UploadKey); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge import based on the context it is used
+func (m *KnowledgeImport) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKnowledgeBase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLanguageCode(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReport(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeImport) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImport) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImport) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImport) contextValidateKnowledgeBase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KnowledgeBase != nil {
+		if err := m.KnowledgeBase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImport) contextValidateLanguageCode(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "languageCode", "body", string(m.LanguageCode)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImport) contextValidateReport(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Report != nil {
+		if err := m.Report.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("report")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImport) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImport) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
 		return err
 	}
 

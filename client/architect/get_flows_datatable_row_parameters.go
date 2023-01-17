@@ -17,81 +17,100 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetFlowsDatatableRowParams creates a new GetFlowsDatatableRowParams object
-// with the default values initialized.
+// NewGetFlowsDatatableRowParams creates a new GetFlowsDatatableRowParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFlowsDatatableRowParams() *GetFlowsDatatableRowParams {
-	var (
-		showbriefDefault = bool(true)
-	)
 	return &GetFlowsDatatableRowParams{
-		Showbrief: &showbriefDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFlowsDatatableRowParamsWithTimeout creates a new GetFlowsDatatableRowParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFlowsDatatableRowParamsWithTimeout(timeout time.Duration) *GetFlowsDatatableRowParams {
-	var (
-		showbriefDefault = bool(true)
-	)
 	return &GetFlowsDatatableRowParams{
-		Showbrief: &showbriefDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFlowsDatatableRowParamsWithContext creates a new GetFlowsDatatableRowParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFlowsDatatableRowParamsWithContext(ctx context.Context) *GetFlowsDatatableRowParams {
-	var (
-		showbriefDefault = bool(true)
-	)
 	return &GetFlowsDatatableRowParams{
-		Showbrief: &showbriefDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetFlowsDatatableRowParamsWithHTTPClient creates a new GetFlowsDatatableRowParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFlowsDatatableRowParamsWithHTTPClient(client *http.Client) *GetFlowsDatatableRowParams {
-	var (
-		showbriefDefault = bool(true)
-	)
 	return &GetFlowsDatatableRowParams{
-		Showbrief:  &showbriefDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetFlowsDatatableRowParams contains all the parameters to send to the API endpoint
-for the get flows datatable row operation typically these are written to a http.Request
+/*
+GetFlowsDatatableRowParams contains all the parameters to send to the API endpoint
+
+	for the get flows datatable row operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFlowsDatatableRowParams struct {
 
-	/*DatatableID
-	  id of datatable
+	/* DatatableID.
 
+	   id of datatable
 	*/
 	DatatableID string
-	/*RowID
-	  The key for the row
 
+	/* RowID.
+
+	   The key for the row
 	*/
 	RowID string
-	/*Showbrief
-	  if true returns just the key field for the row
 
+	/* Showbrief.
+
+	   if true returns just the key field for the row
+
+	   Default: true
 	*/
 	Showbrief *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get flows datatable row params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowsDatatableRowParams) WithDefaults() *GetFlowsDatatableRowParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get flows datatable row params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowsDatatableRowParams) SetDefaults() {
+	var (
+		showbriefDefault = bool(true)
+	)
+
+	val := GetFlowsDatatableRowParams{
+		Showbrief: &showbriefDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get flows datatable row params
@@ -182,16 +201,17 @@ func (o *GetFlowsDatatableRowParams) WriteToRequest(r runtime.ClientRequest, reg
 
 		// query param showbrief
 		var qrShowbrief bool
+
 		if o.Showbrief != nil {
 			qrShowbrief = *o.Showbrief
 		}
 		qShowbrief := swag.FormatBool(qrShowbrief)
 		if qShowbrief != "" {
+
 			if err := r.SetQueryParam("showbrief", qShowbrief); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -18,14 +20,17 @@ import (
 type CampaignTimeSlot struct {
 
 	// The day of the interval. Valid values: [1-7], representing Monday through Sunday
+	// Example: 1
 	// Required: true
 	Day *int32 `json:"day"`
 
 	// The start time of the interval as an ISO-8601 string, i.e. HH:mm:ss
+	// Example: 08:00:00
 	// Required: true
 	StartTime *string `json:"startTime"`
 
 	// The end time of the interval as an ISO-8601 string, i.e. HH:mm:ss
+	// Example: 08:00:00
 	// Required: true
 	StopTime *string `json:"stopTime"`
 }
@@ -76,6 +81,11 @@ func (m *CampaignTimeSlot) validateStopTime(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this campaign time slot based on context it is used
+func (m *CampaignTimeSlot) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -19,6 +20,10 @@ import (
 //
 // swagger:model LimitChangeRequestDetails
 type LimitChangeRequestDetails struct {
+
+	// The approval breakdown for this override request.
+	// Read Only: true
+	ApprovalNamespaces []*ApprovalNamespace `json:"approvalNamespaces"`
 
 	// Current limit value for a given key
 	// Read Only: true
@@ -48,7 +53,7 @@ type LimitChangeRequestDetails struct {
 
 	// Namespace the key belongs to (see https://developer.mypurecloud.com/api/rest/v2/organization/limits.html#available_limits)
 	// Required: true
-	// Enum: [contacts agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing quality recording response.management routing scim search skills speech.and.text.analytics speech.integration supportability task.management telephony.configuration web.deployments web.messaging webchat webhooks workforce.management]
+	// Enum: [contacts agent.assistant analytics.alerting analytics analytics.realtime analytics.reporting.settings architect audiohook audit auth.api authorization automation.testing bots bots.voice cobrowse content.management conversation dataactions datatables directory email event.orchestration external.contacts gcv gdpr groups historical.adherence infrastructureascode integrations intent.miner journey knowledge language.understanding limit.registry marketplace messaging notifications onboarding outbound platform.api predictive.routing quality recording response.management routing scim search secondary.automation.testing skills speech.and.text.analytics speech.integration supportability task.management telephony.configuration web.deployments web.messaging webchat webhooks workforce.management]
 	Namespace *string `json:"namespace"`
 
 	// The reason for rejecting the limit override request
@@ -82,6 +87,10 @@ type LimitChangeRequestDetails struct {
 // Validate validates this limit change request details
 func (m *LimitChangeRequestDetails) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateApprovalNamespaces(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateDateCompleted(formats); err != nil {
 		res = append(res, err)
@@ -133,8 +142,33 @@ func (m *LimitChangeRequestDetails) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *LimitChangeRequestDetails) validateDateCompleted(formats strfmt.Registry) error {
+func (m *LimitChangeRequestDetails) validateApprovalNamespaces(formats strfmt.Registry) error {
+	if swag.IsZero(m.ApprovalNamespaces) { // not required
+		return nil
+	}
 
+	for i := 0; i < len(m.ApprovalNamespaces); i++ {
+		if swag.IsZero(m.ApprovalNamespaces[i]) { // not required
+			continue
+		}
+
+		if m.ApprovalNamespaces[i] != nil {
+			if err := m.ApprovalNamespaces[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("approvalNamespaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("approvalNamespaces" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *LimitChangeRequestDetails) validateDateCompleted(formats strfmt.Registry) error {
 	if swag.IsZero(m.DateCompleted) { // not required
 		return nil
 	}
@@ -147,7 +181,6 @@ func (m *LimitChangeRequestDetails) validateDateCompleted(formats strfmt.Registr
 }
 
 func (m *LimitChangeRequestDetails) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -181,7 +214,7 @@ var limitChangeRequestDetailsTypeNamespacePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["contacts","agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","quality","recording","response.management","routing","scim","search","skills","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["contacts","agent.assistant","analytics.alerting","analytics","analytics.realtime","analytics.reporting.settings","architect","audiohook","audit","auth.api","authorization","automation.testing","bots","bots.voice","cobrowse","content.management","conversation","dataactions","datatables","directory","email","event.orchestration","external.contacts","gcv","gdpr","groups","historical.adherence","infrastructureascode","integrations","intent.miner","journey","knowledge","language.understanding","limit.registry","marketplace","messaging","notifications","onboarding","outbound","platform.api","predictive.routing","quality","recording","response.management","routing","scim","search","secondary.automation.testing","skills","speech.and.text.analytics","speech.integration","supportability","task.management","telephony.configuration","web.deployments","web.messaging","webchat","webhooks","workforce.management"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -194,20 +227,20 @@ const (
 	// LimitChangeRequestDetailsNamespaceContacts captures enum value "contacts"
 	LimitChangeRequestDetailsNamespaceContacts string = "contacts"
 
-	// LimitChangeRequestDetailsNamespaceAgentAssistant captures enum value "agent.assistant"
-	LimitChangeRequestDetailsNamespaceAgentAssistant string = "agent.assistant"
+	// LimitChangeRequestDetailsNamespaceAgentDotAssistant captures enum value "agent.assistant"
+	LimitChangeRequestDetailsNamespaceAgentDotAssistant string = "agent.assistant"
 
-	// LimitChangeRequestDetailsNamespaceAnalyticsAlerting captures enum value "analytics.alerting"
-	LimitChangeRequestDetailsNamespaceAnalyticsAlerting string = "analytics.alerting"
+	// LimitChangeRequestDetailsNamespaceAnalyticsDotAlerting captures enum value "analytics.alerting"
+	LimitChangeRequestDetailsNamespaceAnalyticsDotAlerting string = "analytics.alerting"
 
 	// LimitChangeRequestDetailsNamespaceAnalytics captures enum value "analytics"
 	LimitChangeRequestDetailsNamespaceAnalytics string = "analytics"
 
-	// LimitChangeRequestDetailsNamespaceAnalyticsRealtime captures enum value "analytics.realtime"
-	LimitChangeRequestDetailsNamespaceAnalyticsRealtime string = "analytics.realtime"
+	// LimitChangeRequestDetailsNamespaceAnalyticsDotRealtime captures enum value "analytics.realtime"
+	LimitChangeRequestDetailsNamespaceAnalyticsDotRealtime string = "analytics.realtime"
 
-	// LimitChangeRequestDetailsNamespaceAnalyticsReportingSettings captures enum value "analytics.reporting.settings"
-	LimitChangeRequestDetailsNamespaceAnalyticsReportingSettings string = "analytics.reporting.settings"
+	// LimitChangeRequestDetailsNamespaceAnalyticsDotReportingDotSettings captures enum value "analytics.reporting.settings"
+	LimitChangeRequestDetailsNamespaceAnalyticsDotReportingDotSettings string = "analytics.reporting.settings"
 
 	// LimitChangeRequestDetailsNamespaceArchitect captures enum value "architect"
 	LimitChangeRequestDetailsNamespaceArchitect string = "architect"
@@ -218,26 +251,26 @@ const (
 	// LimitChangeRequestDetailsNamespaceAudit captures enum value "audit"
 	LimitChangeRequestDetailsNamespaceAudit string = "audit"
 
-	// LimitChangeRequestDetailsNamespaceAuthAPI captures enum value "auth.api"
-	LimitChangeRequestDetailsNamespaceAuthAPI string = "auth.api"
+	// LimitChangeRequestDetailsNamespaceAuthDotAPI captures enum value "auth.api"
+	LimitChangeRequestDetailsNamespaceAuthDotAPI string = "auth.api"
 
 	// LimitChangeRequestDetailsNamespaceAuthorization captures enum value "authorization"
 	LimitChangeRequestDetailsNamespaceAuthorization string = "authorization"
 
-	// LimitChangeRequestDetailsNamespaceAutomationTesting captures enum value "automation.testing"
-	LimitChangeRequestDetailsNamespaceAutomationTesting string = "automation.testing"
+	// LimitChangeRequestDetailsNamespaceAutomationDotTesting captures enum value "automation.testing"
+	LimitChangeRequestDetailsNamespaceAutomationDotTesting string = "automation.testing"
 
 	// LimitChangeRequestDetailsNamespaceBots captures enum value "bots"
 	LimitChangeRequestDetailsNamespaceBots string = "bots"
 
-	// LimitChangeRequestDetailsNamespaceBotsVoice captures enum value "bots.voice"
-	LimitChangeRequestDetailsNamespaceBotsVoice string = "bots.voice"
+	// LimitChangeRequestDetailsNamespaceBotsDotVoice captures enum value "bots.voice"
+	LimitChangeRequestDetailsNamespaceBotsDotVoice string = "bots.voice"
 
 	// LimitChangeRequestDetailsNamespaceCobrowse captures enum value "cobrowse"
 	LimitChangeRequestDetailsNamespaceCobrowse string = "cobrowse"
 
-	// LimitChangeRequestDetailsNamespaceContentManagement captures enum value "content.management"
-	LimitChangeRequestDetailsNamespaceContentManagement string = "content.management"
+	// LimitChangeRequestDetailsNamespaceContentDotManagement captures enum value "content.management"
+	LimitChangeRequestDetailsNamespaceContentDotManagement string = "content.management"
 
 	// LimitChangeRequestDetailsNamespaceConversation captures enum value "conversation"
 	LimitChangeRequestDetailsNamespaceConversation string = "conversation"
@@ -254,11 +287,11 @@ const (
 	// LimitChangeRequestDetailsNamespaceEmail captures enum value "email"
 	LimitChangeRequestDetailsNamespaceEmail string = "email"
 
-	// LimitChangeRequestDetailsNamespaceEventOrchestration captures enum value "event.orchestration"
-	LimitChangeRequestDetailsNamespaceEventOrchestration string = "event.orchestration"
+	// LimitChangeRequestDetailsNamespaceEventDotOrchestration captures enum value "event.orchestration"
+	LimitChangeRequestDetailsNamespaceEventDotOrchestration string = "event.orchestration"
 
-	// LimitChangeRequestDetailsNamespaceExternalContacts captures enum value "external.contacts"
-	LimitChangeRequestDetailsNamespaceExternalContacts string = "external.contacts"
+	// LimitChangeRequestDetailsNamespaceExternalDotContacts captures enum value "external.contacts"
+	LimitChangeRequestDetailsNamespaceExternalDotContacts string = "external.contacts"
 
 	// LimitChangeRequestDetailsNamespaceGcv captures enum value "gcv"
 	LimitChangeRequestDetailsNamespaceGcv string = "gcv"
@@ -269,8 +302,8 @@ const (
 	// LimitChangeRequestDetailsNamespaceGroups captures enum value "groups"
 	LimitChangeRequestDetailsNamespaceGroups string = "groups"
 
-	// LimitChangeRequestDetailsNamespaceHistoricalAdherence captures enum value "historical.adherence"
-	LimitChangeRequestDetailsNamespaceHistoricalAdherence string = "historical.adherence"
+	// LimitChangeRequestDetailsNamespaceHistoricalDotAdherence captures enum value "historical.adherence"
+	LimitChangeRequestDetailsNamespaceHistoricalDotAdherence string = "historical.adherence"
 
 	// LimitChangeRequestDetailsNamespaceInfrastructureascode captures enum value "infrastructureascode"
 	LimitChangeRequestDetailsNamespaceInfrastructureascode string = "infrastructureascode"
@@ -278,8 +311,8 @@ const (
 	// LimitChangeRequestDetailsNamespaceIntegrations captures enum value "integrations"
 	LimitChangeRequestDetailsNamespaceIntegrations string = "integrations"
 
-	// LimitChangeRequestDetailsNamespaceIntentMiner captures enum value "intent.miner"
-	LimitChangeRequestDetailsNamespaceIntentMiner string = "intent.miner"
+	// LimitChangeRequestDetailsNamespaceIntentDotMiner captures enum value "intent.miner"
+	LimitChangeRequestDetailsNamespaceIntentDotMiner string = "intent.miner"
 
 	// LimitChangeRequestDetailsNamespaceJourney captures enum value "journey"
 	LimitChangeRequestDetailsNamespaceJourney string = "journey"
@@ -287,11 +320,11 @@ const (
 	// LimitChangeRequestDetailsNamespaceKnowledge captures enum value "knowledge"
 	LimitChangeRequestDetailsNamespaceKnowledge string = "knowledge"
 
-	// LimitChangeRequestDetailsNamespaceLanguageUnderstanding captures enum value "language.understanding"
-	LimitChangeRequestDetailsNamespaceLanguageUnderstanding string = "language.understanding"
+	// LimitChangeRequestDetailsNamespaceLanguageDotUnderstanding captures enum value "language.understanding"
+	LimitChangeRequestDetailsNamespaceLanguageDotUnderstanding string = "language.understanding"
 
-	// LimitChangeRequestDetailsNamespaceLimitRegistry captures enum value "limit.registry"
-	LimitChangeRequestDetailsNamespaceLimitRegistry string = "limit.registry"
+	// LimitChangeRequestDetailsNamespaceLimitDotRegistry captures enum value "limit.registry"
+	LimitChangeRequestDetailsNamespaceLimitDotRegistry string = "limit.registry"
 
 	// LimitChangeRequestDetailsNamespaceMarketplace captures enum value "marketplace"
 	LimitChangeRequestDetailsNamespaceMarketplace string = "marketplace"
@@ -308,11 +341,11 @@ const (
 	// LimitChangeRequestDetailsNamespaceOutbound captures enum value "outbound"
 	LimitChangeRequestDetailsNamespaceOutbound string = "outbound"
 
-	// LimitChangeRequestDetailsNamespacePlatformAPI captures enum value "platform.api"
-	LimitChangeRequestDetailsNamespacePlatformAPI string = "platform.api"
+	// LimitChangeRequestDetailsNamespacePlatformDotAPI captures enum value "platform.api"
+	LimitChangeRequestDetailsNamespacePlatformDotAPI string = "platform.api"
 
-	// LimitChangeRequestDetailsNamespacePredictiveRouting captures enum value "predictive.routing"
-	LimitChangeRequestDetailsNamespacePredictiveRouting string = "predictive.routing"
+	// LimitChangeRequestDetailsNamespacePredictiveDotRouting captures enum value "predictive.routing"
+	LimitChangeRequestDetailsNamespacePredictiveDotRouting string = "predictive.routing"
 
 	// LimitChangeRequestDetailsNamespaceQuality captures enum value "quality"
 	LimitChangeRequestDetailsNamespaceQuality string = "quality"
@@ -320,8 +353,8 @@ const (
 	// LimitChangeRequestDetailsNamespaceRecording captures enum value "recording"
 	LimitChangeRequestDetailsNamespaceRecording string = "recording"
 
-	// LimitChangeRequestDetailsNamespaceResponseManagement captures enum value "response.management"
-	LimitChangeRequestDetailsNamespaceResponseManagement string = "response.management"
+	// LimitChangeRequestDetailsNamespaceResponseDotManagement captures enum value "response.management"
+	LimitChangeRequestDetailsNamespaceResponseDotManagement string = "response.management"
 
 	// LimitChangeRequestDetailsNamespaceRouting captures enum value "routing"
 	LimitChangeRequestDetailsNamespaceRouting string = "routing"
@@ -332,29 +365,32 @@ const (
 	// LimitChangeRequestDetailsNamespaceSearch captures enum value "search"
 	LimitChangeRequestDetailsNamespaceSearch string = "search"
 
+	// LimitChangeRequestDetailsNamespaceSecondaryDotAutomationDotTesting captures enum value "secondary.automation.testing"
+	LimitChangeRequestDetailsNamespaceSecondaryDotAutomationDotTesting string = "secondary.automation.testing"
+
 	// LimitChangeRequestDetailsNamespaceSkills captures enum value "skills"
 	LimitChangeRequestDetailsNamespaceSkills string = "skills"
 
-	// LimitChangeRequestDetailsNamespaceSpeechAndTextAnalytics captures enum value "speech.and.text.analytics"
-	LimitChangeRequestDetailsNamespaceSpeechAndTextAnalytics string = "speech.and.text.analytics"
+	// LimitChangeRequestDetailsNamespaceSpeechDotAndDotTextDotAnalytics captures enum value "speech.and.text.analytics"
+	LimitChangeRequestDetailsNamespaceSpeechDotAndDotTextDotAnalytics string = "speech.and.text.analytics"
 
-	// LimitChangeRequestDetailsNamespaceSpeechIntegration captures enum value "speech.integration"
-	LimitChangeRequestDetailsNamespaceSpeechIntegration string = "speech.integration"
+	// LimitChangeRequestDetailsNamespaceSpeechDotIntegration captures enum value "speech.integration"
+	LimitChangeRequestDetailsNamespaceSpeechDotIntegration string = "speech.integration"
 
 	// LimitChangeRequestDetailsNamespaceSupportability captures enum value "supportability"
 	LimitChangeRequestDetailsNamespaceSupportability string = "supportability"
 
-	// LimitChangeRequestDetailsNamespaceTaskManagement captures enum value "task.management"
-	LimitChangeRequestDetailsNamespaceTaskManagement string = "task.management"
+	// LimitChangeRequestDetailsNamespaceTaskDotManagement captures enum value "task.management"
+	LimitChangeRequestDetailsNamespaceTaskDotManagement string = "task.management"
 
-	// LimitChangeRequestDetailsNamespaceTelephonyConfiguration captures enum value "telephony.configuration"
-	LimitChangeRequestDetailsNamespaceTelephonyConfiguration string = "telephony.configuration"
+	// LimitChangeRequestDetailsNamespaceTelephonyDotConfiguration captures enum value "telephony.configuration"
+	LimitChangeRequestDetailsNamespaceTelephonyDotConfiguration string = "telephony.configuration"
 
-	// LimitChangeRequestDetailsNamespaceWebDeployments captures enum value "web.deployments"
-	LimitChangeRequestDetailsNamespaceWebDeployments string = "web.deployments"
+	// LimitChangeRequestDetailsNamespaceWebDotDeployments captures enum value "web.deployments"
+	LimitChangeRequestDetailsNamespaceWebDotDeployments string = "web.deployments"
 
-	// LimitChangeRequestDetailsNamespaceWebMessaging captures enum value "web.messaging"
-	LimitChangeRequestDetailsNamespaceWebMessaging string = "web.messaging"
+	// LimitChangeRequestDetailsNamespaceWebDotMessaging captures enum value "web.messaging"
+	LimitChangeRequestDetailsNamespaceWebDotMessaging string = "web.messaging"
 
 	// LimitChangeRequestDetailsNamespaceWebchat captures enum value "webchat"
 	LimitChangeRequestDetailsNamespaceWebchat string = "webchat"
@@ -362,8 +398,8 @@ const (
 	// LimitChangeRequestDetailsNamespaceWebhooks captures enum value "webhooks"
 	LimitChangeRequestDetailsNamespaceWebhooks string = "webhooks"
 
-	// LimitChangeRequestDetailsNamespaceWorkforceManagement captures enum value "workforce.management"
-	LimitChangeRequestDetailsNamespaceWorkforceManagement string = "workforce.management"
+	// LimitChangeRequestDetailsNamespaceWorkforceDotManagement captures enum value "workforce.management"
+	LimitChangeRequestDetailsNamespaceWorkforceDotManagement string = "workforce.management"
 )
 
 // prop value enum
@@ -427,7 +463,6 @@ func (m *LimitChangeRequestDetails) validateRejectReasonEnum(path, location stri
 }
 
 func (m *LimitChangeRequestDetails) validateRejectReason(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RejectReason) { // not required
 		return nil
 	}
@@ -450,7 +485,6 @@ func (m *LimitChangeRequestDetails) validateRequestedValue(formats strfmt.Regist
 }
 
 func (m *LimitChangeRequestDetails) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -525,7 +559,6 @@ func (m *LimitChangeRequestDetails) validateStatusEnum(path, location string, va
 }
 
 func (m *LimitChangeRequestDetails) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -539,7 +572,6 @@ func (m *LimitChangeRequestDetails) validateStatus(formats strfmt.Registry) erro
 }
 
 func (m *LimitChangeRequestDetails) validateStatusHistory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StatusHistory) { // not required
 		return nil
 	}
@@ -553,6 +585,8 @@ func (m *LimitChangeRequestDetails) validateStatusHistory(formats strfmt.Registr
 			if err := m.StatusHistory[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("statusHistory" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("statusHistory" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -567,6 +601,163 @@ func (m *LimitChangeRequestDetails) validateSupportCaseURL(formats strfmt.Regist
 
 	if err := validate.Required("supportCaseUrl", "body", m.SupportCaseURL); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this limit change request details based on the context it is used
+func (m *LimitChangeRequestDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateApprovalNamespaces(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCurrentValue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCompleted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRejectReason(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatusHistory(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *LimitChangeRequestDetails) contextValidateApprovalNamespaces(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "approvalNamespaces", "body", []*ApprovalNamespace(m.ApprovalNamespaces)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.ApprovalNamespaces); i++ {
+
+		if m.ApprovalNamespaces[i] != nil {
+			if err := m.ApprovalNamespaces[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("approvalNamespaces" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("approvalNamespaces" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *LimitChangeRequestDetails) contextValidateCurrentValue(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "currentValue", "body", float64(m.CurrentValue)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LimitChangeRequestDetails) contextValidateDateCompleted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCompleted", "body", strfmt.DateTime(m.DateCompleted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LimitChangeRequestDetails) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LimitChangeRequestDetails) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LimitChangeRequestDetails) contextValidateRejectReason(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "rejectReason", "body", string(m.RejectReason)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LimitChangeRequestDetails) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LimitChangeRequestDetails) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LimitChangeRequestDetails) contextValidateStatusHistory(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "statusHistory", "body", []*StatusChange(m.StatusHistory)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.StatusHistory); i++ {
+
+		if m.StatusHistory[i] != nil {
+			if err := m.StatusHistory[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("statusHistory" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("statusHistory" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -17,99 +17,117 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetContentmanagementSharedSharedIDParams creates a new GetContentmanagementSharedSharedIDParams object
-// with the default values initialized.
+// NewGetContentmanagementSharedSharedIDParams creates a new GetContentmanagementSharedSharedIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetContentmanagementSharedSharedIDParams() *GetContentmanagementSharedSharedIDParams {
-	var (
-		dispositionDefault = string("attachment")
-		redirectDefault    = bool(true)
-	)
 	return &GetContentmanagementSharedSharedIDParams{
-		Disposition: &dispositionDefault,
-		Redirect:    &redirectDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetContentmanagementSharedSharedIDParamsWithTimeout creates a new GetContentmanagementSharedSharedIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetContentmanagementSharedSharedIDParamsWithTimeout(timeout time.Duration) *GetContentmanagementSharedSharedIDParams {
-	var (
-		dispositionDefault = string("attachment")
-		redirectDefault    = bool(true)
-	)
 	return &GetContentmanagementSharedSharedIDParams{
-		Disposition: &dispositionDefault,
-		Redirect:    &redirectDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetContentmanagementSharedSharedIDParamsWithContext creates a new GetContentmanagementSharedSharedIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetContentmanagementSharedSharedIDParamsWithContext(ctx context.Context) *GetContentmanagementSharedSharedIDParams {
-	var (
-		dispositionDefault = string("attachment")
-		redirectDefault    = bool(true)
-	)
 	return &GetContentmanagementSharedSharedIDParams{
-		Disposition: &dispositionDefault,
-		Redirect:    &redirectDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetContentmanagementSharedSharedIDParamsWithHTTPClient creates a new GetContentmanagementSharedSharedIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetContentmanagementSharedSharedIDParamsWithHTTPClient(client *http.Client) *GetContentmanagementSharedSharedIDParams {
-	var (
-		dispositionDefault = string("attachment")
-		redirectDefault    = bool(true)
-	)
 	return &GetContentmanagementSharedSharedIDParams{
-		Disposition: &dispositionDefault,
-		Redirect:    &redirectDefault,
-		HTTPClient:  client,
+		HTTPClient: client,
 	}
 }
 
-/*GetContentmanagementSharedSharedIDParams contains all the parameters to send to the API endpoint
-for the get contentmanagement shared shared Id operation typically these are written to a http.Request
+/*
+GetContentmanagementSharedSharedIDParams contains all the parameters to send to the API endpoint
+
+	for the get contentmanagement shared shared Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetContentmanagementSharedSharedIDParams struct {
 
-	/*ContentType
-	  The requested format for the specified document. If supported, the document will be returned in that format. Example contentType=audio/wav
+	/* ContentType.
 
+	   The requested format for the specified document. If supported, the document will be returned in that format. Example contentType=audio/wav
 	*/
 	ContentType *string
-	/*Disposition
-	  Request how the share content will be downloaded: attached as a file or inline. Default is attachment.
 
+	/* Disposition.
+
+	   Request how the share content will be downloaded: attached as a file or inline. Default is attachment.
+
+	   Default: "attachment"
 	*/
 	Disposition *string
-	/*Expand
-	  Expand some document fields
 
+	/* Expand.
+
+	   Expand some document fields
 	*/
 	Expand *string
-	/*Redirect
-	  Turn on or off redirect
 
+	/* Redirect.
+
+	   Turn on or off redirect
+
+	   Default: true
 	*/
 	Redirect *bool
-	/*SharedID
-	  Shared ID
 
+	/* SharedID.
+
+	   Shared ID
 	*/
 	SharedID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get contentmanagement shared shared Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementSharedSharedIDParams) WithDefaults() *GetContentmanagementSharedSharedIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get contentmanagement shared shared Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementSharedSharedIDParams) SetDefaults() {
+	var (
+		dispositionDefault = string("attachment")
+
+		redirectDefault = bool(true)
+	)
+
+	val := GetContentmanagementSharedSharedIDParams{
+		Disposition: &dispositionDefault,
+		Redirect:    &redirectDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get contentmanagement shared shared Id params
@@ -212,64 +230,68 @@ func (o *GetContentmanagementSharedSharedIDParams) WriteToRequest(r runtime.Clie
 
 		// query param contentType
 		var qrContentType string
+
 		if o.ContentType != nil {
 			qrContentType = *o.ContentType
 		}
 		qContentType := qrContentType
 		if qContentType != "" {
+
 			if err := r.SetQueryParam("contentType", qContentType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Disposition != nil {
 
 		// query param disposition
 		var qrDisposition string
+
 		if o.Disposition != nil {
 			qrDisposition = *o.Disposition
 		}
 		qDisposition := qrDisposition
 		if qDisposition != "" {
+
 			if err := r.SetQueryParam("disposition", qDisposition); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Expand != nil {
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Redirect != nil {
 
 		// query param redirect
 		var qrRedirect bool
+
 		if o.Redirect != nil {
 			qrRedirect = *o.Redirect
 		}
 		qRedirect := swag.FormatBool(qrRedirect)
 		if qRedirect != "" {
+
 			if err := r.SetQueryParam("redirect", qRedirect); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param sharedId

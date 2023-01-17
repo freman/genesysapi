@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteOutboundContactlistfilterParams creates a new DeleteOutboundContactlistfilterParams object
-// with the default values initialized.
+// NewDeleteOutboundContactlistfilterParams creates a new DeleteOutboundContactlistfilterParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundContactlistfilterParams() *DeleteOutboundContactlistfilterParams {
-	var ()
 	return &DeleteOutboundContactlistfilterParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundContactlistfilterParamsWithTimeout creates a new DeleteOutboundContactlistfilterParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundContactlistfilterParamsWithTimeout(timeout time.Duration) *DeleteOutboundContactlistfilterParams {
-	var ()
 	return &DeleteOutboundContactlistfilterParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundContactlistfilterParamsWithContext creates a new DeleteOutboundContactlistfilterParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundContactlistfilterParamsWithContext(ctx context.Context) *DeleteOutboundContactlistfilterParams {
-	var ()
 	return &DeleteOutboundContactlistfilterParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundContactlistfilterParamsWithHTTPClient creates a new DeleteOutboundContactlistfilterParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundContactlistfilterParamsWithHTTPClient(client *http.Client) *DeleteOutboundContactlistfilterParams {
-	var ()
 	return &DeleteOutboundContactlistfilterParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundContactlistfilterParams contains all the parameters to send to the API endpoint
-for the delete outbound contactlistfilter operation typically these are written to a http.Request
+/*
+DeleteOutboundContactlistfilterParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound contactlistfilter operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundContactlistfilterParams struct {
 
-	/*ContactListFilterID
-	  Contact List Filter ID
+	/* ContactListFilterID.
 
+	   Contact List Filter ID
 	*/
 	ContactListFilterID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound contactlistfilter params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundContactlistfilterParams) WithDefaults() *DeleteOutboundContactlistfilterParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound contactlistfilter params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundContactlistfilterParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound contactlistfilter params

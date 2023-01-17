@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementManagementunitTimeoffplansParams creates a new PostWorkforcemanagementManagementunitTimeoffplansParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementManagementunitTimeoffplansParams creates a new PostWorkforcemanagementManagementunitTimeoffplansParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementManagementunitTimeoffplansParams() *PostWorkforcemanagementManagementunitTimeoffplansParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitTimeoffplansParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitTimeoffplansParamsWithTimeout creates a new PostWorkforcemanagementManagementunitTimeoffplansParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementManagementunitTimeoffplansParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementManagementunitTimeoffplansParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitTimeoffplansParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitTimeoffplansParamsWithContext creates a new PostWorkforcemanagementManagementunitTimeoffplansParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementManagementunitTimeoffplansParamsWithContext(ctx context.Context) *PostWorkforcemanagementManagementunitTimeoffplansParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitTimeoffplansParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitTimeoffplansParamsWithHTTPClient creates a new PostWorkforcemanagementManagementunitTimeoffplansParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementManagementunitTimeoffplansParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementManagementunitTimeoffplansParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitTimeoffplansParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementManagementunitTimeoffplansParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement managementunit timeoffplans operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementManagementunitTimeoffplansParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement managementunit timeoffplans operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementManagementunitTimeoffplansParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.CreateTimeOffPlanRequest
-	/*ManagementUnitID
-	  The ID of the management unit
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit
 	*/
 	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement managementunit timeoffplans params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitTimeoffplansParams) WithDefaults() *PostWorkforcemanagementManagementunitTimeoffplansParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement managementunit timeoffplans params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitTimeoffplansParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement managementunit timeoffplans params
@@ -140,7 +157,6 @@ func (o *PostWorkforcemanagementManagementunitTimeoffplansParams) WriteToRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

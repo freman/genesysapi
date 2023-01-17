@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -84,7 +85,6 @@ func (m *EdgeMetrics) Validate(formats strfmt.Registry) error {
 }
 
 func (m *EdgeMetrics) validateDisks(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Disks) { // not required
 		return nil
 	}
@@ -98,6 +98,8 @@ func (m *EdgeMetrics) validateDisks(formats strfmt.Registry) error {
 			if err := m.Disks[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("disks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("disks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -109,7 +111,6 @@ func (m *EdgeMetrics) validateDisks(formats strfmt.Registry) error {
 }
 
 func (m *EdgeMetrics) validateEdge(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Edge) { // not required
 		return nil
 	}
@@ -118,6 +119,8 @@ func (m *EdgeMetrics) validateEdge(formats strfmt.Registry) error {
 		if err := m.Edge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edge")
 			}
 			return err
 		}
@@ -127,7 +130,6 @@ func (m *EdgeMetrics) validateEdge(formats strfmt.Registry) error {
 }
 
 func (m *EdgeMetrics) validateEventTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EventTime) { // not required
 		return nil
 	}
@@ -140,7 +142,6 @@ func (m *EdgeMetrics) validateEventTime(formats strfmt.Registry) error {
 }
 
 func (m *EdgeMetrics) validateMemory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Memory) { // not required
 		return nil
 	}
@@ -154,6 +155,8 @@ func (m *EdgeMetrics) validateMemory(formats strfmt.Registry) error {
 			if err := m.Memory[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("memory" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("memory" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -165,7 +168,6 @@ func (m *EdgeMetrics) validateMemory(formats strfmt.Registry) error {
 }
 
 func (m *EdgeMetrics) validateNetworks(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Networks) { // not required
 		return nil
 	}
@@ -179,6 +181,8 @@ func (m *EdgeMetrics) validateNetworks(formats strfmt.Registry) error {
 			if err := m.Networks[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("networks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("networks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -190,7 +194,6 @@ func (m *EdgeMetrics) validateNetworks(formats strfmt.Registry) error {
 }
 
 func (m *EdgeMetrics) validateProcessors(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Processors) { // not required
 		return nil
 	}
@@ -204,6 +207,8 @@ func (m *EdgeMetrics) validateProcessors(formats strfmt.Registry) error {
 			if err := m.Processors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("processors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("processors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -215,7 +220,6 @@ func (m *EdgeMetrics) validateProcessors(formats strfmt.Registry) error {
 }
 
 func (m *EdgeMetrics) validateSubsystems(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Subsystems) { // not required
 		return nil
 	}
@@ -229,6 +233,158 @@ func (m *EdgeMetrics) validateSubsystems(formats strfmt.Registry) error {
 			if err := m.Subsystems[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("subsystems" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("subsystems" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this edge metrics based on the context it is used
+func (m *EdgeMetrics) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDisks(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEdge(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMemory(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNetworks(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProcessors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSubsystems(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EdgeMetrics) contextValidateDisks(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Disks); i++ {
+
+		if m.Disks[i] != nil {
+			if err := m.Disks[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("disks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("disks" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EdgeMetrics) contextValidateEdge(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Edge != nil {
+		if err := m.Edge.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("edge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EdgeMetrics) contextValidateMemory(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Memory); i++ {
+
+		if m.Memory[i] != nil {
+			if err := m.Memory[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("memory" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("memory" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EdgeMetrics) contextValidateNetworks(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Networks); i++ {
+
+		if m.Networks[i] != nil {
+			if err := m.Networks[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("networks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("networks" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EdgeMetrics) contextValidateProcessors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Processors); i++ {
+
+		if m.Processors[i] != nil {
+			if err := m.Processors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("processors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("processors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EdgeMetrics) contextValidateSubsystems(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Subsystems); i++ {
+
+		if m.Subsystems[i] != nil {
+			if err := m.Subsystems[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("subsystems" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("subsystems" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

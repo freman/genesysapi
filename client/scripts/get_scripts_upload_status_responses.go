@@ -95,7 +95,6 @@ func (o *GetScriptsUploadStatusReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetScriptsUploadStatusOK() *GetScriptsUploadStatusOK {
 	return &GetScriptsUploadStatusOK{}
 }
 
-/*GetScriptsUploadStatusOK handles this case with default header values.
+/*
+GetScriptsUploadStatusOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetScriptsUploadStatusOK struct {
 	Payload *models.ImportScriptStatusResponse
 }
 
+// IsSuccess returns true when this get scripts upload status o k response has a 2xx status code
+func (o *GetScriptsUploadStatusOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get scripts upload status o k response has a 3xx status code
+func (o *GetScriptsUploadStatusOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts upload status o k response has a 4xx status code
+func (o *GetScriptsUploadStatusOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scripts upload status o k response has a 5xx status code
+func (o *GetScriptsUploadStatusOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts upload status o k response a status code equal to that given
+func (o *GetScriptsUploadStatusOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetScriptsUploadStatusOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusOK  %+v", 200, o.Payload)
+}
+
+func (o *GetScriptsUploadStatusOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetScriptsUploadStatusBadRequest() *GetScriptsUploadStatusBadRequest {
 	return &GetScriptsUploadStatusBadRequest{}
 }
 
-/*GetScriptsUploadStatusBadRequest handles this case with default header values.
+/*
+GetScriptsUploadStatusBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetScriptsUploadStatusBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts upload status bad request response has a 2xx status code
+func (o *GetScriptsUploadStatusBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts upload status bad request response has a 3xx status code
+func (o *GetScriptsUploadStatusBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts upload status bad request response has a 4xx status code
+func (o *GetScriptsUploadStatusBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts upload status bad request response has a 5xx status code
+func (o *GetScriptsUploadStatusBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts upload status bad request response a status code equal to that given
+func (o *GetScriptsUploadStatusBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetScriptsUploadStatusBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetScriptsUploadStatusBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetScriptsUploadStatusUnauthorized() *GetScriptsUploadStatusUnauthorized
 	return &GetScriptsUploadStatusUnauthorized{}
 }
 
-/*GetScriptsUploadStatusUnauthorized handles this case with default header values.
+/*
+GetScriptsUploadStatusUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetScriptsUploadStatusUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts upload status unauthorized response has a 2xx status code
+func (o *GetScriptsUploadStatusUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts upload status unauthorized response has a 3xx status code
+func (o *GetScriptsUploadStatusUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts upload status unauthorized response has a 4xx status code
+func (o *GetScriptsUploadStatusUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts upload status unauthorized response has a 5xx status code
+func (o *GetScriptsUploadStatusUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts upload status unauthorized response a status code equal to that given
+func (o *GetScriptsUploadStatusUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetScriptsUploadStatusUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetScriptsUploadStatusUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetScriptsUploadStatusForbidden() *GetScriptsUploadStatusForbidden {
 	return &GetScriptsUploadStatusForbidden{}
 }
 
-/*GetScriptsUploadStatusForbidden handles this case with default header values.
+/*
+GetScriptsUploadStatusForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetScriptsUploadStatusForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts upload status forbidden response has a 2xx status code
+func (o *GetScriptsUploadStatusForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts upload status forbidden response has a 3xx status code
+func (o *GetScriptsUploadStatusForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts upload status forbidden response has a 4xx status code
+func (o *GetScriptsUploadStatusForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts upload status forbidden response has a 5xx status code
+func (o *GetScriptsUploadStatusForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts upload status forbidden response a status code equal to that given
+func (o *GetScriptsUploadStatusForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetScriptsUploadStatusForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetScriptsUploadStatusForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetScriptsUploadStatusNotFound() *GetScriptsUploadStatusNotFound {
 	return &GetScriptsUploadStatusNotFound{}
 }
 
-/*GetScriptsUploadStatusNotFound handles this case with default header values.
+/*
+GetScriptsUploadStatusNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetScriptsUploadStatusNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts upload status not found response has a 2xx status code
+func (o *GetScriptsUploadStatusNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts upload status not found response has a 3xx status code
+func (o *GetScriptsUploadStatusNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts upload status not found response has a 4xx status code
+func (o *GetScriptsUploadStatusNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts upload status not found response has a 5xx status code
+func (o *GetScriptsUploadStatusNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts upload status not found response a status code equal to that given
+func (o *GetScriptsUploadStatusNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetScriptsUploadStatusNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetScriptsUploadStatusNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetScriptsUploadStatusRequestTimeout() *GetScriptsUploadStatusRequestTim
 	return &GetScriptsUploadStatusRequestTimeout{}
 }
 
-/*GetScriptsUploadStatusRequestTimeout handles this case with default header values.
+/*
+GetScriptsUploadStatusRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetScriptsUploadStatusRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts upload status request timeout response has a 2xx status code
+func (o *GetScriptsUploadStatusRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts upload status request timeout response has a 3xx status code
+func (o *GetScriptsUploadStatusRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts upload status request timeout response has a 4xx status code
+func (o *GetScriptsUploadStatusRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts upload status request timeout response has a 5xx status code
+func (o *GetScriptsUploadStatusRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts upload status request timeout response a status code equal to that given
+func (o *GetScriptsUploadStatusRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetScriptsUploadStatusRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScriptsUploadStatusRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetScriptsUploadStatusRequestEntityTooLarge() *GetScriptsUploadStatusReq
 	return &GetScriptsUploadStatusRequestEntityTooLarge{}
 }
 
-/*GetScriptsUploadStatusRequestEntityTooLarge handles this case with default header values.
+/*
+GetScriptsUploadStatusRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetScriptsUploadStatusRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts upload status request entity too large response has a 2xx status code
+func (o *GetScriptsUploadStatusRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts upload status request entity too large response has a 3xx status code
+func (o *GetScriptsUploadStatusRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts upload status request entity too large response has a 4xx status code
+func (o *GetScriptsUploadStatusRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts upload status request entity too large response has a 5xx status code
+func (o *GetScriptsUploadStatusRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts upload status request entity too large response a status code equal to that given
+func (o *GetScriptsUploadStatusRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetScriptsUploadStatusRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetScriptsUploadStatusRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetScriptsUploadStatusUnsupportedMediaType() *GetScriptsUploadStatusUnsu
 	return &GetScriptsUploadStatusUnsupportedMediaType{}
 }
 
-/*GetScriptsUploadStatusUnsupportedMediaType handles this case with default header values.
+/*
+GetScriptsUploadStatusUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetScriptsUploadStatusUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts upload status unsupported media type response has a 2xx status code
+func (o *GetScriptsUploadStatusUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts upload status unsupported media type response has a 3xx status code
+func (o *GetScriptsUploadStatusUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts upload status unsupported media type response has a 4xx status code
+func (o *GetScriptsUploadStatusUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts upload status unsupported media type response has a 5xx status code
+func (o *GetScriptsUploadStatusUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts upload status unsupported media type response a status code equal to that given
+func (o *GetScriptsUploadStatusUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetScriptsUploadStatusUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetScriptsUploadStatusUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetScriptsUploadStatusTooManyRequests() *GetScriptsUploadStatusTooManyRe
 	return &GetScriptsUploadStatusTooManyRequests{}
 }
 
-/*GetScriptsUploadStatusTooManyRequests handles this case with default header values.
+/*
+GetScriptsUploadStatusTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetScriptsUploadStatusTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts upload status too many requests response has a 2xx status code
+func (o *GetScriptsUploadStatusTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts upload status too many requests response has a 3xx status code
+func (o *GetScriptsUploadStatusTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts upload status too many requests response has a 4xx status code
+func (o *GetScriptsUploadStatusTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scripts upload status too many requests response has a 5xx status code
+func (o *GetScriptsUploadStatusTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scripts upload status too many requests response a status code equal to that given
+func (o *GetScriptsUploadStatusTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetScriptsUploadStatusTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetScriptsUploadStatusTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetScriptsUploadStatusInternalServerError() *GetScriptsUploadStatusInter
 	return &GetScriptsUploadStatusInternalServerError{}
 }
 
-/*GetScriptsUploadStatusInternalServerError handles this case with default header values.
+/*
+GetScriptsUploadStatusInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetScriptsUploadStatusInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts upload status internal server error response has a 2xx status code
+func (o *GetScriptsUploadStatusInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts upload status internal server error response has a 3xx status code
+func (o *GetScriptsUploadStatusInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts upload status internal server error response has a 4xx status code
+func (o *GetScriptsUploadStatusInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scripts upload status internal server error response has a 5xx status code
+func (o *GetScriptsUploadStatusInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scripts upload status internal server error response a status code equal to that given
+func (o *GetScriptsUploadStatusInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetScriptsUploadStatusInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetScriptsUploadStatusInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetScriptsUploadStatusServiceUnavailable() *GetScriptsUploadStatusServic
 	return &GetScriptsUploadStatusServiceUnavailable{}
 }
 
-/*GetScriptsUploadStatusServiceUnavailable handles this case with default header values.
+/*
+GetScriptsUploadStatusServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetScriptsUploadStatusServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts upload status service unavailable response has a 2xx status code
+func (o *GetScriptsUploadStatusServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts upload status service unavailable response has a 3xx status code
+func (o *GetScriptsUploadStatusServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts upload status service unavailable response has a 4xx status code
+func (o *GetScriptsUploadStatusServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scripts upload status service unavailable response has a 5xx status code
+func (o *GetScriptsUploadStatusServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scripts upload status service unavailable response a status code equal to that given
+func (o *GetScriptsUploadStatusServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetScriptsUploadStatusServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetScriptsUploadStatusServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetScriptsUploadStatusGatewayTimeout() *GetScriptsUploadStatusGatewayTim
 	return &GetScriptsUploadStatusGatewayTimeout{}
 }
 
-/*GetScriptsUploadStatusGatewayTimeout handles this case with default header values.
+/*
+GetScriptsUploadStatusGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetScriptsUploadStatusGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scripts upload status gateway timeout response has a 2xx status code
+func (o *GetScriptsUploadStatusGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scripts upload status gateway timeout response has a 3xx status code
+func (o *GetScriptsUploadStatusGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scripts upload status gateway timeout response has a 4xx status code
+func (o *GetScriptsUploadStatusGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scripts upload status gateway timeout response has a 5xx status code
+func (o *GetScriptsUploadStatusGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scripts upload status gateway timeout response a status code equal to that given
+func (o *GetScriptsUploadStatusGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetScriptsUploadStatusGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetScriptsUploadStatusGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scripts/uploads/{uploadId}/status][%d] getScriptsUploadStatusGatewayTimeout  %+v", 504, o.Payload)
 }
 

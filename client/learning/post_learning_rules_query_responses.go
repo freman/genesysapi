@@ -95,7 +95,6 @@ func (o *PostLearningRulesQueryReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostLearningRulesQueryOK() *PostLearningRulesQueryOK {
 	return &PostLearningRulesQueryOK{}
 }
 
-/*PostLearningRulesQueryOK handles this case with default header values.
+/*
+PostLearningRulesQueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostLearningRulesQueryOK struct {
 	Payload *models.LearningAssignmentUserListing
 }
 
+// IsSuccess returns true when this post learning rules query o k response has a 2xx status code
+func (o *PostLearningRulesQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post learning rules query o k response has a 3xx status code
+func (o *PostLearningRulesQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning rules query o k response has a 4xx status code
+func (o *PostLearningRulesQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning rules query o k response has a 5xx status code
+func (o *PostLearningRulesQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning rules query o k response a status code equal to that given
+func (o *PostLearningRulesQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLearningRulesQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLearningRulesQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostLearningRulesQueryBadRequest() *PostLearningRulesQueryBadRequest {
 	return &PostLearningRulesQueryBadRequest{}
 }
 
-/*PostLearningRulesQueryBadRequest handles this case with default header values.
+/*
+PostLearningRulesQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostLearningRulesQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning rules query bad request response has a 2xx status code
+func (o *PostLearningRulesQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning rules query bad request response has a 3xx status code
+func (o *PostLearningRulesQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning rules query bad request response has a 4xx status code
+func (o *PostLearningRulesQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning rules query bad request response has a 5xx status code
+func (o *PostLearningRulesQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning rules query bad request response a status code equal to that given
+func (o *PostLearningRulesQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLearningRulesQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLearningRulesQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostLearningRulesQueryUnauthorized() *PostLearningRulesQueryUnauthorized
 	return &PostLearningRulesQueryUnauthorized{}
 }
 
-/*PostLearningRulesQueryUnauthorized handles this case with default header values.
+/*
+PostLearningRulesQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostLearningRulesQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning rules query unauthorized response has a 2xx status code
+func (o *PostLearningRulesQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning rules query unauthorized response has a 3xx status code
+func (o *PostLearningRulesQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning rules query unauthorized response has a 4xx status code
+func (o *PostLearningRulesQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning rules query unauthorized response has a 5xx status code
+func (o *PostLearningRulesQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning rules query unauthorized response a status code equal to that given
+func (o *PostLearningRulesQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLearningRulesQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLearningRulesQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostLearningRulesQueryForbidden() *PostLearningRulesQueryForbidden {
 	return &PostLearningRulesQueryForbidden{}
 }
 
-/*PostLearningRulesQueryForbidden handles this case with default header values.
+/*
+PostLearningRulesQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostLearningRulesQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning rules query forbidden response has a 2xx status code
+func (o *PostLearningRulesQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning rules query forbidden response has a 3xx status code
+func (o *PostLearningRulesQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning rules query forbidden response has a 4xx status code
+func (o *PostLearningRulesQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning rules query forbidden response has a 5xx status code
+func (o *PostLearningRulesQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning rules query forbidden response a status code equal to that given
+func (o *PostLearningRulesQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLearningRulesQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLearningRulesQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostLearningRulesQueryNotFound() *PostLearningRulesQueryNotFound {
 	return &PostLearningRulesQueryNotFound{}
 }
 
-/*PostLearningRulesQueryNotFound handles this case with default header values.
+/*
+PostLearningRulesQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostLearningRulesQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning rules query not found response has a 2xx status code
+func (o *PostLearningRulesQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning rules query not found response has a 3xx status code
+func (o *PostLearningRulesQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning rules query not found response has a 4xx status code
+func (o *PostLearningRulesQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning rules query not found response has a 5xx status code
+func (o *PostLearningRulesQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning rules query not found response a status code equal to that given
+func (o *PostLearningRulesQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLearningRulesQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLearningRulesQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostLearningRulesQueryRequestTimeout() *PostLearningRulesQueryRequestTim
 	return &PostLearningRulesQueryRequestTimeout{}
 }
 
-/*PostLearningRulesQueryRequestTimeout handles this case with default header values.
+/*
+PostLearningRulesQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostLearningRulesQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning rules query request timeout response has a 2xx status code
+func (o *PostLearningRulesQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning rules query request timeout response has a 3xx status code
+func (o *PostLearningRulesQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning rules query request timeout response has a 4xx status code
+func (o *PostLearningRulesQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning rules query request timeout response has a 5xx status code
+func (o *PostLearningRulesQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning rules query request timeout response a status code equal to that given
+func (o *PostLearningRulesQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLearningRulesQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLearningRulesQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostLearningRulesQueryRequestEntityTooLarge() *PostLearningRulesQueryReq
 	return &PostLearningRulesQueryRequestEntityTooLarge{}
 }
 
-/*PostLearningRulesQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostLearningRulesQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostLearningRulesQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning rules query request entity too large response has a 2xx status code
+func (o *PostLearningRulesQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning rules query request entity too large response has a 3xx status code
+func (o *PostLearningRulesQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning rules query request entity too large response has a 4xx status code
+func (o *PostLearningRulesQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning rules query request entity too large response has a 5xx status code
+func (o *PostLearningRulesQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning rules query request entity too large response a status code equal to that given
+func (o *PostLearningRulesQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLearningRulesQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLearningRulesQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostLearningRulesQueryUnsupportedMediaType() *PostLearningRulesQueryUnsu
 	return &PostLearningRulesQueryUnsupportedMediaType{}
 }
 
-/*PostLearningRulesQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostLearningRulesQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostLearningRulesQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning rules query unsupported media type response has a 2xx status code
+func (o *PostLearningRulesQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning rules query unsupported media type response has a 3xx status code
+func (o *PostLearningRulesQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning rules query unsupported media type response has a 4xx status code
+func (o *PostLearningRulesQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning rules query unsupported media type response has a 5xx status code
+func (o *PostLearningRulesQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning rules query unsupported media type response a status code equal to that given
+func (o *PostLearningRulesQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLearningRulesQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLearningRulesQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostLearningRulesQueryTooManyRequests() *PostLearningRulesQueryTooManyRe
 	return &PostLearningRulesQueryTooManyRequests{}
 }
 
-/*PostLearningRulesQueryTooManyRequests handles this case with default header values.
+/*
+PostLearningRulesQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostLearningRulesQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning rules query too many requests response has a 2xx status code
+func (o *PostLearningRulesQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning rules query too many requests response has a 3xx status code
+func (o *PostLearningRulesQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning rules query too many requests response has a 4xx status code
+func (o *PostLearningRulesQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning rules query too many requests response has a 5xx status code
+func (o *PostLearningRulesQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning rules query too many requests response a status code equal to that given
+func (o *PostLearningRulesQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLearningRulesQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLearningRulesQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostLearningRulesQueryInternalServerError() *PostLearningRulesQueryInter
 	return &PostLearningRulesQueryInternalServerError{}
 }
 
-/*PostLearningRulesQueryInternalServerError handles this case with default header values.
+/*
+PostLearningRulesQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostLearningRulesQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning rules query internal server error response has a 2xx status code
+func (o *PostLearningRulesQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning rules query internal server error response has a 3xx status code
+func (o *PostLearningRulesQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning rules query internal server error response has a 4xx status code
+func (o *PostLearningRulesQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning rules query internal server error response has a 5xx status code
+func (o *PostLearningRulesQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning rules query internal server error response a status code equal to that given
+func (o *PostLearningRulesQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLearningRulesQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLearningRulesQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostLearningRulesQueryServiceUnavailable() *PostLearningRulesQueryServic
 	return &PostLearningRulesQueryServiceUnavailable{}
 }
 
-/*PostLearningRulesQueryServiceUnavailable handles this case with default header values.
+/*
+PostLearningRulesQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostLearningRulesQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning rules query service unavailable response has a 2xx status code
+func (o *PostLearningRulesQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning rules query service unavailable response has a 3xx status code
+func (o *PostLearningRulesQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning rules query service unavailable response has a 4xx status code
+func (o *PostLearningRulesQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning rules query service unavailable response has a 5xx status code
+func (o *PostLearningRulesQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning rules query service unavailable response a status code equal to that given
+func (o *PostLearningRulesQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLearningRulesQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLearningRulesQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostLearningRulesQueryGatewayTimeout() *PostLearningRulesQueryGatewayTim
 	return &PostLearningRulesQueryGatewayTimeout{}
 }
 
-/*PostLearningRulesQueryGatewayTimeout handles this case with default header values.
+/*
+PostLearningRulesQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostLearningRulesQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning rules query gateway timeout response has a 2xx status code
+func (o *PostLearningRulesQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning rules query gateway timeout response has a 3xx status code
+func (o *PostLearningRulesQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning rules query gateway timeout response has a 4xx status code
+func (o *PostLearningRulesQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning rules query gateway timeout response has a 5xx status code
+func (o *PostLearningRulesQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning rules query gateway timeout response a status code equal to that given
+func (o *PostLearningRulesQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLearningRulesQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLearningRulesQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/rules/query][%d] postLearningRulesQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetKnowledgeGuestSessionDocumentParams creates a new GetKnowledgeGuestSessionDocumentParams object
-// with the default values initialized.
+// NewGetKnowledgeGuestSessionDocumentParams creates a new GetKnowledgeGuestSessionDocumentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeGuestSessionDocumentParams() *GetKnowledgeGuestSessionDocumentParams {
-	var ()
 	return &GetKnowledgeGuestSessionDocumentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeGuestSessionDocumentParamsWithTimeout creates a new GetKnowledgeGuestSessionDocumentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeGuestSessionDocumentParamsWithTimeout(timeout time.Duration) *GetKnowledgeGuestSessionDocumentParams {
-	var ()
 	return &GetKnowledgeGuestSessionDocumentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeGuestSessionDocumentParamsWithContext creates a new GetKnowledgeGuestSessionDocumentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeGuestSessionDocumentParamsWithContext(ctx context.Context) *GetKnowledgeGuestSessionDocumentParams {
-	var ()
 	return &GetKnowledgeGuestSessionDocumentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeGuestSessionDocumentParamsWithHTTPClient creates a new GetKnowledgeGuestSessionDocumentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeGuestSessionDocumentParamsWithHTTPClient(client *http.Client) *GetKnowledgeGuestSessionDocumentParams {
-	var ()
 	return &GetKnowledgeGuestSessionDocumentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeGuestSessionDocumentParams contains all the parameters to send to the API endpoint
-for the get knowledge guest session document operation typically these are written to a http.Request
+/*
+GetKnowledgeGuestSessionDocumentParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge guest session document operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeGuestSessionDocumentParams struct {
 
-	/*DocumentID
-	  Document ID
+	/* DocumentID.
 
+	   Document ID
 	*/
 	DocumentID string
-	/*SessionID
-	  Knowledge guest session ID.
 
+	/* SessionID.
+
+	   Knowledge guest session ID.
 	*/
 	SessionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge guest session document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeGuestSessionDocumentParams) WithDefaults() *GetKnowledgeGuestSessionDocumentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge guest session document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeGuestSessionDocumentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge guest session document params

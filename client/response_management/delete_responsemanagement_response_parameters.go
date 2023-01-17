@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteResponsemanagementResponseParams creates a new DeleteResponsemanagementResponseParams object
-// with the default values initialized.
+// NewDeleteResponsemanagementResponseParams creates a new DeleteResponsemanagementResponseParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteResponsemanagementResponseParams() *DeleteResponsemanagementResponseParams {
-	var ()
 	return &DeleteResponsemanagementResponseParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteResponsemanagementResponseParamsWithTimeout creates a new DeleteResponsemanagementResponseParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteResponsemanagementResponseParamsWithTimeout(timeout time.Duration) *DeleteResponsemanagementResponseParams {
-	var ()
 	return &DeleteResponsemanagementResponseParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteResponsemanagementResponseParamsWithContext creates a new DeleteResponsemanagementResponseParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteResponsemanagementResponseParamsWithContext(ctx context.Context) *DeleteResponsemanagementResponseParams {
-	var ()
 	return &DeleteResponsemanagementResponseParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteResponsemanagementResponseParamsWithHTTPClient creates a new DeleteResponsemanagementResponseParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteResponsemanagementResponseParamsWithHTTPClient(client *http.Client) *DeleteResponsemanagementResponseParams {
-	var ()
 	return &DeleteResponsemanagementResponseParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteResponsemanagementResponseParams contains all the parameters to send to the API endpoint
-for the delete responsemanagement response operation typically these are written to a http.Request
+/*
+DeleteResponsemanagementResponseParams contains all the parameters to send to the API endpoint
+
+	for the delete responsemanagement response operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteResponsemanagementResponseParams struct {
 
-	/*ResponseID
-	  Response ID
+	/* ResponseID.
 
+	   Response ID
 	*/
 	ResponseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete responsemanagement response params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteResponsemanagementResponseParams) WithDefaults() *DeleteResponsemanagementResponseParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete responsemanagement response params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteResponsemanagementResponseParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete responsemanagement response params

@@ -101,7 +101,6 @@ func (o *PutExternalcontactsOrganizationNoteReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutExternalcontactsOrganizationNoteOK() *PutExternalcontactsOrganization
 	return &PutExternalcontactsOrganizationNoteOK{}
 }
 
-/*PutExternalcontactsOrganizationNoteOK handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutExternalcontactsOrganizationNoteOK struct {
 	Payload *models.Note
 }
 
+// IsSuccess returns true when this put externalcontacts organization note o k response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put externalcontacts organization note o k response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note o k response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put externalcontacts organization note o k response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts organization note o k response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutExternalcontactsOrganizationNoteOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteOK  %+v", 200, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutExternalcontactsOrganizationNoteBadRequest() *PutExternalcontactsOrga
 	return &PutExternalcontactsOrganizationNoteBadRequest{}
 }
 
-/*PutExternalcontactsOrganizationNoteBadRequest handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutExternalcontactsOrganizationNoteBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts organization note bad request response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts organization note bad request response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note bad request response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts organization note bad request response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts organization note bad request response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutExternalcontactsOrganizationNoteBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutExternalcontactsOrganizationNoteUnauthorized() *PutExternalcontactsOr
 	return &PutExternalcontactsOrganizationNoteUnauthorized{}
 }
 
-/*PutExternalcontactsOrganizationNoteUnauthorized handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutExternalcontactsOrganizationNoteUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts organization note unauthorized response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts organization note unauthorized response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note unauthorized response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts organization note unauthorized response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts organization note unauthorized response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutExternalcontactsOrganizationNoteUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutExternalcontactsOrganizationNoteForbidden() *PutExternalcontactsOrgan
 	return &PutExternalcontactsOrganizationNoteForbidden{}
 }
 
-/*PutExternalcontactsOrganizationNoteForbidden handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutExternalcontactsOrganizationNoteForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts organization note forbidden response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts organization note forbidden response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note forbidden response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts organization note forbidden response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts organization note forbidden response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutExternalcontactsOrganizationNoteForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutExternalcontactsOrganizationNoteNotFound() *PutExternalcontactsOrgani
 	return &PutExternalcontactsOrganizationNoteNotFound{}
 }
 
-/*PutExternalcontactsOrganizationNoteNotFound handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutExternalcontactsOrganizationNoteNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts organization note not found response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts organization note not found response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note not found response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts organization note not found response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts organization note not found response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutExternalcontactsOrganizationNoteNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutExternalcontactsOrganizationNoteRequestTimeout() *PutExternalcontacts
 	return &PutExternalcontactsOrganizationNoteRequestTimeout{}
 }
 
-/*PutExternalcontactsOrganizationNoteRequestTimeout handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutExternalcontactsOrganizationNoteRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts organization note request timeout response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts organization note request timeout response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note request timeout response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts organization note request timeout response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts organization note request timeout response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutExternalcontactsOrganizationNoteRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutExternalcontactsOrganizationNoteRequestEntityTooLarge() *PutExternalc
 	return &PutExternalcontactsOrganizationNoteRequestEntityTooLarge{}
 }
 
-/*PutExternalcontactsOrganizationNoteRequestEntityTooLarge handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -318,7 +498,36 @@ type PutExternalcontactsOrganizationNoteRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts organization note request entity too large response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts organization note request entity too large response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note request entity too large response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts organization note request entity too large response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts organization note request entity too large response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutExternalcontactsOrganizationNoteRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutExternalcontactsOrganizationNoteUnsupportedMediaType() *PutExternalco
 	return &PutExternalcontactsOrganizationNoteUnsupportedMediaType{}
 }
 
-/*PutExternalcontactsOrganizationNoteUnsupportedMediaType handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -351,7 +561,36 @@ type PutExternalcontactsOrganizationNoteUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts organization note unsupported media type response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts organization note unsupported media type response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note unsupported media type response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts organization note unsupported media type response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts organization note unsupported media type response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutExternalcontactsOrganizationNoteUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutExternalcontactsOrganizationNoteUnprocessableEntity() *PutExternalcon
 	return &PutExternalcontactsOrganizationNoteUnprocessableEntity{}
 }
 
-/*PutExternalcontactsOrganizationNoteUnprocessableEntity handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteUnprocessableEntity describes a response with status code 422, with default header values.
 
 PutExternalcontactsOrganizationNoteUnprocessableEntity put externalcontacts organization note unprocessable entity
 */
@@ -384,7 +624,36 @@ type PutExternalcontactsOrganizationNoteUnprocessableEntity struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts organization note unprocessable entity response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteUnprocessableEntity) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts organization note unprocessable entity response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteUnprocessableEntity) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note unprocessable entity response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteUnprocessableEntity) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts organization note unprocessable entity response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteUnprocessableEntity) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts organization note unprocessable entity response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteUnprocessableEntity) IsCode(code int) bool {
+	return code == 422
+}
+
 func (o *PutExternalcontactsOrganizationNoteUnprocessableEntity) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteUnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteUnprocessableEntity) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteUnprocessableEntity  %+v", 422, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutExternalcontactsOrganizationNoteTooManyRequests() *PutExternalcontact
 	return &PutExternalcontactsOrganizationNoteTooManyRequests{}
 }
 
-/*PutExternalcontactsOrganizationNoteTooManyRequests handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutExternalcontactsOrganizationNoteTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts organization note too many requests response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts organization note too many requests response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note too many requests response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts organization note too many requests response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts organization note too many requests response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutExternalcontactsOrganizationNoteTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutExternalcontactsOrganizationNoteInternalServerError() *PutExternalcon
 	return &PutExternalcontactsOrganizationNoteInternalServerError{}
 }
 
-/*PutExternalcontactsOrganizationNoteInternalServerError handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutExternalcontactsOrganizationNoteInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts organization note internal server error response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts organization note internal server error response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note internal server error response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put externalcontacts organization note internal server error response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put externalcontacts organization note internal server error response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutExternalcontactsOrganizationNoteInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutExternalcontactsOrganizationNoteServiceUnavailable() *PutExternalcont
 	return &PutExternalcontactsOrganizationNoteServiceUnavailable{}
 }
 
-/*PutExternalcontactsOrganizationNoteServiceUnavailable handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutExternalcontactsOrganizationNoteServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts organization note service unavailable response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts organization note service unavailable response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note service unavailable response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put externalcontacts organization note service unavailable response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put externalcontacts organization note service unavailable response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutExternalcontactsOrganizationNoteServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutExternalcontactsOrganizationNoteGatewayTimeout() *PutExternalcontacts
 	return &PutExternalcontactsOrganizationNoteGatewayTimeout{}
 }
 
-/*PutExternalcontactsOrganizationNoteGatewayTimeout handles this case with default header values.
+/*
+PutExternalcontactsOrganizationNoteGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutExternalcontactsOrganizationNoteGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts organization note gateway timeout response has a 2xx status code
+func (o *PutExternalcontactsOrganizationNoteGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts organization note gateway timeout response has a 3xx status code
+func (o *PutExternalcontactsOrganizationNoteGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts organization note gateway timeout response has a 4xx status code
+func (o *PutExternalcontactsOrganizationNoteGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put externalcontacts organization note gateway timeout response has a 5xx status code
+func (o *PutExternalcontactsOrganizationNoteGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put externalcontacts organization note gateway timeout response a status code equal to that given
+func (o *PutExternalcontactsOrganizationNoteGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutExternalcontactsOrganizationNoteGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutExternalcontactsOrganizationNoteGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/organizations/{externalOrganizationId}/notes/{noteId}][%d] putExternalcontactsOrganizationNoteGatewayTimeout  %+v", 504, o.Payload)
 }
 

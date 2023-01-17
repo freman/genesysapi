@@ -95,7 +95,6 @@ func (o *PostGamificationProfileMembersReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostGamificationProfileMembersOK() *PostGamificationProfileMembersOK {
 	return &PostGamificationProfileMembersOK{}
 }
 
-/*PostGamificationProfileMembersOK handles this case with default header values.
+/*
+PostGamificationProfileMembersOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostGamificationProfileMembersOK struct {
 	Payload *models.Assignment
 }
 
+// IsSuccess returns true when this post gamification profile members o k response has a 2xx status code
+func (o *PostGamificationProfileMembersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post gamification profile members o k response has a 3xx status code
+func (o *PostGamificationProfileMembersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile members o k response has a 4xx status code
+func (o *PostGamificationProfileMembersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post gamification profile members o k response has a 5xx status code
+func (o *PostGamificationProfileMembersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile members o k response a status code equal to that given
+func (o *PostGamificationProfileMembersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostGamificationProfileMembersOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersOK  %+v", 200, o.Payload)
+}
+
+func (o *PostGamificationProfileMembersOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostGamificationProfileMembersBadRequest() *PostGamificationProfileMembe
 	return &PostGamificationProfileMembersBadRequest{}
 }
 
-/*PostGamificationProfileMembersBadRequest handles this case with default header values.
+/*
+PostGamificationProfileMembersBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostGamificationProfileMembersBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile members bad request response has a 2xx status code
+func (o *PostGamificationProfileMembersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile members bad request response has a 3xx status code
+func (o *PostGamificationProfileMembersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile members bad request response has a 4xx status code
+func (o *PostGamificationProfileMembersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile members bad request response has a 5xx status code
+func (o *PostGamificationProfileMembersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile members bad request response a status code equal to that given
+func (o *PostGamificationProfileMembersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostGamificationProfileMembersBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostGamificationProfileMembersBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostGamificationProfileMembersUnauthorized() *PostGamificationProfileMem
 	return &PostGamificationProfileMembersUnauthorized{}
 }
 
-/*PostGamificationProfileMembersUnauthorized handles this case with default header values.
+/*
+PostGamificationProfileMembersUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostGamificationProfileMembersUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile members unauthorized response has a 2xx status code
+func (o *PostGamificationProfileMembersUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile members unauthorized response has a 3xx status code
+func (o *PostGamificationProfileMembersUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile members unauthorized response has a 4xx status code
+func (o *PostGamificationProfileMembersUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile members unauthorized response has a 5xx status code
+func (o *PostGamificationProfileMembersUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile members unauthorized response a status code equal to that given
+func (o *PostGamificationProfileMembersUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostGamificationProfileMembersUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostGamificationProfileMembersUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostGamificationProfileMembersForbidden() *PostGamificationProfileMember
 	return &PostGamificationProfileMembersForbidden{}
 }
 
-/*PostGamificationProfileMembersForbidden handles this case with default header values.
+/*
+PostGamificationProfileMembersForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostGamificationProfileMembersForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile members forbidden response has a 2xx status code
+func (o *PostGamificationProfileMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile members forbidden response has a 3xx status code
+func (o *PostGamificationProfileMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile members forbidden response has a 4xx status code
+func (o *PostGamificationProfileMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile members forbidden response has a 5xx status code
+func (o *PostGamificationProfileMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile members forbidden response a status code equal to that given
+func (o *PostGamificationProfileMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostGamificationProfileMembersForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostGamificationProfileMembersForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostGamificationProfileMembersNotFound() *PostGamificationProfileMembers
 	return &PostGamificationProfileMembersNotFound{}
 }
 
-/*PostGamificationProfileMembersNotFound handles this case with default header values.
+/*
+PostGamificationProfileMembersNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostGamificationProfileMembersNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile members not found response has a 2xx status code
+func (o *PostGamificationProfileMembersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile members not found response has a 3xx status code
+func (o *PostGamificationProfileMembersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile members not found response has a 4xx status code
+func (o *PostGamificationProfileMembersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile members not found response has a 5xx status code
+func (o *PostGamificationProfileMembersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile members not found response a status code equal to that given
+func (o *PostGamificationProfileMembersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostGamificationProfileMembersNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostGamificationProfileMembersNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostGamificationProfileMembersRequestTimeout() *PostGamificationProfileM
 	return &PostGamificationProfileMembersRequestTimeout{}
 }
 
-/*PostGamificationProfileMembersRequestTimeout handles this case with default header values.
+/*
+PostGamificationProfileMembersRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostGamificationProfileMembersRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile members request timeout response has a 2xx status code
+func (o *PostGamificationProfileMembersRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile members request timeout response has a 3xx status code
+func (o *PostGamificationProfileMembersRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile members request timeout response has a 4xx status code
+func (o *PostGamificationProfileMembersRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile members request timeout response has a 5xx status code
+func (o *PostGamificationProfileMembersRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile members request timeout response a status code equal to that given
+func (o *PostGamificationProfileMembersRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostGamificationProfileMembersRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostGamificationProfileMembersRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostGamificationProfileMembersRequestEntityTooLarge() *PostGamificationP
 	return &PostGamificationProfileMembersRequestEntityTooLarge{}
 }
 
-/*PostGamificationProfileMembersRequestEntityTooLarge handles this case with default header values.
+/*
+PostGamificationProfileMembersRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostGamificationProfileMembersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile members request entity too large response has a 2xx status code
+func (o *PostGamificationProfileMembersRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile members request entity too large response has a 3xx status code
+func (o *PostGamificationProfileMembersRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile members request entity too large response has a 4xx status code
+func (o *PostGamificationProfileMembersRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile members request entity too large response has a 5xx status code
+func (o *PostGamificationProfileMembersRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile members request entity too large response a status code equal to that given
+func (o *PostGamificationProfileMembersRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostGamificationProfileMembersRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostGamificationProfileMembersRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostGamificationProfileMembersUnsupportedMediaType() *PostGamificationPr
 	return &PostGamificationProfileMembersUnsupportedMediaType{}
 }
 
-/*PostGamificationProfileMembersUnsupportedMediaType handles this case with default header values.
+/*
+PostGamificationProfileMembersUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostGamificationProfileMembersUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile members unsupported media type response has a 2xx status code
+func (o *PostGamificationProfileMembersUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile members unsupported media type response has a 3xx status code
+func (o *PostGamificationProfileMembersUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile members unsupported media type response has a 4xx status code
+func (o *PostGamificationProfileMembersUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile members unsupported media type response has a 5xx status code
+func (o *PostGamificationProfileMembersUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile members unsupported media type response a status code equal to that given
+func (o *PostGamificationProfileMembersUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostGamificationProfileMembersUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostGamificationProfileMembersUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostGamificationProfileMembersTooManyRequests() *PostGamificationProfile
 	return &PostGamificationProfileMembersTooManyRequests{}
 }
 
-/*PostGamificationProfileMembersTooManyRequests handles this case with default header values.
+/*
+PostGamificationProfileMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostGamificationProfileMembersTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile members too many requests response has a 2xx status code
+func (o *PostGamificationProfileMembersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile members too many requests response has a 3xx status code
+func (o *PostGamificationProfileMembersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile members too many requests response has a 4xx status code
+func (o *PostGamificationProfileMembersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile members too many requests response has a 5xx status code
+func (o *PostGamificationProfileMembersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile members too many requests response a status code equal to that given
+func (o *PostGamificationProfileMembersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostGamificationProfileMembersTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostGamificationProfileMembersTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostGamificationProfileMembersInternalServerError() *PostGamificationPro
 	return &PostGamificationProfileMembersInternalServerError{}
 }
 
-/*PostGamificationProfileMembersInternalServerError handles this case with default header values.
+/*
+PostGamificationProfileMembersInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostGamificationProfileMembersInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile members internal server error response has a 2xx status code
+func (o *PostGamificationProfileMembersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile members internal server error response has a 3xx status code
+func (o *PostGamificationProfileMembersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile members internal server error response has a 4xx status code
+func (o *PostGamificationProfileMembersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post gamification profile members internal server error response has a 5xx status code
+func (o *PostGamificationProfileMembersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post gamification profile members internal server error response a status code equal to that given
+func (o *PostGamificationProfileMembersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostGamificationProfileMembersInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostGamificationProfileMembersInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostGamificationProfileMembersServiceUnavailable() *PostGamificationProf
 	return &PostGamificationProfileMembersServiceUnavailable{}
 }
 
-/*PostGamificationProfileMembersServiceUnavailable handles this case with default header values.
+/*
+PostGamificationProfileMembersServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostGamificationProfileMembersServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile members service unavailable response has a 2xx status code
+func (o *PostGamificationProfileMembersServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile members service unavailable response has a 3xx status code
+func (o *PostGamificationProfileMembersServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile members service unavailable response has a 4xx status code
+func (o *PostGamificationProfileMembersServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post gamification profile members service unavailable response has a 5xx status code
+func (o *PostGamificationProfileMembersServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post gamification profile members service unavailable response a status code equal to that given
+func (o *PostGamificationProfileMembersServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostGamificationProfileMembersServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostGamificationProfileMembersServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostGamificationProfileMembersGatewayTimeout() *PostGamificationProfileM
 	return &PostGamificationProfileMembersGatewayTimeout{}
 }
 
-/*PostGamificationProfileMembersGatewayTimeout handles this case with default header values.
+/*
+PostGamificationProfileMembersGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostGamificationProfileMembersGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile members gateway timeout response has a 2xx status code
+func (o *PostGamificationProfileMembersGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile members gateway timeout response has a 3xx status code
+func (o *PostGamificationProfileMembersGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile members gateway timeout response has a 4xx status code
+func (o *PostGamificationProfileMembersGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post gamification profile members gateway timeout response has a 5xx status code
+func (o *PostGamificationProfileMembersGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post gamification profile members gateway timeout response a status code equal to that given
+func (o *PostGamificationProfileMembersGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostGamificationProfileMembersGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostGamificationProfileMembersGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/members][%d] postGamificationProfileMembersGatewayTimeout  %+v", 504, o.Payload)
 }
 

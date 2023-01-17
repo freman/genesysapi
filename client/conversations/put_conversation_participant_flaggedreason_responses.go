@@ -95,7 +95,6 @@ func (o *PutConversationParticipantFlaggedreasonReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPutConversationParticipantFlaggedreasonNoContent() *PutConversationParti
 	return &PutConversationParticipantFlaggedreasonNoContent{}
 }
 
-/*PutConversationParticipantFlaggedreasonNoContent handles this case with default header values.
+/*
+PutConversationParticipantFlaggedreasonNoContent describes a response with status code 204, with default header values.
 
 The flagged reason was set successfully.
 */
 type PutConversationParticipantFlaggedreasonNoContent struct {
 }
 
+// IsSuccess returns true when this put conversation participant flaggedreason no content response has a 2xx status code
+func (o *PutConversationParticipantFlaggedreasonNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversation participant flaggedreason no content response has a 3xx status code
+func (o *PutConversationParticipantFlaggedreasonNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation participant flaggedreason no content response has a 4xx status code
+func (o *PutConversationParticipantFlaggedreasonNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversation participant flaggedreason no content response has a 5xx status code
+func (o *PutConversationParticipantFlaggedreasonNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation participant flaggedreason no content response a status code equal to that given
+func (o *PutConversationParticipantFlaggedreasonNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PutConversationParticipantFlaggedreasonNoContent) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonNoContent ", 204)
+}
+
+func (o *PutConversationParticipantFlaggedreasonNoContent) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewPutConversationParticipantFlaggedreasonBadRequest() *PutConversationPart
 	return &PutConversationParticipantFlaggedreasonBadRequest{}
 }
 
-/*PutConversationParticipantFlaggedreasonBadRequest handles this case with default header values.
+/*
+PutConversationParticipantFlaggedreasonBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PutConversationParticipantFlaggedreasonBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation participant flaggedreason bad request response has a 2xx status code
+func (o *PutConversationParticipantFlaggedreasonBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation participant flaggedreason bad request response has a 3xx status code
+func (o *PutConversationParticipantFlaggedreasonBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation participant flaggedreason bad request response has a 4xx status code
+func (o *PutConversationParticipantFlaggedreasonBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation participant flaggedreason bad request response has a 5xx status code
+func (o *PutConversationParticipantFlaggedreasonBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation participant flaggedreason bad request response a status code equal to that given
+func (o *PutConversationParticipantFlaggedreasonBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutConversationParticipantFlaggedreasonBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutConversationParticipantFlaggedreasonBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPutConversationParticipantFlaggedreasonUnauthorized() *PutConversationPa
 	return &PutConversationParticipantFlaggedreasonUnauthorized{}
 }
 
-/*PutConversationParticipantFlaggedreasonUnauthorized handles this case with default header values.
+/*
+PutConversationParticipantFlaggedreasonUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PutConversationParticipantFlaggedreasonUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation participant flaggedreason unauthorized response has a 2xx status code
+func (o *PutConversationParticipantFlaggedreasonUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation participant flaggedreason unauthorized response has a 3xx status code
+func (o *PutConversationParticipantFlaggedreasonUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation participant flaggedreason unauthorized response has a 4xx status code
+func (o *PutConversationParticipantFlaggedreasonUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation participant flaggedreason unauthorized response has a 5xx status code
+func (o *PutConversationParticipantFlaggedreasonUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation participant flaggedreason unauthorized response a status code equal to that given
+func (o *PutConversationParticipantFlaggedreasonUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutConversationParticipantFlaggedreasonUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutConversationParticipantFlaggedreasonUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPutConversationParticipantFlaggedreasonForbidden() *PutConversationParti
 	return &PutConversationParticipantFlaggedreasonForbidden{}
 }
 
-/*PutConversationParticipantFlaggedreasonForbidden handles this case with default header values.
+/*
+PutConversationParticipantFlaggedreasonForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PutConversationParticipantFlaggedreasonForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation participant flaggedreason forbidden response has a 2xx status code
+func (o *PutConversationParticipantFlaggedreasonForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation participant flaggedreason forbidden response has a 3xx status code
+func (o *PutConversationParticipantFlaggedreasonForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation participant flaggedreason forbidden response has a 4xx status code
+func (o *PutConversationParticipantFlaggedreasonForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation participant flaggedreason forbidden response has a 5xx status code
+func (o *PutConversationParticipantFlaggedreasonForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation participant flaggedreason forbidden response a status code equal to that given
+func (o *PutConversationParticipantFlaggedreasonForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutConversationParticipantFlaggedreasonForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutConversationParticipantFlaggedreasonForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPutConversationParticipantFlaggedreasonNotFound() *PutConversationPartic
 	return &PutConversationParticipantFlaggedreasonNotFound{}
 }
 
-/*PutConversationParticipantFlaggedreasonNotFound handles this case with default header values.
+/*
+PutConversationParticipantFlaggedreasonNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PutConversationParticipantFlaggedreasonNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation participant flaggedreason not found response has a 2xx status code
+func (o *PutConversationParticipantFlaggedreasonNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation participant flaggedreason not found response has a 3xx status code
+func (o *PutConversationParticipantFlaggedreasonNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation participant flaggedreason not found response has a 4xx status code
+func (o *PutConversationParticipantFlaggedreasonNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation participant flaggedreason not found response has a 5xx status code
+func (o *PutConversationParticipantFlaggedreasonNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation participant flaggedreason not found response a status code equal to that given
+func (o *PutConversationParticipantFlaggedreasonNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutConversationParticipantFlaggedreasonNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutConversationParticipantFlaggedreasonNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPutConversationParticipantFlaggedreasonRequestTimeout() *PutConversation
 	return &PutConversationParticipantFlaggedreasonRequestTimeout{}
 }
 
-/*PutConversationParticipantFlaggedreasonRequestTimeout handles this case with default header values.
+/*
+PutConversationParticipantFlaggedreasonRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PutConversationParticipantFlaggedreasonRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation participant flaggedreason request timeout response has a 2xx status code
+func (o *PutConversationParticipantFlaggedreasonRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation participant flaggedreason request timeout response has a 3xx status code
+func (o *PutConversationParticipantFlaggedreasonRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation participant flaggedreason request timeout response has a 4xx status code
+func (o *PutConversationParticipantFlaggedreasonRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation participant flaggedreason request timeout response has a 5xx status code
+func (o *PutConversationParticipantFlaggedreasonRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation participant flaggedreason request timeout response a status code equal to that given
+func (o *PutConversationParticipantFlaggedreasonRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutConversationParticipantFlaggedreasonRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationParticipantFlaggedreasonRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPutConversationParticipantFlaggedreasonRequestEntityTooLarge() *PutConve
 	return &PutConversationParticipantFlaggedreasonRequestEntityTooLarge{}
 }
 
-/*PutConversationParticipantFlaggedreasonRequestEntityTooLarge handles this case with default header values.
+/*
+PutConversationParticipantFlaggedreasonRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PutConversationParticipantFlaggedreasonRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation participant flaggedreason request entity too large response has a 2xx status code
+func (o *PutConversationParticipantFlaggedreasonRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation participant flaggedreason request entity too large response has a 3xx status code
+func (o *PutConversationParticipantFlaggedreasonRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation participant flaggedreason request entity too large response has a 4xx status code
+func (o *PutConversationParticipantFlaggedreasonRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation participant flaggedreason request entity too large response has a 5xx status code
+func (o *PutConversationParticipantFlaggedreasonRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation participant flaggedreason request entity too large response a status code equal to that given
+func (o *PutConversationParticipantFlaggedreasonRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutConversationParticipantFlaggedreasonRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutConversationParticipantFlaggedreasonRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPutConversationParticipantFlaggedreasonUnsupportedMediaType() *PutConver
 	return &PutConversationParticipantFlaggedreasonUnsupportedMediaType{}
 }
 
-/*PutConversationParticipantFlaggedreasonUnsupportedMediaType handles this case with default header values.
+/*
+PutConversationParticipantFlaggedreasonUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PutConversationParticipantFlaggedreasonUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation participant flaggedreason unsupported media type response has a 2xx status code
+func (o *PutConversationParticipantFlaggedreasonUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation participant flaggedreason unsupported media type response has a 3xx status code
+func (o *PutConversationParticipantFlaggedreasonUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation participant flaggedreason unsupported media type response has a 4xx status code
+func (o *PutConversationParticipantFlaggedreasonUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation participant flaggedreason unsupported media type response has a 5xx status code
+func (o *PutConversationParticipantFlaggedreasonUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation participant flaggedreason unsupported media type response a status code equal to that given
+func (o *PutConversationParticipantFlaggedreasonUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutConversationParticipantFlaggedreasonUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutConversationParticipantFlaggedreasonUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPutConversationParticipantFlaggedreasonTooManyRequests() *PutConversatio
 	return &PutConversationParticipantFlaggedreasonTooManyRequests{}
 }
 
-/*PutConversationParticipantFlaggedreasonTooManyRequests handles this case with default header values.
+/*
+PutConversationParticipantFlaggedreasonTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PutConversationParticipantFlaggedreasonTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation participant flaggedreason too many requests response has a 2xx status code
+func (o *PutConversationParticipantFlaggedreasonTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation participant flaggedreason too many requests response has a 3xx status code
+func (o *PutConversationParticipantFlaggedreasonTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation participant flaggedreason too many requests response has a 4xx status code
+func (o *PutConversationParticipantFlaggedreasonTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversation participant flaggedreason too many requests response has a 5xx status code
+func (o *PutConversationParticipantFlaggedreasonTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversation participant flaggedreason too many requests response a status code equal to that given
+func (o *PutConversationParticipantFlaggedreasonTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutConversationParticipantFlaggedreasonTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutConversationParticipantFlaggedreasonTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPutConversationParticipantFlaggedreasonInternalServerError() *PutConvers
 	return &PutConversationParticipantFlaggedreasonInternalServerError{}
 }
 
-/*PutConversationParticipantFlaggedreasonInternalServerError handles this case with default header values.
+/*
+PutConversationParticipantFlaggedreasonInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PutConversationParticipantFlaggedreasonInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation participant flaggedreason internal server error response has a 2xx status code
+func (o *PutConversationParticipantFlaggedreasonInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation participant flaggedreason internal server error response has a 3xx status code
+func (o *PutConversationParticipantFlaggedreasonInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation participant flaggedreason internal server error response has a 4xx status code
+func (o *PutConversationParticipantFlaggedreasonInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversation participant flaggedreason internal server error response has a 5xx status code
+func (o *PutConversationParticipantFlaggedreasonInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversation participant flaggedreason internal server error response a status code equal to that given
+func (o *PutConversationParticipantFlaggedreasonInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutConversationParticipantFlaggedreasonInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutConversationParticipantFlaggedreasonInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPutConversationParticipantFlaggedreasonServiceUnavailable() *PutConversa
 	return &PutConversationParticipantFlaggedreasonServiceUnavailable{}
 }
 
-/*PutConversationParticipantFlaggedreasonServiceUnavailable handles this case with default header values.
+/*
+PutConversationParticipantFlaggedreasonServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PutConversationParticipantFlaggedreasonServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation participant flaggedreason service unavailable response has a 2xx status code
+func (o *PutConversationParticipantFlaggedreasonServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation participant flaggedreason service unavailable response has a 3xx status code
+func (o *PutConversationParticipantFlaggedreasonServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation participant flaggedreason service unavailable response has a 4xx status code
+func (o *PutConversationParticipantFlaggedreasonServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversation participant flaggedreason service unavailable response has a 5xx status code
+func (o *PutConversationParticipantFlaggedreasonServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversation participant flaggedreason service unavailable response a status code equal to that given
+func (o *PutConversationParticipantFlaggedreasonServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutConversationParticipantFlaggedreasonServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutConversationParticipantFlaggedreasonServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPutConversationParticipantFlaggedreasonGatewayTimeout() *PutConversation
 	return &PutConversationParticipantFlaggedreasonGatewayTimeout{}
 }
 
-/*PutConversationParticipantFlaggedreasonGatewayTimeout handles this case with default header values.
+/*
+PutConversationParticipantFlaggedreasonGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PutConversationParticipantFlaggedreasonGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversation participant flaggedreason gateway timeout response has a 2xx status code
+func (o *PutConversationParticipantFlaggedreasonGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversation participant flaggedreason gateway timeout response has a 3xx status code
+func (o *PutConversationParticipantFlaggedreasonGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversation participant flaggedreason gateway timeout response has a 4xx status code
+func (o *PutConversationParticipantFlaggedreasonGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversation participant flaggedreason gateway timeout response has a 5xx status code
+func (o *PutConversationParticipantFlaggedreasonGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversation participant flaggedreason gateway timeout response a status code equal to that given
+func (o *PutConversationParticipantFlaggedreasonGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutConversationParticipantFlaggedreasonGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutConversationParticipantFlaggedreasonGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] putConversationParticipantFlaggedreasonGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -101,7 +101,6 @@ func (o *PostLearningAssignmentResetReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostLearningAssignmentResetOK() *PostLearningAssignmentResetOK {
 	return &PostLearningAssignmentResetOK{}
 }
 
-/*PostLearningAssignmentResetOK handles this case with default header values.
+/*
+PostLearningAssignmentResetOK describes a response with status code 200, with default header values.
 
 Reset version of assignment which can be taken again
 */
@@ -120,7 +120,36 @@ type PostLearningAssignmentResetOK struct {
 	Payload *models.LearningAssignment
 }
 
+// IsSuccess returns true when this post learning assignment reset o k response has a 2xx status code
+func (o *PostLearningAssignmentResetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post learning assignment reset o k response has a 3xx status code
+func (o *PostLearningAssignmentResetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset o k response has a 4xx status code
+func (o *PostLearningAssignmentResetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignment reset o k response has a 5xx status code
+func (o *PostLearningAssignmentResetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignment reset o k response a status code equal to that given
+func (o *PostLearningAssignmentResetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLearningAssignmentResetOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostLearningAssignmentResetBadRequest() *PostLearningAssignmentResetBadR
 	return &PostLearningAssignmentResetBadRequest{}
 }
 
-/*PostLearningAssignmentResetBadRequest handles this case with default header values.
+/*
+PostLearningAssignmentResetBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostLearningAssignmentResetBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignment reset bad request response has a 2xx status code
+func (o *PostLearningAssignmentResetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignment reset bad request response has a 3xx status code
+func (o *PostLearningAssignmentResetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset bad request response has a 4xx status code
+func (o *PostLearningAssignmentResetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignment reset bad request response has a 5xx status code
+func (o *PostLearningAssignmentResetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignment reset bad request response a status code equal to that given
+func (o *PostLearningAssignmentResetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLearningAssignmentResetBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostLearningAssignmentResetUnauthorized() *PostLearningAssignmentResetUn
 	return &PostLearningAssignmentResetUnauthorized{}
 }
 
-/*PostLearningAssignmentResetUnauthorized handles this case with default header values.
+/*
+PostLearningAssignmentResetUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostLearningAssignmentResetUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignment reset unauthorized response has a 2xx status code
+func (o *PostLearningAssignmentResetUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignment reset unauthorized response has a 3xx status code
+func (o *PostLearningAssignmentResetUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset unauthorized response has a 4xx status code
+func (o *PostLearningAssignmentResetUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignment reset unauthorized response has a 5xx status code
+func (o *PostLearningAssignmentResetUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignment reset unauthorized response a status code equal to that given
+func (o *PostLearningAssignmentResetUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLearningAssignmentResetUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostLearningAssignmentResetForbidden() *PostLearningAssignmentResetForbi
 	return &PostLearningAssignmentResetForbidden{}
 }
 
-/*PostLearningAssignmentResetForbidden handles this case with default header values.
+/*
+PostLearningAssignmentResetForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostLearningAssignmentResetForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignment reset forbidden response has a 2xx status code
+func (o *PostLearningAssignmentResetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignment reset forbidden response has a 3xx status code
+func (o *PostLearningAssignmentResetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset forbidden response has a 4xx status code
+func (o *PostLearningAssignmentResetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignment reset forbidden response has a 5xx status code
+func (o *PostLearningAssignmentResetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignment reset forbidden response a status code equal to that given
+func (o *PostLearningAssignmentResetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLearningAssignmentResetForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostLearningAssignmentResetNotFound() *PostLearningAssignmentResetNotFou
 	return &PostLearningAssignmentResetNotFound{}
 }
 
-/*PostLearningAssignmentResetNotFound handles this case with default header values.
+/*
+PostLearningAssignmentResetNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostLearningAssignmentResetNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignment reset not found response has a 2xx status code
+func (o *PostLearningAssignmentResetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignment reset not found response has a 3xx status code
+func (o *PostLearningAssignmentResetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset not found response has a 4xx status code
+func (o *PostLearningAssignmentResetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignment reset not found response has a 5xx status code
+func (o *PostLearningAssignmentResetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignment reset not found response a status code equal to that given
+func (o *PostLearningAssignmentResetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLearningAssignmentResetNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostLearningAssignmentResetRequestTimeout() *PostLearningAssignmentReset
 	return &PostLearningAssignmentResetRequestTimeout{}
 }
 
-/*PostLearningAssignmentResetRequestTimeout handles this case with default header values.
+/*
+PostLearningAssignmentResetRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostLearningAssignmentResetRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignment reset request timeout response has a 2xx status code
+func (o *PostLearningAssignmentResetRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignment reset request timeout response has a 3xx status code
+func (o *PostLearningAssignmentResetRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset request timeout response has a 4xx status code
+func (o *PostLearningAssignmentResetRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignment reset request timeout response has a 5xx status code
+func (o *PostLearningAssignmentResetRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignment reset request timeout response a status code equal to that given
+func (o *PostLearningAssignmentResetRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLearningAssignmentResetRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostLearningAssignmentResetConflict() *PostLearningAssignmentResetConfli
 	return &PostLearningAssignmentResetConflict{}
 }
 
-/*PostLearningAssignmentResetConflict handles this case with default header values.
+/*
+PostLearningAssignmentResetConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PostLearningAssignmentResetConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignment reset conflict response has a 2xx status code
+func (o *PostLearningAssignmentResetConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignment reset conflict response has a 3xx status code
+func (o *PostLearningAssignmentResetConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset conflict response has a 4xx status code
+func (o *PostLearningAssignmentResetConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignment reset conflict response has a 5xx status code
+func (o *PostLearningAssignmentResetConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignment reset conflict response a status code equal to that given
+func (o *PostLearningAssignmentResetConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostLearningAssignmentResetConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostLearningAssignmentResetRequestEntityTooLarge() *PostLearningAssignme
 	return &PostLearningAssignmentResetRequestEntityTooLarge{}
 }
 
-/*PostLearningAssignmentResetRequestEntityTooLarge handles this case with default header values.
+/*
+PostLearningAssignmentResetRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostLearningAssignmentResetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignment reset request entity too large response has a 2xx status code
+func (o *PostLearningAssignmentResetRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignment reset request entity too large response has a 3xx status code
+func (o *PostLearningAssignmentResetRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset request entity too large response has a 4xx status code
+func (o *PostLearningAssignmentResetRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignment reset request entity too large response has a 5xx status code
+func (o *PostLearningAssignmentResetRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignment reset request entity too large response a status code equal to that given
+func (o *PostLearningAssignmentResetRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLearningAssignmentResetRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostLearningAssignmentResetUnsupportedMediaType() *PostLearningAssignmen
 	return &PostLearningAssignmentResetUnsupportedMediaType{}
 }
 
-/*PostLearningAssignmentResetUnsupportedMediaType handles this case with default header values.
+/*
+PostLearningAssignmentResetUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostLearningAssignmentResetUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignment reset unsupported media type response has a 2xx status code
+func (o *PostLearningAssignmentResetUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignment reset unsupported media type response has a 3xx status code
+func (o *PostLearningAssignmentResetUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset unsupported media type response has a 4xx status code
+func (o *PostLearningAssignmentResetUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignment reset unsupported media type response has a 5xx status code
+func (o *PostLearningAssignmentResetUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignment reset unsupported media type response a status code equal to that given
+func (o *PostLearningAssignmentResetUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLearningAssignmentResetUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostLearningAssignmentResetTooManyRequests() *PostLearningAssignmentRese
 	return &PostLearningAssignmentResetTooManyRequests{}
 }
 
-/*PostLearningAssignmentResetTooManyRequests handles this case with default header values.
+/*
+PostLearningAssignmentResetTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostLearningAssignmentResetTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignment reset too many requests response has a 2xx status code
+func (o *PostLearningAssignmentResetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignment reset too many requests response has a 3xx status code
+func (o *PostLearningAssignmentResetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset too many requests response has a 4xx status code
+func (o *PostLearningAssignmentResetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignment reset too many requests response has a 5xx status code
+func (o *PostLearningAssignmentResetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignment reset too many requests response a status code equal to that given
+func (o *PostLearningAssignmentResetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLearningAssignmentResetTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostLearningAssignmentResetInternalServerError() *PostLearningAssignment
 	return &PostLearningAssignmentResetInternalServerError{}
 }
 
-/*PostLearningAssignmentResetInternalServerError handles this case with default header values.
+/*
+PostLearningAssignmentResetInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostLearningAssignmentResetInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignment reset internal server error response has a 2xx status code
+func (o *PostLearningAssignmentResetInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignment reset internal server error response has a 3xx status code
+func (o *PostLearningAssignmentResetInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset internal server error response has a 4xx status code
+func (o *PostLearningAssignmentResetInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignment reset internal server error response has a 5xx status code
+func (o *PostLearningAssignmentResetInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignment reset internal server error response a status code equal to that given
+func (o *PostLearningAssignmentResetInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLearningAssignmentResetInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostLearningAssignmentResetServiceUnavailable() *PostLearningAssignmentR
 	return &PostLearningAssignmentResetServiceUnavailable{}
 }
 
-/*PostLearningAssignmentResetServiceUnavailable handles this case with default header values.
+/*
+PostLearningAssignmentResetServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostLearningAssignmentResetServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignment reset service unavailable response has a 2xx status code
+func (o *PostLearningAssignmentResetServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignment reset service unavailable response has a 3xx status code
+func (o *PostLearningAssignmentResetServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset service unavailable response has a 4xx status code
+func (o *PostLearningAssignmentResetServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignment reset service unavailable response has a 5xx status code
+func (o *PostLearningAssignmentResetServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignment reset service unavailable response a status code equal to that given
+func (o *PostLearningAssignmentResetServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLearningAssignmentResetServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostLearningAssignmentResetGatewayTimeout() *PostLearningAssignmentReset
 	return &PostLearningAssignmentResetGatewayTimeout{}
 }
 
-/*PostLearningAssignmentResetGatewayTimeout handles this case with default header values.
+/*
+PostLearningAssignmentResetGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostLearningAssignmentResetGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignment reset gateway timeout response has a 2xx status code
+func (o *PostLearningAssignmentResetGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignment reset gateway timeout response has a 3xx status code
+func (o *PostLearningAssignmentResetGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignment reset gateway timeout response has a 4xx status code
+func (o *PostLearningAssignmentResetGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignment reset gateway timeout response has a 5xx status code
+func (o *PostLearningAssignmentResetGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignment reset gateway timeout response a status code equal to that given
+func (o *PostLearningAssignmentResetGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLearningAssignmentResetGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLearningAssignmentResetGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/{assignmentId}/reset][%d] postLearningAssignmentResetGatewayTimeout  %+v", 504, o.Payload)
 }
 

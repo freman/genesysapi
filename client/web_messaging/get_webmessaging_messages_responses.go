@@ -95,7 +95,6 @@ func (o *GetWebmessagingMessagesReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWebmessagingMessagesOK() *GetWebmessagingMessagesOK {
 	return &GetWebmessagingMessagesOK{}
 }
 
-/*GetWebmessagingMessagesOK handles this case with default header values.
+/*
+GetWebmessagingMessagesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWebmessagingMessagesOK struct {
 	Payload *models.WebMessagingMessageEntityList
 }
 
+// IsSuccess returns true when this get webmessaging messages o k response has a 2xx status code
+func (o *GetWebmessagingMessagesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get webmessaging messages o k response has a 3xx status code
+func (o *GetWebmessagingMessagesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webmessaging messages o k response has a 4xx status code
+func (o *GetWebmessagingMessagesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webmessaging messages o k response has a 5xx status code
+func (o *GetWebmessagingMessagesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webmessaging messages o k response a status code equal to that given
+func (o *GetWebmessagingMessagesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWebmessagingMessagesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWebmessagingMessagesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWebmessagingMessagesBadRequest() *GetWebmessagingMessagesBadRequest {
 	return &GetWebmessagingMessagesBadRequest{}
 }
 
-/*GetWebmessagingMessagesBadRequest handles this case with default header values.
+/*
+GetWebmessagingMessagesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWebmessagingMessagesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webmessaging messages bad request response has a 2xx status code
+func (o *GetWebmessagingMessagesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webmessaging messages bad request response has a 3xx status code
+func (o *GetWebmessagingMessagesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webmessaging messages bad request response has a 4xx status code
+func (o *GetWebmessagingMessagesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webmessaging messages bad request response has a 5xx status code
+func (o *GetWebmessagingMessagesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webmessaging messages bad request response a status code equal to that given
+func (o *GetWebmessagingMessagesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWebmessagingMessagesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWebmessagingMessagesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWebmessagingMessagesUnauthorized() *GetWebmessagingMessagesUnauthoriz
 	return &GetWebmessagingMessagesUnauthorized{}
 }
 
-/*GetWebmessagingMessagesUnauthorized handles this case with default header values.
+/*
+GetWebmessagingMessagesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWebmessagingMessagesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webmessaging messages unauthorized response has a 2xx status code
+func (o *GetWebmessagingMessagesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webmessaging messages unauthorized response has a 3xx status code
+func (o *GetWebmessagingMessagesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webmessaging messages unauthorized response has a 4xx status code
+func (o *GetWebmessagingMessagesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webmessaging messages unauthorized response has a 5xx status code
+func (o *GetWebmessagingMessagesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webmessaging messages unauthorized response a status code equal to that given
+func (o *GetWebmessagingMessagesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWebmessagingMessagesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWebmessagingMessagesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWebmessagingMessagesForbidden() *GetWebmessagingMessagesForbidden {
 	return &GetWebmessagingMessagesForbidden{}
 }
 
-/*GetWebmessagingMessagesForbidden handles this case with default header values.
+/*
+GetWebmessagingMessagesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWebmessagingMessagesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webmessaging messages forbidden response has a 2xx status code
+func (o *GetWebmessagingMessagesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webmessaging messages forbidden response has a 3xx status code
+func (o *GetWebmessagingMessagesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webmessaging messages forbidden response has a 4xx status code
+func (o *GetWebmessagingMessagesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webmessaging messages forbidden response has a 5xx status code
+func (o *GetWebmessagingMessagesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webmessaging messages forbidden response a status code equal to that given
+func (o *GetWebmessagingMessagesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWebmessagingMessagesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWebmessagingMessagesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWebmessagingMessagesNotFound() *GetWebmessagingMessagesNotFound {
 	return &GetWebmessagingMessagesNotFound{}
 }
 
-/*GetWebmessagingMessagesNotFound handles this case with default header values.
+/*
+GetWebmessagingMessagesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWebmessagingMessagesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webmessaging messages not found response has a 2xx status code
+func (o *GetWebmessagingMessagesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webmessaging messages not found response has a 3xx status code
+func (o *GetWebmessagingMessagesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webmessaging messages not found response has a 4xx status code
+func (o *GetWebmessagingMessagesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webmessaging messages not found response has a 5xx status code
+func (o *GetWebmessagingMessagesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webmessaging messages not found response a status code equal to that given
+func (o *GetWebmessagingMessagesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWebmessagingMessagesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWebmessagingMessagesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWebmessagingMessagesRequestTimeout() *GetWebmessagingMessagesRequestT
 	return &GetWebmessagingMessagesRequestTimeout{}
 }
 
-/*GetWebmessagingMessagesRequestTimeout handles this case with default header values.
+/*
+GetWebmessagingMessagesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWebmessagingMessagesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webmessaging messages request timeout response has a 2xx status code
+func (o *GetWebmessagingMessagesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webmessaging messages request timeout response has a 3xx status code
+func (o *GetWebmessagingMessagesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webmessaging messages request timeout response has a 4xx status code
+func (o *GetWebmessagingMessagesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webmessaging messages request timeout response has a 5xx status code
+func (o *GetWebmessagingMessagesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webmessaging messages request timeout response a status code equal to that given
+func (o *GetWebmessagingMessagesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWebmessagingMessagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWebmessagingMessagesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWebmessagingMessagesRequestEntityTooLarge() *GetWebmessagingMessagesR
 	return &GetWebmessagingMessagesRequestEntityTooLarge{}
 }
 
-/*GetWebmessagingMessagesRequestEntityTooLarge handles this case with default header values.
+/*
+GetWebmessagingMessagesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWebmessagingMessagesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webmessaging messages request entity too large response has a 2xx status code
+func (o *GetWebmessagingMessagesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webmessaging messages request entity too large response has a 3xx status code
+func (o *GetWebmessagingMessagesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webmessaging messages request entity too large response has a 4xx status code
+func (o *GetWebmessagingMessagesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webmessaging messages request entity too large response has a 5xx status code
+func (o *GetWebmessagingMessagesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webmessaging messages request entity too large response a status code equal to that given
+func (o *GetWebmessagingMessagesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWebmessagingMessagesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWebmessagingMessagesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWebmessagingMessagesUnsupportedMediaType() *GetWebmessagingMessagesUn
 	return &GetWebmessagingMessagesUnsupportedMediaType{}
 }
 
-/*GetWebmessagingMessagesUnsupportedMediaType handles this case with default header values.
+/*
+GetWebmessagingMessagesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWebmessagingMessagesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webmessaging messages unsupported media type response has a 2xx status code
+func (o *GetWebmessagingMessagesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webmessaging messages unsupported media type response has a 3xx status code
+func (o *GetWebmessagingMessagesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webmessaging messages unsupported media type response has a 4xx status code
+func (o *GetWebmessagingMessagesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webmessaging messages unsupported media type response has a 5xx status code
+func (o *GetWebmessagingMessagesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webmessaging messages unsupported media type response a status code equal to that given
+func (o *GetWebmessagingMessagesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWebmessagingMessagesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWebmessagingMessagesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWebmessagingMessagesTooManyRequests() *GetWebmessagingMessagesTooMany
 	return &GetWebmessagingMessagesTooManyRequests{}
 }
 
-/*GetWebmessagingMessagesTooManyRequests handles this case with default header values.
+/*
+GetWebmessagingMessagesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWebmessagingMessagesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webmessaging messages too many requests response has a 2xx status code
+func (o *GetWebmessagingMessagesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webmessaging messages too many requests response has a 3xx status code
+func (o *GetWebmessagingMessagesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webmessaging messages too many requests response has a 4xx status code
+func (o *GetWebmessagingMessagesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webmessaging messages too many requests response has a 5xx status code
+func (o *GetWebmessagingMessagesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webmessaging messages too many requests response a status code equal to that given
+func (o *GetWebmessagingMessagesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWebmessagingMessagesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWebmessagingMessagesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWebmessagingMessagesInternalServerError() *GetWebmessagingMessagesInt
 	return &GetWebmessagingMessagesInternalServerError{}
 }
 
-/*GetWebmessagingMessagesInternalServerError handles this case with default header values.
+/*
+GetWebmessagingMessagesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWebmessagingMessagesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webmessaging messages internal server error response has a 2xx status code
+func (o *GetWebmessagingMessagesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webmessaging messages internal server error response has a 3xx status code
+func (o *GetWebmessagingMessagesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webmessaging messages internal server error response has a 4xx status code
+func (o *GetWebmessagingMessagesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webmessaging messages internal server error response has a 5xx status code
+func (o *GetWebmessagingMessagesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webmessaging messages internal server error response a status code equal to that given
+func (o *GetWebmessagingMessagesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWebmessagingMessagesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWebmessagingMessagesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWebmessagingMessagesServiceUnavailable() *GetWebmessagingMessagesServ
 	return &GetWebmessagingMessagesServiceUnavailable{}
 }
 
-/*GetWebmessagingMessagesServiceUnavailable handles this case with default header values.
+/*
+GetWebmessagingMessagesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWebmessagingMessagesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webmessaging messages service unavailable response has a 2xx status code
+func (o *GetWebmessagingMessagesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webmessaging messages service unavailable response has a 3xx status code
+func (o *GetWebmessagingMessagesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webmessaging messages service unavailable response has a 4xx status code
+func (o *GetWebmessagingMessagesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webmessaging messages service unavailable response has a 5xx status code
+func (o *GetWebmessagingMessagesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webmessaging messages service unavailable response a status code equal to that given
+func (o *GetWebmessagingMessagesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWebmessagingMessagesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWebmessagingMessagesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWebmessagingMessagesGatewayTimeout() *GetWebmessagingMessagesGatewayT
 	return &GetWebmessagingMessagesGatewayTimeout{}
 }
 
-/*GetWebmessagingMessagesGatewayTimeout handles this case with default header values.
+/*
+GetWebmessagingMessagesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWebmessagingMessagesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webmessaging messages gateway timeout response has a 2xx status code
+func (o *GetWebmessagingMessagesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webmessaging messages gateway timeout response has a 3xx status code
+func (o *GetWebmessagingMessagesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webmessaging messages gateway timeout response has a 4xx status code
+func (o *GetWebmessagingMessagesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webmessaging messages gateway timeout response has a 5xx status code
+func (o *GetWebmessagingMessagesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webmessaging messages gateway timeout response a status code equal to that given
+func (o *GetWebmessagingMessagesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWebmessagingMessagesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWebmessagingMessagesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/webmessaging/messages][%d] getWebmessagingMessagesGatewayTimeout  %+v", 504, o.Payload)
 }
 

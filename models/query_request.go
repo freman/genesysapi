@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -66,7 +67,6 @@ func (m *QueryRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *QueryRequest) validateAttributeFilters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AttributeFilters) { // not required
 		return nil
 	}
@@ -80,6 +80,8 @@ func (m *QueryRequest) validateAttributeFilters(formats strfmt.Registry) error {
 			if err := m.AttributeFilters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("attributeFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attributeFilters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -91,7 +93,6 @@ func (m *QueryRequest) validateAttributeFilters(formats strfmt.Registry) error {
 }
 
 func (m *QueryRequest) validateFilters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Filters) { // not required
 		return nil
 	}
@@ -105,6 +106,8 @@ func (m *QueryRequest) validateFilters(formats strfmt.Registry) error {
 			if err := m.Filters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("filters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("filters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -116,7 +119,6 @@ func (m *QueryRequest) validateFilters(formats strfmt.Registry) error {
 }
 
 func (m *QueryRequest) validateSort(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Sort) { // not required
 		return nil
 	}
@@ -130,6 +132,90 @@ func (m *QueryRequest) validateSort(formats strfmt.Registry) error {
 			if err := m.Sort[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sort" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sort" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this query request based on the context it is used
+func (m *QueryRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttributeFilters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFilters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSort(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *QueryRequest) contextValidateAttributeFilters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AttributeFilters); i++ {
+
+		if m.AttributeFilters[i] != nil {
+			if err := m.AttributeFilters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("attributeFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attributeFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *QueryRequest) contextValidateFilters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Filters); i++ {
+
+		if m.Filters[i] != nil {
+			if err := m.Filters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("filters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("filters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *QueryRequest) contextValidateSort(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Sort); i++ {
+
+		if m.Sort[i] != nil {
+			if err := m.Sort[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sort" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sort" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

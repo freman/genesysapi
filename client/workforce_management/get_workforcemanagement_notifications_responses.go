@@ -95,7 +95,6 @@ func (o *GetWorkforcemanagementNotificationsReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWorkforcemanagementNotificationsOK() *GetWorkforcemanagementNotificat
 	return &GetWorkforcemanagementNotificationsOK{}
 }
 
-/*GetWorkforcemanagementNotificationsOK handles this case with default header values.
+/*
+GetWorkforcemanagementNotificationsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWorkforcemanagementNotificationsOK struct {
 	Payload *models.NotificationsResponse
 }
 
+// IsSuccess returns true when this get workforcemanagement notifications o k response has a 2xx status code
+func (o *GetWorkforcemanagementNotificationsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get workforcemanagement notifications o k response has a 3xx status code
+func (o *GetWorkforcemanagementNotificationsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement notifications o k response has a 4xx status code
+func (o *GetWorkforcemanagementNotificationsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement notifications o k response has a 5xx status code
+func (o *GetWorkforcemanagementNotificationsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement notifications o k response a status code equal to that given
+func (o *GetWorkforcemanagementNotificationsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWorkforcemanagementNotificationsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWorkforcemanagementNotificationsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWorkforcemanagementNotificationsBadRequest() *GetWorkforcemanagementN
 	return &GetWorkforcemanagementNotificationsBadRequest{}
 }
 
-/*GetWorkforcemanagementNotificationsBadRequest handles this case with default header values.
+/*
+GetWorkforcemanagementNotificationsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWorkforcemanagementNotificationsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement notifications bad request response has a 2xx status code
+func (o *GetWorkforcemanagementNotificationsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement notifications bad request response has a 3xx status code
+func (o *GetWorkforcemanagementNotificationsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement notifications bad request response has a 4xx status code
+func (o *GetWorkforcemanagementNotificationsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement notifications bad request response has a 5xx status code
+func (o *GetWorkforcemanagementNotificationsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement notifications bad request response a status code equal to that given
+func (o *GetWorkforcemanagementNotificationsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWorkforcemanagementNotificationsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWorkforcemanagementNotificationsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWorkforcemanagementNotificationsUnauthorized() *GetWorkforcemanagemen
 	return &GetWorkforcemanagementNotificationsUnauthorized{}
 }
 
-/*GetWorkforcemanagementNotificationsUnauthorized handles this case with default header values.
+/*
+GetWorkforcemanagementNotificationsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWorkforcemanagementNotificationsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement notifications unauthorized response has a 2xx status code
+func (o *GetWorkforcemanagementNotificationsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement notifications unauthorized response has a 3xx status code
+func (o *GetWorkforcemanagementNotificationsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement notifications unauthorized response has a 4xx status code
+func (o *GetWorkforcemanagementNotificationsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement notifications unauthorized response has a 5xx status code
+func (o *GetWorkforcemanagementNotificationsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement notifications unauthorized response a status code equal to that given
+func (o *GetWorkforcemanagementNotificationsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWorkforcemanagementNotificationsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWorkforcemanagementNotificationsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWorkforcemanagementNotificationsForbidden() *GetWorkforcemanagementNo
 	return &GetWorkforcemanagementNotificationsForbidden{}
 }
 
-/*GetWorkforcemanagementNotificationsForbidden handles this case with default header values.
+/*
+GetWorkforcemanagementNotificationsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWorkforcemanagementNotificationsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement notifications forbidden response has a 2xx status code
+func (o *GetWorkforcemanagementNotificationsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement notifications forbidden response has a 3xx status code
+func (o *GetWorkforcemanagementNotificationsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement notifications forbidden response has a 4xx status code
+func (o *GetWorkforcemanagementNotificationsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement notifications forbidden response has a 5xx status code
+func (o *GetWorkforcemanagementNotificationsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement notifications forbidden response a status code equal to that given
+func (o *GetWorkforcemanagementNotificationsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWorkforcemanagementNotificationsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWorkforcemanagementNotificationsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWorkforcemanagementNotificationsNotFound() *GetWorkforcemanagementNot
 	return &GetWorkforcemanagementNotificationsNotFound{}
 }
 
-/*GetWorkforcemanagementNotificationsNotFound handles this case with default header values.
+/*
+GetWorkforcemanagementNotificationsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWorkforcemanagementNotificationsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement notifications not found response has a 2xx status code
+func (o *GetWorkforcemanagementNotificationsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement notifications not found response has a 3xx status code
+func (o *GetWorkforcemanagementNotificationsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement notifications not found response has a 4xx status code
+func (o *GetWorkforcemanagementNotificationsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement notifications not found response has a 5xx status code
+func (o *GetWorkforcemanagementNotificationsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement notifications not found response a status code equal to that given
+func (o *GetWorkforcemanagementNotificationsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWorkforcemanagementNotificationsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWorkforcemanagementNotificationsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWorkforcemanagementNotificationsRequestTimeout() *GetWorkforcemanagem
 	return &GetWorkforcemanagementNotificationsRequestTimeout{}
 }
 
-/*GetWorkforcemanagementNotificationsRequestTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementNotificationsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWorkforcemanagementNotificationsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement notifications request timeout response has a 2xx status code
+func (o *GetWorkforcemanagementNotificationsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement notifications request timeout response has a 3xx status code
+func (o *GetWorkforcemanagementNotificationsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement notifications request timeout response has a 4xx status code
+func (o *GetWorkforcemanagementNotificationsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement notifications request timeout response has a 5xx status code
+func (o *GetWorkforcemanagementNotificationsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement notifications request timeout response a status code equal to that given
+func (o *GetWorkforcemanagementNotificationsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWorkforcemanagementNotificationsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementNotificationsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWorkforcemanagementNotificationsRequestEntityTooLarge() *GetWorkforce
 	return &GetWorkforcemanagementNotificationsRequestEntityTooLarge{}
 }
 
-/*GetWorkforcemanagementNotificationsRequestEntityTooLarge handles this case with default header values.
+/*
+GetWorkforcemanagementNotificationsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWorkforcemanagementNotificationsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement notifications request entity too large response has a 2xx status code
+func (o *GetWorkforcemanagementNotificationsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement notifications request entity too large response has a 3xx status code
+func (o *GetWorkforcemanagementNotificationsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement notifications request entity too large response has a 4xx status code
+func (o *GetWorkforcemanagementNotificationsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement notifications request entity too large response has a 5xx status code
+func (o *GetWorkforcemanagementNotificationsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement notifications request entity too large response a status code equal to that given
+func (o *GetWorkforcemanagementNotificationsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWorkforcemanagementNotificationsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWorkforcemanagementNotificationsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWorkforcemanagementNotificationsUnsupportedMediaType() *GetWorkforcem
 	return &GetWorkforcemanagementNotificationsUnsupportedMediaType{}
 }
 
-/*GetWorkforcemanagementNotificationsUnsupportedMediaType handles this case with default header values.
+/*
+GetWorkforcemanagementNotificationsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWorkforcemanagementNotificationsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement notifications unsupported media type response has a 2xx status code
+func (o *GetWorkforcemanagementNotificationsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement notifications unsupported media type response has a 3xx status code
+func (o *GetWorkforcemanagementNotificationsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement notifications unsupported media type response has a 4xx status code
+func (o *GetWorkforcemanagementNotificationsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement notifications unsupported media type response has a 5xx status code
+func (o *GetWorkforcemanagementNotificationsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement notifications unsupported media type response a status code equal to that given
+func (o *GetWorkforcemanagementNotificationsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWorkforcemanagementNotificationsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWorkforcemanagementNotificationsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWorkforcemanagementNotificationsTooManyRequests() *GetWorkforcemanage
 	return &GetWorkforcemanagementNotificationsTooManyRequests{}
 }
 
-/*GetWorkforcemanagementNotificationsTooManyRequests handles this case with default header values.
+/*
+GetWorkforcemanagementNotificationsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWorkforcemanagementNotificationsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement notifications too many requests response has a 2xx status code
+func (o *GetWorkforcemanagementNotificationsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement notifications too many requests response has a 3xx status code
+func (o *GetWorkforcemanagementNotificationsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement notifications too many requests response has a 4xx status code
+func (o *GetWorkforcemanagementNotificationsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement notifications too many requests response has a 5xx status code
+func (o *GetWorkforcemanagementNotificationsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement notifications too many requests response a status code equal to that given
+func (o *GetWorkforcemanagementNotificationsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWorkforcemanagementNotificationsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWorkforcemanagementNotificationsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWorkforcemanagementNotificationsInternalServerError() *GetWorkforcema
 	return &GetWorkforcemanagementNotificationsInternalServerError{}
 }
 
-/*GetWorkforcemanagementNotificationsInternalServerError handles this case with default header values.
+/*
+GetWorkforcemanagementNotificationsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWorkforcemanagementNotificationsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement notifications internal server error response has a 2xx status code
+func (o *GetWorkforcemanagementNotificationsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement notifications internal server error response has a 3xx status code
+func (o *GetWorkforcemanagementNotificationsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement notifications internal server error response has a 4xx status code
+func (o *GetWorkforcemanagementNotificationsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement notifications internal server error response has a 5xx status code
+func (o *GetWorkforcemanagementNotificationsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement notifications internal server error response a status code equal to that given
+func (o *GetWorkforcemanagementNotificationsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWorkforcemanagementNotificationsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWorkforcemanagementNotificationsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWorkforcemanagementNotificationsServiceUnavailable() *GetWorkforceman
 	return &GetWorkforcemanagementNotificationsServiceUnavailable{}
 }
 
-/*GetWorkforcemanagementNotificationsServiceUnavailable handles this case with default header values.
+/*
+GetWorkforcemanagementNotificationsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWorkforcemanagementNotificationsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement notifications service unavailable response has a 2xx status code
+func (o *GetWorkforcemanagementNotificationsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement notifications service unavailable response has a 3xx status code
+func (o *GetWorkforcemanagementNotificationsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement notifications service unavailable response has a 4xx status code
+func (o *GetWorkforcemanagementNotificationsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement notifications service unavailable response has a 5xx status code
+func (o *GetWorkforcemanagementNotificationsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement notifications service unavailable response a status code equal to that given
+func (o *GetWorkforcemanagementNotificationsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWorkforcemanagementNotificationsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWorkforcemanagementNotificationsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWorkforcemanagementNotificationsGatewayTimeout() *GetWorkforcemanagem
 	return &GetWorkforcemanagementNotificationsGatewayTimeout{}
 }
 
-/*GetWorkforcemanagementNotificationsGatewayTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementNotificationsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWorkforcemanagementNotificationsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement notifications gateway timeout response has a 2xx status code
+func (o *GetWorkforcemanagementNotificationsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement notifications gateway timeout response has a 3xx status code
+func (o *GetWorkforcemanagementNotificationsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement notifications gateway timeout response has a 4xx status code
+func (o *GetWorkforcemanagementNotificationsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement notifications gateway timeout response has a 5xx status code
+func (o *GetWorkforcemanagementNotificationsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement notifications gateway timeout response a status code equal to that given
+func (o *GetWorkforcemanagementNotificationsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWorkforcemanagementNotificationsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWorkforcemanagementNotificationsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/notifications][%d] getWorkforcemanagementNotificationsGatewayTimeout  %+v", 504, o.Payload)
 }
 

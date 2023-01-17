@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -82,7 +84,6 @@ func (m *PunctualityEvent) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PunctualityEvent) validateDateScheduleStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateScheduleStart) { // not required
 		return nil
 	}
@@ -95,12 +96,151 @@ func (m *PunctualityEvent) validateDateScheduleStart(formats strfmt.Registry) er
 }
 
 func (m *PunctualityEvent) validateDateStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStart) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("dateStart", "body", "date-time", m.DateStart.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this punctuality event based on the context it is used
+func (m *PunctualityEvent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActivityCode(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateActivityCodeID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateActivityName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCategory(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateScheduleStart(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateStart(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDelta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDescription(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLengthMinutes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePoints(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PunctualityEvent) contextValidateActivityCode(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "activityCode", "body", string(m.ActivityCode)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PunctualityEvent) contextValidateActivityCodeID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "activityCodeId", "body", string(m.ActivityCodeID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PunctualityEvent) contextValidateActivityName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "activityName", "body", string(m.ActivityName)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PunctualityEvent) contextValidateCategory(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "category", "body", string(m.Category)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PunctualityEvent) contextValidateDateScheduleStart(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateScheduleStart", "body", strfmt.DateTime(m.DateScheduleStart)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PunctualityEvent) contextValidateDateStart(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateStart", "body", strfmt.DateTime(m.DateStart)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PunctualityEvent) contextValidateDelta(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "delta", "body", float64(m.Delta)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PunctualityEvent) contextValidateDescription(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "description", "body", string(m.Description)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PunctualityEvent) contextValidateLengthMinutes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "lengthMinutes", "body", int32(m.LengthMinutes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PunctualityEvent) contextValidatePoints(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "points", "body", int32(m.Points)); err != nil {
 		return err
 	}
 

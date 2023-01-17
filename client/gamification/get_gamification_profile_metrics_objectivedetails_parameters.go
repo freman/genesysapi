@@ -16,64 +16,83 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationProfileMetricsObjectivedetailsParams creates a new GetGamificationProfileMetricsObjectivedetailsParams object
-// with the default values initialized.
+// NewGetGamificationProfileMetricsObjectivedetailsParams creates a new GetGamificationProfileMetricsObjectivedetailsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationProfileMetricsObjectivedetailsParams() *GetGamificationProfileMetricsObjectivedetailsParams {
-	var ()
 	return &GetGamificationProfileMetricsObjectivedetailsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationProfileMetricsObjectivedetailsParamsWithTimeout creates a new GetGamificationProfileMetricsObjectivedetailsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationProfileMetricsObjectivedetailsParamsWithTimeout(timeout time.Duration) *GetGamificationProfileMetricsObjectivedetailsParams {
-	var ()
 	return &GetGamificationProfileMetricsObjectivedetailsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationProfileMetricsObjectivedetailsParamsWithContext creates a new GetGamificationProfileMetricsObjectivedetailsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationProfileMetricsObjectivedetailsParamsWithContext(ctx context.Context) *GetGamificationProfileMetricsObjectivedetailsParams {
-	var ()
 	return &GetGamificationProfileMetricsObjectivedetailsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationProfileMetricsObjectivedetailsParamsWithHTTPClient creates a new GetGamificationProfileMetricsObjectivedetailsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationProfileMetricsObjectivedetailsParamsWithHTTPClient(client *http.Client) *GetGamificationProfileMetricsObjectivedetailsParams {
-	var ()
 	return &GetGamificationProfileMetricsObjectivedetailsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationProfileMetricsObjectivedetailsParams contains all the parameters to send to the API endpoint
-for the get gamification profile metrics objectivedetails operation typically these are written to a http.Request
+/*
+GetGamificationProfileMetricsObjectivedetailsParams contains all the parameters to send to the API endpoint
+
+	for the get gamification profile metrics objectivedetails operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationProfileMetricsObjectivedetailsParams struct {
 
-	/*ProfileID
-	  Performance Profile Id
+	/* ProfileID.
 
+	   Performance Profile Id
 	*/
 	ProfileID string
-	/*Workday
-	  The objective query workday. If not specified, then it retrieves the current objective. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* Workday.
+
+	   The objective query workday. If not specified, then it retrieves the current objective. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	Workday *strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification profile metrics objectivedetails params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationProfileMetricsObjectivedetailsParams) WithDefaults() *GetGamificationProfileMetricsObjectivedetailsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification profile metrics objectivedetails params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationProfileMetricsObjectivedetailsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification profile metrics objectivedetails params
@@ -148,16 +167,17 @@ func (o *GetGamificationProfileMetricsObjectivedetailsParams) WriteToRequest(r r
 
 		// query param workday
 		var qrWorkday strfmt.Date
+
 		if o.Workday != nil {
 			qrWorkday = *o.Workday
 		}
 		qWorkday := qrWorkday.String()
 		if qWorkday != "" {
+
 			if err := r.SetQueryParam("workday", qWorkday); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

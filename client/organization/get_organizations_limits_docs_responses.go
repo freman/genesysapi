@@ -95,7 +95,6 @@ func (o *GetOrganizationsLimitsDocsReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOrganizationsLimitsDocsOK() *GetOrganizationsLimitsDocsOK {
 	return &GetOrganizationsLimitsDocsOK{}
 }
 
-/*GetOrganizationsLimitsDocsOK handles this case with default header values.
+/*
+GetOrganizationsLimitsDocsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOrganizationsLimitsDocsOK struct {
 	Payload *models.URLResponse
 }
 
+// IsSuccess returns true when this get organizations limits docs o k response has a 2xx status code
+func (o *GetOrganizationsLimitsDocsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get organizations limits docs o k response has a 3xx status code
+func (o *GetOrganizationsLimitsDocsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits docs o k response has a 4xx status code
+func (o *GetOrganizationsLimitsDocsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations limits docs o k response has a 5xx status code
+func (o *GetOrganizationsLimitsDocsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits docs o k response a status code equal to that given
+func (o *GetOrganizationsLimitsDocsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrganizationsLimitsDocsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsDocsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOrganizationsLimitsDocsBadRequest() *GetOrganizationsLimitsDocsBadReq
 	return &GetOrganizationsLimitsDocsBadRequest{}
 }
 
-/*GetOrganizationsLimitsDocsBadRequest handles this case with default header values.
+/*
+GetOrganizationsLimitsDocsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOrganizationsLimitsDocsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits docs bad request response has a 2xx status code
+func (o *GetOrganizationsLimitsDocsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits docs bad request response has a 3xx status code
+func (o *GetOrganizationsLimitsDocsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits docs bad request response has a 4xx status code
+func (o *GetOrganizationsLimitsDocsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits docs bad request response has a 5xx status code
+func (o *GetOrganizationsLimitsDocsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits docs bad request response a status code equal to that given
+func (o *GetOrganizationsLimitsDocsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOrganizationsLimitsDocsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsDocsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOrganizationsLimitsDocsUnauthorized() *GetOrganizationsLimitsDocsUnau
 	return &GetOrganizationsLimitsDocsUnauthorized{}
 }
 
-/*GetOrganizationsLimitsDocsUnauthorized handles this case with default header values.
+/*
+GetOrganizationsLimitsDocsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOrganizationsLimitsDocsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits docs unauthorized response has a 2xx status code
+func (o *GetOrganizationsLimitsDocsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits docs unauthorized response has a 3xx status code
+func (o *GetOrganizationsLimitsDocsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits docs unauthorized response has a 4xx status code
+func (o *GetOrganizationsLimitsDocsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits docs unauthorized response has a 5xx status code
+func (o *GetOrganizationsLimitsDocsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits docs unauthorized response a status code equal to that given
+func (o *GetOrganizationsLimitsDocsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOrganizationsLimitsDocsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsDocsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOrganizationsLimitsDocsForbidden() *GetOrganizationsLimitsDocsForbidd
 	return &GetOrganizationsLimitsDocsForbidden{}
 }
 
-/*GetOrganizationsLimitsDocsForbidden handles this case with default header values.
+/*
+GetOrganizationsLimitsDocsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOrganizationsLimitsDocsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits docs forbidden response has a 2xx status code
+func (o *GetOrganizationsLimitsDocsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits docs forbidden response has a 3xx status code
+func (o *GetOrganizationsLimitsDocsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits docs forbidden response has a 4xx status code
+func (o *GetOrganizationsLimitsDocsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits docs forbidden response has a 5xx status code
+func (o *GetOrganizationsLimitsDocsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits docs forbidden response a status code equal to that given
+func (o *GetOrganizationsLimitsDocsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrganizationsLimitsDocsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsDocsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOrganizationsLimitsDocsNotFound() *GetOrganizationsLimitsDocsNotFound
 	return &GetOrganizationsLimitsDocsNotFound{}
 }
 
-/*GetOrganizationsLimitsDocsNotFound handles this case with default header values.
+/*
+GetOrganizationsLimitsDocsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOrganizationsLimitsDocsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits docs not found response has a 2xx status code
+func (o *GetOrganizationsLimitsDocsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits docs not found response has a 3xx status code
+func (o *GetOrganizationsLimitsDocsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits docs not found response has a 4xx status code
+func (o *GetOrganizationsLimitsDocsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits docs not found response has a 5xx status code
+func (o *GetOrganizationsLimitsDocsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits docs not found response a status code equal to that given
+func (o *GetOrganizationsLimitsDocsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrganizationsLimitsDocsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsDocsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOrganizationsLimitsDocsRequestTimeout() *GetOrganizationsLimitsDocsRe
 	return &GetOrganizationsLimitsDocsRequestTimeout{}
 }
 
-/*GetOrganizationsLimitsDocsRequestTimeout handles this case with default header values.
+/*
+GetOrganizationsLimitsDocsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOrganizationsLimitsDocsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits docs request timeout response has a 2xx status code
+func (o *GetOrganizationsLimitsDocsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits docs request timeout response has a 3xx status code
+func (o *GetOrganizationsLimitsDocsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits docs request timeout response has a 4xx status code
+func (o *GetOrganizationsLimitsDocsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits docs request timeout response has a 5xx status code
+func (o *GetOrganizationsLimitsDocsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits docs request timeout response a status code equal to that given
+func (o *GetOrganizationsLimitsDocsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOrganizationsLimitsDocsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsDocsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOrganizationsLimitsDocsRequestEntityTooLarge() *GetOrganizationsLimit
 	return &GetOrganizationsLimitsDocsRequestEntityTooLarge{}
 }
 
-/*GetOrganizationsLimitsDocsRequestEntityTooLarge handles this case with default header values.
+/*
+GetOrganizationsLimitsDocsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOrganizationsLimitsDocsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits docs request entity too large response has a 2xx status code
+func (o *GetOrganizationsLimitsDocsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits docs request entity too large response has a 3xx status code
+func (o *GetOrganizationsLimitsDocsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits docs request entity too large response has a 4xx status code
+func (o *GetOrganizationsLimitsDocsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits docs request entity too large response has a 5xx status code
+func (o *GetOrganizationsLimitsDocsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits docs request entity too large response a status code equal to that given
+func (o *GetOrganizationsLimitsDocsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOrganizationsLimitsDocsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsDocsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOrganizationsLimitsDocsUnsupportedMediaType() *GetOrganizationsLimits
 	return &GetOrganizationsLimitsDocsUnsupportedMediaType{}
 }
 
-/*GetOrganizationsLimitsDocsUnsupportedMediaType handles this case with default header values.
+/*
+GetOrganizationsLimitsDocsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOrganizationsLimitsDocsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits docs unsupported media type response has a 2xx status code
+func (o *GetOrganizationsLimitsDocsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits docs unsupported media type response has a 3xx status code
+func (o *GetOrganizationsLimitsDocsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits docs unsupported media type response has a 4xx status code
+func (o *GetOrganizationsLimitsDocsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits docs unsupported media type response has a 5xx status code
+func (o *GetOrganizationsLimitsDocsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits docs unsupported media type response a status code equal to that given
+func (o *GetOrganizationsLimitsDocsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOrganizationsLimitsDocsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsDocsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOrganizationsLimitsDocsTooManyRequests() *GetOrganizationsLimitsDocsT
 	return &GetOrganizationsLimitsDocsTooManyRequests{}
 }
 
-/*GetOrganizationsLimitsDocsTooManyRequests handles this case with default header values.
+/*
+GetOrganizationsLimitsDocsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOrganizationsLimitsDocsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits docs too many requests response has a 2xx status code
+func (o *GetOrganizationsLimitsDocsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits docs too many requests response has a 3xx status code
+func (o *GetOrganizationsLimitsDocsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits docs too many requests response has a 4xx status code
+func (o *GetOrganizationsLimitsDocsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations limits docs too many requests response has a 5xx status code
+func (o *GetOrganizationsLimitsDocsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations limits docs too many requests response a status code equal to that given
+func (o *GetOrganizationsLimitsDocsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOrganizationsLimitsDocsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsDocsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOrganizationsLimitsDocsInternalServerError() *GetOrganizationsLimitsD
 	return &GetOrganizationsLimitsDocsInternalServerError{}
 }
 
-/*GetOrganizationsLimitsDocsInternalServerError handles this case with default header values.
+/*
+GetOrganizationsLimitsDocsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOrganizationsLimitsDocsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits docs internal server error response has a 2xx status code
+func (o *GetOrganizationsLimitsDocsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits docs internal server error response has a 3xx status code
+func (o *GetOrganizationsLimitsDocsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits docs internal server error response has a 4xx status code
+func (o *GetOrganizationsLimitsDocsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations limits docs internal server error response has a 5xx status code
+func (o *GetOrganizationsLimitsDocsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations limits docs internal server error response a status code equal to that given
+func (o *GetOrganizationsLimitsDocsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOrganizationsLimitsDocsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsDocsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOrganizationsLimitsDocsServiceUnavailable() *GetOrganizationsLimitsDo
 	return &GetOrganizationsLimitsDocsServiceUnavailable{}
 }
 
-/*GetOrganizationsLimitsDocsServiceUnavailable handles this case with default header values.
+/*
+GetOrganizationsLimitsDocsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOrganizationsLimitsDocsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits docs service unavailable response has a 2xx status code
+func (o *GetOrganizationsLimitsDocsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits docs service unavailable response has a 3xx status code
+func (o *GetOrganizationsLimitsDocsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits docs service unavailable response has a 4xx status code
+func (o *GetOrganizationsLimitsDocsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations limits docs service unavailable response has a 5xx status code
+func (o *GetOrganizationsLimitsDocsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations limits docs service unavailable response a status code equal to that given
+func (o *GetOrganizationsLimitsDocsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOrganizationsLimitsDocsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsDocsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOrganizationsLimitsDocsGatewayTimeout() *GetOrganizationsLimitsDocsGa
 	return &GetOrganizationsLimitsDocsGatewayTimeout{}
 }
 
-/*GetOrganizationsLimitsDocsGatewayTimeout handles this case with default header values.
+/*
+GetOrganizationsLimitsDocsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOrganizationsLimitsDocsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations limits docs gateway timeout response has a 2xx status code
+func (o *GetOrganizationsLimitsDocsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations limits docs gateway timeout response has a 3xx status code
+func (o *GetOrganizationsLimitsDocsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations limits docs gateway timeout response has a 4xx status code
+func (o *GetOrganizationsLimitsDocsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations limits docs gateway timeout response has a 5xx status code
+func (o *GetOrganizationsLimitsDocsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations limits docs gateway timeout response a status code equal to that given
+func (o *GetOrganizationsLimitsDocsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOrganizationsLimitsDocsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOrganizationsLimitsDocsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/limits/docs][%d] getOrganizationsLimitsDocsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -33,6 +34,7 @@ type Contact struct {
 	Extension string `json:"extension,omitempty"`
 
 	// Integration tag value if this number is associated with an external integration.
+	// Example: microsoftteams
 	Integration string `json:"integration,omitempty"`
 
 	// media type
@@ -95,7 +97,6 @@ func (m *Contact) validateMediaTypeEnum(path, location string, value string) err
 }
 
 func (m *Contact) validateMediaType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaType) { // not required
 		return nil
 	}
@@ -159,13 +160,35 @@ func (m *Contact) validateTypeEnum(path, location string, value string) error {
 }
 
 func (m *Contact) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this contact based on the context it is used
+func (m *Contact) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDisplay(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Contact) contextValidateDisplay(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "display", "body", string(m.Display)); err != nil {
 		return err
 	}
 

@@ -95,7 +95,6 @@ func (o *GetPresenceUserPrimarysourceReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetPresenceUserPrimarysourceOK() *GetPresenceUserPrimarysourceOK {
 	return &GetPresenceUserPrimarysourceOK{}
 }
 
-/*GetPresenceUserPrimarysourceOK handles this case with default header values.
+/*
+GetPresenceUserPrimarysourceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetPresenceUserPrimarysourceOK struct {
 	Payload *models.UserPrimarySource
 }
 
+// IsSuccess returns true when this get presence user primarysource o k response has a 2xx status code
+func (o *GetPresenceUserPrimarysourceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get presence user primarysource o k response has a 3xx status code
+func (o *GetPresenceUserPrimarysourceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get presence user primarysource o k response has a 4xx status code
+func (o *GetPresenceUserPrimarysourceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get presence user primarysource o k response has a 5xx status code
+func (o *GetPresenceUserPrimarysourceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get presence user primarysource o k response a status code equal to that given
+func (o *GetPresenceUserPrimarysourceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetPresenceUserPrimarysourceOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceOK  %+v", 200, o.Payload)
+}
+
+func (o *GetPresenceUserPrimarysourceOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetPresenceUserPrimarysourceBadRequest() *GetPresenceUserPrimarysourceBa
 	return &GetPresenceUserPrimarysourceBadRequest{}
 }
 
-/*GetPresenceUserPrimarysourceBadRequest handles this case with default header values.
+/*
+GetPresenceUserPrimarysourceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetPresenceUserPrimarysourceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get presence user primarysource bad request response has a 2xx status code
+func (o *GetPresenceUserPrimarysourceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get presence user primarysource bad request response has a 3xx status code
+func (o *GetPresenceUserPrimarysourceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get presence user primarysource bad request response has a 4xx status code
+func (o *GetPresenceUserPrimarysourceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get presence user primarysource bad request response has a 5xx status code
+func (o *GetPresenceUserPrimarysourceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get presence user primarysource bad request response a status code equal to that given
+func (o *GetPresenceUserPrimarysourceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetPresenceUserPrimarysourceBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetPresenceUserPrimarysourceBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetPresenceUserPrimarysourceUnauthorized() *GetPresenceUserPrimarysource
 	return &GetPresenceUserPrimarysourceUnauthorized{}
 }
 
-/*GetPresenceUserPrimarysourceUnauthorized handles this case with default header values.
+/*
+GetPresenceUserPrimarysourceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetPresenceUserPrimarysourceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get presence user primarysource unauthorized response has a 2xx status code
+func (o *GetPresenceUserPrimarysourceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get presence user primarysource unauthorized response has a 3xx status code
+func (o *GetPresenceUserPrimarysourceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get presence user primarysource unauthorized response has a 4xx status code
+func (o *GetPresenceUserPrimarysourceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get presence user primarysource unauthorized response has a 5xx status code
+func (o *GetPresenceUserPrimarysourceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get presence user primarysource unauthorized response a status code equal to that given
+func (o *GetPresenceUserPrimarysourceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetPresenceUserPrimarysourceUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetPresenceUserPrimarysourceUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetPresenceUserPrimarysourceForbidden() *GetPresenceUserPrimarysourceFor
 	return &GetPresenceUserPrimarysourceForbidden{}
 }
 
-/*GetPresenceUserPrimarysourceForbidden handles this case with default header values.
+/*
+GetPresenceUserPrimarysourceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetPresenceUserPrimarysourceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get presence user primarysource forbidden response has a 2xx status code
+func (o *GetPresenceUserPrimarysourceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get presence user primarysource forbidden response has a 3xx status code
+func (o *GetPresenceUserPrimarysourceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get presence user primarysource forbidden response has a 4xx status code
+func (o *GetPresenceUserPrimarysourceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get presence user primarysource forbidden response has a 5xx status code
+func (o *GetPresenceUserPrimarysourceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get presence user primarysource forbidden response a status code equal to that given
+func (o *GetPresenceUserPrimarysourceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetPresenceUserPrimarysourceForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetPresenceUserPrimarysourceForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetPresenceUserPrimarysourceNotFound() *GetPresenceUserPrimarysourceNotF
 	return &GetPresenceUserPrimarysourceNotFound{}
 }
 
-/*GetPresenceUserPrimarysourceNotFound handles this case with default header values.
+/*
+GetPresenceUserPrimarysourceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetPresenceUserPrimarysourceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get presence user primarysource not found response has a 2xx status code
+func (o *GetPresenceUserPrimarysourceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get presence user primarysource not found response has a 3xx status code
+func (o *GetPresenceUserPrimarysourceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get presence user primarysource not found response has a 4xx status code
+func (o *GetPresenceUserPrimarysourceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get presence user primarysource not found response has a 5xx status code
+func (o *GetPresenceUserPrimarysourceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get presence user primarysource not found response a status code equal to that given
+func (o *GetPresenceUserPrimarysourceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetPresenceUserPrimarysourceNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetPresenceUserPrimarysourceNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetPresenceUserPrimarysourceRequestTimeout() *GetPresenceUserPrimarysour
 	return &GetPresenceUserPrimarysourceRequestTimeout{}
 }
 
-/*GetPresenceUserPrimarysourceRequestTimeout handles this case with default header values.
+/*
+GetPresenceUserPrimarysourceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetPresenceUserPrimarysourceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get presence user primarysource request timeout response has a 2xx status code
+func (o *GetPresenceUserPrimarysourceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get presence user primarysource request timeout response has a 3xx status code
+func (o *GetPresenceUserPrimarysourceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get presence user primarysource request timeout response has a 4xx status code
+func (o *GetPresenceUserPrimarysourceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get presence user primarysource request timeout response has a 5xx status code
+func (o *GetPresenceUserPrimarysourceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get presence user primarysource request timeout response a status code equal to that given
+func (o *GetPresenceUserPrimarysourceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetPresenceUserPrimarysourceRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetPresenceUserPrimarysourceRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetPresenceUserPrimarysourceRequestEntityTooLarge() *GetPresenceUserPrim
 	return &GetPresenceUserPrimarysourceRequestEntityTooLarge{}
 }
 
-/*GetPresenceUserPrimarysourceRequestEntityTooLarge handles this case with default header values.
+/*
+GetPresenceUserPrimarysourceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetPresenceUserPrimarysourceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get presence user primarysource request entity too large response has a 2xx status code
+func (o *GetPresenceUserPrimarysourceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get presence user primarysource request entity too large response has a 3xx status code
+func (o *GetPresenceUserPrimarysourceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get presence user primarysource request entity too large response has a 4xx status code
+func (o *GetPresenceUserPrimarysourceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get presence user primarysource request entity too large response has a 5xx status code
+func (o *GetPresenceUserPrimarysourceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get presence user primarysource request entity too large response a status code equal to that given
+func (o *GetPresenceUserPrimarysourceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetPresenceUserPrimarysourceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetPresenceUserPrimarysourceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetPresenceUserPrimarysourceUnsupportedMediaType() *GetPresenceUserPrima
 	return &GetPresenceUserPrimarysourceUnsupportedMediaType{}
 }
 
-/*GetPresenceUserPrimarysourceUnsupportedMediaType handles this case with default header values.
+/*
+GetPresenceUserPrimarysourceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetPresenceUserPrimarysourceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get presence user primarysource unsupported media type response has a 2xx status code
+func (o *GetPresenceUserPrimarysourceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get presence user primarysource unsupported media type response has a 3xx status code
+func (o *GetPresenceUserPrimarysourceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get presence user primarysource unsupported media type response has a 4xx status code
+func (o *GetPresenceUserPrimarysourceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get presence user primarysource unsupported media type response has a 5xx status code
+func (o *GetPresenceUserPrimarysourceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get presence user primarysource unsupported media type response a status code equal to that given
+func (o *GetPresenceUserPrimarysourceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetPresenceUserPrimarysourceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetPresenceUserPrimarysourceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetPresenceUserPrimarysourceTooManyRequests() *GetPresenceUserPrimarysou
 	return &GetPresenceUserPrimarysourceTooManyRequests{}
 }
 
-/*GetPresenceUserPrimarysourceTooManyRequests handles this case with default header values.
+/*
+GetPresenceUserPrimarysourceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetPresenceUserPrimarysourceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get presence user primarysource too many requests response has a 2xx status code
+func (o *GetPresenceUserPrimarysourceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get presence user primarysource too many requests response has a 3xx status code
+func (o *GetPresenceUserPrimarysourceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get presence user primarysource too many requests response has a 4xx status code
+func (o *GetPresenceUserPrimarysourceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get presence user primarysource too many requests response has a 5xx status code
+func (o *GetPresenceUserPrimarysourceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get presence user primarysource too many requests response a status code equal to that given
+func (o *GetPresenceUserPrimarysourceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetPresenceUserPrimarysourceTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetPresenceUserPrimarysourceTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetPresenceUserPrimarysourceInternalServerError() *GetPresenceUserPrimar
 	return &GetPresenceUserPrimarysourceInternalServerError{}
 }
 
-/*GetPresenceUserPrimarysourceInternalServerError handles this case with default header values.
+/*
+GetPresenceUserPrimarysourceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetPresenceUserPrimarysourceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get presence user primarysource internal server error response has a 2xx status code
+func (o *GetPresenceUserPrimarysourceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get presence user primarysource internal server error response has a 3xx status code
+func (o *GetPresenceUserPrimarysourceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get presence user primarysource internal server error response has a 4xx status code
+func (o *GetPresenceUserPrimarysourceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get presence user primarysource internal server error response has a 5xx status code
+func (o *GetPresenceUserPrimarysourceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get presence user primarysource internal server error response a status code equal to that given
+func (o *GetPresenceUserPrimarysourceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetPresenceUserPrimarysourceInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetPresenceUserPrimarysourceInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetPresenceUserPrimarysourceServiceUnavailable() *GetPresenceUserPrimary
 	return &GetPresenceUserPrimarysourceServiceUnavailable{}
 }
 
-/*GetPresenceUserPrimarysourceServiceUnavailable handles this case with default header values.
+/*
+GetPresenceUserPrimarysourceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetPresenceUserPrimarysourceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get presence user primarysource service unavailable response has a 2xx status code
+func (o *GetPresenceUserPrimarysourceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get presence user primarysource service unavailable response has a 3xx status code
+func (o *GetPresenceUserPrimarysourceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get presence user primarysource service unavailable response has a 4xx status code
+func (o *GetPresenceUserPrimarysourceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get presence user primarysource service unavailable response has a 5xx status code
+func (o *GetPresenceUserPrimarysourceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get presence user primarysource service unavailable response a status code equal to that given
+func (o *GetPresenceUserPrimarysourceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetPresenceUserPrimarysourceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetPresenceUserPrimarysourceServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetPresenceUserPrimarysourceGatewayTimeout() *GetPresenceUserPrimarysour
 	return &GetPresenceUserPrimarysourceGatewayTimeout{}
 }
 
-/*GetPresenceUserPrimarysourceGatewayTimeout handles this case with default header values.
+/*
+GetPresenceUserPrimarysourceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetPresenceUserPrimarysourceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get presence user primarysource gateway timeout response has a 2xx status code
+func (o *GetPresenceUserPrimarysourceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get presence user primarysource gateway timeout response has a 3xx status code
+func (o *GetPresenceUserPrimarysourceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get presence user primarysource gateway timeout response has a 4xx status code
+func (o *GetPresenceUserPrimarysourceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get presence user primarysource gateway timeout response has a 5xx status code
+func (o *GetPresenceUserPrimarysourceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get presence user primarysource gateway timeout response a status code equal to that given
+func (o *GetPresenceUserPrimarysourceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetPresenceUserPrimarysourceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetPresenceUserPrimarysourceGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/presence/users/{userId}/primarysource][%d] getPresenceUserPrimarysourceGatewayTimeout  %+v", 504, o.Payload)
 }
 

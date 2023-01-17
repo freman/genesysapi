@@ -107,7 +107,6 @@ func (o *PatchExternalcontactsContactIdentifiersReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -118,7 +117,8 @@ func NewPatchExternalcontactsContactIdentifiersOK() *PatchExternalcontactsContac
 	return &PatchExternalcontactsContactIdentifiersOK{}
 }
 
-/*PatchExternalcontactsContactIdentifiersOK handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -126,7 +126,36 @@ type PatchExternalcontactsContactIdentifiersOK struct {
 	Payload *models.ContactIdentifier
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers o k response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers o k response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers o k response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers o k response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers o k response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchExternalcontactsContactIdentifiersOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersOK  %+v", 200, o.Payload)
 }
 
@@ -151,7 +180,8 @@ func NewPatchExternalcontactsContactIdentifiersBadRequest() *PatchExternalcontac
 	return &PatchExternalcontactsContactIdentifiersBadRequest{}
 }
 
-/*PatchExternalcontactsContactIdentifiersBadRequest handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -159,7 +189,36 @@ type PatchExternalcontactsContactIdentifiersBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers bad request response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers bad request response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers bad request response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers bad request response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers bad request response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchExternalcontactsContactIdentifiersBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersBadRequest  %+v", 400, o.Payload)
 }
 
@@ -184,7 +243,8 @@ func NewPatchExternalcontactsContactIdentifiersUnauthorized() *PatchExternalcont
 	return &PatchExternalcontactsContactIdentifiersUnauthorized{}
 }
 
-/*PatchExternalcontactsContactIdentifiersUnauthorized handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -192,7 +252,36 @@ type PatchExternalcontactsContactIdentifiersUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers unauthorized response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers unauthorized response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers unauthorized response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers unauthorized response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers unauthorized response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchExternalcontactsContactIdentifiersUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -217,7 +306,8 @@ func NewPatchExternalcontactsContactIdentifiersForbidden() *PatchExternalcontact
 	return &PatchExternalcontactsContactIdentifiersForbidden{}
 }
 
-/*PatchExternalcontactsContactIdentifiersForbidden handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -225,7 +315,36 @@ type PatchExternalcontactsContactIdentifiersForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers forbidden response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers forbidden response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers forbidden response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers forbidden response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers forbidden response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchExternalcontactsContactIdentifiersForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersForbidden  %+v", 403, o.Payload)
 }
 
@@ -250,7 +369,8 @@ func NewPatchExternalcontactsContactIdentifiersNotFound() *PatchExternalcontacts
 	return &PatchExternalcontactsContactIdentifiersNotFound{}
 }
 
-/*PatchExternalcontactsContactIdentifiersNotFound handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -258,7 +378,36 @@ type PatchExternalcontactsContactIdentifiersNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers not found response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers not found response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers not found response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers not found response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers not found response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchExternalcontactsContactIdentifiersNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersNotFound  %+v", 404, o.Payload)
 }
 
@@ -283,7 +432,8 @@ func NewPatchExternalcontactsContactIdentifiersRequestTimeout() *PatchExternalco
 	return &PatchExternalcontactsContactIdentifiersRequestTimeout{}
 }
 
-/*PatchExternalcontactsContactIdentifiersRequestTimeout handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -291,7 +441,36 @@ type PatchExternalcontactsContactIdentifiersRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers request timeout response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers request timeout response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers request timeout response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers request timeout response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers request timeout response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchExternalcontactsContactIdentifiersRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -316,7 +495,8 @@ func NewPatchExternalcontactsContactIdentifiersConflict() *PatchExternalcontacts
 	return &PatchExternalcontactsContactIdentifiersConflict{}
 }
 
-/*PatchExternalcontactsContactIdentifiersConflict handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -324,7 +504,36 @@ type PatchExternalcontactsContactIdentifiersConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers conflict response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers conflict response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers conflict response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers conflict response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers conflict response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchExternalcontactsContactIdentifiersConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersConflict  %+v", 409, o.Payload)
 }
 
@@ -349,7 +558,8 @@ func NewPatchExternalcontactsContactIdentifiersRequestEntityTooLarge() *PatchExt
 	return &PatchExternalcontactsContactIdentifiersRequestEntityTooLarge{}
 }
 
-/*PatchExternalcontactsContactIdentifiersRequestEntityTooLarge handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -357,7 +567,36 @@ type PatchExternalcontactsContactIdentifiersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers request entity too large response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers request entity too large response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers request entity too large response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers request entity too large response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers request entity too large response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchExternalcontactsContactIdentifiersRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -382,7 +621,8 @@ func NewPatchExternalcontactsContactIdentifiersUnsupportedMediaType() *PatchExte
 	return &PatchExternalcontactsContactIdentifiersUnsupportedMediaType{}
 }
 
-/*PatchExternalcontactsContactIdentifiersUnsupportedMediaType handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -390,7 +630,36 @@ type PatchExternalcontactsContactIdentifiersUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers unsupported media type response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers unsupported media type response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers unsupported media type response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers unsupported media type response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers unsupported media type response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchExternalcontactsContactIdentifiersUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -415,7 +684,8 @@ func NewPatchExternalcontactsContactIdentifiersUnprocessableEntity() *PatchExter
 	return &PatchExternalcontactsContactIdentifiersUnprocessableEntity{}
 }
 
-/*PatchExternalcontactsContactIdentifiersUnprocessableEntity handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersUnprocessableEntity describes a response with status code 422, with default header values.
 
 PatchExternalcontactsContactIdentifiersUnprocessableEntity patch externalcontacts contact identifiers unprocessable entity
 */
@@ -423,7 +693,36 @@ type PatchExternalcontactsContactIdentifiersUnprocessableEntity struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers unprocessable entity response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersUnprocessableEntity) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers unprocessable entity response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersUnprocessableEntity) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers unprocessable entity response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersUnprocessableEntity) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers unprocessable entity response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersUnprocessableEntity) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers unprocessable entity response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersUnprocessableEntity) IsCode(code int) bool {
+	return code == 422
+}
+
 func (o *PatchExternalcontactsContactIdentifiersUnprocessableEntity) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersUnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersUnprocessableEntity) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersUnprocessableEntity  %+v", 422, o.Payload)
 }
 
@@ -448,7 +747,8 @@ func NewPatchExternalcontactsContactIdentifiersTooManyRequests() *PatchExternalc
 	return &PatchExternalcontactsContactIdentifiersTooManyRequests{}
 }
 
-/*PatchExternalcontactsContactIdentifiersTooManyRequests handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -456,7 +756,36 @@ type PatchExternalcontactsContactIdentifiersTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers too many requests response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers too many requests response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers too many requests response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers too many requests response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers too many requests response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchExternalcontactsContactIdentifiersTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -481,7 +810,8 @@ func NewPatchExternalcontactsContactIdentifiersInternalServerError() *PatchExter
 	return &PatchExternalcontactsContactIdentifiersInternalServerError{}
 }
 
-/*PatchExternalcontactsContactIdentifiersInternalServerError handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -489,7 +819,36 @@ type PatchExternalcontactsContactIdentifiersInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers internal server error response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers internal server error response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers internal server error response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers internal server error response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers internal server error response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchExternalcontactsContactIdentifiersInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -514,7 +873,8 @@ func NewPatchExternalcontactsContactIdentifiersServiceUnavailable() *PatchExtern
 	return &PatchExternalcontactsContactIdentifiersServiceUnavailable{}
 }
 
-/*PatchExternalcontactsContactIdentifiersServiceUnavailable handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -522,7 +882,36 @@ type PatchExternalcontactsContactIdentifiersServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers service unavailable response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers service unavailable response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers service unavailable response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers service unavailable response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers service unavailable response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchExternalcontactsContactIdentifiersServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -547,7 +936,8 @@ func NewPatchExternalcontactsContactIdentifiersGatewayTimeout() *PatchExternalco
 	return &PatchExternalcontactsContactIdentifiersGatewayTimeout{}
 }
 
-/*PatchExternalcontactsContactIdentifiersGatewayTimeout handles this case with default header values.
+/*
+PatchExternalcontactsContactIdentifiersGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -555,7 +945,36 @@ type PatchExternalcontactsContactIdentifiersGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch externalcontacts contact identifiers gateway timeout response has a 2xx status code
+func (o *PatchExternalcontactsContactIdentifiersGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch externalcontacts contact identifiers gateway timeout response has a 3xx status code
+func (o *PatchExternalcontactsContactIdentifiersGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch externalcontacts contact identifiers gateway timeout response has a 4xx status code
+func (o *PatchExternalcontactsContactIdentifiersGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch externalcontacts contact identifiers gateway timeout response has a 5xx status code
+func (o *PatchExternalcontactsContactIdentifiersGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch externalcontacts contact identifiers gateway timeout response a status code equal to that given
+func (o *PatchExternalcontactsContactIdentifiersGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchExternalcontactsContactIdentifiersGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchExternalcontactsContactIdentifiersGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/externalcontacts/contacts/{contactId}/identifiers][%d] patchExternalcontactsContactIdentifiersGatewayTimeout  %+v", 504, o.Payload)
 }
 

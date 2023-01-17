@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -48,7 +49,6 @@ func (m *RuleSetDiagnostic) Validate(formats strfmt.Registry) error {
 }
 
 func (m *RuleSetDiagnostic) validateRuleSet(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RuleSet) { // not required
 		return nil
 	}
@@ -57,6 +57,8 @@ func (m *RuleSetDiagnostic) validateRuleSet(formats strfmt.Registry) error {
 		if err := m.RuleSet.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ruleSet")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ruleSet")
 			}
 			return err
 		}
@@ -85,7 +87,6 @@ func (m *RuleSetDiagnostic) validateWarningsItemsEnum(path, location string, val
 }
 
 func (m *RuleSetDiagnostic) validateWarnings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Warnings) { // not required
 		return nil
 	}
@@ -97,6 +98,49 @@ func (m *RuleSetDiagnostic) validateWarnings(formats strfmt.Registry) error {
 			return err
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this rule set diagnostic based on the context it is used
+func (m *RuleSetDiagnostic) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRuleSet(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWarnings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RuleSetDiagnostic) contextValidateRuleSet(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RuleSet != nil {
+		if err := m.RuleSet.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ruleSet")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ruleSet")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RuleSetDiagnostic) contextValidateWarnings(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "warnings", "body", []string(m.Warnings)); err != nil {
+		return err
 	}
 
 	return nil

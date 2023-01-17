@@ -101,7 +101,6 @@ func (o *PutConversationsCobrowsesessionRecordingstateReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutConversationsCobrowsesessionRecordingstateOK() *PutConversationsCobro
 	return &PutConversationsCobrowsesessionRecordingstateOK{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateOK handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutConversationsCobrowsesessionRecordingstateOK struct {
 	Payload string
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate o k response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate o k response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate o k response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate o k response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate o k response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateOK  %+v", 200, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateOK  %+v", 200, o.Payload)
 }
 
@@ -143,7 +172,8 @@ func NewPutConversationsCobrowsesessionRecordingstateAccepted() *PutConversation
 	return &PutConversationsCobrowsesessionRecordingstateAccepted{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateAccepted handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateAccepted describes a response with status code 202, with default header values.
 
 Accepted - when pausing or resuming recordings (Secure Pause)
 */
@@ -151,7 +181,36 @@ type PutConversationsCobrowsesessionRecordingstateAccepted struct {
 	Payload string
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate accepted response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate accepted response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate accepted response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate accepted response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate accepted response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateAccepted) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateAccepted) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateAccepted  %+v", 202, o.Payload)
 }
 
@@ -174,7 +233,8 @@ func NewPutConversationsCobrowsesessionRecordingstateBadRequest() *PutConversati
 	return &PutConversationsCobrowsesessionRecordingstateBadRequest{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateBadRequest handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -182,7 +242,36 @@ type PutConversationsCobrowsesessionRecordingstateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate bad request response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate bad request response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate bad request response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate bad request response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate bad request response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -207,7 +296,8 @@ func NewPutConversationsCobrowsesessionRecordingstateUnauthorized() *PutConversa
 	return &PutConversationsCobrowsesessionRecordingstateUnauthorized{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateUnauthorized handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -215,7 +305,36 @@ type PutConversationsCobrowsesessionRecordingstateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate unauthorized response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate unauthorized response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate unauthorized response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate unauthorized response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate unauthorized response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -240,7 +359,8 @@ func NewPutConversationsCobrowsesessionRecordingstateForbidden() *PutConversatio
 	return &PutConversationsCobrowsesessionRecordingstateForbidden{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateForbidden handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -248,7 +368,36 @@ type PutConversationsCobrowsesessionRecordingstateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate forbidden response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate forbidden response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate forbidden response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate forbidden response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate forbidden response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateForbidden  %+v", 403, o.Payload)
 }
 
@@ -273,7 +422,8 @@ func NewPutConversationsCobrowsesessionRecordingstateNotFound() *PutConversation
 	return &PutConversationsCobrowsesessionRecordingstateNotFound{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateNotFound handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -281,7 +431,36 @@ type PutConversationsCobrowsesessionRecordingstateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate not found response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate not found response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate not found response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate not found response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate not found response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateNotFound  %+v", 404, o.Payload)
 }
 
@@ -306,7 +485,8 @@ func NewPutConversationsCobrowsesessionRecordingstateRequestTimeout() *PutConver
 	return &PutConversationsCobrowsesessionRecordingstateRequestTimeout{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateRequestTimeout handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -314,7 +494,36 @@ type PutConversationsCobrowsesessionRecordingstateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate request timeout response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate request timeout response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate request timeout response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate request timeout response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate request timeout response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -339,7 +548,8 @@ func NewPutConversationsCobrowsesessionRecordingstateRequestEntityTooLarge() *Pu
 	return &PutConversationsCobrowsesessionRecordingstateRequestEntityTooLarge{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateRequestEntityTooLarge handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -347,7 +557,36 @@ type PutConversationsCobrowsesessionRecordingstateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate request entity too large response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate request entity too large response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate request entity too large response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate request entity too large response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate request entity too large response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -372,7 +611,8 @@ func NewPutConversationsCobrowsesessionRecordingstateUnsupportedMediaType() *Put
 	return &PutConversationsCobrowsesessionRecordingstateUnsupportedMediaType{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateUnsupportedMediaType handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -380,7 +620,36 @@ type PutConversationsCobrowsesessionRecordingstateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate unsupported media type response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate unsupported media type response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate unsupported media type response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate unsupported media type response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate unsupported media type response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -405,7 +674,8 @@ func NewPutConversationsCobrowsesessionRecordingstateTooManyRequests() *PutConve
 	return &PutConversationsCobrowsesessionRecordingstateTooManyRequests{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateTooManyRequests handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -413,7 +683,36 @@ type PutConversationsCobrowsesessionRecordingstateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate too many requests response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate too many requests response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate too many requests response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate too many requests response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate too many requests response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -438,7 +737,8 @@ func NewPutConversationsCobrowsesessionRecordingstateInternalServerError() *PutC
 	return &PutConversationsCobrowsesessionRecordingstateInternalServerError{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateInternalServerError handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -446,7 +746,36 @@ type PutConversationsCobrowsesessionRecordingstateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate internal server error response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate internal server error response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate internal server error response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate internal server error response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate internal server error response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -471,7 +800,8 @@ func NewPutConversationsCobrowsesessionRecordingstateServiceUnavailable() *PutCo
 	return &PutConversationsCobrowsesessionRecordingstateServiceUnavailable{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateServiceUnavailable handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -479,7 +809,36 @@ type PutConversationsCobrowsesessionRecordingstateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate service unavailable response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate service unavailable response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate service unavailable response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate service unavailable response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate service unavailable response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -504,7 +863,8 @@ func NewPutConversationsCobrowsesessionRecordingstateGatewayTimeout() *PutConver
 	return &PutConversationsCobrowsesessionRecordingstateGatewayTimeout{}
 }
 
-/*PutConversationsCobrowsesessionRecordingstateGatewayTimeout handles this case with default header values.
+/*
+PutConversationsCobrowsesessionRecordingstateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -512,7 +872,36 @@ type PutConversationsCobrowsesessionRecordingstateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations cobrowsesession recordingstate gateway timeout response has a 2xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations cobrowsesession recordingstate gateway timeout response has a 3xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations cobrowsesession recordingstate gateway timeout response has a 4xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations cobrowsesession recordingstate gateway timeout response has a 5xx status code
+func (o *PutConversationsCobrowsesessionRecordingstateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations cobrowsesession recordingstate gateway timeout response a status code equal to that given
+func (o *PutConversationsCobrowsesessionRecordingstateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutConversationsCobrowsesessionRecordingstateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutConversationsCobrowsesessionRecordingstateGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/cobrowsesessions/{conversationId}/recordingstate][%d] putConversationsCobrowsesessionRecordingstateGatewayTimeout  %+v", 504, o.Payload)
 }
 

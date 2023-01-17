@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutArchitectEmergencygroupParams creates a new PutArchitectEmergencygroupParams object
-// with the default values initialized.
+// NewPutArchitectEmergencygroupParams creates a new PutArchitectEmergencygroupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutArchitectEmergencygroupParams() *PutArchitectEmergencygroupParams {
-	var ()
 	return &PutArchitectEmergencygroupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutArchitectEmergencygroupParamsWithTimeout creates a new PutArchitectEmergencygroupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutArchitectEmergencygroupParamsWithTimeout(timeout time.Duration) *PutArchitectEmergencygroupParams {
-	var ()
 	return &PutArchitectEmergencygroupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutArchitectEmergencygroupParamsWithContext creates a new PutArchitectEmergencygroupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutArchitectEmergencygroupParamsWithContext(ctx context.Context) *PutArchitectEmergencygroupParams {
-	var ()
 	return &PutArchitectEmergencygroupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutArchitectEmergencygroupParamsWithHTTPClient creates a new PutArchitectEmergencygroupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutArchitectEmergencygroupParamsWithHTTPClient(client *http.Client) *PutArchitectEmergencygroupParams {
-	var ()
 	return &PutArchitectEmergencygroupParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutArchitectEmergencygroupParams contains all the parameters to send to the API endpoint
-for the put architect emergencygroup operation typically these are written to a http.Request
+/*
+PutArchitectEmergencygroupParams contains all the parameters to send to the API endpoint
+
+	for the put architect emergencygroup operation.
+
+	Typically these are written to a http.Request.
 */
 type PutArchitectEmergencygroupParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.EmergencyGroup
-	/*EmergencyGroupID
-	  Emergency group ID
 
+	/* EmergencyGroupID.
+
+	   Emergency group ID
 	*/
 	EmergencyGroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put architect emergencygroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutArchitectEmergencygroupParams) WithDefaults() *PutArchitectEmergencygroupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put architect emergencygroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutArchitectEmergencygroupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put architect emergencygroup params
@@ -137,7 +154,6 @@ func (o *PutArchitectEmergencygroupParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

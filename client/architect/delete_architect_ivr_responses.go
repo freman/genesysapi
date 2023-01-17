@@ -101,7 +101,6 @@ func (o *DeleteArchitectIvrReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteArchitectIvrOK() *DeleteArchitectIvrOK {
 	return &DeleteArchitectIvrOK{}
 }
 
-/*DeleteArchitectIvrOK handles this case with default header values.
+/*
+DeleteArchitectIvrOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteArchitectIvrOK struct {
 }
 
+// IsSuccess returns true when this delete architect ivr o k response has a 2xx status code
+func (o *DeleteArchitectIvrOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete architect ivr o k response has a 3xx status code
+func (o *DeleteArchitectIvrOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr o k response has a 4xx status code
+func (o *DeleteArchitectIvrOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect ivr o k response has a 5xx status code
+func (o *DeleteArchitectIvrOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect ivr o k response a status code equal to that given
+func (o *DeleteArchitectIvrOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteArchitectIvrOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrOK ", 200)
+}
+
+func (o *DeleteArchitectIvrOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrOK ", 200)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteArchitectIvrBadRequest() *DeleteArchitectIvrBadRequest {
 	return &DeleteArchitectIvrBadRequest{}
 }
 
-/*DeleteArchitectIvrBadRequest handles this case with default header values.
+/*
+DeleteArchitectIvrBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteArchitectIvrBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect ivr bad request response has a 2xx status code
+func (o *DeleteArchitectIvrBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect ivr bad request response has a 3xx status code
+func (o *DeleteArchitectIvrBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr bad request response has a 4xx status code
+func (o *DeleteArchitectIvrBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect ivr bad request response has a 5xx status code
+func (o *DeleteArchitectIvrBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect ivr bad request response a status code equal to that given
+func (o *DeleteArchitectIvrBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteArchitectIvrBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteArchitectIvrBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteArchitectIvrUnauthorized() *DeleteArchitectIvrUnauthorized {
 	return &DeleteArchitectIvrUnauthorized{}
 }
 
-/*DeleteArchitectIvrUnauthorized handles this case with default header values.
+/*
+DeleteArchitectIvrUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteArchitectIvrUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect ivr unauthorized response has a 2xx status code
+func (o *DeleteArchitectIvrUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect ivr unauthorized response has a 3xx status code
+func (o *DeleteArchitectIvrUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr unauthorized response has a 4xx status code
+func (o *DeleteArchitectIvrUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect ivr unauthorized response has a 5xx status code
+func (o *DeleteArchitectIvrUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect ivr unauthorized response a status code equal to that given
+func (o *DeleteArchitectIvrUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteArchitectIvrUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteArchitectIvrUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteArchitectIvrForbidden() *DeleteArchitectIvrForbidden {
 	return &DeleteArchitectIvrForbidden{}
 }
 
-/*DeleteArchitectIvrForbidden handles this case with default header values.
+/*
+DeleteArchitectIvrForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteArchitectIvrForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect ivr forbidden response has a 2xx status code
+func (o *DeleteArchitectIvrForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect ivr forbidden response has a 3xx status code
+func (o *DeleteArchitectIvrForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr forbidden response has a 4xx status code
+func (o *DeleteArchitectIvrForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect ivr forbidden response has a 5xx status code
+func (o *DeleteArchitectIvrForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect ivr forbidden response a status code equal to that given
+func (o *DeleteArchitectIvrForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteArchitectIvrForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteArchitectIvrForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteArchitectIvrNotFound() *DeleteArchitectIvrNotFound {
 	return &DeleteArchitectIvrNotFound{}
 }
 
-/*DeleteArchitectIvrNotFound handles this case with default header values.
+/*
+DeleteArchitectIvrNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteArchitectIvrNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect ivr not found response has a 2xx status code
+func (o *DeleteArchitectIvrNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect ivr not found response has a 3xx status code
+func (o *DeleteArchitectIvrNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr not found response has a 4xx status code
+func (o *DeleteArchitectIvrNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect ivr not found response has a 5xx status code
+func (o *DeleteArchitectIvrNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect ivr not found response a status code equal to that given
+func (o *DeleteArchitectIvrNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteArchitectIvrNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteArchitectIvrNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteArchitectIvrRequestTimeout() *DeleteArchitectIvrRequestTimeout {
 	return &DeleteArchitectIvrRequestTimeout{}
 }
 
-/*DeleteArchitectIvrRequestTimeout handles this case with default header values.
+/*
+DeleteArchitectIvrRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteArchitectIvrRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect ivr request timeout response has a 2xx status code
+func (o *DeleteArchitectIvrRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect ivr request timeout response has a 3xx status code
+func (o *DeleteArchitectIvrRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr request timeout response has a 4xx status code
+func (o *DeleteArchitectIvrRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect ivr request timeout response has a 5xx status code
+func (o *DeleteArchitectIvrRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect ivr request timeout response a status code equal to that given
+func (o *DeleteArchitectIvrRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteArchitectIvrRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteArchitectIvrRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteArchitectIvrConflict() *DeleteArchitectIvrConflict {
 	return &DeleteArchitectIvrConflict{}
 }
 
-/*DeleteArchitectIvrConflict handles this case with default header values.
+/*
+DeleteArchitectIvrConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeleteArchitectIvrConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect ivr conflict response has a 2xx status code
+func (o *DeleteArchitectIvrConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect ivr conflict response has a 3xx status code
+func (o *DeleteArchitectIvrConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr conflict response has a 4xx status code
+func (o *DeleteArchitectIvrConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect ivr conflict response has a 5xx status code
+func (o *DeleteArchitectIvrConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect ivr conflict response a status code equal to that given
+func (o *DeleteArchitectIvrConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteArchitectIvrConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteArchitectIvrConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteArchitectIvrRequestEntityTooLarge() *DeleteArchitectIvrRequestEnti
 	return &DeleteArchitectIvrRequestEntityTooLarge{}
 }
 
-/*DeleteArchitectIvrRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteArchitectIvrRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteArchitectIvrRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect ivr request entity too large response has a 2xx status code
+func (o *DeleteArchitectIvrRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect ivr request entity too large response has a 3xx status code
+func (o *DeleteArchitectIvrRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr request entity too large response has a 4xx status code
+func (o *DeleteArchitectIvrRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect ivr request entity too large response has a 5xx status code
+func (o *DeleteArchitectIvrRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect ivr request entity too large response a status code equal to that given
+func (o *DeleteArchitectIvrRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteArchitectIvrRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteArchitectIvrRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteArchitectIvrUnsupportedMediaType() *DeleteArchitectIvrUnsupportedM
 	return &DeleteArchitectIvrUnsupportedMediaType{}
 }
 
-/*DeleteArchitectIvrUnsupportedMediaType handles this case with default header values.
+/*
+DeleteArchitectIvrUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteArchitectIvrUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect ivr unsupported media type response has a 2xx status code
+func (o *DeleteArchitectIvrUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect ivr unsupported media type response has a 3xx status code
+func (o *DeleteArchitectIvrUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr unsupported media type response has a 4xx status code
+func (o *DeleteArchitectIvrUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect ivr unsupported media type response has a 5xx status code
+func (o *DeleteArchitectIvrUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect ivr unsupported media type response a status code equal to that given
+func (o *DeleteArchitectIvrUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteArchitectIvrUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteArchitectIvrUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteArchitectIvrTooManyRequests() *DeleteArchitectIvrTooManyRequests {
 	return &DeleteArchitectIvrTooManyRequests{}
 }
 
-/*DeleteArchitectIvrTooManyRequests handles this case with default header values.
+/*
+DeleteArchitectIvrTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteArchitectIvrTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect ivr too many requests response has a 2xx status code
+func (o *DeleteArchitectIvrTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect ivr too many requests response has a 3xx status code
+func (o *DeleteArchitectIvrTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr too many requests response has a 4xx status code
+func (o *DeleteArchitectIvrTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect ivr too many requests response has a 5xx status code
+func (o *DeleteArchitectIvrTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect ivr too many requests response a status code equal to that given
+func (o *DeleteArchitectIvrTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteArchitectIvrTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteArchitectIvrTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteArchitectIvrInternalServerError() *DeleteArchitectIvrInternalServe
 	return &DeleteArchitectIvrInternalServerError{}
 }
 
-/*DeleteArchitectIvrInternalServerError handles this case with default header values.
+/*
+DeleteArchitectIvrInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteArchitectIvrInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect ivr internal server error response has a 2xx status code
+func (o *DeleteArchitectIvrInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect ivr internal server error response has a 3xx status code
+func (o *DeleteArchitectIvrInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr internal server error response has a 4xx status code
+func (o *DeleteArchitectIvrInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect ivr internal server error response has a 5xx status code
+func (o *DeleteArchitectIvrInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect ivr internal server error response a status code equal to that given
+func (o *DeleteArchitectIvrInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteArchitectIvrInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteArchitectIvrInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteArchitectIvrServiceUnavailable() *DeleteArchitectIvrServiceUnavail
 	return &DeleteArchitectIvrServiceUnavailable{}
 }
 
-/*DeleteArchitectIvrServiceUnavailable handles this case with default header values.
+/*
+DeleteArchitectIvrServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteArchitectIvrServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect ivr service unavailable response has a 2xx status code
+func (o *DeleteArchitectIvrServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect ivr service unavailable response has a 3xx status code
+func (o *DeleteArchitectIvrServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr service unavailable response has a 4xx status code
+func (o *DeleteArchitectIvrServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect ivr service unavailable response has a 5xx status code
+func (o *DeleteArchitectIvrServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect ivr service unavailable response a status code equal to that given
+func (o *DeleteArchitectIvrServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteArchitectIvrServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteArchitectIvrServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteArchitectIvrGatewayTimeout() *DeleteArchitectIvrGatewayTimeout {
 	return &DeleteArchitectIvrGatewayTimeout{}
 }
 
-/*DeleteArchitectIvrGatewayTimeout handles this case with default header values.
+/*
+DeleteArchitectIvrGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteArchitectIvrGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect ivr gateway timeout response has a 2xx status code
+func (o *DeleteArchitectIvrGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect ivr gateway timeout response has a 3xx status code
+func (o *DeleteArchitectIvrGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect ivr gateway timeout response has a 4xx status code
+func (o *DeleteArchitectIvrGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect ivr gateway timeout response has a 5xx status code
+func (o *DeleteArchitectIvrGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect ivr gateway timeout response a status code equal to that given
+func (o *DeleteArchitectIvrGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteArchitectIvrGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteArchitectIvrGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/ivrs/{ivrId}][%d] deleteArchitectIvrGatewayTimeout  %+v", 504, o.Payload)
 }
 

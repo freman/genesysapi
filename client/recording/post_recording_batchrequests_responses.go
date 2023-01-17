@@ -95,7 +95,6 @@ func (o *PostRecordingBatchrequestsReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostRecordingBatchrequestsOK() *PostRecordingBatchrequestsOK {
 	return &PostRecordingBatchrequestsOK{}
 }
 
-/*PostRecordingBatchrequestsOK handles this case with default header values.
+/*
+PostRecordingBatchrequestsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostRecordingBatchrequestsOK struct {
 	Payload *models.BatchDownloadJobSubmissionResult
 }
 
+// IsSuccess returns true when this post recording batchrequests o k response has a 2xx status code
+func (o *PostRecordingBatchrequestsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post recording batchrequests o k response has a 3xx status code
+func (o *PostRecordingBatchrequestsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording batchrequests o k response has a 4xx status code
+func (o *PostRecordingBatchrequestsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recording batchrequests o k response has a 5xx status code
+func (o *PostRecordingBatchrequestsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording batchrequests o k response a status code equal to that given
+func (o *PostRecordingBatchrequestsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostRecordingBatchrequestsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostRecordingBatchrequestsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostRecordingBatchrequestsBadRequest() *PostRecordingBatchrequestsBadReq
 	return &PostRecordingBatchrequestsBadRequest{}
 }
 
-/*PostRecordingBatchrequestsBadRequest handles this case with default header values.
+/*
+PostRecordingBatchrequestsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostRecordingBatchrequestsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording batchrequests bad request response has a 2xx status code
+func (o *PostRecordingBatchrequestsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording batchrequests bad request response has a 3xx status code
+func (o *PostRecordingBatchrequestsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording batchrequests bad request response has a 4xx status code
+func (o *PostRecordingBatchrequestsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording batchrequests bad request response has a 5xx status code
+func (o *PostRecordingBatchrequestsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording batchrequests bad request response a status code equal to that given
+func (o *PostRecordingBatchrequestsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostRecordingBatchrequestsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostRecordingBatchrequestsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostRecordingBatchrequestsUnauthorized() *PostRecordingBatchrequestsUnau
 	return &PostRecordingBatchrequestsUnauthorized{}
 }
 
-/*PostRecordingBatchrequestsUnauthorized handles this case with default header values.
+/*
+PostRecordingBatchrequestsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostRecordingBatchrequestsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording batchrequests unauthorized response has a 2xx status code
+func (o *PostRecordingBatchrequestsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording batchrequests unauthorized response has a 3xx status code
+func (o *PostRecordingBatchrequestsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording batchrequests unauthorized response has a 4xx status code
+func (o *PostRecordingBatchrequestsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording batchrequests unauthorized response has a 5xx status code
+func (o *PostRecordingBatchrequestsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording batchrequests unauthorized response a status code equal to that given
+func (o *PostRecordingBatchrequestsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostRecordingBatchrequestsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostRecordingBatchrequestsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostRecordingBatchrequestsForbidden() *PostRecordingBatchrequestsForbidd
 	return &PostRecordingBatchrequestsForbidden{}
 }
 
-/*PostRecordingBatchrequestsForbidden handles this case with default header values.
+/*
+PostRecordingBatchrequestsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostRecordingBatchrequestsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording batchrequests forbidden response has a 2xx status code
+func (o *PostRecordingBatchrequestsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording batchrequests forbidden response has a 3xx status code
+func (o *PostRecordingBatchrequestsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording batchrequests forbidden response has a 4xx status code
+func (o *PostRecordingBatchrequestsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording batchrequests forbidden response has a 5xx status code
+func (o *PostRecordingBatchrequestsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording batchrequests forbidden response a status code equal to that given
+func (o *PostRecordingBatchrequestsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostRecordingBatchrequestsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostRecordingBatchrequestsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostRecordingBatchrequestsNotFound() *PostRecordingBatchrequestsNotFound
 	return &PostRecordingBatchrequestsNotFound{}
 }
 
-/*PostRecordingBatchrequestsNotFound handles this case with default header values.
+/*
+PostRecordingBatchrequestsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostRecordingBatchrequestsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording batchrequests not found response has a 2xx status code
+func (o *PostRecordingBatchrequestsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording batchrequests not found response has a 3xx status code
+func (o *PostRecordingBatchrequestsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording batchrequests not found response has a 4xx status code
+func (o *PostRecordingBatchrequestsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording batchrequests not found response has a 5xx status code
+func (o *PostRecordingBatchrequestsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording batchrequests not found response a status code equal to that given
+func (o *PostRecordingBatchrequestsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostRecordingBatchrequestsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostRecordingBatchrequestsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostRecordingBatchrequestsRequestTimeout() *PostRecordingBatchrequestsRe
 	return &PostRecordingBatchrequestsRequestTimeout{}
 }
 
-/*PostRecordingBatchrequestsRequestTimeout handles this case with default header values.
+/*
+PostRecordingBatchrequestsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostRecordingBatchrequestsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording batchrequests request timeout response has a 2xx status code
+func (o *PostRecordingBatchrequestsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording batchrequests request timeout response has a 3xx status code
+func (o *PostRecordingBatchrequestsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording batchrequests request timeout response has a 4xx status code
+func (o *PostRecordingBatchrequestsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording batchrequests request timeout response has a 5xx status code
+func (o *PostRecordingBatchrequestsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording batchrequests request timeout response a status code equal to that given
+func (o *PostRecordingBatchrequestsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostRecordingBatchrequestsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRecordingBatchrequestsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostRecordingBatchrequestsRequestEntityTooLarge() *PostRecordingBatchreq
 	return &PostRecordingBatchrequestsRequestEntityTooLarge{}
 }
 
-/*PostRecordingBatchrequestsRequestEntityTooLarge handles this case with default header values.
+/*
+PostRecordingBatchrequestsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostRecordingBatchrequestsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording batchrequests request entity too large response has a 2xx status code
+func (o *PostRecordingBatchrequestsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording batchrequests request entity too large response has a 3xx status code
+func (o *PostRecordingBatchrequestsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording batchrequests request entity too large response has a 4xx status code
+func (o *PostRecordingBatchrequestsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording batchrequests request entity too large response has a 5xx status code
+func (o *PostRecordingBatchrequestsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording batchrequests request entity too large response a status code equal to that given
+func (o *PostRecordingBatchrequestsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostRecordingBatchrequestsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostRecordingBatchrequestsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostRecordingBatchrequestsUnsupportedMediaType() *PostRecordingBatchrequ
 	return &PostRecordingBatchrequestsUnsupportedMediaType{}
 }
 
-/*PostRecordingBatchrequestsUnsupportedMediaType handles this case with default header values.
+/*
+PostRecordingBatchrequestsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostRecordingBatchrequestsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording batchrequests unsupported media type response has a 2xx status code
+func (o *PostRecordingBatchrequestsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording batchrequests unsupported media type response has a 3xx status code
+func (o *PostRecordingBatchrequestsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording batchrequests unsupported media type response has a 4xx status code
+func (o *PostRecordingBatchrequestsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording batchrequests unsupported media type response has a 5xx status code
+func (o *PostRecordingBatchrequestsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording batchrequests unsupported media type response a status code equal to that given
+func (o *PostRecordingBatchrequestsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostRecordingBatchrequestsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostRecordingBatchrequestsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostRecordingBatchrequestsTooManyRequests() *PostRecordingBatchrequestsT
 	return &PostRecordingBatchrequestsTooManyRequests{}
 }
 
-/*PostRecordingBatchrequestsTooManyRequests handles this case with default header values.
+/*
+PostRecordingBatchrequestsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostRecordingBatchrequestsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording batchrequests too many requests response has a 2xx status code
+func (o *PostRecordingBatchrequestsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording batchrequests too many requests response has a 3xx status code
+func (o *PostRecordingBatchrequestsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording batchrequests too many requests response has a 4xx status code
+func (o *PostRecordingBatchrequestsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording batchrequests too many requests response has a 5xx status code
+func (o *PostRecordingBatchrequestsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording batchrequests too many requests response a status code equal to that given
+func (o *PostRecordingBatchrequestsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostRecordingBatchrequestsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostRecordingBatchrequestsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostRecordingBatchrequestsInternalServerError() *PostRecordingBatchreque
 	return &PostRecordingBatchrequestsInternalServerError{}
 }
 
-/*PostRecordingBatchrequestsInternalServerError handles this case with default header values.
+/*
+PostRecordingBatchrequestsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostRecordingBatchrequestsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording batchrequests internal server error response has a 2xx status code
+func (o *PostRecordingBatchrequestsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording batchrequests internal server error response has a 3xx status code
+func (o *PostRecordingBatchrequestsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording batchrequests internal server error response has a 4xx status code
+func (o *PostRecordingBatchrequestsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recording batchrequests internal server error response has a 5xx status code
+func (o *PostRecordingBatchrequestsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post recording batchrequests internal server error response a status code equal to that given
+func (o *PostRecordingBatchrequestsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostRecordingBatchrequestsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostRecordingBatchrequestsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostRecordingBatchrequestsServiceUnavailable() *PostRecordingBatchreques
 	return &PostRecordingBatchrequestsServiceUnavailable{}
 }
 
-/*PostRecordingBatchrequestsServiceUnavailable handles this case with default header values.
+/*
+PostRecordingBatchrequestsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostRecordingBatchrequestsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording batchrequests service unavailable response has a 2xx status code
+func (o *PostRecordingBatchrequestsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording batchrequests service unavailable response has a 3xx status code
+func (o *PostRecordingBatchrequestsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording batchrequests service unavailable response has a 4xx status code
+func (o *PostRecordingBatchrequestsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recording batchrequests service unavailable response has a 5xx status code
+func (o *PostRecordingBatchrequestsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post recording batchrequests service unavailable response a status code equal to that given
+func (o *PostRecordingBatchrequestsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostRecordingBatchrequestsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostRecordingBatchrequestsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostRecordingBatchrequestsGatewayTimeout() *PostRecordingBatchrequestsGa
 	return &PostRecordingBatchrequestsGatewayTimeout{}
 }
 
-/*PostRecordingBatchrequestsGatewayTimeout handles this case with default header values.
+/*
+PostRecordingBatchrequestsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostRecordingBatchrequestsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording batchrequests gateway timeout response has a 2xx status code
+func (o *PostRecordingBatchrequestsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording batchrequests gateway timeout response has a 3xx status code
+func (o *PostRecordingBatchrequestsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording batchrequests gateway timeout response has a 4xx status code
+func (o *PostRecordingBatchrequestsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recording batchrequests gateway timeout response has a 5xx status code
+func (o *PostRecordingBatchrequestsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post recording batchrequests gateway timeout response a status code equal to that given
+func (o *PostRecordingBatchrequestsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostRecordingBatchrequestsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostRecordingBatchrequestsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/batchrequests][%d] postRecordingBatchrequestsGatewayTimeout  %+v", 504, o.Payload)
 }
 

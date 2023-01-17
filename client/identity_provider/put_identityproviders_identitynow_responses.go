@@ -95,7 +95,6 @@ func (o *PutIdentityprovidersIdentitynowReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutIdentityprovidersIdentitynowOK() *PutIdentityprovidersIdentitynowOK {
 	return &PutIdentityprovidersIdentitynowOK{}
 }
 
-/*PutIdentityprovidersIdentitynowOK handles this case with default header values.
+/*
+PutIdentityprovidersIdentitynowOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutIdentityprovidersIdentitynowOK struct {
 	Payload *models.IdentityNow
 }
 
+// IsSuccess returns true when this put identityproviders identitynow o k response has a 2xx status code
+func (o *PutIdentityprovidersIdentitynowOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put identityproviders identitynow o k response has a 3xx status code
+func (o *PutIdentityprovidersIdentitynowOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders identitynow o k response has a 4xx status code
+func (o *PutIdentityprovidersIdentitynowOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders identitynow o k response has a 5xx status code
+func (o *PutIdentityprovidersIdentitynowOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders identitynow o k response a status code equal to that given
+func (o *PutIdentityprovidersIdentitynowOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutIdentityprovidersIdentitynowOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowOK  %+v", 200, o.Payload)
+}
+
+func (o *PutIdentityprovidersIdentitynowOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutIdentityprovidersIdentitynowBadRequest() *PutIdentityprovidersIdentit
 	return &PutIdentityprovidersIdentitynowBadRequest{}
 }
 
-/*PutIdentityprovidersIdentitynowBadRequest handles this case with default header values.
+/*
+PutIdentityprovidersIdentitynowBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutIdentityprovidersIdentitynowBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders identitynow bad request response has a 2xx status code
+func (o *PutIdentityprovidersIdentitynowBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders identitynow bad request response has a 3xx status code
+func (o *PutIdentityprovidersIdentitynowBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders identitynow bad request response has a 4xx status code
+func (o *PutIdentityprovidersIdentitynowBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders identitynow bad request response has a 5xx status code
+func (o *PutIdentityprovidersIdentitynowBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders identitynow bad request response a status code equal to that given
+func (o *PutIdentityprovidersIdentitynowBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutIdentityprovidersIdentitynowBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutIdentityprovidersIdentitynowBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutIdentityprovidersIdentitynowUnauthorized() *PutIdentityprovidersIdent
 	return &PutIdentityprovidersIdentitynowUnauthorized{}
 }
 
-/*PutIdentityprovidersIdentitynowUnauthorized handles this case with default header values.
+/*
+PutIdentityprovidersIdentitynowUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutIdentityprovidersIdentitynowUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders identitynow unauthorized response has a 2xx status code
+func (o *PutIdentityprovidersIdentitynowUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders identitynow unauthorized response has a 3xx status code
+func (o *PutIdentityprovidersIdentitynowUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders identitynow unauthorized response has a 4xx status code
+func (o *PutIdentityprovidersIdentitynowUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders identitynow unauthorized response has a 5xx status code
+func (o *PutIdentityprovidersIdentitynowUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders identitynow unauthorized response a status code equal to that given
+func (o *PutIdentityprovidersIdentitynowUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutIdentityprovidersIdentitynowUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutIdentityprovidersIdentitynowUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutIdentityprovidersIdentitynowForbidden() *PutIdentityprovidersIdentity
 	return &PutIdentityprovidersIdentitynowForbidden{}
 }
 
-/*PutIdentityprovidersIdentitynowForbidden handles this case with default header values.
+/*
+PutIdentityprovidersIdentitynowForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutIdentityprovidersIdentitynowForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders identitynow forbidden response has a 2xx status code
+func (o *PutIdentityprovidersIdentitynowForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders identitynow forbidden response has a 3xx status code
+func (o *PutIdentityprovidersIdentitynowForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders identitynow forbidden response has a 4xx status code
+func (o *PutIdentityprovidersIdentitynowForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders identitynow forbidden response has a 5xx status code
+func (o *PutIdentityprovidersIdentitynowForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders identitynow forbidden response a status code equal to that given
+func (o *PutIdentityprovidersIdentitynowForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutIdentityprovidersIdentitynowForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutIdentityprovidersIdentitynowForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutIdentityprovidersIdentitynowNotFound() *PutIdentityprovidersIdentityn
 	return &PutIdentityprovidersIdentitynowNotFound{}
 }
 
-/*PutIdentityprovidersIdentitynowNotFound handles this case with default header values.
+/*
+PutIdentityprovidersIdentitynowNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutIdentityprovidersIdentitynowNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders identitynow not found response has a 2xx status code
+func (o *PutIdentityprovidersIdentitynowNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders identitynow not found response has a 3xx status code
+func (o *PutIdentityprovidersIdentitynowNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders identitynow not found response has a 4xx status code
+func (o *PutIdentityprovidersIdentitynowNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders identitynow not found response has a 5xx status code
+func (o *PutIdentityprovidersIdentitynowNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders identitynow not found response a status code equal to that given
+func (o *PutIdentityprovidersIdentitynowNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutIdentityprovidersIdentitynowNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutIdentityprovidersIdentitynowNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutIdentityprovidersIdentitynowRequestTimeout() *PutIdentityprovidersIde
 	return &PutIdentityprovidersIdentitynowRequestTimeout{}
 }
 
-/*PutIdentityprovidersIdentitynowRequestTimeout handles this case with default header values.
+/*
+PutIdentityprovidersIdentitynowRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutIdentityprovidersIdentitynowRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders identitynow request timeout response has a 2xx status code
+func (o *PutIdentityprovidersIdentitynowRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders identitynow request timeout response has a 3xx status code
+func (o *PutIdentityprovidersIdentitynowRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders identitynow request timeout response has a 4xx status code
+func (o *PutIdentityprovidersIdentitynowRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders identitynow request timeout response has a 5xx status code
+func (o *PutIdentityprovidersIdentitynowRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders identitynow request timeout response a status code equal to that given
+func (o *PutIdentityprovidersIdentitynowRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutIdentityprovidersIdentitynowRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIdentityprovidersIdentitynowRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutIdentityprovidersIdentitynowRequestEntityTooLarge() *PutIdentityprovi
 	return &PutIdentityprovidersIdentitynowRequestEntityTooLarge{}
 }
 
-/*PutIdentityprovidersIdentitynowRequestEntityTooLarge handles this case with default header values.
+/*
+PutIdentityprovidersIdentitynowRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutIdentityprovidersIdentitynowRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders identitynow request entity too large response has a 2xx status code
+func (o *PutIdentityprovidersIdentitynowRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders identitynow request entity too large response has a 3xx status code
+func (o *PutIdentityprovidersIdentitynowRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders identitynow request entity too large response has a 4xx status code
+func (o *PutIdentityprovidersIdentitynowRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders identitynow request entity too large response has a 5xx status code
+func (o *PutIdentityprovidersIdentitynowRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders identitynow request entity too large response a status code equal to that given
+func (o *PutIdentityprovidersIdentitynowRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutIdentityprovidersIdentitynowRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutIdentityprovidersIdentitynowRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutIdentityprovidersIdentitynowUnsupportedMediaType() *PutIdentityprovid
 	return &PutIdentityprovidersIdentitynowUnsupportedMediaType{}
 }
 
-/*PutIdentityprovidersIdentitynowUnsupportedMediaType handles this case with default header values.
+/*
+PutIdentityprovidersIdentitynowUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutIdentityprovidersIdentitynowUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders identitynow unsupported media type response has a 2xx status code
+func (o *PutIdentityprovidersIdentitynowUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders identitynow unsupported media type response has a 3xx status code
+func (o *PutIdentityprovidersIdentitynowUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders identitynow unsupported media type response has a 4xx status code
+func (o *PutIdentityprovidersIdentitynowUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders identitynow unsupported media type response has a 5xx status code
+func (o *PutIdentityprovidersIdentitynowUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders identitynow unsupported media type response a status code equal to that given
+func (o *PutIdentityprovidersIdentitynowUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutIdentityprovidersIdentitynowUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutIdentityprovidersIdentitynowUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutIdentityprovidersIdentitynowTooManyRequests() *PutIdentityprovidersId
 	return &PutIdentityprovidersIdentitynowTooManyRequests{}
 }
 
-/*PutIdentityprovidersIdentitynowTooManyRequests handles this case with default header values.
+/*
+PutIdentityprovidersIdentitynowTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutIdentityprovidersIdentitynowTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders identitynow too many requests response has a 2xx status code
+func (o *PutIdentityprovidersIdentitynowTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders identitynow too many requests response has a 3xx status code
+func (o *PutIdentityprovidersIdentitynowTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders identitynow too many requests response has a 4xx status code
+func (o *PutIdentityprovidersIdentitynowTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders identitynow too many requests response has a 5xx status code
+func (o *PutIdentityprovidersIdentitynowTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders identitynow too many requests response a status code equal to that given
+func (o *PutIdentityprovidersIdentitynowTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutIdentityprovidersIdentitynowTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutIdentityprovidersIdentitynowTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutIdentityprovidersIdentitynowInternalServerError() *PutIdentityprovide
 	return &PutIdentityprovidersIdentitynowInternalServerError{}
 }
 
-/*PutIdentityprovidersIdentitynowInternalServerError handles this case with default header values.
+/*
+PutIdentityprovidersIdentitynowInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutIdentityprovidersIdentitynowInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders identitynow internal server error response has a 2xx status code
+func (o *PutIdentityprovidersIdentitynowInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders identitynow internal server error response has a 3xx status code
+func (o *PutIdentityprovidersIdentitynowInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders identitynow internal server error response has a 4xx status code
+func (o *PutIdentityprovidersIdentitynowInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders identitynow internal server error response has a 5xx status code
+func (o *PutIdentityprovidersIdentitynowInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders identitynow internal server error response a status code equal to that given
+func (o *PutIdentityprovidersIdentitynowInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutIdentityprovidersIdentitynowInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutIdentityprovidersIdentitynowInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutIdentityprovidersIdentitynowServiceUnavailable() *PutIdentityprovider
 	return &PutIdentityprovidersIdentitynowServiceUnavailable{}
 }
 
-/*PutIdentityprovidersIdentitynowServiceUnavailable handles this case with default header values.
+/*
+PutIdentityprovidersIdentitynowServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutIdentityprovidersIdentitynowServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders identitynow service unavailable response has a 2xx status code
+func (o *PutIdentityprovidersIdentitynowServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders identitynow service unavailable response has a 3xx status code
+func (o *PutIdentityprovidersIdentitynowServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders identitynow service unavailable response has a 4xx status code
+func (o *PutIdentityprovidersIdentitynowServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders identitynow service unavailable response has a 5xx status code
+func (o *PutIdentityprovidersIdentitynowServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders identitynow service unavailable response a status code equal to that given
+func (o *PutIdentityprovidersIdentitynowServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutIdentityprovidersIdentitynowServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutIdentityprovidersIdentitynowServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutIdentityprovidersIdentitynowGatewayTimeout() *PutIdentityprovidersIde
 	return &PutIdentityprovidersIdentitynowGatewayTimeout{}
 }
 
-/*PutIdentityprovidersIdentitynowGatewayTimeout handles this case with default header values.
+/*
+PutIdentityprovidersIdentitynowGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutIdentityprovidersIdentitynowGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders identitynow gateway timeout response has a 2xx status code
+func (o *PutIdentityprovidersIdentitynowGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders identitynow gateway timeout response has a 3xx status code
+func (o *PutIdentityprovidersIdentitynowGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders identitynow gateway timeout response has a 4xx status code
+func (o *PutIdentityprovidersIdentitynowGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders identitynow gateway timeout response has a 5xx status code
+func (o *PutIdentityprovidersIdentitynowGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders identitynow gateway timeout response a status code equal to that given
+func (o *PutIdentityprovidersIdentitynowGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutIdentityprovidersIdentitynowGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutIdentityprovidersIdentitynowGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/identitynow][%d] putIdentityprovidersIdentitynowGatewayTimeout  %+v", 504, o.Payload)
 }
 

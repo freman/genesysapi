@@ -17,69 +17,87 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetLearningModuleVersionParams creates a new GetLearningModuleVersionParams object
-// with the default values initialized.
+// NewGetLearningModuleVersionParams creates a new GetLearningModuleVersionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLearningModuleVersionParams() *GetLearningModuleVersionParams {
-	var ()
 	return &GetLearningModuleVersionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLearningModuleVersionParamsWithTimeout creates a new GetLearningModuleVersionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLearningModuleVersionParamsWithTimeout(timeout time.Duration) *GetLearningModuleVersionParams {
-	var ()
 	return &GetLearningModuleVersionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLearningModuleVersionParamsWithContext creates a new GetLearningModuleVersionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLearningModuleVersionParamsWithContext(ctx context.Context) *GetLearningModuleVersionParams {
-	var ()
 	return &GetLearningModuleVersionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLearningModuleVersionParamsWithHTTPClient creates a new GetLearningModuleVersionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLearningModuleVersionParamsWithHTTPClient(client *http.Client) *GetLearningModuleVersionParams {
-	var ()
 	return &GetLearningModuleVersionParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLearningModuleVersionParams contains all the parameters to send to the API endpoint
-for the get learning module version operation typically these are written to a http.Request
+/*
+GetLearningModuleVersionParams contains all the parameters to send to the API endpoint
+
+	for the get learning module version operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLearningModuleVersionParams struct {
 
-	/*Expand
-	  Fields to expand in response(case insensitive)
+	/* Expand.
 
+	   Fields to expand in response(case insensitive)
 	*/
 	Expand []string
-	/*ModuleID
-	  The ID of the learning module
 
+	/* ModuleID.
+
+	   The ID of the learning module
 	*/
 	ModuleID string
-	/*VersionID
-	  The version of learning module
 
+	/* VersionID.
+
+	   The version of learning module
 	*/
 	VersionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get learning module version params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLearningModuleVersionParams) WithDefaults() *GetLearningModuleVersionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get learning module version params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLearningModuleVersionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get learning module version params
@@ -156,12 +174,15 @@ func (o *GetLearningModuleVersionParams) WriteToRequest(r runtime.ClientRequest,
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// path param moduleId
@@ -178,4 +199,21 @@ func (o *GetLearningModuleVersionParams) WriteToRequest(r runtime.ClientRequest,
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetLearningModuleVersion binds the parameter expand
+func (o *GetLearningModuleVersionParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

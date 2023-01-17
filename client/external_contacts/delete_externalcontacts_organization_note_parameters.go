@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteExternalcontactsOrganizationNoteParams creates a new DeleteExternalcontactsOrganizationNoteParams object
-// with the default values initialized.
+// NewDeleteExternalcontactsOrganizationNoteParams creates a new DeleteExternalcontactsOrganizationNoteParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteExternalcontactsOrganizationNoteParams() *DeleteExternalcontactsOrganizationNoteParams {
-	var ()
 	return &DeleteExternalcontactsOrganizationNoteParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteExternalcontactsOrganizationNoteParamsWithTimeout creates a new DeleteExternalcontactsOrganizationNoteParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteExternalcontactsOrganizationNoteParamsWithTimeout(timeout time.Duration) *DeleteExternalcontactsOrganizationNoteParams {
-	var ()
 	return &DeleteExternalcontactsOrganizationNoteParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteExternalcontactsOrganizationNoteParamsWithContext creates a new DeleteExternalcontactsOrganizationNoteParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteExternalcontactsOrganizationNoteParamsWithContext(ctx context.Context) *DeleteExternalcontactsOrganizationNoteParams {
-	var ()
 	return &DeleteExternalcontactsOrganizationNoteParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteExternalcontactsOrganizationNoteParamsWithHTTPClient creates a new DeleteExternalcontactsOrganizationNoteParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteExternalcontactsOrganizationNoteParamsWithHTTPClient(client *http.Client) *DeleteExternalcontactsOrganizationNoteParams {
-	var ()
 	return &DeleteExternalcontactsOrganizationNoteParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteExternalcontactsOrganizationNoteParams contains all the parameters to send to the API endpoint
-for the delete externalcontacts organization note operation typically these are written to a http.Request
+/*
+DeleteExternalcontactsOrganizationNoteParams contains all the parameters to send to the API endpoint
+
+	for the delete externalcontacts organization note operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteExternalcontactsOrganizationNoteParams struct {
 
-	/*ExternalOrganizationID
-	  External Organization Id
+	/* ExternalOrganizationID.
 
+	   External Organization Id
 	*/
 	ExternalOrganizationID string
-	/*NoteID
-	  Note Id
 
+	/* NoteID.
+
+	   Note Id
 	*/
 	NoteID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete externalcontacts organization note params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteExternalcontactsOrganizationNoteParams) WithDefaults() *DeleteExternalcontactsOrganizationNoteParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete externalcontacts organization note params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteExternalcontactsOrganizationNoteParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete externalcontacts organization note params

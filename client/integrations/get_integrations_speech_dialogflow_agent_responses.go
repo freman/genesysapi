@@ -95,7 +95,6 @@ func (o *GetIntegrationsSpeechDialogflowAgentReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIntegrationsSpeechDialogflowAgentOK() *GetIntegrationsSpeechDialogflo
 	return &GetIntegrationsSpeechDialogflowAgentOK{}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentOK handles this case with default header values.
+/*
+GetIntegrationsSpeechDialogflowAgentOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIntegrationsSpeechDialogflowAgentOK struct {
 	Payload *models.DialogflowAgent
 }
 
+// IsSuccess returns true when this get integrations speech dialogflow agent o k response has a 2xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get integrations speech dialogflow agent o k response has a 3xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech dialogflow agent o k response has a 4xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech dialogflow agent o k response has a 5xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech dialogflow agent o k response a status code equal to that given
+func (o *GetIntegrationsSpeechDialogflowAgentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntegrationsSpeechDialogflowAgentOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechDialogflowAgentOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIntegrationsSpeechDialogflowAgentBadRequest() *GetIntegrationsSpeechD
 	return &GetIntegrationsSpeechDialogflowAgentBadRequest{}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentBadRequest handles this case with default header values.
+/*
+GetIntegrationsSpeechDialogflowAgentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIntegrationsSpeechDialogflowAgentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech dialogflow agent bad request response has a 2xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech dialogflow agent bad request response has a 3xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech dialogflow agent bad request response has a 4xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech dialogflow agent bad request response has a 5xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech dialogflow agent bad request response a status code equal to that given
+func (o *GetIntegrationsSpeechDialogflowAgentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntegrationsSpeechDialogflowAgentBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechDialogflowAgentBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIntegrationsSpeechDialogflowAgentUnauthorized() *GetIntegrationsSpeec
 	return &GetIntegrationsSpeechDialogflowAgentUnauthorized{}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentUnauthorized handles this case with default header values.
+/*
+GetIntegrationsSpeechDialogflowAgentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIntegrationsSpeechDialogflowAgentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech dialogflow agent unauthorized response has a 2xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech dialogflow agent unauthorized response has a 3xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech dialogflow agent unauthorized response has a 4xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech dialogflow agent unauthorized response has a 5xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech dialogflow agent unauthorized response a status code equal to that given
+func (o *GetIntegrationsSpeechDialogflowAgentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIntegrationsSpeechDialogflowAgentUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechDialogflowAgentUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIntegrationsSpeechDialogflowAgentForbidden() *GetIntegrationsSpeechDi
 	return &GetIntegrationsSpeechDialogflowAgentForbidden{}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentForbidden handles this case with default header values.
+/*
+GetIntegrationsSpeechDialogflowAgentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIntegrationsSpeechDialogflowAgentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech dialogflow agent forbidden response has a 2xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech dialogflow agent forbidden response has a 3xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech dialogflow agent forbidden response has a 4xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech dialogflow agent forbidden response has a 5xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech dialogflow agent forbidden response a status code equal to that given
+func (o *GetIntegrationsSpeechDialogflowAgentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntegrationsSpeechDialogflowAgentForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechDialogflowAgentForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIntegrationsSpeechDialogflowAgentNotFound() *GetIntegrationsSpeechDia
 	return &GetIntegrationsSpeechDialogflowAgentNotFound{}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentNotFound handles this case with default header values.
+/*
+GetIntegrationsSpeechDialogflowAgentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIntegrationsSpeechDialogflowAgentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech dialogflow agent not found response has a 2xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech dialogflow agent not found response has a 3xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech dialogflow agent not found response has a 4xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech dialogflow agent not found response has a 5xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech dialogflow agent not found response a status code equal to that given
+func (o *GetIntegrationsSpeechDialogflowAgentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntegrationsSpeechDialogflowAgentNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechDialogflowAgentNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIntegrationsSpeechDialogflowAgentRequestTimeout() *GetIntegrationsSpe
 	return &GetIntegrationsSpeechDialogflowAgentRequestTimeout{}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentRequestTimeout handles this case with default header values.
+/*
+GetIntegrationsSpeechDialogflowAgentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIntegrationsSpeechDialogflowAgentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech dialogflow agent request timeout response has a 2xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech dialogflow agent request timeout response has a 3xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech dialogflow agent request timeout response has a 4xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech dialogflow agent request timeout response has a 5xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech dialogflow agent request timeout response a status code equal to that given
+func (o *GetIntegrationsSpeechDialogflowAgentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIntegrationsSpeechDialogflowAgentRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechDialogflowAgentRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIntegrationsSpeechDialogflowAgentRequestEntityTooLarge() *GetIntegrat
 	return &GetIntegrationsSpeechDialogflowAgentRequestEntityTooLarge{}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentRequestEntityTooLarge handles this case with default header values.
+/*
+GetIntegrationsSpeechDialogflowAgentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIntegrationsSpeechDialogflowAgentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech dialogflow agent request entity too large response has a 2xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech dialogflow agent request entity too large response has a 3xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech dialogflow agent request entity too large response has a 4xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech dialogflow agent request entity too large response has a 5xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech dialogflow agent request entity too large response a status code equal to that given
+func (o *GetIntegrationsSpeechDialogflowAgentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIntegrationsSpeechDialogflowAgentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechDialogflowAgentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIntegrationsSpeechDialogflowAgentUnsupportedMediaType() *GetIntegrati
 	return &GetIntegrationsSpeechDialogflowAgentUnsupportedMediaType{}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentUnsupportedMediaType handles this case with default header values.
+/*
+GetIntegrationsSpeechDialogflowAgentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIntegrationsSpeechDialogflowAgentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech dialogflow agent unsupported media type response has a 2xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech dialogflow agent unsupported media type response has a 3xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech dialogflow agent unsupported media type response has a 4xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech dialogflow agent unsupported media type response has a 5xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech dialogflow agent unsupported media type response a status code equal to that given
+func (o *GetIntegrationsSpeechDialogflowAgentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIntegrationsSpeechDialogflowAgentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechDialogflowAgentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIntegrationsSpeechDialogflowAgentTooManyRequests() *GetIntegrationsSp
 	return &GetIntegrationsSpeechDialogflowAgentTooManyRequests{}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentTooManyRequests handles this case with default header values.
+/*
+GetIntegrationsSpeechDialogflowAgentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIntegrationsSpeechDialogflowAgentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech dialogflow agent too many requests response has a 2xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech dialogflow agent too many requests response has a 3xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech dialogflow agent too many requests response has a 4xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech dialogflow agent too many requests response has a 5xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech dialogflow agent too many requests response a status code equal to that given
+func (o *GetIntegrationsSpeechDialogflowAgentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntegrationsSpeechDialogflowAgentTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechDialogflowAgentTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIntegrationsSpeechDialogflowAgentInternalServerError() *GetIntegratio
 	return &GetIntegrationsSpeechDialogflowAgentInternalServerError{}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentInternalServerError handles this case with default header values.
+/*
+GetIntegrationsSpeechDialogflowAgentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIntegrationsSpeechDialogflowAgentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech dialogflow agent internal server error response has a 2xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech dialogflow agent internal server error response has a 3xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech dialogflow agent internal server error response has a 4xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech dialogflow agent internal server error response has a 5xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations speech dialogflow agent internal server error response a status code equal to that given
+func (o *GetIntegrationsSpeechDialogflowAgentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntegrationsSpeechDialogflowAgentInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechDialogflowAgentInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIntegrationsSpeechDialogflowAgentServiceUnavailable() *GetIntegration
 	return &GetIntegrationsSpeechDialogflowAgentServiceUnavailable{}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentServiceUnavailable handles this case with default header values.
+/*
+GetIntegrationsSpeechDialogflowAgentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIntegrationsSpeechDialogflowAgentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech dialogflow agent service unavailable response has a 2xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech dialogflow agent service unavailable response has a 3xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech dialogflow agent service unavailable response has a 4xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech dialogflow agent service unavailable response has a 5xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations speech dialogflow agent service unavailable response a status code equal to that given
+func (o *GetIntegrationsSpeechDialogflowAgentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIntegrationsSpeechDialogflowAgentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechDialogflowAgentServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIntegrationsSpeechDialogflowAgentGatewayTimeout() *GetIntegrationsSpe
 	return &GetIntegrationsSpeechDialogflowAgentGatewayTimeout{}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentGatewayTimeout handles this case with default header values.
+/*
+GetIntegrationsSpeechDialogflowAgentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIntegrationsSpeechDialogflowAgentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech dialogflow agent gateway timeout response has a 2xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech dialogflow agent gateway timeout response has a 3xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech dialogflow agent gateway timeout response has a 4xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech dialogflow agent gateway timeout response has a 5xx status code
+func (o *GetIntegrationsSpeechDialogflowAgentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations speech dialogflow agent gateway timeout response a status code equal to that given
+func (o *GetIntegrationsSpeechDialogflowAgentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIntegrationsSpeechDialogflowAgentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechDialogflowAgentGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/dialogflow/agents/{agentId}][%d] getIntegrationsSpeechDialogflowAgentGatewayTimeout  %+v", 504, o.Payload)
 }
 

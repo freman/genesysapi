@@ -16,69 +16,89 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationProfileMetricParams creates a new GetGamificationProfileMetricParams object
-// with the default values initialized.
+// NewGetGamificationProfileMetricParams creates a new GetGamificationProfileMetricParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationProfileMetricParams() *GetGamificationProfileMetricParams {
-	var ()
 	return &GetGamificationProfileMetricParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationProfileMetricParamsWithTimeout creates a new GetGamificationProfileMetricParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationProfileMetricParamsWithTimeout(timeout time.Duration) *GetGamificationProfileMetricParams {
-	var ()
 	return &GetGamificationProfileMetricParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationProfileMetricParamsWithContext creates a new GetGamificationProfileMetricParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationProfileMetricParamsWithContext(ctx context.Context) *GetGamificationProfileMetricParams {
-	var ()
 	return &GetGamificationProfileMetricParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationProfileMetricParamsWithHTTPClient creates a new GetGamificationProfileMetricParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationProfileMetricParamsWithHTTPClient(client *http.Client) *GetGamificationProfileMetricParams {
-	var ()
 	return &GetGamificationProfileMetricParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationProfileMetricParams contains all the parameters to send to the API endpoint
-for the get gamification profile metric operation typically these are written to a http.Request
+/*
+GetGamificationProfileMetricParams contains all the parameters to send to the API endpoint
+
+	for the get gamification profile metric operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationProfileMetricParams struct {
 
-	/*MetricID
-	  Metric Id
+	/* MetricID.
 
+	   Metric Id
 	*/
 	MetricID string
-	/*ProfileID
-	  Performance Profile Id
 
+	/* ProfileID.
+
+	   Performance Profile Id
 	*/
 	ProfileID string
-	/*Workday
-	  The objective query workday. If not specified, then it retrieves the current objective. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* Workday.
+
+	   The objective query workday. If not specified, then it retrieves the current objective. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	Workday *strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification profile metric params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationProfileMetricParams) WithDefaults() *GetGamificationProfileMetricParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification profile metric params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationProfileMetricParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification profile metric params
@@ -169,16 +189,17 @@ func (o *GetGamificationProfileMetricParams) WriteToRequest(r runtime.ClientRequ
 
 		// query param workday
 		var qrWorkday strfmt.Date
+
 		if o.Workday != nil {
 			qrWorkday = *o.Workday
 		}
 		qWorkday := qrWorkday.String()
 		if qWorkday != "" {
+
 			if err := r.SetQueryParam("workday", qWorkday); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

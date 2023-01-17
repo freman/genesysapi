@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -121,6 +122,10 @@ func (m *UCIntegration) Validate(formats strfmt.Registry) error {
 
 func (m *UCIntegration) validateBadgeIcons(formats strfmt.Registry) error {
 
+	if err := validate.Required("badgeIcons", "body", m.BadgeIcons); err != nil {
+		return err
+	}
+
 	for k := range m.BadgeIcons {
 
 		if err := validate.Required("badgeIcons"+"."+k, "body", m.BadgeIcons[k]); err != nil {
@@ -128,6 +133,11 @@ func (m *UCIntegration) validateBadgeIcons(formats strfmt.Registry) error {
 		}
 		if val, ok := m.BadgeIcons[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("badgeIcons" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("badgeIcons" + "." + k)
+				}
 				return err
 			}
 		}
@@ -139,6 +149,10 @@ func (m *UCIntegration) validateBadgeIcons(formats strfmt.Registry) error {
 
 func (m *UCIntegration) validateI10n(formats strfmt.Registry) error {
 
+	if err := validate.Required("i10n", "body", m.I10n); err != nil {
+		return err
+	}
+
 	for k := range m.I10n {
 
 		if err := validate.Required("i10n"+"."+k, "body", m.I10n[k]); err != nil {
@@ -146,6 +160,11 @@ func (m *UCIntegration) validateI10n(formats strfmt.Registry) error {
 		}
 		if val, ok := m.I10n[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("i10n" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("i10n" + "." + k)
+				}
 				return err
 			}
 		}
@@ -165,6 +184,8 @@ func (m *UCIntegration) validateIcon(formats strfmt.Registry) error {
 		if err := m.Icon.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("icon")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("icon")
 			}
 			return err
 		}
@@ -207,7 +228,7 @@ func (m *UCIntegration) validateIntegrationPresenceSourceEnum(path, location str
 
 func (m *UCIntegration) validateIntegrationPresenceSource(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("integrationPresenceSource", "body", string(m.IntegrationPresenceSource)); err != nil {
+	if err := validate.RequiredString("integrationPresenceSource", "body", m.IntegrationPresenceSource); err != nil {
 		return err
 	}
 
@@ -221,7 +242,7 @@ func (m *UCIntegration) validateIntegrationPresenceSource(formats strfmt.Registr
 
 func (m *UCIntegration) validatePbxPermission(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("pbxPermission", "body", string(m.PbxPermission)); err != nil {
+	if err := validate.RequiredString("pbxPermission", "body", m.PbxPermission); err != nil {
 		return err
 	}
 
@@ -238,7 +259,6 @@ func (m *UCIntegration) validatePolledPresence(formats strfmt.Registry) error {
 }
 
 func (m *UCIntegration) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -252,7 +272,7 @@ func (m *UCIntegration) validateSelfURI(formats strfmt.Registry) error {
 
 func (m *UCIntegration) validateUcIntegrationKey(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("ucIntegrationKey", "body", string(m.UcIntegrationKey)); err != nil {
+	if err := validate.RequiredString("ucIntegrationKey", "body", m.UcIntegrationKey); err != nil {
 		return err
 	}
 
@@ -262,6 +282,173 @@ func (m *UCIntegration) validateUcIntegrationKey(formats strfmt.Registry) error 
 func (m *UCIntegration) validateUserPermissions(formats strfmt.Registry) error {
 
 	if err := validate.Required("userPermissions", "body", m.UserPermissions); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this u c integration based on the context it is used
+func (m *UCIntegration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBadgeIcons(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateI10n(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIcon(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntegrationPresenceSource(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePbxPermission(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePolledPresence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUcIntegrationKey(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserPermissions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UCIntegration) contextValidateBadgeIcons(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.Required("badgeIcons", "body", m.BadgeIcons); err != nil {
+		return err
+	}
+
+	for k := range m.BadgeIcons {
+
+		if val, ok := m.BadgeIcons[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UCIntegration) contextValidateI10n(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.Required("i10n", "body", m.I10n); err != nil {
+		return err
+	}
+
+	for k := range m.I10n {
+
+		if val, ok := m.I10n[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UCIntegration) contextValidateIcon(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Icon != nil {
+		if err := m.Icon.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("icon")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("icon")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UCIntegration) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UCIntegration) contextValidateIntegrationPresenceSource(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "integrationPresenceSource", "body", string(m.IntegrationPresenceSource)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UCIntegration) contextValidatePbxPermission(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "pbxPermission", "body", string(m.PbxPermission)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UCIntegration) contextValidatePolledPresence(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "polledPresence", "body", bool(m.PolledPresence)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UCIntegration) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UCIntegration) contextValidateUcIntegrationKey(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "ucIntegrationKey", "body", string(m.UcIntegrationKey)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UCIntegration) contextValidateUserPermissions(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "userPermissions", "body", []string(m.UserPermissions)); err != nil {
 		return err
 	}
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -165,7 +166,6 @@ func (m *Flow) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Flow) validateCheckedInVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CheckedInVersion) { // not required
 		return nil
 	}
@@ -174,6 +174,8 @@ func (m *Flow) validateCheckedInVersion(formats strfmt.Registry) error {
 		if err := m.CheckedInVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("checkedInVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("checkedInVersion")
 			}
 			return err
 		}
@@ -202,7 +204,6 @@ func (m *Flow) validateCompatibleFlowTypesItemsEnum(path, location string, value
 }
 
 func (m *Flow) validateCompatibleFlowTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CompatibleFlowTypes) { // not required
 		return nil
 	}
@@ -220,7 +221,6 @@ func (m *Flow) validateCompatibleFlowTypes(formats strfmt.Registry) error {
 }
 
 func (m *Flow) validateCurrentOperation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CurrentOperation) { // not required
 		return nil
 	}
@@ -229,6 +229,8 @@ func (m *Flow) validateCurrentOperation(formats strfmt.Registry) error {
 		if err := m.CurrentOperation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("currentOperation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("currentOperation")
 			}
 			return err
 		}
@@ -238,7 +240,6 @@ func (m *Flow) validateCurrentOperation(formats strfmt.Registry) error {
 }
 
 func (m *Flow) validateDebugVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DebugVersion) { // not required
 		return nil
 	}
@@ -247,6 +248,8 @@ func (m *Flow) validateDebugVersion(formats strfmt.Registry) error {
 		if err := m.DebugVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("debugVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("debugVersion")
 			}
 			return err
 		}
@@ -256,7 +259,6 @@ func (m *Flow) validateDebugVersion(formats strfmt.Registry) error {
 }
 
 func (m *Flow) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -265,6 +267,8 @@ func (m *Flow) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -274,7 +278,6 @@ func (m *Flow) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *Flow) validateLockedClient(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LockedClient) { // not required
 		return nil
 	}
@@ -283,6 +286,8 @@ func (m *Flow) validateLockedClient(formats strfmt.Registry) error {
 		if err := m.LockedClient.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lockedClient")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lockedClient")
 			}
 			return err
 		}
@@ -292,7 +297,6 @@ func (m *Flow) validateLockedClient(formats strfmt.Registry) error {
 }
 
 func (m *Flow) validateLockedUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LockedUser) { // not required
 		return nil
 	}
@@ -301,6 +305,8 @@ func (m *Flow) validateLockedUser(formats strfmt.Registry) error {
 		if err := m.LockedUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lockedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lockedUser")
 			}
 			return err
 		}
@@ -319,7 +325,6 @@ func (m *Flow) validateName(formats strfmt.Registry) error {
 }
 
 func (m *Flow) validateNluInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NluInfo) { // not required
 		return nil
 	}
@@ -328,6 +333,8 @@ func (m *Flow) validateNluInfo(formats strfmt.Registry) error {
 		if err := m.NluInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("nluInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nluInfo")
 			}
 			return err
 		}
@@ -337,7 +344,6 @@ func (m *Flow) validateNluInfo(formats strfmt.Registry) error {
 }
 
 func (m *Flow) validatePublishedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PublishedBy) { // not required
 		return nil
 	}
@@ -346,6 +352,8 @@ func (m *Flow) validatePublishedBy(formats strfmt.Registry) error {
 		if err := m.PublishedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("publishedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedBy")
 			}
 			return err
 		}
@@ -355,7 +363,6 @@ func (m *Flow) validatePublishedBy(formats strfmt.Registry) error {
 }
 
 func (m *Flow) validatePublishedVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PublishedVersion) { // not required
 		return nil
 	}
@@ -364,6 +371,8 @@ func (m *Flow) validatePublishedVersion(formats strfmt.Registry) error {
 		if err := m.PublishedVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("publishedVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedVersion")
 			}
 			return err
 		}
@@ -373,7 +382,6 @@ func (m *Flow) validatePublishedVersion(formats strfmt.Registry) error {
 }
 
 func (m *Flow) validateSavedVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SavedVersion) { // not required
 		return nil
 	}
@@ -382,6 +390,8 @@ func (m *Flow) validateSavedVersion(formats strfmt.Registry) error {
 		if err := m.SavedVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("savedVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("savedVersion")
 			}
 			return err
 		}
@@ -391,7 +401,6 @@ func (m *Flow) validateSavedVersion(formats strfmt.Registry) error {
 }
 
 func (m *Flow) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -404,7 +413,6 @@ func (m *Flow) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *Flow) validateSupportedLanguages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SupportedLanguages) { // not required
 		return nil
 	}
@@ -418,6 +426,8 @@ func (m *Flow) validateSupportedLanguages(formats strfmt.Registry) error {
 			if err := m.SupportedLanguages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -506,7 +516,6 @@ func (m *Flow) validateTypeEnum(path, location string, value string) error {
 }
 
 func (m *Flow) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -514,6 +523,270 @@ func (m *Flow) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this flow based on the context it is used
+func (m *Flow) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCheckedInVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCompatibleFlowTypes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCurrentOperation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDebugVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLockedClient(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLockedUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNluInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePublishedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePublishedVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSavedVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupportedLanguages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Flow) contextValidateCheckedInVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CheckedInVersion != nil {
+		if err := m.CheckedInVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("checkedInVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("checkedInVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Flow) contextValidateCompatibleFlowTypes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "compatibleFlowTypes", "body", []string(m.CompatibleFlowTypes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Flow) contextValidateCurrentOperation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CurrentOperation != nil {
+		if err := m.CurrentOperation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("currentOperation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("currentOperation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Flow) contextValidateDebugVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DebugVersion != nil {
+		if err := m.DebugVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("debugVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("debugVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Flow) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Flow) contextValidateLockedClient(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LockedClient != nil {
+		if err := m.LockedClient.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lockedClient")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lockedClient")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Flow) contextValidateLockedUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LockedUser != nil {
+		if err := m.LockedUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lockedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lockedUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Flow) contextValidateNluInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.NluInfo != nil {
+		if err := m.NluInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("nluInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nluInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Flow) contextValidatePublishedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PublishedBy != nil {
+		if err := m.PublishedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("publishedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Flow) contextValidatePublishedVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PublishedVersion != nil {
+		if err := m.PublishedVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("publishedVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Flow) contextValidateSavedVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SavedVersion != nil {
+		if err := m.SavedVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("savedVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("savedVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Flow) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Flow) contextValidateSupportedLanguages(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "supportedLanguages", "body", []*SupportedLanguage(m.SupportedLanguages)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.SupportedLanguages); i++ {
+
+		if m.SupportedLanguages[i] != nil {
+			if err := m.SupportedLanguages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

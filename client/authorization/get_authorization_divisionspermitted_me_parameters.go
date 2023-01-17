@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAuthorizationDivisionspermittedMeParams creates a new GetAuthorizationDivisionspermittedMeParams object
-// with the default values initialized.
+// NewGetAuthorizationDivisionspermittedMeParams creates a new GetAuthorizationDivisionspermittedMeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAuthorizationDivisionspermittedMeParams() *GetAuthorizationDivisionspermittedMeParams {
-	var ()
 	return &GetAuthorizationDivisionspermittedMeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAuthorizationDivisionspermittedMeParamsWithTimeout creates a new GetAuthorizationDivisionspermittedMeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAuthorizationDivisionspermittedMeParamsWithTimeout(timeout time.Duration) *GetAuthorizationDivisionspermittedMeParams {
-	var ()
 	return &GetAuthorizationDivisionspermittedMeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAuthorizationDivisionspermittedMeParamsWithContext creates a new GetAuthorizationDivisionspermittedMeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAuthorizationDivisionspermittedMeParamsWithContext(ctx context.Context) *GetAuthorizationDivisionspermittedMeParams {
-	var ()
 	return &GetAuthorizationDivisionspermittedMeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAuthorizationDivisionspermittedMeParamsWithHTTPClient creates a new GetAuthorizationDivisionspermittedMeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAuthorizationDivisionspermittedMeParamsWithHTTPClient(client *http.Client) *GetAuthorizationDivisionspermittedMeParams {
-	var ()
 	return &GetAuthorizationDivisionspermittedMeParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAuthorizationDivisionspermittedMeParams contains all the parameters to send to the API endpoint
-for the get authorization divisionspermitted me operation typically these are written to a http.Request
+/*
+GetAuthorizationDivisionspermittedMeParams contains all the parameters to send to the API endpoint
+
+	for the get authorization divisionspermitted me operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAuthorizationDivisionspermittedMeParams struct {
 
-	/*Name
-	  Search term to filter by division name
+	/* Name.
 
+	   Search term to filter by division name
 	*/
 	Name *string
-	/*Permission
-	  The permission string, including the object to access, e.g. routing:queue:view
 
+	/* Permission.
+
+	   The permission string, including the object to access, e.g. routing:queue:view
 	*/
 	Permission string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get authorization divisionspermitted me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationDivisionspermittedMeParams) WithDefaults() *GetAuthorizationDivisionspermittedMeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get authorization divisionspermitted me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationDivisionspermittedMeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get authorization divisionspermitted me params
@@ -143,22 +160,24 @@ func (o *GetAuthorizationDivisionspermittedMeParams) WriteToRequest(r runtime.Cl
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param permission
 	qrPermission := o.Permission
 	qPermission := qrPermission
 	if qPermission != "" {
+
 		if err := r.SetQueryParam("permission", qPermission); err != nil {
 			return err
 		}

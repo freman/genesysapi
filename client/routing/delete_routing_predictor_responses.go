@@ -95,7 +95,6 @@ func (o *DeleteRoutingPredictorReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteRoutingPredictorNoContent() *DeleteRoutingPredictorNoContent {
 	return &DeleteRoutingPredictorNoContent{}
 }
 
-/*DeleteRoutingPredictorNoContent handles this case with default header values.
+/*
+DeleteRoutingPredictorNoContent describes a response with status code 204, with default header values.
 
 Deleted successfully
 */
 type DeleteRoutingPredictorNoContent struct {
 }
 
+// IsSuccess returns true when this delete routing predictor no content response has a 2xx status code
+func (o *DeleteRoutingPredictorNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete routing predictor no content response has a 3xx status code
+func (o *DeleteRoutingPredictorNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing predictor no content response has a 4xx status code
+func (o *DeleteRoutingPredictorNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing predictor no content response has a 5xx status code
+func (o *DeleteRoutingPredictorNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing predictor no content response a status code equal to that given
+func (o *DeleteRoutingPredictorNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteRoutingPredictorNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorNoContent ", 204)
+}
+
+func (o *DeleteRoutingPredictorNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteRoutingPredictorBadRequest() *DeleteRoutingPredictorBadRequest {
 	return &DeleteRoutingPredictorBadRequest{}
 }
 
-/*DeleteRoutingPredictorBadRequest handles this case with default header values.
+/*
+DeleteRoutingPredictorBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteRoutingPredictorBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing predictor bad request response has a 2xx status code
+func (o *DeleteRoutingPredictorBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing predictor bad request response has a 3xx status code
+func (o *DeleteRoutingPredictorBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing predictor bad request response has a 4xx status code
+func (o *DeleteRoutingPredictorBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing predictor bad request response has a 5xx status code
+func (o *DeleteRoutingPredictorBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing predictor bad request response a status code equal to that given
+func (o *DeleteRoutingPredictorBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteRoutingPredictorBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteRoutingPredictorBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteRoutingPredictorUnauthorized() *DeleteRoutingPredictorUnauthorized
 	return &DeleteRoutingPredictorUnauthorized{}
 }
 
-/*DeleteRoutingPredictorUnauthorized handles this case with default header values.
+/*
+DeleteRoutingPredictorUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteRoutingPredictorUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing predictor unauthorized response has a 2xx status code
+func (o *DeleteRoutingPredictorUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing predictor unauthorized response has a 3xx status code
+func (o *DeleteRoutingPredictorUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing predictor unauthorized response has a 4xx status code
+func (o *DeleteRoutingPredictorUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing predictor unauthorized response has a 5xx status code
+func (o *DeleteRoutingPredictorUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing predictor unauthorized response a status code equal to that given
+func (o *DeleteRoutingPredictorUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteRoutingPredictorUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteRoutingPredictorUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteRoutingPredictorForbidden() *DeleteRoutingPredictorForbidden {
 	return &DeleteRoutingPredictorForbidden{}
 }
 
-/*DeleteRoutingPredictorForbidden handles this case with default header values.
+/*
+DeleteRoutingPredictorForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteRoutingPredictorForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing predictor forbidden response has a 2xx status code
+func (o *DeleteRoutingPredictorForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing predictor forbidden response has a 3xx status code
+func (o *DeleteRoutingPredictorForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing predictor forbidden response has a 4xx status code
+func (o *DeleteRoutingPredictorForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing predictor forbidden response has a 5xx status code
+func (o *DeleteRoutingPredictorForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing predictor forbidden response a status code equal to that given
+func (o *DeleteRoutingPredictorForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRoutingPredictorForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteRoutingPredictorForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteRoutingPredictorNotFound() *DeleteRoutingPredictorNotFound {
 	return &DeleteRoutingPredictorNotFound{}
 }
 
-/*DeleteRoutingPredictorNotFound handles this case with default header values.
+/*
+DeleteRoutingPredictorNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteRoutingPredictorNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing predictor not found response has a 2xx status code
+func (o *DeleteRoutingPredictorNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing predictor not found response has a 3xx status code
+func (o *DeleteRoutingPredictorNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing predictor not found response has a 4xx status code
+func (o *DeleteRoutingPredictorNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing predictor not found response has a 5xx status code
+func (o *DeleteRoutingPredictorNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing predictor not found response a status code equal to that given
+func (o *DeleteRoutingPredictorNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteRoutingPredictorNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteRoutingPredictorNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteRoutingPredictorRequestTimeout() *DeleteRoutingPredictorRequestTim
 	return &DeleteRoutingPredictorRequestTimeout{}
 }
 
-/*DeleteRoutingPredictorRequestTimeout handles this case with default header values.
+/*
+DeleteRoutingPredictorRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteRoutingPredictorRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing predictor request timeout response has a 2xx status code
+func (o *DeleteRoutingPredictorRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing predictor request timeout response has a 3xx status code
+func (o *DeleteRoutingPredictorRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing predictor request timeout response has a 4xx status code
+func (o *DeleteRoutingPredictorRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing predictor request timeout response has a 5xx status code
+func (o *DeleteRoutingPredictorRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing predictor request timeout response a status code equal to that given
+func (o *DeleteRoutingPredictorRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteRoutingPredictorRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteRoutingPredictorRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteRoutingPredictorRequestEntityTooLarge() *DeleteRoutingPredictorReq
 	return &DeleteRoutingPredictorRequestEntityTooLarge{}
 }
 
-/*DeleteRoutingPredictorRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteRoutingPredictorRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteRoutingPredictorRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing predictor request entity too large response has a 2xx status code
+func (o *DeleteRoutingPredictorRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing predictor request entity too large response has a 3xx status code
+func (o *DeleteRoutingPredictorRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing predictor request entity too large response has a 4xx status code
+func (o *DeleteRoutingPredictorRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing predictor request entity too large response has a 5xx status code
+func (o *DeleteRoutingPredictorRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing predictor request entity too large response a status code equal to that given
+func (o *DeleteRoutingPredictorRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteRoutingPredictorRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteRoutingPredictorRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteRoutingPredictorUnsupportedMediaType() *DeleteRoutingPredictorUnsu
 	return &DeleteRoutingPredictorUnsupportedMediaType{}
 }
 
-/*DeleteRoutingPredictorUnsupportedMediaType handles this case with default header values.
+/*
+DeleteRoutingPredictorUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteRoutingPredictorUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing predictor unsupported media type response has a 2xx status code
+func (o *DeleteRoutingPredictorUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing predictor unsupported media type response has a 3xx status code
+func (o *DeleteRoutingPredictorUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing predictor unsupported media type response has a 4xx status code
+func (o *DeleteRoutingPredictorUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing predictor unsupported media type response has a 5xx status code
+func (o *DeleteRoutingPredictorUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing predictor unsupported media type response a status code equal to that given
+func (o *DeleteRoutingPredictorUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteRoutingPredictorUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteRoutingPredictorUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteRoutingPredictorTooManyRequests() *DeleteRoutingPredictorTooManyRe
 	return &DeleteRoutingPredictorTooManyRequests{}
 }
 
-/*DeleteRoutingPredictorTooManyRequests handles this case with default header values.
+/*
+DeleteRoutingPredictorTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteRoutingPredictorTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing predictor too many requests response has a 2xx status code
+func (o *DeleteRoutingPredictorTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing predictor too many requests response has a 3xx status code
+func (o *DeleteRoutingPredictorTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing predictor too many requests response has a 4xx status code
+func (o *DeleteRoutingPredictorTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing predictor too many requests response has a 5xx status code
+func (o *DeleteRoutingPredictorTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing predictor too many requests response a status code equal to that given
+func (o *DeleteRoutingPredictorTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteRoutingPredictorTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteRoutingPredictorTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteRoutingPredictorInternalServerError() *DeleteRoutingPredictorInter
 	return &DeleteRoutingPredictorInternalServerError{}
 }
 
-/*DeleteRoutingPredictorInternalServerError handles this case with default header values.
+/*
+DeleteRoutingPredictorInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteRoutingPredictorInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing predictor internal server error response has a 2xx status code
+func (o *DeleteRoutingPredictorInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing predictor internal server error response has a 3xx status code
+func (o *DeleteRoutingPredictorInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing predictor internal server error response has a 4xx status code
+func (o *DeleteRoutingPredictorInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing predictor internal server error response has a 5xx status code
+func (o *DeleteRoutingPredictorInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing predictor internal server error response a status code equal to that given
+func (o *DeleteRoutingPredictorInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteRoutingPredictorInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteRoutingPredictorInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteRoutingPredictorServiceUnavailable() *DeleteRoutingPredictorServic
 	return &DeleteRoutingPredictorServiceUnavailable{}
 }
 
-/*DeleteRoutingPredictorServiceUnavailable handles this case with default header values.
+/*
+DeleteRoutingPredictorServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteRoutingPredictorServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing predictor service unavailable response has a 2xx status code
+func (o *DeleteRoutingPredictorServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing predictor service unavailable response has a 3xx status code
+func (o *DeleteRoutingPredictorServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing predictor service unavailable response has a 4xx status code
+func (o *DeleteRoutingPredictorServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing predictor service unavailable response has a 5xx status code
+func (o *DeleteRoutingPredictorServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing predictor service unavailable response a status code equal to that given
+func (o *DeleteRoutingPredictorServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteRoutingPredictorServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteRoutingPredictorServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteRoutingPredictorGatewayTimeout() *DeleteRoutingPredictorGatewayTim
 	return &DeleteRoutingPredictorGatewayTimeout{}
 }
 
-/*DeleteRoutingPredictorGatewayTimeout handles this case with default header values.
+/*
+DeleteRoutingPredictorGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteRoutingPredictorGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing predictor gateway timeout response has a 2xx status code
+func (o *DeleteRoutingPredictorGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing predictor gateway timeout response has a 3xx status code
+func (o *DeleteRoutingPredictorGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing predictor gateway timeout response has a 4xx status code
+func (o *DeleteRoutingPredictorGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing predictor gateway timeout response has a 5xx status code
+func (o *DeleteRoutingPredictorGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing predictor gateway timeout response a status code equal to that given
+func (o *DeleteRoutingPredictorGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteRoutingPredictorGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteRoutingPredictorGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/predictors/{predictorId}][%d] deleteRoutingPredictorGatewayTimeout  %+v", 504, o.Payload)
 }
 

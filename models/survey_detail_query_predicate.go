@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -123,7 +124,6 @@ func (m *SurveyDetailQueryPredicate) validateDimensionEnum(path, location string
 }
 
 func (m *SurveyDetailQueryPredicate) validateDimension(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Dimension) { // not required
 		return nil
 	}
@@ -163,7 +163,6 @@ func (m *SurveyDetailQueryPredicate) validateMetricEnum(path, location string, v
 }
 
 func (m *SurveyDetailQueryPredicate) validateMetric(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metric) { // not required
 		return nil
 	}
@@ -209,7 +208,6 @@ func (m *SurveyDetailQueryPredicate) validateOperatorEnum(path, location string,
 }
 
 func (m *SurveyDetailQueryPredicate) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -223,7 +221,6 @@ func (m *SurveyDetailQueryPredicate) validateOperator(formats strfmt.Registry) e
 }
 
 func (m *SurveyDetailQueryPredicate) validateRange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Range) { // not required
 		return nil
 	}
@@ -232,6 +229,8 @@ func (m *SurveyDetailQueryPredicate) validateRange(formats strfmt.Registry) erro
 		if err := m.Range.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
 			}
 			return err
 		}
@@ -273,7 +272,6 @@ func (m *SurveyDetailQueryPredicate) validateTypeEnum(path, location string, val
 }
 
 func (m *SurveyDetailQueryPredicate) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -281,6 +279,36 @@ func (m *SurveyDetailQueryPredicate) validateType(formats strfmt.Registry) error
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this survey detail query predicate based on the context it is used
+func (m *SurveyDetailQueryPredicate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SurveyDetailQueryPredicate) contextValidateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Range != nil {
+		if err := m.Range.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
+			}
+			return err
+		}
 	}
 
 	return nil

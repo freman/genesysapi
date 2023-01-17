@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -101,7 +102,6 @@ func (m *OAuthAuthorization) Validate(formats strfmt.Registry) error {
 }
 
 func (m *OAuthAuthorization) validateClient(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Client) { // not required
 		return nil
 	}
@@ -110,6 +110,8 @@ func (m *OAuthAuthorization) validateClient(formats strfmt.Registry) error {
 		if err := m.Client.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("client")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("client")
 			}
 			return err
 		}
@@ -119,7 +121,6 @@ func (m *OAuthAuthorization) validateClient(formats strfmt.Registry) error {
 }
 
 func (m *OAuthAuthorization) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -128,6 +129,8 @@ func (m *OAuthAuthorization) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -137,7 +140,6 @@ func (m *OAuthAuthorization) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *OAuthAuthorization) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -150,7 +152,6 @@ func (m *OAuthAuthorization) validateDateCreated(formats strfmt.Registry) error 
 }
 
 func (m *OAuthAuthorization) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -163,7 +164,6 @@ func (m *OAuthAuthorization) validateDateModified(formats strfmt.Registry) error
 }
 
 func (m *OAuthAuthorization) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -172,6 +172,8 @@ func (m *OAuthAuthorization) validateModifiedBy(formats strfmt.Registry) error {
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -181,7 +183,6 @@ func (m *OAuthAuthorization) validateModifiedBy(formats strfmt.Registry) error {
 }
 
 func (m *OAuthAuthorization) validateResourceOwner(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ResourceOwner) { // not required
 		return nil
 	}
@@ -190,6 +191,8 @@ func (m *OAuthAuthorization) validateResourceOwner(formats strfmt.Registry) erro
 		if err := m.ResourceOwner.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("resourceOwner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resourceOwner")
 			}
 			return err
 		}
@@ -199,7 +202,6 @@ func (m *OAuthAuthorization) validateResourceOwner(formats strfmt.Registry) erro
 }
 
 func (m *OAuthAuthorization) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -247,13 +249,115 @@ func (m *OAuthAuthorization) validateStateEnum(path, location string, value stri
 }
 
 func (m *OAuthAuthorization) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this o auth authorization based on the context it is used
+func (m *OAuthAuthorization) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateClient(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResourceOwner(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OAuthAuthorization) contextValidateClient(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Client != nil {
+		if err := m.Client.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("client")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("client")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OAuthAuthorization) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OAuthAuthorization) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OAuthAuthorization) contextValidateResourceOwner(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ResourceOwner != nil {
+		if err := m.ResourceOwner.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resourceOwner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resourceOwner")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OAuthAuthorization) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

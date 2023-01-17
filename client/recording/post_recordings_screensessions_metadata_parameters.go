@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRecordingsScreensessionsMetadataParams creates a new PostRecordingsScreensessionsMetadataParams object
-// with the default values initialized.
+// NewPostRecordingsScreensessionsMetadataParams creates a new PostRecordingsScreensessionsMetadataParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRecordingsScreensessionsMetadataParams() *PostRecordingsScreensessionsMetadataParams {
-	var ()
 	return &PostRecordingsScreensessionsMetadataParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRecordingsScreensessionsMetadataParamsWithTimeout creates a new PostRecordingsScreensessionsMetadataParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRecordingsScreensessionsMetadataParamsWithTimeout(timeout time.Duration) *PostRecordingsScreensessionsMetadataParams {
-	var ()
 	return &PostRecordingsScreensessionsMetadataParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRecordingsScreensessionsMetadataParamsWithContext creates a new PostRecordingsScreensessionsMetadataParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRecordingsScreensessionsMetadataParamsWithContext(ctx context.Context) *PostRecordingsScreensessionsMetadataParams {
-	var ()
 	return &PostRecordingsScreensessionsMetadataParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRecordingsScreensessionsMetadataParamsWithHTTPClient creates a new PostRecordingsScreensessionsMetadataParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRecordingsScreensessionsMetadataParamsWithHTTPClient(client *http.Client) *PostRecordingsScreensessionsMetadataParams {
-	var ()
 	return &PostRecordingsScreensessionsMetadataParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRecordingsScreensessionsMetadataParams contains all the parameters to send to the API endpoint
-for the post recordings screensessions metadata operation typically these are written to a http.Request
+/*
+PostRecordingsScreensessionsMetadataParams contains all the parameters to send to the API endpoint
+
+	for the post recordings screensessions metadata operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRecordingsScreensessionsMetadataParams struct {
 
-	/*Body
-	  ScreenRecordingMetaDataRequest
+	/* Body.
 
+	   ScreenRecordingMetaDataRequest
 	*/
 	Body *models.ScreenRecordingMetaDataRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post recordings screensessions metadata params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingsScreensessionsMetadataParams) WithDefaults() *PostRecordingsScreensessionsMetadataParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post recordings screensessions metadata params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingsScreensessionsMetadataParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post recordings screensessions metadata params
@@ -124,7 +140,6 @@ func (o *PostRecordingsScreensessionsMetadataParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

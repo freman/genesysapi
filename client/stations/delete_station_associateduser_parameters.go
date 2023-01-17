@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteStationAssociateduserParams creates a new DeleteStationAssociateduserParams object
-// with the default values initialized.
+// NewDeleteStationAssociateduserParams creates a new DeleteStationAssociateduserParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteStationAssociateduserParams() *DeleteStationAssociateduserParams {
-	var ()
 	return &DeleteStationAssociateduserParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteStationAssociateduserParamsWithTimeout creates a new DeleteStationAssociateduserParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteStationAssociateduserParamsWithTimeout(timeout time.Duration) *DeleteStationAssociateduserParams {
-	var ()
 	return &DeleteStationAssociateduserParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteStationAssociateduserParamsWithContext creates a new DeleteStationAssociateduserParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteStationAssociateduserParamsWithContext(ctx context.Context) *DeleteStationAssociateduserParams {
-	var ()
 	return &DeleteStationAssociateduserParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteStationAssociateduserParamsWithHTTPClient creates a new DeleteStationAssociateduserParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteStationAssociateduserParamsWithHTTPClient(client *http.Client) *DeleteStationAssociateduserParams {
-	var ()
 	return &DeleteStationAssociateduserParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteStationAssociateduserParams contains all the parameters to send to the API endpoint
-for the delete station associateduser operation typically these are written to a http.Request
+/*
+DeleteStationAssociateduserParams contains all the parameters to send to the API endpoint
+
+	for the delete station associateduser operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteStationAssociateduserParams struct {
 
-	/*StationID
-	  Station ID
+	/* StationID.
 
+	   Station ID
 	*/
 	StationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete station associateduser params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteStationAssociateduserParams) WithDefaults() *DeleteStationAssociateduserParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete station associateduser params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteStationAssociateduserParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete station associateduser params

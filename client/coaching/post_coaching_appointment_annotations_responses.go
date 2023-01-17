@@ -95,7 +95,6 @@ func (o *PostCoachingAppointmentAnnotationsReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostCoachingAppointmentAnnotationsCreated() *PostCoachingAppointmentAnno
 	return &PostCoachingAppointmentAnnotationsCreated{}
 }
 
-/*PostCoachingAppointmentAnnotationsCreated handles this case with default header values.
+/*
+PostCoachingAppointmentAnnotationsCreated describes a response with status code 201, with default header values.
 
 Annotation created
 */
@@ -114,7 +114,36 @@ type PostCoachingAppointmentAnnotationsCreated struct {
 	Payload *models.CoachingAnnotation
 }
 
+// IsSuccess returns true when this post coaching appointment annotations created response has a 2xx status code
+func (o *PostCoachingAppointmentAnnotationsCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post coaching appointment annotations created response has a 3xx status code
+func (o *PostCoachingAppointmentAnnotationsCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointment annotations created response has a 4xx status code
+func (o *PostCoachingAppointmentAnnotationsCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post coaching appointment annotations created response has a 5xx status code
+func (o *PostCoachingAppointmentAnnotationsCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointment annotations created response a status code equal to that given
+func (o *PostCoachingAppointmentAnnotationsCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostCoachingAppointmentAnnotationsCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostCoachingAppointmentAnnotationsCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsCreated  %+v", 201, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostCoachingAppointmentAnnotationsBadRequest() *PostCoachingAppointmentA
 	return &PostCoachingAppointmentAnnotationsBadRequest{}
 }
 
-/*PostCoachingAppointmentAnnotationsBadRequest handles this case with default header values.
+/*
+PostCoachingAppointmentAnnotationsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostCoachingAppointmentAnnotationsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointment annotations bad request response has a 2xx status code
+func (o *PostCoachingAppointmentAnnotationsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointment annotations bad request response has a 3xx status code
+func (o *PostCoachingAppointmentAnnotationsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointment annotations bad request response has a 4xx status code
+func (o *PostCoachingAppointmentAnnotationsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointment annotations bad request response has a 5xx status code
+func (o *PostCoachingAppointmentAnnotationsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointment annotations bad request response a status code equal to that given
+func (o *PostCoachingAppointmentAnnotationsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostCoachingAppointmentAnnotationsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostCoachingAppointmentAnnotationsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostCoachingAppointmentAnnotationsUnauthorized() *PostCoachingAppointmen
 	return &PostCoachingAppointmentAnnotationsUnauthorized{}
 }
 
-/*PostCoachingAppointmentAnnotationsUnauthorized handles this case with default header values.
+/*
+PostCoachingAppointmentAnnotationsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostCoachingAppointmentAnnotationsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointment annotations unauthorized response has a 2xx status code
+func (o *PostCoachingAppointmentAnnotationsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointment annotations unauthorized response has a 3xx status code
+func (o *PostCoachingAppointmentAnnotationsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointment annotations unauthorized response has a 4xx status code
+func (o *PostCoachingAppointmentAnnotationsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointment annotations unauthorized response has a 5xx status code
+func (o *PostCoachingAppointmentAnnotationsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointment annotations unauthorized response a status code equal to that given
+func (o *PostCoachingAppointmentAnnotationsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostCoachingAppointmentAnnotationsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostCoachingAppointmentAnnotationsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostCoachingAppointmentAnnotationsForbidden() *PostCoachingAppointmentAn
 	return &PostCoachingAppointmentAnnotationsForbidden{}
 }
 
-/*PostCoachingAppointmentAnnotationsForbidden handles this case with default header values.
+/*
+PostCoachingAppointmentAnnotationsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostCoachingAppointmentAnnotationsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointment annotations forbidden response has a 2xx status code
+func (o *PostCoachingAppointmentAnnotationsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointment annotations forbidden response has a 3xx status code
+func (o *PostCoachingAppointmentAnnotationsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointment annotations forbidden response has a 4xx status code
+func (o *PostCoachingAppointmentAnnotationsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointment annotations forbidden response has a 5xx status code
+func (o *PostCoachingAppointmentAnnotationsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointment annotations forbidden response a status code equal to that given
+func (o *PostCoachingAppointmentAnnotationsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostCoachingAppointmentAnnotationsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostCoachingAppointmentAnnotationsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostCoachingAppointmentAnnotationsNotFound() *PostCoachingAppointmentAnn
 	return &PostCoachingAppointmentAnnotationsNotFound{}
 }
 
-/*PostCoachingAppointmentAnnotationsNotFound handles this case with default header values.
+/*
+PostCoachingAppointmentAnnotationsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostCoachingAppointmentAnnotationsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointment annotations not found response has a 2xx status code
+func (o *PostCoachingAppointmentAnnotationsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointment annotations not found response has a 3xx status code
+func (o *PostCoachingAppointmentAnnotationsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointment annotations not found response has a 4xx status code
+func (o *PostCoachingAppointmentAnnotationsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointment annotations not found response has a 5xx status code
+func (o *PostCoachingAppointmentAnnotationsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointment annotations not found response a status code equal to that given
+func (o *PostCoachingAppointmentAnnotationsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostCoachingAppointmentAnnotationsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostCoachingAppointmentAnnotationsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostCoachingAppointmentAnnotationsRequestTimeout() *PostCoachingAppointm
 	return &PostCoachingAppointmentAnnotationsRequestTimeout{}
 }
 
-/*PostCoachingAppointmentAnnotationsRequestTimeout handles this case with default header values.
+/*
+PostCoachingAppointmentAnnotationsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostCoachingAppointmentAnnotationsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointment annotations request timeout response has a 2xx status code
+func (o *PostCoachingAppointmentAnnotationsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointment annotations request timeout response has a 3xx status code
+func (o *PostCoachingAppointmentAnnotationsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointment annotations request timeout response has a 4xx status code
+func (o *PostCoachingAppointmentAnnotationsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointment annotations request timeout response has a 5xx status code
+func (o *PostCoachingAppointmentAnnotationsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointment annotations request timeout response a status code equal to that given
+func (o *PostCoachingAppointmentAnnotationsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostCoachingAppointmentAnnotationsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostCoachingAppointmentAnnotationsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostCoachingAppointmentAnnotationsRequestEntityTooLarge() *PostCoachingA
 	return &PostCoachingAppointmentAnnotationsRequestEntityTooLarge{}
 }
 
-/*PostCoachingAppointmentAnnotationsRequestEntityTooLarge handles this case with default header values.
+/*
+PostCoachingAppointmentAnnotationsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostCoachingAppointmentAnnotationsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointment annotations request entity too large response has a 2xx status code
+func (o *PostCoachingAppointmentAnnotationsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointment annotations request entity too large response has a 3xx status code
+func (o *PostCoachingAppointmentAnnotationsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointment annotations request entity too large response has a 4xx status code
+func (o *PostCoachingAppointmentAnnotationsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointment annotations request entity too large response has a 5xx status code
+func (o *PostCoachingAppointmentAnnotationsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointment annotations request entity too large response a status code equal to that given
+func (o *PostCoachingAppointmentAnnotationsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostCoachingAppointmentAnnotationsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostCoachingAppointmentAnnotationsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostCoachingAppointmentAnnotationsUnsupportedMediaType() *PostCoachingAp
 	return &PostCoachingAppointmentAnnotationsUnsupportedMediaType{}
 }
 
-/*PostCoachingAppointmentAnnotationsUnsupportedMediaType handles this case with default header values.
+/*
+PostCoachingAppointmentAnnotationsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostCoachingAppointmentAnnotationsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointment annotations unsupported media type response has a 2xx status code
+func (o *PostCoachingAppointmentAnnotationsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointment annotations unsupported media type response has a 3xx status code
+func (o *PostCoachingAppointmentAnnotationsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointment annotations unsupported media type response has a 4xx status code
+func (o *PostCoachingAppointmentAnnotationsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointment annotations unsupported media type response has a 5xx status code
+func (o *PostCoachingAppointmentAnnotationsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointment annotations unsupported media type response a status code equal to that given
+func (o *PostCoachingAppointmentAnnotationsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostCoachingAppointmentAnnotationsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostCoachingAppointmentAnnotationsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostCoachingAppointmentAnnotationsTooManyRequests() *PostCoachingAppoint
 	return &PostCoachingAppointmentAnnotationsTooManyRequests{}
 }
 
-/*PostCoachingAppointmentAnnotationsTooManyRequests handles this case with default header values.
+/*
+PostCoachingAppointmentAnnotationsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostCoachingAppointmentAnnotationsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointment annotations too many requests response has a 2xx status code
+func (o *PostCoachingAppointmentAnnotationsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointment annotations too many requests response has a 3xx status code
+func (o *PostCoachingAppointmentAnnotationsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointment annotations too many requests response has a 4xx status code
+func (o *PostCoachingAppointmentAnnotationsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointment annotations too many requests response has a 5xx status code
+func (o *PostCoachingAppointmentAnnotationsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointment annotations too many requests response a status code equal to that given
+func (o *PostCoachingAppointmentAnnotationsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostCoachingAppointmentAnnotationsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostCoachingAppointmentAnnotationsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostCoachingAppointmentAnnotationsInternalServerError() *PostCoachingApp
 	return &PostCoachingAppointmentAnnotationsInternalServerError{}
 }
 
-/*PostCoachingAppointmentAnnotationsInternalServerError handles this case with default header values.
+/*
+PostCoachingAppointmentAnnotationsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostCoachingAppointmentAnnotationsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointment annotations internal server error response has a 2xx status code
+func (o *PostCoachingAppointmentAnnotationsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointment annotations internal server error response has a 3xx status code
+func (o *PostCoachingAppointmentAnnotationsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointment annotations internal server error response has a 4xx status code
+func (o *PostCoachingAppointmentAnnotationsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post coaching appointment annotations internal server error response has a 5xx status code
+func (o *PostCoachingAppointmentAnnotationsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post coaching appointment annotations internal server error response a status code equal to that given
+func (o *PostCoachingAppointmentAnnotationsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostCoachingAppointmentAnnotationsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostCoachingAppointmentAnnotationsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostCoachingAppointmentAnnotationsServiceUnavailable() *PostCoachingAppo
 	return &PostCoachingAppointmentAnnotationsServiceUnavailable{}
 }
 
-/*PostCoachingAppointmentAnnotationsServiceUnavailable handles this case with default header values.
+/*
+PostCoachingAppointmentAnnotationsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostCoachingAppointmentAnnotationsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointment annotations service unavailable response has a 2xx status code
+func (o *PostCoachingAppointmentAnnotationsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointment annotations service unavailable response has a 3xx status code
+func (o *PostCoachingAppointmentAnnotationsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointment annotations service unavailable response has a 4xx status code
+func (o *PostCoachingAppointmentAnnotationsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post coaching appointment annotations service unavailable response has a 5xx status code
+func (o *PostCoachingAppointmentAnnotationsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post coaching appointment annotations service unavailable response a status code equal to that given
+func (o *PostCoachingAppointmentAnnotationsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostCoachingAppointmentAnnotationsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostCoachingAppointmentAnnotationsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostCoachingAppointmentAnnotationsGatewayTimeout() *PostCoachingAppointm
 	return &PostCoachingAppointmentAnnotationsGatewayTimeout{}
 }
 
-/*PostCoachingAppointmentAnnotationsGatewayTimeout handles this case with default header values.
+/*
+PostCoachingAppointmentAnnotationsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostCoachingAppointmentAnnotationsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointment annotations gateway timeout response has a 2xx status code
+func (o *PostCoachingAppointmentAnnotationsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointment annotations gateway timeout response has a 3xx status code
+func (o *PostCoachingAppointmentAnnotationsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointment annotations gateway timeout response has a 4xx status code
+func (o *PostCoachingAppointmentAnnotationsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post coaching appointment annotations gateway timeout response has a 5xx status code
+func (o *PostCoachingAppointmentAnnotationsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post coaching appointment annotations gateway timeout response a status code equal to that given
+func (o *PostCoachingAppointmentAnnotationsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostCoachingAppointmentAnnotationsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostCoachingAppointmentAnnotationsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/{appointmentId}/annotations][%d] postCoachingAppointmentAnnotationsGatewayTimeout  %+v", 504, o.Payload)
 }
 

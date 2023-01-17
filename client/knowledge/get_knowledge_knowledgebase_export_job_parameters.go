@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetKnowledgeKnowledgebaseExportJobParams creates a new GetKnowledgeKnowledgebaseExportJobParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseExportJobParams creates a new GetKnowledgeKnowledgebaseExportJobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseExportJobParams() *GetKnowledgeKnowledgebaseExportJobParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseExportJobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseExportJobParamsWithTimeout creates a new GetKnowledgeKnowledgebaseExportJobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseExportJobParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseExportJobParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseExportJobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseExportJobParamsWithContext creates a new GetKnowledgeKnowledgebaseExportJobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseExportJobParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseExportJobParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseExportJobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseExportJobParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseExportJobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseExportJobParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseExportJobParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseExportJobParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseExportJobParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase export job operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseExportJobParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase export job operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseExportJobParams struct {
 
-	/*ExportJobID
-	  Export job ID
+	/* ExportJobID.
 
+	   Export job ID
 	*/
 	ExportJobID string
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase export job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseExportJobParams) WithDefaults() *GetKnowledgeKnowledgebaseExportJobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase export job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseExportJobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase export job params

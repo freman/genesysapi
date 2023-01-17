@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -70,7 +71,6 @@ func (m *Prompt) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Prompt) validateCurrentOperation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CurrentOperation) { // not required
 		return nil
 	}
@@ -79,6 +79,8 @@ func (m *Prompt) validateCurrentOperation(formats strfmt.Registry) error {
 		if err := m.CurrentOperation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("currentOperation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("currentOperation")
 			}
 			return err
 		}
@@ -97,7 +99,6 @@ func (m *Prompt) validateName(formats strfmt.Registry) error {
 }
 
 func (m *Prompt) validateResources(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Resources) { // not required
 		return nil
 	}
@@ -111,6 +112,8 @@ func (m *Prompt) validateResources(formats strfmt.Registry) error {
 			if err := m.Resources[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -122,12 +125,82 @@ func (m *Prompt) validateResources(formats strfmt.Registry) error {
 }
 
 func (m *Prompt) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this prompt based on the context it is used
+func (m *Prompt) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCurrentOperation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Prompt) contextValidateCurrentOperation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CurrentOperation != nil {
+		if err := m.CurrentOperation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("currentOperation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("currentOperation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Prompt) contextValidateResources(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "resources", "body", []*PromptAsset(m.Resources)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Resources); i++ {
+
+		if m.Resources[i] != nil {
+			if err := m.Resources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Prompt) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

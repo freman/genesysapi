@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -39,6 +40,7 @@ type GDPRRequest struct {
 	Name string `json:"name,omitempty"`
 
 	// The replacement terms for the provided search terms, in the case of a GDPR_UPDATE request
+	// Example: [ { \"type\": \"EMAIL\": \"existingValue\": \"personal.email@domain.com\", \"updatedValue\": \"updated.personal.email@domain.com\" } ]
 	ReplacementTerms []*ReplacementTerm `json:"replacementTerms"`
 
 	// The type of GDPR request
@@ -62,6 +64,7 @@ type GDPRRequest struct {
 	Status string `json:"status"`
 
 	// The subject of the GDPR request
+	// Example: { \"emailAddresses\": [\"personal.email@domain.com\"], \"phoneNumbers\": [\"+13115552368\"] }
 	// Required: true
 	Subject *GDPRSubject `json:"subject"`
 }
@@ -114,6 +117,8 @@ func (m *GDPRRequest) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -136,7 +141,6 @@ func (m *GDPRRequest) validateCreatedDate(formats strfmt.Registry) error {
 }
 
 func (m *GDPRRequest) validateReplacementTerms(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReplacementTerms) { // not required
 		return nil
 	}
@@ -150,6 +154,8 @@ func (m *GDPRRequest) validateReplacementTerms(formats strfmt.Registry) error {
 			if err := m.ReplacementTerms[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("replacementTerms" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("replacementTerms" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -207,7 +213,6 @@ func (m *GDPRRequest) validateRequestType(formats strfmt.Registry) error {
 }
 
 func (m *GDPRRequest) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -265,7 +270,7 @@ func (m *GDPRRequest) validateStatusEnum(path, location string, value string) er
 
 func (m *GDPRRequest) validateStatus(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("status", "body", string(m.Status)); err != nil {
+	if err := validate.RequiredString("status", "body", m.Status); err != nil {
 		return err
 	}
 
@@ -287,6 +292,147 @@ func (m *GDPRRequest) validateSubject(formats strfmt.Registry) error {
 		if err := m.Subject.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("subject")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("subject")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this g d p r request based on the context it is used
+func (m *GDPRRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReplacementTerms(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResultsURL(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSubject(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *GDPRRequest) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GDPRRequest) contextValidateCreatedDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdDate", "body", strfmt.DateTime(m.CreatedDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *GDPRRequest) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *GDPRRequest) contextValidateReplacementTerms(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ReplacementTerms); i++ {
+
+		if m.ReplacementTerms[i] != nil {
+			if err := m.ReplacementTerms[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("replacementTerms" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("replacementTerms" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *GDPRRequest) contextValidateResultsURL(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "resultsUrl", "body", string(m.ResultsURL)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *GDPRRequest) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *GDPRRequest) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *GDPRRequest) contextValidateSubject(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Subject != nil {
+		if err := m.Subject.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("subject")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("subject")
 			}
 			return err
 		}

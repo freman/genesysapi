@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // CreateResponseAssetResponse create response asset response
@@ -30,6 +34,51 @@ type CreateResponseAssetResponse struct {
 
 // Validate validates this create response asset response
 func (m *CreateResponseAssetResponse) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this create response asset response based on the context it is used
+func (m *CreateResponseAssetResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateHeaders(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateURL(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CreateResponseAssetResponse) contextValidateHeaders(ctx context.Context, formats strfmt.Registry) error {
+
+	return nil
+}
+
+func (m *CreateResponseAssetResponse) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CreateResponseAssetResponse) contextValidateURL(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "url", "body", string(m.URL)); err != nil {
+		return err
+	}
+
 	return nil
 }
 

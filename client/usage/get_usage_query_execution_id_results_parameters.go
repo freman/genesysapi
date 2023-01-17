@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetUsageQueryExecutionIDResultsParams creates a new GetUsageQueryExecutionIDResultsParams object
-// with the default values initialized.
+// NewGetUsageQueryExecutionIDResultsParams creates a new GetUsageQueryExecutionIDResultsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUsageQueryExecutionIDResultsParams() *GetUsageQueryExecutionIDResultsParams {
-	var ()
 	return &GetUsageQueryExecutionIDResultsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUsageQueryExecutionIDResultsParamsWithTimeout creates a new GetUsageQueryExecutionIDResultsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUsageQueryExecutionIDResultsParamsWithTimeout(timeout time.Duration) *GetUsageQueryExecutionIDResultsParams {
-	var ()
 	return &GetUsageQueryExecutionIDResultsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUsageQueryExecutionIDResultsParamsWithContext creates a new GetUsageQueryExecutionIDResultsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUsageQueryExecutionIDResultsParamsWithContext(ctx context.Context) *GetUsageQueryExecutionIDResultsParams {
-	var ()
 	return &GetUsageQueryExecutionIDResultsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetUsageQueryExecutionIDResultsParamsWithHTTPClient creates a new GetUsageQueryExecutionIDResultsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUsageQueryExecutionIDResultsParamsWithHTTPClient(client *http.Client) *GetUsageQueryExecutionIDResultsParams {
-	var ()
 	return &GetUsageQueryExecutionIDResultsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetUsageQueryExecutionIDResultsParams contains all the parameters to send to the API endpoint
-for the get usage query execution Id results operation typically these are written to a http.Request
+/*
+GetUsageQueryExecutionIDResultsParams contains all the parameters to send to the API endpoint
+
+	for the get usage query execution Id results operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUsageQueryExecutionIDResultsParams struct {
 
-	/*ExecutionID
-	  ID of the query execution
+	/* ExecutionID.
 
+	   ID of the query execution
 	*/
 	ExecutionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get usage query execution Id results params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUsageQueryExecutionIDResultsParams) WithDefaults() *GetUsageQueryExecutionIDResultsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get usage query execution Id results params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUsageQueryExecutionIDResultsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get usage query execution Id results params

@@ -95,7 +95,6 @@ func (o *GetGamificationProfilesReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGamificationProfilesOK() *GetGamificationProfilesOK {
 	return &GetGamificationProfilesOK{}
 }
 
-/*GetGamificationProfilesOK handles this case with default header values.
+/*
+GetGamificationProfilesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGamificationProfilesOK struct {
 	Payload *models.GetProfilesResponse
 }
 
+// IsSuccess returns true when this get gamification profiles o k response has a 2xx status code
+func (o *GetGamificationProfilesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get gamification profiles o k response has a 3xx status code
+func (o *GetGamificationProfilesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification profiles o k response has a 4xx status code
+func (o *GetGamificationProfilesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification profiles o k response has a 5xx status code
+func (o *GetGamificationProfilesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification profiles o k response a status code equal to that given
+func (o *GetGamificationProfilesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGamificationProfilesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGamificationProfilesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGamificationProfilesBadRequest() *GetGamificationProfilesBadRequest {
 	return &GetGamificationProfilesBadRequest{}
 }
 
-/*GetGamificationProfilesBadRequest handles this case with default header values.
+/*
+GetGamificationProfilesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGamificationProfilesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification profiles bad request response has a 2xx status code
+func (o *GetGamificationProfilesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification profiles bad request response has a 3xx status code
+func (o *GetGamificationProfilesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification profiles bad request response has a 4xx status code
+func (o *GetGamificationProfilesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification profiles bad request response has a 5xx status code
+func (o *GetGamificationProfilesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification profiles bad request response a status code equal to that given
+func (o *GetGamificationProfilesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGamificationProfilesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGamificationProfilesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGamificationProfilesUnauthorized() *GetGamificationProfilesUnauthoriz
 	return &GetGamificationProfilesUnauthorized{}
 }
 
-/*GetGamificationProfilesUnauthorized handles this case with default header values.
+/*
+GetGamificationProfilesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGamificationProfilesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification profiles unauthorized response has a 2xx status code
+func (o *GetGamificationProfilesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification profiles unauthorized response has a 3xx status code
+func (o *GetGamificationProfilesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification profiles unauthorized response has a 4xx status code
+func (o *GetGamificationProfilesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification profiles unauthorized response has a 5xx status code
+func (o *GetGamificationProfilesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification profiles unauthorized response a status code equal to that given
+func (o *GetGamificationProfilesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGamificationProfilesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGamificationProfilesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGamificationProfilesForbidden() *GetGamificationProfilesForbidden {
 	return &GetGamificationProfilesForbidden{}
 }
 
-/*GetGamificationProfilesForbidden handles this case with default header values.
+/*
+GetGamificationProfilesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGamificationProfilesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification profiles forbidden response has a 2xx status code
+func (o *GetGamificationProfilesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification profiles forbidden response has a 3xx status code
+func (o *GetGamificationProfilesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification profiles forbidden response has a 4xx status code
+func (o *GetGamificationProfilesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification profiles forbidden response has a 5xx status code
+func (o *GetGamificationProfilesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification profiles forbidden response a status code equal to that given
+func (o *GetGamificationProfilesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGamificationProfilesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGamificationProfilesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGamificationProfilesNotFound() *GetGamificationProfilesNotFound {
 	return &GetGamificationProfilesNotFound{}
 }
 
-/*GetGamificationProfilesNotFound handles this case with default header values.
+/*
+GetGamificationProfilesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGamificationProfilesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification profiles not found response has a 2xx status code
+func (o *GetGamificationProfilesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification profiles not found response has a 3xx status code
+func (o *GetGamificationProfilesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification profiles not found response has a 4xx status code
+func (o *GetGamificationProfilesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification profiles not found response has a 5xx status code
+func (o *GetGamificationProfilesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification profiles not found response a status code equal to that given
+func (o *GetGamificationProfilesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGamificationProfilesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGamificationProfilesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGamificationProfilesRequestTimeout() *GetGamificationProfilesRequestT
 	return &GetGamificationProfilesRequestTimeout{}
 }
 
-/*GetGamificationProfilesRequestTimeout handles this case with default header values.
+/*
+GetGamificationProfilesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGamificationProfilesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification profiles request timeout response has a 2xx status code
+func (o *GetGamificationProfilesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification profiles request timeout response has a 3xx status code
+func (o *GetGamificationProfilesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification profiles request timeout response has a 4xx status code
+func (o *GetGamificationProfilesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification profiles request timeout response has a 5xx status code
+func (o *GetGamificationProfilesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification profiles request timeout response a status code equal to that given
+func (o *GetGamificationProfilesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGamificationProfilesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGamificationProfilesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGamificationProfilesRequestEntityTooLarge() *GetGamificationProfilesR
 	return &GetGamificationProfilesRequestEntityTooLarge{}
 }
 
-/*GetGamificationProfilesRequestEntityTooLarge handles this case with default header values.
+/*
+GetGamificationProfilesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGamificationProfilesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification profiles request entity too large response has a 2xx status code
+func (o *GetGamificationProfilesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification profiles request entity too large response has a 3xx status code
+func (o *GetGamificationProfilesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification profiles request entity too large response has a 4xx status code
+func (o *GetGamificationProfilesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification profiles request entity too large response has a 5xx status code
+func (o *GetGamificationProfilesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification profiles request entity too large response a status code equal to that given
+func (o *GetGamificationProfilesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGamificationProfilesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGamificationProfilesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGamificationProfilesUnsupportedMediaType() *GetGamificationProfilesUn
 	return &GetGamificationProfilesUnsupportedMediaType{}
 }
 
-/*GetGamificationProfilesUnsupportedMediaType handles this case with default header values.
+/*
+GetGamificationProfilesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGamificationProfilesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification profiles unsupported media type response has a 2xx status code
+func (o *GetGamificationProfilesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification profiles unsupported media type response has a 3xx status code
+func (o *GetGamificationProfilesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification profiles unsupported media type response has a 4xx status code
+func (o *GetGamificationProfilesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification profiles unsupported media type response has a 5xx status code
+func (o *GetGamificationProfilesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification profiles unsupported media type response a status code equal to that given
+func (o *GetGamificationProfilesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGamificationProfilesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGamificationProfilesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGamificationProfilesTooManyRequests() *GetGamificationProfilesTooMany
 	return &GetGamificationProfilesTooManyRequests{}
 }
 
-/*GetGamificationProfilesTooManyRequests handles this case with default header values.
+/*
+GetGamificationProfilesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGamificationProfilesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification profiles too many requests response has a 2xx status code
+func (o *GetGamificationProfilesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification profiles too many requests response has a 3xx status code
+func (o *GetGamificationProfilesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification profiles too many requests response has a 4xx status code
+func (o *GetGamificationProfilesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification profiles too many requests response has a 5xx status code
+func (o *GetGamificationProfilesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification profiles too many requests response a status code equal to that given
+func (o *GetGamificationProfilesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGamificationProfilesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGamificationProfilesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGamificationProfilesInternalServerError() *GetGamificationProfilesInt
 	return &GetGamificationProfilesInternalServerError{}
 }
 
-/*GetGamificationProfilesInternalServerError handles this case with default header values.
+/*
+GetGamificationProfilesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGamificationProfilesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification profiles internal server error response has a 2xx status code
+func (o *GetGamificationProfilesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification profiles internal server error response has a 3xx status code
+func (o *GetGamificationProfilesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification profiles internal server error response has a 4xx status code
+func (o *GetGamificationProfilesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification profiles internal server error response has a 5xx status code
+func (o *GetGamificationProfilesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification profiles internal server error response a status code equal to that given
+func (o *GetGamificationProfilesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGamificationProfilesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGamificationProfilesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGamificationProfilesServiceUnavailable() *GetGamificationProfilesServ
 	return &GetGamificationProfilesServiceUnavailable{}
 }
 
-/*GetGamificationProfilesServiceUnavailable handles this case with default header values.
+/*
+GetGamificationProfilesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGamificationProfilesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification profiles service unavailable response has a 2xx status code
+func (o *GetGamificationProfilesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification profiles service unavailable response has a 3xx status code
+func (o *GetGamificationProfilesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification profiles service unavailable response has a 4xx status code
+func (o *GetGamificationProfilesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification profiles service unavailable response has a 5xx status code
+func (o *GetGamificationProfilesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification profiles service unavailable response a status code equal to that given
+func (o *GetGamificationProfilesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGamificationProfilesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGamificationProfilesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGamificationProfilesGatewayTimeout() *GetGamificationProfilesGatewayT
 	return &GetGamificationProfilesGatewayTimeout{}
 }
 
-/*GetGamificationProfilesGatewayTimeout handles this case with default header values.
+/*
+GetGamificationProfilesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGamificationProfilesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification profiles gateway timeout response has a 2xx status code
+func (o *GetGamificationProfilesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification profiles gateway timeout response has a 3xx status code
+func (o *GetGamificationProfilesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification profiles gateway timeout response has a 4xx status code
+func (o *GetGamificationProfilesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification profiles gateway timeout response has a 5xx status code
+func (o *GetGamificationProfilesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification profiles gateway timeout response a status code equal to that given
+func (o *GetGamificationProfilesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGamificationProfilesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGamificationProfilesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/profiles][%d] getGamificationProfilesGatewayTimeout  %+v", 504, o.Payload)
 }
 

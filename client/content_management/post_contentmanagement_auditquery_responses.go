@@ -95,7 +95,6 @@ func (o *PostContentmanagementAuditqueryReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostContentmanagementAuditqueryOK() *PostContentmanagementAuditqueryOK {
 	return &PostContentmanagementAuditqueryOK{}
 }
 
-/*PostContentmanagementAuditqueryOK handles this case with default header values.
+/*
+PostContentmanagementAuditqueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostContentmanagementAuditqueryOK struct {
 	Payload *models.QueryResults
 }
 
+// IsSuccess returns true when this post contentmanagement auditquery o k response has a 2xx status code
+func (o *PostContentmanagementAuditqueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post contentmanagement auditquery o k response has a 3xx status code
+func (o *PostContentmanagementAuditqueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement auditquery o k response has a 4xx status code
+func (o *PostContentmanagementAuditqueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement auditquery o k response has a 5xx status code
+func (o *PostContentmanagementAuditqueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement auditquery o k response a status code equal to that given
+func (o *PostContentmanagementAuditqueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostContentmanagementAuditqueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostContentmanagementAuditqueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostContentmanagementAuditqueryBadRequest() *PostContentmanagementAuditq
 	return &PostContentmanagementAuditqueryBadRequest{}
 }
 
-/*PostContentmanagementAuditqueryBadRequest handles this case with default header values.
+/*
+PostContentmanagementAuditqueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostContentmanagementAuditqueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement auditquery bad request response has a 2xx status code
+func (o *PostContentmanagementAuditqueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement auditquery bad request response has a 3xx status code
+func (o *PostContentmanagementAuditqueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement auditquery bad request response has a 4xx status code
+func (o *PostContentmanagementAuditqueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement auditquery bad request response has a 5xx status code
+func (o *PostContentmanagementAuditqueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement auditquery bad request response a status code equal to that given
+func (o *PostContentmanagementAuditqueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostContentmanagementAuditqueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostContentmanagementAuditqueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostContentmanagementAuditqueryUnauthorized() *PostContentmanagementAudi
 	return &PostContentmanagementAuditqueryUnauthorized{}
 }
 
-/*PostContentmanagementAuditqueryUnauthorized handles this case with default header values.
+/*
+PostContentmanagementAuditqueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostContentmanagementAuditqueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement auditquery unauthorized response has a 2xx status code
+func (o *PostContentmanagementAuditqueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement auditquery unauthorized response has a 3xx status code
+func (o *PostContentmanagementAuditqueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement auditquery unauthorized response has a 4xx status code
+func (o *PostContentmanagementAuditqueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement auditquery unauthorized response has a 5xx status code
+func (o *PostContentmanagementAuditqueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement auditquery unauthorized response a status code equal to that given
+func (o *PostContentmanagementAuditqueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostContentmanagementAuditqueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostContentmanagementAuditqueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostContentmanagementAuditqueryForbidden() *PostContentmanagementAuditqu
 	return &PostContentmanagementAuditqueryForbidden{}
 }
 
-/*PostContentmanagementAuditqueryForbidden handles this case with default header values.
+/*
+PostContentmanagementAuditqueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostContentmanagementAuditqueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement auditquery forbidden response has a 2xx status code
+func (o *PostContentmanagementAuditqueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement auditquery forbidden response has a 3xx status code
+func (o *PostContentmanagementAuditqueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement auditquery forbidden response has a 4xx status code
+func (o *PostContentmanagementAuditqueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement auditquery forbidden response has a 5xx status code
+func (o *PostContentmanagementAuditqueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement auditquery forbidden response a status code equal to that given
+func (o *PostContentmanagementAuditqueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostContentmanagementAuditqueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostContentmanagementAuditqueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostContentmanagementAuditqueryNotFound() *PostContentmanagementAuditque
 	return &PostContentmanagementAuditqueryNotFound{}
 }
 
-/*PostContentmanagementAuditqueryNotFound handles this case with default header values.
+/*
+PostContentmanagementAuditqueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostContentmanagementAuditqueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement auditquery not found response has a 2xx status code
+func (o *PostContentmanagementAuditqueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement auditquery not found response has a 3xx status code
+func (o *PostContentmanagementAuditqueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement auditquery not found response has a 4xx status code
+func (o *PostContentmanagementAuditqueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement auditquery not found response has a 5xx status code
+func (o *PostContentmanagementAuditqueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement auditquery not found response a status code equal to that given
+func (o *PostContentmanagementAuditqueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostContentmanagementAuditqueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostContentmanagementAuditqueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostContentmanagementAuditqueryRequestTimeout() *PostContentmanagementAu
 	return &PostContentmanagementAuditqueryRequestTimeout{}
 }
 
-/*PostContentmanagementAuditqueryRequestTimeout handles this case with default header values.
+/*
+PostContentmanagementAuditqueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostContentmanagementAuditqueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement auditquery request timeout response has a 2xx status code
+func (o *PostContentmanagementAuditqueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement auditquery request timeout response has a 3xx status code
+func (o *PostContentmanagementAuditqueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement auditquery request timeout response has a 4xx status code
+func (o *PostContentmanagementAuditqueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement auditquery request timeout response has a 5xx status code
+func (o *PostContentmanagementAuditqueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement auditquery request timeout response a status code equal to that given
+func (o *PostContentmanagementAuditqueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostContentmanagementAuditqueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostContentmanagementAuditqueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostContentmanagementAuditqueryRequestEntityTooLarge() *PostContentmanag
 	return &PostContentmanagementAuditqueryRequestEntityTooLarge{}
 }
 
-/*PostContentmanagementAuditqueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostContentmanagementAuditqueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostContentmanagementAuditqueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement auditquery request entity too large response has a 2xx status code
+func (o *PostContentmanagementAuditqueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement auditquery request entity too large response has a 3xx status code
+func (o *PostContentmanagementAuditqueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement auditquery request entity too large response has a 4xx status code
+func (o *PostContentmanagementAuditqueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement auditquery request entity too large response has a 5xx status code
+func (o *PostContentmanagementAuditqueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement auditquery request entity too large response a status code equal to that given
+func (o *PostContentmanagementAuditqueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostContentmanagementAuditqueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostContentmanagementAuditqueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostContentmanagementAuditqueryUnsupportedMediaType() *PostContentmanage
 	return &PostContentmanagementAuditqueryUnsupportedMediaType{}
 }
 
-/*PostContentmanagementAuditqueryUnsupportedMediaType handles this case with default header values.
+/*
+PostContentmanagementAuditqueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostContentmanagementAuditqueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement auditquery unsupported media type response has a 2xx status code
+func (o *PostContentmanagementAuditqueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement auditquery unsupported media type response has a 3xx status code
+func (o *PostContentmanagementAuditqueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement auditquery unsupported media type response has a 4xx status code
+func (o *PostContentmanagementAuditqueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement auditquery unsupported media type response has a 5xx status code
+func (o *PostContentmanagementAuditqueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement auditquery unsupported media type response a status code equal to that given
+func (o *PostContentmanagementAuditqueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostContentmanagementAuditqueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostContentmanagementAuditqueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostContentmanagementAuditqueryTooManyRequests() *PostContentmanagementA
 	return &PostContentmanagementAuditqueryTooManyRequests{}
 }
 
-/*PostContentmanagementAuditqueryTooManyRequests handles this case with default header values.
+/*
+PostContentmanagementAuditqueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostContentmanagementAuditqueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement auditquery too many requests response has a 2xx status code
+func (o *PostContentmanagementAuditqueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement auditquery too many requests response has a 3xx status code
+func (o *PostContentmanagementAuditqueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement auditquery too many requests response has a 4xx status code
+func (o *PostContentmanagementAuditqueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement auditquery too many requests response has a 5xx status code
+func (o *PostContentmanagementAuditqueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement auditquery too many requests response a status code equal to that given
+func (o *PostContentmanagementAuditqueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostContentmanagementAuditqueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostContentmanagementAuditqueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostContentmanagementAuditqueryInternalServerError() *PostContentmanagem
 	return &PostContentmanagementAuditqueryInternalServerError{}
 }
 
-/*PostContentmanagementAuditqueryInternalServerError handles this case with default header values.
+/*
+PostContentmanagementAuditqueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostContentmanagementAuditqueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement auditquery internal server error response has a 2xx status code
+func (o *PostContentmanagementAuditqueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement auditquery internal server error response has a 3xx status code
+func (o *PostContentmanagementAuditqueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement auditquery internal server error response has a 4xx status code
+func (o *PostContentmanagementAuditqueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement auditquery internal server error response has a 5xx status code
+func (o *PostContentmanagementAuditqueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement auditquery internal server error response a status code equal to that given
+func (o *PostContentmanagementAuditqueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostContentmanagementAuditqueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostContentmanagementAuditqueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostContentmanagementAuditqueryServiceUnavailable() *PostContentmanageme
 	return &PostContentmanagementAuditqueryServiceUnavailable{}
 }
 
-/*PostContentmanagementAuditqueryServiceUnavailable handles this case with default header values.
+/*
+PostContentmanagementAuditqueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostContentmanagementAuditqueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement auditquery service unavailable response has a 2xx status code
+func (o *PostContentmanagementAuditqueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement auditquery service unavailable response has a 3xx status code
+func (o *PostContentmanagementAuditqueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement auditquery service unavailable response has a 4xx status code
+func (o *PostContentmanagementAuditqueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement auditquery service unavailable response has a 5xx status code
+func (o *PostContentmanagementAuditqueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement auditquery service unavailable response a status code equal to that given
+func (o *PostContentmanagementAuditqueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostContentmanagementAuditqueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostContentmanagementAuditqueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostContentmanagementAuditqueryGatewayTimeout() *PostContentmanagementAu
 	return &PostContentmanagementAuditqueryGatewayTimeout{}
 }
 
-/*PostContentmanagementAuditqueryGatewayTimeout handles this case with default header values.
+/*
+PostContentmanagementAuditqueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostContentmanagementAuditqueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement auditquery gateway timeout response has a 2xx status code
+func (o *PostContentmanagementAuditqueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement auditquery gateway timeout response has a 3xx status code
+func (o *PostContentmanagementAuditqueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement auditquery gateway timeout response has a 4xx status code
+func (o *PostContentmanagementAuditqueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement auditquery gateway timeout response has a 5xx status code
+func (o *PostContentmanagementAuditqueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement auditquery gateway timeout response a status code equal to that given
+func (o *PostContentmanagementAuditqueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostContentmanagementAuditqueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostContentmanagementAuditqueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/auditquery][%d] postContentmanagementAuditqueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

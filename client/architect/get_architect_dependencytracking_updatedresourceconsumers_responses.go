@@ -101,7 +101,6 @@ func (o *GetArchitectDependencytrackingUpdatedresourceconsumersReader) ReadRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersOK() *GetArchitect
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersOK{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersOK handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type GetArchitectDependencytrackingUpdatedresourceconsumersOK struct {
 	Payload *models.DependencyObjectEntityListing
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers o k response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers o k response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers o k response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers o k response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers o k response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersOK  %+v", 200, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersOK  %+v", 200, o.Payload)
 }
 
@@ -145,14 +174,44 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersPartialContent() *
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersPartialContent{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersPartialContent handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersPartialContent describes a response with status code 206, with default header values.
 
 Partial Content - the org data is being rebuilt or needs to be rebuilt.
 */
 type GetArchitectDependencytrackingUpdatedresourceconsumersPartialContent struct {
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers partial content response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersPartialContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers partial content response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersPartialContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers partial content response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersPartialContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers partial content response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersPartialContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers partial content response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersPartialContent) IsCode(code int) bool {
+	return code == 206
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersPartialContent) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersPartialContent ", 206)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersPartialContent) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersPartialContent ", 206)
 }
 
@@ -166,7 +225,8 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersBadRequest() *GetA
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersBadRequest{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersBadRequest handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -174,7 +234,36 @@ type GetArchitectDependencytrackingUpdatedresourceconsumersBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers bad request response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers bad request response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers bad request response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers bad request response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers bad request response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersBadRequest  %+v", 400, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersUnauthorized() *Ge
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersUnauthorized{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersUnauthorized handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -207,7 +297,36 @@ type GetArchitectDependencytrackingUpdatedresourceconsumersUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers unauthorized response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers unauthorized response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers unauthorized response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers unauthorized response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers unauthorized response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersForbidden() *GetAr
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersForbidden{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersForbidden handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -240,7 +360,36 @@ type GetArchitectDependencytrackingUpdatedresourceconsumersForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers forbidden response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers forbidden response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers forbidden response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers forbidden response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers forbidden response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersForbidden  %+v", 403, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersNotFound() *GetArc
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersNotFound{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersNotFound handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -273,7 +423,36 @@ type GetArchitectDependencytrackingUpdatedresourceconsumersNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers not found response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers not found response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers not found response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers not found response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers not found response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersNotFound  %+v", 404, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout() *
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -306,7 +486,36 @@ type GetArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers request timeout response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers request timeout response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers request timeout response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers request timeout response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers request timeout response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLa
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type GetArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers request entity too large response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers request entity too large response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers request entity too large response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers request entity too large response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers request entity too large response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaTy
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type GetArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers unsupported media type response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers unsupported media type response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers unsupported media type response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers unsupported media type response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers unsupported media type response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests() 
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type GetArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers too many requests response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers too many requests response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers too many requests response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers too many requests response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers too many requests response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersInternalServerErro
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersInternalServerError{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersInternalServerError handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type GetArchitectDependencytrackingUpdatedresourceconsumersInternalServerError s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers internal server error response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers internal server error response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers internal server error response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers internal server error response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers internal server error response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type GetArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers service unavailable response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers service unavailable response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers service unavailable response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers service unavailable response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers service unavailable response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewGetArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout() *
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout{}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout handles this case with default header values.
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type GetArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect dependencytracking updatedresourceconsumers gateway timeout response has a 2xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect dependencytracking updatedresourceconsumers gateway timeout response has a 3xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect dependencytracking updatedresourceconsumers gateway timeout response has a 4xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect dependencytracking updatedresourceconsumers gateway timeout response has a 5xx status code
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect dependencytracking updatedresourceconsumers gateway timeout response a status code equal to that given
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/dependencytracking/updatedresourceconsumers][%d] getArchitectDependencytrackingUpdatedresourceconsumersGatewayTimeout  %+v", 504, o.Payload)
 }
 

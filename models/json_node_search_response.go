@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -117,8 +119,8 @@ func (m *JSONNodeSearchResponse) validatePageSize(formats strfmt.Registry) error
 
 func (m *JSONNodeSearchResponse) validateResults(formats strfmt.Registry) error {
 
-	if err := validate.Required("results", "body", m.Results); err != nil {
-		return err
+	if m.Results == nil {
+		return errors.Required("results", "body", nil)
 	}
 
 	return nil
@@ -139,6 +141,11 @@ func (m *JSONNodeSearchResponse) validateTypes(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this Json node search response based on context it is used
+func (m *JSONNodeSearchResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

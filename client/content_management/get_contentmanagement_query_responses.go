@@ -95,7 +95,6 @@ func (o *GetContentmanagementQueryReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetContentmanagementQueryOK() *GetContentmanagementQueryOK {
 	return &GetContentmanagementQueryOK{}
 }
 
-/*GetContentmanagementQueryOK handles this case with default header values.
+/*
+GetContentmanagementQueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetContentmanagementQueryOK struct {
 	Payload *models.QueryResults
 }
 
+// IsSuccess returns true when this get contentmanagement query o k response has a 2xx status code
+func (o *GetContentmanagementQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get contentmanagement query o k response has a 3xx status code
+func (o *GetContentmanagementQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement query o k response has a 4xx status code
+func (o *GetContentmanagementQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement query o k response has a 5xx status code
+func (o *GetContentmanagementQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement query o k response a status code equal to that given
+func (o *GetContentmanagementQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetContentmanagementQueryOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *GetContentmanagementQueryOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetContentmanagementQueryBadRequest() *GetContentmanagementQueryBadReque
 	return &GetContentmanagementQueryBadRequest{}
 }
 
-/*GetContentmanagementQueryBadRequest handles this case with default header values.
+/*
+GetContentmanagementQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetContentmanagementQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement query bad request response has a 2xx status code
+func (o *GetContentmanagementQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement query bad request response has a 3xx status code
+func (o *GetContentmanagementQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement query bad request response has a 4xx status code
+func (o *GetContentmanagementQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement query bad request response has a 5xx status code
+func (o *GetContentmanagementQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement query bad request response a status code equal to that given
+func (o *GetContentmanagementQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetContentmanagementQueryBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetContentmanagementQueryBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetContentmanagementQueryUnauthorized() *GetContentmanagementQueryUnauth
 	return &GetContentmanagementQueryUnauthorized{}
 }
 
-/*GetContentmanagementQueryUnauthorized handles this case with default header values.
+/*
+GetContentmanagementQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetContentmanagementQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement query unauthorized response has a 2xx status code
+func (o *GetContentmanagementQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement query unauthorized response has a 3xx status code
+func (o *GetContentmanagementQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement query unauthorized response has a 4xx status code
+func (o *GetContentmanagementQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement query unauthorized response has a 5xx status code
+func (o *GetContentmanagementQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement query unauthorized response a status code equal to that given
+func (o *GetContentmanagementQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetContentmanagementQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetContentmanagementQueryUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetContentmanagementQueryForbidden() *GetContentmanagementQueryForbidden
 	return &GetContentmanagementQueryForbidden{}
 }
 
-/*GetContentmanagementQueryForbidden handles this case with default header values.
+/*
+GetContentmanagementQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetContentmanagementQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement query forbidden response has a 2xx status code
+func (o *GetContentmanagementQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement query forbidden response has a 3xx status code
+func (o *GetContentmanagementQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement query forbidden response has a 4xx status code
+func (o *GetContentmanagementQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement query forbidden response has a 5xx status code
+func (o *GetContentmanagementQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement query forbidden response a status code equal to that given
+func (o *GetContentmanagementQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetContentmanagementQueryForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetContentmanagementQueryForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetContentmanagementQueryNotFound() *GetContentmanagementQueryNotFound {
 	return &GetContentmanagementQueryNotFound{}
 }
 
-/*GetContentmanagementQueryNotFound handles this case with default header values.
+/*
+GetContentmanagementQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetContentmanagementQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement query not found response has a 2xx status code
+func (o *GetContentmanagementQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement query not found response has a 3xx status code
+func (o *GetContentmanagementQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement query not found response has a 4xx status code
+func (o *GetContentmanagementQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement query not found response has a 5xx status code
+func (o *GetContentmanagementQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement query not found response a status code equal to that given
+func (o *GetContentmanagementQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetContentmanagementQueryNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetContentmanagementQueryNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetContentmanagementQueryRequestTimeout() *GetContentmanagementQueryRequ
 	return &GetContentmanagementQueryRequestTimeout{}
 }
 
-/*GetContentmanagementQueryRequestTimeout handles this case with default header values.
+/*
+GetContentmanagementQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetContentmanagementQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement query request timeout response has a 2xx status code
+func (o *GetContentmanagementQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement query request timeout response has a 3xx status code
+func (o *GetContentmanagementQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement query request timeout response has a 4xx status code
+func (o *GetContentmanagementQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement query request timeout response has a 5xx status code
+func (o *GetContentmanagementQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement query request timeout response a status code equal to that given
+func (o *GetContentmanagementQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetContentmanagementQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetContentmanagementQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetContentmanagementQueryRequestEntityTooLarge() *GetContentmanagementQu
 	return &GetContentmanagementQueryRequestEntityTooLarge{}
 }
 
-/*GetContentmanagementQueryRequestEntityTooLarge handles this case with default header values.
+/*
+GetContentmanagementQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetContentmanagementQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement query request entity too large response has a 2xx status code
+func (o *GetContentmanagementQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement query request entity too large response has a 3xx status code
+func (o *GetContentmanagementQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement query request entity too large response has a 4xx status code
+func (o *GetContentmanagementQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement query request entity too large response has a 5xx status code
+func (o *GetContentmanagementQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement query request entity too large response a status code equal to that given
+func (o *GetContentmanagementQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetContentmanagementQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetContentmanagementQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetContentmanagementQueryUnsupportedMediaType() *GetContentmanagementQue
 	return &GetContentmanagementQueryUnsupportedMediaType{}
 }
 
-/*GetContentmanagementQueryUnsupportedMediaType handles this case with default header values.
+/*
+GetContentmanagementQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetContentmanagementQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement query unsupported media type response has a 2xx status code
+func (o *GetContentmanagementQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement query unsupported media type response has a 3xx status code
+func (o *GetContentmanagementQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement query unsupported media type response has a 4xx status code
+func (o *GetContentmanagementQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement query unsupported media type response has a 5xx status code
+func (o *GetContentmanagementQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement query unsupported media type response a status code equal to that given
+func (o *GetContentmanagementQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetContentmanagementQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetContentmanagementQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetContentmanagementQueryTooManyRequests() *GetContentmanagementQueryToo
 	return &GetContentmanagementQueryTooManyRequests{}
 }
 
-/*GetContentmanagementQueryTooManyRequests handles this case with default header values.
+/*
+GetContentmanagementQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetContentmanagementQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement query too many requests response has a 2xx status code
+func (o *GetContentmanagementQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement query too many requests response has a 3xx status code
+func (o *GetContentmanagementQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement query too many requests response has a 4xx status code
+func (o *GetContentmanagementQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement query too many requests response has a 5xx status code
+func (o *GetContentmanagementQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement query too many requests response a status code equal to that given
+func (o *GetContentmanagementQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetContentmanagementQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetContentmanagementQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetContentmanagementQueryInternalServerError() *GetContentmanagementQuer
 	return &GetContentmanagementQueryInternalServerError{}
 }
 
-/*GetContentmanagementQueryInternalServerError handles this case with default header values.
+/*
+GetContentmanagementQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetContentmanagementQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement query internal server error response has a 2xx status code
+func (o *GetContentmanagementQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement query internal server error response has a 3xx status code
+func (o *GetContentmanagementQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement query internal server error response has a 4xx status code
+func (o *GetContentmanagementQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement query internal server error response has a 5xx status code
+func (o *GetContentmanagementQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement query internal server error response a status code equal to that given
+func (o *GetContentmanagementQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetContentmanagementQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetContentmanagementQueryInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetContentmanagementQueryServiceUnavailable() *GetContentmanagementQuery
 	return &GetContentmanagementQueryServiceUnavailable{}
 }
 
-/*GetContentmanagementQueryServiceUnavailable handles this case with default header values.
+/*
+GetContentmanagementQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetContentmanagementQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement query service unavailable response has a 2xx status code
+func (o *GetContentmanagementQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement query service unavailable response has a 3xx status code
+func (o *GetContentmanagementQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement query service unavailable response has a 4xx status code
+func (o *GetContentmanagementQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement query service unavailable response has a 5xx status code
+func (o *GetContentmanagementQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement query service unavailable response a status code equal to that given
+func (o *GetContentmanagementQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetContentmanagementQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetContentmanagementQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetContentmanagementQueryGatewayTimeout() *GetContentmanagementQueryGate
 	return &GetContentmanagementQueryGatewayTimeout{}
 }
 
-/*GetContentmanagementQueryGatewayTimeout handles this case with default header values.
+/*
+GetContentmanagementQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetContentmanagementQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement query gateway timeout response has a 2xx status code
+func (o *GetContentmanagementQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement query gateway timeout response has a 3xx status code
+func (o *GetContentmanagementQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement query gateway timeout response has a 4xx status code
+func (o *GetContentmanagementQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement query gateway timeout response has a 5xx status code
+func (o *GetContentmanagementQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement query gateway timeout response a status code equal to that given
+func (o *GetContentmanagementQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetContentmanagementQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetContentmanagementQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/query][%d] getContentmanagementQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

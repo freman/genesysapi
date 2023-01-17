@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIntegrationConfigCurrentParams creates a new GetIntegrationConfigCurrentParams object
-// with the default values initialized.
+// NewGetIntegrationConfigCurrentParams creates a new GetIntegrationConfigCurrentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntegrationConfigCurrentParams() *GetIntegrationConfigCurrentParams {
-	var ()
 	return &GetIntegrationConfigCurrentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntegrationConfigCurrentParamsWithTimeout creates a new GetIntegrationConfigCurrentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntegrationConfigCurrentParamsWithTimeout(timeout time.Duration) *GetIntegrationConfigCurrentParams {
-	var ()
 	return &GetIntegrationConfigCurrentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntegrationConfigCurrentParamsWithContext creates a new GetIntegrationConfigCurrentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntegrationConfigCurrentParamsWithContext(ctx context.Context) *GetIntegrationConfigCurrentParams {
-	var ()
 	return &GetIntegrationConfigCurrentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntegrationConfigCurrentParamsWithHTTPClient creates a new GetIntegrationConfigCurrentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntegrationConfigCurrentParamsWithHTTPClient(client *http.Client) *GetIntegrationConfigCurrentParams {
-	var ()
 	return &GetIntegrationConfigCurrentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIntegrationConfigCurrentParams contains all the parameters to send to the API endpoint
-for the get integration config current operation typically these are written to a http.Request
+/*
+GetIntegrationConfigCurrentParams contains all the parameters to send to the API endpoint
+
+	for the get integration config current operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntegrationConfigCurrentParams struct {
 
-	/*IntegrationID
-	  Integration Id
+	/* IntegrationID.
 
+	   Integration Id
 	*/
 	IntegrationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get integration config current params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationConfigCurrentParams) WithDefaults() *GetIntegrationConfigCurrentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get integration config current params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationConfigCurrentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get integration config current params

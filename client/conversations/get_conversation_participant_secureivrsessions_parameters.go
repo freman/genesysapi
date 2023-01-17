@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConversationParticipantSecureivrsessionsParams creates a new GetConversationParticipantSecureivrsessionsParams object
-// with the default values initialized.
+// NewGetConversationParticipantSecureivrsessionsParams creates a new GetConversationParticipantSecureivrsessionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationParticipantSecureivrsessionsParams() *GetConversationParticipantSecureivrsessionsParams {
-	var ()
 	return &GetConversationParticipantSecureivrsessionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationParticipantSecureivrsessionsParamsWithTimeout creates a new GetConversationParticipantSecureivrsessionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationParticipantSecureivrsessionsParamsWithTimeout(timeout time.Duration) *GetConversationParticipantSecureivrsessionsParams {
-	var ()
 	return &GetConversationParticipantSecureivrsessionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationParticipantSecureivrsessionsParamsWithContext creates a new GetConversationParticipantSecureivrsessionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationParticipantSecureivrsessionsParamsWithContext(ctx context.Context) *GetConversationParticipantSecureivrsessionsParams {
-	var ()
 	return &GetConversationParticipantSecureivrsessionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationParticipantSecureivrsessionsParamsWithHTTPClient creates a new GetConversationParticipantSecureivrsessionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationParticipantSecureivrsessionsParamsWithHTTPClient(client *http.Client) *GetConversationParticipantSecureivrsessionsParams {
-	var ()
 	return &GetConversationParticipantSecureivrsessionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationParticipantSecureivrsessionsParams contains all the parameters to send to the API endpoint
-for the get conversation participant secureivrsessions operation typically these are written to a http.Request
+/*
+GetConversationParticipantSecureivrsessionsParams contains all the parameters to send to the API endpoint
+
+	for the get conversation participant secureivrsessions operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationParticipantSecureivrsessionsParams struct {
 
-	/*ConversationID
-	  conversation ID
+	/* ConversationID.
 
+	   conversation ID
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participant ID
 
+	/* ParticipantID.
+
+	   participant ID
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversation participant secureivrsessions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationParticipantSecureivrsessionsParams) WithDefaults() *GetConversationParticipantSecureivrsessionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversation participant secureivrsessions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationParticipantSecureivrsessionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get conversation participant secureivrsessions params

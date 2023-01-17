@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *InboundDomainPatchRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *InboundDomainPatchRequest) validateCustomSMTPServer(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CustomSMTPServer) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *InboundDomainPatchRequest) validateCustomSMTPServer(formats strfmt.Regi
 		if err := m.CustomSMTPServer.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customSMTPServer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customSMTPServer")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *InboundDomainPatchRequest) validateCustomSMTPServer(formats strfmt.Regi
 }
 
 func (m *InboundDomainPatchRequest) validateMailFromSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MailFromSettings) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *InboundDomainPatchRequest) validateMailFromSettings(formats strfmt.Regi
 		if err := m.MailFromSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mailFromSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mailFromSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this inbound domain patch request based on the context it is used
+func (m *InboundDomainPatchRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCustomSMTPServer(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMailFromSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *InboundDomainPatchRequest) contextValidateCustomSMTPServer(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CustomSMTPServer != nil {
+		if err := m.CustomSMTPServer.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("customSMTPServer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customSMTPServer")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *InboundDomainPatchRequest) contextValidateMailFromSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MailFromSettings != nil {
+		if err := m.MailFromSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mailFromSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mailFromSettings")
 			}
 			return err
 		}

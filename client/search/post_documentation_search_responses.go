@@ -95,7 +95,6 @@ func (o *PostDocumentationSearchReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostDocumentationSearchOK() *PostDocumentationSearchOK {
 	return &PostDocumentationSearchOK{}
 }
 
-/*PostDocumentationSearchOK handles this case with default header values.
+/*
+PostDocumentationSearchOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostDocumentationSearchOK struct {
 	Payload *models.DocumentationSearchResponse
 }
 
+// IsSuccess returns true when this post documentation search o k response has a 2xx status code
+func (o *PostDocumentationSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post documentation search o k response has a 3xx status code
+func (o *PostDocumentationSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation search o k response has a 4xx status code
+func (o *PostDocumentationSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post documentation search o k response has a 5xx status code
+func (o *PostDocumentationSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation search o k response a status code equal to that given
+func (o *PostDocumentationSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostDocumentationSearchOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchOK  %+v", 200, o.Payload)
+}
+
+func (o *PostDocumentationSearchOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostDocumentationSearchBadRequest() *PostDocumentationSearchBadRequest {
 	return &PostDocumentationSearchBadRequest{}
 }
 
-/*PostDocumentationSearchBadRequest handles this case with default header values.
+/*
+PostDocumentationSearchBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostDocumentationSearchBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation search bad request response has a 2xx status code
+func (o *PostDocumentationSearchBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation search bad request response has a 3xx status code
+func (o *PostDocumentationSearchBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation search bad request response has a 4xx status code
+func (o *PostDocumentationSearchBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation search bad request response has a 5xx status code
+func (o *PostDocumentationSearchBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation search bad request response a status code equal to that given
+func (o *PostDocumentationSearchBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostDocumentationSearchBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostDocumentationSearchBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostDocumentationSearchUnauthorized() *PostDocumentationSearchUnauthoriz
 	return &PostDocumentationSearchUnauthorized{}
 }
 
-/*PostDocumentationSearchUnauthorized handles this case with default header values.
+/*
+PostDocumentationSearchUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostDocumentationSearchUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation search unauthorized response has a 2xx status code
+func (o *PostDocumentationSearchUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation search unauthorized response has a 3xx status code
+func (o *PostDocumentationSearchUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation search unauthorized response has a 4xx status code
+func (o *PostDocumentationSearchUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation search unauthorized response has a 5xx status code
+func (o *PostDocumentationSearchUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation search unauthorized response a status code equal to that given
+func (o *PostDocumentationSearchUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostDocumentationSearchUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostDocumentationSearchUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostDocumentationSearchForbidden() *PostDocumentationSearchForbidden {
 	return &PostDocumentationSearchForbidden{}
 }
 
-/*PostDocumentationSearchForbidden handles this case with default header values.
+/*
+PostDocumentationSearchForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostDocumentationSearchForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation search forbidden response has a 2xx status code
+func (o *PostDocumentationSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation search forbidden response has a 3xx status code
+func (o *PostDocumentationSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation search forbidden response has a 4xx status code
+func (o *PostDocumentationSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation search forbidden response has a 5xx status code
+func (o *PostDocumentationSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation search forbidden response a status code equal to that given
+func (o *PostDocumentationSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostDocumentationSearchForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostDocumentationSearchForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostDocumentationSearchNotFound() *PostDocumentationSearchNotFound {
 	return &PostDocumentationSearchNotFound{}
 }
 
-/*PostDocumentationSearchNotFound handles this case with default header values.
+/*
+PostDocumentationSearchNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostDocumentationSearchNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation search not found response has a 2xx status code
+func (o *PostDocumentationSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation search not found response has a 3xx status code
+func (o *PostDocumentationSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation search not found response has a 4xx status code
+func (o *PostDocumentationSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation search not found response has a 5xx status code
+func (o *PostDocumentationSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation search not found response a status code equal to that given
+func (o *PostDocumentationSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostDocumentationSearchNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostDocumentationSearchNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostDocumentationSearchRequestTimeout() *PostDocumentationSearchRequestT
 	return &PostDocumentationSearchRequestTimeout{}
 }
 
-/*PostDocumentationSearchRequestTimeout handles this case with default header values.
+/*
+PostDocumentationSearchRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostDocumentationSearchRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation search request timeout response has a 2xx status code
+func (o *PostDocumentationSearchRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation search request timeout response has a 3xx status code
+func (o *PostDocumentationSearchRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation search request timeout response has a 4xx status code
+func (o *PostDocumentationSearchRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation search request timeout response has a 5xx status code
+func (o *PostDocumentationSearchRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation search request timeout response a status code equal to that given
+func (o *PostDocumentationSearchRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostDocumentationSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostDocumentationSearchRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostDocumentationSearchRequestEntityTooLarge() *PostDocumentationSearchR
 	return &PostDocumentationSearchRequestEntityTooLarge{}
 }
 
-/*PostDocumentationSearchRequestEntityTooLarge handles this case with default header values.
+/*
+PostDocumentationSearchRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostDocumentationSearchRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation search request entity too large response has a 2xx status code
+func (o *PostDocumentationSearchRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation search request entity too large response has a 3xx status code
+func (o *PostDocumentationSearchRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation search request entity too large response has a 4xx status code
+func (o *PostDocumentationSearchRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation search request entity too large response has a 5xx status code
+func (o *PostDocumentationSearchRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation search request entity too large response a status code equal to that given
+func (o *PostDocumentationSearchRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostDocumentationSearchRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostDocumentationSearchRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostDocumentationSearchUnsupportedMediaType() *PostDocumentationSearchUn
 	return &PostDocumentationSearchUnsupportedMediaType{}
 }
 
-/*PostDocumentationSearchUnsupportedMediaType handles this case with default header values.
+/*
+PostDocumentationSearchUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostDocumentationSearchUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation search unsupported media type response has a 2xx status code
+func (o *PostDocumentationSearchUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation search unsupported media type response has a 3xx status code
+func (o *PostDocumentationSearchUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation search unsupported media type response has a 4xx status code
+func (o *PostDocumentationSearchUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation search unsupported media type response has a 5xx status code
+func (o *PostDocumentationSearchUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation search unsupported media type response a status code equal to that given
+func (o *PostDocumentationSearchUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostDocumentationSearchUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostDocumentationSearchUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostDocumentationSearchTooManyRequests() *PostDocumentationSearchTooMany
 	return &PostDocumentationSearchTooManyRequests{}
 }
 
-/*PostDocumentationSearchTooManyRequests handles this case with default header values.
+/*
+PostDocumentationSearchTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostDocumentationSearchTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation search too many requests response has a 2xx status code
+func (o *PostDocumentationSearchTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation search too many requests response has a 3xx status code
+func (o *PostDocumentationSearchTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation search too many requests response has a 4xx status code
+func (o *PostDocumentationSearchTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post documentation search too many requests response has a 5xx status code
+func (o *PostDocumentationSearchTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post documentation search too many requests response a status code equal to that given
+func (o *PostDocumentationSearchTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostDocumentationSearchTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostDocumentationSearchTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostDocumentationSearchInternalServerError() *PostDocumentationSearchInt
 	return &PostDocumentationSearchInternalServerError{}
 }
 
-/*PostDocumentationSearchInternalServerError handles this case with default header values.
+/*
+PostDocumentationSearchInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostDocumentationSearchInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation search internal server error response has a 2xx status code
+func (o *PostDocumentationSearchInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation search internal server error response has a 3xx status code
+func (o *PostDocumentationSearchInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation search internal server error response has a 4xx status code
+func (o *PostDocumentationSearchInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post documentation search internal server error response has a 5xx status code
+func (o *PostDocumentationSearchInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post documentation search internal server error response a status code equal to that given
+func (o *PostDocumentationSearchInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostDocumentationSearchInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostDocumentationSearchInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostDocumentationSearchServiceUnavailable() *PostDocumentationSearchServ
 	return &PostDocumentationSearchServiceUnavailable{}
 }
 
-/*PostDocumentationSearchServiceUnavailable handles this case with default header values.
+/*
+PostDocumentationSearchServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostDocumentationSearchServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation search service unavailable response has a 2xx status code
+func (o *PostDocumentationSearchServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation search service unavailable response has a 3xx status code
+func (o *PostDocumentationSearchServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation search service unavailable response has a 4xx status code
+func (o *PostDocumentationSearchServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post documentation search service unavailable response has a 5xx status code
+func (o *PostDocumentationSearchServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post documentation search service unavailable response a status code equal to that given
+func (o *PostDocumentationSearchServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostDocumentationSearchServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostDocumentationSearchServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostDocumentationSearchGatewayTimeout() *PostDocumentationSearchGatewayT
 	return &PostDocumentationSearchGatewayTimeout{}
 }
 
-/*PostDocumentationSearchGatewayTimeout handles this case with default header values.
+/*
+PostDocumentationSearchGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostDocumentationSearchGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post documentation search gateway timeout response has a 2xx status code
+func (o *PostDocumentationSearchGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post documentation search gateway timeout response has a 3xx status code
+func (o *PostDocumentationSearchGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post documentation search gateway timeout response has a 4xx status code
+func (o *PostDocumentationSearchGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post documentation search gateway timeout response has a 5xx status code
+func (o *PostDocumentationSearchGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post documentation search gateway timeout response a status code equal to that given
+func (o *PostDocumentationSearchGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostDocumentationSearchGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostDocumentationSearchGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/documentation/search][%d] postDocumentationSearchGatewayTimeout  %+v", 504, o.Payload)
 }
 

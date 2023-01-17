@@ -101,7 +101,6 @@ func (o *PostExternalcontactsContactsReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostExternalcontactsContactsOK() *PostExternalcontactsContactsOK {
 	return &PostExternalcontactsContactsOK{}
 }
 
-/*PostExternalcontactsContactsOK handles this case with default header values.
+/*
+PostExternalcontactsContactsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostExternalcontactsContactsOK struct {
 	Payload *models.ExternalContact
 }
 
+// IsSuccess returns true when this post externalcontacts contacts o k response has a 2xx status code
+func (o *PostExternalcontactsContactsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post externalcontacts contacts o k response has a 3xx status code
+func (o *PostExternalcontactsContactsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts o k response has a 4xx status code
+func (o *PostExternalcontactsContactsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts contacts o k response has a 5xx status code
+func (o *PostExternalcontactsContactsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts contacts o k response a status code equal to that given
+func (o *PostExternalcontactsContactsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostExternalcontactsContactsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostExternalcontactsContactsBadRequest() *PostExternalcontactsContactsBa
 	return &PostExternalcontactsContactsBadRequest{}
 }
 
-/*PostExternalcontactsContactsBadRequest handles this case with default header values.
+/*
+PostExternalcontactsContactsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostExternalcontactsContactsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts contacts bad request response has a 2xx status code
+func (o *PostExternalcontactsContactsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts contacts bad request response has a 3xx status code
+func (o *PostExternalcontactsContactsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts bad request response has a 4xx status code
+func (o *PostExternalcontactsContactsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts contacts bad request response has a 5xx status code
+func (o *PostExternalcontactsContactsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts contacts bad request response a status code equal to that given
+func (o *PostExternalcontactsContactsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostExternalcontactsContactsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostExternalcontactsContactsUnauthorized() *PostExternalcontactsContacts
 	return &PostExternalcontactsContactsUnauthorized{}
 }
 
-/*PostExternalcontactsContactsUnauthorized handles this case with default header values.
+/*
+PostExternalcontactsContactsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostExternalcontactsContactsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts contacts unauthorized response has a 2xx status code
+func (o *PostExternalcontactsContactsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts contacts unauthorized response has a 3xx status code
+func (o *PostExternalcontactsContactsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts unauthorized response has a 4xx status code
+func (o *PostExternalcontactsContactsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts contacts unauthorized response has a 5xx status code
+func (o *PostExternalcontactsContactsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts contacts unauthorized response a status code equal to that given
+func (o *PostExternalcontactsContactsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostExternalcontactsContactsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostExternalcontactsContactsForbidden() *PostExternalcontactsContactsFor
 	return &PostExternalcontactsContactsForbidden{}
 }
 
-/*PostExternalcontactsContactsForbidden handles this case with default header values.
+/*
+PostExternalcontactsContactsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostExternalcontactsContactsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts contacts forbidden response has a 2xx status code
+func (o *PostExternalcontactsContactsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts contacts forbidden response has a 3xx status code
+func (o *PostExternalcontactsContactsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts forbidden response has a 4xx status code
+func (o *PostExternalcontactsContactsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts contacts forbidden response has a 5xx status code
+func (o *PostExternalcontactsContactsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts contacts forbidden response a status code equal to that given
+func (o *PostExternalcontactsContactsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostExternalcontactsContactsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostExternalcontactsContactsNotFound() *PostExternalcontactsContactsNotF
 	return &PostExternalcontactsContactsNotFound{}
 }
 
-/*PostExternalcontactsContactsNotFound handles this case with default header values.
+/*
+PostExternalcontactsContactsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostExternalcontactsContactsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts contacts not found response has a 2xx status code
+func (o *PostExternalcontactsContactsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts contacts not found response has a 3xx status code
+func (o *PostExternalcontactsContactsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts not found response has a 4xx status code
+func (o *PostExternalcontactsContactsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts contacts not found response has a 5xx status code
+func (o *PostExternalcontactsContactsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts contacts not found response a status code equal to that given
+func (o *PostExternalcontactsContactsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostExternalcontactsContactsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostExternalcontactsContactsRequestTimeout() *PostExternalcontactsContac
 	return &PostExternalcontactsContactsRequestTimeout{}
 }
 
-/*PostExternalcontactsContactsRequestTimeout handles this case with default header values.
+/*
+PostExternalcontactsContactsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostExternalcontactsContactsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts contacts request timeout response has a 2xx status code
+func (o *PostExternalcontactsContactsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts contacts request timeout response has a 3xx status code
+func (o *PostExternalcontactsContactsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts request timeout response has a 4xx status code
+func (o *PostExternalcontactsContactsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts contacts request timeout response has a 5xx status code
+func (o *PostExternalcontactsContactsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts contacts request timeout response a status code equal to that given
+func (o *PostExternalcontactsContactsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostExternalcontactsContactsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostExternalcontactsContactsRequestEntityTooLarge() *PostExternalcontact
 	return &PostExternalcontactsContactsRequestEntityTooLarge{}
 }
 
-/*PostExternalcontactsContactsRequestEntityTooLarge handles this case with default header values.
+/*
+PostExternalcontactsContactsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -318,7 +498,36 @@ type PostExternalcontactsContactsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts contacts request entity too large response has a 2xx status code
+func (o *PostExternalcontactsContactsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts contacts request entity too large response has a 3xx status code
+func (o *PostExternalcontactsContactsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts request entity too large response has a 4xx status code
+func (o *PostExternalcontactsContactsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts contacts request entity too large response has a 5xx status code
+func (o *PostExternalcontactsContactsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts contacts request entity too large response a status code equal to that given
+func (o *PostExternalcontactsContactsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostExternalcontactsContactsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostExternalcontactsContactsUnsupportedMediaType() *PostExternalcontacts
 	return &PostExternalcontactsContactsUnsupportedMediaType{}
 }
 
-/*PostExternalcontactsContactsUnsupportedMediaType handles this case with default header values.
+/*
+PostExternalcontactsContactsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -351,7 +561,36 @@ type PostExternalcontactsContactsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts contacts unsupported media type response has a 2xx status code
+func (o *PostExternalcontactsContactsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts contacts unsupported media type response has a 3xx status code
+func (o *PostExternalcontactsContactsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts unsupported media type response has a 4xx status code
+func (o *PostExternalcontactsContactsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts contacts unsupported media type response has a 5xx status code
+func (o *PostExternalcontactsContactsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts contacts unsupported media type response a status code equal to that given
+func (o *PostExternalcontactsContactsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostExternalcontactsContactsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostExternalcontactsContactsUnprocessableEntity() *PostExternalcontactsC
 	return &PostExternalcontactsContactsUnprocessableEntity{}
 }
 
-/*PostExternalcontactsContactsUnprocessableEntity handles this case with default header values.
+/*
+PostExternalcontactsContactsUnprocessableEntity describes a response with status code 422, with default header values.
 
 PostExternalcontactsContactsUnprocessableEntity post externalcontacts contacts unprocessable entity
 */
@@ -384,7 +624,36 @@ type PostExternalcontactsContactsUnprocessableEntity struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts contacts unprocessable entity response has a 2xx status code
+func (o *PostExternalcontactsContactsUnprocessableEntity) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts contacts unprocessable entity response has a 3xx status code
+func (o *PostExternalcontactsContactsUnprocessableEntity) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts unprocessable entity response has a 4xx status code
+func (o *PostExternalcontactsContactsUnprocessableEntity) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts contacts unprocessable entity response has a 5xx status code
+func (o *PostExternalcontactsContactsUnprocessableEntity) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts contacts unprocessable entity response a status code equal to that given
+func (o *PostExternalcontactsContactsUnprocessableEntity) IsCode(code int) bool {
+	return code == 422
+}
+
 func (o *PostExternalcontactsContactsUnprocessableEntity) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsUnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsUnprocessableEntity) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsUnprocessableEntity  %+v", 422, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostExternalcontactsContactsTooManyRequests() *PostExternalcontactsConta
 	return &PostExternalcontactsContactsTooManyRequests{}
 }
 
-/*PostExternalcontactsContactsTooManyRequests handles this case with default header values.
+/*
+PostExternalcontactsContactsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostExternalcontactsContactsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts contacts too many requests response has a 2xx status code
+func (o *PostExternalcontactsContactsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts contacts too many requests response has a 3xx status code
+func (o *PostExternalcontactsContactsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts too many requests response has a 4xx status code
+func (o *PostExternalcontactsContactsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts contacts too many requests response has a 5xx status code
+func (o *PostExternalcontactsContactsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts contacts too many requests response a status code equal to that given
+func (o *PostExternalcontactsContactsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostExternalcontactsContactsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostExternalcontactsContactsInternalServerError() *PostExternalcontactsC
 	return &PostExternalcontactsContactsInternalServerError{}
 }
 
-/*PostExternalcontactsContactsInternalServerError handles this case with default header values.
+/*
+PostExternalcontactsContactsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostExternalcontactsContactsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts contacts internal server error response has a 2xx status code
+func (o *PostExternalcontactsContactsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts contacts internal server error response has a 3xx status code
+func (o *PostExternalcontactsContactsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts internal server error response has a 4xx status code
+func (o *PostExternalcontactsContactsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts contacts internal server error response has a 5xx status code
+func (o *PostExternalcontactsContactsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post externalcontacts contacts internal server error response a status code equal to that given
+func (o *PostExternalcontactsContactsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostExternalcontactsContactsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostExternalcontactsContactsServiceUnavailable() *PostExternalcontactsCo
 	return &PostExternalcontactsContactsServiceUnavailable{}
 }
 
-/*PostExternalcontactsContactsServiceUnavailable handles this case with default header values.
+/*
+PostExternalcontactsContactsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostExternalcontactsContactsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts contacts service unavailable response has a 2xx status code
+func (o *PostExternalcontactsContactsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts contacts service unavailable response has a 3xx status code
+func (o *PostExternalcontactsContactsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts service unavailable response has a 4xx status code
+func (o *PostExternalcontactsContactsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts contacts service unavailable response has a 5xx status code
+func (o *PostExternalcontactsContactsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post externalcontacts contacts service unavailable response a status code equal to that given
+func (o *PostExternalcontactsContactsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostExternalcontactsContactsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostExternalcontactsContactsGatewayTimeout() *PostExternalcontactsContac
 	return &PostExternalcontactsContactsGatewayTimeout{}
 }
 
-/*PostExternalcontactsContactsGatewayTimeout handles this case with default header values.
+/*
+PostExternalcontactsContactsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostExternalcontactsContactsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts contacts gateway timeout response has a 2xx status code
+func (o *PostExternalcontactsContactsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts contacts gateway timeout response has a 3xx status code
+func (o *PostExternalcontactsContactsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts contacts gateway timeout response has a 4xx status code
+func (o *PostExternalcontactsContactsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts contacts gateway timeout response has a 5xx status code
+func (o *PostExternalcontactsContactsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post externalcontacts contacts gateway timeout response a status code equal to that given
+func (o *PostExternalcontactsContactsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostExternalcontactsContactsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostExternalcontactsContactsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/contacts][%d] postExternalcontactsContactsGatewayTimeout  %+v", 504, o.Payload)
 }
 

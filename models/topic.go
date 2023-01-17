@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -120,7 +121,6 @@ func (m *Topic) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Topic) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -133,7 +133,6 @@ func (m *Topic) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *Topic) validateDatePublished(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DatePublished) { // not required
 		return nil
 	}
@@ -146,7 +145,6 @@ func (m *Topic) validateDatePublished(formats strfmt.Registry) error {
 }
 
 func (m *Topic) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -155,6 +153,8 @@ func (m *Topic) validateModifiedBy(formats strfmt.Registry) error {
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -196,7 +196,6 @@ func (m *Topic) validateParticipantsEnum(path, location string, value string) er
 }
 
 func (m *Topic) validateParticipants(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Participants) { // not required
 		return nil
 	}
@@ -210,7 +209,6 @@ func (m *Topic) validateParticipants(formats strfmt.Registry) error {
 }
 
 func (m *Topic) validatePhrases(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Phrases) { // not required
 		return nil
 	}
@@ -224,6 +222,8 @@ func (m *Topic) validatePhrases(formats strfmt.Registry) error {
 			if err := m.Phrases[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("phrases" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phrases" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -235,7 +235,6 @@ func (m *Topic) validatePhrases(formats strfmt.Registry) error {
 }
 
 func (m *Topic) validatePrograms(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Programs) { // not required
 		return nil
 	}
@@ -249,6 +248,8 @@ func (m *Topic) validatePrograms(formats strfmt.Registry) error {
 			if err := m.Programs[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("programs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("programs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -260,7 +261,6 @@ func (m *Topic) validatePrograms(formats strfmt.Registry) error {
 }
 
 func (m *Topic) validatePublishedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PublishedBy) { // not required
 		return nil
 	}
@@ -269,6 +269,8 @@ func (m *Topic) validatePublishedBy(formats strfmt.Registry) error {
 		if err := m.PublishedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("publishedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedBy")
 			}
 			return err
 		}
@@ -278,7 +280,6 @@ func (m *Topic) validatePublishedBy(formats strfmt.Registry) error {
 }
 
 func (m *Topic) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -332,13 +333,136 @@ func (m *Topic) validateStrictnessEnum(path, location string, value string) erro
 }
 
 func (m *Topic) validateStrictness(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Strictness) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStrictnessEnum("strictness", "body", m.Strictness); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this topic based on the context it is used
+func (m *Topic) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhrases(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrograms(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePublishedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Topic) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Topic) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Topic) contextValidatePhrases(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Phrases); i++ {
+
+		if m.Phrases[i] != nil {
+			if err := m.Phrases[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("phrases" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phrases" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Topic) contextValidatePrograms(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Programs); i++ {
+
+		if m.Programs[i] != nil {
+			if err := m.Programs[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("programs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("programs" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Topic) contextValidatePublishedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PublishedBy != nil {
+		if err := m.PublishedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("publishedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Topic) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

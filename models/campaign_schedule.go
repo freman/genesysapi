@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -50,6 +51,7 @@ type CampaignSchedule struct {
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
 
 	// The time zone for this CampaignSchedule. For example, Africa/Abidjan.
+	// Example: Africa/Abidjan
 	// Required: true
 	TimeZone *string `json:"timeZone"`
 
@@ -101,6 +103,8 @@ func (m *CampaignSchedule) validateCampaign(formats strfmt.Registry) error {
 		if err := m.Campaign.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("campaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("campaign")
 			}
 			return err
 		}
@@ -110,7 +114,6 @@ func (m *CampaignSchedule) validateCampaign(formats strfmt.Registry) error {
 }
 
 func (m *CampaignSchedule) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -123,7 +126,6 @@ func (m *CampaignSchedule) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *CampaignSchedule) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -150,6 +152,8 @@ func (m *CampaignSchedule) validateIntervals(formats strfmt.Registry) error {
 			if err := m.Intervals[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intervals" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intervals" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -161,7 +165,6 @@ func (m *CampaignSchedule) validateIntervals(formats strfmt.Registry) error {
 }
 
 func (m *CampaignSchedule) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -176,6 +179,112 @@ func (m *CampaignSchedule) validateSelfURI(formats strfmt.Registry) error {
 func (m *CampaignSchedule) validateTimeZone(formats strfmt.Registry) error {
 
 	if err := validate.Required("timeZone", "body", m.TimeZone); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this campaign schedule based on the context it is used
+func (m *CampaignSchedule) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCampaign(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntervals(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CampaignSchedule) contextValidateCampaign(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Campaign != nil {
+		if err := m.Campaign.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("campaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("campaign")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignSchedule) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignSchedule) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignSchedule) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignSchedule) contextValidateIntervals(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Intervals); i++ {
+
+		if m.Intervals[i] != nil {
+			if err := m.Intervals[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("intervals" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intervals" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CampaignSchedule) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

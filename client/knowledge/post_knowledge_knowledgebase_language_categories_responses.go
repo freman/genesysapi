@@ -95,7 +95,6 @@ func (o *PostKnowledgeKnowledgebaseLanguageCategoriesReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostKnowledgeKnowledgebaseLanguageCategoriesOK() *PostKnowledgeKnowledge
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesOK{}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesOK handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostKnowledgeKnowledgebaseLanguageCategoriesOK struct {
 	Payload *models.KnowledgeExtendedCategory
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase language categories o k response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase language categories o k response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase language categories o k response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge knowledgebase language categories o k response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase language categories o k response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostKnowledgeKnowledgebaseLanguageCategoriesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostKnowledgeKnowledgebaseLanguageCategoriesBadRequest() *PostKnowledgeK
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesBadRequest{}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesBadRequest handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostKnowledgeKnowledgebaseLanguageCategoriesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase language categories bad request response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase language categories bad request response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase language categories bad request response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase language categories bad request response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase language categories bad request response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostKnowledgeKnowledgebaseLanguageCategoriesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostKnowledgeKnowledgebaseLanguageCategoriesUnauthorized() *PostKnowledg
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesUnauthorized{}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesUnauthorized handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostKnowledgeKnowledgebaseLanguageCategoriesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase language categories unauthorized response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase language categories unauthorized response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase language categories unauthorized response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase language categories unauthorized response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase language categories unauthorized response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostKnowledgeKnowledgebaseLanguageCategoriesForbidden() *PostKnowledgeKn
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesForbidden{}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesForbidden handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostKnowledgeKnowledgebaseLanguageCategoriesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase language categories forbidden response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase language categories forbidden response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase language categories forbidden response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase language categories forbidden response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase language categories forbidden response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostKnowledgeKnowledgebaseLanguageCategoriesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostKnowledgeKnowledgebaseLanguageCategoriesNotFound() *PostKnowledgeKno
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesNotFound{}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesNotFound handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostKnowledgeKnowledgebaseLanguageCategoriesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase language categories not found response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase language categories not found response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase language categories not found response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase language categories not found response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase language categories not found response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostKnowledgeKnowledgebaseLanguageCategoriesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout() *PostKnowle
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout{}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase language categories request timeout response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase language categories request timeout response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase language categories request timeout response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase language categories request timeout response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase language categories request timeout response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge() *Pos
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge{}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase language categories request entity too large response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase language categories request entity too large response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase language categories request entity too large response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase language categories request entity too large response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase language categories request entity too large response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType() *Post
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType{}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase language categories unsupported media type response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase language categories unsupported media type response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase language categories unsupported media type response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase language categories unsupported media type response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase language categories unsupported media type response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests() *PostKnowl
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests{}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase language categories too many requests response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase language categories too many requests response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase language categories too many requests response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase language categories too many requests response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase language categories too many requests response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostKnowledgeKnowledgebaseLanguageCategoriesInternalServerError() *PostK
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesInternalServerError{}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesInternalServerError handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostKnowledgeKnowledgebaseLanguageCategoriesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase language categories internal server error response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase language categories internal server error response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase language categories internal server error response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge knowledgebase language categories internal server error response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge knowledgebase language categories internal server error response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostKnowledgeKnowledgebaseLanguageCategoriesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable() *PostKn
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable{}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase language categories service unavailable response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase language categories service unavailable response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase language categories service unavailable response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge knowledgebase language categories service unavailable response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge knowledgebase language categories service unavailable response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout() *PostKnowle
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout{}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase language categories gateway timeout response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase language categories gateway timeout response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase language categories gateway timeout response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge knowledgebase language categories gateway timeout response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge knowledgebase language categories gateway timeout response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories][%d] postKnowledgeKnowledgebaseLanguageCategoriesGatewayTimeout  %+v", 504, o.Payload)
 }
 

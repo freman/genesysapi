@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementAdherenceHistoricalJobParams creates a new GetWorkforcemanagementAdherenceHistoricalJobParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementAdherenceHistoricalJobParams creates a new GetWorkforcemanagementAdherenceHistoricalJobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementAdherenceHistoricalJobParams() *GetWorkforcemanagementAdherenceHistoricalJobParams {
-	var ()
 	return &GetWorkforcemanagementAdherenceHistoricalJobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementAdherenceHistoricalJobParamsWithTimeout creates a new GetWorkforcemanagementAdherenceHistoricalJobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementAdherenceHistoricalJobParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementAdherenceHistoricalJobParams {
-	var ()
 	return &GetWorkforcemanagementAdherenceHistoricalJobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementAdherenceHistoricalJobParamsWithContext creates a new GetWorkforcemanagementAdherenceHistoricalJobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementAdherenceHistoricalJobParamsWithContext(ctx context.Context) *GetWorkforcemanagementAdherenceHistoricalJobParams {
-	var ()
 	return &GetWorkforcemanagementAdherenceHistoricalJobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementAdherenceHistoricalJobParamsWithHTTPClient creates a new GetWorkforcemanagementAdherenceHistoricalJobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementAdherenceHistoricalJobParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementAdherenceHistoricalJobParams {
-	var ()
 	return &GetWorkforcemanagementAdherenceHistoricalJobParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement adherence historical job operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementAdherenceHistoricalJobParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement adherence historical job operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementAdherenceHistoricalJobParams struct {
 
-	/*JobID
-	  jobId
+	/* JobID.
 
+	   jobId
 	*/
 	JobID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement adherence historical job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementAdherenceHistoricalJobParams) WithDefaults() *GetWorkforcemanagementAdherenceHistoricalJobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement adherence historical job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementAdherenceHistoricalJobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement adherence historical job params

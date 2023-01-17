@@ -107,7 +107,6 @@ func (o *DeleteScimV2UserReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -118,7 +117,8 @@ func NewDeleteScimV2UserOK() *DeleteScimV2UserOK {
 	return &DeleteScimV2UserOK{}
 }
 
-/*DeleteScimV2UserOK handles this case with default header values.
+/*
+DeleteScimV2UserOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -126,7 +126,36 @@ type DeleteScimV2UserOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete scim v2 user o k response has a 2xx status code
+func (o *DeleteScimV2UserOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete scim v2 user o k response has a 3xx status code
+func (o *DeleteScimV2UserOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user o k response has a 4xx status code
+func (o *DeleteScimV2UserOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete scim v2 user o k response has a 5xx status code
+func (o *DeleteScimV2UserOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete scim v2 user o k response a status code equal to that given
+func (o *DeleteScimV2UserOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteScimV2UserOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteScimV2UserOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserOK  %+v", 200, o.Payload)
 }
 
@@ -149,14 +178,44 @@ func NewDeleteScimV2UserNoContent() *DeleteScimV2UserNoContent {
 	return &DeleteScimV2UserNoContent{}
 }
 
-/*DeleteScimV2UserNoContent handles this case with default header values.
+/*
+DeleteScimV2UserNoContent describes a response with status code 204, with default header values.
 
 User Deleted with no content returned.
 */
 type DeleteScimV2UserNoContent struct {
 }
 
+// IsSuccess returns true when this delete scim v2 user no content response has a 2xx status code
+func (o *DeleteScimV2UserNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete scim v2 user no content response has a 3xx status code
+func (o *DeleteScimV2UserNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user no content response has a 4xx status code
+func (o *DeleteScimV2UserNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete scim v2 user no content response has a 5xx status code
+func (o *DeleteScimV2UserNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete scim v2 user no content response a status code equal to that given
+func (o *DeleteScimV2UserNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteScimV2UserNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserNoContent ", 204)
+}
+
+func (o *DeleteScimV2UserNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserNoContent ", 204)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteScimV2UserBadRequest() *DeleteScimV2UserBadRequest {
 	return &DeleteScimV2UserBadRequest{}
 }
 
-/*DeleteScimV2UserBadRequest handles this case with default header values.
+/*
+DeleteScimV2UserBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -178,7 +238,36 @@ type DeleteScimV2UserBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete scim v2 user bad request response has a 2xx status code
+func (o *DeleteScimV2UserBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete scim v2 user bad request response has a 3xx status code
+func (o *DeleteScimV2UserBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user bad request response has a 4xx status code
+func (o *DeleteScimV2UserBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete scim v2 user bad request response has a 5xx status code
+func (o *DeleteScimV2UserBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete scim v2 user bad request response a status code equal to that given
+func (o *DeleteScimV2UserBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteScimV2UserBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteScimV2UserBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserBadRequest  %+v", 400, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteScimV2UserUnauthorized() *DeleteScimV2UserUnauthorized {
 	return &DeleteScimV2UserUnauthorized{}
 }
 
-/*DeleteScimV2UserUnauthorized handles this case with default header values.
+/*
+DeleteScimV2UserUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -211,7 +301,36 @@ type DeleteScimV2UserUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete scim v2 user unauthorized response has a 2xx status code
+func (o *DeleteScimV2UserUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete scim v2 user unauthorized response has a 3xx status code
+func (o *DeleteScimV2UserUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user unauthorized response has a 4xx status code
+func (o *DeleteScimV2UserUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete scim v2 user unauthorized response has a 5xx status code
+func (o *DeleteScimV2UserUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete scim v2 user unauthorized response a status code equal to that given
+func (o *DeleteScimV2UserUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteScimV2UserUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteScimV2UserUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteScimV2UserForbidden() *DeleteScimV2UserForbidden {
 	return &DeleteScimV2UserForbidden{}
 }
 
-/*DeleteScimV2UserForbidden handles this case with default header values.
+/*
+DeleteScimV2UserForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -244,7 +364,36 @@ type DeleteScimV2UserForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete scim v2 user forbidden response has a 2xx status code
+func (o *DeleteScimV2UserForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete scim v2 user forbidden response has a 3xx status code
+func (o *DeleteScimV2UserForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user forbidden response has a 4xx status code
+func (o *DeleteScimV2UserForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete scim v2 user forbidden response has a 5xx status code
+func (o *DeleteScimV2UserForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete scim v2 user forbidden response a status code equal to that given
+func (o *DeleteScimV2UserForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteScimV2UserForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteScimV2UserForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserForbidden  %+v", 403, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteScimV2UserNotFound() *DeleteScimV2UserNotFound {
 	return &DeleteScimV2UserNotFound{}
 }
 
-/*DeleteScimV2UserNotFound handles this case with default header values.
+/*
+DeleteScimV2UserNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -277,7 +427,36 @@ type DeleteScimV2UserNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete scim v2 user not found response has a 2xx status code
+func (o *DeleteScimV2UserNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete scim v2 user not found response has a 3xx status code
+func (o *DeleteScimV2UserNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user not found response has a 4xx status code
+func (o *DeleteScimV2UserNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete scim v2 user not found response has a 5xx status code
+func (o *DeleteScimV2UserNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete scim v2 user not found response a status code equal to that given
+func (o *DeleteScimV2UserNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteScimV2UserNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteScimV2UserNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserNotFound  %+v", 404, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteScimV2UserRequestTimeout() *DeleteScimV2UserRequestTimeout {
 	return &DeleteScimV2UserRequestTimeout{}
 }
 
-/*DeleteScimV2UserRequestTimeout handles this case with default header values.
+/*
+DeleteScimV2UserRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -310,7 +490,36 @@ type DeleteScimV2UserRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete scim v2 user request timeout response has a 2xx status code
+func (o *DeleteScimV2UserRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete scim v2 user request timeout response has a 3xx status code
+func (o *DeleteScimV2UserRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user request timeout response has a 4xx status code
+func (o *DeleteScimV2UserRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete scim v2 user request timeout response has a 5xx status code
+func (o *DeleteScimV2UserRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete scim v2 user request timeout response a status code equal to that given
+func (o *DeleteScimV2UserRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteScimV2UserRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteScimV2UserRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteScimV2UserConflict() *DeleteScimV2UserConflict {
 	return &DeleteScimV2UserConflict{}
 }
 
-/*DeleteScimV2UserConflict handles this case with default header values.
+/*
+DeleteScimV2UserConflict describes a response with status code 409, with default header values.
 
 Version does not match current version.
 */
@@ -343,7 +553,36 @@ type DeleteScimV2UserConflict struct {
 	Payload *models.ScimError
 }
 
+// IsSuccess returns true when this delete scim v2 user conflict response has a 2xx status code
+func (o *DeleteScimV2UserConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete scim v2 user conflict response has a 3xx status code
+func (o *DeleteScimV2UserConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user conflict response has a 4xx status code
+func (o *DeleteScimV2UserConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete scim v2 user conflict response has a 5xx status code
+func (o *DeleteScimV2UserConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete scim v2 user conflict response a status code equal to that given
+func (o *DeleteScimV2UserConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteScimV2UserConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteScimV2UserConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserConflict  %+v", 409, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteScimV2UserRequestEntityTooLarge() *DeleteScimV2UserRequestEntityTo
 	return &DeleteScimV2UserRequestEntityTooLarge{}
 }
 
-/*DeleteScimV2UserRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteScimV2UserRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -376,7 +616,36 @@ type DeleteScimV2UserRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete scim v2 user request entity too large response has a 2xx status code
+func (o *DeleteScimV2UserRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete scim v2 user request entity too large response has a 3xx status code
+func (o *DeleteScimV2UserRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user request entity too large response has a 4xx status code
+func (o *DeleteScimV2UserRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete scim v2 user request entity too large response has a 5xx status code
+func (o *DeleteScimV2UserRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete scim v2 user request entity too large response a status code equal to that given
+func (o *DeleteScimV2UserRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteScimV2UserRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteScimV2UserRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteScimV2UserUnsupportedMediaType() *DeleteScimV2UserUnsupportedMedia
 	return &DeleteScimV2UserUnsupportedMediaType{}
 }
 
-/*DeleteScimV2UserUnsupportedMediaType handles this case with default header values.
+/*
+DeleteScimV2UserUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -409,7 +679,36 @@ type DeleteScimV2UserUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete scim v2 user unsupported media type response has a 2xx status code
+func (o *DeleteScimV2UserUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete scim v2 user unsupported media type response has a 3xx status code
+func (o *DeleteScimV2UserUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user unsupported media type response has a 4xx status code
+func (o *DeleteScimV2UserUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete scim v2 user unsupported media type response has a 5xx status code
+func (o *DeleteScimV2UserUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete scim v2 user unsupported media type response a status code equal to that given
+func (o *DeleteScimV2UserUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteScimV2UserUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteScimV2UserUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteScimV2UserTooManyRequests() *DeleteScimV2UserTooManyRequests {
 	return &DeleteScimV2UserTooManyRequests{}
 }
 
-/*DeleteScimV2UserTooManyRequests handles this case with default header values.
+/*
+DeleteScimV2UserTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -442,7 +742,36 @@ type DeleteScimV2UserTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete scim v2 user too many requests response has a 2xx status code
+func (o *DeleteScimV2UserTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete scim v2 user too many requests response has a 3xx status code
+func (o *DeleteScimV2UserTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user too many requests response has a 4xx status code
+func (o *DeleteScimV2UserTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete scim v2 user too many requests response has a 5xx status code
+func (o *DeleteScimV2UserTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete scim v2 user too many requests response a status code equal to that given
+func (o *DeleteScimV2UserTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteScimV2UserTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteScimV2UserTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteScimV2UserInternalServerError() *DeleteScimV2UserInternalServerErr
 	return &DeleteScimV2UserInternalServerError{}
 }
 
-/*DeleteScimV2UserInternalServerError handles this case with default header values.
+/*
+DeleteScimV2UserInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -475,7 +805,36 @@ type DeleteScimV2UserInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete scim v2 user internal server error response has a 2xx status code
+func (o *DeleteScimV2UserInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete scim v2 user internal server error response has a 3xx status code
+func (o *DeleteScimV2UserInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user internal server error response has a 4xx status code
+func (o *DeleteScimV2UserInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete scim v2 user internal server error response has a 5xx status code
+func (o *DeleteScimV2UserInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete scim v2 user internal server error response a status code equal to that given
+func (o *DeleteScimV2UserInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteScimV2UserInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteScimV2UserInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -500,7 +859,8 @@ func NewDeleteScimV2UserServiceUnavailable() *DeleteScimV2UserServiceUnavailable
 	return &DeleteScimV2UserServiceUnavailable{}
 }
 
-/*DeleteScimV2UserServiceUnavailable handles this case with default header values.
+/*
+DeleteScimV2UserServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -508,7 +868,36 @@ type DeleteScimV2UserServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete scim v2 user service unavailable response has a 2xx status code
+func (o *DeleteScimV2UserServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete scim v2 user service unavailable response has a 3xx status code
+func (o *DeleteScimV2UserServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user service unavailable response has a 4xx status code
+func (o *DeleteScimV2UserServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete scim v2 user service unavailable response has a 5xx status code
+func (o *DeleteScimV2UserServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete scim v2 user service unavailable response a status code equal to that given
+func (o *DeleteScimV2UserServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteScimV2UserServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteScimV2UserServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -533,7 +922,8 @@ func NewDeleteScimV2UserGatewayTimeout() *DeleteScimV2UserGatewayTimeout {
 	return &DeleteScimV2UserGatewayTimeout{}
 }
 
-/*DeleteScimV2UserGatewayTimeout handles this case with default header values.
+/*
+DeleteScimV2UserGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -541,7 +931,36 @@ type DeleteScimV2UserGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete scim v2 user gateway timeout response has a 2xx status code
+func (o *DeleteScimV2UserGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete scim v2 user gateway timeout response has a 3xx status code
+func (o *DeleteScimV2UserGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete scim v2 user gateway timeout response has a 4xx status code
+func (o *DeleteScimV2UserGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete scim v2 user gateway timeout response has a 5xx status code
+func (o *DeleteScimV2UserGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete scim v2 user gateway timeout response a status code equal to that given
+func (o *DeleteScimV2UserGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteScimV2UserGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteScimV2UserGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/scim/v2/users/{userId}][%d] deleteScimV2UserGatewayTimeout  %+v", 504, o.Payload)
 }
 

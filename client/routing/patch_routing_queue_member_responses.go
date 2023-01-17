@@ -95,7 +95,6 @@ func (o *PatchRoutingQueueMemberReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPatchRoutingQueueMemberAccepted() *PatchRoutingQueueMemberAccepted {
 	return &PatchRoutingQueueMemberAccepted{}
 }
 
-/*PatchRoutingQueueMemberAccepted handles this case with default header values.
+/*
+PatchRoutingQueueMemberAccepted describes a response with status code 202, with default header values.
 
 User update has been accepted
 */
 type PatchRoutingQueueMemberAccepted struct {
 }
 
+// IsSuccess returns true when this patch routing queue member accepted response has a 2xx status code
+func (o *PatchRoutingQueueMemberAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch routing queue member accepted response has a 3xx status code
+func (o *PatchRoutingQueueMemberAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing queue member accepted response has a 4xx status code
+func (o *PatchRoutingQueueMemberAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing queue member accepted response has a 5xx status code
+func (o *PatchRoutingQueueMemberAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing queue member accepted response a status code equal to that given
+func (o *PatchRoutingQueueMemberAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PatchRoutingQueueMemberAccepted) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberAccepted ", 202)
+}
+
+func (o *PatchRoutingQueueMemberAccepted) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberAccepted ", 202)
 }
 
@@ -127,7 +156,8 @@ func NewPatchRoutingQueueMemberBadRequest() *PatchRoutingQueueMemberBadRequest {
 	return &PatchRoutingQueueMemberBadRequest{}
 }
 
-/*PatchRoutingQueueMemberBadRequest handles this case with default header values.
+/*
+PatchRoutingQueueMemberBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PatchRoutingQueueMemberBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing queue member bad request response has a 2xx status code
+func (o *PatchRoutingQueueMemberBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing queue member bad request response has a 3xx status code
+func (o *PatchRoutingQueueMemberBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing queue member bad request response has a 4xx status code
+func (o *PatchRoutingQueueMemberBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing queue member bad request response has a 5xx status code
+func (o *PatchRoutingQueueMemberBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing queue member bad request response a status code equal to that given
+func (o *PatchRoutingQueueMemberBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchRoutingQueueMemberBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchRoutingQueueMemberBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPatchRoutingQueueMemberUnauthorized() *PatchRoutingQueueMemberUnauthoriz
 	return &PatchRoutingQueueMemberUnauthorized{}
 }
 
-/*PatchRoutingQueueMemberUnauthorized handles this case with default header values.
+/*
+PatchRoutingQueueMemberUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PatchRoutingQueueMemberUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing queue member unauthorized response has a 2xx status code
+func (o *PatchRoutingQueueMemberUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing queue member unauthorized response has a 3xx status code
+func (o *PatchRoutingQueueMemberUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing queue member unauthorized response has a 4xx status code
+func (o *PatchRoutingQueueMemberUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing queue member unauthorized response has a 5xx status code
+func (o *PatchRoutingQueueMemberUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing queue member unauthorized response a status code equal to that given
+func (o *PatchRoutingQueueMemberUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchRoutingQueueMemberUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchRoutingQueueMemberUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPatchRoutingQueueMemberForbidden() *PatchRoutingQueueMemberForbidden {
 	return &PatchRoutingQueueMemberForbidden{}
 }
 
-/*PatchRoutingQueueMemberForbidden handles this case with default header values.
+/*
+PatchRoutingQueueMemberForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PatchRoutingQueueMemberForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing queue member forbidden response has a 2xx status code
+func (o *PatchRoutingQueueMemberForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing queue member forbidden response has a 3xx status code
+func (o *PatchRoutingQueueMemberForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing queue member forbidden response has a 4xx status code
+func (o *PatchRoutingQueueMemberForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing queue member forbidden response has a 5xx status code
+func (o *PatchRoutingQueueMemberForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing queue member forbidden response a status code equal to that given
+func (o *PatchRoutingQueueMemberForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchRoutingQueueMemberForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchRoutingQueueMemberForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPatchRoutingQueueMemberNotFound() *PatchRoutingQueueMemberNotFound {
 	return &PatchRoutingQueueMemberNotFound{}
 }
 
-/*PatchRoutingQueueMemberNotFound handles this case with default header values.
+/*
+PatchRoutingQueueMemberNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PatchRoutingQueueMemberNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing queue member not found response has a 2xx status code
+func (o *PatchRoutingQueueMemberNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing queue member not found response has a 3xx status code
+func (o *PatchRoutingQueueMemberNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing queue member not found response has a 4xx status code
+func (o *PatchRoutingQueueMemberNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing queue member not found response has a 5xx status code
+func (o *PatchRoutingQueueMemberNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing queue member not found response a status code equal to that given
+func (o *PatchRoutingQueueMemberNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchRoutingQueueMemberNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchRoutingQueueMemberNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPatchRoutingQueueMemberRequestTimeout() *PatchRoutingQueueMemberRequestT
 	return &PatchRoutingQueueMemberRequestTimeout{}
 }
 
-/*PatchRoutingQueueMemberRequestTimeout handles this case with default header values.
+/*
+PatchRoutingQueueMemberRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PatchRoutingQueueMemberRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing queue member request timeout response has a 2xx status code
+func (o *PatchRoutingQueueMemberRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing queue member request timeout response has a 3xx status code
+func (o *PatchRoutingQueueMemberRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing queue member request timeout response has a 4xx status code
+func (o *PatchRoutingQueueMemberRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing queue member request timeout response has a 5xx status code
+func (o *PatchRoutingQueueMemberRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing queue member request timeout response a status code equal to that given
+func (o *PatchRoutingQueueMemberRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchRoutingQueueMemberRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchRoutingQueueMemberRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPatchRoutingQueueMemberRequestEntityTooLarge() *PatchRoutingQueueMemberR
 	return &PatchRoutingQueueMemberRequestEntityTooLarge{}
 }
 
-/*PatchRoutingQueueMemberRequestEntityTooLarge handles this case with default header values.
+/*
+PatchRoutingQueueMemberRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PatchRoutingQueueMemberRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing queue member request entity too large response has a 2xx status code
+func (o *PatchRoutingQueueMemberRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing queue member request entity too large response has a 3xx status code
+func (o *PatchRoutingQueueMemberRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing queue member request entity too large response has a 4xx status code
+func (o *PatchRoutingQueueMemberRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing queue member request entity too large response has a 5xx status code
+func (o *PatchRoutingQueueMemberRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing queue member request entity too large response a status code equal to that given
+func (o *PatchRoutingQueueMemberRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchRoutingQueueMemberRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchRoutingQueueMemberRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPatchRoutingQueueMemberUnsupportedMediaType() *PatchRoutingQueueMemberUn
 	return &PatchRoutingQueueMemberUnsupportedMediaType{}
 }
 
-/*PatchRoutingQueueMemberUnsupportedMediaType handles this case with default header values.
+/*
+PatchRoutingQueueMemberUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PatchRoutingQueueMemberUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing queue member unsupported media type response has a 2xx status code
+func (o *PatchRoutingQueueMemberUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing queue member unsupported media type response has a 3xx status code
+func (o *PatchRoutingQueueMemberUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing queue member unsupported media type response has a 4xx status code
+func (o *PatchRoutingQueueMemberUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing queue member unsupported media type response has a 5xx status code
+func (o *PatchRoutingQueueMemberUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing queue member unsupported media type response a status code equal to that given
+func (o *PatchRoutingQueueMemberUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchRoutingQueueMemberUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchRoutingQueueMemberUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPatchRoutingQueueMemberTooManyRequests() *PatchRoutingQueueMemberTooMany
 	return &PatchRoutingQueueMemberTooManyRequests{}
 }
 
-/*PatchRoutingQueueMemberTooManyRequests handles this case with default header values.
+/*
+PatchRoutingQueueMemberTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PatchRoutingQueueMemberTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing queue member too many requests response has a 2xx status code
+func (o *PatchRoutingQueueMemberTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing queue member too many requests response has a 3xx status code
+func (o *PatchRoutingQueueMemberTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing queue member too many requests response has a 4xx status code
+func (o *PatchRoutingQueueMemberTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing queue member too many requests response has a 5xx status code
+func (o *PatchRoutingQueueMemberTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing queue member too many requests response a status code equal to that given
+func (o *PatchRoutingQueueMemberTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchRoutingQueueMemberTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchRoutingQueueMemberTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPatchRoutingQueueMemberInternalServerError() *PatchRoutingQueueMemberInt
 	return &PatchRoutingQueueMemberInternalServerError{}
 }
 
-/*PatchRoutingQueueMemberInternalServerError handles this case with default header values.
+/*
+PatchRoutingQueueMemberInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PatchRoutingQueueMemberInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing queue member internal server error response has a 2xx status code
+func (o *PatchRoutingQueueMemberInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing queue member internal server error response has a 3xx status code
+func (o *PatchRoutingQueueMemberInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing queue member internal server error response has a 4xx status code
+func (o *PatchRoutingQueueMemberInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing queue member internal server error response has a 5xx status code
+func (o *PatchRoutingQueueMemberInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing queue member internal server error response a status code equal to that given
+func (o *PatchRoutingQueueMemberInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchRoutingQueueMemberInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchRoutingQueueMemberInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPatchRoutingQueueMemberServiceUnavailable() *PatchRoutingQueueMemberServ
 	return &PatchRoutingQueueMemberServiceUnavailable{}
 }
 
-/*PatchRoutingQueueMemberServiceUnavailable handles this case with default header values.
+/*
+PatchRoutingQueueMemberServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PatchRoutingQueueMemberServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing queue member service unavailable response has a 2xx status code
+func (o *PatchRoutingQueueMemberServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing queue member service unavailable response has a 3xx status code
+func (o *PatchRoutingQueueMemberServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing queue member service unavailable response has a 4xx status code
+func (o *PatchRoutingQueueMemberServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing queue member service unavailable response has a 5xx status code
+func (o *PatchRoutingQueueMemberServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing queue member service unavailable response a status code equal to that given
+func (o *PatchRoutingQueueMemberServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchRoutingQueueMemberServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchRoutingQueueMemberServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPatchRoutingQueueMemberGatewayTimeout() *PatchRoutingQueueMemberGatewayT
 	return &PatchRoutingQueueMemberGatewayTimeout{}
 }
 
-/*PatchRoutingQueueMemberGatewayTimeout handles this case with default header values.
+/*
+PatchRoutingQueueMemberGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PatchRoutingQueueMemberGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing queue member gateway timeout response has a 2xx status code
+func (o *PatchRoutingQueueMemberGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing queue member gateway timeout response has a 3xx status code
+func (o *PatchRoutingQueueMemberGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing queue member gateway timeout response has a 4xx status code
+func (o *PatchRoutingQueueMemberGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing queue member gateway timeout response has a 5xx status code
+func (o *PatchRoutingQueueMemberGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing queue member gateway timeout response a status code equal to that given
+func (o *PatchRoutingQueueMemberGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchRoutingQueueMemberGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchRoutingQueueMemberGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/queues/{queueId}/members/{memberId}][%d] patchRoutingQueueMemberGatewayTimeout  %+v", 504, o.Payload)
 }
 

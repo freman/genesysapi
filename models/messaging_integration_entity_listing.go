@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -90,7 +91,6 @@ func (m *MessagingIntegrationEntityListing) Validate(formats strfmt.Registry) er
 }
 
 func (m *MessagingIntegrationEntityListing) validateEntities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Entities) { // not required
 		return nil
 	}
@@ -104,6 +104,8 @@ func (m *MessagingIntegrationEntityListing) validateEntities(formats strfmt.Regi
 			if err := m.Entities[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entities" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -115,7 +117,6 @@ func (m *MessagingIntegrationEntityListing) validateEntities(formats strfmt.Regi
 }
 
 func (m *MessagingIntegrationEntityListing) validateFirstURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FirstURI) { // not required
 		return nil
 	}
@@ -128,7 +129,6 @@ func (m *MessagingIntegrationEntityListing) validateFirstURI(formats strfmt.Regi
 }
 
 func (m *MessagingIntegrationEntityListing) validateLastURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastURI) { // not required
 		return nil
 	}
@@ -141,7 +141,6 @@ func (m *MessagingIntegrationEntityListing) validateLastURI(formats strfmt.Regis
 }
 
 func (m *MessagingIntegrationEntityListing) validateNextURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NextURI) { // not required
 		return nil
 	}
@@ -154,7 +153,6 @@ func (m *MessagingIntegrationEntityListing) validateNextURI(formats strfmt.Regis
 }
 
 func (m *MessagingIntegrationEntityListing) validatePreviousURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PreviousURI) { // not required
 		return nil
 	}
@@ -167,13 +165,46 @@ func (m *MessagingIntegrationEntityListing) validatePreviousURI(formats strfmt.R
 }
 
 func (m *MessagingIntegrationEntityListing) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this messaging integration entity listing based on the context it is used
+func (m *MessagingIntegrationEntityListing) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEntities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MessagingIntegrationEntityListing) contextValidateEntities(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Entities); i++ {
+
+		if m.Entities[i] != nil {
+			if err := m.Entities[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -95,7 +95,6 @@ func (o *DeleteIdentityprovidersCicReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteIdentityprovidersCicOK() *DeleteIdentityprovidersCicOK {
 	return &DeleteIdentityprovidersCicOK{}
 }
 
-/*DeleteIdentityprovidersCicOK handles this case with default header values.
+/*
+DeleteIdentityprovidersCicOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteIdentityprovidersCicOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete identityproviders cic o k response has a 2xx status code
+func (o *DeleteIdentityprovidersCicOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete identityproviders cic o k response has a 3xx status code
+func (o *DeleteIdentityprovidersCicOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders cic o k response has a 4xx status code
+func (o *DeleteIdentityprovidersCicOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders cic o k response has a 5xx status code
+func (o *DeleteIdentityprovidersCicOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders cic o k response a status code equal to that given
+func (o *DeleteIdentityprovidersCicOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteIdentityprovidersCicOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersCicOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewDeleteIdentityprovidersCicBadRequest() *DeleteIdentityprovidersCicBadReq
 	return &DeleteIdentityprovidersCicBadRequest{}
 }
 
-/*DeleteIdentityprovidersCicBadRequest handles this case with default header values.
+/*
+DeleteIdentityprovidersCicBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type DeleteIdentityprovidersCicBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders cic bad request response has a 2xx status code
+func (o *DeleteIdentityprovidersCicBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders cic bad request response has a 3xx status code
+func (o *DeleteIdentityprovidersCicBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders cic bad request response has a 4xx status code
+func (o *DeleteIdentityprovidersCicBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders cic bad request response has a 5xx status code
+func (o *DeleteIdentityprovidersCicBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders cic bad request response a status code equal to that given
+func (o *DeleteIdentityprovidersCicBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteIdentityprovidersCicBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersCicBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteIdentityprovidersCicUnauthorized() *DeleteIdentityprovidersCicUnau
 	return &DeleteIdentityprovidersCicUnauthorized{}
 }
 
-/*DeleteIdentityprovidersCicUnauthorized handles this case with default header values.
+/*
+DeleteIdentityprovidersCicUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type DeleteIdentityprovidersCicUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders cic unauthorized response has a 2xx status code
+func (o *DeleteIdentityprovidersCicUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders cic unauthorized response has a 3xx status code
+func (o *DeleteIdentityprovidersCicUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders cic unauthorized response has a 4xx status code
+func (o *DeleteIdentityprovidersCicUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders cic unauthorized response has a 5xx status code
+func (o *DeleteIdentityprovidersCicUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders cic unauthorized response a status code equal to that given
+func (o *DeleteIdentityprovidersCicUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteIdentityprovidersCicUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersCicUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteIdentityprovidersCicForbidden() *DeleteIdentityprovidersCicForbidd
 	return &DeleteIdentityprovidersCicForbidden{}
 }
 
-/*DeleteIdentityprovidersCicForbidden handles this case with default header values.
+/*
+DeleteIdentityprovidersCicForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type DeleteIdentityprovidersCicForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders cic forbidden response has a 2xx status code
+func (o *DeleteIdentityprovidersCicForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders cic forbidden response has a 3xx status code
+func (o *DeleteIdentityprovidersCicForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders cic forbidden response has a 4xx status code
+func (o *DeleteIdentityprovidersCicForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders cic forbidden response has a 5xx status code
+func (o *DeleteIdentityprovidersCicForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders cic forbidden response a status code equal to that given
+func (o *DeleteIdentityprovidersCicForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteIdentityprovidersCicForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersCicForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteIdentityprovidersCicNotFound() *DeleteIdentityprovidersCicNotFound
 	return &DeleteIdentityprovidersCicNotFound{}
 }
 
-/*DeleteIdentityprovidersCicNotFound handles this case with default header values.
+/*
+DeleteIdentityprovidersCicNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type DeleteIdentityprovidersCicNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders cic not found response has a 2xx status code
+func (o *DeleteIdentityprovidersCicNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders cic not found response has a 3xx status code
+func (o *DeleteIdentityprovidersCicNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders cic not found response has a 4xx status code
+func (o *DeleteIdentityprovidersCicNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders cic not found response has a 5xx status code
+func (o *DeleteIdentityprovidersCicNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders cic not found response a status code equal to that given
+func (o *DeleteIdentityprovidersCicNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteIdentityprovidersCicNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersCicNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteIdentityprovidersCicRequestTimeout() *DeleteIdentityprovidersCicRe
 	return &DeleteIdentityprovidersCicRequestTimeout{}
 }
 
-/*DeleteIdentityprovidersCicRequestTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersCicRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type DeleteIdentityprovidersCicRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders cic request timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersCicRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders cic request timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersCicRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders cic request timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersCicRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders cic request timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersCicRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders cic request timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersCicRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteIdentityprovidersCicRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersCicRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteIdentityprovidersCicRequestEntityTooLarge() *DeleteIdentityprovide
 	return &DeleteIdentityprovidersCicRequestEntityTooLarge{}
 }
 
-/*DeleteIdentityprovidersCicRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteIdentityprovidersCicRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type DeleteIdentityprovidersCicRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders cic request entity too large response has a 2xx status code
+func (o *DeleteIdentityprovidersCicRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders cic request entity too large response has a 3xx status code
+func (o *DeleteIdentityprovidersCicRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders cic request entity too large response has a 4xx status code
+func (o *DeleteIdentityprovidersCicRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders cic request entity too large response has a 5xx status code
+func (o *DeleteIdentityprovidersCicRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders cic request entity too large response a status code equal to that given
+func (o *DeleteIdentityprovidersCicRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteIdentityprovidersCicRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersCicRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteIdentityprovidersCicUnsupportedMediaType() *DeleteIdentityprovider
 	return &DeleteIdentityprovidersCicUnsupportedMediaType{}
 }
 
-/*DeleteIdentityprovidersCicUnsupportedMediaType handles this case with default header values.
+/*
+DeleteIdentityprovidersCicUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type DeleteIdentityprovidersCicUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders cic unsupported media type response has a 2xx status code
+func (o *DeleteIdentityprovidersCicUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders cic unsupported media type response has a 3xx status code
+func (o *DeleteIdentityprovidersCicUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders cic unsupported media type response has a 4xx status code
+func (o *DeleteIdentityprovidersCicUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders cic unsupported media type response has a 5xx status code
+func (o *DeleteIdentityprovidersCicUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders cic unsupported media type response a status code equal to that given
+func (o *DeleteIdentityprovidersCicUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteIdentityprovidersCicUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersCicUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteIdentityprovidersCicTooManyRequests() *DeleteIdentityprovidersCicT
 	return &DeleteIdentityprovidersCicTooManyRequests{}
 }
 
-/*DeleteIdentityprovidersCicTooManyRequests handles this case with default header values.
+/*
+DeleteIdentityprovidersCicTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type DeleteIdentityprovidersCicTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders cic too many requests response has a 2xx status code
+func (o *DeleteIdentityprovidersCicTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders cic too many requests response has a 3xx status code
+func (o *DeleteIdentityprovidersCicTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders cic too many requests response has a 4xx status code
+func (o *DeleteIdentityprovidersCicTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders cic too many requests response has a 5xx status code
+func (o *DeleteIdentityprovidersCicTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders cic too many requests response a status code equal to that given
+func (o *DeleteIdentityprovidersCicTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteIdentityprovidersCicTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersCicTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteIdentityprovidersCicInternalServerError() *DeleteIdentityproviders
 	return &DeleteIdentityprovidersCicInternalServerError{}
 }
 
-/*DeleteIdentityprovidersCicInternalServerError handles this case with default header values.
+/*
+DeleteIdentityprovidersCicInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type DeleteIdentityprovidersCicInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders cic internal server error response has a 2xx status code
+func (o *DeleteIdentityprovidersCicInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders cic internal server error response has a 3xx status code
+func (o *DeleteIdentityprovidersCicInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders cic internal server error response has a 4xx status code
+func (o *DeleteIdentityprovidersCicInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders cic internal server error response has a 5xx status code
+func (o *DeleteIdentityprovidersCicInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders cic internal server error response a status code equal to that given
+func (o *DeleteIdentityprovidersCicInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteIdentityprovidersCicInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersCicInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteIdentityprovidersCicServiceUnavailable() *DeleteIdentityprovidersC
 	return &DeleteIdentityprovidersCicServiceUnavailable{}
 }
 
-/*DeleteIdentityprovidersCicServiceUnavailable handles this case with default header values.
+/*
+DeleteIdentityprovidersCicServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type DeleteIdentityprovidersCicServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders cic service unavailable response has a 2xx status code
+func (o *DeleteIdentityprovidersCicServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders cic service unavailable response has a 3xx status code
+func (o *DeleteIdentityprovidersCicServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders cic service unavailable response has a 4xx status code
+func (o *DeleteIdentityprovidersCicServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders cic service unavailable response has a 5xx status code
+func (o *DeleteIdentityprovidersCicServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders cic service unavailable response a status code equal to that given
+func (o *DeleteIdentityprovidersCicServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteIdentityprovidersCicServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersCicServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteIdentityprovidersCicGatewayTimeout() *DeleteIdentityprovidersCicGa
 	return &DeleteIdentityprovidersCicGatewayTimeout{}
 }
 
-/*DeleteIdentityprovidersCicGatewayTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersCicGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type DeleteIdentityprovidersCicGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders cic gateway timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersCicGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders cic gateway timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersCicGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders cic gateway timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersCicGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders cic gateway timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersCicGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders cic gateway timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersCicGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteIdentityprovidersCicGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersCicGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/cic][%d] deleteIdentityprovidersCicGatewayTimeout  %+v", 504, o.Payload)
 }
 

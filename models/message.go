@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -193,7 +194,6 @@ func (m *Message) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Message) validateAfterCallWork(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AfterCallWork) { // not required
 		return nil
 	}
@@ -202,6 +202,8 @@ func (m *Message) validateAfterCallWork(formats strfmt.Registry) error {
 		if err := m.AfterCallWork.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
 			}
 			return err
 		}
@@ -211,7 +213,6 @@ func (m *Message) validateAfterCallWork(formats strfmt.Registry) error {
 }
 
 func (m *Message) validateConnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectedTime) { // not required
 		return nil
 	}
@@ -253,7 +254,6 @@ func (m *Message) validateDirectionEnum(path, location string, value string) err
 }
 
 func (m *Message) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -295,23 +295,23 @@ const (
 	// MessageDisconnectTypeTransfer captures enum value "transfer"
 	MessageDisconnectTypeTransfer string = "transfer"
 
-	// MessageDisconnectTypeTransferConference captures enum value "transfer.conference"
-	MessageDisconnectTypeTransferConference string = "transfer.conference"
+	// MessageDisconnectTypeTransferDotConference captures enum value "transfer.conference"
+	MessageDisconnectTypeTransferDotConference string = "transfer.conference"
 
-	// MessageDisconnectTypeTransferConsult captures enum value "transfer.consult"
-	MessageDisconnectTypeTransferConsult string = "transfer.consult"
+	// MessageDisconnectTypeTransferDotConsult captures enum value "transfer.consult"
+	MessageDisconnectTypeTransferDotConsult string = "transfer.consult"
 
-	// MessageDisconnectTypeTransferForward captures enum value "transfer.forward"
-	MessageDisconnectTypeTransferForward string = "transfer.forward"
+	// MessageDisconnectTypeTransferDotForward captures enum value "transfer.forward"
+	MessageDisconnectTypeTransferDotForward string = "transfer.forward"
 
-	// MessageDisconnectTypeTransferNoanswer captures enum value "transfer.noanswer"
-	MessageDisconnectTypeTransferNoanswer string = "transfer.noanswer"
+	// MessageDisconnectTypeTransferDotNoanswer captures enum value "transfer.noanswer"
+	MessageDisconnectTypeTransferDotNoanswer string = "transfer.noanswer"
 
-	// MessageDisconnectTypeTransferNotavailable captures enum value "transfer.notavailable"
-	MessageDisconnectTypeTransferNotavailable string = "transfer.notavailable"
+	// MessageDisconnectTypeTransferDotNotavailable captures enum value "transfer.notavailable"
+	MessageDisconnectTypeTransferDotNotavailable string = "transfer.notavailable"
 
-	// MessageDisconnectTypeTransportFailure captures enum value "transport.failure"
-	MessageDisconnectTypeTransportFailure string = "transport.failure"
+	// MessageDisconnectTypeTransportDotFailure captures enum value "transport.failure"
+	MessageDisconnectTypeTransportDotFailure string = "transport.failure"
 
 	// MessageDisconnectTypeError captures enum value "error"
 	MessageDisconnectTypeError string = "error"
@@ -338,7 +338,6 @@ func (m *Message) validateDisconnectTypeEnum(path, location string, value string
 }
 
 func (m *Message) validateDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectType) { // not required
 		return nil
 	}
@@ -352,7 +351,6 @@ func (m *Message) validateDisconnectType(formats strfmt.Registry) error {
 }
 
 func (m *Message) validateDisconnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectedTime) { // not required
 		return nil
 	}
@@ -365,7 +363,6 @@ func (m *Message) validateDisconnectedTime(formats strfmt.Registry) error {
 }
 
 func (m *Message) validateErrorInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorInfo) { // not required
 		return nil
 	}
@@ -374,6 +371,8 @@ func (m *Message) validateErrorInfo(formats strfmt.Registry) error {
 		if err := m.ErrorInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInfo")
 			}
 			return err
 		}
@@ -383,7 +382,6 @@ func (m *Message) validateErrorInfo(formats strfmt.Registry) error {
 }
 
 func (m *Message) validateFromAddress(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FromAddress) { // not required
 		return nil
 	}
@@ -392,6 +390,8 @@ func (m *Message) validateFromAddress(formats strfmt.Registry) error {
 		if err := m.FromAddress.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("fromAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fromAddress")
 			}
 			return err
 		}
@@ -433,7 +433,6 @@ func (m *Message) validateInitialStateEnum(path, location string, value string) 
 }
 
 func (m *Message) validateInitialState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitialState) { // not required
 		return nil
 	}
@@ -447,7 +446,6 @@ func (m *Message) validateInitialState(formats strfmt.Registry) error {
 }
 
 func (m *Message) validateJourneyContext(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.JourneyContext) { // not required
 		return nil
 	}
@@ -456,6 +454,8 @@ func (m *Message) validateJourneyContext(formats strfmt.Registry) error {
 		if err := m.JourneyContext.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("journeyContext")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journeyContext")
 			}
 			return err
 		}
@@ -465,7 +465,6 @@ func (m *Message) validateJourneyContext(formats strfmt.Registry) error {
 }
 
 func (m *Message) validateMessages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Messages) { // not required
 		return nil
 	}
@@ -479,6 +478,8 @@ func (m *Message) validateMessages(formats strfmt.Registry) error {
 			if err := m.Messages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("messages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -490,7 +491,6 @@ func (m *Message) validateMessages(formats strfmt.Registry) error {
 }
 
 func (m *Message) validateSegments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Segments) { // not required
 		return nil
 	}
@@ -504,6 +504,8 @@ func (m *Message) validateSegments(formats strfmt.Registry) error {
 			if err := m.Segments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -515,7 +517,6 @@ func (m *Message) validateSegments(formats strfmt.Registry) error {
 }
 
 func (m *Message) validateStartAlertingTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartAlertingTime) { // not required
 		return nil
 	}
@@ -528,7 +529,6 @@ func (m *Message) validateStartAlertingTime(formats strfmt.Registry) error {
 }
 
 func (m *Message) validateStartHoldTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartHoldTime) { // not required
 		return nil
 	}
@@ -573,7 +573,6 @@ func (m *Message) validateStateEnum(path, location string, value string) error {
 }
 
 func (m *Message) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -587,7 +586,6 @@ func (m *Message) validateState(formats strfmt.Registry) error {
 }
 
 func (m *Message) validateToAddress(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ToAddress) { // not required
 		return nil
 	}
@@ -596,6 +594,8 @@ func (m *Message) validateToAddress(formats strfmt.Registry) error {
 		if err := m.ToAddress.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("toAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("toAddress")
 			}
 			return err
 		}
@@ -661,7 +661,6 @@ func (m *Message) validateTypeEnum(path, location string, value string) error {
 }
 
 func (m *Message) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -675,7 +674,6 @@ func (m *Message) validateType(formats strfmt.Registry) error {
 }
 
 func (m *Message) validateWrapup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Wrapup) { // not required
 		return nil
 	}
@@ -684,6 +682,186 @@ func (m *Message) validateWrapup(formats strfmt.Registry) error {
 		if err := m.Wrapup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this message based on the context it is used
+func (m *Message) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAfterCallWork(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateErrorInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFromAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateJourneyContext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSegments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateToAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Message) contextValidateAfterCallWork(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Message) contextValidateErrorInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ErrorInfo != nil {
+		if err := m.ErrorInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Message) contextValidateFromAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FromAddress != nil {
+		if err := m.FromAddress.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fromAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fromAddress")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Message) contextValidateJourneyContext(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.JourneyContext != nil {
+		if err := m.JourneyContext.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("journeyContext")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journeyContext")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Message) contextValidateMessages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Messages); i++ {
+
+		if m.Messages[i] != nil {
+			if err := m.Messages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("messages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Message) contextValidateSegments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Segments); i++ {
+
+		if m.Segments[i] != nil {
+			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Message) contextValidateToAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ToAddress != nil {
+		if err := m.ToAddress.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("toAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("toAddress")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Message) contextValidateWrapup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Wrapup != nil {
+		if err := m.Wrapup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
 			}
 			return err
 		}

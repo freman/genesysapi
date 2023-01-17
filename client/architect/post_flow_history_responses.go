@@ -95,7 +95,6 @@ func (o *PostFlowHistoryReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostFlowHistoryOK() *PostFlowHistoryOK {
 	return &PostFlowHistoryOK{}
 }
 
-/*PostFlowHistoryOK handles this case with default header values.
+/*
+PostFlowHistoryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostFlowHistoryOK struct {
 	Payload *models.Operation
 }
 
+// IsSuccess returns true when this post flow history o k response has a 2xx status code
+func (o *PostFlowHistoryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post flow history o k response has a 3xx status code
+func (o *PostFlowHistoryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow history o k response has a 4xx status code
+func (o *PostFlowHistoryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flow history o k response has a 5xx status code
+func (o *PostFlowHistoryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow history o k response a status code equal to that given
+func (o *PostFlowHistoryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostFlowHistoryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostFlowHistoryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostFlowHistoryBadRequest() *PostFlowHistoryBadRequest {
 	return &PostFlowHistoryBadRequest{}
 }
 
-/*PostFlowHistoryBadRequest handles this case with default header values.
+/*
+PostFlowHistoryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostFlowHistoryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow history bad request response has a 2xx status code
+func (o *PostFlowHistoryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow history bad request response has a 3xx status code
+func (o *PostFlowHistoryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow history bad request response has a 4xx status code
+func (o *PostFlowHistoryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow history bad request response has a 5xx status code
+func (o *PostFlowHistoryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow history bad request response a status code equal to that given
+func (o *PostFlowHistoryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostFlowHistoryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostFlowHistoryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostFlowHistoryUnauthorized() *PostFlowHistoryUnauthorized {
 	return &PostFlowHistoryUnauthorized{}
 }
 
-/*PostFlowHistoryUnauthorized handles this case with default header values.
+/*
+PostFlowHistoryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostFlowHistoryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow history unauthorized response has a 2xx status code
+func (o *PostFlowHistoryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow history unauthorized response has a 3xx status code
+func (o *PostFlowHistoryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow history unauthorized response has a 4xx status code
+func (o *PostFlowHistoryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow history unauthorized response has a 5xx status code
+func (o *PostFlowHistoryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow history unauthorized response a status code equal to that given
+func (o *PostFlowHistoryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostFlowHistoryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostFlowHistoryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostFlowHistoryForbidden() *PostFlowHistoryForbidden {
 	return &PostFlowHistoryForbidden{}
 }
 
-/*PostFlowHistoryForbidden handles this case with default header values.
+/*
+PostFlowHistoryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostFlowHistoryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow history forbidden response has a 2xx status code
+func (o *PostFlowHistoryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow history forbidden response has a 3xx status code
+func (o *PostFlowHistoryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow history forbidden response has a 4xx status code
+func (o *PostFlowHistoryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow history forbidden response has a 5xx status code
+func (o *PostFlowHistoryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow history forbidden response a status code equal to that given
+func (o *PostFlowHistoryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostFlowHistoryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostFlowHistoryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostFlowHistoryNotFound() *PostFlowHistoryNotFound {
 	return &PostFlowHistoryNotFound{}
 }
 
-/*PostFlowHistoryNotFound handles this case with default header values.
+/*
+PostFlowHistoryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostFlowHistoryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow history not found response has a 2xx status code
+func (o *PostFlowHistoryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow history not found response has a 3xx status code
+func (o *PostFlowHistoryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow history not found response has a 4xx status code
+func (o *PostFlowHistoryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow history not found response has a 5xx status code
+func (o *PostFlowHistoryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow history not found response a status code equal to that given
+func (o *PostFlowHistoryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostFlowHistoryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostFlowHistoryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostFlowHistoryRequestTimeout() *PostFlowHistoryRequestTimeout {
 	return &PostFlowHistoryRequestTimeout{}
 }
 
-/*PostFlowHistoryRequestTimeout handles this case with default header values.
+/*
+PostFlowHistoryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostFlowHistoryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow history request timeout response has a 2xx status code
+func (o *PostFlowHistoryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow history request timeout response has a 3xx status code
+func (o *PostFlowHistoryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow history request timeout response has a 4xx status code
+func (o *PostFlowHistoryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow history request timeout response has a 5xx status code
+func (o *PostFlowHistoryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow history request timeout response a status code equal to that given
+func (o *PostFlowHistoryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostFlowHistoryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowHistoryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostFlowHistoryRequestEntityTooLarge() *PostFlowHistoryRequestEntityTooL
 	return &PostFlowHistoryRequestEntityTooLarge{}
 }
 
-/*PostFlowHistoryRequestEntityTooLarge handles this case with default header values.
+/*
+PostFlowHistoryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostFlowHistoryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow history request entity too large response has a 2xx status code
+func (o *PostFlowHistoryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow history request entity too large response has a 3xx status code
+func (o *PostFlowHistoryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow history request entity too large response has a 4xx status code
+func (o *PostFlowHistoryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow history request entity too large response has a 5xx status code
+func (o *PostFlowHistoryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow history request entity too large response a status code equal to that given
+func (o *PostFlowHistoryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostFlowHistoryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostFlowHistoryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostFlowHistoryUnsupportedMediaType() *PostFlowHistoryUnsupportedMediaTy
 	return &PostFlowHistoryUnsupportedMediaType{}
 }
 
-/*PostFlowHistoryUnsupportedMediaType handles this case with default header values.
+/*
+PostFlowHistoryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostFlowHistoryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow history unsupported media type response has a 2xx status code
+func (o *PostFlowHistoryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow history unsupported media type response has a 3xx status code
+func (o *PostFlowHistoryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow history unsupported media type response has a 4xx status code
+func (o *PostFlowHistoryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow history unsupported media type response has a 5xx status code
+func (o *PostFlowHistoryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow history unsupported media type response a status code equal to that given
+func (o *PostFlowHistoryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostFlowHistoryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostFlowHistoryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostFlowHistoryTooManyRequests() *PostFlowHistoryTooManyRequests {
 	return &PostFlowHistoryTooManyRequests{}
 }
 
-/*PostFlowHistoryTooManyRequests handles this case with default header values.
+/*
+PostFlowHistoryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostFlowHistoryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow history too many requests response has a 2xx status code
+func (o *PostFlowHistoryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow history too many requests response has a 3xx status code
+func (o *PostFlowHistoryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow history too many requests response has a 4xx status code
+func (o *PostFlowHistoryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flow history too many requests response has a 5xx status code
+func (o *PostFlowHistoryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flow history too many requests response a status code equal to that given
+func (o *PostFlowHistoryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostFlowHistoryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostFlowHistoryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostFlowHistoryInternalServerError() *PostFlowHistoryInternalServerError
 	return &PostFlowHistoryInternalServerError{}
 }
 
-/*PostFlowHistoryInternalServerError handles this case with default header values.
+/*
+PostFlowHistoryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostFlowHistoryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow history internal server error response has a 2xx status code
+func (o *PostFlowHistoryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow history internal server error response has a 3xx status code
+func (o *PostFlowHistoryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow history internal server error response has a 4xx status code
+func (o *PostFlowHistoryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flow history internal server error response has a 5xx status code
+func (o *PostFlowHistoryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flow history internal server error response a status code equal to that given
+func (o *PostFlowHistoryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostFlowHistoryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostFlowHistoryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostFlowHistoryServiceUnavailable() *PostFlowHistoryServiceUnavailable {
 	return &PostFlowHistoryServiceUnavailable{}
 }
 
-/*PostFlowHistoryServiceUnavailable handles this case with default header values.
+/*
+PostFlowHistoryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostFlowHistoryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow history service unavailable response has a 2xx status code
+func (o *PostFlowHistoryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow history service unavailable response has a 3xx status code
+func (o *PostFlowHistoryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow history service unavailable response has a 4xx status code
+func (o *PostFlowHistoryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flow history service unavailable response has a 5xx status code
+func (o *PostFlowHistoryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flow history service unavailable response a status code equal to that given
+func (o *PostFlowHistoryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostFlowHistoryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostFlowHistoryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostFlowHistoryGatewayTimeout() *PostFlowHistoryGatewayTimeout {
 	return &PostFlowHistoryGatewayTimeout{}
 }
 
-/*PostFlowHistoryGatewayTimeout handles this case with default header values.
+/*
+PostFlowHistoryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostFlowHistoryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flow history gateway timeout response has a 2xx status code
+func (o *PostFlowHistoryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flow history gateway timeout response has a 3xx status code
+func (o *PostFlowHistoryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flow history gateway timeout response has a 4xx status code
+func (o *PostFlowHistoryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flow history gateway timeout response has a 5xx status code
+func (o *PostFlowHistoryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flow history gateway timeout response a status code equal to that given
+func (o *PostFlowHistoryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostFlowHistoryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostFlowHistoryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/{flowId}/history][%d] postFlowHistoryGatewayTimeout  %+v", 504, o.Payload)
 }
 

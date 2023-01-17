@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteOrgauthorizationTrusteeUserParams creates a new DeleteOrgauthorizationTrusteeUserParams object
-// with the default values initialized.
+// NewDeleteOrgauthorizationTrusteeUserParams creates a new DeleteOrgauthorizationTrusteeUserParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOrgauthorizationTrusteeUserParams() *DeleteOrgauthorizationTrusteeUserParams {
-	var ()
 	return &DeleteOrgauthorizationTrusteeUserParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOrgauthorizationTrusteeUserParamsWithTimeout creates a new DeleteOrgauthorizationTrusteeUserParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOrgauthorizationTrusteeUserParamsWithTimeout(timeout time.Duration) *DeleteOrgauthorizationTrusteeUserParams {
-	var ()
 	return &DeleteOrgauthorizationTrusteeUserParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOrgauthorizationTrusteeUserParamsWithContext creates a new DeleteOrgauthorizationTrusteeUserParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOrgauthorizationTrusteeUserParamsWithContext(ctx context.Context) *DeleteOrgauthorizationTrusteeUserParams {
-	var ()
 	return &DeleteOrgauthorizationTrusteeUserParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOrgauthorizationTrusteeUserParamsWithHTTPClient creates a new DeleteOrgauthorizationTrusteeUserParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOrgauthorizationTrusteeUserParamsWithHTTPClient(client *http.Client) *DeleteOrgauthorizationTrusteeUserParams {
-	var ()
 	return &DeleteOrgauthorizationTrusteeUserParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOrgauthorizationTrusteeUserParams contains all the parameters to send to the API endpoint
-for the delete orgauthorization trustee user operation typically these are written to a http.Request
+/*
+DeleteOrgauthorizationTrusteeUserParams contains all the parameters to send to the API endpoint
+
+	for the delete orgauthorization trustee user operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOrgauthorizationTrusteeUserParams struct {
 
-	/*TrusteeOrgID
-	  Trustee Organization Id
+	/* TrusteeOrgID.
 
+	   Trustee Organization Id
 	*/
 	TrusteeOrgID string
-	/*TrusteeUserID
-	  Trustee User Id
 
+	/* TrusteeUserID.
+
+	   Trustee User Id
 	*/
 	TrusteeUserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete orgauthorization trustee user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOrgauthorizationTrusteeUserParams) WithDefaults() *DeleteOrgauthorizationTrusteeUserParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete orgauthorization trustee user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOrgauthorizationTrusteeUserParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete orgauthorization trustee user params

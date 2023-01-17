@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -71,6 +73,8 @@ func (m *WebChatTyping) validateConversation(formats strfmt.Registry) error {
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}
@@ -98,6 +102,8 @@ func (m *WebChatTyping) validateSender(formats strfmt.Registry) error {
 		if err := m.Sender.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sender")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sender")
 			}
 			return err
 		}
@@ -114,6 +120,56 @@ func (m *WebChatTyping) validateTimestamp(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("timestamp", "body", "date-time", m.Timestamp.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this web chat typing based on the context it is used
+func (m *WebChatTyping) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSender(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WebChatTyping) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebChatTyping) contextValidateSender(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Sender != nil {
+		if err := m.Sender.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sender")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sender")
+			}
+			return err
+		}
 	}
 
 	return nil

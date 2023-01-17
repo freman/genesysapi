@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -16,6 +18,9 @@ import (
 //
 // swagger:model NamedEntityTypeItem
 type NamedEntityTypeItem struct {
+
+	// Additional Language Synonyms for the given named entity value.
+	AdditionalLanguages map[string]AdditionalLanguagesSynonyms `json:"additionalLanguages,omitempty"`
 
 	// Synonyms for the given named entity value.
 	Synonyms []string `json:"synonyms"`
@@ -29,6 +34,10 @@ type NamedEntityTypeItem struct {
 func (m *NamedEntityTypeItem) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAdditionalLanguages(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateValue(formats); err != nil {
 		res = append(res, err)
 	}
@@ -39,10 +48,65 @@ func (m *NamedEntityTypeItem) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *NamedEntityTypeItem) validateAdditionalLanguages(formats strfmt.Registry) error {
+	if swag.IsZero(m.AdditionalLanguages) { // not required
+		return nil
+	}
+
+	for k := range m.AdditionalLanguages {
+
+		if err := validate.Required("additionalLanguages"+"."+k, "body", m.AdditionalLanguages[k]); err != nil {
+			return err
+		}
+		if val, ok := m.AdditionalLanguages[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("additionalLanguages" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("additionalLanguages" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *NamedEntityTypeItem) validateValue(formats strfmt.Registry) error {
 
 	if err := validate.Required("value", "body", m.Value); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this named entity type item based on the context it is used
+func (m *NamedEntityTypeItem) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAdditionalLanguages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *NamedEntityTypeItem) contextValidateAdditionalLanguages(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.AdditionalLanguages {
+
+		if val, ok := m.AdditionalLanguages[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
 	}
 
 	return nil

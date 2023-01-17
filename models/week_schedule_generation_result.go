@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -46,7 +47,6 @@ func (m *WeekScheduleGenerationResult) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WeekScheduleGenerationResult) validateAgentWarnings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AgentWarnings) { // not required
 		return nil
 	}
@@ -60,6 +60,42 @@ func (m *WeekScheduleGenerationResult) validateAgentWarnings(formats strfmt.Regi
 			if err := m.AgentWarnings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("agentWarnings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agentWarnings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this week schedule generation result based on the context it is used
+func (m *WeekScheduleGenerationResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgentWarnings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WeekScheduleGenerationResult) contextValidateAgentWarnings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AgentWarnings); i++ {
+
+		if m.AgentWarnings[i] != nil {
+			if err := m.AgentWarnings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("agentWarnings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agentWarnings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

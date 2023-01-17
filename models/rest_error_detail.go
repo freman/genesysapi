@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -43,7 +45,43 @@ func (m *RestErrorDetail) Validate(formats strfmt.Registry) error {
 
 func (m *RestErrorDetail) validateError(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("error", "body", string(m.Error)); err != nil {
+	if err := validate.RequiredString("error", "body", m.Error); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this rest error detail based on the context it is used
+func (m *RestErrorDetail) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateError(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RestErrorDetail) contextValidateDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "details", "body", string(m.Details)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RestErrorDetail) contextValidateError(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "error", "body", string(m.Error)); err != nil {
 		return err
 	}
 

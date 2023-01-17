@@ -17,74 +17,107 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetKnowledgeGuestSessionDocumentsParams creates a new GetKnowledgeGuestSessionDocumentsParams object
-// with the default values initialized.
+// NewGetKnowledgeGuestSessionDocumentsParams creates a new GetKnowledgeGuestSessionDocumentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeGuestSessionDocumentsParams() *GetKnowledgeGuestSessionDocumentsParams {
-	var ()
 	return &GetKnowledgeGuestSessionDocumentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeGuestSessionDocumentsParamsWithTimeout creates a new GetKnowledgeGuestSessionDocumentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeGuestSessionDocumentsParamsWithTimeout(timeout time.Duration) *GetKnowledgeGuestSessionDocumentsParams {
-	var ()
 	return &GetKnowledgeGuestSessionDocumentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeGuestSessionDocumentsParamsWithContext creates a new GetKnowledgeGuestSessionDocumentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeGuestSessionDocumentsParamsWithContext(ctx context.Context) *GetKnowledgeGuestSessionDocumentsParams {
-	var ()
 	return &GetKnowledgeGuestSessionDocumentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeGuestSessionDocumentsParamsWithHTTPClient creates a new GetKnowledgeGuestSessionDocumentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeGuestSessionDocumentsParamsWithHTTPClient(client *http.Client) *GetKnowledgeGuestSessionDocumentsParams {
-	var ()
 	return &GetKnowledgeGuestSessionDocumentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeGuestSessionDocumentsParams contains all the parameters to send to the API endpoint
-for the get knowledge guest session documents operation typically these are written to a http.Request
+/*
+GetKnowledgeGuestSessionDocumentsParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge guest session documents operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeGuestSessionDocumentsParams struct {
 
-	/*CategoryID
-	  If specified, retrieves documents associated with category ids, comma separated values expected.
+	/* CategoryID.
 
+	   If specified, retrieves documents associated with category ids, comma separated values expected.
 	*/
 	CategoryID []string
-	/*IncludeSubcategories
-	  Works along with 'categoryId' query parameter. If specified, retrieves documents associated with category ids and its children categories.
 
+	/* IncludeSubcategories.
+
+	   Deprecated - Do Not Use. Works along with 'categoryId' query parameter. If specified, retrieves documents associated with category ids and its children categories.
 	*/
 	IncludeSubcategories *bool
-	/*PageSize
-	  Number of entities to return. Maximum of 200.
 
+	/* PageSize.
+
+	   Number of entities to return. Maximum of 200.
+
+	   Format: int32
+	   Default: 10
 	*/
-	PageSize *string
-	/*SessionID
-	  Knowledge guest session ID.
+	PageSize *int32
 
+	/* SessionID.
+
+	   Knowledge guest session ID.
 	*/
 	SessionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge guest session documents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeGuestSessionDocumentsParams) WithDefaults() *GetKnowledgeGuestSessionDocumentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge guest session documents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeGuestSessionDocumentsParams) SetDefaults() {
+	var (
+		pageSizeDefault = int32(10)
+	)
+
+	val := GetKnowledgeGuestSessionDocumentsParams{
+		PageSize: &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get knowledge guest session documents params
@@ -143,13 +176,13 @@ func (o *GetKnowledgeGuestSessionDocumentsParams) SetIncludeSubcategories(includ
 }
 
 // WithPageSize adds the pageSize to the get knowledge guest session documents params
-func (o *GetKnowledgeGuestSessionDocumentsParams) WithPageSize(pageSize *string) *GetKnowledgeGuestSessionDocumentsParams {
+func (o *GetKnowledgeGuestSessionDocumentsParams) WithPageSize(pageSize *int32) *GetKnowledgeGuestSessionDocumentsParams {
 	o.SetPageSize(pageSize)
 	return o
 }
 
 // SetPageSize adds the pageSize to the get knowledge guest session documents params
-func (o *GetKnowledgeGuestSessionDocumentsParams) SetPageSize(pageSize *string) {
+func (o *GetKnowledgeGuestSessionDocumentsParams) SetPageSize(pageSize *int32) {
 	o.PageSize = pageSize
 }
 
@@ -172,44 +205,49 @@ func (o *GetKnowledgeGuestSessionDocumentsParams) WriteToRequest(r runtime.Clien
 	}
 	var res []error
 
-	valuesCategoryID := o.CategoryID
+	if o.CategoryID != nil {
 
-	joinedCategoryID := swag.JoinByFormat(valuesCategoryID, "multi")
-	// query array param categoryId
-	if err := r.SetQueryParam("categoryId", joinedCategoryID...); err != nil {
-		return err
+		// binding items for categoryId
+		joinedCategoryID := o.bindParamCategoryID(reg)
+
+		// query array param categoryId
+		if err := r.SetQueryParam("categoryId", joinedCategoryID...); err != nil {
+			return err
+		}
 	}
 
 	if o.IncludeSubcategories != nil {
 
 		// query param includeSubcategories
 		var qrIncludeSubcategories bool
+
 		if o.IncludeSubcategories != nil {
 			qrIncludeSubcategories = *o.IncludeSubcategories
 		}
 		qIncludeSubcategories := swag.FormatBool(qrIncludeSubcategories)
 		if qIncludeSubcategories != "" {
+
 			if err := r.SetQueryParam("includeSubcategories", qIncludeSubcategories); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
-		var qrPageSize string
+		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
-		qPageSize := qrPageSize
+		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param sessionId
@@ -221,4 +259,21 @@ func (o *GetKnowledgeGuestSessionDocumentsParams) WriteToRequest(r runtime.Clien
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetKnowledgeGuestSessionDocuments binds the parameter categoryId
+func (o *GetKnowledgeGuestSessionDocumentsParams) bindParamCategoryID(formats strfmt.Registry) []string {
+	categoryIDIR := o.CategoryID
+
+	var categoryIDIC []string
+	for _, categoryIDIIR := range categoryIDIR { // explode []string
+
+		categoryIDIIV := categoryIDIIR // string as string
+		categoryIDIC = append(categoryIDIC, categoryIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	categoryIDIS := swag.JoinByFormat(categoryIDIC, "multi")
+
+	return categoryIDIS
 }

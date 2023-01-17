@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTelephonyProvidersEdgesDidpoolsParams creates a new PostTelephonyProvidersEdgesDidpoolsParams object
-// with the default values initialized.
+// NewPostTelephonyProvidersEdgesDidpoolsParams creates a new PostTelephonyProvidersEdgesDidpoolsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTelephonyProvidersEdgesDidpoolsParams() *PostTelephonyProvidersEdgesDidpoolsParams {
-	var ()
 	return &PostTelephonyProvidersEdgesDidpoolsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgesDidpoolsParamsWithTimeout creates a new PostTelephonyProvidersEdgesDidpoolsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTelephonyProvidersEdgesDidpoolsParamsWithTimeout(timeout time.Duration) *PostTelephonyProvidersEdgesDidpoolsParams {
-	var ()
 	return &PostTelephonyProvidersEdgesDidpoolsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgesDidpoolsParamsWithContext creates a new PostTelephonyProvidersEdgesDidpoolsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTelephonyProvidersEdgesDidpoolsParamsWithContext(ctx context.Context) *PostTelephonyProvidersEdgesDidpoolsParams {
-	var ()
 	return &PostTelephonyProvidersEdgesDidpoolsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTelephonyProvidersEdgesDidpoolsParamsWithHTTPClient creates a new PostTelephonyProvidersEdgesDidpoolsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTelephonyProvidersEdgesDidpoolsParamsWithHTTPClient(client *http.Client) *PostTelephonyProvidersEdgesDidpoolsParams {
-	var ()
 	return &PostTelephonyProvidersEdgesDidpoolsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTelephonyProvidersEdgesDidpoolsParams contains all the parameters to send to the API endpoint
-for the post telephony providers edges didpools operation typically these are written to a http.Request
+/*
+PostTelephonyProvidersEdgesDidpoolsParams contains all the parameters to send to the API endpoint
+
+	for the post telephony providers edges didpools operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTelephonyProvidersEdgesDidpoolsParams struct {
 
-	/*Body
-	  DID pool
+	/* Body.
 
+	   DID pool
 	*/
 	Body *models.DIDPool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post telephony providers edges didpools params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgesDidpoolsParams) WithDefaults() *PostTelephonyProvidersEdgesDidpoolsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post telephony providers edges didpools params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgesDidpoolsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post telephony providers edges didpools params
@@ -124,7 +140,6 @@ func (o *PostTelephonyProvidersEdgesDidpoolsParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -95,7 +95,6 @@ func (o *PutOauthClientReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutOauthClientOK() *PutOauthClientOK {
 	return &PutOauthClientOK{}
 }
 
-/*PutOauthClientOK handles this case with default header values.
+/*
+PutOauthClientOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutOauthClientOK struct {
 	Payload *models.OAuthClient
 }
 
+// IsSuccess returns true when this put oauth client o k response has a 2xx status code
+func (o *PutOauthClientOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put oauth client o k response has a 3xx status code
+func (o *PutOauthClientOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put oauth client o k response has a 4xx status code
+func (o *PutOauthClientOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put oauth client o k response has a 5xx status code
+func (o *PutOauthClientOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put oauth client o k response a status code equal to that given
+func (o *PutOauthClientOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOauthClientOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOauthClientOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutOauthClientBadRequest() *PutOauthClientBadRequest {
 	return &PutOauthClientBadRequest{}
 }
 
-/*PutOauthClientBadRequest handles this case with default header values.
+/*
+PutOauthClientBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutOauthClientBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put oauth client bad request response has a 2xx status code
+func (o *PutOauthClientBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put oauth client bad request response has a 3xx status code
+func (o *PutOauthClientBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put oauth client bad request response has a 4xx status code
+func (o *PutOauthClientBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put oauth client bad request response has a 5xx status code
+func (o *PutOauthClientBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put oauth client bad request response a status code equal to that given
+func (o *PutOauthClientBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOauthClientBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOauthClientBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutOauthClientUnauthorized() *PutOauthClientUnauthorized {
 	return &PutOauthClientUnauthorized{}
 }
 
-/*PutOauthClientUnauthorized handles this case with default header values.
+/*
+PutOauthClientUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutOauthClientUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put oauth client unauthorized response has a 2xx status code
+func (o *PutOauthClientUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put oauth client unauthorized response has a 3xx status code
+func (o *PutOauthClientUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put oauth client unauthorized response has a 4xx status code
+func (o *PutOauthClientUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put oauth client unauthorized response has a 5xx status code
+func (o *PutOauthClientUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put oauth client unauthorized response a status code equal to that given
+func (o *PutOauthClientUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOauthClientUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOauthClientUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutOauthClientForbidden() *PutOauthClientForbidden {
 	return &PutOauthClientForbidden{}
 }
 
-/*PutOauthClientForbidden handles this case with default header values.
+/*
+PutOauthClientForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutOauthClientForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put oauth client forbidden response has a 2xx status code
+func (o *PutOauthClientForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put oauth client forbidden response has a 3xx status code
+func (o *PutOauthClientForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put oauth client forbidden response has a 4xx status code
+func (o *PutOauthClientForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put oauth client forbidden response has a 5xx status code
+func (o *PutOauthClientForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put oauth client forbidden response a status code equal to that given
+func (o *PutOauthClientForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOauthClientForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOauthClientForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutOauthClientNotFound() *PutOauthClientNotFound {
 	return &PutOauthClientNotFound{}
 }
 
-/*PutOauthClientNotFound handles this case with default header values.
+/*
+PutOauthClientNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutOauthClientNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put oauth client not found response has a 2xx status code
+func (o *PutOauthClientNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put oauth client not found response has a 3xx status code
+func (o *PutOauthClientNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put oauth client not found response has a 4xx status code
+func (o *PutOauthClientNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put oauth client not found response has a 5xx status code
+func (o *PutOauthClientNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put oauth client not found response a status code equal to that given
+func (o *PutOauthClientNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOauthClientNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOauthClientNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutOauthClientRequestTimeout() *PutOauthClientRequestTimeout {
 	return &PutOauthClientRequestTimeout{}
 }
 
-/*PutOauthClientRequestTimeout handles this case with default header values.
+/*
+PutOauthClientRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutOauthClientRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put oauth client request timeout response has a 2xx status code
+func (o *PutOauthClientRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put oauth client request timeout response has a 3xx status code
+func (o *PutOauthClientRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put oauth client request timeout response has a 4xx status code
+func (o *PutOauthClientRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put oauth client request timeout response has a 5xx status code
+func (o *PutOauthClientRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put oauth client request timeout response a status code equal to that given
+func (o *PutOauthClientRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOauthClientRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOauthClientRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutOauthClientRequestEntityTooLarge() *PutOauthClientRequestEntityTooLar
 	return &PutOauthClientRequestEntityTooLarge{}
 }
 
-/*PutOauthClientRequestEntityTooLarge handles this case with default header values.
+/*
+PutOauthClientRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutOauthClientRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put oauth client request entity too large response has a 2xx status code
+func (o *PutOauthClientRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put oauth client request entity too large response has a 3xx status code
+func (o *PutOauthClientRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put oauth client request entity too large response has a 4xx status code
+func (o *PutOauthClientRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put oauth client request entity too large response has a 5xx status code
+func (o *PutOauthClientRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put oauth client request entity too large response a status code equal to that given
+func (o *PutOauthClientRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOauthClientRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOauthClientRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutOauthClientUnsupportedMediaType() *PutOauthClientUnsupportedMediaType
 	return &PutOauthClientUnsupportedMediaType{}
 }
 
-/*PutOauthClientUnsupportedMediaType handles this case with default header values.
+/*
+PutOauthClientUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutOauthClientUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put oauth client unsupported media type response has a 2xx status code
+func (o *PutOauthClientUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put oauth client unsupported media type response has a 3xx status code
+func (o *PutOauthClientUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put oauth client unsupported media type response has a 4xx status code
+func (o *PutOauthClientUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put oauth client unsupported media type response has a 5xx status code
+func (o *PutOauthClientUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put oauth client unsupported media type response a status code equal to that given
+func (o *PutOauthClientUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOauthClientUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOauthClientUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutOauthClientTooManyRequests() *PutOauthClientTooManyRequests {
 	return &PutOauthClientTooManyRequests{}
 }
 
-/*PutOauthClientTooManyRequests handles this case with default header values.
+/*
+PutOauthClientTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutOauthClientTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put oauth client too many requests response has a 2xx status code
+func (o *PutOauthClientTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put oauth client too many requests response has a 3xx status code
+func (o *PutOauthClientTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put oauth client too many requests response has a 4xx status code
+func (o *PutOauthClientTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put oauth client too many requests response has a 5xx status code
+func (o *PutOauthClientTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put oauth client too many requests response a status code equal to that given
+func (o *PutOauthClientTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOauthClientTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOauthClientTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutOauthClientInternalServerError() *PutOauthClientInternalServerError {
 	return &PutOauthClientInternalServerError{}
 }
 
-/*PutOauthClientInternalServerError handles this case with default header values.
+/*
+PutOauthClientInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutOauthClientInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put oauth client internal server error response has a 2xx status code
+func (o *PutOauthClientInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put oauth client internal server error response has a 3xx status code
+func (o *PutOauthClientInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put oauth client internal server error response has a 4xx status code
+func (o *PutOauthClientInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put oauth client internal server error response has a 5xx status code
+func (o *PutOauthClientInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put oauth client internal server error response a status code equal to that given
+func (o *PutOauthClientInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOauthClientInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOauthClientInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutOauthClientServiceUnavailable() *PutOauthClientServiceUnavailable {
 	return &PutOauthClientServiceUnavailable{}
 }
 
-/*PutOauthClientServiceUnavailable handles this case with default header values.
+/*
+PutOauthClientServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutOauthClientServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put oauth client service unavailable response has a 2xx status code
+func (o *PutOauthClientServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put oauth client service unavailable response has a 3xx status code
+func (o *PutOauthClientServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put oauth client service unavailable response has a 4xx status code
+func (o *PutOauthClientServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put oauth client service unavailable response has a 5xx status code
+func (o *PutOauthClientServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put oauth client service unavailable response a status code equal to that given
+func (o *PutOauthClientServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOauthClientServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOauthClientServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutOauthClientGatewayTimeout() *PutOauthClientGatewayTimeout {
 	return &PutOauthClientGatewayTimeout{}
 }
 
-/*PutOauthClientGatewayTimeout handles this case with default header values.
+/*
+PutOauthClientGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutOauthClientGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put oauth client gateway timeout response has a 2xx status code
+func (o *PutOauthClientGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put oauth client gateway timeout response has a 3xx status code
+func (o *PutOauthClientGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put oauth client gateway timeout response has a 4xx status code
+func (o *PutOauthClientGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put oauth client gateway timeout response has a 5xx status code
+func (o *PutOauthClientGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put oauth client gateway timeout response a status code equal to that given
+func (o *PutOauthClientGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOauthClientGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOauthClientGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/oauth/clients/{clientId}][%d] putOauthClientGatewayTimeout  %+v", 504, o.Payload)
 }
 

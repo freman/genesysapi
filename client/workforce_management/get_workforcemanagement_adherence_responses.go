@@ -95,7 +95,6 @@ func (o *GetWorkforcemanagementAdherenceReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWorkforcemanagementAdherenceOK() *GetWorkforcemanagementAdherenceOK {
 	return &GetWorkforcemanagementAdherenceOK{}
 }
 
-/*GetWorkforcemanagementAdherenceOK handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWorkforcemanagementAdherenceOK struct {
 	Payload []*models.UserScheduleAdherence
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence o k response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence o k response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence o k response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement adherence o k response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence o k response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWorkforcemanagementAdherenceOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetWorkforcemanagementAdherenceBadRequest() *GetWorkforcemanagementAdher
 	return &GetWorkforcemanagementAdherenceBadRequest{}
 }
 
-/*GetWorkforcemanagementAdherenceBadRequest handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetWorkforcemanagementAdherenceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence bad request response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence bad request response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence bad request response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence bad request response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence bad request response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWorkforcemanagementAdherenceBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetWorkforcemanagementAdherenceUnauthorized() *GetWorkforcemanagementAdh
 	return &GetWorkforcemanagementAdherenceUnauthorized{}
 }
 
-/*GetWorkforcemanagementAdherenceUnauthorized handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetWorkforcemanagementAdherenceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence unauthorized response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence unauthorized response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence unauthorized response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence unauthorized response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence unauthorized response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWorkforcemanagementAdherenceUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetWorkforcemanagementAdherenceForbidden() *GetWorkforcemanagementAdhere
 	return &GetWorkforcemanagementAdherenceForbidden{}
 }
 
-/*GetWorkforcemanagementAdherenceForbidden handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetWorkforcemanagementAdherenceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence forbidden response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence forbidden response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence forbidden response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence forbidden response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence forbidden response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWorkforcemanagementAdherenceForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetWorkforcemanagementAdherenceNotFound() *GetWorkforcemanagementAdheren
 	return &GetWorkforcemanagementAdherenceNotFound{}
 }
 
-/*GetWorkforcemanagementAdherenceNotFound handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetWorkforcemanagementAdherenceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence not found response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence not found response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence not found response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence not found response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence not found response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWorkforcemanagementAdherenceNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetWorkforcemanagementAdherenceRequestTimeout() *GetWorkforcemanagementA
 	return &GetWorkforcemanagementAdherenceRequestTimeout{}
 }
 
-/*GetWorkforcemanagementAdherenceRequestTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetWorkforcemanagementAdherenceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence request timeout response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence request timeout response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence request timeout response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence request timeout response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence request timeout response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWorkforcemanagementAdherenceRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetWorkforcemanagementAdherenceRequestEntityTooLarge() *GetWorkforcemana
 	return &GetWorkforcemanagementAdherenceRequestEntityTooLarge{}
 }
 
-/*GetWorkforcemanagementAdherenceRequestEntityTooLarge handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetWorkforcemanagementAdherenceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence request entity too large response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence request entity too large response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence request entity too large response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence request entity too large response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence request entity too large response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWorkforcemanagementAdherenceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetWorkforcemanagementAdherenceUnsupportedMediaType() *GetWorkforcemanag
 	return &GetWorkforcemanagementAdherenceUnsupportedMediaType{}
 }
 
-/*GetWorkforcemanagementAdherenceUnsupportedMediaType handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetWorkforcemanagementAdherenceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence unsupported media type response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence unsupported media type response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence unsupported media type response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence unsupported media type response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence unsupported media type response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWorkforcemanagementAdherenceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetWorkforcemanagementAdherenceTooManyRequests() *GetWorkforcemanagement
 	return &GetWorkforcemanagementAdherenceTooManyRequests{}
 }
 
-/*GetWorkforcemanagementAdherenceTooManyRequests handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetWorkforcemanagementAdherenceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence too many requests response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence too many requests response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence too many requests response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence too many requests response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence too many requests response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWorkforcemanagementAdherenceTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetWorkforcemanagementAdherenceInternalServerError() *GetWorkforcemanage
 	return &GetWorkforcemanagementAdherenceInternalServerError{}
 }
 
-/*GetWorkforcemanagementAdherenceInternalServerError handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetWorkforcemanagementAdherenceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence internal server error response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence internal server error response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence internal server error response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement adherence internal server error response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement adherence internal server error response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWorkforcemanagementAdherenceInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetWorkforcemanagementAdherenceServiceUnavailable() *GetWorkforcemanagem
 	return &GetWorkforcemanagementAdherenceServiceUnavailable{}
 }
 
-/*GetWorkforcemanagementAdherenceServiceUnavailable handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetWorkforcemanagementAdherenceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence service unavailable response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence service unavailable response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence service unavailable response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement adherence service unavailable response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement adherence service unavailable response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWorkforcemanagementAdherenceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetWorkforcemanagementAdherenceGatewayTimeout() *GetWorkforcemanagementA
 	return &GetWorkforcemanagementAdherenceGatewayTimeout{}
 }
 
-/*GetWorkforcemanagementAdherenceGatewayTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetWorkforcemanagementAdherenceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence gateway timeout response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence gateway timeout response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence gateway timeout response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement adherence gateway timeout response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement adherence gateway timeout response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWorkforcemanagementAdherenceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence][%d] getWorkforcemanagementAdherenceGatewayTimeout  %+v", 504, o.Payload)
 }
 

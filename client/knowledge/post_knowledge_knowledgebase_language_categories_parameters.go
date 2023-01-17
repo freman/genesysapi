@@ -18,66 +18,84 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostKnowledgeKnowledgebaseLanguageCategoriesParams creates a new PostKnowledgeKnowledgebaseLanguageCategoriesParams object
-// with the default values initialized.
+// NewPostKnowledgeKnowledgebaseLanguageCategoriesParams creates a new PostKnowledgeKnowledgebaseLanguageCategoriesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostKnowledgeKnowledgebaseLanguageCategoriesParams() *PostKnowledgeKnowledgebaseLanguageCategoriesParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseLanguageCategoriesParamsWithTimeout creates a new PostKnowledgeKnowledgebaseLanguageCategoriesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostKnowledgeKnowledgebaseLanguageCategoriesParamsWithTimeout(timeout time.Duration) *PostKnowledgeKnowledgebaseLanguageCategoriesParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseLanguageCategoriesParamsWithContext creates a new PostKnowledgeKnowledgebaseLanguageCategoriesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostKnowledgeKnowledgebaseLanguageCategoriesParamsWithContext(ctx context.Context) *PostKnowledgeKnowledgebaseLanguageCategoriesParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseLanguageCategoriesParamsWithHTTPClient creates a new PostKnowledgeKnowledgebaseLanguageCategoriesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostKnowledgeKnowledgebaseLanguageCategoriesParamsWithHTTPClient(client *http.Client) *PostKnowledgeKnowledgebaseLanguageCategoriesParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageCategoriesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageCategoriesParams contains all the parameters to send to the API endpoint
-for the post knowledge knowledgebase language categories operation typically these are written to a http.Request
+/*
+PostKnowledgeKnowledgebaseLanguageCategoriesParams contains all the parameters to send to the API endpoint
+
+	for the post knowledge knowledgebase language categories operation.
+
+	Typically these are written to a http.Request.
 */
 type PostKnowledgeKnowledgebaseLanguageCategoriesParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.KnowledgeCategoryRequest
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LanguageCode
-	  Language code, format: iso2-LOCALE
 
+	/* LanguageCode.
+
+	   Language code, format: iso2-LOCALE
 	*/
 	LanguageCode string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post knowledge knowledgebase language categories params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesParams) WithDefaults() *PostKnowledgeKnowledgebaseLanguageCategoriesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post knowledge knowledgebase language categories params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseLanguageCategoriesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post knowledge knowledgebase language categories params
@@ -153,7 +171,6 @@ func (o *PostKnowledgeKnowledgebaseLanguageCategoriesParams) WriteToRequest(r ru
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

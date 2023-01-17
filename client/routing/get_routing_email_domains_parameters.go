@@ -17,71 +17,110 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRoutingEmailDomainsParams creates a new GetRoutingEmailDomainsParams object
-// with the default values initialized.
+// NewGetRoutingEmailDomainsParams creates a new GetRoutingEmailDomainsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingEmailDomainsParams() *GetRoutingEmailDomainsParams {
-	var (
-		excludeStatusDefault = bool(false)
-	)
 	return &GetRoutingEmailDomainsParams{
-		ExcludeStatus: &excludeStatusDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingEmailDomainsParamsWithTimeout creates a new GetRoutingEmailDomainsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingEmailDomainsParamsWithTimeout(timeout time.Duration) *GetRoutingEmailDomainsParams {
-	var (
-		excludeStatusDefault = bool(false)
-	)
 	return &GetRoutingEmailDomainsParams{
-		ExcludeStatus: &excludeStatusDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingEmailDomainsParamsWithContext creates a new GetRoutingEmailDomainsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingEmailDomainsParamsWithContext(ctx context.Context) *GetRoutingEmailDomainsParams {
-	var (
-		excludeStatusDefault = bool(false)
-	)
 	return &GetRoutingEmailDomainsParams{
-		ExcludeStatus: &excludeStatusDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingEmailDomainsParamsWithHTTPClient creates a new GetRoutingEmailDomainsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingEmailDomainsParamsWithHTTPClient(client *http.Client) *GetRoutingEmailDomainsParams {
-	var (
-		excludeStatusDefault = bool(false)
-	)
 	return &GetRoutingEmailDomainsParams{
-		ExcludeStatus: &excludeStatusDefault,
-		HTTPClient:    client,
+		HTTPClient: client,
 	}
 }
 
-/*GetRoutingEmailDomainsParams contains all the parameters to send to the API endpoint
-for the get routing email domains operation typically these are written to a http.Request
+/*
+GetRoutingEmailDomainsParams contains all the parameters to send to the API endpoint
+
+	for the get routing email domains operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingEmailDomainsParams struct {
 
-	/*ExcludeStatus
-	  Exclude MX record data
+	/* ExcludeStatus.
 
+	   Exclude MX record data
 	*/
 	ExcludeStatus *bool
+
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
+	*/
+	PageNumber *int32
+
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
+	*/
+	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing email domains params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingEmailDomainsParams) WithDefaults() *GetRoutingEmailDomainsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing email domains params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingEmailDomainsParams) SetDefaults() {
+	var (
+		excludeStatusDefault = bool(false)
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetRoutingEmailDomainsParams{
+		ExcludeStatus: &excludeStatusDefault,
+		PageNumber:    &pageNumberDefault,
+		PageSize:      &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get routing email domains params
@@ -128,6 +167,28 @@ func (o *GetRoutingEmailDomainsParams) SetExcludeStatus(excludeStatus *bool) {
 	o.ExcludeStatus = excludeStatus
 }
 
+// WithPageNumber adds the pageNumber to the get routing email domains params
+func (o *GetRoutingEmailDomainsParams) WithPageNumber(pageNumber *int32) *GetRoutingEmailDomainsParams {
+	o.SetPageNumber(pageNumber)
+	return o
+}
+
+// SetPageNumber adds the pageNumber to the get routing email domains params
+func (o *GetRoutingEmailDomainsParams) SetPageNumber(pageNumber *int32) {
+	o.PageNumber = pageNumber
+}
+
+// WithPageSize adds the pageSize to the get routing email domains params
+func (o *GetRoutingEmailDomainsParams) WithPageSize(pageSize *int32) *GetRoutingEmailDomainsParams {
+	o.SetPageSize(pageSize)
+	return o
+}
+
+// SetPageSize adds the pageSize to the get routing email domains params
+func (o *GetRoutingEmailDomainsParams) SetPageSize(pageSize *int32) {
+	o.PageSize = pageSize
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *GetRoutingEmailDomainsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -140,16 +201,51 @@ func (o *GetRoutingEmailDomainsParams) WriteToRequest(r runtime.ClientRequest, r
 
 		// query param excludeStatus
 		var qrExcludeStatus bool
+
 		if o.ExcludeStatus != nil {
 			qrExcludeStatus = *o.ExcludeStatus
 		}
 		qExcludeStatus := swag.FormatBool(qrExcludeStatus)
 		if qExcludeStatus != "" {
+
 			if err := r.SetQueryParam("excludeStatus", qExcludeStatus); err != nil {
 				return err
 			}
 		}
+	}
 
+	if o.PageNumber != nil {
+
+		// query param pageNumber
+		var qrPageNumber int32
+
+		if o.PageNumber != nil {
+			qrPageNumber = *o.PageNumber
+		}
+		qPageNumber := swag.FormatInt32(qrPageNumber)
+		if qPageNumber != "" {
+
+			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.PageSize != nil {
+
+		// query param pageSize
+		var qrPageSize int32
+
+		if o.PageSize != nil {
+			qrPageSize = *o.PageSize
+		}
+		qPageSize := swag.FormatInt32(qrPageSize)
+		if qPageSize != "" {
+
+			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
+				return err
+			}
+		}
 	}
 
 	if len(res) > 0 {

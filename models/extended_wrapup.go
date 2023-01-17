@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -58,7 +60,6 @@ func (m *ExtendedWrapup) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ExtendedWrapup) validateEndTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndTime) { // not required
 		return nil
 	}
@@ -67,6 +68,11 @@ func (m *ExtendedWrapup) validateEndTime(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this extended wrapup based on context it is used
+func (m *ExtendedWrapup) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

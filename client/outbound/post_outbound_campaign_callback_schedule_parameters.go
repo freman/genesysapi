@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOutboundCampaignCallbackScheduleParams creates a new PostOutboundCampaignCallbackScheduleParams object
-// with the default values initialized.
+// NewPostOutboundCampaignCallbackScheduleParams creates a new PostOutboundCampaignCallbackScheduleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundCampaignCallbackScheduleParams() *PostOutboundCampaignCallbackScheduleParams {
-	var ()
 	return &PostOutboundCampaignCallbackScheduleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundCampaignCallbackScheduleParamsWithTimeout creates a new PostOutboundCampaignCallbackScheduleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundCampaignCallbackScheduleParamsWithTimeout(timeout time.Duration) *PostOutboundCampaignCallbackScheduleParams {
-	var ()
 	return &PostOutboundCampaignCallbackScheduleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundCampaignCallbackScheduleParamsWithContext creates a new PostOutboundCampaignCallbackScheduleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundCampaignCallbackScheduleParamsWithContext(ctx context.Context) *PostOutboundCampaignCallbackScheduleParams {
-	var ()
 	return &PostOutboundCampaignCallbackScheduleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundCampaignCallbackScheduleParamsWithHTTPClient creates a new PostOutboundCampaignCallbackScheduleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundCampaignCallbackScheduleParamsWithHTTPClient(client *http.Client) *PostOutboundCampaignCallbackScheduleParams {
-	var ()
 	return &PostOutboundCampaignCallbackScheduleParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundCampaignCallbackScheduleParams contains all the parameters to send to the API endpoint
-for the post outbound campaign callback schedule operation typically these are written to a http.Request
+/*
+PostOutboundCampaignCallbackScheduleParams contains all the parameters to send to the API endpoint
+
+	for the post outbound campaign callback schedule operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundCampaignCallbackScheduleParams struct {
 
-	/*Body
-	  ContactCallbackRequest
+	/* Body.
 
+	   ContactCallbackRequest
 	*/
 	Body *models.ContactCallbackRequest
-	/*CampaignID
-	  Campaign ID
 
+	/* CampaignID.
+
+	   Campaign ID
 	*/
 	CampaignID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound campaign callback schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundCampaignCallbackScheduleParams) WithDefaults() *PostOutboundCampaignCallbackScheduleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound campaign callback schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundCampaignCallbackScheduleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound campaign callback schedule params
@@ -140,7 +157,6 @@ func (o *PostOutboundCampaignCallbackScheduleParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

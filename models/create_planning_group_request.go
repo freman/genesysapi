@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -83,6 +84,8 @@ func (m *CreatePlanningGroupRequest) validateRoutePaths(formats strfmt.Registry)
 			if err := m.RoutePaths[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("routePaths" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routePaths" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -97,6 +100,40 @@ func (m *CreatePlanningGroupRequest) validateServiceGoalTemplateID(formats strfm
 
 	if err := validate.Required("serviceGoalTemplateId", "body", m.ServiceGoalTemplateID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this create planning group request based on the context it is used
+func (m *CreatePlanningGroupRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRoutePaths(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CreatePlanningGroupRequest) contextValidateRoutePaths(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RoutePaths); i++ {
+
+		if m.RoutePaths[i] != nil {
+			if err := m.RoutePaths[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("routePaths" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routePaths" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

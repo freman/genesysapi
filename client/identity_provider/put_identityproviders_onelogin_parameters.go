@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutIdentityprovidersOneloginParams creates a new PutIdentityprovidersOneloginParams object
-// with the default values initialized.
+// NewPutIdentityprovidersOneloginParams creates a new PutIdentityprovidersOneloginParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutIdentityprovidersOneloginParams() *PutIdentityprovidersOneloginParams {
-	var ()
 	return &PutIdentityprovidersOneloginParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutIdentityprovidersOneloginParamsWithTimeout creates a new PutIdentityprovidersOneloginParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutIdentityprovidersOneloginParamsWithTimeout(timeout time.Duration) *PutIdentityprovidersOneloginParams {
-	var ()
 	return &PutIdentityprovidersOneloginParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutIdentityprovidersOneloginParamsWithContext creates a new PutIdentityprovidersOneloginParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutIdentityprovidersOneloginParamsWithContext(ctx context.Context) *PutIdentityprovidersOneloginParams {
-	var ()
 	return &PutIdentityprovidersOneloginParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutIdentityprovidersOneloginParamsWithHTTPClient creates a new PutIdentityprovidersOneloginParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutIdentityprovidersOneloginParamsWithHTTPClient(client *http.Client) *PutIdentityprovidersOneloginParams {
-	var ()
 	return &PutIdentityprovidersOneloginParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutIdentityprovidersOneloginParams contains all the parameters to send to the API endpoint
-for the put identityproviders onelogin operation typically these are written to a http.Request
+/*
+PutIdentityprovidersOneloginParams contains all the parameters to send to the API endpoint
+
+	for the put identityproviders onelogin operation.
+
+	Typically these are written to a http.Request.
 */
 type PutIdentityprovidersOneloginParams struct {
 
-	/*Body
-	  Provider
+	/* Body.
 
+	   Provider
 	*/
 	Body *models.OneLogin
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put identityproviders onelogin params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersOneloginParams) WithDefaults() *PutIdentityprovidersOneloginParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put identityproviders onelogin params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersOneloginParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put identityproviders onelogin params
@@ -124,7 +140,6 @@ func (o *PutIdentityprovidersOneloginParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

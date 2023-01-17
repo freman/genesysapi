@@ -17,127 +17,148 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRoutingSmsPhonenumbersParams creates a new GetRoutingSmsPhonenumbersParams object
-// with the default values initialized.
+// NewGetRoutingSmsPhonenumbersParams creates a new GetRoutingSmsPhonenumbersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingSmsPhonenumbersParams() *GetRoutingSmsPhonenumbersParams {
-	var (
-		languageDefault   = string("en-US")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetRoutingSmsPhonenumbersParams{
-		Language:   &languageDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingSmsPhonenumbersParamsWithTimeout creates a new GetRoutingSmsPhonenumbersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingSmsPhonenumbersParamsWithTimeout(timeout time.Duration) *GetRoutingSmsPhonenumbersParams {
-	var (
-		languageDefault   = string("en-US")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetRoutingSmsPhonenumbersParams{
-		Language:   &languageDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingSmsPhonenumbersParamsWithContext creates a new GetRoutingSmsPhonenumbersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingSmsPhonenumbersParamsWithContext(ctx context.Context) *GetRoutingSmsPhonenumbersParams {
-	var (
-		languageDefault   = string("en-US")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetRoutingSmsPhonenumbersParams{
-		Language:   &languageDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingSmsPhonenumbersParamsWithHTTPClient creates a new GetRoutingSmsPhonenumbersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingSmsPhonenumbersParamsWithHTTPClient(client *http.Client) *GetRoutingSmsPhonenumbersParams {
-	var (
-		languageDefault   = string("en-US")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetRoutingSmsPhonenumbersParams{
-		Language:   &languageDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingSmsPhonenumbersParams contains all the parameters to send to the API endpoint
-for the get routing sms phonenumbers operation typically these are written to a http.Request
+/*
+GetRoutingSmsPhonenumbersParams contains all the parameters to send to the API endpoint
+
+	for the get routing sms phonenumbers operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingSmsPhonenumbersParams struct {
 
-	/*CountryCode
-	  Filter on country code
+	/* CountryCode.
 
+	   Filter on country code
 	*/
 	CountryCode []string
-	/*Language
-	  A language tag (which is sometimes referred to as a "locale identifier") to use to localize country field and sort operations
 
+	/* Language.
+
+	   A language tag (which is sometimes referred to as a "locale identifier") to use to localize country field and sort operations
+
+	   Default: "en-US"
 	*/
 	Language *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*PhoneNumber
-	  Filter on phone number address. Allowable characters are the digits '0-9' and the wild card character '\*'. If just digits are present, a contains search is done on the address pattern. For example, '317' could be matched anywhere in the address. An '\*' will match multiple digits. For example, to match a specific area code within the US a pattern like '1317*' could be used.
 
+	/* PhoneNumber.
+
+	   Filter on phone number address. Allowable characters are the digits '0-9' and the wild card character '\*'. If just digits are present, a contains search is done on the address pattern. For example, '317' could be matched anywhere in the address. An '\*' will match multiple digits. For example, to match a specific area code within the US a pattern like '1317*' could be used.
 	*/
 	PhoneNumber *string
-	/*PhoneNumberStatus
-	  Filter on phone number status
 
+	/* PhoneNumberStatus.
+
+	   Filter on phone number status
 	*/
 	PhoneNumberStatus []string
-	/*PhoneNumberType
-	  Filter on phone number type
 
+	/* PhoneNumberType.
+
+	   Filter on phone number type
 	*/
 	PhoneNumberType []string
-	/*SortBy
-	  Optional field to sort results
 
+	/* SortBy.
+
+	   Optional field to sort results
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing sms phonenumbers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingSmsPhonenumbersParams) WithDefaults() *GetRoutingSmsPhonenumbersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing sms phonenumbers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingSmsPhonenumbersParams) SetDefaults() {
+	var (
+		languageDefault = string("en-US")
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetRoutingSmsPhonenumbersParams{
+		Language:   &languageDefault,
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get routing sms phonenumbers params
@@ -280,128 +301,194 @@ func (o *GetRoutingSmsPhonenumbersParams) WriteToRequest(r runtime.ClientRequest
 	}
 	var res []error
 
-	valuesCountryCode := o.CountryCode
+	if o.CountryCode != nil {
 
-	joinedCountryCode := swag.JoinByFormat(valuesCountryCode, "multi")
-	// query array param countryCode
-	if err := r.SetQueryParam("countryCode", joinedCountryCode...); err != nil {
-		return err
+		// binding items for countryCode
+		joinedCountryCode := o.bindParamCountryCode(reg)
+
+		// query array param countryCode
+		if err := r.SetQueryParam("countryCode", joinedCountryCode...); err != nil {
+			return err
+		}
 	}
 
 	if o.Language != nil {
 
 		// query param language
 		var qrLanguage string
+
 		if o.Language != nil {
 			qrLanguage = *o.Language
 		}
 		qLanguage := qrLanguage
 		if qLanguage != "" {
+
 			if err := r.SetQueryParam("language", qLanguage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PhoneNumber != nil {
 
 		// query param phoneNumber
 		var qrPhoneNumber string
+
 		if o.PhoneNumber != nil {
 			qrPhoneNumber = *o.PhoneNumber
 		}
 		qPhoneNumber := qrPhoneNumber
 		if qPhoneNumber != "" {
+
 			if err := r.SetQueryParam("phoneNumber", qPhoneNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesPhoneNumberStatus := o.PhoneNumberStatus
+	if o.PhoneNumberStatus != nil {
 
-	joinedPhoneNumberStatus := swag.JoinByFormat(valuesPhoneNumberStatus, "multi")
-	// query array param phoneNumberStatus
-	if err := r.SetQueryParam("phoneNumberStatus", joinedPhoneNumberStatus...); err != nil {
-		return err
+		// binding items for phoneNumberStatus
+		joinedPhoneNumberStatus := o.bindParamPhoneNumberStatus(reg)
+
+		// query array param phoneNumberStatus
+		if err := r.SetQueryParam("phoneNumberStatus", joinedPhoneNumberStatus...); err != nil {
+			return err
+		}
 	}
 
-	valuesPhoneNumberType := o.PhoneNumberType
+	if o.PhoneNumberType != nil {
 
-	joinedPhoneNumberType := swag.JoinByFormat(valuesPhoneNumberType, "multi")
-	// query array param phoneNumberType
-	if err := r.SetQueryParam("phoneNumberType", joinedPhoneNumberType...); err != nil {
-		return err
+		// binding items for phoneNumberType
+		joinedPhoneNumberType := o.bindParamPhoneNumberType(reg)
+
+		// query array param phoneNumberType
+		if err := r.SetQueryParam("phoneNumberType", joinedPhoneNumberType...); err != nil {
+			return err
+		}
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetRoutingSmsPhonenumbers binds the parameter countryCode
+func (o *GetRoutingSmsPhonenumbersParams) bindParamCountryCode(formats strfmt.Registry) []string {
+	countryCodeIR := o.CountryCode
+
+	var countryCodeIC []string
+	for _, countryCodeIIR := range countryCodeIR { // explode []string
+
+		countryCodeIIV := countryCodeIIR // string as string
+		countryCodeIC = append(countryCodeIC, countryCodeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	countryCodeIS := swag.JoinByFormat(countryCodeIC, "multi")
+
+	return countryCodeIS
+}
+
+// bindParamGetRoutingSmsPhonenumbers binds the parameter phoneNumberStatus
+func (o *GetRoutingSmsPhonenumbersParams) bindParamPhoneNumberStatus(formats strfmt.Registry) []string {
+	phoneNumberStatusIR := o.PhoneNumberStatus
+
+	var phoneNumberStatusIC []string
+	for _, phoneNumberStatusIIR := range phoneNumberStatusIR { // explode []string
+
+		phoneNumberStatusIIV := phoneNumberStatusIIR // string as string
+		phoneNumberStatusIC = append(phoneNumberStatusIC, phoneNumberStatusIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	phoneNumberStatusIS := swag.JoinByFormat(phoneNumberStatusIC, "multi")
+
+	return phoneNumberStatusIS
+}
+
+// bindParamGetRoutingSmsPhonenumbers binds the parameter phoneNumberType
+func (o *GetRoutingSmsPhonenumbersParams) bindParamPhoneNumberType(formats strfmt.Registry) []string {
+	phoneNumberTypeIR := o.PhoneNumberType
+
+	var phoneNumberTypeIC []string
+	for _, phoneNumberTypeIIR := range phoneNumberTypeIR { // explode []string
+
+		phoneNumberTypeIIV := phoneNumberTypeIIR // string as string
+		phoneNumberTypeIC = append(phoneNumberTypeIC, phoneNumberTypeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	phoneNumberTypeIS := swag.JoinByFormat(phoneNumberTypeIC, "multi")
+
+	return phoneNumberTypeIS
 }

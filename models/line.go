@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -167,7 +168,6 @@ func (m *Line) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Line) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -180,7 +180,6 @@ func (m *Line) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Line) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -193,7 +192,6 @@ func (m *Line) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *Line) validateDefaultForUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DefaultForUser) { // not required
 		return nil
 	}
@@ -202,6 +200,8 @@ func (m *Line) validateDefaultForUser(formats strfmt.Registry) error {
 		if err := m.DefaultForUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("defaultForUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("defaultForUser")
 			}
 			return err
 		}
@@ -211,7 +211,6 @@ func (m *Line) validateDefaultForUser(formats strfmt.Registry) error {
 }
 
 func (m *Line) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -220,6 +219,8 @@ func (m *Line) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -229,7 +230,6 @@ func (m *Line) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *Line) validateEdgeGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EdgeGroup) { // not required
 		return nil
 	}
@@ -238,6 +238,8 @@ func (m *Line) validateEdgeGroup(formats strfmt.Registry) error {
 		if err := m.EdgeGroup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edgeGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edgeGroup")
 			}
 			return err
 		}
@@ -247,7 +249,6 @@ func (m *Line) validateEdgeGroup(formats strfmt.Registry) error {
 }
 
 func (m *Line) validateLineBaseSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LineBaseSettings) { // not required
 		return nil
 	}
@@ -256,6 +257,8 @@ func (m *Line) validateLineBaseSettings(formats strfmt.Registry) error {
 		if err := m.LineBaseSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lineBaseSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lineBaseSettings")
 			}
 			return err
 		}
@@ -265,7 +268,6 @@ func (m *Line) validateLineBaseSettings(formats strfmt.Registry) error {
 }
 
 func (m *Line) validateLoggedInUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LoggedInUser) { // not required
 		return nil
 	}
@@ -274,6 +276,8 @@ func (m *Line) validateLoggedInUser(formats strfmt.Registry) error {
 		if err := m.LoggedInUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("loggedInUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("loggedInUser")
 			}
 			return err
 		}
@@ -292,7 +296,6 @@ func (m *Line) validateName(formats strfmt.Registry) error {
 }
 
 func (m *Line) validatePrimaryEdge(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PrimaryEdge) { // not required
 		return nil
 	}
@@ -301,6 +304,8 @@ func (m *Line) validatePrimaryEdge(formats strfmt.Registry) error {
 		if err := m.PrimaryEdge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("primaryEdge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("primaryEdge")
 			}
 			return err
 		}
@@ -310,7 +315,6 @@ func (m *Line) validatePrimaryEdge(formats strfmt.Registry) error {
 }
 
 func (m *Line) validateSecondaryEdge(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SecondaryEdge) { // not required
 		return nil
 	}
@@ -319,6 +323,8 @@ func (m *Line) validateSecondaryEdge(formats strfmt.Registry) error {
 		if err := m.SecondaryEdge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("secondaryEdge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secondaryEdge")
 			}
 			return err
 		}
@@ -328,7 +334,6 @@ func (m *Line) validateSecondaryEdge(formats strfmt.Registry) error {
 }
 
 func (m *Line) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -341,7 +346,6 @@ func (m *Line) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *Line) validateSite(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Site) { // not required
 		return nil
 	}
@@ -350,6 +354,8 @@ func (m *Line) validateSite(formats strfmt.Registry) error {
 		if err := m.Site.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("site")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("site")
 			}
 			return err
 		}
@@ -391,7 +397,6 @@ func (m *Line) validateStateEnum(path, location string, value string) error {
 }
 
 func (m *Line) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -405,7 +410,6 @@ func (m *Line) validateState(formats strfmt.Registry) error {
 }
 
 func (m *Line) validateTemplate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Template) { // not required
 		return nil
 	}
@@ -414,6 +418,315 @@ func (m *Line) validateTemplate(formats strfmt.Registry) error {
 		if err := m.Template.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("template")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("template")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this line based on the context it is used
+func (m *Line) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDefaultForUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEdgeGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLineBaseSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLoggedInUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrimaryEdge(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSecondaryEdge(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSite(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Line) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdBy", "body", string(m.CreatedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateCreatedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdByApp", "body", string(m.CreatedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateDefaultForUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DefaultForUser != nil {
+		if err := m.DefaultForUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("defaultForUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("defaultForUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateEdgeGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EdgeGroup != nil {
+		if err := m.EdgeGroup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("edgeGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edgeGroup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateLineBaseSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LineBaseSettings != nil {
+		if err := m.LineBaseSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lineBaseSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lineBaseSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateLoggedInUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LoggedInUser != nil {
+		if err := m.LoggedInUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("loggedInUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("loggedInUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedBy", "body", string(m.ModifiedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateModifiedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedByApp", "body", string(m.ModifiedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidatePrimaryEdge(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PrimaryEdge != nil {
+		if err := m.PrimaryEdge.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("primaryEdge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("primaryEdge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateSecondaryEdge(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SecondaryEdge != nil {
+		if err := m.SecondaryEdge.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("secondaryEdge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secondaryEdge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateSite(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Site != nil {
+		if err := m.Site.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("site")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("site")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Line) contextValidateTemplate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Template != nil {
+		if err := m.Template.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("template")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("template")
 			}
 			return err
 		}

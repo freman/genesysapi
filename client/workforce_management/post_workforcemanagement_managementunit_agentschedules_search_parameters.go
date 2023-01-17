@@ -19,74 +19,93 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementManagementunitAgentschedulesSearchParams creates a new PostWorkforcemanagementManagementunitAgentschedulesSearchParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementManagementunitAgentschedulesSearchParams creates a new PostWorkforcemanagementManagementunitAgentschedulesSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementManagementunitAgentschedulesSearchParams() *PostWorkforcemanagementManagementunitAgentschedulesSearchParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitAgentschedulesSearchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitAgentschedulesSearchParamsWithTimeout creates a new PostWorkforcemanagementManagementunitAgentschedulesSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementManagementunitAgentschedulesSearchParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementManagementunitAgentschedulesSearchParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitAgentschedulesSearchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitAgentschedulesSearchParamsWithContext creates a new PostWorkforcemanagementManagementunitAgentschedulesSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementManagementunitAgentschedulesSearchParamsWithContext(ctx context.Context) *PostWorkforcemanagementManagementunitAgentschedulesSearchParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitAgentschedulesSearchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitAgentschedulesSearchParamsWithHTTPClient creates a new PostWorkforcemanagementManagementunitAgentschedulesSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementManagementunitAgentschedulesSearchParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementManagementunitAgentschedulesSearchParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitAgentschedulesSearchParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementManagementunitAgentschedulesSearchParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement managementunit agentschedules search operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementManagementunitAgentschedulesSearchParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement managementunit agentschedules search operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementManagementunitAgentschedulesSearchParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.BuSearchAgentSchedulesRequest
-	/*ForceAsync
-	  Force the result of this operation to be sent asynchronously via notification. For testing/app development purposes
 
+	/* ForceAsync.
+
+	   Force the result of this operation to be sent asynchronously via notification. For testing/app development purposes
 	*/
 	ForceAsync *bool
-	/*ForceDownloadService
-	  Force the result of this operation to be sent via download service. For testing/app development purposes
 
+	/* ForceDownloadService.
+
+	   Force the result of this operation to be sent via download service. For testing/app development purposes
 	*/
 	ForceDownloadService *bool
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement managementunit agentschedules search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitAgentschedulesSearchParams) WithDefaults() *PostWorkforcemanagementManagementunitAgentschedulesSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement managementunit agentschedules search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitAgentschedulesSearchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement managementunit agentschedules search params
@@ -173,7 +192,6 @@ func (o *PostWorkforcemanagementManagementunitAgentschedulesSearchParams) WriteT
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -184,32 +202,34 @@ func (o *PostWorkforcemanagementManagementunitAgentschedulesSearchParams) WriteT
 
 		// query param forceAsync
 		var qrForceAsync bool
+
 		if o.ForceAsync != nil {
 			qrForceAsync = *o.ForceAsync
 		}
 		qForceAsync := swag.FormatBool(qrForceAsync)
 		if qForceAsync != "" {
+
 			if err := r.SetQueryParam("forceAsync", qForceAsync); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ForceDownloadService != nil {
 
 		// query param forceDownloadService
 		var qrForceDownloadService bool
+
 		if o.ForceDownloadService != nil {
 			qrForceDownloadService = *o.ForceDownloadService
 		}
 		qForceDownloadService := swag.FormatBool(qrForceDownloadService)
 		if qForceDownloadService != "" {
+
 			if err := r.SetQueryParam("forceDownloadService", qForceDownloadService); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param managementUnitId

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementTimeoffrequestWaitlistpositionsParams creates a new GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementTimeoffrequestWaitlistpositionsParams creates a new GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementTimeoffrequestWaitlistpositionsParams() *GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams {
-	var ()
 	return &GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementTimeoffrequestWaitlistpositionsParamsWithTimeout creates a new GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementTimeoffrequestWaitlistpositionsParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams {
-	var ()
 	return &GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementTimeoffrequestWaitlistpositionsParamsWithContext creates a new GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementTimeoffrequestWaitlistpositionsParamsWithContext(ctx context.Context) *GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams {
-	var ()
 	return &GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementTimeoffrequestWaitlistpositionsParamsWithHTTPClient creates a new GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementTimeoffrequestWaitlistpositionsParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams {
-	var ()
 	return &GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement timeoffrequest waitlistpositions operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement timeoffrequest waitlistpositions operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams struct {
 
-	/*TimeOffRequestID
-	  The ID of the time off request
+	/* TimeOffRequestID.
 
+	   The ID of the time off request
 	*/
 	TimeOffRequestID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement timeoffrequest waitlistpositions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams) WithDefaults() *GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement timeoffrequest waitlistpositions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementTimeoffrequestWaitlistpositionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement timeoffrequest waitlistpositions params

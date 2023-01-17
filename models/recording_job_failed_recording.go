@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -44,7 +46,6 @@ func (m *RecordingJobFailedRecording) Validate(formats strfmt.Registry) error {
 }
 
 func (m *RecordingJobFailedRecording) validateConversation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversation) { // not required
 		return nil
 	}
@@ -53,6 +54,8 @@ func (m *RecordingJobFailedRecording) validateConversation(formats strfmt.Regist
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}
@@ -62,7 +65,6 @@ func (m *RecordingJobFailedRecording) validateConversation(formats strfmt.Regist
 }
 
 func (m *RecordingJobFailedRecording) validateRecording(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Recording) { // not required
 		return nil
 	}
@@ -71,6 +73,58 @@ func (m *RecordingJobFailedRecording) validateRecording(formats strfmt.Registry)
 		if err := m.Recording.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("recording")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recording")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this recording job failed recording based on the context it is used
+func (m *RecordingJobFailedRecording) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRecording(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RecordingJobFailedRecording) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RecordingJobFailedRecording) contextValidateRecording(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Recording != nil {
+		if err := m.Recording.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("recording")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recording")
 			}
 			return err
 		}

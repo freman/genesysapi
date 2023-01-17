@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -26,7 +27,7 @@ type EntityChange struct {
 	EntityName string `json:"entityName,omitempty"`
 
 	// Type of the entity that was changed
-	// Enum: [AccessToken Action ActionDraft ActionMap ActionTemplate ActivityCode AdherenceExplanation AgentRoutingInfo AnalyticsReportingSettings Annotation Appointment Assignment AttemptLimits AuthOrganization AuthUser Bulk BulkActions BusinessUnit Calibration CallableTimeSet CallAnalysisResponseSet Campaign CampaignRule CampaignSchedule ChangeRequest ClickstreamSettings Configuration ConfigurationVersion ContactList ContactListFilter ContactSchema ConversationAttributes ConversationAccount ConversationDefaultSupportedContent ConversationPhoneNumber ConversationRecipient ConversationThreadingWindow Credential DashboardSettings DefaultPanelSettings DependencyTrackingBuild Deployment DID DIDPool DigitalRuleSet DirectoryGroup DNCList Document DynamicGroup DynamicSchema Edge EdgeGroup EdgeLog EdgeLogZip EdgePcaps EdgePreferences EdgeTraceLevel EmailCampaignSchedule EmergencyGroup EnterpriseAgreement Evaluation EvaluationForm EventType Exports Extension ExtensionPool ExternalMetricsData ExternalMetricsDefinition ExternalOrganizationSchema Feedback Flow FlowMilestone FlowOutcome Forecast GdprRequest HistoricalData InsightSettings Integration IVR KnowledgeBase KnowledgeCategory KnowledgeDocument KnowledgeDocumentVariation KnowledgeLabel KnowledgeSearchFeedback KnowledgeTraining Line LineBase Location ManagementUnit MaxOrgRoutingUtilizationCapacity MediaDiagnosticsTraceFile MessagingCampaign MessagingCampaignSchedule Metric Module NumberOrder NumberPlan OAuthClient OAuthClientAuthorization OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust OrganizationFeature OrganizationIntegrationsAccess OrganizationSettings OrphanedRecording OutboundRoute Outcome Pcaps Phone PhoneBase PlanningGroup Policy Predictor Product Profile ProfileMembers Program Prompt PromptResource Queue Recording RecordingAnnotation RecordingKey RecordingKeyConfig RecordingSettings Response ResponseAsset Role Row RoutingTranscriptionSettings RoutingUtilizationTag Rule RuleSet Schedule ScheduledExports ScheduleGroup Schema ScreenRecording Segment SentimentFeedback Sequence SequenceSchedule ServiceGoalTemplate SessionType ShiftTrade Site SkillsGroup SpeechTextAnalyticsSettings Status SupportedContent SupportFile Survey SurveyForm Team TimeOffLimit TimeOffPlan TimeOffRequest Topic TranscriptionSettings Trigger Trunk TrunkBase User UserPresence VoicemailPolicy VoicemailUserPolicy Webhook Workbin Workitem WorkPlan WorkPlanRotation Workspace Worktype WrapupCode WrapUpCodeMapping Participant]
+	// Enum: [AccessToken Action ActionDraft ActionMap ActionTemplate ActivityCode AdherenceExplanation AgentRoutingInfo AnalyticsReportingSettings Annotation Appointment Assignment AttemptLimits AuthOrganization AuthUser Bulk BulkActions BusinessUnit Calibration CallableTimeSet CallAnalysisResponseSet Campaign CampaignRule CampaignSchedule ChangeRequest ClickstreamSettings Configuration ConfigurationVersion ContactList ContactListFilter ContactSchema ConversationAttributes ConversationAccount ConversationDefaultSupportedContent ConversationPhoneNumber ConversationRecipient ConversationThreadingWindow Credential DashboardSettings DefaultPanelSettings DependencyTrackingBuild Deployment DID DIDPool DigitalRuleSet DirectoryGroup DNCList Document DynamicGroup DynamicSchema Edge EdgeGroup EdgeLog EdgeLogZip EdgePcaps EdgePreferences EdgeTraceLevel EmailCampaignSchedule EmergencyGroup EnterpriseAgreement Evaluation EvaluationForm EventType Exports Extension ExtensionPool ExternalMetricsData ExternalMetricsDefinition ExternalOrganizationSchema Feedback Flow FlowMilestone FlowOutcome Forecast GdprRequest Group HistoricalData InboundDomain InboundRoute InsightSettings Integration IVR KnowledgeBase KnowledgeCategory KnowledgeDocument KnowledgeDocumentVariation KnowledgeLabel KnowledgeSearchFeedback KnowledgeTraining Line LineBase Location ManagementUnit MaxOrgRoutingUtilizationCapacity MediaDiagnosticsTraceFile MessagingCampaign MessagingCampaignSchedule Metric Module NumberOrder NumberPlan OAuthClient OAuthClientAuthorization Organization OrganizationAuthorizationTrust OrganizationAuthorizationUserTrust OrganizationFeature OrganizationIntegrationsAccess OrganizationLimits OrganizationSettings OrphanedRecording OutboundDomain OutboundRoute Outcome Pcaps Phone PhoneBase PlanningGroup Policy Predictor Product Profile ProfileMembers Program Prompt PromptResource Public Queue Recording RecordingAnnotation RecordingKey RecordingKeyConfig RecordingSettings Response ResponseAsset Role RoleSettings Row RoutingTranscriptionSettings RoutingUtilizationTag Rule RuleSet Schedule ScheduledExports ScheduleGroup Schema ScreenRecording Segment SentimentFeedback Sequence SequenceSchedule ServiceGoalTemplate SessionType ShiftTrade Site SkillsGroup SpeechTextAnalyticsSettings Status SupportedContent SupportFile Survey SurveyForm Tag Team TimeOffLimit TimeOffPlan TimeOffRequest Topic TranscriptionSettings Trigger Trunk TrunkBase User UserLanguage UserPresence UserSkill VoicemailPolicy VoicemailUserPolicy Webhook Workbin Workitem WorkPlan WorkPlanRotation Workspace Worktype WrapupCode WrapUpCodeMapping Participant]
 	EntityType string `json:"entityType,omitempty"`
 
 	// New values for the entity.
@@ -54,7 +55,7 @@ var entityChangeTypeEntityTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AccessToken","Action","ActionDraft","ActionMap","ActionTemplate","ActivityCode","AdherenceExplanation","AgentRoutingInfo","AnalyticsReportingSettings","Annotation","Appointment","Assignment","AttemptLimits","AuthOrganization","AuthUser","Bulk","BulkActions","BusinessUnit","Calibration","CallableTimeSet","CallAnalysisResponseSet","Campaign","CampaignRule","CampaignSchedule","ChangeRequest","ClickstreamSettings","Configuration","ConfigurationVersion","ContactList","ContactListFilter","ContactSchema","ConversationAttributes","ConversationAccount","ConversationDefaultSupportedContent","ConversationPhoneNumber","ConversationRecipient","ConversationThreadingWindow","Credential","DashboardSettings","DefaultPanelSettings","DependencyTrackingBuild","Deployment","DID","DIDPool","DigitalRuleSet","DirectoryGroup","DNCList","Document","DynamicGroup","DynamicSchema","Edge","EdgeGroup","EdgeLog","EdgeLogZip","EdgePcaps","EdgePreferences","EdgeTraceLevel","EmailCampaignSchedule","EmergencyGroup","EnterpriseAgreement","Evaluation","EvaluationForm","EventType","Exports","Extension","ExtensionPool","ExternalMetricsData","ExternalMetricsDefinition","ExternalOrganizationSchema","Feedback","Flow","FlowMilestone","FlowOutcome","Forecast","GdprRequest","HistoricalData","InsightSettings","Integration","IVR","KnowledgeBase","KnowledgeCategory","KnowledgeDocument","KnowledgeDocumentVariation","KnowledgeLabel","KnowledgeSearchFeedback","KnowledgeTraining","Line","LineBase","Location","ManagementUnit","MaxOrgRoutingUtilizationCapacity","MediaDiagnosticsTraceFile","MessagingCampaign","MessagingCampaignSchedule","Metric","Module","NumberOrder","NumberPlan","OAuthClient","OAuthClientAuthorization","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","OrganizationFeature","OrganizationIntegrationsAccess","OrganizationSettings","OrphanedRecording","OutboundRoute","Outcome","Pcaps","Phone","PhoneBase","PlanningGroup","Policy","Predictor","Product","Profile","ProfileMembers","Program","Prompt","PromptResource","Queue","Recording","RecordingAnnotation","RecordingKey","RecordingKeyConfig","RecordingSettings","Response","ResponseAsset","Role","Row","RoutingTranscriptionSettings","RoutingUtilizationTag","Rule","RuleSet","Schedule","ScheduledExports","ScheduleGroup","Schema","ScreenRecording","Segment","SentimentFeedback","Sequence","SequenceSchedule","ServiceGoalTemplate","SessionType","ShiftTrade","Site","SkillsGroup","SpeechTextAnalyticsSettings","Status","SupportedContent","SupportFile","Survey","SurveyForm","Team","TimeOffLimit","TimeOffPlan","TimeOffRequest","Topic","TranscriptionSettings","Trigger","Trunk","TrunkBase","User","UserPresence","VoicemailPolicy","VoicemailUserPolicy","Webhook","Workbin","Workitem","WorkPlan","WorkPlanRotation","Workspace","Worktype","WrapupCode","WrapUpCodeMapping","Participant"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AccessToken","Action","ActionDraft","ActionMap","ActionTemplate","ActivityCode","AdherenceExplanation","AgentRoutingInfo","AnalyticsReportingSettings","Annotation","Appointment","Assignment","AttemptLimits","AuthOrganization","AuthUser","Bulk","BulkActions","BusinessUnit","Calibration","CallableTimeSet","CallAnalysisResponseSet","Campaign","CampaignRule","CampaignSchedule","ChangeRequest","ClickstreamSettings","Configuration","ConfigurationVersion","ContactList","ContactListFilter","ContactSchema","ConversationAttributes","ConversationAccount","ConversationDefaultSupportedContent","ConversationPhoneNumber","ConversationRecipient","ConversationThreadingWindow","Credential","DashboardSettings","DefaultPanelSettings","DependencyTrackingBuild","Deployment","DID","DIDPool","DigitalRuleSet","DirectoryGroup","DNCList","Document","DynamicGroup","DynamicSchema","Edge","EdgeGroup","EdgeLog","EdgeLogZip","EdgePcaps","EdgePreferences","EdgeTraceLevel","EmailCampaignSchedule","EmergencyGroup","EnterpriseAgreement","Evaluation","EvaluationForm","EventType","Exports","Extension","ExtensionPool","ExternalMetricsData","ExternalMetricsDefinition","ExternalOrganizationSchema","Feedback","Flow","FlowMilestone","FlowOutcome","Forecast","GdprRequest","Group","HistoricalData","InboundDomain","InboundRoute","InsightSettings","Integration","IVR","KnowledgeBase","KnowledgeCategory","KnowledgeDocument","KnowledgeDocumentVariation","KnowledgeLabel","KnowledgeSearchFeedback","KnowledgeTraining","Line","LineBase","Location","ManagementUnit","MaxOrgRoutingUtilizationCapacity","MediaDiagnosticsTraceFile","MessagingCampaign","MessagingCampaignSchedule","Metric","Module","NumberOrder","NumberPlan","OAuthClient","OAuthClientAuthorization","Organization","OrganizationAuthorizationTrust","OrganizationAuthorizationUserTrust","OrganizationFeature","OrganizationIntegrationsAccess","OrganizationLimits","OrganizationSettings","OrphanedRecording","OutboundDomain","OutboundRoute","Outcome","Pcaps","Phone","PhoneBase","PlanningGroup","Policy","Predictor","Product","Profile","ProfileMembers","Program","Prompt","PromptResource","Public","Queue","Recording","RecordingAnnotation","RecordingKey","RecordingKeyConfig","RecordingSettings","Response","ResponseAsset","Role","RoleSettings","Row","RoutingTranscriptionSettings","RoutingUtilizationTag","Rule","RuleSet","Schedule","ScheduledExports","ScheduleGroup","Schema","ScreenRecording","Segment","SentimentFeedback","Sequence","SequenceSchedule","ServiceGoalTemplate","SessionType","ShiftTrade","Site","SkillsGroup","SpeechTextAnalyticsSettings","Status","SupportedContent","SupportFile","Survey","SurveyForm","Tag","Team","TimeOffLimit","TimeOffPlan","TimeOffRequest","Topic","TranscriptionSettings","Trigger","Trunk","TrunkBase","User","UserLanguage","UserPresence","UserSkill","VoicemailPolicy","VoicemailUserPolicy","Webhook","Workbin","Workitem","WorkPlan","WorkPlanRotation","Workspace","Worktype","WrapupCode","WrapUpCodeMapping","Participant"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -289,8 +290,17 @@ const (
 	// EntityChangeEntityTypeGdprRequest captures enum value "GdprRequest"
 	EntityChangeEntityTypeGdprRequest string = "GdprRequest"
 
+	// EntityChangeEntityTypeGroup captures enum value "Group"
+	EntityChangeEntityTypeGroup string = "Group"
+
 	// EntityChangeEntityTypeHistoricalData captures enum value "HistoricalData"
 	EntityChangeEntityTypeHistoricalData string = "HistoricalData"
+
+	// EntityChangeEntityTypeInboundDomain captures enum value "InboundDomain"
+	EntityChangeEntityTypeInboundDomain string = "InboundDomain"
+
+	// EntityChangeEntityTypeInboundRoute captures enum value "InboundRoute"
+	EntityChangeEntityTypeInboundRoute string = "InboundRoute"
 
 	// EntityChangeEntityTypeInsightSettings captures enum value "InsightSettings"
 	EntityChangeEntityTypeInsightSettings string = "InsightSettings"
@@ -364,6 +374,9 @@ const (
 	// EntityChangeEntityTypeOAuthClientAuthorization captures enum value "OAuthClientAuthorization"
 	EntityChangeEntityTypeOAuthClientAuthorization string = "OAuthClientAuthorization"
 
+	// EntityChangeEntityTypeOrganization captures enum value "Organization"
+	EntityChangeEntityTypeOrganization string = "Organization"
+
 	// EntityChangeEntityTypeOrganizationAuthorizationTrust captures enum value "OrganizationAuthorizationTrust"
 	EntityChangeEntityTypeOrganizationAuthorizationTrust string = "OrganizationAuthorizationTrust"
 
@@ -376,11 +389,17 @@ const (
 	// EntityChangeEntityTypeOrganizationIntegrationsAccess captures enum value "OrganizationIntegrationsAccess"
 	EntityChangeEntityTypeOrganizationIntegrationsAccess string = "OrganizationIntegrationsAccess"
 
+	// EntityChangeEntityTypeOrganizationLimits captures enum value "OrganizationLimits"
+	EntityChangeEntityTypeOrganizationLimits string = "OrganizationLimits"
+
 	// EntityChangeEntityTypeOrganizationSettings captures enum value "OrganizationSettings"
 	EntityChangeEntityTypeOrganizationSettings string = "OrganizationSettings"
 
 	// EntityChangeEntityTypeOrphanedRecording captures enum value "OrphanedRecording"
 	EntityChangeEntityTypeOrphanedRecording string = "OrphanedRecording"
+
+	// EntityChangeEntityTypeOutboundDomain captures enum value "OutboundDomain"
+	EntityChangeEntityTypeOutboundDomain string = "OutboundDomain"
 
 	// EntityChangeEntityTypeOutboundRoute captures enum value "OutboundRoute"
 	EntityChangeEntityTypeOutboundRoute string = "OutboundRoute"
@@ -424,6 +443,9 @@ const (
 	// EntityChangeEntityTypePromptResource captures enum value "PromptResource"
 	EntityChangeEntityTypePromptResource string = "PromptResource"
 
+	// EntityChangeEntityTypePublic captures enum value "Public"
+	EntityChangeEntityTypePublic string = "Public"
+
 	// EntityChangeEntityTypeQueue captures enum value "Queue"
 	EntityChangeEntityTypeQueue string = "Queue"
 
@@ -450,6 +472,9 @@ const (
 
 	// EntityChangeEntityTypeRole captures enum value "Role"
 	EntityChangeEntityTypeRole string = "Role"
+
+	// EntityChangeEntityTypeRoleSettings captures enum value "RoleSettings"
+	EntityChangeEntityTypeRoleSettings string = "RoleSettings"
 
 	// EntityChangeEntityTypeRow captures enum value "Row"
 	EntityChangeEntityTypeRow string = "Row"
@@ -526,6 +551,9 @@ const (
 	// EntityChangeEntityTypeSurveyForm captures enum value "SurveyForm"
 	EntityChangeEntityTypeSurveyForm string = "SurveyForm"
 
+	// EntityChangeEntityTypeTag captures enum value "Tag"
+	EntityChangeEntityTypeTag string = "Tag"
+
 	// EntityChangeEntityTypeTeam captures enum value "Team"
 	EntityChangeEntityTypeTeam string = "Team"
 
@@ -556,8 +584,14 @@ const (
 	// EntityChangeEntityTypeUser captures enum value "User"
 	EntityChangeEntityTypeUser string = "User"
 
+	// EntityChangeEntityTypeUserLanguage captures enum value "UserLanguage"
+	EntityChangeEntityTypeUserLanguage string = "UserLanguage"
+
 	// EntityChangeEntityTypeUserPresence captures enum value "UserPresence"
 	EntityChangeEntityTypeUserPresence string = "UserPresence"
+
+	// EntityChangeEntityTypeUserSkill captures enum value "UserSkill"
+	EntityChangeEntityTypeUserSkill string = "UserSkill"
 
 	// EntityChangeEntityTypeVoicemailPolicy captures enum value "VoicemailPolicy"
 	EntityChangeEntityTypeVoicemailPolicy string = "VoicemailPolicy"
@@ -605,7 +639,6 @@ func (m *EntityChange) validateEntityTypeEnum(path, location string, value strin
 }
 
 func (m *EntityChange) validateEntityType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EntityType) { // not required
 		return nil
 	}
@@ -615,6 +648,11 @@ func (m *EntityChange) validateEntityType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this entity change based on context it is used
+func (m *EntityChange) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

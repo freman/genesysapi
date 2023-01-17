@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutIntegrationConfigCurrentParams creates a new PutIntegrationConfigCurrentParams object
-// with the default values initialized.
+// NewPutIntegrationConfigCurrentParams creates a new PutIntegrationConfigCurrentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutIntegrationConfigCurrentParams() *PutIntegrationConfigCurrentParams {
-	var ()
 	return &PutIntegrationConfigCurrentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutIntegrationConfigCurrentParamsWithTimeout creates a new PutIntegrationConfigCurrentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutIntegrationConfigCurrentParamsWithTimeout(timeout time.Duration) *PutIntegrationConfigCurrentParams {
-	var ()
 	return &PutIntegrationConfigCurrentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutIntegrationConfigCurrentParamsWithContext creates a new PutIntegrationConfigCurrentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutIntegrationConfigCurrentParamsWithContext(ctx context.Context) *PutIntegrationConfigCurrentParams {
-	var ()
 	return &PutIntegrationConfigCurrentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutIntegrationConfigCurrentParamsWithHTTPClient creates a new PutIntegrationConfigCurrentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutIntegrationConfigCurrentParamsWithHTTPClient(client *http.Client) *PutIntegrationConfigCurrentParams {
-	var ()
 	return &PutIntegrationConfigCurrentParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutIntegrationConfigCurrentParams contains all the parameters to send to the API endpoint
-for the put integration config current operation typically these are written to a http.Request
+/*
+PutIntegrationConfigCurrentParams contains all the parameters to send to the API endpoint
+
+	for the put integration config current operation.
+
+	Typically these are written to a http.Request.
 */
 type PutIntegrationConfigCurrentParams struct {
 
-	/*Body
-	  Integration Configuration
+	/* Body.
 
+	   Integration Configuration
 	*/
 	Body *models.IntegrationConfiguration
-	/*IntegrationID
-	  Integration Id
 
+	/* IntegrationID.
+
+	   Integration Id
 	*/
 	IntegrationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put integration config current params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIntegrationConfigCurrentParams) WithDefaults() *PutIntegrationConfigCurrentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put integration config current params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIntegrationConfigCurrentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put integration config current params
@@ -140,7 +157,6 @@ func (o *PutIntegrationConfigCurrentParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

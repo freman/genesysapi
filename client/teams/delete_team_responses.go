@@ -95,7 +95,6 @@ func (o *DeleteTeamReader) ReadResponse(response runtime.ClientResponse, consume
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteTeamNoContent() *DeleteTeamNoContent {
 	return &DeleteTeamNoContent{}
 }
 
-/*DeleteTeamNoContent handles this case with default header values.
+/*
+DeleteTeamNoContent describes a response with status code 204, with default header values.
 
 Success, team was deleted
 */
 type DeleteTeamNoContent struct {
 }
 
+// IsSuccess returns true when this delete team no content response has a 2xx status code
+func (o *DeleteTeamNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete team no content response has a 3xx status code
+func (o *DeleteTeamNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete team no content response has a 4xx status code
+func (o *DeleteTeamNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete team no content response has a 5xx status code
+func (o *DeleteTeamNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete team no content response a status code equal to that given
+func (o *DeleteTeamNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteTeamNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamNoContent ", 204)
+}
+
+func (o *DeleteTeamNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteTeamBadRequest() *DeleteTeamBadRequest {
 	return &DeleteTeamBadRequest{}
 }
 
-/*DeleteTeamBadRequest handles this case with default header values.
+/*
+DeleteTeamBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteTeamBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete team bad request response has a 2xx status code
+func (o *DeleteTeamBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete team bad request response has a 3xx status code
+func (o *DeleteTeamBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete team bad request response has a 4xx status code
+func (o *DeleteTeamBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete team bad request response has a 5xx status code
+func (o *DeleteTeamBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete team bad request response a status code equal to that given
+func (o *DeleteTeamBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteTeamBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteTeamBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteTeamUnauthorized() *DeleteTeamUnauthorized {
 	return &DeleteTeamUnauthorized{}
 }
 
-/*DeleteTeamUnauthorized handles this case with default header values.
+/*
+DeleteTeamUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteTeamUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete team unauthorized response has a 2xx status code
+func (o *DeleteTeamUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete team unauthorized response has a 3xx status code
+func (o *DeleteTeamUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete team unauthorized response has a 4xx status code
+func (o *DeleteTeamUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete team unauthorized response has a 5xx status code
+func (o *DeleteTeamUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete team unauthorized response a status code equal to that given
+func (o *DeleteTeamUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteTeamUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteTeamUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteTeamForbidden() *DeleteTeamForbidden {
 	return &DeleteTeamForbidden{}
 }
 
-/*DeleteTeamForbidden handles this case with default header values.
+/*
+DeleteTeamForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteTeamForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete team forbidden response has a 2xx status code
+func (o *DeleteTeamForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete team forbidden response has a 3xx status code
+func (o *DeleteTeamForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete team forbidden response has a 4xx status code
+func (o *DeleteTeamForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete team forbidden response has a 5xx status code
+func (o *DeleteTeamForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete team forbidden response a status code equal to that given
+func (o *DeleteTeamForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteTeamForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteTeamForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteTeamNotFound() *DeleteTeamNotFound {
 	return &DeleteTeamNotFound{}
 }
 
-/*DeleteTeamNotFound handles this case with default header values.
+/*
+DeleteTeamNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteTeamNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete team not found response has a 2xx status code
+func (o *DeleteTeamNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete team not found response has a 3xx status code
+func (o *DeleteTeamNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete team not found response has a 4xx status code
+func (o *DeleteTeamNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete team not found response has a 5xx status code
+func (o *DeleteTeamNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete team not found response a status code equal to that given
+func (o *DeleteTeamNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteTeamNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteTeamNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteTeamRequestTimeout() *DeleteTeamRequestTimeout {
 	return &DeleteTeamRequestTimeout{}
 }
 
-/*DeleteTeamRequestTimeout handles this case with default header values.
+/*
+DeleteTeamRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteTeamRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete team request timeout response has a 2xx status code
+func (o *DeleteTeamRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete team request timeout response has a 3xx status code
+func (o *DeleteTeamRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete team request timeout response has a 4xx status code
+func (o *DeleteTeamRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete team request timeout response has a 5xx status code
+func (o *DeleteTeamRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete team request timeout response a status code equal to that given
+func (o *DeleteTeamRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteTeamRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteTeamRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteTeamRequestEntityTooLarge() *DeleteTeamRequestEntityTooLarge {
 	return &DeleteTeamRequestEntityTooLarge{}
 }
 
-/*DeleteTeamRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteTeamRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteTeamRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete team request entity too large response has a 2xx status code
+func (o *DeleteTeamRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete team request entity too large response has a 3xx status code
+func (o *DeleteTeamRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete team request entity too large response has a 4xx status code
+func (o *DeleteTeamRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete team request entity too large response has a 5xx status code
+func (o *DeleteTeamRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete team request entity too large response a status code equal to that given
+func (o *DeleteTeamRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteTeamRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteTeamRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteTeamUnsupportedMediaType() *DeleteTeamUnsupportedMediaType {
 	return &DeleteTeamUnsupportedMediaType{}
 }
 
-/*DeleteTeamUnsupportedMediaType handles this case with default header values.
+/*
+DeleteTeamUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteTeamUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete team unsupported media type response has a 2xx status code
+func (o *DeleteTeamUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete team unsupported media type response has a 3xx status code
+func (o *DeleteTeamUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete team unsupported media type response has a 4xx status code
+func (o *DeleteTeamUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete team unsupported media type response has a 5xx status code
+func (o *DeleteTeamUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete team unsupported media type response a status code equal to that given
+func (o *DeleteTeamUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteTeamUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteTeamUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteTeamTooManyRequests() *DeleteTeamTooManyRequests {
 	return &DeleteTeamTooManyRequests{}
 }
 
-/*DeleteTeamTooManyRequests handles this case with default header values.
+/*
+DeleteTeamTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteTeamTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete team too many requests response has a 2xx status code
+func (o *DeleteTeamTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete team too many requests response has a 3xx status code
+func (o *DeleteTeamTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete team too many requests response has a 4xx status code
+func (o *DeleteTeamTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete team too many requests response has a 5xx status code
+func (o *DeleteTeamTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete team too many requests response a status code equal to that given
+func (o *DeleteTeamTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteTeamTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteTeamTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteTeamInternalServerError() *DeleteTeamInternalServerError {
 	return &DeleteTeamInternalServerError{}
 }
 
-/*DeleteTeamInternalServerError handles this case with default header values.
+/*
+DeleteTeamInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteTeamInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete team internal server error response has a 2xx status code
+func (o *DeleteTeamInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete team internal server error response has a 3xx status code
+func (o *DeleteTeamInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete team internal server error response has a 4xx status code
+func (o *DeleteTeamInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete team internal server error response has a 5xx status code
+func (o *DeleteTeamInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete team internal server error response a status code equal to that given
+func (o *DeleteTeamInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteTeamInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteTeamInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteTeamServiceUnavailable() *DeleteTeamServiceUnavailable {
 	return &DeleteTeamServiceUnavailable{}
 }
 
-/*DeleteTeamServiceUnavailable handles this case with default header values.
+/*
+DeleteTeamServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteTeamServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete team service unavailable response has a 2xx status code
+func (o *DeleteTeamServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete team service unavailable response has a 3xx status code
+func (o *DeleteTeamServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete team service unavailable response has a 4xx status code
+func (o *DeleteTeamServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete team service unavailable response has a 5xx status code
+func (o *DeleteTeamServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete team service unavailable response a status code equal to that given
+func (o *DeleteTeamServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteTeamServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteTeamServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteTeamGatewayTimeout() *DeleteTeamGatewayTimeout {
 	return &DeleteTeamGatewayTimeout{}
 }
 
-/*DeleteTeamGatewayTimeout handles this case with default header values.
+/*
+DeleteTeamGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteTeamGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete team gateway timeout response has a 2xx status code
+func (o *DeleteTeamGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete team gateway timeout response has a 3xx status code
+func (o *DeleteTeamGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete team gateway timeout response has a 4xx status code
+func (o *DeleteTeamGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete team gateway timeout response has a 5xx status code
+func (o *DeleteTeamGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete team gateway timeout response a status code equal to that given
+func (o *DeleteTeamGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteTeamGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteTeamGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/teams/{teamId}][%d] deleteTeamGatewayTimeout  %+v", 504, o.Payload)
 }
 

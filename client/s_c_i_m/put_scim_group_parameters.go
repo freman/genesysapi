@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutScimGroupParams creates a new PutScimGroupParams object
-// with the default values initialized.
+// NewPutScimGroupParams creates a new PutScimGroupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutScimGroupParams() *PutScimGroupParams {
-	var ()
 	return &PutScimGroupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutScimGroupParamsWithTimeout creates a new PutScimGroupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutScimGroupParamsWithTimeout(timeout time.Duration) *PutScimGroupParams {
-	var ()
 	return &PutScimGroupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutScimGroupParamsWithContext creates a new PutScimGroupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutScimGroupParamsWithContext(ctx context.Context) *PutScimGroupParams {
-	var ()
 	return &PutScimGroupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutScimGroupParamsWithHTTPClient creates a new PutScimGroupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutScimGroupParamsWithHTTPClient(client *http.Client) *PutScimGroupParams {
-	var ()
 	return &PutScimGroupParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutScimGroupParams contains all the parameters to send to the API endpoint
-for the put scim group operation typically these are written to a http.Request
+/*
+PutScimGroupParams contains all the parameters to send to the API endpoint
+
+	for the put scim group operation.
+
+	Typically these are written to a http.Request.
 */
 type PutScimGroupParams struct {
 
-	/*IfMatch
-	  The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/groups/{groupId}. Example: "42". If the ETag is different from the version on the server, returns 400 with a "scimType" of "invalidVers".
+	/* IfMatch.
 
+	   The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/groups/{groupId}. Example: "42". If the ETag is different from the version on the server, returns 400 with a "scimType" of "invalidVers".
 	*/
 	IfMatch *string
-	/*Body
-	  The information used to replace a group.
 
+	/* Body.
+
+	   The information used to replace a group.
 	*/
 	Body *models.ScimV2Group
-	/*GroupID
-	  The ID of a group. Returned with GET /api/v2/scim/groups.
 
+	/* GroupID.
+
+	   The ID of a group. Returned with GET /api/v2/scim/groups.
 	*/
 	GroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put scim group params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutScimGroupParams) WithDefaults() *PutScimGroupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put scim group params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutScimGroupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put scim group params
@@ -163,9 +181,7 @@ func (o *PutScimGroupParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 		if err := r.SetHeaderParam("If-Match", *o.IfMatch); err != nil {
 			return err
 		}
-
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

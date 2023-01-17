@@ -95,7 +95,6 @@ func (o *DeleteWebchatSettingsReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteWebchatSettingsNoContent() *DeleteWebchatSettingsNoContent {
 	return &DeleteWebchatSettingsNoContent{}
 }
 
-/*DeleteWebchatSettingsNoContent handles this case with default header values.
+/*
+DeleteWebchatSettingsNoContent describes a response with status code 204, with default header values.
 
 Deleted
 */
 type DeleteWebchatSettingsNoContent struct {
 }
 
+// IsSuccess returns true when this delete webchat settings no content response has a 2xx status code
+func (o *DeleteWebchatSettingsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete webchat settings no content response has a 3xx status code
+func (o *DeleteWebchatSettingsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat settings no content response has a 4xx status code
+func (o *DeleteWebchatSettingsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete webchat settings no content response has a 5xx status code
+func (o *DeleteWebchatSettingsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat settings no content response a status code equal to that given
+func (o *DeleteWebchatSettingsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteWebchatSettingsNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsNoContent ", 204)
+}
+
+func (o *DeleteWebchatSettingsNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteWebchatSettingsBadRequest() *DeleteWebchatSettingsBadRequest {
 	return &DeleteWebchatSettingsBadRequest{}
 }
 
-/*DeleteWebchatSettingsBadRequest handles this case with default header values.
+/*
+DeleteWebchatSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteWebchatSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat settings bad request response has a 2xx status code
+func (o *DeleteWebchatSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat settings bad request response has a 3xx status code
+func (o *DeleteWebchatSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat settings bad request response has a 4xx status code
+func (o *DeleteWebchatSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat settings bad request response has a 5xx status code
+func (o *DeleteWebchatSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat settings bad request response a status code equal to that given
+func (o *DeleteWebchatSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteWebchatSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteWebchatSettingsBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteWebchatSettingsUnauthorized() *DeleteWebchatSettingsUnauthorized {
 	return &DeleteWebchatSettingsUnauthorized{}
 }
 
-/*DeleteWebchatSettingsUnauthorized handles this case with default header values.
+/*
+DeleteWebchatSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteWebchatSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat settings unauthorized response has a 2xx status code
+func (o *DeleteWebchatSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat settings unauthorized response has a 3xx status code
+func (o *DeleteWebchatSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat settings unauthorized response has a 4xx status code
+func (o *DeleteWebchatSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat settings unauthorized response has a 5xx status code
+func (o *DeleteWebchatSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat settings unauthorized response a status code equal to that given
+func (o *DeleteWebchatSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteWebchatSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteWebchatSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteWebchatSettingsForbidden() *DeleteWebchatSettingsForbidden {
 	return &DeleteWebchatSettingsForbidden{}
 }
 
-/*DeleteWebchatSettingsForbidden handles this case with default header values.
+/*
+DeleteWebchatSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteWebchatSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat settings forbidden response has a 2xx status code
+func (o *DeleteWebchatSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat settings forbidden response has a 3xx status code
+func (o *DeleteWebchatSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat settings forbidden response has a 4xx status code
+func (o *DeleteWebchatSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat settings forbidden response has a 5xx status code
+func (o *DeleteWebchatSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat settings forbidden response a status code equal to that given
+func (o *DeleteWebchatSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteWebchatSettingsForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteWebchatSettingsForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteWebchatSettingsNotFound() *DeleteWebchatSettingsNotFound {
 	return &DeleteWebchatSettingsNotFound{}
 }
 
-/*DeleteWebchatSettingsNotFound handles this case with default header values.
+/*
+DeleteWebchatSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteWebchatSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat settings not found response has a 2xx status code
+func (o *DeleteWebchatSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat settings not found response has a 3xx status code
+func (o *DeleteWebchatSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat settings not found response has a 4xx status code
+func (o *DeleteWebchatSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat settings not found response has a 5xx status code
+func (o *DeleteWebchatSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat settings not found response a status code equal to that given
+func (o *DeleteWebchatSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteWebchatSettingsNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteWebchatSettingsNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteWebchatSettingsRequestTimeout() *DeleteWebchatSettingsRequestTimeo
 	return &DeleteWebchatSettingsRequestTimeout{}
 }
 
-/*DeleteWebchatSettingsRequestTimeout handles this case with default header values.
+/*
+DeleteWebchatSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteWebchatSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat settings request timeout response has a 2xx status code
+func (o *DeleteWebchatSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat settings request timeout response has a 3xx status code
+func (o *DeleteWebchatSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat settings request timeout response has a 4xx status code
+func (o *DeleteWebchatSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat settings request timeout response has a 5xx status code
+func (o *DeleteWebchatSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat settings request timeout response a status code equal to that given
+func (o *DeleteWebchatSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteWebchatSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteWebchatSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteWebchatSettingsRequestEntityTooLarge() *DeleteWebchatSettingsReque
 	return &DeleteWebchatSettingsRequestEntityTooLarge{}
 }
 
-/*DeleteWebchatSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteWebchatSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteWebchatSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat settings request entity too large response has a 2xx status code
+func (o *DeleteWebchatSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat settings request entity too large response has a 3xx status code
+func (o *DeleteWebchatSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat settings request entity too large response has a 4xx status code
+func (o *DeleteWebchatSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat settings request entity too large response has a 5xx status code
+func (o *DeleteWebchatSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat settings request entity too large response a status code equal to that given
+func (o *DeleteWebchatSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteWebchatSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteWebchatSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteWebchatSettingsUnsupportedMediaType() *DeleteWebchatSettingsUnsupp
 	return &DeleteWebchatSettingsUnsupportedMediaType{}
 }
 
-/*DeleteWebchatSettingsUnsupportedMediaType handles this case with default header values.
+/*
+DeleteWebchatSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteWebchatSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat settings unsupported media type response has a 2xx status code
+func (o *DeleteWebchatSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat settings unsupported media type response has a 3xx status code
+func (o *DeleteWebchatSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat settings unsupported media type response has a 4xx status code
+func (o *DeleteWebchatSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat settings unsupported media type response has a 5xx status code
+func (o *DeleteWebchatSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat settings unsupported media type response a status code equal to that given
+func (o *DeleteWebchatSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteWebchatSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteWebchatSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteWebchatSettingsTooManyRequests() *DeleteWebchatSettingsTooManyRequ
 	return &DeleteWebchatSettingsTooManyRequests{}
 }
 
-/*DeleteWebchatSettingsTooManyRequests handles this case with default header values.
+/*
+DeleteWebchatSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteWebchatSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat settings too many requests response has a 2xx status code
+func (o *DeleteWebchatSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat settings too many requests response has a 3xx status code
+func (o *DeleteWebchatSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat settings too many requests response has a 4xx status code
+func (o *DeleteWebchatSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webchat settings too many requests response has a 5xx status code
+func (o *DeleteWebchatSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webchat settings too many requests response a status code equal to that given
+func (o *DeleteWebchatSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteWebchatSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteWebchatSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteWebchatSettingsInternalServerError() *DeleteWebchatSettingsInterna
 	return &DeleteWebchatSettingsInternalServerError{}
 }
 
-/*DeleteWebchatSettingsInternalServerError handles this case with default header values.
+/*
+DeleteWebchatSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteWebchatSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat settings internal server error response has a 2xx status code
+func (o *DeleteWebchatSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat settings internal server error response has a 3xx status code
+func (o *DeleteWebchatSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat settings internal server error response has a 4xx status code
+func (o *DeleteWebchatSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete webchat settings internal server error response has a 5xx status code
+func (o *DeleteWebchatSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete webchat settings internal server error response a status code equal to that given
+func (o *DeleteWebchatSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteWebchatSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteWebchatSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteWebchatSettingsServiceUnavailable() *DeleteWebchatSettingsServiceU
 	return &DeleteWebchatSettingsServiceUnavailable{}
 }
 
-/*DeleteWebchatSettingsServiceUnavailable handles this case with default header values.
+/*
+DeleteWebchatSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteWebchatSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat settings service unavailable response has a 2xx status code
+func (o *DeleteWebchatSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat settings service unavailable response has a 3xx status code
+func (o *DeleteWebchatSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat settings service unavailable response has a 4xx status code
+func (o *DeleteWebchatSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete webchat settings service unavailable response has a 5xx status code
+func (o *DeleteWebchatSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete webchat settings service unavailable response a status code equal to that given
+func (o *DeleteWebchatSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteWebchatSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteWebchatSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteWebchatSettingsGatewayTimeout() *DeleteWebchatSettingsGatewayTimeo
 	return &DeleteWebchatSettingsGatewayTimeout{}
 }
 
-/*DeleteWebchatSettingsGatewayTimeout handles this case with default header values.
+/*
+DeleteWebchatSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteWebchatSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webchat settings gateway timeout response has a 2xx status code
+func (o *DeleteWebchatSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webchat settings gateway timeout response has a 3xx status code
+func (o *DeleteWebchatSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webchat settings gateway timeout response has a 4xx status code
+func (o *DeleteWebchatSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete webchat settings gateway timeout response has a 5xx status code
+func (o *DeleteWebchatSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete webchat settings gateway timeout response a status code equal to that given
+func (o *DeleteWebchatSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteWebchatSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteWebchatSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webchat/settings][%d] deleteWebchatSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

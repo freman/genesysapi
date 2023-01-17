@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostQualityConversationsAuditsQueryParams creates a new PostQualityConversationsAuditsQueryParams object
-// with the default values initialized.
+// NewPostQualityConversationsAuditsQueryParams creates a new PostQualityConversationsAuditsQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostQualityConversationsAuditsQueryParams() *PostQualityConversationsAuditsQueryParams {
-	var ()
 	return &PostQualityConversationsAuditsQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostQualityConversationsAuditsQueryParamsWithTimeout creates a new PostQualityConversationsAuditsQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostQualityConversationsAuditsQueryParamsWithTimeout(timeout time.Duration) *PostQualityConversationsAuditsQueryParams {
-	var ()
 	return &PostQualityConversationsAuditsQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostQualityConversationsAuditsQueryParamsWithContext creates a new PostQualityConversationsAuditsQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostQualityConversationsAuditsQueryParamsWithContext(ctx context.Context) *PostQualityConversationsAuditsQueryParams {
-	var ()
 	return &PostQualityConversationsAuditsQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostQualityConversationsAuditsQueryParamsWithHTTPClient creates a new PostQualityConversationsAuditsQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostQualityConversationsAuditsQueryParamsWithHTTPClient(client *http.Client) *PostQualityConversationsAuditsQueryParams {
-	var ()
 	return &PostQualityConversationsAuditsQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostQualityConversationsAuditsQueryParams contains all the parameters to send to the API endpoint
-for the post quality conversations audits query operation typically these are written to a http.Request
+/*
+PostQualityConversationsAuditsQueryParams contains all the parameters to send to the API endpoint
+
+	for the post quality conversations audits query operation.
+
+	Typically these are written to a http.Request.
 */
 type PostQualityConversationsAuditsQueryParams struct {
 
-	/*Body
-	  query
+	/* Body.
 
+	   query
 	*/
 	Body *models.QMAuditQueryRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post quality conversations audits query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostQualityConversationsAuditsQueryParams) WithDefaults() *PostQualityConversationsAuditsQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post quality conversations audits query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostQualityConversationsAuditsQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post quality conversations audits query params
@@ -124,7 +140,6 @@ func (o *PostQualityConversationsAuditsQueryParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

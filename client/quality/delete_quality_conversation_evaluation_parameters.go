@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteQualityConversationEvaluationParams creates a new DeleteQualityConversationEvaluationParams object
-// with the default values initialized.
+// NewDeleteQualityConversationEvaluationParams creates a new DeleteQualityConversationEvaluationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteQualityConversationEvaluationParams() *DeleteQualityConversationEvaluationParams {
-	var ()
 	return &DeleteQualityConversationEvaluationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteQualityConversationEvaluationParamsWithTimeout creates a new DeleteQualityConversationEvaluationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteQualityConversationEvaluationParamsWithTimeout(timeout time.Duration) *DeleteQualityConversationEvaluationParams {
-	var ()
 	return &DeleteQualityConversationEvaluationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteQualityConversationEvaluationParamsWithContext creates a new DeleteQualityConversationEvaluationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteQualityConversationEvaluationParamsWithContext(ctx context.Context) *DeleteQualityConversationEvaluationParams {
-	var ()
 	return &DeleteQualityConversationEvaluationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteQualityConversationEvaluationParamsWithHTTPClient creates a new DeleteQualityConversationEvaluationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteQualityConversationEvaluationParamsWithHTTPClient(client *http.Client) *DeleteQualityConversationEvaluationParams {
-	var ()
 	return &DeleteQualityConversationEvaluationParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteQualityConversationEvaluationParams contains all the parameters to send to the API endpoint
-for the delete quality conversation evaluation operation typically these are written to a http.Request
+/*
+DeleteQualityConversationEvaluationParams contains all the parameters to send to the API endpoint
+
+	for the delete quality conversation evaluation operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteQualityConversationEvaluationParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*EvaluationID
-	  evaluationId
 
+	/* EvaluationID.
+
+	   evaluationId
 	*/
 	EvaluationID string
-	/*Expand
-	  evaluatorId, evaluationForm
 
+	/* Expand.
+
+	   evaluatorId, evaluationForm
 	*/
 	Expand *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete quality conversation evaluation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteQualityConversationEvaluationParams) WithDefaults() *DeleteQualityConversationEvaluationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete quality conversation evaluation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteQualityConversationEvaluationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete quality conversation evaluation params
@@ -169,16 +187,17 @@ func (o *DeleteQualityConversationEvaluationParams) WriteToRequest(r runtime.Cli
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -21,6 +23,11 @@ type BuIntradayScheduleData struct {
 
 // Validate validates this bu intraday schedule data
 func (m *BuIntradayScheduleData) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this bu intraday schedule data based on context it is used
+func (m *BuIntradayScheduleData) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

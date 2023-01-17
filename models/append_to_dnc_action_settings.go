@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -18,6 +20,7 @@ import (
 type AppendToDncActionSettings struct {
 
 	// If 'expire' is set to true, how long to keep the record.
+	// Example: P19DT15H13M
 	ExpirationDuration string `json:"expirationDuration,omitempty"`
 
 	// Whether to expire the record appended to the DNC list.
@@ -45,6 +48,11 @@ func (m *AppendToDncActionSettings) validateExpire(formats strfmt.Registry) erro
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this append to dnc action settings based on context it is used
+func (m *AppendToDncActionSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

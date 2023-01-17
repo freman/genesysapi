@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -45,7 +47,6 @@ func (m *InitiateScreenRecording) Validate(formats strfmt.Registry) error {
 }
 
 func (m *InitiateScreenRecording) validateArchiveRetention(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ArchiveRetention) { // not required
 		return nil
 	}
@@ -54,6 +55,8 @@ func (m *InitiateScreenRecording) validateArchiveRetention(formats strfmt.Regist
 		if err := m.ArchiveRetention.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("archiveRetention")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("archiveRetention")
 			}
 			return err
 		}
@@ -63,7 +66,6 @@ func (m *InitiateScreenRecording) validateArchiveRetention(formats strfmt.Regist
 }
 
 func (m *InitiateScreenRecording) validateDeleteRetention(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DeleteRetention) { // not required
 		return nil
 	}
@@ -72,6 +74,58 @@ func (m *InitiateScreenRecording) validateDeleteRetention(formats strfmt.Registr
 		if err := m.DeleteRetention.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deleteRetention")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deleteRetention")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this initiate screen recording based on the context it is used
+func (m *InitiateScreenRecording) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateArchiveRetention(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDeleteRetention(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *InitiateScreenRecording) contextValidateArchiveRetention(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ArchiveRetention != nil {
+		if err := m.ArchiveRetention.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("archiveRetention")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("archiveRetention")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *InitiateScreenRecording) contextValidateDeleteRetention(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DeleteRetention != nil {
+		if err := m.DeleteRetention.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deleteRetention")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deleteRetention")
 			}
 			return err
 		}

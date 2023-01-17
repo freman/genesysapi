@@ -6,11 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // CampaignDiagnostics campaign diagnostics
@@ -62,7 +64,6 @@ func (m *CampaignDiagnostics) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CampaignDiagnostics) validateCallableContacts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallableContacts) { // not required
 		return nil
 	}
@@ -71,6 +72,8 @@ func (m *CampaignDiagnostics) validateCallableContacts(formats strfmt.Registry) 
 		if err := m.CallableContacts.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("callableContacts")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callableContacts")
 			}
 			return err
 		}
@@ -80,7 +83,6 @@ func (m *CampaignDiagnostics) validateCallableContacts(formats strfmt.Registry) 
 }
 
 func (m *CampaignDiagnostics) validateQueueUtilizationDiagnostic(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.QueueUtilizationDiagnostic) { // not required
 		return nil
 	}
@@ -89,6 +91,8 @@ func (m *CampaignDiagnostics) validateQueueUtilizationDiagnostic(formats strfmt.
 		if err := m.QueueUtilizationDiagnostic.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queueUtilizationDiagnostic")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queueUtilizationDiagnostic")
 			}
 			return err
 		}
@@ -98,7 +102,6 @@ func (m *CampaignDiagnostics) validateQueueUtilizationDiagnostic(formats strfmt.
 }
 
 func (m *CampaignDiagnostics) validateRuleSetDiagnostics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RuleSetDiagnostics) { // not required
 		return nil
 	}
@@ -112,11 +115,117 @@ func (m *CampaignDiagnostics) validateRuleSetDiagnostics(formats strfmt.Registry
 			if err := m.RuleSetDiagnostics[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ruleSetDiagnostics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ruleSetDiagnostics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this campaign diagnostics based on the context it is used
+func (m *CampaignDiagnostics) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCallableContacts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutstandingInteractionsCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueueUtilizationDiagnostic(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRuleSetDiagnostics(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScheduledInteractionsCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CampaignDiagnostics) contextValidateCallableContacts(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CallableContacts != nil {
+		if err := m.CallableContacts.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("callableContacts")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callableContacts")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignDiagnostics) contextValidateOutstandingInteractionsCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "outstandingInteractionsCount", "body", int32(m.OutstandingInteractionsCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignDiagnostics) contextValidateQueueUtilizationDiagnostic(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.QueueUtilizationDiagnostic != nil {
+		if err := m.QueueUtilizationDiagnostic.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("queueUtilizationDiagnostic")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queueUtilizationDiagnostic")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignDiagnostics) contextValidateRuleSetDiagnostics(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "ruleSetDiagnostics", "body", []*RuleSetDiagnostic(m.RuleSetDiagnostics)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.RuleSetDiagnostics); i++ {
+
+		if m.RuleSetDiagnostics[i] != nil {
+			if err := m.RuleSetDiagnostics[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ruleSetDiagnostics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ruleSetDiagnostics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CampaignDiagnostics) contextValidateScheduledInteractionsCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "scheduledInteractionsCount", "body", int32(m.ScheduledInteractionsCount)); err != nil {
+		return err
 	}
 
 	return nil

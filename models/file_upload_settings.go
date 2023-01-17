@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -37,7 +38,6 @@ func (m *FileUploadSettings) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FileUploadSettings) validateModes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Modes) { // not required
 		return nil
 	}
@@ -51,6 +51,42 @@ func (m *FileUploadSettings) validateModes(formats strfmt.Registry) error {
 			if err := m.Modes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("modes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("modes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this file upload settings based on the context it is used
+func (m *FileUploadSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateModes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FileUploadSettings) contextValidateModes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Modes); i++ {
+
+		if m.Modes[i] != nil {
+			if err := m.Modes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("modes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("modes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -43,7 +45,6 @@ func (m *SkillsToRemove) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SkillsToRemove) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -52,6 +53,11 @@ func (m *SkillsToRemove) validateSelfURI(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this skills to remove based on context it is used
+func (m *SkillsToRemove) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

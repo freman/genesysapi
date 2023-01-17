@@ -16,59 +16,77 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationScorecardsPointsAlltimeParams creates a new GetGamificationScorecardsPointsAlltimeParams object
-// with the default values initialized.
+// NewGetGamificationScorecardsPointsAlltimeParams creates a new GetGamificationScorecardsPointsAlltimeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationScorecardsPointsAlltimeParams() *GetGamificationScorecardsPointsAlltimeParams {
-	var ()
 	return &GetGamificationScorecardsPointsAlltimeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationScorecardsPointsAlltimeParamsWithTimeout creates a new GetGamificationScorecardsPointsAlltimeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationScorecardsPointsAlltimeParamsWithTimeout(timeout time.Duration) *GetGamificationScorecardsPointsAlltimeParams {
-	var ()
 	return &GetGamificationScorecardsPointsAlltimeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationScorecardsPointsAlltimeParamsWithContext creates a new GetGamificationScorecardsPointsAlltimeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationScorecardsPointsAlltimeParamsWithContext(ctx context.Context) *GetGamificationScorecardsPointsAlltimeParams {
-	var ()
 	return &GetGamificationScorecardsPointsAlltimeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationScorecardsPointsAlltimeParamsWithHTTPClient creates a new GetGamificationScorecardsPointsAlltimeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationScorecardsPointsAlltimeParamsWithHTTPClient(client *http.Client) *GetGamificationScorecardsPointsAlltimeParams {
-	var ()
 	return &GetGamificationScorecardsPointsAlltimeParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationScorecardsPointsAlltimeParams contains all the parameters to send to the API endpoint
-for the get gamification scorecards points alltime operation typically these are written to a http.Request
+/*
+GetGamificationScorecardsPointsAlltimeParams contains all the parameters to send to the API endpoint
+
+	for the get gamification scorecards points alltime operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationScorecardsPointsAlltimeParams struct {
 
-	/*EndWorkday
-	  End workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	/* EndWorkday.
 
+	   End workday of querying workdays range. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	EndWorkday strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification scorecards points alltime params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsPointsAlltimeParams) WithDefaults() *GetGamificationScorecardsPointsAlltimeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification scorecards points alltime params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsPointsAlltimeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification scorecards points alltime params
@@ -127,6 +145,7 @@ func (o *GetGamificationScorecardsPointsAlltimeParams) WriteToRequest(r runtime.
 	qrEndWorkday := o.EndWorkday
 	qEndWorkday := qrEndWorkday.String()
 	if qEndWorkday != "" {
+
 		if err := r.SetQueryParam("endWorkday", qEndWorkday); err != nil {
 			return err
 		}

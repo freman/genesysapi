@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostIntegrationsActionDraftPublishParams creates a new PostIntegrationsActionDraftPublishParams object
-// with the default values initialized.
+// NewPostIntegrationsActionDraftPublishParams creates a new PostIntegrationsActionDraftPublishParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostIntegrationsActionDraftPublishParams() *PostIntegrationsActionDraftPublishParams {
-	var ()
 	return &PostIntegrationsActionDraftPublishParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostIntegrationsActionDraftPublishParamsWithTimeout creates a new PostIntegrationsActionDraftPublishParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostIntegrationsActionDraftPublishParamsWithTimeout(timeout time.Duration) *PostIntegrationsActionDraftPublishParams {
-	var ()
 	return &PostIntegrationsActionDraftPublishParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostIntegrationsActionDraftPublishParamsWithContext creates a new PostIntegrationsActionDraftPublishParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostIntegrationsActionDraftPublishParamsWithContext(ctx context.Context) *PostIntegrationsActionDraftPublishParams {
-	var ()
 	return &PostIntegrationsActionDraftPublishParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostIntegrationsActionDraftPublishParamsWithHTTPClient creates a new PostIntegrationsActionDraftPublishParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostIntegrationsActionDraftPublishParamsWithHTTPClient(client *http.Client) *PostIntegrationsActionDraftPublishParams {
-	var ()
 	return &PostIntegrationsActionDraftPublishParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostIntegrationsActionDraftPublishParams contains all the parameters to send to the API endpoint
-for the post integrations action draft publish operation typically these are written to a http.Request
+/*
+PostIntegrationsActionDraftPublishParams contains all the parameters to send to the API endpoint
+
+	for the post integrations action draft publish operation.
+
+	Typically these are written to a http.Request.
 */
 type PostIntegrationsActionDraftPublishParams struct {
 
-	/*ActionID
-	  actionId
+	/* ActionID.
 
+	   actionId
 	*/
 	ActionID string
-	/*Body
-	  Input used to patch the Action.
 
+	/* Body.
+
+	   Input used to patch the Action.
 	*/
 	Body *models.PublishDraftInput
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post integrations action draft publish params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostIntegrationsActionDraftPublishParams) WithDefaults() *PostIntegrationsActionDraftPublishParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post integrations action draft publish params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostIntegrationsActionDraftPublishParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post integrations action draft publish params
@@ -145,7 +162,6 @@ func (o *PostIntegrationsActionDraftPublishParams) WriteToRequest(r runtime.Clie
 	if err := r.SetPathParam("actionId", o.ActionID); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostLanguagesParams creates a new PostLanguagesParams object
-// with the default values initialized.
+// NewPostLanguagesParams creates a new PostLanguagesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostLanguagesParams() *PostLanguagesParams {
-	var ()
 	return &PostLanguagesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostLanguagesParamsWithTimeout creates a new PostLanguagesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostLanguagesParamsWithTimeout(timeout time.Duration) *PostLanguagesParams {
-	var ()
 	return &PostLanguagesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostLanguagesParamsWithContext creates a new PostLanguagesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostLanguagesParamsWithContext(ctx context.Context) *PostLanguagesParams {
-	var ()
 	return &PostLanguagesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostLanguagesParamsWithHTTPClient creates a new PostLanguagesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostLanguagesParamsWithHTTPClient(client *http.Client) *PostLanguagesParams {
-	var ()
 	return &PostLanguagesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostLanguagesParams contains all the parameters to send to the API endpoint
-for the post languages operation typically these are written to a http.Request
+/*
+PostLanguagesParams contains all the parameters to send to the API endpoint
+
+	for the post languages operation.
+
+	Typically these are written to a http.Request.
 */
 type PostLanguagesParams struct {
 
-	/*Body
-	  Language
+	/* Body.
 
+	   Language
 	*/
 	Body *models.Language
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post languages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLanguagesParams) WithDefaults() *PostLanguagesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post languages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLanguagesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post languages params
@@ -124,7 +140,6 @@ func (o *PostLanguagesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

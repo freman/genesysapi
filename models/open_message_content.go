@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -47,7 +48,6 @@ func (m *OpenMessageContent) Validate(formats strfmt.Registry) error {
 }
 
 func (m *OpenMessageContent) validateAttachment(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Attachment) { // not required
 		return nil
 	}
@@ -56,6 +56,8 @@ func (m *OpenMessageContent) validateAttachment(formats strfmt.Registry) error {
 		if err := m.Attachment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attachment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attachment")
 			}
 			return err
 		}
@@ -99,6 +101,36 @@ func (m *OpenMessageContent) validateContentType(formats strfmt.Registry) error 
 	// value enum
 	if err := m.validateContentTypeEnum("contentType", "body", *m.ContentType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this open message content based on the context it is used
+func (m *OpenMessageContent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttachment(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OpenMessageContent) contextValidateAttachment(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Attachment != nil {
+		if err := m.Attachment.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("attachment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attachment")
+			}
+			return err
+		}
 	}
 
 	return nil

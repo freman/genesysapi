@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostLicenseInferParams creates a new PostLicenseInferParams object
-// with the default values initialized.
+// NewPostLicenseInferParams creates a new PostLicenseInferParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostLicenseInferParams() *PostLicenseInferParams {
-	var ()
 	return &PostLicenseInferParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostLicenseInferParamsWithTimeout creates a new PostLicenseInferParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostLicenseInferParamsWithTimeout(timeout time.Duration) *PostLicenseInferParams {
-	var ()
 	return &PostLicenseInferParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostLicenseInferParamsWithContext creates a new PostLicenseInferParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostLicenseInferParamsWithContext(ctx context.Context) *PostLicenseInferParams {
-	var ()
 	return &PostLicenseInferParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostLicenseInferParamsWithHTTPClient creates a new PostLicenseInferParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostLicenseInferParamsWithHTTPClient(client *http.Client) *PostLicenseInferParams {
-	var ()
 	return &PostLicenseInferParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostLicenseInferParams contains all the parameters to send to the API endpoint
-for the post license infer operation typically these are written to a http.Request
+/*
+PostLicenseInferParams contains all the parameters to send to the API endpoint
+
+	for the post license infer operation.
+
+	Typically these are written to a http.Request.
 */
 type PostLicenseInferParams struct {
 
-	/*Body
-	  The roleIds to use while inferring licenses
+	/* Body.
 
+	   The roleIds to use while inferring licenses
 	*/
 	Body []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post license infer params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLicenseInferParams) WithDefaults() *PostLicenseInferParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post license infer params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLicenseInferParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post license infer params
@@ -122,7 +138,6 @@ func (o *PostLicenseInferParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

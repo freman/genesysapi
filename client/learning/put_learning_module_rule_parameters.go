@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutLearningModuleRuleParams creates a new PutLearningModuleRuleParams object
-// with the default values initialized.
+// NewPutLearningModuleRuleParams creates a new PutLearningModuleRuleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutLearningModuleRuleParams() *PutLearningModuleRuleParams {
-	var ()
 	return &PutLearningModuleRuleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutLearningModuleRuleParamsWithTimeout creates a new PutLearningModuleRuleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutLearningModuleRuleParamsWithTimeout(timeout time.Duration) *PutLearningModuleRuleParams {
-	var ()
 	return &PutLearningModuleRuleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutLearningModuleRuleParamsWithContext creates a new PutLearningModuleRuleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutLearningModuleRuleParamsWithContext(ctx context.Context) *PutLearningModuleRuleParams {
-	var ()
 	return &PutLearningModuleRuleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutLearningModuleRuleParamsWithHTTPClient creates a new PutLearningModuleRuleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutLearningModuleRuleParamsWithHTTPClient(client *http.Client) *PutLearningModuleRuleParams {
-	var ()
 	return &PutLearningModuleRuleParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutLearningModuleRuleParams contains all the parameters to send to the API endpoint
-for the put learning module rule operation typically these are written to a http.Request
+/*
+PutLearningModuleRuleParams contains all the parameters to send to the API endpoint
+
+	for the put learning module rule operation.
+
+	Typically these are written to a http.Request.
 */
 type PutLearningModuleRuleParams struct {
 
-	/*Body
-	  The learning module rule to be updated
+	/* Body.
 
+	   The learning module rule to be updated
 	*/
 	Body *models.LearningModuleRule
-	/*ModuleID
-	  The ID of the learning module
 
+	/* ModuleID.
+
+	   The ID of the learning module
 	*/
 	ModuleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put learning module rule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutLearningModuleRuleParams) WithDefaults() *PutLearningModuleRuleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put learning module rule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutLearningModuleRuleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put learning module rule params
@@ -140,7 +157,6 @@ func (o *PutLearningModuleRuleParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

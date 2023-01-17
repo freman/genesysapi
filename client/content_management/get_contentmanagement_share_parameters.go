@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetContentmanagementShareParams creates a new GetContentmanagementShareParams object
-// with the default values initialized.
+// NewGetContentmanagementShareParams creates a new GetContentmanagementShareParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetContentmanagementShareParams() *GetContentmanagementShareParams {
-	var ()
 	return &GetContentmanagementShareParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetContentmanagementShareParamsWithTimeout creates a new GetContentmanagementShareParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetContentmanagementShareParamsWithTimeout(timeout time.Duration) *GetContentmanagementShareParams {
-	var ()
 	return &GetContentmanagementShareParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetContentmanagementShareParamsWithContext creates a new GetContentmanagementShareParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetContentmanagementShareParamsWithContext(ctx context.Context) *GetContentmanagementShareParams {
-	var ()
 	return &GetContentmanagementShareParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetContentmanagementShareParamsWithHTTPClient creates a new GetContentmanagementShareParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetContentmanagementShareParamsWithHTTPClient(client *http.Client) *GetContentmanagementShareParams {
-	var ()
 	return &GetContentmanagementShareParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetContentmanagementShareParams contains all the parameters to send to the API endpoint
-for the get contentmanagement share operation typically these are written to a http.Request
+/*
+GetContentmanagementShareParams contains all the parameters to send to the API endpoint
+
+	for the get contentmanagement share operation.
+
+	Typically these are written to a http.Request.
 */
 type GetContentmanagementShareParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand.
+	/* Expand.
 
+	   Which fields, if any, to expand.
 	*/
 	Expand []string
-	/*ShareID
-	  Share ID
 
+	/* ShareID.
+
+	   Share ID
 	*/
 	ShareID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get contentmanagement share params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementShareParams) WithDefaults() *GetContentmanagementShareParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get contentmanagement share params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementShareParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get contentmanagement share params
@@ -140,12 +157,15 @@ func (o *GetContentmanagementShareParams) WriteToRequest(r runtime.ClientRequest
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// path param shareId
@@ -157,4 +177,21 @@ func (o *GetContentmanagementShareParams) WriteToRequest(r runtime.ClientRequest
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetContentmanagementShare binds the parameter expand
+func (o *GetContentmanagementShareParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

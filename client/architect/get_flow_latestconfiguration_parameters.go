@@ -17,76 +17,92 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetFlowLatestconfigurationParams creates a new GetFlowLatestconfigurationParams object
-// with the default values initialized.
+// NewGetFlowLatestconfigurationParams creates a new GetFlowLatestconfigurationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFlowLatestconfigurationParams() *GetFlowLatestconfigurationParams {
-	var (
-		deletedDefault = bool(false)
-	)
 	return &GetFlowLatestconfigurationParams{
-		Deleted: &deletedDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFlowLatestconfigurationParamsWithTimeout creates a new GetFlowLatestconfigurationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFlowLatestconfigurationParamsWithTimeout(timeout time.Duration) *GetFlowLatestconfigurationParams {
-	var (
-		deletedDefault = bool(false)
-	)
 	return &GetFlowLatestconfigurationParams{
-		Deleted: &deletedDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFlowLatestconfigurationParamsWithContext creates a new GetFlowLatestconfigurationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFlowLatestconfigurationParamsWithContext(ctx context.Context) *GetFlowLatestconfigurationParams {
-	var (
-		deletedDefault = bool(false)
-	)
 	return &GetFlowLatestconfigurationParams{
-		Deleted: &deletedDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetFlowLatestconfigurationParamsWithHTTPClient creates a new GetFlowLatestconfigurationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFlowLatestconfigurationParamsWithHTTPClient(client *http.Client) *GetFlowLatestconfigurationParams {
-	var (
-		deletedDefault = bool(false)
-	)
 	return &GetFlowLatestconfigurationParams{
-		Deleted:    &deletedDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetFlowLatestconfigurationParams contains all the parameters to send to the API endpoint
-for the get flow latestconfiguration operation typically these are written to a http.Request
+/*
+GetFlowLatestconfigurationParams contains all the parameters to send to the API endpoint
+
+	for the get flow latestconfiguration operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFlowLatestconfigurationParams struct {
 
-	/*Deleted
-	  Deleted flows
+	/* Deleted.
 
+	   Deleted flows
 	*/
 	Deleted *bool
-	/*FlowID
-	  Flow ID
 
+	/* FlowID.
+
+	   Flow ID
 	*/
 	FlowID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get flow latestconfiguration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowLatestconfigurationParams) WithDefaults() *GetFlowLatestconfigurationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get flow latestconfiguration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowLatestconfigurationParams) SetDefaults() {
+	var (
+		deletedDefault = bool(false)
+	)
+
+	val := GetFlowLatestconfigurationParams{
+		Deleted: &deletedDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get flow latestconfiguration params
@@ -156,16 +172,17 @@ func (o *GetFlowLatestconfigurationParams) WriteToRequest(r runtime.ClientReques
 
 		// query param deleted
 		var qrDeleted bool
+
 		if o.Deleted != nil {
 			qrDeleted = *o.Deleted
 		}
 		qDeleted := swag.FormatBool(qrDeleted)
 		if qDeleted != "" {
+
 			if err := r.SetQueryParam("deleted", qDeleted); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param flowId

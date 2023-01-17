@@ -95,7 +95,6 @@ func (o *PutArchitectScheduleReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutArchitectScheduleOK() *PutArchitectScheduleOK {
 	return &PutArchitectScheduleOK{}
 }
 
-/*PutArchitectScheduleOK handles this case with default header values.
+/*
+PutArchitectScheduleOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutArchitectScheduleOK struct {
 	Payload *models.Schedule
 }
 
+// IsSuccess returns true when this put architect schedule o k response has a 2xx status code
+func (o *PutArchitectScheduleOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put architect schedule o k response has a 3xx status code
+func (o *PutArchitectScheduleOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect schedule o k response has a 4xx status code
+func (o *PutArchitectScheduleOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect schedule o k response has a 5xx status code
+func (o *PutArchitectScheduleOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect schedule o k response a status code equal to that given
+func (o *PutArchitectScheduleOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutArchitectScheduleOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleOK  %+v", 200, o.Payload)
+}
+
+func (o *PutArchitectScheduleOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutArchitectScheduleBadRequest() *PutArchitectScheduleBadRequest {
 	return &PutArchitectScheduleBadRequest{}
 }
 
-/*PutArchitectScheduleBadRequest handles this case with default header values.
+/*
+PutArchitectScheduleBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutArchitectScheduleBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect schedule bad request response has a 2xx status code
+func (o *PutArchitectScheduleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect schedule bad request response has a 3xx status code
+func (o *PutArchitectScheduleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect schedule bad request response has a 4xx status code
+func (o *PutArchitectScheduleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect schedule bad request response has a 5xx status code
+func (o *PutArchitectScheduleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect schedule bad request response a status code equal to that given
+func (o *PutArchitectScheduleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutArchitectScheduleBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutArchitectScheduleBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutArchitectScheduleUnauthorized() *PutArchitectScheduleUnauthorized {
 	return &PutArchitectScheduleUnauthorized{}
 }
 
-/*PutArchitectScheduleUnauthorized handles this case with default header values.
+/*
+PutArchitectScheduleUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutArchitectScheduleUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect schedule unauthorized response has a 2xx status code
+func (o *PutArchitectScheduleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect schedule unauthorized response has a 3xx status code
+func (o *PutArchitectScheduleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect schedule unauthorized response has a 4xx status code
+func (o *PutArchitectScheduleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect schedule unauthorized response has a 5xx status code
+func (o *PutArchitectScheduleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect schedule unauthorized response a status code equal to that given
+func (o *PutArchitectScheduleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutArchitectScheduleUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutArchitectScheduleUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutArchitectScheduleForbidden() *PutArchitectScheduleForbidden {
 	return &PutArchitectScheduleForbidden{}
 }
 
-/*PutArchitectScheduleForbidden handles this case with default header values.
+/*
+PutArchitectScheduleForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutArchitectScheduleForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect schedule forbidden response has a 2xx status code
+func (o *PutArchitectScheduleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect schedule forbidden response has a 3xx status code
+func (o *PutArchitectScheduleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect schedule forbidden response has a 4xx status code
+func (o *PutArchitectScheduleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect schedule forbidden response has a 5xx status code
+func (o *PutArchitectScheduleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect schedule forbidden response a status code equal to that given
+func (o *PutArchitectScheduleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutArchitectScheduleForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutArchitectScheduleForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutArchitectScheduleNotFound() *PutArchitectScheduleNotFound {
 	return &PutArchitectScheduleNotFound{}
 }
 
-/*PutArchitectScheduleNotFound handles this case with default header values.
+/*
+PutArchitectScheduleNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutArchitectScheduleNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect schedule not found response has a 2xx status code
+func (o *PutArchitectScheduleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect schedule not found response has a 3xx status code
+func (o *PutArchitectScheduleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect schedule not found response has a 4xx status code
+func (o *PutArchitectScheduleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect schedule not found response has a 5xx status code
+func (o *PutArchitectScheduleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect schedule not found response a status code equal to that given
+func (o *PutArchitectScheduleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutArchitectScheduleNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutArchitectScheduleNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutArchitectScheduleRequestTimeout() *PutArchitectScheduleRequestTimeout
 	return &PutArchitectScheduleRequestTimeout{}
 }
 
-/*PutArchitectScheduleRequestTimeout handles this case with default header values.
+/*
+PutArchitectScheduleRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutArchitectScheduleRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect schedule request timeout response has a 2xx status code
+func (o *PutArchitectScheduleRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect schedule request timeout response has a 3xx status code
+func (o *PutArchitectScheduleRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect schedule request timeout response has a 4xx status code
+func (o *PutArchitectScheduleRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect schedule request timeout response has a 5xx status code
+func (o *PutArchitectScheduleRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect schedule request timeout response a status code equal to that given
+func (o *PutArchitectScheduleRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutArchitectScheduleRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutArchitectScheduleRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutArchitectScheduleRequestEntityTooLarge() *PutArchitectScheduleRequest
 	return &PutArchitectScheduleRequestEntityTooLarge{}
 }
 
-/*PutArchitectScheduleRequestEntityTooLarge handles this case with default header values.
+/*
+PutArchitectScheduleRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutArchitectScheduleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect schedule request entity too large response has a 2xx status code
+func (o *PutArchitectScheduleRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect schedule request entity too large response has a 3xx status code
+func (o *PutArchitectScheduleRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect schedule request entity too large response has a 4xx status code
+func (o *PutArchitectScheduleRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect schedule request entity too large response has a 5xx status code
+func (o *PutArchitectScheduleRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect schedule request entity too large response a status code equal to that given
+func (o *PutArchitectScheduleRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutArchitectScheduleRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutArchitectScheduleRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutArchitectScheduleUnsupportedMediaType() *PutArchitectScheduleUnsuppor
 	return &PutArchitectScheduleUnsupportedMediaType{}
 }
 
-/*PutArchitectScheduleUnsupportedMediaType handles this case with default header values.
+/*
+PutArchitectScheduleUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutArchitectScheduleUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect schedule unsupported media type response has a 2xx status code
+func (o *PutArchitectScheduleUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect schedule unsupported media type response has a 3xx status code
+func (o *PutArchitectScheduleUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect schedule unsupported media type response has a 4xx status code
+func (o *PutArchitectScheduleUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect schedule unsupported media type response has a 5xx status code
+func (o *PutArchitectScheduleUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect schedule unsupported media type response a status code equal to that given
+func (o *PutArchitectScheduleUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutArchitectScheduleUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutArchitectScheduleUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutArchitectScheduleTooManyRequests() *PutArchitectScheduleTooManyReques
 	return &PutArchitectScheduleTooManyRequests{}
 }
 
-/*PutArchitectScheduleTooManyRequests handles this case with default header values.
+/*
+PutArchitectScheduleTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutArchitectScheduleTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect schedule too many requests response has a 2xx status code
+func (o *PutArchitectScheduleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect schedule too many requests response has a 3xx status code
+func (o *PutArchitectScheduleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect schedule too many requests response has a 4xx status code
+func (o *PutArchitectScheduleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect schedule too many requests response has a 5xx status code
+func (o *PutArchitectScheduleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect schedule too many requests response a status code equal to that given
+func (o *PutArchitectScheduleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutArchitectScheduleTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutArchitectScheduleTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutArchitectScheduleInternalServerError() *PutArchitectScheduleInternalS
 	return &PutArchitectScheduleInternalServerError{}
 }
 
-/*PutArchitectScheduleInternalServerError handles this case with default header values.
+/*
+PutArchitectScheduleInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutArchitectScheduleInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect schedule internal server error response has a 2xx status code
+func (o *PutArchitectScheduleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect schedule internal server error response has a 3xx status code
+func (o *PutArchitectScheduleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect schedule internal server error response has a 4xx status code
+func (o *PutArchitectScheduleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect schedule internal server error response has a 5xx status code
+func (o *PutArchitectScheduleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put architect schedule internal server error response a status code equal to that given
+func (o *PutArchitectScheduleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutArchitectScheduleInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutArchitectScheduleInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutArchitectScheduleServiceUnavailable() *PutArchitectScheduleServiceUna
 	return &PutArchitectScheduleServiceUnavailable{}
 }
 
-/*PutArchitectScheduleServiceUnavailable handles this case with default header values.
+/*
+PutArchitectScheduleServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutArchitectScheduleServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect schedule service unavailable response has a 2xx status code
+func (o *PutArchitectScheduleServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect schedule service unavailable response has a 3xx status code
+func (o *PutArchitectScheduleServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect schedule service unavailable response has a 4xx status code
+func (o *PutArchitectScheduleServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect schedule service unavailable response has a 5xx status code
+func (o *PutArchitectScheduleServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put architect schedule service unavailable response a status code equal to that given
+func (o *PutArchitectScheduleServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutArchitectScheduleServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutArchitectScheduleServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutArchitectScheduleGatewayTimeout() *PutArchitectScheduleGatewayTimeout
 	return &PutArchitectScheduleGatewayTimeout{}
 }
 
-/*PutArchitectScheduleGatewayTimeout handles this case with default header values.
+/*
+PutArchitectScheduleGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutArchitectScheduleGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect schedule gateway timeout response has a 2xx status code
+func (o *PutArchitectScheduleGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect schedule gateway timeout response has a 3xx status code
+func (o *PutArchitectScheduleGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect schedule gateway timeout response has a 4xx status code
+func (o *PutArchitectScheduleGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect schedule gateway timeout response has a 5xx status code
+func (o *PutArchitectScheduleGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put architect schedule gateway timeout response a status code equal to that given
+func (o *PutArchitectScheduleGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutArchitectScheduleGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutArchitectScheduleGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/schedules/{scheduleId}][%d] putArchitectScheduleGatewayTimeout  %+v", 504, o.Payload)
 }
 

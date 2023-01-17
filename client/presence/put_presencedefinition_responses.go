@@ -95,7 +95,6 @@ func (o *PutPresencedefinitionReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutPresencedefinitionOK() *PutPresencedefinitionOK {
 	return &PutPresencedefinitionOK{}
 }
 
-/*PutPresencedefinitionOK handles this case with default header values.
+/*
+PutPresencedefinitionOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutPresencedefinitionOK struct {
 	Payload *models.OrganizationPresence
 }
 
+// IsSuccess returns true when this put presencedefinition o k response has a 2xx status code
+func (o *PutPresencedefinitionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put presencedefinition o k response has a 3xx status code
+func (o *PutPresencedefinitionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put presencedefinition o k response has a 4xx status code
+func (o *PutPresencedefinitionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put presencedefinition o k response has a 5xx status code
+func (o *PutPresencedefinitionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put presencedefinition o k response a status code equal to that given
+func (o *PutPresencedefinitionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutPresencedefinitionOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionOK  %+v", 200, o.Payload)
+}
+
+func (o *PutPresencedefinitionOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutPresencedefinitionBadRequest() *PutPresencedefinitionBadRequest {
 	return &PutPresencedefinitionBadRequest{}
 }
 
-/*PutPresencedefinitionBadRequest handles this case with default header values.
+/*
+PutPresencedefinitionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutPresencedefinitionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put presencedefinition bad request response has a 2xx status code
+func (o *PutPresencedefinitionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put presencedefinition bad request response has a 3xx status code
+func (o *PutPresencedefinitionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put presencedefinition bad request response has a 4xx status code
+func (o *PutPresencedefinitionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put presencedefinition bad request response has a 5xx status code
+func (o *PutPresencedefinitionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put presencedefinition bad request response a status code equal to that given
+func (o *PutPresencedefinitionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutPresencedefinitionBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutPresencedefinitionBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutPresencedefinitionUnauthorized() *PutPresencedefinitionUnauthorized {
 	return &PutPresencedefinitionUnauthorized{}
 }
 
-/*PutPresencedefinitionUnauthorized handles this case with default header values.
+/*
+PutPresencedefinitionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutPresencedefinitionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put presencedefinition unauthorized response has a 2xx status code
+func (o *PutPresencedefinitionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put presencedefinition unauthorized response has a 3xx status code
+func (o *PutPresencedefinitionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put presencedefinition unauthorized response has a 4xx status code
+func (o *PutPresencedefinitionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put presencedefinition unauthorized response has a 5xx status code
+func (o *PutPresencedefinitionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put presencedefinition unauthorized response a status code equal to that given
+func (o *PutPresencedefinitionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutPresencedefinitionUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutPresencedefinitionUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutPresencedefinitionForbidden() *PutPresencedefinitionForbidden {
 	return &PutPresencedefinitionForbidden{}
 }
 
-/*PutPresencedefinitionForbidden handles this case with default header values.
+/*
+PutPresencedefinitionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutPresencedefinitionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put presencedefinition forbidden response has a 2xx status code
+func (o *PutPresencedefinitionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put presencedefinition forbidden response has a 3xx status code
+func (o *PutPresencedefinitionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put presencedefinition forbidden response has a 4xx status code
+func (o *PutPresencedefinitionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put presencedefinition forbidden response has a 5xx status code
+func (o *PutPresencedefinitionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put presencedefinition forbidden response a status code equal to that given
+func (o *PutPresencedefinitionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutPresencedefinitionForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutPresencedefinitionForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutPresencedefinitionNotFound() *PutPresencedefinitionNotFound {
 	return &PutPresencedefinitionNotFound{}
 }
 
-/*PutPresencedefinitionNotFound handles this case with default header values.
+/*
+PutPresencedefinitionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutPresencedefinitionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put presencedefinition not found response has a 2xx status code
+func (o *PutPresencedefinitionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put presencedefinition not found response has a 3xx status code
+func (o *PutPresencedefinitionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put presencedefinition not found response has a 4xx status code
+func (o *PutPresencedefinitionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put presencedefinition not found response has a 5xx status code
+func (o *PutPresencedefinitionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put presencedefinition not found response a status code equal to that given
+func (o *PutPresencedefinitionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutPresencedefinitionNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutPresencedefinitionNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutPresencedefinitionRequestTimeout() *PutPresencedefinitionRequestTimeo
 	return &PutPresencedefinitionRequestTimeout{}
 }
 
-/*PutPresencedefinitionRequestTimeout handles this case with default header values.
+/*
+PutPresencedefinitionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutPresencedefinitionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put presencedefinition request timeout response has a 2xx status code
+func (o *PutPresencedefinitionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put presencedefinition request timeout response has a 3xx status code
+func (o *PutPresencedefinitionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put presencedefinition request timeout response has a 4xx status code
+func (o *PutPresencedefinitionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put presencedefinition request timeout response has a 5xx status code
+func (o *PutPresencedefinitionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put presencedefinition request timeout response a status code equal to that given
+func (o *PutPresencedefinitionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutPresencedefinitionRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutPresencedefinitionRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutPresencedefinitionRequestEntityTooLarge() *PutPresencedefinitionReque
 	return &PutPresencedefinitionRequestEntityTooLarge{}
 }
 
-/*PutPresencedefinitionRequestEntityTooLarge handles this case with default header values.
+/*
+PutPresencedefinitionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutPresencedefinitionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put presencedefinition request entity too large response has a 2xx status code
+func (o *PutPresencedefinitionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put presencedefinition request entity too large response has a 3xx status code
+func (o *PutPresencedefinitionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put presencedefinition request entity too large response has a 4xx status code
+func (o *PutPresencedefinitionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put presencedefinition request entity too large response has a 5xx status code
+func (o *PutPresencedefinitionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put presencedefinition request entity too large response a status code equal to that given
+func (o *PutPresencedefinitionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutPresencedefinitionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutPresencedefinitionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutPresencedefinitionUnsupportedMediaType() *PutPresencedefinitionUnsupp
 	return &PutPresencedefinitionUnsupportedMediaType{}
 }
 
-/*PutPresencedefinitionUnsupportedMediaType handles this case with default header values.
+/*
+PutPresencedefinitionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutPresencedefinitionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put presencedefinition unsupported media type response has a 2xx status code
+func (o *PutPresencedefinitionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put presencedefinition unsupported media type response has a 3xx status code
+func (o *PutPresencedefinitionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put presencedefinition unsupported media type response has a 4xx status code
+func (o *PutPresencedefinitionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put presencedefinition unsupported media type response has a 5xx status code
+func (o *PutPresencedefinitionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put presencedefinition unsupported media type response a status code equal to that given
+func (o *PutPresencedefinitionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutPresencedefinitionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutPresencedefinitionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutPresencedefinitionTooManyRequests() *PutPresencedefinitionTooManyRequ
 	return &PutPresencedefinitionTooManyRequests{}
 }
 
-/*PutPresencedefinitionTooManyRequests handles this case with default header values.
+/*
+PutPresencedefinitionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutPresencedefinitionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put presencedefinition too many requests response has a 2xx status code
+func (o *PutPresencedefinitionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put presencedefinition too many requests response has a 3xx status code
+func (o *PutPresencedefinitionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put presencedefinition too many requests response has a 4xx status code
+func (o *PutPresencedefinitionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put presencedefinition too many requests response has a 5xx status code
+func (o *PutPresencedefinitionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put presencedefinition too many requests response a status code equal to that given
+func (o *PutPresencedefinitionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutPresencedefinitionTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutPresencedefinitionTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutPresencedefinitionInternalServerError() *PutPresencedefinitionInterna
 	return &PutPresencedefinitionInternalServerError{}
 }
 
-/*PutPresencedefinitionInternalServerError handles this case with default header values.
+/*
+PutPresencedefinitionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutPresencedefinitionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put presencedefinition internal server error response has a 2xx status code
+func (o *PutPresencedefinitionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put presencedefinition internal server error response has a 3xx status code
+func (o *PutPresencedefinitionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put presencedefinition internal server error response has a 4xx status code
+func (o *PutPresencedefinitionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put presencedefinition internal server error response has a 5xx status code
+func (o *PutPresencedefinitionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put presencedefinition internal server error response a status code equal to that given
+func (o *PutPresencedefinitionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutPresencedefinitionInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutPresencedefinitionInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutPresencedefinitionServiceUnavailable() *PutPresencedefinitionServiceU
 	return &PutPresencedefinitionServiceUnavailable{}
 }
 
-/*PutPresencedefinitionServiceUnavailable handles this case with default header values.
+/*
+PutPresencedefinitionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutPresencedefinitionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put presencedefinition service unavailable response has a 2xx status code
+func (o *PutPresencedefinitionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put presencedefinition service unavailable response has a 3xx status code
+func (o *PutPresencedefinitionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put presencedefinition service unavailable response has a 4xx status code
+func (o *PutPresencedefinitionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put presencedefinition service unavailable response has a 5xx status code
+func (o *PutPresencedefinitionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put presencedefinition service unavailable response a status code equal to that given
+func (o *PutPresencedefinitionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutPresencedefinitionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutPresencedefinitionServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutPresencedefinitionGatewayTimeout() *PutPresencedefinitionGatewayTimeo
 	return &PutPresencedefinitionGatewayTimeout{}
 }
 
-/*PutPresencedefinitionGatewayTimeout handles this case with default header values.
+/*
+PutPresencedefinitionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutPresencedefinitionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put presencedefinition gateway timeout response has a 2xx status code
+func (o *PutPresencedefinitionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put presencedefinition gateway timeout response has a 3xx status code
+func (o *PutPresencedefinitionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put presencedefinition gateway timeout response has a 4xx status code
+func (o *PutPresencedefinitionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put presencedefinition gateway timeout response has a 5xx status code
+func (o *PutPresencedefinitionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put presencedefinition gateway timeout response a status code equal to that given
+func (o *PutPresencedefinitionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutPresencedefinitionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutPresencedefinitionGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/presencedefinitions/{presenceId}][%d] putPresencedefinitionGatewayTimeout  %+v", 504, o.Payload)
 }
 

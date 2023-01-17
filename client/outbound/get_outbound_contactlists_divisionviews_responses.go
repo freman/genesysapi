@@ -95,7 +95,6 @@ func (o *GetOutboundContactlistsDivisionviewsReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOutboundContactlistsDivisionviewsOK() *GetOutboundContactlistsDivisio
 	return &GetOutboundContactlistsDivisionviewsOK{}
 }
 
-/*GetOutboundContactlistsDivisionviewsOK handles this case with default header values.
+/*
+GetOutboundContactlistsDivisionviewsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOutboundContactlistsDivisionviewsOK struct {
 	Payload *models.ContactListDivisionViewListing
 }
 
+// IsSuccess returns true when this get outbound contactlists divisionviews o k response has a 2xx status code
+func (o *GetOutboundContactlistsDivisionviewsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get outbound contactlists divisionviews o k response has a 3xx status code
+func (o *GetOutboundContactlistsDivisionviewsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlists divisionviews o k response has a 4xx status code
+func (o *GetOutboundContactlistsDivisionviewsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound contactlists divisionviews o k response has a 5xx status code
+func (o *GetOutboundContactlistsDivisionviewsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlists divisionviews o k response a status code equal to that given
+func (o *GetOutboundContactlistsDivisionviewsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOutboundContactlistsDivisionviewsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOutboundContactlistsDivisionviewsBadRequest() *GetOutboundContactlist
 	return &GetOutboundContactlistsDivisionviewsBadRequest{}
 }
 
-/*GetOutboundContactlistsDivisionviewsBadRequest handles this case with default header values.
+/*
+GetOutboundContactlistsDivisionviewsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOutboundContactlistsDivisionviewsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlists divisionviews bad request response has a 2xx status code
+func (o *GetOutboundContactlistsDivisionviewsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlists divisionviews bad request response has a 3xx status code
+func (o *GetOutboundContactlistsDivisionviewsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlists divisionviews bad request response has a 4xx status code
+func (o *GetOutboundContactlistsDivisionviewsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlists divisionviews bad request response has a 5xx status code
+func (o *GetOutboundContactlistsDivisionviewsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlists divisionviews bad request response a status code equal to that given
+func (o *GetOutboundContactlistsDivisionviewsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOutboundContactlistsDivisionviewsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOutboundContactlistsDivisionviewsUnauthorized() *GetOutboundContactli
 	return &GetOutboundContactlistsDivisionviewsUnauthorized{}
 }
 
-/*GetOutboundContactlistsDivisionviewsUnauthorized handles this case with default header values.
+/*
+GetOutboundContactlistsDivisionviewsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOutboundContactlistsDivisionviewsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlists divisionviews unauthorized response has a 2xx status code
+func (o *GetOutboundContactlistsDivisionviewsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlists divisionviews unauthorized response has a 3xx status code
+func (o *GetOutboundContactlistsDivisionviewsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlists divisionviews unauthorized response has a 4xx status code
+func (o *GetOutboundContactlistsDivisionviewsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlists divisionviews unauthorized response has a 5xx status code
+func (o *GetOutboundContactlistsDivisionviewsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlists divisionviews unauthorized response a status code equal to that given
+func (o *GetOutboundContactlistsDivisionviewsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOutboundContactlistsDivisionviewsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOutboundContactlistsDivisionviewsForbidden() *GetOutboundContactlists
 	return &GetOutboundContactlistsDivisionviewsForbidden{}
 }
 
-/*GetOutboundContactlistsDivisionviewsForbidden handles this case with default header values.
+/*
+GetOutboundContactlistsDivisionviewsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOutboundContactlistsDivisionviewsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlists divisionviews forbidden response has a 2xx status code
+func (o *GetOutboundContactlistsDivisionviewsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlists divisionviews forbidden response has a 3xx status code
+func (o *GetOutboundContactlistsDivisionviewsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlists divisionviews forbidden response has a 4xx status code
+func (o *GetOutboundContactlistsDivisionviewsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlists divisionviews forbidden response has a 5xx status code
+func (o *GetOutboundContactlistsDivisionviewsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlists divisionviews forbidden response a status code equal to that given
+func (o *GetOutboundContactlistsDivisionviewsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOutboundContactlistsDivisionviewsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOutboundContactlistsDivisionviewsNotFound() *GetOutboundContactlistsD
 	return &GetOutboundContactlistsDivisionviewsNotFound{}
 }
 
-/*GetOutboundContactlistsDivisionviewsNotFound handles this case with default header values.
+/*
+GetOutboundContactlistsDivisionviewsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOutboundContactlistsDivisionviewsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlists divisionviews not found response has a 2xx status code
+func (o *GetOutboundContactlistsDivisionviewsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlists divisionviews not found response has a 3xx status code
+func (o *GetOutboundContactlistsDivisionviewsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlists divisionviews not found response has a 4xx status code
+func (o *GetOutboundContactlistsDivisionviewsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlists divisionviews not found response has a 5xx status code
+func (o *GetOutboundContactlistsDivisionviewsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlists divisionviews not found response a status code equal to that given
+func (o *GetOutboundContactlistsDivisionviewsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOutboundContactlistsDivisionviewsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOutboundContactlistsDivisionviewsRequestTimeout() *GetOutboundContact
 	return &GetOutboundContactlistsDivisionviewsRequestTimeout{}
 }
 
-/*GetOutboundContactlistsDivisionviewsRequestTimeout handles this case with default header values.
+/*
+GetOutboundContactlistsDivisionviewsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOutboundContactlistsDivisionviewsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlists divisionviews request timeout response has a 2xx status code
+func (o *GetOutboundContactlistsDivisionviewsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlists divisionviews request timeout response has a 3xx status code
+func (o *GetOutboundContactlistsDivisionviewsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlists divisionviews request timeout response has a 4xx status code
+func (o *GetOutboundContactlistsDivisionviewsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlists divisionviews request timeout response has a 5xx status code
+func (o *GetOutboundContactlistsDivisionviewsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlists divisionviews request timeout response a status code equal to that given
+func (o *GetOutboundContactlistsDivisionviewsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOutboundContactlistsDivisionviewsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOutboundContactlistsDivisionviewsRequestEntityTooLarge() *GetOutbound
 	return &GetOutboundContactlistsDivisionviewsRequestEntityTooLarge{}
 }
 
-/*GetOutboundContactlistsDivisionviewsRequestEntityTooLarge handles this case with default header values.
+/*
+GetOutboundContactlistsDivisionviewsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOutboundContactlistsDivisionviewsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlists divisionviews request entity too large response has a 2xx status code
+func (o *GetOutboundContactlistsDivisionviewsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlists divisionviews request entity too large response has a 3xx status code
+func (o *GetOutboundContactlistsDivisionviewsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlists divisionviews request entity too large response has a 4xx status code
+func (o *GetOutboundContactlistsDivisionviewsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlists divisionviews request entity too large response has a 5xx status code
+func (o *GetOutboundContactlistsDivisionviewsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlists divisionviews request entity too large response a status code equal to that given
+func (o *GetOutboundContactlistsDivisionviewsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOutboundContactlistsDivisionviewsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOutboundContactlistsDivisionviewsUnsupportedMediaType() *GetOutboundC
 	return &GetOutboundContactlistsDivisionviewsUnsupportedMediaType{}
 }
 
-/*GetOutboundContactlistsDivisionviewsUnsupportedMediaType handles this case with default header values.
+/*
+GetOutboundContactlistsDivisionviewsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOutboundContactlistsDivisionviewsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlists divisionviews unsupported media type response has a 2xx status code
+func (o *GetOutboundContactlistsDivisionviewsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlists divisionviews unsupported media type response has a 3xx status code
+func (o *GetOutboundContactlistsDivisionviewsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlists divisionviews unsupported media type response has a 4xx status code
+func (o *GetOutboundContactlistsDivisionviewsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlists divisionviews unsupported media type response has a 5xx status code
+func (o *GetOutboundContactlistsDivisionviewsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlists divisionviews unsupported media type response a status code equal to that given
+func (o *GetOutboundContactlistsDivisionviewsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOutboundContactlistsDivisionviewsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOutboundContactlistsDivisionviewsTooManyRequests() *GetOutboundContac
 	return &GetOutboundContactlistsDivisionviewsTooManyRequests{}
 }
 
-/*GetOutboundContactlistsDivisionviewsTooManyRequests handles this case with default header values.
+/*
+GetOutboundContactlistsDivisionviewsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOutboundContactlistsDivisionviewsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlists divisionviews too many requests response has a 2xx status code
+func (o *GetOutboundContactlistsDivisionviewsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlists divisionviews too many requests response has a 3xx status code
+func (o *GetOutboundContactlistsDivisionviewsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlists divisionviews too many requests response has a 4xx status code
+func (o *GetOutboundContactlistsDivisionviewsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound contactlists divisionviews too many requests response has a 5xx status code
+func (o *GetOutboundContactlistsDivisionviewsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound contactlists divisionviews too many requests response a status code equal to that given
+func (o *GetOutboundContactlistsDivisionviewsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOutboundContactlistsDivisionviewsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOutboundContactlistsDivisionviewsInternalServerError() *GetOutboundCo
 	return &GetOutboundContactlistsDivisionviewsInternalServerError{}
 }
 
-/*GetOutboundContactlistsDivisionviewsInternalServerError handles this case with default header values.
+/*
+GetOutboundContactlistsDivisionviewsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOutboundContactlistsDivisionviewsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlists divisionviews internal server error response has a 2xx status code
+func (o *GetOutboundContactlistsDivisionviewsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlists divisionviews internal server error response has a 3xx status code
+func (o *GetOutboundContactlistsDivisionviewsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlists divisionviews internal server error response has a 4xx status code
+func (o *GetOutboundContactlistsDivisionviewsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound contactlists divisionviews internal server error response has a 5xx status code
+func (o *GetOutboundContactlistsDivisionviewsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound contactlists divisionviews internal server error response a status code equal to that given
+func (o *GetOutboundContactlistsDivisionviewsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOutboundContactlistsDivisionviewsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOutboundContactlistsDivisionviewsServiceUnavailable() *GetOutboundCon
 	return &GetOutboundContactlistsDivisionviewsServiceUnavailable{}
 }
 
-/*GetOutboundContactlistsDivisionviewsServiceUnavailable handles this case with default header values.
+/*
+GetOutboundContactlistsDivisionviewsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOutboundContactlistsDivisionviewsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlists divisionviews service unavailable response has a 2xx status code
+func (o *GetOutboundContactlistsDivisionviewsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlists divisionviews service unavailable response has a 3xx status code
+func (o *GetOutboundContactlistsDivisionviewsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlists divisionviews service unavailable response has a 4xx status code
+func (o *GetOutboundContactlistsDivisionviewsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound contactlists divisionviews service unavailable response has a 5xx status code
+func (o *GetOutboundContactlistsDivisionviewsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound contactlists divisionviews service unavailable response a status code equal to that given
+func (o *GetOutboundContactlistsDivisionviewsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOutboundContactlistsDivisionviewsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOutboundContactlistsDivisionviewsGatewayTimeout() *GetOutboundContact
 	return &GetOutboundContactlistsDivisionviewsGatewayTimeout{}
 }
 
-/*GetOutboundContactlistsDivisionviewsGatewayTimeout handles this case with default header values.
+/*
+GetOutboundContactlistsDivisionviewsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOutboundContactlistsDivisionviewsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound contactlists divisionviews gateway timeout response has a 2xx status code
+func (o *GetOutboundContactlistsDivisionviewsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound contactlists divisionviews gateway timeout response has a 3xx status code
+func (o *GetOutboundContactlistsDivisionviewsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound contactlists divisionviews gateway timeout response has a 4xx status code
+func (o *GetOutboundContactlistsDivisionviewsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound contactlists divisionviews gateway timeout response has a 5xx status code
+func (o *GetOutboundContactlistsDivisionviewsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound contactlists divisionviews gateway timeout response a status code equal to that given
+func (o *GetOutboundContactlistsDivisionviewsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOutboundContactlistsDivisionviewsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOutboundContactlistsDivisionviewsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/contactlists/divisionviews][%d] getOutboundContactlistsDivisionviewsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // TwitterID User information for a twitter account
@@ -35,6 +39,42 @@ type TwitterID struct {
 
 // Validate validates this twitter Id
 func (m *TwitterID) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this twitter Id based on the context it is used
+func (m *TwitterID) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateProfileURL(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVerified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TwitterID) contextValidateProfileURL(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "profileUrl", "body", string(m.ProfileURL)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TwitterID) contextValidateVerified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "verified", "body", m.Verified); err != nil {
+		return err
+	}
+
 	return nil
 }
 

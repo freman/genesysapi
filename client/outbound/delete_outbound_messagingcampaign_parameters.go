@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteOutboundMessagingcampaignParams creates a new DeleteOutboundMessagingcampaignParams object
-// with the default values initialized.
+// NewDeleteOutboundMessagingcampaignParams creates a new DeleteOutboundMessagingcampaignParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundMessagingcampaignParams() *DeleteOutboundMessagingcampaignParams {
-	var ()
 	return &DeleteOutboundMessagingcampaignParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundMessagingcampaignParamsWithTimeout creates a new DeleteOutboundMessagingcampaignParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundMessagingcampaignParamsWithTimeout(timeout time.Duration) *DeleteOutboundMessagingcampaignParams {
-	var ()
 	return &DeleteOutboundMessagingcampaignParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundMessagingcampaignParamsWithContext creates a new DeleteOutboundMessagingcampaignParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundMessagingcampaignParamsWithContext(ctx context.Context) *DeleteOutboundMessagingcampaignParams {
-	var ()
 	return &DeleteOutboundMessagingcampaignParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundMessagingcampaignParamsWithHTTPClient creates a new DeleteOutboundMessagingcampaignParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundMessagingcampaignParamsWithHTTPClient(client *http.Client) *DeleteOutboundMessagingcampaignParams {
-	var ()
 	return &DeleteOutboundMessagingcampaignParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundMessagingcampaignParams contains all the parameters to send to the API endpoint
-for the delete outbound messagingcampaign operation typically these are written to a http.Request
+/*
+DeleteOutboundMessagingcampaignParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound messagingcampaign operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundMessagingcampaignParams struct {
 
-	/*MessagingCampaignID
-	  The Messaging Campaign ID
+	/* MessagingCampaignID.
 
+	   The Messaging Campaign ID
 	*/
 	MessagingCampaignID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound messagingcampaign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundMessagingcampaignParams) WithDefaults() *DeleteOutboundMessagingcampaignParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound messagingcampaign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundMessagingcampaignParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound messagingcampaign params

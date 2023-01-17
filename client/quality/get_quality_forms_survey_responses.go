@@ -95,7 +95,6 @@ func (o *GetQualityFormsSurveyReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetQualityFormsSurveyOK() *GetQualityFormsSurveyOK {
 	return &GetQualityFormsSurveyOK{}
 }
 
-/*GetQualityFormsSurveyOK handles this case with default header values.
+/*
+GetQualityFormsSurveyOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetQualityFormsSurveyOK struct {
 	Payload *models.SurveyForm
 }
 
+// IsSuccess returns true when this get quality forms survey o k response has a 2xx status code
+func (o *GetQualityFormsSurveyOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get quality forms survey o k response has a 3xx status code
+func (o *GetQualityFormsSurveyOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms survey o k response has a 4xx status code
+func (o *GetQualityFormsSurveyOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality forms survey o k response has a 5xx status code
+func (o *GetQualityFormsSurveyOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms survey o k response a status code equal to that given
+func (o *GetQualityFormsSurveyOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetQualityFormsSurveyOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyOK  %+v", 200, o.Payload)
+}
+
+func (o *GetQualityFormsSurveyOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetQualityFormsSurveyBadRequest() *GetQualityFormsSurveyBadRequest {
 	return &GetQualityFormsSurveyBadRequest{}
 }
 
-/*GetQualityFormsSurveyBadRequest handles this case with default header values.
+/*
+GetQualityFormsSurveyBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetQualityFormsSurveyBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms survey bad request response has a 2xx status code
+func (o *GetQualityFormsSurveyBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms survey bad request response has a 3xx status code
+func (o *GetQualityFormsSurveyBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms survey bad request response has a 4xx status code
+func (o *GetQualityFormsSurveyBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms survey bad request response has a 5xx status code
+func (o *GetQualityFormsSurveyBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms survey bad request response a status code equal to that given
+func (o *GetQualityFormsSurveyBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetQualityFormsSurveyBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetQualityFormsSurveyBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetQualityFormsSurveyUnauthorized() *GetQualityFormsSurveyUnauthorized {
 	return &GetQualityFormsSurveyUnauthorized{}
 }
 
-/*GetQualityFormsSurveyUnauthorized handles this case with default header values.
+/*
+GetQualityFormsSurveyUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetQualityFormsSurveyUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms survey unauthorized response has a 2xx status code
+func (o *GetQualityFormsSurveyUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms survey unauthorized response has a 3xx status code
+func (o *GetQualityFormsSurveyUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms survey unauthorized response has a 4xx status code
+func (o *GetQualityFormsSurveyUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms survey unauthorized response has a 5xx status code
+func (o *GetQualityFormsSurveyUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms survey unauthorized response a status code equal to that given
+func (o *GetQualityFormsSurveyUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetQualityFormsSurveyUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetQualityFormsSurveyUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetQualityFormsSurveyForbidden() *GetQualityFormsSurveyForbidden {
 	return &GetQualityFormsSurveyForbidden{}
 }
 
-/*GetQualityFormsSurveyForbidden handles this case with default header values.
+/*
+GetQualityFormsSurveyForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetQualityFormsSurveyForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms survey forbidden response has a 2xx status code
+func (o *GetQualityFormsSurveyForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms survey forbidden response has a 3xx status code
+func (o *GetQualityFormsSurveyForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms survey forbidden response has a 4xx status code
+func (o *GetQualityFormsSurveyForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms survey forbidden response has a 5xx status code
+func (o *GetQualityFormsSurveyForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms survey forbidden response a status code equal to that given
+func (o *GetQualityFormsSurveyForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetQualityFormsSurveyForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetQualityFormsSurveyForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetQualityFormsSurveyNotFound() *GetQualityFormsSurveyNotFound {
 	return &GetQualityFormsSurveyNotFound{}
 }
 
-/*GetQualityFormsSurveyNotFound handles this case with default header values.
+/*
+GetQualityFormsSurveyNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetQualityFormsSurveyNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms survey not found response has a 2xx status code
+func (o *GetQualityFormsSurveyNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms survey not found response has a 3xx status code
+func (o *GetQualityFormsSurveyNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms survey not found response has a 4xx status code
+func (o *GetQualityFormsSurveyNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms survey not found response has a 5xx status code
+func (o *GetQualityFormsSurveyNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms survey not found response a status code equal to that given
+func (o *GetQualityFormsSurveyNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetQualityFormsSurveyNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetQualityFormsSurveyNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetQualityFormsSurveyRequestTimeout() *GetQualityFormsSurveyRequestTimeo
 	return &GetQualityFormsSurveyRequestTimeout{}
 }
 
-/*GetQualityFormsSurveyRequestTimeout handles this case with default header values.
+/*
+GetQualityFormsSurveyRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetQualityFormsSurveyRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms survey request timeout response has a 2xx status code
+func (o *GetQualityFormsSurveyRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms survey request timeout response has a 3xx status code
+func (o *GetQualityFormsSurveyRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms survey request timeout response has a 4xx status code
+func (o *GetQualityFormsSurveyRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms survey request timeout response has a 5xx status code
+func (o *GetQualityFormsSurveyRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms survey request timeout response a status code equal to that given
+func (o *GetQualityFormsSurveyRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetQualityFormsSurveyRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetQualityFormsSurveyRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetQualityFormsSurveyRequestEntityTooLarge() *GetQualityFormsSurveyReque
 	return &GetQualityFormsSurveyRequestEntityTooLarge{}
 }
 
-/*GetQualityFormsSurveyRequestEntityTooLarge handles this case with default header values.
+/*
+GetQualityFormsSurveyRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetQualityFormsSurveyRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms survey request entity too large response has a 2xx status code
+func (o *GetQualityFormsSurveyRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms survey request entity too large response has a 3xx status code
+func (o *GetQualityFormsSurveyRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms survey request entity too large response has a 4xx status code
+func (o *GetQualityFormsSurveyRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms survey request entity too large response has a 5xx status code
+func (o *GetQualityFormsSurveyRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms survey request entity too large response a status code equal to that given
+func (o *GetQualityFormsSurveyRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetQualityFormsSurveyRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetQualityFormsSurveyRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetQualityFormsSurveyUnsupportedMediaType() *GetQualityFormsSurveyUnsupp
 	return &GetQualityFormsSurveyUnsupportedMediaType{}
 }
 
-/*GetQualityFormsSurveyUnsupportedMediaType handles this case with default header values.
+/*
+GetQualityFormsSurveyUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetQualityFormsSurveyUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms survey unsupported media type response has a 2xx status code
+func (o *GetQualityFormsSurveyUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms survey unsupported media type response has a 3xx status code
+func (o *GetQualityFormsSurveyUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms survey unsupported media type response has a 4xx status code
+func (o *GetQualityFormsSurveyUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms survey unsupported media type response has a 5xx status code
+func (o *GetQualityFormsSurveyUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms survey unsupported media type response a status code equal to that given
+func (o *GetQualityFormsSurveyUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetQualityFormsSurveyUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetQualityFormsSurveyUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetQualityFormsSurveyTooManyRequests() *GetQualityFormsSurveyTooManyRequ
 	return &GetQualityFormsSurveyTooManyRequests{}
 }
 
-/*GetQualityFormsSurveyTooManyRequests handles this case with default header values.
+/*
+GetQualityFormsSurveyTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetQualityFormsSurveyTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms survey too many requests response has a 2xx status code
+func (o *GetQualityFormsSurveyTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms survey too many requests response has a 3xx status code
+func (o *GetQualityFormsSurveyTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms survey too many requests response has a 4xx status code
+func (o *GetQualityFormsSurveyTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms survey too many requests response has a 5xx status code
+func (o *GetQualityFormsSurveyTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms survey too many requests response a status code equal to that given
+func (o *GetQualityFormsSurveyTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetQualityFormsSurveyTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetQualityFormsSurveyTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetQualityFormsSurveyInternalServerError() *GetQualityFormsSurveyInterna
 	return &GetQualityFormsSurveyInternalServerError{}
 }
 
-/*GetQualityFormsSurveyInternalServerError handles this case with default header values.
+/*
+GetQualityFormsSurveyInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetQualityFormsSurveyInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms survey internal server error response has a 2xx status code
+func (o *GetQualityFormsSurveyInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms survey internal server error response has a 3xx status code
+func (o *GetQualityFormsSurveyInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms survey internal server error response has a 4xx status code
+func (o *GetQualityFormsSurveyInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality forms survey internal server error response has a 5xx status code
+func (o *GetQualityFormsSurveyInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality forms survey internal server error response a status code equal to that given
+func (o *GetQualityFormsSurveyInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetQualityFormsSurveyInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetQualityFormsSurveyInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetQualityFormsSurveyServiceUnavailable() *GetQualityFormsSurveyServiceU
 	return &GetQualityFormsSurveyServiceUnavailable{}
 }
 
-/*GetQualityFormsSurveyServiceUnavailable handles this case with default header values.
+/*
+GetQualityFormsSurveyServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetQualityFormsSurveyServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms survey service unavailable response has a 2xx status code
+func (o *GetQualityFormsSurveyServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms survey service unavailable response has a 3xx status code
+func (o *GetQualityFormsSurveyServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms survey service unavailable response has a 4xx status code
+func (o *GetQualityFormsSurveyServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality forms survey service unavailable response has a 5xx status code
+func (o *GetQualityFormsSurveyServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality forms survey service unavailable response a status code equal to that given
+func (o *GetQualityFormsSurveyServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetQualityFormsSurveyServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetQualityFormsSurveyServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetQualityFormsSurveyGatewayTimeout() *GetQualityFormsSurveyGatewayTimeo
 	return &GetQualityFormsSurveyGatewayTimeout{}
 }
 
-/*GetQualityFormsSurveyGatewayTimeout handles this case with default header values.
+/*
+GetQualityFormsSurveyGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetQualityFormsSurveyGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms survey gateway timeout response has a 2xx status code
+func (o *GetQualityFormsSurveyGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms survey gateway timeout response has a 3xx status code
+func (o *GetQualityFormsSurveyGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms survey gateway timeout response has a 4xx status code
+func (o *GetQualityFormsSurveyGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality forms survey gateway timeout response has a 5xx status code
+func (o *GetQualityFormsSurveyGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality forms survey gateway timeout response a status code equal to that given
+func (o *GetQualityFormsSurveyGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetQualityFormsSurveyGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetQualityFormsSurveyGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/surveys/{formId}][%d] getQualityFormsSurveyGatewayTimeout  %+v", 504, o.Payload)
 }
 

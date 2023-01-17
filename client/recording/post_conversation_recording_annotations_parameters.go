@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationRecordingAnnotationsParams creates a new PostConversationRecordingAnnotationsParams object
-// with the default values initialized.
+// NewPostConversationRecordingAnnotationsParams creates a new PostConversationRecordingAnnotationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationRecordingAnnotationsParams() *PostConversationRecordingAnnotationsParams {
-	var ()
 	return &PostConversationRecordingAnnotationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationRecordingAnnotationsParamsWithTimeout creates a new PostConversationRecordingAnnotationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationRecordingAnnotationsParamsWithTimeout(timeout time.Duration) *PostConversationRecordingAnnotationsParams {
-	var ()
 	return &PostConversationRecordingAnnotationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationRecordingAnnotationsParamsWithContext creates a new PostConversationRecordingAnnotationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationRecordingAnnotationsParamsWithContext(ctx context.Context) *PostConversationRecordingAnnotationsParams {
-	var ()
 	return &PostConversationRecordingAnnotationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationRecordingAnnotationsParamsWithHTTPClient creates a new PostConversationRecordingAnnotationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationRecordingAnnotationsParamsWithHTTPClient(client *http.Client) *PostConversationRecordingAnnotationsParams {
-	var ()
 	return &PostConversationRecordingAnnotationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationRecordingAnnotationsParams contains all the parameters to send to the API endpoint
-for the post conversation recording annotations operation typically these are written to a http.Request
+/*
+PostConversationRecordingAnnotationsParams contains all the parameters to send to the API endpoint
+
+	for the post conversation recording annotations operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationRecordingAnnotationsParams struct {
 
-	/*Body
-	  annotation
+	/* Body.
 
+	   annotation
 	*/
 	Body *models.Annotation
-	/*ConversationID
-	  Conversation ID
 
+	/* ConversationID.
+
+	   Conversation ID
 	*/
 	ConversationID string
-	/*RecordingID
-	  Recording ID
 
+	/* RecordingID.
+
+	   Recording ID
 	*/
 	RecordingID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversation recording annotations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationRecordingAnnotationsParams) WithDefaults() *PostConversationRecordingAnnotationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversation recording annotations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationRecordingAnnotationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversation recording annotations params
@@ -156,7 +174,6 @@ func (o *PostConversationRecordingAnnotationsParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

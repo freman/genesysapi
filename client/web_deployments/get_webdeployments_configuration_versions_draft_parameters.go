@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWebdeploymentsConfigurationVersionsDraftParams creates a new GetWebdeploymentsConfigurationVersionsDraftParams object
-// with the default values initialized.
+// NewGetWebdeploymentsConfigurationVersionsDraftParams creates a new GetWebdeploymentsConfigurationVersionsDraftParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWebdeploymentsConfigurationVersionsDraftParams() *GetWebdeploymentsConfigurationVersionsDraftParams {
-	var ()
 	return &GetWebdeploymentsConfigurationVersionsDraftParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWebdeploymentsConfigurationVersionsDraftParamsWithTimeout creates a new GetWebdeploymentsConfigurationVersionsDraftParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWebdeploymentsConfigurationVersionsDraftParamsWithTimeout(timeout time.Duration) *GetWebdeploymentsConfigurationVersionsDraftParams {
-	var ()
 	return &GetWebdeploymentsConfigurationVersionsDraftParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWebdeploymentsConfigurationVersionsDraftParamsWithContext creates a new GetWebdeploymentsConfigurationVersionsDraftParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWebdeploymentsConfigurationVersionsDraftParamsWithContext(ctx context.Context) *GetWebdeploymentsConfigurationVersionsDraftParams {
-	var ()
 	return &GetWebdeploymentsConfigurationVersionsDraftParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWebdeploymentsConfigurationVersionsDraftParamsWithHTTPClient creates a new GetWebdeploymentsConfigurationVersionsDraftParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWebdeploymentsConfigurationVersionsDraftParamsWithHTTPClient(client *http.Client) *GetWebdeploymentsConfigurationVersionsDraftParams {
-	var ()
 	return &GetWebdeploymentsConfigurationVersionsDraftParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftParams contains all the parameters to send to the API endpoint
-for the get webdeployments configuration versions draft operation typically these are written to a http.Request
+/*
+GetWebdeploymentsConfigurationVersionsDraftParams contains all the parameters to send to the API endpoint
+
+	for the get webdeployments configuration versions draft operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWebdeploymentsConfigurationVersionsDraftParams struct {
 
-	/*ConfigurationID
-	  The configuration version ID
+	/* ConfigurationID.
 
+	   The configuration version ID
 	*/
 	ConfigurationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get webdeployments configuration versions draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebdeploymentsConfigurationVersionsDraftParams) WithDefaults() *GetWebdeploymentsConfigurationVersionsDraftParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get webdeployments configuration versions draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebdeploymentsConfigurationVersionsDraftParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get webdeployments configuration versions draft params

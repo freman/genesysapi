@@ -18,66 +18,84 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams creates a new PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams object
-// with the default values initialized.
+// NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams creates a new PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams() *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParamsWithTimeout creates a new PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParamsWithTimeout(timeout time.Duration) *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParamsWithContext creates a new PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParamsWithContext(ctx context.Context) *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParamsWithHTTPClient creates a new PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParamsWithHTTPClient(client *http.Client) *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams contains all the parameters to send to the API endpoint
-for the patch knowledge knowledgebase documents search search Id operation typically these are written to a http.Request
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams contains all the parameters to send to the API endpoint
+
+	for the patch knowledge knowledgebase documents search search Id operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.SearchUpdateRequest
-	/*KnowledgeBaseID
-	  The ID of knowledge base containing the documents to query.
 
+	/* KnowledgeBaseID.
+
+	   The ID of knowledge base containing the documents to query.
 	*/
 	KnowledgeBaseID string
-	/*SearchID
-	  Search Result ID
 
+	/* SearchID.
+
+	   Search Result ID
 	*/
 	SearchID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch knowledge knowledgebase documents search search Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams) WithDefaults() *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch knowledge knowledgebase documents search search Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch knowledge knowledgebase documents search search Id params
@@ -153,7 +171,6 @@ func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDParams) WriteToReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

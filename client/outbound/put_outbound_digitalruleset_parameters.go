@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOutboundDigitalrulesetParams creates a new PutOutboundDigitalrulesetParams object
-// with the default values initialized.
+// NewPutOutboundDigitalrulesetParams creates a new PutOutboundDigitalrulesetParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOutboundDigitalrulesetParams() *PutOutboundDigitalrulesetParams {
-	var ()
 	return &PutOutboundDigitalrulesetParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOutboundDigitalrulesetParamsWithTimeout creates a new PutOutboundDigitalrulesetParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOutboundDigitalrulesetParamsWithTimeout(timeout time.Duration) *PutOutboundDigitalrulesetParams {
-	var ()
 	return &PutOutboundDigitalrulesetParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOutboundDigitalrulesetParamsWithContext creates a new PutOutboundDigitalrulesetParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOutboundDigitalrulesetParamsWithContext(ctx context.Context) *PutOutboundDigitalrulesetParams {
-	var ()
 	return &PutOutboundDigitalrulesetParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOutboundDigitalrulesetParamsWithHTTPClient creates a new PutOutboundDigitalrulesetParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOutboundDigitalrulesetParamsWithHTTPClient(client *http.Client) *PutOutboundDigitalrulesetParams {
-	var ()
 	return &PutOutboundDigitalrulesetParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOutboundDigitalrulesetParams contains all the parameters to send to the API endpoint
-for the put outbound digitalruleset operation typically these are written to a http.Request
+/*
+PutOutboundDigitalrulesetParams contains all the parameters to send to the API endpoint
+
+	for the put outbound digitalruleset operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOutboundDigitalrulesetParams struct {
 
-	/*Body
-	  Digital Rule Set
+	/* Body.
 
+	   Digital Rule Set
 	*/
 	Body *models.DigitalRuleSet
-	/*DigitalRuleSetID
-	  The Digital Rule Set ID
 
+	/* DigitalRuleSetID.
+
+	   The Digital Rule Set ID
 	*/
 	DigitalRuleSetID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put outbound digitalruleset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundDigitalrulesetParams) WithDefaults() *PutOutboundDigitalrulesetParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put outbound digitalruleset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundDigitalrulesetParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put outbound digitalruleset params
@@ -140,7 +157,6 @@ func (o *PutOutboundDigitalrulesetParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

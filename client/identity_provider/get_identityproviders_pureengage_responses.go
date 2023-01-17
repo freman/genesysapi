@@ -95,7 +95,6 @@ func (o *GetIdentityprovidersPureengageReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIdentityprovidersPureengageOK() *GetIdentityprovidersPureengageOK {
 	return &GetIdentityprovidersPureengageOK{}
 }
 
-/*GetIdentityprovidersPureengageOK handles this case with default header values.
+/*
+GetIdentityprovidersPureengageOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIdentityprovidersPureengageOK struct {
 	Payload *models.PureEngage
 }
 
+// IsSuccess returns true when this get identityproviders pureengage o k response has a 2xx status code
+func (o *GetIdentityprovidersPureengageOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get identityproviders pureengage o k response has a 3xx status code
+func (o *GetIdentityprovidersPureengageOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders pureengage o k response has a 4xx status code
+func (o *GetIdentityprovidersPureengageOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders pureengage o k response has a 5xx status code
+func (o *GetIdentityprovidersPureengageOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders pureengage o k response a status code equal to that given
+func (o *GetIdentityprovidersPureengageOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIdentityprovidersPureengageOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIdentityprovidersPureengageOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIdentityprovidersPureengageBadRequest() *GetIdentityprovidersPureenga
 	return &GetIdentityprovidersPureengageBadRequest{}
 }
 
-/*GetIdentityprovidersPureengageBadRequest handles this case with default header values.
+/*
+GetIdentityprovidersPureengageBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIdentityprovidersPureengageBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders pureengage bad request response has a 2xx status code
+func (o *GetIdentityprovidersPureengageBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders pureengage bad request response has a 3xx status code
+func (o *GetIdentityprovidersPureengageBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders pureengage bad request response has a 4xx status code
+func (o *GetIdentityprovidersPureengageBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders pureengage bad request response has a 5xx status code
+func (o *GetIdentityprovidersPureengageBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders pureengage bad request response a status code equal to that given
+func (o *GetIdentityprovidersPureengageBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIdentityprovidersPureengageBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIdentityprovidersPureengageBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIdentityprovidersPureengageUnauthorized() *GetIdentityprovidersPureen
 	return &GetIdentityprovidersPureengageUnauthorized{}
 }
 
-/*GetIdentityprovidersPureengageUnauthorized handles this case with default header values.
+/*
+GetIdentityprovidersPureengageUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIdentityprovidersPureengageUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders pureengage unauthorized response has a 2xx status code
+func (o *GetIdentityprovidersPureengageUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders pureengage unauthorized response has a 3xx status code
+func (o *GetIdentityprovidersPureengageUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders pureengage unauthorized response has a 4xx status code
+func (o *GetIdentityprovidersPureengageUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders pureengage unauthorized response has a 5xx status code
+func (o *GetIdentityprovidersPureengageUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders pureengage unauthorized response a status code equal to that given
+func (o *GetIdentityprovidersPureengageUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIdentityprovidersPureengageUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIdentityprovidersPureengageUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIdentityprovidersPureengageForbidden() *GetIdentityprovidersPureengag
 	return &GetIdentityprovidersPureengageForbidden{}
 }
 
-/*GetIdentityprovidersPureengageForbidden handles this case with default header values.
+/*
+GetIdentityprovidersPureengageForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIdentityprovidersPureengageForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders pureengage forbidden response has a 2xx status code
+func (o *GetIdentityprovidersPureengageForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders pureengage forbidden response has a 3xx status code
+func (o *GetIdentityprovidersPureengageForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders pureengage forbidden response has a 4xx status code
+func (o *GetIdentityprovidersPureengageForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders pureengage forbidden response has a 5xx status code
+func (o *GetIdentityprovidersPureengageForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders pureengage forbidden response a status code equal to that given
+func (o *GetIdentityprovidersPureengageForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIdentityprovidersPureengageForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIdentityprovidersPureengageForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIdentityprovidersPureengageNotFound() *GetIdentityprovidersPureengage
 	return &GetIdentityprovidersPureengageNotFound{}
 }
 
-/*GetIdentityprovidersPureengageNotFound handles this case with default header values.
+/*
+GetIdentityprovidersPureengageNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIdentityprovidersPureengageNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders pureengage not found response has a 2xx status code
+func (o *GetIdentityprovidersPureengageNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders pureengage not found response has a 3xx status code
+func (o *GetIdentityprovidersPureengageNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders pureengage not found response has a 4xx status code
+func (o *GetIdentityprovidersPureengageNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders pureengage not found response has a 5xx status code
+func (o *GetIdentityprovidersPureengageNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders pureengage not found response a status code equal to that given
+func (o *GetIdentityprovidersPureengageNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIdentityprovidersPureengageNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIdentityprovidersPureengageNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIdentityprovidersPureengageRequestTimeout() *GetIdentityprovidersPure
 	return &GetIdentityprovidersPureengageRequestTimeout{}
 }
 
-/*GetIdentityprovidersPureengageRequestTimeout handles this case with default header values.
+/*
+GetIdentityprovidersPureengageRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIdentityprovidersPureengageRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders pureengage request timeout response has a 2xx status code
+func (o *GetIdentityprovidersPureengageRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders pureengage request timeout response has a 3xx status code
+func (o *GetIdentityprovidersPureengageRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders pureengage request timeout response has a 4xx status code
+func (o *GetIdentityprovidersPureengageRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders pureengage request timeout response has a 5xx status code
+func (o *GetIdentityprovidersPureengageRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders pureengage request timeout response a status code equal to that given
+func (o *GetIdentityprovidersPureengageRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIdentityprovidersPureengageRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIdentityprovidersPureengageRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIdentityprovidersPureengageRequestEntityTooLarge() *GetIdentityprovid
 	return &GetIdentityprovidersPureengageRequestEntityTooLarge{}
 }
 
-/*GetIdentityprovidersPureengageRequestEntityTooLarge handles this case with default header values.
+/*
+GetIdentityprovidersPureengageRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIdentityprovidersPureengageRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders pureengage request entity too large response has a 2xx status code
+func (o *GetIdentityprovidersPureengageRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders pureengage request entity too large response has a 3xx status code
+func (o *GetIdentityprovidersPureengageRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders pureengage request entity too large response has a 4xx status code
+func (o *GetIdentityprovidersPureengageRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders pureengage request entity too large response has a 5xx status code
+func (o *GetIdentityprovidersPureengageRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders pureengage request entity too large response a status code equal to that given
+func (o *GetIdentityprovidersPureengageRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIdentityprovidersPureengageRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIdentityprovidersPureengageRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIdentityprovidersPureengageUnsupportedMediaType() *GetIdentityprovide
 	return &GetIdentityprovidersPureengageUnsupportedMediaType{}
 }
 
-/*GetIdentityprovidersPureengageUnsupportedMediaType handles this case with default header values.
+/*
+GetIdentityprovidersPureengageUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIdentityprovidersPureengageUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders pureengage unsupported media type response has a 2xx status code
+func (o *GetIdentityprovidersPureengageUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders pureengage unsupported media type response has a 3xx status code
+func (o *GetIdentityprovidersPureengageUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders pureengage unsupported media type response has a 4xx status code
+func (o *GetIdentityprovidersPureengageUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders pureengage unsupported media type response has a 5xx status code
+func (o *GetIdentityprovidersPureengageUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders pureengage unsupported media type response a status code equal to that given
+func (o *GetIdentityprovidersPureengageUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIdentityprovidersPureengageUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIdentityprovidersPureengageUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIdentityprovidersPureengageTooManyRequests() *GetIdentityprovidersPur
 	return &GetIdentityprovidersPureengageTooManyRequests{}
 }
 
-/*GetIdentityprovidersPureengageTooManyRequests handles this case with default header values.
+/*
+GetIdentityprovidersPureengageTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIdentityprovidersPureengageTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders pureengage too many requests response has a 2xx status code
+func (o *GetIdentityprovidersPureengageTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders pureengage too many requests response has a 3xx status code
+func (o *GetIdentityprovidersPureengageTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders pureengage too many requests response has a 4xx status code
+func (o *GetIdentityprovidersPureengageTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders pureengage too many requests response has a 5xx status code
+func (o *GetIdentityprovidersPureengageTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders pureengage too many requests response a status code equal to that given
+func (o *GetIdentityprovidersPureengageTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIdentityprovidersPureengageTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIdentityprovidersPureengageTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIdentityprovidersPureengageInternalServerError() *GetIdentityprovider
 	return &GetIdentityprovidersPureengageInternalServerError{}
 }
 
-/*GetIdentityprovidersPureengageInternalServerError handles this case with default header values.
+/*
+GetIdentityprovidersPureengageInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIdentityprovidersPureengageInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders pureengage internal server error response has a 2xx status code
+func (o *GetIdentityprovidersPureengageInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders pureengage internal server error response has a 3xx status code
+func (o *GetIdentityprovidersPureengageInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders pureengage internal server error response has a 4xx status code
+func (o *GetIdentityprovidersPureengageInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders pureengage internal server error response has a 5xx status code
+func (o *GetIdentityprovidersPureengageInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders pureengage internal server error response a status code equal to that given
+func (o *GetIdentityprovidersPureengageInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIdentityprovidersPureengageInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIdentityprovidersPureengageInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIdentityprovidersPureengageServiceUnavailable() *GetIdentityproviders
 	return &GetIdentityprovidersPureengageServiceUnavailable{}
 }
 
-/*GetIdentityprovidersPureengageServiceUnavailable handles this case with default header values.
+/*
+GetIdentityprovidersPureengageServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIdentityprovidersPureengageServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders pureengage service unavailable response has a 2xx status code
+func (o *GetIdentityprovidersPureengageServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders pureengage service unavailable response has a 3xx status code
+func (o *GetIdentityprovidersPureengageServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders pureengage service unavailable response has a 4xx status code
+func (o *GetIdentityprovidersPureengageServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders pureengage service unavailable response has a 5xx status code
+func (o *GetIdentityprovidersPureengageServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders pureengage service unavailable response a status code equal to that given
+func (o *GetIdentityprovidersPureengageServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIdentityprovidersPureengageServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIdentityprovidersPureengageServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIdentityprovidersPureengageGatewayTimeout() *GetIdentityprovidersPure
 	return &GetIdentityprovidersPureengageGatewayTimeout{}
 }
 
-/*GetIdentityprovidersPureengageGatewayTimeout handles this case with default header values.
+/*
+GetIdentityprovidersPureengageGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIdentityprovidersPureengageGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders pureengage gateway timeout response has a 2xx status code
+func (o *GetIdentityprovidersPureengageGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders pureengage gateway timeout response has a 3xx status code
+func (o *GetIdentityprovidersPureengageGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders pureengage gateway timeout response has a 4xx status code
+func (o *GetIdentityprovidersPureengageGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders pureengage gateway timeout response has a 5xx status code
+func (o *GetIdentityprovidersPureengageGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders pureengage gateway timeout response a status code equal to that given
+func (o *GetIdentityprovidersPureengageGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIdentityprovidersPureengageGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIdentityprovidersPureengageGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/pureengage][%d] getIdentityprovidersPureengageGatewayTimeout  %+v", 504, o.Payload)
 }
 

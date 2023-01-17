@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchConversationsCallParticipantConsultParams creates a new PatchConversationsCallParticipantConsultParams object
-// with the default values initialized.
+// NewPatchConversationsCallParticipantConsultParams creates a new PatchConversationsCallParticipantConsultParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchConversationsCallParticipantConsultParams() *PatchConversationsCallParticipantConsultParams {
-	var ()
 	return &PatchConversationsCallParticipantConsultParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchConversationsCallParticipantConsultParamsWithTimeout creates a new PatchConversationsCallParticipantConsultParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchConversationsCallParticipantConsultParamsWithTimeout(timeout time.Duration) *PatchConversationsCallParticipantConsultParams {
-	var ()
 	return &PatchConversationsCallParticipantConsultParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchConversationsCallParticipantConsultParamsWithContext creates a new PatchConversationsCallParticipantConsultParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchConversationsCallParticipantConsultParamsWithContext(ctx context.Context) *PatchConversationsCallParticipantConsultParams {
-	var ()
 	return &PatchConversationsCallParticipantConsultParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchConversationsCallParticipantConsultParamsWithHTTPClient creates a new PatchConversationsCallParticipantConsultParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchConversationsCallParticipantConsultParamsWithHTTPClient(client *http.Client) *PatchConversationsCallParticipantConsultParams {
-	var ()
 	return &PatchConversationsCallParticipantConsultParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchConversationsCallParticipantConsultParams contains all the parameters to send to the API endpoint
-for the patch conversations call participant consult operation typically these are written to a http.Request
+/*
+PatchConversationsCallParticipantConsultParams contains all the parameters to send to the API endpoint
+
+	for the patch conversations call participant consult operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchConversationsCallParticipantConsultParams struct {
 
-	/*Body
-	  new speak to
+	/* Body.
 
+	   new speak to
 	*/
 	Body *models.ConsultTransferUpdate
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch conversations call participant consult params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsCallParticipantConsultParams) WithDefaults() *PatchConversationsCallParticipantConsultParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch conversations call participant consult params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsCallParticipantConsultParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch conversations call participant consult params
@@ -156,7 +174,6 @@ func (o *PatchConversationsCallParticipantConsultParams) WriteToRequest(r runtim
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

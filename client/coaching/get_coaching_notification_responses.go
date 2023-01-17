@@ -95,7 +95,6 @@ func (o *GetCoachingNotificationReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetCoachingNotificationOK() *GetCoachingNotificationOK {
 	return &GetCoachingNotificationOK{}
 }
 
-/*GetCoachingNotificationOK handles this case with default header values.
+/*
+GetCoachingNotificationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetCoachingNotificationOK struct {
 	Payload *models.CoachingNotification
 }
 
+// IsSuccess returns true when this get coaching notification o k response has a 2xx status code
+func (o *GetCoachingNotificationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get coaching notification o k response has a 3xx status code
+func (o *GetCoachingNotificationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching notification o k response has a 4xx status code
+func (o *GetCoachingNotificationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get coaching notification o k response has a 5xx status code
+func (o *GetCoachingNotificationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching notification o k response a status code equal to that given
+func (o *GetCoachingNotificationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetCoachingNotificationOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationOK  %+v", 200, o.Payload)
+}
+
+func (o *GetCoachingNotificationOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetCoachingNotificationBadRequest() *GetCoachingNotificationBadRequest {
 	return &GetCoachingNotificationBadRequest{}
 }
 
-/*GetCoachingNotificationBadRequest handles this case with default header values.
+/*
+GetCoachingNotificationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetCoachingNotificationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching notification bad request response has a 2xx status code
+func (o *GetCoachingNotificationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching notification bad request response has a 3xx status code
+func (o *GetCoachingNotificationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching notification bad request response has a 4xx status code
+func (o *GetCoachingNotificationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching notification bad request response has a 5xx status code
+func (o *GetCoachingNotificationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching notification bad request response a status code equal to that given
+func (o *GetCoachingNotificationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetCoachingNotificationBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetCoachingNotificationBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetCoachingNotificationUnauthorized() *GetCoachingNotificationUnauthoriz
 	return &GetCoachingNotificationUnauthorized{}
 }
 
-/*GetCoachingNotificationUnauthorized handles this case with default header values.
+/*
+GetCoachingNotificationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetCoachingNotificationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching notification unauthorized response has a 2xx status code
+func (o *GetCoachingNotificationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching notification unauthorized response has a 3xx status code
+func (o *GetCoachingNotificationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching notification unauthorized response has a 4xx status code
+func (o *GetCoachingNotificationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching notification unauthorized response has a 5xx status code
+func (o *GetCoachingNotificationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching notification unauthorized response a status code equal to that given
+func (o *GetCoachingNotificationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetCoachingNotificationUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetCoachingNotificationUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetCoachingNotificationForbidden() *GetCoachingNotificationForbidden {
 	return &GetCoachingNotificationForbidden{}
 }
 
-/*GetCoachingNotificationForbidden handles this case with default header values.
+/*
+GetCoachingNotificationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetCoachingNotificationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching notification forbidden response has a 2xx status code
+func (o *GetCoachingNotificationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching notification forbidden response has a 3xx status code
+func (o *GetCoachingNotificationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching notification forbidden response has a 4xx status code
+func (o *GetCoachingNotificationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching notification forbidden response has a 5xx status code
+func (o *GetCoachingNotificationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching notification forbidden response a status code equal to that given
+func (o *GetCoachingNotificationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetCoachingNotificationForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetCoachingNotificationForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetCoachingNotificationNotFound() *GetCoachingNotificationNotFound {
 	return &GetCoachingNotificationNotFound{}
 }
 
-/*GetCoachingNotificationNotFound handles this case with default header values.
+/*
+GetCoachingNotificationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetCoachingNotificationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching notification not found response has a 2xx status code
+func (o *GetCoachingNotificationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching notification not found response has a 3xx status code
+func (o *GetCoachingNotificationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching notification not found response has a 4xx status code
+func (o *GetCoachingNotificationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching notification not found response has a 5xx status code
+func (o *GetCoachingNotificationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching notification not found response a status code equal to that given
+func (o *GetCoachingNotificationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetCoachingNotificationNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetCoachingNotificationNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetCoachingNotificationRequestTimeout() *GetCoachingNotificationRequestT
 	return &GetCoachingNotificationRequestTimeout{}
 }
 
-/*GetCoachingNotificationRequestTimeout handles this case with default header values.
+/*
+GetCoachingNotificationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetCoachingNotificationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching notification request timeout response has a 2xx status code
+func (o *GetCoachingNotificationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching notification request timeout response has a 3xx status code
+func (o *GetCoachingNotificationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching notification request timeout response has a 4xx status code
+func (o *GetCoachingNotificationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching notification request timeout response has a 5xx status code
+func (o *GetCoachingNotificationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching notification request timeout response a status code equal to that given
+func (o *GetCoachingNotificationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetCoachingNotificationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetCoachingNotificationRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetCoachingNotificationRequestEntityTooLarge() *GetCoachingNotificationR
 	return &GetCoachingNotificationRequestEntityTooLarge{}
 }
 
-/*GetCoachingNotificationRequestEntityTooLarge handles this case with default header values.
+/*
+GetCoachingNotificationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetCoachingNotificationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching notification request entity too large response has a 2xx status code
+func (o *GetCoachingNotificationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching notification request entity too large response has a 3xx status code
+func (o *GetCoachingNotificationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching notification request entity too large response has a 4xx status code
+func (o *GetCoachingNotificationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching notification request entity too large response has a 5xx status code
+func (o *GetCoachingNotificationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching notification request entity too large response a status code equal to that given
+func (o *GetCoachingNotificationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetCoachingNotificationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetCoachingNotificationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetCoachingNotificationUnsupportedMediaType() *GetCoachingNotificationUn
 	return &GetCoachingNotificationUnsupportedMediaType{}
 }
 
-/*GetCoachingNotificationUnsupportedMediaType handles this case with default header values.
+/*
+GetCoachingNotificationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetCoachingNotificationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching notification unsupported media type response has a 2xx status code
+func (o *GetCoachingNotificationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching notification unsupported media type response has a 3xx status code
+func (o *GetCoachingNotificationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching notification unsupported media type response has a 4xx status code
+func (o *GetCoachingNotificationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching notification unsupported media type response has a 5xx status code
+func (o *GetCoachingNotificationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching notification unsupported media type response a status code equal to that given
+func (o *GetCoachingNotificationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetCoachingNotificationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetCoachingNotificationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetCoachingNotificationTooManyRequests() *GetCoachingNotificationTooMany
 	return &GetCoachingNotificationTooManyRequests{}
 }
 
-/*GetCoachingNotificationTooManyRequests handles this case with default header values.
+/*
+GetCoachingNotificationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetCoachingNotificationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching notification too many requests response has a 2xx status code
+func (o *GetCoachingNotificationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching notification too many requests response has a 3xx status code
+func (o *GetCoachingNotificationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching notification too many requests response has a 4xx status code
+func (o *GetCoachingNotificationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching notification too many requests response has a 5xx status code
+func (o *GetCoachingNotificationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching notification too many requests response a status code equal to that given
+func (o *GetCoachingNotificationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetCoachingNotificationTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetCoachingNotificationTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetCoachingNotificationInternalServerError() *GetCoachingNotificationInt
 	return &GetCoachingNotificationInternalServerError{}
 }
 
-/*GetCoachingNotificationInternalServerError handles this case with default header values.
+/*
+GetCoachingNotificationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetCoachingNotificationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching notification internal server error response has a 2xx status code
+func (o *GetCoachingNotificationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching notification internal server error response has a 3xx status code
+func (o *GetCoachingNotificationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching notification internal server error response has a 4xx status code
+func (o *GetCoachingNotificationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get coaching notification internal server error response has a 5xx status code
+func (o *GetCoachingNotificationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get coaching notification internal server error response a status code equal to that given
+func (o *GetCoachingNotificationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetCoachingNotificationInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetCoachingNotificationInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetCoachingNotificationServiceUnavailable() *GetCoachingNotificationServ
 	return &GetCoachingNotificationServiceUnavailable{}
 }
 
-/*GetCoachingNotificationServiceUnavailable handles this case with default header values.
+/*
+GetCoachingNotificationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetCoachingNotificationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching notification service unavailable response has a 2xx status code
+func (o *GetCoachingNotificationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching notification service unavailable response has a 3xx status code
+func (o *GetCoachingNotificationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching notification service unavailable response has a 4xx status code
+func (o *GetCoachingNotificationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get coaching notification service unavailable response has a 5xx status code
+func (o *GetCoachingNotificationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get coaching notification service unavailable response a status code equal to that given
+func (o *GetCoachingNotificationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetCoachingNotificationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetCoachingNotificationServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetCoachingNotificationGatewayTimeout() *GetCoachingNotificationGatewayT
 	return &GetCoachingNotificationGatewayTimeout{}
 }
 
-/*GetCoachingNotificationGatewayTimeout handles this case with default header values.
+/*
+GetCoachingNotificationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetCoachingNotificationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching notification gateway timeout response has a 2xx status code
+func (o *GetCoachingNotificationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching notification gateway timeout response has a 3xx status code
+func (o *GetCoachingNotificationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching notification gateway timeout response has a 4xx status code
+func (o *GetCoachingNotificationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get coaching notification gateway timeout response has a 5xx status code
+func (o *GetCoachingNotificationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get coaching notification gateway timeout response a status code equal to that given
+func (o *GetCoachingNotificationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetCoachingNotificationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetCoachingNotificationGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/notifications/{notificationId}][%d] getCoachingNotificationGatewayTimeout  %+v", 504, o.Payload)
 }
 

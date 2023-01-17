@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutSpeechandtextanalyticsProgramParams creates a new PutSpeechandtextanalyticsProgramParams object
-// with the default values initialized.
+// NewPutSpeechandtextanalyticsProgramParams creates a new PutSpeechandtextanalyticsProgramParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutSpeechandtextanalyticsProgramParams() *PutSpeechandtextanalyticsProgramParams {
-	var ()
 	return &PutSpeechandtextanalyticsProgramParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutSpeechandtextanalyticsProgramParamsWithTimeout creates a new PutSpeechandtextanalyticsProgramParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutSpeechandtextanalyticsProgramParamsWithTimeout(timeout time.Duration) *PutSpeechandtextanalyticsProgramParams {
-	var ()
 	return &PutSpeechandtextanalyticsProgramParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutSpeechandtextanalyticsProgramParamsWithContext creates a new PutSpeechandtextanalyticsProgramParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutSpeechandtextanalyticsProgramParamsWithContext(ctx context.Context) *PutSpeechandtextanalyticsProgramParams {
-	var ()
 	return &PutSpeechandtextanalyticsProgramParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutSpeechandtextanalyticsProgramParamsWithHTTPClient creates a new PutSpeechandtextanalyticsProgramParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutSpeechandtextanalyticsProgramParamsWithHTTPClient(client *http.Client) *PutSpeechandtextanalyticsProgramParams {
-	var ()
 	return &PutSpeechandtextanalyticsProgramParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutSpeechandtextanalyticsProgramParams contains all the parameters to send to the API endpoint
-for the put speechandtextanalytics program operation typically these are written to a http.Request
+/*
+PutSpeechandtextanalyticsProgramParams contains all the parameters to send to the API endpoint
+
+	for the put speechandtextanalytics program operation.
+
+	Typically these are written to a http.Request.
 */
 type PutSpeechandtextanalyticsProgramParams struct {
 
-	/*Body
-	  The program to update
+	/* Body.
 
+	   The program to update
 	*/
 	Body *models.ProgramRequest
-	/*ProgramID
-	  The id of the program
 
+	/* ProgramID.
+
+	   The id of the program
 	*/
 	ProgramID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put speechandtextanalytics program params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutSpeechandtextanalyticsProgramParams) WithDefaults() *PutSpeechandtextanalyticsProgramParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put speechandtextanalytics program params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutSpeechandtextanalyticsProgramParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put speechandtextanalytics program params
@@ -140,7 +157,6 @@ func (o *PutSpeechandtextanalyticsProgramParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

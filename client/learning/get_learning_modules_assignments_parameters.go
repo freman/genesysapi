@@ -17,117 +17,136 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetLearningModulesAssignmentsParams creates a new GetLearningModulesAssignmentsParams object
-// with the default values initialized.
+// NewGetLearningModulesAssignmentsParams creates a new GetLearningModulesAssignmentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLearningModulesAssignmentsParams() *GetLearningModulesAssignmentsParams {
-	var (
-		overdueDefault    = string("Any")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetLearningModulesAssignmentsParams{
-		Overdue:    &overdueDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLearningModulesAssignmentsParamsWithTimeout creates a new GetLearningModulesAssignmentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLearningModulesAssignmentsParamsWithTimeout(timeout time.Duration) *GetLearningModulesAssignmentsParams {
-	var (
-		overdueDefault    = string("Any")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetLearningModulesAssignmentsParams{
-		Overdue:    &overdueDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLearningModulesAssignmentsParamsWithContext creates a new GetLearningModulesAssignmentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLearningModulesAssignmentsParamsWithContext(ctx context.Context) *GetLearningModulesAssignmentsParams {
-	var (
-		overdueDefault    = string("Any")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetLearningModulesAssignmentsParams{
-		Overdue:    &overdueDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetLearningModulesAssignmentsParamsWithHTTPClient creates a new GetLearningModulesAssignmentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLearningModulesAssignmentsParamsWithHTTPClient(client *http.Client) *GetLearningModulesAssignmentsParams {
-	var (
-		overdueDefault    = string("Any")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetLearningModulesAssignmentsParams{
-		Overdue:    &overdueDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetLearningModulesAssignmentsParams contains all the parameters to send to the API endpoint
-for the get learning modules assignments operation typically these are written to a http.Request
+/*
+GetLearningModulesAssignmentsParams contains all the parameters to send to the API endpoint
+
+	for the get learning modules assignments operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLearningModulesAssignmentsParams struct {
 
-	/*AssignmentStates
-	  Specifies the assignment states to return.
+	/* AssignmentStates.
 
+	   Specifies the assignment states to return.
 	*/
 	AssignmentStates []string
-	/*Expand
-	  Fields to expand in response(case insensitive)
 
+	/* Expand.
+
+	   Fields to expand in response(case insensitive)
 	*/
 	Expand []string
-	/*Overdue
-	  Specifies if only modules with overdue/not overdue (overdue is "True" or "False") assignments are returned. If overdue is "Any" or omitted, both are returned and can including modules that are unassigned.
 
+	/* Overdue.
+
+	   Specifies if only modules with overdue/not overdue (overdue is "True" or "False") assignments are returned. If overdue is "Any" or omitted, both are returned and can including modules that are unassigned.
+
+	   Default: "Any"
 	*/
 	Overdue *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SearchTerm
-	  Search Term (searches by name and description)
 
+	/* SearchTerm.
+
+	   Search Term (searches by name and description)
 	*/
 	SearchTerm *string
-	/*UserIds
-	  The IDs of the users to include
 
+	/* UserIds.
+
+	   The IDs of the users to include
 	*/
 	UserIds []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get learning modules assignments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLearningModulesAssignmentsParams) WithDefaults() *GetLearningModulesAssignmentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get learning modules assignments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLearningModulesAssignmentsParams) SetDefaults() {
+	var (
+		overdueDefault = string("Any")
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetLearningModulesAssignmentsParams{
+		Overdue:    &overdueDefault,
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get learning modules assignments params
@@ -248,96 +267,160 @@ func (o *GetLearningModulesAssignmentsParams) WriteToRequest(r runtime.ClientReq
 	}
 	var res []error
 
-	valuesAssignmentStates := o.AssignmentStates
+	if o.AssignmentStates != nil {
 
-	joinedAssignmentStates := swag.JoinByFormat(valuesAssignmentStates, "multi")
-	// query array param assignmentStates
-	if err := r.SetQueryParam("assignmentStates", joinedAssignmentStates...); err != nil {
-		return err
+		// binding items for assignmentStates
+		joinedAssignmentStates := o.bindParamAssignmentStates(reg)
+
+		// query array param assignmentStates
+		if err := r.SetQueryParam("assignmentStates", joinedAssignmentStates...); err != nil {
+			return err
+		}
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.Overdue != nil {
 
 		// query param overdue
 		var qrOverdue string
+
 		if o.Overdue != nil {
 			qrOverdue = *o.Overdue
 		}
 		qOverdue := qrOverdue
 		if qOverdue != "" {
+
 			if err := r.SetQueryParam("overdue", qOverdue); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SearchTerm != nil {
 
 		// query param searchTerm
 		var qrSearchTerm string
+
 		if o.SearchTerm != nil {
 			qrSearchTerm = *o.SearchTerm
 		}
 		qSearchTerm := qrSearchTerm
 		if qSearchTerm != "" {
+
 			if err := r.SetQueryParam("searchTerm", qSearchTerm); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesUserIds := o.UserIds
+	if o.UserIds != nil {
 
-	joinedUserIds := swag.JoinByFormat(valuesUserIds, "multi")
-	// query array param userIds
-	if err := r.SetQueryParam("userIds", joinedUserIds...); err != nil {
-		return err
+		// binding items for userIds
+		joinedUserIds := o.bindParamUserIds(reg)
+
+		// query array param userIds
+		if err := r.SetQueryParam("userIds", joinedUserIds...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetLearningModulesAssignments binds the parameter assignmentStates
+func (o *GetLearningModulesAssignmentsParams) bindParamAssignmentStates(formats strfmt.Registry) []string {
+	assignmentStatesIR := o.AssignmentStates
+
+	var assignmentStatesIC []string
+	for _, assignmentStatesIIR := range assignmentStatesIR { // explode []string
+
+		assignmentStatesIIV := assignmentStatesIIR // string as string
+		assignmentStatesIC = append(assignmentStatesIC, assignmentStatesIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	assignmentStatesIS := swag.JoinByFormat(assignmentStatesIC, "multi")
+
+	return assignmentStatesIS
+}
+
+// bindParamGetLearningModulesAssignments binds the parameter expand
+func (o *GetLearningModulesAssignmentsParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
+}
+
+// bindParamGetLearningModulesAssignments binds the parameter userIds
+func (o *GetLearningModulesAssignmentsParams) bindParamUserIds(formats strfmt.Registry) []string {
+	userIdsIR := o.UserIds
+
+	var userIdsIC []string
+	for _, userIdsIIR := range userIdsIR { // explode []string
+
+		userIdsIIV := userIdsIIR // string as string
+		userIdsIC = append(userIdsIC, userIdsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	userIdsIS := swag.JoinByFormat(userIdsIC, "multi")
+
+	return userIdsIS
 }

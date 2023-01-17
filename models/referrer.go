@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -142,7 +143,6 @@ func (m *Referrer) validateMediumEnum(path, location string, value string) error
 }
 
 func (m *Referrer) validateMedium(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Medium) { // not required
 		return nil
 	}
@@ -170,6 +170,11 @@ func (m *Referrer) validateURL(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this referrer based on context it is used
+func (m *Referrer) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

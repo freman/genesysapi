@@ -101,7 +101,6 @@ func (o *PostOauthClientUsageQueryReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostOauthClientUsageQueryOK() *PostOauthClientUsageQueryOK {
 	return &PostOauthClientUsageQueryOK{}
 }
 
-/*PostOauthClientUsageQueryOK handles this case with default header values.
+/*
+PostOauthClientUsageQueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostOauthClientUsageQueryOK struct {
 	Payload *models.UsageExecutionResult
 }
 
+// IsSuccess returns true when this post oauth client usage query o k response has a 2xx status code
+func (o *PostOauthClientUsageQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post oauth client usage query o k response has a 3xx status code
+func (o *PostOauthClientUsageQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query o k response has a 4xx status code
+func (o *PostOauthClientUsageQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth client usage query o k response has a 5xx status code
+func (o *PostOauthClientUsageQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client usage query o k response a status code equal to that given
+func (o *PostOauthClientUsageQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOauthClientUsageQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostOauthClientUsageQueryAccepted() *PostOauthClientUsageQueryAccepted {
 	return &PostOauthClientUsageQueryAccepted{}
 }
 
-/*PostOauthClientUsageQueryAccepted handles this case with default header values.
+/*
+PostOauthClientUsageQueryAccepted describes a response with status code 202, with default header values.
 
 Execution not completed, check back for results
 */
@@ -153,7 +183,36 @@ type PostOauthClientUsageQueryAccepted struct {
 	Payload *models.UsageExecutionResult
 }
 
+// IsSuccess returns true when this post oauth client usage query accepted response has a 2xx status code
+func (o *PostOauthClientUsageQueryAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post oauth client usage query accepted response has a 3xx status code
+func (o *PostOauthClientUsageQueryAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query accepted response has a 4xx status code
+func (o *PostOauthClientUsageQueryAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth client usage query accepted response has a 5xx status code
+func (o *PostOauthClientUsageQueryAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client usage query accepted response a status code equal to that given
+func (o *PostOauthClientUsageQueryAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostOauthClientUsageQueryAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostOauthClientUsageQueryBadRequest() *PostOauthClientUsageQueryBadReque
 	return &PostOauthClientUsageQueryBadRequest{}
 }
 
-/*PostOauthClientUsageQueryBadRequest handles this case with default header values.
+/*
+PostOauthClientUsageQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostOauthClientUsageQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client usage query bad request response has a 2xx status code
+func (o *PostOauthClientUsageQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client usage query bad request response has a 3xx status code
+func (o *PostOauthClientUsageQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query bad request response has a 4xx status code
+func (o *PostOauthClientUsageQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client usage query bad request response has a 5xx status code
+func (o *PostOauthClientUsageQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client usage query bad request response a status code equal to that given
+func (o *PostOauthClientUsageQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOauthClientUsageQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostOauthClientUsageQueryUnauthorized() *PostOauthClientUsageQueryUnauth
 	return &PostOauthClientUsageQueryUnauthorized{}
 }
 
-/*PostOauthClientUsageQueryUnauthorized handles this case with default header values.
+/*
+PostOauthClientUsageQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostOauthClientUsageQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client usage query unauthorized response has a 2xx status code
+func (o *PostOauthClientUsageQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client usage query unauthorized response has a 3xx status code
+func (o *PostOauthClientUsageQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query unauthorized response has a 4xx status code
+func (o *PostOauthClientUsageQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client usage query unauthorized response has a 5xx status code
+func (o *PostOauthClientUsageQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client usage query unauthorized response a status code equal to that given
+func (o *PostOauthClientUsageQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOauthClientUsageQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostOauthClientUsageQueryForbidden() *PostOauthClientUsageQueryForbidden
 	return &PostOauthClientUsageQueryForbidden{}
 }
 
-/*PostOauthClientUsageQueryForbidden handles this case with default header values.
+/*
+PostOauthClientUsageQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostOauthClientUsageQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client usage query forbidden response has a 2xx status code
+func (o *PostOauthClientUsageQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client usage query forbidden response has a 3xx status code
+func (o *PostOauthClientUsageQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query forbidden response has a 4xx status code
+func (o *PostOauthClientUsageQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client usage query forbidden response has a 5xx status code
+func (o *PostOauthClientUsageQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client usage query forbidden response a status code equal to that given
+func (o *PostOauthClientUsageQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOauthClientUsageQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostOauthClientUsageQueryNotFound() *PostOauthClientUsageQueryNotFound {
 	return &PostOauthClientUsageQueryNotFound{}
 }
 
-/*PostOauthClientUsageQueryNotFound handles this case with default header values.
+/*
+PostOauthClientUsageQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostOauthClientUsageQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client usage query not found response has a 2xx status code
+func (o *PostOauthClientUsageQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client usage query not found response has a 3xx status code
+func (o *PostOauthClientUsageQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query not found response has a 4xx status code
+func (o *PostOauthClientUsageQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client usage query not found response has a 5xx status code
+func (o *PostOauthClientUsageQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client usage query not found response a status code equal to that given
+func (o *PostOauthClientUsageQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOauthClientUsageQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostOauthClientUsageQueryRequestTimeout() *PostOauthClientUsageQueryRequ
 	return &PostOauthClientUsageQueryRequestTimeout{}
 }
 
-/*PostOauthClientUsageQueryRequestTimeout handles this case with default header values.
+/*
+PostOauthClientUsageQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostOauthClientUsageQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client usage query request timeout response has a 2xx status code
+func (o *PostOauthClientUsageQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client usage query request timeout response has a 3xx status code
+func (o *PostOauthClientUsageQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query request timeout response has a 4xx status code
+func (o *PostOauthClientUsageQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client usage query request timeout response has a 5xx status code
+func (o *PostOauthClientUsageQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client usage query request timeout response a status code equal to that given
+func (o *PostOauthClientUsageQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOauthClientUsageQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostOauthClientUsageQueryRequestEntityTooLarge() *PostOauthClientUsageQu
 	return &PostOauthClientUsageQueryRequestEntityTooLarge{}
 }
 
-/*PostOauthClientUsageQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostOauthClientUsageQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostOauthClientUsageQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client usage query request entity too large response has a 2xx status code
+func (o *PostOauthClientUsageQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client usage query request entity too large response has a 3xx status code
+func (o *PostOauthClientUsageQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query request entity too large response has a 4xx status code
+func (o *PostOauthClientUsageQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client usage query request entity too large response has a 5xx status code
+func (o *PostOauthClientUsageQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client usage query request entity too large response a status code equal to that given
+func (o *PostOauthClientUsageQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOauthClientUsageQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostOauthClientUsageQueryUnsupportedMediaType() *PostOauthClientUsageQue
 	return &PostOauthClientUsageQueryUnsupportedMediaType{}
 }
 
-/*PostOauthClientUsageQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostOauthClientUsageQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostOauthClientUsageQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client usage query unsupported media type response has a 2xx status code
+func (o *PostOauthClientUsageQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client usage query unsupported media type response has a 3xx status code
+func (o *PostOauthClientUsageQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query unsupported media type response has a 4xx status code
+func (o *PostOauthClientUsageQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client usage query unsupported media type response has a 5xx status code
+func (o *PostOauthClientUsageQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client usage query unsupported media type response a status code equal to that given
+func (o *PostOauthClientUsageQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOauthClientUsageQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostOauthClientUsageQueryTooManyRequests() *PostOauthClientUsageQueryToo
 	return &PostOauthClientUsageQueryTooManyRequests{}
 }
 
-/*PostOauthClientUsageQueryTooManyRequests handles this case with default header values.
+/*
+PostOauthClientUsageQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostOauthClientUsageQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client usage query too many requests response has a 2xx status code
+func (o *PostOauthClientUsageQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client usage query too many requests response has a 3xx status code
+func (o *PostOauthClientUsageQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query too many requests response has a 4xx status code
+func (o *PostOauthClientUsageQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client usage query too many requests response has a 5xx status code
+func (o *PostOauthClientUsageQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client usage query too many requests response a status code equal to that given
+func (o *PostOauthClientUsageQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOauthClientUsageQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostOauthClientUsageQueryInternalServerError() *PostOauthClientUsageQuer
 	return &PostOauthClientUsageQueryInternalServerError{}
 }
 
-/*PostOauthClientUsageQueryInternalServerError handles this case with default header values.
+/*
+PostOauthClientUsageQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostOauthClientUsageQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client usage query internal server error response has a 2xx status code
+func (o *PostOauthClientUsageQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client usage query internal server error response has a 3xx status code
+func (o *PostOauthClientUsageQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query internal server error response has a 4xx status code
+func (o *PostOauthClientUsageQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth client usage query internal server error response has a 5xx status code
+func (o *PostOauthClientUsageQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post oauth client usage query internal server error response a status code equal to that given
+func (o *PostOauthClientUsageQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOauthClientUsageQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostOauthClientUsageQueryServiceUnavailable() *PostOauthClientUsageQuery
 	return &PostOauthClientUsageQueryServiceUnavailable{}
 }
 
-/*PostOauthClientUsageQueryServiceUnavailable handles this case with default header values.
+/*
+PostOauthClientUsageQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostOauthClientUsageQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client usage query service unavailable response has a 2xx status code
+func (o *PostOauthClientUsageQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client usage query service unavailable response has a 3xx status code
+func (o *PostOauthClientUsageQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query service unavailable response has a 4xx status code
+func (o *PostOauthClientUsageQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth client usage query service unavailable response has a 5xx status code
+func (o *PostOauthClientUsageQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post oauth client usage query service unavailable response a status code equal to that given
+func (o *PostOauthClientUsageQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOauthClientUsageQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostOauthClientUsageQueryGatewayTimeout() *PostOauthClientUsageQueryGate
 	return &PostOauthClientUsageQueryGatewayTimeout{}
 }
 
-/*PostOauthClientUsageQueryGatewayTimeout handles this case with default header values.
+/*
+PostOauthClientUsageQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostOauthClientUsageQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client usage query gateway timeout response has a 2xx status code
+func (o *PostOauthClientUsageQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client usage query gateway timeout response has a 3xx status code
+func (o *PostOauthClientUsageQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client usage query gateway timeout response has a 4xx status code
+func (o *PostOauthClientUsageQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth client usage query gateway timeout response has a 5xx status code
+func (o *PostOauthClientUsageQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post oauth client usage query gateway timeout response a status code equal to that given
+func (o *PostOauthClientUsageQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOauthClientUsageQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOauthClientUsageQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/usage/query][%d] postOauthClientUsageQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

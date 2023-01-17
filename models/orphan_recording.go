@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -123,7 +124,6 @@ func (m *OrphanRecording) Validate(formats strfmt.Registry) error {
 }
 
 func (m *OrphanRecording) validateCreatedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedTime) { // not required
 		return nil
 	}
@@ -177,7 +177,6 @@ func (m *OrphanRecording) validateFileStateEnum(path, location string, value str
 }
 
 func (m *OrphanRecording) validateFileState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FileState) { // not required
 		return nil
 	}
@@ -226,7 +225,6 @@ func (m *OrphanRecording) validateMediaTypeEnum(path, location string, value str
 }
 
 func (m *OrphanRecording) validateMediaType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaType) { // not required
 		return nil
 	}
@@ -278,7 +276,6 @@ func (m *OrphanRecording) validateOrphanStatusEnum(path, location string, value 
 }
 
 func (m *OrphanRecording) validateOrphanStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OrphanStatus) { // not required
 		return nil
 	}
@@ -292,7 +289,6 @@ func (m *OrphanRecording) validateOrphanStatus(formats strfmt.Registry) error {
 }
 
 func (m *OrphanRecording) validateProviderEndpoint(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProviderEndpoint) { // not required
 		return nil
 	}
@@ -301,6 +297,8 @@ func (m *OrphanRecording) validateProviderEndpoint(formats strfmt.Registry) erro
 		if err := m.ProviderEndpoint.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("providerEndpoint")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("providerEndpoint")
 			}
 			return err
 		}
@@ -351,7 +349,6 @@ func (m *OrphanRecording) validateProviderTypeEnum(path, location string, value 
 }
 
 func (m *OrphanRecording) validateProviderType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProviderType) { // not required
 		return nil
 	}
@@ -365,7 +362,6 @@ func (m *OrphanRecording) validateProviderType(formats strfmt.Registry) error {
 }
 
 func (m *OrphanRecording) validateRecording(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Recording) { // not required
 		return nil
 	}
@@ -374,6 +370,8 @@ func (m *OrphanRecording) validateRecording(formats strfmt.Registry) error {
 		if err := m.Recording.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("recording")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recording")
 			}
 			return err
 		}
@@ -383,7 +381,6 @@ func (m *OrphanRecording) validateRecording(formats strfmt.Registry) error {
 }
 
 func (m *OrphanRecording) validateRecoveredTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RecoveredTime) { // not required
 		return nil
 	}
@@ -409,41 +406,41 @@ func init() {
 
 const (
 
-	// OrphanRecordingRegionAfSouth1 captures enum value "af-south-1"
-	OrphanRecordingRegionAfSouth1 string = "af-south-1"
+	// OrphanRecordingRegionAfDashSouthDash1 captures enum value "af-south-1"
+	OrphanRecordingRegionAfDashSouthDash1 string = "af-south-1"
 
-	// OrphanRecordingRegionApNortheast1 captures enum value "ap-northeast-1"
-	OrphanRecordingRegionApNortheast1 string = "ap-northeast-1"
+	// OrphanRecordingRegionApDashNortheastDash1 captures enum value "ap-northeast-1"
+	OrphanRecordingRegionApDashNortheastDash1 string = "ap-northeast-1"
 
-	// OrphanRecordingRegionApNortheast2 captures enum value "ap-northeast-2"
-	OrphanRecordingRegionApNortheast2 string = "ap-northeast-2"
+	// OrphanRecordingRegionApDashNortheastDash2 captures enum value "ap-northeast-2"
+	OrphanRecordingRegionApDashNortheastDash2 string = "ap-northeast-2"
 
-	// OrphanRecordingRegionApSouth1 captures enum value "ap-south-1"
-	OrphanRecordingRegionApSouth1 string = "ap-south-1"
+	// OrphanRecordingRegionApDashSouthDash1 captures enum value "ap-south-1"
+	OrphanRecordingRegionApDashSouthDash1 string = "ap-south-1"
 
-	// OrphanRecordingRegionApSoutheast2 captures enum value "ap-southeast-2"
-	OrphanRecordingRegionApSoutheast2 string = "ap-southeast-2"
+	// OrphanRecordingRegionApDashSoutheastDash2 captures enum value "ap-southeast-2"
+	OrphanRecordingRegionApDashSoutheastDash2 string = "ap-southeast-2"
 
-	// OrphanRecordingRegionCaCentral1 captures enum value "ca-central-1"
-	OrphanRecordingRegionCaCentral1 string = "ca-central-1"
+	// OrphanRecordingRegionCaDashCentralDash1 captures enum value "ca-central-1"
+	OrphanRecordingRegionCaDashCentralDash1 string = "ca-central-1"
 
-	// OrphanRecordingRegionEuCentral1 captures enum value "eu-central-1"
-	OrphanRecordingRegionEuCentral1 string = "eu-central-1"
+	// OrphanRecordingRegionEuDashCentralDash1 captures enum value "eu-central-1"
+	OrphanRecordingRegionEuDashCentralDash1 string = "eu-central-1"
 
-	// OrphanRecordingRegionEuWest1 captures enum value "eu-west-1"
-	OrphanRecordingRegionEuWest1 string = "eu-west-1"
+	// OrphanRecordingRegionEuDashWestDash1 captures enum value "eu-west-1"
+	OrphanRecordingRegionEuDashWestDash1 string = "eu-west-1"
 
-	// OrphanRecordingRegionEuWest2 captures enum value "eu-west-2"
-	OrphanRecordingRegionEuWest2 string = "eu-west-2"
+	// OrphanRecordingRegionEuDashWestDash2 captures enum value "eu-west-2"
+	OrphanRecordingRegionEuDashWestDash2 string = "eu-west-2"
 
-	// OrphanRecordingRegionSaEast1 captures enum value "sa-east-1"
-	OrphanRecordingRegionSaEast1 string = "sa-east-1"
+	// OrphanRecordingRegionSaDashEastDash1 captures enum value "sa-east-1"
+	OrphanRecordingRegionSaDashEastDash1 string = "sa-east-1"
 
-	// OrphanRecordingRegionUsEast1 captures enum value "us-east-1"
-	OrphanRecordingRegionUsEast1 string = "us-east-1"
+	// OrphanRecordingRegionUsDashEastDash1 captures enum value "us-east-1"
+	OrphanRecordingRegionUsDashEastDash1 string = "us-east-1"
 
-	// OrphanRecordingRegionUsWest2 captures enum value "us-west-2"
-	OrphanRecordingRegionUsWest2 string = "us-west-2"
+	// OrphanRecordingRegionUsDashWestDash2 captures enum value "us-west-2"
+	OrphanRecordingRegionUsDashWestDash2 string = "us-west-2"
 )
 
 // prop value enum
@@ -455,7 +452,6 @@ func (m *OrphanRecording) validateRegionEnum(path, location string, value string
 }
 
 func (m *OrphanRecording) validateRegion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Region) { // not required
 		return nil
 	}
@@ -469,12 +465,87 @@ func (m *OrphanRecording) validateRegion(formats strfmt.Registry) error {
 }
 
 func (m *OrphanRecording) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this orphan recording based on the context it is used
+func (m *OrphanRecording) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProviderEndpoint(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRecording(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OrphanRecording) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OrphanRecording) contextValidateProviderEndpoint(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ProviderEndpoint != nil {
+		if err := m.ProviderEndpoint.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("providerEndpoint")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("providerEndpoint")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OrphanRecording) contextValidateRecording(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Recording != nil {
+		if err := m.Recording.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("recording")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recording")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OrphanRecording) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

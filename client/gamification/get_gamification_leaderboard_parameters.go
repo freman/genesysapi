@@ -16,69 +16,91 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationLeaderboardParams creates a new GetGamificationLeaderboardParams object
-// with the default values initialized.
+// NewGetGamificationLeaderboardParams creates a new GetGamificationLeaderboardParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationLeaderboardParams() *GetGamificationLeaderboardParams {
-	var ()
 	return &GetGamificationLeaderboardParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationLeaderboardParamsWithTimeout creates a new GetGamificationLeaderboardParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationLeaderboardParamsWithTimeout(timeout time.Duration) *GetGamificationLeaderboardParams {
-	var ()
 	return &GetGamificationLeaderboardParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationLeaderboardParamsWithContext creates a new GetGamificationLeaderboardParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationLeaderboardParamsWithContext(ctx context.Context) *GetGamificationLeaderboardParams {
-	var ()
 	return &GetGamificationLeaderboardParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationLeaderboardParamsWithHTTPClient creates a new GetGamificationLeaderboardParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationLeaderboardParamsWithHTTPClient(client *http.Client) *GetGamificationLeaderboardParams {
-	var ()
 	return &GetGamificationLeaderboardParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationLeaderboardParams contains all the parameters to send to the API endpoint
-for the get gamification leaderboard operation typically these are written to a http.Request
+/*
+GetGamificationLeaderboardParams contains all the parameters to send to the API endpoint
+
+	for the get gamification leaderboard operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationLeaderboardParams struct {
 
-	/*EndWorkday
-	  End workday to retrieve for the leaderboard. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	/* EndWorkday.
 
+	   End workday to retrieve for the leaderboard. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	EndWorkday strfmt.Date
-	/*MetricID
-	  Metric Id for which the leaderboard is to be generated. The total points is used if nothing is given.
 
+	/* MetricID.
+
+	   Metric Id for which the leaderboard is to be generated. The total points is used if nothing is given.
 	*/
 	MetricID *string
-	/*StartWorkday
-	  Start workday to retrieve for the leaderboard. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* StartWorkday.
+
+	   Start workday to retrieve for the leaderboard. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	StartWorkday strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification leaderboard params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationLeaderboardParams) WithDefaults() *GetGamificationLeaderboardParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification leaderboard params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationLeaderboardParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification leaderboard params
@@ -159,6 +181,7 @@ func (o *GetGamificationLeaderboardParams) WriteToRequest(r runtime.ClientReques
 	qrEndWorkday := o.EndWorkday
 	qEndWorkday := qrEndWorkday.String()
 	if qEndWorkday != "" {
+
 		if err := r.SetQueryParam("endWorkday", qEndWorkday); err != nil {
 			return err
 		}
@@ -168,22 +191,24 @@ func (o *GetGamificationLeaderboardParams) WriteToRequest(r runtime.ClientReques
 
 		// query param metricId
 		var qrMetricID string
+
 		if o.MetricID != nil {
 			qrMetricID = *o.MetricID
 		}
 		qMetricID := qrMetricID
 		if qMetricID != "" {
+
 			if err := r.SetQueryParam("metricId", qMetricID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param startWorkday
 	qrStartWorkday := o.StartWorkday
 	qStartWorkday := qrStartWorkday.String()
 	if qStartWorkday != "" {
+
 		if err := r.SetQueryParam("startWorkday", qStartWorkday); err != nil {
 			return err
 		}

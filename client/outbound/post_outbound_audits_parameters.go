@@ -19,128 +19,138 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOutboundAuditsParams creates a new PostOutboundAuditsParams object
-// with the default values initialized.
+// NewPostOutboundAuditsParams creates a new PostOutboundAuditsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundAuditsParams() *PostOutboundAuditsParams {
-	var (
-		facetsOnlyDefault = bool(false)
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("entity.name")
-		sortOrderDefault  = string("ascending")
-	)
 	return &PostOutboundAuditsParams{
-		FacetsOnly: &facetsOnlyDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundAuditsParamsWithTimeout creates a new PostOutboundAuditsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundAuditsParamsWithTimeout(timeout time.Duration) *PostOutboundAuditsParams {
-	var (
-		facetsOnlyDefault = bool(false)
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("entity.name")
-		sortOrderDefault  = string("ascending")
-	)
 	return &PostOutboundAuditsParams{
-		FacetsOnly: &facetsOnlyDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundAuditsParamsWithContext creates a new PostOutboundAuditsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundAuditsParamsWithContext(ctx context.Context) *PostOutboundAuditsParams {
-	var (
-		facetsOnlyDefault = bool(false)
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("entity.name")
-		sortOrderDefault  = string("ascending")
-	)
 	return &PostOutboundAuditsParams{
-		FacetsOnly: &facetsOnlyDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundAuditsParamsWithHTTPClient creates a new PostOutboundAuditsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundAuditsParamsWithHTTPClient(client *http.Client) *PostOutboundAuditsParams {
-	var (
-		facetsOnlyDefault = bool(false)
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("entity.name")
-		sortOrderDefault  = string("ascending")
-	)
 	return &PostOutboundAuditsParams{
-		FacetsOnly: &facetsOnlyDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundAuditsParams contains all the parameters to send to the API endpoint
-for the post outbound audits operation typically these are written to a http.Request
+/*
+PostOutboundAuditsParams contains all the parameters to send to the API endpoint
+
+	for the post outbound audits operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundAuditsParams struct {
 
-	/*Body
-	  AuditSearch
+	/* Body.
 
+	   AuditSearch
 	*/
 	Body *models.DialerAuditRequest
-	/*FacetsOnly
-	  Facets only
 
+	/* FacetsOnly.
+
+	   Facets only
 	*/
 	FacetsOnly *bool
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
+
+	   Default: "entity.name"
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "ascending"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound audits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundAuditsParams) WithDefaults() *PostOutboundAuditsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound audits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundAuditsParams) SetDefaults() {
+	var (
+		facetsOnlyDefault = bool(false)
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("entity.name")
+
+		sortOrderDefault = string("ascending")
+	)
+
+	val := PostOutboundAuditsParams{
+		FacetsOnly: &facetsOnlyDefault,
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post outbound audits params
@@ -249,7 +259,6 @@ func (o *PostOutboundAuditsParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -260,80 +269,85 @@ func (o *PostOutboundAuditsParams) WriteToRequest(r runtime.ClientRequest, reg s
 
 		// query param facetsOnly
 		var qrFacetsOnly bool
+
 		if o.FacetsOnly != nil {
 			qrFacetsOnly = *o.FacetsOnly
 		}
 		qFacetsOnly := swag.FormatBool(qrFacetsOnly)
 		if qFacetsOnly != "" {
+
 			if err := r.SetQueryParam("facetsOnly", qFacetsOnly); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

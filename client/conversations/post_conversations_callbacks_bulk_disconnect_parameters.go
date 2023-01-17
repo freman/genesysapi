@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsCallbacksBulkDisconnectParams creates a new PostConversationsCallbacksBulkDisconnectParams object
-// with the default values initialized.
+// NewPostConversationsCallbacksBulkDisconnectParams creates a new PostConversationsCallbacksBulkDisconnectParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsCallbacksBulkDisconnectParams() *PostConversationsCallbacksBulkDisconnectParams {
-	var ()
 	return &PostConversationsCallbacksBulkDisconnectParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsCallbacksBulkDisconnectParamsWithTimeout creates a new PostConversationsCallbacksBulkDisconnectParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsCallbacksBulkDisconnectParamsWithTimeout(timeout time.Duration) *PostConversationsCallbacksBulkDisconnectParams {
-	var ()
 	return &PostConversationsCallbacksBulkDisconnectParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsCallbacksBulkDisconnectParamsWithContext creates a new PostConversationsCallbacksBulkDisconnectParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsCallbacksBulkDisconnectParamsWithContext(ctx context.Context) *PostConversationsCallbacksBulkDisconnectParams {
-	var ()
 	return &PostConversationsCallbacksBulkDisconnectParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsCallbacksBulkDisconnectParamsWithHTTPClient creates a new PostConversationsCallbacksBulkDisconnectParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsCallbacksBulkDisconnectParamsWithHTTPClient(client *http.Client) *PostConversationsCallbacksBulkDisconnectParams {
-	var ()
 	return &PostConversationsCallbacksBulkDisconnectParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsCallbacksBulkDisconnectParams contains all the parameters to send to the API endpoint
-for the post conversations callbacks bulk disconnect operation typically these are written to a http.Request
+/*
+PostConversationsCallbacksBulkDisconnectParams contains all the parameters to send to the API endpoint
+
+	for the post conversations callbacks bulk disconnect operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsCallbacksBulkDisconnectParams struct {
 
-	/*Body
-	  BulkCallbackDisconnectRequest
+	/* Body.
 
+	   BulkCallbackDisconnectRequest
 	*/
 	Body *models.BulkCallbackDisconnectRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations callbacks bulk disconnect params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCallbacksBulkDisconnectParams) WithDefaults() *PostConversationsCallbacksBulkDisconnectParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations callbacks bulk disconnect params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCallbacksBulkDisconnectParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations callbacks bulk disconnect params
@@ -124,7 +140,6 @@ func (o *PostConversationsCallbacksBulkDisconnectParams) WriteToRequest(r runtim
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

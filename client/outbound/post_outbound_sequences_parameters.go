@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOutboundSequencesParams creates a new PostOutboundSequencesParams object
-// with the default values initialized.
+// NewPostOutboundSequencesParams creates a new PostOutboundSequencesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundSequencesParams() *PostOutboundSequencesParams {
-	var ()
 	return &PostOutboundSequencesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundSequencesParamsWithTimeout creates a new PostOutboundSequencesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundSequencesParamsWithTimeout(timeout time.Duration) *PostOutboundSequencesParams {
-	var ()
 	return &PostOutboundSequencesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundSequencesParamsWithContext creates a new PostOutboundSequencesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundSequencesParamsWithContext(ctx context.Context) *PostOutboundSequencesParams {
-	var ()
 	return &PostOutboundSequencesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundSequencesParamsWithHTTPClient creates a new PostOutboundSequencesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundSequencesParamsWithHTTPClient(client *http.Client) *PostOutboundSequencesParams {
-	var ()
 	return &PostOutboundSequencesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundSequencesParams contains all the parameters to send to the API endpoint
-for the post outbound sequences operation typically these are written to a http.Request
+/*
+PostOutboundSequencesParams contains all the parameters to send to the API endpoint
+
+	for the post outbound sequences operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundSequencesParams struct {
 
-	/*Body
-	  Organization
+	/* Body.
 
+	   Organization
 	*/
 	Body *models.CampaignSequence
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound sequences params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundSequencesParams) WithDefaults() *PostOutboundSequencesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound sequences params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundSequencesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound sequences params
@@ -124,7 +140,6 @@ func (o *PostOutboundSequencesParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

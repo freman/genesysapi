@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -80,7 +82,6 @@ func (m *UserConversationSummary) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserConversationSummary) validateCall(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Call) { // not required
 		return nil
 	}
@@ -89,6 +90,8 @@ func (m *UserConversationSummary) validateCall(formats strfmt.Registry) error {
 		if err := m.Call.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("call")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("call")
 			}
 			return err
 		}
@@ -98,7 +101,6 @@ func (m *UserConversationSummary) validateCall(formats strfmt.Registry) error {
 }
 
 func (m *UserConversationSummary) validateCallback(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Callback) { // not required
 		return nil
 	}
@@ -107,6 +109,8 @@ func (m *UserConversationSummary) validateCallback(formats strfmt.Registry) erro
 		if err := m.Callback.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("callback")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callback")
 			}
 			return err
 		}
@@ -116,7 +120,6 @@ func (m *UserConversationSummary) validateCallback(formats strfmt.Registry) erro
 }
 
 func (m *UserConversationSummary) validateChat(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Chat) { // not required
 		return nil
 	}
@@ -125,6 +128,8 @@ func (m *UserConversationSummary) validateChat(formats strfmt.Registry) error {
 		if err := m.Chat.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("chat")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("chat")
 			}
 			return err
 		}
@@ -134,7 +139,6 @@ func (m *UserConversationSummary) validateChat(formats strfmt.Registry) error {
 }
 
 func (m *UserConversationSummary) validateEmail(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Email) { // not required
 		return nil
 	}
@@ -143,6 +147,8 @@ func (m *UserConversationSummary) validateEmail(formats strfmt.Registry) error {
 		if err := m.Email.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("email")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("email")
 			}
 			return err
 		}
@@ -152,7 +158,6 @@ func (m *UserConversationSummary) validateEmail(formats strfmt.Registry) error {
 }
 
 func (m *UserConversationSummary) validateMessage(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Message) { // not required
 		return nil
 	}
@@ -161,6 +166,8 @@ func (m *UserConversationSummary) validateMessage(formats strfmt.Registry) error
 		if err := m.Message.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("message")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("message")
 			}
 			return err
 		}
@@ -170,7 +177,6 @@ func (m *UserConversationSummary) validateMessage(formats strfmt.Registry) error
 }
 
 func (m *UserConversationSummary) validateSocialExpression(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SocialExpression) { // not required
 		return nil
 	}
@@ -179,6 +185,8 @@ func (m *UserConversationSummary) validateSocialExpression(formats strfmt.Regist
 		if err := m.SocialExpression.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("socialExpression")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("socialExpression")
 			}
 			return err
 		}
@@ -188,7 +196,6 @@ func (m *UserConversationSummary) validateSocialExpression(formats strfmt.Regist
 }
 
 func (m *UserConversationSummary) validateVideo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Video) { // not required
 		return nil
 	}
@@ -197,6 +204,158 @@ func (m *UserConversationSummary) validateVideo(formats strfmt.Registry) error {
 		if err := m.Video.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("video")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("video")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user conversation summary based on the context it is used
+func (m *UserConversationSummary) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCall(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCallback(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateChat(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmail(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSocialExpression(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVideo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserConversationSummary) contextValidateCall(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Call != nil {
+		if err := m.Call.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("call")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("call")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserConversationSummary) contextValidateCallback(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Callback != nil {
+		if err := m.Callback.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("callback")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callback")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserConversationSummary) contextValidateChat(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Chat != nil {
+		if err := m.Chat.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("chat")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("chat")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserConversationSummary) contextValidateEmail(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Email != nil {
+		if err := m.Email.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("email")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("email")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserConversationSummary) contextValidateMessage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Message != nil {
+		if err := m.Message.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("message")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("message")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserConversationSummary) contextValidateSocialExpression(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SocialExpression != nil {
+		if err := m.SocialExpression.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("socialExpression")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("socialExpression")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserConversationSummary) contextValidateVideo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Video != nil {
+		if err := m.Video.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("video")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("video")
 			}
 			return err
 		}

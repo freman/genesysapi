@@ -95,7 +95,6 @@ func (o *GetConversationsMessagingIntegrationsFacebookReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConversationsMessagingIntegrationsFacebookOK() *GetConversationsMessa
 	return &GetConversationsMessagingIntegrationsFacebookOK{}
 }
 
-/*GetConversationsMessagingIntegrationsFacebookOK handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsFacebookOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetConversationsMessagingIntegrationsFacebookOK struct {
 	Payload *models.FacebookIntegrationEntityListing
 }
 
+// IsSuccess returns true when this get conversations messaging integrations facebook o k response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversations messaging integrations facebook o k response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations facebook o k response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations facebook o k response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations facebook o k response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsFacebookOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationsMessagingIntegrationsFacebookOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsFacebookOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetConversationsMessagingIntegrationsFacebookBadRequest() *GetConversati
 	return &GetConversationsMessagingIntegrationsFacebookBadRequest{}
 }
 
-/*GetConversationsMessagingIntegrationsFacebookBadRequest handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsFacebookBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetConversationsMessagingIntegrationsFacebookBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations facebook bad request response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations facebook bad request response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations facebook bad request response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations facebook bad request response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations facebook bad request response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsFacebookBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationsMessagingIntegrationsFacebookBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsFacebookBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetConversationsMessagingIntegrationsFacebookUnauthorized() *GetConversa
 	return &GetConversationsMessagingIntegrationsFacebookUnauthorized{}
 }
 
-/*GetConversationsMessagingIntegrationsFacebookUnauthorized handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsFacebookUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetConversationsMessagingIntegrationsFacebookUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations facebook unauthorized response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations facebook unauthorized response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations facebook unauthorized response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations facebook unauthorized response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations facebook unauthorized response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsFacebookUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationsMessagingIntegrationsFacebookUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsFacebookUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetConversationsMessagingIntegrationsFacebookForbidden() *GetConversatio
 	return &GetConversationsMessagingIntegrationsFacebookForbidden{}
 }
 
-/*GetConversationsMessagingIntegrationsFacebookForbidden handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsFacebookForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetConversationsMessagingIntegrationsFacebookForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations facebook forbidden response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations facebook forbidden response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations facebook forbidden response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations facebook forbidden response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations facebook forbidden response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsFacebookForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationsMessagingIntegrationsFacebookForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsFacebookForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetConversationsMessagingIntegrationsFacebookNotFound() *GetConversation
 	return &GetConversationsMessagingIntegrationsFacebookNotFound{}
 }
 
-/*GetConversationsMessagingIntegrationsFacebookNotFound handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsFacebookNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetConversationsMessagingIntegrationsFacebookNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations facebook not found response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations facebook not found response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations facebook not found response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations facebook not found response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations facebook not found response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsFacebookNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationsMessagingIntegrationsFacebookNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsFacebookNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetConversationsMessagingIntegrationsFacebookRequestTimeout() *GetConver
 	return &GetConversationsMessagingIntegrationsFacebookRequestTimeout{}
 }
 
-/*GetConversationsMessagingIntegrationsFacebookRequestTimeout handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsFacebookRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetConversationsMessagingIntegrationsFacebookRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations facebook request timeout response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations facebook request timeout response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations facebook request timeout response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations facebook request timeout response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations facebook request timeout response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsFacebookRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationsMessagingIntegrationsFacebookRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsFacebookRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetConversationsMessagingIntegrationsFacebookRequestEntityTooLarge() *Ge
 	return &GetConversationsMessagingIntegrationsFacebookRequestEntityTooLarge{}
 }
 
-/*GetConversationsMessagingIntegrationsFacebookRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsFacebookRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetConversationsMessagingIntegrationsFacebookRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations facebook request entity too large response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations facebook request entity too large response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations facebook request entity too large response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations facebook request entity too large response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations facebook request entity too large response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsFacebookRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationsMessagingIntegrationsFacebookRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsFacebookRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetConversationsMessagingIntegrationsFacebookUnsupportedMediaType() *Get
 	return &GetConversationsMessagingIntegrationsFacebookUnsupportedMediaType{}
 }
 
-/*GetConversationsMessagingIntegrationsFacebookUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsFacebookUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetConversationsMessagingIntegrationsFacebookUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations facebook unsupported media type response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations facebook unsupported media type response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations facebook unsupported media type response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations facebook unsupported media type response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations facebook unsupported media type response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsFacebookUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationsMessagingIntegrationsFacebookUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsFacebookUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetConversationsMessagingIntegrationsFacebookTooManyRequests() *GetConve
 	return &GetConversationsMessagingIntegrationsFacebookTooManyRequests{}
 }
 
-/*GetConversationsMessagingIntegrationsFacebookTooManyRequests handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsFacebookTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetConversationsMessagingIntegrationsFacebookTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations facebook too many requests response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations facebook too many requests response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations facebook too many requests response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations facebook too many requests response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations facebook too many requests response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsFacebookTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationsMessagingIntegrationsFacebookTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsFacebookTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetConversationsMessagingIntegrationsFacebookInternalServerError() *GetC
 	return &GetConversationsMessagingIntegrationsFacebookInternalServerError{}
 }
 
-/*GetConversationsMessagingIntegrationsFacebookInternalServerError handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsFacebookInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetConversationsMessagingIntegrationsFacebookInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations facebook internal server error response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations facebook internal server error response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations facebook internal server error response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations facebook internal server error response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging integrations facebook internal server error response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsFacebookInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationsMessagingIntegrationsFacebookInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsFacebookInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetConversationsMessagingIntegrationsFacebookServiceUnavailable() *GetCo
 	return &GetConversationsMessagingIntegrationsFacebookServiceUnavailable{}
 }
 
-/*GetConversationsMessagingIntegrationsFacebookServiceUnavailable handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsFacebookServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetConversationsMessagingIntegrationsFacebookServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations facebook service unavailable response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations facebook service unavailable response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations facebook service unavailable response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations facebook service unavailable response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging integrations facebook service unavailable response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsFacebookServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationsMessagingIntegrationsFacebookServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsFacebookServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetConversationsMessagingIntegrationsFacebookGatewayTimeout() *GetConver
 	return &GetConversationsMessagingIntegrationsFacebookGatewayTimeout{}
 }
 
-/*GetConversationsMessagingIntegrationsFacebookGatewayTimeout handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsFacebookGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetConversationsMessagingIntegrationsFacebookGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations facebook gateway timeout response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations facebook gateway timeout response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations facebook gateway timeout response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations facebook gateway timeout response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsFacebookGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging integrations facebook gateway timeout response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsFacebookGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationsMessagingIntegrationsFacebookGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsFacebookGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/facebook][%d] getConversationsMessagingIntegrationsFacebookGatewayTimeout  %+v", 504, o.Payload)
 }
 

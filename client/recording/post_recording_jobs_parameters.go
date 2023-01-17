@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRecordingJobsParams creates a new PostRecordingJobsParams object
-// with the default values initialized.
+// NewPostRecordingJobsParams creates a new PostRecordingJobsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRecordingJobsParams() *PostRecordingJobsParams {
-	var ()
 	return &PostRecordingJobsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRecordingJobsParamsWithTimeout creates a new PostRecordingJobsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRecordingJobsParamsWithTimeout(timeout time.Duration) *PostRecordingJobsParams {
-	var ()
 	return &PostRecordingJobsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRecordingJobsParamsWithContext creates a new PostRecordingJobsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRecordingJobsParamsWithContext(ctx context.Context) *PostRecordingJobsParams {
-	var ()
 	return &PostRecordingJobsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRecordingJobsParamsWithHTTPClient creates a new PostRecordingJobsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRecordingJobsParamsWithHTTPClient(client *http.Client) *PostRecordingJobsParams {
-	var ()
 	return &PostRecordingJobsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRecordingJobsParams contains all the parameters to send to the API endpoint
-for the post recording jobs operation typically these are written to a http.Request
+/*
+PostRecordingJobsParams contains all the parameters to send to the API endpoint
+
+	for the post recording jobs operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRecordingJobsParams struct {
 
-	/*Body
-	  query
+	/* Body.
 
+	   query
 	*/
 	Body *models.RecordingJobsQuery
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post recording jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingJobsParams) WithDefaults() *PostRecordingJobsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post recording jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingJobsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post recording jobs params
@@ -124,7 +140,6 @@ func (o *PostRecordingJobsParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

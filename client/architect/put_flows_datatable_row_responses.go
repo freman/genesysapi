@@ -101,7 +101,6 @@ func (o *PutFlowsDatatableRowReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutFlowsDatatableRowOK() *PutFlowsDatatableRowOK {
 	return &PutFlowsDatatableRowOK{}
 }
 
-/*PutFlowsDatatableRowOK handles this case with default header values.
+/*
+PutFlowsDatatableRowOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutFlowsDatatableRowOK struct {
 	Payload map[string]interface{}
 }
 
+// IsSuccess returns true when this put flows datatable row o k response has a 2xx status code
+func (o *PutFlowsDatatableRowOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put flows datatable row o k response has a 3xx status code
+func (o *PutFlowsDatatableRowOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row o k response has a 4xx status code
+func (o *PutFlowsDatatableRowOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put flows datatable row o k response has a 5xx status code
+func (o *PutFlowsDatatableRowOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows datatable row o k response a status code equal to that given
+func (o *PutFlowsDatatableRowOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutFlowsDatatableRowOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowOK  %+v", 200, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowOK  %+v", 200, o.Payload)
 }
 
@@ -143,7 +172,8 @@ func NewPutFlowsDatatableRowBadRequest() *PutFlowsDatatableRowBadRequest {
 	return &PutFlowsDatatableRowBadRequest{}
 }
 
-/*PutFlowsDatatableRowBadRequest handles this case with default header values.
+/*
+PutFlowsDatatableRowBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -151,7 +181,36 @@ type PutFlowsDatatableRowBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows datatable row bad request response has a 2xx status code
+func (o *PutFlowsDatatableRowBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows datatable row bad request response has a 3xx status code
+func (o *PutFlowsDatatableRowBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row bad request response has a 4xx status code
+func (o *PutFlowsDatatableRowBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows datatable row bad request response has a 5xx status code
+func (o *PutFlowsDatatableRowBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows datatable row bad request response a status code equal to that given
+func (o *PutFlowsDatatableRowBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutFlowsDatatableRowBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowBadRequest  %+v", 400, o.Payload)
 }
 
@@ -176,7 +235,8 @@ func NewPutFlowsDatatableRowUnauthorized() *PutFlowsDatatableRowUnauthorized {
 	return &PutFlowsDatatableRowUnauthorized{}
 }
 
-/*PutFlowsDatatableRowUnauthorized handles this case with default header values.
+/*
+PutFlowsDatatableRowUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -184,7 +244,36 @@ type PutFlowsDatatableRowUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows datatable row unauthorized response has a 2xx status code
+func (o *PutFlowsDatatableRowUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows datatable row unauthorized response has a 3xx status code
+func (o *PutFlowsDatatableRowUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row unauthorized response has a 4xx status code
+func (o *PutFlowsDatatableRowUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows datatable row unauthorized response has a 5xx status code
+func (o *PutFlowsDatatableRowUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows datatable row unauthorized response a status code equal to that given
+func (o *PutFlowsDatatableRowUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutFlowsDatatableRowUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -209,7 +298,8 @@ func NewPutFlowsDatatableRowForbidden() *PutFlowsDatatableRowForbidden {
 	return &PutFlowsDatatableRowForbidden{}
 }
 
-/*PutFlowsDatatableRowForbidden handles this case with default header values.
+/*
+PutFlowsDatatableRowForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -217,7 +307,36 @@ type PutFlowsDatatableRowForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows datatable row forbidden response has a 2xx status code
+func (o *PutFlowsDatatableRowForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows datatable row forbidden response has a 3xx status code
+func (o *PutFlowsDatatableRowForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row forbidden response has a 4xx status code
+func (o *PutFlowsDatatableRowForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows datatable row forbidden response has a 5xx status code
+func (o *PutFlowsDatatableRowForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows datatable row forbidden response a status code equal to that given
+func (o *PutFlowsDatatableRowForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutFlowsDatatableRowForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowForbidden  %+v", 403, o.Payload)
 }
 
@@ -242,7 +361,8 @@ func NewPutFlowsDatatableRowNotFound() *PutFlowsDatatableRowNotFound {
 	return &PutFlowsDatatableRowNotFound{}
 }
 
-/*PutFlowsDatatableRowNotFound handles this case with default header values.
+/*
+PutFlowsDatatableRowNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -250,7 +370,36 @@ type PutFlowsDatatableRowNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows datatable row not found response has a 2xx status code
+func (o *PutFlowsDatatableRowNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows datatable row not found response has a 3xx status code
+func (o *PutFlowsDatatableRowNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row not found response has a 4xx status code
+func (o *PutFlowsDatatableRowNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows datatable row not found response has a 5xx status code
+func (o *PutFlowsDatatableRowNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows datatable row not found response a status code equal to that given
+func (o *PutFlowsDatatableRowNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutFlowsDatatableRowNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowNotFound  %+v", 404, o.Payload)
 }
 
@@ -275,7 +424,8 @@ func NewPutFlowsDatatableRowRequestTimeout() *PutFlowsDatatableRowRequestTimeout
 	return &PutFlowsDatatableRowRequestTimeout{}
 }
 
-/*PutFlowsDatatableRowRequestTimeout handles this case with default header values.
+/*
+PutFlowsDatatableRowRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -283,7 +433,36 @@ type PutFlowsDatatableRowRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows datatable row request timeout response has a 2xx status code
+func (o *PutFlowsDatatableRowRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows datatable row request timeout response has a 3xx status code
+func (o *PutFlowsDatatableRowRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row request timeout response has a 4xx status code
+func (o *PutFlowsDatatableRowRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows datatable row request timeout response has a 5xx status code
+func (o *PutFlowsDatatableRowRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows datatable row request timeout response a status code equal to that given
+func (o *PutFlowsDatatableRowRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutFlowsDatatableRowRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -308,7 +487,8 @@ func NewPutFlowsDatatableRowConflict() *PutFlowsDatatableRowConflict {
 	return &PutFlowsDatatableRowConflict{}
 }
 
-/*PutFlowsDatatableRowConflict handles this case with default header values.
+/*
+PutFlowsDatatableRowConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -316,7 +496,36 @@ type PutFlowsDatatableRowConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows datatable row conflict response has a 2xx status code
+func (o *PutFlowsDatatableRowConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows datatable row conflict response has a 3xx status code
+func (o *PutFlowsDatatableRowConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row conflict response has a 4xx status code
+func (o *PutFlowsDatatableRowConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows datatable row conflict response has a 5xx status code
+func (o *PutFlowsDatatableRowConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows datatable row conflict response a status code equal to that given
+func (o *PutFlowsDatatableRowConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutFlowsDatatableRowConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowConflict  %+v", 409, o.Payload)
 }
 
@@ -341,7 +550,8 @@ func NewPutFlowsDatatableRowRequestEntityTooLarge() *PutFlowsDatatableRowRequest
 	return &PutFlowsDatatableRowRequestEntityTooLarge{}
 }
 
-/*PutFlowsDatatableRowRequestEntityTooLarge handles this case with default header values.
+/*
+PutFlowsDatatableRowRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -349,7 +559,36 @@ type PutFlowsDatatableRowRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows datatable row request entity too large response has a 2xx status code
+func (o *PutFlowsDatatableRowRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows datatable row request entity too large response has a 3xx status code
+func (o *PutFlowsDatatableRowRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row request entity too large response has a 4xx status code
+func (o *PutFlowsDatatableRowRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows datatable row request entity too large response has a 5xx status code
+func (o *PutFlowsDatatableRowRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows datatable row request entity too large response a status code equal to that given
+func (o *PutFlowsDatatableRowRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutFlowsDatatableRowRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -374,7 +613,8 @@ func NewPutFlowsDatatableRowUnsupportedMediaType() *PutFlowsDatatableRowUnsuppor
 	return &PutFlowsDatatableRowUnsupportedMediaType{}
 }
 
-/*PutFlowsDatatableRowUnsupportedMediaType handles this case with default header values.
+/*
+PutFlowsDatatableRowUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -382,7 +622,36 @@ type PutFlowsDatatableRowUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows datatable row unsupported media type response has a 2xx status code
+func (o *PutFlowsDatatableRowUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows datatable row unsupported media type response has a 3xx status code
+func (o *PutFlowsDatatableRowUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row unsupported media type response has a 4xx status code
+func (o *PutFlowsDatatableRowUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows datatable row unsupported media type response has a 5xx status code
+func (o *PutFlowsDatatableRowUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows datatable row unsupported media type response a status code equal to that given
+func (o *PutFlowsDatatableRowUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutFlowsDatatableRowUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -407,7 +676,8 @@ func NewPutFlowsDatatableRowTooManyRequests() *PutFlowsDatatableRowTooManyReques
 	return &PutFlowsDatatableRowTooManyRequests{}
 }
 
-/*PutFlowsDatatableRowTooManyRequests handles this case with default header values.
+/*
+PutFlowsDatatableRowTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -415,7 +685,36 @@ type PutFlowsDatatableRowTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows datatable row too many requests response has a 2xx status code
+func (o *PutFlowsDatatableRowTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows datatable row too many requests response has a 3xx status code
+func (o *PutFlowsDatatableRowTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row too many requests response has a 4xx status code
+func (o *PutFlowsDatatableRowTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows datatable row too many requests response has a 5xx status code
+func (o *PutFlowsDatatableRowTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows datatable row too many requests response a status code equal to that given
+func (o *PutFlowsDatatableRowTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutFlowsDatatableRowTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -440,7 +739,8 @@ func NewPutFlowsDatatableRowInternalServerError() *PutFlowsDatatableRowInternalS
 	return &PutFlowsDatatableRowInternalServerError{}
 }
 
-/*PutFlowsDatatableRowInternalServerError handles this case with default header values.
+/*
+PutFlowsDatatableRowInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -448,7 +748,36 @@ type PutFlowsDatatableRowInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows datatable row internal server error response has a 2xx status code
+func (o *PutFlowsDatatableRowInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows datatable row internal server error response has a 3xx status code
+func (o *PutFlowsDatatableRowInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row internal server error response has a 4xx status code
+func (o *PutFlowsDatatableRowInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put flows datatable row internal server error response has a 5xx status code
+func (o *PutFlowsDatatableRowInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put flows datatable row internal server error response a status code equal to that given
+func (o *PutFlowsDatatableRowInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutFlowsDatatableRowInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -473,7 +802,8 @@ func NewPutFlowsDatatableRowServiceUnavailable() *PutFlowsDatatableRowServiceUna
 	return &PutFlowsDatatableRowServiceUnavailable{}
 }
 
-/*PutFlowsDatatableRowServiceUnavailable handles this case with default header values.
+/*
+PutFlowsDatatableRowServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -481,7 +811,36 @@ type PutFlowsDatatableRowServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows datatable row service unavailable response has a 2xx status code
+func (o *PutFlowsDatatableRowServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows datatable row service unavailable response has a 3xx status code
+func (o *PutFlowsDatatableRowServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row service unavailable response has a 4xx status code
+func (o *PutFlowsDatatableRowServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put flows datatable row service unavailable response has a 5xx status code
+func (o *PutFlowsDatatableRowServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put flows datatable row service unavailable response a status code equal to that given
+func (o *PutFlowsDatatableRowServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutFlowsDatatableRowServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -506,7 +865,8 @@ func NewPutFlowsDatatableRowGatewayTimeout() *PutFlowsDatatableRowGatewayTimeout
 	return &PutFlowsDatatableRowGatewayTimeout{}
 }
 
-/*PutFlowsDatatableRowGatewayTimeout handles this case with default header values.
+/*
+PutFlowsDatatableRowGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -514,7 +874,36 @@ type PutFlowsDatatableRowGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows datatable row gateway timeout response has a 2xx status code
+func (o *PutFlowsDatatableRowGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows datatable row gateway timeout response has a 3xx status code
+func (o *PutFlowsDatatableRowGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows datatable row gateway timeout response has a 4xx status code
+func (o *PutFlowsDatatableRowGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put flows datatable row gateway timeout response has a 5xx status code
+func (o *PutFlowsDatatableRowGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put flows datatable row gateway timeout response a status code equal to that given
+func (o *PutFlowsDatatableRowGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutFlowsDatatableRowGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutFlowsDatatableRowGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] putFlowsDatatableRowGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewPostOrgauthorizationTrusteesDefaultParams creates a new PostOrgauthorizationTrusteesDefaultParams object
-// with the default values initialized.
+// NewPostOrgauthorizationTrusteesDefaultParams creates a new PostOrgauthorizationTrusteesDefaultParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOrgauthorizationTrusteesDefaultParams() *PostOrgauthorizationTrusteesDefaultParams {
-	var ()
 	return &PostOrgauthorizationTrusteesDefaultParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOrgauthorizationTrusteesDefaultParamsWithTimeout creates a new PostOrgauthorizationTrusteesDefaultParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOrgauthorizationTrusteesDefaultParamsWithTimeout(timeout time.Duration) *PostOrgauthorizationTrusteesDefaultParams {
-	var ()
 	return &PostOrgauthorizationTrusteesDefaultParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOrgauthorizationTrusteesDefaultParamsWithContext creates a new PostOrgauthorizationTrusteesDefaultParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOrgauthorizationTrusteesDefaultParamsWithContext(ctx context.Context) *PostOrgauthorizationTrusteesDefaultParams {
-	var ()
 	return &PostOrgauthorizationTrusteesDefaultParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOrgauthorizationTrusteesDefaultParamsWithHTTPClient creates a new PostOrgauthorizationTrusteesDefaultParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOrgauthorizationTrusteesDefaultParamsWithHTTPClient(client *http.Client) *PostOrgauthorizationTrusteesDefaultParams {
-	var ()
 	return &PostOrgauthorizationTrusteesDefaultParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOrgauthorizationTrusteesDefaultParams contains all the parameters to send to the API endpoint
-for the post orgauthorization trustees default operation typically these are written to a http.Request
+/*
+PostOrgauthorizationTrusteesDefaultParams contains all the parameters to send to the API endpoint
+
+	for the post orgauthorization trustees default operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOrgauthorizationTrusteesDefaultParams struct {
 
-	/*AssignDefaultRole
-	  Assign Admin role to default pairing with Customer Care
+	/* AssignDefaultRole.
 
+	   Assign Admin role to default pairing with Customer Care
 	*/
 	AssignDefaultRole *bool
-	/*AutoExpire
-	  Automatically expire pairing after 30 days
 
+	/* AutoExpire.
+
+	   Automatically expire pairing after 30 days
 	*/
 	AutoExpire *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post orgauthorization trustees default params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOrgauthorizationTrusteesDefaultParams) WithDefaults() *PostOrgauthorizationTrusteesDefaultParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post orgauthorization trustees default params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOrgauthorizationTrusteesDefaultParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post orgauthorization trustees default params
@@ -144,32 +161,34 @@ func (o *PostOrgauthorizationTrusteesDefaultParams) WriteToRequest(r runtime.Cli
 
 		// query param assignDefaultRole
 		var qrAssignDefaultRole bool
+
 		if o.AssignDefaultRole != nil {
 			qrAssignDefaultRole = *o.AssignDefaultRole
 		}
 		qAssignDefaultRole := swag.FormatBool(qrAssignDefaultRole)
 		if qAssignDefaultRole != "" {
+
 			if err := r.SetQueryParam("assignDefaultRole", qAssignDefaultRole); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.AutoExpire != nil {
 
 		// query param autoExpire
 		var qrAutoExpire bool
+
 		if o.AutoExpire != nil {
 			qrAutoExpire = *o.AutoExpire
 		}
 		qAutoExpire := swag.FormatBool(qrAutoExpire)
 		if qAutoExpire != "" {
+
 			if err := r.SetQueryParam("autoExpire", qAutoExpire); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -145,7 +146,6 @@ func (m *LearningAssignment) Validate(formats strfmt.Registry) error {
 }
 
 func (m *LearningAssignment) validateAssessment(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Assessment) { // not required
 		return nil
 	}
@@ -154,6 +154,8 @@ func (m *LearningAssignment) validateAssessment(formats strfmt.Registry) error {
 		if err := m.Assessment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("assessment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assessment")
 			}
 			return err
 		}
@@ -163,7 +165,6 @@ func (m *LearningAssignment) validateAssessment(formats strfmt.Registry) error {
 }
 
 func (m *LearningAssignment) validateAssessmentForm(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssessmentForm) { // not required
 		return nil
 	}
@@ -172,6 +173,8 @@ func (m *LearningAssignment) validateAssessmentForm(formats strfmt.Registry) err
 		if err := m.AssessmentForm.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("assessmentForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assessmentForm")
 			}
 			return err
 		}
@@ -181,7 +184,6 @@ func (m *LearningAssignment) validateAssessmentForm(formats strfmt.Registry) err
 }
 
 func (m *LearningAssignment) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -190,6 +192,8 @@ func (m *LearningAssignment) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -199,7 +203,6 @@ func (m *LearningAssignment) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *LearningAssignment) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -212,7 +215,6 @@ func (m *LearningAssignment) validateDateCreated(formats strfmt.Registry) error 
 }
 
 func (m *LearningAssignment) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -225,7 +227,6 @@ func (m *LearningAssignment) validateDateModified(formats strfmt.Registry) error
 }
 
 func (m *LearningAssignment) validateDateRecommendedForCompletion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateRecommendedForCompletion) { // not required
 		return nil
 	}
@@ -238,7 +239,6 @@ func (m *LearningAssignment) validateDateRecommendedForCompletion(formats strfmt
 }
 
 func (m *LearningAssignment) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -247,6 +247,8 @@ func (m *LearningAssignment) validateModifiedBy(formats strfmt.Registry) error {
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -256,7 +258,6 @@ func (m *LearningAssignment) validateModifiedBy(formats strfmt.Registry) error {
 }
 
 func (m *LearningAssignment) validateModule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Module) { // not required
 		return nil
 	}
@@ -265,6 +266,8 @@ func (m *LearningAssignment) validateModule(formats strfmt.Registry) error {
 		if err := m.Module.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("module")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("module")
 			}
 			return err
 		}
@@ -274,7 +277,6 @@ func (m *LearningAssignment) validateModule(formats strfmt.Registry) error {
 }
 
 func (m *LearningAssignment) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -328,7 +330,6 @@ func (m *LearningAssignment) validateStateEnum(path, location string, value stri
 }
 
 func (m *LearningAssignment) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -342,7 +343,6 @@ func (m *LearningAssignment) validateState(formats strfmt.Registry) error {
 }
 
 func (m *LearningAssignment) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -351,6 +351,255 @@ func (m *LearningAssignment) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this learning assignment based on the context it is used
+func (m *LearningAssignment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAssessment(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAssessmentForm(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIsManual(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIsOverdue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIsPassed(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIsRule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePercentageScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateAssessment(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Assessment != nil {
+		if err := m.Assessment.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("assessment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assessment")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateAssessmentForm(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AssessmentForm != nil {
+		if err := m.AssessmentForm.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("assessmentForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assessmentForm")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateIsManual(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isManual", "body", m.IsManual); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateIsOverdue(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isOverdue", "body", m.IsOverdue); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateIsPassed(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isPassed", "body", m.IsPassed); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateIsRule(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isRule", "body", m.IsRule); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateModule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Module != nil {
+		if err := m.Module.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("module")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("module")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidatePercentageScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "percentageScore", "body", float32(m.PercentageScore)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssignment) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

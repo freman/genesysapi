@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -89,7 +90,6 @@ func (m *Leaderboard) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Leaderboard) validateDateEndWorkday(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateEndWorkday) { // not required
 		return nil
 	}
@@ -102,7 +102,6 @@ func (m *Leaderboard) validateDateEndWorkday(formats strfmt.Registry) error {
 }
 
 func (m *Leaderboard) validateDateStartWorkday(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStartWorkday) { // not required
 		return nil
 	}
@@ -115,7 +114,6 @@ func (m *Leaderboard) validateDateStartWorkday(formats strfmt.Registry) error {
 }
 
 func (m *Leaderboard) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -124,6 +122,8 @@ func (m *Leaderboard) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -133,7 +133,6 @@ func (m *Leaderboard) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *Leaderboard) validateLeaders(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Leaders) { // not required
 		return nil
 	}
@@ -147,6 +146,8 @@ func (m *Leaderboard) validateLeaders(formats strfmt.Registry) error {
 			if err := m.Leaders[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("leaders" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("leaders" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -158,7 +159,6 @@ func (m *Leaderboard) validateLeaders(formats strfmt.Registry) error {
 }
 
 func (m *Leaderboard) validateMetric(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metric) { // not required
 		return nil
 	}
@@ -167,6 +167,8 @@ func (m *Leaderboard) validateMetric(formats strfmt.Registry) error {
 		if err := m.Metric.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metric")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metric")
 			}
 			return err
 		}
@@ -176,7 +178,6 @@ func (m *Leaderboard) validateMetric(formats strfmt.Registry) error {
 }
 
 func (m *Leaderboard) validatePerformanceProfile(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PerformanceProfile) { // not required
 		return nil
 	}
@@ -185,6 +186,8 @@ func (m *Leaderboard) validatePerformanceProfile(formats strfmt.Registry) error 
 		if err := m.PerformanceProfile.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("performanceProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("performanceProfile")
 			}
 			return err
 		}
@@ -194,7 +197,6 @@ func (m *Leaderboard) validatePerformanceProfile(formats strfmt.Registry) error 
 }
 
 func (m *Leaderboard) validateUserRank(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserRank) { // not required
 		return nil
 	}
@@ -203,6 +205,152 @@ func (m *Leaderboard) validateUserRank(formats strfmt.Registry) error {
 		if err := m.UserRank.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("userRank")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("userRank")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this leaderboard based on the context it is used
+func (m *Leaderboard) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateEndWorkday(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateStartWorkday(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLeaders(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetric(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePerformanceProfile(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserRank(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Leaderboard) contextValidateDateEndWorkday(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateEndWorkday", "body", strfmt.Date(m.DateEndWorkday)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Leaderboard) contextValidateDateStartWorkday(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateStartWorkday", "body", strfmt.Date(m.DateStartWorkday)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Leaderboard) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Leaderboard) contextValidateLeaders(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "leaders", "body", []*LeaderboardItem(m.Leaders)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Leaders); i++ {
+
+		if m.Leaders[i] != nil {
+			if err := m.Leaders[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("leaders" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("leaders" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Leaderboard) contextValidateMetric(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metric != nil {
+		if err := m.Metric.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metric")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metric")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Leaderboard) contextValidatePerformanceProfile(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PerformanceProfile != nil {
+		if err := m.PerformanceProfile.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("performanceProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("performanceProfile")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Leaderboard) contextValidateUserRank(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UserRank != nil {
+		if err := m.UserRank.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("userRank")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("userRank")
 			}
 			return err
 		}

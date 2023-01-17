@@ -16,79 +16,103 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationLeaderboardAllParams creates a new GetGamificationLeaderboardAllParams object
-// with the default values initialized.
+// NewGetGamificationLeaderboardAllParams creates a new GetGamificationLeaderboardAllParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationLeaderboardAllParams() *GetGamificationLeaderboardAllParams {
-	var ()
 	return &GetGamificationLeaderboardAllParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationLeaderboardAllParamsWithTimeout creates a new GetGamificationLeaderboardAllParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationLeaderboardAllParamsWithTimeout(timeout time.Duration) *GetGamificationLeaderboardAllParams {
-	var ()
 	return &GetGamificationLeaderboardAllParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationLeaderboardAllParamsWithContext creates a new GetGamificationLeaderboardAllParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationLeaderboardAllParamsWithContext(ctx context.Context) *GetGamificationLeaderboardAllParams {
-	var ()
 	return &GetGamificationLeaderboardAllParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationLeaderboardAllParamsWithHTTPClient creates a new GetGamificationLeaderboardAllParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationLeaderboardAllParamsWithHTTPClient(client *http.Client) *GetGamificationLeaderboardAllParams {
-	var ()
 	return &GetGamificationLeaderboardAllParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationLeaderboardAllParams contains all the parameters to send to the API endpoint
-for the get gamification leaderboard all operation typically these are written to a http.Request
+/*
+GetGamificationLeaderboardAllParams contains all the parameters to send to the API endpoint
+
+	for the get gamification leaderboard all operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationLeaderboardAllParams struct {
 
-	/*EndWorkday
-	  End workday to retrieve for the leaderboard. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	/* EndWorkday.
 
+	   End workday to retrieve for the leaderboard. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	EndWorkday strfmt.Date
-	/*FilterID
-	  ID for the filter type. For example, division or performance profile Id
 
+	/* FilterID.
+
+	   ID for the filter type. For example, division or performance profile Id
 	*/
 	FilterID string
-	/*FilterType
-	  Filter type for the query request.
 
+	/* FilterType.
+
+	   Filter type for the query request.
 	*/
 	FilterType string
-	/*MetricID
-	  Metric Id for which the leaderboard is to be generated. The total points is used if nothing is given.
 
+	/* MetricID.
+
+	   Metric Id for which the leaderboard is to be generated. The total points is used if nothing is given.
 	*/
 	MetricID *string
-	/*StartWorkday
-	  Start workday to retrieve for the leaderboard. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* StartWorkday.
+
+	   Start workday to retrieve for the leaderboard. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	StartWorkday strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification leaderboard all params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationLeaderboardAllParams) WithDefaults() *GetGamificationLeaderboardAllParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification leaderboard all params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationLeaderboardAllParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification leaderboard all params
@@ -191,6 +215,7 @@ func (o *GetGamificationLeaderboardAllParams) WriteToRequest(r runtime.ClientReq
 	qrEndWorkday := o.EndWorkday
 	qEndWorkday := qrEndWorkday.String()
 	if qEndWorkday != "" {
+
 		if err := r.SetQueryParam("endWorkday", qEndWorkday); err != nil {
 			return err
 		}
@@ -200,6 +225,7 @@ func (o *GetGamificationLeaderboardAllParams) WriteToRequest(r runtime.ClientReq
 	qrFilterID := o.FilterID
 	qFilterID := qrFilterID
 	if qFilterID != "" {
+
 		if err := r.SetQueryParam("filterId", qFilterID); err != nil {
 			return err
 		}
@@ -209,6 +235,7 @@ func (o *GetGamificationLeaderboardAllParams) WriteToRequest(r runtime.ClientReq
 	qrFilterType := o.FilterType
 	qFilterType := qrFilterType
 	if qFilterType != "" {
+
 		if err := r.SetQueryParam("filterType", qFilterType); err != nil {
 			return err
 		}
@@ -218,22 +245,24 @@ func (o *GetGamificationLeaderboardAllParams) WriteToRequest(r runtime.ClientReq
 
 		// query param metricId
 		var qrMetricID string
+
 		if o.MetricID != nil {
 			qrMetricID = *o.MetricID
 		}
 		qMetricID := qrMetricID
 		if qMetricID != "" {
+
 			if err := r.SetQueryParam("metricId", qMetricID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param startWorkday
 	qrStartWorkday := o.StartWorkday
 	qStartWorkday := qrStartWorkday.String()
 	if qStartWorkday != "" {
+
 		if err := r.SetQueryParam("startWorkday", qStartWorkday); err != nil {
 			return err
 		}

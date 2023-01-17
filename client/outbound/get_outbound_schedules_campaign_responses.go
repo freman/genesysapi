@@ -95,7 +95,6 @@ func (o *GetOutboundSchedulesCampaignReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOutboundSchedulesCampaignOK() *GetOutboundSchedulesCampaignOK {
 	return &GetOutboundSchedulesCampaignOK{}
 }
 
-/*GetOutboundSchedulesCampaignOK handles this case with default header values.
+/*
+GetOutboundSchedulesCampaignOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOutboundSchedulesCampaignOK struct {
 	Payload *models.CampaignSchedule
 }
 
+// IsSuccess returns true when this get outbound schedules campaign o k response has a 2xx status code
+func (o *GetOutboundSchedulesCampaignOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get outbound schedules campaign o k response has a 3xx status code
+func (o *GetOutboundSchedulesCampaignOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound schedules campaign o k response has a 4xx status code
+func (o *GetOutboundSchedulesCampaignOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound schedules campaign o k response has a 5xx status code
+func (o *GetOutboundSchedulesCampaignOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound schedules campaign o k response a status code equal to that given
+func (o *GetOutboundSchedulesCampaignOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOutboundSchedulesCampaignOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOutboundSchedulesCampaignOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOutboundSchedulesCampaignBadRequest() *GetOutboundSchedulesCampaignBa
 	return &GetOutboundSchedulesCampaignBadRequest{}
 }
 
-/*GetOutboundSchedulesCampaignBadRequest handles this case with default header values.
+/*
+GetOutboundSchedulesCampaignBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOutboundSchedulesCampaignBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound schedules campaign bad request response has a 2xx status code
+func (o *GetOutboundSchedulesCampaignBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound schedules campaign bad request response has a 3xx status code
+func (o *GetOutboundSchedulesCampaignBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound schedules campaign bad request response has a 4xx status code
+func (o *GetOutboundSchedulesCampaignBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound schedules campaign bad request response has a 5xx status code
+func (o *GetOutboundSchedulesCampaignBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound schedules campaign bad request response a status code equal to that given
+func (o *GetOutboundSchedulesCampaignBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOutboundSchedulesCampaignBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOutboundSchedulesCampaignBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOutboundSchedulesCampaignUnauthorized() *GetOutboundSchedulesCampaign
 	return &GetOutboundSchedulesCampaignUnauthorized{}
 }
 
-/*GetOutboundSchedulesCampaignUnauthorized handles this case with default header values.
+/*
+GetOutboundSchedulesCampaignUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOutboundSchedulesCampaignUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound schedules campaign unauthorized response has a 2xx status code
+func (o *GetOutboundSchedulesCampaignUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound schedules campaign unauthorized response has a 3xx status code
+func (o *GetOutboundSchedulesCampaignUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound schedules campaign unauthorized response has a 4xx status code
+func (o *GetOutboundSchedulesCampaignUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound schedules campaign unauthorized response has a 5xx status code
+func (o *GetOutboundSchedulesCampaignUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound schedules campaign unauthorized response a status code equal to that given
+func (o *GetOutboundSchedulesCampaignUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOutboundSchedulesCampaignUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOutboundSchedulesCampaignUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOutboundSchedulesCampaignForbidden() *GetOutboundSchedulesCampaignFor
 	return &GetOutboundSchedulesCampaignForbidden{}
 }
 
-/*GetOutboundSchedulesCampaignForbidden handles this case with default header values.
+/*
+GetOutboundSchedulesCampaignForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOutboundSchedulesCampaignForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound schedules campaign forbidden response has a 2xx status code
+func (o *GetOutboundSchedulesCampaignForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound schedules campaign forbidden response has a 3xx status code
+func (o *GetOutboundSchedulesCampaignForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound schedules campaign forbidden response has a 4xx status code
+func (o *GetOutboundSchedulesCampaignForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound schedules campaign forbidden response has a 5xx status code
+func (o *GetOutboundSchedulesCampaignForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound schedules campaign forbidden response a status code equal to that given
+func (o *GetOutboundSchedulesCampaignForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOutboundSchedulesCampaignForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOutboundSchedulesCampaignForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOutboundSchedulesCampaignNotFound() *GetOutboundSchedulesCampaignNotF
 	return &GetOutboundSchedulesCampaignNotFound{}
 }
 
-/*GetOutboundSchedulesCampaignNotFound handles this case with default header values.
+/*
+GetOutboundSchedulesCampaignNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOutboundSchedulesCampaignNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound schedules campaign not found response has a 2xx status code
+func (o *GetOutboundSchedulesCampaignNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound schedules campaign not found response has a 3xx status code
+func (o *GetOutboundSchedulesCampaignNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound schedules campaign not found response has a 4xx status code
+func (o *GetOutboundSchedulesCampaignNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound schedules campaign not found response has a 5xx status code
+func (o *GetOutboundSchedulesCampaignNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound schedules campaign not found response a status code equal to that given
+func (o *GetOutboundSchedulesCampaignNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOutboundSchedulesCampaignNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOutboundSchedulesCampaignNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOutboundSchedulesCampaignRequestTimeout() *GetOutboundSchedulesCampai
 	return &GetOutboundSchedulesCampaignRequestTimeout{}
 }
 
-/*GetOutboundSchedulesCampaignRequestTimeout handles this case with default header values.
+/*
+GetOutboundSchedulesCampaignRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOutboundSchedulesCampaignRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound schedules campaign request timeout response has a 2xx status code
+func (o *GetOutboundSchedulesCampaignRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound schedules campaign request timeout response has a 3xx status code
+func (o *GetOutboundSchedulesCampaignRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound schedules campaign request timeout response has a 4xx status code
+func (o *GetOutboundSchedulesCampaignRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound schedules campaign request timeout response has a 5xx status code
+func (o *GetOutboundSchedulesCampaignRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound schedules campaign request timeout response a status code equal to that given
+func (o *GetOutboundSchedulesCampaignRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOutboundSchedulesCampaignRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundSchedulesCampaignRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOutboundSchedulesCampaignRequestEntityTooLarge() *GetOutboundSchedule
 	return &GetOutboundSchedulesCampaignRequestEntityTooLarge{}
 }
 
-/*GetOutboundSchedulesCampaignRequestEntityTooLarge handles this case with default header values.
+/*
+GetOutboundSchedulesCampaignRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOutboundSchedulesCampaignRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound schedules campaign request entity too large response has a 2xx status code
+func (o *GetOutboundSchedulesCampaignRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound schedules campaign request entity too large response has a 3xx status code
+func (o *GetOutboundSchedulesCampaignRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound schedules campaign request entity too large response has a 4xx status code
+func (o *GetOutboundSchedulesCampaignRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound schedules campaign request entity too large response has a 5xx status code
+func (o *GetOutboundSchedulesCampaignRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound schedules campaign request entity too large response a status code equal to that given
+func (o *GetOutboundSchedulesCampaignRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOutboundSchedulesCampaignRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOutboundSchedulesCampaignRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOutboundSchedulesCampaignUnsupportedMediaType() *GetOutboundSchedules
 	return &GetOutboundSchedulesCampaignUnsupportedMediaType{}
 }
 
-/*GetOutboundSchedulesCampaignUnsupportedMediaType handles this case with default header values.
+/*
+GetOutboundSchedulesCampaignUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOutboundSchedulesCampaignUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound schedules campaign unsupported media type response has a 2xx status code
+func (o *GetOutboundSchedulesCampaignUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound schedules campaign unsupported media type response has a 3xx status code
+func (o *GetOutboundSchedulesCampaignUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound schedules campaign unsupported media type response has a 4xx status code
+func (o *GetOutboundSchedulesCampaignUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound schedules campaign unsupported media type response has a 5xx status code
+func (o *GetOutboundSchedulesCampaignUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound schedules campaign unsupported media type response a status code equal to that given
+func (o *GetOutboundSchedulesCampaignUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOutboundSchedulesCampaignUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOutboundSchedulesCampaignUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOutboundSchedulesCampaignTooManyRequests() *GetOutboundSchedulesCampa
 	return &GetOutboundSchedulesCampaignTooManyRequests{}
 }
 
-/*GetOutboundSchedulesCampaignTooManyRequests handles this case with default header values.
+/*
+GetOutboundSchedulesCampaignTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOutboundSchedulesCampaignTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound schedules campaign too many requests response has a 2xx status code
+func (o *GetOutboundSchedulesCampaignTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound schedules campaign too many requests response has a 3xx status code
+func (o *GetOutboundSchedulesCampaignTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound schedules campaign too many requests response has a 4xx status code
+func (o *GetOutboundSchedulesCampaignTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound schedules campaign too many requests response has a 5xx status code
+func (o *GetOutboundSchedulesCampaignTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound schedules campaign too many requests response a status code equal to that given
+func (o *GetOutboundSchedulesCampaignTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOutboundSchedulesCampaignTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOutboundSchedulesCampaignTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOutboundSchedulesCampaignInternalServerError() *GetOutboundSchedulesC
 	return &GetOutboundSchedulesCampaignInternalServerError{}
 }
 
-/*GetOutboundSchedulesCampaignInternalServerError handles this case with default header values.
+/*
+GetOutboundSchedulesCampaignInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOutboundSchedulesCampaignInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound schedules campaign internal server error response has a 2xx status code
+func (o *GetOutboundSchedulesCampaignInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound schedules campaign internal server error response has a 3xx status code
+func (o *GetOutboundSchedulesCampaignInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound schedules campaign internal server error response has a 4xx status code
+func (o *GetOutboundSchedulesCampaignInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound schedules campaign internal server error response has a 5xx status code
+func (o *GetOutboundSchedulesCampaignInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound schedules campaign internal server error response a status code equal to that given
+func (o *GetOutboundSchedulesCampaignInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOutboundSchedulesCampaignInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOutboundSchedulesCampaignInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOutboundSchedulesCampaignServiceUnavailable() *GetOutboundSchedulesCa
 	return &GetOutboundSchedulesCampaignServiceUnavailable{}
 }
 
-/*GetOutboundSchedulesCampaignServiceUnavailable handles this case with default header values.
+/*
+GetOutboundSchedulesCampaignServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOutboundSchedulesCampaignServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound schedules campaign service unavailable response has a 2xx status code
+func (o *GetOutboundSchedulesCampaignServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound schedules campaign service unavailable response has a 3xx status code
+func (o *GetOutboundSchedulesCampaignServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound schedules campaign service unavailable response has a 4xx status code
+func (o *GetOutboundSchedulesCampaignServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound schedules campaign service unavailable response has a 5xx status code
+func (o *GetOutboundSchedulesCampaignServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound schedules campaign service unavailable response a status code equal to that given
+func (o *GetOutboundSchedulesCampaignServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOutboundSchedulesCampaignServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOutboundSchedulesCampaignServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOutboundSchedulesCampaignGatewayTimeout() *GetOutboundSchedulesCampai
 	return &GetOutboundSchedulesCampaignGatewayTimeout{}
 }
 
-/*GetOutboundSchedulesCampaignGatewayTimeout handles this case with default header values.
+/*
+GetOutboundSchedulesCampaignGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOutboundSchedulesCampaignGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound schedules campaign gateway timeout response has a 2xx status code
+func (o *GetOutboundSchedulesCampaignGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound schedules campaign gateway timeout response has a 3xx status code
+func (o *GetOutboundSchedulesCampaignGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound schedules campaign gateway timeout response has a 4xx status code
+func (o *GetOutboundSchedulesCampaignGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound schedules campaign gateway timeout response has a 5xx status code
+func (o *GetOutboundSchedulesCampaignGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound schedules campaign gateway timeout response a status code equal to that given
+func (o *GetOutboundSchedulesCampaignGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOutboundSchedulesCampaignGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOutboundSchedulesCampaignGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/schedules/campaigns/{campaignId}][%d] getOutboundSchedulesCampaignGatewayTimeout  %+v", 504, o.Payload)
 }
 

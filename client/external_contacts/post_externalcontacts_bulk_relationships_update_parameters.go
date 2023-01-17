@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostExternalcontactsBulkRelationshipsUpdateParams creates a new PostExternalcontactsBulkRelationshipsUpdateParams object
-// with the default values initialized.
+// NewPostExternalcontactsBulkRelationshipsUpdateParams creates a new PostExternalcontactsBulkRelationshipsUpdateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostExternalcontactsBulkRelationshipsUpdateParams() *PostExternalcontactsBulkRelationshipsUpdateParams {
-	var ()
 	return &PostExternalcontactsBulkRelationshipsUpdateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostExternalcontactsBulkRelationshipsUpdateParamsWithTimeout creates a new PostExternalcontactsBulkRelationshipsUpdateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostExternalcontactsBulkRelationshipsUpdateParamsWithTimeout(timeout time.Duration) *PostExternalcontactsBulkRelationshipsUpdateParams {
-	var ()
 	return &PostExternalcontactsBulkRelationshipsUpdateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostExternalcontactsBulkRelationshipsUpdateParamsWithContext creates a new PostExternalcontactsBulkRelationshipsUpdateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostExternalcontactsBulkRelationshipsUpdateParamsWithContext(ctx context.Context) *PostExternalcontactsBulkRelationshipsUpdateParams {
-	var ()
 	return &PostExternalcontactsBulkRelationshipsUpdateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostExternalcontactsBulkRelationshipsUpdateParamsWithHTTPClient creates a new PostExternalcontactsBulkRelationshipsUpdateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostExternalcontactsBulkRelationshipsUpdateParamsWithHTTPClient(client *http.Client) *PostExternalcontactsBulkRelationshipsUpdateParams {
-	var ()
 	return &PostExternalcontactsBulkRelationshipsUpdateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostExternalcontactsBulkRelationshipsUpdateParams contains all the parameters to send to the API endpoint
-for the post externalcontacts bulk relationships update operation typically these are written to a http.Request
+/*
+PostExternalcontactsBulkRelationshipsUpdateParams contains all the parameters to send to the API endpoint
+
+	for the post externalcontacts bulk relationships update operation.
+
+	Typically these are written to a http.Request.
 */
 type PostExternalcontactsBulkRelationshipsUpdateParams struct {
 
-	/*Body
-	  Relationships
+	/* Body.
 
+	   Relationships
 	*/
 	Body *models.BulkRelationshipsRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post externalcontacts bulk relationships update params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsBulkRelationshipsUpdateParams) WithDefaults() *PostExternalcontactsBulkRelationshipsUpdateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post externalcontacts bulk relationships update params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsBulkRelationshipsUpdateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post externalcontacts bulk relationships update params
@@ -124,7 +140,6 @@ func (o *PostExternalcontactsBulkRelationshipsUpdateParams) WriteToRequest(r run
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

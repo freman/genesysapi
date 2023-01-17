@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -55,8 +56,8 @@ const (
 	// WebChatConfigWebChatSkinBasic captures enum value "basic"
 	WebChatConfigWebChatSkinBasic string = "basic"
 
-	// WebChatConfigWebChatSkinModernCaretSkin captures enum value "modern-caret-skin"
-	WebChatConfigWebChatSkinModernCaretSkin string = "modern-caret-skin"
+	// WebChatConfigWebChatSkinModernDashCaretDashSkin captures enum value "modern-caret-skin"
+	WebChatConfigWebChatSkinModernDashCaretDashSkin string = "modern-caret-skin"
 )
 
 // prop value enum
@@ -68,7 +69,6 @@ func (m *WebChatConfig) validateWebChatSkinEnum(path, location string, value str
 }
 
 func (m *WebChatConfig) validateWebChatSkin(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WebChatSkin) { // not required
 		return nil
 	}
@@ -78,6 +78,11 @@ func (m *WebChatConfig) validateWebChatSkin(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this web chat config based on context it is used
+func (m *WebChatConfig) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

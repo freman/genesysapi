@@ -101,7 +101,6 @@ func (o *PutGroupReader) ReadResponse(response runtime.ClientResponse, consumer 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutGroupOK() *PutGroupOK {
 	return &PutGroupOK{}
 }
 
-/*PutGroupOK handles this case with default header values.
+/*
+PutGroupOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutGroupOK struct {
 	Payload *models.Group
 }
 
+// IsSuccess returns true when this put group o k response has a 2xx status code
+func (o *PutGroupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put group o k response has a 3xx status code
+func (o *PutGroupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group o k response has a 4xx status code
+func (o *PutGroupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put group o k response has a 5xx status code
+func (o *PutGroupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put group o k response a status code equal to that given
+func (o *PutGroupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutGroupOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupOK  %+v", 200, o.Payload)
+}
+
+func (o *PutGroupOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutGroupBadRequest() *PutGroupBadRequest {
 	return &PutGroupBadRequest{}
 }
 
-/*PutGroupBadRequest handles this case with default header values.
+/*
+PutGroupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutGroupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put group bad request response has a 2xx status code
+func (o *PutGroupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put group bad request response has a 3xx status code
+func (o *PutGroupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group bad request response has a 4xx status code
+func (o *PutGroupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put group bad request response has a 5xx status code
+func (o *PutGroupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put group bad request response a status code equal to that given
+func (o *PutGroupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutGroupBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutGroupBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutGroupUnauthorized() *PutGroupUnauthorized {
 	return &PutGroupUnauthorized{}
 }
 
-/*PutGroupUnauthorized handles this case with default header values.
+/*
+PutGroupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutGroupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put group unauthorized response has a 2xx status code
+func (o *PutGroupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put group unauthorized response has a 3xx status code
+func (o *PutGroupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group unauthorized response has a 4xx status code
+func (o *PutGroupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put group unauthorized response has a 5xx status code
+func (o *PutGroupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put group unauthorized response a status code equal to that given
+func (o *PutGroupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutGroupUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutGroupUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutGroupForbidden() *PutGroupForbidden {
 	return &PutGroupForbidden{}
 }
 
-/*PutGroupForbidden handles this case with default header values.
+/*
+PutGroupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutGroupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put group forbidden response has a 2xx status code
+func (o *PutGroupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put group forbidden response has a 3xx status code
+func (o *PutGroupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group forbidden response has a 4xx status code
+func (o *PutGroupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put group forbidden response has a 5xx status code
+func (o *PutGroupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put group forbidden response a status code equal to that given
+func (o *PutGroupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutGroupForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutGroupForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutGroupNotFound() *PutGroupNotFound {
 	return &PutGroupNotFound{}
 }
 
-/*PutGroupNotFound handles this case with default header values.
+/*
+PutGroupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutGroupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put group not found response has a 2xx status code
+func (o *PutGroupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put group not found response has a 3xx status code
+func (o *PutGroupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group not found response has a 4xx status code
+func (o *PutGroupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put group not found response has a 5xx status code
+func (o *PutGroupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put group not found response a status code equal to that given
+func (o *PutGroupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutGroupNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutGroupNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutGroupRequestTimeout() *PutGroupRequestTimeout {
 	return &PutGroupRequestTimeout{}
 }
 
-/*PutGroupRequestTimeout handles this case with default header values.
+/*
+PutGroupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutGroupRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put group request timeout response has a 2xx status code
+func (o *PutGroupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put group request timeout response has a 3xx status code
+func (o *PutGroupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group request timeout response has a 4xx status code
+func (o *PutGroupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put group request timeout response has a 5xx status code
+func (o *PutGroupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put group request timeout response a status code equal to that given
+func (o *PutGroupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutGroupRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutGroupRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,14 +489,44 @@ func NewPutGroupConflict() *PutGroupConflict {
 	return &PutGroupConflict{}
 }
 
-/*PutGroupConflict handles this case with default header values.
+/*
+PutGroupConflict describes a response with status code 409, with default header values.
 
 Resource conflict - Unexpected version was provided
 */
 type PutGroupConflict struct {
 }
 
+// IsSuccess returns true when this put group conflict response has a 2xx status code
+func (o *PutGroupConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put group conflict response has a 3xx status code
+func (o *PutGroupConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group conflict response has a 4xx status code
+func (o *PutGroupConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put group conflict response has a 5xx status code
+func (o *PutGroupConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put group conflict response a status code equal to that given
+func (o *PutGroupConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutGroupConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupConflict ", 409)
+}
+
+func (o *PutGroupConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupConflict ", 409)
 }
 
@@ -331,7 +540,8 @@ func NewPutGroupRequestEntityTooLarge() *PutGroupRequestEntityTooLarge {
 	return &PutGroupRequestEntityTooLarge{}
 }
 
-/*PutGroupRequestEntityTooLarge handles this case with default header values.
+/*
+PutGroupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type PutGroupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put group request entity too large response has a 2xx status code
+func (o *PutGroupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put group request entity too large response has a 3xx status code
+func (o *PutGroupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group request entity too large response has a 4xx status code
+func (o *PutGroupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put group request entity too large response has a 5xx status code
+func (o *PutGroupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put group request entity too large response a status code equal to that given
+func (o *PutGroupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutGroupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutGroupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewPutGroupUnsupportedMediaType() *PutGroupUnsupportedMediaType {
 	return &PutGroupUnsupportedMediaType{}
 }
 
-/*PutGroupUnsupportedMediaType handles this case with default header values.
+/*
+PutGroupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type PutGroupUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put group unsupported media type response has a 2xx status code
+func (o *PutGroupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put group unsupported media type response has a 3xx status code
+func (o *PutGroupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group unsupported media type response has a 4xx status code
+func (o *PutGroupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put group unsupported media type response has a 5xx status code
+func (o *PutGroupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put group unsupported media type response a status code equal to that given
+func (o *PutGroupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutGroupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutGroupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewPutGroupTooManyRequests() *PutGroupTooManyRequests {
 	return &PutGroupTooManyRequests{}
 }
 
-/*PutGroupTooManyRequests handles this case with default header values.
+/*
+PutGroupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type PutGroupTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put group too many requests response has a 2xx status code
+func (o *PutGroupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put group too many requests response has a 3xx status code
+func (o *PutGroupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group too many requests response has a 4xx status code
+func (o *PutGroupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put group too many requests response has a 5xx status code
+func (o *PutGroupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put group too many requests response a status code equal to that given
+func (o *PutGroupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutGroupTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutGroupTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewPutGroupInternalServerError() *PutGroupInternalServerError {
 	return &PutGroupInternalServerError{}
 }
 
-/*PutGroupInternalServerError handles this case with default header values.
+/*
+PutGroupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type PutGroupInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put group internal server error response has a 2xx status code
+func (o *PutGroupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put group internal server error response has a 3xx status code
+func (o *PutGroupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group internal server error response has a 4xx status code
+func (o *PutGroupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put group internal server error response has a 5xx status code
+func (o *PutGroupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put group internal server error response a status code equal to that given
+func (o *PutGroupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutGroupInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutGroupInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewPutGroupServiceUnavailable() *PutGroupServiceUnavailable {
 	return &PutGroupServiceUnavailable{}
 }
 
-/*PutGroupServiceUnavailable handles this case with default header values.
+/*
+PutGroupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type PutGroupServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put group service unavailable response has a 2xx status code
+func (o *PutGroupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put group service unavailable response has a 3xx status code
+func (o *PutGroupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group service unavailable response has a 4xx status code
+func (o *PutGroupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put group service unavailable response has a 5xx status code
+func (o *PutGroupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put group service unavailable response a status code equal to that given
+func (o *PutGroupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutGroupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutGroupServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewPutGroupGatewayTimeout() *PutGroupGatewayTimeout {
 	return &PutGroupGatewayTimeout{}
 }
 
-/*PutGroupGatewayTimeout handles this case with default header values.
+/*
+PutGroupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type PutGroupGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put group gateway timeout response has a 2xx status code
+func (o *PutGroupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put group gateway timeout response has a 3xx status code
+func (o *PutGroupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put group gateway timeout response has a 4xx status code
+func (o *PutGroupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put group gateway timeout response has a 5xx status code
+func (o *PutGroupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put group gateway timeout response a status code equal to that given
+func (o *PutGroupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutGroupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutGroupGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/groups/{groupId}][%d] putGroupGatewayTimeout  %+v", 504, o.Payload)
 }
 

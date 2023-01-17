@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -88,7 +89,6 @@ func (m *BenefitAssessment) Validate(formats strfmt.Registry) error {
 }
 
 func (m *BenefitAssessment) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -101,7 +101,6 @@ func (m *BenefitAssessment) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *BenefitAssessment) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -114,7 +113,6 @@ func (m *BenefitAssessment) validateDateModified(formats strfmt.Registry) error 
 }
 
 func (m *BenefitAssessment) validateKpiAssessments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KpiAssessments) { // not required
 		return nil
 	}
@@ -128,6 +126,8 @@ func (m *BenefitAssessment) validateKpiAssessments(formats strfmt.Registry) erro
 			if err := m.KpiAssessments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("kpiAssessments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("kpiAssessments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -139,7 +139,6 @@ func (m *BenefitAssessment) validateKpiAssessments(formats strfmt.Registry) erro
 }
 
 func (m *BenefitAssessment) validateQueues(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queues) { // not required
 		return nil
 	}
@@ -153,6 +152,8 @@ func (m *BenefitAssessment) validateQueues(formats strfmt.Registry) error {
 			if err := m.Queues[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -164,7 +165,6 @@ func (m *BenefitAssessment) validateQueues(formats strfmt.Registry) error {
 }
 
 func (m *BenefitAssessment) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -209,13 +209,143 @@ func (m *BenefitAssessment) validateStateEnum(path, location string, value strin
 }
 
 func (m *BenefitAssessment) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this benefit assessment based on the context it is used
+func (m *BenefitAssessment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKpiAssessments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BenefitAssessment) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BenefitAssessment) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BenefitAssessment) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BenefitAssessment) contextValidateKpiAssessments(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "kpiAssessments", "body", []*KeyPerformanceIndicatorAssessment(m.KpiAssessments)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.KpiAssessments); i++ {
+
+		if m.KpiAssessments[i] != nil {
+			if err := m.KpiAssessments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("kpiAssessments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("kpiAssessments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BenefitAssessment) contextValidateQueues(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "queues", "body", []*AddressableEntityRef(m.Queues)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Queues); i++ {
+
+		if m.Queues[i] != nil {
+			if err := m.Queues[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queues" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BenefitAssessment) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BenefitAssessment) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
 		return err
 	}
 

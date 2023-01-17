@@ -95,7 +95,6 @@ func (o *DeleteOutboundDnclistReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteOutboundDnclistOK() *DeleteOutboundDnclistOK {
 	return &DeleteOutboundDnclistOK{}
 }
 
-/*DeleteOutboundDnclistOK handles this case with default header values.
+/*
+DeleteOutboundDnclistOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteOutboundDnclistOK struct {
 }
 
+// IsSuccess returns true when this delete outbound dnclist o k response has a 2xx status code
+func (o *DeleteOutboundDnclistOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete outbound dnclist o k response has a 3xx status code
+func (o *DeleteOutboundDnclistOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound dnclist o k response has a 4xx status code
+func (o *DeleteOutboundDnclistOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound dnclist o k response has a 5xx status code
+func (o *DeleteOutboundDnclistOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound dnclist o k response a status code equal to that given
+func (o *DeleteOutboundDnclistOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteOutboundDnclistOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistOK ", 200)
+}
+
+func (o *DeleteOutboundDnclistOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteOutboundDnclistBadRequest() *DeleteOutboundDnclistBadRequest {
 	return &DeleteOutboundDnclistBadRequest{}
 }
 
-/*DeleteOutboundDnclistBadRequest handles this case with default header values.
+/*
+DeleteOutboundDnclistBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteOutboundDnclistBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound dnclist bad request response has a 2xx status code
+func (o *DeleteOutboundDnclistBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound dnclist bad request response has a 3xx status code
+func (o *DeleteOutboundDnclistBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound dnclist bad request response has a 4xx status code
+func (o *DeleteOutboundDnclistBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound dnclist bad request response has a 5xx status code
+func (o *DeleteOutboundDnclistBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound dnclist bad request response a status code equal to that given
+func (o *DeleteOutboundDnclistBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOutboundDnclistBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOutboundDnclistBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteOutboundDnclistUnauthorized() *DeleteOutboundDnclistUnauthorized {
 	return &DeleteOutboundDnclistUnauthorized{}
 }
 
-/*DeleteOutboundDnclistUnauthorized handles this case with default header values.
+/*
+DeleteOutboundDnclistUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteOutboundDnclistUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound dnclist unauthorized response has a 2xx status code
+func (o *DeleteOutboundDnclistUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound dnclist unauthorized response has a 3xx status code
+func (o *DeleteOutboundDnclistUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound dnclist unauthorized response has a 4xx status code
+func (o *DeleteOutboundDnclistUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound dnclist unauthorized response has a 5xx status code
+func (o *DeleteOutboundDnclistUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound dnclist unauthorized response a status code equal to that given
+func (o *DeleteOutboundDnclistUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOutboundDnclistUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOutboundDnclistUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteOutboundDnclistForbidden() *DeleteOutboundDnclistForbidden {
 	return &DeleteOutboundDnclistForbidden{}
 }
 
-/*DeleteOutboundDnclistForbidden handles this case with default header values.
+/*
+DeleteOutboundDnclistForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteOutboundDnclistForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound dnclist forbidden response has a 2xx status code
+func (o *DeleteOutboundDnclistForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound dnclist forbidden response has a 3xx status code
+func (o *DeleteOutboundDnclistForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound dnclist forbidden response has a 4xx status code
+func (o *DeleteOutboundDnclistForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound dnclist forbidden response has a 5xx status code
+func (o *DeleteOutboundDnclistForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound dnclist forbidden response a status code equal to that given
+func (o *DeleteOutboundDnclistForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOutboundDnclistForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOutboundDnclistForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteOutboundDnclistNotFound() *DeleteOutboundDnclistNotFound {
 	return &DeleteOutboundDnclistNotFound{}
 }
 
-/*DeleteOutboundDnclistNotFound handles this case with default header values.
+/*
+DeleteOutboundDnclistNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteOutboundDnclistNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound dnclist not found response has a 2xx status code
+func (o *DeleteOutboundDnclistNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound dnclist not found response has a 3xx status code
+func (o *DeleteOutboundDnclistNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound dnclist not found response has a 4xx status code
+func (o *DeleteOutboundDnclistNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound dnclist not found response has a 5xx status code
+func (o *DeleteOutboundDnclistNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound dnclist not found response a status code equal to that given
+func (o *DeleteOutboundDnclistNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOutboundDnclistNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOutboundDnclistNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteOutboundDnclistRequestTimeout() *DeleteOutboundDnclistRequestTimeo
 	return &DeleteOutboundDnclistRequestTimeout{}
 }
 
-/*DeleteOutboundDnclistRequestTimeout handles this case with default header values.
+/*
+DeleteOutboundDnclistRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteOutboundDnclistRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound dnclist request timeout response has a 2xx status code
+func (o *DeleteOutboundDnclistRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound dnclist request timeout response has a 3xx status code
+func (o *DeleteOutboundDnclistRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound dnclist request timeout response has a 4xx status code
+func (o *DeleteOutboundDnclistRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound dnclist request timeout response has a 5xx status code
+func (o *DeleteOutboundDnclistRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound dnclist request timeout response a status code equal to that given
+func (o *DeleteOutboundDnclistRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOutboundDnclistRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundDnclistRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteOutboundDnclistRequestEntityTooLarge() *DeleteOutboundDnclistReque
 	return &DeleteOutboundDnclistRequestEntityTooLarge{}
 }
 
-/*DeleteOutboundDnclistRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOutboundDnclistRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteOutboundDnclistRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound dnclist request entity too large response has a 2xx status code
+func (o *DeleteOutboundDnclistRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound dnclist request entity too large response has a 3xx status code
+func (o *DeleteOutboundDnclistRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound dnclist request entity too large response has a 4xx status code
+func (o *DeleteOutboundDnclistRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound dnclist request entity too large response has a 5xx status code
+func (o *DeleteOutboundDnclistRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound dnclist request entity too large response a status code equal to that given
+func (o *DeleteOutboundDnclistRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOutboundDnclistRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOutboundDnclistRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteOutboundDnclistUnsupportedMediaType() *DeleteOutboundDnclistUnsupp
 	return &DeleteOutboundDnclistUnsupportedMediaType{}
 }
 
-/*DeleteOutboundDnclistUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOutboundDnclistUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteOutboundDnclistUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound dnclist unsupported media type response has a 2xx status code
+func (o *DeleteOutboundDnclistUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound dnclist unsupported media type response has a 3xx status code
+func (o *DeleteOutboundDnclistUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound dnclist unsupported media type response has a 4xx status code
+func (o *DeleteOutboundDnclistUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound dnclist unsupported media type response has a 5xx status code
+func (o *DeleteOutboundDnclistUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound dnclist unsupported media type response a status code equal to that given
+func (o *DeleteOutboundDnclistUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOutboundDnclistUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOutboundDnclistUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteOutboundDnclistTooManyRequests() *DeleteOutboundDnclistTooManyRequ
 	return &DeleteOutboundDnclistTooManyRequests{}
 }
 
-/*DeleteOutboundDnclistTooManyRequests handles this case with default header values.
+/*
+DeleteOutboundDnclistTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteOutboundDnclistTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound dnclist too many requests response has a 2xx status code
+func (o *DeleteOutboundDnclistTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound dnclist too many requests response has a 3xx status code
+func (o *DeleteOutboundDnclistTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound dnclist too many requests response has a 4xx status code
+func (o *DeleteOutboundDnclistTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound dnclist too many requests response has a 5xx status code
+func (o *DeleteOutboundDnclistTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound dnclist too many requests response a status code equal to that given
+func (o *DeleteOutboundDnclistTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOutboundDnclistTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOutboundDnclistTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteOutboundDnclistInternalServerError() *DeleteOutboundDnclistInterna
 	return &DeleteOutboundDnclistInternalServerError{}
 }
 
-/*DeleteOutboundDnclistInternalServerError handles this case with default header values.
+/*
+DeleteOutboundDnclistInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteOutboundDnclistInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound dnclist internal server error response has a 2xx status code
+func (o *DeleteOutboundDnclistInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound dnclist internal server error response has a 3xx status code
+func (o *DeleteOutboundDnclistInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound dnclist internal server error response has a 4xx status code
+func (o *DeleteOutboundDnclistInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound dnclist internal server error response has a 5xx status code
+func (o *DeleteOutboundDnclistInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound dnclist internal server error response a status code equal to that given
+func (o *DeleteOutboundDnclistInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOutboundDnclistInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOutboundDnclistInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteOutboundDnclistServiceUnavailable() *DeleteOutboundDnclistServiceU
 	return &DeleteOutboundDnclistServiceUnavailable{}
 }
 
-/*DeleteOutboundDnclistServiceUnavailable handles this case with default header values.
+/*
+DeleteOutboundDnclistServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteOutboundDnclistServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound dnclist service unavailable response has a 2xx status code
+func (o *DeleteOutboundDnclistServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound dnclist service unavailable response has a 3xx status code
+func (o *DeleteOutboundDnclistServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound dnclist service unavailable response has a 4xx status code
+func (o *DeleteOutboundDnclistServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound dnclist service unavailable response has a 5xx status code
+func (o *DeleteOutboundDnclistServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound dnclist service unavailable response a status code equal to that given
+func (o *DeleteOutboundDnclistServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOutboundDnclistServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOutboundDnclistServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteOutboundDnclistGatewayTimeout() *DeleteOutboundDnclistGatewayTimeo
 	return &DeleteOutboundDnclistGatewayTimeout{}
 }
 
-/*DeleteOutboundDnclistGatewayTimeout handles this case with default header values.
+/*
+DeleteOutboundDnclistGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteOutboundDnclistGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound dnclist gateway timeout response has a 2xx status code
+func (o *DeleteOutboundDnclistGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound dnclist gateway timeout response has a 3xx status code
+func (o *DeleteOutboundDnclistGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound dnclist gateway timeout response has a 4xx status code
+func (o *DeleteOutboundDnclistGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound dnclist gateway timeout response has a 5xx status code
+func (o *DeleteOutboundDnclistGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound dnclist gateway timeout response a status code equal to that given
+func (o *DeleteOutboundDnclistGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOutboundDnclistGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOutboundDnclistGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/dnclists/{dncListId}][%d] deleteOutboundDnclistGatewayTimeout  %+v", 504, o.Payload)
 }
 

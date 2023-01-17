@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostKnowledgeKnowledgebaseExportJobsParams creates a new PostKnowledgeKnowledgebaseExportJobsParams object
-// with the default values initialized.
+// NewPostKnowledgeKnowledgebaseExportJobsParams creates a new PostKnowledgeKnowledgebaseExportJobsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostKnowledgeKnowledgebaseExportJobsParams() *PostKnowledgeKnowledgebaseExportJobsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseExportJobsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseExportJobsParamsWithTimeout creates a new PostKnowledgeKnowledgebaseExportJobsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostKnowledgeKnowledgebaseExportJobsParamsWithTimeout(timeout time.Duration) *PostKnowledgeKnowledgebaseExportJobsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseExportJobsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseExportJobsParamsWithContext creates a new PostKnowledgeKnowledgebaseExportJobsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostKnowledgeKnowledgebaseExportJobsParamsWithContext(ctx context.Context) *PostKnowledgeKnowledgebaseExportJobsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseExportJobsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseExportJobsParamsWithHTTPClient creates a new PostKnowledgeKnowledgebaseExportJobsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostKnowledgeKnowledgebaseExportJobsParamsWithHTTPClient(client *http.Client) *PostKnowledgeKnowledgebaseExportJobsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseExportJobsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostKnowledgeKnowledgebaseExportJobsParams contains all the parameters to send to the API endpoint
-for the post knowledge knowledgebase export jobs operation typically these are written to a http.Request
+/*
+PostKnowledgeKnowledgebaseExportJobsParams contains all the parameters to send to the API endpoint
+
+	for the post knowledge knowledgebase export jobs operation.
+
+	Typically these are written to a http.Request.
 */
 type PostKnowledgeKnowledgebaseExportJobsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.KnowledgeExportJobRequest
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post knowledge knowledgebase export jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseExportJobsParams) WithDefaults() *PostKnowledgeKnowledgebaseExportJobsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post knowledge knowledgebase export jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseExportJobsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post knowledge knowledgebase export jobs params
@@ -137,7 +154,6 @@ func (o *PostKnowledgeKnowledgebaseExportJobsParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

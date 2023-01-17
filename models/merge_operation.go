@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -52,7 +54,6 @@ func (m *MergeOperation) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MergeOperation) validateResultingContact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ResultingContact) { // not required
 		return nil
 	}
@@ -61,6 +62,8 @@ func (m *MergeOperation) validateResultingContact(formats strfmt.Registry) error
 		if err := m.ResultingContact.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("resultingContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resultingContact")
 			}
 			return err
 		}
@@ -70,7 +73,6 @@ func (m *MergeOperation) validateResultingContact(formats strfmt.Registry) error
 }
 
 func (m *MergeOperation) validateSourceContact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SourceContact) { // not required
 		return nil
 	}
@@ -79,6 +81,8 @@ func (m *MergeOperation) validateSourceContact(formats strfmt.Registry) error {
 		if err := m.SourceContact.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sourceContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sourceContact")
 			}
 			return err
 		}
@@ -88,7 +92,6 @@ func (m *MergeOperation) validateSourceContact(formats strfmt.Registry) error {
 }
 
 func (m *MergeOperation) validateTargetContact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TargetContact) { // not required
 		return nil
 	}
@@ -97,6 +100,78 @@ func (m *MergeOperation) validateTargetContact(formats strfmt.Registry) error {
 		if err := m.TargetContact.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("targetContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("targetContact")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this merge operation based on the context it is used
+func (m *MergeOperation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateResultingContact(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSourceContact(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTargetContact(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MergeOperation) contextValidateResultingContact(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ResultingContact != nil {
+		if err := m.ResultingContact.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resultingContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resultingContact")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MergeOperation) contextValidateSourceContact(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SourceContact != nil {
+		if err := m.SourceContact.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sourceContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sourceContact")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MergeOperation) contextValidateTargetContact(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TargetContact != nil {
+		if err := m.TargetContact.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("targetContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("targetContact")
 			}
 			return err
 		}

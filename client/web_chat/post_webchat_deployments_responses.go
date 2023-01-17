@@ -101,7 +101,6 @@ func (o *PostWebchatDeploymentsReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostWebchatDeploymentsOK() *PostWebchatDeploymentsOK {
 	return &PostWebchatDeploymentsOK{}
 }
 
-/*PostWebchatDeploymentsOK handles this case with default header values.
+/*
+PostWebchatDeploymentsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostWebchatDeploymentsOK struct {
 	Payload *models.WebChatDeployment
 }
 
+// IsSuccess returns true when this post webchat deployments o k response has a 2xx status code
+func (o *PostWebchatDeploymentsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post webchat deployments o k response has a 3xx status code
+func (o *PostWebchatDeploymentsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments o k response has a 4xx status code
+func (o *PostWebchatDeploymentsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post webchat deployments o k response has a 5xx status code
+func (o *PostWebchatDeploymentsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat deployments o k response a status code equal to that given
+func (o *PostWebchatDeploymentsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWebchatDeploymentsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostWebchatDeploymentsBadRequest() *PostWebchatDeploymentsBadRequest {
 	return &PostWebchatDeploymentsBadRequest{}
 }
 
-/*PostWebchatDeploymentsBadRequest handles this case with default header values.
+/*
+PostWebchatDeploymentsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostWebchatDeploymentsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat deployments bad request response has a 2xx status code
+func (o *PostWebchatDeploymentsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat deployments bad request response has a 3xx status code
+func (o *PostWebchatDeploymentsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments bad request response has a 4xx status code
+func (o *PostWebchatDeploymentsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat deployments bad request response has a 5xx status code
+func (o *PostWebchatDeploymentsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat deployments bad request response a status code equal to that given
+func (o *PostWebchatDeploymentsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWebchatDeploymentsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostWebchatDeploymentsUnauthorized() *PostWebchatDeploymentsUnauthorized
 	return &PostWebchatDeploymentsUnauthorized{}
 }
 
-/*PostWebchatDeploymentsUnauthorized handles this case with default header values.
+/*
+PostWebchatDeploymentsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostWebchatDeploymentsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat deployments unauthorized response has a 2xx status code
+func (o *PostWebchatDeploymentsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat deployments unauthorized response has a 3xx status code
+func (o *PostWebchatDeploymentsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments unauthorized response has a 4xx status code
+func (o *PostWebchatDeploymentsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat deployments unauthorized response has a 5xx status code
+func (o *PostWebchatDeploymentsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat deployments unauthorized response a status code equal to that given
+func (o *PostWebchatDeploymentsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWebchatDeploymentsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostWebchatDeploymentsForbidden() *PostWebchatDeploymentsForbidden {
 	return &PostWebchatDeploymentsForbidden{}
 }
 
-/*PostWebchatDeploymentsForbidden handles this case with default header values.
+/*
+PostWebchatDeploymentsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostWebchatDeploymentsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat deployments forbidden response has a 2xx status code
+func (o *PostWebchatDeploymentsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat deployments forbidden response has a 3xx status code
+func (o *PostWebchatDeploymentsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments forbidden response has a 4xx status code
+func (o *PostWebchatDeploymentsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat deployments forbidden response has a 5xx status code
+func (o *PostWebchatDeploymentsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat deployments forbidden response a status code equal to that given
+func (o *PostWebchatDeploymentsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWebchatDeploymentsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostWebchatDeploymentsNotFound() *PostWebchatDeploymentsNotFound {
 	return &PostWebchatDeploymentsNotFound{}
 }
 
-/*PostWebchatDeploymentsNotFound handles this case with default header values.
+/*
+PostWebchatDeploymentsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostWebchatDeploymentsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat deployments not found response has a 2xx status code
+func (o *PostWebchatDeploymentsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat deployments not found response has a 3xx status code
+func (o *PostWebchatDeploymentsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments not found response has a 4xx status code
+func (o *PostWebchatDeploymentsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat deployments not found response has a 5xx status code
+func (o *PostWebchatDeploymentsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat deployments not found response a status code equal to that given
+func (o *PostWebchatDeploymentsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWebchatDeploymentsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostWebchatDeploymentsRequestTimeout() *PostWebchatDeploymentsRequestTim
 	return &PostWebchatDeploymentsRequestTimeout{}
 }
 
-/*PostWebchatDeploymentsRequestTimeout handles this case with default header values.
+/*
+PostWebchatDeploymentsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostWebchatDeploymentsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat deployments request timeout response has a 2xx status code
+func (o *PostWebchatDeploymentsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat deployments request timeout response has a 3xx status code
+func (o *PostWebchatDeploymentsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments request timeout response has a 4xx status code
+func (o *PostWebchatDeploymentsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat deployments request timeout response has a 5xx status code
+func (o *PostWebchatDeploymentsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat deployments request timeout response a status code equal to that given
+func (o *PostWebchatDeploymentsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWebchatDeploymentsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostWebchatDeploymentsConflict() *PostWebchatDeploymentsConflict {
 	return &PostWebchatDeploymentsConflict{}
 }
 
-/*PostWebchatDeploymentsConflict handles this case with default header values.
+/*
+PostWebchatDeploymentsConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PostWebchatDeploymentsConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat deployments conflict response has a 2xx status code
+func (o *PostWebchatDeploymentsConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat deployments conflict response has a 3xx status code
+func (o *PostWebchatDeploymentsConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments conflict response has a 4xx status code
+func (o *PostWebchatDeploymentsConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat deployments conflict response has a 5xx status code
+func (o *PostWebchatDeploymentsConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat deployments conflict response a status code equal to that given
+func (o *PostWebchatDeploymentsConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostWebchatDeploymentsConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostWebchatDeploymentsRequestEntityTooLarge() *PostWebchatDeploymentsReq
 	return &PostWebchatDeploymentsRequestEntityTooLarge{}
 }
 
-/*PostWebchatDeploymentsRequestEntityTooLarge handles this case with default header values.
+/*
+PostWebchatDeploymentsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostWebchatDeploymentsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat deployments request entity too large response has a 2xx status code
+func (o *PostWebchatDeploymentsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat deployments request entity too large response has a 3xx status code
+func (o *PostWebchatDeploymentsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments request entity too large response has a 4xx status code
+func (o *PostWebchatDeploymentsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat deployments request entity too large response has a 5xx status code
+func (o *PostWebchatDeploymentsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat deployments request entity too large response a status code equal to that given
+func (o *PostWebchatDeploymentsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWebchatDeploymentsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostWebchatDeploymentsUnsupportedMediaType() *PostWebchatDeploymentsUnsu
 	return &PostWebchatDeploymentsUnsupportedMediaType{}
 }
 
-/*PostWebchatDeploymentsUnsupportedMediaType handles this case with default header values.
+/*
+PostWebchatDeploymentsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostWebchatDeploymentsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat deployments unsupported media type response has a 2xx status code
+func (o *PostWebchatDeploymentsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat deployments unsupported media type response has a 3xx status code
+func (o *PostWebchatDeploymentsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments unsupported media type response has a 4xx status code
+func (o *PostWebchatDeploymentsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat deployments unsupported media type response has a 5xx status code
+func (o *PostWebchatDeploymentsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat deployments unsupported media type response a status code equal to that given
+func (o *PostWebchatDeploymentsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWebchatDeploymentsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostWebchatDeploymentsTooManyRequests() *PostWebchatDeploymentsTooManyRe
 	return &PostWebchatDeploymentsTooManyRequests{}
 }
 
-/*PostWebchatDeploymentsTooManyRequests handles this case with default header values.
+/*
+PostWebchatDeploymentsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostWebchatDeploymentsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat deployments too many requests response has a 2xx status code
+func (o *PostWebchatDeploymentsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat deployments too many requests response has a 3xx status code
+func (o *PostWebchatDeploymentsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments too many requests response has a 4xx status code
+func (o *PostWebchatDeploymentsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat deployments too many requests response has a 5xx status code
+func (o *PostWebchatDeploymentsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat deployments too many requests response a status code equal to that given
+func (o *PostWebchatDeploymentsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWebchatDeploymentsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostWebchatDeploymentsInternalServerError() *PostWebchatDeploymentsInter
 	return &PostWebchatDeploymentsInternalServerError{}
 }
 
-/*PostWebchatDeploymentsInternalServerError handles this case with default header values.
+/*
+PostWebchatDeploymentsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostWebchatDeploymentsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat deployments internal server error response has a 2xx status code
+func (o *PostWebchatDeploymentsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat deployments internal server error response has a 3xx status code
+func (o *PostWebchatDeploymentsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments internal server error response has a 4xx status code
+func (o *PostWebchatDeploymentsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post webchat deployments internal server error response has a 5xx status code
+func (o *PostWebchatDeploymentsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post webchat deployments internal server error response a status code equal to that given
+func (o *PostWebchatDeploymentsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWebchatDeploymentsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostWebchatDeploymentsServiceUnavailable() *PostWebchatDeploymentsServic
 	return &PostWebchatDeploymentsServiceUnavailable{}
 }
 
-/*PostWebchatDeploymentsServiceUnavailable handles this case with default header values.
+/*
+PostWebchatDeploymentsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostWebchatDeploymentsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat deployments service unavailable response has a 2xx status code
+func (o *PostWebchatDeploymentsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat deployments service unavailable response has a 3xx status code
+func (o *PostWebchatDeploymentsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments service unavailable response has a 4xx status code
+func (o *PostWebchatDeploymentsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post webchat deployments service unavailable response has a 5xx status code
+func (o *PostWebchatDeploymentsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post webchat deployments service unavailable response a status code equal to that given
+func (o *PostWebchatDeploymentsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWebchatDeploymentsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostWebchatDeploymentsGatewayTimeout() *PostWebchatDeploymentsGatewayTim
 	return &PostWebchatDeploymentsGatewayTimeout{}
 }
 
-/*PostWebchatDeploymentsGatewayTimeout handles this case with default header values.
+/*
+PostWebchatDeploymentsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostWebchatDeploymentsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat deployments gateway timeout response has a 2xx status code
+func (o *PostWebchatDeploymentsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat deployments gateway timeout response has a 3xx status code
+func (o *PostWebchatDeploymentsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat deployments gateway timeout response has a 4xx status code
+func (o *PostWebchatDeploymentsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post webchat deployments gateway timeout response has a 5xx status code
+func (o *PostWebchatDeploymentsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post webchat deployments gateway timeout response a status code equal to that given
+func (o *PostWebchatDeploymentsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWebchatDeploymentsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWebchatDeploymentsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/deployments][%d] postWebchatDeploymentsGatewayTimeout  %+v", 504, o.Payload)
 }
 

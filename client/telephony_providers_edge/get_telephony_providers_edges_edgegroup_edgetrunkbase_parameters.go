@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams creates a new GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams creates a new GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams() *GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams {
-	var ()
 	return &GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParamsWithTimeout creates a new GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams {
-	var ()
 	return &GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParamsWithContext creates a new GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams {
-	var ()
 	return &GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams {
-	var ()
 	return &GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges edgegroup edgetrunkbase operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges edgegroup edgetrunkbase operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams struct {
 
-	/*EdgegroupID
-	  Edge Group ID
+	/* EdgegroupID.
 
+	   Edge Group ID
 	*/
 	EdgegroupID string
-	/*EdgetrunkbaseID
-	  Edge Trunk Base ID
 
+	/* EdgetrunkbaseID.
+
+	   Edge Trunk Base ID
 	*/
 	EdgetrunkbaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges edgegroup edgetrunkbase params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams) WithDefaults() *GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges edgegroup edgetrunkbase params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesEdgegroupEdgetrunkbaseParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges edgegroup edgetrunkbase params

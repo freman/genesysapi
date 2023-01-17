@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -111,7 +112,6 @@ func (m *Script) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Script) validateCreatedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedDate) { // not required
 		return nil
 	}
@@ -124,7 +124,6 @@ func (m *Script) validateCreatedDate(formats strfmt.Registry) error {
 }
 
 func (m *Script) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -133,6 +132,8 @@ func (m *Script) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -142,7 +143,6 @@ func (m *Script) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *Script) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -155,7 +155,6 @@ func (m *Script) validateModifiedDate(formats strfmt.Registry) error {
 }
 
 func (m *Script) validatePages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Pages) { // not required
 		return nil
 	}
@@ -169,6 +168,8 @@ func (m *Script) validatePages(formats strfmt.Registry) error {
 			if err := m.Pages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("pages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("pages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -180,7 +181,6 @@ func (m *Script) validatePages(formats strfmt.Registry) error {
 }
 
 func (m *Script) validatePublishedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PublishedDate) { // not required
 		return nil
 	}
@@ -193,7 +193,6 @@ func (m *Script) validatePublishedDate(formats strfmt.Registry) error {
 }
 
 func (m *Script) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -206,12 +205,91 @@ func (m *Script) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *Script) validateVersionDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.VersionDate) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("versionDate", "body", "date-time", m.VersionDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this script based on the context it is used
+func (m *Script) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Script) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Script) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Script) contextValidatePages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Pages); i++ {
+
+		if m.Pages[i] != nil {
+			if err := m.Pages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("pages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("pages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Script) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

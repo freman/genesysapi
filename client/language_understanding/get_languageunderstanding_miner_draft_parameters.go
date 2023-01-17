@@ -16,64 +16,93 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetLanguageunderstandingMinerDraftParams creates a new GetLanguageunderstandingMinerDraftParams object
-// with the default values initialized.
+// NewGetLanguageunderstandingMinerDraftParams creates a new GetLanguageunderstandingMinerDraftParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLanguageunderstandingMinerDraftParams() *GetLanguageunderstandingMinerDraftParams {
-	var ()
 	return &GetLanguageunderstandingMinerDraftParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLanguageunderstandingMinerDraftParamsWithTimeout creates a new GetLanguageunderstandingMinerDraftParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLanguageunderstandingMinerDraftParamsWithTimeout(timeout time.Duration) *GetLanguageunderstandingMinerDraftParams {
-	var ()
 	return &GetLanguageunderstandingMinerDraftParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLanguageunderstandingMinerDraftParamsWithContext creates a new GetLanguageunderstandingMinerDraftParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLanguageunderstandingMinerDraftParamsWithContext(ctx context.Context) *GetLanguageunderstandingMinerDraftParams {
-	var ()
 	return &GetLanguageunderstandingMinerDraftParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLanguageunderstandingMinerDraftParamsWithHTTPClient creates a new GetLanguageunderstandingMinerDraftParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLanguageunderstandingMinerDraftParamsWithHTTPClient(client *http.Client) *GetLanguageunderstandingMinerDraftParams {
-	var ()
 	return &GetLanguageunderstandingMinerDraftParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLanguageunderstandingMinerDraftParams contains all the parameters to send to the API endpoint
-for the get languageunderstanding miner draft operation typically these are written to a http.Request
+/*
+GetLanguageunderstandingMinerDraftParams contains all the parameters to send to the API endpoint
+
+	for the get languageunderstanding miner draft operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLanguageunderstandingMinerDraftParams struct {
 
-	/*DraftID
-	  Draft ID
+	/* DraftID.
 
+	   Draft ID
 	*/
 	DraftID string
-	/*MinerID
-	  Miner ID
 
+	/* DraftIntentID.
+
+	   Parameter to filter a specific intent.
+	*/
+	DraftIntentID *string
+
+	/* DraftTopicID.
+
+	   Parameter to filter a specific topic.
+	*/
+	DraftTopicID *string
+
+	/* MinerID.
+
+	   Miner ID
 	*/
 	MinerID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get languageunderstanding miner draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingMinerDraftParams) WithDefaults() *GetLanguageunderstandingMinerDraftParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get languageunderstanding miner draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingMinerDraftParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get languageunderstanding miner draft params
@@ -120,6 +149,28 @@ func (o *GetLanguageunderstandingMinerDraftParams) SetDraftID(draftID string) {
 	o.DraftID = draftID
 }
 
+// WithDraftIntentID adds the draftIntentID to the get languageunderstanding miner draft params
+func (o *GetLanguageunderstandingMinerDraftParams) WithDraftIntentID(draftIntentID *string) *GetLanguageunderstandingMinerDraftParams {
+	o.SetDraftIntentID(draftIntentID)
+	return o
+}
+
+// SetDraftIntentID adds the draftIntentId to the get languageunderstanding miner draft params
+func (o *GetLanguageunderstandingMinerDraftParams) SetDraftIntentID(draftIntentID *string) {
+	o.DraftIntentID = draftIntentID
+}
+
+// WithDraftTopicID adds the draftTopicID to the get languageunderstanding miner draft params
+func (o *GetLanguageunderstandingMinerDraftParams) WithDraftTopicID(draftTopicID *string) *GetLanguageunderstandingMinerDraftParams {
+	o.SetDraftTopicID(draftTopicID)
+	return o
+}
+
+// SetDraftTopicID adds the draftTopicId to the get languageunderstanding miner draft params
+func (o *GetLanguageunderstandingMinerDraftParams) SetDraftTopicID(draftTopicID *string) {
+	o.DraftTopicID = draftTopicID
+}
+
 // WithMinerID adds the minerID to the get languageunderstanding miner draft params
 func (o *GetLanguageunderstandingMinerDraftParams) WithMinerID(minerID string) *GetLanguageunderstandingMinerDraftParams {
 	o.SetMinerID(minerID)
@@ -142,6 +193,40 @@ func (o *GetLanguageunderstandingMinerDraftParams) WriteToRequest(r runtime.Clie
 	// path param draftId
 	if err := r.SetPathParam("draftId", o.DraftID); err != nil {
 		return err
+	}
+
+	if o.DraftIntentID != nil {
+
+		// query param draftIntentId
+		var qrDraftIntentID string
+
+		if o.DraftIntentID != nil {
+			qrDraftIntentID = *o.DraftIntentID
+		}
+		qDraftIntentID := qrDraftIntentID
+		if qDraftIntentID != "" {
+
+			if err := r.SetQueryParam("draftIntentId", qDraftIntentID); err != nil {
+				return err
+			}
+		}
+	}
+
+	if o.DraftTopicID != nil {
+
+		// query param draftTopicId
+		var qrDraftTopicID string
+
+		if o.DraftTopicID != nil {
+			qrDraftTopicID = *o.DraftTopicID
+		}
+		qDraftTopicID := qrDraftTopicID
+		if qDraftTopicID != "" {
+
+			if err := r.SetQueryParam("draftTopicId", qDraftTopicID); err != nil {
+				return err
+			}
+		}
 	}
 
 	// path param minerId

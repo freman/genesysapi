@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -95,7 +96,6 @@ func (m *AdherenceExplanationNotification) Validate(formats strfmt.Registry) err
 }
 
 func (m *AdherenceExplanationNotification) validateAgent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Agent) { // not required
 		return nil
 	}
@@ -104,6 +104,8 @@ func (m *AdherenceExplanationNotification) validateAgent(formats strfmt.Registry
 		if err := m.Agent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("agent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent")
 			}
 			return err
 		}
@@ -113,7 +115,6 @@ func (m *AdherenceExplanationNotification) validateAgent(formats strfmt.Registry
 }
 
 func (m *AdherenceExplanationNotification) validateBusinessUnit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BusinessUnit) { // not required
 		return nil
 	}
@@ -122,6 +123,8 @@ func (m *AdherenceExplanationNotification) validateBusinessUnit(formats strfmt.R
 		if err := m.BusinessUnit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("businessUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("businessUnit")
 			}
 			return err
 		}
@@ -131,7 +134,6 @@ func (m *AdherenceExplanationNotification) validateBusinessUnit(formats strfmt.R
 }
 
 func (m *AdherenceExplanationNotification) validateManagementUnit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ManagementUnit) { // not required
 		return nil
 	}
@@ -140,6 +142,8 @@ func (m *AdherenceExplanationNotification) validateManagementUnit(formats strfmt
 		if err := m.ManagementUnit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("managementUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managementUnit")
 			}
 			return err
 		}
@@ -149,7 +153,6 @@ func (m *AdherenceExplanationNotification) validateManagementUnit(formats strfmt
 }
 
 func (m *AdherenceExplanationNotification) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -162,7 +165,6 @@ func (m *AdherenceExplanationNotification) validateSelfURI(formats strfmt.Regist
 }
 
 func (m *AdherenceExplanationNotification) validateStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDate) { // not required
 		return nil
 	}
@@ -207,7 +209,6 @@ func (m *AdherenceExplanationNotification) validateStatusEnum(path, location str
 }
 
 func (m *AdherenceExplanationNotification) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -247,13 +248,108 @@ func (m *AdherenceExplanationNotification) validateTypeEnum(path, location strin
 }
 
 func (m *AdherenceExplanationNotification) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this adherence explanation notification based on the context it is used
+func (m *AdherenceExplanationNotification) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateBusinessUnit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateManagementUnit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AdherenceExplanationNotification) contextValidateAgent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Agent != nil {
+		if err := m.Agent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("agent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AdherenceExplanationNotification) contextValidateBusinessUnit(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.BusinessUnit != nil {
+		if err := m.BusinessUnit.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("businessUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("businessUnit")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AdherenceExplanationNotification) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AdherenceExplanationNotification) contextValidateManagementUnit(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ManagementUnit != nil {
+		if err := m.ManagementUnit.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("managementUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managementUnit")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AdherenceExplanationNotification) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

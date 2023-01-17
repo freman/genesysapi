@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -76,13 +77,48 @@ func (m *ModelingProcessingError) validateInternalErrorCodeEnum(path, location s
 }
 
 func (m *ModelingProcessingError) validateInternalErrorCode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InternalErrorCode) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateInternalErrorCodeEnum("internalErrorCode", "body", m.InternalErrorCode); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this modeling processing error based on the context it is used
+func (m *ModelingProcessingError) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDescription(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInternalErrorCode(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ModelingProcessingError) contextValidateDescription(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "description", "body", string(m.Description)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ModelingProcessingError) contextValidateInternalErrorCode(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "internalErrorCode", "body", string(m.InternalErrorCode)); err != nil {
 		return err
 	}
 

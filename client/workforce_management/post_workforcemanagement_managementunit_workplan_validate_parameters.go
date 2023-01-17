@@ -19,71 +19,90 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementManagementunitWorkplanValidateParams creates a new PostWorkforcemanagementManagementunitWorkplanValidateParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementManagementunitWorkplanValidateParams creates a new PostWorkforcemanagementManagementunitWorkplanValidateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementManagementunitWorkplanValidateParams() *PostWorkforcemanagementManagementunitWorkplanValidateParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplanValidateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWorkplanValidateParamsWithTimeout creates a new PostWorkforcemanagementManagementunitWorkplanValidateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementManagementunitWorkplanValidateParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementManagementunitWorkplanValidateParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplanValidateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWorkplanValidateParamsWithContext creates a new PostWorkforcemanagementManagementunitWorkplanValidateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementManagementunitWorkplanValidateParamsWithContext(ctx context.Context) *PostWorkforcemanagementManagementunitWorkplanValidateParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplanValidateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWorkplanValidateParamsWithHTTPClient creates a new PostWorkforcemanagementManagementunitWorkplanValidateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementManagementunitWorkplanValidateParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementManagementunitWorkplanValidateParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplanValidateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanValidateParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement managementunit workplan validate operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementManagementunitWorkplanValidateParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement managementunit workplan validate operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementManagementunitWorkplanValidateParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.WorkPlanValidationRequest
-	/*Expand*/
-	Expand []string
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	// Expand.
+	Expand []string
+
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
-	/*WorkPlanID
-	  The ID of the work plan to validate. For new work plan, use the word 'new' for the ID.
 
+	/* WorkPlanID.
+
+	   The ID of the work plan to validate. For new work plan, use the word 'new' for the ID.
 	*/
 	WorkPlanID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement managementunit workplan validate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitWorkplanValidateParams) WithDefaults() *PostWorkforcemanagementManagementunitWorkplanValidateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement managementunit workplan validate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitWorkplanValidateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement managementunit workplan validate params
@@ -170,19 +189,21 @@ func (o *PostWorkforcemanagementManagementunitWorkplanValidateParams) WriteToReq
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
 		}
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// path param managementUnitId
@@ -199,4 +220,21 @@ func (o *PostWorkforcemanagementManagementunitWorkplanValidateParams) WriteToReq
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamPostWorkforcemanagementManagementunitWorkplanValidate binds the parameter expand
+func (o *PostWorkforcemanagementManagementunitWorkplanValidateParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

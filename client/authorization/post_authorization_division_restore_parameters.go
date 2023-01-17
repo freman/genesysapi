@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostAuthorizationDivisionRestoreParams creates a new PostAuthorizationDivisionRestoreParams object
-// with the default values initialized.
+// NewPostAuthorizationDivisionRestoreParams creates a new PostAuthorizationDivisionRestoreParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAuthorizationDivisionRestoreParams() *PostAuthorizationDivisionRestoreParams {
-	var ()
 	return &PostAuthorizationDivisionRestoreParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAuthorizationDivisionRestoreParamsWithTimeout creates a new PostAuthorizationDivisionRestoreParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAuthorizationDivisionRestoreParamsWithTimeout(timeout time.Duration) *PostAuthorizationDivisionRestoreParams {
-	var ()
 	return &PostAuthorizationDivisionRestoreParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAuthorizationDivisionRestoreParamsWithContext creates a new PostAuthorizationDivisionRestoreParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAuthorizationDivisionRestoreParamsWithContext(ctx context.Context) *PostAuthorizationDivisionRestoreParams {
-	var ()
 	return &PostAuthorizationDivisionRestoreParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostAuthorizationDivisionRestoreParamsWithHTTPClient creates a new PostAuthorizationDivisionRestoreParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAuthorizationDivisionRestoreParamsWithHTTPClient(client *http.Client) *PostAuthorizationDivisionRestoreParams {
-	var ()
 	return &PostAuthorizationDivisionRestoreParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostAuthorizationDivisionRestoreParams contains all the parameters to send to the API endpoint
-for the post authorization division restore operation typically these are written to a http.Request
+/*
+PostAuthorizationDivisionRestoreParams contains all the parameters to send to the API endpoint
+
+	for the post authorization division restore operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAuthorizationDivisionRestoreParams struct {
 
-	/*Body
-	  Recreated division data
+	/* Body.
 
+	   Recreated division data
 	*/
 	Body *models.AuthzDivision
-	/*DivisionID
-	  Division ID
 
+	/* DivisionID.
+
+	   Division ID
 	*/
 	DivisionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post authorization division restore params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuthorizationDivisionRestoreParams) WithDefaults() *PostAuthorizationDivisionRestoreParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post authorization division restore params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuthorizationDivisionRestoreParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post authorization division restore params
@@ -140,7 +157,6 @@ func (o *PostAuthorizationDivisionRestoreParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

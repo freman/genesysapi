@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutIntegrationsSpeechTtsSettingsParams creates a new PutIntegrationsSpeechTtsSettingsParams object
-// with the default values initialized.
+// NewPutIntegrationsSpeechTtsSettingsParams creates a new PutIntegrationsSpeechTtsSettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutIntegrationsSpeechTtsSettingsParams() *PutIntegrationsSpeechTtsSettingsParams {
-	var ()
 	return &PutIntegrationsSpeechTtsSettingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutIntegrationsSpeechTtsSettingsParamsWithTimeout creates a new PutIntegrationsSpeechTtsSettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutIntegrationsSpeechTtsSettingsParamsWithTimeout(timeout time.Duration) *PutIntegrationsSpeechTtsSettingsParams {
-	var ()
 	return &PutIntegrationsSpeechTtsSettingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutIntegrationsSpeechTtsSettingsParamsWithContext creates a new PutIntegrationsSpeechTtsSettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutIntegrationsSpeechTtsSettingsParamsWithContext(ctx context.Context) *PutIntegrationsSpeechTtsSettingsParams {
-	var ()
 	return &PutIntegrationsSpeechTtsSettingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutIntegrationsSpeechTtsSettingsParamsWithHTTPClient creates a new PutIntegrationsSpeechTtsSettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutIntegrationsSpeechTtsSettingsParamsWithHTTPClient(client *http.Client) *PutIntegrationsSpeechTtsSettingsParams {
-	var ()
 	return &PutIntegrationsSpeechTtsSettingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutIntegrationsSpeechTtsSettingsParams contains all the parameters to send to the API endpoint
-for the put integrations speech tts settings operation typically these are written to a http.Request
+/*
+PutIntegrationsSpeechTtsSettingsParams contains all the parameters to send to the API endpoint
+
+	for the put integrations speech tts settings operation.
+
+	Typically these are written to a http.Request.
 */
 type PutIntegrationsSpeechTtsSettingsParams struct {
 
-	/*Body
-	  Updated TtsSettings
+	/* Body.
 
+	   Updated TtsSettings
 	*/
 	Body *models.TtsSettings
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put integrations speech tts settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIntegrationsSpeechTtsSettingsParams) WithDefaults() *PutIntegrationsSpeechTtsSettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put integrations speech tts settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIntegrationsSpeechTtsSettingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put integrations speech tts settings params
@@ -124,7 +140,6 @@ func (o *PutIntegrationsSpeechTtsSettingsParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

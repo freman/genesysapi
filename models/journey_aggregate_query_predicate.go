@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -178,7 +179,6 @@ func (m *JourneyAggregateQueryPredicate) validateDimensionEnum(path, location st
 }
 
 func (m *JourneyAggregateQueryPredicate) validateDimension(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Dimension) { // not required
 		return nil
 	}
@@ -224,7 +224,6 @@ func (m *JourneyAggregateQueryPredicate) validateOperatorEnum(path, location str
 }
 
 func (m *JourneyAggregateQueryPredicate) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -238,7 +237,6 @@ func (m *JourneyAggregateQueryPredicate) validateOperator(formats strfmt.Registr
 }
 
 func (m *JourneyAggregateQueryPredicate) validateRange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Range) { // not required
 		return nil
 	}
@@ -247,6 +245,8 @@ func (m *JourneyAggregateQueryPredicate) validateRange(formats strfmt.Registry) 
 		if err := m.Range.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
 			}
 			return err
 		}
@@ -288,7 +288,6 @@ func (m *JourneyAggregateQueryPredicate) validateTypeEnum(path, location string,
 }
 
 func (m *JourneyAggregateQueryPredicate) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -296,6 +295,36 @@ func (m *JourneyAggregateQueryPredicate) validateType(formats strfmt.Registry) e
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this journey aggregate query predicate based on the context it is used
+func (m *JourneyAggregateQueryPredicate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *JourneyAggregateQueryPredicate) contextValidateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Range != nil {
+		if err := m.Range.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
+			}
+			return err
+		}
 	}
 
 	return nil

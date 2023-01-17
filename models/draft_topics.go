@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -90,7 +92,6 @@ func (m *DraftTopics) validateID(formats strfmt.Registry) error {
 }
 
 func (m *DraftTopics) validateMiner(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Miner) { // not required
 		return nil
 	}
@@ -99,6 +100,8 @@ func (m *DraftTopics) validateMiner(formats strfmt.Registry) error {
 		if err := m.Miner.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("miner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("miner")
 			}
 			return err
 		}
@@ -117,12 +120,106 @@ func (m *DraftTopics) validatePhrases(formats strfmt.Registry) error {
 }
 
 func (m *DraftTopics) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this draft topics based on the context it is used
+func (m *DraftTopics) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConversationCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationPercent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMiner(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhraseCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUtteranceCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DraftTopics) contextValidateConversationCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "conversationCount", "body", int32(m.ConversationCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DraftTopics) contextValidateConversationPercent(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "conversationPercent", "body", float32(m.ConversationPercent)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DraftTopics) contextValidateMiner(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Miner != nil {
+		if err := m.Miner.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("miner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("miner")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DraftTopics) contextValidatePhraseCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "phraseCount", "body", int32(m.PhraseCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DraftTopics) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DraftTopics) contextValidateUtteranceCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "utteranceCount", "body", int32(m.UtteranceCount)); err != nil {
 		return err
 	}
 

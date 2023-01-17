@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -57,7 +59,6 @@ func (m *BuScheduleReferenceForMuRoute) Validate(formats strfmt.Registry) error 
 }
 
 func (m *BuScheduleReferenceForMuRoute) validateBusinessUnit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BusinessUnit) { // not required
 		return nil
 	}
@@ -66,6 +67,8 @@ func (m *BuScheduleReferenceForMuRoute) validateBusinessUnit(formats strfmt.Regi
 		if err := m.BusinessUnit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("businessUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("businessUnit")
 			}
 			return err
 		}
@@ -75,7 +78,6 @@ func (m *BuScheduleReferenceForMuRoute) validateBusinessUnit(formats strfmt.Regi
 }
 
 func (m *BuScheduleReferenceForMuRoute) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -88,12 +90,67 @@ func (m *BuScheduleReferenceForMuRoute) validateSelfURI(formats strfmt.Registry)
 }
 
 func (m *BuScheduleReferenceForMuRoute) validateWeekDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WeekDate) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("weekDate", "body", "date", m.WeekDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu schedule reference for mu route based on the context it is used
+func (m *BuScheduleReferenceForMuRoute) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBusinessUnit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuScheduleReferenceForMuRoute) contextValidateBusinessUnit(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.BusinessUnit != nil {
+		if err := m.BusinessUnit.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("businessUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("businessUnit")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuScheduleReferenceForMuRoute) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BuScheduleReferenceForMuRoute) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

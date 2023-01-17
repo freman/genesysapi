@@ -19,64 +19,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostAuditsQueryRealtimeParams creates a new PostAuditsQueryRealtimeParams object
-// with the default values initialized.
+// NewPostAuditsQueryRealtimeParams creates a new PostAuditsQueryRealtimeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAuditsQueryRealtimeParams() *PostAuditsQueryRealtimeParams {
-	var ()
 	return &PostAuditsQueryRealtimeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAuditsQueryRealtimeParamsWithTimeout creates a new PostAuditsQueryRealtimeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAuditsQueryRealtimeParamsWithTimeout(timeout time.Duration) *PostAuditsQueryRealtimeParams {
-	var ()
 	return &PostAuditsQueryRealtimeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAuditsQueryRealtimeParamsWithContext creates a new PostAuditsQueryRealtimeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAuditsQueryRealtimeParamsWithContext(ctx context.Context) *PostAuditsQueryRealtimeParams {
-	var ()
 	return &PostAuditsQueryRealtimeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostAuditsQueryRealtimeParamsWithHTTPClient creates a new PostAuditsQueryRealtimeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAuditsQueryRealtimeParamsWithHTTPClient(client *http.Client) *PostAuditsQueryRealtimeParams {
-	var ()
 	return &PostAuditsQueryRealtimeParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostAuditsQueryRealtimeParams contains all the parameters to send to the API endpoint
-for the post audits query realtime operation typically these are written to a http.Request
+/*
+PostAuditsQueryRealtimeParams contains all the parameters to send to the API endpoint
+
+	for the post audits query realtime operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAuditsQueryRealtimeParams struct {
 
-	/*Body
-	  query
+	/* Body.
 
+	   query
 	*/
 	Body *models.AuditRealtimeQueryRequest
-	/*Expand
-	  Which fields, if any, to expand
 
+	/* Expand.
+
+	   Which fields, if any, to expand
 	*/
 	Expand []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post audits query realtime params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuditsQueryRealtimeParams) WithDefaults() *PostAuditsQueryRealtimeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post audits query realtime params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuditsQueryRealtimeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post audits query realtime params
@@ -141,23 +158,42 @@ func (o *PostAuditsQueryRealtimeParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
 		}
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamPostAuditsQueryRealtime binds the parameter expand
+func (o *PostAuditsQueryRealtimeParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

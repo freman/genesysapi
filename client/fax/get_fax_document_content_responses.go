@@ -95,7 +95,6 @@ func (o *GetFaxDocumentContentReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetFaxDocumentContentOK() *GetFaxDocumentContentOK {
 	return &GetFaxDocumentContentOK{}
 }
 
-/*GetFaxDocumentContentOK handles this case with default header values.
+/*
+GetFaxDocumentContentOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetFaxDocumentContentOK struct {
 	Payload *models.DownloadResponse
 }
 
+// IsSuccess returns true when this get fax document content o k response has a 2xx status code
+func (o *GetFaxDocumentContentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get fax document content o k response has a 3xx status code
+func (o *GetFaxDocumentContentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax document content o k response has a 4xx status code
+func (o *GetFaxDocumentContentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get fax document content o k response has a 5xx status code
+func (o *GetFaxDocumentContentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax document content o k response a status code equal to that given
+func (o *GetFaxDocumentContentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetFaxDocumentContentOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentOK  %+v", 200, o.Payload)
+}
+
+func (o *GetFaxDocumentContentOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetFaxDocumentContentBadRequest() *GetFaxDocumentContentBadRequest {
 	return &GetFaxDocumentContentBadRequest{}
 }
 
-/*GetFaxDocumentContentBadRequest handles this case with default header values.
+/*
+GetFaxDocumentContentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetFaxDocumentContentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax document content bad request response has a 2xx status code
+func (o *GetFaxDocumentContentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax document content bad request response has a 3xx status code
+func (o *GetFaxDocumentContentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax document content bad request response has a 4xx status code
+func (o *GetFaxDocumentContentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax document content bad request response has a 5xx status code
+func (o *GetFaxDocumentContentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax document content bad request response a status code equal to that given
+func (o *GetFaxDocumentContentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetFaxDocumentContentBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetFaxDocumentContentBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetFaxDocumentContentUnauthorized() *GetFaxDocumentContentUnauthorized {
 	return &GetFaxDocumentContentUnauthorized{}
 }
 
-/*GetFaxDocumentContentUnauthorized handles this case with default header values.
+/*
+GetFaxDocumentContentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetFaxDocumentContentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax document content unauthorized response has a 2xx status code
+func (o *GetFaxDocumentContentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax document content unauthorized response has a 3xx status code
+func (o *GetFaxDocumentContentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax document content unauthorized response has a 4xx status code
+func (o *GetFaxDocumentContentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax document content unauthorized response has a 5xx status code
+func (o *GetFaxDocumentContentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax document content unauthorized response a status code equal to that given
+func (o *GetFaxDocumentContentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetFaxDocumentContentUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetFaxDocumentContentUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetFaxDocumentContentForbidden() *GetFaxDocumentContentForbidden {
 	return &GetFaxDocumentContentForbidden{}
 }
 
-/*GetFaxDocumentContentForbidden handles this case with default header values.
+/*
+GetFaxDocumentContentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetFaxDocumentContentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax document content forbidden response has a 2xx status code
+func (o *GetFaxDocumentContentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax document content forbidden response has a 3xx status code
+func (o *GetFaxDocumentContentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax document content forbidden response has a 4xx status code
+func (o *GetFaxDocumentContentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax document content forbidden response has a 5xx status code
+func (o *GetFaxDocumentContentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax document content forbidden response a status code equal to that given
+func (o *GetFaxDocumentContentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetFaxDocumentContentForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetFaxDocumentContentForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetFaxDocumentContentNotFound() *GetFaxDocumentContentNotFound {
 	return &GetFaxDocumentContentNotFound{}
 }
 
-/*GetFaxDocumentContentNotFound handles this case with default header values.
+/*
+GetFaxDocumentContentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetFaxDocumentContentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax document content not found response has a 2xx status code
+func (o *GetFaxDocumentContentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax document content not found response has a 3xx status code
+func (o *GetFaxDocumentContentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax document content not found response has a 4xx status code
+func (o *GetFaxDocumentContentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax document content not found response has a 5xx status code
+func (o *GetFaxDocumentContentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax document content not found response a status code equal to that given
+func (o *GetFaxDocumentContentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetFaxDocumentContentNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetFaxDocumentContentNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetFaxDocumentContentRequestTimeout() *GetFaxDocumentContentRequestTimeo
 	return &GetFaxDocumentContentRequestTimeout{}
 }
 
-/*GetFaxDocumentContentRequestTimeout handles this case with default header values.
+/*
+GetFaxDocumentContentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetFaxDocumentContentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax document content request timeout response has a 2xx status code
+func (o *GetFaxDocumentContentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax document content request timeout response has a 3xx status code
+func (o *GetFaxDocumentContentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax document content request timeout response has a 4xx status code
+func (o *GetFaxDocumentContentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax document content request timeout response has a 5xx status code
+func (o *GetFaxDocumentContentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax document content request timeout response a status code equal to that given
+func (o *GetFaxDocumentContentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetFaxDocumentContentRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFaxDocumentContentRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetFaxDocumentContentRequestEntityTooLarge() *GetFaxDocumentContentReque
 	return &GetFaxDocumentContentRequestEntityTooLarge{}
 }
 
-/*GetFaxDocumentContentRequestEntityTooLarge handles this case with default header values.
+/*
+GetFaxDocumentContentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetFaxDocumentContentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax document content request entity too large response has a 2xx status code
+func (o *GetFaxDocumentContentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax document content request entity too large response has a 3xx status code
+func (o *GetFaxDocumentContentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax document content request entity too large response has a 4xx status code
+func (o *GetFaxDocumentContentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax document content request entity too large response has a 5xx status code
+func (o *GetFaxDocumentContentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax document content request entity too large response a status code equal to that given
+func (o *GetFaxDocumentContentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetFaxDocumentContentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetFaxDocumentContentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetFaxDocumentContentUnsupportedMediaType() *GetFaxDocumentContentUnsupp
 	return &GetFaxDocumentContentUnsupportedMediaType{}
 }
 
-/*GetFaxDocumentContentUnsupportedMediaType handles this case with default header values.
+/*
+GetFaxDocumentContentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetFaxDocumentContentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax document content unsupported media type response has a 2xx status code
+func (o *GetFaxDocumentContentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax document content unsupported media type response has a 3xx status code
+func (o *GetFaxDocumentContentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax document content unsupported media type response has a 4xx status code
+func (o *GetFaxDocumentContentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax document content unsupported media type response has a 5xx status code
+func (o *GetFaxDocumentContentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax document content unsupported media type response a status code equal to that given
+func (o *GetFaxDocumentContentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetFaxDocumentContentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetFaxDocumentContentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetFaxDocumentContentTooManyRequests() *GetFaxDocumentContentTooManyRequ
 	return &GetFaxDocumentContentTooManyRequests{}
 }
 
-/*GetFaxDocumentContentTooManyRequests handles this case with default header values.
+/*
+GetFaxDocumentContentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetFaxDocumentContentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax document content too many requests response has a 2xx status code
+func (o *GetFaxDocumentContentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax document content too many requests response has a 3xx status code
+func (o *GetFaxDocumentContentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax document content too many requests response has a 4xx status code
+func (o *GetFaxDocumentContentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax document content too many requests response has a 5xx status code
+func (o *GetFaxDocumentContentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax document content too many requests response a status code equal to that given
+func (o *GetFaxDocumentContentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetFaxDocumentContentTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetFaxDocumentContentTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetFaxDocumentContentInternalServerError() *GetFaxDocumentContentInterna
 	return &GetFaxDocumentContentInternalServerError{}
 }
 
-/*GetFaxDocumentContentInternalServerError handles this case with default header values.
+/*
+GetFaxDocumentContentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetFaxDocumentContentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax document content internal server error response has a 2xx status code
+func (o *GetFaxDocumentContentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax document content internal server error response has a 3xx status code
+func (o *GetFaxDocumentContentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax document content internal server error response has a 4xx status code
+func (o *GetFaxDocumentContentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get fax document content internal server error response has a 5xx status code
+func (o *GetFaxDocumentContentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get fax document content internal server error response a status code equal to that given
+func (o *GetFaxDocumentContentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetFaxDocumentContentInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetFaxDocumentContentInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetFaxDocumentContentServiceUnavailable() *GetFaxDocumentContentServiceU
 	return &GetFaxDocumentContentServiceUnavailable{}
 }
 
-/*GetFaxDocumentContentServiceUnavailable handles this case with default header values.
+/*
+GetFaxDocumentContentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetFaxDocumentContentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax document content service unavailable response has a 2xx status code
+func (o *GetFaxDocumentContentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax document content service unavailable response has a 3xx status code
+func (o *GetFaxDocumentContentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax document content service unavailable response has a 4xx status code
+func (o *GetFaxDocumentContentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get fax document content service unavailable response has a 5xx status code
+func (o *GetFaxDocumentContentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get fax document content service unavailable response a status code equal to that given
+func (o *GetFaxDocumentContentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetFaxDocumentContentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetFaxDocumentContentServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetFaxDocumentContentGatewayTimeout() *GetFaxDocumentContentGatewayTimeo
 	return &GetFaxDocumentContentGatewayTimeout{}
 }
 
-/*GetFaxDocumentContentGatewayTimeout handles this case with default header values.
+/*
+GetFaxDocumentContentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetFaxDocumentContentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax document content gateway timeout response has a 2xx status code
+func (o *GetFaxDocumentContentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax document content gateway timeout response has a 3xx status code
+func (o *GetFaxDocumentContentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax document content gateway timeout response has a 4xx status code
+func (o *GetFaxDocumentContentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get fax document content gateway timeout response has a 5xx status code
+func (o *GetFaxDocumentContentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get fax document content gateway timeout response a status code equal to that given
+func (o *GetFaxDocumentContentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetFaxDocumentContentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetFaxDocumentContentGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/documents/{documentId}/content][%d] getFaxDocumentContentGatewayTimeout  %+v", 504, o.Payload)
 }
 

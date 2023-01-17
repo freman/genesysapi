@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -55,7 +56,6 @@ func (m *ScreenRecordingSessionRequest) Validate(formats strfmt.Registry) error 
 }
 
 func (m *ScreenRecordingSessionRequest) validateArchiveDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ArchiveDate) { // not required
 		return nil
 	}
@@ -68,7 +68,6 @@ func (m *ScreenRecordingSessionRequest) validateArchiveDate(formats strfmt.Regis
 }
 
 func (m *ScreenRecordingSessionRequest) validateDeleteDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DeleteDate) { // not required
 		return nil
 	}
@@ -107,7 +106,6 @@ func (m *ScreenRecordingSessionRequest) validateStateEnum(path, location string,
 }
 
 func (m *ScreenRecordingSessionRequest) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -117,6 +115,11 @@ func (m *ScreenRecordingSessionRequest) validateState(formats strfmt.Registry) e
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this screen recording session request based on context it is used
+func (m *ScreenRecordingSessionRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

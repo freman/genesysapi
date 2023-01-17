@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -91,7 +92,6 @@ func (m *ResolutionDetailQueryPredicate) validateMetricEnum(path, location strin
 }
 
 func (m *ResolutionDetailQueryPredicate) validateMetric(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metric) { // not required
 		return nil
 	}
@@ -137,7 +137,6 @@ func (m *ResolutionDetailQueryPredicate) validateOperatorEnum(path, location str
 }
 
 func (m *ResolutionDetailQueryPredicate) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -151,7 +150,6 @@ func (m *ResolutionDetailQueryPredicate) validateOperator(formats strfmt.Registr
 }
 
 func (m *ResolutionDetailQueryPredicate) validateRange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Range) { // not required
 		return nil
 	}
@@ -160,6 +158,8 @@ func (m *ResolutionDetailQueryPredicate) validateRange(formats strfmt.Registry) 
 		if err := m.Range.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
 			}
 			return err
 		}
@@ -201,7 +201,6 @@ func (m *ResolutionDetailQueryPredicate) validateTypeEnum(path, location string,
 }
 
 func (m *ResolutionDetailQueryPredicate) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -209,6 +208,36 @@ func (m *ResolutionDetailQueryPredicate) validateType(formats strfmt.Registry) e
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this resolution detail query predicate based on the context it is used
+func (m *ResolutionDetailQueryPredicate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ResolutionDetailQueryPredicate) contextValidateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Range != nil {
+		if err := m.Range.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
+			}
+			return err
+		}
 	}
 
 	return nil

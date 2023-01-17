@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -70,7 +72,6 @@ func (m *GDPRSubject) Validate(formats strfmt.Registry) error {
 }
 
 func (m *GDPRSubject) validateDialerContactID(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DialerContactID) { // not required
 		return nil
 	}
@@ -79,6 +80,8 @@ func (m *GDPRSubject) validateDialerContactID(formats strfmt.Registry) error {
 		if err := m.DialerContactID.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dialerContactId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dialerContactId")
 			}
 			return err
 		}
@@ -88,7 +91,6 @@ func (m *GDPRSubject) validateDialerContactID(formats strfmt.Registry) error {
 }
 
 func (m *GDPRSubject) validateJourneyCustomer(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.JourneyCustomer) { // not required
 		return nil
 	}
@@ -97,6 +99,8 @@ func (m *GDPRSubject) validateJourneyCustomer(formats strfmt.Registry) error {
 		if err := m.JourneyCustomer.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("journeyCustomer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journeyCustomer")
 			}
 			return err
 		}
@@ -106,7 +110,6 @@ func (m *GDPRSubject) validateJourneyCustomer(formats strfmt.Registry) error {
 }
 
 func (m *GDPRSubject) validateSocialHandle(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SocialHandle) { // not required
 		return nil
 	}
@@ -115,6 +118,78 @@ func (m *GDPRSubject) validateSocialHandle(formats strfmt.Registry) error {
 		if err := m.SocialHandle.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("socialHandle")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("socialHandle")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this g d p r subject based on the context it is used
+func (m *GDPRSubject) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDialerContactID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateJourneyCustomer(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSocialHandle(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *GDPRSubject) contextValidateDialerContactID(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DialerContactID != nil {
+		if err := m.DialerContactID.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dialerContactId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dialerContactId")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GDPRSubject) contextValidateJourneyCustomer(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.JourneyCustomer != nil {
+		if err := m.JourneyCustomer.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("journeyCustomer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journeyCustomer")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GDPRSubject) contextValidateSocialHandle(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SocialHandle != nil {
+		if err := m.SocialHandle.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("socialHandle")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("socialHandle")
 			}
 			return err
 		}

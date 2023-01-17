@@ -17,125 +17,148 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetAuthorizationRolesParams creates a new GetAuthorizationRolesParams object
-// with the default values initialized.
+// NewGetAuthorizationRolesParams creates a new GetAuthorizationRolesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAuthorizationRolesParams() *GetAuthorizationRolesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		userCountDefault  = bool(true)
-	)
 	return &GetAuthorizationRolesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		UserCount:  &userCountDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAuthorizationRolesParamsWithTimeout creates a new GetAuthorizationRolesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAuthorizationRolesParamsWithTimeout(timeout time.Duration) *GetAuthorizationRolesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		userCountDefault  = bool(true)
-	)
 	return &GetAuthorizationRolesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		UserCount:  &userCountDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAuthorizationRolesParamsWithContext creates a new GetAuthorizationRolesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAuthorizationRolesParamsWithContext(ctx context.Context) *GetAuthorizationRolesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		userCountDefault  = bool(true)
-	)
 	return &GetAuthorizationRolesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		UserCount:  &userCountDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetAuthorizationRolesParamsWithHTTPClient creates a new GetAuthorizationRolesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAuthorizationRolesParamsWithHTTPClient(client *http.Client) *GetAuthorizationRolesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		userCountDefault  = bool(true)
-	)
 	return &GetAuthorizationRolesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		UserCount:  &userCountDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetAuthorizationRolesParams contains all the parameters to send to the API endpoint
-for the get authorization roles operation typically these are written to a http.Request
+/*
+GetAuthorizationRolesParams contains all the parameters to send to the API endpoint
+
+	for the get authorization roles operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAuthorizationRolesParams struct {
 
-	/*DefaultRoleID*/
+	// DefaultRoleID.
 	DefaultRoleID []string
-	/*Expand
-	  variable name requested by expand list
 
+	/* Expand.
+
+	   variable name requested by expand list
 	*/
 	Expand []string
-	/*ID
-	  id
 
+	/* ID.
+
+	   id
 	*/
 	ID []string
-	/*Name*/
-	Name *string
-	/*NextPage
-	  next page token
 
+	// Name.
+	Name *string
+
+	/* NextPage.
+
+	   next page token
 	*/
 	NextPage *string
-	/*PageNumber
-	  The page number requested
 
+	/* PageNumber.
+
+	   The page number requested
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  The total page size requested
 
+	/* PageSize.
+
+	   The total page size requested
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*Permission*/
-	Permission []string
-	/*PreviousPage
-	  Previous page token
 
+	// Permission.
+	Permission []string
+
+	/* PreviousPage.
+
+	   Previous page token
 	*/
 	PreviousPage *string
-	/*SortBy
-	  variable name requested to sort by
 
+	/* SortBy.
+
+	   variable name requested to sort by
 	*/
 	SortBy *string
-	/*UserCount*/
+
+	// UserCount.
+	//
+	// Default: true
 	UserCount *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get authorization roles params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationRolesParams) WithDefaults() *GetAuthorizationRolesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get authorization roles params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationRolesParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		userCountDefault = bool(true)
+	)
+
+	val := GetAuthorizationRolesParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		UserCount:  &userCountDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get authorization roles params
@@ -300,152 +323,239 @@ func (o *GetAuthorizationRolesParams) WriteToRequest(r runtime.ClientRequest, re
 	}
 	var res []error
 
-	valuesDefaultRoleID := o.DefaultRoleID
+	if o.DefaultRoleID != nil {
 
-	joinedDefaultRoleID := swag.JoinByFormat(valuesDefaultRoleID, "multi")
-	// query array param defaultRoleId
-	if err := r.SetQueryParam("defaultRoleId", joinedDefaultRoleID...); err != nil {
-		return err
+		// binding items for defaultRoleId
+		joinedDefaultRoleID := o.bindParamDefaultRoleID(reg)
+
+		// query array param defaultRoleId
+		if err := r.SetQueryParam("defaultRoleId", joinedDefaultRoleID...); err != nil {
+			return err
+		}
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.NextPage != nil {
 
 		// query param nextPage
 		var qrNextPage string
+
 		if o.NextPage != nil {
 			qrNextPage = *o.NextPage
 		}
 		qNextPage := qrNextPage
 		if qNextPage != "" {
+
 			if err := r.SetQueryParam("nextPage", qNextPage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesPermission := o.Permission
+	if o.Permission != nil {
 
-	joinedPermission := swag.JoinByFormat(valuesPermission, "multi")
-	// query array param permission
-	if err := r.SetQueryParam("permission", joinedPermission...); err != nil {
-		return err
+		// binding items for permission
+		joinedPermission := o.bindParamPermission(reg)
+
+		// query array param permission
+		if err := r.SetQueryParam("permission", joinedPermission...); err != nil {
+			return err
+		}
 	}
 
 	if o.PreviousPage != nil {
 
 		// query param previousPage
 		var qrPreviousPage string
+
 		if o.PreviousPage != nil {
 			qrPreviousPage = *o.PreviousPage
 		}
 		qPreviousPage := qrPreviousPage
 		if qPreviousPage != "" {
+
 			if err := r.SetQueryParam("previousPage", qPreviousPage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.UserCount != nil {
 
 		// query param userCount
 		var qrUserCount bool
+
 		if o.UserCount != nil {
 			qrUserCount = *o.UserCount
 		}
 		qUserCount := swag.FormatBool(qrUserCount)
 		if qUserCount != "" {
+
 			if err := r.SetQueryParam("userCount", qUserCount); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetAuthorizationRoles binds the parameter defaultRoleId
+func (o *GetAuthorizationRolesParams) bindParamDefaultRoleID(formats strfmt.Registry) []string {
+	defaultRoleIDIR := o.DefaultRoleID
+
+	var defaultRoleIDIC []string
+	for _, defaultRoleIDIIR := range defaultRoleIDIR { // explode []string
+
+		defaultRoleIDIIV := defaultRoleIDIIR // string as string
+		defaultRoleIDIC = append(defaultRoleIDIC, defaultRoleIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	defaultRoleIDIS := swag.JoinByFormat(defaultRoleIDIC, "multi")
+
+	return defaultRoleIDIS
+}
+
+// bindParamGetAuthorizationRoles binds the parameter expand
+func (o *GetAuthorizationRolesParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
+}
+
+// bindParamGetAuthorizationRoles binds the parameter id
+func (o *GetAuthorizationRolesParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
+}
+
+// bindParamGetAuthorizationRoles binds the parameter permission
+func (o *GetAuthorizationRolesParams) bindParamPermission(formats strfmt.Registry) []string {
+	permissionIR := o.Permission
+
+	var permissionIC []string
+	for _, permissionIIR := range permissionIR { // explode []string
+
+		permissionIIV := permissionIIR // string as string
+		permissionIC = append(permissionIC, permissionIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	permissionIS := swag.JoinByFormat(permissionIC, "multi")
+
+	return permissionIS
 }

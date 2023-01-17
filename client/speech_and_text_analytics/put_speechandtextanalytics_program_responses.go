@@ -101,7 +101,6 @@ func (o *PutSpeechandtextanalyticsProgramReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutSpeechandtextanalyticsProgramOK() *PutSpeechandtextanalyticsProgramOK
 	return &PutSpeechandtextanalyticsProgramOK{}
 }
 
-/*PutSpeechandtextanalyticsProgramOK handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutSpeechandtextanalyticsProgramOK struct {
 	Payload *models.Program
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program o k response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program o k response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program o k response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put speechandtextanalytics program o k response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put speechandtextanalytics program o k response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutSpeechandtextanalyticsProgramOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramOK  %+v", 200, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutSpeechandtextanalyticsProgramBadRequest() *PutSpeechandtextanalyticsP
 	return &PutSpeechandtextanalyticsProgramBadRequest{}
 }
 
-/*PutSpeechandtextanalyticsProgramBadRequest handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutSpeechandtextanalyticsProgramBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program bad request response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program bad request response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program bad request response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put speechandtextanalytics program bad request response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put speechandtextanalytics program bad request response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutSpeechandtextanalyticsProgramBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutSpeechandtextanalyticsProgramUnauthorized() *PutSpeechandtextanalytic
 	return &PutSpeechandtextanalyticsProgramUnauthorized{}
 }
 
-/*PutSpeechandtextanalyticsProgramUnauthorized handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutSpeechandtextanalyticsProgramUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program unauthorized response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program unauthorized response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program unauthorized response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put speechandtextanalytics program unauthorized response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put speechandtextanalytics program unauthorized response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutSpeechandtextanalyticsProgramUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutSpeechandtextanalyticsProgramForbidden() *PutSpeechandtextanalyticsPr
 	return &PutSpeechandtextanalyticsProgramForbidden{}
 }
 
-/*PutSpeechandtextanalyticsProgramForbidden handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutSpeechandtextanalyticsProgramForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program forbidden response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program forbidden response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program forbidden response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put speechandtextanalytics program forbidden response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put speechandtextanalytics program forbidden response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutSpeechandtextanalyticsProgramForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutSpeechandtextanalyticsProgramNotFound() *PutSpeechandtextanalyticsPro
 	return &PutSpeechandtextanalyticsProgramNotFound{}
 }
 
-/*PutSpeechandtextanalyticsProgramNotFound handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutSpeechandtextanalyticsProgramNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program not found response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program not found response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program not found response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put speechandtextanalytics program not found response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put speechandtextanalytics program not found response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutSpeechandtextanalyticsProgramNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutSpeechandtextanalyticsProgramRequestTimeout() *PutSpeechandtextanalyt
 	return &PutSpeechandtextanalyticsProgramRequestTimeout{}
 }
 
-/*PutSpeechandtextanalyticsProgramRequestTimeout handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutSpeechandtextanalyticsProgramRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program request timeout response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program request timeout response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program request timeout response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put speechandtextanalytics program request timeout response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put speechandtextanalytics program request timeout response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutSpeechandtextanalyticsProgramRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutSpeechandtextanalyticsProgramConflict() *PutSpeechandtextanalyticsPro
 	return &PutSpeechandtextanalyticsProgramConflict{}
 }
 
-/*PutSpeechandtextanalyticsProgramConflict handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PutSpeechandtextanalyticsProgramConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program conflict response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program conflict response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program conflict response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put speechandtextanalytics program conflict response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put speechandtextanalytics program conflict response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutSpeechandtextanalyticsProgramConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutSpeechandtextanalyticsProgramRequestEntityTooLarge() *PutSpeechandtex
 	return &PutSpeechandtextanalyticsProgramRequestEntityTooLarge{}
 }
 
-/*PutSpeechandtextanalyticsProgramRequestEntityTooLarge handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PutSpeechandtextanalyticsProgramRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program request entity too large response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program request entity too large response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program request entity too large response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put speechandtextanalytics program request entity too large response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put speechandtextanalytics program request entity too large response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutSpeechandtextanalyticsProgramRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutSpeechandtextanalyticsProgramUnsupportedMediaType() *PutSpeechandtext
 	return &PutSpeechandtextanalyticsProgramUnsupportedMediaType{}
 }
 
-/*PutSpeechandtextanalyticsProgramUnsupportedMediaType handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PutSpeechandtextanalyticsProgramUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program unsupported media type response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program unsupported media type response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program unsupported media type response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put speechandtextanalytics program unsupported media type response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put speechandtextanalytics program unsupported media type response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutSpeechandtextanalyticsProgramUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutSpeechandtextanalyticsProgramTooManyRequests() *PutSpeechandtextanaly
 	return &PutSpeechandtextanalyticsProgramTooManyRequests{}
 }
 
-/*PutSpeechandtextanalyticsProgramTooManyRequests handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutSpeechandtextanalyticsProgramTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program too many requests response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program too many requests response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program too many requests response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put speechandtextanalytics program too many requests response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put speechandtextanalytics program too many requests response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutSpeechandtextanalyticsProgramTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutSpeechandtextanalyticsProgramInternalServerError() *PutSpeechandtexta
 	return &PutSpeechandtextanalyticsProgramInternalServerError{}
 }
 
-/*PutSpeechandtextanalyticsProgramInternalServerError handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutSpeechandtextanalyticsProgramInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program internal server error response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program internal server error response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program internal server error response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put speechandtextanalytics program internal server error response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put speechandtextanalytics program internal server error response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutSpeechandtextanalyticsProgramInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutSpeechandtextanalyticsProgramServiceUnavailable() *PutSpeechandtextan
 	return &PutSpeechandtextanalyticsProgramServiceUnavailable{}
 }
 
-/*PutSpeechandtextanalyticsProgramServiceUnavailable handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutSpeechandtextanalyticsProgramServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program service unavailable response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program service unavailable response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program service unavailable response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put speechandtextanalytics program service unavailable response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put speechandtextanalytics program service unavailable response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutSpeechandtextanalyticsProgramServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutSpeechandtextanalyticsProgramGatewayTimeout() *PutSpeechandtextanalyt
 	return &PutSpeechandtextanalyticsProgramGatewayTimeout{}
 }
 
-/*PutSpeechandtextanalyticsProgramGatewayTimeout handles this case with default header values.
+/*
+PutSpeechandtextanalyticsProgramGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutSpeechandtextanalyticsProgramGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put speechandtextanalytics program gateway timeout response has a 2xx status code
+func (o *PutSpeechandtextanalyticsProgramGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put speechandtextanalytics program gateway timeout response has a 3xx status code
+func (o *PutSpeechandtextanalyticsProgramGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put speechandtextanalytics program gateway timeout response has a 4xx status code
+func (o *PutSpeechandtextanalyticsProgramGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put speechandtextanalytics program gateway timeout response has a 5xx status code
+func (o *PutSpeechandtextanalyticsProgramGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put speechandtextanalytics program gateway timeout response a status code equal to that given
+func (o *PutSpeechandtextanalyticsProgramGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutSpeechandtextanalyticsProgramGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutSpeechandtextanalyticsProgramGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/speechandtextanalytics/programs/{programId}][%d] putSpeechandtextanalyticsProgramGatewayTimeout  %+v", 504, o.Payload)
 }
 

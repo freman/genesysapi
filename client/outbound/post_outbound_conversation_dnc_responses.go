@@ -106,7 +106,8 @@ func NewPostOutboundConversationDncBadRequest() *PostOutboundConversationDncBadR
 	return &PostOutboundConversationDncBadRequest{}
 }
 
-/*PostOutboundConversationDncBadRequest handles this case with default header values.
+/*
+PostOutboundConversationDncBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type PostOutboundConversationDncBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound conversation dnc bad request response has a 2xx status code
+func (o *PostOutboundConversationDncBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound conversation dnc bad request response has a 3xx status code
+func (o *PostOutboundConversationDncBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound conversation dnc bad request response has a 4xx status code
+func (o *PostOutboundConversationDncBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound conversation dnc bad request response has a 5xx status code
+func (o *PostOutboundConversationDncBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound conversation dnc bad request response a status code equal to that given
+func (o *PostOutboundConversationDncBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOutboundConversationDncBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOutboundConversationDncBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewPostOutboundConversationDncUnauthorized() *PostOutboundConversationDncUn
 	return &PostOutboundConversationDncUnauthorized{}
 }
 
-/*PostOutboundConversationDncUnauthorized handles this case with default header values.
+/*
+PostOutboundConversationDncUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type PostOutboundConversationDncUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound conversation dnc unauthorized response has a 2xx status code
+func (o *PostOutboundConversationDncUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound conversation dnc unauthorized response has a 3xx status code
+func (o *PostOutboundConversationDncUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound conversation dnc unauthorized response has a 4xx status code
+func (o *PostOutboundConversationDncUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound conversation dnc unauthorized response has a 5xx status code
+func (o *PostOutboundConversationDncUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound conversation dnc unauthorized response a status code equal to that given
+func (o *PostOutboundConversationDncUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOutboundConversationDncUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOutboundConversationDncUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewPostOutboundConversationDncForbidden() *PostOutboundConversationDncForbi
 	return &PostOutboundConversationDncForbidden{}
 }
 
-/*PostOutboundConversationDncForbidden handles this case with default header values.
+/*
+PostOutboundConversationDncForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type PostOutboundConversationDncForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound conversation dnc forbidden response has a 2xx status code
+func (o *PostOutboundConversationDncForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound conversation dnc forbidden response has a 3xx status code
+func (o *PostOutboundConversationDncForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound conversation dnc forbidden response has a 4xx status code
+func (o *PostOutboundConversationDncForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound conversation dnc forbidden response has a 5xx status code
+func (o *PostOutboundConversationDncForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound conversation dnc forbidden response a status code equal to that given
+func (o *PostOutboundConversationDncForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOutboundConversationDncForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOutboundConversationDncForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewPostOutboundConversationDncNotFound() *PostOutboundConversationDncNotFou
 	return &PostOutboundConversationDncNotFound{}
 }
 
-/*PostOutboundConversationDncNotFound handles this case with default header values.
+/*
+PostOutboundConversationDncNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type PostOutboundConversationDncNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound conversation dnc not found response has a 2xx status code
+func (o *PostOutboundConversationDncNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound conversation dnc not found response has a 3xx status code
+func (o *PostOutboundConversationDncNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound conversation dnc not found response has a 4xx status code
+func (o *PostOutboundConversationDncNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound conversation dnc not found response has a 5xx status code
+func (o *PostOutboundConversationDncNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound conversation dnc not found response a status code equal to that given
+func (o *PostOutboundConversationDncNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOutboundConversationDncNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOutboundConversationDncNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewPostOutboundConversationDncRequestTimeout() *PostOutboundConversationDnc
 	return &PostOutboundConversationDncRequestTimeout{}
 }
 
-/*PostOutboundConversationDncRequestTimeout handles this case with default header values.
+/*
+PostOutboundConversationDncRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type PostOutboundConversationDncRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound conversation dnc request timeout response has a 2xx status code
+func (o *PostOutboundConversationDncRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound conversation dnc request timeout response has a 3xx status code
+func (o *PostOutboundConversationDncRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound conversation dnc request timeout response has a 4xx status code
+func (o *PostOutboundConversationDncRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound conversation dnc request timeout response has a 5xx status code
+func (o *PostOutboundConversationDncRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound conversation dnc request timeout response a status code equal to that given
+func (o *PostOutboundConversationDncRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOutboundConversationDncRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundConversationDncRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewPostOutboundConversationDncRequestEntityTooLarge() *PostOutboundConversa
 	return &PostOutboundConversationDncRequestEntityTooLarge{}
 }
 
-/*PostOutboundConversationDncRequestEntityTooLarge handles this case with default header values.
+/*
+PostOutboundConversationDncRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type PostOutboundConversationDncRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound conversation dnc request entity too large response has a 2xx status code
+func (o *PostOutboundConversationDncRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound conversation dnc request entity too large response has a 3xx status code
+func (o *PostOutboundConversationDncRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound conversation dnc request entity too large response has a 4xx status code
+func (o *PostOutboundConversationDncRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound conversation dnc request entity too large response has a 5xx status code
+func (o *PostOutboundConversationDncRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound conversation dnc request entity too large response a status code equal to that given
+func (o *PostOutboundConversationDncRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOutboundConversationDncRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOutboundConversationDncRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewPostOutboundConversationDncUnsupportedMediaType() *PostOutboundConversat
 	return &PostOutboundConversationDncUnsupportedMediaType{}
 }
 
-/*PostOutboundConversationDncUnsupportedMediaType handles this case with default header values.
+/*
+PostOutboundConversationDncUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type PostOutboundConversationDncUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound conversation dnc unsupported media type response has a 2xx status code
+func (o *PostOutboundConversationDncUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound conversation dnc unsupported media type response has a 3xx status code
+func (o *PostOutboundConversationDncUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound conversation dnc unsupported media type response has a 4xx status code
+func (o *PostOutboundConversationDncUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound conversation dnc unsupported media type response has a 5xx status code
+func (o *PostOutboundConversationDncUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound conversation dnc unsupported media type response a status code equal to that given
+func (o *PostOutboundConversationDncUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOutboundConversationDncUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOutboundConversationDncUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewPostOutboundConversationDncTooManyRequests() *PostOutboundConversationDn
 	return &PostOutboundConversationDncTooManyRequests{}
 }
 
-/*PostOutboundConversationDncTooManyRequests handles this case with default header values.
+/*
+PostOutboundConversationDncTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type PostOutboundConversationDncTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound conversation dnc too many requests response has a 2xx status code
+func (o *PostOutboundConversationDncTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound conversation dnc too many requests response has a 3xx status code
+func (o *PostOutboundConversationDncTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound conversation dnc too many requests response has a 4xx status code
+func (o *PostOutboundConversationDncTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound conversation dnc too many requests response has a 5xx status code
+func (o *PostOutboundConversationDncTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound conversation dnc too many requests response a status code equal to that given
+func (o *PostOutboundConversationDncTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOutboundConversationDncTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOutboundConversationDncTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewPostOutboundConversationDncInternalServerError() *PostOutboundConversati
 	return &PostOutboundConversationDncInternalServerError{}
 }
 
-/*PostOutboundConversationDncInternalServerError handles this case with default header values.
+/*
+PostOutboundConversationDncInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type PostOutboundConversationDncInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound conversation dnc internal server error response has a 2xx status code
+func (o *PostOutboundConversationDncInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound conversation dnc internal server error response has a 3xx status code
+func (o *PostOutboundConversationDncInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound conversation dnc internal server error response has a 4xx status code
+func (o *PostOutboundConversationDncInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound conversation dnc internal server error response has a 5xx status code
+func (o *PostOutboundConversationDncInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound conversation dnc internal server error response a status code equal to that given
+func (o *PostOutboundConversationDncInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOutboundConversationDncInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOutboundConversationDncInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewPostOutboundConversationDncServiceUnavailable() *PostOutboundConversatio
 	return &PostOutboundConversationDncServiceUnavailable{}
 }
 
-/*PostOutboundConversationDncServiceUnavailable handles this case with default header values.
+/*
+PostOutboundConversationDncServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type PostOutboundConversationDncServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound conversation dnc service unavailable response has a 2xx status code
+func (o *PostOutboundConversationDncServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound conversation dnc service unavailable response has a 3xx status code
+func (o *PostOutboundConversationDncServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound conversation dnc service unavailable response has a 4xx status code
+func (o *PostOutboundConversationDncServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound conversation dnc service unavailable response has a 5xx status code
+func (o *PostOutboundConversationDncServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound conversation dnc service unavailable response a status code equal to that given
+func (o *PostOutboundConversationDncServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOutboundConversationDncServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOutboundConversationDncServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewPostOutboundConversationDncGatewayTimeout() *PostOutboundConversationDnc
 	return &PostOutboundConversationDncGatewayTimeout{}
 }
 
-/*PostOutboundConversationDncGatewayTimeout handles this case with default header values.
+/*
+PostOutboundConversationDncGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type PostOutboundConversationDncGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound conversation dnc gateway timeout response has a 2xx status code
+func (o *PostOutboundConversationDncGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound conversation dnc gateway timeout response has a 3xx status code
+func (o *PostOutboundConversationDncGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound conversation dnc gateway timeout response has a 4xx status code
+func (o *PostOutboundConversationDncGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound conversation dnc gateway timeout response has a 5xx status code
+func (o *PostOutboundConversationDncGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound conversation dnc gateway timeout response a status code equal to that given
+func (o *PostOutboundConversationDncGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOutboundConversationDncGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOutboundConversationDncGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDncGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewPostOutboundConversationDncDefault(code int) *PostOutboundConversationDn
 	}
 }
 
-/*PostOutboundConversationDncDefault handles this case with default header values.
+/*
+PostOutboundConversationDncDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *PostOutboundConversationDncDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this post outbound conversation dnc default response has a 2xx status code
+func (o *PostOutboundConversationDncDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this post outbound conversation dnc default response has a 3xx status code
+func (o *PostOutboundConversationDncDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this post outbound conversation dnc default response has a 4xx status code
+func (o *PostOutboundConversationDncDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this post outbound conversation dnc default response has a 5xx status code
+func (o *PostOutboundConversationDncDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this post outbound conversation dnc default response a status code equal to that given
+func (o *PostOutboundConversationDncDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PostOutboundConversationDncDefault) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDnc default ", o._statusCode)
+}
+
+func (o *PostOutboundConversationDncDefault) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/conversations/{conversationId}/dnc][%d] postOutboundConversationDnc default ", o._statusCode)
 }
 

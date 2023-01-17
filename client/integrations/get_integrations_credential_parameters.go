@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIntegrationsCredentialParams creates a new GetIntegrationsCredentialParams object
-// with the default values initialized.
+// NewGetIntegrationsCredentialParams creates a new GetIntegrationsCredentialParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntegrationsCredentialParams() *GetIntegrationsCredentialParams {
-	var ()
 	return &GetIntegrationsCredentialParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntegrationsCredentialParamsWithTimeout creates a new GetIntegrationsCredentialParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntegrationsCredentialParamsWithTimeout(timeout time.Duration) *GetIntegrationsCredentialParams {
-	var ()
 	return &GetIntegrationsCredentialParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntegrationsCredentialParamsWithContext creates a new GetIntegrationsCredentialParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntegrationsCredentialParamsWithContext(ctx context.Context) *GetIntegrationsCredentialParams {
-	var ()
 	return &GetIntegrationsCredentialParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntegrationsCredentialParamsWithHTTPClient creates a new GetIntegrationsCredentialParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntegrationsCredentialParamsWithHTTPClient(client *http.Client) *GetIntegrationsCredentialParams {
-	var ()
 	return &GetIntegrationsCredentialParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIntegrationsCredentialParams contains all the parameters to send to the API endpoint
-for the get integrations credential operation typically these are written to a http.Request
+/*
+GetIntegrationsCredentialParams contains all the parameters to send to the API endpoint
+
+	for the get integrations credential operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntegrationsCredentialParams struct {
 
-	/*CredentialID
-	  Credential ID
+	/* CredentialID.
 
+	   Credential ID
 	*/
 	CredentialID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get integrations credential params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsCredentialParams) WithDefaults() *GetIntegrationsCredentialParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get integrations credential params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsCredentialParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get integrations credential params

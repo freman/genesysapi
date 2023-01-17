@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOutboundRulesetsParams creates a new PostOutboundRulesetsParams object
-// with the default values initialized.
+// NewPostOutboundRulesetsParams creates a new PostOutboundRulesetsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundRulesetsParams() *PostOutboundRulesetsParams {
-	var ()
 	return &PostOutboundRulesetsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundRulesetsParamsWithTimeout creates a new PostOutboundRulesetsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundRulesetsParamsWithTimeout(timeout time.Duration) *PostOutboundRulesetsParams {
-	var ()
 	return &PostOutboundRulesetsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundRulesetsParamsWithContext creates a new PostOutboundRulesetsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundRulesetsParamsWithContext(ctx context.Context) *PostOutboundRulesetsParams {
-	var ()
 	return &PostOutboundRulesetsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundRulesetsParamsWithHTTPClient creates a new PostOutboundRulesetsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundRulesetsParamsWithHTTPClient(client *http.Client) *PostOutboundRulesetsParams {
-	var ()
 	return &PostOutboundRulesetsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundRulesetsParams contains all the parameters to send to the API endpoint
-for the post outbound rulesets operation typically these are written to a http.Request
+/*
+PostOutboundRulesetsParams contains all the parameters to send to the API endpoint
+
+	for the post outbound rulesets operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundRulesetsParams struct {
 
-	/*Body
-	  RuleSet
+	/* Body.
 
+	   RuleSet
 	*/
 	Body *models.RuleSet
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound rulesets params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundRulesetsParams) WithDefaults() *PostOutboundRulesetsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound rulesets params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundRulesetsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound rulesets params
@@ -124,7 +140,6 @@ func (o *PostOutboundRulesetsParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

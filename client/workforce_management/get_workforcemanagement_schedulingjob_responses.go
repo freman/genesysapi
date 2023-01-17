@@ -95,7 +95,6 @@ func (o *GetWorkforcemanagementSchedulingjobReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWorkforcemanagementSchedulingjobOK() *GetWorkforcemanagementSchedulin
 	return &GetWorkforcemanagementSchedulingjobOK{}
 }
 
-/*GetWorkforcemanagementSchedulingjobOK handles this case with default header values.
+/*
+GetWorkforcemanagementSchedulingjobOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWorkforcemanagementSchedulingjobOK struct {
 	Payload *models.SchedulingStatusResponse
 }
 
+// IsSuccess returns true when this get workforcemanagement schedulingjob o k response has a 2xx status code
+func (o *GetWorkforcemanagementSchedulingjobOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get workforcemanagement schedulingjob o k response has a 3xx status code
+func (o *GetWorkforcemanagementSchedulingjobOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement schedulingjob o k response has a 4xx status code
+func (o *GetWorkforcemanagementSchedulingjobOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement schedulingjob o k response has a 5xx status code
+func (o *GetWorkforcemanagementSchedulingjobOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement schedulingjob o k response a status code equal to that given
+func (o *GetWorkforcemanagementSchedulingjobOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWorkforcemanagementSchedulingjobOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWorkforcemanagementSchedulingjobOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWorkforcemanagementSchedulingjobBadRequest() *GetWorkforcemanagementS
 	return &GetWorkforcemanagementSchedulingjobBadRequest{}
 }
 
-/*GetWorkforcemanagementSchedulingjobBadRequest handles this case with default header values.
+/*
+GetWorkforcemanagementSchedulingjobBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWorkforcemanagementSchedulingjobBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement schedulingjob bad request response has a 2xx status code
+func (o *GetWorkforcemanagementSchedulingjobBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement schedulingjob bad request response has a 3xx status code
+func (o *GetWorkforcemanagementSchedulingjobBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement schedulingjob bad request response has a 4xx status code
+func (o *GetWorkforcemanagementSchedulingjobBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement schedulingjob bad request response has a 5xx status code
+func (o *GetWorkforcemanagementSchedulingjobBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement schedulingjob bad request response a status code equal to that given
+func (o *GetWorkforcemanagementSchedulingjobBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWorkforcemanagementSchedulingjobBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWorkforcemanagementSchedulingjobBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWorkforcemanagementSchedulingjobUnauthorized() *GetWorkforcemanagemen
 	return &GetWorkforcemanagementSchedulingjobUnauthorized{}
 }
 
-/*GetWorkforcemanagementSchedulingjobUnauthorized handles this case with default header values.
+/*
+GetWorkforcemanagementSchedulingjobUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWorkforcemanagementSchedulingjobUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement schedulingjob unauthorized response has a 2xx status code
+func (o *GetWorkforcemanagementSchedulingjobUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement schedulingjob unauthorized response has a 3xx status code
+func (o *GetWorkforcemanagementSchedulingjobUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement schedulingjob unauthorized response has a 4xx status code
+func (o *GetWorkforcemanagementSchedulingjobUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement schedulingjob unauthorized response has a 5xx status code
+func (o *GetWorkforcemanagementSchedulingjobUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement schedulingjob unauthorized response a status code equal to that given
+func (o *GetWorkforcemanagementSchedulingjobUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWorkforcemanagementSchedulingjobUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWorkforcemanagementSchedulingjobUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWorkforcemanagementSchedulingjobForbidden() *GetWorkforcemanagementSc
 	return &GetWorkforcemanagementSchedulingjobForbidden{}
 }
 
-/*GetWorkforcemanagementSchedulingjobForbidden handles this case with default header values.
+/*
+GetWorkforcemanagementSchedulingjobForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWorkforcemanagementSchedulingjobForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement schedulingjob forbidden response has a 2xx status code
+func (o *GetWorkforcemanagementSchedulingjobForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement schedulingjob forbidden response has a 3xx status code
+func (o *GetWorkforcemanagementSchedulingjobForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement schedulingjob forbidden response has a 4xx status code
+func (o *GetWorkforcemanagementSchedulingjobForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement schedulingjob forbidden response has a 5xx status code
+func (o *GetWorkforcemanagementSchedulingjobForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement schedulingjob forbidden response a status code equal to that given
+func (o *GetWorkforcemanagementSchedulingjobForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWorkforcemanagementSchedulingjobForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWorkforcemanagementSchedulingjobForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWorkforcemanagementSchedulingjobNotFound() *GetWorkforcemanagementSch
 	return &GetWorkforcemanagementSchedulingjobNotFound{}
 }
 
-/*GetWorkforcemanagementSchedulingjobNotFound handles this case with default header values.
+/*
+GetWorkforcemanagementSchedulingjobNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWorkforcemanagementSchedulingjobNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement schedulingjob not found response has a 2xx status code
+func (o *GetWorkforcemanagementSchedulingjobNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement schedulingjob not found response has a 3xx status code
+func (o *GetWorkforcemanagementSchedulingjobNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement schedulingjob not found response has a 4xx status code
+func (o *GetWorkforcemanagementSchedulingjobNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement schedulingjob not found response has a 5xx status code
+func (o *GetWorkforcemanagementSchedulingjobNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement schedulingjob not found response a status code equal to that given
+func (o *GetWorkforcemanagementSchedulingjobNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWorkforcemanagementSchedulingjobNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWorkforcemanagementSchedulingjobNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWorkforcemanagementSchedulingjobRequestTimeout() *GetWorkforcemanagem
 	return &GetWorkforcemanagementSchedulingjobRequestTimeout{}
 }
 
-/*GetWorkforcemanagementSchedulingjobRequestTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementSchedulingjobRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWorkforcemanagementSchedulingjobRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement schedulingjob request timeout response has a 2xx status code
+func (o *GetWorkforcemanagementSchedulingjobRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement schedulingjob request timeout response has a 3xx status code
+func (o *GetWorkforcemanagementSchedulingjobRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement schedulingjob request timeout response has a 4xx status code
+func (o *GetWorkforcemanagementSchedulingjobRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement schedulingjob request timeout response has a 5xx status code
+func (o *GetWorkforcemanagementSchedulingjobRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement schedulingjob request timeout response a status code equal to that given
+func (o *GetWorkforcemanagementSchedulingjobRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWorkforcemanagementSchedulingjobRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementSchedulingjobRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWorkforcemanagementSchedulingjobRequestEntityTooLarge() *GetWorkforce
 	return &GetWorkforcemanagementSchedulingjobRequestEntityTooLarge{}
 }
 
-/*GetWorkforcemanagementSchedulingjobRequestEntityTooLarge handles this case with default header values.
+/*
+GetWorkforcemanagementSchedulingjobRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWorkforcemanagementSchedulingjobRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement schedulingjob request entity too large response has a 2xx status code
+func (o *GetWorkforcemanagementSchedulingjobRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement schedulingjob request entity too large response has a 3xx status code
+func (o *GetWorkforcemanagementSchedulingjobRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement schedulingjob request entity too large response has a 4xx status code
+func (o *GetWorkforcemanagementSchedulingjobRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement schedulingjob request entity too large response has a 5xx status code
+func (o *GetWorkforcemanagementSchedulingjobRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement schedulingjob request entity too large response a status code equal to that given
+func (o *GetWorkforcemanagementSchedulingjobRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWorkforcemanagementSchedulingjobRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWorkforcemanagementSchedulingjobRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWorkforcemanagementSchedulingjobUnsupportedMediaType() *GetWorkforcem
 	return &GetWorkforcemanagementSchedulingjobUnsupportedMediaType{}
 }
 
-/*GetWorkforcemanagementSchedulingjobUnsupportedMediaType handles this case with default header values.
+/*
+GetWorkforcemanagementSchedulingjobUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWorkforcemanagementSchedulingjobUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement schedulingjob unsupported media type response has a 2xx status code
+func (o *GetWorkforcemanagementSchedulingjobUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement schedulingjob unsupported media type response has a 3xx status code
+func (o *GetWorkforcemanagementSchedulingjobUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement schedulingjob unsupported media type response has a 4xx status code
+func (o *GetWorkforcemanagementSchedulingjobUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement schedulingjob unsupported media type response has a 5xx status code
+func (o *GetWorkforcemanagementSchedulingjobUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement schedulingjob unsupported media type response a status code equal to that given
+func (o *GetWorkforcemanagementSchedulingjobUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWorkforcemanagementSchedulingjobUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWorkforcemanagementSchedulingjobUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWorkforcemanagementSchedulingjobTooManyRequests() *GetWorkforcemanage
 	return &GetWorkforcemanagementSchedulingjobTooManyRequests{}
 }
 
-/*GetWorkforcemanagementSchedulingjobTooManyRequests handles this case with default header values.
+/*
+GetWorkforcemanagementSchedulingjobTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWorkforcemanagementSchedulingjobTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement schedulingjob too many requests response has a 2xx status code
+func (o *GetWorkforcemanagementSchedulingjobTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement schedulingjob too many requests response has a 3xx status code
+func (o *GetWorkforcemanagementSchedulingjobTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement schedulingjob too many requests response has a 4xx status code
+func (o *GetWorkforcemanagementSchedulingjobTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement schedulingjob too many requests response has a 5xx status code
+func (o *GetWorkforcemanagementSchedulingjobTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement schedulingjob too many requests response a status code equal to that given
+func (o *GetWorkforcemanagementSchedulingjobTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWorkforcemanagementSchedulingjobTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWorkforcemanagementSchedulingjobTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWorkforcemanagementSchedulingjobInternalServerError() *GetWorkforcema
 	return &GetWorkforcemanagementSchedulingjobInternalServerError{}
 }
 
-/*GetWorkforcemanagementSchedulingjobInternalServerError handles this case with default header values.
+/*
+GetWorkforcemanagementSchedulingjobInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWorkforcemanagementSchedulingjobInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement schedulingjob internal server error response has a 2xx status code
+func (o *GetWorkforcemanagementSchedulingjobInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement schedulingjob internal server error response has a 3xx status code
+func (o *GetWorkforcemanagementSchedulingjobInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement schedulingjob internal server error response has a 4xx status code
+func (o *GetWorkforcemanagementSchedulingjobInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement schedulingjob internal server error response has a 5xx status code
+func (o *GetWorkforcemanagementSchedulingjobInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement schedulingjob internal server error response a status code equal to that given
+func (o *GetWorkforcemanagementSchedulingjobInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWorkforcemanagementSchedulingjobInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWorkforcemanagementSchedulingjobInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWorkforcemanagementSchedulingjobServiceUnavailable() *GetWorkforceman
 	return &GetWorkforcemanagementSchedulingjobServiceUnavailable{}
 }
 
-/*GetWorkforcemanagementSchedulingjobServiceUnavailable handles this case with default header values.
+/*
+GetWorkforcemanagementSchedulingjobServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWorkforcemanagementSchedulingjobServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement schedulingjob service unavailable response has a 2xx status code
+func (o *GetWorkforcemanagementSchedulingjobServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement schedulingjob service unavailable response has a 3xx status code
+func (o *GetWorkforcemanagementSchedulingjobServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement schedulingjob service unavailable response has a 4xx status code
+func (o *GetWorkforcemanagementSchedulingjobServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement schedulingjob service unavailable response has a 5xx status code
+func (o *GetWorkforcemanagementSchedulingjobServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement schedulingjob service unavailable response a status code equal to that given
+func (o *GetWorkforcemanagementSchedulingjobServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWorkforcemanagementSchedulingjobServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWorkforcemanagementSchedulingjobServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWorkforcemanagementSchedulingjobGatewayTimeout() *GetWorkforcemanagem
 	return &GetWorkforcemanagementSchedulingjobGatewayTimeout{}
 }
 
-/*GetWorkforcemanagementSchedulingjobGatewayTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementSchedulingjobGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWorkforcemanagementSchedulingjobGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement schedulingjob gateway timeout response has a 2xx status code
+func (o *GetWorkforcemanagementSchedulingjobGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement schedulingjob gateway timeout response has a 3xx status code
+func (o *GetWorkforcemanagementSchedulingjobGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement schedulingjob gateway timeout response has a 4xx status code
+func (o *GetWorkforcemanagementSchedulingjobGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement schedulingjob gateway timeout response has a 5xx status code
+func (o *GetWorkforcemanagementSchedulingjobGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement schedulingjob gateway timeout response a status code equal to that given
+func (o *GetWorkforcemanagementSchedulingjobGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWorkforcemanagementSchedulingjobGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWorkforcemanagementSchedulingjobGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/schedulingjobs/{jobId}][%d] getWorkforcemanagementSchedulingjobGatewayTimeout  %+v", 504, o.Payload)
 }
 

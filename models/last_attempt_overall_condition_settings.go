@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -30,6 +31,7 @@ type LastAttemptOverallConditionSettings struct {
 	Operator *string `json:"operator"`
 
 	// The period value to compare against the contact's data.
+	// Example: P1DT1H1M
 	// Required: true
 	Value *string `json:"value"`
 }
@@ -142,6 +144,11 @@ func (m *LastAttemptOverallConditionSettings) validateValue(formats strfmt.Regis
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this last attempt overall condition settings based on context it is used
+func (m *LastAttemptOverallConditionSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

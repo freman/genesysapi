@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -106,13 +107,126 @@ func (m *WebMessagingAttachment) validateMediaTypeEnum(path, location string, va
 }
 
 func (m *WebMessagingAttachment) validateMediaType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaType) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateMediaTypeEnum("mediaType", "body", m.MediaType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this web messaging attachment based on the context it is used
+func (m *WebMessagingAttachment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFileSize(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFilename(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMediaType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMime(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSha256(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateText(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateURL(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WebMessagingAttachment) contextValidateFileSize(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "fileSize", "body", int32(m.FileSize)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebMessagingAttachment) contextValidateFilename(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "filename", "body", string(m.Filename)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebMessagingAttachment) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebMessagingAttachment) contextValidateMediaType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "mediaType", "body", string(m.MediaType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebMessagingAttachment) contextValidateMime(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "mime", "body", string(m.Mime)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebMessagingAttachment) contextValidateSha256(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "sha256", "body", string(m.Sha256)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebMessagingAttachment) contextValidateText(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "text", "body", string(m.Text)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebMessagingAttachment) contextValidateURL(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "url", "body", string(m.URL)); err != nil {
 		return err
 	}
 

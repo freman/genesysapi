@@ -95,7 +95,6 @@ func (o *DeleteExternalcontactsContactNoteReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteExternalcontactsContactNoteOK() *DeleteExternalcontactsContactNote
 	return &DeleteExternalcontactsContactNoteOK{}
 }
 
-/*DeleteExternalcontactsContactNoteOK handles this case with default header values.
+/*
+DeleteExternalcontactsContactNoteOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteExternalcontactsContactNoteOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete externalcontacts contact note o k response has a 2xx status code
+func (o *DeleteExternalcontactsContactNoteOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete externalcontacts contact note o k response has a 3xx status code
+func (o *DeleteExternalcontactsContactNoteOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts contact note o k response has a 4xx status code
+func (o *DeleteExternalcontactsContactNoteOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete externalcontacts contact note o k response has a 5xx status code
+func (o *DeleteExternalcontactsContactNoteOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts contact note o k response a status code equal to that given
+func (o *DeleteExternalcontactsContactNoteOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteExternalcontactsContactNoteOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactNoteOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewDeleteExternalcontactsContactNoteBadRequest() *DeleteExternalcontactsCon
 	return &DeleteExternalcontactsContactNoteBadRequest{}
 }
 
-/*DeleteExternalcontactsContactNoteBadRequest handles this case with default header values.
+/*
+DeleteExternalcontactsContactNoteBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type DeleteExternalcontactsContactNoteBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts contact note bad request response has a 2xx status code
+func (o *DeleteExternalcontactsContactNoteBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts contact note bad request response has a 3xx status code
+func (o *DeleteExternalcontactsContactNoteBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts contact note bad request response has a 4xx status code
+func (o *DeleteExternalcontactsContactNoteBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts contact note bad request response has a 5xx status code
+func (o *DeleteExternalcontactsContactNoteBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts contact note bad request response a status code equal to that given
+func (o *DeleteExternalcontactsContactNoteBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteExternalcontactsContactNoteBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactNoteBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteExternalcontactsContactNoteUnauthorized() *DeleteExternalcontactsC
 	return &DeleteExternalcontactsContactNoteUnauthorized{}
 }
 
-/*DeleteExternalcontactsContactNoteUnauthorized handles this case with default header values.
+/*
+DeleteExternalcontactsContactNoteUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type DeleteExternalcontactsContactNoteUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts contact note unauthorized response has a 2xx status code
+func (o *DeleteExternalcontactsContactNoteUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts contact note unauthorized response has a 3xx status code
+func (o *DeleteExternalcontactsContactNoteUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts contact note unauthorized response has a 4xx status code
+func (o *DeleteExternalcontactsContactNoteUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts contact note unauthorized response has a 5xx status code
+func (o *DeleteExternalcontactsContactNoteUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts contact note unauthorized response a status code equal to that given
+func (o *DeleteExternalcontactsContactNoteUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteExternalcontactsContactNoteUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactNoteUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteExternalcontactsContactNoteForbidden() *DeleteExternalcontactsCont
 	return &DeleteExternalcontactsContactNoteForbidden{}
 }
 
-/*DeleteExternalcontactsContactNoteForbidden handles this case with default header values.
+/*
+DeleteExternalcontactsContactNoteForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type DeleteExternalcontactsContactNoteForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts contact note forbidden response has a 2xx status code
+func (o *DeleteExternalcontactsContactNoteForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts contact note forbidden response has a 3xx status code
+func (o *DeleteExternalcontactsContactNoteForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts contact note forbidden response has a 4xx status code
+func (o *DeleteExternalcontactsContactNoteForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts contact note forbidden response has a 5xx status code
+func (o *DeleteExternalcontactsContactNoteForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts contact note forbidden response a status code equal to that given
+func (o *DeleteExternalcontactsContactNoteForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteExternalcontactsContactNoteForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactNoteForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteExternalcontactsContactNoteNotFound() *DeleteExternalcontactsConta
 	return &DeleteExternalcontactsContactNoteNotFound{}
 }
 
-/*DeleteExternalcontactsContactNoteNotFound handles this case with default header values.
+/*
+DeleteExternalcontactsContactNoteNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type DeleteExternalcontactsContactNoteNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts contact note not found response has a 2xx status code
+func (o *DeleteExternalcontactsContactNoteNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts contact note not found response has a 3xx status code
+func (o *DeleteExternalcontactsContactNoteNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts contact note not found response has a 4xx status code
+func (o *DeleteExternalcontactsContactNoteNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts contact note not found response has a 5xx status code
+func (o *DeleteExternalcontactsContactNoteNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts contact note not found response a status code equal to that given
+func (o *DeleteExternalcontactsContactNoteNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteExternalcontactsContactNoteNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactNoteNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteExternalcontactsContactNoteRequestTimeout() *DeleteExternalcontact
 	return &DeleteExternalcontactsContactNoteRequestTimeout{}
 }
 
-/*DeleteExternalcontactsContactNoteRequestTimeout handles this case with default header values.
+/*
+DeleteExternalcontactsContactNoteRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type DeleteExternalcontactsContactNoteRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts contact note request timeout response has a 2xx status code
+func (o *DeleteExternalcontactsContactNoteRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts contact note request timeout response has a 3xx status code
+func (o *DeleteExternalcontactsContactNoteRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts contact note request timeout response has a 4xx status code
+func (o *DeleteExternalcontactsContactNoteRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts contact note request timeout response has a 5xx status code
+func (o *DeleteExternalcontactsContactNoteRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts contact note request timeout response a status code equal to that given
+func (o *DeleteExternalcontactsContactNoteRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteExternalcontactsContactNoteRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactNoteRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteExternalcontactsContactNoteRequestEntityTooLarge() *DeleteExternal
 	return &DeleteExternalcontactsContactNoteRequestEntityTooLarge{}
 }
 
-/*DeleteExternalcontactsContactNoteRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteExternalcontactsContactNoteRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type DeleteExternalcontactsContactNoteRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts contact note request entity too large response has a 2xx status code
+func (o *DeleteExternalcontactsContactNoteRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts contact note request entity too large response has a 3xx status code
+func (o *DeleteExternalcontactsContactNoteRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts contact note request entity too large response has a 4xx status code
+func (o *DeleteExternalcontactsContactNoteRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts contact note request entity too large response has a 5xx status code
+func (o *DeleteExternalcontactsContactNoteRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts contact note request entity too large response a status code equal to that given
+func (o *DeleteExternalcontactsContactNoteRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteExternalcontactsContactNoteRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactNoteRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteExternalcontactsContactNoteUnsupportedMediaType() *DeleteExternalc
 	return &DeleteExternalcontactsContactNoteUnsupportedMediaType{}
 }
 
-/*DeleteExternalcontactsContactNoteUnsupportedMediaType handles this case with default header values.
+/*
+DeleteExternalcontactsContactNoteUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type DeleteExternalcontactsContactNoteUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts contact note unsupported media type response has a 2xx status code
+func (o *DeleteExternalcontactsContactNoteUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts contact note unsupported media type response has a 3xx status code
+func (o *DeleteExternalcontactsContactNoteUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts contact note unsupported media type response has a 4xx status code
+func (o *DeleteExternalcontactsContactNoteUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts contact note unsupported media type response has a 5xx status code
+func (o *DeleteExternalcontactsContactNoteUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts contact note unsupported media type response a status code equal to that given
+func (o *DeleteExternalcontactsContactNoteUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteExternalcontactsContactNoteUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactNoteUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteExternalcontactsContactNoteTooManyRequests() *DeleteExternalcontac
 	return &DeleteExternalcontactsContactNoteTooManyRequests{}
 }
 
-/*DeleteExternalcontactsContactNoteTooManyRequests handles this case with default header values.
+/*
+DeleteExternalcontactsContactNoteTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type DeleteExternalcontactsContactNoteTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts contact note too many requests response has a 2xx status code
+func (o *DeleteExternalcontactsContactNoteTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts contact note too many requests response has a 3xx status code
+func (o *DeleteExternalcontactsContactNoteTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts contact note too many requests response has a 4xx status code
+func (o *DeleteExternalcontactsContactNoteTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete externalcontacts contact note too many requests response has a 5xx status code
+func (o *DeleteExternalcontactsContactNoteTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete externalcontacts contact note too many requests response a status code equal to that given
+func (o *DeleteExternalcontactsContactNoteTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteExternalcontactsContactNoteTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactNoteTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteExternalcontactsContactNoteInternalServerError() *DeleteExternalco
 	return &DeleteExternalcontactsContactNoteInternalServerError{}
 }
 
-/*DeleteExternalcontactsContactNoteInternalServerError handles this case with default header values.
+/*
+DeleteExternalcontactsContactNoteInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type DeleteExternalcontactsContactNoteInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts contact note internal server error response has a 2xx status code
+func (o *DeleteExternalcontactsContactNoteInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts contact note internal server error response has a 3xx status code
+func (o *DeleteExternalcontactsContactNoteInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts contact note internal server error response has a 4xx status code
+func (o *DeleteExternalcontactsContactNoteInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete externalcontacts contact note internal server error response has a 5xx status code
+func (o *DeleteExternalcontactsContactNoteInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete externalcontacts contact note internal server error response a status code equal to that given
+func (o *DeleteExternalcontactsContactNoteInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteExternalcontactsContactNoteInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactNoteInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteExternalcontactsContactNoteServiceUnavailable() *DeleteExternalcon
 	return &DeleteExternalcontactsContactNoteServiceUnavailable{}
 }
 
-/*DeleteExternalcontactsContactNoteServiceUnavailable handles this case with default header values.
+/*
+DeleteExternalcontactsContactNoteServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type DeleteExternalcontactsContactNoteServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts contact note service unavailable response has a 2xx status code
+func (o *DeleteExternalcontactsContactNoteServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts contact note service unavailable response has a 3xx status code
+func (o *DeleteExternalcontactsContactNoteServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts contact note service unavailable response has a 4xx status code
+func (o *DeleteExternalcontactsContactNoteServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete externalcontacts contact note service unavailable response has a 5xx status code
+func (o *DeleteExternalcontactsContactNoteServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete externalcontacts contact note service unavailable response a status code equal to that given
+func (o *DeleteExternalcontactsContactNoteServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteExternalcontactsContactNoteServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactNoteServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteExternalcontactsContactNoteGatewayTimeout() *DeleteExternalcontact
 	return &DeleteExternalcontactsContactNoteGatewayTimeout{}
 }
 
-/*DeleteExternalcontactsContactNoteGatewayTimeout handles this case with default header values.
+/*
+DeleteExternalcontactsContactNoteGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type DeleteExternalcontactsContactNoteGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete externalcontacts contact note gateway timeout response has a 2xx status code
+func (o *DeleteExternalcontactsContactNoteGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete externalcontacts contact note gateway timeout response has a 3xx status code
+func (o *DeleteExternalcontactsContactNoteGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete externalcontacts contact note gateway timeout response has a 4xx status code
+func (o *DeleteExternalcontactsContactNoteGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete externalcontacts contact note gateway timeout response has a 5xx status code
+func (o *DeleteExternalcontactsContactNoteGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete externalcontacts contact note gateway timeout response a status code equal to that given
+func (o *DeleteExternalcontactsContactNoteGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteExternalcontactsContactNoteGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteExternalcontactsContactNoteGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] deleteExternalcontactsContactNoteGatewayTimeout  %+v", 504, o.Payload)
 }
 

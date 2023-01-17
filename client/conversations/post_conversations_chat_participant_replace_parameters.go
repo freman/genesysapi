@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsChatParticipantReplaceParams creates a new PostConversationsChatParticipantReplaceParams object
-// with the default values initialized.
+// NewPostConversationsChatParticipantReplaceParams creates a new PostConversationsChatParticipantReplaceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsChatParticipantReplaceParams() *PostConversationsChatParticipantReplaceParams {
-	var ()
 	return &PostConversationsChatParticipantReplaceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsChatParticipantReplaceParamsWithTimeout creates a new PostConversationsChatParticipantReplaceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsChatParticipantReplaceParamsWithTimeout(timeout time.Duration) *PostConversationsChatParticipantReplaceParams {
-	var ()
 	return &PostConversationsChatParticipantReplaceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsChatParticipantReplaceParamsWithContext creates a new PostConversationsChatParticipantReplaceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsChatParticipantReplaceParamsWithContext(ctx context.Context) *PostConversationsChatParticipantReplaceParams {
-	var ()
 	return &PostConversationsChatParticipantReplaceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsChatParticipantReplaceParamsWithHTTPClient creates a new PostConversationsChatParticipantReplaceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsChatParticipantReplaceParamsWithHTTPClient(client *http.Client) *PostConversationsChatParticipantReplaceParams {
-	var ()
 	return &PostConversationsChatParticipantReplaceParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsChatParticipantReplaceParams contains all the parameters to send to the API endpoint
-for the post conversations chat participant replace operation typically these are written to a http.Request
+/*
+PostConversationsChatParticipantReplaceParams contains all the parameters to send to the API endpoint
+
+	for the post conversations chat participant replace operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsChatParticipantReplaceParams struct {
 
-	/*Body
-	  Transfer request
+	/* Body.
 
+	   Transfer request
 	*/
 	Body *models.TransferRequest
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations chat participant replace params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsChatParticipantReplaceParams) WithDefaults() *PostConversationsChatParticipantReplaceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations chat participant replace params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsChatParticipantReplaceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations chat participant replace params
@@ -156,7 +174,6 @@ func (o *PostConversationsChatParticipantReplaceParams) WriteToRequest(r runtime
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

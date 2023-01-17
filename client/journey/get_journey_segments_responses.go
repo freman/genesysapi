@@ -95,7 +95,6 @@ func (o *GetJourneySegmentsReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetJourneySegmentsOK() *GetJourneySegmentsOK {
 	return &GetJourneySegmentsOK{}
 }
 
-/*GetJourneySegmentsOK handles this case with default header values.
+/*
+GetJourneySegmentsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetJourneySegmentsOK struct {
 	Payload *models.SegmentListing
 }
 
+// IsSuccess returns true when this get journey segments o k response has a 2xx status code
+func (o *GetJourneySegmentsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get journey segments o k response has a 3xx status code
+func (o *GetJourneySegmentsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey segments o k response has a 4xx status code
+func (o *GetJourneySegmentsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get journey segments o k response has a 5xx status code
+func (o *GetJourneySegmentsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey segments o k response a status code equal to that given
+func (o *GetJourneySegmentsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetJourneySegmentsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetJourneySegmentsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetJourneySegmentsBadRequest() *GetJourneySegmentsBadRequest {
 	return &GetJourneySegmentsBadRequest{}
 }
 
-/*GetJourneySegmentsBadRequest handles this case with default header values.
+/*
+GetJourneySegmentsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetJourneySegmentsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey segments bad request response has a 2xx status code
+func (o *GetJourneySegmentsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey segments bad request response has a 3xx status code
+func (o *GetJourneySegmentsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey segments bad request response has a 4xx status code
+func (o *GetJourneySegmentsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey segments bad request response has a 5xx status code
+func (o *GetJourneySegmentsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey segments bad request response a status code equal to that given
+func (o *GetJourneySegmentsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetJourneySegmentsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetJourneySegmentsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetJourneySegmentsUnauthorized() *GetJourneySegmentsUnauthorized {
 	return &GetJourneySegmentsUnauthorized{}
 }
 
-/*GetJourneySegmentsUnauthorized handles this case with default header values.
+/*
+GetJourneySegmentsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetJourneySegmentsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey segments unauthorized response has a 2xx status code
+func (o *GetJourneySegmentsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey segments unauthorized response has a 3xx status code
+func (o *GetJourneySegmentsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey segments unauthorized response has a 4xx status code
+func (o *GetJourneySegmentsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey segments unauthorized response has a 5xx status code
+func (o *GetJourneySegmentsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey segments unauthorized response a status code equal to that given
+func (o *GetJourneySegmentsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetJourneySegmentsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetJourneySegmentsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetJourneySegmentsForbidden() *GetJourneySegmentsForbidden {
 	return &GetJourneySegmentsForbidden{}
 }
 
-/*GetJourneySegmentsForbidden handles this case with default header values.
+/*
+GetJourneySegmentsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetJourneySegmentsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey segments forbidden response has a 2xx status code
+func (o *GetJourneySegmentsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey segments forbidden response has a 3xx status code
+func (o *GetJourneySegmentsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey segments forbidden response has a 4xx status code
+func (o *GetJourneySegmentsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey segments forbidden response has a 5xx status code
+func (o *GetJourneySegmentsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey segments forbidden response a status code equal to that given
+func (o *GetJourneySegmentsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetJourneySegmentsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetJourneySegmentsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetJourneySegmentsNotFound() *GetJourneySegmentsNotFound {
 	return &GetJourneySegmentsNotFound{}
 }
 
-/*GetJourneySegmentsNotFound handles this case with default header values.
+/*
+GetJourneySegmentsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetJourneySegmentsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey segments not found response has a 2xx status code
+func (o *GetJourneySegmentsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey segments not found response has a 3xx status code
+func (o *GetJourneySegmentsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey segments not found response has a 4xx status code
+func (o *GetJourneySegmentsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey segments not found response has a 5xx status code
+func (o *GetJourneySegmentsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey segments not found response a status code equal to that given
+func (o *GetJourneySegmentsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetJourneySegmentsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetJourneySegmentsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetJourneySegmentsRequestTimeout() *GetJourneySegmentsRequestTimeout {
 	return &GetJourneySegmentsRequestTimeout{}
 }
 
-/*GetJourneySegmentsRequestTimeout handles this case with default header values.
+/*
+GetJourneySegmentsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetJourneySegmentsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey segments request timeout response has a 2xx status code
+func (o *GetJourneySegmentsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey segments request timeout response has a 3xx status code
+func (o *GetJourneySegmentsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey segments request timeout response has a 4xx status code
+func (o *GetJourneySegmentsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey segments request timeout response has a 5xx status code
+func (o *GetJourneySegmentsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey segments request timeout response a status code equal to that given
+func (o *GetJourneySegmentsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetJourneySegmentsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetJourneySegmentsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetJourneySegmentsRequestEntityTooLarge() *GetJourneySegmentsRequestEnti
 	return &GetJourneySegmentsRequestEntityTooLarge{}
 }
 
-/*GetJourneySegmentsRequestEntityTooLarge handles this case with default header values.
+/*
+GetJourneySegmentsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetJourneySegmentsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey segments request entity too large response has a 2xx status code
+func (o *GetJourneySegmentsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey segments request entity too large response has a 3xx status code
+func (o *GetJourneySegmentsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey segments request entity too large response has a 4xx status code
+func (o *GetJourneySegmentsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey segments request entity too large response has a 5xx status code
+func (o *GetJourneySegmentsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey segments request entity too large response a status code equal to that given
+func (o *GetJourneySegmentsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetJourneySegmentsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetJourneySegmentsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetJourneySegmentsUnsupportedMediaType() *GetJourneySegmentsUnsupportedM
 	return &GetJourneySegmentsUnsupportedMediaType{}
 }
 
-/*GetJourneySegmentsUnsupportedMediaType handles this case with default header values.
+/*
+GetJourneySegmentsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetJourneySegmentsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey segments unsupported media type response has a 2xx status code
+func (o *GetJourneySegmentsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey segments unsupported media type response has a 3xx status code
+func (o *GetJourneySegmentsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey segments unsupported media type response has a 4xx status code
+func (o *GetJourneySegmentsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey segments unsupported media type response has a 5xx status code
+func (o *GetJourneySegmentsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey segments unsupported media type response a status code equal to that given
+func (o *GetJourneySegmentsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetJourneySegmentsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetJourneySegmentsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetJourneySegmentsTooManyRequests() *GetJourneySegmentsTooManyRequests {
 	return &GetJourneySegmentsTooManyRequests{}
 }
 
-/*GetJourneySegmentsTooManyRequests handles this case with default header values.
+/*
+GetJourneySegmentsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetJourneySegmentsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey segments too many requests response has a 2xx status code
+func (o *GetJourneySegmentsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey segments too many requests response has a 3xx status code
+func (o *GetJourneySegmentsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey segments too many requests response has a 4xx status code
+func (o *GetJourneySegmentsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey segments too many requests response has a 5xx status code
+func (o *GetJourneySegmentsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey segments too many requests response a status code equal to that given
+func (o *GetJourneySegmentsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetJourneySegmentsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetJourneySegmentsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetJourneySegmentsInternalServerError() *GetJourneySegmentsInternalServe
 	return &GetJourneySegmentsInternalServerError{}
 }
 
-/*GetJourneySegmentsInternalServerError handles this case with default header values.
+/*
+GetJourneySegmentsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetJourneySegmentsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey segments internal server error response has a 2xx status code
+func (o *GetJourneySegmentsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey segments internal server error response has a 3xx status code
+func (o *GetJourneySegmentsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey segments internal server error response has a 4xx status code
+func (o *GetJourneySegmentsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get journey segments internal server error response has a 5xx status code
+func (o *GetJourneySegmentsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get journey segments internal server error response a status code equal to that given
+func (o *GetJourneySegmentsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetJourneySegmentsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetJourneySegmentsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetJourneySegmentsServiceUnavailable() *GetJourneySegmentsServiceUnavail
 	return &GetJourneySegmentsServiceUnavailable{}
 }
 
-/*GetJourneySegmentsServiceUnavailable handles this case with default header values.
+/*
+GetJourneySegmentsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetJourneySegmentsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey segments service unavailable response has a 2xx status code
+func (o *GetJourneySegmentsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey segments service unavailable response has a 3xx status code
+func (o *GetJourneySegmentsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey segments service unavailable response has a 4xx status code
+func (o *GetJourneySegmentsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get journey segments service unavailable response has a 5xx status code
+func (o *GetJourneySegmentsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get journey segments service unavailable response a status code equal to that given
+func (o *GetJourneySegmentsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetJourneySegmentsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetJourneySegmentsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetJourneySegmentsGatewayTimeout() *GetJourneySegmentsGatewayTimeout {
 	return &GetJourneySegmentsGatewayTimeout{}
 }
 
-/*GetJourneySegmentsGatewayTimeout handles this case with default header values.
+/*
+GetJourneySegmentsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetJourneySegmentsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey segments gateway timeout response has a 2xx status code
+func (o *GetJourneySegmentsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey segments gateway timeout response has a 3xx status code
+func (o *GetJourneySegmentsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey segments gateway timeout response has a 4xx status code
+func (o *GetJourneySegmentsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get journey segments gateway timeout response has a 5xx status code
+func (o *GetJourneySegmentsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get journey segments gateway timeout response a status code equal to that given
+func (o *GetJourneySegmentsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetJourneySegmentsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetJourneySegmentsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/segments][%d] getJourneySegmentsGatewayTimeout  %+v", 504, o.Payload)
 }
 

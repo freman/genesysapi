@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -69,7 +70,6 @@ func (m *WorkdayValuesMetricItem) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WorkdayValuesMetricItem) validateMetric(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metric) { // not required
 		return nil
 	}
@@ -78,6 +78,8 @@ func (m *WorkdayValuesMetricItem) validateMetric(formats strfmt.Registry) error 
 		if err := m.Metric.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metric")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metric")
 			}
 			return err
 		}
@@ -87,7 +89,6 @@ func (m *WorkdayValuesMetricItem) validateMetric(formats strfmt.Registry) error 
 }
 
 func (m *WorkdayValuesMetricItem) validateMetricDefinition(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MetricDefinition) { // not required
 		return nil
 	}
@@ -96,6 +97,8 @@ func (m *WorkdayValuesMetricItem) validateMetricDefinition(formats strfmt.Regist
 		if err := m.MetricDefinition.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metricDefinition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metricDefinition")
 			}
 			return err
 		}
@@ -105,7 +108,6 @@ func (m *WorkdayValuesMetricItem) validateMetricDefinition(formats strfmt.Regist
 }
 
 func (m *WorkdayValuesMetricItem) validateTrend(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Trend) { // not required
 		return nil
 	}
@@ -119,6 +121,8 @@ func (m *WorkdayValuesMetricItem) validateTrend(formats strfmt.Registry) error {
 			if err := m.Trend[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("trend" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("trend" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -174,13 +178,116 @@ func (m *WorkdayValuesMetricItem) validateUnitTypeEnum(path, location string, va
 }
 
 func (m *WorkdayValuesMetricItem) validateUnitType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UnitType) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateUnitTypeEnum("unitType", "body", m.UnitType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this workday values metric item based on the context it is used
+func (m *WorkdayValuesMetricItem) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAverage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetric(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetricDefinition(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrend(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUnitType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WorkdayValuesMetricItem) contextValidateAverage(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "average", "body", float64(m.Average)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WorkdayValuesMetricItem) contextValidateMetric(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metric != nil {
+		if err := m.Metric.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metric")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metric")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WorkdayValuesMetricItem) contextValidateMetricDefinition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MetricDefinition != nil {
+		if err := m.MetricDefinition.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metricDefinition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metricDefinition")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WorkdayValuesMetricItem) contextValidateTrend(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "trend", "body", []*WorkdayValuesTrendItem(m.Trend)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Trend); i++ {
+
+		if m.Trend[i] != nil {
+			if err := m.Trend[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("trend" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("trend" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WorkdayValuesMetricItem) contextValidateUnitType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "unitType", "body", string(m.UnitType)); err != nil {
 		return err
 	}
 

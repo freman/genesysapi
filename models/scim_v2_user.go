@@ -6,11 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // ScimV2User Defines a SCIM user.
@@ -106,7 +108,6 @@ func (m *ScimV2User) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ScimV2User) validateEmails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Emails) { // not required
 		return nil
 	}
@@ -120,6 +121,8 @@ func (m *ScimV2User) validateEmails(formats strfmt.Registry) error {
 			if err := m.Emails[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("emails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("emails" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -131,7 +134,6 @@ func (m *ScimV2User) validateEmails(formats strfmt.Registry) error {
 }
 
 func (m *ScimV2User) validateGroups(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Groups) { // not required
 		return nil
 	}
@@ -145,6 +147,8 @@ func (m *ScimV2User) validateGroups(formats strfmt.Registry) error {
 			if err := m.Groups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("groups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -156,7 +160,6 @@ func (m *ScimV2User) validateGroups(formats strfmt.Registry) error {
 }
 
 func (m *ScimV2User) validateMeta(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Meta) { // not required
 		return nil
 	}
@@ -165,6 +168,8 @@ func (m *ScimV2User) validateMeta(formats strfmt.Registry) error {
 		if err := m.Meta.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
@@ -174,7 +179,6 @@ func (m *ScimV2User) validateMeta(formats strfmt.Registry) error {
 }
 
 func (m *ScimV2User) validatePhoneNumbers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PhoneNumbers) { // not required
 		return nil
 	}
@@ -188,6 +192,8 @@ func (m *ScimV2User) validatePhoneNumbers(formats strfmt.Registry) error {
 			if err := m.PhoneNumbers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("phoneNumbers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phoneNumbers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -199,7 +205,6 @@ func (m *ScimV2User) validatePhoneNumbers(formats strfmt.Registry) error {
 }
 
 func (m *ScimV2User) validateRoles(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Roles) { // not required
 		return nil
 	}
@@ -213,6 +218,8 @@ func (m *ScimV2User) validateRoles(formats strfmt.Registry) error {
 			if err := m.Roles[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("roles" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("roles" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -224,7 +231,6 @@ func (m *ScimV2User) validateRoles(formats strfmt.Registry) error {
 }
 
 func (m *ScimV2User) validateUrnIetfParamsScimSchemasExtensionEnterprise20User(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UrnIetfParamsScimSchemasExtensionEnterprise20User) { // not required
 		return nil
 	}
@@ -233,6 +239,8 @@ func (m *ScimV2User) validateUrnIetfParamsScimSchemasExtensionEnterprise20User(f
 		if err := m.UrnIetfParamsScimSchemasExtensionEnterprise20User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("urn:ietf:params:scim:schemas:extension:enterprise:2.0:User")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("urn:ietf:params:scim:schemas:extension:enterprise:2.0:User")
 			}
 			return err
 		}
@@ -242,7 +250,6 @@ func (m *ScimV2User) validateUrnIetfParamsScimSchemasExtensionEnterprise20User(f
 }
 
 func (m *ScimV2User) validateUrnIetfParamsScimSchemasExtensionGenesysPurecloud20User(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UrnIetfParamsScimSchemasExtensionGenesysPurecloud20User) { // not required
 		return nil
 	}
@@ -251,6 +258,200 @@ func (m *ScimV2User) validateUrnIetfParamsScimSchemasExtensionGenesysPurecloud20
 		if err := m.UrnIetfParamsScimSchemasExtensionGenesysPurecloud20User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scim v2 user based on the context it is used
+func (m *ScimV2User) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEmails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhoneNumbers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoles(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchemas(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUrnIetfParamsScimSchemasExtensionEnterprise20User(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUrnIetfParamsScimSchemasExtensionGenesysPurecloud20User(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimV2User) contextValidateEmails(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Emails); i++ {
+
+		if m.Emails[i] != nil {
+			if err := m.Emails[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("emails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("emails" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScimV2User) contextValidateGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Groups); i++ {
+
+		if m.Groups[i] != nil {
+			if err := m.Groups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("groups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("groups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScimV2User) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2User) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Meta != nil {
+		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ScimV2User) contextValidatePhoneNumbers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PhoneNumbers); i++ {
+
+		if m.PhoneNumbers[i] != nil {
+			if err := m.PhoneNumbers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("phoneNumbers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phoneNumbers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScimV2User) contextValidateRoles(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Roles); i++ {
+
+		if m.Roles[i] != nil {
+			if err := m.Roles[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("roles" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("roles" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScimV2User) contextValidateSchemas(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "schemas", "body", []string(m.Schemas)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2User) contextValidateUrnIetfParamsScimSchemasExtensionEnterprise20User(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UrnIetfParamsScimSchemasExtensionEnterprise20User != nil {
+		if err := m.UrnIetfParamsScimSchemasExtensionEnterprise20User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("urn:ietf:params:scim:schemas:extension:enterprise:2.0:User")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("urn:ietf:params:scim:schemas:extension:enterprise:2.0:User")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ScimV2User) contextValidateUrnIetfParamsScimSchemasExtensionGenesysPurecloud20User(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UrnIetfParamsScimSchemasExtensionGenesysPurecloud20User != nil {
+		if err := m.UrnIetfParamsScimSchemasExtensionGenesysPurecloud20User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User")
 			}
 			return err
 		}

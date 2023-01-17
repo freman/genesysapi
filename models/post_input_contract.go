@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -46,6 +48,38 @@ func (m *PostInputContract) validateInputSchema(formats strfmt.Registry) error {
 		if err := m.InputSchema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("inputSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputSchema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this post input contract based on the context it is used
+func (m *PostInputContract) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateInputSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PostInputContract) contextValidateInputSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InputSchema != nil {
+		if err := m.InputSchema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("inputSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputSchema")
 			}
 			return err
 		}

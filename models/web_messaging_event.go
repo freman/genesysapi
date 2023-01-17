@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -54,7 +55,6 @@ func (m *WebMessagingEvent) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WebMessagingEvent) validateCoBrowse(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CoBrowse) { // not required
 		return nil
 	}
@@ -63,6 +63,8 @@ func (m *WebMessagingEvent) validateCoBrowse(formats strfmt.Registry) error {
 		if err := m.CoBrowse.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("coBrowse")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("coBrowse")
 			}
 			return err
 		}
@@ -115,7 +117,6 @@ func (m *WebMessagingEvent) validateEventType(formats strfmt.Registry) error {
 }
 
 func (m *WebMessagingEvent) validatePresence(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Presence) { // not required
 		return nil
 	}
@@ -124,6 +125,58 @@ func (m *WebMessagingEvent) validatePresence(formats strfmt.Registry) error {
 		if err := m.Presence.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("presence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("presence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this web messaging event based on the context it is used
+func (m *WebMessagingEvent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCoBrowse(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePresence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WebMessagingEvent) contextValidateCoBrowse(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CoBrowse != nil {
+		if err := m.CoBrowse.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("coBrowse")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("coBrowse")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebMessagingEvent) contextValidatePresence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Presence != nil {
+		if err := m.Presence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("presence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("presence")
 			}
 			return err
 		}

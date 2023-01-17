@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -81,7 +82,6 @@ func (m *EvaluationForm) Validate(formats strfmt.Registry) error {
 }
 
 func (m *EvaluationForm) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -103,7 +103,6 @@ func (m *EvaluationForm) validateName(formats strfmt.Registry) error {
 }
 
 func (m *EvaluationForm) validatePublishedVersions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PublishedVersions) { // not required
 		return nil
 	}
@@ -112,6 +111,8 @@ func (m *EvaluationForm) validatePublishedVersions(formats strfmt.Registry) erro
 		if err := m.PublishedVersions.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("publishedVersions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedVersions")
 			}
 			return err
 		}
@@ -135,6 +136,8 @@ func (m *EvaluationForm) validateQuestionGroups(formats strfmt.Registry) error {
 			if err := m.QuestionGroups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("questionGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questionGroups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -146,12 +149,91 @@ func (m *EvaluationForm) validateQuestionGroups(formats strfmt.Registry) error {
 }
 
 func (m *EvaluationForm) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this evaluation form based on the context it is used
+func (m *EvaluationForm) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePublishedVersions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuestionGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EvaluationForm) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EvaluationForm) contextValidatePublishedVersions(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PublishedVersions != nil {
+		if err := m.PublishedVersions.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("publishedVersions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedVersions")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EvaluationForm) contextValidateQuestionGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.QuestionGroups); i++ {
+
+		if m.QuestionGroups[i] != nil {
+			if err := m.QuestionGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("questionGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questionGroups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *EvaluationForm) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

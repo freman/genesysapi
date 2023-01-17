@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *QueryResults) Validate(formats strfmt.Registry) error {
 }
 
 func (m *QueryResults) validateFacetInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FacetInfo) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *QueryResults) validateFacetInfo(formats strfmt.Registry) error {
 		if err := m.FacetInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("facetInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("facetInfo")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *QueryResults) validateFacetInfo(formats strfmt.Registry) error {
 }
 
 func (m *QueryResults) validateResults(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Results) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *QueryResults) validateResults(formats strfmt.Registry) error {
 		if err := m.Results.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("results")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("results")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this query results based on the context it is used
+func (m *QueryResults) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFacetInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResults(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *QueryResults) contextValidateFacetInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FacetInfo != nil {
+		if err := m.FacetInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("facetInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("facetInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *QueryResults) contextValidateResults(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Results != nil {
+		if err := m.Results.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("results")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("results")
 			}
 			return err
 		}

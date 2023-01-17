@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRoutingEmailDomainRoutesParams creates a new PostRoutingEmailDomainRoutesParams object
-// with the default values initialized.
+// NewPostRoutingEmailDomainRoutesParams creates a new PostRoutingEmailDomainRoutesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRoutingEmailDomainRoutesParams() *PostRoutingEmailDomainRoutesParams {
-	var ()
 	return &PostRoutingEmailDomainRoutesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRoutingEmailDomainRoutesParamsWithTimeout creates a new PostRoutingEmailDomainRoutesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRoutingEmailDomainRoutesParamsWithTimeout(timeout time.Duration) *PostRoutingEmailDomainRoutesParams {
-	var ()
 	return &PostRoutingEmailDomainRoutesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRoutingEmailDomainRoutesParamsWithContext creates a new PostRoutingEmailDomainRoutesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRoutingEmailDomainRoutesParamsWithContext(ctx context.Context) *PostRoutingEmailDomainRoutesParams {
-	var ()
 	return &PostRoutingEmailDomainRoutesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRoutingEmailDomainRoutesParamsWithHTTPClient creates a new PostRoutingEmailDomainRoutesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRoutingEmailDomainRoutesParamsWithHTTPClient(client *http.Client) *PostRoutingEmailDomainRoutesParams {
-	var ()
 	return &PostRoutingEmailDomainRoutesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRoutingEmailDomainRoutesParams contains all the parameters to send to the API endpoint
-for the post routing email domain routes operation typically these are written to a http.Request
+/*
+PostRoutingEmailDomainRoutesParams contains all the parameters to send to the API endpoint
+
+	for the post routing email domain routes operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRoutingEmailDomainRoutesParams struct {
 
-	/*Body
-	  Route
+	/* Body.
 
+	   Route
 	*/
 	Body *models.InboundRoute
-	/*DomainName
-	  email domain
 
+	/* DomainName.
+
+	   email domain
 	*/
 	DomainName string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post routing email domain routes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingEmailDomainRoutesParams) WithDefaults() *PostRoutingEmailDomainRoutesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post routing email domain routes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingEmailDomainRoutesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post routing email domain routes params
@@ -140,7 +157,6 @@ func (o *PostRoutingEmailDomainRoutesParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

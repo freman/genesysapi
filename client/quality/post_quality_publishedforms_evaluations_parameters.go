@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostQualityPublishedformsEvaluationsParams creates a new PostQualityPublishedformsEvaluationsParams object
-// with the default values initialized.
+// NewPostQualityPublishedformsEvaluationsParams creates a new PostQualityPublishedformsEvaluationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostQualityPublishedformsEvaluationsParams() *PostQualityPublishedformsEvaluationsParams {
-	var ()
 	return &PostQualityPublishedformsEvaluationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostQualityPublishedformsEvaluationsParamsWithTimeout creates a new PostQualityPublishedformsEvaluationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostQualityPublishedformsEvaluationsParamsWithTimeout(timeout time.Duration) *PostQualityPublishedformsEvaluationsParams {
-	var ()
 	return &PostQualityPublishedformsEvaluationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostQualityPublishedformsEvaluationsParamsWithContext creates a new PostQualityPublishedformsEvaluationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostQualityPublishedformsEvaluationsParamsWithContext(ctx context.Context) *PostQualityPublishedformsEvaluationsParams {
-	var ()
 	return &PostQualityPublishedformsEvaluationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostQualityPublishedformsEvaluationsParamsWithHTTPClient creates a new PostQualityPublishedformsEvaluationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostQualityPublishedformsEvaluationsParamsWithHTTPClient(client *http.Client) *PostQualityPublishedformsEvaluationsParams {
-	var ()
 	return &PostQualityPublishedformsEvaluationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostQualityPublishedformsEvaluationsParams contains all the parameters to send to the API endpoint
-for the post quality publishedforms evaluations operation typically these are written to a http.Request
+/*
+PostQualityPublishedformsEvaluationsParams contains all the parameters to send to the API endpoint
+
+	for the post quality publishedforms evaluations operation.
+
+	Typically these are written to a http.Request.
 */
 type PostQualityPublishedformsEvaluationsParams struct {
 
-	/*Body
-	  Publish request containing id of form to publish
+	/* Body.
 
+	   Publish request containing id of form to publish
 	*/
 	Body *models.PublishForm
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post quality publishedforms evaluations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostQualityPublishedformsEvaluationsParams) WithDefaults() *PostQualityPublishedformsEvaluationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post quality publishedforms evaluations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostQualityPublishedformsEvaluationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post quality publishedforms evaluations params
@@ -124,7 +140,6 @@ func (o *PostQualityPublishedformsEvaluationsParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

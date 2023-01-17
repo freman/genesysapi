@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -36,7 +38,6 @@ func (m *Utilization) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Utilization) validateUtilization(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Utilization) { // not required
 		return nil
 	}
@@ -48,6 +49,40 @@ func (m *Utilization) validateUtilization(formats strfmt.Registry) error {
 		}
 		if val, ok := m.Utilization[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("utilization" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("utilization" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this utilization based on the context it is used
+func (m *Utilization) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateUtilization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Utilization) contextValidateUtilization(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.Utilization {
+
+		if val, ok := m.Utilization[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
 				return err
 			}
 		}

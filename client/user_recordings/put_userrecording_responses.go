@@ -95,7 +95,6 @@ func (o *PutUserrecordingReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutUserrecordingOK() *PutUserrecordingOK {
 	return &PutUserrecordingOK{}
 }
 
-/*PutUserrecordingOK handles this case with default header values.
+/*
+PutUserrecordingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutUserrecordingOK struct {
 	Payload *models.UserRecording
 }
 
+// IsSuccess returns true when this put userrecording o k response has a 2xx status code
+func (o *PutUserrecordingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put userrecording o k response has a 3xx status code
+func (o *PutUserrecordingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put userrecording o k response has a 4xx status code
+func (o *PutUserrecordingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put userrecording o k response has a 5xx status code
+func (o *PutUserrecordingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put userrecording o k response a status code equal to that given
+func (o *PutUserrecordingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutUserrecordingOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingOK  %+v", 200, o.Payload)
+}
+
+func (o *PutUserrecordingOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutUserrecordingBadRequest() *PutUserrecordingBadRequest {
 	return &PutUserrecordingBadRequest{}
 }
 
-/*PutUserrecordingBadRequest handles this case with default header values.
+/*
+PutUserrecordingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutUserrecordingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put userrecording bad request response has a 2xx status code
+func (o *PutUserrecordingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put userrecording bad request response has a 3xx status code
+func (o *PutUserrecordingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put userrecording bad request response has a 4xx status code
+func (o *PutUserrecordingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put userrecording bad request response has a 5xx status code
+func (o *PutUserrecordingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put userrecording bad request response a status code equal to that given
+func (o *PutUserrecordingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutUserrecordingBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutUserrecordingBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutUserrecordingUnauthorized() *PutUserrecordingUnauthorized {
 	return &PutUserrecordingUnauthorized{}
 }
 
-/*PutUserrecordingUnauthorized handles this case with default header values.
+/*
+PutUserrecordingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutUserrecordingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put userrecording unauthorized response has a 2xx status code
+func (o *PutUserrecordingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put userrecording unauthorized response has a 3xx status code
+func (o *PutUserrecordingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put userrecording unauthorized response has a 4xx status code
+func (o *PutUserrecordingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put userrecording unauthorized response has a 5xx status code
+func (o *PutUserrecordingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put userrecording unauthorized response a status code equal to that given
+func (o *PutUserrecordingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutUserrecordingUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutUserrecordingUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutUserrecordingForbidden() *PutUserrecordingForbidden {
 	return &PutUserrecordingForbidden{}
 }
 
-/*PutUserrecordingForbidden handles this case with default header values.
+/*
+PutUserrecordingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutUserrecordingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put userrecording forbidden response has a 2xx status code
+func (o *PutUserrecordingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put userrecording forbidden response has a 3xx status code
+func (o *PutUserrecordingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put userrecording forbidden response has a 4xx status code
+func (o *PutUserrecordingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put userrecording forbidden response has a 5xx status code
+func (o *PutUserrecordingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put userrecording forbidden response a status code equal to that given
+func (o *PutUserrecordingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutUserrecordingForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutUserrecordingForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutUserrecordingNotFound() *PutUserrecordingNotFound {
 	return &PutUserrecordingNotFound{}
 }
 
-/*PutUserrecordingNotFound handles this case with default header values.
+/*
+PutUserrecordingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutUserrecordingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put userrecording not found response has a 2xx status code
+func (o *PutUserrecordingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put userrecording not found response has a 3xx status code
+func (o *PutUserrecordingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put userrecording not found response has a 4xx status code
+func (o *PutUserrecordingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put userrecording not found response has a 5xx status code
+func (o *PutUserrecordingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put userrecording not found response a status code equal to that given
+func (o *PutUserrecordingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutUserrecordingNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutUserrecordingNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutUserrecordingRequestTimeout() *PutUserrecordingRequestTimeout {
 	return &PutUserrecordingRequestTimeout{}
 }
 
-/*PutUserrecordingRequestTimeout handles this case with default header values.
+/*
+PutUserrecordingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutUserrecordingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put userrecording request timeout response has a 2xx status code
+func (o *PutUserrecordingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put userrecording request timeout response has a 3xx status code
+func (o *PutUserrecordingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put userrecording request timeout response has a 4xx status code
+func (o *PutUserrecordingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put userrecording request timeout response has a 5xx status code
+func (o *PutUserrecordingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put userrecording request timeout response a status code equal to that given
+func (o *PutUserrecordingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutUserrecordingRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUserrecordingRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutUserrecordingRequestEntityTooLarge() *PutUserrecordingRequestEntityTo
 	return &PutUserrecordingRequestEntityTooLarge{}
 }
 
-/*PutUserrecordingRequestEntityTooLarge handles this case with default header values.
+/*
+PutUserrecordingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutUserrecordingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put userrecording request entity too large response has a 2xx status code
+func (o *PutUserrecordingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put userrecording request entity too large response has a 3xx status code
+func (o *PutUserrecordingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put userrecording request entity too large response has a 4xx status code
+func (o *PutUserrecordingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put userrecording request entity too large response has a 5xx status code
+func (o *PutUserrecordingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put userrecording request entity too large response a status code equal to that given
+func (o *PutUserrecordingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutUserrecordingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutUserrecordingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutUserrecordingUnsupportedMediaType() *PutUserrecordingUnsupportedMedia
 	return &PutUserrecordingUnsupportedMediaType{}
 }
 
-/*PutUserrecordingUnsupportedMediaType handles this case with default header values.
+/*
+PutUserrecordingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutUserrecordingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put userrecording unsupported media type response has a 2xx status code
+func (o *PutUserrecordingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put userrecording unsupported media type response has a 3xx status code
+func (o *PutUserrecordingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put userrecording unsupported media type response has a 4xx status code
+func (o *PutUserrecordingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put userrecording unsupported media type response has a 5xx status code
+func (o *PutUserrecordingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put userrecording unsupported media type response a status code equal to that given
+func (o *PutUserrecordingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutUserrecordingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutUserrecordingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutUserrecordingTooManyRequests() *PutUserrecordingTooManyRequests {
 	return &PutUserrecordingTooManyRequests{}
 }
 
-/*PutUserrecordingTooManyRequests handles this case with default header values.
+/*
+PutUserrecordingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutUserrecordingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put userrecording too many requests response has a 2xx status code
+func (o *PutUserrecordingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put userrecording too many requests response has a 3xx status code
+func (o *PutUserrecordingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put userrecording too many requests response has a 4xx status code
+func (o *PutUserrecordingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put userrecording too many requests response has a 5xx status code
+func (o *PutUserrecordingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put userrecording too many requests response a status code equal to that given
+func (o *PutUserrecordingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutUserrecordingTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutUserrecordingTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutUserrecordingInternalServerError() *PutUserrecordingInternalServerErr
 	return &PutUserrecordingInternalServerError{}
 }
 
-/*PutUserrecordingInternalServerError handles this case with default header values.
+/*
+PutUserrecordingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutUserrecordingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put userrecording internal server error response has a 2xx status code
+func (o *PutUserrecordingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put userrecording internal server error response has a 3xx status code
+func (o *PutUserrecordingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put userrecording internal server error response has a 4xx status code
+func (o *PutUserrecordingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put userrecording internal server error response has a 5xx status code
+func (o *PutUserrecordingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put userrecording internal server error response a status code equal to that given
+func (o *PutUserrecordingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutUserrecordingInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutUserrecordingInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutUserrecordingServiceUnavailable() *PutUserrecordingServiceUnavailable
 	return &PutUserrecordingServiceUnavailable{}
 }
 
-/*PutUserrecordingServiceUnavailable handles this case with default header values.
+/*
+PutUserrecordingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutUserrecordingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put userrecording service unavailable response has a 2xx status code
+func (o *PutUserrecordingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put userrecording service unavailable response has a 3xx status code
+func (o *PutUserrecordingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put userrecording service unavailable response has a 4xx status code
+func (o *PutUserrecordingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put userrecording service unavailable response has a 5xx status code
+func (o *PutUserrecordingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put userrecording service unavailable response a status code equal to that given
+func (o *PutUserrecordingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutUserrecordingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutUserrecordingServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutUserrecordingGatewayTimeout() *PutUserrecordingGatewayTimeout {
 	return &PutUserrecordingGatewayTimeout{}
 }
 
-/*PutUserrecordingGatewayTimeout handles this case with default header values.
+/*
+PutUserrecordingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutUserrecordingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put userrecording gateway timeout response has a 2xx status code
+func (o *PutUserrecordingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put userrecording gateway timeout response has a 3xx status code
+func (o *PutUserrecordingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put userrecording gateway timeout response has a 4xx status code
+func (o *PutUserrecordingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put userrecording gateway timeout response has a 5xx status code
+func (o *PutUserrecordingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put userrecording gateway timeout response a status code equal to that given
+func (o *PutUserrecordingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutUserrecordingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutUserrecordingGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/userrecordings/{recordingId}][%d] putUserrecordingGatewayTimeout  %+v", 504, o.Payload)
 }
 

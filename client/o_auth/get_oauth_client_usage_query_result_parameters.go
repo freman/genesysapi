@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOauthClientUsageQueryResultParams creates a new GetOauthClientUsageQueryResultParams object
-// with the default values initialized.
+// NewGetOauthClientUsageQueryResultParams creates a new GetOauthClientUsageQueryResultParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOauthClientUsageQueryResultParams() *GetOauthClientUsageQueryResultParams {
-	var ()
 	return &GetOauthClientUsageQueryResultParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOauthClientUsageQueryResultParamsWithTimeout creates a new GetOauthClientUsageQueryResultParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOauthClientUsageQueryResultParamsWithTimeout(timeout time.Duration) *GetOauthClientUsageQueryResultParams {
-	var ()
 	return &GetOauthClientUsageQueryResultParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOauthClientUsageQueryResultParamsWithContext creates a new GetOauthClientUsageQueryResultParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOauthClientUsageQueryResultParamsWithContext(ctx context.Context) *GetOauthClientUsageQueryResultParams {
-	var ()
 	return &GetOauthClientUsageQueryResultParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOauthClientUsageQueryResultParamsWithHTTPClient creates a new GetOauthClientUsageQueryResultParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOauthClientUsageQueryResultParamsWithHTTPClient(client *http.Client) *GetOauthClientUsageQueryResultParams {
-	var ()
 	return &GetOauthClientUsageQueryResultParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOauthClientUsageQueryResultParams contains all the parameters to send to the API endpoint
-for the get oauth client usage query result operation typically these are written to a http.Request
+/*
+GetOauthClientUsageQueryResultParams contains all the parameters to send to the API endpoint
+
+	for the get oauth client usage query result operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOauthClientUsageQueryResultParams struct {
 
-	/*ClientID
-	  Client ID
+	/* ClientID.
 
+	   Client ID
 	*/
 	ClientID string
-	/*ExecutionID
-	  ID of the query execution
 
+	/* ExecutionID.
+
+	   ID of the query execution
 	*/
 	ExecutionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get oauth client usage query result params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOauthClientUsageQueryResultParams) WithDefaults() *GetOauthClientUsageQueryResultParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get oauth client usage query result params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOauthClientUsageQueryResultParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get oauth client usage query result params

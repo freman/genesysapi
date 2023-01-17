@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams creates a new GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams object
-// with the default values initialized.
+// NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams creates a new GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams() *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams {
-	var ()
 	return &GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParamsWithTimeout creates a new GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParamsWithTimeout(timeout time.Duration) *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams {
-	var ()
 	return &GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParamsWithContext creates a new GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParamsWithContext(ctx context.Context) *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams {
-	var ()
 	return &GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParamsWithHTTPClient creates a new GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParamsWithHTTPClient(client *http.Client) *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams {
-	var ()
 	return &GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams contains all the parameters to send to the API endpoint
-for the get configuration schemas edges vnext schema category schema type schema Id operation typically these are written to a http.Request
+/*
+GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams contains all the parameters to send to the API endpoint
+
+	for the get configuration schemas edges vnext schema category schema type schema Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams struct {
 
-	/*SchemaCategory
-	  Schema category
+	/* SchemaCategory.
 
+	   Schema category
 	*/
 	SchemaCategory string
-	/*SchemaID
-	  Schema ID
 
+	/* SchemaID.
+
+	   Schema ID
 	*/
 	SchemaID string
-	/*SchemaType
-	  Schema type
 
+	/* SchemaType.
+
+	   Schema type
 	*/
 	SchemaType string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get configuration schemas edges vnext schema category schema type schema Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams) WithDefaults() *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get configuration schemas edges vnext schema category schema type schema Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get configuration schemas edges vnext schema category schema type schema Id params

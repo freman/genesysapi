@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -22,6 +23,15 @@ type Site struct {
 
 	// addresses
 	Addresses []*Contact `json:"addresses"`
+
+	// The caller ID value for the site.
+	CallerID string `json:"callerId,omitempty"`
+
+	// The caller name for the site.
+	CallerName string `json:"callerName,omitempty"`
+
+	// Enables premises Edge Force Turn
+	CloudProxyForceTurn bool `json:"cloudProxyForceTurn"`
 
 	// Is this site a core site
 	CoreSite bool `json:"coreSite"`
@@ -70,6 +80,9 @@ type Site struct {
 	// Media model for the site
 	// Enum: [Premises Cloud]
 	MediaModel string `json:"mediaModel,omitempty"`
+
+	// The ordered list of AWS regions through which media can stream.
+	MediaRegions []string `json:"mediaRegions"`
 
 	// media regions use latency based
 	MediaRegionsUseLatencyBased bool `json:"mediaRegionsUseLatencyBased"`
@@ -197,7 +210,6 @@ func (m *Site) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Site) validateAddresses(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Addresses) { // not required
 		return nil
 	}
@@ -211,6 +223,8 @@ func (m *Site) validateAddresses(formats strfmt.Registry) error {
 			if err := m.Addresses[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("addresses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("addresses" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -222,7 +236,6 @@ func (m *Site) validateAddresses(formats strfmt.Registry) error {
 }
 
 func (m *Site) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -235,7 +248,6 @@ func (m *Site) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Site) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -248,7 +260,6 @@ func (m *Site) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *Site) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -257,6 +268,8 @@ func (m *Site) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -266,7 +279,6 @@ func (m *Site) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *Site) validateEdgeAutoUpdateConfig(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EdgeAutoUpdateConfig) { // not required
 		return nil
 	}
@@ -275,6 +287,8 @@ func (m *Site) validateEdgeAutoUpdateConfig(formats strfmt.Registry) error {
 		if err := m.EdgeAutoUpdateConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edgeAutoUpdateConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edgeAutoUpdateConfig")
 			}
 			return err
 		}
@@ -284,7 +298,6 @@ func (m *Site) validateEdgeAutoUpdateConfig(formats strfmt.Registry) error {
 }
 
 func (m *Site) validateEdges(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Edges) { // not required
 		return nil
 	}
@@ -298,6 +311,8 @@ func (m *Site) validateEdges(formats strfmt.Registry) error {
 			if err := m.Edges[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("edges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("edges" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -318,6 +333,8 @@ func (m *Site) validateLocation(formats strfmt.Registry) error {
 		if err := m.Location.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("location")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("location")
 			}
 			return err
 		}
@@ -356,7 +373,6 @@ func (m *Site) validateMediaModelEnum(path, location string, value string) error
 }
 
 func (m *Site) validateMediaModel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaModel) { // not required
 		return nil
 	}
@@ -379,7 +395,6 @@ func (m *Site) validateName(formats strfmt.Registry) error {
 }
 
 func (m *Site) validateNtpSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NtpSettings) { // not required
 		return nil
 	}
@@ -388,6 +403,8 @@ func (m *Site) validateNtpSettings(formats strfmt.Registry) error {
 		if err := m.NtpSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ntpSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ntpSettings")
 			}
 			return err
 		}
@@ -397,7 +414,6 @@ func (m *Site) validateNtpSettings(formats strfmt.Registry) error {
 }
 
 func (m *Site) validatePrimaryEdges(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PrimaryEdges) { // not required
 		return nil
 	}
@@ -411,6 +427,8 @@ func (m *Site) validatePrimaryEdges(formats strfmt.Registry) error {
 			if err := m.PrimaryEdges[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("primaryEdges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("primaryEdges" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -422,7 +440,6 @@ func (m *Site) validatePrimaryEdges(formats strfmt.Registry) error {
 }
 
 func (m *Site) validatePrimarySites(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PrimarySites) { // not required
 		return nil
 	}
@@ -436,6 +453,8 @@ func (m *Site) validatePrimarySites(formats strfmt.Registry) error {
 			if err := m.PrimarySites[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("primarySites" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("primarySites" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -447,7 +466,6 @@ func (m *Site) validatePrimarySites(formats strfmt.Registry) error {
 }
 
 func (m *Site) validateSecondaryEdges(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SecondaryEdges) { // not required
 		return nil
 	}
@@ -461,6 +479,8 @@ func (m *Site) validateSecondaryEdges(formats strfmt.Registry) error {
 			if err := m.SecondaryEdges[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("secondaryEdges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("secondaryEdges" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -472,7 +492,6 @@ func (m *Site) validateSecondaryEdges(formats strfmt.Registry) error {
 }
 
 func (m *Site) validateSecondarySites(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SecondarySites) { // not required
 		return nil
 	}
@@ -486,6 +505,8 @@ func (m *Site) validateSecondarySites(formats strfmt.Registry) error {
 			if err := m.SecondarySites[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("secondarySites" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("secondarySites" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -497,7 +518,6 @@ func (m *Site) validateSecondarySites(formats strfmt.Registry) error {
 }
 
 func (m *Site) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -510,7 +530,6 @@ func (m *Site) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *Site) validateSiteConnections(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SiteConnections) { // not required
 		return nil
 	}
@@ -524,6 +543,8 @@ func (m *Site) validateSiteConnections(formats strfmt.Registry) error {
 			if err := m.SiteConnections[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("siteConnections" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("siteConnections" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -567,13 +588,387 @@ func (m *Site) validateStateEnum(path, location string, value string) error {
 }
 
 func (m *Site) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this site based on the context it is used
+func (m *Site) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAddresses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEdgeAutoUpdateConfig(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEdges(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLocation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNtpSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrimaryEdges(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrimarySites(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSecondaryEdges(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSecondarySites(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSiteConnections(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Site) contextValidateAddresses(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Addresses); i++ {
+
+		if m.Addresses[i] != nil {
+			if err := m.Addresses[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("addresses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("addresses" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdBy", "body", string(m.CreatedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateCreatedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdByApp", "body", string(m.CreatedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateEdgeAutoUpdateConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EdgeAutoUpdateConfig != nil {
+		if err := m.EdgeAutoUpdateConfig.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("edgeAutoUpdateConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edgeAutoUpdateConfig")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateEdges(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Edges); i++ {
+
+		if m.Edges[i] != nil {
+			if err := m.Edges[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("edges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("edges" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateLocation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Location != nil {
+		if err := m.Location.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("location")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("location")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedBy", "body", string(m.ModifiedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateModifiedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedByApp", "body", string(m.ModifiedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateNtpSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.NtpSettings != nil {
+		if err := m.NtpSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ntpSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ntpSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidatePrimaryEdges(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PrimaryEdges); i++ {
+
+		if m.PrimaryEdges[i] != nil {
+			if err := m.PrimaryEdges[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("primaryEdges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("primaryEdges" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidatePrimarySites(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PrimarySites); i++ {
+
+		if m.PrimarySites[i] != nil {
+			if err := m.PrimarySites[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("primarySites" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("primarySites" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateSecondaryEdges(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SecondaryEdges); i++ {
+
+		if m.SecondaryEdges[i] != nil {
+			if err := m.SecondaryEdges[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("secondaryEdges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("secondaryEdges" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateSecondarySites(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SecondarySites); i++ {
+
+		if m.SecondarySites[i] != nil {
+			if err := m.SecondarySites[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("secondarySites" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("secondarySites" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateSiteConnections(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SiteConnections); i++ {
+
+		if m.SiteConnections[i] != nil {
+			if err := m.SiteConnections[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("siteConnections" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("siteConnections" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Site) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
 		return err
 	}
 

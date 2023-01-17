@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -112,7 +113,6 @@ func (m *JourneyAggregationQuery) validateAlternateTimeDimensionEnum(path, locat
 }
 
 func (m *JourneyAggregationQuery) validateAlternateTimeDimension(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AlternateTimeDimension) { // not required
 		return nil
 	}
@@ -126,7 +126,6 @@ func (m *JourneyAggregationQuery) validateAlternateTimeDimension(formats strfmt.
 }
 
 func (m *JourneyAggregationQuery) validateFilter(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Filter) { // not required
 		return nil
 	}
@@ -135,6 +134,8 @@ func (m *JourneyAggregationQuery) validateFilter(formats strfmt.Registry) error 
 		if err := m.Filter.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
 			}
 			return err
 		}
@@ -163,7 +164,6 @@ func (m *JourneyAggregationQuery) validateGroupByItemsEnum(path, location string
 }
 
 func (m *JourneyAggregationQuery) validateGroupBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GroupBy) { // not required
 		return nil
 	}
@@ -227,7 +227,6 @@ func (m *JourneyAggregationQuery) validateMetrics(formats strfmt.Registry) error
 }
 
 func (m *JourneyAggregationQuery) validateViews(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Views) { // not required
 		return nil
 	}
@@ -241,6 +240,62 @@ func (m *JourneyAggregationQuery) validateViews(formats strfmt.Registry) error {
 			if err := m.Views[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("views" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("views" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this journey aggregation query based on the context it is used
+func (m *JourneyAggregationQuery) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFilter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateViews(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *JourneyAggregationQuery) contextValidateFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Filter != nil {
+		if err := m.Filter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JourneyAggregationQuery) contextValidateViews(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Views); i++ {
+
+		if m.Views[i] != nil {
+			if err := m.Views[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("views" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("views" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -101,7 +101,6 @@ func (o *PutExternalcontactsContactNoteReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutExternalcontactsContactNoteOK() *PutExternalcontactsContactNoteOK {
 	return &PutExternalcontactsContactNoteOK{}
 }
 
-/*PutExternalcontactsContactNoteOK handles this case with default header values.
+/*
+PutExternalcontactsContactNoteOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutExternalcontactsContactNoteOK struct {
 	Payload *models.Note
 }
 
+// IsSuccess returns true when this put externalcontacts contact note o k response has a 2xx status code
+func (o *PutExternalcontactsContactNoteOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put externalcontacts contact note o k response has a 3xx status code
+func (o *PutExternalcontactsContactNoteOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note o k response has a 4xx status code
+func (o *PutExternalcontactsContactNoteOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put externalcontacts contact note o k response has a 5xx status code
+func (o *PutExternalcontactsContactNoteOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts contact note o k response a status code equal to that given
+func (o *PutExternalcontactsContactNoteOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutExternalcontactsContactNoteOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteOK  %+v", 200, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutExternalcontactsContactNoteBadRequest() *PutExternalcontactsContactNo
 	return &PutExternalcontactsContactNoteBadRequest{}
 }
 
-/*PutExternalcontactsContactNoteBadRequest handles this case with default header values.
+/*
+PutExternalcontactsContactNoteBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutExternalcontactsContactNoteBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts contact note bad request response has a 2xx status code
+func (o *PutExternalcontactsContactNoteBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts contact note bad request response has a 3xx status code
+func (o *PutExternalcontactsContactNoteBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note bad request response has a 4xx status code
+func (o *PutExternalcontactsContactNoteBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts contact note bad request response has a 5xx status code
+func (o *PutExternalcontactsContactNoteBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts contact note bad request response a status code equal to that given
+func (o *PutExternalcontactsContactNoteBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutExternalcontactsContactNoteBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutExternalcontactsContactNoteUnauthorized() *PutExternalcontactsContact
 	return &PutExternalcontactsContactNoteUnauthorized{}
 }
 
-/*PutExternalcontactsContactNoteUnauthorized handles this case with default header values.
+/*
+PutExternalcontactsContactNoteUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutExternalcontactsContactNoteUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts contact note unauthorized response has a 2xx status code
+func (o *PutExternalcontactsContactNoteUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts contact note unauthorized response has a 3xx status code
+func (o *PutExternalcontactsContactNoteUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note unauthorized response has a 4xx status code
+func (o *PutExternalcontactsContactNoteUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts contact note unauthorized response has a 5xx status code
+func (o *PutExternalcontactsContactNoteUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts contact note unauthorized response a status code equal to that given
+func (o *PutExternalcontactsContactNoteUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutExternalcontactsContactNoteUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutExternalcontactsContactNoteForbidden() *PutExternalcontactsContactNot
 	return &PutExternalcontactsContactNoteForbidden{}
 }
 
-/*PutExternalcontactsContactNoteForbidden handles this case with default header values.
+/*
+PutExternalcontactsContactNoteForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutExternalcontactsContactNoteForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts contact note forbidden response has a 2xx status code
+func (o *PutExternalcontactsContactNoteForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts contact note forbidden response has a 3xx status code
+func (o *PutExternalcontactsContactNoteForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note forbidden response has a 4xx status code
+func (o *PutExternalcontactsContactNoteForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts contact note forbidden response has a 5xx status code
+func (o *PutExternalcontactsContactNoteForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts contact note forbidden response a status code equal to that given
+func (o *PutExternalcontactsContactNoteForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutExternalcontactsContactNoteForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutExternalcontactsContactNoteNotFound() *PutExternalcontactsContactNote
 	return &PutExternalcontactsContactNoteNotFound{}
 }
 
-/*PutExternalcontactsContactNoteNotFound handles this case with default header values.
+/*
+PutExternalcontactsContactNoteNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutExternalcontactsContactNoteNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts contact note not found response has a 2xx status code
+func (o *PutExternalcontactsContactNoteNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts contact note not found response has a 3xx status code
+func (o *PutExternalcontactsContactNoteNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note not found response has a 4xx status code
+func (o *PutExternalcontactsContactNoteNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts contact note not found response has a 5xx status code
+func (o *PutExternalcontactsContactNoteNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts contact note not found response a status code equal to that given
+func (o *PutExternalcontactsContactNoteNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutExternalcontactsContactNoteNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutExternalcontactsContactNoteRequestTimeout() *PutExternalcontactsConta
 	return &PutExternalcontactsContactNoteRequestTimeout{}
 }
 
-/*PutExternalcontactsContactNoteRequestTimeout handles this case with default header values.
+/*
+PutExternalcontactsContactNoteRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutExternalcontactsContactNoteRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts contact note request timeout response has a 2xx status code
+func (o *PutExternalcontactsContactNoteRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts contact note request timeout response has a 3xx status code
+func (o *PutExternalcontactsContactNoteRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note request timeout response has a 4xx status code
+func (o *PutExternalcontactsContactNoteRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts contact note request timeout response has a 5xx status code
+func (o *PutExternalcontactsContactNoteRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts contact note request timeout response a status code equal to that given
+func (o *PutExternalcontactsContactNoteRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutExternalcontactsContactNoteRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutExternalcontactsContactNoteRequestEntityTooLarge() *PutExternalcontac
 	return &PutExternalcontactsContactNoteRequestEntityTooLarge{}
 }
 
-/*PutExternalcontactsContactNoteRequestEntityTooLarge handles this case with default header values.
+/*
+PutExternalcontactsContactNoteRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -318,7 +498,36 @@ type PutExternalcontactsContactNoteRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts contact note request entity too large response has a 2xx status code
+func (o *PutExternalcontactsContactNoteRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts contact note request entity too large response has a 3xx status code
+func (o *PutExternalcontactsContactNoteRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note request entity too large response has a 4xx status code
+func (o *PutExternalcontactsContactNoteRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts contact note request entity too large response has a 5xx status code
+func (o *PutExternalcontactsContactNoteRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts contact note request entity too large response a status code equal to that given
+func (o *PutExternalcontactsContactNoteRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutExternalcontactsContactNoteRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutExternalcontactsContactNoteUnsupportedMediaType() *PutExternalcontact
 	return &PutExternalcontactsContactNoteUnsupportedMediaType{}
 }
 
-/*PutExternalcontactsContactNoteUnsupportedMediaType handles this case with default header values.
+/*
+PutExternalcontactsContactNoteUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -351,7 +561,36 @@ type PutExternalcontactsContactNoteUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts contact note unsupported media type response has a 2xx status code
+func (o *PutExternalcontactsContactNoteUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts contact note unsupported media type response has a 3xx status code
+func (o *PutExternalcontactsContactNoteUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note unsupported media type response has a 4xx status code
+func (o *PutExternalcontactsContactNoteUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts contact note unsupported media type response has a 5xx status code
+func (o *PutExternalcontactsContactNoteUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts contact note unsupported media type response a status code equal to that given
+func (o *PutExternalcontactsContactNoteUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutExternalcontactsContactNoteUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutExternalcontactsContactNoteUnprocessableEntity() *PutExternalcontacts
 	return &PutExternalcontactsContactNoteUnprocessableEntity{}
 }
 
-/*PutExternalcontactsContactNoteUnprocessableEntity handles this case with default header values.
+/*
+PutExternalcontactsContactNoteUnprocessableEntity describes a response with status code 422, with default header values.
 
 PutExternalcontactsContactNoteUnprocessableEntity put externalcontacts contact note unprocessable entity
 */
@@ -384,7 +624,36 @@ type PutExternalcontactsContactNoteUnprocessableEntity struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts contact note unprocessable entity response has a 2xx status code
+func (o *PutExternalcontactsContactNoteUnprocessableEntity) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts contact note unprocessable entity response has a 3xx status code
+func (o *PutExternalcontactsContactNoteUnprocessableEntity) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note unprocessable entity response has a 4xx status code
+func (o *PutExternalcontactsContactNoteUnprocessableEntity) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts contact note unprocessable entity response has a 5xx status code
+func (o *PutExternalcontactsContactNoteUnprocessableEntity) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts contact note unprocessable entity response a status code equal to that given
+func (o *PutExternalcontactsContactNoteUnprocessableEntity) IsCode(code int) bool {
+	return code == 422
+}
+
 func (o *PutExternalcontactsContactNoteUnprocessableEntity) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteUnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteUnprocessableEntity) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteUnprocessableEntity  %+v", 422, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutExternalcontactsContactNoteTooManyRequests() *PutExternalcontactsCont
 	return &PutExternalcontactsContactNoteTooManyRequests{}
 }
 
-/*PutExternalcontactsContactNoteTooManyRequests handles this case with default header values.
+/*
+PutExternalcontactsContactNoteTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutExternalcontactsContactNoteTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts contact note too many requests response has a 2xx status code
+func (o *PutExternalcontactsContactNoteTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts contact note too many requests response has a 3xx status code
+func (o *PutExternalcontactsContactNoteTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note too many requests response has a 4xx status code
+func (o *PutExternalcontactsContactNoteTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put externalcontacts contact note too many requests response has a 5xx status code
+func (o *PutExternalcontactsContactNoteTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put externalcontacts contact note too many requests response a status code equal to that given
+func (o *PutExternalcontactsContactNoteTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutExternalcontactsContactNoteTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutExternalcontactsContactNoteInternalServerError() *PutExternalcontacts
 	return &PutExternalcontactsContactNoteInternalServerError{}
 }
 
-/*PutExternalcontactsContactNoteInternalServerError handles this case with default header values.
+/*
+PutExternalcontactsContactNoteInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutExternalcontactsContactNoteInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts contact note internal server error response has a 2xx status code
+func (o *PutExternalcontactsContactNoteInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts contact note internal server error response has a 3xx status code
+func (o *PutExternalcontactsContactNoteInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note internal server error response has a 4xx status code
+func (o *PutExternalcontactsContactNoteInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put externalcontacts contact note internal server error response has a 5xx status code
+func (o *PutExternalcontactsContactNoteInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put externalcontacts contact note internal server error response a status code equal to that given
+func (o *PutExternalcontactsContactNoteInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutExternalcontactsContactNoteInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutExternalcontactsContactNoteServiceUnavailable() *PutExternalcontactsC
 	return &PutExternalcontactsContactNoteServiceUnavailable{}
 }
 
-/*PutExternalcontactsContactNoteServiceUnavailable handles this case with default header values.
+/*
+PutExternalcontactsContactNoteServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutExternalcontactsContactNoteServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts contact note service unavailable response has a 2xx status code
+func (o *PutExternalcontactsContactNoteServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts contact note service unavailable response has a 3xx status code
+func (o *PutExternalcontactsContactNoteServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note service unavailable response has a 4xx status code
+func (o *PutExternalcontactsContactNoteServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put externalcontacts contact note service unavailable response has a 5xx status code
+func (o *PutExternalcontactsContactNoteServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put externalcontacts contact note service unavailable response a status code equal to that given
+func (o *PutExternalcontactsContactNoteServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutExternalcontactsContactNoteServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutExternalcontactsContactNoteGatewayTimeout() *PutExternalcontactsConta
 	return &PutExternalcontactsContactNoteGatewayTimeout{}
 }
 
-/*PutExternalcontactsContactNoteGatewayTimeout handles this case with default header values.
+/*
+PutExternalcontactsContactNoteGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutExternalcontactsContactNoteGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put externalcontacts contact note gateway timeout response has a 2xx status code
+func (o *PutExternalcontactsContactNoteGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put externalcontacts contact note gateway timeout response has a 3xx status code
+func (o *PutExternalcontactsContactNoteGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put externalcontacts contact note gateway timeout response has a 4xx status code
+func (o *PutExternalcontactsContactNoteGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put externalcontacts contact note gateway timeout response has a 5xx status code
+func (o *PutExternalcontactsContactNoteGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put externalcontacts contact note gateway timeout response a status code equal to that given
+func (o *PutExternalcontactsContactNoteGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutExternalcontactsContactNoteGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutExternalcontactsContactNoteGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/externalcontacts/contacts/{contactId}/notes/{noteId}][%d] putExternalcontactsContactNoteGatewayTimeout  %+v", 504, o.Payload)
 }
 

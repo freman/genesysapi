@@ -17,115 +17,129 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetArchitectEmergencygroupsParams creates a new GetArchitectEmergencygroupsParams object
-// with the default values initialized.
+// NewGetArchitectEmergencygroupsParams creates a new GetArchitectEmergencygroupsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetArchitectEmergencygroupsParams() *GetArchitectEmergencygroupsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetArchitectEmergencygroupsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetArchitectEmergencygroupsParamsWithTimeout creates a new GetArchitectEmergencygroupsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetArchitectEmergencygroupsParamsWithTimeout(timeout time.Duration) *GetArchitectEmergencygroupsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetArchitectEmergencygroupsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetArchitectEmergencygroupsParamsWithContext creates a new GetArchitectEmergencygroupsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetArchitectEmergencygroupsParamsWithContext(ctx context.Context) *GetArchitectEmergencygroupsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetArchitectEmergencygroupsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetArchitectEmergencygroupsParamsWithHTTPClient creates a new GetArchitectEmergencygroupsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetArchitectEmergencygroupsParamsWithHTTPClient(client *http.Client) *GetArchitectEmergencygroupsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetArchitectEmergencygroupsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetArchitectEmergencygroupsParams contains all the parameters to send to the API endpoint
-for the get architect emergencygroups operation typically these are written to a http.Request
+/*
+GetArchitectEmergencygroupsParams contains all the parameters to send to the API endpoint
+
+	for the get architect emergencygroups operation.
+
+	Typically these are written to a http.Request.
 */
 type GetArchitectEmergencygroupsParams struct {
 
-	/*Name
-	  Name of the Emergency Group to filter by.
+	/* Name.
 
+	   Name of the Emergency Group to filter by.
 	*/
 	Name *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
+
+	   Default: "name"
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "ASC"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get architect emergencygroups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectEmergencygroupsParams) WithDefaults() *GetArchitectEmergencygroupsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get architect emergencygroups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectEmergencygroupsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("name")
+
+		sortOrderDefault = string("ASC")
+	)
+
+	val := GetArchitectEmergencygroupsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get architect emergencygroups params
@@ -228,80 +242,85 @@ func (o *GetArchitectEmergencygroupsParams) WriteToRequest(r runtime.ClientReque
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

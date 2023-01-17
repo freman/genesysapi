@@ -95,7 +95,6 @@ func (o *GetConversationsMessagingThreadingtimelineReader) ReadResponse(response
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConversationsMessagingThreadingtimelineOK() *GetConversationsMessagin
 	return &GetConversationsMessagingThreadingtimelineOK{}
 }
 
-/*GetConversationsMessagingThreadingtimelineOK handles this case with default header values.
+/*
+GetConversationsMessagingThreadingtimelineOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetConversationsMessagingThreadingtimelineOK struct {
 	Payload *models.ConversationThreadingWindow
 }
 
+// IsSuccess returns true when this get conversations messaging threadingtimeline o k response has a 2xx status code
+func (o *GetConversationsMessagingThreadingtimelineOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversations messaging threadingtimeline o k response has a 3xx status code
+func (o *GetConversationsMessagingThreadingtimelineOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging threadingtimeline o k response has a 4xx status code
+func (o *GetConversationsMessagingThreadingtimelineOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging threadingtimeline o k response has a 5xx status code
+func (o *GetConversationsMessagingThreadingtimelineOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging threadingtimeline o k response a status code equal to that given
+func (o *GetConversationsMessagingThreadingtimelineOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationsMessagingThreadingtimelineOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationsMessagingThreadingtimelineOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetConversationsMessagingThreadingtimelineBadRequest() *GetConversations
 	return &GetConversationsMessagingThreadingtimelineBadRequest{}
 }
 
-/*GetConversationsMessagingThreadingtimelineBadRequest handles this case with default header values.
+/*
+GetConversationsMessagingThreadingtimelineBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetConversationsMessagingThreadingtimelineBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging threadingtimeline bad request response has a 2xx status code
+func (o *GetConversationsMessagingThreadingtimelineBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging threadingtimeline bad request response has a 3xx status code
+func (o *GetConversationsMessagingThreadingtimelineBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging threadingtimeline bad request response has a 4xx status code
+func (o *GetConversationsMessagingThreadingtimelineBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging threadingtimeline bad request response has a 5xx status code
+func (o *GetConversationsMessagingThreadingtimelineBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging threadingtimeline bad request response a status code equal to that given
+func (o *GetConversationsMessagingThreadingtimelineBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationsMessagingThreadingtimelineBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationsMessagingThreadingtimelineBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetConversationsMessagingThreadingtimelineUnauthorized() *GetConversatio
 	return &GetConversationsMessagingThreadingtimelineUnauthorized{}
 }
 
-/*GetConversationsMessagingThreadingtimelineUnauthorized handles this case with default header values.
+/*
+GetConversationsMessagingThreadingtimelineUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetConversationsMessagingThreadingtimelineUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging threadingtimeline unauthorized response has a 2xx status code
+func (o *GetConversationsMessagingThreadingtimelineUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging threadingtimeline unauthorized response has a 3xx status code
+func (o *GetConversationsMessagingThreadingtimelineUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging threadingtimeline unauthorized response has a 4xx status code
+func (o *GetConversationsMessagingThreadingtimelineUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging threadingtimeline unauthorized response has a 5xx status code
+func (o *GetConversationsMessagingThreadingtimelineUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging threadingtimeline unauthorized response a status code equal to that given
+func (o *GetConversationsMessagingThreadingtimelineUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationsMessagingThreadingtimelineUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationsMessagingThreadingtimelineUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetConversationsMessagingThreadingtimelineForbidden() *GetConversationsM
 	return &GetConversationsMessagingThreadingtimelineForbidden{}
 }
 
-/*GetConversationsMessagingThreadingtimelineForbidden handles this case with default header values.
+/*
+GetConversationsMessagingThreadingtimelineForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetConversationsMessagingThreadingtimelineForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging threadingtimeline forbidden response has a 2xx status code
+func (o *GetConversationsMessagingThreadingtimelineForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging threadingtimeline forbidden response has a 3xx status code
+func (o *GetConversationsMessagingThreadingtimelineForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging threadingtimeline forbidden response has a 4xx status code
+func (o *GetConversationsMessagingThreadingtimelineForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging threadingtimeline forbidden response has a 5xx status code
+func (o *GetConversationsMessagingThreadingtimelineForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging threadingtimeline forbidden response a status code equal to that given
+func (o *GetConversationsMessagingThreadingtimelineForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationsMessagingThreadingtimelineForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationsMessagingThreadingtimelineForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetConversationsMessagingThreadingtimelineNotFound() *GetConversationsMe
 	return &GetConversationsMessagingThreadingtimelineNotFound{}
 }
 
-/*GetConversationsMessagingThreadingtimelineNotFound handles this case with default header values.
+/*
+GetConversationsMessagingThreadingtimelineNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetConversationsMessagingThreadingtimelineNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging threadingtimeline not found response has a 2xx status code
+func (o *GetConversationsMessagingThreadingtimelineNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging threadingtimeline not found response has a 3xx status code
+func (o *GetConversationsMessagingThreadingtimelineNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging threadingtimeline not found response has a 4xx status code
+func (o *GetConversationsMessagingThreadingtimelineNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging threadingtimeline not found response has a 5xx status code
+func (o *GetConversationsMessagingThreadingtimelineNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging threadingtimeline not found response a status code equal to that given
+func (o *GetConversationsMessagingThreadingtimelineNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationsMessagingThreadingtimelineNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationsMessagingThreadingtimelineNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetConversationsMessagingThreadingtimelineRequestTimeout() *GetConversat
 	return &GetConversationsMessagingThreadingtimelineRequestTimeout{}
 }
 
-/*GetConversationsMessagingThreadingtimelineRequestTimeout handles this case with default header values.
+/*
+GetConversationsMessagingThreadingtimelineRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetConversationsMessagingThreadingtimelineRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging threadingtimeline request timeout response has a 2xx status code
+func (o *GetConversationsMessagingThreadingtimelineRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging threadingtimeline request timeout response has a 3xx status code
+func (o *GetConversationsMessagingThreadingtimelineRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging threadingtimeline request timeout response has a 4xx status code
+func (o *GetConversationsMessagingThreadingtimelineRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging threadingtimeline request timeout response has a 5xx status code
+func (o *GetConversationsMessagingThreadingtimelineRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging threadingtimeline request timeout response a status code equal to that given
+func (o *GetConversationsMessagingThreadingtimelineRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationsMessagingThreadingtimelineRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsMessagingThreadingtimelineRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetConversationsMessagingThreadingtimelineRequestEntityTooLarge() *GetCo
 	return &GetConversationsMessagingThreadingtimelineRequestEntityTooLarge{}
 }
 
-/*GetConversationsMessagingThreadingtimelineRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationsMessagingThreadingtimelineRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetConversationsMessagingThreadingtimelineRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging threadingtimeline request entity too large response has a 2xx status code
+func (o *GetConversationsMessagingThreadingtimelineRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging threadingtimeline request entity too large response has a 3xx status code
+func (o *GetConversationsMessagingThreadingtimelineRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging threadingtimeline request entity too large response has a 4xx status code
+func (o *GetConversationsMessagingThreadingtimelineRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging threadingtimeline request entity too large response has a 5xx status code
+func (o *GetConversationsMessagingThreadingtimelineRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging threadingtimeline request entity too large response a status code equal to that given
+func (o *GetConversationsMessagingThreadingtimelineRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationsMessagingThreadingtimelineRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationsMessagingThreadingtimelineRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetConversationsMessagingThreadingtimelineUnsupportedMediaType() *GetCon
 	return &GetConversationsMessagingThreadingtimelineUnsupportedMediaType{}
 }
 
-/*GetConversationsMessagingThreadingtimelineUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationsMessagingThreadingtimelineUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetConversationsMessagingThreadingtimelineUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging threadingtimeline unsupported media type response has a 2xx status code
+func (o *GetConversationsMessagingThreadingtimelineUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging threadingtimeline unsupported media type response has a 3xx status code
+func (o *GetConversationsMessagingThreadingtimelineUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging threadingtimeline unsupported media type response has a 4xx status code
+func (o *GetConversationsMessagingThreadingtimelineUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging threadingtimeline unsupported media type response has a 5xx status code
+func (o *GetConversationsMessagingThreadingtimelineUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging threadingtimeline unsupported media type response a status code equal to that given
+func (o *GetConversationsMessagingThreadingtimelineUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationsMessagingThreadingtimelineUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationsMessagingThreadingtimelineUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetConversationsMessagingThreadingtimelineTooManyRequests() *GetConversa
 	return &GetConversationsMessagingThreadingtimelineTooManyRequests{}
 }
 
-/*GetConversationsMessagingThreadingtimelineTooManyRequests handles this case with default header values.
+/*
+GetConversationsMessagingThreadingtimelineTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetConversationsMessagingThreadingtimelineTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging threadingtimeline too many requests response has a 2xx status code
+func (o *GetConversationsMessagingThreadingtimelineTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging threadingtimeline too many requests response has a 3xx status code
+func (o *GetConversationsMessagingThreadingtimelineTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging threadingtimeline too many requests response has a 4xx status code
+func (o *GetConversationsMessagingThreadingtimelineTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging threadingtimeline too many requests response has a 5xx status code
+func (o *GetConversationsMessagingThreadingtimelineTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging threadingtimeline too many requests response a status code equal to that given
+func (o *GetConversationsMessagingThreadingtimelineTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationsMessagingThreadingtimelineTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationsMessagingThreadingtimelineTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetConversationsMessagingThreadingtimelineInternalServerError() *GetConv
 	return &GetConversationsMessagingThreadingtimelineInternalServerError{}
 }
 
-/*GetConversationsMessagingThreadingtimelineInternalServerError handles this case with default header values.
+/*
+GetConversationsMessagingThreadingtimelineInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetConversationsMessagingThreadingtimelineInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging threadingtimeline internal server error response has a 2xx status code
+func (o *GetConversationsMessagingThreadingtimelineInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging threadingtimeline internal server error response has a 3xx status code
+func (o *GetConversationsMessagingThreadingtimelineInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging threadingtimeline internal server error response has a 4xx status code
+func (o *GetConversationsMessagingThreadingtimelineInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging threadingtimeline internal server error response has a 5xx status code
+func (o *GetConversationsMessagingThreadingtimelineInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging threadingtimeline internal server error response a status code equal to that given
+func (o *GetConversationsMessagingThreadingtimelineInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationsMessagingThreadingtimelineInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationsMessagingThreadingtimelineInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetConversationsMessagingThreadingtimelineServiceUnavailable() *GetConve
 	return &GetConversationsMessagingThreadingtimelineServiceUnavailable{}
 }
 
-/*GetConversationsMessagingThreadingtimelineServiceUnavailable handles this case with default header values.
+/*
+GetConversationsMessagingThreadingtimelineServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetConversationsMessagingThreadingtimelineServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging threadingtimeline service unavailable response has a 2xx status code
+func (o *GetConversationsMessagingThreadingtimelineServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging threadingtimeline service unavailable response has a 3xx status code
+func (o *GetConversationsMessagingThreadingtimelineServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging threadingtimeline service unavailable response has a 4xx status code
+func (o *GetConversationsMessagingThreadingtimelineServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging threadingtimeline service unavailable response has a 5xx status code
+func (o *GetConversationsMessagingThreadingtimelineServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging threadingtimeline service unavailable response a status code equal to that given
+func (o *GetConversationsMessagingThreadingtimelineServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationsMessagingThreadingtimelineServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationsMessagingThreadingtimelineServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetConversationsMessagingThreadingtimelineGatewayTimeout() *GetConversat
 	return &GetConversationsMessagingThreadingtimelineGatewayTimeout{}
 }
 
-/*GetConversationsMessagingThreadingtimelineGatewayTimeout handles this case with default header values.
+/*
+GetConversationsMessagingThreadingtimelineGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetConversationsMessagingThreadingtimelineGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging threadingtimeline gateway timeout response has a 2xx status code
+func (o *GetConversationsMessagingThreadingtimelineGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging threadingtimeline gateway timeout response has a 3xx status code
+func (o *GetConversationsMessagingThreadingtimelineGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging threadingtimeline gateway timeout response has a 4xx status code
+func (o *GetConversationsMessagingThreadingtimelineGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging threadingtimeline gateway timeout response has a 5xx status code
+func (o *GetConversationsMessagingThreadingtimelineGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging threadingtimeline gateway timeout response a status code equal to that given
+func (o *GetConversationsMessagingThreadingtimelineGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationsMessagingThreadingtimelineGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationsMessagingThreadingtimelineGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/threadingtimeline][%d] getConversationsMessagingThreadingtimelineGatewayTimeout  %+v", 504, o.Payload)
 }
 

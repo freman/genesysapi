@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchConversationsMessagingSupportedcontentSupportedContentIDParams creates a new PatchConversationsMessagingSupportedcontentSupportedContentIDParams object
-// with the default values initialized.
+// NewPatchConversationsMessagingSupportedcontentSupportedContentIDParams creates a new PatchConversationsMessagingSupportedcontentSupportedContentIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchConversationsMessagingSupportedcontentSupportedContentIDParams() *PatchConversationsMessagingSupportedcontentSupportedContentIDParams {
-	var ()
 	return &PatchConversationsMessagingSupportedcontentSupportedContentIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchConversationsMessagingSupportedcontentSupportedContentIDParamsWithTimeout creates a new PatchConversationsMessagingSupportedcontentSupportedContentIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchConversationsMessagingSupportedcontentSupportedContentIDParamsWithTimeout(timeout time.Duration) *PatchConversationsMessagingSupportedcontentSupportedContentIDParams {
-	var ()
 	return &PatchConversationsMessagingSupportedcontentSupportedContentIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchConversationsMessagingSupportedcontentSupportedContentIDParamsWithContext creates a new PatchConversationsMessagingSupportedcontentSupportedContentIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchConversationsMessagingSupportedcontentSupportedContentIDParamsWithContext(ctx context.Context) *PatchConversationsMessagingSupportedcontentSupportedContentIDParams {
-	var ()
 	return &PatchConversationsMessagingSupportedcontentSupportedContentIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchConversationsMessagingSupportedcontentSupportedContentIDParamsWithHTTPClient creates a new PatchConversationsMessagingSupportedcontentSupportedContentIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchConversationsMessagingSupportedcontentSupportedContentIDParamsWithHTTPClient(client *http.Client) *PatchConversationsMessagingSupportedcontentSupportedContentIDParams {
-	var ()
 	return &PatchConversationsMessagingSupportedcontentSupportedContentIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchConversationsMessagingSupportedcontentSupportedContentIDParams contains all the parameters to send to the API endpoint
-for the patch conversations messaging supportedcontent supported content Id operation typically these are written to a http.Request
+/*
+PatchConversationsMessagingSupportedcontentSupportedContentIDParams contains all the parameters to send to the API endpoint
+
+	for the patch conversations messaging supportedcontent supported content Id operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchConversationsMessagingSupportedcontentSupportedContentIDParams struct {
 
-	/*Body
-	  SupportedContent
+	/* Body.
 
+	   SupportedContent
 	*/
 	Body *models.SupportedContent
-	/*SupportedContentID
-	  Supported Content ID
 
+	/* SupportedContentID.
+
+	   Supported Content ID
 	*/
 	SupportedContentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch conversations messaging supportedcontent supported content Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsMessagingSupportedcontentSupportedContentIDParams) WithDefaults() *PatchConversationsMessagingSupportedcontentSupportedContentIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch conversations messaging supportedcontent supported content Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsMessagingSupportedcontentSupportedContentIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch conversations messaging supportedcontent supported content Id params
@@ -140,7 +157,6 @@ func (o *PatchConversationsMessagingSupportedcontentSupportedContentIDParams) Wr
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

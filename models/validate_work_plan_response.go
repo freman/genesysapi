@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -45,7 +47,6 @@ func (m *ValidateWorkPlanResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ValidateWorkPlanResponse) validateMessages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Messages) { // not required
 		return nil
 	}
@@ -54,6 +55,8 @@ func (m *ValidateWorkPlanResponse) validateMessages(formats strfmt.Registry) err
 		if err := m.Messages.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messages")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messages")
 			}
 			return err
 		}
@@ -63,7 +66,6 @@ func (m *ValidateWorkPlanResponse) validateMessages(formats strfmt.Registry) err
 }
 
 func (m *ValidateWorkPlanResponse) validateWorkPlan(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WorkPlan) { // not required
 		return nil
 	}
@@ -72,6 +74,58 @@ func (m *ValidateWorkPlanResponse) validateWorkPlan(formats strfmt.Registry) err
 		if err := m.WorkPlan.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workPlan")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPlan")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this validate work plan response based on the context it is used
+func (m *ValidateWorkPlanResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMessages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkPlan(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ValidateWorkPlanResponse) contextValidateMessages(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Messages != nil {
+		if err := m.Messages.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messages")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messages")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ValidateWorkPlanResponse) contextValidateWorkPlan(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WorkPlan != nil {
+		if err := m.WorkPlan.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workPlan")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPlan")
 			}
 			return err
 		}

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteWorkforcemanagementManagementunitWorkplanParams creates a new DeleteWorkforcemanagementManagementunitWorkplanParams object
-// with the default values initialized.
+// NewDeleteWorkforcemanagementManagementunitWorkplanParams creates a new DeleteWorkforcemanagementManagementunitWorkplanParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteWorkforcemanagementManagementunitWorkplanParams() *DeleteWorkforcemanagementManagementunitWorkplanParams {
-	var ()
 	return &DeleteWorkforcemanagementManagementunitWorkplanParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementManagementunitWorkplanParamsWithTimeout creates a new DeleteWorkforcemanagementManagementunitWorkplanParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteWorkforcemanagementManagementunitWorkplanParamsWithTimeout(timeout time.Duration) *DeleteWorkforcemanagementManagementunitWorkplanParams {
-	var ()
 	return &DeleteWorkforcemanagementManagementunitWorkplanParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementManagementunitWorkplanParamsWithContext creates a new DeleteWorkforcemanagementManagementunitWorkplanParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteWorkforcemanagementManagementunitWorkplanParamsWithContext(ctx context.Context) *DeleteWorkforcemanagementManagementunitWorkplanParams {
-	var ()
 	return &DeleteWorkforcemanagementManagementunitWorkplanParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteWorkforcemanagementManagementunitWorkplanParamsWithHTTPClient creates a new DeleteWorkforcemanagementManagementunitWorkplanParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteWorkforcemanagementManagementunitWorkplanParamsWithHTTPClient(client *http.Client) *DeleteWorkforcemanagementManagementunitWorkplanParams {
-	var ()
 	return &DeleteWorkforcemanagementManagementunitWorkplanParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanParams contains all the parameters to send to the API endpoint
-for the delete workforcemanagement managementunit workplan operation typically these are written to a http.Request
+/*
+DeleteWorkforcemanagementManagementunitWorkplanParams contains all the parameters to send to the API endpoint
+
+	for the delete workforcemanagement managementunit workplan operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteWorkforcemanagementManagementunitWorkplanParams struct {
 
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
+	/* ManagementUnitID.
 
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
-	/*WorkPlanID
-	  The ID of the work plan to delete
 
+	/* WorkPlanID.
+
+	   The ID of the work plan to delete
 	*/
 	WorkPlanID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete workforcemanagement managementunit workplan params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementManagementunitWorkplanParams) WithDefaults() *DeleteWorkforcemanagementManagementunitWorkplanParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete workforcemanagement managementunit workplan params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementManagementunitWorkplanParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete workforcemanagement managementunit workplan params

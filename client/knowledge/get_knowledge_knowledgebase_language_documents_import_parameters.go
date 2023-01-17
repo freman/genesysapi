@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetKnowledgeKnowledgebaseLanguageDocumentsImportParams creates a new GetKnowledgeKnowledgebaseLanguageDocumentsImportParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseLanguageDocumentsImportParams creates a new GetKnowledgeKnowledgebaseLanguageDocumentsImportParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportParams() *GetKnowledgeKnowledgebaseLanguageDocumentsImportParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseLanguageDocumentsImportParamsWithTimeout creates a new GetKnowledgeKnowledgebaseLanguageDocumentsImportParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseLanguageDocumentsImportParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseLanguageDocumentsImportParamsWithContext creates a new GetKnowledgeKnowledgebaseLanguageDocumentsImportParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseLanguageDocumentsImportParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseLanguageDocumentsImportParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseLanguageDocumentsImportParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseLanguageDocumentsImportParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase language documents import operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase language documents import operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseLanguageDocumentsImportParams struct {
 
-	/*ImportID
-	  Import ID
+	/* ImportID.
 
+	   Import ID
 	*/
 	ImportID string
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LanguageCode
-	  Language code, format: iso2-LOCALE
 
+	/* LanguageCode.
+
+	   Language code, format: iso2-LOCALE
 	*/
 	LanguageCode string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase language documents import params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportParams) WithDefaults() *GetKnowledgeKnowledgebaseLanguageDocumentsImportParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase language documents import params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase language documents import params

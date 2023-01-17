@@ -95,7 +95,6 @@ func (o *GetDownloadReader) ReadResponse(response runtime.ClientResponse, consum
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetDownloadOK() *GetDownloadOK {
 	return &GetDownloadOK{}
 }
 
-/*GetDownloadOK handles this case with default header values.
+/*
+GetDownloadOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetDownloadOK struct {
 	Payload *models.URLResponse
 }
 
+// IsSuccess returns true when this get download o k response has a 2xx status code
+func (o *GetDownloadOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get download o k response has a 3xx status code
+func (o *GetDownloadOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get download o k response has a 4xx status code
+func (o *GetDownloadOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get download o k response has a 5xx status code
+func (o *GetDownloadOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get download o k response a status code equal to that given
+func (o *GetDownloadOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetDownloadOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadOK  %+v", 200, o.Payload)
+}
+
+func (o *GetDownloadOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetDownloadBadRequest() *GetDownloadBadRequest {
 	return &GetDownloadBadRequest{}
 }
 
-/*GetDownloadBadRequest handles this case with default header values.
+/*
+GetDownloadBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetDownloadBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get download bad request response has a 2xx status code
+func (o *GetDownloadBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get download bad request response has a 3xx status code
+func (o *GetDownloadBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get download bad request response has a 4xx status code
+func (o *GetDownloadBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get download bad request response has a 5xx status code
+func (o *GetDownloadBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get download bad request response a status code equal to that given
+func (o *GetDownloadBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetDownloadBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetDownloadBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetDownloadUnauthorized() *GetDownloadUnauthorized {
 	return &GetDownloadUnauthorized{}
 }
 
-/*GetDownloadUnauthorized handles this case with default header values.
+/*
+GetDownloadUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetDownloadUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get download unauthorized response has a 2xx status code
+func (o *GetDownloadUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get download unauthorized response has a 3xx status code
+func (o *GetDownloadUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get download unauthorized response has a 4xx status code
+func (o *GetDownloadUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get download unauthorized response has a 5xx status code
+func (o *GetDownloadUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get download unauthorized response a status code equal to that given
+func (o *GetDownloadUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetDownloadUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetDownloadUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetDownloadForbidden() *GetDownloadForbidden {
 	return &GetDownloadForbidden{}
 }
 
-/*GetDownloadForbidden handles this case with default header values.
+/*
+GetDownloadForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetDownloadForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get download forbidden response has a 2xx status code
+func (o *GetDownloadForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get download forbidden response has a 3xx status code
+func (o *GetDownloadForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get download forbidden response has a 4xx status code
+func (o *GetDownloadForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get download forbidden response has a 5xx status code
+func (o *GetDownloadForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get download forbidden response a status code equal to that given
+func (o *GetDownloadForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetDownloadForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetDownloadForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetDownloadNotFound() *GetDownloadNotFound {
 	return &GetDownloadNotFound{}
 }
 
-/*GetDownloadNotFound handles this case with default header values.
+/*
+GetDownloadNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetDownloadNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get download not found response has a 2xx status code
+func (o *GetDownloadNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get download not found response has a 3xx status code
+func (o *GetDownloadNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get download not found response has a 4xx status code
+func (o *GetDownloadNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get download not found response has a 5xx status code
+func (o *GetDownloadNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get download not found response a status code equal to that given
+func (o *GetDownloadNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetDownloadNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetDownloadNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetDownloadRequestTimeout() *GetDownloadRequestTimeout {
 	return &GetDownloadRequestTimeout{}
 }
 
-/*GetDownloadRequestTimeout handles this case with default header values.
+/*
+GetDownloadRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetDownloadRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get download request timeout response has a 2xx status code
+func (o *GetDownloadRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get download request timeout response has a 3xx status code
+func (o *GetDownloadRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get download request timeout response has a 4xx status code
+func (o *GetDownloadRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get download request timeout response has a 5xx status code
+func (o *GetDownloadRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get download request timeout response a status code equal to that given
+func (o *GetDownloadRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetDownloadRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetDownloadRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetDownloadRequestEntityTooLarge() *GetDownloadRequestEntityTooLarge {
 	return &GetDownloadRequestEntityTooLarge{}
 }
 
-/*GetDownloadRequestEntityTooLarge handles this case with default header values.
+/*
+GetDownloadRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetDownloadRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get download request entity too large response has a 2xx status code
+func (o *GetDownloadRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get download request entity too large response has a 3xx status code
+func (o *GetDownloadRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get download request entity too large response has a 4xx status code
+func (o *GetDownloadRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get download request entity too large response has a 5xx status code
+func (o *GetDownloadRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get download request entity too large response a status code equal to that given
+func (o *GetDownloadRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetDownloadRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetDownloadRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetDownloadUnsupportedMediaType() *GetDownloadUnsupportedMediaType {
 	return &GetDownloadUnsupportedMediaType{}
 }
 
-/*GetDownloadUnsupportedMediaType handles this case with default header values.
+/*
+GetDownloadUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetDownloadUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get download unsupported media type response has a 2xx status code
+func (o *GetDownloadUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get download unsupported media type response has a 3xx status code
+func (o *GetDownloadUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get download unsupported media type response has a 4xx status code
+func (o *GetDownloadUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get download unsupported media type response has a 5xx status code
+func (o *GetDownloadUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get download unsupported media type response a status code equal to that given
+func (o *GetDownloadUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetDownloadUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetDownloadUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetDownloadTooManyRequests() *GetDownloadTooManyRequests {
 	return &GetDownloadTooManyRequests{}
 }
 
-/*GetDownloadTooManyRequests handles this case with default header values.
+/*
+GetDownloadTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetDownloadTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get download too many requests response has a 2xx status code
+func (o *GetDownloadTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get download too many requests response has a 3xx status code
+func (o *GetDownloadTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get download too many requests response has a 4xx status code
+func (o *GetDownloadTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get download too many requests response has a 5xx status code
+func (o *GetDownloadTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get download too many requests response a status code equal to that given
+func (o *GetDownloadTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetDownloadTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetDownloadTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetDownloadInternalServerError() *GetDownloadInternalServerError {
 	return &GetDownloadInternalServerError{}
 }
 
-/*GetDownloadInternalServerError handles this case with default header values.
+/*
+GetDownloadInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetDownloadInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get download internal server error response has a 2xx status code
+func (o *GetDownloadInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get download internal server error response has a 3xx status code
+func (o *GetDownloadInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get download internal server error response has a 4xx status code
+func (o *GetDownloadInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get download internal server error response has a 5xx status code
+func (o *GetDownloadInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get download internal server error response a status code equal to that given
+func (o *GetDownloadInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetDownloadInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetDownloadInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetDownloadServiceUnavailable() *GetDownloadServiceUnavailable {
 	return &GetDownloadServiceUnavailable{}
 }
 
-/*GetDownloadServiceUnavailable handles this case with default header values.
+/*
+GetDownloadServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetDownloadServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get download service unavailable response has a 2xx status code
+func (o *GetDownloadServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get download service unavailable response has a 3xx status code
+func (o *GetDownloadServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get download service unavailable response has a 4xx status code
+func (o *GetDownloadServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get download service unavailable response has a 5xx status code
+func (o *GetDownloadServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get download service unavailable response a status code equal to that given
+func (o *GetDownloadServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetDownloadServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetDownloadServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetDownloadGatewayTimeout() *GetDownloadGatewayTimeout {
 	return &GetDownloadGatewayTimeout{}
 }
 
-/*GetDownloadGatewayTimeout handles this case with default header values.
+/*
+GetDownloadGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetDownloadGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get download gateway timeout response has a 2xx status code
+func (o *GetDownloadGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get download gateway timeout response has a 3xx status code
+func (o *GetDownloadGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get download gateway timeout response has a 4xx status code
+func (o *GetDownloadGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get download gateway timeout response has a 5xx status code
+func (o *GetDownloadGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get download gateway timeout response a status code equal to that given
+func (o *GetDownloadGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetDownloadGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetDownloadGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/downloads/{downloadId}][%d] getDownloadGatewayTimeout  %+v", 504, o.Payload)
 }
 

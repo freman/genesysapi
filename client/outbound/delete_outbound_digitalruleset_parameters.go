@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteOutboundDigitalrulesetParams creates a new DeleteOutboundDigitalrulesetParams object
-// with the default values initialized.
+// NewDeleteOutboundDigitalrulesetParams creates a new DeleteOutboundDigitalrulesetParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundDigitalrulesetParams() *DeleteOutboundDigitalrulesetParams {
-	var ()
 	return &DeleteOutboundDigitalrulesetParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundDigitalrulesetParamsWithTimeout creates a new DeleteOutboundDigitalrulesetParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundDigitalrulesetParamsWithTimeout(timeout time.Duration) *DeleteOutboundDigitalrulesetParams {
-	var ()
 	return &DeleteOutboundDigitalrulesetParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundDigitalrulesetParamsWithContext creates a new DeleteOutboundDigitalrulesetParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundDigitalrulesetParamsWithContext(ctx context.Context) *DeleteOutboundDigitalrulesetParams {
-	var ()
 	return &DeleteOutboundDigitalrulesetParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundDigitalrulesetParamsWithHTTPClient creates a new DeleteOutboundDigitalrulesetParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundDigitalrulesetParamsWithHTTPClient(client *http.Client) *DeleteOutboundDigitalrulesetParams {
-	var ()
 	return &DeleteOutboundDigitalrulesetParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundDigitalrulesetParams contains all the parameters to send to the API endpoint
-for the delete outbound digitalruleset operation typically these are written to a http.Request
+/*
+DeleteOutboundDigitalrulesetParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound digitalruleset operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundDigitalrulesetParams struct {
 
-	/*DigitalRuleSetID
-	  The Digital Rule Set ID
+	/* DigitalRuleSetID.
 
+	   The Digital Rule Set ID
 	*/
 	DigitalRuleSetID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound digitalruleset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundDigitalrulesetParams) WithDefaults() *DeleteOutboundDigitalrulesetParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound digitalruleset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundDigitalrulesetParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound digitalruleset params

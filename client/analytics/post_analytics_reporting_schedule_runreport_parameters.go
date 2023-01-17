@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostAnalyticsReportingScheduleRunreportParams creates a new PostAnalyticsReportingScheduleRunreportParams object
-// with the default values initialized.
+// NewPostAnalyticsReportingScheduleRunreportParams creates a new PostAnalyticsReportingScheduleRunreportParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAnalyticsReportingScheduleRunreportParams() *PostAnalyticsReportingScheduleRunreportParams {
-	var ()
 	return &PostAnalyticsReportingScheduleRunreportParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAnalyticsReportingScheduleRunreportParamsWithTimeout creates a new PostAnalyticsReportingScheduleRunreportParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAnalyticsReportingScheduleRunreportParamsWithTimeout(timeout time.Duration) *PostAnalyticsReportingScheduleRunreportParams {
-	var ()
 	return &PostAnalyticsReportingScheduleRunreportParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAnalyticsReportingScheduleRunreportParamsWithContext creates a new PostAnalyticsReportingScheduleRunreportParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAnalyticsReportingScheduleRunreportParamsWithContext(ctx context.Context) *PostAnalyticsReportingScheduleRunreportParams {
-	var ()
 	return &PostAnalyticsReportingScheduleRunreportParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostAnalyticsReportingScheduleRunreportParamsWithHTTPClient creates a new PostAnalyticsReportingScheduleRunreportParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAnalyticsReportingScheduleRunreportParamsWithHTTPClient(client *http.Client) *PostAnalyticsReportingScheduleRunreportParams {
-	var ()
 	return &PostAnalyticsReportingScheduleRunreportParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostAnalyticsReportingScheduleRunreportParams contains all the parameters to send to the API endpoint
-for the post analytics reporting schedule runreport operation typically these are written to a http.Request
+/*
+PostAnalyticsReportingScheduleRunreportParams contains all the parameters to send to the API endpoint
+
+	for the post analytics reporting schedule runreport operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAnalyticsReportingScheduleRunreportParams struct {
 
-	/*ScheduleID
-	  Schedule ID
+	/* ScheduleID.
 
+	   Schedule ID
 	*/
 	ScheduleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post analytics reporting schedule runreport params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsReportingScheduleRunreportParams) WithDefaults() *PostAnalyticsReportingScheduleRunreportParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post analytics reporting schedule runreport params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsReportingScheduleRunreportParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post analytics reporting schedule runreport params

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -128,6 +129,8 @@ func (m *AgentlessEmailSendResponseDto) validateFromAddress(formats strfmt.Regis
 		if err := m.FromAddress.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("fromAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fromAddress")
 			}
 			return err
 		}
@@ -137,7 +140,6 @@ func (m *AgentlessEmailSendResponseDto) validateFromAddress(formats strfmt.Regis
 }
 
 func (m *AgentlessEmailSendResponseDto) validateReplyToAddress(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReplyToAddress) { // not required
 		return nil
 	}
@@ -146,6 +148,8 @@ func (m *AgentlessEmailSendResponseDto) validateReplyToAddress(formats strfmt.Re
 		if err := m.ReplyToAddress.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("replyToAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("replyToAddress")
 			}
 			return err
 		}
@@ -155,7 +159,6 @@ func (m *AgentlessEmailSendResponseDto) validateReplyToAddress(formats strfmt.Re
 }
 
 func (m *AgentlessEmailSendResponseDto) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -228,6 +231,108 @@ func (m *AgentlessEmailSendResponseDto) validateToAddresses(formats strfmt.Regis
 			if err := m.ToAddresses[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("toAddresses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("toAddresses" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this agentless email send response dto based on the context it is used
+func (m *AgentlessEmailSendResponseDto) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFromAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReplyToAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateToAddresses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AgentlessEmailSendResponseDto) contextValidateFromAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FromAddress != nil {
+		if err := m.FromAddress.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fromAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fromAddress")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AgentlessEmailSendResponseDto) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AgentlessEmailSendResponseDto) contextValidateReplyToAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReplyToAddress != nil {
+		if err := m.ReplyToAddress.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("replyToAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("replyToAddress")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AgentlessEmailSendResponseDto) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AgentlessEmailSendResponseDto) contextValidateToAddresses(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ToAddresses); i++ {
+
+		if m.ToAddresses[i] != nil {
+			if err := m.ToAddresses[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("toAddresses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("toAddresses" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

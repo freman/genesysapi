@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostExternalcontactsBulkNotesRemoveParams creates a new PostExternalcontactsBulkNotesRemoveParams object
-// with the default values initialized.
+// NewPostExternalcontactsBulkNotesRemoveParams creates a new PostExternalcontactsBulkNotesRemoveParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostExternalcontactsBulkNotesRemoveParams() *PostExternalcontactsBulkNotesRemoveParams {
-	var ()
 	return &PostExternalcontactsBulkNotesRemoveParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostExternalcontactsBulkNotesRemoveParamsWithTimeout creates a new PostExternalcontactsBulkNotesRemoveParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostExternalcontactsBulkNotesRemoveParamsWithTimeout(timeout time.Duration) *PostExternalcontactsBulkNotesRemoveParams {
-	var ()
 	return &PostExternalcontactsBulkNotesRemoveParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostExternalcontactsBulkNotesRemoveParamsWithContext creates a new PostExternalcontactsBulkNotesRemoveParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostExternalcontactsBulkNotesRemoveParamsWithContext(ctx context.Context) *PostExternalcontactsBulkNotesRemoveParams {
-	var ()
 	return &PostExternalcontactsBulkNotesRemoveParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostExternalcontactsBulkNotesRemoveParamsWithHTTPClient creates a new PostExternalcontactsBulkNotesRemoveParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostExternalcontactsBulkNotesRemoveParamsWithHTTPClient(client *http.Client) *PostExternalcontactsBulkNotesRemoveParams {
-	var ()
 	return &PostExternalcontactsBulkNotesRemoveParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostExternalcontactsBulkNotesRemoveParams contains all the parameters to send to the API endpoint
-for the post externalcontacts bulk notes remove operation typically these are written to a http.Request
+/*
+PostExternalcontactsBulkNotesRemoveParams contains all the parameters to send to the API endpoint
+
+	for the post externalcontacts bulk notes remove operation.
+
+	Typically these are written to a http.Request.
 */
 type PostExternalcontactsBulkNotesRemoveParams struct {
 
-	/*Body
-	  Note ids
+	/* Body.
 
+	   Note ids
 	*/
 	Body *models.BulkIdsRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post externalcontacts bulk notes remove params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsBulkNotesRemoveParams) WithDefaults() *PostExternalcontactsBulkNotesRemoveParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post externalcontacts bulk notes remove params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsBulkNotesRemoveParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post externalcontacts bulk notes remove params
@@ -124,7 +140,6 @@ func (o *PostExternalcontactsBulkNotesRemoveParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

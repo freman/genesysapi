@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -72,7 +73,6 @@ func (m *CampaignInteractions) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CampaignInteractions) validateCampaign(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Campaign) { // not required
 		return nil
 	}
@@ -81,6 +81,8 @@ func (m *CampaignInteractions) validateCampaign(formats strfmt.Registry) error {
 		if err := m.Campaign.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("campaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("campaign")
 			}
 			return err
 		}
@@ -90,7 +92,6 @@ func (m *CampaignInteractions) validateCampaign(formats strfmt.Registry) error {
 }
 
 func (m *CampaignInteractions) validateInteractingInteractions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InteractingInteractions) { // not required
 		return nil
 	}
@@ -104,6 +105,8 @@ func (m *CampaignInteractions) validateInteractingInteractions(formats strfmt.Re
 			if err := m.InteractingInteractions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("interactingInteractions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interactingInteractions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -115,7 +118,6 @@ func (m *CampaignInteractions) validateInteractingInteractions(formats strfmt.Re
 }
 
 func (m *CampaignInteractions) validatePendingInteractions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PendingInteractions) { // not required
 		return nil
 	}
@@ -129,6 +131,8 @@ func (m *CampaignInteractions) validatePendingInteractions(formats strfmt.Regist
 			if err := m.PendingInteractions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("pendingInteractions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("pendingInteractions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -140,7 +144,6 @@ func (m *CampaignInteractions) validatePendingInteractions(formats strfmt.Regist
 }
 
 func (m *CampaignInteractions) validatePreviewingInteractions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PreviewingInteractions) { // not required
 		return nil
 	}
@@ -154,6 +157,8 @@ func (m *CampaignInteractions) validatePreviewingInteractions(formats strfmt.Reg
 			if err := m.PreviewingInteractions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("previewingInteractions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("previewingInteractions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -165,7 +170,6 @@ func (m *CampaignInteractions) validatePreviewingInteractions(formats strfmt.Reg
 }
 
 func (m *CampaignInteractions) validateProceedingInteractions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProceedingInteractions) { // not required
 		return nil
 	}
@@ -179,6 +183,8 @@ func (m *CampaignInteractions) validateProceedingInteractions(formats strfmt.Reg
 			if err := m.ProceedingInteractions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("proceedingInteractions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("proceedingInteractions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -190,7 +196,6 @@ func (m *CampaignInteractions) validateProceedingInteractions(formats strfmt.Reg
 }
 
 func (m *CampaignInteractions) validateScheduledInteractions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScheduledInteractions) { // not required
 		return nil
 	}
@@ -204,6 +209,158 @@ func (m *CampaignInteractions) validateScheduledInteractions(formats strfmt.Regi
 			if err := m.ScheduledInteractions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("scheduledInteractions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scheduledInteractions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this campaign interactions based on the context it is used
+func (m *CampaignInteractions) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCampaign(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInteractingInteractions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePendingInteractions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePreviewingInteractions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProceedingInteractions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScheduledInteractions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CampaignInteractions) contextValidateCampaign(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Campaign != nil {
+		if err := m.Campaign.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("campaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("campaign")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignInteractions) contextValidateInteractingInteractions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.InteractingInteractions); i++ {
+
+		if m.InteractingInteractions[i] != nil {
+			if err := m.InteractingInteractions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("interactingInteractions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("interactingInteractions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CampaignInteractions) contextValidatePendingInteractions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PendingInteractions); i++ {
+
+		if m.PendingInteractions[i] != nil {
+			if err := m.PendingInteractions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("pendingInteractions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("pendingInteractions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CampaignInteractions) contextValidatePreviewingInteractions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PreviewingInteractions); i++ {
+
+		if m.PreviewingInteractions[i] != nil {
+			if err := m.PreviewingInteractions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("previewingInteractions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("previewingInteractions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CampaignInteractions) contextValidateProceedingInteractions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ProceedingInteractions); i++ {
+
+		if m.ProceedingInteractions[i] != nil {
+			if err := m.ProceedingInteractions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("proceedingInteractions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("proceedingInteractions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CampaignInteractions) contextValidateScheduledInteractions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ScheduledInteractions); i++ {
+
+		if m.ScheduledInteractions[i] != nil {
+			if err := m.ScheduledInteractions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scheduledInteractions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scheduledInteractions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

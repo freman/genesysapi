@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -67,7 +69,6 @@ func (m *DomainPermissionPolicy) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DomainPermissionPolicy) validateActionSet(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionSet) { // not required
 		return nil
 	}
@@ -80,7 +81,6 @@ func (m *DomainPermissionPolicy) validateActionSet(formats strfmt.Registry) erro
 }
 
 func (m *DomainPermissionPolicy) validateNamedResources(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NamedResources) { // not required
 		return nil
 	}
@@ -93,7 +93,6 @@ func (m *DomainPermissionPolicy) validateNamedResources(formats strfmt.Registry)
 }
 
 func (m *DomainPermissionPolicy) validateResourceConditionNode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ResourceConditionNode) { // not required
 		return nil
 	}
@@ -102,6 +101,38 @@ func (m *DomainPermissionPolicy) validateResourceConditionNode(formats strfmt.Re
 		if err := m.ResourceConditionNode.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("resourceConditionNode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resourceConditionNode")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain permission policy based on the context it is used
+func (m *DomainPermissionPolicy) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateResourceConditionNode(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainPermissionPolicy) contextValidateResourceConditionNode(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ResourceConditionNode != nil {
+		if err := m.ResourceConditionNode.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resourceConditionNode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resourceConditionNode")
 			}
 			return err
 		}

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -85,6 +86,8 @@ func (m *AgentlessEmailSendRequestDto) validateFromAddress(formats strfmt.Regist
 		if err := m.FromAddress.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("fromAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fromAddress")
 			}
 			return err
 		}
@@ -94,7 +97,6 @@ func (m *AgentlessEmailSendRequestDto) validateFromAddress(formats strfmt.Regist
 }
 
 func (m *AgentlessEmailSendRequestDto) validateReplyToAddress(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReplyToAddress) { // not required
 		return nil
 	}
@@ -103,6 +105,8 @@ func (m *AgentlessEmailSendRequestDto) validateReplyToAddress(formats strfmt.Reg
 		if err := m.ReplyToAddress.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("replyToAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("replyToAddress")
 			}
 			return err
 		}
@@ -172,6 +176,82 @@ func (m *AgentlessEmailSendRequestDto) validateToAddresses(formats strfmt.Regist
 			if err := m.ToAddresses[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("toAddresses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("toAddresses" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this agentless email send request dto based on the context it is used
+func (m *AgentlessEmailSendRequestDto) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFromAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReplyToAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateToAddresses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AgentlessEmailSendRequestDto) contextValidateFromAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FromAddress != nil {
+		if err := m.FromAddress.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("fromAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("fromAddress")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AgentlessEmailSendRequestDto) contextValidateReplyToAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReplyToAddress != nil {
+		if err := m.ReplyToAddress.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("replyToAddress")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("replyToAddress")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AgentlessEmailSendRequestDto) contextValidateToAddresses(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ToAddresses); i++ {
+
+		if m.ToAddresses[i] != nil {
+			if err := m.ToAddresses[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("toAddresses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("toAddresses" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

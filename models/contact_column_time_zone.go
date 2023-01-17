@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -72,13 +73,35 @@ func (m *ContactColumnTimeZone) validateColumnTypeEnum(path, location string, va
 }
 
 func (m *ContactColumnTimeZone) validateColumnType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ColumnType) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateColumnTypeEnum("columnType", "body", m.ColumnType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this contact column time zone based on the context it is used
+func (m *ContactColumnTimeZone) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateColumnType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ContactColumnTimeZone) contextValidateColumnType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "columnType", "body", string(m.ColumnType)); err != nil {
 		return err
 	}
 

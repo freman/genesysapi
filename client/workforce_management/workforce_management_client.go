@@ -76,6 +76,20 @@ type API interface {
 	*/
 	GetWorkforcemanagementAdherence(ctx context.Context, params *GetWorkforcemanagementAdherenceParams) (*GetWorkforcemanagementAdherenceOK, error)
 	/*
+	   GetWorkforcemanagementAdherenceExplanation gets an adherence explanation for the current user
+	*/
+	GetWorkforcemanagementAdherenceExplanation(ctx context.Context, params *GetWorkforcemanagementAdherenceExplanationParams) (*GetWorkforcemanagementAdherenceExplanationOK, error)
+	/*
+	   GetWorkforcemanagementAdherenceExplanationsJob queries the status of an adherence explanation operation only the user who started the operation can query the status
+	   Job details are only retained if the initial request returned a 202 ACCEPTED response
+	*/
+	GetWorkforcemanagementAdherenceExplanationsJob(ctx context.Context, params *GetWorkforcemanagementAdherenceExplanationsJobParams) (*GetWorkforcemanagementAdherenceExplanationsJobOK, error)
+	/*
+	   GetWorkforcemanagementAdherenceHistoricalBulkJob requests to fetch the status of the historical adherence bulk job only the user who started the operation can query the status
+	   Job details are only retained if the initial request returned a 202 ACCEPTED response
+	*/
+	GetWorkforcemanagementAdherenceHistoricalBulkJob(ctx context.Context, params *GetWorkforcemanagementAdherenceHistoricalBulkJobParams) (*GetWorkforcemanagementAdherenceHistoricalBulkJobOK, error)
+	/*
 	   GetWorkforcemanagementAdherenceHistoricalJob queries the status of a historical adherence request operation only the user who started the operation can query the status
 	   Job details are only retained if the initial request returned a 202 ACCEPTED response
 	*/
@@ -84,6 +98,10 @@ type API interface {
 	   GetWorkforcemanagementAdhocmodelingjob gets status of the modeling job
 	*/
 	GetWorkforcemanagementAdhocmodelingjob(ctx context.Context, params *GetWorkforcemanagementAdhocmodelingjobParams) (*GetWorkforcemanagementAdhocmodelingjobOK, error)
+	/*
+	   GetWorkforcemanagementAgentAdherenceExplanation gets an adherence explanation
+	*/
+	GetWorkforcemanagementAgentAdherenceExplanation(ctx context.Context, params *GetWorkforcemanagementAgentAdherenceExplanationParams) (*GetWorkforcemanagementAgentAdherenceExplanationOK, error)
 	/*
 	   GetWorkforcemanagementAgentManagementunit gets the management unit to which the agent belongs
 	*/
@@ -327,6 +345,10 @@ type API interface {
 	*/
 	GetWorkforcemanagementShifttrades(ctx context.Context, params *GetWorkforcemanagementShifttradesParams) (*GetWorkforcemanagementShifttradesOK, error)
 	/*
+	   GetWorkforcemanagementShrinkageJob requests to fetch the status of the historical shrinkage query
+	*/
+	GetWorkforcemanagementShrinkageJob(ctx context.Context, params *GetWorkforcemanagementShrinkageJobParams) (*GetWorkforcemanagementShrinkageJobOK, error)
+	/*
 	   GetWorkforcemanagementTimeoffrequest gets a time off request for the current user
 	*/
 	GetWorkforcemanagementTimeoffrequest(ctx context.Context, params *GetWorkforcemanagementTimeoffrequestParams) (*GetWorkforcemanagementTimeoffrequestOK, error)
@@ -338,6 +360,10 @@ type API interface {
 	   GetWorkforcemanagementTimeoffrequests gets a list of time off requests for the current user
 	*/
 	GetWorkforcemanagementTimeoffrequests(ctx context.Context, params *GetWorkforcemanagementTimeoffrequestsParams) (*GetWorkforcemanagementTimeoffrequestsOK, error)
+	/*
+	   PatchWorkforcemanagementAgentAdherenceExplanation updates an adherence explanation
+	*/
+	PatchWorkforcemanagementAgentAdherenceExplanation(ctx context.Context, params *PatchWorkforcemanagementAgentAdherenceExplanationParams) (*PatchWorkforcemanagementAgentAdherenceExplanationOK, *PatchWorkforcemanagementAgentAdherenceExplanationAccepted, error)
 	/*
 	   PatchWorkforcemanagementBusinessunit updates business unit
 	*/
@@ -392,9 +418,29 @@ type API interface {
 	*/
 	PatchWorkforcemanagementTimeoffrequest(ctx context.Context, params *PatchWorkforcemanagementTimeoffrequestParams) (*PatchWorkforcemanagementTimeoffrequestOK, error)
 	/*
+	   PostWorkforcemanagementAdherenceExplanations submits an adherence explanation for the current user
+	*/
+	PostWorkforcemanagementAdherenceExplanations(ctx context.Context, params *PostWorkforcemanagementAdherenceExplanationsParams) (*PostWorkforcemanagementAdherenceExplanationsAccepted, error)
+	/*
+	   PostWorkforcemanagementAdherenceExplanationsQuery queries adherence explanations for the current user
+	*/
+	PostWorkforcemanagementAdherenceExplanationsQuery(ctx context.Context, params *PostWorkforcemanagementAdherenceExplanationsQueryParams) (*PostWorkforcemanagementAdherenceExplanationsQueryAccepted, error)
+	/*
 	   PostWorkforcemanagementAdherenceHistorical requests a historical adherence report for users across management units
 	*/
 	PostWorkforcemanagementAdherenceHistorical(ctx context.Context, params *PostWorkforcemanagementAdherenceHistoricalParams) (*PostWorkforcemanagementAdherenceHistoricalAccepted, error)
+	/*
+	   PostWorkforcemanagementAdherenceHistoricalBulk requests a historical adherence report in bulk
+	*/
+	PostWorkforcemanagementAdherenceHistoricalBulk(ctx context.Context, params *PostWorkforcemanagementAdherenceHistoricalBulkParams) (*PostWorkforcemanagementAdherenceHistoricalBulkAccepted, error)
+	/*
+	   PostWorkforcemanagementAgentAdherenceExplanations adds an adherence explanation for the requested user
+	*/
+	PostWorkforcemanagementAgentAdherenceExplanations(ctx context.Context, params *PostWorkforcemanagementAgentAdherenceExplanationsParams) (*PostWorkforcemanagementAgentAdherenceExplanationsAccepted, error)
+	/*
+	   PostWorkforcemanagementAgentAdherenceExplanationsQuery queries adherence explanations for the given agent across a specified range
+	*/
+	PostWorkforcemanagementAgentAdherenceExplanationsQuery(ctx context.Context, params *PostWorkforcemanagementAgentAdherenceExplanationsQueryParams) (*PostWorkforcemanagementAgentAdherenceExplanationsQueryOK, *PostWorkforcemanagementAgentAdherenceExplanationsQueryAccepted, error)
 	/*
 	   PostWorkforcemanagementAgentschedulesMine gets published schedule for the current user
 	*/
@@ -403,6 +449,10 @@ type API interface {
 	   PostWorkforcemanagementBusinessunitActivitycodes creates a new activity code
 	*/
 	PostWorkforcemanagementBusinessunitActivitycodes(ctx context.Context, params *PostWorkforcemanagementBusinessunitActivitycodesParams) (*PostWorkforcemanagementBusinessunitActivitycodesOK, error)
+	/*
+	   PostWorkforcemanagementBusinessunitAdherenceExplanationsQuery queries adherence explanations across an entire business unit for the requested period
+	*/
+	PostWorkforcemanagementBusinessunitAdherenceExplanationsQuery(ctx context.Context, params *PostWorkforcemanagementBusinessunitAdherenceExplanationsQueryParams) (*PostWorkforcemanagementBusinessunitAdherenceExplanationsQueryOK, *PostWorkforcemanagementBusinessunitAdherenceExplanationsQueryAccepted, error)
 	/*
 	   PostWorkforcemanagementBusinessunitAgentschedulesSearch searches published schedules
 	*/
@@ -513,6 +563,11 @@ type API interface {
 	*/
 	PostWorkforcemanagementManagementunitSchedulesSearch(ctx context.Context, params *PostWorkforcemanagementManagementunitSchedulesSearchParams) (*PostWorkforcemanagementManagementunitSchedulesSearchOK, error)
 	/*
+	   PostWorkforcemanagementManagementunitShrinkageJobs requests a historical shrinkage report
+	   The maximum supported range for historical shrinkage queries is up to 32 days. Historical Shrinkage for a given date range can be queried in two modes - granular and aggregated. To see granular shrinkage information, provide granularity in the request body.
+	*/
+	PostWorkforcemanagementManagementunitShrinkageJobs(ctx context.Context, params *PostWorkforcemanagementManagementunitShrinkageJobsParams) (*PostWorkforcemanagementManagementunitShrinkageJobsAccepted, error)
+	/*
 	   PostWorkforcemanagementManagementunitTimeofflimits creates a new time off limit object under management unit
 	   Only one limit object is allowed under management unit, so an attempt to create second object will fail.
 	*/
@@ -538,6 +593,14 @@ type API interface {
 	   PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQuery retrieves daily waitlist position for a list of time off requests
 	*/
 	PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQuery(ctx context.Context, params *PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQueryParams) (*PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQueryOK, error)
+	/*
+	   PostWorkforcemanagementManagementunitUserTimeoffbalanceJobs queries time off balances for a given user for specified activity code and dates
+	*/
+	PostWorkforcemanagementManagementunitUserTimeoffbalanceJobs(ctx context.Context, params *PostWorkforcemanagementManagementunitUserTimeoffbalanceJobsParams) (*PostWorkforcemanagementManagementunitUserTimeoffbalanceJobsOK, *PostWorkforcemanagementManagementunitUserTimeoffbalanceJobsAccepted, error)
+	/*
+	   PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobs queries time off balances for dates spanned by a given time off request
+	*/
+	PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobs(ctx context.Context, params *PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobsParams) (*PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobsOK, *PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobsAccepted, error)
 	/*
 	   PostWorkforcemanagementManagementunitWeekShifttradeMatch matches a shift trade this route can only be called by the receiving agent
 	*/
@@ -982,6 +1045,85 @@ func (a *Client) GetWorkforcemanagementAdherence(ctx context.Context, params *Ge
 }
 
 /*
+GetWorkforcemanagementAdherenceExplanation gets an adherence explanation for the current user
+*/
+func (a *Client) GetWorkforcemanagementAdherenceExplanation(ctx context.Context, params *GetWorkforcemanagementAdherenceExplanationParams) (*GetWorkforcemanagementAdherenceExplanationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementAdherenceExplanation",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/adherence/explanations/{explanationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementAdherenceExplanationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementAdherenceExplanationOK), nil
+
+}
+
+/*
+GetWorkforcemanagementAdherenceExplanationsJob queries the status of an adherence explanation operation only the user who started the operation can query the status
+
+Job details are only retained if the initial request returned a 202 ACCEPTED response
+*/
+func (a *Client) GetWorkforcemanagementAdherenceExplanationsJob(ctx context.Context, params *GetWorkforcemanagementAdherenceExplanationsJobParams) (*GetWorkforcemanagementAdherenceExplanationsJobOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementAdherenceExplanationsJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/adherence/explanations/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementAdherenceExplanationsJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementAdherenceExplanationsJobOK), nil
+
+}
+
+/*
+GetWorkforcemanagementAdherenceHistoricalBulkJob requests to fetch the status of the historical adherence bulk job only the user who started the operation can query the status
+
+Job details are only retained if the initial request returned a 202 ACCEPTED response
+*/
+func (a *Client) GetWorkforcemanagementAdherenceHistoricalBulkJob(ctx context.Context, params *GetWorkforcemanagementAdherenceHistoricalBulkJobParams) (*GetWorkforcemanagementAdherenceHistoricalBulkJobOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementAdherenceHistoricalBulkJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/adherence/historical/bulk/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementAdherenceHistoricalBulkJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementAdherenceHistoricalBulkJobOK), nil
+
+}
+
+/*
 GetWorkforcemanagementAdherenceHistoricalJob queries the status of a historical adherence request operation only the user who started the operation can query the status
 
 Job details are only retained if the initial request returned a 202 ACCEPTED response
@@ -1030,6 +1172,31 @@ func (a *Client) GetWorkforcemanagementAdhocmodelingjob(ctx context.Context, par
 		return nil, err
 	}
 	return result.(*GetWorkforcemanagementAdhocmodelingjobOK), nil
+
+}
+
+/*
+GetWorkforcemanagementAgentAdherenceExplanation gets an adherence explanation
+*/
+func (a *Client) GetWorkforcemanagementAgentAdherenceExplanation(ctx context.Context, params *GetWorkforcemanagementAgentAdherenceExplanationParams) (*GetWorkforcemanagementAgentAdherenceExplanationOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementAgentAdherenceExplanation",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/agents/{agentId}/adherence/explanations/{explanationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementAgentAdherenceExplanationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementAgentAdherenceExplanationOK), nil
 
 }
 
@@ -2503,6 +2670,31 @@ func (a *Client) GetWorkforcemanagementShifttrades(ctx context.Context, params *
 }
 
 /*
+GetWorkforcemanagementShrinkageJob requests to fetch the status of the historical shrinkage query
+*/
+func (a *Client) GetWorkforcemanagementShrinkageJob(ctx context.Context, params *GetWorkforcemanagementShrinkageJobParams) (*GetWorkforcemanagementShrinkageJobOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getWorkforcemanagementShrinkageJob",
+		Method:             "GET",
+		PathPattern:        "/api/v2/workforcemanagement/shrinkage/jobs/{jobId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetWorkforcemanagementShrinkageJobReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetWorkforcemanagementShrinkageJobOK), nil
+
+}
+
+/*
 GetWorkforcemanagementTimeoffrequest gets a time off request for the current user
 */
 func (a *Client) GetWorkforcemanagementTimeoffrequest(ctx context.Context, params *GetWorkforcemanagementTimeoffrequestParams) (*GetWorkforcemanagementTimeoffrequestOK, error) {
@@ -2574,6 +2766,37 @@ func (a *Client) GetWorkforcemanagementTimeoffrequests(ctx context.Context, para
 		return nil, err
 	}
 	return result.(*GetWorkforcemanagementTimeoffrequestsOK), nil
+
+}
+
+/*
+PatchWorkforcemanagementAgentAdherenceExplanation updates an adherence explanation
+*/
+func (a *Client) PatchWorkforcemanagementAgentAdherenceExplanation(ctx context.Context, params *PatchWorkforcemanagementAgentAdherenceExplanationParams) (*PatchWorkforcemanagementAgentAdherenceExplanationOK, *PatchWorkforcemanagementAgentAdherenceExplanationAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchWorkforcemanagementAgentAdherenceExplanation",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/workforcemanagement/agents/{agentId}/adherence/explanations/{explanationId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchWorkforcemanagementAgentAdherenceExplanationReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PatchWorkforcemanagementAgentAdherenceExplanationOK:
+		return value, nil, nil
+	case *PatchWorkforcemanagementAgentAdherenceExplanationAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -2905,6 +3128,56 @@ func (a *Client) PatchWorkforcemanagementTimeoffrequest(ctx context.Context, par
 }
 
 /*
+PostWorkforcemanagementAdherenceExplanations submits an adherence explanation for the current user
+*/
+func (a *Client) PostWorkforcemanagementAdherenceExplanations(ctx context.Context, params *PostWorkforcemanagementAdherenceExplanationsParams) (*PostWorkforcemanagementAdherenceExplanationsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementAdherenceExplanations",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/adherence/explanations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementAdherenceExplanationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementAdherenceExplanationsAccepted), nil
+
+}
+
+/*
+PostWorkforcemanagementAdherenceExplanationsQuery queries adherence explanations for the current user
+*/
+func (a *Client) PostWorkforcemanagementAdherenceExplanationsQuery(ctx context.Context, params *PostWorkforcemanagementAdherenceExplanationsQueryParams) (*PostWorkforcemanagementAdherenceExplanationsQueryAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementAdherenceExplanationsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/adherence/explanations/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementAdherenceExplanationsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementAdherenceExplanationsQueryAccepted), nil
+
+}
+
+/*
 PostWorkforcemanagementAdherenceHistorical requests a historical adherence report for users across management units
 */
 func (a *Client) PostWorkforcemanagementAdherenceHistorical(ctx context.Context, params *PostWorkforcemanagementAdherenceHistoricalParams) (*PostWorkforcemanagementAdherenceHistoricalAccepted, error) {
@@ -2926,6 +3199,87 @@ func (a *Client) PostWorkforcemanagementAdherenceHistorical(ctx context.Context,
 		return nil, err
 	}
 	return result.(*PostWorkforcemanagementAdherenceHistoricalAccepted), nil
+
+}
+
+/*
+PostWorkforcemanagementAdherenceHistoricalBulk requests a historical adherence report in bulk
+*/
+func (a *Client) PostWorkforcemanagementAdherenceHistoricalBulk(ctx context.Context, params *PostWorkforcemanagementAdherenceHistoricalBulkParams) (*PostWorkforcemanagementAdherenceHistoricalBulkAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementAdherenceHistoricalBulk",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/adherence/historical/bulk",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementAdherenceHistoricalBulkReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementAdherenceHistoricalBulkAccepted), nil
+
+}
+
+/*
+PostWorkforcemanagementAgentAdherenceExplanations adds an adherence explanation for the requested user
+*/
+func (a *Client) PostWorkforcemanagementAgentAdherenceExplanations(ctx context.Context, params *PostWorkforcemanagementAgentAdherenceExplanationsParams) (*PostWorkforcemanagementAgentAdherenceExplanationsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementAgentAdherenceExplanations",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/agents/{agentId}/adherence/explanations",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementAgentAdherenceExplanationsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementAgentAdherenceExplanationsAccepted), nil
+
+}
+
+/*
+PostWorkforcemanagementAgentAdherenceExplanationsQuery queries adherence explanations for the given agent across a specified range
+*/
+func (a *Client) PostWorkforcemanagementAgentAdherenceExplanationsQuery(ctx context.Context, params *PostWorkforcemanagementAgentAdherenceExplanationsQueryParams) (*PostWorkforcemanagementAgentAdherenceExplanationsQueryOK, *PostWorkforcemanagementAgentAdherenceExplanationsQueryAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementAgentAdherenceExplanationsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/agents/{agentId}/adherence/explanations/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementAgentAdherenceExplanationsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementAgentAdherenceExplanationsQueryOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementAgentAdherenceExplanationsQueryAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -2976,6 +3330,37 @@ func (a *Client) PostWorkforcemanagementBusinessunitActivitycodes(ctx context.Co
 		return nil, err
 	}
 	return result.(*PostWorkforcemanagementBusinessunitActivitycodesOK), nil
+
+}
+
+/*
+PostWorkforcemanagementBusinessunitAdherenceExplanationsQuery queries adherence explanations across an entire business unit for the requested period
+*/
+func (a *Client) PostWorkforcemanagementBusinessunitAdherenceExplanationsQuery(ctx context.Context, params *PostWorkforcemanagementBusinessunitAdherenceExplanationsQueryParams) (*PostWorkforcemanagementBusinessunitAdherenceExplanationsQueryOK, *PostWorkforcemanagementBusinessunitAdherenceExplanationsQueryAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementBusinessunitAdherenceExplanationsQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/businessunits/{businessUnitId}/adherence/explanations/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementBusinessunitAdherenceExplanationsQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementBusinessunitAdherenceExplanationsQueryOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementBusinessunitAdherenceExplanationsQueryAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 
@@ -3731,6 +4116,33 @@ func (a *Client) PostWorkforcemanagementManagementunitSchedulesSearch(ctx contex
 }
 
 /*
+PostWorkforcemanagementManagementunitShrinkageJobs requests a historical shrinkage report
+
+The maximum supported range for historical shrinkage queries is up to 32 days. Historical Shrinkage for a given date range can be queried in two modes - granular and aggregated. To see granular shrinkage information, provide granularity in the request body.
+*/
+func (a *Client) PostWorkforcemanagementManagementunitShrinkageJobs(ctx context.Context, params *PostWorkforcemanagementManagementunitShrinkageJobsParams) (*PostWorkforcemanagementManagementunitShrinkageJobsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementManagementunitShrinkageJobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/shrinkage/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementManagementunitShrinkageJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWorkforcemanagementManagementunitShrinkageJobsAccepted), nil
+
+}
+
+/*
 PostWorkforcemanagementManagementunitTimeofflimits creates a new time off limit object under management unit
 
 Only one limit object is allowed under management unit, so an attempt to create second object will fail.
@@ -3893,6 +4305,68 @@ func (a *Client) PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpos
 		return nil, err
 	}
 	return result.(*PostWorkforcemanagementManagementunitTimeoffrequestsWaitlistpositionsQueryOK), nil
+
+}
+
+/*
+PostWorkforcemanagementManagementunitUserTimeoffbalanceJobs queries time off balances for a given user for specified activity code and dates
+*/
+func (a *Client) PostWorkforcemanagementManagementunitUserTimeoffbalanceJobs(ctx context.Context, params *PostWorkforcemanagementManagementunitUserTimeoffbalanceJobsParams) (*PostWorkforcemanagementManagementunitUserTimeoffbalanceJobsOK, *PostWorkforcemanagementManagementunitUserTimeoffbalanceJobsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementManagementunitUserTimeoffbalanceJobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffbalance/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementManagementunitUserTimeoffbalanceJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementManagementunitUserTimeoffbalanceJobsOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementManagementunitUserTimeoffbalanceJobsAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
+
+}
+
+/*
+PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobs queries time off balances for dates spanned by a given time off request
+*/
+func (a *Client) PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobs(ctx context.Context, params *PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobsParams) (*PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobsOK, *PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobs",
+		Method:             "POST",
+		PathPattern:        "/api/v2/workforcemanagement/managementunits/{managementUnitId}/users/{userId}/timeoffrequests/{timeOffRequestId}/timeoffbalance/jobs",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, nil, err
+	}
+	switch value := result.(type) {
+	case *PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobsOK:
+		return value, nil, nil
+	case *PostWorkforcemanagementManagementunitUserTimeoffrequestTimeoffbalanceJobsAccepted:
+		return nil, value, nil
+	}
+	return nil, nil, nil
 
 }
 

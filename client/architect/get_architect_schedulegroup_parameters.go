@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetArchitectSchedulegroupParams creates a new GetArchitectSchedulegroupParams object
-// with the default values initialized.
+// NewGetArchitectSchedulegroupParams creates a new GetArchitectSchedulegroupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetArchitectSchedulegroupParams() *GetArchitectSchedulegroupParams {
-	var ()
 	return &GetArchitectSchedulegroupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetArchitectSchedulegroupParamsWithTimeout creates a new GetArchitectSchedulegroupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetArchitectSchedulegroupParamsWithTimeout(timeout time.Duration) *GetArchitectSchedulegroupParams {
-	var ()
 	return &GetArchitectSchedulegroupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetArchitectSchedulegroupParamsWithContext creates a new GetArchitectSchedulegroupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetArchitectSchedulegroupParamsWithContext(ctx context.Context) *GetArchitectSchedulegroupParams {
-	var ()
 	return &GetArchitectSchedulegroupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetArchitectSchedulegroupParamsWithHTTPClient creates a new GetArchitectSchedulegroupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetArchitectSchedulegroupParamsWithHTTPClient(client *http.Client) *GetArchitectSchedulegroupParams {
-	var ()
 	return &GetArchitectSchedulegroupParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetArchitectSchedulegroupParams contains all the parameters to send to the API endpoint
-for the get architect schedulegroup operation typically these are written to a http.Request
+/*
+GetArchitectSchedulegroupParams contains all the parameters to send to the API endpoint
+
+	for the get architect schedulegroup operation.
+
+	Typically these are written to a http.Request.
 */
 type GetArchitectSchedulegroupParams struct {
 
-	/*ScheduleGroupID
-	  Schedule group ID
+	/* ScheduleGroupID.
 
+	   Schedule group ID
 	*/
 	ScheduleGroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get architect schedulegroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectSchedulegroupParams) WithDefaults() *GetArchitectSchedulegroupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get architect schedulegroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectSchedulegroupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get architect schedulegroup params

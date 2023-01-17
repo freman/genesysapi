@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -20,6 +21,7 @@ import (
 type UpdateContactColumnActionSettings struct {
 
 	// A mapping of contact columns to their new values.
+	// Example: {\"phoneNumber\":\"+11234567890\"}, {\"lastContactedTime\":\"\
 	// Required: true
 	Properties map[string]string `json:"properties"`
 
@@ -48,6 +50,10 @@ func (m *UpdateContactColumnActionSettings) Validate(formats strfmt.Registry) er
 }
 
 func (m *UpdateContactColumnActionSettings) validateProperties(formats strfmt.Registry) error {
+
+	if err := validate.Required("properties", "body", m.Properties); err != nil {
+		return err
+	}
 
 	return nil
 }
@@ -98,6 +104,11 @@ func (m *UpdateContactColumnActionSettings) validateUpdateOption(formats strfmt.
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this update contact column action settings based on context it is used
+func (m *UpdateContactColumnActionSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

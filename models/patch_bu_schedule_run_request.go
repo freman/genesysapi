@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -35,7 +37,6 @@ func (m *PatchBuScheduleRunRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PatchBuScheduleRunRequest) validateReschedulingOptions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReschedulingOptions) { // not required
 		return nil
 	}
@@ -44,6 +45,38 @@ func (m *PatchBuScheduleRunRequest) validateReschedulingOptions(formats strfmt.R
 		if err := m.ReschedulingOptions.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("reschedulingOptions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reschedulingOptions")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this patch bu schedule run request based on the context it is used
+func (m *PatchBuScheduleRunRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateReschedulingOptions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PatchBuScheduleRunRequest) contextValidateReschedulingOptions(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReschedulingOptions != nil {
+		if err := m.ReschedulingOptions.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("reschedulingOptions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reschedulingOptions")
 			}
 			return err
 		}

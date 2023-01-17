@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -90,7 +91,6 @@ func (m *SendAgentlessOutboundMessageResponse) Validate(formats strfmt.Registry)
 }
 
 func (m *SendAgentlessOutboundMessageResponse) validateMessagingTemplate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessagingTemplate) { // not required
 		return nil
 	}
@@ -99,6 +99,8 @@ func (m *SendAgentlessOutboundMessageResponse) validateMessagingTemplate(formats
 		if err := m.MessagingTemplate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messagingTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingTemplate")
 			}
 			return err
 		}
@@ -140,7 +142,6 @@ func (m *SendAgentlessOutboundMessageResponse) validateMessengerTypeEnum(path, l
 }
 
 func (m *SendAgentlessOutboundMessageResponse) validateMessengerType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessengerType) { // not required
 		return nil
 	}
@@ -154,7 +155,6 @@ func (m *SendAgentlessOutboundMessageResponse) validateMessengerType(formats str
 }
 
 func (m *SendAgentlessOutboundMessageResponse) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -167,7 +167,6 @@ func (m *SendAgentlessOutboundMessageResponse) validateSelfURI(formats strfmt.Re
 }
 
 func (m *SendAgentlessOutboundMessageResponse) validateTimestamp(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Timestamp) { // not required
 		return nil
 	}
@@ -180,7 +179,6 @@ func (m *SendAgentlessOutboundMessageResponse) validateTimestamp(formats strfmt.
 }
 
 func (m *SendAgentlessOutboundMessageResponse) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -189,6 +187,84 @@ func (m *SendAgentlessOutboundMessageResponse) validateUser(formats strfmt.Regis
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this send agentless outbound message response based on the context it is used
+func (m *SendAgentlessOutboundMessageResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessagingTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SendAgentlessOutboundMessageResponse) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SendAgentlessOutboundMessageResponse) contextValidateMessagingTemplate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessagingTemplate != nil {
+		if err := m.MessagingTemplate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingTemplate")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SendAgentlessOutboundMessageResponse) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SendAgentlessOutboundMessageResponse) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

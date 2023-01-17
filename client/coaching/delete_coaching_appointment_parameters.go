@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteCoachingAppointmentParams creates a new DeleteCoachingAppointmentParams object
-// with the default values initialized.
+// NewDeleteCoachingAppointmentParams creates a new DeleteCoachingAppointmentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteCoachingAppointmentParams() *DeleteCoachingAppointmentParams {
-	var ()
 	return &DeleteCoachingAppointmentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteCoachingAppointmentParamsWithTimeout creates a new DeleteCoachingAppointmentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteCoachingAppointmentParamsWithTimeout(timeout time.Duration) *DeleteCoachingAppointmentParams {
-	var ()
 	return &DeleteCoachingAppointmentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteCoachingAppointmentParamsWithContext creates a new DeleteCoachingAppointmentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteCoachingAppointmentParamsWithContext(ctx context.Context) *DeleteCoachingAppointmentParams {
-	var ()
 	return &DeleteCoachingAppointmentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteCoachingAppointmentParamsWithHTTPClient creates a new DeleteCoachingAppointmentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteCoachingAppointmentParamsWithHTTPClient(client *http.Client) *DeleteCoachingAppointmentParams {
-	var ()
 	return &DeleteCoachingAppointmentParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteCoachingAppointmentParams contains all the parameters to send to the API endpoint
-for the delete coaching appointment operation typically these are written to a http.Request
+/*
+DeleteCoachingAppointmentParams contains all the parameters to send to the API endpoint
+
+	for the delete coaching appointment operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteCoachingAppointmentParams struct {
 
-	/*AppointmentID
-	  The ID of the coaching appointment.
+	/* AppointmentID.
 
+	   The ID of the coaching appointment.
 	*/
 	AppointmentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete coaching appointment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteCoachingAppointmentParams) WithDefaults() *DeleteCoachingAppointmentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete coaching appointment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteCoachingAppointmentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete coaching appointment params

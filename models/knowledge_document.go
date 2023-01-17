@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -116,7 +117,6 @@ func (m *KnowledgeDocument) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeDocument) validateArticle(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Article) { // not required
 		return nil
 	}
@@ -125,6 +125,8 @@ func (m *KnowledgeDocument) validateArticle(formats strfmt.Registry) error {
 		if err := m.Article.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("article")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("article")
 			}
 			return err
 		}
@@ -134,7 +136,6 @@ func (m *KnowledgeDocument) validateArticle(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeDocument) validateCategories(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Categories) { // not required
 		return nil
 	}
@@ -148,6 +149,8 @@ func (m *KnowledgeDocument) validateCategories(formats strfmt.Registry) error {
 			if err := m.Categories[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("categories" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("categories" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -159,7 +162,6 @@ func (m *KnowledgeDocument) validateCategories(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeDocument) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -172,7 +174,6 @@ func (m *KnowledgeDocument) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeDocument) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -185,7 +186,6 @@ func (m *KnowledgeDocument) validateDateModified(formats strfmt.Registry) error 
 }
 
 func (m *KnowledgeDocument) validateFaq(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Faq) { // not required
 		return nil
 	}
@@ -194,6 +194,8 @@ func (m *KnowledgeDocument) validateFaq(formats strfmt.Registry) error {
 		if err := m.Faq.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("faq")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("faq")
 			}
 			return err
 		}
@@ -203,7 +205,6 @@ func (m *KnowledgeDocument) validateFaq(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeDocument) validateKnowledgeBase(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KnowledgeBase) { // not required
 		return nil
 	}
@@ -212,6 +213,8 @@ func (m *KnowledgeDocument) validateKnowledgeBase(formats strfmt.Registry) error
 		if err := m.KnowledgeBase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
 			}
 			return err
 		}
@@ -234,89 +237,89 @@ func init() {
 
 const (
 
-	// KnowledgeDocumentLanguageCodeEnUS captures enum value "en-US"
-	KnowledgeDocumentLanguageCodeEnUS string = "en-US"
+	// KnowledgeDocumentLanguageCodeEnDashUS captures enum value "en-US"
+	KnowledgeDocumentLanguageCodeEnDashUS string = "en-US"
 
-	// KnowledgeDocumentLanguageCodeEnUK captures enum value "en-UK"
-	KnowledgeDocumentLanguageCodeEnUK string = "en-UK"
+	// KnowledgeDocumentLanguageCodeEnDashUK captures enum value "en-UK"
+	KnowledgeDocumentLanguageCodeEnDashUK string = "en-UK"
 
-	// KnowledgeDocumentLanguageCodeEnAU captures enum value "en-AU"
-	KnowledgeDocumentLanguageCodeEnAU string = "en-AU"
+	// KnowledgeDocumentLanguageCodeEnDashAU captures enum value "en-AU"
+	KnowledgeDocumentLanguageCodeEnDashAU string = "en-AU"
 
-	// KnowledgeDocumentLanguageCodeEnCA captures enum value "en-CA"
-	KnowledgeDocumentLanguageCodeEnCA string = "en-CA"
+	// KnowledgeDocumentLanguageCodeEnDashCA captures enum value "en-CA"
+	KnowledgeDocumentLanguageCodeEnDashCA string = "en-CA"
 
-	// KnowledgeDocumentLanguageCodeEnHK captures enum value "en-HK"
-	KnowledgeDocumentLanguageCodeEnHK string = "en-HK"
+	// KnowledgeDocumentLanguageCodeEnDashHK captures enum value "en-HK"
+	KnowledgeDocumentLanguageCodeEnDashHK string = "en-HK"
 
-	// KnowledgeDocumentLanguageCodeEnIN captures enum value "en-IN"
-	KnowledgeDocumentLanguageCodeEnIN string = "en-IN"
+	// KnowledgeDocumentLanguageCodeEnDashIN captures enum value "en-IN"
+	KnowledgeDocumentLanguageCodeEnDashIN string = "en-IN"
 
-	// KnowledgeDocumentLanguageCodeEnIE captures enum value "en-IE"
-	KnowledgeDocumentLanguageCodeEnIE string = "en-IE"
+	// KnowledgeDocumentLanguageCodeEnDashIE captures enum value "en-IE"
+	KnowledgeDocumentLanguageCodeEnDashIE string = "en-IE"
 
-	// KnowledgeDocumentLanguageCodeEnNZ captures enum value "en-NZ"
-	KnowledgeDocumentLanguageCodeEnNZ string = "en-NZ"
+	// KnowledgeDocumentLanguageCodeEnDashNZ captures enum value "en-NZ"
+	KnowledgeDocumentLanguageCodeEnDashNZ string = "en-NZ"
 
-	// KnowledgeDocumentLanguageCodeEnPH captures enum value "en-PH"
-	KnowledgeDocumentLanguageCodeEnPH string = "en-PH"
+	// KnowledgeDocumentLanguageCodeEnDashPH captures enum value "en-PH"
+	KnowledgeDocumentLanguageCodeEnDashPH string = "en-PH"
 
-	// KnowledgeDocumentLanguageCodeEnSG captures enum value "en-SG"
-	KnowledgeDocumentLanguageCodeEnSG string = "en-SG"
+	// KnowledgeDocumentLanguageCodeEnDashSG captures enum value "en-SG"
+	KnowledgeDocumentLanguageCodeEnDashSG string = "en-SG"
 
-	// KnowledgeDocumentLanguageCodeEnZA captures enum value "en-ZA"
-	KnowledgeDocumentLanguageCodeEnZA string = "en-ZA"
+	// KnowledgeDocumentLanguageCodeEnDashZA captures enum value "en-ZA"
+	KnowledgeDocumentLanguageCodeEnDashZA string = "en-ZA"
 
-	// KnowledgeDocumentLanguageCodeDeDE captures enum value "de-DE"
-	KnowledgeDocumentLanguageCodeDeDE string = "de-DE"
+	// KnowledgeDocumentLanguageCodeDeDashDE captures enum value "de-DE"
+	KnowledgeDocumentLanguageCodeDeDashDE string = "de-DE"
 
-	// KnowledgeDocumentLanguageCodeDeAT captures enum value "de-AT"
-	KnowledgeDocumentLanguageCodeDeAT string = "de-AT"
+	// KnowledgeDocumentLanguageCodeDeDashAT captures enum value "de-AT"
+	KnowledgeDocumentLanguageCodeDeDashAT string = "de-AT"
 
-	// KnowledgeDocumentLanguageCodeDeCH captures enum value "de-CH"
-	KnowledgeDocumentLanguageCodeDeCH string = "de-CH"
+	// KnowledgeDocumentLanguageCodeDeDashCH captures enum value "de-CH"
+	KnowledgeDocumentLanguageCodeDeDashCH string = "de-CH"
 
-	// KnowledgeDocumentLanguageCodeEsAR captures enum value "es-AR"
-	KnowledgeDocumentLanguageCodeEsAR string = "es-AR"
+	// KnowledgeDocumentLanguageCodeEsDashAR captures enum value "es-AR"
+	KnowledgeDocumentLanguageCodeEsDashAR string = "es-AR"
 
-	// KnowledgeDocumentLanguageCodeEsCO captures enum value "es-CO"
-	KnowledgeDocumentLanguageCodeEsCO string = "es-CO"
+	// KnowledgeDocumentLanguageCodeEsDashCO captures enum value "es-CO"
+	KnowledgeDocumentLanguageCodeEsDashCO string = "es-CO"
 
-	// KnowledgeDocumentLanguageCodeEsMX captures enum value "es-MX"
-	KnowledgeDocumentLanguageCodeEsMX string = "es-MX"
+	// KnowledgeDocumentLanguageCodeEsDashMX captures enum value "es-MX"
+	KnowledgeDocumentLanguageCodeEsDashMX string = "es-MX"
 
-	// KnowledgeDocumentLanguageCodeEsUS captures enum value "es-US"
-	KnowledgeDocumentLanguageCodeEsUS string = "es-US"
+	// KnowledgeDocumentLanguageCodeEsDashUS captures enum value "es-US"
+	KnowledgeDocumentLanguageCodeEsDashUS string = "es-US"
 
-	// KnowledgeDocumentLanguageCodeEsES captures enum value "es-ES"
-	KnowledgeDocumentLanguageCodeEsES string = "es-ES"
+	// KnowledgeDocumentLanguageCodeEsDashES captures enum value "es-ES"
+	KnowledgeDocumentLanguageCodeEsDashES string = "es-ES"
 
-	// KnowledgeDocumentLanguageCodeFrFR captures enum value "fr-FR"
-	KnowledgeDocumentLanguageCodeFrFR string = "fr-FR"
+	// KnowledgeDocumentLanguageCodeFrDashFR captures enum value "fr-FR"
+	KnowledgeDocumentLanguageCodeFrDashFR string = "fr-FR"
 
-	// KnowledgeDocumentLanguageCodeFrBE captures enum value "fr-BE"
-	KnowledgeDocumentLanguageCodeFrBE string = "fr-BE"
+	// KnowledgeDocumentLanguageCodeFrDashBE captures enum value "fr-BE"
+	KnowledgeDocumentLanguageCodeFrDashBE string = "fr-BE"
 
-	// KnowledgeDocumentLanguageCodeFrCA captures enum value "fr-CA"
-	KnowledgeDocumentLanguageCodeFrCA string = "fr-CA"
+	// KnowledgeDocumentLanguageCodeFrDashCA captures enum value "fr-CA"
+	KnowledgeDocumentLanguageCodeFrDashCA string = "fr-CA"
 
-	// KnowledgeDocumentLanguageCodeFrCH captures enum value "fr-CH"
-	KnowledgeDocumentLanguageCodeFrCH string = "fr-CH"
+	// KnowledgeDocumentLanguageCodeFrDashCH captures enum value "fr-CH"
+	KnowledgeDocumentLanguageCodeFrDashCH string = "fr-CH"
 
-	// KnowledgeDocumentLanguageCodePtBR captures enum value "pt-BR"
-	KnowledgeDocumentLanguageCodePtBR string = "pt-BR"
+	// KnowledgeDocumentLanguageCodePtDashBR captures enum value "pt-BR"
+	KnowledgeDocumentLanguageCodePtDashBR string = "pt-BR"
 
-	// KnowledgeDocumentLanguageCodePtPT captures enum value "pt-PT"
-	KnowledgeDocumentLanguageCodePtPT string = "pt-PT"
+	// KnowledgeDocumentLanguageCodePtDashPT captures enum value "pt-PT"
+	KnowledgeDocumentLanguageCodePtDashPT string = "pt-PT"
 
-	// KnowledgeDocumentLanguageCodeNlNL captures enum value "nl-NL"
-	KnowledgeDocumentLanguageCodeNlNL string = "nl-NL"
+	// KnowledgeDocumentLanguageCodeNlDashNL captures enum value "nl-NL"
+	KnowledgeDocumentLanguageCodeNlDashNL string = "nl-NL"
 
-	// KnowledgeDocumentLanguageCodeNlBE captures enum value "nl-BE"
-	KnowledgeDocumentLanguageCodeNlBE string = "nl-BE"
+	// KnowledgeDocumentLanguageCodeNlDashBE captures enum value "nl-BE"
+	KnowledgeDocumentLanguageCodeNlDashBE string = "nl-BE"
 
-	// KnowledgeDocumentLanguageCodeItIT captures enum value "it-IT"
-	KnowledgeDocumentLanguageCodeItIT string = "it-IT"
+	// KnowledgeDocumentLanguageCodeItDashIT captures enum value "it-IT"
+	KnowledgeDocumentLanguageCodeItDashIT string = "it-IT"
 )
 
 // prop value enum
@@ -342,7 +345,6 @@ func (m *KnowledgeDocument) validateLanguageCode(formats strfmt.Registry) error 
 }
 
 func (m *KnowledgeDocument) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -391,6 +393,152 @@ func (m *KnowledgeDocument) validateType(formats strfmt.Registry) error {
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", *m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge document based on the context it is used
+func (m *KnowledgeDocument) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateArticle(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCategories(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFaq(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKnowledgeBase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeDocument) contextValidateArticle(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Article != nil {
+		if err := m.Article.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("article")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("article")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocument) contextValidateCategories(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Categories); i++ {
+
+		if m.Categories[i] != nil {
+			if err := m.Categories[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("categories" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("categories" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocument) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocument) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocument) contextValidateFaq(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Faq != nil {
+		if err := m.Faq.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("faq")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("faq")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocument) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocument) contextValidateKnowledgeBase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KnowledgeBase != nil {
+		if err := m.KnowledgeBase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocument) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

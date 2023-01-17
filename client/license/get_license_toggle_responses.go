@@ -95,7 +95,6 @@ func (o *GetLicenseToggleReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetLicenseToggleOK() *GetLicenseToggleOK {
 	return &GetLicenseToggleOK{}
 }
 
-/*GetLicenseToggleOK handles this case with default header values.
+/*
+GetLicenseToggleOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetLicenseToggleOK struct {
 	Payload *models.LicenseOrgToggle
 }
 
+// IsSuccess returns true when this get license toggle o k response has a 2xx status code
+func (o *GetLicenseToggleOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get license toggle o k response has a 3xx status code
+func (o *GetLicenseToggleOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license toggle o k response has a 4xx status code
+func (o *GetLicenseToggleOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get license toggle o k response has a 5xx status code
+func (o *GetLicenseToggleOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license toggle o k response a status code equal to that given
+func (o *GetLicenseToggleOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLicenseToggleOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleOK  %+v", 200, o.Payload)
+}
+
+func (o *GetLicenseToggleOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetLicenseToggleBadRequest() *GetLicenseToggleBadRequest {
 	return &GetLicenseToggleBadRequest{}
 }
 
-/*GetLicenseToggleBadRequest handles this case with default header values.
+/*
+GetLicenseToggleBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetLicenseToggleBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license toggle bad request response has a 2xx status code
+func (o *GetLicenseToggleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license toggle bad request response has a 3xx status code
+func (o *GetLicenseToggleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license toggle bad request response has a 4xx status code
+func (o *GetLicenseToggleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license toggle bad request response has a 5xx status code
+func (o *GetLicenseToggleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license toggle bad request response a status code equal to that given
+func (o *GetLicenseToggleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLicenseToggleBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetLicenseToggleBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetLicenseToggleUnauthorized() *GetLicenseToggleUnauthorized {
 	return &GetLicenseToggleUnauthorized{}
 }
 
-/*GetLicenseToggleUnauthorized handles this case with default header values.
+/*
+GetLicenseToggleUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetLicenseToggleUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license toggle unauthorized response has a 2xx status code
+func (o *GetLicenseToggleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license toggle unauthorized response has a 3xx status code
+func (o *GetLicenseToggleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license toggle unauthorized response has a 4xx status code
+func (o *GetLicenseToggleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license toggle unauthorized response has a 5xx status code
+func (o *GetLicenseToggleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license toggle unauthorized response a status code equal to that given
+func (o *GetLicenseToggleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetLicenseToggleUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetLicenseToggleUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetLicenseToggleForbidden() *GetLicenseToggleForbidden {
 	return &GetLicenseToggleForbidden{}
 }
 
-/*GetLicenseToggleForbidden handles this case with default header values.
+/*
+GetLicenseToggleForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetLicenseToggleForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license toggle forbidden response has a 2xx status code
+func (o *GetLicenseToggleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license toggle forbidden response has a 3xx status code
+func (o *GetLicenseToggleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license toggle forbidden response has a 4xx status code
+func (o *GetLicenseToggleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license toggle forbidden response has a 5xx status code
+func (o *GetLicenseToggleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license toggle forbidden response a status code equal to that given
+func (o *GetLicenseToggleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLicenseToggleForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetLicenseToggleForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetLicenseToggleNotFound() *GetLicenseToggleNotFound {
 	return &GetLicenseToggleNotFound{}
 }
 
-/*GetLicenseToggleNotFound handles this case with default header values.
+/*
+GetLicenseToggleNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetLicenseToggleNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license toggle not found response has a 2xx status code
+func (o *GetLicenseToggleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license toggle not found response has a 3xx status code
+func (o *GetLicenseToggleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license toggle not found response has a 4xx status code
+func (o *GetLicenseToggleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license toggle not found response has a 5xx status code
+func (o *GetLicenseToggleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license toggle not found response a status code equal to that given
+func (o *GetLicenseToggleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLicenseToggleNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetLicenseToggleNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetLicenseToggleRequestTimeout() *GetLicenseToggleRequestTimeout {
 	return &GetLicenseToggleRequestTimeout{}
 }
 
-/*GetLicenseToggleRequestTimeout handles this case with default header values.
+/*
+GetLicenseToggleRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetLicenseToggleRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license toggle request timeout response has a 2xx status code
+func (o *GetLicenseToggleRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license toggle request timeout response has a 3xx status code
+func (o *GetLicenseToggleRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license toggle request timeout response has a 4xx status code
+func (o *GetLicenseToggleRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license toggle request timeout response has a 5xx status code
+func (o *GetLicenseToggleRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license toggle request timeout response a status code equal to that given
+func (o *GetLicenseToggleRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetLicenseToggleRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLicenseToggleRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetLicenseToggleRequestEntityTooLarge() *GetLicenseToggleRequestEntityTo
 	return &GetLicenseToggleRequestEntityTooLarge{}
 }
 
-/*GetLicenseToggleRequestEntityTooLarge handles this case with default header values.
+/*
+GetLicenseToggleRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetLicenseToggleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license toggle request entity too large response has a 2xx status code
+func (o *GetLicenseToggleRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license toggle request entity too large response has a 3xx status code
+func (o *GetLicenseToggleRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license toggle request entity too large response has a 4xx status code
+func (o *GetLicenseToggleRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license toggle request entity too large response has a 5xx status code
+func (o *GetLicenseToggleRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license toggle request entity too large response a status code equal to that given
+func (o *GetLicenseToggleRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetLicenseToggleRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetLicenseToggleRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetLicenseToggleUnsupportedMediaType() *GetLicenseToggleUnsupportedMedia
 	return &GetLicenseToggleUnsupportedMediaType{}
 }
 
-/*GetLicenseToggleUnsupportedMediaType handles this case with default header values.
+/*
+GetLicenseToggleUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetLicenseToggleUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license toggle unsupported media type response has a 2xx status code
+func (o *GetLicenseToggleUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license toggle unsupported media type response has a 3xx status code
+func (o *GetLicenseToggleUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license toggle unsupported media type response has a 4xx status code
+func (o *GetLicenseToggleUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license toggle unsupported media type response has a 5xx status code
+func (o *GetLicenseToggleUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license toggle unsupported media type response a status code equal to that given
+func (o *GetLicenseToggleUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetLicenseToggleUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetLicenseToggleUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetLicenseToggleTooManyRequests() *GetLicenseToggleTooManyRequests {
 	return &GetLicenseToggleTooManyRequests{}
 }
 
-/*GetLicenseToggleTooManyRequests handles this case with default header values.
+/*
+GetLicenseToggleTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetLicenseToggleTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license toggle too many requests response has a 2xx status code
+func (o *GetLicenseToggleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license toggle too many requests response has a 3xx status code
+func (o *GetLicenseToggleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license toggle too many requests response has a 4xx status code
+func (o *GetLicenseToggleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license toggle too many requests response has a 5xx status code
+func (o *GetLicenseToggleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license toggle too many requests response a status code equal to that given
+func (o *GetLicenseToggleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLicenseToggleTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetLicenseToggleTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetLicenseToggleInternalServerError() *GetLicenseToggleInternalServerErr
 	return &GetLicenseToggleInternalServerError{}
 }
 
-/*GetLicenseToggleInternalServerError handles this case with default header values.
+/*
+GetLicenseToggleInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetLicenseToggleInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license toggle internal server error response has a 2xx status code
+func (o *GetLicenseToggleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license toggle internal server error response has a 3xx status code
+func (o *GetLicenseToggleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license toggle internal server error response has a 4xx status code
+func (o *GetLicenseToggleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get license toggle internal server error response has a 5xx status code
+func (o *GetLicenseToggleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get license toggle internal server error response a status code equal to that given
+func (o *GetLicenseToggleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLicenseToggleInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetLicenseToggleInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetLicenseToggleServiceUnavailable() *GetLicenseToggleServiceUnavailable
 	return &GetLicenseToggleServiceUnavailable{}
 }
 
-/*GetLicenseToggleServiceUnavailable handles this case with default header values.
+/*
+GetLicenseToggleServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetLicenseToggleServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license toggle service unavailable response has a 2xx status code
+func (o *GetLicenseToggleServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license toggle service unavailable response has a 3xx status code
+func (o *GetLicenseToggleServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license toggle service unavailable response has a 4xx status code
+func (o *GetLicenseToggleServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get license toggle service unavailable response has a 5xx status code
+func (o *GetLicenseToggleServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get license toggle service unavailable response a status code equal to that given
+func (o *GetLicenseToggleServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetLicenseToggleServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetLicenseToggleServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetLicenseToggleGatewayTimeout() *GetLicenseToggleGatewayTimeout {
 	return &GetLicenseToggleGatewayTimeout{}
 }
 
-/*GetLicenseToggleGatewayTimeout handles this case with default header values.
+/*
+GetLicenseToggleGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetLicenseToggleGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license toggle gateway timeout response has a 2xx status code
+func (o *GetLicenseToggleGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license toggle gateway timeout response has a 3xx status code
+func (o *GetLicenseToggleGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license toggle gateway timeout response has a 4xx status code
+func (o *GetLicenseToggleGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get license toggle gateway timeout response has a 5xx status code
+func (o *GetLicenseToggleGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get license toggle gateway timeout response a status code equal to that given
+func (o *GetLicenseToggleGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetLicenseToggleGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetLicenseToggleGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/toggles/{featureName}][%d] getLicenseToggleGatewayTimeout  %+v", 504, o.Payload)
 }
 

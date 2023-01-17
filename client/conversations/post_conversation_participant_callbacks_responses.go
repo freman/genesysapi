@@ -95,7 +95,6 @@ func (o *PostConversationParticipantCallbacksReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostConversationParticipantCallbacksCreated() *PostConversationParticipa
 	return &PostConversationParticipantCallbacksCreated{}
 }
 
-/*PostConversationParticipantCallbacksCreated handles this case with default header values.
+/*
+PostConversationParticipantCallbacksCreated describes a response with status code 201, with default header values.
 
 Created
 */
 type PostConversationParticipantCallbacksCreated struct {
 }
 
+// IsSuccess returns true when this post conversation participant callbacks created response has a 2xx status code
+func (o *PostConversationParticipantCallbacksCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversation participant callbacks created response has a 3xx status code
+func (o *PostConversationParticipantCallbacksCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant callbacks created response has a 4xx status code
+func (o *PostConversationParticipantCallbacksCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation participant callbacks created response has a 5xx status code
+func (o *PostConversationParticipantCallbacksCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant callbacks created response a status code equal to that given
+func (o *PostConversationParticipantCallbacksCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostConversationParticipantCallbacksCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksCreated ", 201)
+}
+
+func (o *PostConversationParticipantCallbacksCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksCreated ", 201)
 }
 
@@ -127,7 +156,8 @@ func NewPostConversationParticipantCallbacksBadRequest() *PostConversationPartic
 	return &PostConversationParticipantCallbacksBadRequest{}
 }
 
-/*PostConversationParticipantCallbacksBadRequest handles this case with default header values.
+/*
+PostConversationParticipantCallbacksBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostConversationParticipantCallbacksBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant callbacks bad request response has a 2xx status code
+func (o *PostConversationParticipantCallbacksBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant callbacks bad request response has a 3xx status code
+func (o *PostConversationParticipantCallbacksBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant callbacks bad request response has a 4xx status code
+func (o *PostConversationParticipantCallbacksBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant callbacks bad request response has a 5xx status code
+func (o *PostConversationParticipantCallbacksBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant callbacks bad request response a status code equal to that given
+func (o *PostConversationParticipantCallbacksBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationParticipantCallbacksBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationParticipantCallbacksBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostConversationParticipantCallbacksUnauthorized() *PostConversationPart
 	return &PostConversationParticipantCallbacksUnauthorized{}
 }
 
-/*PostConversationParticipantCallbacksUnauthorized handles this case with default header values.
+/*
+PostConversationParticipantCallbacksUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostConversationParticipantCallbacksUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant callbacks unauthorized response has a 2xx status code
+func (o *PostConversationParticipantCallbacksUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant callbacks unauthorized response has a 3xx status code
+func (o *PostConversationParticipantCallbacksUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant callbacks unauthorized response has a 4xx status code
+func (o *PostConversationParticipantCallbacksUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant callbacks unauthorized response has a 5xx status code
+func (o *PostConversationParticipantCallbacksUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant callbacks unauthorized response a status code equal to that given
+func (o *PostConversationParticipantCallbacksUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationParticipantCallbacksUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationParticipantCallbacksUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostConversationParticipantCallbacksForbidden() *PostConversationPartici
 	return &PostConversationParticipantCallbacksForbidden{}
 }
 
-/*PostConversationParticipantCallbacksForbidden handles this case with default header values.
+/*
+PostConversationParticipantCallbacksForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostConversationParticipantCallbacksForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant callbacks forbidden response has a 2xx status code
+func (o *PostConversationParticipantCallbacksForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant callbacks forbidden response has a 3xx status code
+func (o *PostConversationParticipantCallbacksForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant callbacks forbidden response has a 4xx status code
+func (o *PostConversationParticipantCallbacksForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant callbacks forbidden response has a 5xx status code
+func (o *PostConversationParticipantCallbacksForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant callbacks forbidden response a status code equal to that given
+func (o *PostConversationParticipantCallbacksForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationParticipantCallbacksForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationParticipantCallbacksForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostConversationParticipantCallbacksNotFound() *PostConversationParticip
 	return &PostConversationParticipantCallbacksNotFound{}
 }
 
-/*PostConversationParticipantCallbacksNotFound handles this case with default header values.
+/*
+PostConversationParticipantCallbacksNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostConversationParticipantCallbacksNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant callbacks not found response has a 2xx status code
+func (o *PostConversationParticipantCallbacksNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant callbacks not found response has a 3xx status code
+func (o *PostConversationParticipantCallbacksNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant callbacks not found response has a 4xx status code
+func (o *PostConversationParticipantCallbacksNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant callbacks not found response has a 5xx status code
+func (o *PostConversationParticipantCallbacksNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant callbacks not found response a status code equal to that given
+func (o *PostConversationParticipantCallbacksNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationParticipantCallbacksNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationParticipantCallbacksNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostConversationParticipantCallbacksRequestTimeout() *PostConversationPa
 	return &PostConversationParticipantCallbacksRequestTimeout{}
 }
 
-/*PostConversationParticipantCallbacksRequestTimeout handles this case with default header values.
+/*
+PostConversationParticipantCallbacksRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostConversationParticipantCallbacksRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant callbacks request timeout response has a 2xx status code
+func (o *PostConversationParticipantCallbacksRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant callbacks request timeout response has a 3xx status code
+func (o *PostConversationParticipantCallbacksRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant callbacks request timeout response has a 4xx status code
+func (o *PostConversationParticipantCallbacksRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant callbacks request timeout response has a 5xx status code
+func (o *PostConversationParticipantCallbacksRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant callbacks request timeout response a status code equal to that given
+func (o *PostConversationParticipantCallbacksRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationParticipantCallbacksRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationParticipantCallbacksRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostConversationParticipantCallbacksRequestEntityTooLarge() *PostConvers
 	return &PostConversationParticipantCallbacksRequestEntityTooLarge{}
 }
 
-/*PostConversationParticipantCallbacksRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationParticipantCallbacksRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostConversationParticipantCallbacksRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant callbacks request entity too large response has a 2xx status code
+func (o *PostConversationParticipantCallbacksRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant callbacks request entity too large response has a 3xx status code
+func (o *PostConversationParticipantCallbacksRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant callbacks request entity too large response has a 4xx status code
+func (o *PostConversationParticipantCallbacksRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant callbacks request entity too large response has a 5xx status code
+func (o *PostConversationParticipantCallbacksRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant callbacks request entity too large response a status code equal to that given
+func (o *PostConversationParticipantCallbacksRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationParticipantCallbacksRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationParticipantCallbacksRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostConversationParticipantCallbacksUnsupportedMediaType() *PostConversa
 	return &PostConversationParticipantCallbacksUnsupportedMediaType{}
 }
 
-/*PostConversationParticipantCallbacksUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationParticipantCallbacksUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostConversationParticipantCallbacksUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant callbacks unsupported media type response has a 2xx status code
+func (o *PostConversationParticipantCallbacksUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant callbacks unsupported media type response has a 3xx status code
+func (o *PostConversationParticipantCallbacksUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant callbacks unsupported media type response has a 4xx status code
+func (o *PostConversationParticipantCallbacksUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant callbacks unsupported media type response has a 5xx status code
+func (o *PostConversationParticipantCallbacksUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant callbacks unsupported media type response a status code equal to that given
+func (o *PostConversationParticipantCallbacksUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationParticipantCallbacksUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationParticipantCallbacksUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostConversationParticipantCallbacksTooManyRequests() *PostConversationP
 	return &PostConversationParticipantCallbacksTooManyRequests{}
 }
 
-/*PostConversationParticipantCallbacksTooManyRequests handles this case with default header values.
+/*
+PostConversationParticipantCallbacksTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostConversationParticipantCallbacksTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant callbacks too many requests response has a 2xx status code
+func (o *PostConversationParticipantCallbacksTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant callbacks too many requests response has a 3xx status code
+func (o *PostConversationParticipantCallbacksTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant callbacks too many requests response has a 4xx status code
+func (o *PostConversationParticipantCallbacksTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant callbacks too many requests response has a 5xx status code
+func (o *PostConversationParticipantCallbacksTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant callbacks too many requests response a status code equal to that given
+func (o *PostConversationParticipantCallbacksTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationParticipantCallbacksTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationParticipantCallbacksTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostConversationParticipantCallbacksInternalServerError() *PostConversat
 	return &PostConversationParticipantCallbacksInternalServerError{}
 }
 
-/*PostConversationParticipantCallbacksInternalServerError handles this case with default header values.
+/*
+PostConversationParticipantCallbacksInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostConversationParticipantCallbacksInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant callbacks internal server error response has a 2xx status code
+func (o *PostConversationParticipantCallbacksInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant callbacks internal server error response has a 3xx status code
+func (o *PostConversationParticipantCallbacksInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant callbacks internal server error response has a 4xx status code
+func (o *PostConversationParticipantCallbacksInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation participant callbacks internal server error response has a 5xx status code
+func (o *PostConversationParticipantCallbacksInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversation participant callbacks internal server error response a status code equal to that given
+func (o *PostConversationParticipantCallbacksInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationParticipantCallbacksInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationParticipantCallbacksInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostConversationParticipantCallbacksServiceUnavailable() *PostConversati
 	return &PostConversationParticipantCallbacksServiceUnavailable{}
 }
 
-/*PostConversationParticipantCallbacksServiceUnavailable handles this case with default header values.
+/*
+PostConversationParticipantCallbacksServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostConversationParticipantCallbacksServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant callbacks service unavailable response has a 2xx status code
+func (o *PostConversationParticipantCallbacksServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant callbacks service unavailable response has a 3xx status code
+func (o *PostConversationParticipantCallbacksServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant callbacks service unavailable response has a 4xx status code
+func (o *PostConversationParticipantCallbacksServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation participant callbacks service unavailable response has a 5xx status code
+func (o *PostConversationParticipantCallbacksServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversation participant callbacks service unavailable response a status code equal to that given
+func (o *PostConversationParticipantCallbacksServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationParticipantCallbacksServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationParticipantCallbacksServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostConversationParticipantCallbacksGatewayTimeout() *PostConversationPa
 	return &PostConversationParticipantCallbacksGatewayTimeout{}
 }
 
-/*PostConversationParticipantCallbacksGatewayTimeout handles this case with default header values.
+/*
+PostConversationParticipantCallbacksGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostConversationParticipantCallbacksGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant callbacks gateway timeout response has a 2xx status code
+func (o *PostConversationParticipantCallbacksGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant callbacks gateway timeout response has a 3xx status code
+func (o *PostConversationParticipantCallbacksGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant callbacks gateway timeout response has a 4xx status code
+func (o *PostConversationParticipantCallbacksGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation participant callbacks gateway timeout response has a 5xx status code
+func (o *PostConversationParticipantCallbacksGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversation participant callbacks gateway timeout response a status code equal to that given
+func (o *PostConversationParticipantCallbacksGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationParticipantCallbacksGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationParticipantCallbacksGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/callbacks][%d] postConversationParticipantCallbacksGatewayTimeout  %+v", 504, o.Payload)
 }
 

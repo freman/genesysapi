@@ -95,7 +95,6 @@ func (o *PatchAnalyticsReportingSettingsReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchAnalyticsReportingSettingsOK() *PatchAnalyticsReportingSettingsOK {
 	return &PatchAnalyticsReportingSettingsOK{}
 }
 
-/*PatchAnalyticsReportingSettingsOK handles this case with default header values.
+/*
+PatchAnalyticsReportingSettingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchAnalyticsReportingSettingsOK struct {
 	Payload *models.AnalyticsReportingSettings
 }
 
+// IsSuccess returns true when this patch analytics reporting settings o k response has a 2xx status code
+func (o *PatchAnalyticsReportingSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch analytics reporting settings o k response has a 3xx status code
+func (o *PatchAnalyticsReportingSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch analytics reporting settings o k response has a 4xx status code
+func (o *PatchAnalyticsReportingSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch analytics reporting settings o k response has a 5xx status code
+func (o *PatchAnalyticsReportingSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch analytics reporting settings o k response a status code equal to that given
+func (o *PatchAnalyticsReportingSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchAnalyticsReportingSettingsOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchAnalyticsReportingSettingsOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchAnalyticsReportingSettingsBadRequest() *PatchAnalyticsReportingSett
 	return &PatchAnalyticsReportingSettingsBadRequest{}
 }
 
-/*PatchAnalyticsReportingSettingsBadRequest handles this case with default header values.
+/*
+PatchAnalyticsReportingSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchAnalyticsReportingSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch analytics reporting settings bad request response has a 2xx status code
+func (o *PatchAnalyticsReportingSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch analytics reporting settings bad request response has a 3xx status code
+func (o *PatchAnalyticsReportingSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch analytics reporting settings bad request response has a 4xx status code
+func (o *PatchAnalyticsReportingSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch analytics reporting settings bad request response has a 5xx status code
+func (o *PatchAnalyticsReportingSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch analytics reporting settings bad request response a status code equal to that given
+func (o *PatchAnalyticsReportingSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchAnalyticsReportingSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchAnalyticsReportingSettingsBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchAnalyticsReportingSettingsUnauthorized() *PatchAnalyticsReportingSe
 	return &PatchAnalyticsReportingSettingsUnauthorized{}
 }
 
-/*PatchAnalyticsReportingSettingsUnauthorized handles this case with default header values.
+/*
+PatchAnalyticsReportingSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchAnalyticsReportingSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch analytics reporting settings unauthorized response has a 2xx status code
+func (o *PatchAnalyticsReportingSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch analytics reporting settings unauthorized response has a 3xx status code
+func (o *PatchAnalyticsReportingSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch analytics reporting settings unauthorized response has a 4xx status code
+func (o *PatchAnalyticsReportingSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch analytics reporting settings unauthorized response has a 5xx status code
+func (o *PatchAnalyticsReportingSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch analytics reporting settings unauthorized response a status code equal to that given
+func (o *PatchAnalyticsReportingSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchAnalyticsReportingSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchAnalyticsReportingSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchAnalyticsReportingSettingsForbidden() *PatchAnalyticsReportingSetti
 	return &PatchAnalyticsReportingSettingsForbidden{}
 }
 
-/*PatchAnalyticsReportingSettingsForbidden handles this case with default header values.
+/*
+PatchAnalyticsReportingSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchAnalyticsReportingSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch analytics reporting settings forbidden response has a 2xx status code
+func (o *PatchAnalyticsReportingSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch analytics reporting settings forbidden response has a 3xx status code
+func (o *PatchAnalyticsReportingSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch analytics reporting settings forbidden response has a 4xx status code
+func (o *PatchAnalyticsReportingSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch analytics reporting settings forbidden response has a 5xx status code
+func (o *PatchAnalyticsReportingSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch analytics reporting settings forbidden response a status code equal to that given
+func (o *PatchAnalyticsReportingSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchAnalyticsReportingSettingsForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchAnalyticsReportingSettingsForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchAnalyticsReportingSettingsNotFound() *PatchAnalyticsReportingSettin
 	return &PatchAnalyticsReportingSettingsNotFound{}
 }
 
-/*PatchAnalyticsReportingSettingsNotFound handles this case with default header values.
+/*
+PatchAnalyticsReportingSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchAnalyticsReportingSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch analytics reporting settings not found response has a 2xx status code
+func (o *PatchAnalyticsReportingSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch analytics reporting settings not found response has a 3xx status code
+func (o *PatchAnalyticsReportingSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch analytics reporting settings not found response has a 4xx status code
+func (o *PatchAnalyticsReportingSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch analytics reporting settings not found response has a 5xx status code
+func (o *PatchAnalyticsReportingSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch analytics reporting settings not found response a status code equal to that given
+func (o *PatchAnalyticsReportingSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchAnalyticsReportingSettingsNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchAnalyticsReportingSettingsNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchAnalyticsReportingSettingsRequestTimeout() *PatchAnalyticsReporting
 	return &PatchAnalyticsReportingSettingsRequestTimeout{}
 }
 
-/*PatchAnalyticsReportingSettingsRequestTimeout handles this case with default header values.
+/*
+PatchAnalyticsReportingSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchAnalyticsReportingSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch analytics reporting settings request timeout response has a 2xx status code
+func (o *PatchAnalyticsReportingSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch analytics reporting settings request timeout response has a 3xx status code
+func (o *PatchAnalyticsReportingSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch analytics reporting settings request timeout response has a 4xx status code
+func (o *PatchAnalyticsReportingSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch analytics reporting settings request timeout response has a 5xx status code
+func (o *PatchAnalyticsReportingSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch analytics reporting settings request timeout response a status code equal to that given
+func (o *PatchAnalyticsReportingSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchAnalyticsReportingSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchAnalyticsReportingSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchAnalyticsReportingSettingsRequestEntityTooLarge() *PatchAnalyticsRe
 	return &PatchAnalyticsReportingSettingsRequestEntityTooLarge{}
 }
 
-/*PatchAnalyticsReportingSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+PatchAnalyticsReportingSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchAnalyticsReportingSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch analytics reporting settings request entity too large response has a 2xx status code
+func (o *PatchAnalyticsReportingSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch analytics reporting settings request entity too large response has a 3xx status code
+func (o *PatchAnalyticsReportingSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch analytics reporting settings request entity too large response has a 4xx status code
+func (o *PatchAnalyticsReportingSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch analytics reporting settings request entity too large response has a 5xx status code
+func (o *PatchAnalyticsReportingSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch analytics reporting settings request entity too large response a status code equal to that given
+func (o *PatchAnalyticsReportingSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchAnalyticsReportingSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchAnalyticsReportingSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchAnalyticsReportingSettingsUnsupportedMediaType() *PatchAnalyticsRep
 	return &PatchAnalyticsReportingSettingsUnsupportedMediaType{}
 }
 
-/*PatchAnalyticsReportingSettingsUnsupportedMediaType handles this case with default header values.
+/*
+PatchAnalyticsReportingSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchAnalyticsReportingSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch analytics reporting settings unsupported media type response has a 2xx status code
+func (o *PatchAnalyticsReportingSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch analytics reporting settings unsupported media type response has a 3xx status code
+func (o *PatchAnalyticsReportingSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch analytics reporting settings unsupported media type response has a 4xx status code
+func (o *PatchAnalyticsReportingSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch analytics reporting settings unsupported media type response has a 5xx status code
+func (o *PatchAnalyticsReportingSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch analytics reporting settings unsupported media type response a status code equal to that given
+func (o *PatchAnalyticsReportingSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchAnalyticsReportingSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchAnalyticsReportingSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchAnalyticsReportingSettingsTooManyRequests() *PatchAnalyticsReportin
 	return &PatchAnalyticsReportingSettingsTooManyRequests{}
 }
 
-/*PatchAnalyticsReportingSettingsTooManyRequests handles this case with default header values.
+/*
+PatchAnalyticsReportingSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchAnalyticsReportingSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch analytics reporting settings too many requests response has a 2xx status code
+func (o *PatchAnalyticsReportingSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch analytics reporting settings too many requests response has a 3xx status code
+func (o *PatchAnalyticsReportingSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch analytics reporting settings too many requests response has a 4xx status code
+func (o *PatchAnalyticsReportingSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch analytics reporting settings too many requests response has a 5xx status code
+func (o *PatchAnalyticsReportingSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch analytics reporting settings too many requests response a status code equal to that given
+func (o *PatchAnalyticsReportingSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchAnalyticsReportingSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchAnalyticsReportingSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchAnalyticsReportingSettingsInternalServerError() *PatchAnalyticsRepo
 	return &PatchAnalyticsReportingSettingsInternalServerError{}
 }
 
-/*PatchAnalyticsReportingSettingsInternalServerError handles this case with default header values.
+/*
+PatchAnalyticsReportingSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchAnalyticsReportingSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch analytics reporting settings internal server error response has a 2xx status code
+func (o *PatchAnalyticsReportingSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch analytics reporting settings internal server error response has a 3xx status code
+func (o *PatchAnalyticsReportingSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch analytics reporting settings internal server error response has a 4xx status code
+func (o *PatchAnalyticsReportingSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch analytics reporting settings internal server error response has a 5xx status code
+func (o *PatchAnalyticsReportingSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch analytics reporting settings internal server error response a status code equal to that given
+func (o *PatchAnalyticsReportingSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchAnalyticsReportingSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchAnalyticsReportingSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchAnalyticsReportingSettingsServiceUnavailable() *PatchAnalyticsRepor
 	return &PatchAnalyticsReportingSettingsServiceUnavailable{}
 }
 
-/*PatchAnalyticsReportingSettingsServiceUnavailable handles this case with default header values.
+/*
+PatchAnalyticsReportingSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchAnalyticsReportingSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch analytics reporting settings service unavailable response has a 2xx status code
+func (o *PatchAnalyticsReportingSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch analytics reporting settings service unavailable response has a 3xx status code
+func (o *PatchAnalyticsReportingSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch analytics reporting settings service unavailable response has a 4xx status code
+func (o *PatchAnalyticsReportingSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch analytics reporting settings service unavailable response has a 5xx status code
+func (o *PatchAnalyticsReportingSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch analytics reporting settings service unavailable response a status code equal to that given
+func (o *PatchAnalyticsReportingSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchAnalyticsReportingSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchAnalyticsReportingSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchAnalyticsReportingSettingsGatewayTimeout() *PatchAnalyticsReporting
 	return &PatchAnalyticsReportingSettingsGatewayTimeout{}
 }
 
-/*PatchAnalyticsReportingSettingsGatewayTimeout handles this case with default header values.
+/*
+PatchAnalyticsReportingSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchAnalyticsReportingSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch analytics reporting settings gateway timeout response has a 2xx status code
+func (o *PatchAnalyticsReportingSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch analytics reporting settings gateway timeout response has a 3xx status code
+func (o *PatchAnalyticsReportingSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch analytics reporting settings gateway timeout response has a 4xx status code
+func (o *PatchAnalyticsReportingSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch analytics reporting settings gateway timeout response has a 5xx status code
+func (o *PatchAnalyticsReportingSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch analytics reporting settings gateway timeout response a status code equal to that given
+func (o *PatchAnalyticsReportingSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchAnalyticsReportingSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchAnalyticsReportingSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/analytics/reporting/settings][%d] patchAnalyticsReportingSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -101,7 +101,6 @@ func (o *DeleteTelephonyProvidersEdgesPhonebasesettingReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingOK() *DeleteTelephonyProvid
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingOK{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingOK handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteTelephonyProvidersEdgesPhonebasesettingOK struct {
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting o k response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting o k response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting o k response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting o k response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting o k response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingOK ", 200)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingOK ", 200)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingBadRequest() *DeleteTelepho
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingBadRequest{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingBadRequest handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteTelephonyProvidersEdgesPhonebasesettingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting bad request response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting bad request response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting bad request response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting bad request response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting bad request response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingUnauthorized() *DeleteTelep
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingUnauthorized{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingUnauthorized handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteTelephonyProvidersEdgesPhonebasesettingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting unauthorized response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting unauthorized response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting unauthorized response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting unauthorized response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting unauthorized response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingForbidden() *DeleteTelephon
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingForbidden{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingForbidden handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteTelephonyProvidersEdgesPhonebasesettingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting forbidden response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting forbidden response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting forbidden response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting forbidden response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting forbidden response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingNotFound() *DeleteTelephony
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingNotFound{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingNotFound handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteTelephonyProvidersEdgesPhonebasesettingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting not found response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting not found response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting not found response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting not found response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting not found response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout() *DeleteTel
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting request timeout response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting request timeout response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting request timeout response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting request timeout response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting request timeout response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingConflict() *DeleteTelephony
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingConflict{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingConflict handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeleteTelephonyProvidersEdgesPhonebasesettingConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting conflict response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting conflict response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting conflict response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting conflict response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting conflict response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge() *De
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting request entity too large response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting request entity too large response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting request entity too large response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting request entity too large response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting request entity too large response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType() *Del
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting unsupported media type response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting unsupported media type response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting unsupported media type response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting unsupported media type response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting unsupported media type response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests() *DeleteTe
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting too many requests response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting too many requests response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting too many requests response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting too many requests response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting too many requests response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingInternalServerError() *Dele
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingInternalServerError{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingInternalServerError handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteTelephonyProvidersEdgesPhonebasesettingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting internal server error response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting internal server error response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting internal server error response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting internal server error response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting internal server error response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable() *Delet
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting service unavailable response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting service unavailable response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting service unavailable response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting service unavailable response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting service unavailable response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout() *DeleteTel
 	return &DeleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout{}
 }
 
-/*DeleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout handles this case with default header values.
+/*
+DeleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete telephony providers edges phonebasesetting gateway timeout response has a 2xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete telephony providers edges phonebasesetting gateway timeout response has a 3xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete telephony providers edges phonebasesetting gateway timeout response has a 4xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete telephony providers edges phonebasesetting gateway timeout response has a 5xx status code
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete telephony providers edges phonebasesetting gateway timeout response a status code equal to that given
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/telephony/providers/edges/phonebasesettings/{phoneBaseId}][%d] deleteTelephonyProvidersEdgesPhonebasesettingGatewayTimeout  %+v", 504, o.Payload)
 }
 

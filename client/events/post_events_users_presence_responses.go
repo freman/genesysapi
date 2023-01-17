@@ -95,7 +95,6 @@ func (o *PostEventsUsersPresenceReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostEventsUsersPresenceOK() *PostEventsUsersPresenceOK {
 	return &PostEventsUsersPresenceOK{}
 }
 
-/*PostEventsUsersPresenceOK handles this case with default header values.
+/*
+PostEventsUsersPresenceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostEventsUsersPresenceOK struct {
 	Payload *models.BatchEventResponse
 }
 
+// IsSuccess returns true when this post events users presence o k response has a 2xx status code
+func (o *PostEventsUsersPresenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post events users presence o k response has a 3xx status code
+func (o *PostEventsUsersPresenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users presence o k response has a 4xx status code
+func (o *PostEventsUsersPresenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post events users presence o k response has a 5xx status code
+func (o *PostEventsUsersPresenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users presence o k response a status code equal to that given
+func (o *PostEventsUsersPresenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostEventsUsersPresenceOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceOK  %+v", 200, o.Payload)
+}
+
+func (o *PostEventsUsersPresenceOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostEventsUsersPresenceBadRequest() *PostEventsUsersPresenceBadRequest {
 	return &PostEventsUsersPresenceBadRequest{}
 }
 
-/*PostEventsUsersPresenceBadRequest handles this case with default header values.
+/*
+PostEventsUsersPresenceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostEventsUsersPresenceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users presence bad request response has a 2xx status code
+func (o *PostEventsUsersPresenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users presence bad request response has a 3xx status code
+func (o *PostEventsUsersPresenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users presence bad request response has a 4xx status code
+func (o *PostEventsUsersPresenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users presence bad request response has a 5xx status code
+func (o *PostEventsUsersPresenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users presence bad request response a status code equal to that given
+func (o *PostEventsUsersPresenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostEventsUsersPresenceBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostEventsUsersPresenceBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostEventsUsersPresenceUnauthorized() *PostEventsUsersPresenceUnauthoriz
 	return &PostEventsUsersPresenceUnauthorized{}
 }
 
-/*PostEventsUsersPresenceUnauthorized handles this case with default header values.
+/*
+PostEventsUsersPresenceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostEventsUsersPresenceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users presence unauthorized response has a 2xx status code
+func (o *PostEventsUsersPresenceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users presence unauthorized response has a 3xx status code
+func (o *PostEventsUsersPresenceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users presence unauthorized response has a 4xx status code
+func (o *PostEventsUsersPresenceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users presence unauthorized response has a 5xx status code
+func (o *PostEventsUsersPresenceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users presence unauthorized response a status code equal to that given
+func (o *PostEventsUsersPresenceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostEventsUsersPresenceUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostEventsUsersPresenceUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostEventsUsersPresenceForbidden() *PostEventsUsersPresenceForbidden {
 	return &PostEventsUsersPresenceForbidden{}
 }
 
-/*PostEventsUsersPresenceForbidden handles this case with default header values.
+/*
+PostEventsUsersPresenceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostEventsUsersPresenceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users presence forbidden response has a 2xx status code
+func (o *PostEventsUsersPresenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users presence forbidden response has a 3xx status code
+func (o *PostEventsUsersPresenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users presence forbidden response has a 4xx status code
+func (o *PostEventsUsersPresenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users presence forbidden response has a 5xx status code
+func (o *PostEventsUsersPresenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users presence forbidden response a status code equal to that given
+func (o *PostEventsUsersPresenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostEventsUsersPresenceForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostEventsUsersPresenceForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostEventsUsersPresenceNotFound() *PostEventsUsersPresenceNotFound {
 	return &PostEventsUsersPresenceNotFound{}
 }
 
-/*PostEventsUsersPresenceNotFound handles this case with default header values.
+/*
+PostEventsUsersPresenceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostEventsUsersPresenceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users presence not found response has a 2xx status code
+func (o *PostEventsUsersPresenceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users presence not found response has a 3xx status code
+func (o *PostEventsUsersPresenceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users presence not found response has a 4xx status code
+func (o *PostEventsUsersPresenceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users presence not found response has a 5xx status code
+func (o *PostEventsUsersPresenceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users presence not found response a status code equal to that given
+func (o *PostEventsUsersPresenceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostEventsUsersPresenceNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostEventsUsersPresenceNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostEventsUsersPresenceRequestTimeout() *PostEventsUsersPresenceRequestT
 	return &PostEventsUsersPresenceRequestTimeout{}
 }
 
-/*PostEventsUsersPresenceRequestTimeout handles this case with default header values.
+/*
+PostEventsUsersPresenceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostEventsUsersPresenceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users presence request timeout response has a 2xx status code
+func (o *PostEventsUsersPresenceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users presence request timeout response has a 3xx status code
+func (o *PostEventsUsersPresenceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users presence request timeout response has a 4xx status code
+func (o *PostEventsUsersPresenceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users presence request timeout response has a 5xx status code
+func (o *PostEventsUsersPresenceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users presence request timeout response a status code equal to that given
+func (o *PostEventsUsersPresenceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostEventsUsersPresenceRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostEventsUsersPresenceRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostEventsUsersPresenceRequestEntityTooLarge() *PostEventsUsersPresenceR
 	return &PostEventsUsersPresenceRequestEntityTooLarge{}
 }
 
-/*PostEventsUsersPresenceRequestEntityTooLarge handles this case with default header values.
+/*
+PostEventsUsersPresenceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostEventsUsersPresenceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users presence request entity too large response has a 2xx status code
+func (o *PostEventsUsersPresenceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users presence request entity too large response has a 3xx status code
+func (o *PostEventsUsersPresenceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users presence request entity too large response has a 4xx status code
+func (o *PostEventsUsersPresenceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users presence request entity too large response has a 5xx status code
+func (o *PostEventsUsersPresenceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users presence request entity too large response a status code equal to that given
+func (o *PostEventsUsersPresenceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostEventsUsersPresenceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostEventsUsersPresenceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostEventsUsersPresenceUnsupportedMediaType() *PostEventsUsersPresenceUn
 	return &PostEventsUsersPresenceUnsupportedMediaType{}
 }
 
-/*PostEventsUsersPresenceUnsupportedMediaType handles this case with default header values.
+/*
+PostEventsUsersPresenceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostEventsUsersPresenceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users presence unsupported media type response has a 2xx status code
+func (o *PostEventsUsersPresenceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users presence unsupported media type response has a 3xx status code
+func (o *PostEventsUsersPresenceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users presence unsupported media type response has a 4xx status code
+func (o *PostEventsUsersPresenceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users presence unsupported media type response has a 5xx status code
+func (o *PostEventsUsersPresenceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users presence unsupported media type response a status code equal to that given
+func (o *PostEventsUsersPresenceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostEventsUsersPresenceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostEventsUsersPresenceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostEventsUsersPresenceTooManyRequests() *PostEventsUsersPresenceTooMany
 	return &PostEventsUsersPresenceTooManyRequests{}
 }
 
-/*PostEventsUsersPresenceTooManyRequests handles this case with default header values.
+/*
+PostEventsUsersPresenceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostEventsUsersPresenceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users presence too many requests response has a 2xx status code
+func (o *PostEventsUsersPresenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users presence too many requests response has a 3xx status code
+func (o *PostEventsUsersPresenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users presence too many requests response has a 4xx status code
+func (o *PostEventsUsersPresenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post events users presence too many requests response has a 5xx status code
+func (o *PostEventsUsersPresenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post events users presence too many requests response a status code equal to that given
+func (o *PostEventsUsersPresenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostEventsUsersPresenceTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostEventsUsersPresenceTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostEventsUsersPresenceInternalServerError() *PostEventsUsersPresenceInt
 	return &PostEventsUsersPresenceInternalServerError{}
 }
 
-/*PostEventsUsersPresenceInternalServerError handles this case with default header values.
+/*
+PostEventsUsersPresenceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostEventsUsersPresenceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users presence internal server error response has a 2xx status code
+func (o *PostEventsUsersPresenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users presence internal server error response has a 3xx status code
+func (o *PostEventsUsersPresenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users presence internal server error response has a 4xx status code
+func (o *PostEventsUsersPresenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post events users presence internal server error response has a 5xx status code
+func (o *PostEventsUsersPresenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post events users presence internal server error response a status code equal to that given
+func (o *PostEventsUsersPresenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostEventsUsersPresenceInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostEventsUsersPresenceInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostEventsUsersPresenceServiceUnavailable() *PostEventsUsersPresenceServ
 	return &PostEventsUsersPresenceServiceUnavailable{}
 }
 
-/*PostEventsUsersPresenceServiceUnavailable handles this case with default header values.
+/*
+PostEventsUsersPresenceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostEventsUsersPresenceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users presence service unavailable response has a 2xx status code
+func (o *PostEventsUsersPresenceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users presence service unavailable response has a 3xx status code
+func (o *PostEventsUsersPresenceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users presence service unavailable response has a 4xx status code
+func (o *PostEventsUsersPresenceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post events users presence service unavailable response has a 5xx status code
+func (o *PostEventsUsersPresenceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post events users presence service unavailable response a status code equal to that given
+func (o *PostEventsUsersPresenceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostEventsUsersPresenceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostEventsUsersPresenceServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostEventsUsersPresenceGatewayTimeout() *PostEventsUsersPresenceGatewayT
 	return &PostEventsUsersPresenceGatewayTimeout{}
 }
 
-/*PostEventsUsersPresenceGatewayTimeout handles this case with default header values.
+/*
+PostEventsUsersPresenceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostEventsUsersPresenceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post events users presence gateway timeout response has a 2xx status code
+func (o *PostEventsUsersPresenceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post events users presence gateway timeout response has a 3xx status code
+func (o *PostEventsUsersPresenceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post events users presence gateway timeout response has a 4xx status code
+func (o *PostEventsUsersPresenceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post events users presence gateway timeout response has a 5xx status code
+func (o *PostEventsUsersPresenceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post events users presence gateway timeout response a status code equal to that given
+func (o *PostEventsUsersPresenceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostEventsUsersPresenceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostEventsUsersPresenceGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/events/users/presence][%d] postEventsUsersPresenceGatewayTimeout  %+v", 504, o.Payload)
 }
 

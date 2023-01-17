@@ -95,7 +95,6 @@ func (o *PostLocationsReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostLocationsOK() *PostLocationsOK {
 	return &PostLocationsOK{}
 }
 
-/*PostLocationsOK handles this case with default header values.
+/*
+PostLocationsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostLocationsOK struct {
 	Payload *models.LocationDefinition
 }
 
+// IsSuccess returns true when this post locations o k response has a 2xx status code
+func (o *PostLocationsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post locations o k response has a 3xx status code
+func (o *PostLocationsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations o k response has a 4xx status code
+func (o *PostLocationsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post locations o k response has a 5xx status code
+func (o *PostLocationsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations o k response a status code equal to that given
+func (o *PostLocationsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLocationsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLocationsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostLocationsBadRequest() *PostLocationsBadRequest {
 	return &PostLocationsBadRequest{}
 }
 
-/*PostLocationsBadRequest handles this case with default header values.
+/*
+PostLocationsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostLocationsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations bad request response has a 2xx status code
+func (o *PostLocationsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations bad request response has a 3xx status code
+func (o *PostLocationsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations bad request response has a 4xx status code
+func (o *PostLocationsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations bad request response has a 5xx status code
+func (o *PostLocationsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations bad request response a status code equal to that given
+func (o *PostLocationsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLocationsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLocationsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostLocationsUnauthorized() *PostLocationsUnauthorized {
 	return &PostLocationsUnauthorized{}
 }
 
-/*PostLocationsUnauthorized handles this case with default header values.
+/*
+PostLocationsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostLocationsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations unauthorized response has a 2xx status code
+func (o *PostLocationsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations unauthorized response has a 3xx status code
+func (o *PostLocationsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations unauthorized response has a 4xx status code
+func (o *PostLocationsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations unauthorized response has a 5xx status code
+func (o *PostLocationsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations unauthorized response a status code equal to that given
+func (o *PostLocationsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLocationsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLocationsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostLocationsForbidden() *PostLocationsForbidden {
 	return &PostLocationsForbidden{}
 }
 
-/*PostLocationsForbidden handles this case with default header values.
+/*
+PostLocationsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostLocationsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations forbidden response has a 2xx status code
+func (o *PostLocationsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations forbidden response has a 3xx status code
+func (o *PostLocationsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations forbidden response has a 4xx status code
+func (o *PostLocationsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations forbidden response has a 5xx status code
+func (o *PostLocationsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations forbidden response a status code equal to that given
+func (o *PostLocationsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLocationsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLocationsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostLocationsNotFound() *PostLocationsNotFound {
 	return &PostLocationsNotFound{}
 }
 
-/*PostLocationsNotFound handles this case with default header values.
+/*
+PostLocationsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostLocationsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations not found response has a 2xx status code
+func (o *PostLocationsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations not found response has a 3xx status code
+func (o *PostLocationsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations not found response has a 4xx status code
+func (o *PostLocationsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations not found response has a 5xx status code
+func (o *PostLocationsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations not found response a status code equal to that given
+func (o *PostLocationsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLocationsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLocationsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostLocationsRequestTimeout() *PostLocationsRequestTimeout {
 	return &PostLocationsRequestTimeout{}
 }
 
-/*PostLocationsRequestTimeout handles this case with default header values.
+/*
+PostLocationsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostLocationsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations request timeout response has a 2xx status code
+func (o *PostLocationsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations request timeout response has a 3xx status code
+func (o *PostLocationsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations request timeout response has a 4xx status code
+func (o *PostLocationsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations request timeout response has a 5xx status code
+func (o *PostLocationsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations request timeout response a status code equal to that given
+func (o *PostLocationsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLocationsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLocationsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostLocationsRequestEntityTooLarge() *PostLocationsRequestEntityTooLarge
 	return &PostLocationsRequestEntityTooLarge{}
 }
 
-/*PostLocationsRequestEntityTooLarge handles this case with default header values.
+/*
+PostLocationsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostLocationsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations request entity too large response has a 2xx status code
+func (o *PostLocationsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations request entity too large response has a 3xx status code
+func (o *PostLocationsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations request entity too large response has a 4xx status code
+func (o *PostLocationsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations request entity too large response has a 5xx status code
+func (o *PostLocationsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations request entity too large response a status code equal to that given
+func (o *PostLocationsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLocationsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLocationsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostLocationsUnsupportedMediaType() *PostLocationsUnsupportedMediaType {
 	return &PostLocationsUnsupportedMediaType{}
 }
 
-/*PostLocationsUnsupportedMediaType handles this case with default header values.
+/*
+PostLocationsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostLocationsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations unsupported media type response has a 2xx status code
+func (o *PostLocationsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations unsupported media type response has a 3xx status code
+func (o *PostLocationsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations unsupported media type response has a 4xx status code
+func (o *PostLocationsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations unsupported media type response has a 5xx status code
+func (o *PostLocationsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations unsupported media type response a status code equal to that given
+func (o *PostLocationsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLocationsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLocationsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostLocationsTooManyRequests() *PostLocationsTooManyRequests {
 	return &PostLocationsTooManyRequests{}
 }
 
-/*PostLocationsTooManyRequests handles this case with default header values.
+/*
+PostLocationsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostLocationsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations too many requests response has a 2xx status code
+func (o *PostLocationsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations too many requests response has a 3xx status code
+func (o *PostLocationsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations too many requests response has a 4xx status code
+func (o *PostLocationsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post locations too many requests response has a 5xx status code
+func (o *PostLocationsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post locations too many requests response a status code equal to that given
+func (o *PostLocationsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLocationsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLocationsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostLocationsInternalServerError() *PostLocationsInternalServerError {
 	return &PostLocationsInternalServerError{}
 }
 
-/*PostLocationsInternalServerError handles this case with default header values.
+/*
+PostLocationsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostLocationsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations internal server error response has a 2xx status code
+func (o *PostLocationsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations internal server error response has a 3xx status code
+func (o *PostLocationsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations internal server error response has a 4xx status code
+func (o *PostLocationsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post locations internal server error response has a 5xx status code
+func (o *PostLocationsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post locations internal server error response a status code equal to that given
+func (o *PostLocationsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLocationsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLocationsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostLocationsServiceUnavailable() *PostLocationsServiceUnavailable {
 	return &PostLocationsServiceUnavailable{}
 }
 
-/*PostLocationsServiceUnavailable handles this case with default header values.
+/*
+PostLocationsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostLocationsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations service unavailable response has a 2xx status code
+func (o *PostLocationsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations service unavailable response has a 3xx status code
+func (o *PostLocationsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations service unavailable response has a 4xx status code
+func (o *PostLocationsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post locations service unavailable response has a 5xx status code
+func (o *PostLocationsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post locations service unavailable response a status code equal to that given
+func (o *PostLocationsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLocationsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLocationsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostLocationsGatewayTimeout() *PostLocationsGatewayTimeout {
 	return &PostLocationsGatewayTimeout{}
 }
 
-/*PostLocationsGatewayTimeout handles this case with default header values.
+/*
+PostLocationsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostLocationsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post locations gateway timeout response has a 2xx status code
+func (o *PostLocationsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post locations gateway timeout response has a 3xx status code
+func (o *PostLocationsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post locations gateway timeout response has a 4xx status code
+func (o *PostLocationsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post locations gateway timeout response has a 5xx status code
+func (o *PostLocationsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post locations gateway timeout response a status code equal to that given
+func (o *PostLocationsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLocationsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLocationsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/locations][%d] postLocationsGatewayTimeout  %+v", 504, o.Payload)
 }
 

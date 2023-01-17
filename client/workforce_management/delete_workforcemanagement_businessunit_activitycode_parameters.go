@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteWorkforcemanagementBusinessunitActivitycodeParams creates a new DeleteWorkforcemanagementBusinessunitActivitycodeParams object
-// with the default values initialized.
+// NewDeleteWorkforcemanagementBusinessunitActivitycodeParams creates a new DeleteWorkforcemanagementBusinessunitActivitycodeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteWorkforcemanagementBusinessunitActivitycodeParams() *DeleteWorkforcemanagementBusinessunitActivitycodeParams {
-	var ()
 	return &DeleteWorkforcemanagementBusinessunitActivitycodeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementBusinessunitActivitycodeParamsWithTimeout creates a new DeleteWorkforcemanagementBusinessunitActivitycodeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteWorkforcemanagementBusinessunitActivitycodeParamsWithTimeout(timeout time.Duration) *DeleteWorkforcemanagementBusinessunitActivitycodeParams {
-	var ()
 	return &DeleteWorkforcemanagementBusinessunitActivitycodeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementBusinessunitActivitycodeParamsWithContext creates a new DeleteWorkforcemanagementBusinessunitActivitycodeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteWorkforcemanagementBusinessunitActivitycodeParamsWithContext(ctx context.Context) *DeleteWorkforcemanagementBusinessunitActivitycodeParams {
-	var ()
 	return &DeleteWorkforcemanagementBusinessunitActivitycodeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteWorkforcemanagementBusinessunitActivitycodeParamsWithHTTPClient creates a new DeleteWorkforcemanagementBusinessunitActivitycodeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteWorkforcemanagementBusinessunitActivitycodeParamsWithHTTPClient(client *http.Client) *DeleteWorkforcemanagementBusinessunitActivitycodeParams {
-	var ()
 	return &DeleteWorkforcemanagementBusinessunitActivitycodeParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteWorkforcemanagementBusinessunitActivitycodeParams contains all the parameters to send to the API endpoint
-for the delete workforcemanagement businessunit activitycode operation typically these are written to a http.Request
+/*
+DeleteWorkforcemanagementBusinessunitActivitycodeParams contains all the parameters to send to the API endpoint
+
+	for the delete workforcemanagement businessunit activitycode operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteWorkforcemanagementBusinessunitActivitycodeParams struct {
 
-	/*ActivityCodeID
-	  The ID of the activity code to delete
+	/* ActivityCodeID.
 
+	   The ID of the activity code to delete
 	*/
 	ActivityCodeID string
-	/*BusinessUnitID
-	  The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 	*/
 	BusinessUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete workforcemanagement businessunit activitycode params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementBusinessunitActivitycodeParams) WithDefaults() *DeleteWorkforcemanagementBusinessunitActivitycodeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete workforcemanagement businessunit activitycode params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementBusinessunitActivitycodeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete workforcemanagement businessunit activitycode params

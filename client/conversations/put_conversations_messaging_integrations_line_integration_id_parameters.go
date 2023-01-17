@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutConversationsMessagingIntegrationsLineIntegrationIDParams creates a new PutConversationsMessagingIntegrationsLineIntegrationIDParams object
-// with the default values initialized.
+// NewPutConversationsMessagingIntegrationsLineIntegrationIDParams creates a new PutConversationsMessagingIntegrationsLineIntegrationIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutConversationsMessagingIntegrationsLineIntegrationIDParams() *PutConversationsMessagingIntegrationsLineIntegrationIDParams {
-	var ()
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutConversationsMessagingIntegrationsLineIntegrationIDParamsWithTimeout creates a new PutConversationsMessagingIntegrationsLineIntegrationIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutConversationsMessagingIntegrationsLineIntegrationIDParamsWithTimeout(timeout time.Duration) *PutConversationsMessagingIntegrationsLineIntegrationIDParams {
-	var ()
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutConversationsMessagingIntegrationsLineIntegrationIDParamsWithContext creates a new PutConversationsMessagingIntegrationsLineIntegrationIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutConversationsMessagingIntegrationsLineIntegrationIDParamsWithContext(ctx context.Context) *PutConversationsMessagingIntegrationsLineIntegrationIDParams {
-	var ()
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutConversationsMessagingIntegrationsLineIntegrationIDParamsWithHTTPClient creates a new PutConversationsMessagingIntegrationsLineIntegrationIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutConversationsMessagingIntegrationsLineIntegrationIDParamsWithHTTPClient(client *http.Client) *PutConversationsMessagingIntegrationsLineIntegrationIDParams {
-	var ()
 	return &PutConversationsMessagingIntegrationsLineIntegrationIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutConversationsMessagingIntegrationsLineIntegrationIDParams contains all the parameters to send to the API endpoint
-for the put conversations messaging integrations line integration Id operation typically these are written to a http.Request
+/*
+PutConversationsMessagingIntegrationsLineIntegrationIDParams contains all the parameters to send to the API endpoint
+
+	for the put conversations messaging integrations line integration Id operation.
+
+	Typically these are written to a http.Request.
 */
 type PutConversationsMessagingIntegrationsLineIntegrationIDParams struct {
 
-	/*Body
-	  LineIntegrationRequest
+	/* Body.
 
+	   LineIntegrationRequest
 	*/
 	Body *models.LineIntegrationRequest
-	/*IntegrationID
-	  Integration ID
 
+	/* IntegrationID.
+
+	   Integration ID
 	*/
 	IntegrationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put conversations messaging integrations line integration Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDParams) WithDefaults() *PutConversationsMessagingIntegrationsLineIntegrationIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put conversations messaging integrations line integration Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationsMessagingIntegrationsLineIntegrationIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put conversations messaging integrations line integration Id params
@@ -140,7 +157,6 @@ func (o *PutConversationsMessagingIntegrationsLineIntegrationIDParams) WriteToRe
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTelephonyProvidersEdgesOutboundroutesParams creates a new PostTelephonyProvidersEdgesOutboundroutesParams object
-// with the default values initialized.
+// NewPostTelephonyProvidersEdgesOutboundroutesParams creates a new PostTelephonyProvidersEdgesOutboundroutesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTelephonyProvidersEdgesOutboundroutesParams() *PostTelephonyProvidersEdgesOutboundroutesParams {
-	var ()
 	return &PostTelephonyProvidersEdgesOutboundroutesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgesOutboundroutesParamsWithTimeout creates a new PostTelephonyProvidersEdgesOutboundroutesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTelephonyProvidersEdgesOutboundroutesParamsWithTimeout(timeout time.Duration) *PostTelephonyProvidersEdgesOutboundroutesParams {
-	var ()
 	return &PostTelephonyProvidersEdgesOutboundroutesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgesOutboundroutesParamsWithContext creates a new PostTelephonyProvidersEdgesOutboundroutesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTelephonyProvidersEdgesOutboundroutesParamsWithContext(ctx context.Context) *PostTelephonyProvidersEdgesOutboundroutesParams {
-	var ()
 	return &PostTelephonyProvidersEdgesOutboundroutesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTelephonyProvidersEdgesOutboundroutesParamsWithHTTPClient creates a new PostTelephonyProvidersEdgesOutboundroutesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTelephonyProvidersEdgesOutboundroutesParamsWithHTTPClient(client *http.Client) *PostTelephonyProvidersEdgesOutboundroutesParams {
-	var ()
 	return &PostTelephonyProvidersEdgesOutboundroutesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTelephonyProvidersEdgesOutboundroutesParams contains all the parameters to send to the API endpoint
-for the post telephony providers edges outboundroutes operation typically these are written to a http.Request
+/*
+PostTelephonyProvidersEdgesOutboundroutesParams contains all the parameters to send to the API endpoint
+
+	for the post telephony providers edges outboundroutes operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTelephonyProvidersEdgesOutboundroutesParams struct {
 
-	/*Body
-	  OutboundRoute
+	/* Body.
 
+	   OutboundRoute
 	*/
 	Body *models.OutboundRoute
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post telephony providers edges outboundroutes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgesOutboundroutesParams) WithDefaults() *PostTelephonyProvidersEdgesOutboundroutesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post telephony providers edges outboundroutes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgesOutboundroutesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post telephony providers edges outboundroutes params
@@ -124,7 +140,6 @@ func (o *PostTelephonyProvidersEdgesOutboundroutesParams) WriteToRequest(r runti
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

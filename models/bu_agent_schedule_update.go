@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -47,7 +48,6 @@ func (m *BuAgentScheduleUpdate) Validate(formats strfmt.Registry) error {
 }
 
 func (m *BuAgentScheduleUpdate) validateShiftStartDates(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShiftStartDates) { // not required
 		return nil
 	}
@@ -96,7 +96,6 @@ func (m *BuAgentScheduleUpdate) validateTypeEnum(path, location string, value st
 }
 
 func (m *BuAgentScheduleUpdate) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -106,6 +105,11 @@ func (m *BuAgentScheduleUpdate) validateType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this bu agent schedule update based on context it is used
+func (m *BuAgentScheduleUpdate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

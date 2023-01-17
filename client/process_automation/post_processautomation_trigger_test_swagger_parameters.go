@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostProcessautomationTriggerTestParams creates a new PostProcessautomationTriggerTestParams object
-// with the default values initialized.
+// NewPostProcessautomationTriggerTestParams creates a new PostProcessautomationTriggerTestParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostProcessautomationTriggerTestParams() *PostProcessautomationTriggerTestParams {
-	var ()
 	return &PostProcessautomationTriggerTestParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostProcessautomationTriggerTestParamsWithTimeout creates a new PostProcessautomationTriggerTestParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostProcessautomationTriggerTestParamsWithTimeout(timeout time.Duration) *PostProcessautomationTriggerTestParams {
-	var ()
 	return &PostProcessautomationTriggerTestParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostProcessautomationTriggerTestParamsWithContext creates a new PostProcessautomationTriggerTestParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostProcessautomationTriggerTestParamsWithContext(ctx context.Context) *PostProcessautomationTriggerTestParams {
-	var ()
 	return &PostProcessautomationTriggerTestParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostProcessautomationTriggerTestParamsWithHTTPClient creates a new PostProcessautomationTriggerTestParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostProcessautomationTriggerTestParamsWithHTTPClient(client *http.Client) *PostProcessautomationTriggerTestParams {
-	var ()
 	return &PostProcessautomationTriggerTestParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostProcessautomationTriggerTestParams contains all the parameters to send to the API endpoint
-for the post processautomation trigger test operation typically these are written to a http.Request
+/*
+PostProcessautomationTriggerTestParams contains all the parameters to send to the API endpoint
+
+	for the post processautomation trigger test operation.
+
+	Typically these are written to a http.Request.
 */
 type PostProcessautomationTriggerTestParams struct {
 
-	/*Body
-	  eventBody
+	/* Body.
 
+	   eventBody
 	*/
 	Body string
-	/*TriggerID
-	  triggerId
 
+	/* TriggerID.
+
+	   triggerId
 	*/
 	TriggerID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post processautomation trigger test params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostProcessautomationTriggerTestParams) WithDefaults() *PostProcessautomationTriggerTestParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post processautomation trigger test params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostProcessautomationTriggerTestParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post processautomation trigger test params
@@ -138,7 +155,6 @@ func (o *PostProcessautomationTriggerTestParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if err := r.SetBodyParam(o.Body); err != nil {
 		return err
 	}

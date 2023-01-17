@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsKeyconfigurationsValidateParams creates a new PostConversationsKeyconfigurationsValidateParams object
-// with the default values initialized.
+// NewPostConversationsKeyconfigurationsValidateParams creates a new PostConversationsKeyconfigurationsValidateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsKeyconfigurationsValidateParams() *PostConversationsKeyconfigurationsValidateParams {
-	var ()
 	return &PostConversationsKeyconfigurationsValidateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsKeyconfigurationsValidateParamsWithTimeout creates a new PostConversationsKeyconfigurationsValidateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsKeyconfigurationsValidateParamsWithTimeout(timeout time.Duration) *PostConversationsKeyconfigurationsValidateParams {
-	var ()
 	return &PostConversationsKeyconfigurationsValidateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsKeyconfigurationsValidateParamsWithContext creates a new PostConversationsKeyconfigurationsValidateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsKeyconfigurationsValidateParamsWithContext(ctx context.Context) *PostConversationsKeyconfigurationsValidateParams {
-	var ()
 	return &PostConversationsKeyconfigurationsValidateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsKeyconfigurationsValidateParamsWithHTTPClient creates a new PostConversationsKeyconfigurationsValidateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsKeyconfigurationsValidateParamsWithHTTPClient(client *http.Client) *PostConversationsKeyconfigurationsValidateParams {
-	var ()
 	return &PostConversationsKeyconfigurationsValidateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsKeyconfigurationsValidateParams contains all the parameters to send to the API endpoint
-for the post conversations keyconfigurations validate operation typically these are written to a http.Request
+/*
+PostConversationsKeyconfigurationsValidateParams contains all the parameters to send to the API endpoint
+
+	for the post conversations keyconfigurations validate operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsKeyconfigurationsValidateParams struct {
 
-	/*Body
-	  Encryption Configuration
+	/* Body.
 
+	   Encryption Configuration
 	*/
 	Body *models.ConversationEncryptionConfiguration
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations keyconfigurations validate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsKeyconfigurationsValidateParams) WithDefaults() *PostConversationsKeyconfigurationsValidateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations keyconfigurations validate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsKeyconfigurationsValidateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations keyconfigurations validate params
@@ -124,7 +140,6 @@ func (o *PostConversationsKeyconfigurationsValidateParams) WriteToRequest(r runt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

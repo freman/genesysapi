@@ -95,7 +95,6 @@ func (o *GetIntegrationsTypeReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIntegrationsTypeOK() *GetIntegrationsTypeOK {
 	return &GetIntegrationsTypeOK{}
 }
 
-/*GetIntegrationsTypeOK handles this case with default header values.
+/*
+GetIntegrationsTypeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIntegrationsTypeOK struct {
 	Payload *models.IntegrationType
 }
 
+// IsSuccess returns true when this get integrations type o k response has a 2xx status code
+func (o *GetIntegrationsTypeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get integrations type o k response has a 3xx status code
+func (o *GetIntegrationsTypeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type o k response has a 4xx status code
+func (o *GetIntegrationsTypeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations type o k response has a 5xx status code
+func (o *GetIntegrationsTypeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type o k response a status code equal to that given
+func (o *GetIntegrationsTypeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntegrationsTypeOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIntegrationsTypeOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIntegrationsTypeBadRequest() *GetIntegrationsTypeBadRequest {
 	return &GetIntegrationsTypeBadRequest{}
 }
 
-/*GetIntegrationsTypeBadRequest handles this case with default header values.
+/*
+GetIntegrationsTypeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIntegrationsTypeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type bad request response has a 2xx status code
+func (o *GetIntegrationsTypeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type bad request response has a 3xx status code
+func (o *GetIntegrationsTypeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type bad request response has a 4xx status code
+func (o *GetIntegrationsTypeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type bad request response has a 5xx status code
+func (o *GetIntegrationsTypeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type bad request response a status code equal to that given
+func (o *GetIntegrationsTypeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntegrationsTypeBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIntegrationsTypeBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIntegrationsTypeUnauthorized() *GetIntegrationsTypeUnauthorized {
 	return &GetIntegrationsTypeUnauthorized{}
 }
 
-/*GetIntegrationsTypeUnauthorized handles this case with default header values.
+/*
+GetIntegrationsTypeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIntegrationsTypeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type unauthorized response has a 2xx status code
+func (o *GetIntegrationsTypeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type unauthorized response has a 3xx status code
+func (o *GetIntegrationsTypeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type unauthorized response has a 4xx status code
+func (o *GetIntegrationsTypeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type unauthorized response has a 5xx status code
+func (o *GetIntegrationsTypeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type unauthorized response a status code equal to that given
+func (o *GetIntegrationsTypeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIntegrationsTypeUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIntegrationsTypeUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIntegrationsTypeForbidden() *GetIntegrationsTypeForbidden {
 	return &GetIntegrationsTypeForbidden{}
 }
 
-/*GetIntegrationsTypeForbidden handles this case with default header values.
+/*
+GetIntegrationsTypeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIntegrationsTypeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type forbidden response has a 2xx status code
+func (o *GetIntegrationsTypeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type forbidden response has a 3xx status code
+func (o *GetIntegrationsTypeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type forbidden response has a 4xx status code
+func (o *GetIntegrationsTypeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type forbidden response has a 5xx status code
+func (o *GetIntegrationsTypeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type forbidden response a status code equal to that given
+func (o *GetIntegrationsTypeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntegrationsTypeForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIntegrationsTypeForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIntegrationsTypeNotFound() *GetIntegrationsTypeNotFound {
 	return &GetIntegrationsTypeNotFound{}
 }
 
-/*GetIntegrationsTypeNotFound handles this case with default header values.
+/*
+GetIntegrationsTypeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIntegrationsTypeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type not found response has a 2xx status code
+func (o *GetIntegrationsTypeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type not found response has a 3xx status code
+func (o *GetIntegrationsTypeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type not found response has a 4xx status code
+func (o *GetIntegrationsTypeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type not found response has a 5xx status code
+func (o *GetIntegrationsTypeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type not found response a status code equal to that given
+func (o *GetIntegrationsTypeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntegrationsTypeNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIntegrationsTypeNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIntegrationsTypeRequestTimeout() *GetIntegrationsTypeRequestTimeout {
 	return &GetIntegrationsTypeRequestTimeout{}
 }
 
-/*GetIntegrationsTypeRequestTimeout handles this case with default header values.
+/*
+GetIntegrationsTypeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIntegrationsTypeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type request timeout response has a 2xx status code
+func (o *GetIntegrationsTypeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type request timeout response has a 3xx status code
+func (o *GetIntegrationsTypeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type request timeout response has a 4xx status code
+func (o *GetIntegrationsTypeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type request timeout response has a 5xx status code
+func (o *GetIntegrationsTypeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type request timeout response a status code equal to that given
+func (o *GetIntegrationsTypeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIntegrationsTypeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsTypeRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIntegrationsTypeRequestEntityTooLarge() *GetIntegrationsTypeRequestEn
 	return &GetIntegrationsTypeRequestEntityTooLarge{}
 }
 
-/*GetIntegrationsTypeRequestEntityTooLarge handles this case with default header values.
+/*
+GetIntegrationsTypeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIntegrationsTypeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type request entity too large response has a 2xx status code
+func (o *GetIntegrationsTypeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type request entity too large response has a 3xx status code
+func (o *GetIntegrationsTypeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type request entity too large response has a 4xx status code
+func (o *GetIntegrationsTypeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type request entity too large response has a 5xx status code
+func (o *GetIntegrationsTypeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type request entity too large response a status code equal to that given
+func (o *GetIntegrationsTypeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIntegrationsTypeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIntegrationsTypeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIntegrationsTypeUnsupportedMediaType() *GetIntegrationsTypeUnsupporte
 	return &GetIntegrationsTypeUnsupportedMediaType{}
 }
 
-/*GetIntegrationsTypeUnsupportedMediaType handles this case with default header values.
+/*
+GetIntegrationsTypeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIntegrationsTypeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type unsupported media type response has a 2xx status code
+func (o *GetIntegrationsTypeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type unsupported media type response has a 3xx status code
+func (o *GetIntegrationsTypeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type unsupported media type response has a 4xx status code
+func (o *GetIntegrationsTypeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type unsupported media type response has a 5xx status code
+func (o *GetIntegrationsTypeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type unsupported media type response a status code equal to that given
+func (o *GetIntegrationsTypeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIntegrationsTypeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIntegrationsTypeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIntegrationsTypeTooManyRequests() *GetIntegrationsTypeTooManyRequests
 	return &GetIntegrationsTypeTooManyRequests{}
 }
 
-/*GetIntegrationsTypeTooManyRequests handles this case with default header values.
+/*
+GetIntegrationsTypeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIntegrationsTypeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type too many requests response has a 2xx status code
+func (o *GetIntegrationsTypeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type too many requests response has a 3xx status code
+func (o *GetIntegrationsTypeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type too many requests response has a 4xx status code
+func (o *GetIntegrationsTypeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type too many requests response has a 5xx status code
+func (o *GetIntegrationsTypeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type too many requests response a status code equal to that given
+func (o *GetIntegrationsTypeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntegrationsTypeTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIntegrationsTypeTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIntegrationsTypeInternalServerError() *GetIntegrationsTypeInternalSer
 	return &GetIntegrationsTypeInternalServerError{}
 }
 
-/*GetIntegrationsTypeInternalServerError handles this case with default header values.
+/*
+GetIntegrationsTypeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIntegrationsTypeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type internal server error response has a 2xx status code
+func (o *GetIntegrationsTypeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type internal server error response has a 3xx status code
+func (o *GetIntegrationsTypeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type internal server error response has a 4xx status code
+func (o *GetIntegrationsTypeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations type internal server error response has a 5xx status code
+func (o *GetIntegrationsTypeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations type internal server error response a status code equal to that given
+func (o *GetIntegrationsTypeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntegrationsTypeInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIntegrationsTypeInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIntegrationsTypeServiceUnavailable() *GetIntegrationsTypeServiceUnava
 	return &GetIntegrationsTypeServiceUnavailable{}
 }
 
-/*GetIntegrationsTypeServiceUnavailable handles this case with default header values.
+/*
+GetIntegrationsTypeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIntegrationsTypeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type service unavailable response has a 2xx status code
+func (o *GetIntegrationsTypeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type service unavailable response has a 3xx status code
+func (o *GetIntegrationsTypeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type service unavailable response has a 4xx status code
+func (o *GetIntegrationsTypeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations type service unavailable response has a 5xx status code
+func (o *GetIntegrationsTypeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations type service unavailable response a status code equal to that given
+func (o *GetIntegrationsTypeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIntegrationsTypeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIntegrationsTypeServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIntegrationsTypeGatewayTimeout() *GetIntegrationsTypeGatewayTimeout {
 	return &GetIntegrationsTypeGatewayTimeout{}
 }
 
-/*GetIntegrationsTypeGatewayTimeout handles this case with default header values.
+/*
+GetIntegrationsTypeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIntegrationsTypeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type gateway timeout response has a 2xx status code
+func (o *GetIntegrationsTypeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type gateway timeout response has a 3xx status code
+func (o *GetIntegrationsTypeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type gateway timeout response has a 4xx status code
+func (o *GetIntegrationsTypeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations type gateway timeout response has a 5xx status code
+func (o *GetIntegrationsTypeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations type gateway timeout response a status code equal to that given
+func (o *GetIntegrationsTypeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIntegrationsTypeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIntegrationsTypeGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}][%d] getIntegrationsTypeGatewayTimeout  %+v", 504, o.Payload)
 }
 

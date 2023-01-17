@@ -18,74 +18,95 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementBusinessunitWeekScheduleCopyParams creates a new PostWorkforcemanagementBusinessunitWeekScheduleCopyParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementBusinessunitWeekScheduleCopyParams creates a new PostWorkforcemanagementBusinessunitWeekScheduleCopyParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementBusinessunitWeekScheduleCopyParams() *PostWorkforcemanagementBusinessunitWeekScheduleCopyParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekScheduleCopyParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekScheduleCopyParamsWithTimeout creates a new PostWorkforcemanagementBusinessunitWeekScheduleCopyParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementBusinessunitWeekScheduleCopyParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementBusinessunitWeekScheduleCopyParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekScheduleCopyParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekScheduleCopyParamsWithContext creates a new PostWorkforcemanagementBusinessunitWeekScheduleCopyParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementBusinessunitWeekScheduleCopyParamsWithContext(ctx context.Context) *PostWorkforcemanagementBusinessunitWeekScheduleCopyParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekScheduleCopyParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekScheduleCopyParamsWithHTTPClient creates a new PostWorkforcemanagementBusinessunitWeekScheduleCopyParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementBusinessunitWeekScheduleCopyParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementBusinessunitWeekScheduleCopyParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekScheduleCopyParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekScheduleCopyParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement businessunit week schedule copy operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementBusinessunitWeekScheduleCopyParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement businessunit week schedule copy operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementBusinessunitWeekScheduleCopyParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.BuCopyScheduleRequest
-	/*BusinessUnitID
-	  The ID of the business unit
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit
 	*/
 	BusinessUnitID string
-	/*ScheduleID
-	  The ID of the schedule to copy
 
+	/* ScheduleID.
+
+	   The ID of the schedule to copy
 	*/
 	ScheduleID string
-	/*WeekID
-	  First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekID.
+
+	   First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekID strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement businessunit week schedule copy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleCopyParams) WithDefaults() *PostWorkforcemanagementBusinessunitWeekScheduleCopyParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement businessunit week schedule copy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleCopyParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement businessunit week schedule copy params
@@ -172,7 +193,6 @@ func (o *PostWorkforcemanagementBusinessunitWeekScheduleCopyParams) WriteToReque
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

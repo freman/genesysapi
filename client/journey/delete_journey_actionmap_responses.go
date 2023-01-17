@@ -95,7 +95,6 @@ func (o *DeleteJourneyActionmapReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteJourneyActionmapNoContent() *DeleteJourneyActionmapNoContent {
 	return &DeleteJourneyActionmapNoContent{}
 }
 
-/*DeleteJourneyActionmapNoContent handles this case with default header values.
+/*
+DeleteJourneyActionmapNoContent describes a response with status code 204, with default header values.
 
 Action map deleted.
 */
 type DeleteJourneyActionmapNoContent struct {
 }
 
+// IsSuccess returns true when this delete journey actionmap no content response has a 2xx status code
+func (o *DeleteJourneyActionmapNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete journey actionmap no content response has a 3xx status code
+func (o *DeleteJourneyActionmapNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey actionmap no content response has a 4xx status code
+func (o *DeleteJourneyActionmapNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete journey actionmap no content response has a 5xx status code
+func (o *DeleteJourneyActionmapNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey actionmap no content response a status code equal to that given
+func (o *DeleteJourneyActionmapNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteJourneyActionmapNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapNoContent ", 204)
+}
+
+func (o *DeleteJourneyActionmapNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteJourneyActionmapBadRequest() *DeleteJourneyActionmapBadRequest {
 	return &DeleteJourneyActionmapBadRequest{}
 }
 
-/*DeleteJourneyActionmapBadRequest handles this case with default header values.
+/*
+DeleteJourneyActionmapBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteJourneyActionmapBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey actionmap bad request response has a 2xx status code
+func (o *DeleteJourneyActionmapBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey actionmap bad request response has a 3xx status code
+func (o *DeleteJourneyActionmapBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey actionmap bad request response has a 4xx status code
+func (o *DeleteJourneyActionmapBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey actionmap bad request response has a 5xx status code
+func (o *DeleteJourneyActionmapBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey actionmap bad request response a status code equal to that given
+func (o *DeleteJourneyActionmapBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteJourneyActionmapBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteJourneyActionmapBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteJourneyActionmapUnauthorized() *DeleteJourneyActionmapUnauthorized
 	return &DeleteJourneyActionmapUnauthorized{}
 }
 
-/*DeleteJourneyActionmapUnauthorized handles this case with default header values.
+/*
+DeleteJourneyActionmapUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteJourneyActionmapUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey actionmap unauthorized response has a 2xx status code
+func (o *DeleteJourneyActionmapUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey actionmap unauthorized response has a 3xx status code
+func (o *DeleteJourneyActionmapUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey actionmap unauthorized response has a 4xx status code
+func (o *DeleteJourneyActionmapUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey actionmap unauthorized response has a 5xx status code
+func (o *DeleteJourneyActionmapUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey actionmap unauthorized response a status code equal to that given
+func (o *DeleteJourneyActionmapUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteJourneyActionmapUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteJourneyActionmapUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteJourneyActionmapForbidden() *DeleteJourneyActionmapForbidden {
 	return &DeleteJourneyActionmapForbidden{}
 }
 
-/*DeleteJourneyActionmapForbidden handles this case with default header values.
+/*
+DeleteJourneyActionmapForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteJourneyActionmapForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey actionmap forbidden response has a 2xx status code
+func (o *DeleteJourneyActionmapForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey actionmap forbidden response has a 3xx status code
+func (o *DeleteJourneyActionmapForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey actionmap forbidden response has a 4xx status code
+func (o *DeleteJourneyActionmapForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey actionmap forbidden response has a 5xx status code
+func (o *DeleteJourneyActionmapForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey actionmap forbidden response a status code equal to that given
+func (o *DeleteJourneyActionmapForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteJourneyActionmapForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteJourneyActionmapForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteJourneyActionmapNotFound() *DeleteJourneyActionmapNotFound {
 	return &DeleteJourneyActionmapNotFound{}
 }
 
-/*DeleteJourneyActionmapNotFound handles this case with default header values.
+/*
+DeleteJourneyActionmapNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteJourneyActionmapNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey actionmap not found response has a 2xx status code
+func (o *DeleteJourneyActionmapNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey actionmap not found response has a 3xx status code
+func (o *DeleteJourneyActionmapNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey actionmap not found response has a 4xx status code
+func (o *DeleteJourneyActionmapNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey actionmap not found response has a 5xx status code
+func (o *DeleteJourneyActionmapNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey actionmap not found response a status code equal to that given
+func (o *DeleteJourneyActionmapNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteJourneyActionmapNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteJourneyActionmapNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteJourneyActionmapRequestTimeout() *DeleteJourneyActionmapRequestTim
 	return &DeleteJourneyActionmapRequestTimeout{}
 }
 
-/*DeleteJourneyActionmapRequestTimeout handles this case with default header values.
+/*
+DeleteJourneyActionmapRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteJourneyActionmapRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey actionmap request timeout response has a 2xx status code
+func (o *DeleteJourneyActionmapRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey actionmap request timeout response has a 3xx status code
+func (o *DeleteJourneyActionmapRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey actionmap request timeout response has a 4xx status code
+func (o *DeleteJourneyActionmapRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey actionmap request timeout response has a 5xx status code
+func (o *DeleteJourneyActionmapRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey actionmap request timeout response a status code equal to that given
+func (o *DeleteJourneyActionmapRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteJourneyActionmapRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteJourneyActionmapRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteJourneyActionmapRequestEntityTooLarge() *DeleteJourneyActionmapReq
 	return &DeleteJourneyActionmapRequestEntityTooLarge{}
 }
 
-/*DeleteJourneyActionmapRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteJourneyActionmapRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteJourneyActionmapRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey actionmap request entity too large response has a 2xx status code
+func (o *DeleteJourneyActionmapRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey actionmap request entity too large response has a 3xx status code
+func (o *DeleteJourneyActionmapRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey actionmap request entity too large response has a 4xx status code
+func (o *DeleteJourneyActionmapRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey actionmap request entity too large response has a 5xx status code
+func (o *DeleteJourneyActionmapRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey actionmap request entity too large response a status code equal to that given
+func (o *DeleteJourneyActionmapRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteJourneyActionmapRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteJourneyActionmapRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteJourneyActionmapUnsupportedMediaType() *DeleteJourneyActionmapUnsu
 	return &DeleteJourneyActionmapUnsupportedMediaType{}
 }
 
-/*DeleteJourneyActionmapUnsupportedMediaType handles this case with default header values.
+/*
+DeleteJourneyActionmapUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteJourneyActionmapUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey actionmap unsupported media type response has a 2xx status code
+func (o *DeleteJourneyActionmapUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey actionmap unsupported media type response has a 3xx status code
+func (o *DeleteJourneyActionmapUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey actionmap unsupported media type response has a 4xx status code
+func (o *DeleteJourneyActionmapUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey actionmap unsupported media type response has a 5xx status code
+func (o *DeleteJourneyActionmapUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey actionmap unsupported media type response a status code equal to that given
+func (o *DeleteJourneyActionmapUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteJourneyActionmapUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteJourneyActionmapUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteJourneyActionmapTooManyRequests() *DeleteJourneyActionmapTooManyRe
 	return &DeleteJourneyActionmapTooManyRequests{}
 }
 
-/*DeleteJourneyActionmapTooManyRequests handles this case with default header values.
+/*
+DeleteJourneyActionmapTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteJourneyActionmapTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey actionmap too many requests response has a 2xx status code
+func (o *DeleteJourneyActionmapTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey actionmap too many requests response has a 3xx status code
+func (o *DeleteJourneyActionmapTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey actionmap too many requests response has a 4xx status code
+func (o *DeleteJourneyActionmapTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey actionmap too many requests response has a 5xx status code
+func (o *DeleteJourneyActionmapTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey actionmap too many requests response a status code equal to that given
+func (o *DeleteJourneyActionmapTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteJourneyActionmapTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteJourneyActionmapTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteJourneyActionmapInternalServerError() *DeleteJourneyActionmapInter
 	return &DeleteJourneyActionmapInternalServerError{}
 }
 
-/*DeleteJourneyActionmapInternalServerError handles this case with default header values.
+/*
+DeleteJourneyActionmapInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteJourneyActionmapInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey actionmap internal server error response has a 2xx status code
+func (o *DeleteJourneyActionmapInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey actionmap internal server error response has a 3xx status code
+func (o *DeleteJourneyActionmapInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey actionmap internal server error response has a 4xx status code
+func (o *DeleteJourneyActionmapInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete journey actionmap internal server error response has a 5xx status code
+func (o *DeleteJourneyActionmapInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete journey actionmap internal server error response a status code equal to that given
+func (o *DeleteJourneyActionmapInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteJourneyActionmapInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteJourneyActionmapInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteJourneyActionmapServiceUnavailable() *DeleteJourneyActionmapServic
 	return &DeleteJourneyActionmapServiceUnavailable{}
 }
 
-/*DeleteJourneyActionmapServiceUnavailable handles this case with default header values.
+/*
+DeleteJourneyActionmapServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteJourneyActionmapServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey actionmap service unavailable response has a 2xx status code
+func (o *DeleteJourneyActionmapServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey actionmap service unavailable response has a 3xx status code
+func (o *DeleteJourneyActionmapServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey actionmap service unavailable response has a 4xx status code
+func (o *DeleteJourneyActionmapServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete journey actionmap service unavailable response has a 5xx status code
+func (o *DeleteJourneyActionmapServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete journey actionmap service unavailable response a status code equal to that given
+func (o *DeleteJourneyActionmapServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteJourneyActionmapServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteJourneyActionmapServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteJourneyActionmapGatewayTimeout() *DeleteJourneyActionmapGatewayTim
 	return &DeleteJourneyActionmapGatewayTimeout{}
 }
 
-/*DeleteJourneyActionmapGatewayTimeout handles this case with default header values.
+/*
+DeleteJourneyActionmapGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteJourneyActionmapGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey actionmap gateway timeout response has a 2xx status code
+func (o *DeleteJourneyActionmapGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey actionmap gateway timeout response has a 3xx status code
+func (o *DeleteJourneyActionmapGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey actionmap gateway timeout response has a 4xx status code
+func (o *DeleteJourneyActionmapGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete journey actionmap gateway timeout response has a 5xx status code
+func (o *DeleteJourneyActionmapGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete journey actionmap gateway timeout response a status code equal to that given
+func (o *DeleteJourneyActionmapGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteJourneyActionmapGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteJourneyActionmapGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/actionmaps/{actionMapId}][%d] deleteJourneyActionmapGatewayTimeout  %+v", 504, o.Payload)
 }
 

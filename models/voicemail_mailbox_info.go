@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -63,7 +65,6 @@ func (m *VoicemailMailboxInfo) Validate(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailMailboxInfo) validateCreatedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedDate) { // not required
 		return nil
 	}
@@ -76,12 +77,99 @@ func (m *VoicemailMailboxInfo) validateCreatedDate(formats strfmt.Registry) erro
 }
 
 func (m *VoicemailMailboxInfo) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("modifiedDate", "body", "date-time", m.ModifiedDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this voicemail mailbox info based on the context it is used
+func (m *VoicemailMailboxInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCreatedDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDeletedCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUnreadCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUsageSizeBytes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *VoicemailMailboxInfo) contextValidateCreatedDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdDate", "body", strfmt.DateTime(m.CreatedDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMailboxInfo) contextValidateDeletedCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "deletedCount", "body", int32(m.DeletedCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMailboxInfo) contextValidateModifiedDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedDate", "body", strfmt.DateTime(m.ModifiedDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMailboxInfo) contextValidateTotalCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalCount", "body", int32(m.TotalCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMailboxInfo) contextValidateUnreadCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "unreadCount", "body", int32(m.UnreadCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailMailboxInfo) contextValidateUsageSizeBytes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "usageSizeBytes", "body", int64(m.UsageSizeBytes)); err != nil {
 		return err
 	}
 

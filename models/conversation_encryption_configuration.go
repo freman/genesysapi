@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -117,7 +118,6 @@ func (m *ConversationEncryptionConfiguration) validateKeyConfigurationType(forma
 }
 
 func (m *ConversationEncryptionConfiguration) validateLastError(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastError) { // not required
 		return nil
 	}
@@ -126,6 +126,8 @@ func (m *ConversationEncryptionConfiguration) validateLastError(formats strfmt.R
 		if err := m.LastError.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastError")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastError")
 			}
 			return err
 		}
@@ -135,7 +137,6 @@ func (m *ConversationEncryptionConfiguration) validateLastError(formats strfmt.R
 }
 
 func (m *ConversationEncryptionConfiguration) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -150,6 +151,62 @@ func (m *ConversationEncryptionConfiguration) validateSelfURI(formats strfmt.Reg
 func (m *ConversationEncryptionConfiguration) validateURL(formats strfmt.Registry) error {
 
 	if err := validate.Required("url", "body", m.URL); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation encryption configuration based on the context it is used
+func (m *ConversationEncryptionConfiguration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastError(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConversationEncryptionConfiguration) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationEncryptionConfiguration) contextValidateLastError(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastError != nil {
+		if err := m.LastError.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastError")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastError")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationEncryptionConfiguration) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

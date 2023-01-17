@@ -17,109 +17,135 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetKnowledgeKnowledgebaseLanguageDocumentsParams creates a new GetKnowledgeKnowledgebaseLanguageDocumentsParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseLanguageDocumentsParams creates a new GetKnowledgeKnowledgebaseLanguageDocumentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseLanguageDocumentsParams() *GetKnowledgeKnowledgebaseLanguageDocumentsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseLanguageDocumentsParamsWithTimeout creates a new GetKnowledgeKnowledgebaseLanguageDocumentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseLanguageDocumentsParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseLanguageDocumentsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseLanguageDocumentsParamsWithContext creates a new GetKnowledgeKnowledgebaseLanguageDocumentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseLanguageDocumentsParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseLanguageDocumentsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseLanguageDocumentsParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseLanguageDocumentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseLanguageDocumentsParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseLanguageDocumentsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase language documents operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase language documents operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseLanguageDocumentsParams struct {
 
-	/*After
-	  The cursor that points to the end of the set of entities that has been returned.
+	/* After.
 
+	   The cursor that points to the end of the set of entities that has been returned.
 	*/
 	After *string
-	/*Before
-	  The cursor that points to the start of the set of entities that has been returned.
 
+	/* Before.
+
+	   The cursor that points to the start of the set of entities that has been returned.
 	*/
 	Before *string
-	/*Categories
-	  Filter by categories ids, comma separated values expected.
 
+	/* Categories.
+
+	   Filter by categories ids, comma separated values expected.
 	*/
 	Categories *string
-	/*DocumentIds
-	  Comma-separated list of document identifiers to fetch by.
 
+	/* DocumentIds.
+
+	   Comma-separated list of document identifiers to fetch by.
 	*/
 	DocumentIds []string
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LanguageCode
-	  Language code, format: iso2-LOCALE
 
+	/* LanguageCode.
+
+	   Language code, format: iso2-LOCALE
 	*/
 	LanguageCode string
-	/*Limit
-	  Number of entities to return. Maximum of 200. Deprecated in favour of pageSize
 
+	/* Limit.
+
+	   Number of entities to return. Maximum of 200. Deprecated in favour of pageSize
 	*/
 	Limit *string
-	/*PageSize
-	  Number of entities to return. Maximum of 200.
 
+	/* PageSize.
+
+	   Number of entities to return. Maximum of 200.
 	*/
 	PageSize *string
-	/*SortBy
-	  Sort by.
 
+	/* SortBy.
+
+	   Sort by.
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort Order.
 
+	/* SortOrder.
+
+	   Sort Order.
 	*/
 	SortOrder *string
-	/*Title
-	  Filter by document title.
 
+	/* Title.
+
+	   Filter by document title.
 	*/
 	Title *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase language documents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WithDefaults() *GetKnowledgeKnowledgebaseLanguageDocumentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase language documents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase language documents params
@@ -288,56 +314,62 @@ func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WriteToRequest(r runt
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Categories != nil {
 
 		// query param categories
 		var qrCategories string
+
 		if o.Categories != nil {
 			qrCategories = *o.Categories
 		}
 		qCategories := qrCategories
 		if qCategories != "" {
+
 			if err := r.SetQueryParam("categories", qCategories); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesDocumentIds := o.DocumentIds
+	if o.DocumentIds != nil {
 
-	joinedDocumentIds := swag.JoinByFormat(valuesDocumentIds, "multi")
-	// query array param documentIds
-	if err := r.SetQueryParam("documentIds", joinedDocumentIds...); err != nil {
-		return err
+		// binding items for documentIds
+		joinedDocumentIds := o.bindParamDocumentIds(reg)
+
+		// query array param documentIds
+		if err := r.SetQueryParam("documentIds", joinedDocumentIds...); err != nil {
+			return err
+		}
 	}
 
 	// path param knowledgeBaseId
@@ -354,84 +386,106 @@ func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) WriteToRequest(r runt
 
 		// query param limit
 		var qrLimit string
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := qrLimit
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize string
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := qrPageSize
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Title != nil {
 
 		// query param title
 		var qrTitle string
+
 		if o.Title != nil {
 			qrTitle = *o.Title
 		}
 		qTitle := qrTitle
 		if qTitle != "" {
+
 			if err := r.SetQueryParam("title", qTitle); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetKnowledgeKnowledgebaseLanguageDocuments binds the parameter documentIds
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsParams) bindParamDocumentIds(formats strfmt.Registry) []string {
+	documentIdsIR := o.DocumentIds
+
+	var documentIdsIC []string
+	for _, documentIdsIIR := range documentIdsIR { // explode []string
+
+		documentIdsIIV := documentIdsIIR // string as string
+		documentIdsIC = append(documentIdsIC, documentIdsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	documentIdsIS := swag.JoinByFormat(documentIdsIC, "multi")
+
+	return documentIdsIS
 }

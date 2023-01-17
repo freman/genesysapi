@@ -95,7 +95,6 @@ func (o *PostConversationsCallbackParticipantReplaceReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostConversationsCallbackParticipantReplaceAccepted() *PostConversations
 	return &PostConversationsCallbackParticipantReplaceAccepted{}
 }
 
-/*PostConversationsCallbackParticipantReplaceAccepted handles this case with default header values.
+/*
+PostConversationsCallbackParticipantReplaceAccepted describes a response with status code 202, with default header values.
 
 Accepted
 */
 type PostConversationsCallbackParticipantReplaceAccepted struct {
 }
 
+// IsSuccess returns true when this post conversations callback participant replace accepted response has a 2xx status code
+func (o *PostConversationsCallbackParticipantReplaceAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations callback participant replace accepted response has a 3xx status code
+func (o *PostConversationsCallbackParticipantReplaceAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callback participant replace accepted response has a 4xx status code
+func (o *PostConversationsCallbackParticipantReplaceAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations callback participant replace accepted response has a 5xx status code
+func (o *PostConversationsCallbackParticipantReplaceAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callback participant replace accepted response a status code equal to that given
+func (o *PostConversationsCallbackParticipantReplaceAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostConversationsCallbackParticipantReplaceAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceAccepted ", 202)
+}
+
+func (o *PostConversationsCallbackParticipantReplaceAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceAccepted ", 202)
 }
 
@@ -127,7 +156,8 @@ func NewPostConversationsCallbackParticipantReplaceBadRequest() *PostConversatio
 	return &PostConversationsCallbackParticipantReplaceBadRequest{}
 }
 
-/*PostConversationsCallbackParticipantReplaceBadRequest handles this case with default header values.
+/*
+PostConversationsCallbackParticipantReplaceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostConversationsCallbackParticipantReplaceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callback participant replace bad request response has a 2xx status code
+func (o *PostConversationsCallbackParticipantReplaceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callback participant replace bad request response has a 3xx status code
+func (o *PostConversationsCallbackParticipantReplaceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callback participant replace bad request response has a 4xx status code
+func (o *PostConversationsCallbackParticipantReplaceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callback participant replace bad request response has a 5xx status code
+func (o *PostConversationsCallbackParticipantReplaceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callback participant replace bad request response a status code equal to that given
+func (o *PostConversationsCallbackParticipantReplaceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsCallbackParticipantReplaceBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsCallbackParticipantReplaceBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostConversationsCallbackParticipantReplaceUnauthorized() *PostConversat
 	return &PostConversationsCallbackParticipantReplaceUnauthorized{}
 }
 
-/*PostConversationsCallbackParticipantReplaceUnauthorized handles this case with default header values.
+/*
+PostConversationsCallbackParticipantReplaceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostConversationsCallbackParticipantReplaceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callback participant replace unauthorized response has a 2xx status code
+func (o *PostConversationsCallbackParticipantReplaceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callback participant replace unauthorized response has a 3xx status code
+func (o *PostConversationsCallbackParticipantReplaceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callback participant replace unauthorized response has a 4xx status code
+func (o *PostConversationsCallbackParticipantReplaceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callback participant replace unauthorized response has a 5xx status code
+func (o *PostConversationsCallbackParticipantReplaceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callback participant replace unauthorized response a status code equal to that given
+func (o *PostConversationsCallbackParticipantReplaceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsCallbackParticipantReplaceUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsCallbackParticipantReplaceUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostConversationsCallbackParticipantReplaceForbidden() *PostConversation
 	return &PostConversationsCallbackParticipantReplaceForbidden{}
 }
 
-/*PostConversationsCallbackParticipantReplaceForbidden handles this case with default header values.
+/*
+PostConversationsCallbackParticipantReplaceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostConversationsCallbackParticipantReplaceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callback participant replace forbidden response has a 2xx status code
+func (o *PostConversationsCallbackParticipantReplaceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callback participant replace forbidden response has a 3xx status code
+func (o *PostConversationsCallbackParticipantReplaceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callback participant replace forbidden response has a 4xx status code
+func (o *PostConversationsCallbackParticipantReplaceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callback participant replace forbidden response has a 5xx status code
+func (o *PostConversationsCallbackParticipantReplaceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callback participant replace forbidden response a status code equal to that given
+func (o *PostConversationsCallbackParticipantReplaceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsCallbackParticipantReplaceForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsCallbackParticipantReplaceForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostConversationsCallbackParticipantReplaceNotFound() *PostConversations
 	return &PostConversationsCallbackParticipantReplaceNotFound{}
 }
 
-/*PostConversationsCallbackParticipantReplaceNotFound handles this case with default header values.
+/*
+PostConversationsCallbackParticipantReplaceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostConversationsCallbackParticipantReplaceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callback participant replace not found response has a 2xx status code
+func (o *PostConversationsCallbackParticipantReplaceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callback participant replace not found response has a 3xx status code
+func (o *PostConversationsCallbackParticipantReplaceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callback participant replace not found response has a 4xx status code
+func (o *PostConversationsCallbackParticipantReplaceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callback participant replace not found response has a 5xx status code
+func (o *PostConversationsCallbackParticipantReplaceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callback participant replace not found response a status code equal to that given
+func (o *PostConversationsCallbackParticipantReplaceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsCallbackParticipantReplaceNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsCallbackParticipantReplaceNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostConversationsCallbackParticipantReplaceRequestTimeout() *PostConvers
 	return &PostConversationsCallbackParticipantReplaceRequestTimeout{}
 }
 
-/*PostConversationsCallbackParticipantReplaceRequestTimeout handles this case with default header values.
+/*
+PostConversationsCallbackParticipantReplaceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostConversationsCallbackParticipantReplaceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callback participant replace request timeout response has a 2xx status code
+func (o *PostConversationsCallbackParticipantReplaceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callback participant replace request timeout response has a 3xx status code
+func (o *PostConversationsCallbackParticipantReplaceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callback participant replace request timeout response has a 4xx status code
+func (o *PostConversationsCallbackParticipantReplaceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callback participant replace request timeout response has a 5xx status code
+func (o *PostConversationsCallbackParticipantReplaceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callback participant replace request timeout response a status code equal to that given
+func (o *PostConversationsCallbackParticipantReplaceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsCallbackParticipantReplaceRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsCallbackParticipantReplaceRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostConversationsCallbackParticipantReplaceRequestEntityTooLarge() *Post
 	return &PostConversationsCallbackParticipantReplaceRequestEntityTooLarge{}
 }
 
-/*PostConversationsCallbackParticipantReplaceRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsCallbackParticipantReplaceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostConversationsCallbackParticipantReplaceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callback participant replace request entity too large response has a 2xx status code
+func (o *PostConversationsCallbackParticipantReplaceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callback participant replace request entity too large response has a 3xx status code
+func (o *PostConversationsCallbackParticipantReplaceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callback participant replace request entity too large response has a 4xx status code
+func (o *PostConversationsCallbackParticipantReplaceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callback participant replace request entity too large response has a 5xx status code
+func (o *PostConversationsCallbackParticipantReplaceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callback participant replace request entity too large response a status code equal to that given
+func (o *PostConversationsCallbackParticipantReplaceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsCallbackParticipantReplaceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsCallbackParticipantReplaceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostConversationsCallbackParticipantReplaceUnsupportedMediaType() *PostC
 	return &PostConversationsCallbackParticipantReplaceUnsupportedMediaType{}
 }
 
-/*PostConversationsCallbackParticipantReplaceUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsCallbackParticipantReplaceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostConversationsCallbackParticipantReplaceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callback participant replace unsupported media type response has a 2xx status code
+func (o *PostConversationsCallbackParticipantReplaceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callback participant replace unsupported media type response has a 3xx status code
+func (o *PostConversationsCallbackParticipantReplaceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callback participant replace unsupported media type response has a 4xx status code
+func (o *PostConversationsCallbackParticipantReplaceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callback participant replace unsupported media type response has a 5xx status code
+func (o *PostConversationsCallbackParticipantReplaceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callback participant replace unsupported media type response a status code equal to that given
+func (o *PostConversationsCallbackParticipantReplaceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsCallbackParticipantReplaceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsCallbackParticipantReplaceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostConversationsCallbackParticipantReplaceTooManyRequests() *PostConver
 	return &PostConversationsCallbackParticipantReplaceTooManyRequests{}
 }
 
-/*PostConversationsCallbackParticipantReplaceTooManyRequests handles this case with default header values.
+/*
+PostConversationsCallbackParticipantReplaceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostConversationsCallbackParticipantReplaceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callback participant replace too many requests response has a 2xx status code
+func (o *PostConversationsCallbackParticipantReplaceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callback participant replace too many requests response has a 3xx status code
+func (o *PostConversationsCallbackParticipantReplaceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callback participant replace too many requests response has a 4xx status code
+func (o *PostConversationsCallbackParticipantReplaceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callback participant replace too many requests response has a 5xx status code
+func (o *PostConversationsCallbackParticipantReplaceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callback participant replace too many requests response a status code equal to that given
+func (o *PostConversationsCallbackParticipantReplaceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsCallbackParticipantReplaceTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsCallbackParticipantReplaceTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostConversationsCallbackParticipantReplaceInternalServerError() *PostCo
 	return &PostConversationsCallbackParticipantReplaceInternalServerError{}
 }
 
-/*PostConversationsCallbackParticipantReplaceInternalServerError handles this case with default header values.
+/*
+PostConversationsCallbackParticipantReplaceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostConversationsCallbackParticipantReplaceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callback participant replace internal server error response has a 2xx status code
+func (o *PostConversationsCallbackParticipantReplaceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callback participant replace internal server error response has a 3xx status code
+func (o *PostConversationsCallbackParticipantReplaceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callback participant replace internal server error response has a 4xx status code
+func (o *PostConversationsCallbackParticipantReplaceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations callback participant replace internal server error response has a 5xx status code
+func (o *PostConversationsCallbackParticipantReplaceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations callback participant replace internal server error response a status code equal to that given
+func (o *PostConversationsCallbackParticipantReplaceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsCallbackParticipantReplaceInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsCallbackParticipantReplaceInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostConversationsCallbackParticipantReplaceServiceUnavailable() *PostCon
 	return &PostConversationsCallbackParticipantReplaceServiceUnavailable{}
 }
 
-/*PostConversationsCallbackParticipantReplaceServiceUnavailable handles this case with default header values.
+/*
+PostConversationsCallbackParticipantReplaceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostConversationsCallbackParticipantReplaceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callback participant replace service unavailable response has a 2xx status code
+func (o *PostConversationsCallbackParticipantReplaceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callback participant replace service unavailable response has a 3xx status code
+func (o *PostConversationsCallbackParticipantReplaceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callback participant replace service unavailable response has a 4xx status code
+func (o *PostConversationsCallbackParticipantReplaceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations callback participant replace service unavailable response has a 5xx status code
+func (o *PostConversationsCallbackParticipantReplaceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations callback participant replace service unavailable response a status code equal to that given
+func (o *PostConversationsCallbackParticipantReplaceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsCallbackParticipantReplaceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsCallbackParticipantReplaceServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostConversationsCallbackParticipantReplaceGatewayTimeout() *PostConvers
 	return &PostConversationsCallbackParticipantReplaceGatewayTimeout{}
 }
 
-/*PostConversationsCallbackParticipantReplaceGatewayTimeout handles this case with default header values.
+/*
+PostConversationsCallbackParticipantReplaceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostConversationsCallbackParticipantReplaceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callback participant replace gateway timeout response has a 2xx status code
+func (o *PostConversationsCallbackParticipantReplaceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callback participant replace gateway timeout response has a 3xx status code
+func (o *PostConversationsCallbackParticipantReplaceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callback participant replace gateway timeout response has a 4xx status code
+func (o *PostConversationsCallbackParticipantReplaceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations callback participant replace gateway timeout response has a 5xx status code
+func (o *PostConversationsCallbackParticipantReplaceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations callback participant replace gateway timeout response a status code equal to that given
+func (o *PostConversationsCallbackParticipantReplaceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsCallbackParticipantReplaceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsCallbackParticipantReplaceGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/{conversationId}/participants/{participantId}/replace][%d] postConversationsCallbackParticipantReplaceGatewayTimeout  %+v", 504, o.Payload)
 }
 

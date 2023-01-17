@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOrganizationsMeParams creates a new GetOrganizationsMeParams object
-// with the default values initialized.
+// NewGetOrganizationsMeParams creates a new GetOrganizationsMeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOrganizationsMeParams() *GetOrganizationsMeParams {
-
 	return &GetOrganizationsMeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOrganizationsMeParamsWithTimeout creates a new GetOrganizationsMeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOrganizationsMeParamsWithTimeout(timeout time.Duration) *GetOrganizationsMeParams {
-
 	return &GetOrganizationsMeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOrganizationsMeParamsWithContext creates a new GetOrganizationsMeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOrganizationsMeParamsWithContext(ctx context.Context) *GetOrganizationsMeParams {
-
 	return &GetOrganizationsMeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOrganizationsMeParamsWithHTTPClient creates a new GetOrganizationsMeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOrganizationsMeParamsWithHTTPClient(client *http.Client) *GetOrganizationsMeParams {
-
 	return &GetOrganizationsMeParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOrganizationsMeParams contains all the parameters to send to the API endpoint
-for the get organizations me operation typically these are written to a http.Request
+/*
+GetOrganizationsMeParams contains all the parameters to send to the API endpoint
+
+	for the get organizations me operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOrganizationsMeParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get organizations me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrganizationsMeParams) WithDefaults() *GetOrganizationsMeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get organizations me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrganizationsMeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get organizations me params

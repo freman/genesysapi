@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -91,7 +92,6 @@ func (m *Note) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Note) validateCreateDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreateDate) { // not required
 		return nil
 	}
@@ -113,6 +113,8 @@ func (m *Note) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -151,7 +153,6 @@ func (m *Note) validateEntityTypeEnum(path, location string, value string) error
 }
 
 func (m *Note) validateEntityType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EntityType) { // not required
 		return nil
 	}
@@ -165,7 +166,6 @@ func (m *Note) validateEntityType(formats strfmt.Registry) error {
 }
 
 func (m *Note) validateExternalDataSources(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalDataSources) { // not required
 		return nil
 	}
@@ -179,6 +179,8 @@ func (m *Note) validateExternalDataSources(formats strfmt.Registry) error {
 			if err := m.ExternalDataSources[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("externalDataSources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("externalDataSources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -190,7 +192,6 @@ func (m *Note) validateExternalDataSources(formats strfmt.Registry) error {
 }
 
 func (m *Note) validateModifyDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifyDate) { // not required
 		return nil
 	}
@@ -203,12 +204,95 @@ func (m *Note) validateModifyDate(formats strfmt.Registry) error {
 }
 
 func (m *Note) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this note based on the context it is used
+func (m *Note) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExternalDataSources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Note) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Note) contextValidateExternalDataSources(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "externalDataSources", "body", []*ExternalDataSource(m.ExternalDataSources)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.ExternalDataSources); i++ {
+
+		if m.ExternalDataSources[i] != nil {
+			if err := m.ExternalDataSources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("externalDataSources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("externalDataSources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Note) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Note) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

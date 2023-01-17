@@ -113,7 +113,6 @@ func (o *PostFlowsActionsRevertReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -124,7 +123,8 @@ func NewPostFlowsActionsRevertOK() *PostFlowsActionsRevertOK {
 	return &PostFlowsActionsRevertOK{}
 }
 
-/*PostFlowsActionsRevertOK handles this case with default header values.
+/*
+PostFlowsActionsRevertOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -132,7 +132,36 @@ type PostFlowsActionsRevertOK struct {
 	Payload *models.Flow
 }
 
+// IsSuccess returns true when this post flows actions revert o k response has a 2xx status code
+func (o *PostFlowsActionsRevertOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post flows actions revert o k response has a 3xx status code
+func (o *PostFlowsActionsRevertOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert o k response has a 4xx status code
+func (o *PostFlowsActionsRevertOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions revert o k response has a 5xx status code
+func (o *PostFlowsActionsRevertOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions revert o k response a status code equal to that given
+func (o *PostFlowsActionsRevertOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostFlowsActionsRevertOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertOK  %+v", 200, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertOK  %+v", 200, o.Payload)
 }
 
@@ -157,7 +186,8 @@ func NewPostFlowsActionsRevertBadRequest() *PostFlowsActionsRevertBadRequest {
 	return &PostFlowsActionsRevertBadRequest{}
 }
 
-/*PostFlowsActionsRevertBadRequest handles this case with default header values.
+/*
+PostFlowsActionsRevertBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -165,7 +195,36 @@ type PostFlowsActionsRevertBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert bad request response has a 2xx status code
+func (o *PostFlowsActionsRevertBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert bad request response has a 3xx status code
+func (o *PostFlowsActionsRevertBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert bad request response has a 4xx status code
+func (o *PostFlowsActionsRevertBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions revert bad request response has a 5xx status code
+func (o *PostFlowsActionsRevertBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions revert bad request response a status code equal to that given
+func (o *PostFlowsActionsRevertBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostFlowsActionsRevertBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertBadRequest  %+v", 400, o.Payload)
 }
 
@@ -190,7 +249,8 @@ func NewPostFlowsActionsRevertUnauthorized() *PostFlowsActionsRevertUnauthorized
 	return &PostFlowsActionsRevertUnauthorized{}
 }
 
-/*PostFlowsActionsRevertUnauthorized handles this case with default header values.
+/*
+PostFlowsActionsRevertUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -198,7 +258,36 @@ type PostFlowsActionsRevertUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert unauthorized response has a 2xx status code
+func (o *PostFlowsActionsRevertUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert unauthorized response has a 3xx status code
+func (o *PostFlowsActionsRevertUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert unauthorized response has a 4xx status code
+func (o *PostFlowsActionsRevertUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions revert unauthorized response has a 5xx status code
+func (o *PostFlowsActionsRevertUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions revert unauthorized response a status code equal to that given
+func (o *PostFlowsActionsRevertUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostFlowsActionsRevertUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -223,7 +312,8 @@ func NewPostFlowsActionsRevertForbidden() *PostFlowsActionsRevertForbidden {
 	return &PostFlowsActionsRevertForbidden{}
 }
 
-/*PostFlowsActionsRevertForbidden handles this case with default header values.
+/*
+PostFlowsActionsRevertForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -231,7 +321,36 @@ type PostFlowsActionsRevertForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert forbidden response has a 2xx status code
+func (o *PostFlowsActionsRevertForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert forbidden response has a 3xx status code
+func (o *PostFlowsActionsRevertForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert forbidden response has a 4xx status code
+func (o *PostFlowsActionsRevertForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions revert forbidden response has a 5xx status code
+func (o *PostFlowsActionsRevertForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions revert forbidden response a status code equal to that given
+func (o *PostFlowsActionsRevertForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostFlowsActionsRevertForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertForbidden  %+v", 403, o.Payload)
 }
 
@@ -256,7 +375,8 @@ func NewPostFlowsActionsRevertNotFound() *PostFlowsActionsRevertNotFound {
 	return &PostFlowsActionsRevertNotFound{}
 }
 
-/*PostFlowsActionsRevertNotFound handles this case with default header values.
+/*
+PostFlowsActionsRevertNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -264,7 +384,36 @@ type PostFlowsActionsRevertNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert not found response has a 2xx status code
+func (o *PostFlowsActionsRevertNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert not found response has a 3xx status code
+func (o *PostFlowsActionsRevertNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert not found response has a 4xx status code
+func (o *PostFlowsActionsRevertNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions revert not found response has a 5xx status code
+func (o *PostFlowsActionsRevertNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions revert not found response a status code equal to that given
+func (o *PostFlowsActionsRevertNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostFlowsActionsRevertNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertNotFound  %+v", 404, o.Payload)
 }
 
@@ -289,7 +438,8 @@ func NewPostFlowsActionsRevertMethodNotAllowed() *PostFlowsActionsRevertMethodNo
 	return &PostFlowsActionsRevertMethodNotAllowed{}
 }
 
-/*PostFlowsActionsRevertMethodNotAllowed handles this case with default header values.
+/*
+PostFlowsActionsRevertMethodNotAllowed describes a response with status code 405, with default header values.
 
 Method Not Allowed
 */
@@ -297,7 +447,36 @@ type PostFlowsActionsRevertMethodNotAllowed struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert method not allowed response has a 2xx status code
+func (o *PostFlowsActionsRevertMethodNotAllowed) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert method not allowed response has a 3xx status code
+func (o *PostFlowsActionsRevertMethodNotAllowed) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert method not allowed response has a 4xx status code
+func (o *PostFlowsActionsRevertMethodNotAllowed) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions revert method not allowed response has a 5xx status code
+func (o *PostFlowsActionsRevertMethodNotAllowed) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions revert method not allowed response a status code equal to that given
+func (o *PostFlowsActionsRevertMethodNotAllowed) IsCode(code int) bool {
+	return code == 405
+}
+
 func (o *PostFlowsActionsRevertMethodNotAllowed) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertMethodNotAllowed  %+v", 405, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertMethodNotAllowed) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertMethodNotAllowed  %+v", 405, o.Payload)
 }
 
@@ -322,7 +501,8 @@ func NewPostFlowsActionsRevertRequestTimeout() *PostFlowsActionsRevertRequestTim
 	return &PostFlowsActionsRevertRequestTimeout{}
 }
 
-/*PostFlowsActionsRevertRequestTimeout handles this case with default header values.
+/*
+PostFlowsActionsRevertRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -330,7 +510,36 @@ type PostFlowsActionsRevertRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert request timeout response has a 2xx status code
+func (o *PostFlowsActionsRevertRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert request timeout response has a 3xx status code
+func (o *PostFlowsActionsRevertRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert request timeout response has a 4xx status code
+func (o *PostFlowsActionsRevertRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions revert request timeout response has a 5xx status code
+func (o *PostFlowsActionsRevertRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions revert request timeout response a status code equal to that given
+func (o *PostFlowsActionsRevertRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostFlowsActionsRevertRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -355,7 +564,8 @@ func NewPostFlowsActionsRevertConflict() *PostFlowsActionsRevertConflict {
 	return &PostFlowsActionsRevertConflict{}
 }
 
-/*PostFlowsActionsRevertConflict handles this case with default header values.
+/*
+PostFlowsActionsRevertConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -363,7 +573,36 @@ type PostFlowsActionsRevertConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert conflict response has a 2xx status code
+func (o *PostFlowsActionsRevertConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert conflict response has a 3xx status code
+func (o *PostFlowsActionsRevertConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert conflict response has a 4xx status code
+func (o *PostFlowsActionsRevertConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions revert conflict response has a 5xx status code
+func (o *PostFlowsActionsRevertConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions revert conflict response a status code equal to that given
+func (o *PostFlowsActionsRevertConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostFlowsActionsRevertConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertConflict  %+v", 409, o.Payload)
 }
 
@@ -388,7 +627,8 @@ func NewPostFlowsActionsRevertGone() *PostFlowsActionsRevertGone {
 	return &PostFlowsActionsRevertGone{}
 }
 
-/*PostFlowsActionsRevertGone handles this case with default header values.
+/*
+PostFlowsActionsRevertGone describes a response with status code 410, with default header values.
 
 Gone
 */
@@ -396,7 +636,36 @@ type PostFlowsActionsRevertGone struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert gone response has a 2xx status code
+func (o *PostFlowsActionsRevertGone) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert gone response has a 3xx status code
+func (o *PostFlowsActionsRevertGone) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert gone response has a 4xx status code
+func (o *PostFlowsActionsRevertGone) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions revert gone response has a 5xx status code
+func (o *PostFlowsActionsRevertGone) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions revert gone response a status code equal to that given
+func (o *PostFlowsActionsRevertGone) IsCode(code int) bool {
+	return code == 410
+}
+
 func (o *PostFlowsActionsRevertGone) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertGone  %+v", 410, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertGone) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertGone  %+v", 410, o.Payload)
 }
 
@@ -421,7 +690,8 @@ func NewPostFlowsActionsRevertRequestEntityTooLarge() *PostFlowsActionsRevertReq
 	return &PostFlowsActionsRevertRequestEntityTooLarge{}
 }
 
-/*PostFlowsActionsRevertRequestEntityTooLarge handles this case with default header values.
+/*
+PostFlowsActionsRevertRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -429,7 +699,36 @@ type PostFlowsActionsRevertRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert request entity too large response has a 2xx status code
+func (o *PostFlowsActionsRevertRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert request entity too large response has a 3xx status code
+func (o *PostFlowsActionsRevertRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert request entity too large response has a 4xx status code
+func (o *PostFlowsActionsRevertRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions revert request entity too large response has a 5xx status code
+func (o *PostFlowsActionsRevertRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions revert request entity too large response a status code equal to that given
+func (o *PostFlowsActionsRevertRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostFlowsActionsRevertRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -454,7 +753,8 @@ func NewPostFlowsActionsRevertUnsupportedMediaType() *PostFlowsActionsRevertUnsu
 	return &PostFlowsActionsRevertUnsupportedMediaType{}
 }
 
-/*PostFlowsActionsRevertUnsupportedMediaType handles this case with default header values.
+/*
+PostFlowsActionsRevertUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -462,7 +762,36 @@ type PostFlowsActionsRevertUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert unsupported media type response has a 2xx status code
+func (o *PostFlowsActionsRevertUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert unsupported media type response has a 3xx status code
+func (o *PostFlowsActionsRevertUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert unsupported media type response has a 4xx status code
+func (o *PostFlowsActionsRevertUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions revert unsupported media type response has a 5xx status code
+func (o *PostFlowsActionsRevertUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions revert unsupported media type response a status code equal to that given
+func (o *PostFlowsActionsRevertUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostFlowsActionsRevertUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -487,7 +816,8 @@ func NewPostFlowsActionsRevertTooManyRequests() *PostFlowsActionsRevertTooManyRe
 	return &PostFlowsActionsRevertTooManyRequests{}
 }
 
-/*PostFlowsActionsRevertTooManyRequests handles this case with default header values.
+/*
+PostFlowsActionsRevertTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -495,7 +825,36 @@ type PostFlowsActionsRevertTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert too many requests response has a 2xx status code
+func (o *PostFlowsActionsRevertTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert too many requests response has a 3xx status code
+func (o *PostFlowsActionsRevertTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert too many requests response has a 4xx status code
+func (o *PostFlowsActionsRevertTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions revert too many requests response has a 5xx status code
+func (o *PostFlowsActionsRevertTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions revert too many requests response a status code equal to that given
+func (o *PostFlowsActionsRevertTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostFlowsActionsRevertTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -520,7 +879,8 @@ func NewPostFlowsActionsRevertInternalServerError() *PostFlowsActionsRevertInter
 	return &PostFlowsActionsRevertInternalServerError{}
 }
 
-/*PostFlowsActionsRevertInternalServerError handles this case with default header values.
+/*
+PostFlowsActionsRevertInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -528,7 +888,36 @@ type PostFlowsActionsRevertInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert internal server error response has a 2xx status code
+func (o *PostFlowsActionsRevertInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert internal server error response has a 3xx status code
+func (o *PostFlowsActionsRevertInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert internal server error response has a 4xx status code
+func (o *PostFlowsActionsRevertInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions revert internal server error response has a 5xx status code
+func (o *PostFlowsActionsRevertInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions revert internal server error response a status code equal to that given
+func (o *PostFlowsActionsRevertInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostFlowsActionsRevertInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -553,7 +942,8 @@ func NewPostFlowsActionsRevertServiceUnavailable() *PostFlowsActionsRevertServic
 	return &PostFlowsActionsRevertServiceUnavailable{}
 }
 
-/*PostFlowsActionsRevertServiceUnavailable handles this case with default header values.
+/*
+PostFlowsActionsRevertServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -561,7 +951,36 @@ type PostFlowsActionsRevertServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert service unavailable response has a 2xx status code
+func (o *PostFlowsActionsRevertServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert service unavailable response has a 3xx status code
+func (o *PostFlowsActionsRevertServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert service unavailable response has a 4xx status code
+func (o *PostFlowsActionsRevertServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions revert service unavailable response has a 5xx status code
+func (o *PostFlowsActionsRevertServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions revert service unavailable response a status code equal to that given
+func (o *PostFlowsActionsRevertServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostFlowsActionsRevertServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -586,7 +1005,8 @@ func NewPostFlowsActionsRevertGatewayTimeout() *PostFlowsActionsRevertGatewayTim
 	return &PostFlowsActionsRevertGatewayTimeout{}
 }
 
-/*PostFlowsActionsRevertGatewayTimeout handles this case with default header values.
+/*
+PostFlowsActionsRevertGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -594,7 +1014,36 @@ type PostFlowsActionsRevertGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions revert gateway timeout response has a 2xx status code
+func (o *PostFlowsActionsRevertGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions revert gateway timeout response has a 3xx status code
+func (o *PostFlowsActionsRevertGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions revert gateway timeout response has a 4xx status code
+func (o *PostFlowsActionsRevertGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions revert gateway timeout response has a 5xx status code
+func (o *PostFlowsActionsRevertGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions revert gateway timeout response a status code equal to that given
+func (o *PostFlowsActionsRevertGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostFlowsActionsRevertGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostFlowsActionsRevertGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/revert][%d] postFlowsActionsRevertGatewayTimeout  %+v", 504, o.Payload)
 }
 

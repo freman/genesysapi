@@ -95,7 +95,6 @@ func (o *PostTextbotsBotflowsSessionsReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostTextbotsBotflowsSessionsOK() *PostTextbotsBotflowsSessionsOK {
 	return &PostTextbotsBotflowsSessionsOK{}
 }
 
-/*PostTextbotsBotflowsSessionsOK handles this case with default header values.
+/*
+PostTextbotsBotflowsSessionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostTextbotsBotflowsSessionsOK struct {
 	Payload *models.TextBotFlowLaunchResponse
 }
 
+// IsSuccess returns true when this post textbots botflows sessions o k response has a 2xx status code
+func (o *PostTextbotsBotflowsSessionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post textbots botflows sessions o k response has a 3xx status code
+func (o *PostTextbotsBotflowsSessionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post textbots botflows sessions o k response has a 4xx status code
+func (o *PostTextbotsBotflowsSessionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post textbots botflows sessions o k response has a 5xx status code
+func (o *PostTextbotsBotflowsSessionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post textbots botflows sessions o k response a status code equal to that given
+func (o *PostTextbotsBotflowsSessionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostTextbotsBotflowsSessionsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostTextbotsBotflowsSessionsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostTextbotsBotflowsSessionsBadRequest() *PostTextbotsBotflowsSessionsBa
 	return &PostTextbotsBotflowsSessionsBadRequest{}
 }
 
-/*PostTextbotsBotflowsSessionsBadRequest handles this case with default header values.
+/*
+PostTextbotsBotflowsSessionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostTextbotsBotflowsSessionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post textbots botflows sessions bad request response has a 2xx status code
+func (o *PostTextbotsBotflowsSessionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post textbots botflows sessions bad request response has a 3xx status code
+func (o *PostTextbotsBotflowsSessionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post textbots botflows sessions bad request response has a 4xx status code
+func (o *PostTextbotsBotflowsSessionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post textbots botflows sessions bad request response has a 5xx status code
+func (o *PostTextbotsBotflowsSessionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post textbots botflows sessions bad request response a status code equal to that given
+func (o *PostTextbotsBotflowsSessionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostTextbotsBotflowsSessionsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostTextbotsBotflowsSessionsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostTextbotsBotflowsSessionsUnauthorized() *PostTextbotsBotflowsSessions
 	return &PostTextbotsBotflowsSessionsUnauthorized{}
 }
 
-/*PostTextbotsBotflowsSessionsUnauthorized handles this case with default header values.
+/*
+PostTextbotsBotflowsSessionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostTextbotsBotflowsSessionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post textbots botflows sessions unauthorized response has a 2xx status code
+func (o *PostTextbotsBotflowsSessionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post textbots botflows sessions unauthorized response has a 3xx status code
+func (o *PostTextbotsBotflowsSessionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post textbots botflows sessions unauthorized response has a 4xx status code
+func (o *PostTextbotsBotflowsSessionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post textbots botflows sessions unauthorized response has a 5xx status code
+func (o *PostTextbotsBotflowsSessionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post textbots botflows sessions unauthorized response a status code equal to that given
+func (o *PostTextbotsBotflowsSessionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostTextbotsBotflowsSessionsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostTextbotsBotflowsSessionsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostTextbotsBotflowsSessionsForbidden() *PostTextbotsBotflowsSessionsFor
 	return &PostTextbotsBotflowsSessionsForbidden{}
 }
 
-/*PostTextbotsBotflowsSessionsForbidden handles this case with default header values.
+/*
+PostTextbotsBotflowsSessionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostTextbotsBotflowsSessionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post textbots botflows sessions forbidden response has a 2xx status code
+func (o *PostTextbotsBotflowsSessionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post textbots botflows sessions forbidden response has a 3xx status code
+func (o *PostTextbotsBotflowsSessionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post textbots botflows sessions forbidden response has a 4xx status code
+func (o *PostTextbotsBotflowsSessionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post textbots botflows sessions forbidden response has a 5xx status code
+func (o *PostTextbotsBotflowsSessionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post textbots botflows sessions forbidden response a status code equal to that given
+func (o *PostTextbotsBotflowsSessionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostTextbotsBotflowsSessionsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostTextbotsBotflowsSessionsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostTextbotsBotflowsSessionsNotFound() *PostTextbotsBotflowsSessionsNotF
 	return &PostTextbotsBotflowsSessionsNotFound{}
 }
 
-/*PostTextbotsBotflowsSessionsNotFound handles this case with default header values.
+/*
+PostTextbotsBotflowsSessionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostTextbotsBotflowsSessionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post textbots botflows sessions not found response has a 2xx status code
+func (o *PostTextbotsBotflowsSessionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post textbots botflows sessions not found response has a 3xx status code
+func (o *PostTextbotsBotflowsSessionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post textbots botflows sessions not found response has a 4xx status code
+func (o *PostTextbotsBotflowsSessionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post textbots botflows sessions not found response has a 5xx status code
+func (o *PostTextbotsBotflowsSessionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post textbots botflows sessions not found response a status code equal to that given
+func (o *PostTextbotsBotflowsSessionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostTextbotsBotflowsSessionsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostTextbotsBotflowsSessionsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostTextbotsBotflowsSessionsRequestTimeout() *PostTextbotsBotflowsSessio
 	return &PostTextbotsBotflowsSessionsRequestTimeout{}
 }
 
-/*PostTextbotsBotflowsSessionsRequestTimeout handles this case with default header values.
+/*
+PostTextbotsBotflowsSessionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostTextbotsBotflowsSessionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post textbots botflows sessions request timeout response has a 2xx status code
+func (o *PostTextbotsBotflowsSessionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post textbots botflows sessions request timeout response has a 3xx status code
+func (o *PostTextbotsBotflowsSessionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post textbots botflows sessions request timeout response has a 4xx status code
+func (o *PostTextbotsBotflowsSessionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post textbots botflows sessions request timeout response has a 5xx status code
+func (o *PostTextbotsBotflowsSessionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post textbots botflows sessions request timeout response a status code equal to that given
+func (o *PostTextbotsBotflowsSessionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostTextbotsBotflowsSessionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTextbotsBotflowsSessionsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostTextbotsBotflowsSessionsRequestEntityTooLarge() *PostTextbotsBotflow
 	return &PostTextbotsBotflowsSessionsRequestEntityTooLarge{}
 }
 
-/*PostTextbotsBotflowsSessionsRequestEntityTooLarge handles this case with default header values.
+/*
+PostTextbotsBotflowsSessionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostTextbotsBotflowsSessionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post textbots botflows sessions request entity too large response has a 2xx status code
+func (o *PostTextbotsBotflowsSessionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post textbots botflows sessions request entity too large response has a 3xx status code
+func (o *PostTextbotsBotflowsSessionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post textbots botflows sessions request entity too large response has a 4xx status code
+func (o *PostTextbotsBotflowsSessionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post textbots botflows sessions request entity too large response has a 5xx status code
+func (o *PostTextbotsBotflowsSessionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post textbots botflows sessions request entity too large response a status code equal to that given
+func (o *PostTextbotsBotflowsSessionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostTextbotsBotflowsSessionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostTextbotsBotflowsSessionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostTextbotsBotflowsSessionsUnsupportedMediaType() *PostTextbotsBotflows
 	return &PostTextbotsBotflowsSessionsUnsupportedMediaType{}
 }
 
-/*PostTextbotsBotflowsSessionsUnsupportedMediaType handles this case with default header values.
+/*
+PostTextbotsBotflowsSessionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostTextbotsBotflowsSessionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post textbots botflows sessions unsupported media type response has a 2xx status code
+func (o *PostTextbotsBotflowsSessionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post textbots botflows sessions unsupported media type response has a 3xx status code
+func (o *PostTextbotsBotflowsSessionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post textbots botflows sessions unsupported media type response has a 4xx status code
+func (o *PostTextbotsBotflowsSessionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post textbots botflows sessions unsupported media type response has a 5xx status code
+func (o *PostTextbotsBotflowsSessionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post textbots botflows sessions unsupported media type response a status code equal to that given
+func (o *PostTextbotsBotflowsSessionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostTextbotsBotflowsSessionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostTextbotsBotflowsSessionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostTextbotsBotflowsSessionsTooManyRequests() *PostTextbotsBotflowsSessi
 	return &PostTextbotsBotflowsSessionsTooManyRequests{}
 }
 
-/*PostTextbotsBotflowsSessionsTooManyRequests handles this case with default header values.
+/*
+PostTextbotsBotflowsSessionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostTextbotsBotflowsSessionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post textbots botflows sessions too many requests response has a 2xx status code
+func (o *PostTextbotsBotflowsSessionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post textbots botflows sessions too many requests response has a 3xx status code
+func (o *PostTextbotsBotflowsSessionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post textbots botflows sessions too many requests response has a 4xx status code
+func (o *PostTextbotsBotflowsSessionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post textbots botflows sessions too many requests response has a 5xx status code
+func (o *PostTextbotsBotflowsSessionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post textbots botflows sessions too many requests response a status code equal to that given
+func (o *PostTextbotsBotflowsSessionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostTextbotsBotflowsSessionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostTextbotsBotflowsSessionsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostTextbotsBotflowsSessionsInternalServerError() *PostTextbotsBotflowsS
 	return &PostTextbotsBotflowsSessionsInternalServerError{}
 }
 
-/*PostTextbotsBotflowsSessionsInternalServerError handles this case with default header values.
+/*
+PostTextbotsBotflowsSessionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostTextbotsBotflowsSessionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post textbots botflows sessions internal server error response has a 2xx status code
+func (o *PostTextbotsBotflowsSessionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post textbots botflows sessions internal server error response has a 3xx status code
+func (o *PostTextbotsBotflowsSessionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post textbots botflows sessions internal server error response has a 4xx status code
+func (o *PostTextbotsBotflowsSessionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post textbots botflows sessions internal server error response has a 5xx status code
+func (o *PostTextbotsBotflowsSessionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post textbots botflows sessions internal server error response a status code equal to that given
+func (o *PostTextbotsBotflowsSessionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostTextbotsBotflowsSessionsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostTextbotsBotflowsSessionsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostTextbotsBotflowsSessionsServiceUnavailable() *PostTextbotsBotflowsSe
 	return &PostTextbotsBotflowsSessionsServiceUnavailable{}
 }
 
-/*PostTextbotsBotflowsSessionsServiceUnavailable handles this case with default header values.
+/*
+PostTextbotsBotflowsSessionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostTextbotsBotflowsSessionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post textbots botflows sessions service unavailable response has a 2xx status code
+func (o *PostTextbotsBotflowsSessionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post textbots botflows sessions service unavailable response has a 3xx status code
+func (o *PostTextbotsBotflowsSessionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post textbots botflows sessions service unavailable response has a 4xx status code
+func (o *PostTextbotsBotflowsSessionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post textbots botflows sessions service unavailable response has a 5xx status code
+func (o *PostTextbotsBotflowsSessionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post textbots botflows sessions service unavailable response a status code equal to that given
+func (o *PostTextbotsBotflowsSessionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostTextbotsBotflowsSessionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostTextbotsBotflowsSessionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostTextbotsBotflowsSessionsGatewayTimeout() *PostTextbotsBotflowsSessio
 	return &PostTextbotsBotflowsSessionsGatewayTimeout{}
 }
 
-/*PostTextbotsBotflowsSessionsGatewayTimeout handles this case with default header values.
+/*
+PostTextbotsBotflowsSessionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostTextbotsBotflowsSessionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post textbots botflows sessions gateway timeout response has a 2xx status code
+func (o *PostTextbotsBotflowsSessionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post textbots botflows sessions gateway timeout response has a 3xx status code
+func (o *PostTextbotsBotflowsSessionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post textbots botflows sessions gateway timeout response has a 4xx status code
+func (o *PostTextbotsBotflowsSessionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post textbots botflows sessions gateway timeout response has a 5xx status code
+func (o *PostTextbotsBotflowsSessionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post textbots botflows sessions gateway timeout response a status code equal to that given
+func (o *PostTextbotsBotflowsSessionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostTextbotsBotflowsSessionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostTextbotsBotflowsSessionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/textbots/botflows/sessions][%d] postTextbotsBotflowsSessionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

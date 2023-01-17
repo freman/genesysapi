@@ -106,7 +106,8 @@ func NewHeadTokensMeBadRequest() *HeadTokensMeBadRequest {
 	return &HeadTokensMeBadRequest{}
 }
 
-/*HeadTokensMeBadRequest handles this case with default header values.
+/*
+HeadTokensMeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type HeadTokensMeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head tokens me bad request response has a 2xx status code
+func (o *HeadTokensMeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head tokens me bad request response has a 3xx status code
+func (o *HeadTokensMeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head tokens me bad request response has a 4xx status code
+func (o *HeadTokensMeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head tokens me bad request response has a 5xx status code
+func (o *HeadTokensMeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head tokens me bad request response a status code equal to that given
+func (o *HeadTokensMeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *HeadTokensMeBadRequest) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *HeadTokensMeBadRequest) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewHeadTokensMeUnauthorized() *HeadTokensMeUnauthorized {
 	return &HeadTokensMeUnauthorized{}
 }
 
-/*HeadTokensMeUnauthorized handles this case with default header values.
+/*
+HeadTokensMeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type HeadTokensMeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head tokens me unauthorized response has a 2xx status code
+func (o *HeadTokensMeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head tokens me unauthorized response has a 3xx status code
+func (o *HeadTokensMeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head tokens me unauthorized response has a 4xx status code
+func (o *HeadTokensMeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head tokens me unauthorized response has a 5xx status code
+func (o *HeadTokensMeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head tokens me unauthorized response a status code equal to that given
+func (o *HeadTokensMeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *HeadTokensMeUnauthorized) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *HeadTokensMeUnauthorized) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewHeadTokensMeForbidden() *HeadTokensMeForbidden {
 	return &HeadTokensMeForbidden{}
 }
 
-/*HeadTokensMeForbidden handles this case with default header values.
+/*
+HeadTokensMeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type HeadTokensMeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head tokens me forbidden response has a 2xx status code
+func (o *HeadTokensMeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head tokens me forbidden response has a 3xx status code
+func (o *HeadTokensMeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head tokens me forbidden response has a 4xx status code
+func (o *HeadTokensMeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head tokens me forbidden response has a 5xx status code
+func (o *HeadTokensMeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head tokens me forbidden response a status code equal to that given
+func (o *HeadTokensMeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *HeadTokensMeForbidden) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *HeadTokensMeForbidden) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewHeadTokensMeNotFound() *HeadTokensMeNotFound {
 	return &HeadTokensMeNotFound{}
 }
 
-/*HeadTokensMeNotFound handles this case with default header values.
+/*
+HeadTokensMeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type HeadTokensMeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head tokens me not found response has a 2xx status code
+func (o *HeadTokensMeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head tokens me not found response has a 3xx status code
+func (o *HeadTokensMeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head tokens me not found response has a 4xx status code
+func (o *HeadTokensMeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head tokens me not found response has a 5xx status code
+func (o *HeadTokensMeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head tokens me not found response a status code equal to that given
+func (o *HeadTokensMeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *HeadTokensMeNotFound) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *HeadTokensMeNotFound) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewHeadTokensMeRequestTimeout() *HeadTokensMeRequestTimeout {
 	return &HeadTokensMeRequestTimeout{}
 }
 
-/*HeadTokensMeRequestTimeout handles this case with default header values.
+/*
+HeadTokensMeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type HeadTokensMeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head tokens me request timeout response has a 2xx status code
+func (o *HeadTokensMeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head tokens me request timeout response has a 3xx status code
+func (o *HeadTokensMeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head tokens me request timeout response has a 4xx status code
+func (o *HeadTokensMeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head tokens me request timeout response has a 5xx status code
+func (o *HeadTokensMeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head tokens me request timeout response a status code equal to that given
+func (o *HeadTokensMeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *HeadTokensMeRequestTimeout) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *HeadTokensMeRequestTimeout) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewHeadTokensMeRequestEntityTooLarge() *HeadTokensMeRequestEntityTooLarge {
 	return &HeadTokensMeRequestEntityTooLarge{}
 }
 
-/*HeadTokensMeRequestEntityTooLarge handles this case with default header values.
+/*
+HeadTokensMeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type HeadTokensMeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head tokens me request entity too large response has a 2xx status code
+func (o *HeadTokensMeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head tokens me request entity too large response has a 3xx status code
+func (o *HeadTokensMeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head tokens me request entity too large response has a 4xx status code
+func (o *HeadTokensMeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head tokens me request entity too large response has a 5xx status code
+func (o *HeadTokensMeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head tokens me request entity too large response a status code equal to that given
+func (o *HeadTokensMeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *HeadTokensMeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *HeadTokensMeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewHeadTokensMeUnsupportedMediaType() *HeadTokensMeUnsupportedMediaType {
 	return &HeadTokensMeUnsupportedMediaType{}
 }
 
-/*HeadTokensMeUnsupportedMediaType handles this case with default header values.
+/*
+HeadTokensMeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type HeadTokensMeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head tokens me unsupported media type response has a 2xx status code
+func (o *HeadTokensMeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head tokens me unsupported media type response has a 3xx status code
+func (o *HeadTokensMeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head tokens me unsupported media type response has a 4xx status code
+func (o *HeadTokensMeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head tokens me unsupported media type response has a 5xx status code
+func (o *HeadTokensMeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head tokens me unsupported media type response a status code equal to that given
+func (o *HeadTokensMeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *HeadTokensMeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *HeadTokensMeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewHeadTokensMeTooManyRequests() *HeadTokensMeTooManyRequests {
 	return &HeadTokensMeTooManyRequests{}
 }
 
-/*HeadTokensMeTooManyRequests handles this case with default header values.
+/*
+HeadTokensMeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type HeadTokensMeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head tokens me too many requests response has a 2xx status code
+func (o *HeadTokensMeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head tokens me too many requests response has a 3xx status code
+func (o *HeadTokensMeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head tokens me too many requests response has a 4xx status code
+func (o *HeadTokensMeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head tokens me too many requests response has a 5xx status code
+func (o *HeadTokensMeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head tokens me too many requests response a status code equal to that given
+func (o *HeadTokensMeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *HeadTokensMeTooManyRequests) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *HeadTokensMeTooManyRequests) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewHeadTokensMeInternalServerError() *HeadTokensMeInternalServerError {
 	return &HeadTokensMeInternalServerError{}
 }
 
-/*HeadTokensMeInternalServerError handles this case with default header values.
+/*
+HeadTokensMeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type HeadTokensMeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head tokens me internal server error response has a 2xx status code
+func (o *HeadTokensMeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head tokens me internal server error response has a 3xx status code
+func (o *HeadTokensMeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head tokens me internal server error response has a 4xx status code
+func (o *HeadTokensMeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this head tokens me internal server error response has a 5xx status code
+func (o *HeadTokensMeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this head tokens me internal server error response a status code equal to that given
+func (o *HeadTokensMeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *HeadTokensMeInternalServerError) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *HeadTokensMeInternalServerError) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewHeadTokensMeServiceUnavailable() *HeadTokensMeServiceUnavailable {
 	return &HeadTokensMeServiceUnavailable{}
 }
 
-/*HeadTokensMeServiceUnavailable handles this case with default header values.
+/*
+HeadTokensMeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type HeadTokensMeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head tokens me service unavailable response has a 2xx status code
+func (o *HeadTokensMeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head tokens me service unavailable response has a 3xx status code
+func (o *HeadTokensMeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head tokens me service unavailable response has a 4xx status code
+func (o *HeadTokensMeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this head tokens me service unavailable response has a 5xx status code
+func (o *HeadTokensMeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this head tokens me service unavailable response a status code equal to that given
+func (o *HeadTokensMeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *HeadTokensMeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *HeadTokensMeServiceUnavailable) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewHeadTokensMeGatewayTimeout() *HeadTokensMeGatewayTimeout {
 	return &HeadTokensMeGatewayTimeout{}
 }
 
-/*HeadTokensMeGatewayTimeout handles this case with default header values.
+/*
+HeadTokensMeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type HeadTokensMeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head tokens me gateway timeout response has a 2xx status code
+func (o *HeadTokensMeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head tokens me gateway timeout response has a 3xx status code
+func (o *HeadTokensMeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head tokens me gateway timeout response has a 4xx status code
+func (o *HeadTokensMeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this head tokens me gateway timeout response has a 5xx status code
+func (o *HeadTokensMeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this head tokens me gateway timeout response a status code equal to that given
+func (o *HeadTokensMeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *HeadTokensMeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *HeadTokensMeGatewayTimeout) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMeGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewHeadTokensMeDefault(code int) *HeadTokensMeDefault {
 	}
 }
 
-/*HeadTokensMeDefault handles this case with default header values.
+/*
+HeadTokensMeDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *HeadTokensMeDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this head tokens me default response has a 2xx status code
+func (o *HeadTokensMeDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this head tokens me default response has a 3xx status code
+func (o *HeadTokensMeDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this head tokens me default response has a 4xx status code
+func (o *HeadTokensMeDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this head tokens me default response has a 5xx status code
+func (o *HeadTokensMeDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this head tokens me default response a status code equal to that given
+func (o *HeadTokensMeDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *HeadTokensMeDefault) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMe default ", o._statusCode)
+}
+
+func (o *HeadTokensMeDefault) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/tokens/me][%d] headTokensMe default ", o._statusCode)
 }
 

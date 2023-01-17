@@ -95,7 +95,6 @@ func (o *GetGroupProfileReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGroupProfileOK() *GetGroupProfileOK {
 	return &GetGroupProfileOK{}
 }
 
-/*GetGroupProfileOK handles this case with default header values.
+/*
+GetGroupProfileOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGroupProfileOK struct {
 	Payload *models.GroupProfile
 }
 
+// IsSuccess returns true when this get group profile o k response has a 2xx status code
+func (o *GetGroupProfileOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get group profile o k response has a 3xx status code
+func (o *GetGroupProfileOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get group profile o k response has a 4xx status code
+func (o *GetGroupProfileOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get group profile o k response has a 5xx status code
+func (o *GetGroupProfileOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get group profile o k response a status code equal to that given
+func (o *GetGroupProfileOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGroupProfileOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGroupProfileOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGroupProfileBadRequest() *GetGroupProfileBadRequest {
 	return &GetGroupProfileBadRequest{}
 }
 
-/*GetGroupProfileBadRequest handles this case with default header values.
+/*
+GetGroupProfileBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGroupProfileBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get group profile bad request response has a 2xx status code
+func (o *GetGroupProfileBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get group profile bad request response has a 3xx status code
+func (o *GetGroupProfileBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get group profile bad request response has a 4xx status code
+func (o *GetGroupProfileBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get group profile bad request response has a 5xx status code
+func (o *GetGroupProfileBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get group profile bad request response a status code equal to that given
+func (o *GetGroupProfileBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGroupProfileBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGroupProfileBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGroupProfileUnauthorized() *GetGroupProfileUnauthorized {
 	return &GetGroupProfileUnauthorized{}
 }
 
-/*GetGroupProfileUnauthorized handles this case with default header values.
+/*
+GetGroupProfileUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGroupProfileUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get group profile unauthorized response has a 2xx status code
+func (o *GetGroupProfileUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get group profile unauthorized response has a 3xx status code
+func (o *GetGroupProfileUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get group profile unauthorized response has a 4xx status code
+func (o *GetGroupProfileUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get group profile unauthorized response has a 5xx status code
+func (o *GetGroupProfileUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get group profile unauthorized response a status code equal to that given
+func (o *GetGroupProfileUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGroupProfileUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGroupProfileUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGroupProfileForbidden() *GetGroupProfileForbidden {
 	return &GetGroupProfileForbidden{}
 }
 
-/*GetGroupProfileForbidden handles this case with default header values.
+/*
+GetGroupProfileForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGroupProfileForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get group profile forbidden response has a 2xx status code
+func (o *GetGroupProfileForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get group profile forbidden response has a 3xx status code
+func (o *GetGroupProfileForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get group profile forbidden response has a 4xx status code
+func (o *GetGroupProfileForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get group profile forbidden response has a 5xx status code
+func (o *GetGroupProfileForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get group profile forbidden response a status code equal to that given
+func (o *GetGroupProfileForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGroupProfileForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGroupProfileForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGroupProfileNotFound() *GetGroupProfileNotFound {
 	return &GetGroupProfileNotFound{}
 }
 
-/*GetGroupProfileNotFound handles this case with default header values.
+/*
+GetGroupProfileNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGroupProfileNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get group profile not found response has a 2xx status code
+func (o *GetGroupProfileNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get group profile not found response has a 3xx status code
+func (o *GetGroupProfileNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get group profile not found response has a 4xx status code
+func (o *GetGroupProfileNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get group profile not found response has a 5xx status code
+func (o *GetGroupProfileNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get group profile not found response a status code equal to that given
+func (o *GetGroupProfileNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGroupProfileNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGroupProfileNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGroupProfileRequestTimeout() *GetGroupProfileRequestTimeout {
 	return &GetGroupProfileRequestTimeout{}
 }
 
-/*GetGroupProfileRequestTimeout handles this case with default header values.
+/*
+GetGroupProfileRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGroupProfileRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get group profile request timeout response has a 2xx status code
+func (o *GetGroupProfileRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get group profile request timeout response has a 3xx status code
+func (o *GetGroupProfileRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get group profile request timeout response has a 4xx status code
+func (o *GetGroupProfileRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get group profile request timeout response has a 5xx status code
+func (o *GetGroupProfileRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get group profile request timeout response a status code equal to that given
+func (o *GetGroupProfileRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGroupProfileRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGroupProfileRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGroupProfileRequestEntityTooLarge() *GetGroupProfileRequestEntityTooL
 	return &GetGroupProfileRequestEntityTooLarge{}
 }
 
-/*GetGroupProfileRequestEntityTooLarge handles this case with default header values.
+/*
+GetGroupProfileRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGroupProfileRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get group profile request entity too large response has a 2xx status code
+func (o *GetGroupProfileRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get group profile request entity too large response has a 3xx status code
+func (o *GetGroupProfileRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get group profile request entity too large response has a 4xx status code
+func (o *GetGroupProfileRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get group profile request entity too large response has a 5xx status code
+func (o *GetGroupProfileRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get group profile request entity too large response a status code equal to that given
+func (o *GetGroupProfileRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGroupProfileRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGroupProfileRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGroupProfileUnsupportedMediaType() *GetGroupProfileUnsupportedMediaTy
 	return &GetGroupProfileUnsupportedMediaType{}
 }
 
-/*GetGroupProfileUnsupportedMediaType handles this case with default header values.
+/*
+GetGroupProfileUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGroupProfileUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get group profile unsupported media type response has a 2xx status code
+func (o *GetGroupProfileUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get group profile unsupported media type response has a 3xx status code
+func (o *GetGroupProfileUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get group profile unsupported media type response has a 4xx status code
+func (o *GetGroupProfileUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get group profile unsupported media type response has a 5xx status code
+func (o *GetGroupProfileUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get group profile unsupported media type response a status code equal to that given
+func (o *GetGroupProfileUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGroupProfileUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGroupProfileUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGroupProfileTooManyRequests() *GetGroupProfileTooManyRequests {
 	return &GetGroupProfileTooManyRequests{}
 }
 
-/*GetGroupProfileTooManyRequests handles this case with default header values.
+/*
+GetGroupProfileTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGroupProfileTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get group profile too many requests response has a 2xx status code
+func (o *GetGroupProfileTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get group profile too many requests response has a 3xx status code
+func (o *GetGroupProfileTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get group profile too many requests response has a 4xx status code
+func (o *GetGroupProfileTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get group profile too many requests response has a 5xx status code
+func (o *GetGroupProfileTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get group profile too many requests response a status code equal to that given
+func (o *GetGroupProfileTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGroupProfileTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGroupProfileTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGroupProfileInternalServerError() *GetGroupProfileInternalServerError
 	return &GetGroupProfileInternalServerError{}
 }
 
-/*GetGroupProfileInternalServerError handles this case with default header values.
+/*
+GetGroupProfileInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGroupProfileInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get group profile internal server error response has a 2xx status code
+func (o *GetGroupProfileInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get group profile internal server error response has a 3xx status code
+func (o *GetGroupProfileInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get group profile internal server error response has a 4xx status code
+func (o *GetGroupProfileInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get group profile internal server error response has a 5xx status code
+func (o *GetGroupProfileInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get group profile internal server error response a status code equal to that given
+func (o *GetGroupProfileInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGroupProfileInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGroupProfileInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGroupProfileServiceUnavailable() *GetGroupProfileServiceUnavailable {
 	return &GetGroupProfileServiceUnavailable{}
 }
 
-/*GetGroupProfileServiceUnavailable handles this case with default header values.
+/*
+GetGroupProfileServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGroupProfileServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get group profile service unavailable response has a 2xx status code
+func (o *GetGroupProfileServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get group profile service unavailable response has a 3xx status code
+func (o *GetGroupProfileServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get group profile service unavailable response has a 4xx status code
+func (o *GetGroupProfileServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get group profile service unavailable response has a 5xx status code
+func (o *GetGroupProfileServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get group profile service unavailable response a status code equal to that given
+func (o *GetGroupProfileServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGroupProfileServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGroupProfileServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGroupProfileGatewayTimeout() *GetGroupProfileGatewayTimeout {
 	return &GetGroupProfileGatewayTimeout{}
 }
 
-/*GetGroupProfileGatewayTimeout handles this case with default header values.
+/*
+GetGroupProfileGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGroupProfileGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get group profile gateway timeout response has a 2xx status code
+func (o *GetGroupProfileGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get group profile gateway timeout response has a 3xx status code
+func (o *GetGroupProfileGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get group profile gateway timeout response has a 4xx status code
+func (o *GetGroupProfileGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get group profile gateway timeout response has a 5xx status code
+func (o *GetGroupProfileGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get group profile gateway timeout response a status code equal to that given
+func (o *GetGroupProfileGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGroupProfileGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGroupProfileGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups/{groupId}/profile][%d] getGroupProfileGatewayTimeout  %+v", 504, o.Payload)
 }
 

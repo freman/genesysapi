@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -70,7 +71,6 @@ func (m *DocumentText) validateMarksItemsEnum(path, location string, value strin
 }
 
 func (m *DocumentText) validateMarks(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Marks) { // not required
 		return nil
 	}
@@ -97,6 +97,11 @@ func (m *DocumentText) validateText(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this document text based on context it is used
+func (m *DocumentText) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

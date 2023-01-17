@@ -95,7 +95,6 @@ func (o *GetQualityPublishedformsEvaluationsReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetQualityPublishedformsEvaluationsOK() *GetQualityPublishedformsEvaluat
 	return &GetQualityPublishedformsEvaluationsOK{}
 }
 
-/*GetQualityPublishedformsEvaluationsOK handles this case with default header values.
+/*
+GetQualityPublishedformsEvaluationsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetQualityPublishedformsEvaluationsOK struct {
 	Payload *models.EvaluationFormEntityListing
 }
 
+// IsSuccess returns true when this get quality publishedforms evaluations o k response has a 2xx status code
+func (o *GetQualityPublishedformsEvaluationsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get quality publishedforms evaluations o k response has a 3xx status code
+func (o *GetQualityPublishedformsEvaluationsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality publishedforms evaluations o k response has a 4xx status code
+func (o *GetQualityPublishedformsEvaluationsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality publishedforms evaluations o k response has a 5xx status code
+func (o *GetQualityPublishedformsEvaluationsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality publishedforms evaluations o k response a status code equal to that given
+func (o *GetQualityPublishedformsEvaluationsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetQualityPublishedformsEvaluationsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetQualityPublishedformsEvaluationsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetQualityPublishedformsEvaluationsBadRequest() *GetQualityPublishedform
 	return &GetQualityPublishedformsEvaluationsBadRequest{}
 }
 
-/*GetQualityPublishedformsEvaluationsBadRequest handles this case with default header values.
+/*
+GetQualityPublishedformsEvaluationsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetQualityPublishedformsEvaluationsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality publishedforms evaluations bad request response has a 2xx status code
+func (o *GetQualityPublishedformsEvaluationsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality publishedforms evaluations bad request response has a 3xx status code
+func (o *GetQualityPublishedformsEvaluationsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality publishedforms evaluations bad request response has a 4xx status code
+func (o *GetQualityPublishedformsEvaluationsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality publishedforms evaluations bad request response has a 5xx status code
+func (o *GetQualityPublishedformsEvaluationsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality publishedforms evaluations bad request response a status code equal to that given
+func (o *GetQualityPublishedformsEvaluationsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetQualityPublishedformsEvaluationsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetQualityPublishedformsEvaluationsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetQualityPublishedformsEvaluationsUnauthorized() *GetQualityPublishedfo
 	return &GetQualityPublishedformsEvaluationsUnauthorized{}
 }
 
-/*GetQualityPublishedformsEvaluationsUnauthorized handles this case with default header values.
+/*
+GetQualityPublishedformsEvaluationsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetQualityPublishedformsEvaluationsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality publishedforms evaluations unauthorized response has a 2xx status code
+func (o *GetQualityPublishedformsEvaluationsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality publishedforms evaluations unauthorized response has a 3xx status code
+func (o *GetQualityPublishedformsEvaluationsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality publishedforms evaluations unauthorized response has a 4xx status code
+func (o *GetQualityPublishedformsEvaluationsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality publishedforms evaluations unauthorized response has a 5xx status code
+func (o *GetQualityPublishedformsEvaluationsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality publishedforms evaluations unauthorized response a status code equal to that given
+func (o *GetQualityPublishedformsEvaluationsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetQualityPublishedformsEvaluationsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetQualityPublishedformsEvaluationsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetQualityPublishedformsEvaluationsForbidden() *GetQualityPublishedforms
 	return &GetQualityPublishedformsEvaluationsForbidden{}
 }
 
-/*GetQualityPublishedformsEvaluationsForbidden handles this case with default header values.
+/*
+GetQualityPublishedformsEvaluationsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetQualityPublishedformsEvaluationsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality publishedforms evaluations forbidden response has a 2xx status code
+func (o *GetQualityPublishedformsEvaluationsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality publishedforms evaluations forbidden response has a 3xx status code
+func (o *GetQualityPublishedformsEvaluationsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality publishedforms evaluations forbidden response has a 4xx status code
+func (o *GetQualityPublishedformsEvaluationsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality publishedforms evaluations forbidden response has a 5xx status code
+func (o *GetQualityPublishedformsEvaluationsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality publishedforms evaluations forbidden response a status code equal to that given
+func (o *GetQualityPublishedformsEvaluationsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetQualityPublishedformsEvaluationsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetQualityPublishedformsEvaluationsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetQualityPublishedformsEvaluationsNotFound() *GetQualityPublishedformsE
 	return &GetQualityPublishedformsEvaluationsNotFound{}
 }
 
-/*GetQualityPublishedformsEvaluationsNotFound handles this case with default header values.
+/*
+GetQualityPublishedformsEvaluationsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetQualityPublishedformsEvaluationsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality publishedforms evaluations not found response has a 2xx status code
+func (o *GetQualityPublishedformsEvaluationsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality publishedforms evaluations not found response has a 3xx status code
+func (o *GetQualityPublishedformsEvaluationsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality publishedforms evaluations not found response has a 4xx status code
+func (o *GetQualityPublishedformsEvaluationsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality publishedforms evaluations not found response has a 5xx status code
+func (o *GetQualityPublishedformsEvaluationsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality publishedforms evaluations not found response a status code equal to that given
+func (o *GetQualityPublishedformsEvaluationsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetQualityPublishedformsEvaluationsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetQualityPublishedformsEvaluationsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetQualityPublishedformsEvaluationsRequestTimeout() *GetQualityPublished
 	return &GetQualityPublishedformsEvaluationsRequestTimeout{}
 }
 
-/*GetQualityPublishedformsEvaluationsRequestTimeout handles this case with default header values.
+/*
+GetQualityPublishedformsEvaluationsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetQualityPublishedformsEvaluationsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality publishedforms evaluations request timeout response has a 2xx status code
+func (o *GetQualityPublishedformsEvaluationsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality publishedforms evaluations request timeout response has a 3xx status code
+func (o *GetQualityPublishedformsEvaluationsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality publishedforms evaluations request timeout response has a 4xx status code
+func (o *GetQualityPublishedformsEvaluationsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality publishedforms evaluations request timeout response has a 5xx status code
+func (o *GetQualityPublishedformsEvaluationsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality publishedforms evaluations request timeout response a status code equal to that given
+func (o *GetQualityPublishedformsEvaluationsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetQualityPublishedformsEvaluationsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetQualityPublishedformsEvaluationsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetQualityPublishedformsEvaluationsRequestEntityTooLarge() *GetQualityPu
 	return &GetQualityPublishedformsEvaluationsRequestEntityTooLarge{}
 }
 
-/*GetQualityPublishedformsEvaluationsRequestEntityTooLarge handles this case with default header values.
+/*
+GetQualityPublishedformsEvaluationsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetQualityPublishedformsEvaluationsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality publishedforms evaluations request entity too large response has a 2xx status code
+func (o *GetQualityPublishedformsEvaluationsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality publishedforms evaluations request entity too large response has a 3xx status code
+func (o *GetQualityPublishedformsEvaluationsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality publishedforms evaluations request entity too large response has a 4xx status code
+func (o *GetQualityPublishedformsEvaluationsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality publishedforms evaluations request entity too large response has a 5xx status code
+func (o *GetQualityPublishedformsEvaluationsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality publishedforms evaluations request entity too large response a status code equal to that given
+func (o *GetQualityPublishedformsEvaluationsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetQualityPublishedformsEvaluationsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetQualityPublishedformsEvaluationsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetQualityPublishedformsEvaluationsUnsupportedMediaType() *GetQualityPub
 	return &GetQualityPublishedformsEvaluationsUnsupportedMediaType{}
 }
 
-/*GetQualityPublishedformsEvaluationsUnsupportedMediaType handles this case with default header values.
+/*
+GetQualityPublishedformsEvaluationsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetQualityPublishedformsEvaluationsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality publishedforms evaluations unsupported media type response has a 2xx status code
+func (o *GetQualityPublishedformsEvaluationsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality publishedforms evaluations unsupported media type response has a 3xx status code
+func (o *GetQualityPublishedformsEvaluationsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality publishedforms evaluations unsupported media type response has a 4xx status code
+func (o *GetQualityPublishedformsEvaluationsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality publishedforms evaluations unsupported media type response has a 5xx status code
+func (o *GetQualityPublishedformsEvaluationsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality publishedforms evaluations unsupported media type response a status code equal to that given
+func (o *GetQualityPublishedformsEvaluationsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetQualityPublishedformsEvaluationsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetQualityPublishedformsEvaluationsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetQualityPublishedformsEvaluationsTooManyRequests() *GetQualityPublishe
 	return &GetQualityPublishedformsEvaluationsTooManyRequests{}
 }
 
-/*GetQualityPublishedformsEvaluationsTooManyRequests handles this case with default header values.
+/*
+GetQualityPublishedformsEvaluationsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetQualityPublishedformsEvaluationsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality publishedforms evaluations too many requests response has a 2xx status code
+func (o *GetQualityPublishedformsEvaluationsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality publishedforms evaluations too many requests response has a 3xx status code
+func (o *GetQualityPublishedformsEvaluationsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality publishedforms evaluations too many requests response has a 4xx status code
+func (o *GetQualityPublishedformsEvaluationsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality publishedforms evaluations too many requests response has a 5xx status code
+func (o *GetQualityPublishedformsEvaluationsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality publishedforms evaluations too many requests response a status code equal to that given
+func (o *GetQualityPublishedformsEvaluationsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetQualityPublishedformsEvaluationsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetQualityPublishedformsEvaluationsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetQualityPublishedformsEvaluationsInternalServerError() *GetQualityPubl
 	return &GetQualityPublishedformsEvaluationsInternalServerError{}
 }
 
-/*GetQualityPublishedformsEvaluationsInternalServerError handles this case with default header values.
+/*
+GetQualityPublishedformsEvaluationsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetQualityPublishedformsEvaluationsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality publishedforms evaluations internal server error response has a 2xx status code
+func (o *GetQualityPublishedformsEvaluationsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality publishedforms evaluations internal server error response has a 3xx status code
+func (o *GetQualityPublishedformsEvaluationsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality publishedforms evaluations internal server error response has a 4xx status code
+func (o *GetQualityPublishedformsEvaluationsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality publishedforms evaluations internal server error response has a 5xx status code
+func (o *GetQualityPublishedformsEvaluationsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality publishedforms evaluations internal server error response a status code equal to that given
+func (o *GetQualityPublishedformsEvaluationsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetQualityPublishedformsEvaluationsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetQualityPublishedformsEvaluationsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetQualityPublishedformsEvaluationsServiceUnavailable() *GetQualityPubli
 	return &GetQualityPublishedformsEvaluationsServiceUnavailable{}
 }
 
-/*GetQualityPublishedformsEvaluationsServiceUnavailable handles this case with default header values.
+/*
+GetQualityPublishedformsEvaluationsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetQualityPublishedformsEvaluationsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality publishedforms evaluations service unavailable response has a 2xx status code
+func (o *GetQualityPublishedformsEvaluationsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality publishedforms evaluations service unavailable response has a 3xx status code
+func (o *GetQualityPublishedformsEvaluationsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality publishedforms evaluations service unavailable response has a 4xx status code
+func (o *GetQualityPublishedformsEvaluationsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality publishedforms evaluations service unavailable response has a 5xx status code
+func (o *GetQualityPublishedformsEvaluationsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality publishedforms evaluations service unavailable response a status code equal to that given
+func (o *GetQualityPublishedformsEvaluationsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetQualityPublishedformsEvaluationsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetQualityPublishedformsEvaluationsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetQualityPublishedformsEvaluationsGatewayTimeout() *GetQualityPublished
 	return &GetQualityPublishedformsEvaluationsGatewayTimeout{}
 }
 
-/*GetQualityPublishedformsEvaluationsGatewayTimeout handles this case with default header values.
+/*
+GetQualityPublishedformsEvaluationsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetQualityPublishedformsEvaluationsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality publishedforms evaluations gateway timeout response has a 2xx status code
+func (o *GetQualityPublishedformsEvaluationsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality publishedforms evaluations gateway timeout response has a 3xx status code
+func (o *GetQualityPublishedformsEvaluationsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality publishedforms evaluations gateway timeout response has a 4xx status code
+func (o *GetQualityPublishedformsEvaluationsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality publishedforms evaluations gateway timeout response has a 5xx status code
+func (o *GetQualityPublishedformsEvaluationsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality publishedforms evaluations gateway timeout response a status code equal to that given
+func (o *GetQualityPublishedformsEvaluationsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetQualityPublishedformsEvaluationsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetQualityPublishedformsEvaluationsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/publishedforms/evaluations][%d] getQualityPublishedformsEvaluationsGatewayTimeout  %+v", 504, o.Payload)
 }
 

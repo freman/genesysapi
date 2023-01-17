@@ -6,9 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // TokenInfo token info
@@ -63,7 +66,6 @@ func (m *TokenInfo) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TokenInfo) validateOAuthClient(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OAuthClient) { // not required
 		return nil
 	}
@@ -72,6 +74,8 @@ func (m *TokenInfo) validateOAuthClient(formats strfmt.Registry) error {
 		if err := m.OAuthClient.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("OAuthClient")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("OAuthClient")
 			}
 			return err
 		}
@@ -81,7 +85,6 @@ func (m *TokenInfo) validateOAuthClient(formats strfmt.Registry) error {
 }
 
 func (m *TokenInfo) validateClonedUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ClonedUser) { // not required
 		return nil
 	}
@@ -90,6 +93,8 @@ func (m *TokenInfo) validateClonedUser(formats strfmt.Registry) error {
 		if err := m.ClonedUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("clonedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clonedUser")
 			}
 			return err
 		}
@@ -99,7 +104,6 @@ func (m *TokenInfo) validateClonedUser(formats strfmt.Registry) error {
 }
 
 func (m *TokenInfo) validateHomeOrganization(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HomeOrganization) { // not required
 		return nil
 	}
@@ -108,6 +112,8 @@ func (m *TokenInfo) validateHomeOrganization(formats strfmt.Registry) error {
 		if err := m.HomeOrganization.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("homeOrganization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("homeOrganization")
 			}
 			return err
 		}
@@ -117,7 +123,6 @@ func (m *TokenInfo) validateHomeOrganization(formats strfmt.Registry) error {
 }
 
 func (m *TokenInfo) validateOrganization(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Organization) { // not required
 		return nil
 	}
@@ -126,6 +131,111 @@ func (m *TokenInfo) validateOrganization(formats strfmt.Registry) error {
 		if err := m.Organization.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("organization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("organization")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this token info based on the context it is used
+func (m *TokenInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateOAuthClient(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAuthorizedScope(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateClonedUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHomeOrganization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOrganization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TokenInfo) contextValidateOAuthClient(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OAuthClient != nil {
+		if err := m.OAuthClient.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("OAuthClient")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("OAuthClient")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TokenInfo) contextValidateAuthorizedScope(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "authorizedScope", "body", []string(m.AuthorizedScope)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TokenInfo) contextValidateClonedUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ClonedUser != nil {
+		if err := m.ClonedUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("clonedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("clonedUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TokenInfo) contextValidateHomeOrganization(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HomeOrganization != nil {
+		if err := m.HomeOrganization.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("homeOrganization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("homeOrganization")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TokenInfo) contextValidateOrganization(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Organization != nil {
+		if err := m.Organization.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("organization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("organization")
 			}
 			return err
 		}

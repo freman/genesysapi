@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -79,6 +81,8 @@ func (m *AudioUpdatedEvent) validateAudioState(formats strfmt.Registry) error {
 		if err := m.AudioState.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("audioState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("audioState")
 			}
 			return err
 		}
@@ -122,6 +126,36 @@ func (m *AudioUpdatedEvent) validateEventID(formats strfmt.Registry) error {
 
 	if err := validate.Required("eventId", "body", m.EventID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this audio updated event based on the context it is used
+func (m *AudioUpdatedEvent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAudioState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AudioUpdatedEvent) contextValidateAudioState(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AudioState != nil {
+		if err := m.AudioState.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("audioState")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("audioState")
+			}
+			return err
+		}
 	}
 
 	return nil

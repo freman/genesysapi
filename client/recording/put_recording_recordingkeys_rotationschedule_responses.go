@@ -95,7 +95,6 @@ func (o *PutRecordingRecordingkeysRotationscheduleReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutRecordingRecordingkeysRotationscheduleOK() *PutRecordingRecordingkeys
 	return &PutRecordingRecordingkeysRotationscheduleOK{}
 }
 
-/*PutRecordingRecordingkeysRotationscheduleOK handles this case with default header values.
+/*
+PutRecordingRecordingkeysRotationscheduleOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutRecordingRecordingkeysRotationscheduleOK struct {
 	Payload *models.KeyRotationSchedule
 }
 
+// IsSuccess returns true when this put recording recordingkeys rotationschedule o k response has a 2xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put recording recordingkeys rotationschedule o k response has a 3xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording recordingkeys rotationschedule o k response has a 4xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording recordingkeys rotationschedule o k response has a 5xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording recordingkeys rotationschedule o k response a status code equal to that given
+func (o *PutRecordingRecordingkeysRotationscheduleOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutRecordingRecordingkeysRotationscheduleOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleOK  %+v", 200, o.Payload)
+}
+
+func (o *PutRecordingRecordingkeysRotationscheduleOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutRecordingRecordingkeysRotationscheduleBadRequest() *PutRecordingRecor
 	return &PutRecordingRecordingkeysRotationscheduleBadRequest{}
 }
 
-/*PutRecordingRecordingkeysRotationscheduleBadRequest handles this case with default header values.
+/*
+PutRecordingRecordingkeysRotationscheduleBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutRecordingRecordingkeysRotationscheduleBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording recordingkeys rotationschedule bad request response has a 2xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording recordingkeys rotationschedule bad request response has a 3xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording recordingkeys rotationschedule bad request response has a 4xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording recordingkeys rotationschedule bad request response has a 5xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording recordingkeys rotationschedule bad request response a status code equal to that given
+func (o *PutRecordingRecordingkeysRotationscheduleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutRecordingRecordingkeysRotationscheduleBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutRecordingRecordingkeysRotationscheduleBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutRecordingRecordingkeysRotationscheduleUnauthorized() *PutRecordingRec
 	return &PutRecordingRecordingkeysRotationscheduleUnauthorized{}
 }
 
-/*PutRecordingRecordingkeysRotationscheduleUnauthorized handles this case with default header values.
+/*
+PutRecordingRecordingkeysRotationscheduleUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutRecordingRecordingkeysRotationscheduleUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording recordingkeys rotationschedule unauthorized response has a 2xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording recordingkeys rotationschedule unauthorized response has a 3xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording recordingkeys rotationschedule unauthorized response has a 4xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording recordingkeys rotationschedule unauthorized response has a 5xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording recordingkeys rotationschedule unauthorized response a status code equal to that given
+func (o *PutRecordingRecordingkeysRotationscheduleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutRecordingRecordingkeysRotationscheduleUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutRecordingRecordingkeysRotationscheduleUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutRecordingRecordingkeysRotationscheduleForbidden() *PutRecordingRecord
 	return &PutRecordingRecordingkeysRotationscheduleForbidden{}
 }
 
-/*PutRecordingRecordingkeysRotationscheduleForbidden handles this case with default header values.
+/*
+PutRecordingRecordingkeysRotationscheduleForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutRecordingRecordingkeysRotationscheduleForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording recordingkeys rotationschedule forbidden response has a 2xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording recordingkeys rotationschedule forbidden response has a 3xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording recordingkeys rotationschedule forbidden response has a 4xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording recordingkeys rotationschedule forbidden response has a 5xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording recordingkeys rotationschedule forbidden response a status code equal to that given
+func (o *PutRecordingRecordingkeysRotationscheduleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutRecordingRecordingkeysRotationscheduleForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutRecordingRecordingkeysRotationscheduleForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutRecordingRecordingkeysRotationscheduleNotFound() *PutRecordingRecordi
 	return &PutRecordingRecordingkeysRotationscheduleNotFound{}
 }
 
-/*PutRecordingRecordingkeysRotationscheduleNotFound handles this case with default header values.
+/*
+PutRecordingRecordingkeysRotationscheduleNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutRecordingRecordingkeysRotationscheduleNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording recordingkeys rotationschedule not found response has a 2xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording recordingkeys rotationschedule not found response has a 3xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording recordingkeys rotationschedule not found response has a 4xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording recordingkeys rotationschedule not found response has a 5xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording recordingkeys rotationschedule not found response a status code equal to that given
+func (o *PutRecordingRecordingkeysRotationscheduleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutRecordingRecordingkeysRotationscheduleNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutRecordingRecordingkeysRotationscheduleNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutRecordingRecordingkeysRotationscheduleRequestTimeout() *PutRecordingR
 	return &PutRecordingRecordingkeysRotationscheduleRequestTimeout{}
 }
 
-/*PutRecordingRecordingkeysRotationscheduleRequestTimeout handles this case with default header values.
+/*
+PutRecordingRecordingkeysRotationscheduleRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutRecordingRecordingkeysRotationscheduleRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording recordingkeys rotationschedule request timeout response has a 2xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording recordingkeys rotationschedule request timeout response has a 3xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording recordingkeys rotationschedule request timeout response has a 4xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording recordingkeys rotationschedule request timeout response has a 5xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording recordingkeys rotationschedule request timeout response a status code equal to that given
+func (o *PutRecordingRecordingkeysRotationscheduleRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutRecordingRecordingkeysRotationscheduleRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutRecordingRecordingkeysRotationscheduleRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutRecordingRecordingkeysRotationscheduleRequestEntityTooLarge() *PutRec
 	return &PutRecordingRecordingkeysRotationscheduleRequestEntityTooLarge{}
 }
 
-/*PutRecordingRecordingkeysRotationscheduleRequestEntityTooLarge handles this case with default header values.
+/*
+PutRecordingRecordingkeysRotationscheduleRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutRecordingRecordingkeysRotationscheduleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording recordingkeys rotationschedule request entity too large response has a 2xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording recordingkeys rotationschedule request entity too large response has a 3xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording recordingkeys rotationschedule request entity too large response has a 4xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording recordingkeys rotationschedule request entity too large response has a 5xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording recordingkeys rotationschedule request entity too large response a status code equal to that given
+func (o *PutRecordingRecordingkeysRotationscheduleRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutRecordingRecordingkeysRotationscheduleRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutRecordingRecordingkeysRotationscheduleRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutRecordingRecordingkeysRotationscheduleUnsupportedMediaType() *PutReco
 	return &PutRecordingRecordingkeysRotationscheduleUnsupportedMediaType{}
 }
 
-/*PutRecordingRecordingkeysRotationscheduleUnsupportedMediaType handles this case with default header values.
+/*
+PutRecordingRecordingkeysRotationscheduleUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutRecordingRecordingkeysRotationscheduleUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording recordingkeys rotationschedule unsupported media type response has a 2xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording recordingkeys rotationschedule unsupported media type response has a 3xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording recordingkeys rotationschedule unsupported media type response has a 4xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording recordingkeys rotationschedule unsupported media type response has a 5xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording recordingkeys rotationschedule unsupported media type response a status code equal to that given
+func (o *PutRecordingRecordingkeysRotationscheduleUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutRecordingRecordingkeysRotationscheduleUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutRecordingRecordingkeysRotationscheduleUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutRecordingRecordingkeysRotationscheduleTooManyRequests() *PutRecording
 	return &PutRecordingRecordingkeysRotationscheduleTooManyRequests{}
 }
 
-/*PutRecordingRecordingkeysRotationscheduleTooManyRequests handles this case with default header values.
+/*
+PutRecordingRecordingkeysRotationscheduleTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutRecordingRecordingkeysRotationscheduleTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording recordingkeys rotationschedule too many requests response has a 2xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording recordingkeys rotationschedule too many requests response has a 3xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording recordingkeys rotationschedule too many requests response has a 4xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording recordingkeys rotationschedule too many requests response has a 5xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording recordingkeys rotationschedule too many requests response a status code equal to that given
+func (o *PutRecordingRecordingkeysRotationscheduleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutRecordingRecordingkeysRotationscheduleTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutRecordingRecordingkeysRotationscheduleTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutRecordingRecordingkeysRotationscheduleInternalServerError() *PutRecor
 	return &PutRecordingRecordingkeysRotationscheduleInternalServerError{}
 }
 
-/*PutRecordingRecordingkeysRotationscheduleInternalServerError handles this case with default header values.
+/*
+PutRecordingRecordingkeysRotationscheduleInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutRecordingRecordingkeysRotationscheduleInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording recordingkeys rotationschedule internal server error response has a 2xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording recordingkeys rotationschedule internal server error response has a 3xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording recordingkeys rotationschedule internal server error response has a 4xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording recordingkeys rotationschedule internal server error response has a 5xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording recordingkeys rotationschedule internal server error response a status code equal to that given
+func (o *PutRecordingRecordingkeysRotationscheduleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutRecordingRecordingkeysRotationscheduleInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutRecordingRecordingkeysRotationscheduleInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutRecordingRecordingkeysRotationscheduleServiceUnavailable() *PutRecord
 	return &PutRecordingRecordingkeysRotationscheduleServiceUnavailable{}
 }
 
-/*PutRecordingRecordingkeysRotationscheduleServiceUnavailable handles this case with default header values.
+/*
+PutRecordingRecordingkeysRotationscheduleServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutRecordingRecordingkeysRotationscheduleServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording recordingkeys rotationschedule service unavailable response has a 2xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording recordingkeys rotationschedule service unavailable response has a 3xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording recordingkeys rotationschedule service unavailable response has a 4xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording recordingkeys rotationschedule service unavailable response has a 5xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording recordingkeys rotationschedule service unavailable response a status code equal to that given
+func (o *PutRecordingRecordingkeysRotationscheduleServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutRecordingRecordingkeysRotationscheduleServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutRecordingRecordingkeysRotationscheduleServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutRecordingRecordingkeysRotationscheduleGatewayTimeout() *PutRecordingR
 	return &PutRecordingRecordingkeysRotationscheduleGatewayTimeout{}
 }
 
-/*PutRecordingRecordingkeysRotationscheduleGatewayTimeout handles this case with default header values.
+/*
+PutRecordingRecordingkeysRotationscheduleGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutRecordingRecordingkeysRotationscheduleGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording recordingkeys rotationschedule gateway timeout response has a 2xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording recordingkeys rotationschedule gateway timeout response has a 3xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording recordingkeys rotationschedule gateway timeout response has a 4xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording recordingkeys rotationschedule gateway timeout response has a 5xx status code
+func (o *PutRecordingRecordingkeysRotationscheduleGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording recordingkeys rotationschedule gateway timeout response a status code equal to that given
+func (o *PutRecordingRecordingkeysRotationscheduleGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutRecordingRecordingkeysRotationscheduleGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutRecordingRecordingkeysRotationscheduleGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/recordingkeys/rotationschedule][%d] putRecordingRecordingkeysRotationscheduleGatewayTimeout  %+v", 504, o.Payload)
 }
 

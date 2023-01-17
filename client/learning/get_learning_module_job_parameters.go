@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetLearningModuleJobParams creates a new GetLearningModuleJobParams object
-// with the default values initialized.
+// NewGetLearningModuleJobParams creates a new GetLearningModuleJobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLearningModuleJobParams() *GetLearningModuleJobParams {
-	var ()
 	return &GetLearningModuleJobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLearningModuleJobParamsWithTimeout creates a new GetLearningModuleJobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLearningModuleJobParamsWithTimeout(timeout time.Duration) *GetLearningModuleJobParams {
-	var ()
 	return &GetLearningModuleJobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLearningModuleJobParamsWithContext creates a new GetLearningModuleJobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLearningModuleJobParamsWithContext(ctx context.Context) *GetLearningModuleJobParams {
-	var ()
 	return &GetLearningModuleJobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLearningModuleJobParamsWithHTTPClient creates a new GetLearningModuleJobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLearningModuleJobParamsWithHTTPClient(client *http.Client) *GetLearningModuleJobParams {
-	var ()
 	return &GetLearningModuleJobParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLearningModuleJobParams contains all the parameters to send to the API endpoint
-for the get learning module job operation typically these are written to a http.Request
+/*
+GetLearningModuleJobParams contains all the parameters to send to the API endpoint
+
+	for the get learning module job operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLearningModuleJobParams struct {
 
-	/*JobID
-	  The ID of the learning module job
+	/* JobID.
 
+	   The ID of the learning module job
 	*/
 	JobID string
-	/*ModuleID
-	  The ID of the learning module
 
+	/* ModuleID.
+
+	   The ID of the learning module
 	*/
 	ModuleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get learning module job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLearningModuleJobParams) WithDefaults() *GetLearningModuleJobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get learning module job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLearningModuleJobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get learning module job params

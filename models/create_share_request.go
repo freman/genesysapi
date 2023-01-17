@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -71,7 +72,6 @@ func (m *CreateShareRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CreateShareRequest) validateMember(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Member) { // not required
 		return nil
 	}
@@ -80,6 +80,8 @@ func (m *CreateShareRequest) validateMember(formats strfmt.Registry) error {
 		if err := m.Member.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("member")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("member")
 			}
 			return err
 		}
@@ -121,7 +123,6 @@ func (m *CreateShareRequest) validateMemberTypeEnum(path, location string, value
 }
 
 func (m *CreateShareRequest) validateMemberType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MemberType) { // not required
 		return nil
 	}
@@ -135,7 +136,6 @@ func (m *CreateShareRequest) validateMemberType(formats strfmt.Registry) error {
 }
 
 func (m *CreateShareRequest) validateMembers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Members) { // not required
 		return nil
 	}
@@ -149,6 +149,8 @@ func (m *CreateShareRequest) validateMembers(formats strfmt.Registry) error {
 			if err := m.Members[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("members" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("members" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -169,6 +171,8 @@ func (m *CreateShareRequest) validateSharedEntity(formats strfmt.Registry) error
 		if err := m.SharedEntity.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sharedEntity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sharedEntity")
 			}
 			return err
 		}
@@ -212,6 +216,80 @@ func (m *CreateShareRequest) validateSharedEntityType(formats strfmt.Registry) e
 	// value enum
 	if err := m.validateSharedEntityTypeEnum("sharedEntityType", "body", *m.SharedEntityType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this create share request based on the context it is used
+func (m *CreateShareRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMember(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMembers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSharedEntity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CreateShareRequest) contextValidateMember(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Member != nil {
+		if err := m.Member.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("member")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("member")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CreateShareRequest) contextValidateMembers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Members); i++ {
+
+		if m.Members[i] != nil {
+			if err := m.Members[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("members" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("members" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CreateShareRequest) contextValidateSharedEntity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SharedEntity != nil {
+		if err := m.SharedEntity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sharedEntity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sharedEntity")
+			}
+			return err
+		}
 	}
 
 	return nil

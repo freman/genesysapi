@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -144,7 +145,6 @@ func (m *KnowledgeDocumentResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeDocumentResponse) validateAlternatives(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Alternatives) { // not required
 		return nil
 	}
@@ -158,6 +158,8 @@ func (m *KnowledgeDocumentResponse) validateAlternatives(formats strfmt.Registry
 			if err := m.Alternatives[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("alternatives" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("alternatives" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -169,7 +171,6 @@ func (m *KnowledgeDocumentResponse) validateAlternatives(formats strfmt.Registry
 }
 
 func (m *KnowledgeDocumentResponse) validateCategory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Category) { // not required
 		return nil
 	}
@@ -178,6 +179,8 @@ func (m *KnowledgeDocumentResponse) validateCategory(formats strfmt.Registry) er
 		if err := m.Category.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("category")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("category")
 			}
 			return err
 		}
@@ -187,7 +190,6 @@ func (m *KnowledgeDocumentResponse) validateCategory(formats strfmt.Registry) er
 }
 
 func (m *KnowledgeDocumentResponse) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -196,6 +198,8 @@ func (m *KnowledgeDocumentResponse) validateCreatedBy(formats strfmt.Registry) e
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -205,7 +209,6 @@ func (m *KnowledgeDocumentResponse) validateCreatedBy(formats strfmt.Registry) e
 }
 
 func (m *KnowledgeDocumentResponse) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -218,7 +221,6 @@ func (m *KnowledgeDocumentResponse) validateDateCreated(formats strfmt.Registry)
 }
 
 func (m *KnowledgeDocumentResponse) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -231,7 +233,6 @@ func (m *KnowledgeDocumentResponse) validateDateModified(formats strfmt.Registry
 }
 
 func (m *KnowledgeDocumentResponse) validateDatePublished(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DatePublished) { // not required
 		return nil
 	}
@@ -244,7 +245,6 @@ func (m *KnowledgeDocumentResponse) validateDatePublished(formats strfmt.Registr
 }
 
 func (m *KnowledgeDocumentResponse) validateDocumentVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DocumentVersion) { // not required
 		return nil
 	}
@@ -253,6 +253,8 @@ func (m *KnowledgeDocumentResponse) validateDocumentVersion(formats strfmt.Regis
 		if err := m.DocumentVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("documentVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("documentVersion")
 			}
 			return err
 		}
@@ -262,7 +264,6 @@ func (m *KnowledgeDocumentResponse) validateDocumentVersion(formats strfmt.Regis
 }
 
 func (m *KnowledgeDocumentResponse) validateKnowledgeBase(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KnowledgeBase) { // not required
 		return nil
 	}
@@ -271,6 +272,8 @@ func (m *KnowledgeDocumentResponse) validateKnowledgeBase(formats strfmt.Registr
 		if err := m.KnowledgeBase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
 			}
 			return err
 		}
@@ -280,7 +283,6 @@ func (m *KnowledgeDocumentResponse) validateKnowledgeBase(formats strfmt.Registr
 }
 
 func (m *KnowledgeDocumentResponse) validateLabels(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Labels) { // not required
 		return nil
 	}
@@ -294,6 +296,8 @@ func (m *KnowledgeDocumentResponse) validateLabels(formats strfmt.Registry) erro
 			if err := m.Labels[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("labels" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("labels" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -305,7 +309,6 @@ func (m *KnowledgeDocumentResponse) validateLabels(formats strfmt.Registry) erro
 }
 
 func (m *KnowledgeDocumentResponse) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -314,6 +317,8 @@ func (m *KnowledgeDocumentResponse) validateModifiedBy(formats strfmt.Registry) 
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -323,7 +328,6 @@ func (m *KnowledgeDocumentResponse) validateModifiedBy(formats strfmt.Registry) 
 }
 
 func (m *KnowledgeDocumentResponse) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -368,7 +372,6 @@ func (m *KnowledgeDocumentResponse) validateStateEnum(path, location string, val
 }
 
 func (m *KnowledgeDocumentResponse) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -382,7 +385,6 @@ func (m *KnowledgeDocumentResponse) validateState(formats strfmt.Registry) error
 }
 
 func (m *KnowledgeDocumentResponse) validateVariations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Variations) { // not required
 		return nil
 	}
@@ -396,6 +398,216 @@ func (m *KnowledgeDocumentResponse) validateVariations(formats strfmt.Registry) 
 			if err := m.Variations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("variations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("variations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge document response based on the context it is used
+func (m *KnowledgeDocumentResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAlternatives(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCategory(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDocumentVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKnowledgeBase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLabels(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVariations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeDocumentResponse) contextValidateAlternatives(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Alternatives); i++ {
+
+		if m.Alternatives[i] != nil {
+			if err := m.Alternatives[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("alternatives" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("alternatives" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentResponse) contextValidateCategory(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Category != nil {
+		if err := m.Category.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("category")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("category")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentResponse) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentResponse) contextValidateDocumentVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DocumentVersion != nil {
+		if err := m.DocumentVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("documentVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("documentVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentResponse) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentResponse) contextValidateKnowledgeBase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KnowledgeBase != nil {
+		if err := m.KnowledgeBase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentResponse) contextValidateLabels(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Labels); i++ {
+
+		if m.Labels[i] != nil {
+			if err := m.Labels[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("labels" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("labels" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentResponse) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentResponse) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentResponse) contextValidateVariations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Variations); i++ {
+
+		if m.Variations[i] != nil {
+			if err := m.Variations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("variations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("variations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

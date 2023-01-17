@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostEmployeeperformanceExternalmetricsDefinitionsParams creates a new PostEmployeeperformanceExternalmetricsDefinitionsParams object
-// with the default values initialized.
+// NewPostEmployeeperformanceExternalmetricsDefinitionsParams creates a new PostEmployeeperformanceExternalmetricsDefinitionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostEmployeeperformanceExternalmetricsDefinitionsParams() *PostEmployeeperformanceExternalmetricsDefinitionsParams {
-	var ()
 	return &PostEmployeeperformanceExternalmetricsDefinitionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostEmployeeperformanceExternalmetricsDefinitionsParamsWithTimeout creates a new PostEmployeeperformanceExternalmetricsDefinitionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostEmployeeperformanceExternalmetricsDefinitionsParamsWithTimeout(timeout time.Duration) *PostEmployeeperformanceExternalmetricsDefinitionsParams {
-	var ()
 	return &PostEmployeeperformanceExternalmetricsDefinitionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostEmployeeperformanceExternalmetricsDefinitionsParamsWithContext creates a new PostEmployeeperformanceExternalmetricsDefinitionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostEmployeeperformanceExternalmetricsDefinitionsParamsWithContext(ctx context.Context) *PostEmployeeperformanceExternalmetricsDefinitionsParams {
-	var ()
 	return &PostEmployeeperformanceExternalmetricsDefinitionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostEmployeeperformanceExternalmetricsDefinitionsParamsWithHTTPClient creates a new PostEmployeeperformanceExternalmetricsDefinitionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostEmployeeperformanceExternalmetricsDefinitionsParamsWithHTTPClient(client *http.Client) *PostEmployeeperformanceExternalmetricsDefinitionsParams {
-	var ()
 	return &PostEmployeeperformanceExternalmetricsDefinitionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsParams contains all the parameters to send to the API endpoint
-for the post employeeperformance externalmetrics definitions operation typically these are written to a http.Request
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsParams contains all the parameters to send to the API endpoint
+
+	for the post employeeperformance externalmetrics definitions operation.
+
+	Typically these are written to a http.Request.
 */
 type PostEmployeeperformanceExternalmetricsDefinitionsParams struct {
 
-	/*Body
-	  The External Metric Definition to be created
+	/* Body.
 
+	   The External Metric Definition to be created
 	*/
 	Body *models.ExternalMetricDefinitionCreateRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post employeeperformance externalmetrics definitions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsParams) WithDefaults() *PostEmployeeperformanceExternalmetricsDefinitionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post employeeperformance externalmetrics definitions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post employeeperformance externalmetrics definitions params
@@ -124,7 +140,6 @@ func (o *PostEmployeeperformanceExternalmetricsDefinitionsParams) WriteToRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

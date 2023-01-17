@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -52,7 +53,6 @@ func (m *ScimV2MemberReference) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ScimV2MemberReference) validateDollarRef(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DollarRef) { // not required
 		return nil
 	}
@@ -103,13 +103,48 @@ func (m *ScimV2MemberReference) validateTypeEnum(path, location string, value st
 }
 
 func (m *ScimV2MemberReference) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scim v2 member reference based on the context it is used
+func (m *ScimV2MemberReference) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDollarRef(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimV2MemberReference) contextValidateDollarRef(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "$ref", "body", strfmt.URI(m.DollarRef)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2MemberReference) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "type", "body", string(m.Type)); err != nil {
 		return err
 	}
 

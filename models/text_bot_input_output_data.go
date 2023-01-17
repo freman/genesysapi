@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -38,11 +40,11 @@ func (m *TextBotInputOutputData) Validate(formats strfmt.Registry) error {
 
 func (m *TextBotInputOutputData) validateVariables(formats strfmt.Registry) error {
 
-	for k := range m.Variables {
+	if err := validate.Required("variables", "body", m.Variables); err != nil {
+		return err
+	}
 
-		if err := validate.Required("variables"+"."+k, "body", m.Variables[k]); err != nil {
-			return err
-		}
+	for k := range m.Variables {
 
 		if err := validate.Required("variables"+"."+k, "body", m.Variables[k]); err != nil {
 			return err
@@ -50,6 +52,11 @@ func (m *TextBotInputOutputData) validateVariables(formats strfmt.Registry) erro
 
 	}
 
+	return nil
+}
+
+// ContextValidate validates this text bot input output data based on context it is used
+func (m *TextBotInputOutputData) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

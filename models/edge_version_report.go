@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *EdgeVersionReport) Validate(formats strfmt.Registry) error {
 }
 
 func (m *EdgeVersionReport) validateNewestVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NewestVersion) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *EdgeVersionReport) validateNewestVersion(formats strfmt.Registry) error
 		if err := m.NewestVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("newestVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("newestVersion")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *EdgeVersionReport) validateNewestVersion(formats strfmt.Registry) error
 }
 
 func (m *EdgeVersionReport) validateOldestVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OldestVersion) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *EdgeVersionReport) validateOldestVersion(formats strfmt.Registry) error
 		if err := m.OldestVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("oldestVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("oldestVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this edge version report based on the context it is used
+func (m *EdgeVersionReport) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateNewestVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOldestVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EdgeVersionReport) contextValidateNewestVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.NewestVersion != nil {
+		if err := m.NewestVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("newestVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("newestVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EdgeVersionReport) contextValidateOldestVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OldestVersion != nil {
+		if err := m.OldestVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("oldestVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("oldestVersion")
 			}
 			return err
 		}

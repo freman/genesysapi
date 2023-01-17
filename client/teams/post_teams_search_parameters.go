@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTeamsSearchParams creates a new PostTeamsSearchParams object
-// with the default values initialized.
+// NewPostTeamsSearchParams creates a new PostTeamsSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTeamsSearchParams() *PostTeamsSearchParams {
-	var ()
 	return &PostTeamsSearchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTeamsSearchParamsWithTimeout creates a new PostTeamsSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTeamsSearchParamsWithTimeout(timeout time.Duration) *PostTeamsSearchParams {
-	var ()
 	return &PostTeamsSearchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTeamsSearchParamsWithContext creates a new PostTeamsSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTeamsSearchParamsWithContext(ctx context.Context) *PostTeamsSearchParams {
-	var ()
 	return &PostTeamsSearchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTeamsSearchParamsWithHTTPClient creates a new PostTeamsSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTeamsSearchParamsWithHTTPClient(client *http.Client) *PostTeamsSearchParams {
-	var ()
 	return &PostTeamsSearchParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTeamsSearchParams contains all the parameters to send to the API endpoint
-for the post teams search operation typically these are written to a http.Request
+/*
+PostTeamsSearchParams contains all the parameters to send to the API endpoint
+
+	for the post teams search operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTeamsSearchParams struct {
 
-	/*Body
-	  Search request options
+	/* Body.
 
+	   Search request options
 	*/
 	Body *models.TeamSearchRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post teams search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTeamsSearchParams) WithDefaults() *PostTeamsSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post teams search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTeamsSearchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post teams search params
@@ -124,7 +140,6 @@ func (o *PostTeamsSearchParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

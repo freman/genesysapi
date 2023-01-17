@@ -18,56 +18,72 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRoutingPredictorsParams creates a new PostRoutingPredictorsParams object
-// with the default values initialized.
+// NewPostRoutingPredictorsParams creates a new PostRoutingPredictorsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRoutingPredictorsParams() *PostRoutingPredictorsParams {
-	var ()
 	return &PostRoutingPredictorsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRoutingPredictorsParamsWithTimeout creates a new PostRoutingPredictorsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRoutingPredictorsParamsWithTimeout(timeout time.Duration) *PostRoutingPredictorsParams {
-	var ()
 	return &PostRoutingPredictorsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRoutingPredictorsParamsWithContext creates a new PostRoutingPredictorsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRoutingPredictorsParamsWithContext(ctx context.Context) *PostRoutingPredictorsParams {
-	var ()
 	return &PostRoutingPredictorsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRoutingPredictorsParamsWithHTTPClient creates a new PostRoutingPredictorsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRoutingPredictorsParamsWithHTTPClient(client *http.Client) *PostRoutingPredictorsParams {
-	var ()
 	return &PostRoutingPredictorsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRoutingPredictorsParams contains all the parameters to send to the API endpoint
-for the post routing predictors operation typically these are written to a http.Request
+/*
+PostRoutingPredictorsParams contains all the parameters to send to the API endpoint
+
+	for the post routing predictors operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRoutingPredictorsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.CreatePredictorRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post routing predictors params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingPredictorsParams) WithDefaults() *PostRoutingPredictorsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post routing predictors params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingPredictorsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post routing predictors params
@@ -121,7 +137,6 @@ func (o *PostRoutingPredictorsParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

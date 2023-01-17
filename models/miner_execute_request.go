@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -20,10 +21,12 @@ import (
 type MinerExecuteRequest struct {
 
 	// End date for the date range to mine. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	// Example: 2020-04-01
 	// Format: date
 	DateEnd strfmt.Date `json:"dateEnd,omitempty"`
 
 	// Start date for the date range to mine. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	// Example: 2020-04-01
 	// Format: date
 	DateStart strfmt.Date `json:"dateStart,omitempty"`
 
@@ -31,10 +34,16 @@ type MinerExecuteRequest struct {
 	// Enum: [Chat Call Message]
 	MediaType string `json:"mediaType,omitempty"`
 
+	// Type of the participant, either agent, customer or both.
+	// Enum: [Customer Agent Both]
+	ParticipantType string `json:"participantType,omitempty"`
+
 	// List of queue IDs for filtering conversations.
+	// Example: [ \"7fe8a4ce-7435-4c78-a83f-47c3943e53eb\", \"18c744bf-34d5-452a-b6d6-9af95628aa50\"]
 	QueueIds []string `json:"queueIds"`
 
 	// Location of input conversations.
+	// Example: intent-miner/raw-utterances/imports/org_id/request_id.mine_id.json
 	UploadKey string `json:"uploadKey,omitempty"`
 }
 
@@ -54,6 +63,10 @@ func (m *MinerExecuteRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateParticipantType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -61,7 +74,6 @@ func (m *MinerExecuteRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MinerExecuteRequest) validateDateEnd(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateEnd) { // not required
 		return nil
 	}
@@ -74,7 +86,6 @@ func (m *MinerExecuteRequest) validateDateEnd(formats strfmt.Registry) error {
 }
 
 func (m *MinerExecuteRequest) validateDateStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStart) { // not required
 		return nil
 	}
@@ -119,7 +130,6 @@ func (m *MinerExecuteRequest) validateMediaTypeEnum(path, location string, value
 }
 
 func (m *MinerExecuteRequest) validateMediaType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaType) { // not required
 		return nil
 	}
@@ -129,6 +139,56 @@ func (m *MinerExecuteRequest) validateMediaType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+var minerExecuteRequestTypeParticipantTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Customer","Agent","Both"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		minerExecuteRequestTypeParticipantTypePropEnum = append(minerExecuteRequestTypeParticipantTypePropEnum, v)
+	}
+}
+
+const (
+
+	// MinerExecuteRequestParticipantTypeCustomer captures enum value "Customer"
+	MinerExecuteRequestParticipantTypeCustomer string = "Customer"
+
+	// MinerExecuteRequestParticipantTypeAgent captures enum value "Agent"
+	MinerExecuteRequestParticipantTypeAgent string = "Agent"
+
+	// MinerExecuteRequestParticipantTypeBoth captures enum value "Both"
+	MinerExecuteRequestParticipantTypeBoth string = "Both"
+)
+
+// prop value enum
+func (m *MinerExecuteRequest) validateParticipantTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, minerExecuteRequestTypeParticipantTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *MinerExecuteRequest) validateParticipantType(formats strfmt.Registry) error {
+	if swag.IsZero(m.ParticipantType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateParticipantTypeEnum("participantType", "body", m.ParticipantType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validates this miner execute request based on context it is used
+func (m *MinerExecuteRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -17,86 +17,106 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetUserParams creates a new GetUserParams object
-// with the default values initialized.
+// NewGetUserParams creates a new GetUserParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUserParams() *GetUserParams {
-	var (
-		stateDefault = string("active")
-	)
 	return &GetUserParams{
-		State: &stateDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUserParamsWithTimeout creates a new GetUserParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUserParamsWithTimeout(timeout time.Duration) *GetUserParams {
-	var (
-		stateDefault = string("active")
-	)
 	return &GetUserParams{
-		State: &stateDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUserParamsWithContext creates a new GetUserParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUserParamsWithContext(ctx context.Context) *GetUserParams {
-	var (
-		stateDefault = string("active")
-	)
 	return &GetUserParams{
-		State: &stateDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetUserParamsWithHTTPClient creates a new GetUserParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUserParamsWithHTTPClient(client *http.Client) *GetUserParams {
-	var (
-		stateDefault = string("active")
-	)
 	return &GetUserParams{
-		State:      &stateDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetUserParams contains all the parameters to send to the API endpoint
-for the get user operation typically these are written to a http.Request
+/*
+GetUserParams contains all the parameters to send to the API endpoint
+
+	for the get user operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUserParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand
+	/* Expand.
 
+	   Which fields, if any, to expand
 	*/
 	Expand []string
-	/*IntegrationPresenceSource
-	  Gets an integration presence for a user instead of their default.
 
+	/* IntegrationPresenceSource.
+
+	   Gets an integration presence for a user instead of their default.
 	*/
 	IntegrationPresenceSource *string
-	/*State
-	  Search for a user with this state
 
+	/* State.
+
+	   Search for a user with this state
+
+	   Default: "active"
 	*/
 	State *string
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserParams) WithDefaults() *GetUserParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserParams) SetDefaults() {
+	var (
+		stateDefault = string("active")
+	)
+
+	val := GetUserParams{
+		State: &stateDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get user params
@@ -184,44 +204,49 @@ func (o *GetUserParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regis
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.IntegrationPresenceSource != nil {
 
 		// query param integrationPresenceSource
 		var qrIntegrationPresenceSource string
+
 		if o.IntegrationPresenceSource != nil {
 			qrIntegrationPresenceSource = *o.IntegrationPresenceSource
 		}
 		qIntegrationPresenceSource := qrIntegrationPresenceSource
 		if qIntegrationPresenceSource != "" {
+
 			if err := r.SetQueryParam("integrationPresenceSource", qIntegrationPresenceSource); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.State != nil {
 
 		// query param state
 		var qrState string
+
 		if o.State != nil {
 			qrState = *o.State
 		}
 		qState := qrState
 		if qState != "" {
+
 			if err := r.SetQueryParam("state", qState); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param userId
@@ -233,4 +258,21 @@ func (o *GetUserParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regis
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetUser binds the parameter expand
+func (o *GetUserParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

@@ -95,7 +95,6 @@ func (o *GetDataextensionsLimitsReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetDataextensionsLimitsOK() *GetDataextensionsLimitsOK {
 	return &GetDataextensionsLimitsOK{}
 }
 
-/*GetDataextensionsLimitsOK handles this case with default header values.
+/*
+GetDataextensionsLimitsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetDataextensionsLimitsOK struct {
 	Payload *models.SchemaQuantityLimits
 }
 
+// IsSuccess returns true when this get dataextensions limits o k response has a 2xx status code
+func (o *GetDataextensionsLimitsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get dataextensions limits o k response has a 3xx status code
+func (o *GetDataextensionsLimitsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions limits o k response has a 4xx status code
+func (o *GetDataextensionsLimitsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get dataextensions limits o k response has a 5xx status code
+func (o *GetDataextensionsLimitsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions limits o k response a status code equal to that given
+func (o *GetDataextensionsLimitsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetDataextensionsLimitsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetDataextensionsLimitsBadRequest() *GetDataextensionsLimitsBadRequest {
 	return &GetDataextensionsLimitsBadRequest{}
 }
 
-/*GetDataextensionsLimitsBadRequest handles this case with default header values.
+/*
+GetDataextensionsLimitsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetDataextensionsLimitsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions limits bad request response has a 2xx status code
+func (o *GetDataextensionsLimitsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions limits bad request response has a 3xx status code
+func (o *GetDataextensionsLimitsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions limits bad request response has a 4xx status code
+func (o *GetDataextensionsLimitsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions limits bad request response has a 5xx status code
+func (o *GetDataextensionsLimitsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions limits bad request response a status code equal to that given
+func (o *GetDataextensionsLimitsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetDataextensionsLimitsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetDataextensionsLimitsUnauthorized() *GetDataextensionsLimitsUnauthoriz
 	return &GetDataextensionsLimitsUnauthorized{}
 }
 
-/*GetDataextensionsLimitsUnauthorized handles this case with default header values.
+/*
+GetDataextensionsLimitsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetDataextensionsLimitsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions limits unauthorized response has a 2xx status code
+func (o *GetDataextensionsLimitsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions limits unauthorized response has a 3xx status code
+func (o *GetDataextensionsLimitsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions limits unauthorized response has a 4xx status code
+func (o *GetDataextensionsLimitsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions limits unauthorized response has a 5xx status code
+func (o *GetDataextensionsLimitsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions limits unauthorized response a status code equal to that given
+func (o *GetDataextensionsLimitsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetDataextensionsLimitsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetDataextensionsLimitsForbidden() *GetDataextensionsLimitsForbidden {
 	return &GetDataextensionsLimitsForbidden{}
 }
 
-/*GetDataextensionsLimitsForbidden handles this case with default header values.
+/*
+GetDataextensionsLimitsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetDataextensionsLimitsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions limits forbidden response has a 2xx status code
+func (o *GetDataextensionsLimitsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions limits forbidden response has a 3xx status code
+func (o *GetDataextensionsLimitsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions limits forbidden response has a 4xx status code
+func (o *GetDataextensionsLimitsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions limits forbidden response has a 5xx status code
+func (o *GetDataextensionsLimitsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions limits forbidden response a status code equal to that given
+func (o *GetDataextensionsLimitsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetDataextensionsLimitsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetDataextensionsLimitsNotFound() *GetDataextensionsLimitsNotFound {
 	return &GetDataextensionsLimitsNotFound{}
 }
 
-/*GetDataextensionsLimitsNotFound handles this case with default header values.
+/*
+GetDataextensionsLimitsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetDataextensionsLimitsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions limits not found response has a 2xx status code
+func (o *GetDataextensionsLimitsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions limits not found response has a 3xx status code
+func (o *GetDataextensionsLimitsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions limits not found response has a 4xx status code
+func (o *GetDataextensionsLimitsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions limits not found response has a 5xx status code
+func (o *GetDataextensionsLimitsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions limits not found response a status code equal to that given
+func (o *GetDataextensionsLimitsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetDataextensionsLimitsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetDataextensionsLimitsRequestTimeout() *GetDataextensionsLimitsRequestT
 	return &GetDataextensionsLimitsRequestTimeout{}
 }
 
-/*GetDataextensionsLimitsRequestTimeout handles this case with default header values.
+/*
+GetDataextensionsLimitsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetDataextensionsLimitsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions limits request timeout response has a 2xx status code
+func (o *GetDataextensionsLimitsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions limits request timeout response has a 3xx status code
+func (o *GetDataextensionsLimitsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions limits request timeout response has a 4xx status code
+func (o *GetDataextensionsLimitsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions limits request timeout response has a 5xx status code
+func (o *GetDataextensionsLimitsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions limits request timeout response a status code equal to that given
+func (o *GetDataextensionsLimitsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetDataextensionsLimitsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetDataextensionsLimitsRequestEntityTooLarge() *GetDataextensionsLimitsR
 	return &GetDataextensionsLimitsRequestEntityTooLarge{}
 }
 
-/*GetDataextensionsLimitsRequestEntityTooLarge handles this case with default header values.
+/*
+GetDataextensionsLimitsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetDataextensionsLimitsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions limits request entity too large response has a 2xx status code
+func (o *GetDataextensionsLimitsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions limits request entity too large response has a 3xx status code
+func (o *GetDataextensionsLimitsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions limits request entity too large response has a 4xx status code
+func (o *GetDataextensionsLimitsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions limits request entity too large response has a 5xx status code
+func (o *GetDataextensionsLimitsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions limits request entity too large response a status code equal to that given
+func (o *GetDataextensionsLimitsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetDataextensionsLimitsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetDataextensionsLimitsUnsupportedMediaType() *GetDataextensionsLimitsUn
 	return &GetDataextensionsLimitsUnsupportedMediaType{}
 }
 
-/*GetDataextensionsLimitsUnsupportedMediaType handles this case with default header values.
+/*
+GetDataextensionsLimitsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetDataextensionsLimitsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions limits unsupported media type response has a 2xx status code
+func (o *GetDataextensionsLimitsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions limits unsupported media type response has a 3xx status code
+func (o *GetDataextensionsLimitsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions limits unsupported media type response has a 4xx status code
+func (o *GetDataextensionsLimitsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions limits unsupported media type response has a 5xx status code
+func (o *GetDataextensionsLimitsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions limits unsupported media type response a status code equal to that given
+func (o *GetDataextensionsLimitsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetDataextensionsLimitsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetDataextensionsLimitsTooManyRequests() *GetDataextensionsLimitsTooMany
 	return &GetDataextensionsLimitsTooManyRequests{}
 }
 
-/*GetDataextensionsLimitsTooManyRequests handles this case with default header values.
+/*
+GetDataextensionsLimitsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetDataextensionsLimitsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions limits too many requests response has a 2xx status code
+func (o *GetDataextensionsLimitsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions limits too many requests response has a 3xx status code
+func (o *GetDataextensionsLimitsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions limits too many requests response has a 4xx status code
+func (o *GetDataextensionsLimitsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions limits too many requests response has a 5xx status code
+func (o *GetDataextensionsLimitsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions limits too many requests response a status code equal to that given
+func (o *GetDataextensionsLimitsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetDataextensionsLimitsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetDataextensionsLimitsInternalServerError() *GetDataextensionsLimitsInt
 	return &GetDataextensionsLimitsInternalServerError{}
 }
 
-/*GetDataextensionsLimitsInternalServerError handles this case with default header values.
+/*
+GetDataextensionsLimitsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetDataextensionsLimitsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions limits internal server error response has a 2xx status code
+func (o *GetDataextensionsLimitsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions limits internal server error response has a 3xx status code
+func (o *GetDataextensionsLimitsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions limits internal server error response has a 4xx status code
+func (o *GetDataextensionsLimitsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get dataextensions limits internal server error response has a 5xx status code
+func (o *GetDataextensionsLimitsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get dataextensions limits internal server error response a status code equal to that given
+func (o *GetDataextensionsLimitsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetDataextensionsLimitsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetDataextensionsLimitsServiceUnavailable() *GetDataextensionsLimitsServ
 	return &GetDataextensionsLimitsServiceUnavailable{}
 }
 
-/*GetDataextensionsLimitsServiceUnavailable handles this case with default header values.
+/*
+GetDataextensionsLimitsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetDataextensionsLimitsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions limits service unavailable response has a 2xx status code
+func (o *GetDataextensionsLimitsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions limits service unavailable response has a 3xx status code
+func (o *GetDataextensionsLimitsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions limits service unavailable response has a 4xx status code
+func (o *GetDataextensionsLimitsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get dataextensions limits service unavailable response has a 5xx status code
+func (o *GetDataextensionsLimitsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get dataextensions limits service unavailable response a status code equal to that given
+func (o *GetDataextensionsLimitsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetDataextensionsLimitsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetDataextensionsLimitsGatewayTimeout() *GetDataextensionsLimitsGatewayT
 	return &GetDataextensionsLimitsGatewayTimeout{}
 }
 
-/*GetDataextensionsLimitsGatewayTimeout handles this case with default header values.
+/*
+GetDataextensionsLimitsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetDataextensionsLimitsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions limits gateway timeout response has a 2xx status code
+func (o *GetDataextensionsLimitsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions limits gateway timeout response has a 3xx status code
+func (o *GetDataextensionsLimitsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions limits gateway timeout response has a 4xx status code
+func (o *GetDataextensionsLimitsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get dataextensions limits gateway timeout response has a 5xx status code
+func (o *GetDataextensionsLimitsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get dataextensions limits gateway timeout response a status code equal to that given
+func (o *GetDataextensionsLimitsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetDataextensionsLimitsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetDataextensionsLimitsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/limits][%d] getDataextensionsLimitsGatewayTimeout  %+v", 504, o.Payload)
 }
 

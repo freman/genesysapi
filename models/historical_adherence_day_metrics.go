@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -51,6 +53,11 @@ type HistoricalAdherenceDayMetrics struct {
 
 // Validate validates this historical adherence day metrics
 func (m *HistoricalAdherenceDayMetrics) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this historical adherence day metrics based on context it is used
+func (m *HistoricalAdherenceDayMetrics) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

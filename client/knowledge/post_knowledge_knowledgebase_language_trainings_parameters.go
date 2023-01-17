@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostKnowledgeKnowledgebaseLanguageTrainingsParams creates a new PostKnowledgeKnowledgebaseLanguageTrainingsParams object
-// with the default values initialized.
+// NewPostKnowledgeKnowledgebaseLanguageTrainingsParams creates a new PostKnowledgeKnowledgebaseLanguageTrainingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostKnowledgeKnowledgebaseLanguageTrainingsParams() *PostKnowledgeKnowledgebaseLanguageTrainingsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageTrainingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseLanguageTrainingsParamsWithTimeout creates a new PostKnowledgeKnowledgebaseLanguageTrainingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostKnowledgeKnowledgebaseLanguageTrainingsParamsWithTimeout(timeout time.Duration) *PostKnowledgeKnowledgebaseLanguageTrainingsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageTrainingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseLanguageTrainingsParamsWithContext creates a new PostKnowledgeKnowledgebaseLanguageTrainingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostKnowledgeKnowledgebaseLanguageTrainingsParamsWithContext(ctx context.Context) *PostKnowledgeKnowledgebaseLanguageTrainingsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageTrainingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseLanguageTrainingsParamsWithHTTPClient creates a new PostKnowledgeKnowledgebaseLanguageTrainingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostKnowledgeKnowledgebaseLanguageTrainingsParamsWithHTTPClient(client *http.Client) *PostKnowledgeKnowledgebaseLanguageTrainingsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageTrainingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageTrainingsParams contains all the parameters to send to the API endpoint
-for the post knowledge knowledgebase language trainings operation typically these are written to a http.Request
+/*
+PostKnowledgeKnowledgebaseLanguageTrainingsParams contains all the parameters to send to the API endpoint
+
+	for the post knowledge knowledgebase language trainings operation.
+
+	Typically these are written to a http.Request.
 */
 type PostKnowledgeKnowledgebaseLanguageTrainingsParams struct {
 
-	/*KnowledgeBaseID
-	  Knowledge base ID
+	/* KnowledgeBaseID.
 
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LanguageCode
-	  Language code, format: iso2-LOCALE
 
+	/* LanguageCode.
+
+	   Language code, format: iso2-LOCALE
 	*/
 	LanguageCode string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post knowledge knowledgebase language trainings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseLanguageTrainingsParams) WithDefaults() *PostKnowledgeKnowledgebaseLanguageTrainingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post knowledge knowledgebase language trainings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseLanguageTrainingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post knowledge knowledgebase language trainings params

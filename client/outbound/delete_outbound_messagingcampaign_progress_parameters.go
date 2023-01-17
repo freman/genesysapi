@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteOutboundMessagingcampaignProgressParams creates a new DeleteOutboundMessagingcampaignProgressParams object
-// with the default values initialized.
+// NewDeleteOutboundMessagingcampaignProgressParams creates a new DeleteOutboundMessagingcampaignProgressParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundMessagingcampaignProgressParams() *DeleteOutboundMessagingcampaignProgressParams {
-	var ()
 	return &DeleteOutboundMessagingcampaignProgressParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundMessagingcampaignProgressParamsWithTimeout creates a new DeleteOutboundMessagingcampaignProgressParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundMessagingcampaignProgressParamsWithTimeout(timeout time.Duration) *DeleteOutboundMessagingcampaignProgressParams {
-	var ()
 	return &DeleteOutboundMessagingcampaignProgressParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundMessagingcampaignProgressParamsWithContext creates a new DeleteOutboundMessagingcampaignProgressParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundMessagingcampaignProgressParamsWithContext(ctx context.Context) *DeleteOutboundMessagingcampaignProgressParams {
-	var ()
 	return &DeleteOutboundMessagingcampaignProgressParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundMessagingcampaignProgressParamsWithHTTPClient creates a new DeleteOutboundMessagingcampaignProgressParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundMessagingcampaignProgressParamsWithHTTPClient(client *http.Client) *DeleteOutboundMessagingcampaignProgressParams {
-	var ()
 	return &DeleteOutboundMessagingcampaignProgressParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundMessagingcampaignProgressParams contains all the parameters to send to the API endpoint
-for the delete outbound messagingcampaign progress operation typically these are written to a http.Request
+/*
+DeleteOutboundMessagingcampaignProgressParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound messagingcampaign progress operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundMessagingcampaignProgressParams struct {
 
-	/*MessagingCampaignID
-	  The Messaging Campaign ID
+	/* MessagingCampaignID.
 
+	   The Messaging Campaign ID
 	*/
 	MessagingCampaignID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound messagingcampaign progress params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundMessagingcampaignProgressParams) WithDefaults() *DeleteOutboundMessagingcampaignProgressParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound messagingcampaign progress params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundMessagingcampaignProgressParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound messagingcampaign progress params

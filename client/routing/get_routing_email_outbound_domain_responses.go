@@ -95,7 +95,6 @@ func (o *GetRoutingEmailOutboundDomainReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingEmailOutboundDomainOK() *GetRoutingEmailOutboundDomainOK {
 	return &GetRoutingEmailOutboundDomainOK{}
 }
 
-/*GetRoutingEmailOutboundDomainOK handles this case with default header values.
+/*
+GetRoutingEmailOutboundDomainOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingEmailOutboundDomainOK struct {
 	Payload *models.OutboundDomain
 }
 
+// IsSuccess returns true when this get routing email outbound domain o k response has a 2xx status code
+func (o *GetRoutingEmailOutboundDomainOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing email outbound domain o k response has a 3xx status code
+func (o *GetRoutingEmailOutboundDomainOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing email outbound domain o k response has a 4xx status code
+func (o *GetRoutingEmailOutboundDomainOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing email outbound domain o k response has a 5xx status code
+func (o *GetRoutingEmailOutboundDomainOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing email outbound domain o k response a status code equal to that given
+func (o *GetRoutingEmailOutboundDomainOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingEmailOutboundDomainOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingEmailOutboundDomainOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingEmailOutboundDomainBadRequest() *GetRoutingEmailOutboundDomain
 	return &GetRoutingEmailOutboundDomainBadRequest{}
 }
 
-/*GetRoutingEmailOutboundDomainBadRequest handles this case with default header values.
+/*
+GetRoutingEmailOutboundDomainBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingEmailOutboundDomainBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing email outbound domain bad request response has a 2xx status code
+func (o *GetRoutingEmailOutboundDomainBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing email outbound domain bad request response has a 3xx status code
+func (o *GetRoutingEmailOutboundDomainBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing email outbound domain bad request response has a 4xx status code
+func (o *GetRoutingEmailOutboundDomainBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing email outbound domain bad request response has a 5xx status code
+func (o *GetRoutingEmailOutboundDomainBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing email outbound domain bad request response a status code equal to that given
+func (o *GetRoutingEmailOutboundDomainBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingEmailOutboundDomainBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingEmailOutboundDomainBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingEmailOutboundDomainUnauthorized() *GetRoutingEmailOutboundDoma
 	return &GetRoutingEmailOutboundDomainUnauthorized{}
 }
 
-/*GetRoutingEmailOutboundDomainUnauthorized handles this case with default header values.
+/*
+GetRoutingEmailOutboundDomainUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingEmailOutboundDomainUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing email outbound domain unauthorized response has a 2xx status code
+func (o *GetRoutingEmailOutboundDomainUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing email outbound domain unauthorized response has a 3xx status code
+func (o *GetRoutingEmailOutboundDomainUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing email outbound domain unauthorized response has a 4xx status code
+func (o *GetRoutingEmailOutboundDomainUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing email outbound domain unauthorized response has a 5xx status code
+func (o *GetRoutingEmailOutboundDomainUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing email outbound domain unauthorized response a status code equal to that given
+func (o *GetRoutingEmailOutboundDomainUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingEmailOutboundDomainUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingEmailOutboundDomainUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingEmailOutboundDomainForbidden() *GetRoutingEmailOutboundDomainF
 	return &GetRoutingEmailOutboundDomainForbidden{}
 }
 
-/*GetRoutingEmailOutboundDomainForbidden handles this case with default header values.
+/*
+GetRoutingEmailOutboundDomainForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingEmailOutboundDomainForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing email outbound domain forbidden response has a 2xx status code
+func (o *GetRoutingEmailOutboundDomainForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing email outbound domain forbidden response has a 3xx status code
+func (o *GetRoutingEmailOutboundDomainForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing email outbound domain forbidden response has a 4xx status code
+func (o *GetRoutingEmailOutboundDomainForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing email outbound domain forbidden response has a 5xx status code
+func (o *GetRoutingEmailOutboundDomainForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing email outbound domain forbidden response a status code equal to that given
+func (o *GetRoutingEmailOutboundDomainForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingEmailOutboundDomainForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingEmailOutboundDomainForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingEmailOutboundDomainNotFound() *GetRoutingEmailOutboundDomainNo
 	return &GetRoutingEmailOutboundDomainNotFound{}
 }
 
-/*GetRoutingEmailOutboundDomainNotFound handles this case with default header values.
+/*
+GetRoutingEmailOutboundDomainNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingEmailOutboundDomainNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing email outbound domain not found response has a 2xx status code
+func (o *GetRoutingEmailOutboundDomainNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing email outbound domain not found response has a 3xx status code
+func (o *GetRoutingEmailOutboundDomainNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing email outbound domain not found response has a 4xx status code
+func (o *GetRoutingEmailOutboundDomainNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing email outbound domain not found response has a 5xx status code
+func (o *GetRoutingEmailOutboundDomainNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing email outbound domain not found response a status code equal to that given
+func (o *GetRoutingEmailOutboundDomainNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingEmailOutboundDomainNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingEmailOutboundDomainNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingEmailOutboundDomainRequestTimeout() *GetRoutingEmailOutboundDo
 	return &GetRoutingEmailOutboundDomainRequestTimeout{}
 }
 
-/*GetRoutingEmailOutboundDomainRequestTimeout handles this case with default header values.
+/*
+GetRoutingEmailOutboundDomainRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingEmailOutboundDomainRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing email outbound domain request timeout response has a 2xx status code
+func (o *GetRoutingEmailOutboundDomainRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing email outbound domain request timeout response has a 3xx status code
+func (o *GetRoutingEmailOutboundDomainRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing email outbound domain request timeout response has a 4xx status code
+func (o *GetRoutingEmailOutboundDomainRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing email outbound domain request timeout response has a 5xx status code
+func (o *GetRoutingEmailOutboundDomainRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing email outbound domain request timeout response a status code equal to that given
+func (o *GetRoutingEmailOutboundDomainRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingEmailOutboundDomainRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingEmailOutboundDomainRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingEmailOutboundDomainRequestEntityTooLarge() *GetRoutingEmailOut
 	return &GetRoutingEmailOutboundDomainRequestEntityTooLarge{}
 }
 
-/*GetRoutingEmailOutboundDomainRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingEmailOutboundDomainRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingEmailOutboundDomainRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing email outbound domain request entity too large response has a 2xx status code
+func (o *GetRoutingEmailOutboundDomainRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing email outbound domain request entity too large response has a 3xx status code
+func (o *GetRoutingEmailOutboundDomainRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing email outbound domain request entity too large response has a 4xx status code
+func (o *GetRoutingEmailOutboundDomainRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing email outbound domain request entity too large response has a 5xx status code
+func (o *GetRoutingEmailOutboundDomainRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing email outbound domain request entity too large response a status code equal to that given
+func (o *GetRoutingEmailOutboundDomainRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingEmailOutboundDomainRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingEmailOutboundDomainRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingEmailOutboundDomainUnsupportedMediaType() *GetRoutingEmailOutb
 	return &GetRoutingEmailOutboundDomainUnsupportedMediaType{}
 }
 
-/*GetRoutingEmailOutboundDomainUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingEmailOutboundDomainUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingEmailOutboundDomainUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing email outbound domain unsupported media type response has a 2xx status code
+func (o *GetRoutingEmailOutboundDomainUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing email outbound domain unsupported media type response has a 3xx status code
+func (o *GetRoutingEmailOutboundDomainUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing email outbound domain unsupported media type response has a 4xx status code
+func (o *GetRoutingEmailOutboundDomainUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing email outbound domain unsupported media type response has a 5xx status code
+func (o *GetRoutingEmailOutboundDomainUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing email outbound domain unsupported media type response a status code equal to that given
+func (o *GetRoutingEmailOutboundDomainUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingEmailOutboundDomainUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingEmailOutboundDomainUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingEmailOutboundDomainTooManyRequests() *GetRoutingEmailOutboundD
 	return &GetRoutingEmailOutboundDomainTooManyRequests{}
 }
 
-/*GetRoutingEmailOutboundDomainTooManyRequests handles this case with default header values.
+/*
+GetRoutingEmailOutboundDomainTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingEmailOutboundDomainTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing email outbound domain too many requests response has a 2xx status code
+func (o *GetRoutingEmailOutboundDomainTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing email outbound domain too many requests response has a 3xx status code
+func (o *GetRoutingEmailOutboundDomainTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing email outbound domain too many requests response has a 4xx status code
+func (o *GetRoutingEmailOutboundDomainTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing email outbound domain too many requests response has a 5xx status code
+func (o *GetRoutingEmailOutboundDomainTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing email outbound domain too many requests response a status code equal to that given
+func (o *GetRoutingEmailOutboundDomainTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingEmailOutboundDomainTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingEmailOutboundDomainTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingEmailOutboundDomainInternalServerError() *GetRoutingEmailOutbo
 	return &GetRoutingEmailOutboundDomainInternalServerError{}
 }
 
-/*GetRoutingEmailOutboundDomainInternalServerError handles this case with default header values.
+/*
+GetRoutingEmailOutboundDomainInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingEmailOutboundDomainInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing email outbound domain internal server error response has a 2xx status code
+func (o *GetRoutingEmailOutboundDomainInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing email outbound domain internal server error response has a 3xx status code
+func (o *GetRoutingEmailOutboundDomainInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing email outbound domain internal server error response has a 4xx status code
+func (o *GetRoutingEmailOutboundDomainInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing email outbound domain internal server error response has a 5xx status code
+func (o *GetRoutingEmailOutboundDomainInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing email outbound domain internal server error response a status code equal to that given
+func (o *GetRoutingEmailOutboundDomainInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingEmailOutboundDomainInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingEmailOutboundDomainInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingEmailOutboundDomainServiceUnavailable() *GetRoutingEmailOutbou
 	return &GetRoutingEmailOutboundDomainServiceUnavailable{}
 }
 
-/*GetRoutingEmailOutboundDomainServiceUnavailable handles this case with default header values.
+/*
+GetRoutingEmailOutboundDomainServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingEmailOutboundDomainServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing email outbound domain service unavailable response has a 2xx status code
+func (o *GetRoutingEmailOutboundDomainServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing email outbound domain service unavailable response has a 3xx status code
+func (o *GetRoutingEmailOutboundDomainServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing email outbound domain service unavailable response has a 4xx status code
+func (o *GetRoutingEmailOutboundDomainServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing email outbound domain service unavailable response has a 5xx status code
+func (o *GetRoutingEmailOutboundDomainServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing email outbound domain service unavailable response a status code equal to that given
+func (o *GetRoutingEmailOutboundDomainServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingEmailOutboundDomainServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingEmailOutboundDomainServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingEmailOutboundDomainGatewayTimeout() *GetRoutingEmailOutboundDo
 	return &GetRoutingEmailOutboundDomainGatewayTimeout{}
 }
 
-/*GetRoutingEmailOutboundDomainGatewayTimeout handles this case with default header values.
+/*
+GetRoutingEmailOutboundDomainGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingEmailOutboundDomainGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing email outbound domain gateway timeout response has a 2xx status code
+func (o *GetRoutingEmailOutboundDomainGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing email outbound domain gateway timeout response has a 3xx status code
+func (o *GetRoutingEmailOutboundDomainGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing email outbound domain gateway timeout response has a 4xx status code
+func (o *GetRoutingEmailOutboundDomainGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing email outbound domain gateway timeout response has a 5xx status code
+func (o *GetRoutingEmailOutboundDomainGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing email outbound domain gateway timeout response a status code equal to that given
+func (o *GetRoutingEmailOutboundDomainGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingEmailOutboundDomainGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingEmailOutboundDomainGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/email/outbound/domains/{domainId}][%d] getRoutingEmailOutboundDomainGatewayTimeout  %+v", 504, o.Payload)
 }
 

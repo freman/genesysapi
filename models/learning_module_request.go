@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -80,7 +81,6 @@ func (m *LearningModuleRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *LearningModuleRequest) validateAssessmentForm(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssessmentForm) { // not required
 		return nil
 	}
@@ -89,6 +89,8 @@ func (m *LearningModuleRequest) validateAssessmentForm(formats strfmt.Registry) 
 		if err := m.AssessmentForm.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("assessmentForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assessmentForm")
 			}
 			return err
 		}
@@ -107,7 +109,6 @@ func (m *LearningModuleRequest) validateCompletionTimeInDays(formats strfmt.Regi
 }
 
 func (m *LearningModuleRequest) validateCoverArt(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CoverArt) { // not required
 		return nil
 	}
@@ -116,6 +117,8 @@ func (m *LearningModuleRequest) validateCoverArt(formats strfmt.Registry) error 
 		if err := m.CoverArt.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("coverArt")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("coverArt")
 			}
 			return err
 		}
@@ -125,7 +128,6 @@ func (m *LearningModuleRequest) validateCoverArt(formats strfmt.Registry) error 
 }
 
 func (m *LearningModuleRequest) validateInformSteps(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InformSteps) { // not required
 		return nil
 	}
@@ -139,6 +141,8 @@ func (m *LearningModuleRequest) validateInformSteps(formats strfmt.Registry) err
 			if err := m.InformSteps[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("informSteps" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("informSteps" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -191,7 +195,6 @@ func (m *LearningModuleRequest) validateTypeEnum(path, location string, value st
 }
 
 func (m *LearningModuleRequest) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -199,6 +202,80 @@ func (m *LearningModuleRequest) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this learning module request based on the context it is used
+func (m *LearningModuleRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAssessmentForm(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCoverArt(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInformSteps(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *LearningModuleRequest) contextValidateAssessmentForm(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AssessmentForm != nil {
+		if err := m.AssessmentForm.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("assessmentForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assessmentForm")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LearningModuleRequest) contextValidateCoverArt(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CoverArt != nil {
+		if err := m.CoverArt.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("coverArt")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("coverArt")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LearningModuleRequest) contextValidateInformSteps(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.InformSteps); i++ {
+
+		if m.InformSteps[i] != nil {
+			if err := m.InformSteps[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("informSteps" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("informSteps" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

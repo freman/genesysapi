@@ -101,7 +101,6 @@ func (o *GetKnowledgeKnowledgebaseImportJobReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetKnowledgeKnowledgebaseImportJobOK() *GetKnowledgeKnowledgebaseImportJ
 	return &GetKnowledgeKnowledgebaseImportJobOK{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobOK handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type GetKnowledgeKnowledgebaseImportJobOK struct {
 	Payload *models.KnowledgeImportJobResponse
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job o k response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job o k response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job o k response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job o k response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job o k response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobOK  %+v", 200, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewGetKnowledgeKnowledgebaseImportJobAccepted() *GetKnowledgeKnowledgebaseI
 	return &GetKnowledgeKnowledgebaseImportJobAccepted{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobAccepted handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobAccepted describes a response with status code 202, with default header values.
 
 Import job in progress
 */
@@ -153,7 +183,36 @@ type GetKnowledgeKnowledgebaseImportJobAccepted struct {
 	Payload *models.KnowledgeImportJobResponse
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job accepted response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job accepted response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job accepted response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job accepted response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job accepted response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobAccepted) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobAccepted  %+v", 202, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobAccepted) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewGetKnowledgeKnowledgebaseImportJobBadRequest() *GetKnowledgeKnowledgebas
 	return &GetKnowledgeKnowledgebaseImportJobBadRequest{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobBadRequest handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type GetKnowledgeKnowledgebaseImportJobBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job bad request response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job bad request response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job bad request response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job bad request response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job bad request response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewGetKnowledgeKnowledgebaseImportJobUnauthorized() *GetKnowledgeKnowledgeb
 	return &GetKnowledgeKnowledgebaseImportJobUnauthorized{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobUnauthorized handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type GetKnowledgeKnowledgebaseImportJobUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job unauthorized response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job unauthorized response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job unauthorized response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job unauthorized response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job unauthorized response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewGetKnowledgeKnowledgebaseImportJobForbidden() *GetKnowledgeKnowledgebase
 	return &GetKnowledgeKnowledgebaseImportJobForbidden{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobForbidden handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type GetKnowledgeKnowledgebaseImportJobForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job forbidden response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job forbidden response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job forbidden response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job forbidden response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job forbidden response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewGetKnowledgeKnowledgebaseImportJobNotFound() *GetKnowledgeKnowledgebaseI
 	return &GetKnowledgeKnowledgebaseImportJobNotFound{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobNotFound handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type GetKnowledgeKnowledgebaseImportJobNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job not found response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job not found response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job not found response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job not found response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job not found response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewGetKnowledgeKnowledgebaseImportJobRequestTimeout() *GetKnowledgeKnowledg
 	return &GetKnowledgeKnowledgebaseImportJobRequestTimeout{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobRequestTimeout handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type GetKnowledgeKnowledgebaseImportJobRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job request timeout response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job request timeout response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job request timeout response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job request timeout response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job request timeout response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewGetKnowledgeKnowledgebaseImportJobRequestEntityTooLarge() *GetKnowledgeK
 	return &GetKnowledgeKnowledgebaseImportJobRequestEntityTooLarge{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobRequestEntityTooLarge handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type GetKnowledgeKnowledgebaseImportJobRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job request entity too large response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job request entity too large response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job request entity too large response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job request entity too large response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job request entity too large response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewGetKnowledgeKnowledgebaseImportJobUnsupportedMediaType() *GetKnowledgeKn
 	return &GetKnowledgeKnowledgebaseImportJobUnsupportedMediaType{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobUnsupportedMediaType handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type GetKnowledgeKnowledgebaseImportJobUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job unsupported media type response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job unsupported media type response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job unsupported media type response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job unsupported media type response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job unsupported media type response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewGetKnowledgeKnowledgebaseImportJobTooManyRequests() *GetKnowledgeKnowled
 	return &GetKnowledgeKnowledgebaseImportJobTooManyRequests{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobTooManyRequests handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type GetKnowledgeKnowledgebaseImportJobTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job too many requests response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job too many requests response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job too many requests response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job too many requests response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job too many requests response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewGetKnowledgeKnowledgebaseImportJobInternalServerError() *GetKnowledgeKno
 	return &GetKnowledgeKnowledgebaseImportJobInternalServerError{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobInternalServerError handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type GetKnowledgeKnowledgebaseImportJobInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job internal server error response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job internal server error response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job internal server error response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job internal server error response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job internal server error response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewGetKnowledgeKnowledgebaseImportJobServiceUnavailable() *GetKnowledgeKnow
 	return &GetKnowledgeKnowledgebaseImportJobServiceUnavailable{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobServiceUnavailable handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type GetKnowledgeKnowledgebaseImportJobServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job service unavailable response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job service unavailable response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job service unavailable response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job service unavailable response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job service unavailable response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewGetKnowledgeKnowledgebaseImportJobGatewayTimeout() *GetKnowledgeKnowledg
 	return &GetKnowledgeKnowledgebaseImportJobGatewayTimeout{}
 }
 
-/*GetKnowledgeKnowledgebaseImportJobGatewayTimeout handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseImportJobGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type GetKnowledgeKnowledgebaseImportJobGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase import job gateway timeout response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase import job gateway timeout response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase import job gateway timeout response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase import job gateway timeout response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseImportJobGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase import job gateway timeout response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseImportJobGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetKnowledgeKnowledgebaseImportJobGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseImportJobGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] getKnowledgeKnowledgebaseImportJobGatewayTimeout  %+v", 504, o.Payload)
 }
 

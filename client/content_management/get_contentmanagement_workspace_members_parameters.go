@@ -17,94 +17,113 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetContentmanagementWorkspaceMembersParams creates a new GetContentmanagementWorkspaceMembersParams object
-// with the default values initialized.
+// NewGetContentmanagementWorkspaceMembersParams creates a new GetContentmanagementWorkspaceMembersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetContentmanagementWorkspaceMembersParams() *GetContentmanagementWorkspaceMembersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetContentmanagementWorkspaceMembersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetContentmanagementWorkspaceMembersParamsWithTimeout creates a new GetContentmanagementWorkspaceMembersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetContentmanagementWorkspaceMembersParamsWithTimeout(timeout time.Duration) *GetContentmanagementWorkspaceMembersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetContentmanagementWorkspaceMembersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetContentmanagementWorkspaceMembersParamsWithContext creates a new GetContentmanagementWorkspaceMembersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetContentmanagementWorkspaceMembersParamsWithContext(ctx context.Context) *GetContentmanagementWorkspaceMembersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetContentmanagementWorkspaceMembersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetContentmanagementWorkspaceMembersParamsWithHTTPClient creates a new GetContentmanagementWorkspaceMembersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetContentmanagementWorkspaceMembersParamsWithHTTPClient(client *http.Client) *GetContentmanagementWorkspaceMembersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetContentmanagementWorkspaceMembersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetContentmanagementWorkspaceMembersParams contains all the parameters to send to the API endpoint
-for the get contentmanagement workspace members operation typically these are written to a http.Request
+/*
+GetContentmanagementWorkspaceMembersParams contains all the parameters to send to the API endpoint
+
+	for the get contentmanagement workspace members operation.
+
+	Typically these are written to a http.Request.
 */
 type GetContentmanagementWorkspaceMembersParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand.
+	/* Expand.
 
+	   Which fields, if any, to expand.
 	*/
 	Expand []string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*WorkspaceID
-	  Workspace ID
 
+	/* WorkspaceID.
+
+	   Workspace ID
 	*/
 	WorkspaceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get contentmanagement workspace members params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementWorkspaceMembersParams) WithDefaults() *GetContentmanagementWorkspaceMembersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get contentmanagement workspace members params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementWorkspaceMembersParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetContentmanagementWorkspaceMembersParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get contentmanagement workspace members params
@@ -192,44 +211,49 @@ func (o *GetContentmanagementWorkspaceMembersParams) WriteToRequest(r runtime.Cl
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param workspaceId
@@ -241,4 +265,21 @@ func (o *GetContentmanagementWorkspaceMembersParams) WriteToRequest(r runtime.Cl
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetContentmanagementWorkspaceMembers binds the parameter expand
+func (o *GetContentmanagementWorkspaceMembersParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

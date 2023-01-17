@@ -16,76 +16,94 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundDnclistExportParams creates a new GetOutboundDnclistExportParams object
-// with the default values initialized.
+// NewGetOutboundDnclistExportParams creates a new GetOutboundDnclistExportParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundDnclistExportParams() *GetOutboundDnclistExportParams {
-	var (
-		downloadDefault = string("false")
-	)
 	return &GetOutboundDnclistExportParams{
-		Download: &downloadDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundDnclistExportParamsWithTimeout creates a new GetOutboundDnclistExportParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundDnclistExportParamsWithTimeout(timeout time.Duration) *GetOutboundDnclistExportParams {
-	var (
-		downloadDefault = string("false")
-	)
 	return &GetOutboundDnclistExportParams{
-		Download: &downloadDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundDnclistExportParamsWithContext creates a new GetOutboundDnclistExportParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundDnclistExportParamsWithContext(ctx context.Context) *GetOutboundDnclistExportParams {
-	var (
-		downloadDefault = string("false")
-	)
 	return &GetOutboundDnclistExportParams{
-		Download: &downloadDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundDnclistExportParamsWithHTTPClient creates a new GetOutboundDnclistExportParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundDnclistExportParamsWithHTTPClient(client *http.Client) *GetOutboundDnclistExportParams {
-	var (
-		downloadDefault = string("false")
-	)
 	return &GetOutboundDnclistExportParams{
-		Download:   &downloadDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundDnclistExportParams contains all the parameters to send to the API endpoint
-for the get outbound dnclist export operation typically these are written to a http.Request
+/*
+GetOutboundDnclistExportParams contains all the parameters to send to the API endpoint
+
+	for the get outbound dnclist export operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundDnclistExportParams struct {
 
-	/*DncListID
-	  DncList ID
+	/* DncListID.
 
+	   DncList ID
 	*/
 	DncListID string
-	/*Download
-	  Redirect to download uri
 
+	/* Download.
+
+	   Redirect to download uri
+
+	   Default: "false"
 	*/
 	Download *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound dnclist export params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundDnclistExportParams) WithDefaults() *GetOutboundDnclistExportParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound dnclist export params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundDnclistExportParams) SetDefaults() {
+	var (
+		downloadDefault = string("false")
+	)
+
+	val := GetOutboundDnclistExportParams{
+		Download: &downloadDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get outbound dnclist export params
@@ -160,16 +178,17 @@ func (o *GetOutboundDnclistExportParams) WriteToRequest(r runtime.ClientRequest,
 
 		// query param download
 		var qrDownload string
+
 		if o.Download != nil {
 			qrDownload = *o.Download
 		}
 		qDownload := qrDownload
 		if qDownload != "" {
+
 			if err := r.SetQueryParam("download", qDownload); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

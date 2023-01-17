@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetSpeechandtextanalyticsProgramsGeneralJobParams creates a new GetSpeechandtextanalyticsProgramsGeneralJobParams object
-// with the default values initialized.
+// NewGetSpeechandtextanalyticsProgramsGeneralJobParams creates a new GetSpeechandtextanalyticsProgramsGeneralJobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSpeechandtextanalyticsProgramsGeneralJobParams() *GetSpeechandtextanalyticsProgramsGeneralJobParams {
-	var ()
 	return &GetSpeechandtextanalyticsProgramsGeneralJobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsProgramsGeneralJobParamsWithTimeout creates a new GetSpeechandtextanalyticsProgramsGeneralJobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSpeechandtextanalyticsProgramsGeneralJobParamsWithTimeout(timeout time.Duration) *GetSpeechandtextanalyticsProgramsGeneralJobParams {
-	var ()
 	return &GetSpeechandtextanalyticsProgramsGeneralJobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsProgramsGeneralJobParamsWithContext creates a new GetSpeechandtextanalyticsProgramsGeneralJobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSpeechandtextanalyticsProgramsGeneralJobParamsWithContext(ctx context.Context) *GetSpeechandtextanalyticsProgramsGeneralJobParams {
-	var ()
 	return &GetSpeechandtextanalyticsProgramsGeneralJobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetSpeechandtextanalyticsProgramsGeneralJobParamsWithHTTPClient creates a new GetSpeechandtextanalyticsProgramsGeneralJobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSpeechandtextanalyticsProgramsGeneralJobParamsWithHTTPClient(client *http.Client) *GetSpeechandtextanalyticsProgramsGeneralJobParams {
-	var ()
 	return &GetSpeechandtextanalyticsProgramsGeneralJobParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobParams contains all the parameters to send to the API endpoint
-for the get speechandtextanalytics programs general job operation typically these are written to a http.Request
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobParams contains all the parameters to send to the API endpoint
+
+	for the get speechandtextanalytics programs general job operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSpeechandtextanalyticsProgramsGeneralJobParams struct {
 
-	/*JobID
-	  The id of the publish programs job
+	/* JobID.
 
+	   The id of the publish programs job
 	*/
 	JobID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get speechandtextanalytics programs general job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobParams) WithDefaults() *GetSpeechandtextanalyticsProgramsGeneralJobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get speechandtextanalytics programs general job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get speechandtextanalytics programs general job params

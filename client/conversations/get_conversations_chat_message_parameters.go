@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConversationsChatMessageParams creates a new GetConversationsChatMessageParams object
-// with the default values initialized.
+// NewGetConversationsChatMessageParams creates a new GetConversationsChatMessageParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationsChatMessageParams() *GetConversationsChatMessageParams {
-	var ()
 	return &GetConversationsChatMessageParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationsChatMessageParamsWithTimeout creates a new GetConversationsChatMessageParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationsChatMessageParamsWithTimeout(timeout time.Duration) *GetConversationsChatMessageParams {
-	var ()
 	return &GetConversationsChatMessageParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationsChatMessageParamsWithContext creates a new GetConversationsChatMessageParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationsChatMessageParamsWithContext(ctx context.Context) *GetConversationsChatMessageParams {
-	var ()
 	return &GetConversationsChatMessageParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationsChatMessageParamsWithHTTPClient creates a new GetConversationsChatMessageParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationsChatMessageParamsWithHTTPClient(client *http.Client) *GetConversationsChatMessageParams {
-	var ()
 	return &GetConversationsChatMessageParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationsChatMessageParams contains all the parameters to send to the API endpoint
-for the get conversations chat message operation typically these are written to a http.Request
+/*
+GetConversationsChatMessageParams contains all the parameters to send to the API endpoint
+
+	for the get conversations chat message operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationsChatMessageParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*MessageID
-	  messageId
 
+	/* MessageID.
+
+	   messageId
 	*/
 	MessageID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversations chat message params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsChatMessageParams) WithDefaults() *GetConversationsChatMessageParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversations chat message params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsChatMessageParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get conversations chat message params

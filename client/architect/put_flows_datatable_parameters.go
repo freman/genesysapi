@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutFlowsDatatableParams creates a new PutFlowsDatatableParams object
-// with the default values initialized.
+// NewPutFlowsDatatableParams creates a new PutFlowsDatatableParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutFlowsDatatableParams() *PutFlowsDatatableParams {
-	var ()
 	return &PutFlowsDatatableParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutFlowsDatatableParamsWithTimeout creates a new PutFlowsDatatableParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutFlowsDatatableParamsWithTimeout(timeout time.Duration) *PutFlowsDatatableParams {
-	var ()
 	return &PutFlowsDatatableParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutFlowsDatatableParamsWithContext creates a new PutFlowsDatatableParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutFlowsDatatableParamsWithContext(ctx context.Context) *PutFlowsDatatableParams {
-	var ()
 	return &PutFlowsDatatableParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutFlowsDatatableParamsWithHTTPClient creates a new PutFlowsDatatableParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutFlowsDatatableParamsWithHTTPClient(client *http.Client) *PutFlowsDatatableParams {
-	var ()
 	return &PutFlowsDatatableParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutFlowsDatatableParams contains all the parameters to send to the API endpoint
-for the put flows datatable operation typically these are written to a http.Request
+/*
+PutFlowsDatatableParams contains all the parameters to send to the API endpoint
+
+	for the put flows datatable operation.
+
+	Typically these are written to a http.Request.
 */
 type PutFlowsDatatableParams struct {
 
-	/*Body
-	  datatable json-schema
+	/* Body.
 
+	   datatable json-schema
 	*/
 	Body *models.DataTable
-	/*DatatableID
-	  id of datatable
 
+	/* DatatableID.
+
+	   id of datatable
 	*/
 	DatatableID string
-	/*Expand
-	  Expand instructions for the result
 
+	/* Expand.
+
+	   Expand instructions for the result
 	*/
 	Expand *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put flows datatable params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutFlowsDatatableParams) WithDefaults() *PutFlowsDatatableParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put flows datatable params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutFlowsDatatableParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put flows datatable params
@@ -156,7 +174,6 @@ func (o *PutFlowsDatatableParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -172,16 +189,17 @@ func (o *PutFlowsDatatableParams) WriteToRequest(r runtime.ClientRequest, reg st
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

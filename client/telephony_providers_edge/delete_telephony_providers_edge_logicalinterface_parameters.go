@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteTelephonyProvidersEdgeLogicalinterfaceParams creates a new DeleteTelephonyProvidersEdgeLogicalinterfaceParams object
-// with the default values initialized.
+// NewDeleteTelephonyProvidersEdgeLogicalinterfaceParams creates a new DeleteTelephonyProvidersEdgeLogicalinterfaceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteTelephonyProvidersEdgeLogicalinterfaceParams() *DeleteTelephonyProvidersEdgeLogicalinterfaceParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgeLogicalinterfaceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteTelephonyProvidersEdgeLogicalinterfaceParamsWithTimeout creates a new DeleteTelephonyProvidersEdgeLogicalinterfaceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteTelephonyProvidersEdgeLogicalinterfaceParamsWithTimeout(timeout time.Duration) *DeleteTelephonyProvidersEdgeLogicalinterfaceParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgeLogicalinterfaceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteTelephonyProvidersEdgeLogicalinterfaceParamsWithContext creates a new DeleteTelephonyProvidersEdgeLogicalinterfaceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteTelephonyProvidersEdgeLogicalinterfaceParamsWithContext(ctx context.Context) *DeleteTelephonyProvidersEdgeLogicalinterfaceParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgeLogicalinterfaceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteTelephonyProvidersEdgeLogicalinterfaceParamsWithHTTPClient creates a new DeleteTelephonyProvidersEdgeLogicalinterfaceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteTelephonyProvidersEdgeLogicalinterfaceParamsWithHTTPClient(client *http.Client) *DeleteTelephonyProvidersEdgeLogicalinterfaceParams {
-	var ()
 	return &DeleteTelephonyProvidersEdgeLogicalinterfaceParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteTelephonyProvidersEdgeLogicalinterfaceParams contains all the parameters to send to the API endpoint
-for the delete telephony providers edge logicalinterface operation typically these are written to a http.Request
+/*
+DeleteTelephonyProvidersEdgeLogicalinterfaceParams contains all the parameters to send to the API endpoint
+
+	for the delete telephony providers edge logicalinterface operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteTelephonyProvidersEdgeLogicalinterfaceParams struct {
 
-	/*EdgeID
-	  Edge ID
+	/* EdgeID.
 
+	   Edge ID
 	*/
 	EdgeID string
-	/*InterfaceID
-	  Interface ID
 
+	/* InterfaceID.
+
+	   Interface ID
 	*/
 	InterfaceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete telephony providers edge logicalinterface params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteTelephonyProvidersEdgeLogicalinterfaceParams) WithDefaults() *DeleteTelephonyProvidersEdgeLogicalinterfaceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete telephony providers edge logicalinterface params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteTelephonyProvidersEdgeLogicalinterfaceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete telephony providers edge logicalinterface params

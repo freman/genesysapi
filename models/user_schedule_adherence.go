@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -33,6 +34,10 @@ type UserScheduleAdherence struct {
 	// Read Only: true
 	// Enum: [OnQueueWork Break Meal Meeting OffQueueWork TimeOff Training Unavailable Unscheduled]
 	ActualActivityCategory string `json:"actualActivityCategory,omitempty"`
+
+	// Currently applicable explanation for the adherence state
+	// Read Only: true
+	AdherenceExplanation *RealTimeAdherenceExplanation `json:"adherenceExplanation,omitempty"`
 
 	// The user's current adherence state
 	// Read Only: true
@@ -130,6 +135,10 @@ func (m *UserScheduleAdherence) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateAdherenceExplanation(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateAdherenceState(formats); err != nil {
 		res = append(res, err)
 	}
@@ -189,7 +198,6 @@ func (m *UserScheduleAdherence) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserScheduleAdherence) validateActiveQueues(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActiveQueues) { // not required
 		return nil
 	}
@@ -203,6 +211,8 @@ func (m *UserScheduleAdherence) validateActiveQueues(formats strfmt.Registry) er
 			if err := m.ActiveQueues[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("activeQueues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activeQueues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -214,7 +224,6 @@ func (m *UserScheduleAdherence) validateActiveQueues(formats strfmt.Registry) er
 }
 
 func (m *UserScheduleAdherence) validateActiveQueuesModifiedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActiveQueuesModifiedTime) { // not required
 		return nil
 	}
@@ -277,7 +286,6 @@ func (m *UserScheduleAdherence) validateActualActivityCategoryEnum(path, locatio
 }
 
 func (m *UserScheduleAdherence) validateActualActivityCategory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActualActivityCategory) { // not required
 		return nil
 	}
@@ -285,6 +293,25 @@ func (m *UserScheduleAdherence) validateActualActivityCategory(formats strfmt.Re
 	// value enum
 	if err := m.validateActualActivityCategoryEnum("actualActivityCategory", "body", m.ActualActivityCategory); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) validateAdherenceExplanation(formats strfmt.Registry) error {
+	if swag.IsZero(m.AdherenceExplanation) { // not required
+		return nil
+	}
+
+	if m.AdherenceExplanation != nil {
+		if err := m.AdherenceExplanation.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("adherenceExplanation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adherenceExplanation")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -332,7 +359,6 @@ func (m *UserScheduleAdherence) validateAdherenceStateEnum(path, location string
 }
 
 func (m *UserScheduleAdherence) validateAdherenceState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AdherenceState) { // not required
 		return nil
 	}
@@ -346,7 +372,6 @@ func (m *UserScheduleAdherence) validateAdherenceState(formats strfmt.Registry) 
 }
 
 func (m *UserScheduleAdherence) validateBusinessUnit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BusinessUnit) { // not required
 		return nil
 	}
@@ -355,6 +380,8 @@ func (m *UserScheduleAdherence) validateBusinessUnit(formats strfmt.Registry) er
 		if err := m.BusinessUnit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("businessUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("businessUnit")
 			}
 			return err
 		}
@@ -399,7 +426,6 @@ func (m *UserScheduleAdherence) validateImpactEnum(path, location string, value 
 }
 
 func (m *UserScheduleAdherence) validateImpact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Impact) { // not required
 		return nil
 	}
@@ -413,7 +439,6 @@ func (m *UserScheduleAdherence) validateImpact(formats strfmt.Registry) error {
 }
 
 func (m *UserScheduleAdherence) validateManagementUnit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ManagementUnit) { // not required
 		return nil
 	}
@@ -422,6 +447,8 @@ func (m *UserScheduleAdherence) validateManagementUnit(formats strfmt.Registry) 
 		if err := m.ManagementUnit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("managementUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managementUnit")
 			}
 			return err
 		}
@@ -431,7 +458,6 @@ func (m *UserScheduleAdherence) validateManagementUnit(formats strfmt.Registry) 
 }
 
 func (m *UserScheduleAdherence) validatePresenceUpdateTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PresenceUpdateTime) { // not required
 		return nil
 	}
@@ -482,7 +508,6 @@ func (m *UserScheduleAdherence) validateRoutingStatusEnum(path, location string,
 }
 
 func (m *UserScheduleAdherence) validateRoutingStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingStatus) { // not required
 		return nil
 	}
@@ -546,7 +571,6 @@ func (m *UserScheduleAdherence) validateScheduledActivityCategoryEnum(path, loca
 }
 
 func (m *UserScheduleAdherence) validateScheduledActivityCategory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScheduledActivityCategory) { // not required
 		return nil
 	}
@@ -560,7 +584,6 @@ func (m *UserScheduleAdherence) validateScheduledActivityCategory(formats strfmt
 }
 
 func (m *UserScheduleAdherence) validateScheduledActivityCode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScheduledActivityCode) { // not required
 		return nil
 	}
@@ -569,6 +592,8 @@ func (m *UserScheduleAdherence) validateScheduledActivityCode(formats strfmt.Reg
 		if err := m.ScheduledActivityCode.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scheduledActivityCode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scheduledActivityCode")
 			}
 			return err
 		}
@@ -578,7 +603,6 @@ func (m *UserScheduleAdherence) validateScheduledActivityCode(formats strfmt.Reg
 }
 
 func (m *UserScheduleAdherence) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -644,7 +668,6 @@ func (m *UserScheduleAdherence) validateSystemPresenceEnum(path, location string
 }
 
 func (m *UserScheduleAdherence) validateSystemPresence(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SystemPresence) { // not required
 		return nil
 	}
@@ -658,7 +681,6 @@ func (m *UserScheduleAdherence) validateSystemPresence(formats strfmt.Registry) 
 }
 
 func (m *UserScheduleAdherence) validateTeam(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Team) { // not required
 		return nil
 	}
@@ -667,6 +689,8 @@ func (m *UserScheduleAdherence) validateTeam(formats strfmt.Registry) error {
 		if err := m.Team.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("team")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("team")
 			}
 			return err
 		}
@@ -676,7 +700,6 @@ func (m *UserScheduleAdherence) validateTeam(formats strfmt.Registry) error {
 }
 
 func (m *UserScheduleAdherence) validateTimeOfAdherenceChange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TimeOfAdherenceChange) { // not required
 		return nil
 	}
@@ -689,7 +712,6 @@ func (m *UserScheduleAdherence) validateTimeOfAdherenceChange(formats strfmt.Reg
 }
 
 func (m *UserScheduleAdherence) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -698,6 +720,348 @@ func (m *UserScheduleAdherence) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user schedule adherence based on the context it is used
+func (m *UserScheduleAdherence) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActiveQueues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateActiveQueuesModifiedTime(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateActualActivityCategory(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAdherenceExplanation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAdherenceState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateBusinessUnit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateImpact(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIsOutOfOffice(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateManagementUnit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOrganizationSecondaryPresenceID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePresenceUpdateTime(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRemovedFromManagementUnit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutingStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScheduledActivityCategory(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScheduledActivityCode(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSystemPresence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTeam(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTimeOfAdherenceChange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateActiveQueues(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "activeQueues", "body", []*QueueReference(m.ActiveQueues)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.ActiveQueues); i++ {
+
+		if m.ActiveQueues[i] != nil {
+			if err := m.ActiveQueues[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("activeQueues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activeQueues" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateActiveQueuesModifiedTime(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "activeQueuesModifiedTime", "body", strfmt.DateTime(m.ActiveQueuesModifiedTime)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateActualActivityCategory(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "actualActivityCategory", "body", string(m.ActualActivityCategory)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateAdherenceExplanation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AdherenceExplanation != nil {
+		if err := m.AdherenceExplanation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("adherenceExplanation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("adherenceExplanation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateAdherenceState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "adherenceState", "body", string(m.AdherenceState)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateBusinessUnit(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.BusinessUnit != nil {
+		if err := m.BusinessUnit.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("businessUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("businessUnit")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateImpact(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "impact", "body", string(m.Impact)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateIsOutOfOffice(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isOutOfOffice", "body", m.IsOutOfOffice); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateManagementUnit(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ManagementUnit != nil {
+		if err := m.ManagementUnit.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("managementUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("managementUnit")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateOrganizationSecondaryPresenceID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "organizationSecondaryPresenceId", "body", string(m.OrganizationSecondaryPresenceID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidatePresenceUpdateTime(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "presenceUpdateTime", "body", strfmt.DateTime(m.PresenceUpdateTime)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateRemovedFromManagementUnit(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "removedFromManagementUnit", "body", m.RemovedFromManagementUnit); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateRoutingStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "routingStatus", "body", string(m.RoutingStatus)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateScheduledActivityCategory(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "scheduledActivityCategory", "body", string(m.ScheduledActivityCategory)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateScheduledActivityCode(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ScheduledActivityCode != nil {
+		if err := m.ScheduledActivityCode.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scheduledActivityCode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scheduledActivityCode")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateSystemPresence(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "systemPresence", "body", string(m.SystemPresence)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateTeam(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Team != nil {
+		if err := m.Team.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("team")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("team")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateTimeOfAdherenceChange(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "timeOfAdherenceChange", "body", strfmt.DateTime(m.TimeOfAdherenceChange)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleAdherence) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

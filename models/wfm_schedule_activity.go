@@ -6,11 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // WfmScheduleActivity wfm schedule activity
@@ -54,7 +56,6 @@ func (m *WfmScheduleActivity) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WfmScheduleActivity) validateActivities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Activities) { // not required
 		return nil
 	}
@@ -68,6 +69,8 @@ func (m *WfmScheduleActivity) validateActivities(formats strfmt.Registry) error 
 			if err := m.Activities[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("activities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activities" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -79,7 +82,6 @@ func (m *WfmScheduleActivity) validateActivities(formats strfmt.Registry) error 
 }
 
 func (m *WfmScheduleActivity) validateFullDayTimeOffMarkers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FullDayTimeOffMarkers) { // not required
 		return nil
 	}
@@ -93,6 +95,8 @@ func (m *WfmScheduleActivity) validateFullDayTimeOffMarkers(formats strfmt.Regis
 			if err := m.FullDayTimeOffMarkers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -104,7 +108,6 @@ func (m *WfmScheduleActivity) validateFullDayTimeOffMarkers(formats strfmt.Regis
 }
 
 func (m *WfmScheduleActivity) validateUserReference(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserReference) { // not required
 		return nil
 	}
@@ -113,6 +116,94 @@ func (m *WfmScheduleActivity) validateUserReference(formats strfmt.Registry) err
 		if err := m.UserReference.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("userReference")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("userReference")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this wfm schedule activity based on the context it is used
+func (m *WfmScheduleActivity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActivities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFullDayTimeOffMarkers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserReference(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WfmScheduleActivity) contextValidateActivities(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "activities", "body", []*ScheduleActivity(m.Activities)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Activities); i++ {
+
+		if m.Activities[i] != nil {
+			if err := m.Activities[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("activities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WfmScheduleActivity) contextValidateFullDayTimeOffMarkers(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "fullDayTimeOffMarkers", "body", []*FullDayTimeOffMarker(m.FullDayTimeOffMarkers)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.FullDayTimeOffMarkers); i++ {
+
+		if m.FullDayTimeOffMarkers[i] != nil {
+			if err := m.FullDayTimeOffMarkers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WfmScheduleActivity) contextValidateUserReference(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UserReference != nil {
+		if err := m.UserReference.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("userReference")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("userReference")
 			}
 			return err
 		}

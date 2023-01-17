@@ -95,7 +95,6 @@ func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlReader) 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetSpeechandtextanalyticsConversationCommunicationTranscripturlOK() *Get
 	return &GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK{}
 }
 
-/*GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK handles this case with default header values.
+/*
+GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK struct {
 	Payload *models.TranscriptURL
 }
 
+// IsSuccess returns true when this get speechandtextanalytics conversation communication transcripturl o k response has a 2xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get speechandtextanalytics conversation communication transcripturl o k response has a 3xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics conversation communication transcripturl o k response has a 4xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics conversation communication transcripturl o k response has a 5xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics conversation communication transcripturl o k response a status code equal to that given
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlOK  %+v", 200, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetSpeechandtextanalyticsConversationCommunicationTranscripturlBadReques
 	return &GetSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest{}
 }
 
-/*GetSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest handles this case with default header values.
+/*
+GetSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics conversation communication transcripturl bad request response has a 2xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics conversation communication transcripturl bad request response has a 3xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics conversation communication transcripturl bad request response has a 4xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics conversation communication transcripturl bad request response has a 5xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics conversation communication transcripturl bad request response a status code equal to that given
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthori
 	return &GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized{}
 }
 
-/*GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized handles this case with default header values.
+/*
+GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics conversation communication transcripturl unauthorized response has a 2xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics conversation communication transcripturl unauthorized response has a 3xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics conversation communication transcripturl unauthorized response has a 4xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics conversation communication transcripturl unauthorized response has a 5xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics conversation communication transcripturl unauthorized response a status code equal to that given
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden
 	return &GetSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden{}
 }
 
-/*GetSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden handles this case with default header values.
+/*
+GetSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics conversation communication transcripturl forbidden response has a 2xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics conversation communication transcripturl forbidden response has a 3xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics conversation communication transcripturl forbidden response has a 4xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics conversation communication transcripturl forbidden response has a 5xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics conversation communication transcripturl forbidden response a status code equal to that given
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound(
 	return &GetSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound{}
 }
 
-/*GetSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound handles this case with default header values.
+/*
+GetSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics conversation communication transcripturl not found response has a 2xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics conversation communication transcripturl not found response has a 3xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics conversation communication transcripturl not found response has a 4xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics conversation communication transcripturl not found response has a 5xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics conversation communication transcripturl not found response a status code equal to that given
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTi
 	return &GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeout{}
 }
 
-/*GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeout handles this case with default header values.
+/*
+GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeo
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics conversation communication transcripturl request timeout response has a 2xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics conversation communication transcripturl request timeout response has a 3xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics conversation communication transcripturl request timeout response has a 4xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics conversation communication transcripturl request timeout response has a 5xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics conversation communication transcripturl request timeout response a status code equal to that given
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEn
 	return &GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntityTooLarge{}
 }
 
-/*GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntityTooLarge handles this case with default header values.
+/*
+GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntit
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics conversation communication transcripturl request entity too large response has a 2xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics conversation communication transcripturl request entity too large response has a 3xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics conversation communication transcripturl request entity too large response has a 4xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics conversation communication transcripturl request entity too large response has a 5xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics conversation communication transcripturl request entity too large response a status code equal to that given
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupport
 	return &GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedMediaType{}
 }
 
-/*GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedMediaType handles this case with default header values.
+/*
+GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedM
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics conversation communication transcripturl unsupported media type response has a 2xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics conversation communication transcripturl unsupported media type response has a 3xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics conversation communication transcripturl unsupported media type response has a 4xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics conversation communication transcripturl unsupported media type response has a 5xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics conversation communication transcripturl unsupported media type response a status code equal to that given
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRe
 	return &GetSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRequests{}
 }
 
-/*GetSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRequests handles this case with default header values.
+/*
+GetSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyReque
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics conversation communication transcripturl too many requests response has a 2xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics conversation communication transcripturl too many requests response has a 3xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics conversation communication transcripturl too many requests response has a 4xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics conversation communication transcripturl too many requests response has a 5xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics conversation communication transcripturl too many requests response a status code equal to that given
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetSpeechandtextanalyticsConversationCommunicationTranscripturlInternalS
 	return &GetSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServerError{}
 }
 
-/*GetSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServerError handles this case with default header values.
+/*
+GetSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServ
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics conversation communication transcripturl internal server error response has a 2xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics conversation communication transcripturl internal server error response has a 3xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics conversation communication transcripturl internal server error response has a 4xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics conversation communication transcripturl internal server error response has a 5xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get speechandtextanalytics conversation communication transcripturl internal server error response a status code equal to that given
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUn
 	return &GetSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnavailable{}
 }
 
-/*GetSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnavailable handles this case with default header values.
+/*
+GetSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnava
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics conversation communication transcripturl service unavailable response has a 2xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics conversation communication transcripturl service unavailable response has a 3xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics conversation communication transcripturl service unavailable response has a 4xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics conversation communication transcripturl service unavailable response has a 5xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get speechandtextanalytics conversation communication transcripturl service unavailable response a status code equal to that given
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTi
 	return &GetSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeout{}
 }
 
-/*GetSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeout handles this case with default header values.
+/*
+GetSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeo
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics conversation communication transcripturl gateway timeout response has a 2xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics conversation communication transcripturl gateway timeout response has a 3xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics conversation communication transcripturl gateway timeout response has a 4xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics conversation communication transcripturl gateway timeout response has a 5xx status code
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get speechandtextanalytics conversation communication transcripturl gateway timeout response a status code equal to that given
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/conversations/{conversationId}/communications/{communicationId}/transcripturl][%d] getSpeechandtextanalyticsConversationCommunicationTranscripturlGatewayTimeout  %+v", 504, o.Payload)
 }
 

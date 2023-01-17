@@ -95,7 +95,6 @@ func (o *GetConversationsCobrowsesessionParticipantWrapupcodesReader) ReadRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConversationsCobrowsesessionParticipantWrapupcodesOK() *GetConversati
 	return &GetConversationsCobrowsesessionParticipantWrapupcodesOK{}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupcodesOK handles this case with default header values.
+/*
+GetConversationsCobrowsesessionParticipantWrapupcodesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetConversationsCobrowsesessionParticipantWrapupcodesOK struct {
 	Payload []*models.WrapupCode
 }
 
+// IsSuccess returns true when this get conversations cobrowsesession participant wrapupcodes o k response has a 2xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversations cobrowsesession participant wrapupcodes o k response has a 3xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations cobrowsesession participant wrapupcodes o k response has a 4xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations cobrowsesession participant wrapupcodes o k response has a 5xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations cobrowsesession participant wrapupcodes o k response a status code equal to that given
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationsCobrowsesessionParticipantWrapupcodesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetConversationsCobrowsesessionParticipantWrapupcodesBadRequest() *GetCo
 	return &GetConversationsCobrowsesessionParticipantWrapupcodesBadRequest{}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupcodesBadRequest handles this case with default header values.
+/*
+GetConversationsCobrowsesessionParticipantWrapupcodesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetConversationsCobrowsesessionParticipantWrapupcodesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations cobrowsesession participant wrapupcodes bad request response has a 2xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations cobrowsesession participant wrapupcodes bad request response has a 3xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations cobrowsesession participant wrapupcodes bad request response has a 4xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations cobrowsesession participant wrapupcodes bad request response has a 5xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations cobrowsesession participant wrapupcodes bad request response a status code equal to that given
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationsCobrowsesessionParticipantWrapupcodesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetConversationsCobrowsesessionParticipantWrapupcodesUnauthorized() *Get
 	return &GetConversationsCobrowsesessionParticipantWrapupcodesUnauthorized{}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupcodesUnauthorized handles this case with default header values.
+/*
+GetConversationsCobrowsesessionParticipantWrapupcodesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetConversationsCobrowsesessionParticipantWrapupcodesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations cobrowsesession participant wrapupcodes unauthorized response has a 2xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations cobrowsesession participant wrapupcodes unauthorized response has a 3xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations cobrowsesession participant wrapupcodes unauthorized response has a 4xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations cobrowsesession participant wrapupcodes unauthorized response has a 5xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations cobrowsesession participant wrapupcodes unauthorized response a status code equal to that given
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetConversationsCobrowsesessionParticipantWrapupcodesForbidden() *GetCon
 	return &GetConversationsCobrowsesessionParticipantWrapupcodesForbidden{}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupcodesForbidden handles this case with default header values.
+/*
+GetConversationsCobrowsesessionParticipantWrapupcodesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetConversationsCobrowsesessionParticipantWrapupcodesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations cobrowsesession participant wrapupcodes forbidden response has a 2xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations cobrowsesession participant wrapupcodes forbidden response has a 3xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations cobrowsesession participant wrapupcodes forbidden response has a 4xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations cobrowsesession participant wrapupcodes forbidden response has a 5xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations cobrowsesession participant wrapupcodes forbidden response a status code equal to that given
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationsCobrowsesessionParticipantWrapupcodesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetConversationsCobrowsesessionParticipantWrapupcodesNotFound() *GetConv
 	return &GetConversationsCobrowsesessionParticipantWrapupcodesNotFound{}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupcodesNotFound handles this case with default header values.
+/*
+GetConversationsCobrowsesessionParticipantWrapupcodesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetConversationsCobrowsesessionParticipantWrapupcodesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations cobrowsesession participant wrapupcodes not found response has a 2xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations cobrowsesession participant wrapupcodes not found response has a 3xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations cobrowsesession participant wrapupcodes not found response has a 4xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations cobrowsesession participant wrapupcodes not found response has a 5xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations cobrowsesession participant wrapupcodes not found response a status code equal to that given
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationsCobrowsesessionParticipantWrapupcodesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout() *G
 	return &GetConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout{}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout handles this case with default header values.
+/*
+GetConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations cobrowsesession participant wrapupcodes request timeout response has a 2xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations cobrowsesession participant wrapupcodes request timeout response has a 3xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations cobrowsesession participant wrapupcodes request timeout response has a 4xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations cobrowsesession participant wrapupcodes request timeout response has a 5xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations cobrowsesession participant wrapupcodes request timeout response a status code equal to that given
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLar
 	return &GetConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge{}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations cobrowsesession participant wrapupcodes request entity too large response has a 2xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations cobrowsesession participant wrapupcodes request entity too large response has a 3xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations cobrowsesession participant wrapupcodes request entity too large response has a 4xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations cobrowsesession participant wrapupcodes request entity too large response has a 5xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations cobrowsesession participant wrapupcodes request entity too large response a status code equal to that given
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaTyp
 	return &GetConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType{}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations cobrowsesession participant wrapupcodes unsupported media type response has a 2xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations cobrowsesession participant wrapupcodes unsupported media type response has a 3xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations cobrowsesession participant wrapupcodes unsupported media type response has a 4xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations cobrowsesession participant wrapupcodes unsupported media type response has a 5xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations cobrowsesession participant wrapupcodes unsupported media type response a status code equal to that given
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests() *
 	return &GetConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests{}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests handles this case with default header values.
+/*
+GetConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations cobrowsesession participant wrapupcodes too many requests response has a 2xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations cobrowsesession participant wrapupcodes too many requests response has a 3xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations cobrowsesession participant wrapupcodes too many requests response has a 4xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations cobrowsesession participant wrapupcodes too many requests response has a 5xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations cobrowsesession participant wrapupcodes too many requests response a status code equal to that given
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetConversationsCobrowsesessionParticipantWrapupcodesInternalServerError
 	return &GetConversationsCobrowsesessionParticipantWrapupcodesInternalServerError{}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupcodesInternalServerError handles this case with default header values.
+/*
+GetConversationsCobrowsesessionParticipantWrapupcodesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetConversationsCobrowsesessionParticipantWrapupcodesInternalServerError st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations cobrowsesession participant wrapupcodes internal server error response has a 2xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations cobrowsesession participant wrapupcodes internal server error response has a 3xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations cobrowsesession participant wrapupcodes internal server error response has a 4xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations cobrowsesession participant wrapupcodes internal server error response has a 5xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations cobrowsesession participant wrapupcodes internal server error response a status code equal to that given
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationsCobrowsesessionParticipantWrapupcodesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable(
 	return &GetConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable{}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable handles this case with default header values.
+/*
+GetConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations cobrowsesession participant wrapupcodes service unavailable response has a 2xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations cobrowsesession participant wrapupcodes service unavailable response has a 3xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations cobrowsesession participant wrapupcodes service unavailable response has a 4xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations cobrowsesession participant wrapupcodes service unavailable response has a 5xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations cobrowsesession participant wrapupcodes service unavailable response a status code equal to that given
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout() *G
 	return &GetConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout{}
 }
 
-/*GetConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout handles this case with default header values.
+/*
+GetConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations cobrowsesession participant wrapupcodes gateway timeout response has a 2xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations cobrowsesession participant wrapupcodes gateway timeout response has a 3xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations cobrowsesession participant wrapupcodes gateway timeout response has a 4xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations cobrowsesession participant wrapupcodes gateway timeout response has a 5xx status code
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations cobrowsesession participant wrapupcodes gateway timeout response a status code equal to that given
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}/wrapupcodes][%d] getConversationsCobrowsesessionParticipantWrapupcodesGatewayTimeout  %+v", 504, o.Payload)
 }
 

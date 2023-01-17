@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -49,7 +50,6 @@ func (m *Biography) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Biography) validateEducation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Education) { // not required
 		return nil
 	}
@@ -63,6 +63,42 @@ func (m *Biography) validateEducation(formats strfmt.Registry) error {
 			if err := m.Education[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("education" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("education" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this biography based on the context it is used
+func (m *Biography) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEducation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Biography) contextValidateEducation(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Education); i++ {
+
+		if m.Education[i] != nil {
+			if err := m.Education[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("education" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("education" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

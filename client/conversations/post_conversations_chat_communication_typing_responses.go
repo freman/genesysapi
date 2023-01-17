@@ -95,7 +95,6 @@ func (o *PostConversationsChatCommunicationTypingReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostConversationsChatCommunicationTypingOK() *PostConversationsChatCommu
 	return &PostConversationsChatCommunicationTypingOK{}
 }
 
-/*PostConversationsChatCommunicationTypingOK handles this case with default header values.
+/*
+PostConversationsChatCommunicationTypingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostConversationsChatCommunicationTypingOK struct {
 	Payload *models.WebChatTyping
 }
 
+// IsSuccess returns true when this post conversations chat communication typing o k response has a 2xx status code
+func (o *PostConversationsChatCommunicationTypingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations chat communication typing o k response has a 3xx status code
+func (o *PostConversationsChatCommunicationTypingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations chat communication typing o k response has a 4xx status code
+func (o *PostConversationsChatCommunicationTypingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations chat communication typing o k response has a 5xx status code
+func (o *PostConversationsChatCommunicationTypingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations chat communication typing o k response a status code equal to that given
+func (o *PostConversationsChatCommunicationTypingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostConversationsChatCommunicationTypingOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingOK  %+v", 200, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostConversationsChatCommunicationTypingBadRequest() *PostConversationsC
 	return &PostConversationsChatCommunicationTypingBadRequest{}
 }
 
-/*PostConversationsChatCommunicationTypingBadRequest handles this case with default header values.
+/*
+PostConversationsChatCommunicationTypingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostConversationsChatCommunicationTypingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations chat communication typing bad request response has a 2xx status code
+func (o *PostConversationsChatCommunicationTypingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations chat communication typing bad request response has a 3xx status code
+func (o *PostConversationsChatCommunicationTypingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations chat communication typing bad request response has a 4xx status code
+func (o *PostConversationsChatCommunicationTypingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations chat communication typing bad request response has a 5xx status code
+func (o *PostConversationsChatCommunicationTypingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations chat communication typing bad request response a status code equal to that given
+func (o *PostConversationsChatCommunicationTypingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsChatCommunicationTypingBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostConversationsChatCommunicationTypingUnauthorized() *PostConversation
 	return &PostConversationsChatCommunicationTypingUnauthorized{}
 }
 
-/*PostConversationsChatCommunicationTypingUnauthorized handles this case with default header values.
+/*
+PostConversationsChatCommunicationTypingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostConversationsChatCommunicationTypingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations chat communication typing unauthorized response has a 2xx status code
+func (o *PostConversationsChatCommunicationTypingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations chat communication typing unauthorized response has a 3xx status code
+func (o *PostConversationsChatCommunicationTypingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations chat communication typing unauthorized response has a 4xx status code
+func (o *PostConversationsChatCommunicationTypingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations chat communication typing unauthorized response has a 5xx status code
+func (o *PostConversationsChatCommunicationTypingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations chat communication typing unauthorized response a status code equal to that given
+func (o *PostConversationsChatCommunicationTypingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsChatCommunicationTypingUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostConversationsChatCommunicationTypingForbidden() *PostConversationsCh
 	return &PostConversationsChatCommunicationTypingForbidden{}
 }
 
-/*PostConversationsChatCommunicationTypingForbidden handles this case with default header values.
+/*
+PostConversationsChatCommunicationTypingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostConversationsChatCommunicationTypingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations chat communication typing forbidden response has a 2xx status code
+func (o *PostConversationsChatCommunicationTypingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations chat communication typing forbidden response has a 3xx status code
+func (o *PostConversationsChatCommunicationTypingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations chat communication typing forbidden response has a 4xx status code
+func (o *PostConversationsChatCommunicationTypingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations chat communication typing forbidden response has a 5xx status code
+func (o *PostConversationsChatCommunicationTypingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations chat communication typing forbidden response a status code equal to that given
+func (o *PostConversationsChatCommunicationTypingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsChatCommunicationTypingForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostConversationsChatCommunicationTypingNotFound() *PostConversationsCha
 	return &PostConversationsChatCommunicationTypingNotFound{}
 }
 
-/*PostConversationsChatCommunicationTypingNotFound handles this case with default header values.
+/*
+PostConversationsChatCommunicationTypingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostConversationsChatCommunicationTypingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations chat communication typing not found response has a 2xx status code
+func (o *PostConversationsChatCommunicationTypingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations chat communication typing not found response has a 3xx status code
+func (o *PostConversationsChatCommunicationTypingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations chat communication typing not found response has a 4xx status code
+func (o *PostConversationsChatCommunicationTypingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations chat communication typing not found response has a 5xx status code
+func (o *PostConversationsChatCommunicationTypingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations chat communication typing not found response a status code equal to that given
+func (o *PostConversationsChatCommunicationTypingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsChatCommunicationTypingNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostConversationsChatCommunicationTypingRequestTimeout() *PostConversati
 	return &PostConversationsChatCommunicationTypingRequestTimeout{}
 }
 
-/*PostConversationsChatCommunicationTypingRequestTimeout handles this case with default header values.
+/*
+PostConversationsChatCommunicationTypingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostConversationsChatCommunicationTypingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations chat communication typing request timeout response has a 2xx status code
+func (o *PostConversationsChatCommunicationTypingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations chat communication typing request timeout response has a 3xx status code
+func (o *PostConversationsChatCommunicationTypingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations chat communication typing request timeout response has a 4xx status code
+func (o *PostConversationsChatCommunicationTypingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations chat communication typing request timeout response has a 5xx status code
+func (o *PostConversationsChatCommunicationTypingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations chat communication typing request timeout response a status code equal to that given
+func (o *PostConversationsChatCommunicationTypingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsChatCommunicationTypingRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostConversationsChatCommunicationTypingRequestEntityTooLarge() *PostCon
 	return &PostConversationsChatCommunicationTypingRequestEntityTooLarge{}
 }
 
-/*PostConversationsChatCommunicationTypingRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsChatCommunicationTypingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostConversationsChatCommunicationTypingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations chat communication typing request entity too large response has a 2xx status code
+func (o *PostConversationsChatCommunicationTypingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations chat communication typing request entity too large response has a 3xx status code
+func (o *PostConversationsChatCommunicationTypingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations chat communication typing request entity too large response has a 4xx status code
+func (o *PostConversationsChatCommunicationTypingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations chat communication typing request entity too large response has a 5xx status code
+func (o *PostConversationsChatCommunicationTypingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations chat communication typing request entity too large response a status code equal to that given
+func (o *PostConversationsChatCommunicationTypingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsChatCommunicationTypingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostConversationsChatCommunicationTypingUnsupportedMediaType() *PostConv
 	return &PostConversationsChatCommunicationTypingUnsupportedMediaType{}
 }
 
-/*PostConversationsChatCommunicationTypingUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsChatCommunicationTypingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostConversationsChatCommunicationTypingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations chat communication typing unsupported media type response has a 2xx status code
+func (o *PostConversationsChatCommunicationTypingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations chat communication typing unsupported media type response has a 3xx status code
+func (o *PostConversationsChatCommunicationTypingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations chat communication typing unsupported media type response has a 4xx status code
+func (o *PostConversationsChatCommunicationTypingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations chat communication typing unsupported media type response has a 5xx status code
+func (o *PostConversationsChatCommunicationTypingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations chat communication typing unsupported media type response a status code equal to that given
+func (o *PostConversationsChatCommunicationTypingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsChatCommunicationTypingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostConversationsChatCommunicationTypingTooManyRequests() *PostConversat
 	return &PostConversationsChatCommunicationTypingTooManyRequests{}
 }
 
-/*PostConversationsChatCommunicationTypingTooManyRequests handles this case with default header values.
+/*
+PostConversationsChatCommunicationTypingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostConversationsChatCommunicationTypingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations chat communication typing too many requests response has a 2xx status code
+func (o *PostConversationsChatCommunicationTypingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations chat communication typing too many requests response has a 3xx status code
+func (o *PostConversationsChatCommunicationTypingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations chat communication typing too many requests response has a 4xx status code
+func (o *PostConversationsChatCommunicationTypingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations chat communication typing too many requests response has a 5xx status code
+func (o *PostConversationsChatCommunicationTypingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations chat communication typing too many requests response a status code equal to that given
+func (o *PostConversationsChatCommunicationTypingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsChatCommunicationTypingTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostConversationsChatCommunicationTypingInternalServerError() *PostConve
 	return &PostConversationsChatCommunicationTypingInternalServerError{}
 }
 
-/*PostConversationsChatCommunicationTypingInternalServerError handles this case with default header values.
+/*
+PostConversationsChatCommunicationTypingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostConversationsChatCommunicationTypingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations chat communication typing internal server error response has a 2xx status code
+func (o *PostConversationsChatCommunicationTypingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations chat communication typing internal server error response has a 3xx status code
+func (o *PostConversationsChatCommunicationTypingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations chat communication typing internal server error response has a 4xx status code
+func (o *PostConversationsChatCommunicationTypingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations chat communication typing internal server error response has a 5xx status code
+func (o *PostConversationsChatCommunicationTypingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations chat communication typing internal server error response a status code equal to that given
+func (o *PostConversationsChatCommunicationTypingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsChatCommunicationTypingInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostConversationsChatCommunicationTypingServiceUnavailable() *PostConver
 	return &PostConversationsChatCommunicationTypingServiceUnavailable{}
 }
 
-/*PostConversationsChatCommunicationTypingServiceUnavailable handles this case with default header values.
+/*
+PostConversationsChatCommunicationTypingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostConversationsChatCommunicationTypingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations chat communication typing service unavailable response has a 2xx status code
+func (o *PostConversationsChatCommunicationTypingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations chat communication typing service unavailable response has a 3xx status code
+func (o *PostConversationsChatCommunicationTypingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations chat communication typing service unavailable response has a 4xx status code
+func (o *PostConversationsChatCommunicationTypingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations chat communication typing service unavailable response has a 5xx status code
+func (o *PostConversationsChatCommunicationTypingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations chat communication typing service unavailable response a status code equal to that given
+func (o *PostConversationsChatCommunicationTypingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsChatCommunicationTypingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostConversationsChatCommunicationTypingGatewayTimeout() *PostConversati
 	return &PostConversationsChatCommunicationTypingGatewayTimeout{}
 }
 
-/*PostConversationsChatCommunicationTypingGatewayTimeout handles this case with default header values.
+/*
+PostConversationsChatCommunicationTypingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostConversationsChatCommunicationTypingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations chat communication typing gateway timeout response has a 2xx status code
+func (o *PostConversationsChatCommunicationTypingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations chat communication typing gateway timeout response has a 3xx status code
+func (o *PostConversationsChatCommunicationTypingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations chat communication typing gateway timeout response has a 4xx status code
+func (o *PostConversationsChatCommunicationTypingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations chat communication typing gateway timeout response has a 5xx status code
+func (o *PostConversationsChatCommunicationTypingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations chat communication typing gateway timeout response a status code equal to that given
+func (o *PostConversationsChatCommunicationTypingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsChatCommunicationTypingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsChatCommunicationTypingGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/chats/{conversationId}/communications/{communicationId}/typing][%d] postConversationsChatCommunicationTypingGatewayTimeout  %+v", 504, o.Payload)
 }
 

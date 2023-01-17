@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -56,7 +57,6 @@ func (m *AnalyticsQueryAggregation) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AnalyticsQueryAggregation) validateRanges(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Ranges) { // not required
 		return nil
 	}
@@ -70,6 +70,8 @@ func (m *AnalyticsQueryAggregation) validateRanges(formats strfmt.Registry) erro
 			if err := m.Ranges[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ranges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ranges" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -110,7 +112,6 @@ func (m *AnalyticsQueryAggregation) validateTypeEnum(path, location string, valu
 }
 
 func (m *AnalyticsQueryAggregation) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -118,6 +119,40 @@ func (m *AnalyticsQueryAggregation) validateType(formats strfmt.Registry) error 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this analytics query aggregation based on the context it is used
+func (m *AnalyticsQueryAggregation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRanges(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AnalyticsQueryAggregation) contextValidateRanges(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Ranges); i++ {
+
+		if m.Ranges[i] != nil {
+			if err := m.Ranges[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ranges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ranges" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

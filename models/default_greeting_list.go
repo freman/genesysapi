@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -101,7 +102,6 @@ func (m *DefaultGreetingList) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DefaultGreetingList) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -114,7 +114,6 @@ func (m *DefaultGreetingList) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *DefaultGreetingList) validateCreatedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedDate) { // not required
 		return nil
 	}
@@ -127,7 +126,6 @@ func (m *DefaultGreetingList) validateCreatedDate(formats strfmt.Registry) error
 }
 
 func (m *DefaultGreetingList) validateGreetings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Greetings) { // not required
 		return nil
 	}
@@ -139,6 +137,11 @@ func (m *DefaultGreetingList) validateGreetings(formats strfmt.Registry) error {
 		}
 		if val, ok := m.Greetings[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("greetings" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("greetings" + "." + k)
+				}
 				return err
 			}
 		}
@@ -149,7 +152,6 @@ func (m *DefaultGreetingList) validateGreetings(formats strfmt.Registry) error {
 }
 
 func (m *DefaultGreetingList) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -162,7 +164,6 @@ func (m *DefaultGreetingList) validateModifiedBy(formats strfmt.Registry) error 
 }
 
 func (m *DefaultGreetingList) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -175,7 +176,6 @@ func (m *DefaultGreetingList) validateModifiedDate(formats strfmt.Registry) erro
 }
 
 func (m *DefaultGreetingList) validateOwner(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Owner) { // not required
 		return nil
 	}
@@ -184,6 +184,8 @@ func (m *DefaultGreetingList) validateOwner(formats strfmt.Registry) error {
 		if err := m.Owner.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("owner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("owner")
 			}
 			return err
 		}
@@ -225,7 +227,6 @@ func (m *DefaultGreetingList) validateOwnerTypeEnum(path, location string, value
 }
 
 func (m *DefaultGreetingList) validateOwnerType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OwnerType) { // not required
 		return nil
 	}
@@ -239,12 +240,86 @@ func (m *DefaultGreetingList) validateOwnerType(formats strfmt.Registry) error {
 }
 
 func (m *DefaultGreetingList) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this default greeting list based on the context it is used
+func (m *DefaultGreetingList) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateGreetings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOwner(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DefaultGreetingList) contextValidateGreetings(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.Greetings {
+
+		if val, ok := m.Greetings[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DefaultGreetingList) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DefaultGreetingList) contextValidateOwner(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Owner != nil {
+		if err := m.Owner.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("owner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("owner")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DefaultGreetingList) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

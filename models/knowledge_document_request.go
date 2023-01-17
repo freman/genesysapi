@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -65,7 +66,6 @@ func (m *KnowledgeDocumentRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeDocumentRequest) validateArticle(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Article) { // not required
 		return nil
 	}
@@ -74,6 +74,8 @@ func (m *KnowledgeDocumentRequest) validateArticle(formats strfmt.Registry) erro
 		if err := m.Article.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("article")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("article")
 			}
 			return err
 		}
@@ -83,7 +85,6 @@ func (m *KnowledgeDocumentRequest) validateArticle(formats strfmt.Registry) erro
 }
 
 func (m *KnowledgeDocumentRequest) validateCategories(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Categories) { // not required
 		return nil
 	}
@@ -97,6 +98,8 @@ func (m *KnowledgeDocumentRequest) validateCategories(formats strfmt.Registry) e
 			if err := m.Categories[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("categories" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("categories" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -108,7 +111,6 @@ func (m *KnowledgeDocumentRequest) validateCategories(formats strfmt.Registry) e
 }
 
 func (m *KnowledgeDocumentRequest) validateFaq(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Faq) { // not required
 		return nil
 	}
@@ -117,6 +119,8 @@ func (m *KnowledgeDocumentRequest) validateFaq(formats strfmt.Registry) error {
 		if err := m.Faq.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("faq")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("faq")
 			}
 			return err
 		}
@@ -163,6 +167,80 @@ func (m *KnowledgeDocumentRequest) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", *m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge document request based on the context it is used
+func (m *KnowledgeDocumentRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateArticle(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCategories(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFaq(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeDocumentRequest) contextValidateArticle(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Article != nil {
+		if err := m.Article.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("article")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("article")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentRequest) contextValidateCategories(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Categories); i++ {
+
+		if m.Categories[i] != nil {
+			if err := m.Categories[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("categories" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("categories" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentRequest) contextValidateFaq(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Faq != nil {
+		if err := m.Faq.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("faq")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("faq")
+			}
+			return err
+		}
 	}
 
 	return nil

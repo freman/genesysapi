@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetPresencedefinitionParams creates a new GetPresencedefinitionParams object
-// with the default values initialized.
+// NewGetPresencedefinitionParams creates a new GetPresencedefinitionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetPresencedefinitionParams() *GetPresencedefinitionParams {
-	var ()
 	return &GetPresencedefinitionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetPresencedefinitionParamsWithTimeout creates a new GetPresencedefinitionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetPresencedefinitionParamsWithTimeout(timeout time.Duration) *GetPresencedefinitionParams {
-	var ()
 	return &GetPresencedefinitionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetPresencedefinitionParamsWithContext creates a new GetPresencedefinitionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetPresencedefinitionParamsWithContext(ctx context.Context) *GetPresencedefinitionParams {
-	var ()
 	return &GetPresencedefinitionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetPresencedefinitionParamsWithHTTPClient creates a new GetPresencedefinitionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetPresencedefinitionParamsWithHTTPClient(client *http.Client) *GetPresencedefinitionParams {
-	var ()
 	return &GetPresencedefinitionParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetPresencedefinitionParams contains all the parameters to send to the API endpoint
-for the get presencedefinition operation typically these are written to a http.Request
+/*
+GetPresencedefinitionParams contains all the parameters to send to the API endpoint
+
+	for the get presencedefinition operation.
+
+	Typically these are written to a http.Request.
 */
 type GetPresencedefinitionParams struct {
 
-	/*LocaleCode
-	  The locale code to fetch for the presence definition. Use ALL to fetch everything.
+	/* LocaleCode.
 
+	   The locale code to fetch for the presence definition. Use ALL to fetch everything.
 	*/
 	LocaleCode *string
-	/*PresenceID
-	  Organization Presence ID
 
+	/* PresenceID.
+
+	   Organization Presence ID
 	*/
 	PresenceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get presencedefinition params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetPresencedefinitionParams) WithDefaults() *GetPresencedefinitionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get presencedefinition params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetPresencedefinitionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get presencedefinition params
@@ -143,16 +160,17 @@ func (o *GetPresencedefinitionParams) WriteToRequest(r runtime.ClientRequest, re
 
 		// query param localeCode
 		var qrLocaleCode string
+
 		if o.LocaleCode != nil {
 			qrLocaleCode = *o.LocaleCode
 		}
 		qLocaleCode := qrLocaleCode
 		if qLocaleCode != "" {
+
 			if err := r.SetQueryParam("localeCode", qLocaleCode); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param presenceId

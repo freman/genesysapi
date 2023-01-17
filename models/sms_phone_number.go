@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -191,7 +192,6 @@ func (m *SmsPhoneNumber) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SmsPhoneNumber) validateAddressID(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AddressID) { // not required
 		return nil
 	}
@@ -200,6 +200,8 @@ func (m *SmsPhoneNumber) validateAddressID(formats strfmt.Registry) error {
 		if err := m.AddressID.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("addressId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("addressId")
 			}
 			return err
 		}
@@ -235,7 +237,6 @@ func (m *SmsPhoneNumber) validateAutoRenewableEnum(path, location string, value 
 }
 
 func (m *SmsPhoneNumber) validateAutoRenewable(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AutoRenewable) { // not required
 		return nil
 	}
@@ -249,7 +250,6 @@ func (m *SmsPhoneNumber) validateAutoRenewable(formats strfmt.Registry) error {
 }
 
 func (m *SmsPhoneNumber) validateCancellationDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CancellationDate) { // not required
 		return nil
 	}
@@ -281,7 +281,6 @@ func (m *SmsPhoneNumber) validateCapabilitiesItemsEnum(path, location string, va
 }
 
 func (m *SmsPhoneNumber) validateCapabilities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Capabilities) { // not required
 		return nil
 	}
@@ -299,7 +298,6 @@ func (m *SmsPhoneNumber) validateCapabilities(formats strfmt.Registry) error {
 }
 
 func (m *SmsPhoneNumber) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -308,6 +306,8 @@ func (m *SmsPhoneNumber) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -317,7 +317,6 @@ func (m *SmsPhoneNumber) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *SmsPhoneNumber) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -330,7 +329,6 @@ func (m *SmsPhoneNumber) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *SmsPhoneNumber) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -343,7 +341,6 @@ func (m *SmsPhoneNumber) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *SmsPhoneNumber) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -352,6 +349,8 @@ func (m *SmsPhoneNumber) validateModifiedBy(formats strfmt.Registry) error {
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -411,7 +410,6 @@ func (m *SmsPhoneNumber) validatePhoneNumberStatusEnum(path, location string, va
 }
 
 func (m *SmsPhoneNumber) validatePhoneNumberStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PhoneNumberStatus) { // not required
 		return nil
 	}
@@ -460,7 +458,6 @@ func (m *SmsPhoneNumber) validatePhoneNumberTypeEnum(path, location string, valu
 }
 
 func (m *SmsPhoneNumber) validatePhoneNumberType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PhoneNumberType) { // not required
 		return nil
 	}
@@ -474,7 +471,6 @@ func (m *SmsPhoneNumber) validatePhoneNumberType(formats strfmt.Registry) error 
 }
 
 func (m *SmsPhoneNumber) validateProvisioningStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProvisioningStatus) { // not required
 		return nil
 	}
@@ -483,6 +479,8 @@ func (m *SmsPhoneNumber) validateProvisioningStatus(formats strfmt.Registry) err
 		if err := m.ProvisioningStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("provisioningStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("provisioningStatus")
 			}
 			return err
 		}
@@ -492,7 +490,6 @@ func (m *SmsPhoneNumber) validateProvisioningStatus(formats strfmt.Registry) err
 }
 
 func (m *SmsPhoneNumber) validatePurchaseDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PurchaseDate) { // not required
 		return nil
 	}
@@ -505,7 +502,6 @@ func (m *SmsPhoneNumber) validatePurchaseDate(formats strfmt.Registry) error {
 }
 
 func (m *SmsPhoneNumber) validateRenewalDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RenewalDate) { // not required
 		return nil
 	}
@@ -518,7 +514,6 @@ func (m *SmsPhoneNumber) validateRenewalDate(formats strfmt.Registry) error {
 }
 
 func (m *SmsPhoneNumber) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -560,7 +555,6 @@ func (m *SmsPhoneNumber) validateShortCodeBillingTypeEnum(path, location string,
 }
 
 func (m *SmsPhoneNumber) validateShortCodeBillingType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShortCodeBillingType) { // not required
 		return nil
 	}
@@ -576,6 +570,148 @@ func (m *SmsPhoneNumber) validateShortCodeBillingType(formats strfmt.Registry) e
 func (m *SmsPhoneNumber) validateVersion(formats strfmt.Registry) error {
 
 	if err := validate.Required("version", "body", m.Version); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this sms phone number based on the context it is used
+func (m *SmsPhoneNumber) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAddressID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCapabilities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhoneNumberType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProvisioningStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SmsPhoneNumber) contextValidateAddressID(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AddressID != nil {
+		if err := m.AddressID.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("addressId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("addressId")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SmsPhoneNumber) contextValidateCapabilities(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "capabilities", "body", []string(m.Capabilities)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SmsPhoneNumber) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SmsPhoneNumber) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SmsPhoneNumber) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SmsPhoneNumber) contextValidatePhoneNumberType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "phoneNumberType", "body", string(m.PhoneNumberType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SmsPhoneNumber) contextValidateProvisioningStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ProvisioningStatus != nil {
+		if err := m.ProvisioningStatus.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("provisioningStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("provisioningStatus")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SmsPhoneNumber) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

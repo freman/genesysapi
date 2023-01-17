@@ -101,7 +101,6 @@ func (o *PutConversationsSocialRecordingstateReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutConversationsSocialRecordingstateOK() *PutConversationsSocialRecordin
 	return &PutConversationsSocialRecordingstateOK{}
 }
 
-/*PutConversationsSocialRecordingstateOK handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutConversationsSocialRecordingstateOK struct {
 	Payload string
 }
 
+// IsSuccess returns true when this put conversations social recordingstate o k response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversations social recordingstate o k response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate o k response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations social recordingstate o k response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations social recordingstate o k response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutConversationsSocialRecordingstateOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateOK  %+v", 200, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateOK  %+v", 200, o.Payload)
 }
 
@@ -143,7 +172,8 @@ func NewPutConversationsSocialRecordingstateAccepted() *PutConversationsSocialRe
 	return &PutConversationsSocialRecordingstateAccepted{}
 }
 
-/*PutConversationsSocialRecordingstateAccepted handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateAccepted describes a response with status code 202, with default header values.
 
 Accepted - when pausing or resuming recordings (Secure Pause)
 */
@@ -151,7 +181,36 @@ type PutConversationsSocialRecordingstateAccepted struct {
 	Payload string
 }
 
+// IsSuccess returns true when this put conversations social recordingstate accepted response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversations social recordingstate accepted response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate accepted response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations social recordingstate accepted response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations social recordingstate accepted response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PutConversationsSocialRecordingstateAccepted) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateAccepted) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateAccepted  %+v", 202, o.Payload)
 }
 
@@ -174,7 +233,8 @@ func NewPutConversationsSocialRecordingstateBadRequest() *PutConversationsSocial
 	return &PutConversationsSocialRecordingstateBadRequest{}
 }
 
-/*PutConversationsSocialRecordingstateBadRequest handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -182,7 +242,36 @@ type PutConversationsSocialRecordingstateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations social recordingstate bad request response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations social recordingstate bad request response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate bad request response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations social recordingstate bad request response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations social recordingstate bad request response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutConversationsSocialRecordingstateBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -207,7 +296,8 @@ func NewPutConversationsSocialRecordingstateUnauthorized() *PutConversationsSoci
 	return &PutConversationsSocialRecordingstateUnauthorized{}
 }
 
-/*PutConversationsSocialRecordingstateUnauthorized handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -215,7 +305,36 @@ type PutConversationsSocialRecordingstateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations social recordingstate unauthorized response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations social recordingstate unauthorized response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate unauthorized response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations social recordingstate unauthorized response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations social recordingstate unauthorized response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutConversationsSocialRecordingstateUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -240,7 +359,8 @@ func NewPutConversationsSocialRecordingstateForbidden() *PutConversationsSocialR
 	return &PutConversationsSocialRecordingstateForbidden{}
 }
 
-/*PutConversationsSocialRecordingstateForbidden handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -248,7 +368,36 @@ type PutConversationsSocialRecordingstateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations social recordingstate forbidden response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations social recordingstate forbidden response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate forbidden response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations social recordingstate forbidden response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations social recordingstate forbidden response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutConversationsSocialRecordingstateForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateForbidden  %+v", 403, o.Payload)
 }
 
@@ -273,7 +422,8 @@ func NewPutConversationsSocialRecordingstateNotFound() *PutConversationsSocialRe
 	return &PutConversationsSocialRecordingstateNotFound{}
 }
 
-/*PutConversationsSocialRecordingstateNotFound handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -281,7 +431,36 @@ type PutConversationsSocialRecordingstateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations social recordingstate not found response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations social recordingstate not found response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate not found response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations social recordingstate not found response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations social recordingstate not found response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutConversationsSocialRecordingstateNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateNotFound  %+v", 404, o.Payload)
 }
 
@@ -306,7 +485,8 @@ func NewPutConversationsSocialRecordingstateRequestTimeout() *PutConversationsSo
 	return &PutConversationsSocialRecordingstateRequestTimeout{}
 }
 
-/*PutConversationsSocialRecordingstateRequestTimeout handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -314,7 +494,36 @@ type PutConversationsSocialRecordingstateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations social recordingstate request timeout response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations social recordingstate request timeout response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate request timeout response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations social recordingstate request timeout response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations social recordingstate request timeout response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutConversationsSocialRecordingstateRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -339,7 +548,8 @@ func NewPutConversationsSocialRecordingstateRequestEntityTooLarge() *PutConversa
 	return &PutConversationsSocialRecordingstateRequestEntityTooLarge{}
 }
 
-/*PutConversationsSocialRecordingstateRequestEntityTooLarge handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -347,7 +557,36 @@ type PutConversationsSocialRecordingstateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations social recordingstate request entity too large response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations social recordingstate request entity too large response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate request entity too large response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations social recordingstate request entity too large response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations social recordingstate request entity too large response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutConversationsSocialRecordingstateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -372,7 +611,8 @@ func NewPutConversationsSocialRecordingstateUnsupportedMediaType() *PutConversat
 	return &PutConversationsSocialRecordingstateUnsupportedMediaType{}
 }
 
-/*PutConversationsSocialRecordingstateUnsupportedMediaType handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -380,7 +620,36 @@ type PutConversationsSocialRecordingstateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations social recordingstate unsupported media type response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations social recordingstate unsupported media type response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate unsupported media type response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations social recordingstate unsupported media type response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations social recordingstate unsupported media type response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutConversationsSocialRecordingstateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -405,7 +674,8 @@ func NewPutConversationsSocialRecordingstateTooManyRequests() *PutConversationsS
 	return &PutConversationsSocialRecordingstateTooManyRequests{}
 }
 
-/*PutConversationsSocialRecordingstateTooManyRequests handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -413,7 +683,36 @@ type PutConversationsSocialRecordingstateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations social recordingstate too many requests response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations social recordingstate too many requests response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate too many requests response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations social recordingstate too many requests response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations social recordingstate too many requests response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutConversationsSocialRecordingstateTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -438,7 +737,8 @@ func NewPutConversationsSocialRecordingstateInternalServerError() *PutConversati
 	return &PutConversationsSocialRecordingstateInternalServerError{}
 }
 
-/*PutConversationsSocialRecordingstateInternalServerError handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -446,7 +746,36 @@ type PutConversationsSocialRecordingstateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations social recordingstate internal server error response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations social recordingstate internal server error response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate internal server error response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations social recordingstate internal server error response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations social recordingstate internal server error response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutConversationsSocialRecordingstateInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -471,7 +800,8 @@ func NewPutConversationsSocialRecordingstateServiceUnavailable() *PutConversatio
 	return &PutConversationsSocialRecordingstateServiceUnavailable{}
 }
 
-/*PutConversationsSocialRecordingstateServiceUnavailable handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -479,7 +809,36 @@ type PutConversationsSocialRecordingstateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations social recordingstate service unavailable response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations social recordingstate service unavailable response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate service unavailable response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations social recordingstate service unavailable response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations social recordingstate service unavailable response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutConversationsSocialRecordingstateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -504,7 +863,8 @@ func NewPutConversationsSocialRecordingstateGatewayTimeout() *PutConversationsSo
 	return &PutConversationsSocialRecordingstateGatewayTimeout{}
 }
 
-/*PutConversationsSocialRecordingstateGatewayTimeout handles this case with default header values.
+/*
+PutConversationsSocialRecordingstateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -512,7 +872,36 @@ type PutConversationsSocialRecordingstateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations social recordingstate gateway timeout response has a 2xx status code
+func (o *PutConversationsSocialRecordingstateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations social recordingstate gateway timeout response has a 3xx status code
+func (o *PutConversationsSocialRecordingstateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations social recordingstate gateway timeout response has a 4xx status code
+func (o *PutConversationsSocialRecordingstateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations social recordingstate gateway timeout response has a 5xx status code
+func (o *PutConversationsSocialRecordingstateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations social recordingstate gateway timeout response a status code equal to that given
+func (o *PutConversationsSocialRecordingstateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutConversationsSocialRecordingstateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutConversationsSocialRecordingstateGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/socials/{conversationId}/recordingstate][%d] putConversationsSocialRecordingstateGatewayTimeout  %+v", 504, o.Payload)
 }
 

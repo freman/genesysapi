@@ -17,76 +17,94 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetBillingTrusteebillingoverviewTrustorOrgIDParams creates a new GetBillingTrusteebillingoverviewTrustorOrgIDParams object
-// with the default values initialized.
+// NewGetBillingTrusteebillingoverviewTrustorOrgIDParams creates a new GetBillingTrusteebillingoverviewTrustorOrgIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetBillingTrusteebillingoverviewTrustorOrgIDParams() *GetBillingTrusteebillingoverviewTrustorOrgIDParams {
-	var (
-		billingPeriodIndexDefault = int32(0)
-	)
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDParams{
-		BillingPeriodIndex: &billingPeriodIndexDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetBillingTrusteebillingoverviewTrustorOrgIDParamsWithTimeout creates a new GetBillingTrusteebillingoverviewTrustorOrgIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetBillingTrusteebillingoverviewTrustorOrgIDParamsWithTimeout(timeout time.Duration) *GetBillingTrusteebillingoverviewTrustorOrgIDParams {
-	var (
-		billingPeriodIndexDefault = int32(0)
-	)
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDParams{
-		BillingPeriodIndex: &billingPeriodIndexDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetBillingTrusteebillingoverviewTrustorOrgIDParamsWithContext creates a new GetBillingTrusteebillingoverviewTrustorOrgIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetBillingTrusteebillingoverviewTrustorOrgIDParamsWithContext(ctx context.Context) *GetBillingTrusteebillingoverviewTrustorOrgIDParams {
-	var (
-		billingPeriodIndexDefault = int32(0)
-	)
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDParams{
-		BillingPeriodIndex: &billingPeriodIndexDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetBillingTrusteebillingoverviewTrustorOrgIDParamsWithHTTPClient creates a new GetBillingTrusteebillingoverviewTrustorOrgIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetBillingTrusteebillingoverviewTrustorOrgIDParamsWithHTTPClient(client *http.Client) *GetBillingTrusteebillingoverviewTrustorOrgIDParams {
-	var (
-		billingPeriodIndexDefault = int32(0)
-	)
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDParams{
-		BillingPeriodIndex: &billingPeriodIndexDefault,
-		HTTPClient:         client,
+		HTTPClient: client,
 	}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDParams contains all the parameters to send to the API endpoint
-for the get billing trusteebillingoverview trustor org Id operation typically these are written to a http.Request
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDParams contains all the parameters to send to the API endpoint
+
+	for the get billing trusteebillingoverview trustor org Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetBillingTrusteebillingoverviewTrustorOrgIDParams struct {
 
-	/*BillingPeriodIndex
-	  0 for active period (overview data may change until period closes). 1 for prior completed billing period. 2 for two billing cycles prior, and so on.
+	/* BillingPeriodIndex.
 
+	   0 for active period (overview data may change until period closes). 1 for prior completed billing period. 2 for two billing cycles prior, and so on.
+
+	   Format: int32
 	*/
 	BillingPeriodIndex *int32
-	/*TrustorOrgID
-	  The organization ID of the trustor (customer) organization.
 
+	/* TrustorOrgID.
+
+	   The organization ID of the trustor (customer) organization.
 	*/
 	TrustorOrgID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get billing trusteebillingoverview trustor org Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDParams) WithDefaults() *GetBillingTrusteebillingoverviewTrustorOrgIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get billing trusteebillingoverview trustor org Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDParams) SetDefaults() {
+	var (
+		billingPeriodIndexDefault = int32(0)
+	)
+
+	val := GetBillingTrusteebillingoverviewTrustorOrgIDParams{
+		BillingPeriodIndex: &billingPeriodIndexDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get billing trusteebillingoverview trustor org Id params
@@ -156,16 +174,17 @@ func (o *GetBillingTrusteebillingoverviewTrustorOrgIDParams) WriteToRequest(r ru
 
 		// query param billingPeriodIndex
 		var qrBillingPeriodIndex int32
+
 		if o.BillingPeriodIndex != nil {
 			qrBillingPeriodIndex = *o.BillingPeriodIndex
 		}
 		qBillingPeriodIndex := swag.FormatInt32(qrBillingPeriodIndex)
 		if qBillingPeriodIndex != "" {
+
 			if err := r.SetQueryParam("billingPeriodIndex", qBillingPeriodIndex); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param trustorOrgId

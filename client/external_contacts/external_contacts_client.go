@@ -54,6 +54,10 @@ type API interface {
 	*/
 	GetExternalcontactsContactIdentifiers(ctx context.Context, params *GetExternalcontactsContactIdentifiersParams) (*GetExternalcontactsContactIdentifiersOK, error)
 	/*
+	   GetExternalcontactsContactJourneySessions retrieves all sessions for a given external contact
+	*/
+	GetExternalcontactsContactJourneySessions(ctx context.Context, params *GetExternalcontactsContactJourneySessionsParams) (*GetExternalcontactsContactJourneySessionsOK, error)
+	/*
 	   GetExternalcontactsContactNote fetches a note for an external contact
 	*/
 	GetExternalcontactsContactNote(ctx context.Context, params *GetExternalcontactsContactNoteParams) (*GetExternalcontactsContactNoteOK, error)
@@ -541,6 +545,31 @@ func (a *Client) GetExternalcontactsContactIdentifiers(ctx context.Context, para
 		return nil, err
 	}
 	return result.(*GetExternalcontactsContactIdentifiersOK), nil
+
+}
+
+/*
+GetExternalcontactsContactJourneySessions retrieves all sessions for a given external contact
+*/
+func (a *Client) GetExternalcontactsContactJourneySessions(ctx context.Context, params *GetExternalcontactsContactJourneySessionsParams) (*GetExternalcontactsContactJourneySessionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getExternalcontactsContactJourneySessions",
+		Method:             "GET",
+		PathPattern:        "/api/v2/externalcontacts/contacts/{contactId}/journey/sessions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetExternalcontactsContactJourneySessionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetExternalcontactsContactJourneySessionsOK), nil
 
 }
 

@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetTelephonyProvidersEdgeParams creates a new GetTelephonyProvidersEdgeParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgeParams creates a new GetTelephonyProvidersEdgeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgeParams() *GetTelephonyProvidersEdgeParams {
-	var ()
 	return &GetTelephonyProvidersEdgeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgeParamsWithTimeout creates a new GetTelephonyProvidersEdgeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgeParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgeParams {
-	var ()
 	return &GetTelephonyProvidersEdgeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgeParamsWithContext creates a new GetTelephonyProvidersEdgeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgeParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgeParams {
-	var ()
 	return &GetTelephonyProvidersEdgeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgeParamsWithHTTPClient creates a new GetTelephonyProvidersEdgeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgeParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgeParams {
-	var ()
 	return &GetTelephonyProvidersEdgeParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgeParams contains all the parameters to send to the API endpoint
-for the get telephony providers edge operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgeParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edge operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgeParams struct {
 
-	/*EdgeID
-	  Edge ID
+	/* EdgeID.
 
+	   Edge ID
 	*/
 	EdgeID string
-	/*Expand
-	  Fields to expand in the response, comma-separated
 
+	/* Expand.
+
+	   Fields to expand in the response, comma-separated
 	*/
 	Expand []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edge params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgeParams) WithDefaults() *GetTelephonyProvidersEdgeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edge params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edge params
@@ -145,16 +162,36 @@ func (o *GetTelephonyProvidersEdgeParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetTelephonyProvidersEdge binds the parameter expand
+func (o *GetTelephonyProvidersEdgeParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

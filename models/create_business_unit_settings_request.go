@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -62,7 +63,6 @@ func (m *CreateBusinessUnitSettingsRequest) Validate(formats strfmt.Registry) er
 }
 
 func (m *CreateBusinessUnitSettingsRequest) validateScheduling(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Scheduling) { // not required
 		return nil
 	}
@@ -71,6 +71,8 @@ func (m *CreateBusinessUnitSettingsRequest) validateScheduling(formats strfmt.Re
 		if err := m.Scheduling.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scheduling")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scheduling")
 			}
 			return err
 		}
@@ -80,7 +82,6 @@ func (m *CreateBusinessUnitSettingsRequest) validateScheduling(formats strfmt.Re
 }
 
 func (m *CreateBusinessUnitSettingsRequest) validateShortTermForecasting(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShortTermForecasting) { // not required
 		return nil
 	}
@@ -89,6 +90,8 @@ func (m *CreateBusinessUnitSettingsRequest) validateShortTermForecasting(formats
 		if err := m.ShortTermForecasting.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("shortTermForecasting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecasting")
 			}
 			return err
 		}
@@ -159,6 +162,56 @@ func (m *CreateBusinessUnitSettingsRequest) validateTimeZone(formats strfmt.Regi
 
 	if err := validate.Required("timeZone", "body", m.TimeZone); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this create business unit settings request based on the context it is used
+func (m *CreateBusinessUnitSettingsRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateScheduling(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShortTermForecasting(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CreateBusinessUnitSettingsRequest) contextValidateScheduling(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Scheduling != nil {
+		if err := m.Scheduling.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scheduling")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scheduling")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CreateBusinessUnitSettingsRequest) contextValidateShortTermForecasting(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ShortTermForecasting != nil {
+		if err := m.ShortTermForecasting.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("shortTermForecasting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecasting")
+			}
+			return err
+		}
 	}
 
 	return nil

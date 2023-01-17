@@ -19,76 +19,92 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostGdprRequestsParams creates a new PostGdprRequestsParams object
-// with the default values initialized.
+// NewPostGdprRequestsParams creates a new PostGdprRequestsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostGdprRequestsParams() *PostGdprRequestsParams {
-	var (
-		deleteConfirmedDefault = bool(false)
-	)
 	return &PostGdprRequestsParams{
-		DeleteConfirmed: &deleteConfirmedDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostGdprRequestsParamsWithTimeout creates a new PostGdprRequestsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostGdprRequestsParamsWithTimeout(timeout time.Duration) *PostGdprRequestsParams {
-	var (
-		deleteConfirmedDefault = bool(false)
-	)
 	return &PostGdprRequestsParams{
-		DeleteConfirmed: &deleteConfirmedDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostGdprRequestsParamsWithContext creates a new PostGdprRequestsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostGdprRequestsParamsWithContext(ctx context.Context) *PostGdprRequestsParams {
-	var (
-		deleteConfirmedDefault = bool(false)
-	)
 	return &PostGdprRequestsParams{
-		DeleteConfirmed: &deleteConfirmedDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostGdprRequestsParamsWithHTTPClient creates a new PostGdprRequestsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostGdprRequestsParamsWithHTTPClient(client *http.Client) *PostGdprRequestsParams {
-	var (
-		deleteConfirmedDefault = bool(false)
-	)
 	return &PostGdprRequestsParams{
-		DeleteConfirmed: &deleteConfirmedDefault,
-		HTTPClient:      client,
+		HTTPClient: client,
 	}
 }
 
-/*PostGdprRequestsParams contains all the parameters to send to the API endpoint
-for the post gdpr requests operation typically these are written to a http.Request
+/*
+PostGdprRequestsParams contains all the parameters to send to the API endpoint
+
+	for the post gdpr requests operation.
+
+	Typically these are written to a http.Request.
 */
 type PostGdprRequestsParams struct {
 
-	/*Body
-	  GDPR request
+	/* Body.
 
+	   GDPR request
 	*/
 	Body *models.GDPRRequest
-	/*DeleteConfirmed
-	  Confirm delete
 
+	/* DeleteConfirmed.
+
+	   Confirm delete
 	*/
 	DeleteConfirmed *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post gdpr requests params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGdprRequestsParams) WithDefaults() *PostGdprRequestsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post gdpr requests params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGdprRequestsParams) SetDefaults() {
+	var (
+		deleteConfirmedDefault = bool(false)
+	)
+
+	val := PostGdprRequestsParams{
+		DeleteConfirmed: &deleteConfirmedDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post gdpr requests params
@@ -153,7 +169,6 @@ func (o *PostGdprRequestsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -164,16 +179,17 @@ func (o *PostGdprRequestsParams) WriteToRequest(r runtime.ClientRequest, reg str
 
 		// query param deleteConfirmed
 		var qrDeleteConfirmed bool
+
 		if o.DeleteConfirmed != nil {
 			qrDeleteConfirmed = *o.DeleteConfirmed
 		}
 		qDeleteConfirmed := swag.FormatBool(qrDeleteConfirmed)
 		if qDeleteConfirmed != "" {
+
 			if err := r.SetQueryParam("deleteConfirmed", qDeleteConfirmed); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

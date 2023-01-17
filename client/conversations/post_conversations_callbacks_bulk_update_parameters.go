@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsCallbacksBulkUpdateParams creates a new PostConversationsCallbacksBulkUpdateParams object
-// with the default values initialized.
+// NewPostConversationsCallbacksBulkUpdateParams creates a new PostConversationsCallbacksBulkUpdateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsCallbacksBulkUpdateParams() *PostConversationsCallbacksBulkUpdateParams {
-	var ()
 	return &PostConversationsCallbacksBulkUpdateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsCallbacksBulkUpdateParamsWithTimeout creates a new PostConversationsCallbacksBulkUpdateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsCallbacksBulkUpdateParamsWithTimeout(timeout time.Duration) *PostConversationsCallbacksBulkUpdateParams {
-	var ()
 	return &PostConversationsCallbacksBulkUpdateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsCallbacksBulkUpdateParamsWithContext creates a new PostConversationsCallbacksBulkUpdateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsCallbacksBulkUpdateParamsWithContext(ctx context.Context) *PostConversationsCallbacksBulkUpdateParams {
-	var ()
 	return &PostConversationsCallbacksBulkUpdateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsCallbacksBulkUpdateParamsWithHTTPClient creates a new PostConversationsCallbacksBulkUpdateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsCallbacksBulkUpdateParamsWithHTTPClient(client *http.Client) *PostConversationsCallbacksBulkUpdateParams {
-	var ()
 	return &PostConversationsCallbacksBulkUpdateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsCallbacksBulkUpdateParams contains all the parameters to send to the API endpoint
-for the post conversations callbacks bulk update operation typically these are written to a http.Request
+/*
+PostConversationsCallbacksBulkUpdateParams contains all the parameters to send to the API endpoint
+
+	for the post conversations callbacks bulk update operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsCallbacksBulkUpdateParams struct {
 
-	/*Body
-	  BulkCallbackPatchRequest
+	/* Body.
 
+	   BulkCallbackPatchRequest
 	*/
 	Body *models.BulkCallbackPatchRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations callbacks bulk update params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCallbacksBulkUpdateParams) WithDefaults() *PostConversationsCallbacksBulkUpdateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations callbacks bulk update params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCallbacksBulkUpdateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations callbacks bulk update params
@@ -124,7 +140,6 @@ func (o *PostConversationsCallbacksBulkUpdateParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

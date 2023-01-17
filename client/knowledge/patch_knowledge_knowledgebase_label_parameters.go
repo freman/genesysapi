@@ -18,66 +18,84 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchKnowledgeKnowledgebaseLabelParams creates a new PatchKnowledgeKnowledgebaseLabelParams object
-// with the default values initialized.
+// NewPatchKnowledgeKnowledgebaseLabelParams creates a new PatchKnowledgeKnowledgebaseLabelParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchKnowledgeKnowledgebaseLabelParams() *PatchKnowledgeKnowledgebaseLabelParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseLabelParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseLabelParamsWithTimeout creates a new PatchKnowledgeKnowledgebaseLabelParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchKnowledgeKnowledgebaseLabelParamsWithTimeout(timeout time.Duration) *PatchKnowledgeKnowledgebaseLabelParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseLabelParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseLabelParamsWithContext creates a new PatchKnowledgeKnowledgebaseLabelParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchKnowledgeKnowledgebaseLabelParamsWithContext(ctx context.Context) *PatchKnowledgeKnowledgebaseLabelParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseLabelParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseLabelParamsWithHTTPClient creates a new PatchKnowledgeKnowledgebaseLabelParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchKnowledgeKnowledgebaseLabelParamsWithHTTPClient(client *http.Client) *PatchKnowledgeKnowledgebaseLabelParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseLabelParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchKnowledgeKnowledgebaseLabelParams contains all the parameters to send to the API endpoint
-for the patch knowledge knowledgebase label operation typically these are written to a http.Request
+/*
+PatchKnowledgeKnowledgebaseLabelParams contains all the parameters to send to the API endpoint
+
+	for the patch knowledge knowledgebase label operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchKnowledgeKnowledgebaseLabelParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.LabelUpdateRequest
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LabelID
-	  Label ID
 
+	/* LabelID.
+
+	   Label ID
 	*/
 	LabelID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch knowledge knowledgebase label params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchKnowledgeKnowledgebaseLabelParams) WithDefaults() *PatchKnowledgeKnowledgebaseLabelParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch knowledge knowledgebase label params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchKnowledgeKnowledgebaseLabelParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch knowledge knowledgebase label params
@@ -153,7 +171,6 @@ func (o *PatchKnowledgeKnowledgebaseLabelParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -55,6 +57,10 @@ func (m *DialogflowIntent) validateName(formats strfmt.Registry) error {
 
 func (m *DialogflowIntent) validateParameters(formats strfmt.Registry) error {
 
+	if err := validate.Required("parameters", "body", m.Parameters); err != nil {
+		return err
+	}
+
 	for k := range m.Parameters {
 
 		if err := validate.Required("parameters"+"."+k, "body", m.Parameters[k]); err != nil {
@@ -62,6 +68,44 @@ func (m *DialogflowIntent) validateParameters(formats strfmt.Registry) error {
 		}
 		if val, ok := m.Parameters[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("parameters" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("parameters" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this dialogflow intent based on the context it is used
+func (m *DialogflowIntent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateParameters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DialogflowIntent) contextValidateParameters(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.Required("parameters", "body", m.Parameters); err != nil {
+		return err
+	}
+
+	for k := range m.Parameters {
+
+		if val, ok := m.Parameters[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
 				return err
 			}
 		}

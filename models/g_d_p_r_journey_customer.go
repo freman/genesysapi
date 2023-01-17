@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -24,6 +26,11 @@ type GDPRJourneyCustomer struct {
 
 // Validate validates this g d p r journey customer
 func (m *GDPRJourneyCustomer) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this g d p r journey customer based on context it is used
+func (m *GDPRJourneyCustomer) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

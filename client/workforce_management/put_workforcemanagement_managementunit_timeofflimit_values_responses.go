@@ -101,7 +101,6 @@ func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesReader) ReadRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesOK() *PutWorkforce
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesOK{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesOK handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesOK struct {
 	Payload *models.TimeOffLimit
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values o k response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values o k response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values o k response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values o k response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values o k response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesOK  %+v", 200, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesBadRequest() *PutW
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesBadRequest{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesBadRequest handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values bad request response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values bad request response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values bad request response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values bad request response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values bad request response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized() *Pu
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values unauthorized response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values unauthorized response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values unauthorized response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values unauthorized response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values unauthorized response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesForbidden() *PutWo
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesForbidden{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesForbidden handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values forbidden response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values forbidden response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values forbidden response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values forbidden response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values forbidden response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesNotFound() *PutWor
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesNotFound{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesNotFound handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values not found response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values not found response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values not found response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values not found response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values not found response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout() *
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values request timeout response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values request timeout response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values request timeout response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values request timeout response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values request timeout response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesConflict() *PutWor
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesConflict{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesConflict handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values conflict response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values conflict response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values conflict response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values conflict response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values conflict response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLa
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values request entity too large response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values request entity too large response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values request entity too large response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values request entity too large response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values request entity too large response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaTy
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values unsupported media type response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values unsupported media type response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values unsupported media type response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values unsupported media type response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values unsupported media type response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests() 
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values too many requests response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values too many requests response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values too many requests response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values too many requests response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values too many requests response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesInternalServerErro
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values internal server error response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values internal server error response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values internal server error response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values internal server error response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values internal server error response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values service unavailable response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values service unavailable response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values service unavailable response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values service unavailable response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values service unavailable response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout() *
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout{}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout handles this case with default header values.
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put workforcemanagement managementunit timeofflimit values gateway timeout response has a 2xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put workforcemanagement managementunit timeofflimit values gateway timeout response has a 3xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put workforcemanagement managementunit timeofflimit values gateway timeout response has a 4xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put workforcemanagement managementunit timeofflimit values gateway timeout response has a 5xx status code
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put workforcemanagement managementunit timeofflimit values gateway timeout response a status code equal to that given
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeofflimits/{timeOffLimitId}/values][%d] putWorkforcemanagementManagementunitTimeofflimitValuesGatewayTimeout  %+v", 504, o.Payload)
 }
 

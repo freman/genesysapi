@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWebchatGuestConversationMemberParams creates a new GetWebchatGuestConversationMemberParams object
-// with the default values initialized.
+// NewGetWebchatGuestConversationMemberParams creates a new GetWebchatGuestConversationMemberParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWebchatGuestConversationMemberParams() *GetWebchatGuestConversationMemberParams {
-	var ()
 	return &GetWebchatGuestConversationMemberParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWebchatGuestConversationMemberParamsWithTimeout creates a new GetWebchatGuestConversationMemberParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWebchatGuestConversationMemberParamsWithTimeout(timeout time.Duration) *GetWebchatGuestConversationMemberParams {
-	var ()
 	return &GetWebchatGuestConversationMemberParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWebchatGuestConversationMemberParamsWithContext creates a new GetWebchatGuestConversationMemberParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWebchatGuestConversationMemberParamsWithContext(ctx context.Context) *GetWebchatGuestConversationMemberParams {
-	var ()
 	return &GetWebchatGuestConversationMemberParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWebchatGuestConversationMemberParamsWithHTTPClient creates a new GetWebchatGuestConversationMemberParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWebchatGuestConversationMemberParamsWithHTTPClient(client *http.Client) *GetWebchatGuestConversationMemberParams {
-	var ()
 	return &GetWebchatGuestConversationMemberParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWebchatGuestConversationMemberParams contains all the parameters to send to the API endpoint
-for the get webchat guest conversation member operation typically these are written to a http.Request
+/*
+GetWebchatGuestConversationMemberParams contains all the parameters to send to the API endpoint
+
+	for the get webchat guest conversation member operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWebchatGuestConversationMemberParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*MemberID
-	  memberId
 
+	/* MemberID.
+
+	   memberId
 	*/
 	MemberID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get webchat guest conversation member params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebchatGuestConversationMemberParams) WithDefaults() *GetWebchatGuestConversationMemberParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get webchat guest conversation member params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebchatGuestConversationMemberParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get webchat guest conversation member params

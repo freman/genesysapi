@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostKnowledgeKnowledgebaseDocumentsParams creates a new PostKnowledgeKnowledgebaseDocumentsParams object
-// with the default values initialized.
+// NewPostKnowledgeKnowledgebaseDocumentsParams creates a new PostKnowledgeKnowledgebaseDocumentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostKnowledgeKnowledgebaseDocumentsParams() *PostKnowledgeKnowledgebaseDocumentsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseDocumentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseDocumentsParamsWithTimeout creates a new PostKnowledgeKnowledgebaseDocumentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostKnowledgeKnowledgebaseDocumentsParamsWithTimeout(timeout time.Duration) *PostKnowledgeKnowledgebaseDocumentsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseDocumentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseDocumentsParamsWithContext creates a new PostKnowledgeKnowledgebaseDocumentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostKnowledgeKnowledgebaseDocumentsParamsWithContext(ctx context.Context) *PostKnowledgeKnowledgebaseDocumentsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseDocumentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseDocumentsParamsWithHTTPClient creates a new PostKnowledgeKnowledgebaseDocumentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostKnowledgeKnowledgebaseDocumentsParamsWithHTTPClient(client *http.Client) *PostKnowledgeKnowledgebaseDocumentsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseDocumentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentsParams contains all the parameters to send to the API endpoint
-for the post knowledge knowledgebase documents operation typically these are written to a http.Request
+/*
+PostKnowledgeKnowledgebaseDocumentsParams contains all the parameters to send to the API endpoint
+
+	for the post knowledge knowledgebase documents operation.
+
+	Typically these are written to a http.Request.
 */
 type PostKnowledgeKnowledgebaseDocumentsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.KnowledgeDocumentReq
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post knowledge knowledgebase documents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseDocumentsParams) WithDefaults() *PostKnowledgeKnowledgebaseDocumentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post knowledge knowledgebase documents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseDocumentsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post knowledge knowledgebase documents params
@@ -137,7 +154,6 @@ func (o *PostKnowledgeKnowledgebaseDocumentsParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

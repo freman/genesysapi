@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWebdeploymentsDeploymentParams creates a new GetWebdeploymentsDeploymentParams object
-// with the default values initialized.
+// NewGetWebdeploymentsDeploymentParams creates a new GetWebdeploymentsDeploymentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWebdeploymentsDeploymentParams() *GetWebdeploymentsDeploymentParams {
-	var ()
 	return &GetWebdeploymentsDeploymentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWebdeploymentsDeploymentParamsWithTimeout creates a new GetWebdeploymentsDeploymentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWebdeploymentsDeploymentParamsWithTimeout(timeout time.Duration) *GetWebdeploymentsDeploymentParams {
-	var ()
 	return &GetWebdeploymentsDeploymentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWebdeploymentsDeploymentParamsWithContext creates a new GetWebdeploymentsDeploymentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWebdeploymentsDeploymentParamsWithContext(ctx context.Context) *GetWebdeploymentsDeploymentParams {
-	var ()
 	return &GetWebdeploymentsDeploymentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWebdeploymentsDeploymentParamsWithHTTPClient creates a new GetWebdeploymentsDeploymentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWebdeploymentsDeploymentParamsWithHTTPClient(client *http.Client) *GetWebdeploymentsDeploymentParams {
-	var ()
 	return &GetWebdeploymentsDeploymentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWebdeploymentsDeploymentParams contains all the parameters to send to the API endpoint
-for the get webdeployments deployment operation typically these are written to a http.Request
+/*
+GetWebdeploymentsDeploymentParams contains all the parameters to send to the API endpoint
+
+	for the get webdeployments deployment operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWebdeploymentsDeploymentParams struct {
 
-	/*DeploymentID
-	  The deployment ID
+	/* DeploymentID.
 
+	   The deployment ID
 	*/
 	DeploymentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get webdeployments deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebdeploymentsDeploymentParams) WithDefaults() *GetWebdeploymentsDeploymentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get webdeployments deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebdeploymentsDeploymentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get webdeployments deployment params

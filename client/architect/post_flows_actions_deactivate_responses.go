@@ -113,7 +113,6 @@ func (o *PostFlowsActionsDeactivateReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -124,7 +123,8 @@ func NewPostFlowsActionsDeactivateOK() *PostFlowsActionsDeactivateOK {
 	return &PostFlowsActionsDeactivateOK{}
 }
 
-/*PostFlowsActionsDeactivateOK handles this case with default header values.
+/*
+PostFlowsActionsDeactivateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -132,7 +132,36 @@ type PostFlowsActionsDeactivateOK struct {
 	Payload *models.Flow
 }
 
+// IsSuccess returns true when this post flows actions deactivate o k response has a 2xx status code
+func (o *PostFlowsActionsDeactivateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post flows actions deactivate o k response has a 3xx status code
+func (o *PostFlowsActionsDeactivateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate o k response has a 4xx status code
+func (o *PostFlowsActionsDeactivateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions deactivate o k response has a 5xx status code
+func (o *PostFlowsActionsDeactivateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions deactivate o k response a status code equal to that given
+func (o *PostFlowsActionsDeactivateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostFlowsActionsDeactivateOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateOK  %+v", 200, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateOK  %+v", 200, o.Payload)
 }
 
@@ -157,7 +186,8 @@ func NewPostFlowsActionsDeactivateBadRequest() *PostFlowsActionsDeactivateBadReq
 	return &PostFlowsActionsDeactivateBadRequest{}
 }
 
-/*PostFlowsActionsDeactivateBadRequest handles this case with default header values.
+/*
+PostFlowsActionsDeactivateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -165,7 +195,36 @@ type PostFlowsActionsDeactivateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate bad request response has a 2xx status code
+func (o *PostFlowsActionsDeactivateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate bad request response has a 3xx status code
+func (o *PostFlowsActionsDeactivateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate bad request response has a 4xx status code
+func (o *PostFlowsActionsDeactivateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions deactivate bad request response has a 5xx status code
+func (o *PostFlowsActionsDeactivateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions deactivate bad request response a status code equal to that given
+func (o *PostFlowsActionsDeactivateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostFlowsActionsDeactivateBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -190,7 +249,8 @@ func NewPostFlowsActionsDeactivateUnauthorized() *PostFlowsActionsDeactivateUnau
 	return &PostFlowsActionsDeactivateUnauthorized{}
 }
 
-/*PostFlowsActionsDeactivateUnauthorized handles this case with default header values.
+/*
+PostFlowsActionsDeactivateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -198,7 +258,36 @@ type PostFlowsActionsDeactivateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate unauthorized response has a 2xx status code
+func (o *PostFlowsActionsDeactivateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate unauthorized response has a 3xx status code
+func (o *PostFlowsActionsDeactivateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate unauthorized response has a 4xx status code
+func (o *PostFlowsActionsDeactivateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions deactivate unauthorized response has a 5xx status code
+func (o *PostFlowsActionsDeactivateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions deactivate unauthorized response a status code equal to that given
+func (o *PostFlowsActionsDeactivateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostFlowsActionsDeactivateUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -223,7 +312,8 @@ func NewPostFlowsActionsDeactivateForbidden() *PostFlowsActionsDeactivateForbidd
 	return &PostFlowsActionsDeactivateForbidden{}
 }
 
-/*PostFlowsActionsDeactivateForbidden handles this case with default header values.
+/*
+PostFlowsActionsDeactivateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -231,7 +321,36 @@ type PostFlowsActionsDeactivateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate forbidden response has a 2xx status code
+func (o *PostFlowsActionsDeactivateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate forbidden response has a 3xx status code
+func (o *PostFlowsActionsDeactivateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate forbidden response has a 4xx status code
+func (o *PostFlowsActionsDeactivateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions deactivate forbidden response has a 5xx status code
+func (o *PostFlowsActionsDeactivateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions deactivate forbidden response a status code equal to that given
+func (o *PostFlowsActionsDeactivateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostFlowsActionsDeactivateForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateForbidden  %+v", 403, o.Payload)
 }
 
@@ -256,7 +375,8 @@ func NewPostFlowsActionsDeactivateNotFound() *PostFlowsActionsDeactivateNotFound
 	return &PostFlowsActionsDeactivateNotFound{}
 }
 
-/*PostFlowsActionsDeactivateNotFound handles this case with default header values.
+/*
+PostFlowsActionsDeactivateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -264,7 +384,36 @@ type PostFlowsActionsDeactivateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate not found response has a 2xx status code
+func (o *PostFlowsActionsDeactivateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate not found response has a 3xx status code
+func (o *PostFlowsActionsDeactivateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate not found response has a 4xx status code
+func (o *PostFlowsActionsDeactivateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions deactivate not found response has a 5xx status code
+func (o *PostFlowsActionsDeactivateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions deactivate not found response a status code equal to that given
+func (o *PostFlowsActionsDeactivateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostFlowsActionsDeactivateNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateNotFound  %+v", 404, o.Payload)
 }
 
@@ -289,7 +438,8 @@ func NewPostFlowsActionsDeactivateMethodNotAllowed() *PostFlowsActionsDeactivate
 	return &PostFlowsActionsDeactivateMethodNotAllowed{}
 }
 
-/*PostFlowsActionsDeactivateMethodNotAllowed handles this case with default header values.
+/*
+PostFlowsActionsDeactivateMethodNotAllowed describes a response with status code 405, with default header values.
 
 Method Not Allowed
 */
@@ -297,7 +447,36 @@ type PostFlowsActionsDeactivateMethodNotAllowed struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate method not allowed response has a 2xx status code
+func (o *PostFlowsActionsDeactivateMethodNotAllowed) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate method not allowed response has a 3xx status code
+func (o *PostFlowsActionsDeactivateMethodNotAllowed) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate method not allowed response has a 4xx status code
+func (o *PostFlowsActionsDeactivateMethodNotAllowed) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions deactivate method not allowed response has a 5xx status code
+func (o *PostFlowsActionsDeactivateMethodNotAllowed) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions deactivate method not allowed response a status code equal to that given
+func (o *PostFlowsActionsDeactivateMethodNotAllowed) IsCode(code int) bool {
+	return code == 405
+}
+
 func (o *PostFlowsActionsDeactivateMethodNotAllowed) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateMethodNotAllowed  %+v", 405, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateMethodNotAllowed) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateMethodNotAllowed  %+v", 405, o.Payload)
 }
 
@@ -322,7 +501,8 @@ func NewPostFlowsActionsDeactivateRequestTimeout() *PostFlowsActionsDeactivateRe
 	return &PostFlowsActionsDeactivateRequestTimeout{}
 }
 
-/*PostFlowsActionsDeactivateRequestTimeout handles this case with default header values.
+/*
+PostFlowsActionsDeactivateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -330,7 +510,36 @@ type PostFlowsActionsDeactivateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate request timeout response has a 2xx status code
+func (o *PostFlowsActionsDeactivateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate request timeout response has a 3xx status code
+func (o *PostFlowsActionsDeactivateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate request timeout response has a 4xx status code
+func (o *PostFlowsActionsDeactivateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions deactivate request timeout response has a 5xx status code
+func (o *PostFlowsActionsDeactivateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions deactivate request timeout response a status code equal to that given
+func (o *PostFlowsActionsDeactivateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostFlowsActionsDeactivateRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -355,7 +564,8 @@ func NewPostFlowsActionsDeactivateConflict() *PostFlowsActionsDeactivateConflict
 	return &PostFlowsActionsDeactivateConflict{}
 }
 
-/*PostFlowsActionsDeactivateConflict handles this case with default header values.
+/*
+PostFlowsActionsDeactivateConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -363,7 +573,36 @@ type PostFlowsActionsDeactivateConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate conflict response has a 2xx status code
+func (o *PostFlowsActionsDeactivateConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate conflict response has a 3xx status code
+func (o *PostFlowsActionsDeactivateConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate conflict response has a 4xx status code
+func (o *PostFlowsActionsDeactivateConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions deactivate conflict response has a 5xx status code
+func (o *PostFlowsActionsDeactivateConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions deactivate conflict response a status code equal to that given
+func (o *PostFlowsActionsDeactivateConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostFlowsActionsDeactivateConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateConflict  %+v", 409, o.Payload)
 }
 
@@ -388,7 +627,8 @@ func NewPostFlowsActionsDeactivateGone() *PostFlowsActionsDeactivateGone {
 	return &PostFlowsActionsDeactivateGone{}
 }
 
-/*PostFlowsActionsDeactivateGone handles this case with default header values.
+/*
+PostFlowsActionsDeactivateGone describes a response with status code 410, with default header values.
 
 Gone
 */
@@ -396,7 +636,36 @@ type PostFlowsActionsDeactivateGone struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate gone response has a 2xx status code
+func (o *PostFlowsActionsDeactivateGone) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate gone response has a 3xx status code
+func (o *PostFlowsActionsDeactivateGone) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate gone response has a 4xx status code
+func (o *PostFlowsActionsDeactivateGone) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions deactivate gone response has a 5xx status code
+func (o *PostFlowsActionsDeactivateGone) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions deactivate gone response a status code equal to that given
+func (o *PostFlowsActionsDeactivateGone) IsCode(code int) bool {
+	return code == 410
+}
+
 func (o *PostFlowsActionsDeactivateGone) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateGone  %+v", 410, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateGone) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateGone  %+v", 410, o.Payload)
 }
 
@@ -421,7 +690,8 @@ func NewPostFlowsActionsDeactivateRequestEntityTooLarge() *PostFlowsActionsDeact
 	return &PostFlowsActionsDeactivateRequestEntityTooLarge{}
 }
 
-/*PostFlowsActionsDeactivateRequestEntityTooLarge handles this case with default header values.
+/*
+PostFlowsActionsDeactivateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -429,7 +699,36 @@ type PostFlowsActionsDeactivateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate request entity too large response has a 2xx status code
+func (o *PostFlowsActionsDeactivateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate request entity too large response has a 3xx status code
+func (o *PostFlowsActionsDeactivateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate request entity too large response has a 4xx status code
+func (o *PostFlowsActionsDeactivateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions deactivate request entity too large response has a 5xx status code
+func (o *PostFlowsActionsDeactivateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions deactivate request entity too large response a status code equal to that given
+func (o *PostFlowsActionsDeactivateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostFlowsActionsDeactivateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -454,7 +753,8 @@ func NewPostFlowsActionsDeactivateUnsupportedMediaType() *PostFlowsActionsDeacti
 	return &PostFlowsActionsDeactivateUnsupportedMediaType{}
 }
 
-/*PostFlowsActionsDeactivateUnsupportedMediaType handles this case with default header values.
+/*
+PostFlowsActionsDeactivateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -462,7 +762,36 @@ type PostFlowsActionsDeactivateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate unsupported media type response has a 2xx status code
+func (o *PostFlowsActionsDeactivateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate unsupported media type response has a 3xx status code
+func (o *PostFlowsActionsDeactivateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate unsupported media type response has a 4xx status code
+func (o *PostFlowsActionsDeactivateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions deactivate unsupported media type response has a 5xx status code
+func (o *PostFlowsActionsDeactivateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions deactivate unsupported media type response a status code equal to that given
+func (o *PostFlowsActionsDeactivateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostFlowsActionsDeactivateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -487,7 +816,8 @@ func NewPostFlowsActionsDeactivateTooManyRequests() *PostFlowsActionsDeactivateT
 	return &PostFlowsActionsDeactivateTooManyRequests{}
 }
 
-/*PostFlowsActionsDeactivateTooManyRequests handles this case with default header values.
+/*
+PostFlowsActionsDeactivateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -495,7 +825,36 @@ type PostFlowsActionsDeactivateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate too many requests response has a 2xx status code
+func (o *PostFlowsActionsDeactivateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate too many requests response has a 3xx status code
+func (o *PostFlowsActionsDeactivateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate too many requests response has a 4xx status code
+func (o *PostFlowsActionsDeactivateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions deactivate too many requests response has a 5xx status code
+func (o *PostFlowsActionsDeactivateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions deactivate too many requests response a status code equal to that given
+func (o *PostFlowsActionsDeactivateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostFlowsActionsDeactivateTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -520,7 +879,8 @@ func NewPostFlowsActionsDeactivateInternalServerError() *PostFlowsActionsDeactiv
 	return &PostFlowsActionsDeactivateInternalServerError{}
 }
 
-/*PostFlowsActionsDeactivateInternalServerError handles this case with default header values.
+/*
+PostFlowsActionsDeactivateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -528,7 +888,36 @@ type PostFlowsActionsDeactivateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate internal server error response has a 2xx status code
+func (o *PostFlowsActionsDeactivateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate internal server error response has a 3xx status code
+func (o *PostFlowsActionsDeactivateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate internal server error response has a 4xx status code
+func (o *PostFlowsActionsDeactivateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions deactivate internal server error response has a 5xx status code
+func (o *PostFlowsActionsDeactivateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions deactivate internal server error response a status code equal to that given
+func (o *PostFlowsActionsDeactivateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostFlowsActionsDeactivateInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -553,7 +942,8 @@ func NewPostFlowsActionsDeactivateServiceUnavailable() *PostFlowsActionsDeactiva
 	return &PostFlowsActionsDeactivateServiceUnavailable{}
 }
 
-/*PostFlowsActionsDeactivateServiceUnavailable handles this case with default header values.
+/*
+PostFlowsActionsDeactivateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -561,7 +951,36 @@ type PostFlowsActionsDeactivateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate service unavailable response has a 2xx status code
+func (o *PostFlowsActionsDeactivateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate service unavailable response has a 3xx status code
+func (o *PostFlowsActionsDeactivateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate service unavailable response has a 4xx status code
+func (o *PostFlowsActionsDeactivateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions deactivate service unavailable response has a 5xx status code
+func (o *PostFlowsActionsDeactivateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions deactivate service unavailable response a status code equal to that given
+func (o *PostFlowsActionsDeactivateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostFlowsActionsDeactivateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -586,7 +1005,8 @@ func NewPostFlowsActionsDeactivateGatewayTimeout() *PostFlowsActionsDeactivateGa
 	return &PostFlowsActionsDeactivateGatewayTimeout{}
 }
 
-/*PostFlowsActionsDeactivateGatewayTimeout handles this case with default header values.
+/*
+PostFlowsActionsDeactivateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -594,7 +1014,36 @@ type PostFlowsActionsDeactivateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions deactivate gateway timeout response has a 2xx status code
+func (o *PostFlowsActionsDeactivateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions deactivate gateway timeout response has a 3xx status code
+func (o *PostFlowsActionsDeactivateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions deactivate gateway timeout response has a 4xx status code
+func (o *PostFlowsActionsDeactivateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions deactivate gateway timeout response has a 5xx status code
+func (o *PostFlowsActionsDeactivateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions deactivate gateway timeout response a status code equal to that given
+func (o *PostFlowsActionsDeactivateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostFlowsActionsDeactivateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostFlowsActionsDeactivateGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/deactivate][%d] postFlowsActionsDeactivateGatewayTimeout  %+v", 504, o.Payload)
 }
 

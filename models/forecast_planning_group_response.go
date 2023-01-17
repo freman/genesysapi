@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -50,7 +51,6 @@ func (m *ForecastPlanningGroupResponse) Validate(formats strfmt.Registry) error 
 }
 
 func (m *ForecastPlanningGroupResponse) validateRoutePaths(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutePaths) { // not required
 		return nil
 	}
@@ -64,6 +64,8 @@ func (m *ForecastPlanningGroupResponse) validateRoutePaths(formats strfmt.Regist
 			if err := m.RoutePaths[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("routePaths" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routePaths" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -75,7 +77,6 @@ func (m *ForecastPlanningGroupResponse) validateRoutePaths(formats strfmt.Regist
 }
 
 func (m *ForecastPlanningGroupResponse) validateServiceGoalTemplate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ServiceGoalTemplate) { // not required
 		return nil
 	}
@@ -84,6 +85,62 @@ func (m *ForecastPlanningGroupResponse) validateServiceGoalTemplate(formats strf
 		if err := m.ServiceGoalTemplate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("serviceGoalTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("serviceGoalTemplate")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this forecast planning group response based on the context it is used
+func (m *ForecastPlanningGroupResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRoutePaths(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateServiceGoalTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ForecastPlanningGroupResponse) contextValidateRoutePaths(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RoutePaths); i++ {
+
+		if m.RoutePaths[i] != nil {
+			if err := m.RoutePaths[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("routePaths" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routePaths" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ForecastPlanningGroupResponse) contextValidateServiceGoalTemplate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ServiceGoalTemplate != nil {
+		if err := m.ServiceGoalTemplate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("serviceGoalTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("serviceGoalTemplate")
 			}
 			return err
 		}

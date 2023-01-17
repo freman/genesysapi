@@ -101,7 +101,6 @@ func (o *PutOutboundRulesetReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutOutboundRulesetOK() *PutOutboundRulesetOK {
 	return &PutOutboundRulesetOK{}
 }
 
-/*PutOutboundRulesetOK handles this case with default header values.
+/*
+PutOutboundRulesetOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutOutboundRulesetOK struct {
 	Payload *models.RuleSet
 }
 
+// IsSuccess returns true when this put outbound ruleset o k response has a 2xx status code
+func (o *PutOutboundRulesetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put outbound ruleset o k response has a 3xx status code
+func (o *PutOutboundRulesetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset o k response has a 4xx status code
+func (o *PutOutboundRulesetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound ruleset o k response has a 5xx status code
+func (o *PutOutboundRulesetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound ruleset o k response a status code equal to that given
+func (o *PutOutboundRulesetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOutboundRulesetOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOutboundRulesetOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutOutboundRulesetBadRequest() *PutOutboundRulesetBadRequest {
 	return &PutOutboundRulesetBadRequest{}
 }
 
-/*PutOutboundRulesetBadRequest handles this case with default header values.
+/*
+PutOutboundRulesetBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutOutboundRulesetBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound ruleset bad request response has a 2xx status code
+func (o *PutOutboundRulesetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound ruleset bad request response has a 3xx status code
+func (o *PutOutboundRulesetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset bad request response has a 4xx status code
+func (o *PutOutboundRulesetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound ruleset bad request response has a 5xx status code
+func (o *PutOutboundRulesetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound ruleset bad request response a status code equal to that given
+func (o *PutOutboundRulesetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOutboundRulesetBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOutboundRulesetBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutOutboundRulesetUnauthorized() *PutOutboundRulesetUnauthorized {
 	return &PutOutboundRulesetUnauthorized{}
 }
 
-/*PutOutboundRulesetUnauthorized handles this case with default header values.
+/*
+PutOutboundRulesetUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutOutboundRulesetUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound ruleset unauthorized response has a 2xx status code
+func (o *PutOutboundRulesetUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound ruleset unauthorized response has a 3xx status code
+func (o *PutOutboundRulesetUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset unauthorized response has a 4xx status code
+func (o *PutOutboundRulesetUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound ruleset unauthorized response has a 5xx status code
+func (o *PutOutboundRulesetUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound ruleset unauthorized response a status code equal to that given
+func (o *PutOutboundRulesetUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOutboundRulesetUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOutboundRulesetUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutOutboundRulesetForbidden() *PutOutboundRulesetForbidden {
 	return &PutOutboundRulesetForbidden{}
 }
 
-/*PutOutboundRulesetForbidden handles this case with default header values.
+/*
+PutOutboundRulesetForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutOutboundRulesetForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound ruleset forbidden response has a 2xx status code
+func (o *PutOutboundRulesetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound ruleset forbidden response has a 3xx status code
+func (o *PutOutboundRulesetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset forbidden response has a 4xx status code
+func (o *PutOutboundRulesetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound ruleset forbidden response has a 5xx status code
+func (o *PutOutboundRulesetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound ruleset forbidden response a status code equal to that given
+func (o *PutOutboundRulesetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOutboundRulesetForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOutboundRulesetForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutOutboundRulesetNotFound() *PutOutboundRulesetNotFound {
 	return &PutOutboundRulesetNotFound{}
 }
 
-/*PutOutboundRulesetNotFound handles this case with default header values.
+/*
+PutOutboundRulesetNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutOutboundRulesetNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound ruleset not found response has a 2xx status code
+func (o *PutOutboundRulesetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound ruleset not found response has a 3xx status code
+func (o *PutOutboundRulesetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset not found response has a 4xx status code
+func (o *PutOutboundRulesetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound ruleset not found response has a 5xx status code
+func (o *PutOutboundRulesetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound ruleset not found response a status code equal to that given
+func (o *PutOutboundRulesetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOutboundRulesetNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOutboundRulesetNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutOutboundRulesetRequestTimeout() *PutOutboundRulesetRequestTimeout {
 	return &PutOutboundRulesetRequestTimeout{}
 }
 
-/*PutOutboundRulesetRequestTimeout handles this case with default header values.
+/*
+PutOutboundRulesetRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutOutboundRulesetRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound ruleset request timeout response has a 2xx status code
+func (o *PutOutboundRulesetRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound ruleset request timeout response has a 3xx status code
+func (o *PutOutboundRulesetRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset request timeout response has a 4xx status code
+func (o *PutOutboundRulesetRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound ruleset request timeout response has a 5xx status code
+func (o *PutOutboundRulesetRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound ruleset request timeout response a status code equal to that given
+func (o *PutOutboundRulesetRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOutboundRulesetRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOutboundRulesetRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutOutboundRulesetConflict() *PutOutboundRulesetConflict {
 	return &PutOutboundRulesetConflict{}
 }
 
-/*PutOutboundRulesetConflict handles this case with default header values.
+/*
+PutOutboundRulesetConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PutOutboundRulesetConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound ruleset conflict response has a 2xx status code
+func (o *PutOutboundRulesetConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound ruleset conflict response has a 3xx status code
+func (o *PutOutboundRulesetConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset conflict response has a 4xx status code
+func (o *PutOutboundRulesetConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound ruleset conflict response has a 5xx status code
+func (o *PutOutboundRulesetConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound ruleset conflict response a status code equal to that given
+func (o *PutOutboundRulesetConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutOutboundRulesetConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutOutboundRulesetConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutOutboundRulesetRequestEntityTooLarge() *PutOutboundRulesetRequestEnti
 	return &PutOutboundRulesetRequestEntityTooLarge{}
 }
 
-/*PutOutboundRulesetRequestEntityTooLarge handles this case with default header values.
+/*
+PutOutboundRulesetRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PutOutboundRulesetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound ruleset request entity too large response has a 2xx status code
+func (o *PutOutboundRulesetRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound ruleset request entity too large response has a 3xx status code
+func (o *PutOutboundRulesetRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset request entity too large response has a 4xx status code
+func (o *PutOutboundRulesetRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound ruleset request entity too large response has a 5xx status code
+func (o *PutOutboundRulesetRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound ruleset request entity too large response a status code equal to that given
+func (o *PutOutboundRulesetRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOutboundRulesetRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOutboundRulesetRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutOutboundRulesetUnsupportedMediaType() *PutOutboundRulesetUnsupportedM
 	return &PutOutboundRulesetUnsupportedMediaType{}
 }
 
-/*PutOutboundRulesetUnsupportedMediaType handles this case with default header values.
+/*
+PutOutboundRulesetUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PutOutboundRulesetUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound ruleset unsupported media type response has a 2xx status code
+func (o *PutOutboundRulesetUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound ruleset unsupported media type response has a 3xx status code
+func (o *PutOutboundRulesetUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset unsupported media type response has a 4xx status code
+func (o *PutOutboundRulesetUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound ruleset unsupported media type response has a 5xx status code
+func (o *PutOutboundRulesetUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound ruleset unsupported media type response a status code equal to that given
+func (o *PutOutboundRulesetUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOutboundRulesetUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOutboundRulesetUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutOutboundRulesetTooManyRequests() *PutOutboundRulesetTooManyRequests {
 	return &PutOutboundRulesetTooManyRequests{}
 }
 
-/*PutOutboundRulesetTooManyRequests handles this case with default header values.
+/*
+PutOutboundRulesetTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutOutboundRulesetTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound ruleset too many requests response has a 2xx status code
+func (o *PutOutboundRulesetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound ruleset too many requests response has a 3xx status code
+func (o *PutOutboundRulesetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset too many requests response has a 4xx status code
+func (o *PutOutboundRulesetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound ruleset too many requests response has a 5xx status code
+func (o *PutOutboundRulesetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound ruleset too many requests response a status code equal to that given
+func (o *PutOutboundRulesetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOutboundRulesetTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOutboundRulesetTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutOutboundRulesetInternalServerError() *PutOutboundRulesetInternalServe
 	return &PutOutboundRulesetInternalServerError{}
 }
 
-/*PutOutboundRulesetInternalServerError handles this case with default header values.
+/*
+PutOutboundRulesetInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutOutboundRulesetInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound ruleset internal server error response has a 2xx status code
+func (o *PutOutboundRulesetInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound ruleset internal server error response has a 3xx status code
+func (o *PutOutboundRulesetInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset internal server error response has a 4xx status code
+func (o *PutOutboundRulesetInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound ruleset internal server error response has a 5xx status code
+func (o *PutOutboundRulesetInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound ruleset internal server error response a status code equal to that given
+func (o *PutOutboundRulesetInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOutboundRulesetInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOutboundRulesetInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutOutboundRulesetServiceUnavailable() *PutOutboundRulesetServiceUnavail
 	return &PutOutboundRulesetServiceUnavailable{}
 }
 
-/*PutOutboundRulesetServiceUnavailable handles this case with default header values.
+/*
+PutOutboundRulesetServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutOutboundRulesetServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound ruleset service unavailable response has a 2xx status code
+func (o *PutOutboundRulesetServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound ruleset service unavailable response has a 3xx status code
+func (o *PutOutboundRulesetServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset service unavailable response has a 4xx status code
+func (o *PutOutboundRulesetServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound ruleset service unavailable response has a 5xx status code
+func (o *PutOutboundRulesetServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound ruleset service unavailable response a status code equal to that given
+func (o *PutOutboundRulesetServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOutboundRulesetServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOutboundRulesetServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutOutboundRulesetGatewayTimeout() *PutOutboundRulesetGatewayTimeout {
 	return &PutOutboundRulesetGatewayTimeout{}
 }
 
-/*PutOutboundRulesetGatewayTimeout handles this case with default header values.
+/*
+PutOutboundRulesetGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutOutboundRulesetGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound ruleset gateway timeout response has a 2xx status code
+func (o *PutOutboundRulesetGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound ruleset gateway timeout response has a 3xx status code
+func (o *PutOutboundRulesetGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound ruleset gateway timeout response has a 4xx status code
+func (o *PutOutboundRulesetGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound ruleset gateway timeout response has a 5xx status code
+func (o *PutOutboundRulesetGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound ruleset gateway timeout response a status code equal to that given
+func (o *PutOutboundRulesetGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOutboundRulesetGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOutboundRulesetGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/rulesets/{ruleSetId}][%d] putOutboundRulesetGatewayTimeout  %+v", 504, o.Payload)
 }
 

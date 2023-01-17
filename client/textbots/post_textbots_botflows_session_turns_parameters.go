@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTextbotsBotflowsSessionTurnsParams creates a new PostTextbotsBotflowsSessionTurnsParams object
-// with the default values initialized.
+// NewPostTextbotsBotflowsSessionTurnsParams creates a new PostTextbotsBotflowsSessionTurnsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTextbotsBotflowsSessionTurnsParams() *PostTextbotsBotflowsSessionTurnsParams {
-	var ()
 	return &PostTextbotsBotflowsSessionTurnsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTextbotsBotflowsSessionTurnsParamsWithTimeout creates a new PostTextbotsBotflowsSessionTurnsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTextbotsBotflowsSessionTurnsParamsWithTimeout(timeout time.Duration) *PostTextbotsBotflowsSessionTurnsParams {
-	var ()
 	return &PostTextbotsBotflowsSessionTurnsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTextbotsBotflowsSessionTurnsParamsWithContext creates a new PostTextbotsBotflowsSessionTurnsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTextbotsBotflowsSessionTurnsParamsWithContext(ctx context.Context) *PostTextbotsBotflowsSessionTurnsParams {
-	var ()
 	return &PostTextbotsBotflowsSessionTurnsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTextbotsBotflowsSessionTurnsParamsWithHTTPClient creates a new PostTextbotsBotflowsSessionTurnsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTextbotsBotflowsSessionTurnsParamsWithHTTPClient(client *http.Client) *PostTextbotsBotflowsSessionTurnsParams {
-	var ()
 	return &PostTextbotsBotflowsSessionTurnsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTextbotsBotflowsSessionTurnsParams contains all the parameters to send to the API endpoint
-for the post textbots botflows session turns operation typically these are written to a http.Request
+/*
+PostTextbotsBotflowsSessionTurnsParams contains all the parameters to send to the API endpoint
+
+	for the post textbots botflows session turns operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTextbotsBotflowsSessionTurnsParams struct {
 
-	/*SessionID
-	  The bot flow session ID, typically obtained from 'POST /api/v2/textbots/botflows/sessions'
+	/* SessionID.
 
+	   The bot flow session ID, typically obtained from 'POST /api/v2/textbots/botflows/sessions'
 	*/
 	SessionID string
-	/*TurnRequest*/
+
+	// TurnRequest.
 	TurnRequest *models.TextBotFlowTurnRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post textbots botflows session turns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTextbotsBotflowsSessionTurnsParams) WithDefaults() *PostTextbotsBotflowsSessionTurnsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post textbots botflows session turns params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTextbotsBotflowsSessionTurnsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post textbots botflows session turns params
@@ -142,7 +159,6 @@ func (o *PostTextbotsBotflowsSessionTurnsParams) WriteToRequest(r runtime.Client
 	if err := r.SetPathParam("sessionId", o.SessionID); err != nil {
 		return err
 	}
-
 	if o.TurnRequest != nil {
 		if err := r.SetBodyParam(o.TurnRequest); err != nil {
 			return err

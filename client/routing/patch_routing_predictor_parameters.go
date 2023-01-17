@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchRoutingPredictorParams creates a new PatchRoutingPredictorParams object
-// with the default values initialized.
+// NewPatchRoutingPredictorParams creates a new PatchRoutingPredictorParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchRoutingPredictorParams() *PatchRoutingPredictorParams {
-	var ()
 	return &PatchRoutingPredictorParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchRoutingPredictorParamsWithTimeout creates a new PatchRoutingPredictorParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchRoutingPredictorParamsWithTimeout(timeout time.Duration) *PatchRoutingPredictorParams {
-	var ()
 	return &PatchRoutingPredictorParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchRoutingPredictorParamsWithContext creates a new PatchRoutingPredictorParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchRoutingPredictorParamsWithContext(ctx context.Context) *PatchRoutingPredictorParams {
-	var ()
 	return &PatchRoutingPredictorParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchRoutingPredictorParamsWithHTTPClient creates a new PatchRoutingPredictorParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchRoutingPredictorParamsWithHTTPClient(client *http.Client) *PatchRoutingPredictorParams {
-	var ()
 	return &PatchRoutingPredictorParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchRoutingPredictorParams contains all the parameters to send to the API endpoint
-for the patch routing predictor operation typically these are written to a http.Request
+/*
+PatchRoutingPredictorParams contains all the parameters to send to the API endpoint
+
+	for the patch routing predictor operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchRoutingPredictorParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.PatchPredictorRequest
-	/*PredictorID
-	  Predictor ID
 
+	/* PredictorID.
+
+	   Predictor ID
 	*/
 	PredictorID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch routing predictor params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchRoutingPredictorParams) WithDefaults() *PatchRoutingPredictorParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch routing predictor params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchRoutingPredictorParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch routing predictor params
@@ -137,7 +154,6 @@ func (o *PatchRoutingPredictorParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostContentmanagementWorkspaceTagvaluesParams creates a new PostContentmanagementWorkspaceTagvaluesParams object
-// with the default values initialized.
+// NewPostContentmanagementWorkspaceTagvaluesParams creates a new PostContentmanagementWorkspaceTagvaluesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostContentmanagementWorkspaceTagvaluesParams() *PostContentmanagementWorkspaceTagvaluesParams {
-	var ()
 	return &PostContentmanagementWorkspaceTagvaluesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostContentmanagementWorkspaceTagvaluesParamsWithTimeout creates a new PostContentmanagementWorkspaceTagvaluesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostContentmanagementWorkspaceTagvaluesParamsWithTimeout(timeout time.Duration) *PostContentmanagementWorkspaceTagvaluesParams {
-	var ()
 	return &PostContentmanagementWorkspaceTagvaluesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostContentmanagementWorkspaceTagvaluesParamsWithContext creates a new PostContentmanagementWorkspaceTagvaluesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostContentmanagementWorkspaceTagvaluesParamsWithContext(ctx context.Context) *PostContentmanagementWorkspaceTagvaluesParams {
-	var ()
 	return &PostContentmanagementWorkspaceTagvaluesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostContentmanagementWorkspaceTagvaluesParamsWithHTTPClient creates a new PostContentmanagementWorkspaceTagvaluesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostContentmanagementWorkspaceTagvaluesParamsWithHTTPClient(client *http.Client) *PostContentmanagementWorkspaceTagvaluesParams {
-	var ()
 	return &PostContentmanagementWorkspaceTagvaluesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesParams contains all the parameters to send to the API endpoint
-for the post contentmanagement workspace tagvalues operation typically these are written to a http.Request
+/*
+PostContentmanagementWorkspaceTagvaluesParams contains all the parameters to send to the API endpoint
+
+	for the post contentmanagement workspace tagvalues operation.
+
+	Typically these are written to a http.Request.
 */
 type PostContentmanagementWorkspaceTagvaluesParams struct {
 
-	/*Body
-	  tag
+	/* Body.
 
+	   tag
 	*/
 	Body *models.TagValue
-	/*WorkspaceID
-	  Workspace ID
 
+	/* WorkspaceID.
+
+	   Workspace ID
 	*/
 	WorkspaceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post contentmanagement workspace tagvalues params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostContentmanagementWorkspaceTagvaluesParams) WithDefaults() *PostContentmanagementWorkspaceTagvaluesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post contentmanagement workspace tagvalues params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostContentmanagementWorkspaceTagvaluesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post contentmanagement workspace tagvalues params
@@ -140,7 +157,6 @@ func (o *PostContentmanagementWorkspaceTagvaluesParams) WriteToRequest(r runtime
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

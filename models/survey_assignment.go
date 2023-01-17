@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -57,7 +59,6 @@ func (m *SurveyAssignment) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SurveyAssignment) validateFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Flow) { // not required
 		return nil
 	}
@@ -66,6 +67,8 @@ func (m *SurveyAssignment) validateFlow(formats strfmt.Registry) error {
 		if err := m.Flow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
 			}
 			return err
 		}
@@ -84,7 +87,6 @@ func (m *SurveyAssignment) validateSendingDomain(formats strfmt.Registry) error 
 }
 
 func (m *SurveyAssignment) validateSurveyForm(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SurveyForm) { // not required
 		return nil
 	}
@@ -93,6 +95,58 @@ func (m *SurveyAssignment) validateSurveyForm(formats strfmt.Registry) error {
 		if err := m.SurveyForm.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("surveyForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyForm")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this survey assignment based on the context it is used
+func (m *SurveyAssignment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSurveyForm(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SurveyAssignment) contextValidateFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Flow != nil {
+		if err := m.Flow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SurveyAssignment) contextValidateSurveyForm(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SurveyForm != nil {
+		if err := m.SurveyForm.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("surveyForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyForm")
 			}
 			return err
 		}

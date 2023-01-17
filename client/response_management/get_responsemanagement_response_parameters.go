@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetResponsemanagementResponseParams creates a new GetResponsemanagementResponseParams object
-// with the default values initialized.
+// NewGetResponsemanagementResponseParams creates a new GetResponsemanagementResponseParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetResponsemanagementResponseParams() *GetResponsemanagementResponseParams {
-	var ()
 	return &GetResponsemanagementResponseParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetResponsemanagementResponseParamsWithTimeout creates a new GetResponsemanagementResponseParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetResponsemanagementResponseParamsWithTimeout(timeout time.Duration) *GetResponsemanagementResponseParams {
-	var ()
 	return &GetResponsemanagementResponseParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetResponsemanagementResponseParamsWithContext creates a new GetResponsemanagementResponseParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetResponsemanagementResponseParamsWithContext(ctx context.Context) *GetResponsemanagementResponseParams {
-	var ()
 	return &GetResponsemanagementResponseParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetResponsemanagementResponseParamsWithHTTPClient creates a new GetResponsemanagementResponseParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetResponsemanagementResponseParamsWithHTTPClient(client *http.Client) *GetResponsemanagementResponseParams {
-	var ()
 	return &GetResponsemanagementResponseParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetResponsemanagementResponseParams contains all the parameters to send to the API endpoint
-for the get responsemanagement response operation typically these are written to a http.Request
+/*
+GetResponsemanagementResponseParams contains all the parameters to send to the API endpoint
+
+	for the get responsemanagement response operation.
+
+	Typically these are written to a http.Request.
 */
 type GetResponsemanagementResponseParams struct {
 
-	/*Expand
-	  Expand instructions for the return value.
+	/* Expand.
 
+	   Expand instructions for the return value.
 	*/
 	Expand *string
-	/*ResponseID
-	  Response ID
 
+	/* ResponseID.
+
+	   Response ID
 	*/
 	ResponseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get responsemanagement response params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetResponsemanagementResponseParams) WithDefaults() *GetResponsemanagementResponseParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get responsemanagement response params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetResponsemanagementResponseParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get responsemanagement response params
@@ -143,16 +160,17 @@ func (o *GetResponsemanagementResponseParams) WriteToRequest(r runtime.ClientReq
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param responseId

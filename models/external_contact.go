@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -51,8 +52,7 @@ type ExternalContact struct {
 	FacebookID *FacebookID `json:"facebookId,omitempty"`
 
 	// The first name of the contact.
-	// Required: true
-	FirstName *string `json:"firstName"`
+	FirstName string `json:"firstName,omitempty"`
 
 	// home phone
 	HomePhone *PhoneNumber `json:"homePhone,omitempty"`
@@ -61,8 +61,7 @@ type ExternalContact struct {
 	ID string `json:"id,omitempty"`
 
 	// The last name of the contact.
-	// Required: true
-	LastName *string `json:"lastName"`
+	LastName string `json:"lastName,omitempty"`
 
 	// line Id
 	LineID *LineID `json:"lineId,omitempty"`
@@ -158,15 +157,7 @@ func (m *ExternalContact) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateFirstName(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateHomePhone(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateLastName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -221,7 +212,6 @@ func (m *ExternalContact) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ExternalContact) validateAddress(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Address) { // not required
 		return nil
 	}
@@ -230,6 +220,8 @@ func (m *ExternalContact) validateAddress(formats strfmt.Registry) error {
 		if err := m.Address.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("address")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("address")
 			}
 			return err
 		}
@@ -239,7 +231,6 @@ func (m *ExternalContact) validateAddress(formats strfmt.Registry) error {
 }
 
 func (m *ExternalContact) validateCanonicalContact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CanonicalContact) { // not required
 		return nil
 	}
@@ -248,6 +239,8 @@ func (m *ExternalContact) validateCanonicalContact(formats strfmt.Registry) erro
 		if err := m.CanonicalContact.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("canonicalContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("canonicalContact")
 			}
 			return err
 		}
@@ -257,7 +250,6 @@ func (m *ExternalContact) validateCanonicalContact(formats strfmt.Registry) erro
 }
 
 func (m *ExternalContact) validateCellPhone(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CellPhone) { // not required
 		return nil
 	}
@@ -266,6 +258,8 @@ func (m *ExternalContact) validateCellPhone(formats strfmt.Registry) error {
 		if err := m.CellPhone.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("cellPhone")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cellPhone")
 			}
 			return err
 		}
@@ -275,7 +269,6 @@ func (m *ExternalContact) validateCellPhone(formats strfmt.Registry) error {
 }
 
 func (m *ExternalContact) validateCreateDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreateDate) { // not required
 		return nil
 	}
@@ -288,7 +281,6 @@ func (m *ExternalContact) validateCreateDate(formats strfmt.Registry) error {
 }
 
 func (m *ExternalContact) validateExternalDataSources(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalDataSources) { // not required
 		return nil
 	}
@@ -302,6 +294,8 @@ func (m *ExternalContact) validateExternalDataSources(formats strfmt.Registry) e
 			if err := m.ExternalDataSources[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("externalDataSources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("externalDataSources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -313,7 +307,6 @@ func (m *ExternalContact) validateExternalDataSources(formats strfmt.Registry) e
 }
 
 func (m *ExternalContact) validateExternalOrganization(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalOrganization) { // not required
 		return nil
 	}
@@ -322,6 +315,8 @@ func (m *ExternalContact) validateExternalOrganization(formats strfmt.Registry) 
 		if err := m.ExternalOrganization.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("externalOrganization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalOrganization")
 			}
 			return err
 		}
@@ -331,7 +326,6 @@ func (m *ExternalContact) validateExternalOrganization(formats strfmt.Registry) 
 }
 
 func (m *ExternalContact) validateFacebookID(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FacebookID) { // not required
 		return nil
 	}
@@ -340,6 +334,8 @@ func (m *ExternalContact) validateFacebookID(formats strfmt.Registry) error {
 		if err := m.FacebookID.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("facebookId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("facebookId")
 			}
 			return err
 		}
@@ -348,17 +344,7 @@ func (m *ExternalContact) validateFacebookID(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *ExternalContact) validateFirstName(formats strfmt.Registry) error {
-
-	if err := validate.Required("firstName", "body", m.FirstName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *ExternalContact) validateHomePhone(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HomePhone) { // not required
 		return nil
 	}
@@ -367,6 +353,8 @@ func (m *ExternalContact) validateHomePhone(formats strfmt.Registry) error {
 		if err := m.HomePhone.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("homePhone")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("homePhone")
 			}
 			return err
 		}
@@ -375,17 +363,7 @@ func (m *ExternalContact) validateHomePhone(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *ExternalContact) validateLastName(formats strfmt.Registry) error {
-
-	if err := validate.Required("lastName", "body", m.LastName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *ExternalContact) validateLineID(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LineID) { // not required
 		return nil
 	}
@@ -394,6 +372,8 @@ func (m *ExternalContact) validateLineID(formats strfmt.Registry) error {
 		if err := m.LineID.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lineId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lineId")
 			}
 			return err
 		}
@@ -403,7 +383,6 @@ func (m *ExternalContact) validateLineID(formats strfmt.Registry) error {
 }
 
 func (m *ExternalContact) validateMergeOperation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MergeOperation) { // not required
 		return nil
 	}
@@ -412,6 +391,8 @@ func (m *ExternalContact) validateMergeOperation(formats strfmt.Registry) error 
 		if err := m.MergeOperation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mergeOperation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mergeOperation")
 			}
 			return err
 		}
@@ -421,7 +402,6 @@ func (m *ExternalContact) validateMergeOperation(formats strfmt.Registry) error 
 }
 
 func (m *ExternalContact) validateMergeSet(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MergeSet) { // not required
 		return nil
 	}
@@ -435,6 +415,8 @@ func (m *ExternalContact) validateMergeSet(formats strfmt.Registry) error {
 			if err := m.MergeSet[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("mergeSet" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mergeSet" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -446,7 +428,6 @@ func (m *ExternalContact) validateMergeSet(formats strfmt.Registry) error {
 }
 
 func (m *ExternalContact) validateModifyDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifyDate) { // not required
 		return nil
 	}
@@ -459,7 +440,6 @@ func (m *ExternalContact) validateModifyDate(formats strfmt.Registry) error {
 }
 
 func (m *ExternalContact) validateOtherPhone(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OtherPhone) { // not required
 		return nil
 	}
@@ -468,6 +448,8 @@ func (m *ExternalContact) validateOtherPhone(formats strfmt.Registry) error {
 		if err := m.OtherPhone.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("otherPhone")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("otherPhone")
 			}
 			return err
 		}
@@ -477,7 +459,6 @@ func (m *ExternalContact) validateOtherPhone(formats strfmt.Registry) error {
 }
 
 func (m *ExternalContact) validateSchema(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Schema) { // not required
 		return nil
 	}
@@ -486,6 +467,8 @@ func (m *ExternalContact) validateSchema(formats strfmt.Registry) error {
 		if err := m.Schema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schema")
 			}
 			return err
 		}
@@ -495,7 +478,6 @@ func (m *ExternalContact) validateSchema(formats strfmt.Registry) error {
 }
 
 func (m *ExternalContact) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -508,7 +490,6 @@ func (m *ExternalContact) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *ExternalContact) validateTwitterID(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TwitterID) { // not required
 		return nil
 	}
@@ -517,6 +498,8 @@ func (m *ExternalContact) validateTwitterID(formats strfmt.Registry) error {
 		if err := m.TwitterID.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("twitterId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("twitterId")
 			}
 			return err
 		}
@@ -558,7 +541,6 @@ func (m *ExternalContact) validateTypeEnum(path, location string, value string) 
 }
 
 func (m *ExternalContact) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -572,7 +554,6 @@ func (m *ExternalContact) validateType(formats strfmt.Registry) error {
 }
 
 func (m *ExternalContact) validateWhatsAppID(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WhatsAppID) { // not required
 		return nil
 	}
@@ -581,6 +562,8 @@ func (m *ExternalContact) validateWhatsAppID(formats strfmt.Registry) error {
 		if err := m.WhatsAppID.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("whatsAppId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("whatsAppId")
 			}
 			return err
 		}
@@ -590,7 +573,6 @@ func (m *ExternalContact) validateWhatsAppID(formats strfmt.Registry) error {
 }
 
 func (m *ExternalContact) validateWorkPhone(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WorkPhone) { // not required
 		return nil
 	}
@@ -599,6 +581,360 @@ func (m *ExternalContact) validateWorkPhone(formats strfmt.Registry) error {
 		if err := m.WorkPhone.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workPhone")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPhone")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this external contact based on the context it is used
+func (m *ExternalContact) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCanonicalContact(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCellPhone(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExternalDataSources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExternalOrganization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFacebookID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHomePhone(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLineID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMergeOperation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMergeSet(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOtherPhone(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTwitterID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWhatsAppID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkPhone(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ExternalContact) contextValidateAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Address != nil {
+		if err := m.Address.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("address")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("address")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateCanonicalContact(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CanonicalContact != nil {
+		if err := m.CanonicalContact.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("canonicalContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("canonicalContact")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateCellPhone(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CellPhone != nil {
+		if err := m.CellPhone.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("cellPhone")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("cellPhone")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateExternalDataSources(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "externalDataSources", "body", []*ExternalDataSource(m.ExternalDataSources)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.ExternalDataSources); i++ {
+
+		if m.ExternalDataSources[i] != nil {
+			if err := m.ExternalDataSources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("externalDataSources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("externalDataSources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateExternalOrganization(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExternalOrganization != nil {
+		if err := m.ExternalOrganization.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("externalOrganization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalOrganization")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateFacebookID(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FacebookID != nil {
+		if err := m.FacebookID.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("facebookId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("facebookId")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateHomePhone(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HomePhone != nil {
+		if err := m.HomePhone.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("homePhone")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("homePhone")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateLineID(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LineID != nil {
+		if err := m.LineID.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lineId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lineId")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateMergeOperation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MergeOperation != nil {
+		if err := m.MergeOperation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mergeOperation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mergeOperation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateMergeSet(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "mergeSet", "body", []*ContactAddressableEntityRef(m.MergeSet)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.MergeSet); i++ {
+
+		if m.MergeSet[i] != nil {
+			if err := m.MergeSet[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mergeSet" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mergeSet" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateOtherPhone(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OtherPhone != nil {
+		if err := m.OtherPhone.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("otherPhone")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("otherPhone")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Schema != nil {
+		if err := m.Schema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateTwitterID(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TwitterID != nil {
+		if err := m.TwitterID.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("twitterId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("twitterId")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "type", "body", string(m.Type)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateWhatsAppID(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WhatsAppID != nil {
+		if err := m.WhatsAppID.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("whatsAppId")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("whatsAppId")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalContact) contextValidateWorkPhone(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WorkPhone != nil {
+		if err := m.WorkPhone.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workPhone")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPhone")
 			}
 			return err
 		}

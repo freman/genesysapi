@@ -95,7 +95,6 @@ func (o *GetRoutingUserUtilizationReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingUserUtilizationOK() *GetRoutingUserUtilizationOK {
 	return &GetRoutingUserUtilizationOK{}
 }
 
-/*GetRoutingUserUtilizationOK handles this case with default header values.
+/*
+GetRoutingUserUtilizationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingUserUtilizationOK struct {
 	Payload *models.AgentMaxUtilization
 }
 
+// IsSuccess returns true when this get routing user utilization o k response has a 2xx status code
+func (o *GetRoutingUserUtilizationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing user utilization o k response has a 3xx status code
+func (o *GetRoutingUserUtilizationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing user utilization o k response has a 4xx status code
+func (o *GetRoutingUserUtilizationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing user utilization o k response has a 5xx status code
+func (o *GetRoutingUserUtilizationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing user utilization o k response a status code equal to that given
+func (o *GetRoutingUserUtilizationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingUserUtilizationOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingUserUtilizationOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingUserUtilizationBadRequest() *GetRoutingUserUtilizationBadReque
 	return &GetRoutingUserUtilizationBadRequest{}
 }
 
-/*GetRoutingUserUtilizationBadRequest handles this case with default header values.
+/*
+GetRoutingUserUtilizationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingUserUtilizationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing user utilization bad request response has a 2xx status code
+func (o *GetRoutingUserUtilizationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing user utilization bad request response has a 3xx status code
+func (o *GetRoutingUserUtilizationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing user utilization bad request response has a 4xx status code
+func (o *GetRoutingUserUtilizationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing user utilization bad request response has a 5xx status code
+func (o *GetRoutingUserUtilizationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing user utilization bad request response a status code equal to that given
+func (o *GetRoutingUserUtilizationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingUserUtilizationBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingUserUtilizationBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingUserUtilizationUnauthorized() *GetRoutingUserUtilizationUnauth
 	return &GetRoutingUserUtilizationUnauthorized{}
 }
 
-/*GetRoutingUserUtilizationUnauthorized handles this case with default header values.
+/*
+GetRoutingUserUtilizationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingUserUtilizationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing user utilization unauthorized response has a 2xx status code
+func (o *GetRoutingUserUtilizationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing user utilization unauthorized response has a 3xx status code
+func (o *GetRoutingUserUtilizationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing user utilization unauthorized response has a 4xx status code
+func (o *GetRoutingUserUtilizationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing user utilization unauthorized response has a 5xx status code
+func (o *GetRoutingUserUtilizationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing user utilization unauthorized response a status code equal to that given
+func (o *GetRoutingUserUtilizationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingUserUtilizationUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingUserUtilizationUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingUserUtilizationForbidden() *GetRoutingUserUtilizationForbidden
 	return &GetRoutingUserUtilizationForbidden{}
 }
 
-/*GetRoutingUserUtilizationForbidden handles this case with default header values.
+/*
+GetRoutingUserUtilizationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingUserUtilizationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing user utilization forbidden response has a 2xx status code
+func (o *GetRoutingUserUtilizationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing user utilization forbidden response has a 3xx status code
+func (o *GetRoutingUserUtilizationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing user utilization forbidden response has a 4xx status code
+func (o *GetRoutingUserUtilizationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing user utilization forbidden response has a 5xx status code
+func (o *GetRoutingUserUtilizationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing user utilization forbidden response a status code equal to that given
+func (o *GetRoutingUserUtilizationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingUserUtilizationForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingUserUtilizationForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingUserUtilizationNotFound() *GetRoutingUserUtilizationNotFound {
 	return &GetRoutingUserUtilizationNotFound{}
 }
 
-/*GetRoutingUserUtilizationNotFound handles this case with default header values.
+/*
+GetRoutingUserUtilizationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingUserUtilizationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing user utilization not found response has a 2xx status code
+func (o *GetRoutingUserUtilizationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing user utilization not found response has a 3xx status code
+func (o *GetRoutingUserUtilizationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing user utilization not found response has a 4xx status code
+func (o *GetRoutingUserUtilizationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing user utilization not found response has a 5xx status code
+func (o *GetRoutingUserUtilizationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing user utilization not found response a status code equal to that given
+func (o *GetRoutingUserUtilizationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingUserUtilizationNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingUserUtilizationNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingUserUtilizationRequestTimeout() *GetRoutingUserUtilizationRequ
 	return &GetRoutingUserUtilizationRequestTimeout{}
 }
 
-/*GetRoutingUserUtilizationRequestTimeout handles this case with default header values.
+/*
+GetRoutingUserUtilizationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingUserUtilizationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing user utilization request timeout response has a 2xx status code
+func (o *GetRoutingUserUtilizationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing user utilization request timeout response has a 3xx status code
+func (o *GetRoutingUserUtilizationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing user utilization request timeout response has a 4xx status code
+func (o *GetRoutingUserUtilizationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing user utilization request timeout response has a 5xx status code
+func (o *GetRoutingUserUtilizationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing user utilization request timeout response a status code equal to that given
+func (o *GetRoutingUserUtilizationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingUserUtilizationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingUserUtilizationRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingUserUtilizationRequestEntityTooLarge() *GetRoutingUserUtilizat
 	return &GetRoutingUserUtilizationRequestEntityTooLarge{}
 }
 
-/*GetRoutingUserUtilizationRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingUserUtilizationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingUserUtilizationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing user utilization request entity too large response has a 2xx status code
+func (o *GetRoutingUserUtilizationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing user utilization request entity too large response has a 3xx status code
+func (o *GetRoutingUserUtilizationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing user utilization request entity too large response has a 4xx status code
+func (o *GetRoutingUserUtilizationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing user utilization request entity too large response has a 5xx status code
+func (o *GetRoutingUserUtilizationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing user utilization request entity too large response a status code equal to that given
+func (o *GetRoutingUserUtilizationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingUserUtilizationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingUserUtilizationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingUserUtilizationUnsupportedMediaType() *GetRoutingUserUtilizati
 	return &GetRoutingUserUtilizationUnsupportedMediaType{}
 }
 
-/*GetRoutingUserUtilizationUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingUserUtilizationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingUserUtilizationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing user utilization unsupported media type response has a 2xx status code
+func (o *GetRoutingUserUtilizationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing user utilization unsupported media type response has a 3xx status code
+func (o *GetRoutingUserUtilizationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing user utilization unsupported media type response has a 4xx status code
+func (o *GetRoutingUserUtilizationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing user utilization unsupported media type response has a 5xx status code
+func (o *GetRoutingUserUtilizationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing user utilization unsupported media type response a status code equal to that given
+func (o *GetRoutingUserUtilizationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingUserUtilizationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingUserUtilizationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingUserUtilizationTooManyRequests() *GetRoutingUserUtilizationToo
 	return &GetRoutingUserUtilizationTooManyRequests{}
 }
 
-/*GetRoutingUserUtilizationTooManyRequests handles this case with default header values.
+/*
+GetRoutingUserUtilizationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingUserUtilizationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing user utilization too many requests response has a 2xx status code
+func (o *GetRoutingUserUtilizationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing user utilization too many requests response has a 3xx status code
+func (o *GetRoutingUserUtilizationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing user utilization too many requests response has a 4xx status code
+func (o *GetRoutingUserUtilizationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing user utilization too many requests response has a 5xx status code
+func (o *GetRoutingUserUtilizationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing user utilization too many requests response a status code equal to that given
+func (o *GetRoutingUserUtilizationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingUserUtilizationTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingUserUtilizationTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingUserUtilizationInternalServerError() *GetRoutingUserUtilizatio
 	return &GetRoutingUserUtilizationInternalServerError{}
 }
 
-/*GetRoutingUserUtilizationInternalServerError handles this case with default header values.
+/*
+GetRoutingUserUtilizationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingUserUtilizationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing user utilization internal server error response has a 2xx status code
+func (o *GetRoutingUserUtilizationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing user utilization internal server error response has a 3xx status code
+func (o *GetRoutingUserUtilizationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing user utilization internal server error response has a 4xx status code
+func (o *GetRoutingUserUtilizationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing user utilization internal server error response has a 5xx status code
+func (o *GetRoutingUserUtilizationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing user utilization internal server error response a status code equal to that given
+func (o *GetRoutingUserUtilizationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingUserUtilizationInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingUserUtilizationInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingUserUtilizationServiceUnavailable() *GetRoutingUserUtilization
 	return &GetRoutingUserUtilizationServiceUnavailable{}
 }
 
-/*GetRoutingUserUtilizationServiceUnavailable handles this case with default header values.
+/*
+GetRoutingUserUtilizationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingUserUtilizationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing user utilization service unavailable response has a 2xx status code
+func (o *GetRoutingUserUtilizationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing user utilization service unavailable response has a 3xx status code
+func (o *GetRoutingUserUtilizationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing user utilization service unavailable response has a 4xx status code
+func (o *GetRoutingUserUtilizationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing user utilization service unavailable response has a 5xx status code
+func (o *GetRoutingUserUtilizationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing user utilization service unavailable response a status code equal to that given
+func (o *GetRoutingUserUtilizationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingUserUtilizationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingUserUtilizationServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingUserUtilizationGatewayTimeout() *GetRoutingUserUtilizationGate
 	return &GetRoutingUserUtilizationGatewayTimeout{}
 }
 
-/*GetRoutingUserUtilizationGatewayTimeout handles this case with default header values.
+/*
+GetRoutingUserUtilizationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingUserUtilizationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing user utilization gateway timeout response has a 2xx status code
+func (o *GetRoutingUserUtilizationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing user utilization gateway timeout response has a 3xx status code
+func (o *GetRoutingUserUtilizationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing user utilization gateway timeout response has a 4xx status code
+func (o *GetRoutingUserUtilizationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing user utilization gateway timeout response has a 5xx status code
+func (o *GetRoutingUserUtilizationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing user utilization gateway timeout response a status code equal to that given
+func (o *GetRoutingUserUtilizationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingUserUtilizationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingUserUtilizationGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/users/{userId}/utilization][%d] getRoutingUserUtilizationGatewayTimeout  %+v", 504, o.Payload)
 }
 

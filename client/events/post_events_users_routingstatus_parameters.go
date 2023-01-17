@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostEventsUsersRoutingstatusParams creates a new PostEventsUsersRoutingstatusParams object
-// with the default values initialized.
+// NewPostEventsUsersRoutingstatusParams creates a new PostEventsUsersRoutingstatusParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostEventsUsersRoutingstatusParams() *PostEventsUsersRoutingstatusParams {
-	var ()
 	return &PostEventsUsersRoutingstatusParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostEventsUsersRoutingstatusParamsWithTimeout creates a new PostEventsUsersRoutingstatusParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostEventsUsersRoutingstatusParamsWithTimeout(timeout time.Duration) *PostEventsUsersRoutingstatusParams {
-	var ()
 	return &PostEventsUsersRoutingstatusParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostEventsUsersRoutingstatusParamsWithContext creates a new PostEventsUsersRoutingstatusParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostEventsUsersRoutingstatusParamsWithContext(ctx context.Context) *PostEventsUsersRoutingstatusParams {
-	var ()
 	return &PostEventsUsersRoutingstatusParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostEventsUsersRoutingstatusParamsWithHTTPClient creates a new PostEventsUsersRoutingstatusParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostEventsUsersRoutingstatusParamsWithHTTPClient(client *http.Client) *PostEventsUsersRoutingstatusParams {
-	var ()
 	return &PostEventsUsersRoutingstatusParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostEventsUsersRoutingstatusParams contains all the parameters to send to the API endpoint
-for the post events users routingstatus operation typically these are written to a http.Request
+/*
+PostEventsUsersRoutingstatusParams contains all the parameters to send to the API endpoint
+
+	for the post events users routingstatus operation.
+
+	Typically these are written to a http.Request.
 */
 type PostEventsUsersRoutingstatusParams struct {
 
-	/*Body
-	  batchRequest
+	/* Body.
 
+	   batchRequest
 	*/
 	Body *models.BatchUserRoutingStatusEventRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post events users routingstatus params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostEventsUsersRoutingstatusParams) WithDefaults() *PostEventsUsersRoutingstatusParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post events users routingstatus params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostEventsUsersRoutingstatusParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post events users routingstatus params
@@ -124,7 +140,6 @@ func (o *PostEventsUsersRoutingstatusParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

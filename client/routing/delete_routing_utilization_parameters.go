@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteRoutingUtilizationParams creates a new DeleteRoutingUtilizationParams object
-// with the default values initialized.
+// NewDeleteRoutingUtilizationParams creates a new DeleteRoutingUtilizationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRoutingUtilizationParams() *DeleteRoutingUtilizationParams {
-
 	return &DeleteRoutingUtilizationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRoutingUtilizationParamsWithTimeout creates a new DeleteRoutingUtilizationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRoutingUtilizationParamsWithTimeout(timeout time.Duration) *DeleteRoutingUtilizationParams {
-
 	return &DeleteRoutingUtilizationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRoutingUtilizationParamsWithContext creates a new DeleteRoutingUtilizationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRoutingUtilizationParamsWithContext(ctx context.Context) *DeleteRoutingUtilizationParams {
-
 	return &DeleteRoutingUtilizationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRoutingUtilizationParamsWithHTTPClient creates a new DeleteRoutingUtilizationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRoutingUtilizationParamsWithHTTPClient(client *http.Client) *DeleteRoutingUtilizationParams {
-
 	return &DeleteRoutingUtilizationParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRoutingUtilizationParams contains all the parameters to send to the API endpoint
-for the delete routing utilization operation typically these are written to a http.Request
+/*
+DeleteRoutingUtilizationParams contains all the parameters to send to the API endpoint
+
+	for the delete routing utilization operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteRoutingUtilizationParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete routing utilization params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingUtilizationParams) WithDefaults() *DeleteRoutingUtilizationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete routing utilization params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingUtilizationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete routing utilization params

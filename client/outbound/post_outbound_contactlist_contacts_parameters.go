@@ -19,79 +19,99 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOutboundContactlistContactsParams creates a new PostOutboundContactlistContactsParams object
-// with the default values initialized.
+// NewPostOutboundContactlistContactsParams creates a new PostOutboundContactlistContactsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundContactlistContactsParams() *PostOutboundContactlistContactsParams {
-	var ()
 	return &PostOutboundContactlistContactsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundContactlistContactsParamsWithTimeout creates a new PostOutboundContactlistContactsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundContactlistContactsParamsWithTimeout(timeout time.Duration) *PostOutboundContactlistContactsParams {
-	var ()
 	return &PostOutboundContactlistContactsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundContactlistContactsParamsWithContext creates a new PostOutboundContactlistContactsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundContactlistContactsParamsWithContext(ctx context.Context) *PostOutboundContactlistContactsParams {
-	var ()
 	return &PostOutboundContactlistContactsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundContactlistContactsParamsWithHTTPClient creates a new PostOutboundContactlistContactsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundContactlistContactsParamsWithHTTPClient(client *http.Client) *PostOutboundContactlistContactsParams {
-	var ()
 	return &PostOutboundContactlistContactsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundContactlistContactsParams contains all the parameters to send to the API endpoint
-for the post outbound contactlist contacts operation typically these are written to a http.Request
+/*
+PostOutboundContactlistContactsParams contains all the parameters to send to the API endpoint
+
+	for the post outbound contactlist contacts operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundContactlistContactsParams struct {
 
-	/*Body
-	  Contact
+	/* Body.
 
+	   Contact
 	*/
 	Body []*models.WritableDialerContact
-	/*ClearSystemData
-	  Clear system data. True means the system columns (attempts, callable status, etc) stored on the contact will be cleared if the contact already exists; false means they won't.
 
+	/* ClearSystemData.
+
+	   Clear system data. True means the system columns (attempts, callable status, etc) stored on the contact will be cleared if the contact already exists; false means they won't.
 	*/
 	ClearSystemData *bool
-	/*ContactListID
-	  Contact List ID
 
+	/* ContactListID.
+
+	   Contact List ID
 	*/
 	ContactListID string
-	/*DoNotQueue
-	  Do not queue. True means that updated contacts will not have their positions in the queue altered, so contacts that have already been dialed will not be redialed. For new contacts, this parameter has no effect; False means that updated contacts will be re-queued, according to the 'priority' parameter.
 
+	/* DoNotQueue.
+
+	   Do not queue. True means that updated contacts will not have their positions in the queue altered, so contacts that have already been dialed will not be redialed. For new contacts, this parameter has no effect; False means that updated contacts will be re-queued, according to the 'priority' parameter.
 	*/
 	DoNotQueue *bool
-	/*Priority
-	  Contact priority. True means the contact(s) will be dialed next; false means the contact will go to the end of the contact queue.
 
+	/* Priority.
+
+	   Contact priority. True means the contact(s) will be dialed next; false means the contact will go to the end of the contact queue.
 	*/
 	Priority *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound contactlist contacts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundContactlistContactsParams) WithDefaults() *PostOutboundContactlistContactsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound contactlist contacts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundContactlistContactsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound contactlist contacts params
@@ -189,7 +209,6 @@ func (o *PostOutboundContactlistContactsParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -200,16 +219,17 @@ func (o *PostOutboundContactlistContactsParams) WriteToRequest(r runtime.ClientR
 
 		// query param clearSystemData
 		var qrClearSystemData bool
+
 		if o.ClearSystemData != nil {
 			qrClearSystemData = *o.ClearSystemData
 		}
 		qClearSystemData := swag.FormatBool(qrClearSystemData)
 		if qClearSystemData != "" {
+
 			if err := r.SetQueryParam("clearSystemData", qClearSystemData); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param contactListId
@@ -221,32 +241,34 @@ func (o *PostOutboundContactlistContactsParams) WriteToRequest(r runtime.ClientR
 
 		// query param doNotQueue
 		var qrDoNotQueue bool
+
 		if o.DoNotQueue != nil {
 			qrDoNotQueue = *o.DoNotQueue
 		}
 		qDoNotQueue := swag.FormatBool(qrDoNotQueue)
 		if qDoNotQueue != "" {
+
 			if err := r.SetQueryParam("doNotQueue", qDoNotQueue); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Priority != nil {
 
 		// query param priority
 		var qrPriority bool
+
 		if o.Priority != nil {
 			qrPriority = *o.Priority
 		}
 		qPriority := swag.FormatBool(qrPriority)
 		if qPriority != "" {
+
 			if err := r.SetQueryParam("priority", qPriority); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

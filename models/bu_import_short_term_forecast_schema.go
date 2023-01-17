@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -74,7 +75,6 @@ func (m *BuImportShortTermForecastSchema) validateDescription(formats strfmt.Reg
 }
 
 func (m *BuImportShortTermForecastSchema) validateLongTermPlanningGroups(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LongTermPlanningGroups) { // not required
 		return nil
 	}
@@ -88,6 +88,8 @@ func (m *BuImportShortTermForecastSchema) validateLongTermPlanningGroups(formats
 			if err := m.LongTermPlanningGroups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("longTermPlanningGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("longTermPlanningGroups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -113,6 +115,8 @@ func (m *BuImportShortTermForecastSchema) validatePlanningGroups(formats strfmt.
 			if err := m.PlanningGroups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("planningGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("planningGroups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -127,6 +131,64 @@ func (m *BuImportShortTermForecastSchema) validateWeekCount(formats strfmt.Regis
 
 	if err := validate.Required("weekCount", "body", m.WeekCount); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu import short term forecast schema based on the context it is used
+func (m *BuImportShortTermForecastSchema) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateLongTermPlanningGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePlanningGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuImportShortTermForecastSchema) contextValidateLongTermPlanningGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.LongTermPlanningGroups); i++ {
+
+		if m.LongTermPlanningGroups[i] != nil {
+			if err := m.LongTermPlanningGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("longTermPlanningGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("longTermPlanningGroups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuImportShortTermForecastSchema) contextValidatePlanningGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PlanningGroups); i++ {
+
+		if m.PlanningGroups[i] != nil {
+			if err := m.PlanningGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("planningGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("planningGroups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

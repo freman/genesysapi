@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostLearningModulesParams creates a new PostLearningModulesParams object
-// with the default values initialized.
+// NewPostLearningModulesParams creates a new PostLearningModulesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostLearningModulesParams() *PostLearningModulesParams {
-	var ()
 	return &PostLearningModulesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostLearningModulesParamsWithTimeout creates a new PostLearningModulesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostLearningModulesParamsWithTimeout(timeout time.Duration) *PostLearningModulesParams {
-	var ()
 	return &PostLearningModulesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostLearningModulesParamsWithContext creates a new PostLearningModulesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostLearningModulesParamsWithContext(ctx context.Context) *PostLearningModulesParams {
-	var ()
 	return &PostLearningModulesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostLearningModulesParamsWithHTTPClient creates a new PostLearningModulesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostLearningModulesParamsWithHTTPClient(client *http.Client) *PostLearningModulesParams {
-	var ()
 	return &PostLearningModulesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostLearningModulesParams contains all the parameters to send to the API endpoint
-for the post learning modules operation typically these are written to a http.Request
+/*
+PostLearningModulesParams contains all the parameters to send to the API endpoint
+
+	for the post learning modules operation.
+
+	Typically these are written to a http.Request.
 */
 type PostLearningModulesParams struct {
 
-	/*Body
-	  The learning module to be created
+	/* Body.
 
+	   The learning module to be created
 	*/
 	Body *models.LearningModuleRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post learning modules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLearningModulesParams) WithDefaults() *PostLearningModulesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post learning modules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLearningModulesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post learning modules params
@@ -124,7 +140,6 @@ func (o *PostLearningModulesParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

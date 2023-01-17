@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostOauthClientSecretParams creates a new PostOauthClientSecretParams object
-// with the default values initialized.
+// NewPostOauthClientSecretParams creates a new PostOauthClientSecretParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOauthClientSecretParams() *PostOauthClientSecretParams {
-	var ()
 	return &PostOauthClientSecretParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOauthClientSecretParamsWithTimeout creates a new PostOauthClientSecretParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOauthClientSecretParamsWithTimeout(timeout time.Duration) *PostOauthClientSecretParams {
-	var ()
 	return &PostOauthClientSecretParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOauthClientSecretParamsWithContext creates a new PostOauthClientSecretParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOauthClientSecretParamsWithContext(ctx context.Context) *PostOauthClientSecretParams {
-	var ()
 	return &PostOauthClientSecretParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOauthClientSecretParamsWithHTTPClient creates a new PostOauthClientSecretParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOauthClientSecretParamsWithHTTPClient(client *http.Client) *PostOauthClientSecretParams {
-	var ()
 	return &PostOauthClientSecretParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOauthClientSecretParams contains all the parameters to send to the API endpoint
-for the post oauth client secret operation typically these are written to a http.Request
+/*
+PostOauthClientSecretParams contains all the parameters to send to the API endpoint
+
+	for the post oauth client secret operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOauthClientSecretParams struct {
 
-	/*ClientID
-	  Client ID
+	/* ClientID.
 
+	   Client ID
 	*/
 	ClientID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post oauth client secret params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOauthClientSecretParams) WithDefaults() *PostOauthClientSecretParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post oauth client secret params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOauthClientSecretParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post oauth client secret params

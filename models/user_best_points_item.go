@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -31,7 +32,7 @@ type UserBestPointsItem struct {
 
 	// Best points aggregation interval granularity
 	// Read Only: true
-	// Enum: [Monthly Weekly Daily]
+	// Enum: [Daily Weekly Monthly]
 	GranularityType string `json:"granularityType,omitempty"`
 
 	// Gamification points
@@ -66,7 +67,6 @@ func (m *UserBestPointsItem) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserBestPointsItem) validateDateEndWorkday(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateEndWorkday) { // not required
 		return nil
 	}
@@ -79,7 +79,6 @@ func (m *UserBestPointsItem) validateDateEndWorkday(formats strfmt.Registry) err
 }
 
 func (m *UserBestPointsItem) validateDateStartWorkday(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStartWorkday) { // not required
 		return nil
 	}
@@ -95,7 +94,7 @@ var userBestPointsItemTypeGranularityTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Monthly","Weekly","Daily"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Daily","Weekly","Monthly"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -105,14 +104,14 @@ func init() {
 
 const (
 
-	// UserBestPointsItemGranularityTypeMonthly captures enum value "Monthly"
-	UserBestPointsItemGranularityTypeMonthly string = "Monthly"
+	// UserBestPointsItemGranularityTypeDaily captures enum value "Daily"
+	UserBestPointsItemGranularityTypeDaily string = "Daily"
 
 	// UserBestPointsItemGranularityTypeWeekly captures enum value "Weekly"
 	UserBestPointsItemGranularityTypeWeekly string = "Weekly"
 
-	// UserBestPointsItemGranularityTypeDaily captures enum value "Daily"
-	UserBestPointsItemGranularityTypeDaily string = "Daily"
+	// UserBestPointsItemGranularityTypeMonthly captures enum value "Monthly"
+	UserBestPointsItemGranularityTypeMonthly string = "Monthly"
 )
 
 // prop value enum
@@ -124,13 +123,87 @@ func (m *UserBestPointsItem) validateGranularityTypeEnum(path, location string, 
 }
 
 func (m *UserBestPointsItem) validateGranularityType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GranularityType) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateGranularityTypeEnum("granularityType", "body", m.GranularityType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user best points item based on the context it is used
+func (m *UserBestPointsItem) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateEndWorkday(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateStartWorkday(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGranularityType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePoints(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRank(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserBestPointsItem) contextValidateDateEndWorkday(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateEndWorkday", "body", strfmt.Date(m.DateEndWorkday)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserBestPointsItem) contextValidateDateStartWorkday(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateStartWorkday", "body", strfmt.Date(m.DateStartWorkday)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserBestPointsItem) contextValidateGranularityType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "granularityType", "body", string(m.GranularityType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserBestPointsItem) contextValidatePoints(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "points", "body", int32(m.Points)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserBestPointsItem) contextValidateRank(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "rank", "body", int32(m.Rank)); err != nil {
 		return err
 	}
 

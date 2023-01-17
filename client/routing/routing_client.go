@@ -34,6 +34,10 @@ type API interface {
 	*/
 	DeleteRoutingEmailOutboundDomain(ctx context.Context, params *DeleteRoutingEmailOutboundDomainParams) (*DeleteRoutingEmailOutboundDomainNoContent, error)
 	/*
+	   DeleteRoutingLanguage deletes a routing language
+	*/
+	DeleteRoutingLanguage(ctx context.Context, params *DeleteRoutingLanguageParams) error
+	/*
 	   DeleteRoutingPredictor deletes single predictor
 	*/
 	DeleteRoutingPredictor(ctx context.Context, params *DeleteRoutingPredictorParams) (*DeleteRoutingPredictorNoContent, error)
@@ -61,6 +65,10 @@ type API interface {
 	   DeleteRoutingSkill deletes routing skill
 	*/
 	DeleteRoutingSkill(ctx context.Context, params *DeleteRoutingSkillParams) (*DeleteRoutingSkillOK, error)
+	/*
+	   DeleteRoutingSkillgroup removes skill group definition
+	*/
+	DeleteRoutingSkillgroup(ctx context.Context, params *DeleteRoutingSkillgroupParams) (*DeleteRoutingSkillgroupNoContent, error)
 	/*
 	   DeleteRoutingSmsAddress deletes an address by Id for s m s
 	*/
@@ -137,6 +145,10 @@ type API interface {
 	   GetRoutingEmailSetup gets email setup
 	*/
 	GetRoutingEmailSetup(ctx context.Context, params *GetRoutingEmailSetupParams) (*GetRoutingEmailSetupOK, error)
+	/*
+	   GetRoutingLanguage gets a routing language
+	*/
+	GetRoutingLanguage(ctx context.Context, params *GetRoutingLanguageParams) (*GetRoutingLanguageOK, error)
 	/*
 	   GetRoutingLanguages gets the list of supported languages
 	*/
@@ -234,6 +246,22 @@ type API interface {
 	*/
 	GetRoutingSkill(ctx context.Context, params *GetRoutingSkillParams) (*GetRoutingSkillOK, error)
 	/*
+	   GetRoutingSkillgroup gets skill group
+	*/
+	GetRoutingSkillgroup(ctx context.Context, params *GetRoutingSkillgroupParams) (*GetRoutingSkillgroupOK, error)
+	/*
+	   GetRoutingSkillgroupMembers gets skill group members
+	*/
+	GetRoutingSkillgroupMembers(ctx context.Context, params *GetRoutingSkillgroupMembersParams) (*GetRoutingSkillgroupMembersOK, error)
+	/*
+	   GetRoutingSkillgroupMembersDivisions gets list of member divisions for this skill group
+	*/
+	GetRoutingSkillgroupMembersDivisions(ctx context.Context, params *GetRoutingSkillgroupMembersDivisionsParams) (*GetRoutingSkillgroupMembersDivisionsOK, error)
+	/*
+	   GetRoutingSkillgroups gets skill group listing
+	*/
+	GetRoutingSkillgroups(ctx context.Context, params *GetRoutingSkillgroupsParams) (*GetRoutingSkillgroupsOK, error)
+	/*
 	   GetRoutingSkills gets the list of routing skills
 	*/
 	GetRoutingSkills(ctx context.Context, params *GetRoutingSkillsParams) (*GetRoutingSkillsOK, error)
@@ -316,6 +344,10 @@ type API interface {
 	*/
 	PatchRoutingSettingsContactcenter(ctx context.Context, params *PatchRoutingSettingsContactcenterParams) (*PatchRoutingSettingsContactcenterAccepted, error)
 	/*
+	   PatchRoutingSkillgroup updates skill group definition
+	*/
+	PatchRoutingSkillgroup(ctx context.Context, params *PatchRoutingSkillgroupParams) (*PatchRoutingSkillgroupOK, error)
+	/*
 	   PatchUserQueue joins or unjoin a queue for a user
 	*/
 	PatchUserQueue(ctx context.Context, params *PatchUserQueueParams) (*PatchUserQueueOK, error)
@@ -376,6 +408,14 @@ type API interface {
 	   PostRoutingQueues creates a queue
 	*/
 	PostRoutingQueues(ctx context.Context, params *PostRoutingQueuesParams) (*PostRoutingQueuesOK, error)
+	/*
+	   PostRoutingSkillgroupMembersDivisions adds or remove member divisions for this skill group
+	*/
+	PostRoutingSkillgroupMembersDivisions(ctx context.Context, params *PostRoutingSkillgroupMembersDivisionsParams) (*PostRoutingSkillgroupMembersDivisionsNoContent, error)
+	/*
+	   PostRoutingSkillgroups creates a skill group
+	*/
+	PostRoutingSkillgroups(ctx context.Context, params *PostRoutingSkillgroupsParams) (*PostRoutingSkillgroupsOK, error)
 	/*
 	   PostRoutingSkills creates skill
 	*/
@@ -553,6 +593,31 @@ func (a *Client) DeleteRoutingEmailOutboundDomain(ctx context.Context, params *D
 }
 
 /*
+DeleteRoutingLanguage deletes a routing language
+*/
+func (a *Client) DeleteRoutingLanguage(ctx context.Context, params *DeleteRoutingLanguageParams) error {
+
+	_, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteRoutingLanguage",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/routing/languages/{languageId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteRoutingLanguageReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return err
+	}
+	return nil
+
+}
+
+/*
 DeleteRoutingPredictor deletes single predictor
 */
 func (a *Client) DeleteRoutingPredictor(ctx context.Context, params *DeleteRoutingPredictorParams) (*DeleteRoutingPredictorNoContent, error) {
@@ -724,6 +789,31 @@ func (a *Client) DeleteRoutingSkill(ctx context.Context, params *DeleteRoutingSk
 		return nil, err
 	}
 	return result.(*DeleteRoutingSkillOK), nil
+
+}
+
+/*
+DeleteRoutingSkillgroup removes skill group definition
+*/
+func (a *Client) DeleteRoutingSkillgroup(ctx context.Context, params *DeleteRoutingSkillgroupParams) (*DeleteRoutingSkillgroupNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteRoutingSkillgroup",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/routing/skillgroups/{skillGroupId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteRoutingSkillgroupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteRoutingSkillgroupNoContent), nil
 
 }
 
@@ -1205,6 +1295,31 @@ func (a *Client) GetRoutingEmailSetup(ctx context.Context, params *GetRoutingEma
 		return nil, err
 	}
 	return result.(*GetRoutingEmailSetupOK), nil
+
+}
+
+/*
+GetRoutingLanguage gets a routing language
+*/
+func (a *Client) GetRoutingLanguage(ctx context.Context, params *GetRoutingLanguageParams) (*GetRoutingLanguageOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingLanguage",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/languages/{languageId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingLanguageReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingLanguageOK), nil
 
 }
 
@@ -1809,6 +1924,106 @@ func (a *Client) GetRoutingSkill(ctx context.Context, params *GetRoutingSkillPar
 }
 
 /*
+GetRoutingSkillgroup gets skill group
+*/
+func (a *Client) GetRoutingSkillgroup(ctx context.Context, params *GetRoutingSkillgroupParams) (*GetRoutingSkillgroupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingSkillgroup",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/skillgroups/{skillGroupId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingSkillgroupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingSkillgroupOK), nil
+
+}
+
+/*
+GetRoutingSkillgroupMembers gets skill group members
+*/
+func (a *Client) GetRoutingSkillgroupMembers(ctx context.Context, params *GetRoutingSkillgroupMembersParams) (*GetRoutingSkillgroupMembersOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingSkillgroupMembers",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/skillgroups/{skillGroupId}/members",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingSkillgroupMembersReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingSkillgroupMembersOK), nil
+
+}
+
+/*
+GetRoutingSkillgroupMembersDivisions gets list of member divisions for this skill group
+*/
+func (a *Client) GetRoutingSkillgroupMembersDivisions(ctx context.Context, params *GetRoutingSkillgroupMembersDivisionsParams) (*GetRoutingSkillgroupMembersDivisionsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingSkillgroupMembersDivisions",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/skillgroups/{skillGroupId}/members/divisions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingSkillgroupMembersDivisionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingSkillgroupMembersDivisionsOK), nil
+
+}
+
+/*
+GetRoutingSkillgroups gets skill group listing
+*/
+func (a *Client) GetRoutingSkillgroups(ctx context.Context, params *GetRoutingSkillgroupsParams) (*GetRoutingSkillgroupsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRoutingSkillgroups",
+		Method:             "GET",
+		PathPattern:        "/api/v2/routing/skillgroups",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRoutingSkillgroupsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRoutingSkillgroupsOK), nil
+
+}
+
+/*
 GetRoutingSkills gets the list of routing skills
 */
 func (a *Client) GetRoutingSkills(ctx context.Context, params *GetRoutingSkillsParams) (*GetRoutingSkillsOK, error) {
@@ -2313,6 +2528,31 @@ func (a *Client) PatchRoutingSettingsContactcenter(ctx context.Context, params *
 }
 
 /*
+PatchRoutingSkillgroup updates skill group definition
+*/
+func (a *Client) PatchRoutingSkillgroup(ctx context.Context, params *PatchRoutingSkillgroupParams) (*PatchRoutingSkillgroupOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchRoutingSkillgroup",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/routing/skillgroups/{skillGroupId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchRoutingSkillgroupReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchRoutingSkillgroupOK), nil
+
+}
+
+/*
 PatchUserQueue joins or unjoin a queue for a user
 */
 func (a *Client) PatchUserQueue(ctx context.Context, params *PatchUserQueueParams) (*PatchUserQueueOK, error) {
@@ -2704,6 +2944,56 @@ func (a *Client) PostRoutingQueues(ctx context.Context, params *PostRoutingQueue
 		return nil, err
 	}
 	return result.(*PostRoutingQueuesOK), nil
+
+}
+
+/*
+PostRoutingSkillgroupMembersDivisions adds or remove member divisions for this skill group
+*/
+func (a *Client) PostRoutingSkillgroupMembersDivisions(ctx context.Context, params *PostRoutingSkillgroupMembersDivisionsParams) (*PostRoutingSkillgroupMembersDivisionsNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRoutingSkillgroupMembersDivisions",
+		Method:             "POST",
+		PathPattern:        "/api/v2/routing/skillgroups/{skillGroupId}/members/divisions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRoutingSkillgroupMembersDivisionsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRoutingSkillgroupMembersDivisionsNoContent), nil
+
+}
+
+/*
+PostRoutingSkillgroups creates a skill group
+*/
+func (a *Client) PostRoutingSkillgroups(ctx context.Context, params *PostRoutingSkillgroupsParams) (*PostRoutingSkillgroupsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRoutingSkillgroups",
+		Method:             "POST",
+		PathPattern:        "/api/v2/routing/skillgroups",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRoutingSkillgroupsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRoutingSkillgroupsOK), nil
 
 }
 

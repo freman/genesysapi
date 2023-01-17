@@ -95,7 +95,6 @@ func (o *PostContentmanagementWorkspaceTagvaluesReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostContentmanagementWorkspaceTagvaluesOK() *PostContentmanagementWorksp
 	return &PostContentmanagementWorkspaceTagvaluesOK{}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesOK handles this case with default header values.
+/*
+PostContentmanagementWorkspaceTagvaluesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostContentmanagementWorkspaceTagvaluesOK struct {
 	Payload *models.TagValue
 }
 
+// IsSuccess returns true when this post contentmanagement workspace tagvalues o k response has a 2xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post contentmanagement workspace tagvalues o k response has a 3xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspace tagvalues o k response has a 4xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement workspace tagvalues o k response has a 5xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspace tagvalues o k response a status code equal to that given
+func (o *PostContentmanagementWorkspaceTagvaluesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostContentmanagementWorkspaceTagvaluesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspaceTagvaluesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostContentmanagementWorkspaceTagvaluesBadRequest() *PostContentmanageme
 	return &PostContentmanagementWorkspaceTagvaluesBadRequest{}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesBadRequest handles this case with default header values.
+/*
+PostContentmanagementWorkspaceTagvaluesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostContentmanagementWorkspaceTagvaluesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspace tagvalues bad request response has a 2xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspace tagvalues bad request response has a 3xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspace tagvalues bad request response has a 4xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspace tagvalues bad request response has a 5xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspace tagvalues bad request response a status code equal to that given
+func (o *PostContentmanagementWorkspaceTagvaluesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostContentmanagementWorkspaceTagvaluesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspaceTagvaluesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostContentmanagementWorkspaceTagvaluesUnauthorized() *PostContentmanage
 	return &PostContentmanagementWorkspaceTagvaluesUnauthorized{}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesUnauthorized handles this case with default header values.
+/*
+PostContentmanagementWorkspaceTagvaluesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostContentmanagementWorkspaceTagvaluesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspace tagvalues unauthorized response has a 2xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspace tagvalues unauthorized response has a 3xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspace tagvalues unauthorized response has a 4xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspace tagvalues unauthorized response has a 5xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspace tagvalues unauthorized response a status code equal to that given
+func (o *PostContentmanagementWorkspaceTagvaluesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostContentmanagementWorkspaceTagvaluesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspaceTagvaluesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostContentmanagementWorkspaceTagvaluesForbidden() *PostContentmanagemen
 	return &PostContentmanagementWorkspaceTagvaluesForbidden{}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesForbidden handles this case with default header values.
+/*
+PostContentmanagementWorkspaceTagvaluesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostContentmanagementWorkspaceTagvaluesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspace tagvalues forbidden response has a 2xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspace tagvalues forbidden response has a 3xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspace tagvalues forbidden response has a 4xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspace tagvalues forbidden response has a 5xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspace tagvalues forbidden response a status code equal to that given
+func (o *PostContentmanagementWorkspaceTagvaluesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostContentmanagementWorkspaceTagvaluesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspaceTagvaluesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostContentmanagementWorkspaceTagvaluesNotFound() *PostContentmanagement
 	return &PostContentmanagementWorkspaceTagvaluesNotFound{}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesNotFound handles this case with default header values.
+/*
+PostContentmanagementWorkspaceTagvaluesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostContentmanagementWorkspaceTagvaluesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspace tagvalues not found response has a 2xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspace tagvalues not found response has a 3xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspace tagvalues not found response has a 4xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspace tagvalues not found response has a 5xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspace tagvalues not found response a status code equal to that given
+func (o *PostContentmanagementWorkspaceTagvaluesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostContentmanagementWorkspaceTagvaluesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspaceTagvaluesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostContentmanagementWorkspaceTagvaluesRequestTimeout() *PostContentmana
 	return &PostContentmanagementWorkspaceTagvaluesRequestTimeout{}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesRequestTimeout handles this case with default header values.
+/*
+PostContentmanagementWorkspaceTagvaluesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostContentmanagementWorkspaceTagvaluesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspace tagvalues request timeout response has a 2xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspace tagvalues request timeout response has a 3xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspace tagvalues request timeout response has a 4xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspace tagvalues request timeout response has a 5xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspace tagvalues request timeout response a status code equal to that given
+func (o *PostContentmanagementWorkspaceTagvaluesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostContentmanagementWorkspaceTagvaluesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspaceTagvaluesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostContentmanagementWorkspaceTagvaluesRequestEntityTooLarge() *PostCont
 	return &PostContentmanagementWorkspaceTagvaluesRequestEntityTooLarge{}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesRequestEntityTooLarge handles this case with default header values.
+/*
+PostContentmanagementWorkspaceTagvaluesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostContentmanagementWorkspaceTagvaluesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspace tagvalues request entity too large response has a 2xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspace tagvalues request entity too large response has a 3xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspace tagvalues request entity too large response has a 4xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspace tagvalues request entity too large response has a 5xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspace tagvalues request entity too large response a status code equal to that given
+func (o *PostContentmanagementWorkspaceTagvaluesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostContentmanagementWorkspaceTagvaluesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspaceTagvaluesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostContentmanagementWorkspaceTagvaluesUnsupportedMediaType() *PostConte
 	return &PostContentmanagementWorkspaceTagvaluesUnsupportedMediaType{}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesUnsupportedMediaType handles this case with default header values.
+/*
+PostContentmanagementWorkspaceTagvaluesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostContentmanagementWorkspaceTagvaluesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspace tagvalues unsupported media type response has a 2xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspace tagvalues unsupported media type response has a 3xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspace tagvalues unsupported media type response has a 4xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspace tagvalues unsupported media type response has a 5xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspace tagvalues unsupported media type response a status code equal to that given
+func (o *PostContentmanagementWorkspaceTagvaluesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostContentmanagementWorkspaceTagvaluesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspaceTagvaluesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostContentmanagementWorkspaceTagvaluesTooManyRequests() *PostContentman
 	return &PostContentmanagementWorkspaceTagvaluesTooManyRequests{}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesTooManyRequests handles this case with default header values.
+/*
+PostContentmanagementWorkspaceTagvaluesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostContentmanagementWorkspaceTagvaluesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspace tagvalues too many requests response has a 2xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspace tagvalues too many requests response has a 3xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspace tagvalues too many requests response has a 4xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement workspace tagvalues too many requests response has a 5xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement workspace tagvalues too many requests response a status code equal to that given
+func (o *PostContentmanagementWorkspaceTagvaluesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostContentmanagementWorkspaceTagvaluesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspaceTagvaluesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostContentmanagementWorkspaceTagvaluesInternalServerError() *PostConten
 	return &PostContentmanagementWorkspaceTagvaluesInternalServerError{}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesInternalServerError handles this case with default header values.
+/*
+PostContentmanagementWorkspaceTagvaluesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostContentmanagementWorkspaceTagvaluesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspace tagvalues internal server error response has a 2xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspace tagvalues internal server error response has a 3xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspace tagvalues internal server error response has a 4xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement workspace tagvalues internal server error response has a 5xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement workspace tagvalues internal server error response a status code equal to that given
+func (o *PostContentmanagementWorkspaceTagvaluesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostContentmanagementWorkspaceTagvaluesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspaceTagvaluesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostContentmanagementWorkspaceTagvaluesServiceUnavailable() *PostContent
 	return &PostContentmanagementWorkspaceTagvaluesServiceUnavailable{}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesServiceUnavailable handles this case with default header values.
+/*
+PostContentmanagementWorkspaceTagvaluesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostContentmanagementWorkspaceTagvaluesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspace tagvalues service unavailable response has a 2xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspace tagvalues service unavailable response has a 3xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspace tagvalues service unavailable response has a 4xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement workspace tagvalues service unavailable response has a 5xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement workspace tagvalues service unavailable response a status code equal to that given
+func (o *PostContentmanagementWorkspaceTagvaluesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostContentmanagementWorkspaceTagvaluesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspaceTagvaluesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostContentmanagementWorkspaceTagvaluesGatewayTimeout() *PostContentmana
 	return &PostContentmanagementWorkspaceTagvaluesGatewayTimeout{}
 }
 
-/*PostContentmanagementWorkspaceTagvaluesGatewayTimeout handles this case with default header values.
+/*
+PostContentmanagementWorkspaceTagvaluesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostContentmanagementWorkspaceTagvaluesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement workspace tagvalues gateway timeout response has a 2xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement workspace tagvalues gateway timeout response has a 3xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement workspace tagvalues gateway timeout response has a 4xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement workspace tagvalues gateway timeout response has a 5xx status code
+func (o *PostContentmanagementWorkspaceTagvaluesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement workspace tagvalues gateway timeout response a status code equal to that given
+func (o *PostContentmanagementWorkspaceTagvaluesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostContentmanagementWorkspaceTagvaluesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostContentmanagementWorkspaceTagvaluesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/workspaces/{workspaceId}/tagvalues][%d] postContentmanagementWorkspaceTagvaluesGatewayTimeout  %+v", 504, o.Payload)
 }
 

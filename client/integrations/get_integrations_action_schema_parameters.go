@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIntegrationsActionSchemaParams creates a new GetIntegrationsActionSchemaParams object
-// with the default values initialized.
+// NewGetIntegrationsActionSchemaParams creates a new GetIntegrationsActionSchemaParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntegrationsActionSchemaParams() *GetIntegrationsActionSchemaParams {
-	var ()
 	return &GetIntegrationsActionSchemaParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntegrationsActionSchemaParamsWithTimeout creates a new GetIntegrationsActionSchemaParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntegrationsActionSchemaParamsWithTimeout(timeout time.Duration) *GetIntegrationsActionSchemaParams {
-	var ()
 	return &GetIntegrationsActionSchemaParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntegrationsActionSchemaParamsWithContext creates a new GetIntegrationsActionSchemaParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntegrationsActionSchemaParamsWithContext(ctx context.Context) *GetIntegrationsActionSchemaParams {
-	var ()
 	return &GetIntegrationsActionSchemaParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntegrationsActionSchemaParamsWithHTTPClient creates a new GetIntegrationsActionSchemaParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntegrationsActionSchemaParamsWithHTTPClient(client *http.Client) *GetIntegrationsActionSchemaParams {
-	var ()
 	return &GetIntegrationsActionSchemaParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIntegrationsActionSchemaParams contains all the parameters to send to the API endpoint
-for the get integrations action schema operation typically these are written to a http.Request
+/*
+GetIntegrationsActionSchemaParams contains all the parameters to send to the API endpoint
+
+	for the get integrations action schema operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntegrationsActionSchemaParams struct {
 
-	/*ActionID
-	  actionId
+	/* ActionID.
 
+	   actionId
 	*/
 	ActionID string
-	/*FileName
-	  Name of schema file to be retrieved for this action.
 
+	/* FileName.
+
+	   Name of schema file to be retrieved for this action.
 	*/
 	FileName string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get integrations action schema params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsActionSchemaParams) WithDefaults() *GetIntegrationsActionSchemaParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get integrations action schema params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsActionSchemaParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get integrations action schema params

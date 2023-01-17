@@ -101,7 +101,6 @@ func (o *PutLearningModuleReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutLearningModuleOK() *PutLearningModuleOK {
 	return &PutLearningModuleOK{}
 }
 
-/*PutLearningModuleOK handles this case with default header values.
+/*
+PutLearningModuleOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutLearningModuleOK struct {
 	Payload *models.LearningModule
 }
 
+// IsSuccess returns true when this put learning module o k response has a 2xx status code
+func (o *PutLearningModuleOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put learning module o k response has a 3xx status code
+func (o *PutLearningModuleOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module o k response has a 4xx status code
+func (o *PutLearningModuleOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put learning module o k response has a 5xx status code
+func (o *PutLearningModuleOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put learning module o k response a status code equal to that given
+func (o *PutLearningModuleOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutLearningModuleOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleOK  %+v", 200, o.Payload)
+}
+
+func (o *PutLearningModuleOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutLearningModuleBadRequest() *PutLearningModuleBadRequest {
 	return &PutLearningModuleBadRequest{}
 }
 
-/*PutLearningModuleBadRequest handles this case with default header values.
+/*
+PutLearningModuleBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutLearningModuleBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put learning module bad request response has a 2xx status code
+func (o *PutLearningModuleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put learning module bad request response has a 3xx status code
+func (o *PutLearningModuleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module bad request response has a 4xx status code
+func (o *PutLearningModuleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put learning module bad request response has a 5xx status code
+func (o *PutLearningModuleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put learning module bad request response a status code equal to that given
+func (o *PutLearningModuleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutLearningModuleBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutLearningModuleBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutLearningModuleUnauthorized() *PutLearningModuleUnauthorized {
 	return &PutLearningModuleUnauthorized{}
 }
 
-/*PutLearningModuleUnauthorized handles this case with default header values.
+/*
+PutLearningModuleUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutLearningModuleUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put learning module unauthorized response has a 2xx status code
+func (o *PutLearningModuleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put learning module unauthorized response has a 3xx status code
+func (o *PutLearningModuleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module unauthorized response has a 4xx status code
+func (o *PutLearningModuleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put learning module unauthorized response has a 5xx status code
+func (o *PutLearningModuleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put learning module unauthorized response a status code equal to that given
+func (o *PutLearningModuleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutLearningModuleUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutLearningModuleUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutLearningModuleForbidden() *PutLearningModuleForbidden {
 	return &PutLearningModuleForbidden{}
 }
 
-/*PutLearningModuleForbidden handles this case with default header values.
+/*
+PutLearningModuleForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutLearningModuleForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put learning module forbidden response has a 2xx status code
+func (o *PutLearningModuleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put learning module forbidden response has a 3xx status code
+func (o *PutLearningModuleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module forbidden response has a 4xx status code
+func (o *PutLearningModuleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put learning module forbidden response has a 5xx status code
+func (o *PutLearningModuleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put learning module forbidden response a status code equal to that given
+func (o *PutLearningModuleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutLearningModuleForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutLearningModuleForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutLearningModuleNotFound() *PutLearningModuleNotFound {
 	return &PutLearningModuleNotFound{}
 }
 
-/*PutLearningModuleNotFound handles this case with default header values.
+/*
+PutLearningModuleNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutLearningModuleNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put learning module not found response has a 2xx status code
+func (o *PutLearningModuleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put learning module not found response has a 3xx status code
+func (o *PutLearningModuleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module not found response has a 4xx status code
+func (o *PutLearningModuleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put learning module not found response has a 5xx status code
+func (o *PutLearningModuleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put learning module not found response a status code equal to that given
+func (o *PutLearningModuleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutLearningModuleNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutLearningModuleNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutLearningModuleRequestTimeout() *PutLearningModuleRequestTimeout {
 	return &PutLearningModuleRequestTimeout{}
 }
 
-/*PutLearningModuleRequestTimeout handles this case with default header values.
+/*
+PutLearningModuleRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutLearningModuleRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put learning module request timeout response has a 2xx status code
+func (o *PutLearningModuleRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put learning module request timeout response has a 3xx status code
+func (o *PutLearningModuleRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module request timeout response has a 4xx status code
+func (o *PutLearningModuleRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put learning module request timeout response has a 5xx status code
+func (o *PutLearningModuleRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put learning module request timeout response a status code equal to that given
+func (o *PutLearningModuleRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutLearningModuleRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutLearningModuleRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutLearningModuleConflict() *PutLearningModuleConflict {
 	return &PutLearningModuleConflict{}
 }
 
-/*PutLearningModuleConflict handles this case with default header values.
+/*
+PutLearningModuleConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PutLearningModuleConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put learning module conflict response has a 2xx status code
+func (o *PutLearningModuleConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put learning module conflict response has a 3xx status code
+func (o *PutLearningModuleConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module conflict response has a 4xx status code
+func (o *PutLearningModuleConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put learning module conflict response has a 5xx status code
+func (o *PutLearningModuleConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put learning module conflict response a status code equal to that given
+func (o *PutLearningModuleConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutLearningModuleConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutLearningModuleConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutLearningModuleRequestEntityTooLarge() *PutLearningModuleRequestEntity
 	return &PutLearningModuleRequestEntityTooLarge{}
 }
 
-/*PutLearningModuleRequestEntityTooLarge handles this case with default header values.
+/*
+PutLearningModuleRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PutLearningModuleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put learning module request entity too large response has a 2xx status code
+func (o *PutLearningModuleRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put learning module request entity too large response has a 3xx status code
+func (o *PutLearningModuleRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module request entity too large response has a 4xx status code
+func (o *PutLearningModuleRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put learning module request entity too large response has a 5xx status code
+func (o *PutLearningModuleRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put learning module request entity too large response a status code equal to that given
+func (o *PutLearningModuleRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutLearningModuleRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutLearningModuleRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutLearningModuleUnsupportedMediaType() *PutLearningModuleUnsupportedMed
 	return &PutLearningModuleUnsupportedMediaType{}
 }
 
-/*PutLearningModuleUnsupportedMediaType handles this case with default header values.
+/*
+PutLearningModuleUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PutLearningModuleUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put learning module unsupported media type response has a 2xx status code
+func (o *PutLearningModuleUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put learning module unsupported media type response has a 3xx status code
+func (o *PutLearningModuleUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module unsupported media type response has a 4xx status code
+func (o *PutLearningModuleUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put learning module unsupported media type response has a 5xx status code
+func (o *PutLearningModuleUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put learning module unsupported media type response a status code equal to that given
+func (o *PutLearningModuleUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutLearningModuleUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutLearningModuleUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutLearningModuleTooManyRequests() *PutLearningModuleTooManyRequests {
 	return &PutLearningModuleTooManyRequests{}
 }
 
-/*PutLearningModuleTooManyRequests handles this case with default header values.
+/*
+PutLearningModuleTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutLearningModuleTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put learning module too many requests response has a 2xx status code
+func (o *PutLearningModuleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put learning module too many requests response has a 3xx status code
+func (o *PutLearningModuleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module too many requests response has a 4xx status code
+func (o *PutLearningModuleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put learning module too many requests response has a 5xx status code
+func (o *PutLearningModuleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put learning module too many requests response a status code equal to that given
+func (o *PutLearningModuleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutLearningModuleTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutLearningModuleTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutLearningModuleInternalServerError() *PutLearningModuleInternalServerE
 	return &PutLearningModuleInternalServerError{}
 }
 
-/*PutLearningModuleInternalServerError handles this case with default header values.
+/*
+PutLearningModuleInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutLearningModuleInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put learning module internal server error response has a 2xx status code
+func (o *PutLearningModuleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put learning module internal server error response has a 3xx status code
+func (o *PutLearningModuleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module internal server error response has a 4xx status code
+func (o *PutLearningModuleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put learning module internal server error response has a 5xx status code
+func (o *PutLearningModuleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put learning module internal server error response a status code equal to that given
+func (o *PutLearningModuleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutLearningModuleInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutLearningModuleInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutLearningModuleServiceUnavailable() *PutLearningModuleServiceUnavailab
 	return &PutLearningModuleServiceUnavailable{}
 }
 
-/*PutLearningModuleServiceUnavailable handles this case with default header values.
+/*
+PutLearningModuleServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutLearningModuleServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put learning module service unavailable response has a 2xx status code
+func (o *PutLearningModuleServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put learning module service unavailable response has a 3xx status code
+func (o *PutLearningModuleServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module service unavailable response has a 4xx status code
+func (o *PutLearningModuleServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put learning module service unavailable response has a 5xx status code
+func (o *PutLearningModuleServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put learning module service unavailable response a status code equal to that given
+func (o *PutLearningModuleServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutLearningModuleServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutLearningModuleServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutLearningModuleGatewayTimeout() *PutLearningModuleGatewayTimeout {
 	return &PutLearningModuleGatewayTimeout{}
 }
 
-/*PutLearningModuleGatewayTimeout handles this case with default header values.
+/*
+PutLearningModuleGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutLearningModuleGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put learning module gateway timeout response has a 2xx status code
+func (o *PutLearningModuleGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put learning module gateway timeout response has a 3xx status code
+func (o *PutLearningModuleGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put learning module gateway timeout response has a 4xx status code
+func (o *PutLearningModuleGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put learning module gateway timeout response has a 5xx status code
+func (o *PutLearningModuleGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put learning module gateway timeout response a status code equal to that given
+func (o *PutLearningModuleGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutLearningModuleGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutLearningModuleGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/learning/modules/{moduleId}][%d] putLearningModuleGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -270,7 +271,6 @@ func (m *Session) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateAttributeLists(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AttributeLists) { // not required
 		return nil
 	}
@@ -282,6 +282,11 @@ func (m *Session) validateAttributeLists(formats strfmt.Registry) error {
 		}
 		if val, ok := m.AttributeLists[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("attributeLists" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attributeLists" + "." + k)
+				}
 				return err
 			}
 		}
@@ -292,7 +297,6 @@ func (m *Session) validateAttributeLists(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateAttributes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Attributes) { // not required
 		return nil
 	}
@@ -304,6 +308,11 @@ func (m *Session) validateAttributes(formats strfmt.Registry) error {
 		}
 		if val, ok := m.Attributes[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("attributes" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attributes" + "." + k)
+				}
 				return err
 			}
 		}
@@ -314,7 +323,6 @@ func (m *Session) validateAttributes(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateAwayDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AwayDate) { // not required
 		return nil
 	}
@@ -327,7 +335,6 @@ func (m *Session) validateAwayDate(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateBrowser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Browser) { // not required
 		return nil
 	}
@@ -336,6 +343,8 @@ func (m *Session) validateBrowser(formats strfmt.Registry) error {
 		if err := m.Browser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("browser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("browser")
 			}
 			return err
 		}
@@ -345,7 +354,6 @@ func (m *Session) validateBrowser(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateConversation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversation) { // not required
 		return nil
 	}
@@ -354,6 +362,8 @@ func (m *Session) validateConversation(formats strfmt.Registry) error {
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}
@@ -363,7 +373,6 @@ func (m *Session) validateConversation(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateConversationChannels(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationChannels) { // not required
 		return nil
 	}
@@ -377,6 +386,8 @@ func (m *Session) validateConversationChannels(formats strfmt.Registry) error {
 			if err := m.ConversationChannels[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("conversationChannels" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conversationChannels" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -388,7 +399,6 @@ func (m *Session) validateConversationChannels(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateCreatedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedDate) { // not required
 		return nil
 	}
@@ -401,7 +411,6 @@ func (m *Session) validateCreatedDate(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateDevice(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Device) { // not required
 		return nil
 	}
@@ -410,6 +419,8 @@ func (m *Session) validateDevice(formats strfmt.Registry) error {
 		if err := m.Device.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("device")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device")
 			}
 			return err
 		}
@@ -419,7 +430,6 @@ func (m *Session) validateDevice(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateEndedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndedDate) { // not required
 		return nil
 	}
@@ -432,7 +442,6 @@ func (m *Session) validateEndedDate(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateExternalContact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalContact) { // not required
 		return nil
 	}
@@ -441,6 +450,8 @@ func (m *Session) validateExternalContact(formats strfmt.Registry) error {
 		if err := m.ExternalContact.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("externalContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalContact")
 			}
 			return err
 		}
@@ -450,7 +461,6 @@ func (m *Session) validateExternalContact(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateGeolocation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Geolocation) { // not required
 		return nil
 	}
@@ -459,6 +469,8 @@ func (m *Session) validateGeolocation(formats strfmt.Registry) error {
 		if err := m.Geolocation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("geolocation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("geolocation")
 			}
 			return err
 		}
@@ -468,7 +480,6 @@ func (m *Session) validateGeolocation(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateIdleDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IdleDate) { // not required
 		return nil
 	}
@@ -516,7 +527,6 @@ func (m *Session) validateLastAcdOutcomeEnum(path, location string, value string
 }
 
 func (m *Session) validateLastAcdOutcome(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastAcdOutcome) { // not required
 		return nil
 	}
@@ -530,7 +540,6 @@ func (m *Session) validateLastAcdOutcome(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateLastConnectedQueue(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastConnectedQueue) { // not required
 		return nil
 	}
@@ -539,6 +548,8 @@ func (m *Session) validateLastConnectedQueue(formats strfmt.Registry) error {
 		if err := m.LastConnectedQueue.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastConnectedQueue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastConnectedQueue")
 			}
 			return err
 		}
@@ -548,7 +559,6 @@ func (m *Session) validateLastConnectedQueue(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateLastConnectedUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastConnectedUser) { // not required
 		return nil
 	}
@@ -557,6 +567,8 @@ func (m *Session) validateLastConnectedUser(formats strfmt.Registry) error {
 		if err := m.LastConnectedUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastConnectedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastConnectedUser")
 			}
 			return err
 		}
@@ -566,7 +578,6 @@ func (m *Session) validateLastConnectedUser(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateLastEvent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastEvent) { // not required
 		return nil
 	}
@@ -575,6 +586,8 @@ func (m *Session) validateLastEvent(formats strfmt.Registry) error {
 		if err := m.LastEvent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastEvent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastEvent")
 			}
 			return err
 		}
@@ -584,7 +597,6 @@ func (m *Session) validateLastEvent(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateLastPage(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastPage) { // not required
 		return nil
 	}
@@ -593,6 +605,8 @@ func (m *Session) validateLastPage(formats strfmt.Registry) error {
 		if err := m.LastPage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastPage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastPage")
 			}
 			return err
 		}
@@ -676,7 +690,6 @@ func (m *Session) validateLastUserDisconnectTypeEnum(path, location string, valu
 }
 
 func (m *Session) validateLastUserDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastUserDisconnectType) { // not required
 		return nil
 	}
@@ -690,7 +703,6 @@ func (m *Session) validateLastUserDisconnectType(formats strfmt.Registry) error 
 }
 
 func (m *Session) validateLastUserDisposition(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastUserDisposition) { // not required
 		return nil
 	}
@@ -699,6 +711,8 @@ func (m *Session) validateLastUserDisposition(formats strfmt.Registry) error {
 		if err := m.LastUserDisposition.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastUserDisposition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastUserDisposition")
 			}
 			return err
 		}
@@ -708,7 +722,6 @@ func (m *Session) validateLastUserDisposition(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateMktCampaign(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MktCampaign) { // not required
 		return nil
 	}
@@ -717,6 +730,8 @@ func (m *Session) validateMktCampaign(formats strfmt.Registry) error {
 		if err := m.MktCampaign.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mktCampaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mktCampaign")
 			}
 			return err
 		}
@@ -758,7 +773,6 @@ func (m *Session) validateOriginatingDirectionEnum(path, location string, value 
 }
 
 func (m *Session) validateOriginatingDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OriginatingDirection) { // not required
 		return nil
 	}
@@ -772,7 +786,6 @@ func (m *Session) validateOriginatingDirection(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateOutcomeAchievements(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OutcomeAchievements) { // not required
 		return nil
 	}
@@ -786,6 +799,8 @@ func (m *Session) validateOutcomeAchievements(formats strfmt.Registry) error {
 			if err := m.OutcomeAchievements[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("outcomeAchievements" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("outcomeAchievements" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -797,7 +812,6 @@ func (m *Session) validateOutcomeAchievements(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateReferrer(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Referrer) { // not required
 		return nil
 	}
@@ -806,6 +820,8 @@ func (m *Session) validateReferrer(formats strfmt.Registry) error {
 		if err := m.Referrer.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("referrer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("referrer")
 			}
 			return err
 		}
@@ -815,7 +831,6 @@ func (m *Session) validateReferrer(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateSegmentAssignments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SegmentAssignments) { // not required
 		return nil
 	}
@@ -829,6 +844,8 @@ func (m *Session) validateSegmentAssignments(formats strfmt.Registry) error {
 			if err := m.SegmentAssignments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segmentAssignments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segmentAssignments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -840,12 +857,397 @@ func (m *Session) validateSegmentAssignments(formats strfmt.Registry) error {
 }
 
 func (m *Session) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this session based on the context it is used
+func (m *Session) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttributeLists(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAttributes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateBrowser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationChannels(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDevice(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExternalContact(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGeolocation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastConnectedQueue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastConnectedUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastEvent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastPage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastUserDisposition(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMktCampaign(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutcomeAchievements(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReferrer(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSegmentAssignments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Session) contextValidateAttributeLists(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.AttributeLists {
+
+		if val, ok := m.AttributeLists[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateAttributes(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.Attributes {
+
+		if val, ok := m.Attributes[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateBrowser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Browser != nil {
+		if err := m.Browser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("browser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("browser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateConversationChannels(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ConversationChannels); i++ {
+
+		if m.ConversationChannels[i] != nil {
+			if err := m.ConversationChannels[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conversationChannels" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conversationChannels" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateDevice(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Device != nil {
+		if err := m.Device.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("device")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("device")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateExternalContact(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExternalContact != nil {
+		if err := m.ExternalContact.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("externalContact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalContact")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateGeolocation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Geolocation != nil {
+		if err := m.Geolocation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("geolocation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("geolocation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateLastConnectedQueue(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastConnectedQueue != nil {
+		if err := m.LastConnectedQueue.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastConnectedQueue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastConnectedQueue")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateLastConnectedUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastConnectedUser != nil {
+		if err := m.LastConnectedUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastConnectedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastConnectedUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateLastEvent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastEvent != nil {
+		if err := m.LastEvent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastEvent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastEvent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateLastPage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastPage != nil {
+		if err := m.LastPage.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastPage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastPage")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateLastUserDisposition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastUserDisposition != nil {
+		if err := m.LastUserDisposition.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastUserDisposition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastUserDisposition")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateMktCampaign(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MktCampaign != nil {
+		if err := m.MktCampaign.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mktCampaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mktCampaign")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateOutcomeAchievements(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.OutcomeAchievements); i++ {
+
+		if m.OutcomeAchievements[i] != nil {
+			if err := m.OutcomeAchievements[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("outcomeAchievements" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("outcomeAchievements" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateReferrer(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Referrer != nil {
+		if err := m.Referrer.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("referrer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("referrer")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateSegmentAssignments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SegmentAssignments); i++ {
+
+		if m.SegmentAssignments[i] != nil {
+			if err := m.SegmentAssignments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("segmentAssignments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segmentAssignments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Session) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

@@ -95,7 +95,6 @@ func (o *GetKnowledgeKnowledgebaseUnansweredGroupsReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetKnowledgeKnowledgebaseUnansweredGroupsOK() *GetKnowledgeKnowledgebase
 	return &GetKnowledgeKnowledgebaseUnansweredGroupsOK{}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupsOK handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetKnowledgeKnowledgebaseUnansweredGroupsOK struct {
 	Payload *models.UnansweredGroups
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase unanswered groups o k response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase unanswered groups o k response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase unanswered groups o k response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase unanswered groups o k response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase unanswered groups o k response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetKnowledgeKnowledgebaseUnansweredGroupsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetKnowledgeKnowledgebaseUnansweredGroupsBadRequest() *GetKnowledgeKnowl
 	return &GetKnowledgeKnowledgebaseUnansweredGroupsBadRequest{}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupsBadRequest handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetKnowledgeKnowledgebaseUnansweredGroupsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase unanswered groups bad request response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase unanswered groups bad request response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase unanswered groups bad request response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase unanswered groups bad request response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase unanswered groups bad request response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetKnowledgeKnowledgebaseUnansweredGroupsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetKnowledgeKnowledgebaseUnansweredGroupsUnauthorized() *GetKnowledgeKno
 	return &GetKnowledgeKnowledgebaseUnansweredGroupsUnauthorized{}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupsUnauthorized handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetKnowledgeKnowledgebaseUnansweredGroupsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase unanswered groups unauthorized response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase unanswered groups unauthorized response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase unanswered groups unauthorized response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase unanswered groups unauthorized response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase unanswered groups unauthorized response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetKnowledgeKnowledgebaseUnansweredGroupsForbidden() *GetKnowledgeKnowle
 	return &GetKnowledgeKnowledgebaseUnansweredGroupsForbidden{}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupsForbidden handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetKnowledgeKnowledgebaseUnansweredGroupsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase unanswered groups forbidden response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase unanswered groups forbidden response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase unanswered groups forbidden response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase unanswered groups forbidden response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase unanswered groups forbidden response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetKnowledgeKnowledgebaseUnansweredGroupsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetKnowledgeKnowledgebaseUnansweredGroupsNotFound() *GetKnowledgeKnowled
 	return &GetKnowledgeKnowledgebaseUnansweredGroupsNotFound{}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupsNotFound handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetKnowledgeKnowledgebaseUnansweredGroupsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase unanswered groups not found response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase unanswered groups not found response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase unanswered groups not found response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase unanswered groups not found response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase unanswered groups not found response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetKnowledgeKnowledgebaseUnansweredGroupsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout() *GetKnowledgeK
 	return &GetKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout{}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase unanswered groups request timeout response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase unanswered groups request timeout response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase unanswered groups request timeout response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase unanswered groups request timeout response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase unanswered groups request timeout response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge() *GetKno
 	return &GetKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge{}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase unanswered groups request entity too large response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase unanswered groups request entity too large response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase unanswered groups request entity too large response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase unanswered groups request entity too large response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase unanswered groups request entity too large response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType() *GetKnow
 	return &GetKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType{}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase unanswered groups unsupported media type response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase unanswered groups unsupported media type response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase unanswered groups unsupported media type response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase unanswered groups unsupported media type response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase unanswered groups unsupported media type response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests() *GetKnowledge
 	return &GetKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests{}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase unanswered groups too many requests response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase unanswered groups too many requests response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase unanswered groups too many requests response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase unanswered groups too many requests response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase unanswered groups too many requests response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetKnowledgeKnowledgebaseUnansweredGroupsInternalServerError() *GetKnowl
 	return &GetKnowledgeKnowledgebaseUnansweredGroupsInternalServerError{}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupsInternalServerError handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetKnowledgeKnowledgebaseUnansweredGroupsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase unanswered groups internal server error response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase unanswered groups internal server error response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase unanswered groups internal server error response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase unanswered groups internal server error response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase unanswered groups internal server error response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetKnowledgeKnowledgebaseUnansweredGroupsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable() *GetKnowle
 	return &GetKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable{}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase unanswered groups service unavailable response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase unanswered groups service unavailable response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase unanswered groups service unavailable response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase unanswered groups service unavailable response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase unanswered groups service unavailable response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout() *GetKnowledgeK
 	return &GetKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout{}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase unanswered groups gateway timeout response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase unanswered groups gateway timeout response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase unanswered groups gateway timeout response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase unanswered groups gateway timeout response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase unanswered groups gateway timeout response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/unanswered/groups][%d] getKnowledgeKnowledgebaseUnansweredGroupsGatewayTimeout  %+v", 504, o.Payload)
 }
 

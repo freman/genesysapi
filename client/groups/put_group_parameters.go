@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutGroupParams creates a new PutGroupParams object
-// with the default values initialized.
+// NewPutGroupParams creates a new PutGroupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutGroupParams() *PutGroupParams {
-	var ()
 	return &PutGroupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutGroupParamsWithTimeout creates a new PutGroupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutGroupParamsWithTimeout(timeout time.Duration) *PutGroupParams {
-	var ()
 	return &PutGroupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutGroupParamsWithContext creates a new PutGroupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutGroupParamsWithContext(ctx context.Context) *PutGroupParams {
-	var ()
 	return &PutGroupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutGroupParamsWithHTTPClient creates a new PutGroupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutGroupParamsWithHTTPClient(client *http.Client) *PutGroupParams {
-	var ()
 	return &PutGroupParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutGroupParams contains all the parameters to send to the API endpoint
-for the put group operation typically these are written to a http.Request
+/*
+PutGroupParams contains all the parameters to send to the API endpoint
+
+	for the put group operation.
+
+	Typically these are written to a http.Request.
 */
 type PutGroupParams struct {
 
-	/*Body
-	  Group
+	/* Body.
 
+	   Group
 	*/
 	Body *models.GroupUpdate
-	/*GroupID
-	  Group ID
 
+	/* GroupID.
+
+	   Group ID
 	*/
 	GroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put group params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutGroupParams) WithDefaults() *PutGroupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put group params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutGroupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put group params
@@ -140,7 +157,6 @@ func (o *PutGroupParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

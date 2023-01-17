@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRecordingMediaretentionpoliciesParams creates a new PostRecordingMediaretentionpoliciesParams object
-// with the default values initialized.
+// NewPostRecordingMediaretentionpoliciesParams creates a new PostRecordingMediaretentionpoliciesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRecordingMediaretentionpoliciesParams() *PostRecordingMediaretentionpoliciesParams {
-	var ()
 	return &PostRecordingMediaretentionpoliciesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRecordingMediaretentionpoliciesParamsWithTimeout creates a new PostRecordingMediaretentionpoliciesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRecordingMediaretentionpoliciesParamsWithTimeout(timeout time.Duration) *PostRecordingMediaretentionpoliciesParams {
-	var ()
 	return &PostRecordingMediaretentionpoliciesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRecordingMediaretentionpoliciesParamsWithContext creates a new PostRecordingMediaretentionpoliciesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRecordingMediaretentionpoliciesParamsWithContext(ctx context.Context) *PostRecordingMediaretentionpoliciesParams {
-	var ()
 	return &PostRecordingMediaretentionpoliciesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRecordingMediaretentionpoliciesParamsWithHTTPClient creates a new PostRecordingMediaretentionpoliciesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRecordingMediaretentionpoliciesParamsWithHTTPClient(client *http.Client) *PostRecordingMediaretentionpoliciesParams {
-	var ()
 	return &PostRecordingMediaretentionpoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRecordingMediaretentionpoliciesParams contains all the parameters to send to the API endpoint
-for the post recording mediaretentionpolicies operation typically these are written to a http.Request
+/*
+PostRecordingMediaretentionpoliciesParams contains all the parameters to send to the API endpoint
+
+	for the post recording mediaretentionpolicies operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRecordingMediaretentionpoliciesParams struct {
 
-	/*Body
-	  Policy
+	/* Body.
 
+	   Policy
 	*/
 	Body *models.PolicyCreate
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post recording mediaretentionpolicies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingMediaretentionpoliciesParams) WithDefaults() *PostRecordingMediaretentionpoliciesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post recording mediaretentionpolicies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingMediaretentionpoliciesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post recording mediaretentionpolicies params
@@ -124,7 +140,6 @@ func (o *PostRecordingMediaretentionpoliciesParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

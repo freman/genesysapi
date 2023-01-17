@@ -17,114 +17,137 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetArchitectDependencytrackingParams creates a new GetArchitectDependencytrackingParams object
-// with the default values initialized.
+// NewGetArchitectDependencytrackingParams creates a new GetArchitectDependencytrackingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetArchitectDependencytrackingParams() *GetArchitectDependencytrackingParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetArchitectDependencytrackingParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetArchitectDependencytrackingParamsWithTimeout creates a new GetArchitectDependencytrackingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetArchitectDependencytrackingParamsWithTimeout(timeout time.Duration) *GetArchitectDependencytrackingParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetArchitectDependencytrackingParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetArchitectDependencytrackingParamsWithContext creates a new GetArchitectDependencytrackingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetArchitectDependencytrackingParamsWithContext(ctx context.Context) *GetArchitectDependencytrackingParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetArchitectDependencytrackingParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetArchitectDependencytrackingParamsWithHTTPClient creates a new GetArchitectDependencytrackingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetArchitectDependencytrackingParamsWithHTTPClient(client *http.Client) *GetArchitectDependencytrackingParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetArchitectDependencytrackingParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetArchitectDependencytrackingParams contains all the parameters to send to the API endpoint
-for the get architect dependencytracking operation typically these are written to a http.Request
+/*
+GetArchitectDependencytrackingParams contains all the parameters to send to the API endpoint
+
+	for the get architect dependencytracking operation.
+
+	Typically these are written to a http.Request.
 */
 type GetArchitectDependencytrackingParams struct {
 
-	/*ConsumedResourceType
-	  Types of consumed resources to return, if consumed resources are requested
+	/* ConsumedResourceType.
 
+	   Types of consumed resources to return, if consumed resources are requested
 	*/
 	ConsumedResourceType []string
-	/*ConsumedResources
-	  Include resources each result item consumes
 
+	/* ConsumedResources.
+
+	   Include resources each result item consumes
 	*/
 	ConsumedResources *bool
-	/*ConsumingResourceType
-	  Types of consuming resources to return, if consuming resources are requested
 
+	/* ConsumingResourceType.
+
+	   Types of consuming resources to return, if consuming resources are requested
 	*/
 	ConsumingResourceType []string
-	/*ConsumingResources
-	  Include resources that consume each result item
 
+	/* ConsumingResources.
+
+	   Include resources that consume each result item
 	*/
 	ConsumingResources *bool
-	/*Name
-	  Object name to search for
 
+	/* Name.
+
+	   Object name to search for
 	*/
 	Name string
-	/*ObjectType
-	  Object type(s) to search for
 
+	/* ObjectType.
+
+	   Object type(s) to search for
 	*/
 	ObjectType []string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get architect dependencytracking params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectDependencytrackingParams) WithDefaults() *GetArchitectDependencytrackingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get architect dependencytracking params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectDependencytrackingParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetArchitectDependencytrackingParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get architect dependencytracking params
@@ -256,105 +279,170 @@ func (o *GetArchitectDependencytrackingParams) WriteToRequest(r runtime.ClientRe
 	}
 	var res []error
 
-	valuesConsumedResourceType := o.ConsumedResourceType
+	if o.ConsumedResourceType != nil {
 
-	joinedConsumedResourceType := swag.JoinByFormat(valuesConsumedResourceType, "multi")
-	// query array param consumedResourceType
-	if err := r.SetQueryParam("consumedResourceType", joinedConsumedResourceType...); err != nil {
-		return err
+		// binding items for consumedResourceType
+		joinedConsumedResourceType := o.bindParamConsumedResourceType(reg)
+
+		// query array param consumedResourceType
+		if err := r.SetQueryParam("consumedResourceType", joinedConsumedResourceType...); err != nil {
+			return err
+		}
 	}
 
 	if o.ConsumedResources != nil {
 
 		// query param consumedResources
 		var qrConsumedResources bool
+
 		if o.ConsumedResources != nil {
 			qrConsumedResources = *o.ConsumedResources
 		}
 		qConsumedResources := swag.FormatBool(qrConsumedResources)
 		if qConsumedResources != "" {
+
 			if err := r.SetQueryParam("consumedResources", qConsumedResources); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesConsumingResourceType := o.ConsumingResourceType
+	if o.ConsumingResourceType != nil {
 
-	joinedConsumingResourceType := swag.JoinByFormat(valuesConsumingResourceType, "multi")
-	// query array param consumingResourceType
-	if err := r.SetQueryParam("consumingResourceType", joinedConsumingResourceType...); err != nil {
-		return err
+		// binding items for consumingResourceType
+		joinedConsumingResourceType := o.bindParamConsumingResourceType(reg)
+
+		// query array param consumingResourceType
+		if err := r.SetQueryParam("consumingResourceType", joinedConsumingResourceType...); err != nil {
+			return err
+		}
 	}
 
 	if o.ConsumingResources != nil {
 
 		// query param consumingResources
 		var qrConsumingResources bool
+
 		if o.ConsumingResources != nil {
 			qrConsumingResources = *o.ConsumingResources
 		}
 		qConsumingResources := swag.FormatBool(qrConsumingResources)
 		if qConsumingResources != "" {
+
 			if err := r.SetQueryParam("consumingResources", qConsumingResources); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param name
 	qrName := o.Name
 	qName := qrName
 	if qName != "" {
+
 		if err := r.SetQueryParam("name", qName); err != nil {
 			return err
 		}
 	}
 
-	valuesObjectType := o.ObjectType
+	if o.ObjectType != nil {
 
-	joinedObjectType := swag.JoinByFormat(valuesObjectType, "multi")
-	// query array param objectType
-	if err := r.SetQueryParam("objectType", joinedObjectType...); err != nil {
-		return err
+		// binding items for objectType
+		joinedObjectType := o.bindParamObjectType(reg)
+
+		// query array param objectType
+		if err := r.SetQueryParam("objectType", joinedObjectType...); err != nil {
+			return err
+		}
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetArchitectDependencytracking binds the parameter consumedResourceType
+func (o *GetArchitectDependencytrackingParams) bindParamConsumedResourceType(formats strfmt.Registry) []string {
+	consumedResourceTypeIR := o.ConsumedResourceType
+
+	var consumedResourceTypeIC []string
+	for _, consumedResourceTypeIIR := range consumedResourceTypeIR { // explode []string
+
+		consumedResourceTypeIIV := consumedResourceTypeIIR // string as string
+		consumedResourceTypeIC = append(consumedResourceTypeIC, consumedResourceTypeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	consumedResourceTypeIS := swag.JoinByFormat(consumedResourceTypeIC, "multi")
+
+	return consumedResourceTypeIS
+}
+
+// bindParamGetArchitectDependencytracking binds the parameter consumingResourceType
+func (o *GetArchitectDependencytrackingParams) bindParamConsumingResourceType(formats strfmt.Registry) []string {
+	consumingResourceTypeIR := o.ConsumingResourceType
+
+	var consumingResourceTypeIC []string
+	for _, consumingResourceTypeIIR := range consumingResourceTypeIR { // explode []string
+
+		consumingResourceTypeIIV := consumingResourceTypeIIR // string as string
+		consumingResourceTypeIC = append(consumingResourceTypeIC, consumingResourceTypeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	consumingResourceTypeIS := swag.JoinByFormat(consumingResourceTypeIC, "multi")
+
+	return consumingResourceTypeIS
+}
+
+// bindParamGetArchitectDependencytracking binds the parameter objectType
+func (o *GetArchitectDependencytrackingParams) bindParamObjectType(formats strfmt.Registry) []string {
+	objectTypeIR := o.ObjectType
+
+	var objectTypeIC []string
+	for _, objectTypeIIR := range objectTypeIR { // explode []string
+
+		objectTypeIIV := objectTypeIIR // string as string
+		objectTypeIC = append(objectTypeIC, objectTypeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	objectTypeIS := swag.JoinByFormat(objectTypeIC, "multi")
+
+	return objectTypeIS
 }

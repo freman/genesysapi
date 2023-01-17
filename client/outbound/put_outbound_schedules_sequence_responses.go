@@ -101,7 +101,6 @@ func (o *PutOutboundSchedulesSequenceReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutOutboundSchedulesSequenceOK() *PutOutboundSchedulesSequenceOK {
 	return &PutOutboundSchedulesSequenceOK{}
 }
 
-/*PutOutboundSchedulesSequenceOK handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutOutboundSchedulesSequenceOK struct {
 	Payload *models.SequenceSchedule
 }
 
+// IsSuccess returns true when this put outbound schedules sequence o k response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put outbound schedules sequence o k response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence o k response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound schedules sequence o k response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules sequence o k response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOutboundSchedulesSequenceOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutOutboundSchedulesSequenceBadRequest() *PutOutboundSchedulesSequenceBa
 	return &PutOutboundSchedulesSequenceBadRequest{}
 }
 
-/*PutOutboundSchedulesSequenceBadRequest handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutOutboundSchedulesSequenceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules sequence bad request response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules sequence bad request response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence bad request response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules sequence bad request response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules sequence bad request response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOutboundSchedulesSequenceBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutOutboundSchedulesSequenceUnauthorized() *PutOutboundSchedulesSequence
 	return &PutOutboundSchedulesSequenceUnauthorized{}
 }
 
-/*PutOutboundSchedulesSequenceUnauthorized handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutOutboundSchedulesSequenceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules sequence unauthorized response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules sequence unauthorized response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence unauthorized response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules sequence unauthorized response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules sequence unauthorized response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOutboundSchedulesSequenceUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutOutboundSchedulesSequenceForbidden() *PutOutboundSchedulesSequenceFor
 	return &PutOutboundSchedulesSequenceForbidden{}
 }
 
-/*PutOutboundSchedulesSequenceForbidden handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutOutboundSchedulesSequenceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules sequence forbidden response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules sequence forbidden response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence forbidden response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules sequence forbidden response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules sequence forbidden response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOutboundSchedulesSequenceForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutOutboundSchedulesSequenceNotFound() *PutOutboundSchedulesSequenceNotF
 	return &PutOutboundSchedulesSequenceNotFound{}
 }
 
-/*PutOutboundSchedulesSequenceNotFound handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutOutboundSchedulesSequenceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules sequence not found response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules sequence not found response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence not found response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules sequence not found response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules sequence not found response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOutboundSchedulesSequenceNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutOutboundSchedulesSequenceRequestTimeout() *PutOutboundSchedulesSequen
 	return &PutOutboundSchedulesSequenceRequestTimeout{}
 }
 
-/*PutOutboundSchedulesSequenceRequestTimeout handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutOutboundSchedulesSequenceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules sequence request timeout response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules sequence request timeout response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence request timeout response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules sequence request timeout response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules sequence request timeout response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOutboundSchedulesSequenceRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutOutboundSchedulesSequenceConflict() *PutOutboundSchedulesSequenceConf
 	return &PutOutboundSchedulesSequenceConflict{}
 }
 
-/*PutOutboundSchedulesSequenceConflict handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PutOutboundSchedulesSequenceConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules sequence conflict response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules sequence conflict response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence conflict response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules sequence conflict response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules sequence conflict response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutOutboundSchedulesSequenceConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutOutboundSchedulesSequenceRequestEntityTooLarge() *PutOutboundSchedule
 	return &PutOutboundSchedulesSequenceRequestEntityTooLarge{}
 }
 
-/*PutOutboundSchedulesSequenceRequestEntityTooLarge handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PutOutboundSchedulesSequenceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules sequence request entity too large response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules sequence request entity too large response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence request entity too large response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules sequence request entity too large response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules sequence request entity too large response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOutboundSchedulesSequenceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutOutboundSchedulesSequenceUnsupportedMediaType() *PutOutboundSchedules
 	return &PutOutboundSchedulesSequenceUnsupportedMediaType{}
 }
 
-/*PutOutboundSchedulesSequenceUnsupportedMediaType handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PutOutboundSchedulesSequenceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules sequence unsupported media type response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules sequence unsupported media type response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence unsupported media type response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules sequence unsupported media type response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules sequence unsupported media type response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOutboundSchedulesSequenceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutOutboundSchedulesSequenceTooManyRequests() *PutOutboundSchedulesSeque
 	return &PutOutboundSchedulesSequenceTooManyRequests{}
 }
 
-/*PutOutboundSchedulesSequenceTooManyRequests handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutOutboundSchedulesSequenceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules sequence too many requests response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules sequence too many requests response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence too many requests response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules sequence too many requests response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules sequence too many requests response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOutboundSchedulesSequenceTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutOutboundSchedulesSequenceInternalServerError() *PutOutboundSchedulesS
 	return &PutOutboundSchedulesSequenceInternalServerError{}
 }
 
-/*PutOutboundSchedulesSequenceInternalServerError handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutOutboundSchedulesSequenceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules sequence internal server error response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules sequence internal server error response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence internal server error response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound schedules sequence internal server error response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound schedules sequence internal server error response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOutboundSchedulesSequenceInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutOutboundSchedulesSequenceServiceUnavailable() *PutOutboundSchedulesSe
 	return &PutOutboundSchedulesSequenceServiceUnavailable{}
 }
 
-/*PutOutboundSchedulesSequenceServiceUnavailable handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutOutboundSchedulesSequenceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules sequence service unavailable response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules sequence service unavailable response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence service unavailable response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound schedules sequence service unavailable response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound schedules sequence service unavailable response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOutboundSchedulesSequenceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutOutboundSchedulesSequenceGatewayTimeout() *PutOutboundSchedulesSequen
 	return &PutOutboundSchedulesSequenceGatewayTimeout{}
 }
 
-/*PutOutboundSchedulesSequenceGatewayTimeout handles this case with default header values.
+/*
+PutOutboundSchedulesSequenceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutOutboundSchedulesSequenceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules sequence gateway timeout response has a 2xx status code
+func (o *PutOutboundSchedulesSequenceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules sequence gateway timeout response has a 3xx status code
+func (o *PutOutboundSchedulesSequenceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules sequence gateway timeout response has a 4xx status code
+func (o *PutOutboundSchedulesSequenceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound schedules sequence gateway timeout response has a 5xx status code
+func (o *PutOutboundSchedulesSequenceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound schedules sequence gateway timeout response a status code equal to that given
+func (o *PutOutboundSchedulesSequenceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOutboundSchedulesSequenceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOutboundSchedulesSequenceGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/sequences/{sequenceId}][%d] putOutboundSchedulesSequenceGatewayTimeout  %+v", 504, o.Payload)
 }
 

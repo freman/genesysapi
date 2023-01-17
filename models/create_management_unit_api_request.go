@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -86,7 +87,6 @@ func (m *CreateManagementUnitAPIRequest) validateName(formats strfmt.Registry) e
 }
 
 func (m *CreateManagementUnitAPIRequest) validateSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Settings) { // not required
 		return nil
 	}
@@ -95,6 +95,8 @@ func (m *CreateManagementUnitAPIRequest) validateSettings(formats strfmt.Registr
 		if err := m.Settings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("settings")
 			}
 			return err
 		}
@@ -148,7 +150,6 @@ func (m *CreateManagementUnitAPIRequest) validateStartDayOfWeekEnum(path, locati
 }
 
 func (m *CreateManagementUnitAPIRequest) validateStartDayOfWeek(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDayOfWeek) { // not required
 		return nil
 	}
@@ -156,6 +157,36 @@ func (m *CreateManagementUnitAPIRequest) validateStartDayOfWeek(formats strfmt.R
 	// value enum
 	if err := m.validateStartDayOfWeekEnum("startDayOfWeek", "body", m.StartDayOfWeek); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this create management unit Api request based on the context it is used
+func (m *CreateManagementUnitAPIRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CreateManagementUnitAPIRequest) contextValidateSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Settings != nil {
+		if err := m.Settings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("settings")
+			}
+			return err
+		}
 	}
 
 	return nil

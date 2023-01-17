@@ -95,7 +95,6 @@ func (o *PostUserInviteReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostUserInviteNoContent() *PostUserInviteNoContent {
 	return &PostUserInviteNoContent{}
 }
 
-/*PostUserInviteNoContent handles this case with default header values.
+/*
+PostUserInviteNoContent describes a response with status code 204, with default header values.
 
 Invitation Sent
 */
 type PostUserInviteNoContent struct {
 }
 
+// IsSuccess returns true when this post user invite no content response has a 2xx status code
+func (o *PostUserInviteNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post user invite no content response has a 3xx status code
+func (o *PostUserInviteNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user invite no content response has a 4xx status code
+func (o *PostUserInviteNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post user invite no content response has a 5xx status code
+func (o *PostUserInviteNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user invite no content response a status code equal to that given
+func (o *PostUserInviteNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PostUserInviteNoContent) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteNoContent ", 204)
+}
+
+func (o *PostUserInviteNoContent) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewPostUserInviteBadRequest() *PostUserInviteBadRequest {
 	return &PostUserInviteBadRequest{}
 }
 
-/*PostUserInviteBadRequest handles this case with default header values.
+/*
+PostUserInviteBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostUserInviteBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user invite bad request response has a 2xx status code
+func (o *PostUserInviteBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user invite bad request response has a 3xx status code
+func (o *PostUserInviteBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user invite bad request response has a 4xx status code
+func (o *PostUserInviteBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user invite bad request response has a 5xx status code
+func (o *PostUserInviteBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user invite bad request response a status code equal to that given
+func (o *PostUserInviteBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostUserInviteBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostUserInviteBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostUserInviteUnauthorized() *PostUserInviteUnauthorized {
 	return &PostUserInviteUnauthorized{}
 }
 
-/*PostUserInviteUnauthorized handles this case with default header values.
+/*
+PostUserInviteUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostUserInviteUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user invite unauthorized response has a 2xx status code
+func (o *PostUserInviteUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user invite unauthorized response has a 3xx status code
+func (o *PostUserInviteUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user invite unauthorized response has a 4xx status code
+func (o *PostUserInviteUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user invite unauthorized response has a 5xx status code
+func (o *PostUserInviteUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user invite unauthorized response a status code equal to that given
+func (o *PostUserInviteUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostUserInviteUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostUserInviteUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostUserInviteForbidden() *PostUserInviteForbidden {
 	return &PostUserInviteForbidden{}
 }
 
-/*PostUserInviteForbidden handles this case with default header values.
+/*
+PostUserInviteForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostUserInviteForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user invite forbidden response has a 2xx status code
+func (o *PostUserInviteForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user invite forbidden response has a 3xx status code
+func (o *PostUserInviteForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user invite forbidden response has a 4xx status code
+func (o *PostUserInviteForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user invite forbidden response has a 5xx status code
+func (o *PostUserInviteForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user invite forbidden response a status code equal to that given
+func (o *PostUserInviteForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostUserInviteForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostUserInviteForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostUserInviteNotFound() *PostUserInviteNotFound {
 	return &PostUserInviteNotFound{}
 }
 
-/*PostUserInviteNotFound handles this case with default header values.
+/*
+PostUserInviteNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostUserInviteNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user invite not found response has a 2xx status code
+func (o *PostUserInviteNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user invite not found response has a 3xx status code
+func (o *PostUserInviteNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user invite not found response has a 4xx status code
+func (o *PostUserInviteNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user invite not found response has a 5xx status code
+func (o *PostUserInviteNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user invite not found response a status code equal to that given
+func (o *PostUserInviteNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostUserInviteNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostUserInviteNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostUserInviteRequestTimeout() *PostUserInviteRequestTimeout {
 	return &PostUserInviteRequestTimeout{}
 }
 
-/*PostUserInviteRequestTimeout handles this case with default header values.
+/*
+PostUserInviteRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostUserInviteRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user invite request timeout response has a 2xx status code
+func (o *PostUserInviteRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user invite request timeout response has a 3xx status code
+func (o *PostUserInviteRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user invite request timeout response has a 4xx status code
+func (o *PostUserInviteRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user invite request timeout response has a 5xx status code
+func (o *PostUserInviteRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user invite request timeout response a status code equal to that given
+func (o *PostUserInviteRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostUserInviteRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUserInviteRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostUserInviteRequestEntityTooLarge() *PostUserInviteRequestEntityTooLar
 	return &PostUserInviteRequestEntityTooLarge{}
 }
 
-/*PostUserInviteRequestEntityTooLarge handles this case with default header values.
+/*
+PostUserInviteRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostUserInviteRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user invite request entity too large response has a 2xx status code
+func (o *PostUserInviteRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user invite request entity too large response has a 3xx status code
+func (o *PostUserInviteRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user invite request entity too large response has a 4xx status code
+func (o *PostUserInviteRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user invite request entity too large response has a 5xx status code
+func (o *PostUserInviteRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user invite request entity too large response a status code equal to that given
+func (o *PostUserInviteRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostUserInviteRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostUserInviteRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostUserInviteUnsupportedMediaType() *PostUserInviteUnsupportedMediaType
 	return &PostUserInviteUnsupportedMediaType{}
 }
 
-/*PostUserInviteUnsupportedMediaType handles this case with default header values.
+/*
+PostUserInviteUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostUserInviteUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user invite unsupported media type response has a 2xx status code
+func (o *PostUserInviteUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user invite unsupported media type response has a 3xx status code
+func (o *PostUserInviteUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user invite unsupported media type response has a 4xx status code
+func (o *PostUserInviteUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user invite unsupported media type response has a 5xx status code
+func (o *PostUserInviteUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user invite unsupported media type response a status code equal to that given
+func (o *PostUserInviteUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostUserInviteUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostUserInviteUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostUserInviteTooManyRequests() *PostUserInviteTooManyRequests {
 	return &PostUserInviteTooManyRequests{}
 }
 
-/*PostUserInviteTooManyRequests handles this case with default header values.
+/*
+PostUserInviteTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostUserInviteTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user invite too many requests response has a 2xx status code
+func (o *PostUserInviteTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user invite too many requests response has a 3xx status code
+func (o *PostUserInviteTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user invite too many requests response has a 4xx status code
+func (o *PostUserInviteTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user invite too many requests response has a 5xx status code
+func (o *PostUserInviteTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user invite too many requests response a status code equal to that given
+func (o *PostUserInviteTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostUserInviteTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostUserInviteTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostUserInviteInternalServerError() *PostUserInviteInternalServerError {
 	return &PostUserInviteInternalServerError{}
 }
 
-/*PostUserInviteInternalServerError handles this case with default header values.
+/*
+PostUserInviteInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostUserInviteInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user invite internal server error response has a 2xx status code
+func (o *PostUserInviteInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user invite internal server error response has a 3xx status code
+func (o *PostUserInviteInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user invite internal server error response has a 4xx status code
+func (o *PostUserInviteInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post user invite internal server error response has a 5xx status code
+func (o *PostUserInviteInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post user invite internal server error response a status code equal to that given
+func (o *PostUserInviteInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostUserInviteInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostUserInviteInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostUserInviteServiceUnavailable() *PostUserInviteServiceUnavailable {
 	return &PostUserInviteServiceUnavailable{}
 }
 
-/*PostUserInviteServiceUnavailable handles this case with default header values.
+/*
+PostUserInviteServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostUserInviteServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user invite service unavailable response has a 2xx status code
+func (o *PostUserInviteServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user invite service unavailable response has a 3xx status code
+func (o *PostUserInviteServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user invite service unavailable response has a 4xx status code
+func (o *PostUserInviteServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post user invite service unavailable response has a 5xx status code
+func (o *PostUserInviteServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post user invite service unavailable response a status code equal to that given
+func (o *PostUserInviteServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostUserInviteServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostUserInviteServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostUserInviteGatewayTimeout() *PostUserInviteGatewayTimeout {
 	return &PostUserInviteGatewayTimeout{}
 }
 
-/*PostUserInviteGatewayTimeout handles this case with default header values.
+/*
+PostUserInviteGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostUserInviteGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user invite gateway timeout response has a 2xx status code
+func (o *PostUserInviteGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user invite gateway timeout response has a 3xx status code
+func (o *PostUserInviteGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user invite gateway timeout response has a 4xx status code
+func (o *PostUserInviteGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post user invite gateway timeout response has a 5xx status code
+func (o *PostUserInviteGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post user invite gateway timeout response a status code equal to that given
+func (o *PostUserInviteGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostUserInviteGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostUserInviteGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/invite][%d] postUserInviteGatewayTimeout  %+v", 504, o.Payload)
 }
 

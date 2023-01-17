@@ -95,7 +95,6 @@ func (o *DeleteOutboundCallanalysisresponsesetReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteOutboundCallanalysisresponsesetOK() *DeleteOutboundCallanalysisres
 	return &DeleteOutboundCallanalysisresponsesetOK{}
 }
 
-/*DeleteOutboundCallanalysisresponsesetOK handles this case with default header values.
+/*
+DeleteOutboundCallanalysisresponsesetOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteOutboundCallanalysisresponsesetOK struct {
 }
 
+// IsSuccess returns true when this delete outbound callanalysisresponseset o k response has a 2xx status code
+func (o *DeleteOutboundCallanalysisresponsesetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete outbound callanalysisresponseset o k response has a 3xx status code
+func (o *DeleteOutboundCallanalysisresponsesetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callanalysisresponseset o k response has a 4xx status code
+func (o *DeleteOutboundCallanalysisresponsesetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound callanalysisresponseset o k response has a 5xx status code
+func (o *DeleteOutboundCallanalysisresponsesetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callanalysisresponseset o k response a status code equal to that given
+func (o *DeleteOutboundCallanalysisresponsesetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteOutboundCallanalysisresponsesetOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetOK ", 200)
+}
+
+func (o *DeleteOutboundCallanalysisresponsesetOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteOutboundCallanalysisresponsesetBadRequest() *DeleteOutboundCallana
 	return &DeleteOutboundCallanalysisresponsesetBadRequest{}
 }
 
-/*DeleteOutboundCallanalysisresponsesetBadRequest handles this case with default header values.
+/*
+DeleteOutboundCallanalysisresponsesetBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteOutboundCallanalysisresponsesetBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callanalysisresponseset bad request response has a 2xx status code
+func (o *DeleteOutboundCallanalysisresponsesetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callanalysisresponseset bad request response has a 3xx status code
+func (o *DeleteOutboundCallanalysisresponsesetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callanalysisresponseset bad request response has a 4xx status code
+func (o *DeleteOutboundCallanalysisresponsesetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callanalysisresponseset bad request response has a 5xx status code
+func (o *DeleteOutboundCallanalysisresponsesetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callanalysisresponseset bad request response a status code equal to that given
+func (o *DeleteOutboundCallanalysisresponsesetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOutboundCallanalysisresponsesetBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOutboundCallanalysisresponsesetBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteOutboundCallanalysisresponsesetUnauthorized() *DeleteOutboundCalla
 	return &DeleteOutboundCallanalysisresponsesetUnauthorized{}
 }
 
-/*DeleteOutboundCallanalysisresponsesetUnauthorized handles this case with default header values.
+/*
+DeleteOutboundCallanalysisresponsesetUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteOutboundCallanalysisresponsesetUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callanalysisresponseset unauthorized response has a 2xx status code
+func (o *DeleteOutboundCallanalysisresponsesetUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callanalysisresponseset unauthorized response has a 3xx status code
+func (o *DeleteOutboundCallanalysisresponsesetUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callanalysisresponseset unauthorized response has a 4xx status code
+func (o *DeleteOutboundCallanalysisresponsesetUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callanalysisresponseset unauthorized response has a 5xx status code
+func (o *DeleteOutboundCallanalysisresponsesetUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callanalysisresponseset unauthorized response a status code equal to that given
+func (o *DeleteOutboundCallanalysisresponsesetUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOutboundCallanalysisresponsesetUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOutboundCallanalysisresponsesetUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteOutboundCallanalysisresponsesetForbidden() *DeleteOutboundCallanal
 	return &DeleteOutboundCallanalysisresponsesetForbidden{}
 }
 
-/*DeleteOutboundCallanalysisresponsesetForbidden handles this case with default header values.
+/*
+DeleteOutboundCallanalysisresponsesetForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteOutboundCallanalysisresponsesetForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callanalysisresponseset forbidden response has a 2xx status code
+func (o *DeleteOutboundCallanalysisresponsesetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callanalysisresponseset forbidden response has a 3xx status code
+func (o *DeleteOutboundCallanalysisresponsesetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callanalysisresponseset forbidden response has a 4xx status code
+func (o *DeleteOutboundCallanalysisresponsesetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callanalysisresponseset forbidden response has a 5xx status code
+func (o *DeleteOutboundCallanalysisresponsesetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callanalysisresponseset forbidden response a status code equal to that given
+func (o *DeleteOutboundCallanalysisresponsesetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOutboundCallanalysisresponsesetForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOutboundCallanalysisresponsesetForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteOutboundCallanalysisresponsesetNotFound() *DeleteOutboundCallanaly
 	return &DeleteOutboundCallanalysisresponsesetNotFound{}
 }
 
-/*DeleteOutboundCallanalysisresponsesetNotFound handles this case with default header values.
+/*
+DeleteOutboundCallanalysisresponsesetNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteOutboundCallanalysisresponsesetNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callanalysisresponseset not found response has a 2xx status code
+func (o *DeleteOutboundCallanalysisresponsesetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callanalysisresponseset not found response has a 3xx status code
+func (o *DeleteOutboundCallanalysisresponsesetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callanalysisresponseset not found response has a 4xx status code
+func (o *DeleteOutboundCallanalysisresponsesetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callanalysisresponseset not found response has a 5xx status code
+func (o *DeleteOutboundCallanalysisresponsesetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callanalysisresponseset not found response a status code equal to that given
+func (o *DeleteOutboundCallanalysisresponsesetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOutboundCallanalysisresponsesetNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOutboundCallanalysisresponsesetNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteOutboundCallanalysisresponsesetRequestTimeout() *DeleteOutboundCal
 	return &DeleteOutboundCallanalysisresponsesetRequestTimeout{}
 }
 
-/*DeleteOutboundCallanalysisresponsesetRequestTimeout handles this case with default header values.
+/*
+DeleteOutboundCallanalysisresponsesetRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteOutboundCallanalysisresponsesetRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callanalysisresponseset request timeout response has a 2xx status code
+func (o *DeleteOutboundCallanalysisresponsesetRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callanalysisresponseset request timeout response has a 3xx status code
+func (o *DeleteOutboundCallanalysisresponsesetRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callanalysisresponseset request timeout response has a 4xx status code
+func (o *DeleteOutboundCallanalysisresponsesetRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callanalysisresponseset request timeout response has a 5xx status code
+func (o *DeleteOutboundCallanalysisresponsesetRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callanalysisresponseset request timeout response a status code equal to that given
+func (o *DeleteOutboundCallanalysisresponsesetRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOutboundCallanalysisresponsesetRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundCallanalysisresponsesetRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteOutboundCallanalysisresponsesetRequestEntityTooLarge() *DeleteOutb
 	return &DeleteOutboundCallanalysisresponsesetRequestEntityTooLarge{}
 }
 
-/*DeleteOutboundCallanalysisresponsesetRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOutboundCallanalysisresponsesetRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteOutboundCallanalysisresponsesetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callanalysisresponseset request entity too large response has a 2xx status code
+func (o *DeleteOutboundCallanalysisresponsesetRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callanalysisresponseset request entity too large response has a 3xx status code
+func (o *DeleteOutboundCallanalysisresponsesetRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callanalysisresponseset request entity too large response has a 4xx status code
+func (o *DeleteOutboundCallanalysisresponsesetRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callanalysisresponseset request entity too large response has a 5xx status code
+func (o *DeleteOutboundCallanalysisresponsesetRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callanalysisresponseset request entity too large response a status code equal to that given
+func (o *DeleteOutboundCallanalysisresponsesetRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOutboundCallanalysisresponsesetRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOutboundCallanalysisresponsesetRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteOutboundCallanalysisresponsesetUnsupportedMediaType() *DeleteOutbo
 	return &DeleteOutboundCallanalysisresponsesetUnsupportedMediaType{}
 }
 
-/*DeleteOutboundCallanalysisresponsesetUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOutboundCallanalysisresponsesetUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteOutboundCallanalysisresponsesetUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callanalysisresponseset unsupported media type response has a 2xx status code
+func (o *DeleteOutboundCallanalysisresponsesetUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callanalysisresponseset unsupported media type response has a 3xx status code
+func (o *DeleteOutboundCallanalysisresponsesetUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callanalysisresponseset unsupported media type response has a 4xx status code
+func (o *DeleteOutboundCallanalysisresponsesetUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callanalysisresponseset unsupported media type response has a 5xx status code
+func (o *DeleteOutboundCallanalysisresponsesetUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callanalysisresponseset unsupported media type response a status code equal to that given
+func (o *DeleteOutboundCallanalysisresponsesetUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOutboundCallanalysisresponsesetUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOutboundCallanalysisresponsesetUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteOutboundCallanalysisresponsesetTooManyRequests() *DeleteOutboundCa
 	return &DeleteOutboundCallanalysisresponsesetTooManyRequests{}
 }
 
-/*DeleteOutboundCallanalysisresponsesetTooManyRequests handles this case with default header values.
+/*
+DeleteOutboundCallanalysisresponsesetTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteOutboundCallanalysisresponsesetTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callanalysisresponseset too many requests response has a 2xx status code
+func (o *DeleteOutboundCallanalysisresponsesetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callanalysisresponseset too many requests response has a 3xx status code
+func (o *DeleteOutboundCallanalysisresponsesetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callanalysisresponseset too many requests response has a 4xx status code
+func (o *DeleteOutboundCallanalysisresponsesetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callanalysisresponseset too many requests response has a 5xx status code
+func (o *DeleteOutboundCallanalysisresponsesetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callanalysisresponseset too many requests response a status code equal to that given
+func (o *DeleteOutboundCallanalysisresponsesetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOutboundCallanalysisresponsesetTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOutboundCallanalysisresponsesetTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteOutboundCallanalysisresponsesetInternalServerError() *DeleteOutbou
 	return &DeleteOutboundCallanalysisresponsesetInternalServerError{}
 }
 
-/*DeleteOutboundCallanalysisresponsesetInternalServerError handles this case with default header values.
+/*
+DeleteOutboundCallanalysisresponsesetInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteOutboundCallanalysisresponsesetInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callanalysisresponseset internal server error response has a 2xx status code
+func (o *DeleteOutboundCallanalysisresponsesetInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callanalysisresponseset internal server error response has a 3xx status code
+func (o *DeleteOutboundCallanalysisresponsesetInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callanalysisresponseset internal server error response has a 4xx status code
+func (o *DeleteOutboundCallanalysisresponsesetInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound callanalysisresponseset internal server error response has a 5xx status code
+func (o *DeleteOutboundCallanalysisresponsesetInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound callanalysisresponseset internal server error response a status code equal to that given
+func (o *DeleteOutboundCallanalysisresponsesetInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOutboundCallanalysisresponsesetInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOutboundCallanalysisresponsesetInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteOutboundCallanalysisresponsesetServiceUnavailable() *DeleteOutboun
 	return &DeleteOutboundCallanalysisresponsesetServiceUnavailable{}
 }
 
-/*DeleteOutboundCallanalysisresponsesetServiceUnavailable handles this case with default header values.
+/*
+DeleteOutboundCallanalysisresponsesetServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteOutboundCallanalysisresponsesetServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callanalysisresponseset service unavailable response has a 2xx status code
+func (o *DeleteOutboundCallanalysisresponsesetServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callanalysisresponseset service unavailable response has a 3xx status code
+func (o *DeleteOutboundCallanalysisresponsesetServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callanalysisresponseset service unavailable response has a 4xx status code
+func (o *DeleteOutboundCallanalysisresponsesetServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound callanalysisresponseset service unavailable response has a 5xx status code
+func (o *DeleteOutboundCallanalysisresponsesetServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound callanalysisresponseset service unavailable response a status code equal to that given
+func (o *DeleteOutboundCallanalysisresponsesetServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOutboundCallanalysisresponsesetServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOutboundCallanalysisresponsesetServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteOutboundCallanalysisresponsesetGatewayTimeout() *DeleteOutboundCal
 	return &DeleteOutboundCallanalysisresponsesetGatewayTimeout{}
 }
 
-/*DeleteOutboundCallanalysisresponsesetGatewayTimeout handles this case with default header values.
+/*
+DeleteOutboundCallanalysisresponsesetGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteOutboundCallanalysisresponsesetGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callanalysisresponseset gateway timeout response has a 2xx status code
+func (o *DeleteOutboundCallanalysisresponsesetGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callanalysisresponseset gateway timeout response has a 3xx status code
+func (o *DeleteOutboundCallanalysisresponsesetGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callanalysisresponseset gateway timeout response has a 4xx status code
+func (o *DeleteOutboundCallanalysisresponsesetGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound callanalysisresponseset gateway timeout response has a 5xx status code
+func (o *DeleteOutboundCallanalysisresponsesetGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound callanalysisresponseset gateway timeout response a status code equal to that given
+func (o *DeleteOutboundCallanalysisresponsesetGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOutboundCallanalysisresponsesetGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOutboundCallanalysisresponsesetGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] deleteOutboundCallanalysisresponsesetGatewayTimeout  %+v", 504, o.Payload)
 }
 

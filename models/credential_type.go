@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // CredentialType credential type
@@ -37,6 +41,55 @@ type CredentialType struct {
 
 // Validate validates this credential type
 func (m *CredentialType) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this credential type based on the context it is used
+func (m *CredentialType) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDisplayOrder(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRequired(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CredentialType) contextValidateDisplayOrder(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "displayOrder", "body", []string(m.DisplayOrder)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CredentialType) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CredentialType) contextValidateRequired(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "required", "body", []string(m.Required)); err != nil {
+		return err
+	}
+
 	return nil
 }
 

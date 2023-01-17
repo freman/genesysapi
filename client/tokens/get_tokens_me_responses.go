@@ -95,7 +95,6 @@ func (o *GetTokensMeReader) ReadResponse(response runtime.ClientResponse, consum
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetTokensMeOK() *GetTokensMeOK {
 	return &GetTokensMeOK{}
 }
 
-/*GetTokensMeOK handles this case with default header values.
+/*
+GetTokensMeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetTokensMeOK struct {
 	Payload *models.TokenInfo
 }
 
+// IsSuccess returns true when this get tokens me o k response has a 2xx status code
+func (o *GetTokensMeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get tokens me o k response has a 3xx status code
+func (o *GetTokensMeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tokens me o k response has a 4xx status code
+func (o *GetTokensMeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get tokens me o k response has a 5xx status code
+func (o *GetTokensMeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tokens me o k response a status code equal to that given
+func (o *GetTokensMeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetTokensMeOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeOK  %+v", 200, o.Payload)
+}
+
+func (o *GetTokensMeOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetTokensMeBadRequest() *GetTokensMeBadRequest {
 	return &GetTokensMeBadRequest{}
 }
 
-/*GetTokensMeBadRequest handles this case with default header values.
+/*
+GetTokensMeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetTokensMeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get tokens me bad request response has a 2xx status code
+func (o *GetTokensMeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tokens me bad request response has a 3xx status code
+func (o *GetTokensMeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tokens me bad request response has a 4xx status code
+func (o *GetTokensMeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get tokens me bad request response has a 5xx status code
+func (o *GetTokensMeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tokens me bad request response a status code equal to that given
+func (o *GetTokensMeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetTokensMeBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetTokensMeBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetTokensMeUnauthorized() *GetTokensMeUnauthorized {
 	return &GetTokensMeUnauthorized{}
 }
 
-/*GetTokensMeUnauthorized handles this case with default header values.
+/*
+GetTokensMeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetTokensMeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get tokens me unauthorized response has a 2xx status code
+func (o *GetTokensMeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tokens me unauthorized response has a 3xx status code
+func (o *GetTokensMeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tokens me unauthorized response has a 4xx status code
+func (o *GetTokensMeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get tokens me unauthorized response has a 5xx status code
+func (o *GetTokensMeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tokens me unauthorized response a status code equal to that given
+func (o *GetTokensMeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetTokensMeUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetTokensMeUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetTokensMeForbidden() *GetTokensMeForbidden {
 	return &GetTokensMeForbidden{}
 }
 
-/*GetTokensMeForbidden handles this case with default header values.
+/*
+GetTokensMeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetTokensMeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get tokens me forbidden response has a 2xx status code
+func (o *GetTokensMeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tokens me forbidden response has a 3xx status code
+func (o *GetTokensMeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tokens me forbidden response has a 4xx status code
+func (o *GetTokensMeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get tokens me forbidden response has a 5xx status code
+func (o *GetTokensMeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tokens me forbidden response a status code equal to that given
+func (o *GetTokensMeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetTokensMeForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetTokensMeForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetTokensMeNotFound() *GetTokensMeNotFound {
 	return &GetTokensMeNotFound{}
 }
 
-/*GetTokensMeNotFound handles this case with default header values.
+/*
+GetTokensMeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetTokensMeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get tokens me not found response has a 2xx status code
+func (o *GetTokensMeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tokens me not found response has a 3xx status code
+func (o *GetTokensMeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tokens me not found response has a 4xx status code
+func (o *GetTokensMeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get tokens me not found response has a 5xx status code
+func (o *GetTokensMeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tokens me not found response a status code equal to that given
+func (o *GetTokensMeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetTokensMeNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetTokensMeNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetTokensMeRequestTimeout() *GetTokensMeRequestTimeout {
 	return &GetTokensMeRequestTimeout{}
 }
 
-/*GetTokensMeRequestTimeout handles this case with default header values.
+/*
+GetTokensMeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetTokensMeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get tokens me request timeout response has a 2xx status code
+func (o *GetTokensMeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tokens me request timeout response has a 3xx status code
+func (o *GetTokensMeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tokens me request timeout response has a 4xx status code
+func (o *GetTokensMeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get tokens me request timeout response has a 5xx status code
+func (o *GetTokensMeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tokens me request timeout response a status code equal to that given
+func (o *GetTokensMeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetTokensMeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTokensMeRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetTokensMeRequestEntityTooLarge() *GetTokensMeRequestEntityTooLarge {
 	return &GetTokensMeRequestEntityTooLarge{}
 }
 
-/*GetTokensMeRequestEntityTooLarge handles this case with default header values.
+/*
+GetTokensMeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetTokensMeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get tokens me request entity too large response has a 2xx status code
+func (o *GetTokensMeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tokens me request entity too large response has a 3xx status code
+func (o *GetTokensMeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tokens me request entity too large response has a 4xx status code
+func (o *GetTokensMeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get tokens me request entity too large response has a 5xx status code
+func (o *GetTokensMeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tokens me request entity too large response a status code equal to that given
+func (o *GetTokensMeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetTokensMeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetTokensMeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetTokensMeUnsupportedMediaType() *GetTokensMeUnsupportedMediaType {
 	return &GetTokensMeUnsupportedMediaType{}
 }
 
-/*GetTokensMeUnsupportedMediaType handles this case with default header values.
+/*
+GetTokensMeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetTokensMeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get tokens me unsupported media type response has a 2xx status code
+func (o *GetTokensMeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tokens me unsupported media type response has a 3xx status code
+func (o *GetTokensMeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tokens me unsupported media type response has a 4xx status code
+func (o *GetTokensMeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get tokens me unsupported media type response has a 5xx status code
+func (o *GetTokensMeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tokens me unsupported media type response a status code equal to that given
+func (o *GetTokensMeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetTokensMeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetTokensMeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetTokensMeTooManyRequests() *GetTokensMeTooManyRequests {
 	return &GetTokensMeTooManyRequests{}
 }
 
-/*GetTokensMeTooManyRequests handles this case with default header values.
+/*
+GetTokensMeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetTokensMeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get tokens me too many requests response has a 2xx status code
+func (o *GetTokensMeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tokens me too many requests response has a 3xx status code
+func (o *GetTokensMeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tokens me too many requests response has a 4xx status code
+func (o *GetTokensMeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get tokens me too many requests response has a 5xx status code
+func (o *GetTokensMeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get tokens me too many requests response a status code equal to that given
+func (o *GetTokensMeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetTokensMeTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetTokensMeTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetTokensMeInternalServerError() *GetTokensMeInternalServerError {
 	return &GetTokensMeInternalServerError{}
 }
 
-/*GetTokensMeInternalServerError handles this case with default header values.
+/*
+GetTokensMeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetTokensMeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get tokens me internal server error response has a 2xx status code
+func (o *GetTokensMeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tokens me internal server error response has a 3xx status code
+func (o *GetTokensMeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tokens me internal server error response has a 4xx status code
+func (o *GetTokensMeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get tokens me internal server error response has a 5xx status code
+func (o *GetTokensMeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get tokens me internal server error response a status code equal to that given
+func (o *GetTokensMeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetTokensMeInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetTokensMeInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetTokensMeServiceUnavailable() *GetTokensMeServiceUnavailable {
 	return &GetTokensMeServiceUnavailable{}
 }
 
-/*GetTokensMeServiceUnavailable handles this case with default header values.
+/*
+GetTokensMeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetTokensMeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get tokens me service unavailable response has a 2xx status code
+func (o *GetTokensMeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tokens me service unavailable response has a 3xx status code
+func (o *GetTokensMeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tokens me service unavailable response has a 4xx status code
+func (o *GetTokensMeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get tokens me service unavailable response has a 5xx status code
+func (o *GetTokensMeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get tokens me service unavailable response a status code equal to that given
+func (o *GetTokensMeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetTokensMeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetTokensMeServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetTokensMeGatewayTimeout() *GetTokensMeGatewayTimeout {
 	return &GetTokensMeGatewayTimeout{}
 }
 
-/*GetTokensMeGatewayTimeout handles this case with default header values.
+/*
+GetTokensMeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetTokensMeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get tokens me gateway timeout response has a 2xx status code
+func (o *GetTokensMeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get tokens me gateway timeout response has a 3xx status code
+func (o *GetTokensMeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get tokens me gateway timeout response has a 4xx status code
+func (o *GetTokensMeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get tokens me gateway timeout response has a 5xx status code
+func (o *GetTokensMeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get tokens me gateway timeout response a status code equal to that given
+func (o *GetTokensMeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetTokensMeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetTokensMeGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/tokens/me][%d] getTokensMeGatewayTimeout  %+v", 504, o.Payload)
 }
 

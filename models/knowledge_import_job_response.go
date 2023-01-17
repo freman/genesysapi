@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -29,9 +30,9 @@ type KnowledgeImportJobResponse struct {
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
-	// file type of the document
+	// File type of the document
 	// Required: true
-	// Enum: [Json Csv]
+	// Enum: [Json Csv Xlsx]
 	FileType *string `json:"fileType"`
 
 	// Id of the import job
@@ -111,7 +112,6 @@ func (m *KnowledgeImportJobResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeImportJobResponse) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -124,7 +124,6 @@ func (m *KnowledgeImportJobResponse) validateDateCreated(formats strfmt.Registry
 }
 
 func (m *KnowledgeImportJobResponse) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -140,7 +139,7 @@ var knowledgeImportJobResponseTypeFileTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Json","Csv"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Json","Csv","Xlsx"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -155,6 +154,9 @@ const (
 
 	// KnowledgeImportJobResponseFileTypeCsv captures enum value "Csv"
 	KnowledgeImportJobResponseFileTypeCsv string = "Csv"
+
+	// KnowledgeImportJobResponseFileTypeXlsx captures enum value "Xlsx"
+	KnowledgeImportJobResponseFileTypeXlsx string = "Xlsx"
 )
 
 // prop value enum
@@ -180,7 +182,6 @@ func (m *KnowledgeImportJobResponse) validateFileType(formats strfmt.Registry) e
 }
 
 func (m *KnowledgeImportJobResponse) validateKnowledgeBase(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KnowledgeBase) { // not required
 		return nil
 	}
@@ -189,6 +190,8 @@ func (m *KnowledgeImportJobResponse) validateKnowledgeBase(formats strfmt.Regist
 		if err := m.KnowledgeBase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
 			}
 			return err
 		}
@@ -198,7 +201,6 @@ func (m *KnowledgeImportJobResponse) validateKnowledgeBase(formats strfmt.Regist
 }
 
 func (m *KnowledgeImportJobResponse) validateReport(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Report) { // not required
 		return nil
 	}
@@ -207,6 +209,8 @@ func (m *KnowledgeImportJobResponse) validateReport(formats strfmt.Registry) err
 		if err := m.Report.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("report")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report")
 			}
 			return err
 		}
@@ -216,7 +220,6 @@ func (m *KnowledgeImportJobResponse) validateReport(formats strfmt.Registry) err
 }
 
 func (m *KnowledgeImportJobResponse) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -229,7 +232,6 @@ func (m *KnowledgeImportJobResponse) validateSelfURI(formats strfmt.Registry) er
 }
 
 func (m *KnowledgeImportJobResponse) validateSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Settings) { // not required
 		return nil
 	}
@@ -238,6 +240,8 @@ func (m *KnowledgeImportJobResponse) validateSettings(formats strfmt.Registry) e
 		if err := m.Settings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("settings")
 			}
 			return err
 		}
@@ -303,7 +307,6 @@ func (m *KnowledgeImportJobResponse) validateStatusEnum(path, location string, v
 }
 
 func (m *KnowledgeImportJobResponse) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -319,6 +322,141 @@ func (m *KnowledgeImportJobResponse) validateStatus(formats strfmt.Registry) err
 func (m *KnowledgeImportJobResponse) validateUploadKey(formats strfmt.Registry) error {
 
 	if err := validate.Required("uploadKey", "body", m.UploadKey); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge import job response based on the context it is used
+func (m *KnowledgeImportJobResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKnowledgeBase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReport(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeImportJobResponse) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImportJobResponse) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImportJobResponse) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImportJobResponse) contextValidateKnowledgeBase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KnowledgeBase != nil {
+		if err := m.KnowledgeBase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImportJobResponse) contextValidateReport(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Report != nil {
+		if err := m.Report.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("report")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("report")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImportJobResponse) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImportJobResponse) contextValidateSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Settings != nil {
+		if err := m.Settings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("settings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeImportJobResponse) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
 		return err
 	}
 

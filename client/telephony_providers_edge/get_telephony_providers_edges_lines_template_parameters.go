@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesLinesTemplateParams creates a new GetTelephonyProvidersEdgesLinesTemplateParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesLinesTemplateParams creates a new GetTelephonyProvidersEdgesLinesTemplateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesLinesTemplateParams() *GetTelephonyProvidersEdgesLinesTemplateParams {
-	var ()
 	return &GetTelephonyProvidersEdgesLinesTemplateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesLinesTemplateParamsWithTimeout creates a new GetTelephonyProvidersEdgesLinesTemplateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesLinesTemplateParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesLinesTemplateParams {
-	var ()
 	return &GetTelephonyProvidersEdgesLinesTemplateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesLinesTemplateParamsWithContext creates a new GetTelephonyProvidersEdgesLinesTemplateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesLinesTemplateParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesLinesTemplateParams {
-	var ()
 	return &GetTelephonyProvidersEdgesLinesTemplateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesLinesTemplateParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesLinesTemplateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesLinesTemplateParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesLinesTemplateParams {
-	var ()
 	return &GetTelephonyProvidersEdgesLinesTemplateParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesLinesTemplateParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges lines template operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesLinesTemplateParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges lines template operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesLinesTemplateParams struct {
 
-	/*LineBaseSettingsID
-	  The id of a Line Base Settings object upon which to base this Line
+	/* LineBaseSettingsID.
 
+	   The id of a Line Base Settings object upon which to base this Line
 	*/
 	LineBaseSettingsID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges lines template params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesLinesTemplateParams) WithDefaults() *GetTelephonyProvidersEdgesLinesTemplateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges lines template params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesLinesTemplateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges lines template params
@@ -127,6 +143,7 @@ func (o *GetTelephonyProvidersEdgesLinesTemplateParams) WriteToRequest(r runtime
 	qrLineBaseSettingsID := o.LineBaseSettingsID
 	qLineBaseSettingsID := qrLineBaseSettingsID
 	if qLineBaseSettingsID != "" {
+
 		if err := r.SetQueryParam("lineBaseSettingsId", qLineBaseSettingsID); err != nil {
 			return err
 		}

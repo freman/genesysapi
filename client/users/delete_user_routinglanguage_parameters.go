@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteUserRoutinglanguageParams creates a new DeleteUserRoutinglanguageParams object
-// with the default values initialized.
+// NewDeleteUserRoutinglanguageParams creates a new DeleteUserRoutinglanguageParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteUserRoutinglanguageParams() *DeleteUserRoutinglanguageParams {
-	var ()
 	return &DeleteUserRoutinglanguageParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteUserRoutinglanguageParamsWithTimeout creates a new DeleteUserRoutinglanguageParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteUserRoutinglanguageParamsWithTimeout(timeout time.Duration) *DeleteUserRoutinglanguageParams {
-	var ()
 	return &DeleteUserRoutinglanguageParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteUserRoutinglanguageParamsWithContext creates a new DeleteUserRoutinglanguageParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteUserRoutinglanguageParamsWithContext(ctx context.Context) *DeleteUserRoutinglanguageParams {
-	var ()
 	return &DeleteUserRoutinglanguageParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteUserRoutinglanguageParamsWithHTTPClient creates a new DeleteUserRoutinglanguageParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteUserRoutinglanguageParamsWithHTTPClient(client *http.Client) *DeleteUserRoutinglanguageParams {
-	var ()
 	return &DeleteUserRoutinglanguageParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteUserRoutinglanguageParams contains all the parameters to send to the API endpoint
-for the delete user routinglanguage operation typically these are written to a http.Request
+/*
+DeleteUserRoutinglanguageParams contains all the parameters to send to the API endpoint
+
+	for the delete user routinglanguage operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteUserRoutinglanguageParams struct {
 
-	/*LanguageID
-	  languageId
+	/* LanguageID.
 
+	   languageId
 	*/
 	LanguageID string
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete user routinglanguage params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteUserRoutinglanguageParams) WithDefaults() *DeleteUserRoutinglanguageParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete user routinglanguage params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteUserRoutinglanguageParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete user routinglanguage params

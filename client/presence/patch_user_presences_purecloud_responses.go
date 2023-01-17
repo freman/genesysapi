@@ -101,7 +101,6 @@ func (o *PatchUserPresencesPurecloudReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchUserPresencesPurecloudOK() *PatchUserPresencesPurecloudOK {
 	return &PatchUserPresencesPurecloudOK{}
 }
 
-/*PatchUserPresencesPurecloudOK handles this case with default header values.
+/*
+PatchUserPresencesPurecloudOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchUserPresencesPurecloudOK struct {
 	Payload *models.UserPresence
 }
 
+// IsSuccess returns true when this patch user presences purecloud o k response has a 2xx status code
+func (o *PatchUserPresencesPurecloudOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch user presences purecloud o k response has a 3xx status code
+func (o *PatchUserPresencesPurecloudOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud o k response has a 4xx status code
+func (o *PatchUserPresencesPurecloudOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user presences purecloud o k response has a 5xx status code
+func (o *PatchUserPresencesPurecloudOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presences purecloud o k response a status code equal to that given
+func (o *PatchUserPresencesPurecloudOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchUserPresencesPurecloudOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchUserPresencesPurecloudBadRequest() *PatchUserPresencesPurecloudBadR
 	return &PatchUserPresencesPurecloudBadRequest{}
 }
 
-/*PatchUserPresencesPurecloudBadRequest handles this case with default header values.
+/*
+PatchUserPresencesPurecloudBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchUserPresencesPurecloudBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presences purecloud bad request response has a 2xx status code
+func (o *PatchUserPresencesPurecloudBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presences purecloud bad request response has a 3xx status code
+func (o *PatchUserPresencesPurecloudBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud bad request response has a 4xx status code
+func (o *PatchUserPresencesPurecloudBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presences purecloud bad request response has a 5xx status code
+func (o *PatchUserPresencesPurecloudBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presences purecloud bad request response a status code equal to that given
+func (o *PatchUserPresencesPurecloudBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchUserPresencesPurecloudBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchUserPresencesPurecloudUnauthorized() *PatchUserPresencesPurecloudUn
 	return &PatchUserPresencesPurecloudUnauthorized{}
 }
 
-/*PatchUserPresencesPurecloudUnauthorized handles this case with default header values.
+/*
+PatchUserPresencesPurecloudUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchUserPresencesPurecloudUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presences purecloud unauthorized response has a 2xx status code
+func (o *PatchUserPresencesPurecloudUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presences purecloud unauthorized response has a 3xx status code
+func (o *PatchUserPresencesPurecloudUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud unauthorized response has a 4xx status code
+func (o *PatchUserPresencesPurecloudUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presences purecloud unauthorized response has a 5xx status code
+func (o *PatchUserPresencesPurecloudUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presences purecloud unauthorized response a status code equal to that given
+func (o *PatchUserPresencesPurecloudUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchUserPresencesPurecloudUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchUserPresencesPurecloudForbidden() *PatchUserPresencesPurecloudForbi
 	return &PatchUserPresencesPurecloudForbidden{}
 }
 
-/*PatchUserPresencesPurecloudForbidden handles this case with default header values.
+/*
+PatchUserPresencesPurecloudForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchUserPresencesPurecloudForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presences purecloud forbidden response has a 2xx status code
+func (o *PatchUserPresencesPurecloudForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presences purecloud forbidden response has a 3xx status code
+func (o *PatchUserPresencesPurecloudForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud forbidden response has a 4xx status code
+func (o *PatchUserPresencesPurecloudForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presences purecloud forbidden response has a 5xx status code
+func (o *PatchUserPresencesPurecloudForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presences purecloud forbidden response a status code equal to that given
+func (o *PatchUserPresencesPurecloudForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchUserPresencesPurecloudForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchUserPresencesPurecloudNotFound() *PatchUserPresencesPurecloudNotFou
 	return &PatchUserPresencesPurecloudNotFound{}
 }
 
-/*PatchUserPresencesPurecloudNotFound handles this case with default header values.
+/*
+PatchUserPresencesPurecloudNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchUserPresencesPurecloudNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presences purecloud not found response has a 2xx status code
+func (o *PatchUserPresencesPurecloudNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presences purecloud not found response has a 3xx status code
+func (o *PatchUserPresencesPurecloudNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud not found response has a 4xx status code
+func (o *PatchUserPresencesPurecloudNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presences purecloud not found response has a 5xx status code
+func (o *PatchUserPresencesPurecloudNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presences purecloud not found response a status code equal to that given
+func (o *PatchUserPresencesPurecloudNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchUserPresencesPurecloudNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchUserPresencesPurecloudRequestTimeout() *PatchUserPresencesPurecloud
 	return &PatchUserPresencesPurecloudRequestTimeout{}
 }
 
-/*PatchUserPresencesPurecloudRequestTimeout handles this case with default header values.
+/*
+PatchUserPresencesPurecloudRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchUserPresencesPurecloudRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presences purecloud request timeout response has a 2xx status code
+func (o *PatchUserPresencesPurecloudRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presences purecloud request timeout response has a 3xx status code
+func (o *PatchUserPresencesPurecloudRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud request timeout response has a 4xx status code
+func (o *PatchUserPresencesPurecloudRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presences purecloud request timeout response has a 5xx status code
+func (o *PatchUserPresencesPurecloudRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presences purecloud request timeout response a status code equal to that given
+func (o *PatchUserPresencesPurecloudRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchUserPresencesPurecloudRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchUserPresencesPurecloudConflict() *PatchUserPresencesPurecloudConfli
 	return &PatchUserPresencesPurecloudConflict{}
 }
 
-/*PatchUserPresencesPurecloudConflict handles this case with default header values.
+/*
+PatchUserPresencesPurecloudConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PatchUserPresencesPurecloudConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presences purecloud conflict response has a 2xx status code
+func (o *PatchUserPresencesPurecloudConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presences purecloud conflict response has a 3xx status code
+func (o *PatchUserPresencesPurecloudConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud conflict response has a 4xx status code
+func (o *PatchUserPresencesPurecloudConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presences purecloud conflict response has a 5xx status code
+func (o *PatchUserPresencesPurecloudConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presences purecloud conflict response a status code equal to that given
+func (o *PatchUserPresencesPurecloudConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchUserPresencesPurecloudConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchUserPresencesPurecloudRequestEntityTooLarge() *PatchUserPresencesPu
 	return &PatchUserPresencesPurecloudRequestEntityTooLarge{}
 }
 
-/*PatchUserPresencesPurecloudRequestEntityTooLarge handles this case with default header values.
+/*
+PatchUserPresencesPurecloudRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchUserPresencesPurecloudRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presences purecloud request entity too large response has a 2xx status code
+func (o *PatchUserPresencesPurecloudRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presences purecloud request entity too large response has a 3xx status code
+func (o *PatchUserPresencesPurecloudRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud request entity too large response has a 4xx status code
+func (o *PatchUserPresencesPurecloudRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presences purecloud request entity too large response has a 5xx status code
+func (o *PatchUserPresencesPurecloudRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presences purecloud request entity too large response a status code equal to that given
+func (o *PatchUserPresencesPurecloudRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchUserPresencesPurecloudRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchUserPresencesPurecloudUnsupportedMediaType() *PatchUserPresencesPur
 	return &PatchUserPresencesPurecloudUnsupportedMediaType{}
 }
 
-/*PatchUserPresencesPurecloudUnsupportedMediaType handles this case with default header values.
+/*
+PatchUserPresencesPurecloudUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchUserPresencesPurecloudUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presences purecloud unsupported media type response has a 2xx status code
+func (o *PatchUserPresencesPurecloudUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presences purecloud unsupported media type response has a 3xx status code
+func (o *PatchUserPresencesPurecloudUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud unsupported media type response has a 4xx status code
+func (o *PatchUserPresencesPurecloudUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presences purecloud unsupported media type response has a 5xx status code
+func (o *PatchUserPresencesPurecloudUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presences purecloud unsupported media type response a status code equal to that given
+func (o *PatchUserPresencesPurecloudUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchUserPresencesPurecloudUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchUserPresencesPurecloudTooManyRequests() *PatchUserPresencesPureclou
 	return &PatchUserPresencesPurecloudTooManyRequests{}
 }
 
-/*PatchUserPresencesPurecloudTooManyRequests handles this case with default header values.
+/*
+PatchUserPresencesPurecloudTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchUserPresencesPurecloudTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presences purecloud too many requests response has a 2xx status code
+func (o *PatchUserPresencesPurecloudTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presences purecloud too many requests response has a 3xx status code
+func (o *PatchUserPresencesPurecloudTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud too many requests response has a 4xx status code
+func (o *PatchUserPresencesPurecloudTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presences purecloud too many requests response has a 5xx status code
+func (o *PatchUserPresencesPurecloudTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presences purecloud too many requests response a status code equal to that given
+func (o *PatchUserPresencesPurecloudTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchUserPresencesPurecloudTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchUserPresencesPurecloudInternalServerError() *PatchUserPresencesPure
 	return &PatchUserPresencesPurecloudInternalServerError{}
 }
 
-/*PatchUserPresencesPurecloudInternalServerError handles this case with default header values.
+/*
+PatchUserPresencesPurecloudInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchUserPresencesPurecloudInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presences purecloud internal server error response has a 2xx status code
+func (o *PatchUserPresencesPurecloudInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presences purecloud internal server error response has a 3xx status code
+func (o *PatchUserPresencesPurecloudInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud internal server error response has a 4xx status code
+func (o *PatchUserPresencesPurecloudInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user presences purecloud internal server error response has a 5xx status code
+func (o *PatchUserPresencesPurecloudInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user presences purecloud internal server error response a status code equal to that given
+func (o *PatchUserPresencesPurecloudInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchUserPresencesPurecloudInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchUserPresencesPurecloudServiceUnavailable() *PatchUserPresencesPurec
 	return &PatchUserPresencesPurecloudServiceUnavailable{}
 }
 
-/*PatchUserPresencesPurecloudServiceUnavailable handles this case with default header values.
+/*
+PatchUserPresencesPurecloudServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchUserPresencesPurecloudServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presences purecloud service unavailable response has a 2xx status code
+func (o *PatchUserPresencesPurecloudServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presences purecloud service unavailable response has a 3xx status code
+func (o *PatchUserPresencesPurecloudServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud service unavailable response has a 4xx status code
+func (o *PatchUserPresencesPurecloudServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user presences purecloud service unavailable response has a 5xx status code
+func (o *PatchUserPresencesPurecloudServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user presences purecloud service unavailable response a status code equal to that given
+func (o *PatchUserPresencesPurecloudServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchUserPresencesPurecloudServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchUserPresencesPurecloudGatewayTimeout() *PatchUserPresencesPurecloud
 	return &PatchUserPresencesPurecloudGatewayTimeout{}
 }
 
-/*PatchUserPresencesPurecloudGatewayTimeout handles this case with default header values.
+/*
+PatchUserPresencesPurecloudGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchUserPresencesPurecloudGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presences purecloud gateway timeout response has a 2xx status code
+func (o *PatchUserPresencesPurecloudGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presences purecloud gateway timeout response has a 3xx status code
+func (o *PatchUserPresencesPurecloudGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presences purecloud gateway timeout response has a 4xx status code
+func (o *PatchUserPresencesPurecloudGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user presences purecloud gateway timeout response has a 5xx status code
+func (o *PatchUserPresencesPurecloudGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user presences purecloud gateway timeout response a status code equal to that given
+func (o *PatchUserPresencesPurecloudGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchUserPresencesPurecloudGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchUserPresencesPurecloudGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/purecloud][%d] patchUserPresencesPurecloudGatewayTimeout  %+v", 504, o.Payload)
 }
 

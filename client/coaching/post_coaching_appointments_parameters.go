@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostCoachingAppointmentsParams creates a new PostCoachingAppointmentsParams object
-// with the default values initialized.
+// NewPostCoachingAppointmentsParams creates a new PostCoachingAppointmentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostCoachingAppointmentsParams() *PostCoachingAppointmentsParams {
-	var ()
 	return &PostCoachingAppointmentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostCoachingAppointmentsParamsWithTimeout creates a new PostCoachingAppointmentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostCoachingAppointmentsParamsWithTimeout(timeout time.Duration) *PostCoachingAppointmentsParams {
-	var ()
 	return &PostCoachingAppointmentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostCoachingAppointmentsParamsWithContext creates a new PostCoachingAppointmentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostCoachingAppointmentsParamsWithContext(ctx context.Context) *PostCoachingAppointmentsParams {
-	var ()
 	return &PostCoachingAppointmentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostCoachingAppointmentsParamsWithHTTPClient creates a new PostCoachingAppointmentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostCoachingAppointmentsParamsWithHTTPClient(client *http.Client) *PostCoachingAppointmentsParams {
-	var ()
 	return &PostCoachingAppointmentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostCoachingAppointmentsParams contains all the parameters to send to the API endpoint
-for the post coaching appointments operation typically these are written to a http.Request
+/*
+PostCoachingAppointmentsParams contains all the parameters to send to the API endpoint
+
+	for the post coaching appointments operation.
+
+	Typically these are written to a http.Request.
 */
 type PostCoachingAppointmentsParams struct {
 
-	/*Body
-	  The appointment to add
+	/* Body.
 
+	   The appointment to add
 	*/
 	Body *models.CreateCoachingAppointmentRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post coaching appointments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostCoachingAppointmentsParams) WithDefaults() *PostCoachingAppointmentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post coaching appointments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostCoachingAppointmentsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post coaching appointments params
@@ -124,7 +140,6 @@ func (o *PostCoachingAppointmentsParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

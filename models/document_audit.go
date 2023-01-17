@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -274,7 +275,6 @@ func (m *DocumentAudit) validateActionEnum(path, location string, value string) 
 }
 
 func (m *DocumentAudit) validateAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Action) { // not required
 		return nil
 	}
@@ -434,7 +434,6 @@ func (m *DocumentAudit) validateActionContextEnum(path, location string, value s
 }
 
 func (m *DocumentAudit) validateActionContext(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionContext) { // not required
 		return nil
 	}
@@ -448,7 +447,6 @@ func (m *DocumentAudit) validateActionContext(formats strfmt.Registry) error {
 }
 
 func (m *DocumentAudit) validateChanges(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Changes) { // not required
 		return nil
 	}
@@ -462,6 +460,8 @@ func (m *DocumentAudit) validateChanges(formats strfmt.Registry) error {
 			if err := m.Changes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("changes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("changes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -473,7 +473,6 @@ func (m *DocumentAudit) validateChanges(formats strfmt.Registry) error {
 }
 
 func (m *DocumentAudit) validateEntity(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Entity) { // not required
 		return nil
 	}
@@ -482,6 +481,8 @@ func (m *DocumentAudit) validateEntity(formats strfmt.Registry) error {
 		if err := m.Entity.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("entity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("entity")
 			}
 			return err
 		}
@@ -520,7 +521,6 @@ func (m *DocumentAudit) validateLevelEnum(path, location string, value string) e
 }
 
 func (m *DocumentAudit) validateLevel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Level) { // not required
 		return nil
 	}
@@ -534,7 +534,6 @@ func (m *DocumentAudit) validateLevel(formats strfmt.Registry) error {
 }
 
 func (m *DocumentAudit) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -579,7 +578,6 @@ func (m *DocumentAudit) validateStatusEnum(path, location string, value string) 
 }
 
 func (m *DocumentAudit) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -593,7 +591,6 @@ func (m *DocumentAudit) validateStatus(formats strfmt.Registry) error {
 }
 
 func (m *DocumentAudit) validateTimestamp(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Timestamp) { // not required
 		return nil
 	}
@@ -606,7 +603,6 @@ func (m *DocumentAudit) validateTimestamp(formats strfmt.Registry) error {
 }
 
 func (m *DocumentAudit) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -615,6 +611,8 @@ func (m *DocumentAudit) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}
@@ -624,7 +622,6 @@ func (m *DocumentAudit) validateUser(formats strfmt.Registry) error {
 }
 
 func (m *DocumentAudit) validateWorkspace(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Workspace) { // not required
 		return nil
 	}
@@ -633,6 +630,128 @@ func (m *DocumentAudit) validateWorkspace(formats strfmt.Registry) error {
 		if err := m.Workspace.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workspace")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this document audit based on the context it is used
+func (m *DocumentAudit) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateChanges(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEntity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkspace(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DocumentAudit) contextValidateChanges(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Changes); i++ {
+
+		if m.Changes[i] != nil {
+			if err := m.Changes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("changes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("changes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DocumentAudit) contextValidateEntity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Entity != nil {
+		if err := m.Entity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("entity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("entity")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DocumentAudit) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DocumentAudit) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DocumentAudit) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DocumentAudit) contextValidateWorkspace(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Workspace != nil {
+		if err := m.Workspace.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workspace")
 			}
 			return err
 		}

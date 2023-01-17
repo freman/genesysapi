@@ -95,7 +95,6 @@ func (o *PutConversationsEmailMessagesDraftReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutConversationsEmailMessagesDraftOK() *PutConversationsEmailMessagesDra
 	return &PutConversationsEmailMessagesDraftOK{}
 }
 
-/*PutConversationsEmailMessagesDraftOK handles this case with default header values.
+/*
+PutConversationsEmailMessagesDraftOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutConversationsEmailMessagesDraftOK struct {
 	Payload *models.EmailMessage
 }
 
+// IsSuccess returns true when this put conversations email messages draft o k response has a 2xx status code
+func (o *PutConversationsEmailMessagesDraftOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversations email messages draft o k response has a 3xx status code
+func (o *PutConversationsEmailMessagesDraftOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations email messages draft o k response has a 4xx status code
+func (o *PutConversationsEmailMessagesDraftOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations email messages draft o k response has a 5xx status code
+func (o *PutConversationsEmailMessagesDraftOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations email messages draft o k response a status code equal to that given
+func (o *PutConversationsEmailMessagesDraftOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutConversationsEmailMessagesDraftOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftOK  %+v", 200, o.Payload)
+}
+
+func (o *PutConversationsEmailMessagesDraftOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutConversationsEmailMessagesDraftBadRequest() *PutConversationsEmailMes
 	return &PutConversationsEmailMessagesDraftBadRequest{}
 }
 
-/*PutConversationsEmailMessagesDraftBadRequest handles this case with default header values.
+/*
+PutConversationsEmailMessagesDraftBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutConversationsEmailMessagesDraftBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations email messages draft bad request response has a 2xx status code
+func (o *PutConversationsEmailMessagesDraftBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations email messages draft bad request response has a 3xx status code
+func (o *PutConversationsEmailMessagesDraftBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations email messages draft bad request response has a 4xx status code
+func (o *PutConversationsEmailMessagesDraftBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations email messages draft bad request response has a 5xx status code
+func (o *PutConversationsEmailMessagesDraftBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations email messages draft bad request response a status code equal to that given
+func (o *PutConversationsEmailMessagesDraftBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutConversationsEmailMessagesDraftBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutConversationsEmailMessagesDraftBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutConversationsEmailMessagesDraftUnauthorized() *PutConversationsEmailM
 	return &PutConversationsEmailMessagesDraftUnauthorized{}
 }
 
-/*PutConversationsEmailMessagesDraftUnauthorized handles this case with default header values.
+/*
+PutConversationsEmailMessagesDraftUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutConversationsEmailMessagesDraftUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations email messages draft unauthorized response has a 2xx status code
+func (o *PutConversationsEmailMessagesDraftUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations email messages draft unauthorized response has a 3xx status code
+func (o *PutConversationsEmailMessagesDraftUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations email messages draft unauthorized response has a 4xx status code
+func (o *PutConversationsEmailMessagesDraftUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations email messages draft unauthorized response has a 5xx status code
+func (o *PutConversationsEmailMessagesDraftUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations email messages draft unauthorized response a status code equal to that given
+func (o *PutConversationsEmailMessagesDraftUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutConversationsEmailMessagesDraftUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutConversationsEmailMessagesDraftUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutConversationsEmailMessagesDraftForbidden() *PutConversationsEmailMess
 	return &PutConversationsEmailMessagesDraftForbidden{}
 }
 
-/*PutConversationsEmailMessagesDraftForbidden handles this case with default header values.
+/*
+PutConversationsEmailMessagesDraftForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutConversationsEmailMessagesDraftForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations email messages draft forbidden response has a 2xx status code
+func (o *PutConversationsEmailMessagesDraftForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations email messages draft forbidden response has a 3xx status code
+func (o *PutConversationsEmailMessagesDraftForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations email messages draft forbidden response has a 4xx status code
+func (o *PutConversationsEmailMessagesDraftForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations email messages draft forbidden response has a 5xx status code
+func (o *PutConversationsEmailMessagesDraftForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations email messages draft forbidden response a status code equal to that given
+func (o *PutConversationsEmailMessagesDraftForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutConversationsEmailMessagesDraftForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutConversationsEmailMessagesDraftForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutConversationsEmailMessagesDraftNotFound() *PutConversationsEmailMessa
 	return &PutConversationsEmailMessagesDraftNotFound{}
 }
 
-/*PutConversationsEmailMessagesDraftNotFound handles this case with default header values.
+/*
+PutConversationsEmailMessagesDraftNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutConversationsEmailMessagesDraftNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations email messages draft not found response has a 2xx status code
+func (o *PutConversationsEmailMessagesDraftNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations email messages draft not found response has a 3xx status code
+func (o *PutConversationsEmailMessagesDraftNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations email messages draft not found response has a 4xx status code
+func (o *PutConversationsEmailMessagesDraftNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations email messages draft not found response has a 5xx status code
+func (o *PutConversationsEmailMessagesDraftNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations email messages draft not found response a status code equal to that given
+func (o *PutConversationsEmailMessagesDraftNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutConversationsEmailMessagesDraftNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutConversationsEmailMessagesDraftNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutConversationsEmailMessagesDraftRequestTimeout() *PutConversationsEmai
 	return &PutConversationsEmailMessagesDraftRequestTimeout{}
 }
 
-/*PutConversationsEmailMessagesDraftRequestTimeout handles this case with default header values.
+/*
+PutConversationsEmailMessagesDraftRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutConversationsEmailMessagesDraftRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations email messages draft request timeout response has a 2xx status code
+func (o *PutConversationsEmailMessagesDraftRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations email messages draft request timeout response has a 3xx status code
+func (o *PutConversationsEmailMessagesDraftRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations email messages draft request timeout response has a 4xx status code
+func (o *PutConversationsEmailMessagesDraftRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations email messages draft request timeout response has a 5xx status code
+func (o *PutConversationsEmailMessagesDraftRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations email messages draft request timeout response a status code equal to that given
+func (o *PutConversationsEmailMessagesDraftRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutConversationsEmailMessagesDraftRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationsEmailMessagesDraftRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutConversationsEmailMessagesDraftRequestEntityTooLarge() *PutConversati
 	return &PutConversationsEmailMessagesDraftRequestEntityTooLarge{}
 }
 
-/*PutConversationsEmailMessagesDraftRequestEntityTooLarge handles this case with default header values.
+/*
+PutConversationsEmailMessagesDraftRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutConversationsEmailMessagesDraftRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations email messages draft request entity too large response has a 2xx status code
+func (o *PutConversationsEmailMessagesDraftRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations email messages draft request entity too large response has a 3xx status code
+func (o *PutConversationsEmailMessagesDraftRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations email messages draft request entity too large response has a 4xx status code
+func (o *PutConversationsEmailMessagesDraftRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations email messages draft request entity too large response has a 5xx status code
+func (o *PutConversationsEmailMessagesDraftRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations email messages draft request entity too large response a status code equal to that given
+func (o *PutConversationsEmailMessagesDraftRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutConversationsEmailMessagesDraftRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutConversationsEmailMessagesDraftRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutConversationsEmailMessagesDraftUnsupportedMediaType() *PutConversatio
 	return &PutConversationsEmailMessagesDraftUnsupportedMediaType{}
 }
 
-/*PutConversationsEmailMessagesDraftUnsupportedMediaType handles this case with default header values.
+/*
+PutConversationsEmailMessagesDraftUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutConversationsEmailMessagesDraftUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations email messages draft unsupported media type response has a 2xx status code
+func (o *PutConversationsEmailMessagesDraftUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations email messages draft unsupported media type response has a 3xx status code
+func (o *PutConversationsEmailMessagesDraftUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations email messages draft unsupported media type response has a 4xx status code
+func (o *PutConversationsEmailMessagesDraftUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations email messages draft unsupported media type response has a 5xx status code
+func (o *PutConversationsEmailMessagesDraftUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations email messages draft unsupported media type response a status code equal to that given
+func (o *PutConversationsEmailMessagesDraftUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutConversationsEmailMessagesDraftUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutConversationsEmailMessagesDraftUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutConversationsEmailMessagesDraftTooManyRequests() *PutConversationsEma
 	return &PutConversationsEmailMessagesDraftTooManyRequests{}
 }
 
-/*PutConversationsEmailMessagesDraftTooManyRequests handles this case with default header values.
+/*
+PutConversationsEmailMessagesDraftTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutConversationsEmailMessagesDraftTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations email messages draft too many requests response has a 2xx status code
+func (o *PutConversationsEmailMessagesDraftTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations email messages draft too many requests response has a 3xx status code
+func (o *PutConversationsEmailMessagesDraftTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations email messages draft too many requests response has a 4xx status code
+func (o *PutConversationsEmailMessagesDraftTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations email messages draft too many requests response has a 5xx status code
+func (o *PutConversationsEmailMessagesDraftTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations email messages draft too many requests response a status code equal to that given
+func (o *PutConversationsEmailMessagesDraftTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutConversationsEmailMessagesDraftTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutConversationsEmailMessagesDraftTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutConversationsEmailMessagesDraftInternalServerError() *PutConversation
 	return &PutConversationsEmailMessagesDraftInternalServerError{}
 }
 
-/*PutConversationsEmailMessagesDraftInternalServerError handles this case with default header values.
+/*
+PutConversationsEmailMessagesDraftInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutConversationsEmailMessagesDraftInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations email messages draft internal server error response has a 2xx status code
+func (o *PutConversationsEmailMessagesDraftInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations email messages draft internal server error response has a 3xx status code
+func (o *PutConversationsEmailMessagesDraftInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations email messages draft internal server error response has a 4xx status code
+func (o *PutConversationsEmailMessagesDraftInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations email messages draft internal server error response has a 5xx status code
+func (o *PutConversationsEmailMessagesDraftInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations email messages draft internal server error response a status code equal to that given
+func (o *PutConversationsEmailMessagesDraftInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutConversationsEmailMessagesDraftInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutConversationsEmailMessagesDraftInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutConversationsEmailMessagesDraftServiceUnavailable() *PutConversations
 	return &PutConversationsEmailMessagesDraftServiceUnavailable{}
 }
 
-/*PutConversationsEmailMessagesDraftServiceUnavailable handles this case with default header values.
+/*
+PutConversationsEmailMessagesDraftServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutConversationsEmailMessagesDraftServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations email messages draft service unavailable response has a 2xx status code
+func (o *PutConversationsEmailMessagesDraftServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations email messages draft service unavailable response has a 3xx status code
+func (o *PutConversationsEmailMessagesDraftServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations email messages draft service unavailable response has a 4xx status code
+func (o *PutConversationsEmailMessagesDraftServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations email messages draft service unavailable response has a 5xx status code
+func (o *PutConversationsEmailMessagesDraftServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations email messages draft service unavailable response a status code equal to that given
+func (o *PutConversationsEmailMessagesDraftServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutConversationsEmailMessagesDraftServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutConversationsEmailMessagesDraftServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutConversationsEmailMessagesDraftGatewayTimeout() *PutConversationsEmai
 	return &PutConversationsEmailMessagesDraftGatewayTimeout{}
 }
 
-/*PutConversationsEmailMessagesDraftGatewayTimeout handles this case with default header values.
+/*
+PutConversationsEmailMessagesDraftGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutConversationsEmailMessagesDraftGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations email messages draft gateway timeout response has a 2xx status code
+func (o *PutConversationsEmailMessagesDraftGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations email messages draft gateway timeout response has a 3xx status code
+func (o *PutConversationsEmailMessagesDraftGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations email messages draft gateway timeout response has a 4xx status code
+func (o *PutConversationsEmailMessagesDraftGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations email messages draft gateway timeout response has a 5xx status code
+func (o *PutConversationsEmailMessagesDraftGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations email messages draft gateway timeout response a status code equal to that given
+func (o *PutConversationsEmailMessagesDraftGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutConversationsEmailMessagesDraftGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutConversationsEmailMessagesDraftGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/emails/{conversationId}/messages/draft][%d] putConversationsEmailMessagesDraftGatewayTimeout  %+v", 504, o.Payload)
 }
 

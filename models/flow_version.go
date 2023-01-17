@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -161,7 +162,6 @@ func (m *FlowVersion) validateCompatibleFlowTypesItemsEnum(path, location string
 }
 
 func (m *FlowVersion) validateCompatibleFlowTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CompatibleFlowTypes) { // not required
 		return nil
 	}
@@ -179,7 +179,6 @@ func (m *FlowVersion) validateCompatibleFlowTypes(formats strfmt.Registry) error
 }
 
 func (m *FlowVersion) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -188,6 +187,8 @@ func (m *FlowVersion) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -197,7 +198,6 @@ func (m *FlowVersion) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *FlowVersion) validateCreatedByClient(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedByClient) { // not required
 		return nil
 	}
@@ -206,6 +206,8 @@ func (m *FlowVersion) validateCreatedByClient(formats strfmt.Registry) error {
 		if err := m.CreatedByClient.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdByClient")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdByClient")
 			}
 			return err
 		}
@@ -215,7 +217,6 @@ func (m *FlowVersion) validateCreatedByClient(formats strfmt.Registry) error {
 }
 
 func (m *FlowVersion) validateInputSchema(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InputSchema) { // not required
 		return nil
 	}
@@ -224,6 +225,8 @@ func (m *FlowVersion) validateInputSchema(formats strfmt.Registry) error {
 		if err := m.InputSchema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("inputSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputSchema")
 			}
 			return err
 		}
@@ -233,7 +236,6 @@ func (m *FlowVersion) validateInputSchema(formats strfmt.Registry) error {
 }
 
 func (m *FlowVersion) validateNluInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NluInfo) { // not required
 		return nil
 	}
@@ -242,6 +244,8 @@ func (m *FlowVersion) validateNluInfo(formats strfmt.Registry) error {
 		if err := m.NluInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("nluInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nluInfo")
 			}
 			return err
 		}
@@ -251,7 +255,6 @@ func (m *FlowVersion) validateNluInfo(formats strfmt.Registry) error {
 }
 
 func (m *FlowVersion) validateOutputSchema(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OutputSchema) { // not required
 		return nil
 	}
@@ -260,6 +263,8 @@ func (m *FlowVersion) validateOutputSchema(formats strfmt.Registry) error {
 		if err := m.OutputSchema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outputSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outputSchema")
 			}
 			return err
 		}
@@ -269,7 +274,6 @@ func (m *FlowVersion) validateOutputSchema(formats strfmt.Registry) error {
 }
 
 func (m *FlowVersion) validatePublishResultURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PublishResultURI) { // not required
 		return nil
 	}
@@ -282,7 +286,6 @@ func (m *FlowVersion) validatePublishResultURI(formats strfmt.Registry) error {
 }
 
 func (m *FlowVersion) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -295,7 +298,6 @@ func (m *FlowVersion) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *FlowVersion) validateSupportedLanguages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SupportedLanguages) { // not required
 		return nil
 	}
@@ -309,6 +311,8 @@ func (m *FlowVersion) validateSupportedLanguages(formats strfmt.Registry) error 
 			if err := m.SupportedLanguages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -352,7 +356,6 @@ func (m *FlowVersion) validateTypeEnum(path, location string, value string) erro
 }
 
 func (m *FlowVersion) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -360,6 +363,170 @@ func (m *FlowVersion) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this flow version based on the context it is used
+func (m *FlowVersion) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCompatibleFlowTypes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedByClient(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInputSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNluInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutputSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupportedLanguages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FlowVersion) contextValidateCompatibleFlowTypes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "compatibleFlowTypes", "body", []string(m.CompatibleFlowTypes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FlowVersion) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowVersion) contextValidateCreatedByClient(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedByClient != nil {
+		if err := m.CreatedByClient.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdByClient")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdByClient")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowVersion) contextValidateInputSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InputSchema != nil {
+		if err := m.InputSchema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("inputSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputSchema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowVersion) contextValidateNluInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.NluInfo != nil {
+		if err := m.NluInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("nluInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nluInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowVersion) contextValidateOutputSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OutputSchema != nil {
+		if err := m.OutputSchema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outputSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outputSchema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowVersion) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FlowVersion) contextValidateSupportedLanguages(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "supportedLanguages", "body", []*SupportedLanguage(m.SupportedLanguages)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.SupportedLanguages); i++ {
+
+		if m.SupportedLanguages[i] != nil {
+			if err := m.SupportedLanguages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -95,7 +95,6 @@ func (o *GetConversationsChatParticipantWrapupReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConversationsChatParticipantWrapupOK() *GetConversationsChatParticipa
 	return &GetConversationsChatParticipantWrapupOK{}
 }
 
-/*GetConversationsChatParticipantWrapupOK handles this case with default header values.
+/*
+GetConversationsChatParticipantWrapupOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetConversationsChatParticipantWrapupOK struct {
 	Payload *models.AssignedWrapupCode
 }
 
+// IsSuccess returns true when this get conversations chat participant wrapup o k response has a 2xx status code
+func (o *GetConversationsChatParticipantWrapupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversations chat participant wrapup o k response has a 3xx status code
+func (o *GetConversationsChatParticipantWrapupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations chat participant wrapup o k response has a 4xx status code
+func (o *GetConversationsChatParticipantWrapupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations chat participant wrapup o k response has a 5xx status code
+func (o *GetConversationsChatParticipantWrapupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations chat participant wrapup o k response a status code equal to that given
+func (o *GetConversationsChatParticipantWrapupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationsChatParticipantWrapupOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationsChatParticipantWrapupOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetConversationsChatParticipantWrapupBadRequest() *GetConversationsChatP
 	return &GetConversationsChatParticipantWrapupBadRequest{}
 }
 
-/*GetConversationsChatParticipantWrapupBadRequest handles this case with default header values.
+/*
+GetConversationsChatParticipantWrapupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetConversationsChatParticipantWrapupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations chat participant wrapup bad request response has a 2xx status code
+func (o *GetConversationsChatParticipantWrapupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations chat participant wrapup bad request response has a 3xx status code
+func (o *GetConversationsChatParticipantWrapupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations chat participant wrapup bad request response has a 4xx status code
+func (o *GetConversationsChatParticipantWrapupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations chat participant wrapup bad request response has a 5xx status code
+func (o *GetConversationsChatParticipantWrapupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations chat participant wrapup bad request response a status code equal to that given
+func (o *GetConversationsChatParticipantWrapupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationsChatParticipantWrapupBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationsChatParticipantWrapupBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetConversationsChatParticipantWrapupUnauthorized() *GetConversationsCha
 	return &GetConversationsChatParticipantWrapupUnauthorized{}
 }
 
-/*GetConversationsChatParticipantWrapupUnauthorized handles this case with default header values.
+/*
+GetConversationsChatParticipantWrapupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetConversationsChatParticipantWrapupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations chat participant wrapup unauthorized response has a 2xx status code
+func (o *GetConversationsChatParticipantWrapupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations chat participant wrapup unauthorized response has a 3xx status code
+func (o *GetConversationsChatParticipantWrapupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations chat participant wrapup unauthorized response has a 4xx status code
+func (o *GetConversationsChatParticipantWrapupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations chat participant wrapup unauthorized response has a 5xx status code
+func (o *GetConversationsChatParticipantWrapupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations chat participant wrapup unauthorized response a status code equal to that given
+func (o *GetConversationsChatParticipantWrapupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationsChatParticipantWrapupUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationsChatParticipantWrapupUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetConversationsChatParticipantWrapupForbidden() *GetConversationsChatPa
 	return &GetConversationsChatParticipantWrapupForbidden{}
 }
 
-/*GetConversationsChatParticipantWrapupForbidden handles this case with default header values.
+/*
+GetConversationsChatParticipantWrapupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetConversationsChatParticipantWrapupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations chat participant wrapup forbidden response has a 2xx status code
+func (o *GetConversationsChatParticipantWrapupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations chat participant wrapup forbidden response has a 3xx status code
+func (o *GetConversationsChatParticipantWrapupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations chat participant wrapup forbidden response has a 4xx status code
+func (o *GetConversationsChatParticipantWrapupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations chat participant wrapup forbidden response has a 5xx status code
+func (o *GetConversationsChatParticipantWrapupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations chat participant wrapup forbidden response a status code equal to that given
+func (o *GetConversationsChatParticipantWrapupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationsChatParticipantWrapupForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationsChatParticipantWrapupForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetConversationsChatParticipantWrapupNotFound() *GetConversationsChatPar
 	return &GetConversationsChatParticipantWrapupNotFound{}
 }
 
-/*GetConversationsChatParticipantWrapupNotFound handles this case with default header values.
+/*
+GetConversationsChatParticipantWrapupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetConversationsChatParticipantWrapupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations chat participant wrapup not found response has a 2xx status code
+func (o *GetConversationsChatParticipantWrapupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations chat participant wrapup not found response has a 3xx status code
+func (o *GetConversationsChatParticipantWrapupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations chat participant wrapup not found response has a 4xx status code
+func (o *GetConversationsChatParticipantWrapupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations chat participant wrapup not found response has a 5xx status code
+func (o *GetConversationsChatParticipantWrapupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations chat participant wrapup not found response a status code equal to that given
+func (o *GetConversationsChatParticipantWrapupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationsChatParticipantWrapupNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationsChatParticipantWrapupNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetConversationsChatParticipantWrapupRequestTimeout() *GetConversationsC
 	return &GetConversationsChatParticipantWrapupRequestTimeout{}
 }
 
-/*GetConversationsChatParticipantWrapupRequestTimeout handles this case with default header values.
+/*
+GetConversationsChatParticipantWrapupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetConversationsChatParticipantWrapupRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations chat participant wrapup request timeout response has a 2xx status code
+func (o *GetConversationsChatParticipantWrapupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations chat participant wrapup request timeout response has a 3xx status code
+func (o *GetConversationsChatParticipantWrapupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations chat participant wrapup request timeout response has a 4xx status code
+func (o *GetConversationsChatParticipantWrapupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations chat participant wrapup request timeout response has a 5xx status code
+func (o *GetConversationsChatParticipantWrapupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations chat participant wrapup request timeout response a status code equal to that given
+func (o *GetConversationsChatParticipantWrapupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationsChatParticipantWrapupRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsChatParticipantWrapupRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetConversationsChatParticipantWrapupRequestEntityTooLarge() *GetConvers
 	return &GetConversationsChatParticipantWrapupRequestEntityTooLarge{}
 }
 
-/*GetConversationsChatParticipantWrapupRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationsChatParticipantWrapupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetConversationsChatParticipantWrapupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations chat participant wrapup request entity too large response has a 2xx status code
+func (o *GetConversationsChatParticipantWrapupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations chat participant wrapup request entity too large response has a 3xx status code
+func (o *GetConversationsChatParticipantWrapupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations chat participant wrapup request entity too large response has a 4xx status code
+func (o *GetConversationsChatParticipantWrapupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations chat participant wrapup request entity too large response has a 5xx status code
+func (o *GetConversationsChatParticipantWrapupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations chat participant wrapup request entity too large response a status code equal to that given
+func (o *GetConversationsChatParticipantWrapupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationsChatParticipantWrapupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationsChatParticipantWrapupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetConversationsChatParticipantWrapupUnsupportedMediaType() *GetConversa
 	return &GetConversationsChatParticipantWrapupUnsupportedMediaType{}
 }
 
-/*GetConversationsChatParticipantWrapupUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationsChatParticipantWrapupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetConversationsChatParticipantWrapupUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations chat participant wrapup unsupported media type response has a 2xx status code
+func (o *GetConversationsChatParticipantWrapupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations chat participant wrapup unsupported media type response has a 3xx status code
+func (o *GetConversationsChatParticipantWrapupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations chat participant wrapup unsupported media type response has a 4xx status code
+func (o *GetConversationsChatParticipantWrapupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations chat participant wrapup unsupported media type response has a 5xx status code
+func (o *GetConversationsChatParticipantWrapupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations chat participant wrapup unsupported media type response a status code equal to that given
+func (o *GetConversationsChatParticipantWrapupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationsChatParticipantWrapupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationsChatParticipantWrapupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetConversationsChatParticipantWrapupTooManyRequests() *GetConversations
 	return &GetConversationsChatParticipantWrapupTooManyRequests{}
 }
 
-/*GetConversationsChatParticipantWrapupTooManyRequests handles this case with default header values.
+/*
+GetConversationsChatParticipantWrapupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetConversationsChatParticipantWrapupTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations chat participant wrapup too many requests response has a 2xx status code
+func (o *GetConversationsChatParticipantWrapupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations chat participant wrapup too many requests response has a 3xx status code
+func (o *GetConversationsChatParticipantWrapupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations chat participant wrapup too many requests response has a 4xx status code
+func (o *GetConversationsChatParticipantWrapupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations chat participant wrapup too many requests response has a 5xx status code
+func (o *GetConversationsChatParticipantWrapupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations chat participant wrapup too many requests response a status code equal to that given
+func (o *GetConversationsChatParticipantWrapupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationsChatParticipantWrapupTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationsChatParticipantWrapupTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetConversationsChatParticipantWrapupInternalServerError() *GetConversat
 	return &GetConversationsChatParticipantWrapupInternalServerError{}
 }
 
-/*GetConversationsChatParticipantWrapupInternalServerError handles this case with default header values.
+/*
+GetConversationsChatParticipantWrapupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetConversationsChatParticipantWrapupInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations chat participant wrapup internal server error response has a 2xx status code
+func (o *GetConversationsChatParticipantWrapupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations chat participant wrapup internal server error response has a 3xx status code
+func (o *GetConversationsChatParticipantWrapupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations chat participant wrapup internal server error response has a 4xx status code
+func (o *GetConversationsChatParticipantWrapupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations chat participant wrapup internal server error response has a 5xx status code
+func (o *GetConversationsChatParticipantWrapupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations chat participant wrapup internal server error response a status code equal to that given
+func (o *GetConversationsChatParticipantWrapupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationsChatParticipantWrapupInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationsChatParticipantWrapupInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetConversationsChatParticipantWrapupServiceUnavailable() *GetConversati
 	return &GetConversationsChatParticipantWrapupServiceUnavailable{}
 }
 
-/*GetConversationsChatParticipantWrapupServiceUnavailable handles this case with default header values.
+/*
+GetConversationsChatParticipantWrapupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetConversationsChatParticipantWrapupServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations chat participant wrapup service unavailable response has a 2xx status code
+func (o *GetConversationsChatParticipantWrapupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations chat participant wrapup service unavailable response has a 3xx status code
+func (o *GetConversationsChatParticipantWrapupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations chat participant wrapup service unavailable response has a 4xx status code
+func (o *GetConversationsChatParticipantWrapupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations chat participant wrapup service unavailable response has a 5xx status code
+func (o *GetConversationsChatParticipantWrapupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations chat participant wrapup service unavailable response a status code equal to that given
+func (o *GetConversationsChatParticipantWrapupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationsChatParticipantWrapupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationsChatParticipantWrapupServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetConversationsChatParticipantWrapupGatewayTimeout() *GetConversationsC
 	return &GetConversationsChatParticipantWrapupGatewayTimeout{}
 }
 
-/*GetConversationsChatParticipantWrapupGatewayTimeout handles this case with default header values.
+/*
+GetConversationsChatParticipantWrapupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetConversationsChatParticipantWrapupGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations chat participant wrapup gateway timeout response has a 2xx status code
+func (o *GetConversationsChatParticipantWrapupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations chat participant wrapup gateway timeout response has a 3xx status code
+func (o *GetConversationsChatParticipantWrapupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations chat participant wrapup gateway timeout response has a 4xx status code
+func (o *GetConversationsChatParticipantWrapupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations chat participant wrapup gateway timeout response has a 5xx status code
+func (o *GetConversationsChatParticipantWrapupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations chat participant wrapup gateway timeout response a status code equal to that given
+func (o *GetConversationsChatParticipantWrapupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationsChatParticipantWrapupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationsChatParticipantWrapupGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/chats/{conversationId}/participants/{participantId}/wrapup][%d] getConversationsChatParticipantWrapupGatewayTimeout  %+v", 504, o.Payload)
 }
 

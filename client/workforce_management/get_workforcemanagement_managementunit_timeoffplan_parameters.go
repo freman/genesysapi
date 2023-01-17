@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementManagementunitTimeoffplanParams creates a new GetWorkforcemanagementManagementunitTimeoffplanParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementManagementunitTimeoffplanParams creates a new GetWorkforcemanagementManagementunitTimeoffplanParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementManagementunitTimeoffplanParams() *GetWorkforcemanagementManagementunitTimeoffplanParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitTimeoffplanParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitTimeoffplanParamsWithTimeout creates a new GetWorkforcemanagementManagementunitTimeoffplanParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementManagementunitTimeoffplanParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementManagementunitTimeoffplanParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitTimeoffplanParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitTimeoffplanParamsWithContext creates a new GetWorkforcemanagementManagementunitTimeoffplanParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementManagementunitTimeoffplanParamsWithContext(ctx context.Context) *GetWorkforcemanagementManagementunitTimeoffplanParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitTimeoffplanParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitTimeoffplanParamsWithHTTPClient creates a new GetWorkforcemanagementManagementunitTimeoffplanParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementManagementunitTimeoffplanParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementManagementunitTimeoffplanParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitTimeoffplanParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementManagementunitTimeoffplanParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement managementunit timeoffplan operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementManagementunitTimeoffplanParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement managementunit timeoffplan operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementManagementunitTimeoffplanParams struct {
 
-	/*ManagementUnitID
-	  The ID of the management unit
+	/* ManagementUnitID.
 
+	   The ID of the management unit
 	*/
 	ManagementUnitID string
-	/*TimeOffPlanID
-	  The ID of the time off plan to fetch
 
+	/* TimeOffPlanID.
+
+	   The ID of the time off plan to fetch
 	*/
 	TimeOffPlanID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement managementunit timeoffplan params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitTimeoffplanParams) WithDefaults() *GetWorkforcemanagementManagementunitTimeoffplanParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement managementunit timeoffplan params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitTimeoffplanParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement managementunit timeoffplan params

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetFlowsMilestoneParams creates a new GetFlowsMilestoneParams object
-// with the default values initialized.
+// NewGetFlowsMilestoneParams creates a new GetFlowsMilestoneParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFlowsMilestoneParams() *GetFlowsMilestoneParams {
-	var ()
 	return &GetFlowsMilestoneParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFlowsMilestoneParamsWithTimeout creates a new GetFlowsMilestoneParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFlowsMilestoneParamsWithTimeout(timeout time.Duration) *GetFlowsMilestoneParams {
-	var ()
 	return &GetFlowsMilestoneParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFlowsMilestoneParamsWithContext creates a new GetFlowsMilestoneParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFlowsMilestoneParamsWithContext(ctx context.Context) *GetFlowsMilestoneParams {
-	var ()
 	return &GetFlowsMilestoneParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetFlowsMilestoneParamsWithHTTPClient creates a new GetFlowsMilestoneParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFlowsMilestoneParamsWithHTTPClient(client *http.Client) *GetFlowsMilestoneParams {
-	var ()
 	return &GetFlowsMilestoneParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetFlowsMilestoneParams contains all the parameters to send to the API endpoint
-for the get flows milestone operation typically these are written to a http.Request
+/*
+GetFlowsMilestoneParams contains all the parameters to send to the API endpoint
+
+	for the get flows milestone operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFlowsMilestoneParams struct {
 
-	/*MilestoneID
-	  flow milestone ID
+	/* MilestoneID.
 
+	   flow milestone ID
 	*/
 	MilestoneID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get flows milestone params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowsMilestoneParams) WithDefaults() *GetFlowsMilestoneParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get flows milestone params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowsMilestoneParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get flows milestone params

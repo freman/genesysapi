@@ -95,7 +95,6 @@ func (o *PatchRoutingEmailDomainReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchRoutingEmailDomainOK() *PatchRoutingEmailDomainOK {
 	return &PatchRoutingEmailDomainOK{}
 }
 
-/*PatchRoutingEmailDomainOK handles this case with default header values.
+/*
+PatchRoutingEmailDomainOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchRoutingEmailDomainOK struct {
 	Payload *models.InboundDomain
 }
 
+// IsSuccess returns true when this patch routing email domain o k response has a 2xx status code
+func (o *PatchRoutingEmailDomainOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch routing email domain o k response has a 3xx status code
+func (o *PatchRoutingEmailDomainOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing email domain o k response has a 4xx status code
+func (o *PatchRoutingEmailDomainOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing email domain o k response has a 5xx status code
+func (o *PatchRoutingEmailDomainOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing email domain o k response a status code equal to that given
+func (o *PatchRoutingEmailDomainOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchRoutingEmailDomainOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchRoutingEmailDomainOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchRoutingEmailDomainBadRequest() *PatchRoutingEmailDomainBadRequest {
 	return &PatchRoutingEmailDomainBadRequest{}
 }
 
-/*PatchRoutingEmailDomainBadRequest handles this case with default header values.
+/*
+PatchRoutingEmailDomainBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchRoutingEmailDomainBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing email domain bad request response has a 2xx status code
+func (o *PatchRoutingEmailDomainBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing email domain bad request response has a 3xx status code
+func (o *PatchRoutingEmailDomainBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing email domain bad request response has a 4xx status code
+func (o *PatchRoutingEmailDomainBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing email domain bad request response has a 5xx status code
+func (o *PatchRoutingEmailDomainBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing email domain bad request response a status code equal to that given
+func (o *PatchRoutingEmailDomainBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchRoutingEmailDomainBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchRoutingEmailDomainBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchRoutingEmailDomainUnauthorized() *PatchRoutingEmailDomainUnauthoriz
 	return &PatchRoutingEmailDomainUnauthorized{}
 }
 
-/*PatchRoutingEmailDomainUnauthorized handles this case with default header values.
+/*
+PatchRoutingEmailDomainUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchRoutingEmailDomainUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing email domain unauthorized response has a 2xx status code
+func (o *PatchRoutingEmailDomainUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing email domain unauthorized response has a 3xx status code
+func (o *PatchRoutingEmailDomainUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing email domain unauthorized response has a 4xx status code
+func (o *PatchRoutingEmailDomainUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing email domain unauthorized response has a 5xx status code
+func (o *PatchRoutingEmailDomainUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing email domain unauthorized response a status code equal to that given
+func (o *PatchRoutingEmailDomainUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchRoutingEmailDomainUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchRoutingEmailDomainUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchRoutingEmailDomainForbidden() *PatchRoutingEmailDomainForbidden {
 	return &PatchRoutingEmailDomainForbidden{}
 }
 
-/*PatchRoutingEmailDomainForbidden handles this case with default header values.
+/*
+PatchRoutingEmailDomainForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchRoutingEmailDomainForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing email domain forbidden response has a 2xx status code
+func (o *PatchRoutingEmailDomainForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing email domain forbidden response has a 3xx status code
+func (o *PatchRoutingEmailDomainForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing email domain forbidden response has a 4xx status code
+func (o *PatchRoutingEmailDomainForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing email domain forbidden response has a 5xx status code
+func (o *PatchRoutingEmailDomainForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing email domain forbidden response a status code equal to that given
+func (o *PatchRoutingEmailDomainForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchRoutingEmailDomainForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchRoutingEmailDomainForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchRoutingEmailDomainNotFound() *PatchRoutingEmailDomainNotFound {
 	return &PatchRoutingEmailDomainNotFound{}
 }
 
-/*PatchRoutingEmailDomainNotFound handles this case with default header values.
+/*
+PatchRoutingEmailDomainNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchRoutingEmailDomainNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing email domain not found response has a 2xx status code
+func (o *PatchRoutingEmailDomainNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing email domain not found response has a 3xx status code
+func (o *PatchRoutingEmailDomainNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing email domain not found response has a 4xx status code
+func (o *PatchRoutingEmailDomainNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing email domain not found response has a 5xx status code
+func (o *PatchRoutingEmailDomainNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing email domain not found response a status code equal to that given
+func (o *PatchRoutingEmailDomainNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchRoutingEmailDomainNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchRoutingEmailDomainNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchRoutingEmailDomainRequestTimeout() *PatchRoutingEmailDomainRequestT
 	return &PatchRoutingEmailDomainRequestTimeout{}
 }
 
-/*PatchRoutingEmailDomainRequestTimeout handles this case with default header values.
+/*
+PatchRoutingEmailDomainRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchRoutingEmailDomainRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing email domain request timeout response has a 2xx status code
+func (o *PatchRoutingEmailDomainRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing email domain request timeout response has a 3xx status code
+func (o *PatchRoutingEmailDomainRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing email domain request timeout response has a 4xx status code
+func (o *PatchRoutingEmailDomainRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing email domain request timeout response has a 5xx status code
+func (o *PatchRoutingEmailDomainRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing email domain request timeout response a status code equal to that given
+func (o *PatchRoutingEmailDomainRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchRoutingEmailDomainRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchRoutingEmailDomainRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchRoutingEmailDomainRequestEntityTooLarge() *PatchRoutingEmailDomainR
 	return &PatchRoutingEmailDomainRequestEntityTooLarge{}
 }
 
-/*PatchRoutingEmailDomainRequestEntityTooLarge handles this case with default header values.
+/*
+PatchRoutingEmailDomainRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchRoutingEmailDomainRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing email domain request entity too large response has a 2xx status code
+func (o *PatchRoutingEmailDomainRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing email domain request entity too large response has a 3xx status code
+func (o *PatchRoutingEmailDomainRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing email domain request entity too large response has a 4xx status code
+func (o *PatchRoutingEmailDomainRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing email domain request entity too large response has a 5xx status code
+func (o *PatchRoutingEmailDomainRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing email domain request entity too large response a status code equal to that given
+func (o *PatchRoutingEmailDomainRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchRoutingEmailDomainRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchRoutingEmailDomainRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchRoutingEmailDomainUnsupportedMediaType() *PatchRoutingEmailDomainUn
 	return &PatchRoutingEmailDomainUnsupportedMediaType{}
 }
 
-/*PatchRoutingEmailDomainUnsupportedMediaType handles this case with default header values.
+/*
+PatchRoutingEmailDomainUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchRoutingEmailDomainUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing email domain unsupported media type response has a 2xx status code
+func (o *PatchRoutingEmailDomainUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing email domain unsupported media type response has a 3xx status code
+func (o *PatchRoutingEmailDomainUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing email domain unsupported media type response has a 4xx status code
+func (o *PatchRoutingEmailDomainUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing email domain unsupported media type response has a 5xx status code
+func (o *PatchRoutingEmailDomainUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing email domain unsupported media type response a status code equal to that given
+func (o *PatchRoutingEmailDomainUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchRoutingEmailDomainUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchRoutingEmailDomainUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchRoutingEmailDomainTooManyRequests() *PatchRoutingEmailDomainTooMany
 	return &PatchRoutingEmailDomainTooManyRequests{}
 }
 
-/*PatchRoutingEmailDomainTooManyRequests handles this case with default header values.
+/*
+PatchRoutingEmailDomainTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchRoutingEmailDomainTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing email domain too many requests response has a 2xx status code
+func (o *PatchRoutingEmailDomainTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing email domain too many requests response has a 3xx status code
+func (o *PatchRoutingEmailDomainTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing email domain too many requests response has a 4xx status code
+func (o *PatchRoutingEmailDomainTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing email domain too many requests response has a 5xx status code
+func (o *PatchRoutingEmailDomainTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing email domain too many requests response a status code equal to that given
+func (o *PatchRoutingEmailDomainTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchRoutingEmailDomainTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchRoutingEmailDomainTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchRoutingEmailDomainInternalServerError() *PatchRoutingEmailDomainInt
 	return &PatchRoutingEmailDomainInternalServerError{}
 }
 
-/*PatchRoutingEmailDomainInternalServerError handles this case with default header values.
+/*
+PatchRoutingEmailDomainInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchRoutingEmailDomainInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing email domain internal server error response has a 2xx status code
+func (o *PatchRoutingEmailDomainInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing email domain internal server error response has a 3xx status code
+func (o *PatchRoutingEmailDomainInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing email domain internal server error response has a 4xx status code
+func (o *PatchRoutingEmailDomainInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing email domain internal server error response has a 5xx status code
+func (o *PatchRoutingEmailDomainInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing email domain internal server error response a status code equal to that given
+func (o *PatchRoutingEmailDomainInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchRoutingEmailDomainInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchRoutingEmailDomainInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchRoutingEmailDomainServiceUnavailable() *PatchRoutingEmailDomainServ
 	return &PatchRoutingEmailDomainServiceUnavailable{}
 }
 
-/*PatchRoutingEmailDomainServiceUnavailable handles this case with default header values.
+/*
+PatchRoutingEmailDomainServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchRoutingEmailDomainServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing email domain service unavailable response has a 2xx status code
+func (o *PatchRoutingEmailDomainServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing email domain service unavailable response has a 3xx status code
+func (o *PatchRoutingEmailDomainServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing email domain service unavailable response has a 4xx status code
+func (o *PatchRoutingEmailDomainServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing email domain service unavailable response has a 5xx status code
+func (o *PatchRoutingEmailDomainServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing email domain service unavailable response a status code equal to that given
+func (o *PatchRoutingEmailDomainServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchRoutingEmailDomainServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchRoutingEmailDomainServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchRoutingEmailDomainGatewayTimeout() *PatchRoutingEmailDomainGatewayT
 	return &PatchRoutingEmailDomainGatewayTimeout{}
 }
 
-/*PatchRoutingEmailDomainGatewayTimeout handles this case with default header values.
+/*
+PatchRoutingEmailDomainGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchRoutingEmailDomainGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing email domain gateway timeout response has a 2xx status code
+func (o *PatchRoutingEmailDomainGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing email domain gateway timeout response has a 3xx status code
+func (o *PatchRoutingEmailDomainGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing email domain gateway timeout response has a 4xx status code
+func (o *PatchRoutingEmailDomainGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing email domain gateway timeout response has a 5xx status code
+func (o *PatchRoutingEmailDomainGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing email domain gateway timeout response a status code equal to that given
+func (o *PatchRoutingEmailDomainGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchRoutingEmailDomainGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchRoutingEmailDomainGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/email/domains/{domainId}][%d] patchRoutingEmailDomainGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteConversationsEmailMessagesDraftAttachmentParams creates a new DeleteConversationsEmailMessagesDraftAttachmentParams object
-// with the default values initialized.
+// NewDeleteConversationsEmailMessagesDraftAttachmentParams creates a new DeleteConversationsEmailMessagesDraftAttachmentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteConversationsEmailMessagesDraftAttachmentParams() *DeleteConversationsEmailMessagesDraftAttachmentParams {
-	var ()
 	return &DeleteConversationsEmailMessagesDraftAttachmentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteConversationsEmailMessagesDraftAttachmentParamsWithTimeout creates a new DeleteConversationsEmailMessagesDraftAttachmentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteConversationsEmailMessagesDraftAttachmentParamsWithTimeout(timeout time.Duration) *DeleteConversationsEmailMessagesDraftAttachmentParams {
-	var ()
 	return &DeleteConversationsEmailMessagesDraftAttachmentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteConversationsEmailMessagesDraftAttachmentParamsWithContext creates a new DeleteConversationsEmailMessagesDraftAttachmentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteConversationsEmailMessagesDraftAttachmentParamsWithContext(ctx context.Context) *DeleteConversationsEmailMessagesDraftAttachmentParams {
-	var ()
 	return &DeleteConversationsEmailMessagesDraftAttachmentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteConversationsEmailMessagesDraftAttachmentParamsWithHTTPClient creates a new DeleteConversationsEmailMessagesDraftAttachmentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteConversationsEmailMessagesDraftAttachmentParamsWithHTTPClient(client *http.Client) *DeleteConversationsEmailMessagesDraftAttachmentParams {
-	var ()
 	return &DeleteConversationsEmailMessagesDraftAttachmentParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteConversationsEmailMessagesDraftAttachmentParams contains all the parameters to send to the API endpoint
-for the delete conversations email messages draft attachment operation typically these are written to a http.Request
+/*
+DeleteConversationsEmailMessagesDraftAttachmentParams contains all the parameters to send to the API endpoint
+
+	for the delete conversations email messages draft attachment operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteConversationsEmailMessagesDraftAttachmentParams struct {
 
-	/*AttachmentID
-	  attachmentId
+	/* AttachmentID.
 
+	   attachmentId
 	*/
 	AttachmentID string
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete conversations email messages draft attachment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteConversationsEmailMessagesDraftAttachmentParams) WithDefaults() *DeleteConversationsEmailMessagesDraftAttachmentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete conversations email messages draft attachment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteConversationsEmailMessagesDraftAttachmentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete conversations email messages draft attachment params

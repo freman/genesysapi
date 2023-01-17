@@ -95,7 +95,6 @@ func (o *PostTeamsReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostTeamsOK() *PostTeamsOK {
 	return &PostTeamsOK{}
 }
 
-/*PostTeamsOK handles this case with default header values.
+/*
+PostTeamsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostTeamsOK struct {
 	Payload *models.Team
 }
 
+// IsSuccess returns true when this post teams o k response has a 2xx status code
+func (o *PostTeamsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post teams o k response has a 3xx status code
+func (o *PostTeamsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post teams o k response has a 4xx status code
+func (o *PostTeamsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post teams o k response has a 5xx status code
+func (o *PostTeamsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post teams o k response a status code equal to that given
+func (o *PostTeamsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostTeamsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostTeamsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostTeamsBadRequest() *PostTeamsBadRequest {
 	return &PostTeamsBadRequest{}
 }
 
-/*PostTeamsBadRequest handles this case with default header values.
+/*
+PostTeamsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostTeamsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post teams bad request response has a 2xx status code
+func (o *PostTeamsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post teams bad request response has a 3xx status code
+func (o *PostTeamsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post teams bad request response has a 4xx status code
+func (o *PostTeamsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post teams bad request response has a 5xx status code
+func (o *PostTeamsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post teams bad request response a status code equal to that given
+func (o *PostTeamsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostTeamsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostTeamsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostTeamsUnauthorized() *PostTeamsUnauthorized {
 	return &PostTeamsUnauthorized{}
 }
 
-/*PostTeamsUnauthorized handles this case with default header values.
+/*
+PostTeamsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostTeamsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post teams unauthorized response has a 2xx status code
+func (o *PostTeamsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post teams unauthorized response has a 3xx status code
+func (o *PostTeamsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post teams unauthorized response has a 4xx status code
+func (o *PostTeamsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post teams unauthorized response has a 5xx status code
+func (o *PostTeamsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post teams unauthorized response a status code equal to that given
+func (o *PostTeamsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostTeamsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostTeamsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostTeamsForbidden() *PostTeamsForbidden {
 	return &PostTeamsForbidden{}
 }
 
-/*PostTeamsForbidden handles this case with default header values.
+/*
+PostTeamsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostTeamsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post teams forbidden response has a 2xx status code
+func (o *PostTeamsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post teams forbidden response has a 3xx status code
+func (o *PostTeamsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post teams forbidden response has a 4xx status code
+func (o *PostTeamsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post teams forbidden response has a 5xx status code
+func (o *PostTeamsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post teams forbidden response a status code equal to that given
+func (o *PostTeamsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostTeamsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostTeamsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostTeamsNotFound() *PostTeamsNotFound {
 	return &PostTeamsNotFound{}
 }
 
-/*PostTeamsNotFound handles this case with default header values.
+/*
+PostTeamsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostTeamsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post teams not found response has a 2xx status code
+func (o *PostTeamsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post teams not found response has a 3xx status code
+func (o *PostTeamsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post teams not found response has a 4xx status code
+func (o *PostTeamsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post teams not found response has a 5xx status code
+func (o *PostTeamsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post teams not found response a status code equal to that given
+func (o *PostTeamsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostTeamsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostTeamsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostTeamsRequestTimeout() *PostTeamsRequestTimeout {
 	return &PostTeamsRequestTimeout{}
 }
 
-/*PostTeamsRequestTimeout handles this case with default header values.
+/*
+PostTeamsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostTeamsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post teams request timeout response has a 2xx status code
+func (o *PostTeamsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post teams request timeout response has a 3xx status code
+func (o *PostTeamsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post teams request timeout response has a 4xx status code
+func (o *PostTeamsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post teams request timeout response has a 5xx status code
+func (o *PostTeamsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post teams request timeout response a status code equal to that given
+func (o *PostTeamsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostTeamsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTeamsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostTeamsRequestEntityTooLarge() *PostTeamsRequestEntityTooLarge {
 	return &PostTeamsRequestEntityTooLarge{}
 }
 
-/*PostTeamsRequestEntityTooLarge handles this case with default header values.
+/*
+PostTeamsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostTeamsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post teams request entity too large response has a 2xx status code
+func (o *PostTeamsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post teams request entity too large response has a 3xx status code
+func (o *PostTeamsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post teams request entity too large response has a 4xx status code
+func (o *PostTeamsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post teams request entity too large response has a 5xx status code
+func (o *PostTeamsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post teams request entity too large response a status code equal to that given
+func (o *PostTeamsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostTeamsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostTeamsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostTeamsUnsupportedMediaType() *PostTeamsUnsupportedMediaType {
 	return &PostTeamsUnsupportedMediaType{}
 }
 
-/*PostTeamsUnsupportedMediaType handles this case with default header values.
+/*
+PostTeamsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostTeamsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post teams unsupported media type response has a 2xx status code
+func (o *PostTeamsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post teams unsupported media type response has a 3xx status code
+func (o *PostTeamsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post teams unsupported media type response has a 4xx status code
+func (o *PostTeamsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post teams unsupported media type response has a 5xx status code
+func (o *PostTeamsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post teams unsupported media type response a status code equal to that given
+func (o *PostTeamsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostTeamsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostTeamsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostTeamsTooManyRequests() *PostTeamsTooManyRequests {
 	return &PostTeamsTooManyRequests{}
 }
 
-/*PostTeamsTooManyRequests handles this case with default header values.
+/*
+PostTeamsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostTeamsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post teams too many requests response has a 2xx status code
+func (o *PostTeamsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post teams too many requests response has a 3xx status code
+func (o *PostTeamsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post teams too many requests response has a 4xx status code
+func (o *PostTeamsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post teams too many requests response has a 5xx status code
+func (o *PostTeamsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post teams too many requests response a status code equal to that given
+func (o *PostTeamsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostTeamsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostTeamsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostTeamsInternalServerError() *PostTeamsInternalServerError {
 	return &PostTeamsInternalServerError{}
 }
 
-/*PostTeamsInternalServerError handles this case with default header values.
+/*
+PostTeamsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostTeamsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post teams internal server error response has a 2xx status code
+func (o *PostTeamsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post teams internal server error response has a 3xx status code
+func (o *PostTeamsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post teams internal server error response has a 4xx status code
+func (o *PostTeamsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post teams internal server error response has a 5xx status code
+func (o *PostTeamsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post teams internal server error response a status code equal to that given
+func (o *PostTeamsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostTeamsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostTeamsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostTeamsServiceUnavailable() *PostTeamsServiceUnavailable {
 	return &PostTeamsServiceUnavailable{}
 }
 
-/*PostTeamsServiceUnavailable handles this case with default header values.
+/*
+PostTeamsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostTeamsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post teams service unavailable response has a 2xx status code
+func (o *PostTeamsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post teams service unavailable response has a 3xx status code
+func (o *PostTeamsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post teams service unavailable response has a 4xx status code
+func (o *PostTeamsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post teams service unavailable response has a 5xx status code
+func (o *PostTeamsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post teams service unavailable response a status code equal to that given
+func (o *PostTeamsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostTeamsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostTeamsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostTeamsGatewayTimeout() *PostTeamsGatewayTimeout {
 	return &PostTeamsGatewayTimeout{}
 }
 
-/*PostTeamsGatewayTimeout handles this case with default header values.
+/*
+PostTeamsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostTeamsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post teams gateway timeout response has a 2xx status code
+func (o *PostTeamsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post teams gateway timeout response has a 3xx status code
+func (o *PostTeamsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post teams gateway timeout response has a 4xx status code
+func (o *PostTeamsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post teams gateway timeout response has a 5xx status code
+func (o *PostTeamsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post teams gateway timeout response a status code equal to that given
+func (o *PostTeamsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostTeamsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostTeamsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/teams][%d] postTeamsGatewayTimeout  %+v", 504, o.Payload)
 }
 

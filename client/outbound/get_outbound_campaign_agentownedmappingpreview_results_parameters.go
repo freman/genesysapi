@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundCampaignAgentownedmappingpreviewResultsParams creates a new GetOutboundCampaignAgentownedmappingpreviewResultsParams object
-// with the default values initialized.
+// NewGetOutboundCampaignAgentownedmappingpreviewResultsParams creates a new GetOutboundCampaignAgentownedmappingpreviewResultsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundCampaignAgentownedmappingpreviewResultsParams() *GetOutboundCampaignAgentownedmappingpreviewResultsParams {
-	var ()
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundCampaignAgentownedmappingpreviewResultsParamsWithTimeout creates a new GetOutboundCampaignAgentownedmappingpreviewResultsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundCampaignAgentownedmappingpreviewResultsParamsWithTimeout(timeout time.Duration) *GetOutboundCampaignAgentownedmappingpreviewResultsParams {
-	var ()
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundCampaignAgentownedmappingpreviewResultsParamsWithContext creates a new GetOutboundCampaignAgentownedmappingpreviewResultsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundCampaignAgentownedmappingpreviewResultsParamsWithContext(ctx context.Context) *GetOutboundCampaignAgentownedmappingpreviewResultsParams {
-	var ()
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundCampaignAgentownedmappingpreviewResultsParamsWithHTTPClient creates a new GetOutboundCampaignAgentownedmappingpreviewResultsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundCampaignAgentownedmappingpreviewResultsParamsWithHTTPClient(client *http.Client) *GetOutboundCampaignAgentownedmappingpreviewResultsParams {
-	var ()
 	return &GetOutboundCampaignAgentownedmappingpreviewResultsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundCampaignAgentownedmappingpreviewResultsParams contains all the parameters to send to the API endpoint
-for the get outbound campaign agentownedmappingpreview results operation typically these are written to a http.Request
+/*
+GetOutboundCampaignAgentownedmappingpreviewResultsParams contains all the parameters to send to the API endpoint
+
+	for the get outbound campaign agentownedmappingpreview results operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundCampaignAgentownedmappingpreviewResultsParams struct {
 
-	/*CampaignID
-	  Campaign ID
+	/* CampaignID.
 
+	   Campaign ID
 	*/
 	CampaignID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound campaign agentownedmappingpreview results params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsParams) WithDefaults() *GetOutboundCampaignAgentownedmappingpreviewResultsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound campaign agentownedmappingpreview results params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundCampaignAgentownedmappingpreviewResultsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get outbound campaign agentownedmappingpreview results params

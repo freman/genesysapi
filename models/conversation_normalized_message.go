@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -111,7 +112,6 @@ func (m *ConversationNormalizedMessage) Validate(formats strfmt.Registry) error 
 }
 
 func (m *ConversationNormalizedMessage) validateChannel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Channel) { // not required
 		return nil
 	}
@@ -120,6 +120,8 @@ func (m *ConversationNormalizedMessage) validateChannel(formats strfmt.Registry)
 		if err := m.Channel.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("channel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("channel")
 			}
 			return err
 		}
@@ -129,7 +131,6 @@ func (m *ConversationNormalizedMessage) validateChannel(formats strfmt.Registry)
 }
 
 func (m *ConversationNormalizedMessage) validateContent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Content) { // not required
 		return nil
 	}
@@ -143,6 +144,8 @@ func (m *ConversationNormalizedMessage) validateContent(formats strfmt.Registry)
 			if err := m.Content[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("content" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("content" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -183,7 +186,6 @@ func (m *ConversationNormalizedMessage) validateDirectionEnum(path, location str
 }
 
 func (m *ConversationNormalizedMessage) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -197,7 +199,6 @@ func (m *ConversationNormalizedMessage) validateDirection(formats strfmt.Registr
 }
 
 func (m *ConversationNormalizedMessage) validateEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Events) { // not required
 		return nil
 	}
@@ -211,6 +212,8 @@ func (m *ConversationNormalizedMessage) validateEvents(formats strfmt.Registry) 
 			if err := m.Events[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("events" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("events" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -251,7 +254,6 @@ func (m *ConversationNormalizedMessage) validateOriginatingEntityEnum(path, loca
 }
 
 func (m *ConversationNormalizedMessage) validateOriginatingEntity(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OriginatingEntity) { // not required
 		return nil
 	}
@@ -265,7 +267,6 @@ func (m *ConversationNormalizedMessage) validateOriginatingEntity(formats strfmt
 }
 
 func (m *ConversationNormalizedMessage) validateReasons(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Reasons) { // not required
 		return nil
 	}
@@ -279,6 +280,8 @@ func (m *ConversationNormalizedMessage) validateReasons(formats strfmt.Registry)
 			if err := m.Reasons[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("reasons" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("reasons" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -331,7 +334,6 @@ func (m *ConversationNormalizedMessage) validateStatusEnum(path, location string
 }
 
 func (m *ConversationNormalizedMessage) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -393,6 +395,164 @@ func (m *ConversationNormalizedMessage) validateType(formats strfmt.Registry) er
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", *m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation normalized message based on the context it is used
+func (m *ConversationNormalizedMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateChannel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDirection(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIsFinalReceipt(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReasons(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConversationNormalizedMessage) contextValidateChannel(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Channel != nil {
+		if err := m.Channel.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("channel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("channel")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationNormalizedMessage) contextValidateContent(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Content); i++ {
+
+		if m.Content[i] != nil {
+			if err := m.Content[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("content" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("content" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ConversationNormalizedMessage) contextValidateDirection(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "direction", "body", string(m.Direction)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationNormalizedMessage) contextValidateEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Events); i++ {
+
+		if m.Events[i] != nil {
+			if err := m.Events[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("events" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("events" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ConversationNormalizedMessage) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationNormalizedMessage) contextValidateIsFinalReceipt(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isFinalReceipt", "body", m.IsFinalReceipt); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConversationNormalizedMessage) contextValidateReasons(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "reasons", "body", []*ConversationReason(m.Reasons)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Reasons); i++ {
+
+		if m.Reasons[i] != nil {
+			if err := m.Reasons[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("reasons" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("reasons" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ConversationNormalizedMessage) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
 		return err
 	}
 

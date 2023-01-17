@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -102,7 +103,6 @@ func (m *PolicyActions) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PolicyActions) validateAssignCalibrations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssignCalibrations) { // not required
 		return nil
 	}
@@ -116,6 +116,8 @@ func (m *PolicyActions) validateAssignCalibrations(formats strfmt.Registry) erro
 			if err := m.AssignCalibrations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("assignCalibrations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignCalibrations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -127,7 +129,6 @@ func (m *PolicyActions) validateAssignCalibrations(formats strfmt.Registry) erro
 }
 
 func (m *PolicyActions) validateAssignEvaluations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssignEvaluations) { // not required
 		return nil
 	}
@@ -141,6 +142,8 @@ func (m *PolicyActions) validateAssignEvaluations(formats strfmt.Registry) error
 			if err := m.AssignEvaluations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("assignEvaluations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignEvaluations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -152,7 +155,6 @@ func (m *PolicyActions) validateAssignEvaluations(formats strfmt.Registry) error
 }
 
 func (m *PolicyActions) validateAssignMeteredAssignmentByAgent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssignMeteredAssignmentByAgent) { // not required
 		return nil
 	}
@@ -166,6 +168,8 @@ func (m *PolicyActions) validateAssignMeteredAssignmentByAgent(formats strfmt.Re
 			if err := m.AssignMeteredAssignmentByAgent[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("assignMeteredAssignmentByAgent" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignMeteredAssignmentByAgent" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -177,7 +181,6 @@ func (m *PolicyActions) validateAssignMeteredAssignmentByAgent(formats strfmt.Re
 }
 
 func (m *PolicyActions) validateAssignMeteredEvaluations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssignMeteredEvaluations) { // not required
 		return nil
 	}
@@ -191,6 +194,8 @@ func (m *PolicyActions) validateAssignMeteredEvaluations(formats strfmt.Registry
 			if err := m.AssignMeteredEvaluations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("assignMeteredEvaluations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignMeteredEvaluations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -202,7 +207,6 @@ func (m *PolicyActions) validateAssignMeteredEvaluations(formats strfmt.Registry
 }
 
 func (m *PolicyActions) validateAssignSurveys(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssignSurveys) { // not required
 		return nil
 	}
@@ -216,6 +220,8 @@ func (m *PolicyActions) validateAssignSurveys(formats strfmt.Registry) error {
 			if err := m.AssignSurveys[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("assignSurveys" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignSurveys" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -227,7 +233,6 @@ func (m *PolicyActions) validateAssignSurveys(formats strfmt.Registry) error {
 }
 
 func (m *PolicyActions) validateInitiateScreenRecording(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitiateScreenRecording) { // not required
 		return nil
 	}
@@ -236,6 +241,8 @@ func (m *PolicyActions) validateInitiateScreenRecording(formats strfmt.Registry)
 		if err := m.InitiateScreenRecording.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("initiateScreenRecording")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("initiateScreenRecording")
 			}
 			return err
 		}
@@ -245,7 +252,6 @@ func (m *PolicyActions) validateInitiateScreenRecording(formats strfmt.Registry)
 }
 
 func (m *PolicyActions) validateIntegrationExport(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IntegrationExport) { // not required
 		return nil
 	}
@@ -254,6 +260,8 @@ func (m *PolicyActions) validateIntegrationExport(formats strfmt.Registry) error
 		if err := m.IntegrationExport.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("integrationExport")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integrationExport")
 			}
 			return err
 		}
@@ -263,7 +271,6 @@ func (m *PolicyActions) validateIntegrationExport(formats strfmt.Registry) error
 }
 
 func (m *PolicyActions) validateMediaTranscriptions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaTranscriptions) { // not required
 		return nil
 	}
@@ -277,6 +284,8 @@ func (m *PolicyActions) validateMediaTranscriptions(formats strfmt.Registry) err
 			if err := m.MediaTranscriptions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("mediaTranscriptions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mediaTranscriptions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -288,7 +297,6 @@ func (m *PolicyActions) validateMediaTranscriptions(formats strfmt.Registry) err
 }
 
 func (m *PolicyActions) validateRetentionDuration(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RetentionDuration) { // not required
 		return nil
 	}
@@ -297,6 +305,222 @@ func (m *PolicyActions) validateRetentionDuration(formats strfmt.Registry) error
 		if err := m.RetentionDuration.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("retentionDuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("retentionDuration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this policy actions based on the context it is used
+func (m *PolicyActions) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAssignCalibrations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAssignEvaluations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAssignMeteredAssignmentByAgent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAssignMeteredEvaluations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAssignSurveys(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInitiateScreenRecording(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntegrationExport(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMediaTranscriptions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRetentionDuration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PolicyActions) contextValidateAssignCalibrations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AssignCalibrations); i++ {
+
+		if m.AssignCalibrations[i] != nil {
+			if err := m.AssignCalibrations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("assignCalibrations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignCalibrations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *PolicyActions) contextValidateAssignEvaluations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AssignEvaluations); i++ {
+
+		if m.AssignEvaluations[i] != nil {
+			if err := m.AssignEvaluations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("assignEvaluations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignEvaluations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *PolicyActions) contextValidateAssignMeteredAssignmentByAgent(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AssignMeteredAssignmentByAgent); i++ {
+
+		if m.AssignMeteredAssignmentByAgent[i] != nil {
+			if err := m.AssignMeteredAssignmentByAgent[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("assignMeteredAssignmentByAgent" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignMeteredAssignmentByAgent" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *PolicyActions) contextValidateAssignMeteredEvaluations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AssignMeteredEvaluations); i++ {
+
+		if m.AssignMeteredEvaluations[i] != nil {
+			if err := m.AssignMeteredEvaluations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("assignMeteredEvaluations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignMeteredEvaluations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *PolicyActions) contextValidateAssignSurveys(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AssignSurveys); i++ {
+
+		if m.AssignSurveys[i] != nil {
+			if err := m.AssignSurveys[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("assignSurveys" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignSurveys" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *PolicyActions) contextValidateInitiateScreenRecording(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InitiateScreenRecording != nil {
+		if err := m.InitiateScreenRecording.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("initiateScreenRecording")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("initiateScreenRecording")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PolicyActions) contextValidateIntegrationExport(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IntegrationExport != nil {
+		if err := m.IntegrationExport.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integrationExport")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integrationExport")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PolicyActions) contextValidateMediaTranscriptions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MediaTranscriptions); i++ {
+
+		if m.MediaTranscriptions[i] != nil {
+			if err := m.MediaTranscriptions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mediaTranscriptions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mediaTranscriptions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *PolicyActions) contextValidateRetentionDuration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RetentionDuration != nil {
+		if err := m.RetentionDuration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("retentionDuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("retentionDuration")
 			}
 			return err
 		}

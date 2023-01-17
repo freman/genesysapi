@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteWorkforcemanagementManagementunitParams creates a new DeleteWorkforcemanagementManagementunitParams object
-// with the default values initialized.
+// NewDeleteWorkforcemanagementManagementunitParams creates a new DeleteWorkforcemanagementManagementunitParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteWorkforcemanagementManagementunitParams() *DeleteWorkforcemanagementManagementunitParams {
-	var ()
 	return &DeleteWorkforcemanagementManagementunitParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementManagementunitParamsWithTimeout creates a new DeleteWorkforcemanagementManagementunitParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteWorkforcemanagementManagementunitParamsWithTimeout(timeout time.Duration) *DeleteWorkforcemanagementManagementunitParams {
-	var ()
 	return &DeleteWorkforcemanagementManagementunitParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementManagementunitParamsWithContext creates a new DeleteWorkforcemanagementManagementunitParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteWorkforcemanagementManagementunitParamsWithContext(ctx context.Context) *DeleteWorkforcemanagementManagementunitParams {
-	var ()
 	return &DeleteWorkforcemanagementManagementunitParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteWorkforcemanagementManagementunitParamsWithHTTPClient creates a new DeleteWorkforcemanagementManagementunitParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteWorkforcemanagementManagementunitParamsWithHTTPClient(client *http.Client) *DeleteWorkforcemanagementManagementunitParams {
-	var ()
 	return &DeleteWorkforcemanagementManagementunitParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteWorkforcemanagementManagementunitParams contains all the parameters to send to the API endpoint
-for the delete workforcemanagement managementunit operation typically these are written to a http.Request
+/*
+DeleteWorkforcemanagementManagementunitParams contains all the parameters to send to the API endpoint
+
+	for the delete workforcemanagement managementunit operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteWorkforcemanagementManagementunitParams struct {
 
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
+	/* ManagementUnitID.
 
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete workforcemanagement managementunit params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementManagementunitParams) WithDefaults() *DeleteWorkforcemanagementManagementunitParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete workforcemanagement managementunit params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementManagementunitParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete workforcemanagement managementunit params

@@ -106,7 +106,8 @@ func NewDeleteOauthClientBadRequest() *DeleteOauthClientBadRequest {
 	return &DeleteOauthClientBadRequest{}
 }
 
-/*DeleteOauthClientBadRequest handles this case with default header values.
+/*
+DeleteOauthClientBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type DeleteOauthClientBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete oauth client bad request response has a 2xx status code
+func (o *DeleteOauthClientBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete oauth client bad request response has a 3xx status code
+func (o *DeleteOauthClientBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete oauth client bad request response has a 4xx status code
+func (o *DeleteOauthClientBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete oauth client bad request response has a 5xx status code
+func (o *DeleteOauthClientBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete oauth client bad request response a status code equal to that given
+func (o *DeleteOauthClientBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOauthClientBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOauthClientBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewDeleteOauthClientUnauthorized() *DeleteOauthClientUnauthorized {
 	return &DeleteOauthClientUnauthorized{}
 }
 
-/*DeleteOauthClientUnauthorized handles this case with default header values.
+/*
+DeleteOauthClientUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type DeleteOauthClientUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete oauth client unauthorized response has a 2xx status code
+func (o *DeleteOauthClientUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete oauth client unauthorized response has a 3xx status code
+func (o *DeleteOauthClientUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete oauth client unauthorized response has a 4xx status code
+func (o *DeleteOauthClientUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete oauth client unauthorized response has a 5xx status code
+func (o *DeleteOauthClientUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete oauth client unauthorized response a status code equal to that given
+func (o *DeleteOauthClientUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOauthClientUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOauthClientUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewDeleteOauthClientForbidden() *DeleteOauthClientForbidden {
 	return &DeleteOauthClientForbidden{}
 }
 
-/*DeleteOauthClientForbidden handles this case with default header values.
+/*
+DeleteOauthClientForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type DeleteOauthClientForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete oauth client forbidden response has a 2xx status code
+func (o *DeleteOauthClientForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete oauth client forbidden response has a 3xx status code
+func (o *DeleteOauthClientForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete oauth client forbidden response has a 4xx status code
+func (o *DeleteOauthClientForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete oauth client forbidden response has a 5xx status code
+func (o *DeleteOauthClientForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete oauth client forbidden response a status code equal to that given
+func (o *DeleteOauthClientForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOauthClientForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOauthClientForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewDeleteOauthClientNotFound() *DeleteOauthClientNotFound {
 	return &DeleteOauthClientNotFound{}
 }
 
-/*DeleteOauthClientNotFound handles this case with default header values.
+/*
+DeleteOauthClientNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type DeleteOauthClientNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete oauth client not found response has a 2xx status code
+func (o *DeleteOauthClientNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete oauth client not found response has a 3xx status code
+func (o *DeleteOauthClientNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete oauth client not found response has a 4xx status code
+func (o *DeleteOauthClientNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete oauth client not found response has a 5xx status code
+func (o *DeleteOauthClientNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete oauth client not found response a status code equal to that given
+func (o *DeleteOauthClientNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOauthClientNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOauthClientNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewDeleteOauthClientRequestTimeout() *DeleteOauthClientRequestTimeout {
 	return &DeleteOauthClientRequestTimeout{}
 }
 
-/*DeleteOauthClientRequestTimeout handles this case with default header values.
+/*
+DeleteOauthClientRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type DeleteOauthClientRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete oauth client request timeout response has a 2xx status code
+func (o *DeleteOauthClientRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete oauth client request timeout response has a 3xx status code
+func (o *DeleteOauthClientRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete oauth client request timeout response has a 4xx status code
+func (o *DeleteOauthClientRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete oauth client request timeout response has a 5xx status code
+func (o *DeleteOauthClientRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete oauth client request timeout response a status code equal to that given
+func (o *DeleteOauthClientRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOauthClientRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOauthClientRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewDeleteOauthClientRequestEntityTooLarge() *DeleteOauthClientRequestEntity
 	return &DeleteOauthClientRequestEntityTooLarge{}
 }
 
-/*DeleteOauthClientRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOauthClientRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type DeleteOauthClientRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete oauth client request entity too large response has a 2xx status code
+func (o *DeleteOauthClientRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete oauth client request entity too large response has a 3xx status code
+func (o *DeleteOauthClientRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete oauth client request entity too large response has a 4xx status code
+func (o *DeleteOauthClientRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete oauth client request entity too large response has a 5xx status code
+func (o *DeleteOauthClientRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete oauth client request entity too large response a status code equal to that given
+func (o *DeleteOauthClientRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOauthClientRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOauthClientRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewDeleteOauthClientUnsupportedMediaType() *DeleteOauthClientUnsupportedMed
 	return &DeleteOauthClientUnsupportedMediaType{}
 }
 
-/*DeleteOauthClientUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOauthClientUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type DeleteOauthClientUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete oauth client unsupported media type response has a 2xx status code
+func (o *DeleteOauthClientUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete oauth client unsupported media type response has a 3xx status code
+func (o *DeleteOauthClientUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete oauth client unsupported media type response has a 4xx status code
+func (o *DeleteOauthClientUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete oauth client unsupported media type response has a 5xx status code
+func (o *DeleteOauthClientUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete oauth client unsupported media type response a status code equal to that given
+func (o *DeleteOauthClientUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOauthClientUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOauthClientUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewDeleteOauthClientTooManyRequests() *DeleteOauthClientTooManyRequests {
 	return &DeleteOauthClientTooManyRequests{}
 }
 
-/*DeleteOauthClientTooManyRequests handles this case with default header values.
+/*
+DeleteOauthClientTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type DeleteOauthClientTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete oauth client too many requests response has a 2xx status code
+func (o *DeleteOauthClientTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete oauth client too many requests response has a 3xx status code
+func (o *DeleteOauthClientTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete oauth client too many requests response has a 4xx status code
+func (o *DeleteOauthClientTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete oauth client too many requests response has a 5xx status code
+func (o *DeleteOauthClientTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete oauth client too many requests response a status code equal to that given
+func (o *DeleteOauthClientTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOauthClientTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOauthClientTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewDeleteOauthClientInternalServerError() *DeleteOauthClientInternalServerE
 	return &DeleteOauthClientInternalServerError{}
 }
 
-/*DeleteOauthClientInternalServerError handles this case with default header values.
+/*
+DeleteOauthClientInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type DeleteOauthClientInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete oauth client internal server error response has a 2xx status code
+func (o *DeleteOauthClientInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete oauth client internal server error response has a 3xx status code
+func (o *DeleteOauthClientInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete oauth client internal server error response has a 4xx status code
+func (o *DeleteOauthClientInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete oauth client internal server error response has a 5xx status code
+func (o *DeleteOauthClientInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete oauth client internal server error response a status code equal to that given
+func (o *DeleteOauthClientInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOauthClientInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOauthClientInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewDeleteOauthClientServiceUnavailable() *DeleteOauthClientServiceUnavailab
 	return &DeleteOauthClientServiceUnavailable{}
 }
 
-/*DeleteOauthClientServiceUnavailable handles this case with default header values.
+/*
+DeleteOauthClientServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type DeleteOauthClientServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete oauth client service unavailable response has a 2xx status code
+func (o *DeleteOauthClientServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete oauth client service unavailable response has a 3xx status code
+func (o *DeleteOauthClientServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete oauth client service unavailable response has a 4xx status code
+func (o *DeleteOauthClientServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete oauth client service unavailable response has a 5xx status code
+func (o *DeleteOauthClientServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete oauth client service unavailable response a status code equal to that given
+func (o *DeleteOauthClientServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOauthClientServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOauthClientServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewDeleteOauthClientGatewayTimeout() *DeleteOauthClientGatewayTimeout {
 	return &DeleteOauthClientGatewayTimeout{}
 }
 
-/*DeleteOauthClientGatewayTimeout handles this case with default header values.
+/*
+DeleteOauthClientGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type DeleteOauthClientGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete oauth client gateway timeout response has a 2xx status code
+func (o *DeleteOauthClientGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete oauth client gateway timeout response has a 3xx status code
+func (o *DeleteOauthClientGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete oauth client gateway timeout response has a 4xx status code
+func (o *DeleteOauthClientGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete oauth client gateway timeout response has a 5xx status code
+func (o *DeleteOauthClientGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete oauth client gateway timeout response a status code equal to that given
+func (o *DeleteOauthClientGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOauthClientGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOauthClientGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClientGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewDeleteOauthClientDefault(code int) *DeleteOauthClientDefault {
 	}
 }
 
-/*DeleteOauthClientDefault handles this case with default header values.
+/*
+DeleteOauthClientDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *DeleteOauthClientDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete oauth client default response has a 2xx status code
+func (o *DeleteOauthClientDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete oauth client default response has a 3xx status code
+func (o *DeleteOauthClientDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete oauth client default response has a 4xx status code
+func (o *DeleteOauthClientDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete oauth client default response has a 5xx status code
+func (o *DeleteOauthClientDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete oauth client default response a status code equal to that given
+func (o *DeleteOauthClientDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteOauthClientDefault) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClient default ", o._statusCode)
+}
+
+func (o *DeleteOauthClientDefault) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/oauth/clients/{clientId}][%d] deleteOauthClient default ", o._statusCode)
 }
 

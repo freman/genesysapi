@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteRoutingEmailDomainParams creates a new DeleteRoutingEmailDomainParams object
-// with the default values initialized.
+// NewDeleteRoutingEmailDomainParams creates a new DeleteRoutingEmailDomainParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRoutingEmailDomainParams() *DeleteRoutingEmailDomainParams {
-	var ()
 	return &DeleteRoutingEmailDomainParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRoutingEmailDomainParamsWithTimeout creates a new DeleteRoutingEmailDomainParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRoutingEmailDomainParamsWithTimeout(timeout time.Duration) *DeleteRoutingEmailDomainParams {
-	var ()
 	return &DeleteRoutingEmailDomainParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRoutingEmailDomainParamsWithContext creates a new DeleteRoutingEmailDomainParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRoutingEmailDomainParamsWithContext(ctx context.Context) *DeleteRoutingEmailDomainParams {
-	var ()
 	return &DeleteRoutingEmailDomainParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRoutingEmailDomainParamsWithHTTPClient creates a new DeleteRoutingEmailDomainParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRoutingEmailDomainParamsWithHTTPClient(client *http.Client) *DeleteRoutingEmailDomainParams {
-	var ()
 	return &DeleteRoutingEmailDomainParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRoutingEmailDomainParams contains all the parameters to send to the API endpoint
-for the delete routing email domain operation typically these are written to a http.Request
+/*
+DeleteRoutingEmailDomainParams contains all the parameters to send to the API endpoint
+
+	for the delete routing email domain operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteRoutingEmailDomainParams struct {
 
-	/*DomainID
-	  domain ID
+	/* DomainID.
 
+	   domain ID
 	*/
 	DomainID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete routing email domain params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingEmailDomainParams) WithDefaults() *DeleteRoutingEmailDomainParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete routing email domain params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingEmailDomainParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete routing email domain params

@@ -17,112 +17,128 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetArchitectDependencytrackingUpdatedresourceconsumersParams creates a new GetArchitectDependencytrackingUpdatedresourceconsumersParams object
-// with the default values initialized.
+// NewGetArchitectDependencytrackingUpdatedresourceconsumersParams creates a new GetArchitectDependencytrackingUpdatedresourceconsumersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetArchitectDependencytrackingUpdatedresourceconsumersParams() *GetArchitectDependencytrackingUpdatedresourceconsumersParams {
-	var (
-		consumedResourcesDefault = bool(false)
-		pageNumberDefault        = int32(1)
-		pageSizeDefault          = int32(25)
-	)
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersParams{
-		ConsumedResources: &consumedResourcesDefault,
-		PageNumber:        &pageNumberDefault,
-		PageSize:          &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetArchitectDependencytrackingUpdatedresourceconsumersParamsWithTimeout creates a new GetArchitectDependencytrackingUpdatedresourceconsumersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetArchitectDependencytrackingUpdatedresourceconsumersParamsWithTimeout(timeout time.Duration) *GetArchitectDependencytrackingUpdatedresourceconsumersParams {
-	var (
-		consumedResourcesDefault = bool(false)
-		pageNumberDefault        = int32(1)
-		pageSizeDefault          = int32(25)
-	)
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersParams{
-		ConsumedResources: &consumedResourcesDefault,
-		PageNumber:        &pageNumberDefault,
-		PageSize:          &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetArchitectDependencytrackingUpdatedresourceconsumersParamsWithContext creates a new GetArchitectDependencytrackingUpdatedresourceconsumersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetArchitectDependencytrackingUpdatedresourceconsumersParamsWithContext(ctx context.Context) *GetArchitectDependencytrackingUpdatedresourceconsumersParams {
-	var (
-		consumedResourcesDefault = bool(false)
-		pageNumberDefault        = int32(1)
-		pageSizeDefault          = int32(25)
-	)
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersParams{
-		ConsumedResources: &consumedResourcesDefault,
-		PageNumber:        &pageNumberDefault,
-		PageSize:          &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetArchitectDependencytrackingUpdatedresourceconsumersParamsWithHTTPClient creates a new GetArchitectDependencytrackingUpdatedresourceconsumersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetArchitectDependencytrackingUpdatedresourceconsumersParamsWithHTTPClient(client *http.Client) *GetArchitectDependencytrackingUpdatedresourceconsumersParams {
-	var (
-		consumedResourcesDefault = bool(false)
-		pageNumberDefault        = int32(1)
-		pageSizeDefault          = int32(25)
-	)
 	return &GetArchitectDependencytrackingUpdatedresourceconsumersParams{
-		ConsumedResources: &consumedResourcesDefault,
-		PageNumber:        &pageNumberDefault,
-		PageSize:          &pageSizeDefault,
-		HTTPClient:        client,
+		HTTPClient: client,
 	}
 }
 
-/*GetArchitectDependencytrackingUpdatedresourceconsumersParams contains all the parameters to send to the API endpoint
-for the get architect dependencytracking updatedresourceconsumers operation typically these are written to a http.Request
+/*
+GetArchitectDependencytrackingUpdatedresourceconsumersParams contains all the parameters to send to the API endpoint
+
+	for the get architect dependencytracking updatedresourceconsumers operation.
+
+	Typically these are written to a http.Request.
 */
 type GetArchitectDependencytrackingUpdatedresourceconsumersParams struct {
 
-	/*ConsumedResourceType
-	  Resource type(s) to return
+	/* ConsumedResourceType.
 
+	   Resource type(s) to return
 	*/
 	ConsumedResourceType []string
-	/*ConsumedResources
-	  Return consumed resources?
 
+	/* ConsumedResources.
+
+	   Return consumed resources?
 	*/
 	ConsumedResources *bool
-	/*Name
-	  Name to search for
 
+	/* Name.
+
+	   Name to search for
 	*/
 	Name *string
-	/*ObjectType
-	  Object type(s) to search for
 
+	/* ObjectType.
+
+	   Object type(s) to search for
 	*/
 	ObjectType []string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get architect dependencytracking updatedresourceconsumers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersParams) WithDefaults() *GetArchitectDependencytrackingUpdatedresourceconsumersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get architect dependencytracking updatedresourceconsumers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersParams) SetDefaults() {
+	var (
+		consumedResourcesDefault = bool(false)
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetArchitectDependencytrackingUpdatedresourceconsumersParams{
+		ConsumedResources: &consumedResourcesDefault,
+		PageNumber:        &pageNumberDefault,
+		PageSize:          &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get architect dependencytracking updatedresourceconsumers params
@@ -232,88 +248,132 @@ func (o *GetArchitectDependencytrackingUpdatedresourceconsumersParams) WriteToRe
 	}
 	var res []error
 
-	valuesConsumedResourceType := o.ConsumedResourceType
+	if o.ConsumedResourceType != nil {
 
-	joinedConsumedResourceType := swag.JoinByFormat(valuesConsumedResourceType, "multi")
-	// query array param consumedResourceType
-	if err := r.SetQueryParam("consumedResourceType", joinedConsumedResourceType...); err != nil {
-		return err
+		// binding items for consumedResourceType
+		joinedConsumedResourceType := o.bindParamConsumedResourceType(reg)
+
+		// query array param consumedResourceType
+		if err := r.SetQueryParam("consumedResourceType", joinedConsumedResourceType...); err != nil {
+			return err
+		}
 	}
 
 	if o.ConsumedResources != nil {
 
 		// query param consumedResources
 		var qrConsumedResources bool
+
 		if o.ConsumedResources != nil {
 			qrConsumedResources = *o.ConsumedResources
 		}
 		qConsumedResources := swag.FormatBool(qrConsumedResources)
 		if qConsumedResources != "" {
+
 			if err := r.SetQueryParam("consumedResources", qConsumedResources); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesObjectType := o.ObjectType
+	if o.ObjectType != nil {
 
-	joinedObjectType := swag.JoinByFormat(valuesObjectType, "multi")
-	// query array param objectType
-	if err := r.SetQueryParam("objectType", joinedObjectType...); err != nil {
-		return err
+		// binding items for objectType
+		joinedObjectType := o.bindParamObjectType(reg)
+
+		// query array param objectType
+		if err := r.SetQueryParam("objectType", joinedObjectType...); err != nil {
+			return err
+		}
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetArchitectDependencytrackingUpdatedresourceconsumers binds the parameter consumedResourceType
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersParams) bindParamConsumedResourceType(formats strfmt.Registry) []string {
+	consumedResourceTypeIR := o.ConsumedResourceType
+
+	var consumedResourceTypeIC []string
+	for _, consumedResourceTypeIIR := range consumedResourceTypeIR { // explode []string
+
+		consumedResourceTypeIIV := consumedResourceTypeIIR // string as string
+		consumedResourceTypeIC = append(consumedResourceTypeIC, consumedResourceTypeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	consumedResourceTypeIS := swag.JoinByFormat(consumedResourceTypeIC, "multi")
+
+	return consumedResourceTypeIS
+}
+
+// bindParamGetArchitectDependencytrackingUpdatedresourceconsumers binds the parameter objectType
+func (o *GetArchitectDependencytrackingUpdatedresourceconsumersParams) bindParamObjectType(formats strfmt.Registry) []string {
+	objectTypeIR := o.ObjectType
+
+	var objectTypeIC []string
+	for _, objectTypeIIR := range objectTypeIR { // explode []string
+
+		objectTypeIIV := objectTypeIIR // string as string
+		objectTypeIC = append(objectTypeIC, objectTypeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	objectTypeIS := swag.JoinByFormat(objectTypeIC, "multi")
+
+	return objectTypeIS
 }

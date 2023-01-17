@@ -101,7 +101,6 @@ func (o *GetConversationRecordingsReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetConversationRecordingsOK() *GetConversationRecordingsOK {
 	return &GetConversationRecordingsOK{}
 }
 
-/*GetConversationRecordingsOK handles this case with default header values.
+/*
+GetConversationRecordingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type GetConversationRecordingsOK struct {
 	Payload []*models.Recording
 }
 
+// IsSuccess returns true when this get conversation recordings o k response has a 2xx status code
+func (o *GetConversationRecordingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversation recordings o k response has a 3xx status code
+func (o *GetConversationRecordingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings o k response has a 4xx status code
+func (o *GetConversationRecordingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation recordings o k response has a 5xx status code
+func (o *GetConversationRecordingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recordings o k response a status code equal to that given
+func (o *GetConversationRecordingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationRecordingsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationRecordingsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsOK  %+v", 200, o.Payload)
 }
 
@@ -143,14 +172,44 @@ func NewGetConversationRecordingsAccepted() *GetConversationRecordingsAccepted {
 	return &GetConversationRecordingsAccepted{}
 }
 
-/*GetConversationRecordingsAccepted handles this case with default header values.
+/*
+GetConversationRecordingsAccepted describes a response with status code 202, with default header values.
 
 Success - recording is transcoding
 */
 type GetConversationRecordingsAccepted struct {
 }
 
+// IsSuccess returns true when this get conversation recordings accepted response has a 2xx status code
+func (o *GetConversationRecordingsAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversation recordings accepted response has a 3xx status code
+func (o *GetConversationRecordingsAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings accepted response has a 4xx status code
+func (o *GetConversationRecordingsAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation recordings accepted response has a 5xx status code
+func (o *GetConversationRecordingsAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recordings accepted response a status code equal to that given
+func (o *GetConversationRecordingsAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *GetConversationRecordingsAccepted) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsAccepted ", 202)
+}
+
+func (o *GetConversationRecordingsAccepted) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsAccepted ", 202)
 }
 
@@ -164,7 +223,8 @@ func NewGetConversationRecordingsBadRequest() *GetConversationRecordingsBadReque
 	return &GetConversationRecordingsBadRequest{}
 }
 
-/*GetConversationRecordingsBadRequest handles this case with default header values.
+/*
+GetConversationRecordingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -172,7 +232,36 @@ type GetConversationRecordingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recordings bad request response has a 2xx status code
+func (o *GetConversationRecordingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recordings bad request response has a 3xx status code
+func (o *GetConversationRecordingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings bad request response has a 4xx status code
+func (o *GetConversationRecordingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recordings bad request response has a 5xx status code
+func (o *GetConversationRecordingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recordings bad request response a status code equal to that given
+func (o *GetConversationRecordingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationRecordingsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationRecordingsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -197,7 +286,8 @@ func NewGetConversationRecordingsUnauthorized() *GetConversationRecordingsUnauth
 	return &GetConversationRecordingsUnauthorized{}
 }
 
-/*GetConversationRecordingsUnauthorized handles this case with default header values.
+/*
+GetConversationRecordingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -205,7 +295,36 @@ type GetConversationRecordingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recordings unauthorized response has a 2xx status code
+func (o *GetConversationRecordingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recordings unauthorized response has a 3xx status code
+func (o *GetConversationRecordingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings unauthorized response has a 4xx status code
+func (o *GetConversationRecordingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recordings unauthorized response has a 5xx status code
+func (o *GetConversationRecordingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recordings unauthorized response a status code equal to that given
+func (o *GetConversationRecordingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationRecordingsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationRecordingsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -230,7 +349,8 @@ func NewGetConversationRecordingsForbidden() *GetConversationRecordingsForbidden
 	return &GetConversationRecordingsForbidden{}
 }
 
-/*GetConversationRecordingsForbidden handles this case with default header values.
+/*
+GetConversationRecordingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -238,7 +358,36 @@ type GetConversationRecordingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recordings forbidden response has a 2xx status code
+func (o *GetConversationRecordingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recordings forbidden response has a 3xx status code
+func (o *GetConversationRecordingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings forbidden response has a 4xx status code
+func (o *GetConversationRecordingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recordings forbidden response has a 5xx status code
+func (o *GetConversationRecordingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recordings forbidden response a status code equal to that given
+func (o *GetConversationRecordingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationRecordingsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationRecordingsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -263,7 +412,8 @@ func NewGetConversationRecordingsNotFound() *GetConversationRecordingsNotFound {
 	return &GetConversationRecordingsNotFound{}
 }
 
-/*GetConversationRecordingsNotFound handles this case with default header values.
+/*
+GetConversationRecordingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -271,7 +421,36 @@ type GetConversationRecordingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recordings not found response has a 2xx status code
+func (o *GetConversationRecordingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recordings not found response has a 3xx status code
+func (o *GetConversationRecordingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings not found response has a 4xx status code
+func (o *GetConversationRecordingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recordings not found response has a 5xx status code
+func (o *GetConversationRecordingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recordings not found response a status code equal to that given
+func (o *GetConversationRecordingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationRecordingsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationRecordingsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -296,7 +475,8 @@ func NewGetConversationRecordingsRequestTimeout() *GetConversationRecordingsRequ
 	return &GetConversationRecordingsRequestTimeout{}
 }
 
-/*GetConversationRecordingsRequestTimeout handles this case with default header values.
+/*
+GetConversationRecordingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -304,7 +484,36 @@ type GetConversationRecordingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recordings request timeout response has a 2xx status code
+func (o *GetConversationRecordingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recordings request timeout response has a 3xx status code
+func (o *GetConversationRecordingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings request timeout response has a 4xx status code
+func (o *GetConversationRecordingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recordings request timeout response has a 5xx status code
+func (o *GetConversationRecordingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recordings request timeout response a status code equal to that given
+func (o *GetConversationRecordingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationRecordingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationRecordingsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -329,7 +538,8 @@ func NewGetConversationRecordingsRequestEntityTooLarge() *GetConversationRecordi
 	return &GetConversationRecordingsRequestEntityTooLarge{}
 }
 
-/*GetConversationRecordingsRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationRecordingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -337,7 +547,36 @@ type GetConversationRecordingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recordings request entity too large response has a 2xx status code
+func (o *GetConversationRecordingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recordings request entity too large response has a 3xx status code
+func (o *GetConversationRecordingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings request entity too large response has a 4xx status code
+func (o *GetConversationRecordingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recordings request entity too large response has a 5xx status code
+func (o *GetConversationRecordingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recordings request entity too large response a status code equal to that given
+func (o *GetConversationRecordingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationRecordingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationRecordingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -362,7 +601,8 @@ func NewGetConversationRecordingsUnsupportedMediaType() *GetConversationRecordin
 	return &GetConversationRecordingsUnsupportedMediaType{}
 }
 
-/*GetConversationRecordingsUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationRecordingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -370,7 +610,36 @@ type GetConversationRecordingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recordings unsupported media type response has a 2xx status code
+func (o *GetConversationRecordingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recordings unsupported media type response has a 3xx status code
+func (o *GetConversationRecordingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings unsupported media type response has a 4xx status code
+func (o *GetConversationRecordingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recordings unsupported media type response has a 5xx status code
+func (o *GetConversationRecordingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recordings unsupported media type response a status code equal to that given
+func (o *GetConversationRecordingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationRecordingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationRecordingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -395,7 +664,8 @@ func NewGetConversationRecordingsTooManyRequests() *GetConversationRecordingsToo
 	return &GetConversationRecordingsTooManyRequests{}
 }
 
-/*GetConversationRecordingsTooManyRequests handles this case with default header values.
+/*
+GetConversationRecordingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -403,7 +673,36 @@ type GetConversationRecordingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recordings too many requests response has a 2xx status code
+func (o *GetConversationRecordingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recordings too many requests response has a 3xx status code
+func (o *GetConversationRecordingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings too many requests response has a 4xx status code
+func (o *GetConversationRecordingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recordings too many requests response has a 5xx status code
+func (o *GetConversationRecordingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recordings too many requests response a status code equal to that given
+func (o *GetConversationRecordingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationRecordingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationRecordingsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -428,7 +727,8 @@ func NewGetConversationRecordingsInternalServerError() *GetConversationRecording
 	return &GetConversationRecordingsInternalServerError{}
 }
 
-/*GetConversationRecordingsInternalServerError handles this case with default header values.
+/*
+GetConversationRecordingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -436,7 +736,36 @@ type GetConversationRecordingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recordings internal server error response has a 2xx status code
+func (o *GetConversationRecordingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recordings internal server error response has a 3xx status code
+func (o *GetConversationRecordingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings internal server error response has a 4xx status code
+func (o *GetConversationRecordingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation recordings internal server error response has a 5xx status code
+func (o *GetConversationRecordingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversation recordings internal server error response a status code equal to that given
+func (o *GetConversationRecordingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationRecordingsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationRecordingsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -461,7 +790,8 @@ func NewGetConversationRecordingsServiceUnavailable() *GetConversationRecordings
 	return &GetConversationRecordingsServiceUnavailable{}
 }
 
-/*GetConversationRecordingsServiceUnavailable handles this case with default header values.
+/*
+GetConversationRecordingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -469,7 +799,36 @@ type GetConversationRecordingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recordings service unavailable response has a 2xx status code
+func (o *GetConversationRecordingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recordings service unavailable response has a 3xx status code
+func (o *GetConversationRecordingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings service unavailable response has a 4xx status code
+func (o *GetConversationRecordingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation recordings service unavailable response has a 5xx status code
+func (o *GetConversationRecordingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversation recordings service unavailable response a status code equal to that given
+func (o *GetConversationRecordingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationRecordingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationRecordingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -494,7 +853,8 @@ func NewGetConversationRecordingsGatewayTimeout() *GetConversationRecordingsGate
 	return &GetConversationRecordingsGatewayTimeout{}
 }
 
-/*GetConversationRecordingsGatewayTimeout handles this case with default header values.
+/*
+GetConversationRecordingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -502,7 +862,36 @@ type GetConversationRecordingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recordings gateway timeout response has a 2xx status code
+func (o *GetConversationRecordingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recordings gateway timeout response has a 3xx status code
+func (o *GetConversationRecordingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recordings gateway timeout response has a 4xx status code
+func (o *GetConversationRecordingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation recordings gateway timeout response has a 5xx status code
+func (o *GetConversationRecordingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversation recordings gateway timeout response a status code equal to that given
+func (o *GetConversationRecordingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationRecordingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationRecordingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings][%d] getConversationRecordingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

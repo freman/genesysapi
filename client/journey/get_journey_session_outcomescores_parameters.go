@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetJourneySessionOutcomescoresParams creates a new GetJourneySessionOutcomescoresParams object
-// with the default values initialized.
+// NewGetJourneySessionOutcomescoresParams creates a new GetJourneySessionOutcomescoresParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetJourneySessionOutcomescoresParams() *GetJourneySessionOutcomescoresParams {
-	var ()
 	return &GetJourneySessionOutcomescoresParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetJourneySessionOutcomescoresParamsWithTimeout creates a new GetJourneySessionOutcomescoresParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetJourneySessionOutcomescoresParamsWithTimeout(timeout time.Duration) *GetJourneySessionOutcomescoresParams {
-	var ()
 	return &GetJourneySessionOutcomescoresParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetJourneySessionOutcomescoresParamsWithContext creates a new GetJourneySessionOutcomescoresParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetJourneySessionOutcomescoresParamsWithContext(ctx context.Context) *GetJourneySessionOutcomescoresParams {
-	var ()
 	return &GetJourneySessionOutcomescoresParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetJourneySessionOutcomescoresParamsWithHTTPClient creates a new GetJourneySessionOutcomescoresParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetJourneySessionOutcomescoresParamsWithHTTPClient(client *http.Client) *GetJourneySessionOutcomescoresParams {
-	var ()
 	return &GetJourneySessionOutcomescoresParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetJourneySessionOutcomescoresParams contains all the parameters to send to the API endpoint
-for the get journey session outcomescores operation typically these are written to a http.Request
+/*
+GetJourneySessionOutcomescoresParams contains all the parameters to send to the API endpoint
+
+	for the get journey session outcomescores operation.
+
+	Typically these are written to a http.Request.
 */
 type GetJourneySessionOutcomescoresParams struct {
 
-	/*SessionID
-	  ID of the session.
+	/* SessionID.
 
+	   ID of the session.
 	*/
 	SessionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get journey session outcomescores params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetJourneySessionOutcomescoresParams) WithDefaults() *GetJourneySessionOutcomescoresParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get journey session outcomescores params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetJourneySessionOutcomescoresParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get journey session outcomescores params

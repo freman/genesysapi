@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteOutboundDnclistParams creates a new DeleteOutboundDnclistParams object
-// with the default values initialized.
+// NewDeleteOutboundDnclistParams creates a new DeleteOutboundDnclistParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundDnclistParams() *DeleteOutboundDnclistParams {
-	var ()
 	return &DeleteOutboundDnclistParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundDnclistParamsWithTimeout creates a new DeleteOutboundDnclistParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundDnclistParamsWithTimeout(timeout time.Duration) *DeleteOutboundDnclistParams {
-	var ()
 	return &DeleteOutboundDnclistParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundDnclistParamsWithContext creates a new DeleteOutboundDnclistParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundDnclistParamsWithContext(ctx context.Context) *DeleteOutboundDnclistParams {
-	var ()
 	return &DeleteOutboundDnclistParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundDnclistParamsWithHTTPClient creates a new DeleteOutboundDnclistParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundDnclistParamsWithHTTPClient(client *http.Client) *DeleteOutboundDnclistParams {
-	var ()
 	return &DeleteOutboundDnclistParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundDnclistParams contains all the parameters to send to the API endpoint
-for the delete outbound dnclist operation typically these are written to a http.Request
+/*
+DeleteOutboundDnclistParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound dnclist operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundDnclistParams struct {
 
-	/*DncListID
-	  DncList ID
+	/* DncListID.
 
+	   DncList ID
 	*/
 	DncListID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound dnclist params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundDnclistParams) WithDefaults() *DeleteOutboundDnclistParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound dnclist params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundDnclistParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound dnclist params

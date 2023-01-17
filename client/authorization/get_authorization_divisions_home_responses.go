@@ -95,7 +95,6 @@ func (o *GetAuthorizationDivisionsHomeReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetAuthorizationDivisionsHomeOK() *GetAuthorizationDivisionsHomeOK {
 	return &GetAuthorizationDivisionsHomeOK{}
 }
 
-/*GetAuthorizationDivisionsHomeOK handles this case with default header values.
+/*
+GetAuthorizationDivisionsHomeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetAuthorizationDivisionsHomeOK struct {
 	Payload *models.AuthzDivision
 }
 
+// IsSuccess returns true when this get authorization divisions home o k response has a 2xx status code
+func (o *GetAuthorizationDivisionsHomeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get authorization divisions home o k response has a 3xx status code
+func (o *GetAuthorizationDivisionsHomeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization divisions home o k response has a 4xx status code
+func (o *GetAuthorizationDivisionsHomeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get authorization divisions home o k response has a 5xx status code
+func (o *GetAuthorizationDivisionsHomeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization divisions home o k response a status code equal to that given
+func (o *GetAuthorizationDivisionsHomeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAuthorizationDivisionsHomeOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeOK  %+v", 200, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetAuthorizationDivisionsHomeBadRequest() *GetAuthorizationDivisionsHome
 	return &GetAuthorizationDivisionsHomeBadRequest{}
 }
 
-/*GetAuthorizationDivisionsHomeBadRequest handles this case with default header values.
+/*
+GetAuthorizationDivisionsHomeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetAuthorizationDivisionsHomeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization divisions home bad request response has a 2xx status code
+func (o *GetAuthorizationDivisionsHomeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization divisions home bad request response has a 3xx status code
+func (o *GetAuthorizationDivisionsHomeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization divisions home bad request response has a 4xx status code
+func (o *GetAuthorizationDivisionsHomeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization divisions home bad request response has a 5xx status code
+func (o *GetAuthorizationDivisionsHomeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization divisions home bad request response a status code equal to that given
+func (o *GetAuthorizationDivisionsHomeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAuthorizationDivisionsHomeBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetAuthorizationDivisionsHomeUnauthorized() *GetAuthorizationDivisionsHo
 	return &GetAuthorizationDivisionsHomeUnauthorized{}
 }
 
-/*GetAuthorizationDivisionsHomeUnauthorized handles this case with default header values.
+/*
+GetAuthorizationDivisionsHomeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetAuthorizationDivisionsHomeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization divisions home unauthorized response has a 2xx status code
+func (o *GetAuthorizationDivisionsHomeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization divisions home unauthorized response has a 3xx status code
+func (o *GetAuthorizationDivisionsHomeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization divisions home unauthorized response has a 4xx status code
+func (o *GetAuthorizationDivisionsHomeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization divisions home unauthorized response has a 5xx status code
+func (o *GetAuthorizationDivisionsHomeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization divisions home unauthorized response a status code equal to that given
+func (o *GetAuthorizationDivisionsHomeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetAuthorizationDivisionsHomeUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetAuthorizationDivisionsHomeForbidden() *GetAuthorizationDivisionsHomeF
 	return &GetAuthorizationDivisionsHomeForbidden{}
 }
 
-/*GetAuthorizationDivisionsHomeForbidden handles this case with default header values.
+/*
+GetAuthorizationDivisionsHomeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetAuthorizationDivisionsHomeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization divisions home forbidden response has a 2xx status code
+func (o *GetAuthorizationDivisionsHomeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization divisions home forbidden response has a 3xx status code
+func (o *GetAuthorizationDivisionsHomeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization divisions home forbidden response has a 4xx status code
+func (o *GetAuthorizationDivisionsHomeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization divisions home forbidden response has a 5xx status code
+func (o *GetAuthorizationDivisionsHomeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization divisions home forbidden response a status code equal to that given
+func (o *GetAuthorizationDivisionsHomeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAuthorizationDivisionsHomeForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetAuthorizationDivisionsHomeNotFound() *GetAuthorizationDivisionsHomeNo
 	return &GetAuthorizationDivisionsHomeNotFound{}
 }
 
-/*GetAuthorizationDivisionsHomeNotFound handles this case with default header values.
+/*
+GetAuthorizationDivisionsHomeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetAuthorizationDivisionsHomeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization divisions home not found response has a 2xx status code
+func (o *GetAuthorizationDivisionsHomeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization divisions home not found response has a 3xx status code
+func (o *GetAuthorizationDivisionsHomeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization divisions home not found response has a 4xx status code
+func (o *GetAuthorizationDivisionsHomeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization divisions home not found response has a 5xx status code
+func (o *GetAuthorizationDivisionsHomeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization divisions home not found response a status code equal to that given
+func (o *GetAuthorizationDivisionsHomeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAuthorizationDivisionsHomeNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetAuthorizationDivisionsHomeRequestTimeout() *GetAuthorizationDivisions
 	return &GetAuthorizationDivisionsHomeRequestTimeout{}
 }
 
-/*GetAuthorizationDivisionsHomeRequestTimeout handles this case with default header values.
+/*
+GetAuthorizationDivisionsHomeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetAuthorizationDivisionsHomeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization divisions home request timeout response has a 2xx status code
+func (o *GetAuthorizationDivisionsHomeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization divisions home request timeout response has a 3xx status code
+func (o *GetAuthorizationDivisionsHomeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization divisions home request timeout response has a 4xx status code
+func (o *GetAuthorizationDivisionsHomeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization divisions home request timeout response has a 5xx status code
+func (o *GetAuthorizationDivisionsHomeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization divisions home request timeout response a status code equal to that given
+func (o *GetAuthorizationDivisionsHomeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetAuthorizationDivisionsHomeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetAuthorizationDivisionsHomeRequestEntityTooLarge() *GetAuthorizationDi
 	return &GetAuthorizationDivisionsHomeRequestEntityTooLarge{}
 }
 
-/*GetAuthorizationDivisionsHomeRequestEntityTooLarge handles this case with default header values.
+/*
+GetAuthorizationDivisionsHomeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetAuthorizationDivisionsHomeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization divisions home request entity too large response has a 2xx status code
+func (o *GetAuthorizationDivisionsHomeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization divisions home request entity too large response has a 3xx status code
+func (o *GetAuthorizationDivisionsHomeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization divisions home request entity too large response has a 4xx status code
+func (o *GetAuthorizationDivisionsHomeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization divisions home request entity too large response has a 5xx status code
+func (o *GetAuthorizationDivisionsHomeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization divisions home request entity too large response a status code equal to that given
+func (o *GetAuthorizationDivisionsHomeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetAuthorizationDivisionsHomeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetAuthorizationDivisionsHomeUnsupportedMediaType() *GetAuthorizationDiv
 	return &GetAuthorizationDivisionsHomeUnsupportedMediaType{}
 }
 
-/*GetAuthorizationDivisionsHomeUnsupportedMediaType handles this case with default header values.
+/*
+GetAuthorizationDivisionsHomeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetAuthorizationDivisionsHomeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization divisions home unsupported media type response has a 2xx status code
+func (o *GetAuthorizationDivisionsHomeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization divisions home unsupported media type response has a 3xx status code
+func (o *GetAuthorizationDivisionsHomeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization divisions home unsupported media type response has a 4xx status code
+func (o *GetAuthorizationDivisionsHomeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization divisions home unsupported media type response has a 5xx status code
+func (o *GetAuthorizationDivisionsHomeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization divisions home unsupported media type response a status code equal to that given
+func (o *GetAuthorizationDivisionsHomeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetAuthorizationDivisionsHomeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetAuthorizationDivisionsHomeTooManyRequests() *GetAuthorizationDivision
 	return &GetAuthorizationDivisionsHomeTooManyRequests{}
 }
 
-/*GetAuthorizationDivisionsHomeTooManyRequests handles this case with default header values.
+/*
+GetAuthorizationDivisionsHomeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetAuthorizationDivisionsHomeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization divisions home too many requests response has a 2xx status code
+func (o *GetAuthorizationDivisionsHomeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization divisions home too many requests response has a 3xx status code
+func (o *GetAuthorizationDivisionsHomeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization divisions home too many requests response has a 4xx status code
+func (o *GetAuthorizationDivisionsHomeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization divisions home too many requests response has a 5xx status code
+func (o *GetAuthorizationDivisionsHomeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization divisions home too many requests response a status code equal to that given
+func (o *GetAuthorizationDivisionsHomeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAuthorizationDivisionsHomeTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetAuthorizationDivisionsHomeInternalServerError() *GetAuthorizationDivi
 	return &GetAuthorizationDivisionsHomeInternalServerError{}
 }
 
-/*GetAuthorizationDivisionsHomeInternalServerError handles this case with default header values.
+/*
+GetAuthorizationDivisionsHomeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetAuthorizationDivisionsHomeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization divisions home internal server error response has a 2xx status code
+func (o *GetAuthorizationDivisionsHomeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization divisions home internal server error response has a 3xx status code
+func (o *GetAuthorizationDivisionsHomeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization divisions home internal server error response has a 4xx status code
+func (o *GetAuthorizationDivisionsHomeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get authorization divisions home internal server error response has a 5xx status code
+func (o *GetAuthorizationDivisionsHomeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get authorization divisions home internal server error response a status code equal to that given
+func (o *GetAuthorizationDivisionsHomeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAuthorizationDivisionsHomeInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetAuthorizationDivisionsHomeServiceUnavailable() *GetAuthorizationDivis
 	return &GetAuthorizationDivisionsHomeServiceUnavailable{}
 }
 
-/*GetAuthorizationDivisionsHomeServiceUnavailable handles this case with default header values.
+/*
+GetAuthorizationDivisionsHomeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetAuthorizationDivisionsHomeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization divisions home service unavailable response has a 2xx status code
+func (o *GetAuthorizationDivisionsHomeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization divisions home service unavailable response has a 3xx status code
+func (o *GetAuthorizationDivisionsHomeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization divisions home service unavailable response has a 4xx status code
+func (o *GetAuthorizationDivisionsHomeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get authorization divisions home service unavailable response has a 5xx status code
+func (o *GetAuthorizationDivisionsHomeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get authorization divisions home service unavailable response a status code equal to that given
+func (o *GetAuthorizationDivisionsHomeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetAuthorizationDivisionsHomeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetAuthorizationDivisionsHomeGatewayTimeout() *GetAuthorizationDivisions
 	return &GetAuthorizationDivisionsHomeGatewayTimeout{}
 }
 
-/*GetAuthorizationDivisionsHomeGatewayTimeout handles this case with default header values.
+/*
+GetAuthorizationDivisionsHomeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetAuthorizationDivisionsHomeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization divisions home gateway timeout response has a 2xx status code
+func (o *GetAuthorizationDivisionsHomeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization divisions home gateway timeout response has a 3xx status code
+func (o *GetAuthorizationDivisionsHomeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization divisions home gateway timeout response has a 4xx status code
+func (o *GetAuthorizationDivisionsHomeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get authorization divisions home gateway timeout response has a 5xx status code
+func (o *GetAuthorizationDivisionsHomeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get authorization divisions home gateway timeout response a status code equal to that given
+func (o *GetAuthorizationDivisionsHomeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetAuthorizationDivisionsHomeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionsHomeGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/home][%d] getAuthorizationDivisionsHomeGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsCallParticipantConsultParams creates a new PostConversationsCallParticipantConsultParams object
-// with the default values initialized.
+// NewPostConversationsCallParticipantConsultParams creates a new PostConversationsCallParticipantConsultParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsCallParticipantConsultParams() *PostConversationsCallParticipantConsultParams {
-	var ()
 	return &PostConversationsCallParticipantConsultParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsCallParticipantConsultParamsWithTimeout creates a new PostConversationsCallParticipantConsultParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsCallParticipantConsultParamsWithTimeout(timeout time.Duration) *PostConversationsCallParticipantConsultParams {
-	var ()
 	return &PostConversationsCallParticipantConsultParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsCallParticipantConsultParamsWithContext creates a new PostConversationsCallParticipantConsultParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsCallParticipantConsultParamsWithContext(ctx context.Context) *PostConversationsCallParticipantConsultParams {
-	var ()
 	return &PostConversationsCallParticipantConsultParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsCallParticipantConsultParamsWithHTTPClient creates a new PostConversationsCallParticipantConsultParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsCallParticipantConsultParamsWithHTTPClient(client *http.Client) *PostConversationsCallParticipantConsultParams {
-	var ()
 	return &PostConversationsCallParticipantConsultParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsCallParticipantConsultParams contains all the parameters to send to the API endpoint
-for the post conversations call participant consult operation typically these are written to a http.Request
+/*
+PostConversationsCallParticipantConsultParams contains all the parameters to send to the API endpoint
+
+	for the post conversations call participant consult operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsCallParticipantConsultParams struct {
 
-	/*Body
-	  Destination address & initial speak to
+	/* Body.
 
+	   Destination address & initial speak to
 	*/
 	Body *models.ConsultTransfer
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations call participant consult params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCallParticipantConsultParams) WithDefaults() *PostConversationsCallParticipantConsultParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations call participant consult params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCallParticipantConsultParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations call participant consult params
@@ -156,7 +174,6 @@ func (o *PostConversationsCallParticipantConsultParams) WriteToRequest(r runtime
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

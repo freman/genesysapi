@@ -101,7 +101,6 @@ func (o *GetScimV2GroupReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetScimV2GroupOK() *GetScimV2GroupOK {
 	return &GetScimV2GroupOK{}
 }
 
-/*GetScimV2GroupOK handles this case with default header values.
+/*
+GetScimV2GroupOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type GetScimV2GroupOK struct {
 	Payload *models.ScimV2Group
 }
 
+// IsSuccess returns true when this get scim v2 group o k response has a 2xx status code
+func (o *GetScimV2GroupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get scim v2 group o k response has a 3xx status code
+func (o *GetScimV2GroupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 group o k response has a 4xx status code
+func (o *GetScimV2GroupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim v2 group o k response has a 5xx status code
+func (o *GetScimV2GroupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 group o k response a status code equal to that given
+func (o *GetScimV2GroupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetScimV2GroupOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupOK  %+v", 200, o.Payload)
+}
+
+func (o *GetScimV2GroupOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupOK  %+v", 200, o.Payload)
 }
 
@@ -145,14 +174,44 @@ func NewGetScimV2GroupNotModified() *GetScimV2GroupNotModified {
 	return &GetScimV2GroupNotModified{}
 }
 
-/*GetScimV2GroupNotModified handles this case with default header values.
+/*
+GetScimV2GroupNotModified describes a response with status code 304, with default header values.
 
 If-Non-Match header matches current version. No content returned.
 */
 type GetScimV2GroupNotModified struct {
 }
 
+// IsSuccess returns true when this get scim v2 group not modified response has a 2xx status code
+func (o *GetScimV2GroupNotModified) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 group not modified response has a 3xx status code
+func (o *GetScimV2GroupNotModified) IsRedirect() bool {
+	return true
+}
+
+// IsClientError returns true when this get scim v2 group not modified response has a 4xx status code
+func (o *GetScimV2GroupNotModified) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim v2 group not modified response has a 5xx status code
+func (o *GetScimV2GroupNotModified) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 group not modified response a status code equal to that given
+func (o *GetScimV2GroupNotModified) IsCode(code int) bool {
+	return code == 304
+}
+
 func (o *GetScimV2GroupNotModified) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupNotModified ", 304)
+}
+
+func (o *GetScimV2GroupNotModified) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupNotModified ", 304)
 }
 
@@ -166,7 +225,8 @@ func NewGetScimV2GroupBadRequest() *GetScimV2GroupBadRequest {
 	return &GetScimV2GroupBadRequest{}
 }
 
-/*GetScimV2GroupBadRequest handles this case with default header values.
+/*
+GetScimV2GroupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -174,7 +234,36 @@ type GetScimV2GroupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 group bad request response has a 2xx status code
+func (o *GetScimV2GroupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 group bad request response has a 3xx status code
+func (o *GetScimV2GroupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 group bad request response has a 4xx status code
+func (o *GetScimV2GroupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 group bad request response has a 5xx status code
+func (o *GetScimV2GroupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 group bad request response a status code equal to that given
+func (o *GetScimV2GroupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetScimV2GroupBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetScimV2GroupBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewGetScimV2GroupUnauthorized() *GetScimV2GroupUnauthorized {
 	return &GetScimV2GroupUnauthorized{}
 }
 
-/*GetScimV2GroupUnauthorized handles this case with default header values.
+/*
+GetScimV2GroupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -207,7 +297,36 @@ type GetScimV2GroupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 group unauthorized response has a 2xx status code
+func (o *GetScimV2GroupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 group unauthorized response has a 3xx status code
+func (o *GetScimV2GroupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 group unauthorized response has a 4xx status code
+func (o *GetScimV2GroupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 group unauthorized response has a 5xx status code
+func (o *GetScimV2GroupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 group unauthorized response a status code equal to that given
+func (o *GetScimV2GroupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetScimV2GroupUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetScimV2GroupUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewGetScimV2GroupForbidden() *GetScimV2GroupForbidden {
 	return &GetScimV2GroupForbidden{}
 }
 
-/*GetScimV2GroupForbidden handles this case with default header values.
+/*
+GetScimV2GroupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -240,7 +360,36 @@ type GetScimV2GroupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 group forbidden response has a 2xx status code
+func (o *GetScimV2GroupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 group forbidden response has a 3xx status code
+func (o *GetScimV2GroupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 group forbidden response has a 4xx status code
+func (o *GetScimV2GroupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 group forbidden response has a 5xx status code
+func (o *GetScimV2GroupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 group forbidden response a status code equal to that given
+func (o *GetScimV2GroupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetScimV2GroupForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetScimV2GroupForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupForbidden  %+v", 403, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewGetScimV2GroupNotFound() *GetScimV2GroupNotFound {
 	return &GetScimV2GroupNotFound{}
 }
 
-/*GetScimV2GroupNotFound handles this case with default header values.
+/*
+GetScimV2GroupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -273,7 +423,36 @@ type GetScimV2GroupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 group not found response has a 2xx status code
+func (o *GetScimV2GroupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 group not found response has a 3xx status code
+func (o *GetScimV2GroupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 group not found response has a 4xx status code
+func (o *GetScimV2GroupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 group not found response has a 5xx status code
+func (o *GetScimV2GroupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 group not found response a status code equal to that given
+func (o *GetScimV2GroupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetScimV2GroupNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetScimV2GroupNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupNotFound  %+v", 404, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewGetScimV2GroupRequestTimeout() *GetScimV2GroupRequestTimeout {
 	return &GetScimV2GroupRequestTimeout{}
 }
 
-/*GetScimV2GroupRequestTimeout handles this case with default header values.
+/*
+GetScimV2GroupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -306,7 +486,36 @@ type GetScimV2GroupRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 group request timeout response has a 2xx status code
+func (o *GetScimV2GroupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 group request timeout response has a 3xx status code
+func (o *GetScimV2GroupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 group request timeout response has a 4xx status code
+func (o *GetScimV2GroupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 group request timeout response has a 5xx status code
+func (o *GetScimV2GroupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 group request timeout response a status code equal to that given
+func (o *GetScimV2GroupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetScimV2GroupRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScimV2GroupRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewGetScimV2GroupRequestEntityTooLarge() *GetScimV2GroupRequestEntityTooLar
 	return &GetScimV2GroupRequestEntityTooLarge{}
 }
 
-/*GetScimV2GroupRequestEntityTooLarge handles this case with default header values.
+/*
+GetScimV2GroupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type GetScimV2GroupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 group request entity too large response has a 2xx status code
+func (o *GetScimV2GroupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 group request entity too large response has a 3xx status code
+func (o *GetScimV2GroupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 group request entity too large response has a 4xx status code
+func (o *GetScimV2GroupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 group request entity too large response has a 5xx status code
+func (o *GetScimV2GroupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 group request entity too large response a status code equal to that given
+func (o *GetScimV2GroupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetScimV2GroupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetScimV2GroupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewGetScimV2GroupUnsupportedMediaType() *GetScimV2GroupUnsupportedMediaType
 	return &GetScimV2GroupUnsupportedMediaType{}
 }
 
-/*GetScimV2GroupUnsupportedMediaType handles this case with default header values.
+/*
+GetScimV2GroupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type GetScimV2GroupUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 group unsupported media type response has a 2xx status code
+func (o *GetScimV2GroupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 group unsupported media type response has a 3xx status code
+func (o *GetScimV2GroupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 group unsupported media type response has a 4xx status code
+func (o *GetScimV2GroupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 group unsupported media type response has a 5xx status code
+func (o *GetScimV2GroupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 group unsupported media type response a status code equal to that given
+func (o *GetScimV2GroupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetScimV2GroupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetScimV2GroupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewGetScimV2GroupTooManyRequests() *GetScimV2GroupTooManyRequests {
 	return &GetScimV2GroupTooManyRequests{}
 }
 
-/*GetScimV2GroupTooManyRequests handles this case with default header values.
+/*
+GetScimV2GroupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type GetScimV2GroupTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 group too many requests response has a 2xx status code
+func (o *GetScimV2GroupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 group too many requests response has a 3xx status code
+func (o *GetScimV2GroupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 group too many requests response has a 4xx status code
+func (o *GetScimV2GroupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 group too many requests response has a 5xx status code
+func (o *GetScimV2GroupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 group too many requests response a status code equal to that given
+func (o *GetScimV2GroupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetScimV2GroupTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetScimV2GroupTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewGetScimV2GroupInternalServerError() *GetScimV2GroupInternalServerError {
 	return &GetScimV2GroupInternalServerError{}
 }
 
-/*GetScimV2GroupInternalServerError handles this case with default header values.
+/*
+GetScimV2GroupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type GetScimV2GroupInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 group internal server error response has a 2xx status code
+func (o *GetScimV2GroupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 group internal server error response has a 3xx status code
+func (o *GetScimV2GroupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 group internal server error response has a 4xx status code
+func (o *GetScimV2GroupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim v2 group internal server error response has a 5xx status code
+func (o *GetScimV2GroupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim v2 group internal server error response a status code equal to that given
+func (o *GetScimV2GroupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetScimV2GroupInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetScimV2GroupInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewGetScimV2GroupServiceUnavailable() *GetScimV2GroupServiceUnavailable {
 	return &GetScimV2GroupServiceUnavailable{}
 }
 
-/*GetScimV2GroupServiceUnavailable handles this case with default header values.
+/*
+GetScimV2GroupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type GetScimV2GroupServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 group service unavailable response has a 2xx status code
+func (o *GetScimV2GroupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 group service unavailable response has a 3xx status code
+func (o *GetScimV2GroupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 group service unavailable response has a 4xx status code
+func (o *GetScimV2GroupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim v2 group service unavailable response has a 5xx status code
+func (o *GetScimV2GroupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim v2 group service unavailable response a status code equal to that given
+func (o *GetScimV2GroupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetScimV2GroupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetScimV2GroupServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewGetScimV2GroupGatewayTimeout() *GetScimV2GroupGatewayTimeout {
 	return &GetScimV2GroupGatewayTimeout{}
 }
 
-/*GetScimV2GroupGatewayTimeout handles this case with default header values.
+/*
+GetScimV2GroupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type GetScimV2GroupGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 group gateway timeout response has a 2xx status code
+func (o *GetScimV2GroupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 group gateway timeout response has a 3xx status code
+func (o *GetScimV2GroupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 group gateway timeout response has a 4xx status code
+func (o *GetScimV2GroupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim v2 group gateway timeout response has a 5xx status code
+func (o *GetScimV2GroupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim v2 group gateway timeout response a status code equal to that given
+func (o *GetScimV2GroupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetScimV2GroupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetScimV2GroupGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/groups/{groupId}][%d] getScimV2GroupGatewayTimeout  %+v", 504, o.Payload)
 }
 

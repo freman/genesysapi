@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -35,7 +37,6 @@ func (m *PresenceSetting) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PresenceSetting) validateJoin(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Join) { // not required
 		return nil
 	}
@@ -44,6 +45,38 @@ func (m *PresenceSetting) validateJoin(formats strfmt.Registry) error {
 		if err := m.Join.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("join")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("join")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this presence setting based on the context it is used
+func (m *PresenceSetting) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateJoin(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PresenceSetting) contextValidateJoin(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Join != nil {
+		if err := m.Join.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("join")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("join")
 			}
 			return err
 		}

@@ -101,7 +101,6 @@ func (o *PostRoutingAssessmentsJobsReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostRoutingAssessmentsJobsOK() *PostRoutingAssessmentsJobsOK {
 	return &PostRoutingAssessmentsJobsOK{}
 }
 
-/*PostRoutingAssessmentsJobsOK handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostRoutingAssessmentsJobsOK struct {
 	Payload *models.BenefitAssessmentJob
 }
 
+// IsSuccess returns true when this post routing assessments jobs o k response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post routing assessments jobs o k response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs o k response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing assessments jobs o k response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing assessments jobs o k response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostRoutingAssessmentsJobsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostRoutingAssessmentsJobsAccepted() *PostRoutingAssessmentsJobsAccepted
 	return &PostRoutingAssessmentsJobsAccepted{}
 }
 
-/*PostRoutingAssessmentsJobsAccepted handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsAccepted describes a response with status code 202, with default header values.
 
 Benefit Assessment Job created.
 */
@@ -153,7 +183,36 @@ type PostRoutingAssessmentsJobsAccepted struct {
 	Payload *models.BenefitAssessmentJob
 }
 
+// IsSuccess returns true when this post routing assessments jobs accepted response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post routing assessments jobs accepted response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs accepted response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing assessments jobs accepted response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing assessments jobs accepted response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostRoutingAssessmentsJobsAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostRoutingAssessmentsJobsBadRequest() *PostRoutingAssessmentsJobsBadReq
 	return &PostRoutingAssessmentsJobsBadRequest{}
 }
 
-/*PostRoutingAssessmentsJobsBadRequest handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostRoutingAssessmentsJobsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing assessments jobs bad request response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing assessments jobs bad request response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs bad request response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing assessments jobs bad request response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing assessments jobs bad request response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostRoutingAssessmentsJobsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostRoutingAssessmentsJobsUnauthorized() *PostRoutingAssessmentsJobsUnau
 	return &PostRoutingAssessmentsJobsUnauthorized{}
 }
 
-/*PostRoutingAssessmentsJobsUnauthorized handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostRoutingAssessmentsJobsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing assessments jobs unauthorized response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing assessments jobs unauthorized response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs unauthorized response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing assessments jobs unauthorized response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing assessments jobs unauthorized response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostRoutingAssessmentsJobsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostRoutingAssessmentsJobsForbidden() *PostRoutingAssessmentsJobsForbidd
 	return &PostRoutingAssessmentsJobsForbidden{}
 }
 
-/*PostRoutingAssessmentsJobsForbidden handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostRoutingAssessmentsJobsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing assessments jobs forbidden response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing assessments jobs forbidden response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs forbidden response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing assessments jobs forbidden response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing assessments jobs forbidden response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostRoutingAssessmentsJobsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostRoutingAssessmentsJobsNotFound() *PostRoutingAssessmentsJobsNotFound
 	return &PostRoutingAssessmentsJobsNotFound{}
 }
 
-/*PostRoutingAssessmentsJobsNotFound handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostRoutingAssessmentsJobsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing assessments jobs not found response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing assessments jobs not found response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs not found response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing assessments jobs not found response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing assessments jobs not found response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostRoutingAssessmentsJobsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostRoutingAssessmentsJobsRequestTimeout() *PostRoutingAssessmentsJobsRe
 	return &PostRoutingAssessmentsJobsRequestTimeout{}
 }
 
-/*PostRoutingAssessmentsJobsRequestTimeout handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostRoutingAssessmentsJobsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing assessments jobs request timeout response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing assessments jobs request timeout response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs request timeout response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing assessments jobs request timeout response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing assessments jobs request timeout response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostRoutingAssessmentsJobsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostRoutingAssessmentsJobsRequestEntityTooLarge() *PostRoutingAssessment
 	return &PostRoutingAssessmentsJobsRequestEntityTooLarge{}
 }
 
-/*PostRoutingAssessmentsJobsRequestEntityTooLarge handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostRoutingAssessmentsJobsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing assessments jobs request entity too large response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing assessments jobs request entity too large response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs request entity too large response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing assessments jobs request entity too large response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing assessments jobs request entity too large response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostRoutingAssessmentsJobsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostRoutingAssessmentsJobsUnsupportedMediaType() *PostRoutingAssessments
 	return &PostRoutingAssessmentsJobsUnsupportedMediaType{}
 }
 
-/*PostRoutingAssessmentsJobsUnsupportedMediaType handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostRoutingAssessmentsJobsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing assessments jobs unsupported media type response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing assessments jobs unsupported media type response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs unsupported media type response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing assessments jobs unsupported media type response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing assessments jobs unsupported media type response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostRoutingAssessmentsJobsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostRoutingAssessmentsJobsTooManyRequests() *PostRoutingAssessmentsJobsT
 	return &PostRoutingAssessmentsJobsTooManyRequests{}
 }
 
-/*PostRoutingAssessmentsJobsTooManyRequests handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostRoutingAssessmentsJobsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing assessments jobs too many requests response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing assessments jobs too many requests response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs too many requests response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing assessments jobs too many requests response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing assessments jobs too many requests response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostRoutingAssessmentsJobsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostRoutingAssessmentsJobsInternalServerError() *PostRoutingAssessmentsJ
 	return &PostRoutingAssessmentsJobsInternalServerError{}
 }
 
-/*PostRoutingAssessmentsJobsInternalServerError handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostRoutingAssessmentsJobsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing assessments jobs internal server error response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing assessments jobs internal server error response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs internal server error response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing assessments jobs internal server error response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing assessments jobs internal server error response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostRoutingAssessmentsJobsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostRoutingAssessmentsJobsServiceUnavailable() *PostRoutingAssessmentsJo
 	return &PostRoutingAssessmentsJobsServiceUnavailable{}
 }
 
-/*PostRoutingAssessmentsJobsServiceUnavailable handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostRoutingAssessmentsJobsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing assessments jobs service unavailable response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing assessments jobs service unavailable response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs service unavailable response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing assessments jobs service unavailable response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing assessments jobs service unavailable response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostRoutingAssessmentsJobsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostRoutingAssessmentsJobsGatewayTimeout() *PostRoutingAssessmentsJobsGa
 	return &PostRoutingAssessmentsJobsGatewayTimeout{}
 }
 
-/*PostRoutingAssessmentsJobsGatewayTimeout handles this case with default header values.
+/*
+PostRoutingAssessmentsJobsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostRoutingAssessmentsJobsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing assessments jobs gateway timeout response has a 2xx status code
+func (o *PostRoutingAssessmentsJobsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing assessments jobs gateway timeout response has a 3xx status code
+func (o *PostRoutingAssessmentsJobsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing assessments jobs gateway timeout response has a 4xx status code
+func (o *PostRoutingAssessmentsJobsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing assessments jobs gateway timeout response has a 5xx status code
+func (o *PostRoutingAssessmentsJobsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing assessments jobs gateway timeout response a status code equal to that given
+func (o *PostRoutingAssessmentsJobsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostRoutingAssessmentsJobsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostRoutingAssessmentsJobsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/assessments/jobs][%d] postRoutingAssessmentsJobsGatewayTimeout  %+v", 504, o.Payload)
 }
 

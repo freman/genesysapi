@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -57,6 +59,8 @@ func (m *NamedEntityTypeDefinition) validateMechanism(formats strfmt.Registry) e
 		if err := m.Mechanism.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mechanism")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mechanism")
 			}
 			return err
 		}
@@ -69,6 +73,36 @@ func (m *NamedEntityTypeDefinition) validateName(formats strfmt.Registry) error 
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this named entity type definition based on the context it is used
+func (m *NamedEntityTypeDefinition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMechanism(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *NamedEntityTypeDefinition) contextValidateMechanism(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Mechanism != nil {
+		if err := m.Mechanism.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mechanism")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mechanism")
+			}
+			return err
+		}
 	}
 
 	return nil

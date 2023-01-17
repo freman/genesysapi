@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -40,7 +41,6 @@ func (m *AutomaticTimeZoneMappingSettings) Validate(formats strfmt.Registry) err
 }
 
 func (m *AutomaticTimeZoneMappingSettings) validateCallableWindows(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallableWindows) { // not required
 		return nil
 	}
@@ -54,6 +54,42 @@ func (m *AutomaticTimeZoneMappingSettings) validateCallableWindows(formats strfm
 			if err := m.CallableWindows[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("callableWindows" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("callableWindows" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this automatic time zone mapping settings based on the context it is used
+func (m *AutomaticTimeZoneMappingSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCallableWindows(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AutomaticTimeZoneMappingSettings) contextValidateCallableWindows(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CallableWindows); i++ {
+
+		if m.CallableWindows[i] != nil {
+			if err := m.CallableWindows[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("callableWindows" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("callableWindows" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

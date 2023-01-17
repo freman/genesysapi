@@ -95,7 +95,6 @@ func (o *PostLanguageunderstandingMinerUploadsReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostLanguageunderstandingMinerUploadsOK() *PostLanguageunderstandingMine
 	return &PostLanguageunderstandingMinerUploadsOK{}
 }
 
-/*PostLanguageunderstandingMinerUploadsOK handles this case with default header values.
+/*
+PostLanguageunderstandingMinerUploadsOK describes a response with status code 200, with default header values.
 
 Presigned URL successfully created.
 */
@@ -114,7 +114,36 @@ type PostLanguageunderstandingMinerUploadsOK struct {
 	Payload *models.UploadURLResponse
 }
 
+// IsSuccess returns true when this post languageunderstanding miner uploads o k response has a 2xx status code
+func (o *PostLanguageunderstandingMinerUploadsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post languageunderstanding miner uploads o k response has a 3xx status code
+func (o *PostLanguageunderstandingMinerUploadsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner uploads o k response has a 4xx status code
+func (o *PostLanguageunderstandingMinerUploadsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding miner uploads o k response has a 5xx status code
+func (o *PostLanguageunderstandingMinerUploadsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner uploads o k response a status code equal to that given
+func (o *PostLanguageunderstandingMinerUploadsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLanguageunderstandingMinerUploadsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerUploadsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostLanguageunderstandingMinerUploadsBadRequest() *PostLanguageunderstan
 	return &PostLanguageunderstandingMinerUploadsBadRequest{}
 }
 
-/*PostLanguageunderstandingMinerUploadsBadRequest handles this case with default header values.
+/*
+PostLanguageunderstandingMinerUploadsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostLanguageunderstandingMinerUploadsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner uploads bad request response has a 2xx status code
+func (o *PostLanguageunderstandingMinerUploadsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner uploads bad request response has a 3xx status code
+func (o *PostLanguageunderstandingMinerUploadsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner uploads bad request response has a 4xx status code
+func (o *PostLanguageunderstandingMinerUploadsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner uploads bad request response has a 5xx status code
+func (o *PostLanguageunderstandingMinerUploadsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner uploads bad request response a status code equal to that given
+func (o *PostLanguageunderstandingMinerUploadsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLanguageunderstandingMinerUploadsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerUploadsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostLanguageunderstandingMinerUploadsUnauthorized() *PostLanguageunderst
 	return &PostLanguageunderstandingMinerUploadsUnauthorized{}
 }
 
-/*PostLanguageunderstandingMinerUploadsUnauthorized handles this case with default header values.
+/*
+PostLanguageunderstandingMinerUploadsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostLanguageunderstandingMinerUploadsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner uploads unauthorized response has a 2xx status code
+func (o *PostLanguageunderstandingMinerUploadsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner uploads unauthorized response has a 3xx status code
+func (o *PostLanguageunderstandingMinerUploadsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner uploads unauthorized response has a 4xx status code
+func (o *PostLanguageunderstandingMinerUploadsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner uploads unauthorized response has a 5xx status code
+func (o *PostLanguageunderstandingMinerUploadsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner uploads unauthorized response a status code equal to that given
+func (o *PostLanguageunderstandingMinerUploadsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLanguageunderstandingMinerUploadsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerUploadsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostLanguageunderstandingMinerUploadsForbidden() *PostLanguageunderstand
 	return &PostLanguageunderstandingMinerUploadsForbidden{}
 }
 
-/*PostLanguageunderstandingMinerUploadsForbidden handles this case with default header values.
+/*
+PostLanguageunderstandingMinerUploadsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostLanguageunderstandingMinerUploadsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner uploads forbidden response has a 2xx status code
+func (o *PostLanguageunderstandingMinerUploadsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner uploads forbidden response has a 3xx status code
+func (o *PostLanguageunderstandingMinerUploadsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner uploads forbidden response has a 4xx status code
+func (o *PostLanguageunderstandingMinerUploadsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner uploads forbidden response has a 5xx status code
+func (o *PostLanguageunderstandingMinerUploadsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner uploads forbidden response a status code equal to that given
+func (o *PostLanguageunderstandingMinerUploadsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLanguageunderstandingMinerUploadsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerUploadsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostLanguageunderstandingMinerUploadsNotFound() *PostLanguageunderstandi
 	return &PostLanguageunderstandingMinerUploadsNotFound{}
 }
 
-/*PostLanguageunderstandingMinerUploadsNotFound handles this case with default header values.
+/*
+PostLanguageunderstandingMinerUploadsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostLanguageunderstandingMinerUploadsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner uploads not found response has a 2xx status code
+func (o *PostLanguageunderstandingMinerUploadsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner uploads not found response has a 3xx status code
+func (o *PostLanguageunderstandingMinerUploadsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner uploads not found response has a 4xx status code
+func (o *PostLanguageunderstandingMinerUploadsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner uploads not found response has a 5xx status code
+func (o *PostLanguageunderstandingMinerUploadsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner uploads not found response a status code equal to that given
+func (o *PostLanguageunderstandingMinerUploadsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLanguageunderstandingMinerUploadsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerUploadsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostLanguageunderstandingMinerUploadsRequestTimeout() *PostLanguageunder
 	return &PostLanguageunderstandingMinerUploadsRequestTimeout{}
 }
 
-/*PostLanguageunderstandingMinerUploadsRequestTimeout handles this case with default header values.
+/*
+PostLanguageunderstandingMinerUploadsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostLanguageunderstandingMinerUploadsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner uploads request timeout response has a 2xx status code
+func (o *PostLanguageunderstandingMinerUploadsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner uploads request timeout response has a 3xx status code
+func (o *PostLanguageunderstandingMinerUploadsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner uploads request timeout response has a 4xx status code
+func (o *PostLanguageunderstandingMinerUploadsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner uploads request timeout response has a 5xx status code
+func (o *PostLanguageunderstandingMinerUploadsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner uploads request timeout response a status code equal to that given
+func (o *PostLanguageunderstandingMinerUploadsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLanguageunderstandingMinerUploadsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerUploadsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostLanguageunderstandingMinerUploadsRequestEntityTooLarge() *PostLangua
 	return &PostLanguageunderstandingMinerUploadsRequestEntityTooLarge{}
 }
 
-/*PostLanguageunderstandingMinerUploadsRequestEntityTooLarge handles this case with default header values.
+/*
+PostLanguageunderstandingMinerUploadsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostLanguageunderstandingMinerUploadsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner uploads request entity too large response has a 2xx status code
+func (o *PostLanguageunderstandingMinerUploadsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner uploads request entity too large response has a 3xx status code
+func (o *PostLanguageunderstandingMinerUploadsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner uploads request entity too large response has a 4xx status code
+func (o *PostLanguageunderstandingMinerUploadsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner uploads request entity too large response has a 5xx status code
+func (o *PostLanguageunderstandingMinerUploadsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner uploads request entity too large response a status code equal to that given
+func (o *PostLanguageunderstandingMinerUploadsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLanguageunderstandingMinerUploadsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerUploadsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostLanguageunderstandingMinerUploadsUnsupportedMediaType() *PostLanguag
 	return &PostLanguageunderstandingMinerUploadsUnsupportedMediaType{}
 }
 
-/*PostLanguageunderstandingMinerUploadsUnsupportedMediaType handles this case with default header values.
+/*
+PostLanguageunderstandingMinerUploadsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostLanguageunderstandingMinerUploadsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner uploads unsupported media type response has a 2xx status code
+func (o *PostLanguageunderstandingMinerUploadsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner uploads unsupported media type response has a 3xx status code
+func (o *PostLanguageunderstandingMinerUploadsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner uploads unsupported media type response has a 4xx status code
+func (o *PostLanguageunderstandingMinerUploadsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner uploads unsupported media type response has a 5xx status code
+func (o *PostLanguageunderstandingMinerUploadsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner uploads unsupported media type response a status code equal to that given
+func (o *PostLanguageunderstandingMinerUploadsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLanguageunderstandingMinerUploadsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerUploadsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostLanguageunderstandingMinerUploadsTooManyRequests() *PostLanguageunde
 	return &PostLanguageunderstandingMinerUploadsTooManyRequests{}
 }
 
-/*PostLanguageunderstandingMinerUploadsTooManyRequests handles this case with default header values.
+/*
+PostLanguageunderstandingMinerUploadsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostLanguageunderstandingMinerUploadsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner uploads too many requests response has a 2xx status code
+func (o *PostLanguageunderstandingMinerUploadsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner uploads too many requests response has a 3xx status code
+func (o *PostLanguageunderstandingMinerUploadsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner uploads too many requests response has a 4xx status code
+func (o *PostLanguageunderstandingMinerUploadsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding miner uploads too many requests response has a 5xx status code
+func (o *PostLanguageunderstandingMinerUploadsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding miner uploads too many requests response a status code equal to that given
+func (o *PostLanguageunderstandingMinerUploadsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLanguageunderstandingMinerUploadsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerUploadsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostLanguageunderstandingMinerUploadsInternalServerError() *PostLanguage
 	return &PostLanguageunderstandingMinerUploadsInternalServerError{}
 }
 
-/*PostLanguageunderstandingMinerUploadsInternalServerError handles this case with default header values.
+/*
+PostLanguageunderstandingMinerUploadsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostLanguageunderstandingMinerUploadsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner uploads internal server error response has a 2xx status code
+func (o *PostLanguageunderstandingMinerUploadsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner uploads internal server error response has a 3xx status code
+func (o *PostLanguageunderstandingMinerUploadsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner uploads internal server error response has a 4xx status code
+func (o *PostLanguageunderstandingMinerUploadsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding miner uploads internal server error response has a 5xx status code
+func (o *PostLanguageunderstandingMinerUploadsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post languageunderstanding miner uploads internal server error response a status code equal to that given
+func (o *PostLanguageunderstandingMinerUploadsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLanguageunderstandingMinerUploadsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerUploadsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostLanguageunderstandingMinerUploadsServiceUnavailable() *PostLanguageu
 	return &PostLanguageunderstandingMinerUploadsServiceUnavailable{}
 }
 
-/*PostLanguageunderstandingMinerUploadsServiceUnavailable handles this case with default header values.
+/*
+PostLanguageunderstandingMinerUploadsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostLanguageunderstandingMinerUploadsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner uploads service unavailable response has a 2xx status code
+func (o *PostLanguageunderstandingMinerUploadsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner uploads service unavailable response has a 3xx status code
+func (o *PostLanguageunderstandingMinerUploadsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner uploads service unavailable response has a 4xx status code
+func (o *PostLanguageunderstandingMinerUploadsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding miner uploads service unavailable response has a 5xx status code
+func (o *PostLanguageunderstandingMinerUploadsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post languageunderstanding miner uploads service unavailable response a status code equal to that given
+func (o *PostLanguageunderstandingMinerUploadsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLanguageunderstandingMinerUploadsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerUploadsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostLanguageunderstandingMinerUploadsGatewayTimeout() *PostLanguageunder
 	return &PostLanguageunderstandingMinerUploadsGatewayTimeout{}
 }
 
-/*PostLanguageunderstandingMinerUploadsGatewayTimeout handles this case with default header values.
+/*
+PostLanguageunderstandingMinerUploadsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostLanguageunderstandingMinerUploadsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding miner uploads gateway timeout response has a 2xx status code
+func (o *PostLanguageunderstandingMinerUploadsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding miner uploads gateway timeout response has a 3xx status code
+func (o *PostLanguageunderstandingMinerUploadsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding miner uploads gateway timeout response has a 4xx status code
+func (o *PostLanguageunderstandingMinerUploadsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding miner uploads gateway timeout response has a 5xx status code
+func (o *PostLanguageunderstandingMinerUploadsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post languageunderstanding miner uploads gateway timeout response a status code equal to that given
+func (o *PostLanguageunderstandingMinerUploadsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLanguageunderstandingMinerUploadsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLanguageunderstandingMinerUploadsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/miners/{minerId}/uploads][%d] postLanguageunderstandingMinerUploadsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *DeleteRecordingJobReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteRecordingJobNoContent() *DeleteRecordingJobNoContent {
 	return &DeleteRecordingJobNoContent{}
 }
 
-/*DeleteRecordingJobNoContent handles this case with default header values.
+/*
+DeleteRecordingJobNoContent describes a response with status code 204, with default header values.
 
 Operation was successful.
 */
 type DeleteRecordingJobNoContent struct {
 }
 
+// IsSuccess returns true when this delete recording job no content response has a 2xx status code
+func (o *DeleteRecordingJobNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete recording job no content response has a 3xx status code
+func (o *DeleteRecordingJobNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording job no content response has a 4xx status code
+func (o *DeleteRecordingJobNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete recording job no content response has a 5xx status code
+func (o *DeleteRecordingJobNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording job no content response a status code equal to that given
+func (o *DeleteRecordingJobNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteRecordingJobNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobNoContent ", 204)
+}
+
+func (o *DeleteRecordingJobNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteRecordingJobBadRequest() *DeleteRecordingJobBadRequest {
 	return &DeleteRecordingJobBadRequest{}
 }
 
-/*DeleteRecordingJobBadRequest handles this case with default header values.
+/*
+DeleteRecordingJobBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteRecordingJobBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording job bad request response has a 2xx status code
+func (o *DeleteRecordingJobBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording job bad request response has a 3xx status code
+func (o *DeleteRecordingJobBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording job bad request response has a 4xx status code
+func (o *DeleteRecordingJobBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording job bad request response has a 5xx status code
+func (o *DeleteRecordingJobBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording job bad request response a status code equal to that given
+func (o *DeleteRecordingJobBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteRecordingJobBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteRecordingJobBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteRecordingJobUnauthorized() *DeleteRecordingJobUnauthorized {
 	return &DeleteRecordingJobUnauthorized{}
 }
 
-/*DeleteRecordingJobUnauthorized handles this case with default header values.
+/*
+DeleteRecordingJobUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteRecordingJobUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording job unauthorized response has a 2xx status code
+func (o *DeleteRecordingJobUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording job unauthorized response has a 3xx status code
+func (o *DeleteRecordingJobUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording job unauthorized response has a 4xx status code
+func (o *DeleteRecordingJobUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording job unauthorized response has a 5xx status code
+func (o *DeleteRecordingJobUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording job unauthorized response a status code equal to that given
+func (o *DeleteRecordingJobUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteRecordingJobUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteRecordingJobUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteRecordingJobForbidden() *DeleteRecordingJobForbidden {
 	return &DeleteRecordingJobForbidden{}
 }
 
-/*DeleteRecordingJobForbidden handles this case with default header values.
+/*
+DeleteRecordingJobForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteRecordingJobForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording job forbidden response has a 2xx status code
+func (o *DeleteRecordingJobForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording job forbidden response has a 3xx status code
+func (o *DeleteRecordingJobForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording job forbidden response has a 4xx status code
+func (o *DeleteRecordingJobForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording job forbidden response has a 5xx status code
+func (o *DeleteRecordingJobForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording job forbidden response a status code equal to that given
+func (o *DeleteRecordingJobForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRecordingJobForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteRecordingJobForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteRecordingJobNotFound() *DeleteRecordingJobNotFound {
 	return &DeleteRecordingJobNotFound{}
 }
 
-/*DeleteRecordingJobNotFound handles this case with default header values.
+/*
+DeleteRecordingJobNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteRecordingJobNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording job not found response has a 2xx status code
+func (o *DeleteRecordingJobNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording job not found response has a 3xx status code
+func (o *DeleteRecordingJobNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording job not found response has a 4xx status code
+func (o *DeleteRecordingJobNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording job not found response has a 5xx status code
+func (o *DeleteRecordingJobNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording job not found response a status code equal to that given
+func (o *DeleteRecordingJobNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteRecordingJobNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteRecordingJobNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteRecordingJobRequestTimeout() *DeleteRecordingJobRequestTimeout {
 	return &DeleteRecordingJobRequestTimeout{}
 }
 
-/*DeleteRecordingJobRequestTimeout handles this case with default header values.
+/*
+DeleteRecordingJobRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteRecordingJobRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording job request timeout response has a 2xx status code
+func (o *DeleteRecordingJobRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording job request timeout response has a 3xx status code
+func (o *DeleteRecordingJobRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording job request timeout response has a 4xx status code
+func (o *DeleteRecordingJobRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording job request timeout response has a 5xx status code
+func (o *DeleteRecordingJobRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording job request timeout response a status code equal to that given
+func (o *DeleteRecordingJobRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteRecordingJobRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteRecordingJobRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteRecordingJobRequestEntityTooLarge() *DeleteRecordingJobRequestEnti
 	return &DeleteRecordingJobRequestEntityTooLarge{}
 }
 
-/*DeleteRecordingJobRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteRecordingJobRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteRecordingJobRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording job request entity too large response has a 2xx status code
+func (o *DeleteRecordingJobRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording job request entity too large response has a 3xx status code
+func (o *DeleteRecordingJobRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording job request entity too large response has a 4xx status code
+func (o *DeleteRecordingJobRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording job request entity too large response has a 5xx status code
+func (o *DeleteRecordingJobRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording job request entity too large response a status code equal to that given
+func (o *DeleteRecordingJobRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteRecordingJobRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteRecordingJobRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteRecordingJobUnsupportedMediaType() *DeleteRecordingJobUnsupportedM
 	return &DeleteRecordingJobUnsupportedMediaType{}
 }
 
-/*DeleteRecordingJobUnsupportedMediaType handles this case with default header values.
+/*
+DeleteRecordingJobUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteRecordingJobUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording job unsupported media type response has a 2xx status code
+func (o *DeleteRecordingJobUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording job unsupported media type response has a 3xx status code
+func (o *DeleteRecordingJobUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording job unsupported media type response has a 4xx status code
+func (o *DeleteRecordingJobUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording job unsupported media type response has a 5xx status code
+func (o *DeleteRecordingJobUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording job unsupported media type response a status code equal to that given
+func (o *DeleteRecordingJobUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteRecordingJobUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteRecordingJobUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteRecordingJobTooManyRequests() *DeleteRecordingJobTooManyRequests {
 	return &DeleteRecordingJobTooManyRequests{}
 }
 
-/*DeleteRecordingJobTooManyRequests handles this case with default header values.
+/*
+DeleteRecordingJobTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteRecordingJobTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording job too many requests response has a 2xx status code
+func (o *DeleteRecordingJobTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording job too many requests response has a 3xx status code
+func (o *DeleteRecordingJobTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording job too many requests response has a 4xx status code
+func (o *DeleteRecordingJobTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording job too many requests response has a 5xx status code
+func (o *DeleteRecordingJobTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording job too many requests response a status code equal to that given
+func (o *DeleteRecordingJobTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteRecordingJobTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteRecordingJobTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteRecordingJobInternalServerError() *DeleteRecordingJobInternalServe
 	return &DeleteRecordingJobInternalServerError{}
 }
 
-/*DeleteRecordingJobInternalServerError handles this case with default header values.
+/*
+DeleteRecordingJobInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteRecordingJobInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording job internal server error response has a 2xx status code
+func (o *DeleteRecordingJobInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording job internal server error response has a 3xx status code
+func (o *DeleteRecordingJobInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording job internal server error response has a 4xx status code
+func (o *DeleteRecordingJobInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete recording job internal server error response has a 5xx status code
+func (o *DeleteRecordingJobInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete recording job internal server error response a status code equal to that given
+func (o *DeleteRecordingJobInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteRecordingJobInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteRecordingJobInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteRecordingJobServiceUnavailable() *DeleteRecordingJobServiceUnavail
 	return &DeleteRecordingJobServiceUnavailable{}
 }
 
-/*DeleteRecordingJobServiceUnavailable handles this case with default header values.
+/*
+DeleteRecordingJobServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteRecordingJobServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording job service unavailable response has a 2xx status code
+func (o *DeleteRecordingJobServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording job service unavailable response has a 3xx status code
+func (o *DeleteRecordingJobServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording job service unavailable response has a 4xx status code
+func (o *DeleteRecordingJobServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete recording job service unavailable response has a 5xx status code
+func (o *DeleteRecordingJobServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete recording job service unavailable response a status code equal to that given
+func (o *DeleteRecordingJobServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteRecordingJobServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteRecordingJobServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteRecordingJobGatewayTimeout() *DeleteRecordingJobGatewayTimeout {
 	return &DeleteRecordingJobGatewayTimeout{}
 }
 
-/*DeleteRecordingJobGatewayTimeout handles this case with default header values.
+/*
+DeleteRecordingJobGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteRecordingJobGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording job gateway timeout response has a 2xx status code
+func (o *DeleteRecordingJobGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording job gateway timeout response has a 3xx status code
+func (o *DeleteRecordingJobGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording job gateway timeout response has a 4xx status code
+func (o *DeleteRecordingJobGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete recording job gateway timeout response has a 5xx status code
+func (o *DeleteRecordingJobGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete recording job gateway timeout response a status code equal to that given
+func (o *DeleteRecordingJobGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteRecordingJobGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteRecordingJobGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/jobs/{jobId}][%d] deleteRecordingJobGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *DeleteOutboundSchedulesEmailcampaignReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteOutboundSchedulesEmailcampaignNoContent() *DeleteOutboundSchedules
 	return &DeleteOutboundSchedulesEmailcampaignNoContent{}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignNoContent handles this case with default header values.
+/*
+DeleteOutboundSchedulesEmailcampaignNoContent describes a response with status code 204, with default header values.
 
 Operation was successful.
 */
 type DeleteOutboundSchedulesEmailcampaignNoContent struct {
 }
 
+// IsSuccess returns true when this delete outbound schedules emailcampaign no content response has a 2xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete outbound schedules emailcampaign no content response has a 3xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules emailcampaign no content response has a 4xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound schedules emailcampaign no content response has a 5xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules emailcampaign no content response a status code equal to that given
+func (o *DeleteOutboundSchedulesEmailcampaignNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteOutboundSchedulesEmailcampaignNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignNoContent ", 204)
+}
+
+func (o *DeleteOutboundSchedulesEmailcampaignNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteOutboundSchedulesEmailcampaignBadRequest() *DeleteOutboundSchedule
 	return &DeleteOutboundSchedulesEmailcampaignBadRequest{}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignBadRequest handles this case with default header values.
+/*
+DeleteOutboundSchedulesEmailcampaignBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteOutboundSchedulesEmailcampaignBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules emailcampaign bad request response has a 2xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules emailcampaign bad request response has a 3xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules emailcampaign bad request response has a 4xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules emailcampaign bad request response has a 5xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules emailcampaign bad request response a status code equal to that given
+func (o *DeleteOutboundSchedulesEmailcampaignBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOutboundSchedulesEmailcampaignBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesEmailcampaignBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteOutboundSchedulesEmailcampaignUnauthorized() *DeleteOutboundSchedu
 	return &DeleteOutboundSchedulesEmailcampaignUnauthorized{}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignUnauthorized handles this case with default header values.
+/*
+DeleteOutboundSchedulesEmailcampaignUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteOutboundSchedulesEmailcampaignUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules emailcampaign unauthorized response has a 2xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules emailcampaign unauthorized response has a 3xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules emailcampaign unauthorized response has a 4xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules emailcampaign unauthorized response has a 5xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules emailcampaign unauthorized response a status code equal to that given
+func (o *DeleteOutboundSchedulesEmailcampaignUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOutboundSchedulesEmailcampaignUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesEmailcampaignUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteOutboundSchedulesEmailcampaignForbidden() *DeleteOutboundSchedules
 	return &DeleteOutboundSchedulesEmailcampaignForbidden{}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignForbidden handles this case with default header values.
+/*
+DeleteOutboundSchedulesEmailcampaignForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteOutboundSchedulesEmailcampaignForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules emailcampaign forbidden response has a 2xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules emailcampaign forbidden response has a 3xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules emailcampaign forbidden response has a 4xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules emailcampaign forbidden response has a 5xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules emailcampaign forbidden response a status code equal to that given
+func (o *DeleteOutboundSchedulesEmailcampaignForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOutboundSchedulesEmailcampaignForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesEmailcampaignForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteOutboundSchedulesEmailcampaignNotFound() *DeleteOutboundSchedulesE
 	return &DeleteOutboundSchedulesEmailcampaignNotFound{}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignNotFound handles this case with default header values.
+/*
+DeleteOutboundSchedulesEmailcampaignNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteOutboundSchedulesEmailcampaignNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules emailcampaign not found response has a 2xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules emailcampaign not found response has a 3xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules emailcampaign not found response has a 4xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules emailcampaign not found response has a 5xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules emailcampaign not found response a status code equal to that given
+func (o *DeleteOutboundSchedulesEmailcampaignNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOutboundSchedulesEmailcampaignNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesEmailcampaignNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteOutboundSchedulesEmailcampaignRequestTimeout() *DeleteOutboundSche
 	return &DeleteOutboundSchedulesEmailcampaignRequestTimeout{}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignRequestTimeout handles this case with default header values.
+/*
+DeleteOutboundSchedulesEmailcampaignRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteOutboundSchedulesEmailcampaignRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules emailcampaign request timeout response has a 2xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules emailcampaign request timeout response has a 3xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules emailcampaign request timeout response has a 4xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules emailcampaign request timeout response has a 5xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules emailcampaign request timeout response a status code equal to that given
+func (o *DeleteOutboundSchedulesEmailcampaignRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOutboundSchedulesEmailcampaignRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesEmailcampaignRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteOutboundSchedulesEmailcampaignRequestEntityTooLarge() *DeleteOutbo
 	return &DeleteOutboundSchedulesEmailcampaignRequestEntityTooLarge{}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOutboundSchedulesEmailcampaignRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteOutboundSchedulesEmailcampaignRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules emailcampaign request entity too large response has a 2xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules emailcampaign request entity too large response has a 3xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules emailcampaign request entity too large response has a 4xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules emailcampaign request entity too large response has a 5xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules emailcampaign request entity too large response a status code equal to that given
+func (o *DeleteOutboundSchedulesEmailcampaignRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOutboundSchedulesEmailcampaignRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesEmailcampaignRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteOutboundSchedulesEmailcampaignUnsupportedMediaType() *DeleteOutbou
 	return &DeleteOutboundSchedulesEmailcampaignUnsupportedMediaType{}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOutboundSchedulesEmailcampaignUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteOutboundSchedulesEmailcampaignUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules emailcampaign unsupported media type response has a 2xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules emailcampaign unsupported media type response has a 3xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules emailcampaign unsupported media type response has a 4xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules emailcampaign unsupported media type response has a 5xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules emailcampaign unsupported media type response a status code equal to that given
+func (o *DeleteOutboundSchedulesEmailcampaignUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOutboundSchedulesEmailcampaignUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesEmailcampaignUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteOutboundSchedulesEmailcampaignTooManyRequests() *DeleteOutboundSch
 	return &DeleteOutboundSchedulesEmailcampaignTooManyRequests{}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignTooManyRequests handles this case with default header values.
+/*
+DeleteOutboundSchedulesEmailcampaignTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteOutboundSchedulesEmailcampaignTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules emailcampaign too many requests response has a 2xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules emailcampaign too many requests response has a 3xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules emailcampaign too many requests response has a 4xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound schedules emailcampaign too many requests response has a 5xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound schedules emailcampaign too many requests response a status code equal to that given
+func (o *DeleteOutboundSchedulesEmailcampaignTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOutboundSchedulesEmailcampaignTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesEmailcampaignTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteOutboundSchedulesEmailcampaignInternalServerError() *DeleteOutboun
 	return &DeleteOutboundSchedulesEmailcampaignInternalServerError{}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignInternalServerError handles this case with default header values.
+/*
+DeleteOutboundSchedulesEmailcampaignInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteOutboundSchedulesEmailcampaignInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules emailcampaign internal server error response has a 2xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules emailcampaign internal server error response has a 3xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules emailcampaign internal server error response has a 4xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound schedules emailcampaign internal server error response has a 5xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound schedules emailcampaign internal server error response a status code equal to that given
+func (o *DeleteOutboundSchedulesEmailcampaignInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOutboundSchedulesEmailcampaignInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesEmailcampaignInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteOutboundSchedulesEmailcampaignServiceUnavailable() *DeleteOutbound
 	return &DeleteOutboundSchedulesEmailcampaignServiceUnavailable{}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignServiceUnavailable handles this case with default header values.
+/*
+DeleteOutboundSchedulesEmailcampaignServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteOutboundSchedulesEmailcampaignServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules emailcampaign service unavailable response has a 2xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules emailcampaign service unavailable response has a 3xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules emailcampaign service unavailable response has a 4xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound schedules emailcampaign service unavailable response has a 5xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound schedules emailcampaign service unavailable response a status code equal to that given
+func (o *DeleteOutboundSchedulesEmailcampaignServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOutboundSchedulesEmailcampaignServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesEmailcampaignServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteOutboundSchedulesEmailcampaignGatewayTimeout() *DeleteOutboundSche
 	return &DeleteOutboundSchedulesEmailcampaignGatewayTimeout{}
 }
 
-/*DeleteOutboundSchedulesEmailcampaignGatewayTimeout handles this case with default header values.
+/*
+DeleteOutboundSchedulesEmailcampaignGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteOutboundSchedulesEmailcampaignGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound schedules emailcampaign gateway timeout response has a 2xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound schedules emailcampaign gateway timeout response has a 3xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound schedules emailcampaign gateway timeout response has a 4xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound schedules emailcampaign gateway timeout response has a 5xx status code
+func (o *DeleteOutboundSchedulesEmailcampaignGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound schedules emailcampaign gateway timeout response a status code equal to that given
+func (o *DeleteOutboundSchedulesEmailcampaignGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOutboundSchedulesEmailcampaignGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOutboundSchedulesEmailcampaignGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/schedules/emailcampaigns/{emailCampaignId}][%d] deleteOutboundSchedulesEmailcampaignGatewayTimeout  %+v", 504, o.Payload)
 }
 

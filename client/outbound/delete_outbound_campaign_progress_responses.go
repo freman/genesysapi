@@ -95,7 +95,6 @@ func (o *DeleteOutboundCampaignProgressReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteOutboundCampaignProgressAccepted() *DeleteOutboundCampaignProgress
 	return &DeleteOutboundCampaignProgressAccepted{}
 }
 
-/*DeleteOutboundCampaignProgressAccepted handles this case with default header values.
+/*
+DeleteOutboundCampaignProgressAccepted describes a response with status code 202, with default header values.
 
 Accepted - the campaign will be recycled momentarily
 */
 type DeleteOutboundCampaignProgressAccepted struct {
 }
 
+// IsSuccess returns true when this delete outbound campaign progress accepted response has a 2xx status code
+func (o *DeleteOutboundCampaignProgressAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete outbound campaign progress accepted response has a 3xx status code
+func (o *DeleteOutboundCampaignProgressAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaign progress accepted response has a 4xx status code
+func (o *DeleteOutboundCampaignProgressAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound campaign progress accepted response has a 5xx status code
+func (o *DeleteOutboundCampaignProgressAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaign progress accepted response a status code equal to that given
+func (o *DeleteOutboundCampaignProgressAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *DeleteOutboundCampaignProgressAccepted) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressAccepted ", 202)
+}
+
+func (o *DeleteOutboundCampaignProgressAccepted) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressAccepted ", 202)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteOutboundCampaignProgressBadRequest() *DeleteOutboundCampaignProgre
 	return &DeleteOutboundCampaignProgressBadRequest{}
 }
 
-/*DeleteOutboundCampaignProgressBadRequest handles this case with default header values.
+/*
+DeleteOutboundCampaignProgressBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteOutboundCampaignProgressBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaign progress bad request response has a 2xx status code
+func (o *DeleteOutboundCampaignProgressBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaign progress bad request response has a 3xx status code
+func (o *DeleteOutboundCampaignProgressBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaign progress bad request response has a 4xx status code
+func (o *DeleteOutboundCampaignProgressBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaign progress bad request response has a 5xx status code
+func (o *DeleteOutboundCampaignProgressBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaign progress bad request response a status code equal to that given
+func (o *DeleteOutboundCampaignProgressBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOutboundCampaignProgressBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignProgressBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteOutboundCampaignProgressUnauthorized() *DeleteOutboundCampaignProg
 	return &DeleteOutboundCampaignProgressUnauthorized{}
 }
 
-/*DeleteOutboundCampaignProgressUnauthorized handles this case with default header values.
+/*
+DeleteOutboundCampaignProgressUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteOutboundCampaignProgressUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaign progress unauthorized response has a 2xx status code
+func (o *DeleteOutboundCampaignProgressUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaign progress unauthorized response has a 3xx status code
+func (o *DeleteOutboundCampaignProgressUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaign progress unauthorized response has a 4xx status code
+func (o *DeleteOutboundCampaignProgressUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaign progress unauthorized response has a 5xx status code
+func (o *DeleteOutboundCampaignProgressUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaign progress unauthorized response a status code equal to that given
+func (o *DeleteOutboundCampaignProgressUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOutboundCampaignProgressUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignProgressUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteOutboundCampaignProgressForbidden() *DeleteOutboundCampaignProgres
 	return &DeleteOutboundCampaignProgressForbidden{}
 }
 
-/*DeleteOutboundCampaignProgressForbidden handles this case with default header values.
+/*
+DeleteOutboundCampaignProgressForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteOutboundCampaignProgressForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaign progress forbidden response has a 2xx status code
+func (o *DeleteOutboundCampaignProgressForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaign progress forbidden response has a 3xx status code
+func (o *DeleteOutboundCampaignProgressForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaign progress forbidden response has a 4xx status code
+func (o *DeleteOutboundCampaignProgressForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaign progress forbidden response has a 5xx status code
+func (o *DeleteOutboundCampaignProgressForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaign progress forbidden response a status code equal to that given
+func (o *DeleteOutboundCampaignProgressForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOutboundCampaignProgressForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignProgressForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteOutboundCampaignProgressNotFound() *DeleteOutboundCampaignProgress
 	return &DeleteOutboundCampaignProgressNotFound{}
 }
 
-/*DeleteOutboundCampaignProgressNotFound handles this case with default header values.
+/*
+DeleteOutboundCampaignProgressNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteOutboundCampaignProgressNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaign progress not found response has a 2xx status code
+func (o *DeleteOutboundCampaignProgressNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaign progress not found response has a 3xx status code
+func (o *DeleteOutboundCampaignProgressNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaign progress not found response has a 4xx status code
+func (o *DeleteOutboundCampaignProgressNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaign progress not found response has a 5xx status code
+func (o *DeleteOutboundCampaignProgressNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaign progress not found response a status code equal to that given
+func (o *DeleteOutboundCampaignProgressNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOutboundCampaignProgressNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignProgressNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteOutboundCampaignProgressRequestTimeout() *DeleteOutboundCampaignPr
 	return &DeleteOutboundCampaignProgressRequestTimeout{}
 }
 
-/*DeleteOutboundCampaignProgressRequestTimeout handles this case with default header values.
+/*
+DeleteOutboundCampaignProgressRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteOutboundCampaignProgressRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaign progress request timeout response has a 2xx status code
+func (o *DeleteOutboundCampaignProgressRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaign progress request timeout response has a 3xx status code
+func (o *DeleteOutboundCampaignProgressRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaign progress request timeout response has a 4xx status code
+func (o *DeleteOutboundCampaignProgressRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaign progress request timeout response has a 5xx status code
+func (o *DeleteOutboundCampaignProgressRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaign progress request timeout response a status code equal to that given
+func (o *DeleteOutboundCampaignProgressRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOutboundCampaignProgressRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignProgressRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteOutboundCampaignProgressRequestEntityTooLarge() *DeleteOutboundCam
 	return &DeleteOutboundCampaignProgressRequestEntityTooLarge{}
 }
 
-/*DeleteOutboundCampaignProgressRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOutboundCampaignProgressRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteOutboundCampaignProgressRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaign progress request entity too large response has a 2xx status code
+func (o *DeleteOutboundCampaignProgressRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaign progress request entity too large response has a 3xx status code
+func (o *DeleteOutboundCampaignProgressRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaign progress request entity too large response has a 4xx status code
+func (o *DeleteOutboundCampaignProgressRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaign progress request entity too large response has a 5xx status code
+func (o *DeleteOutboundCampaignProgressRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaign progress request entity too large response a status code equal to that given
+func (o *DeleteOutboundCampaignProgressRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOutboundCampaignProgressRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignProgressRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteOutboundCampaignProgressUnsupportedMediaType() *DeleteOutboundCamp
 	return &DeleteOutboundCampaignProgressUnsupportedMediaType{}
 }
 
-/*DeleteOutboundCampaignProgressUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOutboundCampaignProgressUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteOutboundCampaignProgressUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaign progress unsupported media type response has a 2xx status code
+func (o *DeleteOutboundCampaignProgressUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaign progress unsupported media type response has a 3xx status code
+func (o *DeleteOutboundCampaignProgressUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaign progress unsupported media type response has a 4xx status code
+func (o *DeleteOutboundCampaignProgressUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaign progress unsupported media type response has a 5xx status code
+func (o *DeleteOutboundCampaignProgressUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaign progress unsupported media type response a status code equal to that given
+func (o *DeleteOutboundCampaignProgressUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOutboundCampaignProgressUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignProgressUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteOutboundCampaignProgressTooManyRequests() *DeleteOutboundCampaignP
 	return &DeleteOutboundCampaignProgressTooManyRequests{}
 }
 
-/*DeleteOutboundCampaignProgressTooManyRequests handles this case with default header values.
+/*
+DeleteOutboundCampaignProgressTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteOutboundCampaignProgressTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaign progress too many requests response has a 2xx status code
+func (o *DeleteOutboundCampaignProgressTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaign progress too many requests response has a 3xx status code
+func (o *DeleteOutboundCampaignProgressTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaign progress too many requests response has a 4xx status code
+func (o *DeleteOutboundCampaignProgressTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaign progress too many requests response has a 5xx status code
+func (o *DeleteOutboundCampaignProgressTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaign progress too many requests response a status code equal to that given
+func (o *DeleteOutboundCampaignProgressTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOutboundCampaignProgressTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignProgressTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteOutboundCampaignProgressInternalServerError() *DeleteOutboundCampa
 	return &DeleteOutboundCampaignProgressInternalServerError{}
 }
 
-/*DeleteOutboundCampaignProgressInternalServerError handles this case with default header values.
+/*
+DeleteOutboundCampaignProgressInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteOutboundCampaignProgressInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaign progress internal server error response has a 2xx status code
+func (o *DeleteOutboundCampaignProgressInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaign progress internal server error response has a 3xx status code
+func (o *DeleteOutboundCampaignProgressInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaign progress internal server error response has a 4xx status code
+func (o *DeleteOutboundCampaignProgressInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound campaign progress internal server error response has a 5xx status code
+func (o *DeleteOutboundCampaignProgressInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound campaign progress internal server error response a status code equal to that given
+func (o *DeleteOutboundCampaignProgressInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOutboundCampaignProgressInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignProgressInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteOutboundCampaignProgressServiceUnavailable() *DeleteOutboundCampai
 	return &DeleteOutboundCampaignProgressServiceUnavailable{}
 }
 
-/*DeleteOutboundCampaignProgressServiceUnavailable handles this case with default header values.
+/*
+DeleteOutboundCampaignProgressServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteOutboundCampaignProgressServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaign progress service unavailable response has a 2xx status code
+func (o *DeleteOutboundCampaignProgressServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaign progress service unavailable response has a 3xx status code
+func (o *DeleteOutboundCampaignProgressServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaign progress service unavailable response has a 4xx status code
+func (o *DeleteOutboundCampaignProgressServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound campaign progress service unavailable response has a 5xx status code
+func (o *DeleteOutboundCampaignProgressServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound campaign progress service unavailable response a status code equal to that given
+func (o *DeleteOutboundCampaignProgressServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOutboundCampaignProgressServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignProgressServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteOutboundCampaignProgressGatewayTimeout() *DeleteOutboundCampaignPr
 	return &DeleteOutboundCampaignProgressGatewayTimeout{}
 }
 
-/*DeleteOutboundCampaignProgressGatewayTimeout handles this case with default header values.
+/*
+DeleteOutboundCampaignProgressGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteOutboundCampaignProgressGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaign progress gateway timeout response has a 2xx status code
+func (o *DeleteOutboundCampaignProgressGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaign progress gateway timeout response has a 3xx status code
+func (o *DeleteOutboundCampaignProgressGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaign progress gateway timeout response has a 4xx status code
+func (o *DeleteOutboundCampaignProgressGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound campaign progress gateway timeout response has a 5xx status code
+func (o *DeleteOutboundCampaignProgressGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound campaign progress gateway timeout response a status code equal to that given
+func (o *DeleteOutboundCampaignProgressGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOutboundCampaignProgressGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignProgressGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaigns/{campaignId}/progress][%d] deleteOutboundCampaignProgressGatewayTimeout  %+v", 504, o.Payload)
 }
 

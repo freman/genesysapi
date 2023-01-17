@@ -95,7 +95,6 @@ func (o *GetContentmanagementSecurityprofilesReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetContentmanagementSecurityprofilesOK() *GetContentmanagementSecuritypr
 	return &GetContentmanagementSecurityprofilesOK{}
 }
 
-/*GetContentmanagementSecurityprofilesOK handles this case with default header values.
+/*
+GetContentmanagementSecurityprofilesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetContentmanagementSecurityprofilesOK struct {
 	Payload *models.SecurityProfileEntityListing
 }
 
+// IsSuccess returns true when this get contentmanagement securityprofiles o k response has a 2xx status code
+func (o *GetContentmanagementSecurityprofilesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get contentmanagement securityprofiles o k response has a 3xx status code
+func (o *GetContentmanagementSecurityprofilesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement securityprofiles o k response has a 4xx status code
+func (o *GetContentmanagementSecurityprofilesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement securityprofiles o k response has a 5xx status code
+func (o *GetContentmanagementSecurityprofilesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement securityprofiles o k response a status code equal to that given
+func (o *GetContentmanagementSecurityprofilesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetContentmanagementSecurityprofilesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetContentmanagementSecurityprofilesBadRequest() *GetContentmanagementSe
 	return &GetContentmanagementSecurityprofilesBadRequest{}
 }
 
-/*GetContentmanagementSecurityprofilesBadRequest handles this case with default header values.
+/*
+GetContentmanagementSecurityprofilesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetContentmanagementSecurityprofilesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement securityprofiles bad request response has a 2xx status code
+func (o *GetContentmanagementSecurityprofilesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement securityprofiles bad request response has a 3xx status code
+func (o *GetContentmanagementSecurityprofilesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement securityprofiles bad request response has a 4xx status code
+func (o *GetContentmanagementSecurityprofilesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement securityprofiles bad request response has a 5xx status code
+func (o *GetContentmanagementSecurityprofilesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement securityprofiles bad request response a status code equal to that given
+func (o *GetContentmanagementSecurityprofilesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetContentmanagementSecurityprofilesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetContentmanagementSecurityprofilesUnauthorized() *GetContentmanagement
 	return &GetContentmanagementSecurityprofilesUnauthorized{}
 }
 
-/*GetContentmanagementSecurityprofilesUnauthorized handles this case with default header values.
+/*
+GetContentmanagementSecurityprofilesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetContentmanagementSecurityprofilesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement securityprofiles unauthorized response has a 2xx status code
+func (o *GetContentmanagementSecurityprofilesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement securityprofiles unauthorized response has a 3xx status code
+func (o *GetContentmanagementSecurityprofilesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement securityprofiles unauthorized response has a 4xx status code
+func (o *GetContentmanagementSecurityprofilesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement securityprofiles unauthorized response has a 5xx status code
+func (o *GetContentmanagementSecurityprofilesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement securityprofiles unauthorized response a status code equal to that given
+func (o *GetContentmanagementSecurityprofilesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetContentmanagementSecurityprofilesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetContentmanagementSecurityprofilesForbidden() *GetContentmanagementSec
 	return &GetContentmanagementSecurityprofilesForbidden{}
 }
 
-/*GetContentmanagementSecurityprofilesForbidden handles this case with default header values.
+/*
+GetContentmanagementSecurityprofilesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetContentmanagementSecurityprofilesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement securityprofiles forbidden response has a 2xx status code
+func (o *GetContentmanagementSecurityprofilesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement securityprofiles forbidden response has a 3xx status code
+func (o *GetContentmanagementSecurityprofilesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement securityprofiles forbidden response has a 4xx status code
+func (o *GetContentmanagementSecurityprofilesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement securityprofiles forbidden response has a 5xx status code
+func (o *GetContentmanagementSecurityprofilesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement securityprofiles forbidden response a status code equal to that given
+func (o *GetContentmanagementSecurityprofilesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetContentmanagementSecurityprofilesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetContentmanagementSecurityprofilesNotFound() *GetContentmanagementSecu
 	return &GetContentmanagementSecurityprofilesNotFound{}
 }
 
-/*GetContentmanagementSecurityprofilesNotFound handles this case with default header values.
+/*
+GetContentmanagementSecurityprofilesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetContentmanagementSecurityprofilesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement securityprofiles not found response has a 2xx status code
+func (o *GetContentmanagementSecurityprofilesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement securityprofiles not found response has a 3xx status code
+func (o *GetContentmanagementSecurityprofilesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement securityprofiles not found response has a 4xx status code
+func (o *GetContentmanagementSecurityprofilesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement securityprofiles not found response has a 5xx status code
+func (o *GetContentmanagementSecurityprofilesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement securityprofiles not found response a status code equal to that given
+func (o *GetContentmanagementSecurityprofilesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetContentmanagementSecurityprofilesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetContentmanagementSecurityprofilesRequestTimeout() *GetContentmanageme
 	return &GetContentmanagementSecurityprofilesRequestTimeout{}
 }
 
-/*GetContentmanagementSecurityprofilesRequestTimeout handles this case with default header values.
+/*
+GetContentmanagementSecurityprofilesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetContentmanagementSecurityprofilesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement securityprofiles request timeout response has a 2xx status code
+func (o *GetContentmanagementSecurityprofilesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement securityprofiles request timeout response has a 3xx status code
+func (o *GetContentmanagementSecurityprofilesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement securityprofiles request timeout response has a 4xx status code
+func (o *GetContentmanagementSecurityprofilesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement securityprofiles request timeout response has a 5xx status code
+func (o *GetContentmanagementSecurityprofilesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement securityprofiles request timeout response a status code equal to that given
+func (o *GetContentmanagementSecurityprofilesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetContentmanagementSecurityprofilesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetContentmanagementSecurityprofilesRequestEntityTooLarge() *GetContentm
 	return &GetContentmanagementSecurityprofilesRequestEntityTooLarge{}
 }
 
-/*GetContentmanagementSecurityprofilesRequestEntityTooLarge handles this case with default header values.
+/*
+GetContentmanagementSecurityprofilesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetContentmanagementSecurityprofilesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement securityprofiles request entity too large response has a 2xx status code
+func (o *GetContentmanagementSecurityprofilesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement securityprofiles request entity too large response has a 3xx status code
+func (o *GetContentmanagementSecurityprofilesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement securityprofiles request entity too large response has a 4xx status code
+func (o *GetContentmanagementSecurityprofilesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement securityprofiles request entity too large response has a 5xx status code
+func (o *GetContentmanagementSecurityprofilesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement securityprofiles request entity too large response a status code equal to that given
+func (o *GetContentmanagementSecurityprofilesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetContentmanagementSecurityprofilesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetContentmanagementSecurityprofilesUnsupportedMediaType() *GetContentma
 	return &GetContentmanagementSecurityprofilesUnsupportedMediaType{}
 }
 
-/*GetContentmanagementSecurityprofilesUnsupportedMediaType handles this case with default header values.
+/*
+GetContentmanagementSecurityprofilesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetContentmanagementSecurityprofilesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement securityprofiles unsupported media type response has a 2xx status code
+func (o *GetContentmanagementSecurityprofilesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement securityprofiles unsupported media type response has a 3xx status code
+func (o *GetContentmanagementSecurityprofilesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement securityprofiles unsupported media type response has a 4xx status code
+func (o *GetContentmanagementSecurityprofilesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement securityprofiles unsupported media type response has a 5xx status code
+func (o *GetContentmanagementSecurityprofilesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement securityprofiles unsupported media type response a status code equal to that given
+func (o *GetContentmanagementSecurityprofilesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetContentmanagementSecurityprofilesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetContentmanagementSecurityprofilesTooManyRequests() *GetContentmanagem
 	return &GetContentmanagementSecurityprofilesTooManyRequests{}
 }
 
-/*GetContentmanagementSecurityprofilesTooManyRequests handles this case with default header values.
+/*
+GetContentmanagementSecurityprofilesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetContentmanagementSecurityprofilesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement securityprofiles too many requests response has a 2xx status code
+func (o *GetContentmanagementSecurityprofilesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement securityprofiles too many requests response has a 3xx status code
+func (o *GetContentmanagementSecurityprofilesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement securityprofiles too many requests response has a 4xx status code
+func (o *GetContentmanagementSecurityprofilesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement securityprofiles too many requests response has a 5xx status code
+func (o *GetContentmanagementSecurityprofilesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement securityprofiles too many requests response a status code equal to that given
+func (o *GetContentmanagementSecurityprofilesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetContentmanagementSecurityprofilesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetContentmanagementSecurityprofilesInternalServerError() *GetContentman
 	return &GetContentmanagementSecurityprofilesInternalServerError{}
 }
 
-/*GetContentmanagementSecurityprofilesInternalServerError handles this case with default header values.
+/*
+GetContentmanagementSecurityprofilesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetContentmanagementSecurityprofilesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement securityprofiles internal server error response has a 2xx status code
+func (o *GetContentmanagementSecurityprofilesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement securityprofiles internal server error response has a 3xx status code
+func (o *GetContentmanagementSecurityprofilesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement securityprofiles internal server error response has a 4xx status code
+func (o *GetContentmanagementSecurityprofilesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement securityprofiles internal server error response has a 5xx status code
+func (o *GetContentmanagementSecurityprofilesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement securityprofiles internal server error response a status code equal to that given
+func (o *GetContentmanagementSecurityprofilesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetContentmanagementSecurityprofilesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetContentmanagementSecurityprofilesServiceUnavailable() *GetContentmana
 	return &GetContentmanagementSecurityprofilesServiceUnavailable{}
 }
 
-/*GetContentmanagementSecurityprofilesServiceUnavailable handles this case with default header values.
+/*
+GetContentmanagementSecurityprofilesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetContentmanagementSecurityprofilesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement securityprofiles service unavailable response has a 2xx status code
+func (o *GetContentmanagementSecurityprofilesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement securityprofiles service unavailable response has a 3xx status code
+func (o *GetContentmanagementSecurityprofilesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement securityprofiles service unavailable response has a 4xx status code
+func (o *GetContentmanagementSecurityprofilesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement securityprofiles service unavailable response has a 5xx status code
+func (o *GetContentmanagementSecurityprofilesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement securityprofiles service unavailable response a status code equal to that given
+func (o *GetContentmanagementSecurityprofilesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetContentmanagementSecurityprofilesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetContentmanagementSecurityprofilesGatewayTimeout() *GetContentmanageme
 	return &GetContentmanagementSecurityprofilesGatewayTimeout{}
 }
 
-/*GetContentmanagementSecurityprofilesGatewayTimeout handles this case with default header values.
+/*
+GetContentmanagementSecurityprofilesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetContentmanagementSecurityprofilesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement securityprofiles gateway timeout response has a 2xx status code
+func (o *GetContentmanagementSecurityprofilesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement securityprofiles gateway timeout response has a 3xx status code
+func (o *GetContentmanagementSecurityprofilesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement securityprofiles gateway timeout response has a 4xx status code
+func (o *GetContentmanagementSecurityprofilesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement securityprofiles gateway timeout response has a 5xx status code
+func (o *GetContentmanagementSecurityprofilesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement securityprofiles gateway timeout response a status code equal to that given
+func (o *GetContentmanagementSecurityprofilesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetContentmanagementSecurityprofilesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetContentmanagementSecurityprofilesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/securityprofiles][%d] getContentmanagementSecurityprofilesGatewayTimeout  %+v", 504, o.Payload)
 }
 

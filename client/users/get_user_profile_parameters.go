@@ -17,69 +17,87 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetUserProfileParams creates a new GetUserProfileParams object
-// with the default values initialized.
+// NewGetUserProfileParams creates a new GetUserProfileParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUserProfileParams() *GetUserProfileParams {
-	var ()
 	return &GetUserProfileParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUserProfileParamsWithTimeout creates a new GetUserProfileParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUserProfileParamsWithTimeout(timeout time.Duration) *GetUserProfileParams {
-	var ()
 	return &GetUserProfileParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUserProfileParamsWithContext creates a new GetUserProfileParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUserProfileParamsWithContext(ctx context.Context) *GetUserProfileParams {
-	var ()
 	return &GetUserProfileParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetUserProfileParamsWithHTTPClient creates a new GetUserProfileParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUserProfileParamsWithHTTPClient(client *http.Client) *GetUserProfileParams {
-	var ()
 	return &GetUserProfileParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetUserProfileParams contains all the parameters to send to the API endpoint
-for the get user profile operation typically these are written to a http.Request
+/*
+GetUserProfileParams contains all the parameters to send to the API endpoint
+
+	for the get user profile operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUserProfileParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand
+	/* Expand.
 
+	   Which fields, if any, to expand
 	*/
 	Expand []string
-	/*IntegrationPresenceSource
-	  Gets an integration presence for a user instead of their default.
 
+	/* IntegrationPresenceSource.
+
+	   Gets an integration presence for a user instead of their default.
 	*/
 	IntegrationPresenceSource *string
-	/*UserID
-	  userId
 
+	/* UserID.
+
+	   userId
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get user profile params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserProfileParams) WithDefaults() *GetUserProfileParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get user profile params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserProfileParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get user profile params
@@ -156,28 +174,32 @@ func (o *GetUserProfileParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.IntegrationPresenceSource != nil {
 
 		// query param integrationPresenceSource
 		var qrIntegrationPresenceSource string
+
 		if o.IntegrationPresenceSource != nil {
 			qrIntegrationPresenceSource = *o.IntegrationPresenceSource
 		}
 		qIntegrationPresenceSource := qrIntegrationPresenceSource
 		if qIntegrationPresenceSource != "" {
+
 			if err := r.SetQueryParam("integrationPresenceSource", qIntegrationPresenceSource); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param userId
@@ -189,4 +211,21 @@ func (o *GetUserProfileParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetUserProfile binds the parameter expand
+func (o *GetUserProfileParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

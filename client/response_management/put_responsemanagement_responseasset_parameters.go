@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutResponsemanagementResponseassetParams creates a new PutResponsemanagementResponseassetParams object
-// with the default values initialized.
+// NewPutResponsemanagementResponseassetParams creates a new PutResponsemanagementResponseassetParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutResponsemanagementResponseassetParams() *PutResponsemanagementResponseassetParams {
-	var ()
 	return &PutResponsemanagementResponseassetParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutResponsemanagementResponseassetParamsWithTimeout creates a new PutResponsemanagementResponseassetParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutResponsemanagementResponseassetParamsWithTimeout(timeout time.Duration) *PutResponsemanagementResponseassetParams {
-	var ()
 	return &PutResponsemanagementResponseassetParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutResponsemanagementResponseassetParamsWithContext creates a new PutResponsemanagementResponseassetParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutResponsemanagementResponseassetParamsWithContext(ctx context.Context) *PutResponsemanagementResponseassetParams {
-	var ()
 	return &PutResponsemanagementResponseassetParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutResponsemanagementResponseassetParamsWithHTTPClient creates a new PutResponsemanagementResponseassetParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutResponsemanagementResponseassetParamsWithHTTPClient(client *http.Client) *PutResponsemanagementResponseassetParams {
-	var ()
 	return &PutResponsemanagementResponseassetParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutResponsemanagementResponseassetParams contains all the parameters to send to the API endpoint
-for the put responsemanagement responseasset operation typically these are written to a http.Request
+/*
+PutResponsemanagementResponseassetParams contains all the parameters to send to the API endpoint
+
+	for the put responsemanagement responseasset operation.
+
+	Typically these are written to a http.Request.
 */
 type PutResponsemanagementResponseassetParams struct {
 
-	/*Body
-	  request
+	/* Body.
 
+	   request
 	*/
 	Body *models.ResponseAssetRequest
-	/*ResponseAssetID
-	  Asset Id
 
+	/* ResponseAssetID.
+
+	   Asset Id
 	*/
 	ResponseAssetID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put responsemanagement responseasset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutResponsemanagementResponseassetParams) WithDefaults() *PutResponsemanagementResponseassetParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put responsemanagement responseasset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutResponsemanagementResponseassetParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put responsemanagement responseasset params
@@ -140,7 +157,6 @@ func (o *PutResponsemanagementResponseassetParams) WriteToRequest(r runtime.Clie
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

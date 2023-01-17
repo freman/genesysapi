@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -99,7 +100,6 @@ func (m *WfmAgent) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WfmAgent) validateLanguages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Languages) { // not required
 		return nil
 	}
@@ -113,6 +113,8 @@ func (m *WfmAgent) validateLanguages(formats strfmt.Registry) error {
 			if err := m.Languages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("languages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("languages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -124,7 +126,6 @@ func (m *WfmAgent) validateLanguages(formats strfmt.Registry) error {
 }
 
 func (m *WfmAgent) validateMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metadata) { // not required
 		return nil
 	}
@@ -133,6 +134,8 @@ func (m *WfmAgent) validateMetadata(formats strfmt.Registry) error {
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -142,7 +145,6 @@ func (m *WfmAgent) validateMetadata(formats strfmt.Registry) error {
 }
 
 func (m *WfmAgent) validateQueues(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queues) { // not required
 		return nil
 	}
@@ -156,6 +158,8 @@ func (m *WfmAgent) validateQueues(formats strfmt.Registry) error {
 			if err := m.Queues[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -167,7 +171,6 @@ func (m *WfmAgent) validateQueues(formats strfmt.Registry) error {
 }
 
 func (m *WfmAgent) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -180,7 +183,6 @@ func (m *WfmAgent) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *WfmAgent) validateSkills(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Skills) { // not required
 		return nil
 	}
@@ -194,6 +196,8 @@ func (m *WfmAgent) validateSkills(formats strfmt.Registry) error {
 			if err := m.Skills[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("skills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("skills" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -205,7 +209,6 @@ func (m *WfmAgent) validateSkills(formats strfmt.Registry) error {
 }
 
 func (m *WfmAgent) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -214,6 +217,8 @@ func (m *WfmAgent) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}
@@ -223,7 +228,6 @@ func (m *WfmAgent) validateUser(formats strfmt.Registry) error {
 }
 
 func (m *WfmAgent) validateWorkPlan(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WorkPlan) { // not required
 		return nil
 	}
@@ -232,6 +236,8 @@ func (m *WfmAgent) validateWorkPlan(formats strfmt.Registry) error {
 		if err := m.WorkPlan.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workPlan")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPlan")
 			}
 			return err
 		}
@@ -241,7 +247,6 @@ func (m *WfmAgent) validateWorkPlan(formats strfmt.Registry) error {
 }
 
 func (m *WfmAgent) validateWorkPlanRotation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WorkPlanRotation) { // not required
 		return nil
 	}
@@ -250,6 +255,196 @@ func (m *WfmAgent) validateWorkPlanRotation(formats strfmt.Registry) error {
 		if err := m.WorkPlanRotation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workPlanRotation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPlanRotation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this wfm agent based on the context it is used
+func (m *WfmAgent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLanguages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSkills(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkPlan(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkPlanRotation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WfmAgent) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WfmAgent) contextValidateLanguages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Languages); i++ {
+
+		if m.Languages[i] != nil {
+			if err := m.Languages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("languages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("languages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WfmAgent) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WfmAgent) contextValidateQueues(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Queues); i++ {
+
+		if m.Queues[i] != nil {
+			if err := m.Queues[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queues" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WfmAgent) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WfmAgent) contextValidateSkills(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Skills); i++ {
+
+		if m.Skills[i] != nil {
+			if err := m.Skills[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("skills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("skills" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WfmAgent) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WfmAgent) contextValidateWorkPlan(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WorkPlan != nil {
+		if err := m.WorkPlan.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workPlan")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPlan")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WfmAgent) contextValidateWorkPlanRotation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WorkPlanRotation != nil {
+		if err := m.WorkPlanRotation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workPlanRotation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPlanRotation")
 			}
 			return err
 		}

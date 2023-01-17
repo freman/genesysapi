@@ -95,7 +95,6 @@ func (o *PostAuthorizationRoleComparedefaultRightRoleIDReader) ReadResponse(resp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostAuthorizationRoleComparedefaultRightRoleIDOK() *PostAuthorizationRol
 	return &PostAuthorizationRoleComparedefaultRightRoleIDOK{}
 }
 
-/*PostAuthorizationRoleComparedefaultRightRoleIDOK handles this case with default header values.
+/*
+PostAuthorizationRoleComparedefaultRightRoleIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostAuthorizationRoleComparedefaultRightRoleIDOK struct {
 	Payload *models.DomainOrgRoleDifference
 }
 
+// IsSuccess returns true when this post authorization role comparedefault right role Id o k response has a 2xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post authorization role comparedefault right role Id o k response has a 3xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization role comparedefault right role Id o k response has a 4xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization role comparedefault right role Id o k response has a 5xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization role comparedefault right role Id o k response a status code equal to that given
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostAuthorizationRoleComparedefaultRightRoleIDOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdOK  %+v", 200, o.Payload)
+}
+
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostAuthorizationRoleComparedefaultRightRoleIDBadRequest() *PostAuthoriz
 	return &PostAuthorizationRoleComparedefaultRightRoleIDBadRequest{}
 }
 
-/*PostAuthorizationRoleComparedefaultRightRoleIDBadRequest handles this case with default header values.
+/*
+PostAuthorizationRoleComparedefaultRightRoleIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostAuthorizationRoleComparedefaultRightRoleIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization role comparedefault right role Id bad request response has a 2xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization role comparedefault right role Id bad request response has a 3xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization role comparedefault right role Id bad request response has a 4xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization role comparedefault right role Id bad request response has a 5xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization role comparedefault right role Id bad request response a status code equal to that given
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAuthorizationRoleComparedefaultRightRoleIDBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostAuthorizationRoleComparedefaultRightRoleIDUnauthorized() *PostAuthor
 	return &PostAuthorizationRoleComparedefaultRightRoleIDUnauthorized{}
 }
 
-/*PostAuthorizationRoleComparedefaultRightRoleIDUnauthorized handles this case with default header values.
+/*
+PostAuthorizationRoleComparedefaultRightRoleIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostAuthorizationRoleComparedefaultRightRoleIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization role comparedefault right role Id unauthorized response has a 2xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization role comparedefault right role Id unauthorized response has a 3xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization role comparedefault right role Id unauthorized response has a 4xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization role comparedefault right role Id unauthorized response has a 5xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization role comparedefault right role Id unauthorized response a status code equal to that given
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostAuthorizationRoleComparedefaultRightRoleIDForbidden() *PostAuthoriza
 	return &PostAuthorizationRoleComparedefaultRightRoleIDForbidden{}
 }
 
-/*PostAuthorizationRoleComparedefaultRightRoleIDForbidden handles this case with default header values.
+/*
+PostAuthorizationRoleComparedefaultRightRoleIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostAuthorizationRoleComparedefaultRightRoleIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization role comparedefault right role Id forbidden response has a 2xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization role comparedefault right role Id forbidden response has a 3xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization role comparedefault right role Id forbidden response has a 4xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization role comparedefault right role Id forbidden response has a 5xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization role comparedefault right role Id forbidden response a status code equal to that given
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAuthorizationRoleComparedefaultRightRoleIDForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostAuthorizationRoleComparedefaultRightRoleIDNotFound() *PostAuthorizat
 	return &PostAuthorizationRoleComparedefaultRightRoleIDNotFound{}
 }
 
-/*PostAuthorizationRoleComparedefaultRightRoleIDNotFound handles this case with default header values.
+/*
+PostAuthorizationRoleComparedefaultRightRoleIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostAuthorizationRoleComparedefaultRightRoleIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization role comparedefault right role Id not found response has a 2xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization role comparedefault right role Id not found response has a 3xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization role comparedefault right role Id not found response has a 4xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization role comparedefault right role Id not found response has a 5xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization role comparedefault right role Id not found response a status code equal to that given
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAuthorizationRoleComparedefaultRightRoleIDNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostAuthorizationRoleComparedefaultRightRoleIDRequestTimeout() *PostAuth
 	return &PostAuthorizationRoleComparedefaultRightRoleIDRequestTimeout{}
 }
 
-/*PostAuthorizationRoleComparedefaultRightRoleIDRequestTimeout handles this case with default header values.
+/*
+PostAuthorizationRoleComparedefaultRightRoleIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostAuthorizationRoleComparedefaultRightRoleIDRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization role comparedefault right role Id request timeout response has a 2xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization role comparedefault right role Id request timeout response has a 3xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization role comparedefault right role Id request timeout response has a 4xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization role comparedefault right role Id request timeout response has a 5xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization role comparedefault right role Id request timeout response a status code equal to that given
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge() *P
 	return &PostAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge{}
 }
 
-/*PostAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge handles this case with default header values.
+/*
+PostAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization role comparedefault right role Id request entity too large response has a 2xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization role comparedefault right role Id request entity too large response has a 3xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization role comparedefault right role Id request entity too large response has a 4xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization role comparedefault right role Id request entity too large response has a 5xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization role comparedefault right role Id request entity too large response a status code equal to that given
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostAuthorizationRoleComparedefaultRightRoleIDUnsupportedMediaType() *Po
 	return &PostAuthorizationRoleComparedefaultRightRoleIDUnsupportedMediaType{}
 }
 
-/*PostAuthorizationRoleComparedefaultRightRoleIDUnsupportedMediaType handles this case with default header values.
+/*
+PostAuthorizationRoleComparedefaultRightRoleIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostAuthorizationRoleComparedefaultRightRoleIDUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization role comparedefault right role Id unsupported media type response has a 2xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization role comparedefault right role Id unsupported media type response has a 3xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization role comparedefault right role Id unsupported media type response has a 4xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization role comparedefault right role Id unsupported media type response has a 5xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization role comparedefault right role Id unsupported media type response a status code equal to that given
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostAuthorizationRoleComparedefaultRightRoleIDTooManyRequests() *PostAut
 	return &PostAuthorizationRoleComparedefaultRightRoleIDTooManyRequests{}
 }
 
-/*PostAuthorizationRoleComparedefaultRightRoleIDTooManyRequests handles this case with default header values.
+/*
+PostAuthorizationRoleComparedefaultRightRoleIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostAuthorizationRoleComparedefaultRightRoleIDTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization role comparedefault right role Id too many requests response has a 2xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization role comparedefault right role Id too many requests response has a 3xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization role comparedefault right role Id too many requests response has a 4xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post authorization role comparedefault right role Id too many requests response has a 5xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post authorization role comparedefault right role Id too many requests response a status code equal to that given
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAuthorizationRoleComparedefaultRightRoleIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostAuthorizationRoleComparedefaultRightRoleIDInternalServerError() *Pos
 	return &PostAuthorizationRoleComparedefaultRightRoleIDInternalServerError{}
 }
 
-/*PostAuthorizationRoleComparedefaultRightRoleIDInternalServerError handles this case with default header values.
+/*
+PostAuthorizationRoleComparedefaultRightRoleIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostAuthorizationRoleComparedefaultRightRoleIDInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization role comparedefault right role Id internal server error response has a 2xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization role comparedefault right role Id internal server error response has a 3xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization role comparedefault right role Id internal server error response has a 4xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization role comparedefault right role Id internal server error response has a 5xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization role comparedefault right role Id internal server error response a status code equal to that given
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAuthorizationRoleComparedefaultRightRoleIDInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostAuthorizationRoleComparedefaultRightRoleIDServiceUnavailable() *Post
 	return &PostAuthorizationRoleComparedefaultRightRoleIDServiceUnavailable{}
 }
 
-/*PostAuthorizationRoleComparedefaultRightRoleIDServiceUnavailable handles this case with default header values.
+/*
+PostAuthorizationRoleComparedefaultRightRoleIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostAuthorizationRoleComparedefaultRightRoleIDServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization role comparedefault right role Id service unavailable response has a 2xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization role comparedefault right role Id service unavailable response has a 3xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization role comparedefault right role Id service unavailable response has a 4xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization role comparedefault right role Id service unavailable response has a 5xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization role comparedefault right role Id service unavailable response a status code equal to that given
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAuthorizationRoleComparedefaultRightRoleIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostAuthorizationRoleComparedefaultRightRoleIDGatewayTimeout() *PostAuth
 	return &PostAuthorizationRoleComparedefaultRightRoleIDGatewayTimeout{}
 }
 
-/*PostAuthorizationRoleComparedefaultRightRoleIDGatewayTimeout handles this case with default header values.
+/*
+PostAuthorizationRoleComparedefaultRightRoleIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostAuthorizationRoleComparedefaultRightRoleIDGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post authorization role comparedefault right role Id gateway timeout response has a 2xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post authorization role comparedefault right role Id gateway timeout response has a 3xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post authorization role comparedefault right role Id gateway timeout response has a 4xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post authorization role comparedefault right role Id gateway timeout response has a 5xx status code
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post authorization role comparedefault right role Id gateway timeout response a status code equal to that given
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAuthorizationRoleComparedefaultRightRoleIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAuthorizationRoleComparedefaultRightRoleIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/authorization/roles/{leftRoleId}/comparedefault/{rightRoleId}][%d] postAuthorizationRoleComparedefaultRightRoleIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

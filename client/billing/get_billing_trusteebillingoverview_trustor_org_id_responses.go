@@ -95,7 +95,6 @@ func (o *GetBillingTrusteebillingoverviewTrustorOrgIDReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetBillingTrusteebillingoverviewTrustorOrgIDOK() *GetBillingTrusteebilli
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDOK{}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDOK handles this case with default header values.
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetBillingTrusteebillingoverviewTrustorOrgIDOK struct {
 	Payload *models.TrusteeBillingOverview
 }
 
+// IsSuccess returns true when this get billing trusteebillingoverview trustor org Id o k response has a 2xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get billing trusteebillingoverview trustor org Id o k response has a 3xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing trusteebillingoverview trustor org Id o k response has a 4xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get billing trusteebillingoverview trustor org Id o k response has a 5xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing trusteebillingoverview trustor org Id o k response a status code equal to that given
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetBillingTrusteebillingoverviewTrustorOrgIDOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdOK  %+v", 200, o.Payload)
+}
+
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetBillingTrusteebillingoverviewTrustorOrgIDBadRequest() *GetBillingTrus
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDBadRequest{}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDBadRequest handles this case with default header values.
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetBillingTrusteebillingoverviewTrustorOrgIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing trusteebillingoverview trustor org Id bad request response has a 2xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing trusteebillingoverview trustor org Id bad request response has a 3xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing trusteebillingoverview trustor org Id bad request response has a 4xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing trusteebillingoverview trustor org Id bad request response has a 5xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing trusteebillingoverview trustor org Id bad request response a status code equal to that given
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetBillingTrusteebillingoverviewTrustorOrgIDBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetBillingTrusteebillingoverviewTrustorOrgIDUnauthorized() *GetBillingTr
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDUnauthorized{}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDUnauthorized handles this case with default header values.
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetBillingTrusteebillingoverviewTrustorOrgIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing trusteebillingoverview trustor org Id unauthorized response has a 2xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing trusteebillingoverview trustor org Id unauthorized response has a 3xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing trusteebillingoverview trustor org Id unauthorized response has a 4xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing trusteebillingoverview trustor org Id unauthorized response has a 5xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing trusteebillingoverview trustor org Id unauthorized response a status code equal to that given
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetBillingTrusteebillingoverviewTrustorOrgIDForbidden() *GetBillingTrust
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDForbidden{}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDForbidden handles this case with default header values.
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetBillingTrusteebillingoverviewTrustorOrgIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing trusteebillingoverview trustor org Id forbidden response has a 2xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing trusteebillingoverview trustor org Id forbidden response has a 3xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing trusteebillingoverview trustor org Id forbidden response has a 4xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing trusteebillingoverview trustor org Id forbidden response has a 5xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing trusteebillingoverview trustor org Id forbidden response a status code equal to that given
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetBillingTrusteebillingoverviewTrustorOrgIDForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetBillingTrusteebillingoverviewTrustorOrgIDNotFound() *GetBillingTruste
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDNotFound{}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDNotFound handles this case with default header values.
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetBillingTrusteebillingoverviewTrustorOrgIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing trusteebillingoverview trustor org Id not found response has a 2xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing trusteebillingoverview trustor org Id not found response has a 3xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing trusteebillingoverview trustor org Id not found response has a 4xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing trusteebillingoverview trustor org Id not found response has a 5xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing trusteebillingoverview trustor org Id not found response a status code equal to that given
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetBillingTrusteebillingoverviewTrustorOrgIDNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetBillingTrusteebillingoverviewTrustorOrgIDRequestTimeout() *GetBilling
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDRequestTimeout{}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDRequestTimeout handles this case with default header values.
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetBillingTrusteebillingoverviewTrustorOrgIDRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing trusteebillingoverview trustor org Id request timeout response has a 2xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing trusteebillingoverview trustor org Id request timeout response has a 3xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing trusteebillingoverview trustor org Id request timeout response has a 4xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing trusteebillingoverview trustor org Id request timeout response has a 5xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing trusteebillingoverview trustor org Id request timeout response a status code equal to that given
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetBillingTrusteebillingoverviewTrustorOrgIDRequestEntityTooLarge() *Get
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDRequestEntityTooLarge{}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDRequestEntityTooLarge handles this case with default header values.
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetBillingTrusteebillingoverviewTrustorOrgIDRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing trusteebillingoverview trustor org Id request entity too large response has a 2xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing trusteebillingoverview trustor org Id request entity too large response has a 3xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing trusteebillingoverview trustor org Id request entity too large response has a 4xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing trusteebillingoverview trustor org Id request entity too large response has a 5xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing trusteebillingoverview trustor org Id request entity too large response a status code equal to that given
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetBillingTrusteebillingoverviewTrustorOrgIDUnsupportedMediaType() *GetB
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDUnsupportedMediaType{}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDUnsupportedMediaType handles this case with default header values.
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetBillingTrusteebillingoverviewTrustorOrgIDUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing trusteebillingoverview trustor org Id unsupported media type response has a 2xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing trusteebillingoverview trustor org Id unsupported media type response has a 3xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing trusteebillingoverview trustor org Id unsupported media type response has a 4xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing trusteebillingoverview trustor org Id unsupported media type response has a 5xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing trusteebillingoverview trustor org Id unsupported media type response a status code equal to that given
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetBillingTrusteebillingoverviewTrustorOrgIDTooManyRequests() *GetBillin
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDTooManyRequests{}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDTooManyRequests handles this case with default header values.
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetBillingTrusteebillingoverviewTrustorOrgIDTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing trusteebillingoverview trustor org Id too many requests response has a 2xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing trusteebillingoverview trustor org Id too many requests response has a 3xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing trusteebillingoverview trustor org Id too many requests response has a 4xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get billing trusteebillingoverview trustor org Id too many requests response has a 5xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get billing trusteebillingoverview trustor org Id too many requests response a status code equal to that given
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetBillingTrusteebillingoverviewTrustorOrgIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetBillingTrusteebillingoverviewTrustorOrgIDInternalServerError() *GetBi
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDInternalServerError{}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDInternalServerError handles this case with default header values.
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetBillingTrusteebillingoverviewTrustorOrgIDInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing trusteebillingoverview trustor org Id internal server error response has a 2xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing trusteebillingoverview trustor org Id internal server error response has a 3xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing trusteebillingoverview trustor org Id internal server error response has a 4xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get billing trusteebillingoverview trustor org Id internal server error response has a 5xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get billing trusteebillingoverview trustor org Id internal server error response a status code equal to that given
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetBillingTrusteebillingoverviewTrustorOrgIDInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetBillingTrusteebillingoverviewTrustorOrgIDServiceUnavailable() *GetBil
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDServiceUnavailable{}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDServiceUnavailable handles this case with default header values.
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetBillingTrusteebillingoverviewTrustorOrgIDServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing trusteebillingoverview trustor org Id service unavailable response has a 2xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing trusteebillingoverview trustor org Id service unavailable response has a 3xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing trusteebillingoverview trustor org Id service unavailable response has a 4xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get billing trusteebillingoverview trustor org Id service unavailable response has a 5xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get billing trusteebillingoverview trustor org Id service unavailable response a status code equal to that given
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetBillingTrusteebillingoverviewTrustorOrgIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetBillingTrusteebillingoverviewTrustorOrgIDGatewayTimeout() *GetBilling
 	return &GetBillingTrusteebillingoverviewTrustorOrgIDGatewayTimeout{}
 }
 
-/*GetBillingTrusteebillingoverviewTrustorOrgIDGatewayTimeout handles this case with default header values.
+/*
+GetBillingTrusteebillingoverviewTrustorOrgIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetBillingTrusteebillingoverviewTrustorOrgIDGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get billing trusteebillingoverview trustor org Id gateway timeout response has a 2xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get billing trusteebillingoverview trustor org Id gateway timeout response has a 3xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get billing trusteebillingoverview trustor org Id gateway timeout response has a 4xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get billing trusteebillingoverview trustor org Id gateway timeout response has a 5xx status code
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get billing trusteebillingoverview trustor org Id gateway timeout response a status code equal to that given
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetBillingTrusteebillingoverviewTrustorOrgIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetBillingTrusteebillingoverviewTrustorOrgIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/billing/trusteebillingoverview/{trustorOrgId}][%d] getBillingTrusteebillingoverviewTrustorOrgIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

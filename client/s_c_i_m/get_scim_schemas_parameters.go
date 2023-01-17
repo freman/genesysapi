@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetScimSchemasParams creates a new GetScimSchemasParams object
-// with the default values initialized.
+// NewGetScimSchemasParams creates a new GetScimSchemasParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScimSchemasParams() *GetScimSchemasParams {
-	var ()
 	return &GetScimSchemasParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScimSchemasParamsWithTimeout creates a new GetScimSchemasParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScimSchemasParamsWithTimeout(timeout time.Duration) *GetScimSchemasParams {
-	var ()
 	return &GetScimSchemasParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScimSchemasParamsWithContext creates a new GetScimSchemasParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScimSchemasParamsWithContext(ctx context.Context) *GetScimSchemasParams {
-	var ()
 	return &GetScimSchemasParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetScimSchemasParamsWithHTTPClient creates a new GetScimSchemasParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScimSchemasParamsWithHTTPClient(client *http.Client) *GetScimSchemasParams {
-	var ()
 	return &GetScimSchemasParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetScimSchemasParams contains all the parameters to send to the API endpoint
-for the get scim schemas operation typically these are written to a http.Request
+/*
+GetScimSchemasParams contains all the parameters to send to the API endpoint
+
+	for the get scim schemas operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScimSchemasParams struct {
 
-	/*Filter
-	  Filtered results are invalid and return 403 Unauthorized.
+	/* Filter.
 
+	   Filtered results are invalid and return 403 Unauthorized.
 	*/
 	Filter *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get scim schemas params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScimSchemasParams) WithDefaults() *GetScimSchemasParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get scim schemas params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScimSchemasParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get scim schemas params
@@ -127,16 +143,17 @@ func (o *GetScimSchemasParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

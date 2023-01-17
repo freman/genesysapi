@@ -584,6 +584,11 @@ type API interface {
 	*/
 	PostConversationsMessageCommunicationMessagesMedia(ctx context.Context, params *PostConversationsMessageCommunicationMessagesMediaParams) (*PostConversationsMessageCommunicationMessagesMediaAccepted, error)
 	/*
+	   PostConversationsMessageCommunicationTyping sends message typing event
+	   Send message typing event for existing conversation/communication.
+	*/
+	PostConversationsMessageCommunicationTyping(ctx context.Context, params *PostConversationsMessageCommunicationTypingParams) (*PostConversationsMessageCommunicationTypingNoContent, error)
+	/*
 	   PostConversationsMessageMessagesBulk gets messages in batch
 	   The path parameter [conversationId] should contain the conversationId of the conversation being filtered. The body should contain the messageId(s) of messages being requested. For example: ["a3069a33b-bbb1-4703-9d68-061d9e9db96e", "55bc6be3-078c-4a49-a4e6-1e05776ed7e8"]
 	*/
@@ -4232,6 +4237,33 @@ func (a *Client) PostConversationsMessageCommunicationMessagesMedia(ctx context.
 		return nil, err
 	}
 	return result.(*PostConversationsMessageCommunicationMessagesMediaAccepted), nil
+
+}
+
+/*
+PostConversationsMessageCommunicationTyping sends message typing event
+
+Send message typing event for existing conversation/communication.
+*/
+func (a *Client) PostConversationsMessageCommunicationTyping(ctx context.Context, params *PostConversationsMessageCommunicationTypingParams) (*PostConversationsMessageCommunicationTypingNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postConversationsMessageCommunicationTyping",
+		Method:             "POST",
+		PathPattern:        "/api/v2/conversations/messages/{conversationId}/communications/{communicationId}/typing",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostConversationsMessageCommunicationTypingReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostConversationsMessageCommunicationTypingNoContent), nil
 
 }
 

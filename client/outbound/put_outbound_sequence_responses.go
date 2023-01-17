@@ -101,7 +101,6 @@ func (o *PutOutboundSequenceReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutOutboundSequenceOK() *PutOutboundSequenceOK {
 	return &PutOutboundSequenceOK{}
 }
 
-/*PutOutboundSequenceOK handles this case with default header values.
+/*
+PutOutboundSequenceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutOutboundSequenceOK struct {
 	Payload *models.CampaignSequence
 }
 
+// IsSuccess returns true when this put outbound sequence o k response has a 2xx status code
+func (o *PutOutboundSequenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put outbound sequence o k response has a 3xx status code
+func (o *PutOutboundSequenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence o k response has a 4xx status code
+func (o *PutOutboundSequenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound sequence o k response has a 5xx status code
+func (o *PutOutboundSequenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound sequence o k response a status code equal to that given
+func (o *PutOutboundSequenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOutboundSequenceOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOutboundSequenceOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutOutboundSequenceBadRequest() *PutOutboundSequenceBadRequest {
 	return &PutOutboundSequenceBadRequest{}
 }
 
-/*PutOutboundSequenceBadRequest handles this case with default header values.
+/*
+PutOutboundSequenceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutOutboundSequenceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound sequence bad request response has a 2xx status code
+func (o *PutOutboundSequenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound sequence bad request response has a 3xx status code
+func (o *PutOutboundSequenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence bad request response has a 4xx status code
+func (o *PutOutboundSequenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound sequence bad request response has a 5xx status code
+func (o *PutOutboundSequenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound sequence bad request response a status code equal to that given
+func (o *PutOutboundSequenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOutboundSequenceBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOutboundSequenceBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutOutboundSequenceUnauthorized() *PutOutboundSequenceUnauthorized {
 	return &PutOutboundSequenceUnauthorized{}
 }
 
-/*PutOutboundSequenceUnauthorized handles this case with default header values.
+/*
+PutOutboundSequenceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutOutboundSequenceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound sequence unauthorized response has a 2xx status code
+func (o *PutOutboundSequenceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound sequence unauthorized response has a 3xx status code
+func (o *PutOutboundSequenceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence unauthorized response has a 4xx status code
+func (o *PutOutboundSequenceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound sequence unauthorized response has a 5xx status code
+func (o *PutOutboundSequenceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound sequence unauthorized response a status code equal to that given
+func (o *PutOutboundSequenceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOutboundSequenceUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOutboundSequenceUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutOutboundSequenceForbidden() *PutOutboundSequenceForbidden {
 	return &PutOutboundSequenceForbidden{}
 }
 
-/*PutOutboundSequenceForbidden handles this case with default header values.
+/*
+PutOutboundSequenceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutOutboundSequenceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound sequence forbidden response has a 2xx status code
+func (o *PutOutboundSequenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound sequence forbidden response has a 3xx status code
+func (o *PutOutboundSequenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence forbidden response has a 4xx status code
+func (o *PutOutboundSequenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound sequence forbidden response has a 5xx status code
+func (o *PutOutboundSequenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound sequence forbidden response a status code equal to that given
+func (o *PutOutboundSequenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOutboundSequenceForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOutboundSequenceForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutOutboundSequenceNotFound() *PutOutboundSequenceNotFound {
 	return &PutOutboundSequenceNotFound{}
 }
 
-/*PutOutboundSequenceNotFound handles this case with default header values.
+/*
+PutOutboundSequenceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutOutboundSequenceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound sequence not found response has a 2xx status code
+func (o *PutOutboundSequenceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound sequence not found response has a 3xx status code
+func (o *PutOutboundSequenceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence not found response has a 4xx status code
+func (o *PutOutboundSequenceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound sequence not found response has a 5xx status code
+func (o *PutOutboundSequenceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound sequence not found response a status code equal to that given
+func (o *PutOutboundSequenceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOutboundSequenceNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOutboundSequenceNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutOutboundSequenceRequestTimeout() *PutOutboundSequenceRequestTimeout {
 	return &PutOutboundSequenceRequestTimeout{}
 }
 
-/*PutOutboundSequenceRequestTimeout handles this case with default header values.
+/*
+PutOutboundSequenceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutOutboundSequenceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound sequence request timeout response has a 2xx status code
+func (o *PutOutboundSequenceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound sequence request timeout response has a 3xx status code
+func (o *PutOutboundSequenceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence request timeout response has a 4xx status code
+func (o *PutOutboundSequenceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound sequence request timeout response has a 5xx status code
+func (o *PutOutboundSequenceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound sequence request timeout response a status code equal to that given
+func (o *PutOutboundSequenceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOutboundSequenceRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOutboundSequenceRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutOutboundSequenceConflict() *PutOutboundSequenceConflict {
 	return &PutOutboundSequenceConflict{}
 }
 
-/*PutOutboundSequenceConflict handles this case with default header values.
+/*
+PutOutboundSequenceConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PutOutboundSequenceConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound sequence conflict response has a 2xx status code
+func (o *PutOutboundSequenceConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound sequence conflict response has a 3xx status code
+func (o *PutOutboundSequenceConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence conflict response has a 4xx status code
+func (o *PutOutboundSequenceConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound sequence conflict response has a 5xx status code
+func (o *PutOutboundSequenceConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound sequence conflict response a status code equal to that given
+func (o *PutOutboundSequenceConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutOutboundSequenceConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutOutboundSequenceConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutOutboundSequenceRequestEntityTooLarge() *PutOutboundSequenceRequestEn
 	return &PutOutboundSequenceRequestEntityTooLarge{}
 }
 
-/*PutOutboundSequenceRequestEntityTooLarge handles this case with default header values.
+/*
+PutOutboundSequenceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PutOutboundSequenceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound sequence request entity too large response has a 2xx status code
+func (o *PutOutboundSequenceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound sequence request entity too large response has a 3xx status code
+func (o *PutOutboundSequenceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence request entity too large response has a 4xx status code
+func (o *PutOutboundSequenceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound sequence request entity too large response has a 5xx status code
+func (o *PutOutboundSequenceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound sequence request entity too large response a status code equal to that given
+func (o *PutOutboundSequenceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOutboundSequenceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOutboundSequenceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutOutboundSequenceUnsupportedMediaType() *PutOutboundSequenceUnsupporte
 	return &PutOutboundSequenceUnsupportedMediaType{}
 }
 
-/*PutOutboundSequenceUnsupportedMediaType handles this case with default header values.
+/*
+PutOutboundSequenceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PutOutboundSequenceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound sequence unsupported media type response has a 2xx status code
+func (o *PutOutboundSequenceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound sequence unsupported media type response has a 3xx status code
+func (o *PutOutboundSequenceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence unsupported media type response has a 4xx status code
+func (o *PutOutboundSequenceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound sequence unsupported media type response has a 5xx status code
+func (o *PutOutboundSequenceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound sequence unsupported media type response a status code equal to that given
+func (o *PutOutboundSequenceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOutboundSequenceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOutboundSequenceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutOutboundSequenceTooManyRequests() *PutOutboundSequenceTooManyRequests
 	return &PutOutboundSequenceTooManyRequests{}
 }
 
-/*PutOutboundSequenceTooManyRequests handles this case with default header values.
+/*
+PutOutboundSequenceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutOutboundSequenceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound sequence too many requests response has a 2xx status code
+func (o *PutOutboundSequenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound sequence too many requests response has a 3xx status code
+func (o *PutOutboundSequenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence too many requests response has a 4xx status code
+func (o *PutOutboundSequenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound sequence too many requests response has a 5xx status code
+func (o *PutOutboundSequenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound sequence too many requests response a status code equal to that given
+func (o *PutOutboundSequenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOutboundSequenceTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOutboundSequenceTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutOutboundSequenceInternalServerError() *PutOutboundSequenceInternalSer
 	return &PutOutboundSequenceInternalServerError{}
 }
 
-/*PutOutboundSequenceInternalServerError handles this case with default header values.
+/*
+PutOutboundSequenceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutOutboundSequenceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound sequence internal server error response has a 2xx status code
+func (o *PutOutboundSequenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound sequence internal server error response has a 3xx status code
+func (o *PutOutboundSequenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence internal server error response has a 4xx status code
+func (o *PutOutboundSequenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound sequence internal server error response has a 5xx status code
+func (o *PutOutboundSequenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound sequence internal server error response a status code equal to that given
+func (o *PutOutboundSequenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOutboundSequenceInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOutboundSequenceInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutOutboundSequenceServiceUnavailable() *PutOutboundSequenceServiceUnava
 	return &PutOutboundSequenceServiceUnavailable{}
 }
 
-/*PutOutboundSequenceServiceUnavailable handles this case with default header values.
+/*
+PutOutboundSequenceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutOutboundSequenceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound sequence service unavailable response has a 2xx status code
+func (o *PutOutboundSequenceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound sequence service unavailable response has a 3xx status code
+func (o *PutOutboundSequenceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence service unavailable response has a 4xx status code
+func (o *PutOutboundSequenceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound sequence service unavailable response has a 5xx status code
+func (o *PutOutboundSequenceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound sequence service unavailable response a status code equal to that given
+func (o *PutOutboundSequenceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOutboundSequenceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOutboundSequenceServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutOutboundSequenceGatewayTimeout() *PutOutboundSequenceGatewayTimeout {
 	return &PutOutboundSequenceGatewayTimeout{}
 }
 
-/*PutOutboundSequenceGatewayTimeout handles this case with default header values.
+/*
+PutOutboundSequenceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutOutboundSequenceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound sequence gateway timeout response has a 2xx status code
+func (o *PutOutboundSequenceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound sequence gateway timeout response has a 3xx status code
+func (o *PutOutboundSequenceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound sequence gateway timeout response has a 4xx status code
+func (o *PutOutboundSequenceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound sequence gateway timeout response has a 5xx status code
+func (o *PutOutboundSequenceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound sequence gateway timeout response a status code equal to that given
+func (o *PutOutboundSequenceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOutboundSequenceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOutboundSequenceGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/sequences/{sequenceId}][%d] putOutboundSequenceGatewayTimeout  %+v", 504, o.Payload)
 }
 

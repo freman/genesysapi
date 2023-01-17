@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -50,7 +51,6 @@ func (m *TestMatchesEventOperation) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TestMatchesEventOperation) validateMatchedTriggers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MatchedTriggers) { // not required
 		return nil
 	}
@@ -64,6 +64,8 @@ func (m *TestMatchesEventOperation) validateMatchedTriggers(formats strfmt.Regis
 			if err := m.MatchedTriggers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("matchedTriggers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("matchedTriggers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -75,7 +77,6 @@ func (m *TestMatchesEventOperation) validateMatchedTriggers(formats strfmt.Regis
 }
 
 func (m *TestMatchesEventOperation) validateUnmatchedTriggers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UnmatchedTriggers) { // not required
 		return nil
 	}
@@ -89,6 +90,66 @@ func (m *TestMatchesEventOperation) validateUnmatchedTriggers(formats strfmt.Reg
 			if err := m.UnmatchedTriggers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("unmatchedTriggers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("unmatchedTriggers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this test matches event operation based on the context it is used
+func (m *TestMatchesEventOperation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMatchedTriggers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUnmatchedTriggers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TestMatchesEventOperation) contextValidateMatchedTriggers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MatchedTriggers); i++ {
+
+		if m.MatchedTriggers[i] != nil {
+			if err := m.MatchedTriggers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("matchedTriggers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("matchedTriggers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *TestMatchesEventOperation) contextValidateUnmatchedTriggers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.UnmatchedTriggers); i++ {
+
+		if m.UnmatchedTriggers[i] != nil {
+			if err := m.UnmatchedTriggers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("unmatchedTriggers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("unmatchedTriggers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

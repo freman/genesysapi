@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIntegrationsBotconnectorIntegrationIDBotParams creates a new GetIntegrationsBotconnectorIntegrationIDBotParams object
-// with the default values initialized.
+// NewGetIntegrationsBotconnectorIntegrationIDBotParams creates a new GetIntegrationsBotconnectorIntegrationIDBotParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntegrationsBotconnectorIntegrationIDBotParams() *GetIntegrationsBotconnectorIntegrationIDBotParams {
-	var ()
 	return &GetIntegrationsBotconnectorIntegrationIDBotParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntegrationsBotconnectorIntegrationIDBotParamsWithTimeout creates a new GetIntegrationsBotconnectorIntegrationIDBotParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntegrationsBotconnectorIntegrationIDBotParamsWithTimeout(timeout time.Duration) *GetIntegrationsBotconnectorIntegrationIDBotParams {
-	var ()
 	return &GetIntegrationsBotconnectorIntegrationIDBotParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntegrationsBotconnectorIntegrationIDBotParamsWithContext creates a new GetIntegrationsBotconnectorIntegrationIDBotParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntegrationsBotconnectorIntegrationIDBotParamsWithContext(ctx context.Context) *GetIntegrationsBotconnectorIntegrationIDBotParams {
-	var ()
 	return &GetIntegrationsBotconnectorIntegrationIDBotParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntegrationsBotconnectorIntegrationIDBotParamsWithHTTPClient creates a new GetIntegrationsBotconnectorIntegrationIDBotParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntegrationsBotconnectorIntegrationIDBotParamsWithHTTPClient(client *http.Client) *GetIntegrationsBotconnectorIntegrationIDBotParams {
-	var ()
 	return &GetIntegrationsBotconnectorIntegrationIDBotParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIntegrationsBotconnectorIntegrationIDBotParams contains all the parameters to send to the API endpoint
-for the get integrations botconnector integration Id bot operation typically these are written to a http.Request
+/*
+GetIntegrationsBotconnectorIntegrationIDBotParams contains all the parameters to send to the API endpoint
+
+	for the get integrations botconnector integration Id bot operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntegrationsBotconnectorIntegrationIDBotParams struct {
 
-	/*BotID
-	  The botID for this bot
+	/* BotID.
 
+	   The botID for this bot
 	*/
 	BotID string
-	/*IntegrationID
-	  The integration ID for this group of bots
 
+	/* IntegrationID.
+
+	   The integration ID for this group of bots
 	*/
 	IntegrationID string
-	/*Version
-	  Specific Version
 
+	/* Version.
+
+	   Specific Version
 	*/
 	Version *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get integrations botconnector integration Id bot params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsBotconnectorIntegrationIDBotParams) WithDefaults() *GetIntegrationsBotconnectorIntegrationIDBotParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get integrations botconnector integration Id bot params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsBotconnectorIntegrationIDBotParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get integrations botconnector integration Id bot params
@@ -169,16 +187,17 @@ func (o *GetIntegrationsBotconnectorIntegrationIDBotParams) WriteToRequest(r run
 
 		// query param version
 		var qrVersion string
+
 		if o.Version != nil {
 			qrVersion = *o.Version
 		}
 		qVersion := qrVersion
 		if qVersion != "" {
+
 			if err := r.SetQueryParam("version", qVersion); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

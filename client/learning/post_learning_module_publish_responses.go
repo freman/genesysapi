@@ -101,7 +101,6 @@ func (o *PostLearningModulePublishReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostLearningModulePublishOK() *PostLearningModulePublishOK {
 	return &PostLearningModulePublishOK{}
 }
 
-/*PostLearningModulePublishOK handles this case with default header values.
+/*
+PostLearningModulePublishOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostLearningModulePublishOK struct {
 	Payload *models.LearningModulePublishResponse
 }
 
+// IsSuccess returns true when this post learning module publish o k response has a 2xx status code
+func (o *PostLearningModulePublishOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post learning module publish o k response has a 3xx status code
+func (o *PostLearningModulePublishOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish o k response has a 4xx status code
+func (o *PostLearningModulePublishOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning module publish o k response has a 5xx status code
+func (o *PostLearningModulePublishOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module publish o k response a status code equal to that given
+func (o *PostLearningModulePublishOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLearningModulePublishOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLearningModulePublishOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostLearningModulePublishBadRequest() *PostLearningModulePublishBadReque
 	return &PostLearningModulePublishBadRequest{}
 }
 
-/*PostLearningModulePublishBadRequest handles this case with default header values.
+/*
+PostLearningModulePublishBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostLearningModulePublishBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module publish bad request response has a 2xx status code
+func (o *PostLearningModulePublishBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module publish bad request response has a 3xx status code
+func (o *PostLearningModulePublishBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish bad request response has a 4xx status code
+func (o *PostLearningModulePublishBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module publish bad request response has a 5xx status code
+func (o *PostLearningModulePublishBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module publish bad request response a status code equal to that given
+func (o *PostLearningModulePublishBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLearningModulePublishBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLearningModulePublishBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostLearningModulePublishUnauthorized() *PostLearningModulePublishUnauth
 	return &PostLearningModulePublishUnauthorized{}
 }
 
-/*PostLearningModulePublishUnauthorized handles this case with default header values.
+/*
+PostLearningModulePublishUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostLearningModulePublishUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module publish unauthorized response has a 2xx status code
+func (o *PostLearningModulePublishUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module publish unauthorized response has a 3xx status code
+func (o *PostLearningModulePublishUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish unauthorized response has a 4xx status code
+func (o *PostLearningModulePublishUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module publish unauthorized response has a 5xx status code
+func (o *PostLearningModulePublishUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module publish unauthorized response a status code equal to that given
+func (o *PostLearningModulePublishUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLearningModulePublishUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLearningModulePublishUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostLearningModulePublishForbidden() *PostLearningModulePublishForbidden
 	return &PostLearningModulePublishForbidden{}
 }
 
-/*PostLearningModulePublishForbidden handles this case with default header values.
+/*
+PostLearningModulePublishForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostLearningModulePublishForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module publish forbidden response has a 2xx status code
+func (o *PostLearningModulePublishForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module publish forbidden response has a 3xx status code
+func (o *PostLearningModulePublishForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish forbidden response has a 4xx status code
+func (o *PostLearningModulePublishForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module publish forbidden response has a 5xx status code
+func (o *PostLearningModulePublishForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module publish forbidden response a status code equal to that given
+func (o *PostLearningModulePublishForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLearningModulePublishForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLearningModulePublishForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostLearningModulePublishNotFound() *PostLearningModulePublishNotFound {
 	return &PostLearningModulePublishNotFound{}
 }
 
-/*PostLearningModulePublishNotFound handles this case with default header values.
+/*
+PostLearningModulePublishNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostLearningModulePublishNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module publish not found response has a 2xx status code
+func (o *PostLearningModulePublishNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module publish not found response has a 3xx status code
+func (o *PostLearningModulePublishNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish not found response has a 4xx status code
+func (o *PostLearningModulePublishNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module publish not found response has a 5xx status code
+func (o *PostLearningModulePublishNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module publish not found response a status code equal to that given
+func (o *PostLearningModulePublishNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLearningModulePublishNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLearningModulePublishNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostLearningModulePublishRequestTimeout() *PostLearningModulePublishRequ
 	return &PostLearningModulePublishRequestTimeout{}
 }
 
-/*PostLearningModulePublishRequestTimeout handles this case with default header values.
+/*
+PostLearningModulePublishRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostLearningModulePublishRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module publish request timeout response has a 2xx status code
+func (o *PostLearningModulePublishRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module publish request timeout response has a 3xx status code
+func (o *PostLearningModulePublishRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish request timeout response has a 4xx status code
+func (o *PostLearningModulePublishRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module publish request timeout response has a 5xx status code
+func (o *PostLearningModulePublishRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module publish request timeout response a status code equal to that given
+func (o *PostLearningModulePublishRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLearningModulePublishRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLearningModulePublishRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostLearningModulePublishConflict() *PostLearningModulePublishConflict {
 	return &PostLearningModulePublishConflict{}
 }
 
-/*PostLearningModulePublishConflict handles this case with default header values.
+/*
+PostLearningModulePublishConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PostLearningModulePublishConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module publish conflict response has a 2xx status code
+func (o *PostLearningModulePublishConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module publish conflict response has a 3xx status code
+func (o *PostLearningModulePublishConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish conflict response has a 4xx status code
+func (o *PostLearningModulePublishConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module publish conflict response has a 5xx status code
+func (o *PostLearningModulePublishConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module publish conflict response a status code equal to that given
+func (o *PostLearningModulePublishConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostLearningModulePublishConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostLearningModulePublishConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostLearningModulePublishRequestEntityTooLarge() *PostLearningModulePubl
 	return &PostLearningModulePublishRequestEntityTooLarge{}
 }
 
-/*PostLearningModulePublishRequestEntityTooLarge handles this case with default header values.
+/*
+PostLearningModulePublishRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostLearningModulePublishRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module publish request entity too large response has a 2xx status code
+func (o *PostLearningModulePublishRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module publish request entity too large response has a 3xx status code
+func (o *PostLearningModulePublishRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish request entity too large response has a 4xx status code
+func (o *PostLearningModulePublishRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module publish request entity too large response has a 5xx status code
+func (o *PostLearningModulePublishRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module publish request entity too large response a status code equal to that given
+func (o *PostLearningModulePublishRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLearningModulePublishRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLearningModulePublishRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostLearningModulePublishUnsupportedMediaType() *PostLearningModulePubli
 	return &PostLearningModulePublishUnsupportedMediaType{}
 }
 
-/*PostLearningModulePublishUnsupportedMediaType handles this case with default header values.
+/*
+PostLearningModulePublishUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostLearningModulePublishUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module publish unsupported media type response has a 2xx status code
+func (o *PostLearningModulePublishUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module publish unsupported media type response has a 3xx status code
+func (o *PostLearningModulePublishUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish unsupported media type response has a 4xx status code
+func (o *PostLearningModulePublishUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module publish unsupported media type response has a 5xx status code
+func (o *PostLearningModulePublishUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module publish unsupported media type response a status code equal to that given
+func (o *PostLearningModulePublishUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLearningModulePublishUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLearningModulePublishUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostLearningModulePublishTooManyRequests() *PostLearningModulePublishToo
 	return &PostLearningModulePublishTooManyRequests{}
 }
 
-/*PostLearningModulePublishTooManyRequests handles this case with default header values.
+/*
+PostLearningModulePublishTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostLearningModulePublishTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module publish too many requests response has a 2xx status code
+func (o *PostLearningModulePublishTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module publish too many requests response has a 3xx status code
+func (o *PostLearningModulePublishTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish too many requests response has a 4xx status code
+func (o *PostLearningModulePublishTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module publish too many requests response has a 5xx status code
+func (o *PostLearningModulePublishTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module publish too many requests response a status code equal to that given
+func (o *PostLearningModulePublishTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLearningModulePublishTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLearningModulePublishTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostLearningModulePublishInternalServerError() *PostLearningModulePublis
 	return &PostLearningModulePublishInternalServerError{}
 }
 
-/*PostLearningModulePublishInternalServerError handles this case with default header values.
+/*
+PostLearningModulePublishInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostLearningModulePublishInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module publish internal server error response has a 2xx status code
+func (o *PostLearningModulePublishInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module publish internal server error response has a 3xx status code
+func (o *PostLearningModulePublishInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish internal server error response has a 4xx status code
+func (o *PostLearningModulePublishInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning module publish internal server error response has a 5xx status code
+func (o *PostLearningModulePublishInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning module publish internal server error response a status code equal to that given
+func (o *PostLearningModulePublishInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLearningModulePublishInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLearningModulePublishInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostLearningModulePublishServiceUnavailable() *PostLearningModulePublish
 	return &PostLearningModulePublishServiceUnavailable{}
 }
 
-/*PostLearningModulePublishServiceUnavailable handles this case with default header values.
+/*
+PostLearningModulePublishServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostLearningModulePublishServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module publish service unavailable response has a 2xx status code
+func (o *PostLearningModulePublishServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module publish service unavailable response has a 3xx status code
+func (o *PostLearningModulePublishServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish service unavailable response has a 4xx status code
+func (o *PostLearningModulePublishServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning module publish service unavailable response has a 5xx status code
+func (o *PostLearningModulePublishServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning module publish service unavailable response a status code equal to that given
+func (o *PostLearningModulePublishServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLearningModulePublishServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLearningModulePublishServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostLearningModulePublishGatewayTimeout() *PostLearningModulePublishGate
 	return &PostLearningModulePublishGatewayTimeout{}
 }
 
-/*PostLearningModulePublishGatewayTimeout handles this case with default header values.
+/*
+PostLearningModulePublishGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostLearningModulePublishGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module publish gateway timeout response has a 2xx status code
+func (o *PostLearningModulePublishGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module publish gateway timeout response has a 3xx status code
+func (o *PostLearningModulePublishGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module publish gateway timeout response has a 4xx status code
+func (o *PostLearningModulePublishGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning module publish gateway timeout response has a 5xx status code
+func (o *PostLearningModulePublishGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning module publish gateway timeout response a status code equal to that given
+func (o *PostLearningModulePublishGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLearningModulePublishGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLearningModulePublishGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/publish][%d] postLearningModulePublishGatewayTimeout  %+v", 504, o.Payload)
 }
 

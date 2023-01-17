@@ -95,7 +95,6 @@ func (o *GetArchitectEmergencygroupReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetArchitectEmergencygroupOK() *GetArchitectEmergencygroupOK {
 	return &GetArchitectEmergencygroupOK{}
 }
 
-/*GetArchitectEmergencygroupOK handles this case with default header values.
+/*
+GetArchitectEmergencygroupOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetArchitectEmergencygroupOK struct {
 	Payload *models.EmergencyGroup
 }
 
+// IsSuccess returns true when this get architect emergencygroup o k response has a 2xx status code
+func (o *GetArchitectEmergencygroupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get architect emergencygroup o k response has a 3xx status code
+func (o *GetArchitectEmergencygroupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect emergencygroup o k response has a 4xx status code
+func (o *GetArchitectEmergencygroupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect emergencygroup o k response has a 5xx status code
+func (o *GetArchitectEmergencygroupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect emergencygroup o k response a status code equal to that given
+func (o *GetArchitectEmergencygroupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetArchitectEmergencygroupOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupOK  %+v", 200, o.Payload)
+}
+
+func (o *GetArchitectEmergencygroupOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetArchitectEmergencygroupBadRequest() *GetArchitectEmergencygroupBadReq
 	return &GetArchitectEmergencygroupBadRequest{}
 }
 
-/*GetArchitectEmergencygroupBadRequest handles this case with default header values.
+/*
+GetArchitectEmergencygroupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetArchitectEmergencygroupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect emergencygroup bad request response has a 2xx status code
+func (o *GetArchitectEmergencygroupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect emergencygroup bad request response has a 3xx status code
+func (o *GetArchitectEmergencygroupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect emergencygroup bad request response has a 4xx status code
+func (o *GetArchitectEmergencygroupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect emergencygroup bad request response has a 5xx status code
+func (o *GetArchitectEmergencygroupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect emergencygroup bad request response a status code equal to that given
+func (o *GetArchitectEmergencygroupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetArchitectEmergencygroupBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetArchitectEmergencygroupBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetArchitectEmergencygroupUnauthorized() *GetArchitectEmergencygroupUnau
 	return &GetArchitectEmergencygroupUnauthorized{}
 }
 
-/*GetArchitectEmergencygroupUnauthorized handles this case with default header values.
+/*
+GetArchitectEmergencygroupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetArchitectEmergencygroupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect emergencygroup unauthorized response has a 2xx status code
+func (o *GetArchitectEmergencygroupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect emergencygroup unauthorized response has a 3xx status code
+func (o *GetArchitectEmergencygroupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect emergencygroup unauthorized response has a 4xx status code
+func (o *GetArchitectEmergencygroupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect emergencygroup unauthorized response has a 5xx status code
+func (o *GetArchitectEmergencygroupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect emergencygroup unauthorized response a status code equal to that given
+func (o *GetArchitectEmergencygroupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetArchitectEmergencygroupUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetArchitectEmergencygroupUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetArchitectEmergencygroupForbidden() *GetArchitectEmergencygroupForbidd
 	return &GetArchitectEmergencygroupForbidden{}
 }
 
-/*GetArchitectEmergencygroupForbidden handles this case with default header values.
+/*
+GetArchitectEmergencygroupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetArchitectEmergencygroupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect emergencygroup forbidden response has a 2xx status code
+func (o *GetArchitectEmergencygroupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect emergencygroup forbidden response has a 3xx status code
+func (o *GetArchitectEmergencygroupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect emergencygroup forbidden response has a 4xx status code
+func (o *GetArchitectEmergencygroupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect emergencygroup forbidden response has a 5xx status code
+func (o *GetArchitectEmergencygroupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect emergencygroup forbidden response a status code equal to that given
+func (o *GetArchitectEmergencygroupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetArchitectEmergencygroupForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetArchitectEmergencygroupForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetArchitectEmergencygroupNotFound() *GetArchitectEmergencygroupNotFound
 	return &GetArchitectEmergencygroupNotFound{}
 }
 
-/*GetArchitectEmergencygroupNotFound handles this case with default header values.
+/*
+GetArchitectEmergencygroupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetArchitectEmergencygroupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect emergencygroup not found response has a 2xx status code
+func (o *GetArchitectEmergencygroupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect emergencygroup not found response has a 3xx status code
+func (o *GetArchitectEmergencygroupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect emergencygroup not found response has a 4xx status code
+func (o *GetArchitectEmergencygroupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect emergencygroup not found response has a 5xx status code
+func (o *GetArchitectEmergencygroupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect emergencygroup not found response a status code equal to that given
+func (o *GetArchitectEmergencygroupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetArchitectEmergencygroupNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetArchitectEmergencygroupNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetArchitectEmergencygroupRequestTimeout() *GetArchitectEmergencygroupRe
 	return &GetArchitectEmergencygroupRequestTimeout{}
 }
 
-/*GetArchitectEmergencygroupRequestTimeout handles this case with default header values.
+/*
+GetArchitectEmergencygroupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetArchitectEmergencygroupRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect emergencygroup request timeout response has a 2xx status code
+func (o *GetArchitectEmergencygroupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect emergencygroup request timeout response has a 3xx status code
+func (o *GetArchitectEmergencygroupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect emergencygroup request timeout response has a 4xx status code
+func (o *GetArchitectEmergencygroupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect emergencygroup request timeout response has a 5xx status code
+func (o *GetArchitectEmergencygroupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect emergencygroup request timeout response a status code equal to that given
+func (o *GetArchitectEmergencygroupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetArchitectEmergencygroupRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectEmergencygroupRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetArchitectEmergencygroupRequestEntityTooLarge() *GetArchitectEmergency
 	return &GetArchitectEmergencygroupRequestEntityTooLarge{}
 }
 
-/*GetArchitectEmergencygroupRequestEntityTooLarge handles this case with default header values.
+/*
+GetArchitectEmergencygroupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetArchitectEmergencygroupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect emergencygroup request entity too large response has a 2xx status code
+func (o *GetArchitectEmergencygroupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect emergencygroup request entity too large response has a 3xx status code
+func (o *GetArchitectEmergencygroupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect emergencygroup request entity too large response has a 4xx status code
+func (o *GetArchitectEmergencygroupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect emergencygroup request entity too large response has a 5xx status code
+func (o *GetArchitectEmergencygroupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect emergencygroup request entity too large response a status code equal to that given
+func (o *GetArchitectEmergencygroupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetArchitectEmergencygroupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetArchitectEmergencygroupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetArchitectEmergencygroupUnsupportedMediaType() *GetArchitectEmergencyg
 	return &GetArchitectEmergencygroupUnsupportedMediaType{}
 }
 
-/*GetArchitectEmergencygroupUnsupportedMediaType handles this case with default header values.
+/*
+GetArchitectEmergencygroupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetArchitectEmergencygroupUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect emergencygroup unsupported media type response has a 2xx status code
+func (o *GetArchitectEmergencygroupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect emergencygroup unsupported media type response has a 3xx status code
+func (o *GetArchitectEmergencygroupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect emergencygroup unsupported media type response has a 4xx status code
+func (o *GetArchitectEmergencygroupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect emergencygroup unsupported media type response has a 5xx status code
+func (o *GetArchitectEmergencygroupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect emergencygroup unsupported media type response a status code equal to that given
+func (o *GetArchitectEmergencygroupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetArchitectEmergencygroupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetArchitectEmergencygroupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetArchitectEmergencygroupTooManyRequests() *GetArchitectEmergencygroupT
 	return &GetArchitectEmergencygroupTooManyRequests{}
 }
 
-/*GetArchitectEmergencygroupTooManyRequests handles this case with default header values.
+/*
+GetArchitectEmergencygroupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetArchitectEmergencygroupTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect emergencygroup too many requests response has a 2xx status code
+func (o *GetArchitectEmergencygroupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect emergencygroup too many requests response has a 3xx status code
+func (o *GetArchitectEmergencygroupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect emergencygroup too many requests response has a 4xx status code
+func (o *GetArchitectEmergencygroupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect emergencygroup too many requests response has a 5xx status code
+func (o *GetArchitectEmergencygroupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect emergencygroup too many requests response a status code equal to that given
+func (o *GetArchitectEmergencygroupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetArchitectEmergencygroupTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetArchitectEmergencygroupTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetArchitectEmergencygroupInternalServerError() *GetArchitectEmergencygr
 	return &GetArchitectEmergencygroupInternalServerError{}
 }
 
-/*GetArchitectEmergencygroupInternalServerError handles this case with default header values.
+/*
+GetArchitectEmergencygroupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetArchitectEmergencygroupInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect emergencygroup internal server error response has a 2xx status code
+func (o *GetArchitectEmergencygroupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect emergencygroup internal server error response has a 3xx status code
+func (o *GetArchitectEmergencygroupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect emergencygroup internal server error response has a 4xx status code
+func (o *GetArchitectEmergencygroupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect emergencygroup internal server error response has a 5xx status code
+func (o *GetArchitectEmergencygroupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect emergencygroup internal server error response a status code equal to that given
+func (o *GetArchitectEmergencygroupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetArchitectEmergencygroupInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetArchitectEmergencygroupInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetArchitectEmergencygroupServiceUnavailable() *GetArchitectEmergencygro
 	return &GetArchitectEmergencygroupServiceUnavailable{}
 }
 
-/*GetArchitectEmergencygroupServiceUnavailable handles this case with default header values.
+/*
+GetArchitectEmergencygroupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetArchitectEmergencygroupServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect emergencygroup service unavailable response has a 2xx status code
+func (o *GetArchitectEmergencygroupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect emergencygroup service unavailable response has a 3xx status code
+func (o *GetArchitectEmergencygroupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect emergencygroup service unavailable response has a 4xx status code
+func (o *GetArchitectEmergencygroupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect emergencygroup service unavailable response has a 5xx status code
+func (o *GetArchitectEmergencygroupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect emergencygroup service unavailable response a status code equal to that given
+func (o *GetArchitectEmergencygroupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetArchitectEmergencygroupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetArchitectEmergencygroupServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetArchitectEmergencygroupGatewayTimeout() *GetArchitectEmergencygroupGa
 	return &GetArchitectEmergencygroupGatewayTimeout{}
 }
 
-/*GetArchitectEmergencygroupGatewayTimeout handles this case with default header values.
+/*
+GetArchitectEmergencygroupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetArchitectEmergencygroupGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect emergencygroup gateway timeout response has a 2xx status code
+func (o *GetArchitectEmergencygroupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect emergencygroup gateway timeout response has a 3xx status code
+func (o *GetArchitectEmergencygroupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect emergencygroup gateway timeout response has a 4xx status code
+func (o *GetArchitectEmergencygroupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect emergencygroup gateway timeout response has a 5xx status code
+func (o *GetArchitectEmergencygroupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect emergencygroup gateway timeout response a status code equal to that given
+func (o *GetArchitectEmergencygroupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetArchitectEmergencygroupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetArchitectEmergencygroupGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] getArchitectEmergencygroupGatewayTimeout  %+v", 504, o.Payload)
 }
 

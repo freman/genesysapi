@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetChatSettingsParams creates a new GetChatSettingsParams object
-// with the default values initialized.
+// NewGetChatSettingsParams creates a new GetChatSettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetChatSettingsParams() *GetChatSettingsParams {
-
 	return &GetChatSettingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetChatSettingsParamsWithTimeout creates a new GetChatSettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetChatSettingsParamsWithTimeout(timeout time.Duration) *GetChatSettingsParams {
-
 	return &GetChatSettingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetChatSettingsParamsWithContext creates a new GetChatSettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetChatSettingsParamsWithContext(ctx context.Context) *GetChatSettingsParams {
-
 	return &GetChatSettingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetChatSettingsParamsWithHTTPClient creates a new GetChatSettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetChatSettingsParamsWithHTTPClient(client *http.Client) *GetChatSettingsParams {
-
 	return &GetChatSettingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetChatSettingsParams contains all the parameters to send to the API endpoint
-for the get chat settings operation typically these are written to a http.Request
+/*
+GetChatSettingsParams contains all the parameters to send to the API endpoint
+
+	for the get chat settings operation.
+
+	Typically these are written to a http.Request.
 */
 type GetChatSettingsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get chat settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetChatSettingsParams) WithDefaults() *GetChatSettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get chat settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetChatSettingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get chat settings params

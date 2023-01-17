@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -40,7 +41,6 @@ func (m *CustomI18nLabels) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CustomI18nLabels) validateLocalizedLabels(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LocalizedLabels) { // not required
 		return nil
 	}
@@ -54,6 +54,42 @@ func (m *CustomI18nLabels) validateLocalizedLabels(formats strfmt.Registry) erro
 			if err := m.LocalizedLabels[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("localizedLabels" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("localizedLabels" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this custom i18n labels based on the context it is used
+func (m *CustomI18nLabels) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateLocalizedLabels(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CustomI18nLabels) contextValidateLocalizedLabels(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.LocalizedLabels); i++ {
+
+		if m.LocalizedLabels[i] != nil {
+			if err := m.LocalizedLabels[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("localizedLabels" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("localizedLabels" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

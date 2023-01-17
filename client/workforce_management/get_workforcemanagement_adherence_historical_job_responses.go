@@ -95,7 +95,6 @@ func (o *GetWorkforcemanagementAdherenceHistoricalJobReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWorkforcemanagementAdherenceHistoricalJobOK() *GetWorkforcemanagement
 	return &GetWorkforcemanagementAdherenceHistoricalJobOK{}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobOK handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceHistoricalJobOK describes a response with status code 200, with default header values.
 
 Successful Operation
 */
@@ -114,7 +114,36 @@ type GetWorkforcemanagementAdherenceHistoricalJobOK struct {
 	Payload *models.WfmHistoricalAdherenceResponse
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence historical job o k response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence historical job o k response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence historical job o k response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement adherence historical job o k response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence historical job o k response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceHistoricalJobOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWorkforcemanagementAdherenceHistoricalJobOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceHistoricalJobOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWorkforcemanagementAdherenceHistoricalJobBadRequest() *GetWorkforcema
 	return &GetWorkforcemanagementAdherenceHistoricalJobBadRequest{}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobBadRequest handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceHistoricalJobBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWorkforcemanagementAdherenceHistoricalJobBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence historical job bad request response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence historical job bad request response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence historical job bad request response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence historical job bad request response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence historical job bad request response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceHistoricalJobBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWorkforcemanagementAdherenceHistoricalJobBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceHistoricalJobBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWorkforcemanagementAdherenceHistoricalJobUnauthorized() *GetWorkforce
 	return &GetWorkforcemanagementAdherenceHistoricalJobUnauthorized{}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobUnauthorized handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceHistoricalJobUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWorkforcemanagementAdherenceHistoricalJobUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence historical job unauthorized response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence historical job unauthorized response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence historical job unauthorized response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence historical job unauthorized response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence historical job unauthorized response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceHistoricalJobUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWorkforcemanagementAdherenceHistoricalJobUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceHistoricalJobUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWorkforcemanagementAdherenceHistoricalJobForbidden() *GetWorkforceman
 	return &GetWorkforcemanagementAdherenceHistoricalJobForbidden{}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobForbidden handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceHistoricalJobForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWorkforcemanagementAdherenceHistoricalJobForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence historical job forbidden response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence historical job forbidden response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence historical job forbidden response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence historical job forbidden response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence historical job forbidden response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceHistoricalJobForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWorkforcemanagementAdherenceHistoricalJobForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceHistoricalJobForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWorkforcemanagementAdherenceHistoricalJobNotFound() *GetWorkforcemana
 	return &GetWorkforcemanagementAdherenceHistoricalJobNotFound{}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobNotFound handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceHistoricalJobNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWorkforcemanagementAdherenceHistoricalJobNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence historical job not found response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence historical job not found response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence historical job not found response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence historical job not found response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence historical job not found response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceHistoricalJobNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWorkforcemanagementAdherenceHistoricalJobNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceHistoricalJobNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWorkforcemanagementAdherenceHistoricalJobRequestTimeout() *GetWorkfor
 	return &GetWorkforcemanagementAdherenceHistoricalJobRequestTimeout{}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobRequestTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceHistoricalJobRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWorkforcemanagementAdherenceHistoricalJobRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence historical job request timeout response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence historical job request timeout response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence historical job request timeout response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence historical job request timeout response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence historical job request timeout response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge() *Get
 	return &GetWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge{}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence historical job request entity too large response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence historical job request entity too large response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence historical job request entity too large response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence historical job request entity too large response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence historical job request entity too large response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType() *GetW
 	return &GetWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType{}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence historical job unsupported media type response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence historical job unsupported media type response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence historical job unsupported media type response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence historical job unsupported media type response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence historical job unsupported media type response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWorkforcemanagementAdherenceHistoricalJobTooManyRequests() *GetWorkfo
 	return &GetWorkforcemanagementAdherenceHistoricalJobTooManyRequests{}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobTooManyRequests handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceHistoricalJobTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWorkforcemanagementAdherenceHistoricalJobTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence historical job too many requests response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence historical job too many requests response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence historical job too many requests response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement adherence historical job too many requests response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement adherence historical job too many requests response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceHistoricalJobTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWorkforcemanagementAdherenceHistoricalJobTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceHistoricalJobTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWorkforcemanagementAdherenceHistoricalJobInternalServerError() *GetWo
 	return &GetWorkforcemanagementAdherenceHistoricalJobInternalServerError{}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobInternalServerError handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceHistoricalJobInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWorkforcemanagementAdherenceHistoricalJobInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence historical job internal server error response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence historical job internal server error response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence historical job internal server error response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement adherence historical job internal server error response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement adherence historical job internal server error response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceHistoricalJobInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWorkforcemanagementAdherenceHistoricalJobInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceHistoricalJobInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWorkforcemanagementAdherenceHistoricalJobServiceUnavailable() *GetWor
 	return &GetWorkforcemanagementAdherenceHistoricalJobServiceUnavailable{}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobServiceUnavailable handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceHistoricalJobServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWorkforcemanagementAdherenceHistoricalJobServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence historical job service unavailable response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence historical job service unavailable response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence historical job service unavailable response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement adherence historical job service unavailable response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement adherence historical job service unavailable response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceHistoricalJobServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWorkforcemanagementAdherenceHistoricalJobServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceHistoricalJobServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWorkforcemanagementAdherenceHistoricalJobGatewayTimeout() *GetWorkfor
 	return &GetWorkforcemanagementAdherenceHistoricalJobGatewayTimeout{}
 }
 
-/*GetWorkforcemanagementAdherenceHistoricalJobGatewayTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementAdherenceHistoricalJobGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWorkforcemanagementAdherenceHistoricalJobGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement adherence historical job gateway timeout response has a 2xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement adherence historical job gateway timeout response has a 3xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement adherence historical job gateway timeout response has a 4xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement adherence historical job gateway timeout response has a 5xx status code
+func (o *GetWorkforcemanagementAdherenceHistoricalJobGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement adherence historical job gateway timeout response a status code equal to that given
+func (o *GetWorkforcemanagementAdherenceHistoricalJobGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWorkforcemanagementAdherenceHistoricalJobGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWorkforcemanagementAdherenceHistoricalJobGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/adherence/historical/jobs/{jobId}][%d] getWorkforcemanagementAdherenceHistoricalJobGatewayTimeout  %+v", 504, o.Payload)
 }
 

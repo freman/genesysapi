@@ -16,74 +16,93 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetKnowledgeKnowledgebaseDocumentVersionVariationParams creates a new GetKnowledgeKnowledgebaseDocumentVersionVariationParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseDocumentVersionVariationParams creates a new GetKnowledgeKnowledgebaseDocumentVersionVariationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseDocumentVersionVariationParams() *GetKnowledgeKnowledgebaseDocumentVersionVariationParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentVersionVariationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentVersionVariationParamsWithTimeout creates a new GetKnowledgeKnowledgebaseDocumentVersionVariationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseDocumentVersionVariationParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseDocumentVersionVariationParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentVersionVariationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentVersionVariationParamsWithContext creates a new GetKnowledgeKnowledgebaseDocumentVersionVariationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseDocumentVersionVariationParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseDocumentVersionVariationParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentVersionVariationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentVersionVariationParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseDocumentVersionVariationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseDocumentVersionVariationParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseDocumentVersionVariationParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentVersionVariationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionVariationParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase document version variation operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseDocumentVersionVariationParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase document version variation operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseDocumentVersionVariationParams struct {
 
-	/*DocumentID
-	  Globally unique identifier for the document.
+	/* DocumentID.
 
+	   Globally unique identifier for the document.
 	*/
 	DocumentID string
-	/*KnowledgeBaseID
-	  Globally unique identifier for the knowledge base.
 
+	/* KnowledgeBaseID.
+
+	   Globally unique identifier for the knowledge base.
 	*/
 	KnowledgeBaseID string
-	/*VariationID
-	  Globally unique identifier for the document version variation.
 
+	/* VariationID.
+
+	   Globally unique identifier for the document version variation.
 	*/
 	VariationID string
-	/*VersionID
-	  Globally unique identifier for the document version.
 
+	/* VersionID.
+
+	   Globally unique identifier for the document version.
 	*/
 	VersionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase document version variation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseDocumentVersionVariationParams) WithDefaults() *GetKnowledgeKnowledgebaseDocumentVersionVariationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase document version variation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseDocumentVersionVariationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase document version variation params

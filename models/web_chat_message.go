@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -117,14 +118,14 @@ const (
 	// WebChatMessageBodyTypeNotice captures enum value "notice"
 	WebChatMessageBodyTypeNotice string = "notice"
 
-	// WebChatMessageBodyTypeMemberJoin captures enum value "member-join"
-	WebChatMessageBodyTypeMemberJoin string = "member-join"
+	// WebChatMessageBodyTypeMemberDashJoin captures enum value "member-join"
+	WebChatMessageBodyTypeMemberDashJoin string = "member-join"
 
-	// WebChatMessageBodyTypeMemberLeave captures enum value "member-leave"
-	WebChatMessageBodyTypeMemberLeave string = "member-leave"
+	// WebChatMessageBodyTypeMemberDashLeave captures enum value "member-leave"
+	WebChatMessageBodyTypeMemberDashLeave string = "member-leave"
 
-	// WebChatMessageBodyTypeMediaRequest captures enum value "media-request"
-	WebChatMessageBodyTypeMediaRequest string = "media-request"
+	// WebChatMessageBodyTypeMediaDashRequest captures enum value "media-request"
+	WebChatMessageBodyTypeMediaDashRequest string = "media-request"
 )
 
 // prop value enum
@@ -159,6 +160,8 @@ func (m *WebChatMessage) validateConversation(formats strfmt.Registry) error {
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}
@@ -168,7 +171,6 @@ func (m *WebChatMessage) validateConversation(formats strfmt.Registry) error {
 }
 
 func (m *WebChatMessage) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -190,6 +192,8 @@ func (m *WebChatMessage) validateSender(formats strfmt.Registry) error {
 		if err := m.Sender.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sender")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sender")
 			}
 			return err
 		}
@@ -206,6 +210,82 @@ func (m *WebChatMessage) validateTimestamp(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("timestamp", "body", "date-time", m.Timestamp.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this web chat message based on the context it is used
+func (m *WebChatMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSender(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WebChatMessage) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebChatMessage) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebChatMessage) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebChatMessage) contextValidateSender(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Sender != nil {
+		if err := m.Sender.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sender")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sender")
+			}
+			return err
+		}
 	}
 
 	return nil

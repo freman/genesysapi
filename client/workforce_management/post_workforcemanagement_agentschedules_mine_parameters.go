@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementAgentschedulesMineParams creates a new PostWorkforcemanagementAgentschedulesMineParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementAgentschedulesMineParams creates a new PostWorkforcemanagementAgentschedulesMineParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementAgentschedulesMineParams() *PostWorkforcemanagementAgentschedulesMineParams {
-	var ()
 	return &PostWorkforcemanagementAgentschedulesMineParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementAgentschedulesMineParamsWithTimeout creates a new PostWorkforcemanagementAgentschedulesMineParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementAgentschedulesMineParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementAgentschedulesMineParams {
-	var ()
 	return &PostWorkforcemanagementAgentschedulesMineParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementAgentschedulesMineParamsWithContext creates a new PostWorkforcemanagementAgentschedulesMineParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementAgentschedulesMineParamsWithContext(ctx context.Context) *PostWorkforcemanagementAgentschedulesMineParams {
-	var ()
 	return &PostWorkforcemanagementAgentschedulesMineParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementAgentschedulesMineParamsWithHTTPClient creates a new PostWorkforcemanagementAgentschedulesMineParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementAgentschedulesMineParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementAgentschedulesMineParams {
-	var ()
 	return &PostWorkforcemanagementAgentschedulesMineParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementAgentschedulesMineParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement agentschedules mine operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementAgentschedulesMineParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement agentschedules mine operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementAgentschedulesMineParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.BuGetCurrentAgentScheduleRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement agentschedules mine params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementAgentschedulesMineParams) WithDefaults() *PostWorkforcemanagementAgentschedulesMineParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement agentschedules mine params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementAgentschedulesMineParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement agentschedules mine params
@@ -124,7 +140,6 @@ func (o *PostWorkforcemanagementAgentschedulesMineParams) WriteToRequest(r runti
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -16,86 +16,108 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationScorecardsUsersValuesAverageParams creates a new GetGamificationScorecardsUsersValuesAverageParams object
-// with the default values initialized.
+// NewGetGamificationScorecardsUsersValuesAverageParams creates a new GetGamificationScorecardsUsersValuesAverageParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationScorecardsUsersValuesAverageParams() *GetGamificationScorecardsUsersValuesAverageParams {
-	var (
-		timeZoneDefault = string("UTC")
-	)
 	return &GetGamificationScorecardsUsersValuesAverageParams{
-		TimeZone: &timeZoneDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationScorecardsUsersValuesAverageParamsWithTimeout creates a new GetGamificationScorecardsUsersValuesAverageParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationScorecardsUsersValuesAverageParamsWithTimeout(timeout time.Duration) *GetGamificationScorecardsUsersValuesAverageParams {
-	var (
-		timeZoneDefault = string("UTC")
-	)
 	return &GetGamificationScorecardsUsersValuesAverageParams{
-		TimeZone: &timeZoneDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationScorecardsUsersValuesAverageParamsWithContext creates a new GetGamificationScorecardsUsersValuesAverageParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationScorecardsUsersValuesAverageParamsWithContext(ctx context.Context) *GetGamificationScorecardsUsersValuesAverageParams {
-	var (
-		timeZoneDefault = string("UTC")
-	)
 	return &GetGamificationScorecardsUsersValuesAverageParams{
-		TimeZone: &timeZoneDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationScorecardsUsersValuesAverageParamsWithHTTPClient creates a new GetGamificationScorecardsUsersValuesAverageParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationScorecardsUsersValuesAverageParamsWithHTTPClient(client *http.Client) *GetGamificationScorecardsUsersValuesAverageParams {
-	var (
-		timeZoneDefault = string("UTC")
-	)
 	return &GetGamificationScorecardsUsersValuesAverageParams{
-		TimeZone:   &timeZoneDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationScorecardsUsersValuesAverageParams contains all the parameters to send to the API endpoint
-for the get gamification scorecards users values average operation typically these are written to a http.Request
+/*
+GetGamificationScorecardsUsersValuesAverageParams contains all the parameters to send to the API endpoint
+
+	for the get gamification scorecards users values average operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationScorecardsUsersValuesAverageParams struct {
 
-	/*FilterID
-	  ID for the filter type. For example, division Id
+	/* FilterID.
 
+	   ID for the filter type. For example, division Id
 	*/
 	FilterID string
-	/*FilterType
-	  Filter type for the query request.
 
+	/* FilterType.
+
+	   Filter type for the query request.
 	*/
 	FilterType string
-	/*TimeZone
-	  Timezone for the workday. Defaults to UTC
 
+	/* TimeZone.
+
+	   Timezone for the workday. Defaults to UTC
+
+	   Default: "UTC"
 	*/
 	TimeZone *string
-	/*Workday
-	  The target workday. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* Workday.
+
+	   The target workday. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	Workday strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification scorecards users values average params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsUsersValuesAverageParams) WithDefaults() *GetGamificationScorecardsUsersValuesAverageParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification scorecards users values average params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsUsersValuesAverageParams) SetDefaults() {
+	var (
+		timeZoneDefault = string("UTC")
+	)
+
+	val := GetGamificationScorecardsUsersValuesAverageParams{
+		TimeZone: &timeZoneDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get gamification scorecards users values average params
@@ -187,6 +209,7 @@ func (o *GetGamificationScorecardsUsersValuesAverageParams) WriteToRequest(r run
 	qrFilterID := o.FilterID
 	qFilterID := qrFilterID
 	if qFilterID != "" {
+
 		if err := r.SetQueryParam("filterId", qFilterID); err != nil {
 			return err
 		}
@@ -196,6 +219,7 @@ func (o *GetGamificationScorecardsUsersValuesAverageParams) WriteToRequest(r run
 	qrFilterType := o.FilterType
 	qFilterType := qrFilterType
 	if qFilterType != "" {
+
 		if err := r.SetQueryParam("filterType", qFilterType); err != nil {
 			return err
 		}
@@ -205,22 +229,24 @@ func (o *GetGamificationScorecardsUsersValuesAverageParams) WriteToRequest(r run
 
 		// query param timeZone
 		var qrTimeZone string
+
 		if o.TimeZone != nil {
 			qrTimeZone = *o.TimeZone
 		}
 		qTimeZone := qrTimeZone
 		if qTimeZone != "" {
+
 			if err := r.SetQueryParam("timeZone", qTimeZone); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param workday
 	qrWorkday := o.Workday
 	qWorkday := qrWorkday.String()
 	if qWorkday != "" {
+
 		if err := r.SetQueryParam("workday", qWorkday); err != nil {
 			return err
 		}

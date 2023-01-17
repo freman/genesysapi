@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -56,7 +57,6 @@ func (m *AuditEntityReference) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AuditEntityReference) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -125,7 +125,6 @@ func (m *AuditEntityReference) validateTypeEnum(path, location string, value str
 }
 
 func (m *AuditEntityReference) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -135,6 +134,11 @@ func (m *AuditEntityReference) validateType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this audit entity reference based on context it is used
+func (m *AuditEntityReference) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

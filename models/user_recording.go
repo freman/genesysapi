@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -108,7 +109,6 @@ func (m *UserRecording) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserRecording) validateContentURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContentURI) { // not required
 		return nil
 	}
@@ -121,7 +121,6 @@ func (m *UserRecording) validateContentURI(formats strfmt.Registry) error {
 }
 
 func (m *UserRecording) validateConversation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversation) { // not required
 		return nil
 	}
@@ -130,6 +129,8 @@ func (m *UserRecording) validateConversation(formats strfmt.Registry) error {
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}
@@ -139,7 +140,6 @@ func (m *UserRecording) validateConversation(formats strfmt.Registry) error {
 }
 
 func (m *UserRecording) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -148,6 +148,8 @@ func (m *UserRecording) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -157,7 +159,6 @@ func (m *UserRecording) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *UserRecording) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -170,7 +171,6 @@ func (m *UserRecording) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *UserRecording) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -183,7 +183,6 @@ func (m *UserRecording) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *UserRecording) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -196,7 +195,6 @@ func (m *UserRecording) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *UserRecording) validateThumbnails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Thumbnails) { // not required
 		return nil
 	}
@@ -210,6 +208,8 @@ func (m *UserRecording) validateThumbnails(formats strfmt.Registry) error {
 			if err := m.Thumbnails[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("thumbnails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("thumbnails" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -221,7 +221,6 @@ func (m *UserRecording) validateThumbnails(formats strfmt.Registry) error {
 }
 
 func (m *UserRecording) validateWorkspace(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Workspace) { // not required
 		return nil
 	}
@@ -230,6 +229,128 @@ func (m *UserRecording) validateWorkspace(formats strfmt.Registry) error {
 		if err := m.Workspace.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workspace")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user recording based on the context it is used
+func (m *UserRecording) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateThumbnails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkspace(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserRecording) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserRecording) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserRecording) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserRecording) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserRecording) contextValidateThumbnails(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Thumbnails); i++ {
+
+		if m.Thumbnails[i] != nil {
+			if err := m.Thumbnails[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("thumbnails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("thumbnails" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserRecording) contextValidateWorkspace(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Workspace != nil {
+		if err := m.Workspace.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workspace")
 			}
 			return err
 		}

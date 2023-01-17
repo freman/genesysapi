@@ -6,9 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // CampaignStats campaign stats
@@ -56,7 +59,6 @@ func (m *CampaignStats) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CampaignStats) validateContactRate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactRate) { // not required
 		return nil
 	}
@@ -65,9 +67,106 @@ func (m *CampaignStats) validateContactRate(formats strfmt.Registry) error {
 		if err := m.ContactRate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contactRate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactRate")
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this campaign stats based on the context it is used
+func (m *CampaignStats) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAdjustedCallsPerAgent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContactRate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEffectiveIdleAgents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIdleAgents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutstandingCalls(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScheduledCalls(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CampaignStats) contextValidateAdjustedCallsPerAgent(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "adjustedCallsPerAgent", "body", float64(m.AdjustedCallsPerAgent)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignStats) contextValidateContactRate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContactRate != nil {
+		if err := m.ContactRate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contactRate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactRate")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignStats) contextValidateEffectiveIdleAgents(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "effectiveIdleAgents", "body", float64(m.EffectiveIdleAgents)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignStats) contextValidateIdleAgents(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "idleAgents", "body", int32(m.IdleAgents)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignStats) contextValidateOutstandingCalls(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "outstandingCalls", "body", int32(m.OutstandingCalls)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignStats) contextValidateScheduledCalls(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "scheduledCalls", "body", int32(m.ScheduledCalls)); err != nil {
+		return err
 	}
 
 	return nil

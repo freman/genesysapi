@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOrganizationsMeParams creates a new PutOrganizationsMeParams object
-// with the default values initialized.
+// NewPutOrganizationsMeParams creates a new PutOrganizationsMeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOrganizationsMeParams() *PutOrganizationsMeParams {
-	var ()
 	return &PutOrganizationsMeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOrganizationsMeParamsWithTimeout creates a new PutOrganizationsMeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOrganizationsMeParamsWithTimeout(timeout time.Duration) *PutOrganizationsMeParams {
-	var ()
 	return &PutOrganizationsMeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOrganizationsMeParamsWithContext creates a new PutOrganizationsMeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOrganizationsMeParamsWithContext(ctx context.Context) *PutOrganizationsMeParams {
-	var ()
 	return &PutOrganizationsMeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOrganizationsMeParamsWithHTTPClient creates a new PutOrganizationsMeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOrganizationsMeParamsWithHTTPClient(client *http.Client) *PutOrganizationsMeParams {
-	var ()
 	return &PutOrganizationsMeParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOrganizationsMeParams contains all the parameters to send to the API endpoint
-for the put organizations me operation typically these are written to a http.Request
+/*
+PutOrganizationsMeParams contains all the parameters to send to the API endpoint
+
+	for the put organizations me operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOrganizationsMeParams struct {
 
-	/*Body
-	  Organization
+	/* Body.
 
+	   Organization
 	*/
 	Body *models.Organization
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put organizations me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOrganizationsMeParams) WithDefaults() *PutOrganizationsMeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put organizations me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOrganizationsMeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put organizations me params
@@ -124,7 +140,6 @@ func (o *PutOrganizationsMeParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

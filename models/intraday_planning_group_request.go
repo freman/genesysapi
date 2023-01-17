@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -101,6 +102,11 @@ func (m *IntradayPlanningGroupRequest) validateCategories(formats strfmt.Registr
 
 	}
 
+	return nil
+}
+
+// ContextValidate validates this intraday planning group request based on context it is used
+func (m *IntradayPlanningGroupRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -86,6 +86,18 @@ type API interface {
 	*/
 	GetLanguageunderstandingMinerIntents(ctx context.Context, params *GetLanguageunderstandingMinerIntentsParams) (*GetLanguageunderstandingMinerIntentsOK, error)
 	/*
+	   GetLanguageunderstandingMinerTopic retrieves details of a particular topic
+	*/
+	GetLanguageunderstandingMinerTopic(ctx context.Context, params *GetLanguageunderstandingMinerTopicParams) (*GetLanguageunderstandingMinerTopicOK, error)
+	/*
+	   GetLanguageunderstandingMinerTopicPhrase retrieves utterances related to a phrase in a topic
+	*/
+	GetLanguageunderstandingMinerTopicPhrase(ctx context.Context, params *GetLanguageunderstandingMinerTopicPhraseParams) (*GetLanguageunderstandingMinerTopicPhraseOK, error)
+	/*
+	   GetLanguageunderstandingMinerTopics retrieves a list of mined topics
+	*/
+	GetLanguageunderstandingMinerTopics(ctx context.Context, params *GetLanguageunderstandingMinerTopicsParams) (*GetLanguageunderstandingMinerTopicsOK, error)
+	/*
 	   GetLanguageunderstandingMiners retrieves the list of miners created
 	*/
 	GetLanguageunderstandingMiners(ctx context.Context, params *GetLanguageunderstandingMinersParams) (*GetLanguageunderstandingMinersOK, error)
@@ -579,6 +591,81 @@ func (a *Client) GetLanguageunderstandingMinerIntents(ctx context.Context, param
 		return nil, err
 	}
 	return result.(*GetLanguageunderstandingMinerIntentsOK), nil
+
+}
+
+/*
+GetLanguageunderstandingMinerTopic retrieves details of a particular topic
+*/
+func (a *Client) GetLanguageunderstandingMinerTopic(ctx context.Context, params *GetLanguageunderstandingMinerTopicParams) (*GetLanguageunderstandingMinerTopicOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLanguageunderstandingMinerTopic",
+		Method:             "GET",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}/topics/{topicId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLanguageunderstandingMinerTopicReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLanguageunderstandingMinerTopicOK), nil
+
+}
+
+/*
+GetLanguageunderstandingMinerTopicPhrase retrieves utterances related to a phrase in a topic
+*/
+func (a *Client) GetLanguageunderstandingMinerTopicPhrase(ctx context.Context, params *GetLanguageunderstandingMinerTopicPhraseParams) (*GetLanguageunderstandingMinerTopicPhraseOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLanguageunderstandingMinerTopicPhrase",
+		Method:             "GET",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}/topics/{topicId}/phrases/{phraseId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLanguageunderstandingMinerTopicPhraseReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLanguageunderstandingMinerTopicPhraseOK), nil
+
+}
+
+/*
+GetLanguageunderstandingMinerTopics retrieves a list of mined topics
+*/
+func (a *Client) GetLanguageunderstandingMinerTopics(ctx context.Context, params *GetLanguageunderstandingMinerTopicsParams) (*GetLanguageunderstandingMinerTopicsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getLanguageunderstandingMinerTopics",
+		Method:             "GET",
+		PathPattern:        "/api/v2/languageunderstanding/miners/{minerId}/topics",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetLanguageunderstandingMinerTopicsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetLanguageunderstandingMinerTopicsOK), nil
 
 }
 

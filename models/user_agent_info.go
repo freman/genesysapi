@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -27,6 +29,11 @@ type UserAgentInfo struct {
 
 // Validate validates this user agent info
 func (m *UserAgentInfo) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this user agent info based on context it is used
+func (m *UserAgentInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

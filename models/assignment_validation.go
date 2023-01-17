@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -58,7 +59,6 @@ func (m *AssignmentValidation) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AssignmentValidation) validateInvalidMemberAssignments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InvalidMemberAssignments) { // not required
 		return nil
 	}
@@ -72,6 +72,8 @@ func (m *AssignmentValidation) validateInvalidMemberAssignments(formats strfmt.R
 			if err := m.InvalidMemberAssignments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("invalidMemberAssignments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("invalidMemberAssignments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -83,7 +85,6 @@ func (m *AssignmentValidation) validateInvalidMemberAssignments(formats strfmt.R
 }
 
 func (m *AssignmentValidation) validateMembersAlreadyAssigned(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MembersAlreadyAssigned) { // not required
 		return nil
 	}
@@ -97,6 +98,8 @@ func (m *AssignmentValidation) validateMembersAlreadyAssigned(formats strfmt.Reg
 			if err := m.MembersAlreadyAssigned[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("membersAlreadyAssigned" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("membersAlreadyAssigned" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -108,7 +111,6 @@ func (m *AssignmentValidation) validateMembersAlreadyAssigned(formats strfmt.Reg
 }
 
 func (m *AssignmentValidation) validateMembersAlreadyAssignedToOther(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MembersAlreadyAssignedToOther) { // not required
 		return nil
 	}
@@ -122,6 +124,8 @@ func (m *AssignmentValidation) validateMembersAlreadyAssignedToOther(formats str
 			if err := m.MembersAlreadyAssignedToOther[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("membersAlreadyAssignedToOther" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("membersAlreadyAssignedToOther" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -133,7 +137,6 @@ func (m *AssignmentValidation) validateMembersAlreadyAssignedToOther(formats str
 }
 
 func (m *AssignmentValidation) validateMembersNotAssigned(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MembersNotAssigned) { // not required
 		return nil
 	}
@@ -147,6 +150,114 @@ func (m *AssignmentValidation) validateMembersNotAssigned(formats strfmt.Registr
 			if err := m.MembersNotAssigned[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("membersNotAssigned" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("membersNotAssigned" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this assignment validation based on the context it is used
+func (m *AssignmentValidation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateInvalidMemberAssignments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMembersAlreadyAssigned(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMembersAlreadyAssignedToOther(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMembersNotAssigned(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AssignmentValidation) contextValidateInvalidMemberAssignments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.InvalidMemberAssignments); i++ {
+
+		if m.InvalidMemberAssignments[i] != nil {
+			if err := m.InvalidMemberAssignments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("invalidMemberAssignments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("invalidMemberAssignments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AssignmentValidation) contextValidateMembersAlreadyAssigned(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MembersAlreadyAssigned); i++ {
+
+		if m.MembersAlreadyAssigned[i] != nil {
+			if err := m.MembersAlreadyAssigned[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("membersAlreadyAssigned" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("membersAlreadyAssigned" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AssignmentValidation) contextValidateMembersAlreadyAssignedToOther(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MembersAlreadyAssignedToOther); i++ {
+
+		if m.MembersAlreadyAssignedToOther[i] != nil {
+			if err := m.MembersAlreadyAssignedToOther[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("membersAlreadyAssignedToOther" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("membersAlreadyAssignedToOther" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AssignmentValidation) contextValidateMembersNotAssigned(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MembersNotAssigned); i++ {
+
+		if m.MembersNotAssigned[i] != nil {
+			if err := m.MembersNotAssigned[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("membersNotAssigned" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("membersNotAssigned" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

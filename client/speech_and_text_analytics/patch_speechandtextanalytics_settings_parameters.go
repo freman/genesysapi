@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchSpeechandtextanalyticsSettingsParams creates a new PatchSpeechandtextanalyticsSettingsParams object
-// with the default values initialized.
+// NewPatchSpeechandtextanalyticsSettingsParams creates a new PatchSpeechandtextanalyticsSettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchSpeechandtextanalyticsSettingsParams() *PatchSpeechandtextanalyticsSettingsParams {
-	var ()
 	return &PatchSpeechandtextanalyticsSettingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchSpeechandtextanalyticsSettingsParamsWithTimeout creates a new PatchSpeechandtextanalyticsSettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchSpeechandtextanalyticsSettingsParamsWithTimeout(timeout time.Duration) *PatchSpeechandtextanalyticsSettingsParams {
-	var ()
 	return &PatchSpeechandtextanalyticsSettingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchSpeechandtextanalyticsSettingsParamsWithContext creates a new PatchSpeechandtextanalyticsSettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchSpeechandtextanalyticsSettingsParamsWithContext(ctx context.Context) *PatchSpeechandtextanalyticsSettingsParams {
-	var ()
 	return &PatchSpeechandtextanalyticsSettingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchSpeechandtextanalyticsSettingsParamsWithHTTPClient creates a new PatchSpeechandtextanalyticsSettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchSpeechandtextanalyticsSettingsParamsWithHTTPClient(client *http.Client) *PatchSpeechandtextanalyticsSettingsParams {
-	var ()
 	return &PatchSpeechandtextanalyticsSettingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchSpeechandtextanalyticsSettingsParams contains all the parameters to send to the API endpoint
-for the patch speechandtextanalytics settings operation typically these are written to a http.Request
+/*
+PatchSpeechandtextanalyticsSettingsParams contains all the parameters to send to the API endpoint
+
+	for the patch speechandtextanalytics settings operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchSpeechandtextanalyticsSettingsParams struct {
 
-	/*Body
-	  Speech And Text Analytics Settings
+	/* Body.
 
+	   Speech And Text Analytics Settings
 	*/
 	Body *models.SpeechTextAnalyticsSettingsRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch speechandtextanalytics settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchSpeechandtextanalyticsSettingsParams) WithDefaults() *PatchSpeechandtextanalyticsSettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch speechandtextanalytics settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchSpeechandtextanalyticsSettingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch speechandtextanalytics settings params
@@ -124,7 +140,6 @@ func (o *PatchSpeechandtextanalyticsSettingsParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

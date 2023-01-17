@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -130,7 +131,6 @@ func (m *Video) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Video) validateAfterCallWork(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AfterCallWork) { // not required
 		return nil
 	}
@@ -139,6 +139,8 @@ func (m *Video) validateAfterCallWork(formats strfmt.Registry) error {
 		if err := m.AfterCallWork.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
 			}
 			return err
 		}
@@ -148,7 +150,6 @@ func (m *Video) validateAfterCallWork(formats strfmt.Registry) error {
 }
 
 func (m *Video) validateConnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectedTime) { // not required
 		return nil
 	}
@@ -189,23 +190,23 @@ const (
 	// VideoDisconnectTypeTransfer captures enum value "transfer"
 	VideoDisconnectTypeTransfer string = "transfer"
 
-	// VideoDisconnectTypeTransferConference captures enum value "transfer.conference"
-	VideoDisconnectTypeTransferConference string = "transfer.conference"
+	// VideoDisconnectTypeTransferDotConference captures enum value "transfer.conference"
+	VideoDisconnectTypeTransferDotConference string = "transfer.conference"
 
-	// VideoDisconnectTypeTransferConsult captures enum value "transfer.consult"
-	VideoDisconnectTypeTransferConsult string = "transfer.consult"
+	// VideoDisconnectTypeTransferDotConsult captures enum value "transfer.consult"
+	VideoDisconnectTypeTransferDotConsult string = "transfer.consult"
 
-	// VideoDisconnectTypeTransferForward captures enum value "transfer.forward"
-	VideoDisconnectTypeTransferForward string = "transfer.forward"
+	// VideoDisconnectTypeTransferDotForward captures enum value "transfer.forward"
+	VideoDisconnectTypeTransferDotForward string = "transfer.forward"
 
-	// VideoDisconnectTypeTransferNoanswer captures enum value "transfer.noanswer"
-	VideoDisconnectTypeTransferNoanswer string = "transfer.noanswer"
+	// VideoDisconnectTypeTransferDotNoanswer captures enum value "transfer.noanswer"
+	VideoDisconnectTypeTransferDotNoanswer string = "transfer.noanswer"
 
-	// VideoDisconnectTypeTransferNotavailable captures enum value "transfer.notavailable"
-	VideoDisconnectTypeTransferNotavailable string = "transfer.notavailable"
+	// VideoDisconnectTypeTransferDotNotavailable captures enum value "transfer.notavailable"
+	VideoDisconnectTypeTransferDotNotavailable string = "transfer.notavailable"
 
-	// VideoDisconnectTypeTransportFailure captures enum value "transport.failure"
-	VideoDisconnectTypeTransportFailure string = "transport.failure"
+	// VideoDisconnectTypeTransportDotFailure captures enum value "transport.failure"
+	VideoDisconnectTypeTransportDotFailure string = "transport.failure"
 
 	// VideoDisconnectTypeError captures enum value "error"
 	VideoDisconnectTypeError string = "error"
@@ -232,7 +233,6 @@ func (m *Video) validateDisconnectTypeEnum(path, location string, value string) 
 }
 
 func (m *Video) validateDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectType) { // not required
 		return nil
 	}
@@ -246,7 +246,6 @@ func (m *Video) validateDisconnectType(formats strfmt.Registry) error {
 }
 
 func (m *Video) validateDisconnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectedTime) { // not required
 		return nil
 	}
@@ -306,7 +305,6 @@ func (m *Video) validateInitialStateEnum(path, location string, value string) er
 }
 
 func (m *Video) validateInitialState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitialState) { // not required
 		return nil
 	}
@@ -320,7 +318,6 @@ func (m *Video) validateInitialState(formats strfmt.Registry) error {
 }
 
 func (m *Video) validateSelf(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Self) { // not required
 		return nil
 	}
@@ -329,6 +326,8 @@ func (m *Video) validateSelf(formats strfmt.Registry) error {
 		if err := m.Self.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("self")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("self")
 			}
 			return err
 		}
@@ -338,7 +337,6 @@ func (m *Video) validateSelf(formats strfmt.Registry) error {
 }
 
 func (m *Video) validateStartAlertingTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartAlertingTime) { // not required
 		return nil
 	}
@@ -398,7 +396,6 @@ func (m *Video) validateStateEnum(path, location string, value string) error {
 }
 
 func (m *Video) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -412,7 +409,6 @@ func (m *Video) validateState(formats strfmt.Registry) error {
 }
 
 func (m *Video) validateWrapup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Wrapup) { // not required
 		return nil
 	}
@@ -421,6 +417,78 @@ func (m *Video) validateWrapup(formats strfmt.Registry) error {
 		if err := m.Wrapup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this video based on the context it is used
+func (m *Video) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAfterCallWork(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelf(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Video) contextValidateAfterCallWork(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Video) contextValidateSelf(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Self != nil {
+		if err := m.Self.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("self")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("self")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Video) contextValidateWrapup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Wrapup != nil {
+		if err := m.Wrapup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
 			}
 			return err
 		}

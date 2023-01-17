@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -59,6 +60,42 @@ func (m *QueryTimeOffLimitValuesRequest) validateDateRanges(formats strfmt.Regis
 			if err := m.DateRanges[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dateRanges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dateRanges" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this query time off limit values request based on the context it is used
+func (m *QueryTimeOffLimitValuesRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateRanges(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *QueryTimeOffLimitValuesRequest) contextValidateDateRanges(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DateRanges); i++ {
+
+		if m.DateRanges[i] != nil {
+			if err := m.DateRanges[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("dateRanges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dateRanges" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

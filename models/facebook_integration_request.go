@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -84,7 +86,6 @@ func (m *FacebookIntegrationRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FacebookIntegrationRequest) validateMessagingSetting(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessagingSetting) { // not required
 		return nil
 	}
@@ -93,6 +94,8 @@ func (m *FacebookIntegrationRequest) validateMessagingSetting(formats strfmt.Reg
 		if err := m.MessagingSetting.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messagingSetting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingSetting")
 			}
 			return err
 		}
@@ -111,7 +114,6 @@ func (m *FacebookIntegrationRequest) validateName(formats strfmt.Registry) error
 }
 
 func (m *FacebookIntegrationRequest) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -124,7 +126,6 @@ func (m *FacebookIntegrationRequest) validateSelfURI(formats strfmt.Registry) er
 }
 
 func (m *FacebookIntegrationRequest) validateSupportedContent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SupportedContent) { // not required
 		return nil
 	}
@@ -133,6 +134,84 @@ func (m *FacebookIntegrationRequest) validateSupportedContent(formats strfmt.Reg
 		if err := m.SupportedContent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("supportedContent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportedContent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this facebook integration request based on the context it is used
+func (m *FacebookIntegrationRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessagingSetting(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupportedContent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FacebookIntegrationRequest) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FacebookIntegrationRequest) contextValidateMessagingSetting(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessagingSetting != nil {
+		if err := m.MessagingSetting.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingSetting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingSetting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FacebookIntegrationRequest) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FacebookIntegrationRequest) contextValidateSupportedContent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SupportedContent != nil {
+		if err := m.SupportedContent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportedContent")
 			}
 			return err
 		}

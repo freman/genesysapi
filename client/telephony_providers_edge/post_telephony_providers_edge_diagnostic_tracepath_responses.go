@@ -95,7 +95,6 @@ func (o *PostTelephonyProvidersEdgeDiagnosticTracepathReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticTracepathAccepted() *PostTelephonyPr
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathAccepted{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathAccepted handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathAccepted describes a response with status code 202, with default header values.
 
 Request to get network diagnostic has been accepted
 */
@@ -114,7 +114,36 @@ type PostTelephonyProvidersEdgeDiagnosticTracepathAccepted struct {
 	Payload *models.EdgeNetworkDiagnostic
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic tracepath accepted response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic tracepath accepted response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic tracepath accepted response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic tracepath accepted response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic tracepath accepted response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticTracepathAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathAccepted  %+v", 202, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticTracepathBadRequest() *PostTelephony
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathBadRequest{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathBadRequest handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostTelephonyProvidersEdgeDiagnosticTracepathBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic tracepath bad request response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic tracepath bad request response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic tracepath bad request response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic tracepath bad request response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic tracepath bad request response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticTracepathBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticTracepathUnauthorized() *PostTelepho
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathUnauthorized{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathUnauthorized handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostTelephonyProvidersEdgeDiagnosticTracepathUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic tracepath unauthorized response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic tracepath unauthorized response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic tracepath unauthorized response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic tracepath unauthorized response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic tracepath unauthorized response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticTracepathForbidden() *PostTelephonyP
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathForbidden{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathForbidden handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostTelephonyProvidersEdgeDiagnosticTracepathForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic tracepath forbidden response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic tracepath forbidden response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic tracepath forbidden response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic tracepath forbidden response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic tracepath forbidden response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticTracepathForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticTracepathNotFound() *PostTelephonyPr
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathNotFound{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathNotFound handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostTelephonyProvidersEdgeDiagnosticTracepathNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic tracepath not found response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic tracepath not found response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic tracepath not found response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic tracepath not found response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic tracepath not found response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticTracepathNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout() *PostTelep
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic tracepath request timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic tracepath request timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic tracepath request timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic tracepath request timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic tracepath request timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge() *Po
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic tracepath request entity too large response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic tracepath request entity too large response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic tracepath request entity too large response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic tracepath request entity too large response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic tracepath request entity too large response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType() *Pos
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic tracepath unsupported media type response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic tracepath unsupported media type response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic tracepath unsupported media type response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic tracepath unsupported media type response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic tracepath unsupported media type response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests() *PostTele
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic tracepath too many requests response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic tracepath too many requests response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic tracepath too many requests response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic tracepath too many requests response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic tracepath too many requests response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticTracepathInternalServerError() *Post
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathInternalServerError{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathInternalServerError handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostTelephonyProvidersEdgeDiagnosticTracepathInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic tracepath internal server error response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic tracepath internal server error response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic tracepath internal server error response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic tracepath internal server error response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic tracepath internal server error response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticTracepathInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable() *PostT
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic tracepath service unavailable response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic tracepath service unavailable response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic tracepath service unavailable response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic tracepath service unavailable response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic tracepath service unavailable response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout() *PostTelep
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic tracepath gateway timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic tracepath gateway timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic tracepath gateway timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic tracepath gateway timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic tracepath gateway timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/tracepath][%d] postTelephonyProvidersEdgeDiagnosticTracepathGatewayTimeout  %+v", 504, o.Payload)
 }
 

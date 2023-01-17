@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -24,34 +25,56 @@ type Miner struct {
 	ConversationDataUploaded *bool `json:"conversationDataUploaded"`
 
 	// Date till which the conversations need to be taken for mining. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	// Example: 2019-12-20
 	// Read Only: true
 	// Format: date
 	ConversationsDateRangeEnd strfmt.Date `json:"conversationsDateRangeEnd,omitempty"`
 
 	// Date from which the conversations need to be taken for mining. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	// Example: 2019-06-20
 	// Read Only: true
 	// Format: date
 	ConversationsDateRangeStart strfmt.Date `json:"conversationsDateRangeStart,omitempty"`
 
+	// Number of conversations/transcripts fetched.
+	// Read Only: true
+	ConversationsFetchedCount int32 `json:"conversationsFetchedCount,omitempty"`
+
+	// Number of conversations/recordings/transcripts that were found valid for mining purposes.
+	// Read Only: true
+	ConversationsValidCount int32 `json:"conversationsValidCount,omitempty"`
+
 	// Date when the mining process was completed. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Example: 2020-05-20T23:56:07.268
 	// Read Only: true
 	// Format: date-time
 	DateCompleted strfmt.DateTime `json:"dateCompleted,omitempty"`
 
 	// Date when the miner was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Example: 2020-04-29T17:12:06.613
 	// Read Only: true
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
 	// Date when the miner was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Example: 2020-04-30T23:56:07.268
 	// Read Only: true
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
 
 	// Date when the miner started execution. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Example: 2020-04-30T23:56:07.268
 	// Read Only: true
 	// Format: date-time
 	DateTriggered strfmt.DateTime `json:"dateTriggered,omitempty"`
+
+	// Error Information
+	// Read Only: true
+	ErrorInfo *ErrorInfo `json:"errorInfo,omitempty"`
+
+	// Number of intents or topics based on the miner type.
+	// Read Only: true
+	GetminedItemCount int32 `json:"getminedItemCount,omitempty"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
@@ -74,9 +97,18 @@ type Miner struct {
 	// Read Only: true
 	Message string `json:"message,omitempty"`
 
+	// Type of the miner, intent or topic.
+	// Enum: [Intent Topic]
+	MinerType string `json:"minerType,omitempty"`
+
 	// Chat Corpus Name.
 	// Required: true
 	Name *string `json:"name"`
+
+	// Type of the participant, either agent, customer or both.
+	// Read Only: true
+	// Enum: [Customer Agent Both]
+	ParticipantType string `json:"participantType,omitempty"`
 
 	// List of queue IDs for filtering conversations.
 	// Read Only: true
@@ -91,6 +123,10 @@ type Miner struct {
 	// Read Only: true
 	// Enum: [NotStarted FetchingConversationIds ConversationIdsFetched ConversationIdsFetchError FetchingConversations ConversationsFetched ConversationsFetchError Queued QueuingError MiningStarted MaskingUtterances MaskingError ComputingAnalytics ComputingAnalyticsError MiningCompleted MiningError ModelValidationError Deleted]
 	Status string `json:"status,omitempty"`
+
+	// Warning Information
+	// Read Only: true
+	WarningInfo *ErrorInfo `json:"warningInfo,omitempty"`
 }
 
 // Validate validates this miner
@@ -121,6 +157,10 @@ func (m *Miner) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateErrorInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLanguage(formats); err != nil {
 		res = append(res, err)
 	}
@@ -133,7 +173,15 @@ func (m *Miner) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateMinerType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateParticipantType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -145,6 +193,10 @@ func (m *Miner) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateWarningInfo(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -152,7 +204,6 @@ func (m *Miner) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Miner) validateConversationsDateRangeEnd(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationsDateRangeEnd) { // not required
 		return nil
 	}
@@ -165,7 +216,6 @@ func (m *Miner) validateConversationsDateRangeEnd(formats strfmt.Registry) error
 }
 
 func (m *Miner) validateConversationsDateRangeStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationsDateRangeStart) { // not required
 		return nil
 	}
@@ -178,7 +228,6 @@ func (m *Miner) validateConversationsDateRangeStart(formats strfmt.Registry) err
 }
 
 func (m *Miner) validateDateCompleted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCompleted) { // not required
 		return nil
 	}
@@ -191,7 +240,6 @@ func (m *Miner) validateDateCompleted(formats strfmt.Registry) error {
 }
 
 func (m *Miner) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -204,7 +252,6 @@ func (m *Miner) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Miner) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -217,13 +264,31 @@ func (m *Miner) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *Miner) validateDateTriggered(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateTriggered) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("dateTriggered", "body", "date-time", m.DateTriggered.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) validateErrorInfo(formats strfmt.Registry) error {
+	if swag.IsZero(m.ErrorInfo) { // not required
+		return nil
+	}
+
+	if m.ErrorInfo != nil {
+		if err := m.ErrorInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInfo")
+			}
+			return err
+		}
 	}
 
 	return nil
@@ -243,35 +308,35 @@ func init() {
 
 const (
 
-	// MinerLanguageEnUs captures enum value "en-us"
-	MinerLanguageEnUs string = "en-us"
+	// MinerLanguageEnDashUs captures enum value "en-us"
+	MinerLanguageEnDashUs string = "en-us"
 
-	// MinerLanguageEnGb captures enum value "en-gb"
-	MinerLanguageEnGb string = "en-gb"
+	// MinerLanguageEnDashGb captures enum value "en-gb"
+	MinerLanguageEnDashGb string = "en-gb"
 
-	// MinerLanguageEnAu captures enum value "en-au"
-	MinerLanguageEnAu string = "en-au"
+	// MinerLanguageEnDashAu captures enum value "en-au"
+	MinerLanguageEnDashAu string = "en-au"
 
-	// MinerLanguageEnIn captures enum value "en-in"
-	MinerLanguageEnIn string = "en-in"
+	// MinerLanguageEnDashIn captures enum value "en-in"
+	MinerLanguageEnDashIn string = "en-in"
 
-	// MinerLanguageEnZa captures enum value "en-za"
-	MinerLanguageEnZa string = "en-za"
+	// MinerLanguageEnDashZa captures enum value "en-za"
+	MinerLanguageEnDashZa string = "en-za"
 
-	// MinerLanguageEsUs captures enum value "es-us"
-	MinerLanguageEsUs string = "es-us"
+	// MinerLanguageEsDashUs captures enum value "es-us"
+	MinerLanguageEsDashUs string = "es-us"
 
-	// MinerLanguageEsEs captures enum value "es-es"
-	MinerLanguageEsEs string = "es-es"
+	// MinerLanguageEsDashEs captures enum value "es-es"
+	MinerLanguageEsDashEs string = "es-es"
 
-	// MinerLanguageFrFr captures enum value "fr-fr"
-	MinerLanguageFrFr string = "fr-fr"
+	// MinerLanguageFrDashFr captures enum value "fr-fr"
+	MinerLanguageFrDashFr string = "fr-fr"
 
-	// MinerLanguageFrCa captures enum value "fr-ca"
-	MinerLanguageFrCa string = "fr-ca"
+	// MinerLanguageFrDashCa captures enum value "fr-ca"
+	MinerLanguageFrDashCa string = "fr-ca"
 
-	// MinerLanguageDeDe captures enum value "de-de"
-	MinerLanguageDeDe string = "de-de"
+	// MinerLanguageDeDashDe captures enum value "de-de"
+	MinerLanguageDeDashDe string = "de-de"
 )
 
 // prop value enum
@@ -283,7 +348,6 @@ func (m *Miner) validateLanguageEnum(path, location string, value string) error 
 }
 
 func (m *Miner) validateLanguage(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Language) { // not required
 		return nil
 	}
@@ -297,7 +361,6 @@ func (m *Miner) validateLanguage(formats strfmt.Registry) error {
 }
 
 func (m *Miner) validateLatestDraftVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LatestDraftVersion) { // not required
 		return nil
 	}
@@ -306,6 +369,8 @@ func (m *Miner) validateLatestDraftVersion(formats strfmt.Registry) error {
 		if err := m.LatestDraftVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("latestDraftVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("latestDraftVersion")
 			}
 			return err
 		}
@@ -347,13 +412,54 @@ func (m *Miner) validateMediaTypeEnum(path, location string, value string) error
 }
 
 func (m *Miner) validateMediaType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaType) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateMediaTypeEnum("mediaType", "body", m.MediaType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+var minerTypeMinerTypePropEnum []interface{}
+
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Intent","Topic"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		minerTypeMinerTypePropEnum = append(minerTypeMinerTypePropEnum, v)
+	}
+}
+
+const (
+
+	// MinerMinerTypeIntent captures enum value "Intent"
+	MinerMinerTypeIntent string = "Intent"
+
+	// MinerMinerTypeTopic captures enum value "Topic"
+	MinerMinerTypeTopic string = "Topic"
+)
+
+// prop value enum
+func (m *Miner) validateMinerTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, minerTypeMinerTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Miner) validateMinerType(formats strfmt.Registry) error {
+	if swag.IsZero(m.MinerType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateMinerTypeEnum("minerType", "body", m.MinerType); err != nil {
 		return err
 	}
 
@@ -369,8 +475,52 @@ func (m *Miner) validateName(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Miner) validateSelfURI(formats strfmt.Registry) error {
+var minerTypeParticipantTypePropEnum []interface{}
 
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Customer","Agent","Both"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		minerTypeParticipantTypePropEnum = append(minerTypeParticipantTypePropEnum, v)
+	}
+}
+
+const (
+
+	// MinerParticipantTypeCustomer captures enum value "Customer"
+	MinerParticipantTypeCustomer string = "Customer"
+
+	// MinerParticipantTypeAgent captures enum value "Agent"
+	MinerParticipantTypeAgent string = "Agent"
+
+	// MinerParticipantTypeBoth captures enum value "Both"
+	MinerParticipantTypeBoth string = "Both"
+)
+
+// prop value enum
+func (m *Miner) validateParticipantTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, minerTypeParticipantTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *Miner) validateParticipantType(formats strfmt.Registry) error {
+	if swag.IsZero(m.ParticipantType) { // not required
+		return nil
+	}
+
+	// value enum
+	if err := m.validateParticipantTypeEnum("participantType", "body", m.ParticipantType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) validateSelfURI(formats strfmt.Registry) error {
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -460,7 +610,6 @@ func (m *Miner) validateStatusEnum(path, location string, value string) error {
 }
 
 func (m *Miner) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -468,6 +617,316 @@ func (m *Miner) validateStatus(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) validateWarningInfo(formats strfmt.Registry) error {
+	if swag.IsZero(m.WarningInfo) { // not required
+		return nil
+	}
+
+	if m.WarningInfo != nil {
+		if err := m.WarningInfo.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("warningInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("warningInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this miner based on the context it is used
+func (m *Miner) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConversationDataUploaded(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationsDateRangeEnd(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationsDateRangeStart(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationsFetchedCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationsValidCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCompleted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateTriggered(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateErrorInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGetminedItemCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLatestDraftVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMediaType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateParticipantType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueueIds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWarningInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Miner) contextValidateConversationDataUploaded(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "conversationDataUploaded", "body", m.ConversationDataUploaded); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateConversationsDateRangeEnd(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "conversationsDateRangeEnd", "body", strfmt.Date(m.ConversationsDateRangeEnd)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateConversationsDateRangeStart(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "conversationsDateRangeStart", "body", strfmt.Date(m.ConversationsDateRangeStart)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateConversationsFetchedCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "conversationsFetchedCount", "body", int32(m.ConversationsFetchedCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateConversationsValidCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "conversationsValidCount", "body", int32(m.ConversationsValidCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateDateCompleted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCompleted", "body", strfmt.DateTime(m.DateCompleted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateDateTriggered(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateTriggered", "body", strfmt.DateTime(m.DateTriggered)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateErrorInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ErrorInfo != nil {
+		if err := m.ErrorInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateGetminedItemCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "getminedItemCount", "body", int32(m.GetminedItemCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateLatestDraftVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LatestDraftVersion != nil {
+		if err := m.LatestDraftVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("latestDraftVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("latestDraftVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateMediaType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "mediaType", "body", string(m.MediaType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateMessage(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "message", "body", string(m.Message)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateParticipantType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "participantType", "body", string(m.ParticipantType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateQueueIds(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "queueIds", "body", []string(m.QueueIds)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Miner) contextValidateWarningInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WarningInfo != nil {
+		if err := m.WarningInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("warningInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("warningInfo")
+			}
+			return err
+		}
 	}
 
 	return nil

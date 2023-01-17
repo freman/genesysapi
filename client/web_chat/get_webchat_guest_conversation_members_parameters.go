@@ -17,102 +17,116 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWebchatGuestConversationMembersParams creates a new GetWebchatGuestConversationMembersParams object
-// with the default values initialized.
+// NewGetWebchatGuestConversationMembersParams creates a new GetWebchatGuestConversationMembersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWebchatGuestConversationMembersParams() *GetWebchatGuestConversationMembersParams {
-	var (
-		excludeDisconnectedMembersDefault = bool(false)
-		pageNumberDefault                 = int32(1)
-		pageSizeDefault                   = int32(25)
-	)
 	return &GetWebchatGuestConversationMembersParams{
-		ExcludeDisconnectedMembers: &excludeDisconnectedMembersDefault,
-		PageNumber:                 &pageNumberDefault,
-		PageSize:                   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWebchatGuestConversationMembersParamsWithTimeout creates a new GetWebchatGuestConversationMembersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWebchatGuestConversationMembersParamsWithTimeout(timeout time.Duration) *GetWebchatGuestConversationMembersParams {
-	var (
-		excludeDisconnectedMembersDefault = bool(false)
-		pageNumberDefault                 = int32(1)
-		pageSizeDefault                   = int32(25)
-	)
 	return &GetWebchatGuestConversationMembersParams{
-		ExcludeDisconnectedMembers: &excludeDisconnectedMembersDefault,
-		PageNumber:                 &pageNumberDefault,
-		PageSize:                   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWebchatGuestConversationMembersParamsWithContext creates a new GetWebchatGuestConversationMembersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWebchatGuestConversationMembersParamsWithContext(ctx context.Context) *GetWebchatGuestConversationMembersParams {
-	var (
-		excludeDisconnectedMembersDefault = bool(false)
-		pageNumberDefault                 = int32(1)
-		pageSizeDefault                   = int32(25)
-	)
 	return &GetWebchatGuestConversationMembersParams{
-		ExcludeDisconnectedMembers: &excludeDisconnectedMembersDefault,
-		PageNumber:                 &pageNumberDefault,
-		PageSize:                   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetWebchatGuestConversationMembersParamsWithHTTPClient creates a new GetWebchatGuestConversationMembersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWebchatGuestConversationMembersParamsWithHTTPClient(client *http.Client) *GetWebchatGuestConversationMembersParams {
-	var (
-		excludeDisconnectedMembersDefault = bool(false)
-		pageNumberDefault                 = int32(1)
-		pageSizeDefault                   = int32(25)
-	)
 	return &GetWebchatGuestConversationMembersParams{
-		ExcludeDisconnectedMembers: &excludeDisconnectedMembersDefault,
-		PageNumber:                 &pageNumberDefault,
-		PageSize:                   &pageSizeDefault,
-		HTTPClient:                 client,
+		HTTPClient: client,
 	}
 }
 
-/*GetWebchatGuestConversationMembersParams contains all the parameters to send to the API endpoint
-for the get webchat guest conversation members operation typically these are written to a http.Request
+/*
+GetWebchatGuestConversationMembersParams contains all the parameters to send to the API endpoint
+
+	for the get webchat guest conversation members operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWebchatGuestConversationMembersParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*ExcludeDisconnectedMembers
-	  If true, the results will not contain members who have a DISCONNECTED state.
 
+	/* ExcludeDisconnectedMembers.
+
+	   If true, the results will not contain members who have a DISCONNECTED state.
 	*/
 	ExcludeDisconnectedMembers *bool
-	/*PageNumber
-	  The page number to return, or omitted for the first page.
 
+	/* PageNumber.
+
+	   The page number to return, or omitted for the first page.
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  The number of entries to return per page, or omitted for the default.
 
+	/* PageSize.
+
+	   The number of entries to return per page, or omitted for the default.
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get webchat guest conversation members params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebchatGuestConversationMembersParams) WithDefaults() *GetWebchatGuestConversationMembersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get webchat guest conversation members params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebchatGuestConversationMembersParams) SetDefaults() {
+	var (
+		excludeDisconnectedMembersDefault = bool(false)
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetWebchatGuestConversationMembersParams{
+		ExcludeDisconnectedMembers: &excludeDisconnectedMembersDefault,
+		PageNumber:                 &pageNumberDefault,
+		PageSize:                   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get webchat guest conversation members params
@@ -209,48 +223,51 @@ func (o *GetWebchatGuestConversationMembersParams) WriteToRequest(r runtime.Clie
 
 		// query param excludeDisconnectedMembers
 		var qrExcludeDisconnectedMembers bool
+
 		if o.ExcludeDisconnectedMembers != nil {
 			qrExcludeDisconnectedMembers = *o.ExcludeDisconnectedMembers
 		}
 		qExcludeDisconnectedMembers := swag.FormatBool(qrExcludeDisconnectedMembers)
 		if qExcludeDisconnectedMembers != "" {
+
 			if err := r.SetQueryParam("excludeDisconnectedMembers", qExcludeDisconnectedMembers); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

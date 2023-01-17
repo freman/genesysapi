@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -110,7 +111,6 @@ func (m *ConversationMessageContent) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ConversationMessageContent) validateAttachment(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Attachment) { // not required
 		return nil
 	}
@@ -119,6 +119,8 @@ func (m *ConversationMessageContent) validateAttachment(formats strfmt.Registry)
 		if err := m.Attachment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attachment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attachment")
 			}
 			return err
 		}
@@ -128,7 +130,6 @@ func (m *ConversationMessageContent) validateAttachment(formats strfmt.Registry)
 }
 
 func (m *ConversationMessageContent) validateButtonResponse(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ButtonResponse) { // not required
 		return nil
 	}
@@ -137,6 +138,8 @@ func (m *ConversationMessageContent) validateButtonResponse(formats strfmt.Regis
 		if err := m.ButtonResponse.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("buttonResponse")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("buttonResponse")
 			}
 			return err
 		}
@@ -146,7 +149,6 @@ func (m *ConversationMessageContent) validateButtonResponse(formats strfmt.Regis
 }
 
 func (m *ConversationMessageContent) validateCard(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Card) { // not required
 		return nil
 	}
@@ -155,6 +157,8 @@ func (m *ConversationMessageContent) validateCard(formats strfmt.Registry) error
 		if err := m.Card.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("card")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("card")
 			}
 			return err
 		}
@@ -164,7 +168,6 @@ func (m *ConversationMessageContent) validateCard(formats strfmt.Registry) error
 }
 
 func (m *ConversationMessageContent) validateCarousel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Carousel) { // not required
 		return nil
 	}
@@ -173,6 +176,8 @@ func (m *ConversationMessageContent) validateCarousel(formats strfmt.Registry) e
 		if err := m.Carousel.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("carousel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("carousel")
 			}
 			return err
 		}
@@ -255,7 +260,6 @@ func (m *ConversationMessageContent) validateContentType(formats strfmt.Registry
 }
 
 func (m *ConversationMessageContent) validateLocation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Location) { // not required
 		return nil
 	}
@@ -264,6 +268,8 @@ func (m *ConversationMessageContent) validateLocation(formats strfmt.Registry) e
 		if err := m.Location.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("location")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("location")
 			}
 			return err
 		}
@@ -273,7 +279,6 @@ func (m *ConversationMessageContent) validateLocation(formats strfmt.Registry) e
 }
 
 func (m *ConversationMessageContent) validateQuickReply(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.QuickReply) { // not required
 		return nil
 	}
@@ -282,6 +287,8 @@ func (m *ConversationMessageContent) validateQuickReply(formats strfmt.Registry)
 		if err := m.QuickReply.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quickReply")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quickReply")
 			}
 			return err
 		}
@@ -291,7 +298,6 @@ func (m *ConversationMessageContent) validateQuickReply(formats strfmt.Registry)
 }
 
 func (m *ConversationMessageContent) validateQuickReplyV2(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.QuickReplyV2) { // not required
 		return nil
 	}
@@ -300,6 +306,8 @@ func (m *ConversationMessageContent) validateQuickReplyV2(formats strfmt.Registr
 		if err := m.QuickReplyV2.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quickReplyV2")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quickReplyV2")
 			}
 			return err
 		}
@@ -309,7 +317,6 @@ func (m *ConversationMessageContent) validateQuickReplyV2(formats strfmt.Registr
 }
 
 func (m *ConversationMessageContent) validateStory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Story) { // not required
 		return nil
 	}
@@ -318,6 +325,8 @@ func (m *ConversationMessageContent) validateStory(formats strfmt.Registry) erro
 		if err := m.Story.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("story")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("story")
 			}
 			return err
 		}
@@ -327,7 +336,6 @@ func (m *ConversationMessageContent) validateStory(formats strfmt.Registry) erro
 }
 
 func (m *ConversationMessageContent) validateTemplate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Template) { // not required
 		return nil
 	}
@@ -336,6 +344,8 @@ func (m *ConversationMessageContent) validateTemplate(formats strfmt.Registry) e
 		if err := m.Template.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("template")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("template")
 			}
 			return err
 		}
@@ -345,7 +355,6 @@ func (m *ConversationMessageContent) validateTemplate(formats strfmt.Registry) e
 }
 
 func (m *ConversationMessageContent) validateText(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Text) { // not required
 		return nil
 	}
@@ -354,6 +363,218 @@ func (m *ConversationMessageContent) validateText(formats strfmt.Registry) error
 		if err := m.Text.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("text")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("text")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation message content based on the context it is used
+func (m *ConversationMessageContent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttachment(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateButtonResponse(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCard(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCarousel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLocation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuickReply(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuickReplyV2(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStory(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateText(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConversationMessageContent) contextValidateAttachment(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Attachment != nil {
+		if err := m.Attachment.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("attachment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attachment")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) contextValidateButtonResponse(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ButtonResponse != nil {
+		if err := m.ButtonResponse.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("buttonResponse")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("buttonResponse")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) contextValidateCard(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Card != nil {
+		if err := m.Card.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("card")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("card")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) contextValidateCarousel(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Carousel != nil {
+		if err := m.Carousel.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("carousel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("carousel")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) contextValidateLocation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Location != nil {
+		if err := m.Location.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("location")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("location")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) contextValidateQuickReply(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.QuickReply != nil {
+		if err := m.QuickReply.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("quickReply")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quickReply")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) contextValidateQuickReplyV2(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.QuickReplyV2 != nil {
+		if err := m.QuickReplyV2.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("quickReplyV2")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quickReplyV2")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) contextValidateStory(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Story != nil {
+		if err := m.Story.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("story")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("story")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) contextValidateTemplate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Template != nil {
+		if err := m.Template.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("template")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("template")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageContent) contextValidateText(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Text != nil {
+		if err := m.Text.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("text")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("text")
 			}
 			return err
 		}

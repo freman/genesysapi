@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -197,6 +198,11 @@ func (m *ObjectiveZone) validateZoneType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this objective zone based on context it is used
+func (m *ObjectiveZone) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

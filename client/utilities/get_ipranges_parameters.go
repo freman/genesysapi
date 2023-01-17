@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIprangesParams creates a new GetIprangesParams object
-// with the default values initialized.
+// NewGetIprangesParams creates a new GetIprangesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIprangesParams() *GetIprangesParams {
-
 	return &GetIprangesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIprangesParamsWithTimeout creates a new GetIprangesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIprangesParamsWithTimeout(timeout time.Duration) *GetIprangesParams {
-
 	return &GetIprangesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIprangesParamsWithContext creates a new GetIprangesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIprangesParamsWithContext(ctx context.Context) *GetIprangesParams {
-
 	return &GetIprangesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIprangesParamsWithHTTPClient creates a new GetIprangesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIprangesParamsWithHTTPClient(client *http.Client) *GetIprangesParams {
-
 	return &GetIprangesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIprangesParams contains all the parameters to send to the API endpoint
-for the get ipranges operation typically these are written to a http.Request
+/*
+GetIprangesParams contains all the parameters to send to the API endpoint
+
+	for the get ipranges operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIprangesParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get ipranges params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIprangesParams) WithDefaults() *GetIprangesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get ipranges params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIprangesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get ipranges params

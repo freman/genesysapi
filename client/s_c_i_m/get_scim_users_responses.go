@@ -95,7 +95,6 @@ func (o *GetScimUsersReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetScimUsersOK() *GetScimUsersOK {
 	return &GetScimUsersOK{}
 }
 
-/*GetScimUsersOK handles this case with default header values.
+/*
+GetScimUsersOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetScimUsersOK struct {
 	Payload *models.ScimUserListResponse
 }
 
+// IsSuccess returns true when this get scim users o k response has a 2xx status code
+func (o *GetScimUsersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get scim users o k response has a 3xx status code
+func (o *GetScimUsersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim users o k response has a 4xx status code
+func (o *GetScimUsersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim users o k response has a 5xx status code
+func (o *GetScimUsersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim users o k response a status code equal to that given
+func (o *GetScimUsersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetScimUsersOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersOK  %+v", 200, o.Payload)
+}
+
+func (o *GetScimUsersOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetScimUsersBadRequest() *GetScimUsersBadRequest {
 	return &GetScimUsersBadRequest{}
 }
 
-/*GetScimUsersBadRequest handles this case with default header values.
+/*
+GetScimUsersBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetScimUsersBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim users bad request response has a 2xx status code
+func (o *GetScimUsersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim users bad request response has a 3xx status code
+func (o *GetScimUsersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim users bad request response has a 4xx status code
+func (o *GetScimUsersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim users bad request response has a 5xx status code
+func (o *GetScimUsersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim users bad request response a status code equal to that given
+func (o *GetScimUsersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetScimUsersBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetScimUsersBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetScimUsersUnauthorized() *GetScimUsersUnauthorized {
 	return &GetScimUsersUnauthorized{}
 }
 
-/*GetScimUsersUnauthorized handles this case with default header values.
+/*
+GetScimUsersUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetScimUsersUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim users unauthorized response has a 2xx status code
+func (o *GetScimUsersUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim users unauthorized response has a 3xx status code
+func (o *GetScimUsersUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim users unauthorized response has a 4xx status code
+func (o *GetScimUsersUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim users unauthorized response has a 5xx status code
+func (o *GetScimUsersUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim users unauthorized response a status code equal to that given
+func (o *GetScimUsersUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetScimUsersUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetScimUsersUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetScimUsersForbidden() *GetScimUsersForbidden {
 	return &GetScimUsersForbidden{}
 }
 
-/*GetScimUsersForbidden handles this case with default header values.
+/*
+GetScimUsersForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetScimUsersForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim users forbidden response has a 2xx status code
+func (o *GetScimUsersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim users forbidden response has a 3xx status code
+func (o *GetScimUsersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim users forbidden response has a 4xx status code
+func (o *GetScimUsersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim users forbidden response has a 5xx status code
+func (o *GetScimUsersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim users forbidden response a status code equal to that given
+func (o *GetScimUsersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetScimUsersForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetScimUsersForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetScimUsersNotFound() *GetScimUsersNotFound {
 	return &GetScimUsersNotFound{}
 }
 
-/*GetScimUsersNotFound handles this case with default header values.
+/*
+GetScimUsersNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetScimUsersNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim users not found response has a 2xx status code
+func (o *GetScimUsersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim users not found response has a 3xx status code
+func (o *GetScimUsersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim users not found response has a 4xx status code
+func (o *GetScimUsersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim users not found response has a 5xx status code
+func (o *GetScimUsersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim users not found response a status code equal to that given
+func (o *GetScimUsersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetScimUsersNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetScimUsersNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetScimUsersRequestTimeout() *GetScimUsersRequestTimeout {
 	return &GetScimUsersRequestTimeout{}
 }
 
-/*GetScimUsersRequestTimeout handles this case with default header values.
+/*
+GetScimUsersRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetScimUsersRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim users request timeout response has a 2xx status code
+func (o *GetScimUsersRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim users request timeout response has a 3xx status code
+func (o *GetScimUsersRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim users request timeout response has a 4xx status code
+func (o *GetScimUsersRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim users request timeout response has a 5xx status code
+func (o *GetScimUsersRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim users request timeout response a status code equal to that given
+func (o *GetScimUsersRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetScimUsersRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScimUsersRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetScimUsersRequestEntityTooLarge() *GetScimUsersRequestEntityTooLarge {
 	return &GetScimUsersRequestEntityTooLarge{}
 }
 
-/*GetScimUsersRequestEntityTooLarge handles this case with default header values.
+/*
+GetScimUsersRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetScimUsersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim users request entity too large response has a 2xx status code
+func (o *GetScimUsersRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim users request entity too large response has a 3xx status code
+func (o *GetScimUsersRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim users request entity too large response has a 4xx status code
+func (o *GetScimUsersRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim users request entity too large response has a 5xx status code
+func (o *GetScimUsersRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim users request entity too large response a status code equal to that given
+func (o *GetScimUsersRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetScimUsersRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetScimUsersRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetScimUsersUnsupportedMediaType() *GetScimUsersUnsupportedMediaType {
 	return &GetScimUsersUnsupportedMediaType{}
 }
 
-/*GetScimUsersUnsupportedMediaType handles this case with default header values.
+/*
+GetScimUsersUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetScimUsersUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim users unsupported media type response has a 2xx status code
+func (o *GetScimUsersUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim users unsupported media type response has a 3xx status code
+func (o *GetScimUsersUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim users unsupported media type response has a 4xx status code
+func (o *GetScimUsersUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim users unsupported media type response has a 5xx status code
+func (o *GetScimUsersUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim users unsupported media type response a status code equal to that given
+func (o *GetScimUsersUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetScimUsersUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetScimUsersUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetScimUsersTooManyRequests() *GetScimUsersTooManyRequests {
 	return &GetScimUsersTooManyRequests{}
 }
 
-/*GetScimUsersTooManyRequests handles this case with default header values.
+/*
+GetScimUsersTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetScimUsersTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim users too many requests response has a 2xx status code
+func (o *GetScimUsersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim users too many requests response has a 3xx status code
+func (o *GetScimUsersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim users too many requests response has a 4xx status code
+func (o *GetScimUsersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim users too many requests response has a 5xx status code
+func (o *GetScimUsersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim users too many requests response a status code equal to that given
+func (o *GetScimUsersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetScimUsersTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetScimUsersTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetScimUsersInternalServerError() *GetScimUsersInternalServerError {
 	return &GetScimUsersInternalServerError{}
 }
 
-/*GetScimUsersInternalServerError handles this case with default header values.
+/*
+GetScimUsersInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetScimUsersInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim users internal server error response has a 2xx status code
+func (o *GetScimUsersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim users internal server error response has a 3xx status code
+func (o *GetScimUsersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim users internal server error response has a 4xx status code
+func (o *GetScimUsersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim users internal server error response has a 5xx status code
+func (o *GetScimUsersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim users internal server error response a status code equal to that given
+func (o *GetScimUsersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetScimUsersInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetScimUsersInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetScimUsersServiceUnavailable() *GetScimUsersServiceUnavailable {
 	return &GetScimUsersServiceUnavailable{}
 }
 
-/*GetScimUsersServiceUnavailable handles this case with default header values.
+/*
+GetScimUsersServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetScimUsersServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim users service unavailable response has a 2xx status code
+func (o *GetScimUsersServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim users service unavailable response has a 3xx status code
+func (o *GetScimUsersServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim users service unavailable response has a 4xx status code
+func (o *GetScimUsersServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim users service unavailable response has a 5xx status code
+func (o *GetScimUsersServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim users service unavailable response a status code equal to that given
+func (o *GetScimUsersServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetScimUsersServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetScimUsersServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetScimUsersGatewayTimeout() *GetScimUsersGatewayTimeout {
 	return &GetScimUsersGatewayTimeout{}
 }
 
-/*GetScimUsersGatewayTimeout handles this case with default header values.
+/*
+GetScimUsersGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetScimUsersGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim users gateway timeout response has a 2xx status code
+func (o *GetScimUsersGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim users gateway timeout response has a 3xx status code
+func (o *GetScimUsersGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim users gateway timeout response has a 4xx status code
+func (o *GetScimUsersGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim users gateway timeout response has a 5xx status code
+func (o *GetScimUsersGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim users gateway timeout response a status code equal to that given
+func (o *GetScimUsersGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetScimUsersGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetScimUsersGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/users][%d] getScimUsersGatewayTimeout  %+v", 504, o.Payload)
 }
 

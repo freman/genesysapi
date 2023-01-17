@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -60,7 +61,6 @@ func (m *MeteredEvaluationAssignment) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MeteredEvaluationAssignment) validateEvaluationForm(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EvaluationForm) { // not required
 		return nil
 	}
@@ -69,6 +69,8 @@ func (m *MeteredEvaluationAssignment) validateEvaluationForm(formats strfmt.Regi
 		if err := m.EvaluationForm.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("evaluationForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("evaluationForm")
 			}
 			return err
 		}
@@ -78,7 +80,6 @@ func (m *MeteredEvaluationAssignment) validateEvaluationForm(formats strfmt.Regi
 }
 
 func (m *MeteredEvaluationAssignment) validateEvaluators(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Evaluators) { // not required
 		return nil
 	}
@@ -92,6 +93,8 @@ func (m *MeteredEvaluationAssignment) validateEvaluators(formats strfmt.Registry
 			if err := m.Evaluators[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("evaluators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("evaluators" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -103,7 +106,6 @@ func (m *MeteredEvaluationAssignment) validateEvaluators(formats strfmt.Registry
 }
 
 func (m *MeteredEvaluationAssignment) validateTimeInterval(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TimeInterval) { // not required
 		return nil
 	}
@@ -112,6 +114,82 @@ func (m *MeteredEvaluationAssignment) validateTimeInterval(formats strfmt.Regist
 		if err := m.TimeInterval.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("timeInterval")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeInterval")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this metered evaluation assignment based on the context it is used
+func (m *MeteredEvaluationAssignment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEvaluationForm(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvaluators(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTimeInterval(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MeteredEvaluationAssignment) contextValidateEvaluationForm(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EvaluationForm != nil {
+		if err := m.EvaluationForm.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("evaluationForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("evaluationForm")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MeteredEvaluationAssignment) contextValidateEvaluators(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Evaluators); i++ {
+
+		if m.Evaluators[i] != nil {
+			if err := m.Evaluators[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("evaluators" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("evaluators" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MeteredEvaluationAssignment) contextValidateTimeInterval(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TimeInterval != nil {
+		if err := m.TimeInterval.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("timeInterval")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeInterval")
 			}
 			return err
 		}

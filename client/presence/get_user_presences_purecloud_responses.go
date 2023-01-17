@@ -95,7 +95,6 @@ func (o *GetUserPresencesPurecloudReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetUserPresencesPurecloudOK() *GetUserPresencesPurecloudOK {
 	return &GetUserPresencesPurecloudOK{}
 }
 
-/*GetUserPresencesPurecloudOK handles this case with default header values.
+/*
+GetUserPresencesPurecloudOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetUserPresencesPurecloudOK struct {
 	Payload *models.UserPresence
 }
 
+// IsSuccess returns true when this get user presences purecloud o k response has a 2xx status code
+func (o *GetUserPresencesPurecloudOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get user presences purecloud o k response has a 3xx status code
+func (o *GetUserPresencesPurecloudOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presences purecloud o k response has a 4xx status code
+func (o *GetUserPresencesPurecloudOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user presences purecloud o k response has a 5xx status code
+func (o *GetUserPresencesPurecloudOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presences purecloud o k response a status code equal to that given
+func (o *GetUserPresencesPurecloudOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUserPresencesPurecloudOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudOK  %+v", 200, o.Payload)
+}
+
+func (o *GetUserPresencesPurecloudOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetUserPresencesPurecloudBadRequest() *GetUserPresencesPurecloudBadReque
 	return &GetUserPresencesPurecloudBadRequest{}
 }
 
-/*GetUserPresencesPurecloudBadRequest handles this case with default header values.
+/*
+GetUserPresencesPurecloudBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetUserPresencesPurecloudBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presences purecloud bad request response has a 2xx status code
+func (o *GetUserPresencesPurecloudBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presences purecloud bad request response has a 3xx status code
+func (o *GetUserPresencesPurecloudBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presences purecloud bad request response has a 4xx status code
+func (o *GetUserPresencesPurecloudBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presences purecloud bad request response has a 5xx status code
+func (o *GetUserPresencesPurecloudBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presences purecloud bad request response a status code equal to that given
+func (o *GetUserPresencesPurecloudBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUserPresencesPurecloudBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetUserPresencesPurecloudBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetUserPresencesPurecloudUnauthorized() *GetUserPresencesPurecloudUnauth
 	return &GetUserPresencesPurecloudUnauthorized{}
 }
 
-/*GetUserPresencesPurecloudUnauthorized handles this case with default header values.
+/*
+GetUserPresencesPurecloudUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetUserPresencesPurecloudUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presences purecloud unauthorized response has a 2xx status code
+func (o *GetUserPresencesPurecloudUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presences purecloud unauthorized response has a 3xx status code
+func (o *GetUserPresencesPurecloudUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presences purecloud unauthorized response has a 4xx status code
+func (o *GetUserPresencesPurecloudUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presences purecloud unauthorized response has a 5xx status code
+func (o *GetUserPresencesPurecloudUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presences purecloud unauthorized response a status code equal to that given
+func (o *GetUserPresencesPurecloudUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetUserPresencesPurecloudUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetUserPresencesPurecloudUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetUserPresencesPurecloudForbidden() *GetUserPresencesPurecloudForbidden
 	return &GetUserPresencesPurecloudForbidden{}
 }
 
-/*GetUserPresencesPurecloudForbidden handles this case with default header values.
+/*
+GetUserPresencesPurecloudForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetUserPresencesPurecloudForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presences purecloud forbidden response has a 2xx status code
+func (o *GetUserPresencesPurecloudForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presences purecloud forbidden response has a 3xx status code
+func (o *GetUserPresencesPurecloudForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presences purecloud forbidden response has a 4xx status code
+func (o *GetUserPresencesPurecloudForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presences purecloud forbidden response has a 5xx status code
+func (o *GetUserPresencesPurecloudForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presences purecloud forbidden response a status code equal to that given
+func (o *GetUserPresencesPurecloudForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUserPresencesPurecloudForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetUserPresencesPurecloudForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetUserPresencesPurecloudNotFound() *GetUserPresencesPurecloudNotFound {
 	return &GetUserPresencesPurecloudNotFound{}
 }
 
-/*GetUserPresencesPurecloudNotFound handles this case with default header values.
+/*
+GetUserPresencesPurecloudNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetUserPresencesPurecloudNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presences purecloud not found response has a 2xx status code
+func (o *GetUserPresencesPurecloudNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presences purecloud not found response has a 3xx status code
+func (o *GetUserPresencesPurecloudNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presences purecloud not found response has a 4xx status code
+func (o *GetUserPresencesPurecloudNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presences purecloud not found response has a 5xx status code
+func (o *GetUserPresencesPurecloudNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presences purecloud not found response a status code equal to that given
+func (o *GetUserPresencesPurecloudNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetUserPresencesPurecloudNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetUserPresencesPurecloudNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetUserPresencesPurecloudRequestTimeout() *GetUserPresencesPurecloudRequ
 	return &GetUserPresencesPurecloudRequestTimeout{}
 }
 
-/*GetUserPresencesPurecloudRequestTimeout handles this case with default header values.
+/*
+GetUserPresencesPurecloudRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetUserPresencesPurecloudRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presences purecloud request timeout response has a 2xx status code
+func (o *GetUserPresencesPurecloudRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presences purecloud request timeout response has a 3xx status code
+func (o *GetUserPresencesPurecloudRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presences purecloud request timeout response has a 4xx status code
+func (o *GetUserPresencesPurecloudRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presences purecloud request timeout response has a 5xx status code
+func (o *GetUserPresencesPurecloudRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presences purecloud request timeout response a status code equal to that given
+func (o *GetUserPresencesPurecloudRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetUserPresencesPurecloudRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserPresencesPurecloudRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetUserPresencesPurecloudRequestEntityTooLarge() *GetUserPresencesPurecl
 	return &GetUserPresencesPurecloudRequestEntityTooLarge{}
 }
 
-/*GetUserPresencesPurecloudRequestEntityTooLarge handles this case with default header values.
+/*
+GetUserPresencesPurecloudRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetUserPresencesPurecloudRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presences purecloud request entity too large response has a 2xx status code
+func (o *GetUserPresencesPurecloudRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presences purecloud request entity too large response has a 3xx status code
+func (o *GetUserPresencesPurecloudRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presences purecloud request entity too large response has a 4xx status code
+func (o *GetUserPresencesPurecloudRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presences purecloud request entity too large response has a 5xx status code
+func (o *GetUserPresencesPurecloudRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presences purecloud request entity too large response a status code equal to that given
+func (o *GetUserPresencesPurecloudRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetUserPresencesPurecloudRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetUserPresencesPurecloudRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetUserPresencesPurecloudUnsupportedMediaType() *GetUserPresencesPureclo
 	return &GetUserPresencesPurecloudUnsupportedMediaType{}
 }
 
-/*GetUserPresencesPurecloudUnsupportedMediaType handles this case with default header values.
+/*
+GetUserPresencesPurecloudUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetUserPresencesPurecloudUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presences purecloud unsupported media type response has a 2xx status code
+func (o *GetUserPresencesPurecloudUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presences purecloud unsupported media type response has a 3xx status code
+func (o *GetUserPresencesPurecloudUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presences purecloud unsupported media type response has a 4xx status code
+func (o *GetUserPresencesPurecloudUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presences purecloud unsupported media type response has a 5xx status code
+func (o *GetUserPresencesPurecloudUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presences purecloud unsupported media type response a status code equal to that given
+func (o *GetUserPresencesPurecloudUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetUserPresencesPurecloudUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetUserPresencesPurecloudUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetUserPresencesPurecloudTooManyRequests() *GetUserPresencesPurecloudToo
 	return &GetUserPresencesPurecloudTooManyRequests{}
 }
 
-/*GetUserPresencesPurecloudTooManyRequests handles this case with default header values.
+/*
+GetUserPresencesPurecloudTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetUserPresencesPurecloudTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presences purecloud too many requests response has a 2xx status code
+func (o *GetUserPresencesPurecloudTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presences purecloud too many requests response has a 3xx status code
+func (o *GetUserPresencesPurecloudTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presences purecloud too many requests response has a 4xx status code
+func (o *GetUserPresencesPurecloudTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user presences purecloud too many requests response has a 5xx status code
+func (o *GetUserPresencesPurecloudTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user presences purecloud too many requests response a status code equal to that given
+func (o *GetUserPresencesPurecloudTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUserPresencesPurecloudTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetUserPresencesPurecloudTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetUserPresencesPurecloudInternalServerError() *GetUserPresencesPureclou
 	return &GetUserPresencesPurecloudInternalServerError{}
 }
 
-/*GetUserPresencesPurecloudInternalServerError handles this case with default header values.
+/*
+GetUserPresencesPurecloudInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetUserPresencesPurecloudInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presences purecloud internal server error response has a 2xx status code
+func (o *GetUserPresencesPurecloudInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presences purecloud internal server error response has a 3xx status code
+func (o *GetUserPresencesPurecloudInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presences purecloud internal server error response has a 4xx status code
+func (o *GetUserPresencesPurecloudInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user presences purecloud internal server error response has a 5xx status code
+func (o *GetUserPresencesPurecloudInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user presences purecloud internal server error response a status code equal to that given
+func (o *GetUserPresencesPurecloudInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUserPresencesPurecloudInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetUserPresencesPurecloudInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetUserPresencesPurecloudServiceUnavailable() *GetUserPresencesPurecloud
 	return &GetUserPresencesPurecloudServiceUnavailable{}
 }
 
-/*GetUserPresencesPurecloudServiceUnavailable handles this case with default header values.
+/*
+GetUserPresencesPurecloudServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetUserPresencesPurecloudServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presences purecloud service unavailable response has a 2xx status code
+func (o *GetUserPresencesPurecloudServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presences purecloud service unavailable response has a 3xx status code
+func (o *GetUserPresencesPurecloudServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presences purecloud service unavailable response has a 4xx status code
+func (o *GetUserPresencesPurecloudServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user presences purecloud service unavailable response has a 5xx status code
+func (o *GetUserPresencesPurecloudServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user presences purecloud service unavailable response a status code equal to that given
+func (o *GetUserPresencesPurecloudServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetUserPresencesPurecloudServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetUserPresencesPurecloudServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetUserPresencesPurecloudGatewayTimeout() *GetUserPresencesPurecloudGate
 	return &GetUserPresencesPurecloudGatewayTimeout{}
 }
 
-/*GetUserPresencesPurecloudGatewayTimeout handles this case with default header values.
+/*
+GetUserPresencesPurecloudGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetUserPresencesPurecloudGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user presences purecloud gateway timeout response has a 2xx status code
+func (o *GetUserPresencesPurecloudGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user presences purecloud gateway timeout response has a 3xx status code
+func (o *GetUserPresencesPurecloudGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user presences purecloud gateway timeout response has a 4xx status code
+func (o *GetUserPresencesPurecloudGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user presences purecloud gateway timeout response has a 5xx status code
+func (o *GetUserPresencesPurecloudGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user presences purecloud gateway timeout response a status code equal to that given
+func (o *GetUserPresencesPurecloudGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetUserPresencesPurecloudGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetUserPresencesPurecloudGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/presences/purecloud][%d] getUserPresencesPurecloudGatewayTimeout  %+v", 504, o.Payload)
 }
 

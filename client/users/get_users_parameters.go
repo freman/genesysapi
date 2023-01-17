@@ -17,130 +17,147 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetUsersParams creates a new GetUsersParams object
-// with the default values initialized.
+// NewGetUsersParams creates a new GetUsersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUsersParams() *GetUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ASC")
-		stateDefault      = string("active")
-	)
 	return &GetUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-		State:      &stateDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUsersParamsWithTimeout creates a new GetUsersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUsersParamsWithTimeout(timeout time.Duration) *GetUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ASC")
-		stateDefault      = string("active")
-	)
 	return &GetUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-		State:      &stateDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUsersParamsWithContext creates a new GetUsersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUsersParamsWithContext(ctx context.Context) *GetUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ASC")
-		stateDefault      = string("active")
-	)
 	return &GetUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-		State:      &stateDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetUsersParamsWithHTTPClient creates a new GetUsersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUsersParamsWithHTTPClient(client *http.Client) *GetUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ASC")
-		stateDefault      = string("active")
-	)
 	return &GetUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-		State:      &stateDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetUsersParams contains all the parameters to send to the API endpoint
-for the get users operation typically these are written to a http.Request
+/*
+GetUsersParams contains all the parameters to send to the API endpoint
+
+	for the get users operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUsersParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand
+	/* Expand.
 
+	   Which fields, if any, to expand
 	*/
 	Expand []string
-	/*ID
-	  A list of user IDs to fetch by bulk
 
+	/* ID.
+
+	   A list of user IDs to fetch by bulk
 	*/
 	ID []string
-	/*IntegrationPresenceSource
-	  Gets an integration presence for users instead of their defaults. This parameter will only be used when presence is provided as an "expand". When using this parameter the maximum number of users that can be returned is 100.
 
+	/* IntegrationPresenceSource.
+
+	   Gets an integration presence for users instead of their defaults. This parameter will only be used when presence is provided as an "expand". When using this parameter the maximum number of users that can be returned is 100.
 	*/
 	IntegrationPresenceSource *string
-	/*JabberID
-	  A list of jabberIds to fetch by bulk (cannot be used with the "id" parameter)
 
+	/* JabberID.
+
+	   A list of jabberIds to fetch by bulk (cannot be used with the "id" parameter)
 	*/
 	JabberID []string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortOrder
-	  Ascending or descending sort order
 
+	/* SortOrder.
+
+	   Ascending or descending sort order
+
+	   Default: "ASC"
 	*/
 	SortOrder *string
-	/*State
-	  Only list users of this state
 
+	/* State.
+
+	   Only list users of this state
+
+	   Default: "active"
 	*/
 	State *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUsersParams) WithDefaults() *GetUsersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUsersParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortOrderDefault = string("ASC")
+
+		stateDefault = string("active")
+	)
+
+	val := GetUsersParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
+		State:      &stateDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get users params
@@ -272,112 +289,177 @@ func (o *GetUsersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if o.IntegrationPresenceSource != nil {
 
 		// query param integrationPresenceSource
 		var qrIntegrationPresenceSource string
+
 		if o.IntegrationPresenceSource != nil {
 			qrIntegrationPresenceSource = *o.IntegrationPresenceSource
 		}
 		qIntegrationPresenceSource := qrIntegrationPresenceSource
 		if qIntegrationPresenceSource != "" {
+
 			if err := r.SetQueryParam("integrationPresenceSource", qIntegrationPresenceSource); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesJabberID := o.JabberID
+	if o.JabberID != nil {
 
-	joinedJabberID := swag.JoinByFormat(valuesJabberID, "multi")
-	// query array param jabberId
-	if err := r.SetQueryParam("jabberId", joinedJabberID...); err != nil {
-		return err
+		// binding items for jabberId
+		joinedJabberID := o.bindParamJabberID(reg)
+
+		// query array param jabberId
+		if err := r.SetQueryParam("jabberId", joinedJabberID...); err != nil {
+			return err
+		}
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.State != nil {
 
 		// query param state
 		var qrState string
+
 		if o.State != nil {
 			qrState = *o.State
 		}
 		qState := qrState
 		if qState != "" {
+
 			if err := r.SetQueryParam("state", qState); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetUsers binds the parameter expand
+func (o *GetUsersParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
+}
+
+// bindParamGetUsers binds the parameter id
+func (o *GetUsersParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
+}
+
+// bindParamGetUsers binds the parameter jabberId
+func (o *GetUsersParams) bindParamJabberID(formats strfmt.Registry) []string {
+	jabberIDIR := o.JabberID
+
+	var jabberIDIC []string
+	for _, jabberIDIIR := range jabberIDIR { // explode []string
+
+		jabberIDIIV := jabberIDIIR // string as string
+		jabberIDIC = append(jabberIDIC, jabberIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	jabberIDIS := swag.JoinByFormat(jabberIDIC, "multi")
+
+	return jabberIDIS
 }

@@ -17,158 +17,174 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetFlowsDivisionviewsParams creates a new GetFlowsDivisionviewsParams object
-// with the default values initialized.
+// NewGetFlowsDivisionviewsParams creates a new GetFlowsDivisionviewsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFlowsDivisionviewsParams() *GetFlowsDivisionviewsParams {
-	var (
-		includeSchemasDefault = bool(false)
-		pageNumberDefault     = int32(1)
-		pageSizeDefault       = int32(25)
-		sortByDefault         = string("id")
-		sortOrderDefault      = string("asc")
-	)
 	return &GetFlowsDivisionviewsParams{
-		IncludeSchemas: &includeSchemasDefault,
-		PageNumber:     &pageNumberDefault,
-		PageSize:       &pageSizeDefault,
-		SortBy:         &sortByDefault,
-		SortOrder:      &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFlowsDivisionviewsParamsWithTimeout creates a new GetFlowsDivisionviewsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFlowsDivisionviewsParamsWithTimeout(timeout time.Duration) *GetFlowsDivisionviewsParams {
-	var (
-		includeSchemasDefault = bool(false)
-		pageNumberDefault     = int32(1)
-		pageSizeDefault       = int32(25)
-		sortByDefault         = string("id")
-		sortOrderDefault      = string("asc")
-	)
 	return &GetFlowsDivisionviewsParams{
-		IncludeSchemas: &includeSchemasDefault,
-		PageNumber:     &pageNumberDefault,
-		PageSize:       &pageSizeDefault,
-		SortBy:         &sortByDefault,
-		SortOrder:      &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFlowsDivisionviewsParamsWithContext creates a new GetFlowsDivisionviewsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFlowsDivisionviewsParamsWithContext(ctx context.Context) *GetFlowsDivisionviewsParams {
-	var (
-		includeSchemasDefault = bool(false)
-		pageNumberDefault     = int32(1)
-		pageSizeDefault       = int32(25)
-		sortByDefault         = string("id")
-		sortOrderDefault      = string("asc")
-	)
 	return &GetFlowsDivisionviewsParams{
-		IncludeSchemas: &includeSchemasDefault,
-		PageNumber:     &pageNumberDefault,
-		PageSize:       &pageSizeDefault,
-		SortBy:         &sortByDefault,
-		SortOrder:      &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetFlowsDivisionviewsParamsWithHTTPClient creates a new GetFlowsDivisionviewsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFlowsDivisionviewsParamsWithHTTPClient(client *http.Client) *GetFlowsDivisionviewsParams {
-	var (
-		includeSchemasDefault = bool(false)
-		pageNumberDefault     = int32(1)
-		pageSizeDefault       = int32(25)
-		sortByDefault         = string("id")
-		sortOrderDefault      = string("asc")
-	)
 	return &GetFlowsDivisionviewsParams{
-		IncludeSchemas: &includeSchemasDefault,
-		PageNumber:     &pageNumberDefault,
-		PageSize:       &pageSizeDefault,
-		SortBy:         &sortByDefault,
-		SortOrder:      &sortOrderDefault,
-		HTTPClient:     client,
+		HTTPClient: client,
 	}
 }
 
-/*GetFlowsDivisionviewsParams contains all the parameters to send to the API endpoint
-for the get flows divisionviews operation typically these are written to a http.Request
+/*
+GetFlowsDivisionviewsParams contains all the parameters to send to the API endpoint
+
+	for the get flows divisionviews operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFlowsDivisionviewsParams struct {
 
-	/*DivisionID
-	  division ID(s)
+	/* DivisionID.
 
+	   division ID(s)
 	*/
 	DivisionID []string
-	/*ID
-	  ID
 
+	/* ID.
+
+	   ID
 	*/
 	ID []string
-	/*IncludeSchemas
-	  Include variable schemas
 
+	/* IncludeSchemas.
+
+	   Include variable schemas
 	*/
 	IncludeSchemas *bool
-	/*Name
-	  Name
 
+	/* Name.
+
+	   Name
 	*/
 	Name *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*PublishVersionID
-	  Publish version ID
 
+	/* PublishVersionID.
+
+	   Publish version ID
 	*/
 	PublishVersionID *string
-	/*PublishedAfter
-	  Published after
 
+	/* PublishedAfter.
+
+	   Published after
 	*/
 	PublishedAfter *string
-	/*PublishedBefore
-	  Published before
 
+	/* PublishedBefore.
+
+	   Published before
 	*/
 	PublishedBefore *string
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
+
+	   Default: "id"
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "asc"
 	*/
 	SortOrder *string
-	/*Type
-	  Type
 
+	/* Type.
+
+	   Type
 	*/
 	Type []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get flows divisionviews params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowsDivisionviewsParams) WithDefaults() *GetFlowsDivisionviewsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get flows divisionviews params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowsDivisionviewsParams) SetDefaults() {
+	var (
+		includeSchemasDefault = bool(false)
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("id")
+
+		sortOrderDefault = string("asc")
+	)
+
+	val := GetFlowsDivisionviewsParams{
+		IncludeSchemas: &includeSchemasDefault,
+		PageNumber:     &pageNumberDefault,
+		PageSize:       &pageSizeDefault,
+		SortBy:         &sortByDefault,
+		SortOrder:      &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get flows divisionviews params
@@ -344,176 +360,245 @@ func (o *GetFlowsDivisionviewsParams) WriteToRequest(r runtime.ClientRequest, re
 	}
 	var res []error
 
-	valuesDivisionID := o.DivisionID
+	if o.DivisionID != nil {
 
-	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
-	// query array param divisionId
-	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
-		return err
+		// binding items for divisionId
+		joinedDivisionID := o.bindParamDivisionID(reg)
+
+		// query array param divisionId
+		if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+			return err
+		}
 	}
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if o.IncludeSchemas != nil {
 
 		// query param includeSchemas
 		var qrIncludeSchemas bool
+
 		if o.IncludeSchemas != nil {
 			qrIncludeSchemas = *o.IncludeSchemas
 		}
 		qIncludeSchemas := swag.FormatBool(qrIncludeSchemas)
 		if qIncludeSchemas != "" {
+
 			if err := r.SetQueryParam("includeSchemas", qIncludeSchemas); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PublishVersionID != nil {
 
 		// query param publishVersionId
 		var qrPublishVersionID string
+
 		if o.PublishVersionID != nil {
 			qrPublishVersionID = *o.PublishVersionID
 		}
 		qPublishVersionID := qrPublishVersionID
 		if qPublishVersionID != "" {
+
 			if err := r.SetQueryParam("publishVersionId", qPublishVersionID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PublishedAfter != nil {
 
 		// query param publishedAfter
 		var qrPublishedAfter string
+
 		if o.PublishedAfter != nil {
 			qrPublishedAfter = *o.PublishedAfter
 		}
 		qPublishedAfter := qrPublishedAfter
 		if qPublishedAfter != "" {
+
 			if err := r.SetQueryParam("publishedAfter", qPublishedAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PublishedBefore != nil {
 
 		// query param publishedBefore
 		var qrPublishedBefore string
+
 		if o.PublishedBefore != nil {
 			qrPublishedBefore = *o.PublishedBefore
 		}
 		qPublishedBefore := qrPublishedBefore
 		if qPublishedBefore != "" {
+
 			if err := r.SetQueryParam("publishedBefore", qPublishedBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesType := o.Type
+	if o.Type != nil {
 
-	joinedType := swag.JoinByFormat(valuesType, "multi")
-	// query array param type
-	if err := r.SetQueryParam("type", joinedType...); err != nil {
-		return err
+		// binding items for type
+		joinedType := o.bindParamType(reg)
+
+		// query array param type
+		if err := r.SetQueryParam("type", joinedType...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetFlowsDivisionviews binds the parameter divisionId
+func (o *GetFlowsDivisionviewsParams) bindParamDivisionID(formats strfmt.Registry) []string {
+	divisionIDIR := o.DivisionID
+
+	var divisionIDIC []string
+	for _, divisionIDIIR := range divisionIDIR { // explode []string
+
+		divisionIDIIV := divisionIDIIR // string as string
+		divisionIDIC = append(divisionIDIC, divisionIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	divisionIDIS := swag.JoinByFormat(divisionIDIC, "multi")
+
+	return divisionIDIS
+}
+
+// bindParamGetFlowsDivisionviews binds the parameter id
+func (o *GetFlowsDivisionviewsParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
+}
+
+// bindParamGetFlowsDivisionviews binds the parameter type
+func (o *GetFlowsDivisionviewsParams) bindParamType(formats strfmt.Registry) []string {
+	typeIR := o.Type
+
+	var typeIC []string
+	for _, typeIIR := range typeIR { // explode []string
+
+		typeIIV := typeIIR // string as string
+		typeIC = append(typeIC, typeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	typeIS := swag.JoinByFormat(typeIC, "multi")
+
+	return typeIS
 }

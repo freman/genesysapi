@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // TopicOffset topic offset
@@ -26,6 +30,42 @@ type TopicOffset struct {
 
 // Validate validates this topic offset
 func (m *TopicOffset) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this topic offset based on the context it is used
+func (m *TopicOffset) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCharacterCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWordCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TopicOffset) contextValidateCharacterCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "characterCount", "body", int64(m.CharacterCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TopicOffset) contextValidateWordCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "wordCount", "body", int64(m.WordCount)); err != nil {
+		return err
+	}
+
 	return nil
 }
 

@@ -95,7 +95,6 @@ func (o *GetDataextensionsCoretypesReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetDataextensionsCoretypesOK() *GetDataextensionsCoretypesOK {
 	return &GetDataextensionsCoretypesOK{}
 }
 
-/*GetDataextensionsCoretypesOK handles this case with default header values.
+/*
+GetDataextensionsCoretypesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetDataextensionsCoretypesOK struct {
 	Payload *models.CoretypeListing
 }
 
+// IsSuccess returns true when this get dataextensions coretypes o k response has a 2xx status code
+func (o *GetDataextensionsCoretypesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get dataextensions coretypes o k response has a 3xx status code
+func (o *GetDataextensionsCoretypesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions coretypes o k response has a 4xx status code
+func (o *GetDataextensionsCoretypesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get dataextensions coretypes o k response has a 5xx status code
+func (o *GetDataextensionsCoretypesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions coretypes o k response a status code equal to that given
+func (o *GetDataextensionsCoretypesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetDataextensionsCoretypesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetDataextensionsCoretypesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetDataextensionsCoretypesBadRequest() *GetDataextensionsCoretypesBadReq
 	return &GetDataextensionsCoretypesBadRequest{}
 }
 
-/*GetDataextensionsCoretypesBadRequest handles this case with default header values.
+/*
+GetDataextensionsCoretypesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetDataextensionsCoretypesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions coretypes bad request response has a 2xx status code
+func (o *GetDataextensionsCoretypesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions coretypes bad request response has a 3xx status code
+func (o *GetDataextensionsCoretypesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions coretypes bad request response has a 4xx status code
+func (o *GetDataextensionsCoretypesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions coretypes bad request response has a 5xx status code
+func (o *GetDataextensionsCoretypesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions coretypes bad request response a status code equal to that given
+func (o *GetDataextensionsCoretypesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetDataextensionsCoretypesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetDataextensionsCoretypesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetDataextensionsCoretypesUnauthorized() *GetDataextensionsCoretypesUnau
 	return &GetDataextensionsCoretypesUnauthorized{}
 }
 
-/*GetDataextensionsCoretypesUnauthorized handles this case with default header values.
+/*
+GetDataextensionsCoretypesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetDataextensionsCoretypesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions coretypes unauthorized response has a 2xx status code
+func (o *GetDataextensionsCoretypesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions coretypes unauthorized response has a 3xx status code
+func (o *GetDataextensionsCoretypesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions coretypes unauthorized response has a 4xx status code
+func (o *GetDataextensionsCoretypesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions coretypes unauthorized response has a 5xx status code
+func (o *GetDataextensionsCoretypesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions coretypes unauthorized response a status code equal to that given
+func (o *GetDataextensionsCoretypesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetDataextensionsCoretypesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetDataextensionsCoretypesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetDataextensionsCoretypesForbidden() *GetDataextensionsCoretypesForbidd
 	return &GetDataextensionsCoretypesForbidden{}
 }
 
-/*GetDataextensionsCoretypesForbidden handles this case with default header values.
+/*
+GetDataextensionsCoretypesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetDataextensionsCoretypesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions coretypes forbidden response has a 2xx status code
+func (o *GetDataextensionsCoretypesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions coretypes forbidden response has a 3xx status code
+func (o *GetDataextensionsCoretypesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions coretypes forbidden response has a 4xx status code
+func (o *GetDataextensionsCoretypesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions coretypes forbidden response has a 5xx status code
+func (o *GetDataextensionsCoretypesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions coretypes forbidden response a status code equal to that given
+func (o *GetDataextensionsCoretypesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetDataextensionsCoretypesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetDataextensionsCoretypesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetDataextensionsCoretypesNotFound() *GetDataextensionsCoretypesNotFound
 	return &GetDataextensionsCoretypesNotFound{}
 }
 
-/*GetDataextensionsCoretypesNotFound handles this case with default header values.
+/*
+GetDataextensionsCoretypesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetDataextensionsCoretypesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions coretypes not found response has a 2xx status code
+func (o *GetDataextensionsCoretypesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions coretypes not found response has a 3xx status code
+func (o *GetDataextensionsCoretypesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions coretypes not found response has a 4xx status code
+func (o *GetDataextensionsCoretypesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions coretypes not found response has a 5xx status code
+func (o *GetDataextensionsCoretypesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions coretypes not found response a status code equal to that given
+func (o *GetDataextensionsCoretypesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetDataextensionsCoretypesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetDataextensionsCoretypesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetDataextensionsCoretypesRequestTimeout() *GetDataextensionsCoretypesRe
 	return &GetDataextensionsCoretypesRequestTimeout{}
 }
 
-/*GetDataextensionsCoretypesRequestTimeout handles this case with default header values.
+/*
+GetDataextensionsCoretypesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetDataextensionsCoretypesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions coretypes request timeout response has a 2xx status code
+func (o *GetDataextensionsCoretypesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions coretypes request timeout response has a 3xx status code
+func (o *GetDataextensionsCoretypesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions coretypes request timeout response has a 4xx status code
+func (o *GetDataextensionsCoretypesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions coretypes request timeout response has a 5xx status code
+func (o *GetDataextensionsCoretypesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions coretypes request timeout response a status code equal to that given
+func (o *GetDataextensionsCoretypesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetDataextensionsCoretypesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetDataextensionsCoretypesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetDataextensionsCoretypesRequestEntityTooLarge() *GetDataextensionsCore
 	return &GetDataextensionsCoretypesRequestEntityTooLarge{}
 }
 
-/*GetDataextensionsCoretypesRequestEntityTooLarge handles this case with default header values.
+/*
+GetDataextensionsCoretypesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetDataextensionsCoretypesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions coretypes request entity too large response has a 2xx status code
+func (o *GetDataextensionsCoretypesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions coretypes request entity too large response has a 3xx status code
+func (o *GetDataextensionsCoretypesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions coretypes request entity too large response has a 4xx status code
+func (o *GetDataextensionsCoretypesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions coretypes request entity too large response has a 5xx status code
+func (o *GetDataextensionsCoretypesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions coretypes request entity too large response a status code equal to that given
+func (o *GetDataextensionsCoretypesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetDataextensionsCoretypesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetDataextensionsCoretypesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetDataextensionsCoretypesUnsupportedMediaType() *GetDataextensionsCoret
 	return &GetDataextensionsCoretypesUnsupportedMediaType{}
 }
 
-/*GetDataextensionsCoretypesUnsupportedMediaType handles this case with default header values.
+/*
+GetDataextensionsCoretypesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetDataextensionsCoretypesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions coretypes unsupported media type response has a 2xx status code
+func (o *GetDataextensionsCoretypesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions coretypes unsupported media type response has a 3xx status code
+func (o *GetDataextensionsCoretypesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions coretypes unsupported media type response has a 4xx status code
+func (o *GetDataextensionsCoretypesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions coretypes unsupported media type response has a 5xx status code
+func (o *GetDataextensionsCoretypesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions coretypes unsupported media type response a status code equal to that given
+func (o *GetDataextensionsCoretypesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetDataextensionsCoretypesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetDataextensionsCoretypesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetDataextensionsCoretypesTooManyRequests() *GetDataextensionsCoretypesT
 	return &GetDataextensionsCoretypesTooManyRequests{}
 }
 
-/*GetDataextensionsCoretypesTooManyRequests handles this case with default header values.
+/*
+GetDataextensionsCoretypesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetDataextensionsCoretypesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions coretypes too many requests response has a 2xx status code
+func (o *GetDataextensionsCoretypesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions coretypes too many requests response has a 3xx status code
+func (o *GetDataextensionsCoretypesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions coretypes too many requests response has a 4xx status code
+func (o *GetDataextensionsCoretypesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get dataextensions coretypes too many requests response has a 5xx status code
+func (o *GetDataextensionsCoretypesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get dataextensions coretypes too many requests response a status code equal to that given
+func (o *GetDataextensionsCoretypesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetDataextensionsCoretypesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetDataextensionsCoretypesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetDataextensionsCoretypesInternalServerError() *GetDataextensionsCorety
 	return &GetDataextensionsCoretypesInternalServerError{}
 }
 
-/*GetDataextensionsCoretypesInternalServerError handles this case with default header values.
+/*
+GetDataextensionsCoretypesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetDataextensionsCoretypesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions coretypes internal server error response has a 2xx status code
+func (o *GetDataextensionsCoretypesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions coretypes internal server error response has a 3xx status code
+func (o *GetDataextensionsCoretypesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions coretypes internal server error response has a 4xx status code
+func (o *GetDataextensionsCoretypesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get dataextensions coretypes internal server error response has a 5xx status code
+func (o *GetDataextensionsCoretypesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get dataextensions coretypes internal server error response a status code equal to that given
+func (o *GetDataextensionsCoretypesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetDataextensionsCoretypesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetDataextensionsCoretypesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetDataextensionsCoretypesServiceUnavailable() *GetDataextensionsCoretyp
 	return &GetDataextensionsCoretypesServiceUnavailable{}
 }
 
-/*GetDataextensionsCoretypesServiceUnavailable handles this case with default header values.
+/*
+GetDataextensionsCoretypesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetDataextensionsCoretypesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions coretypes service unavailable response has a 2xx status code
+func (o *GetDataextensionsCoretypesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions coretypes service unavailable response has a 3xx status code
+func (o *GetDataextensionsCoretypesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions coretypes service unavailable response has a 4xx status code
+func (o *GetDataextensionsCoretypesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get dataextensions coretypes service unavailable response has a 5xx status code
+func (o *GetDataextensionsCoretypesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get dataextensions coretypes service unavailable response a status code equal to that given
+func (o *GetDataextensionsCoretypesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetDataextensionsCoretypesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetDataextensionsCoretypesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetDataextensionsCoretypesGatewayTimeout() *GetDataextensionsCoretypesGa
 	return &GetDataextensionsCoretypesGatewayTimeout{}
 }
 
-/*GetDataextensionsCoretypesGatewayTimeout handles this case with default header values.
+/*
+GetDataextensionsCoretypesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetDataextensionsCoretypesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get dataextensions coretypes gateway timeout response has a 2xx status code
+func (o *GetDataextensionsCoretypesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get dataextensions coretypes gateway timeout response has a 3xx status code
+func (o *GetDataextensionsCoretypesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get dataextensions coretypes gateway timeout response has a 4xx status code
+func (o *GetDataextensionsCoretypesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get dataextensions coretypes gateway timeout response has a 5xx status code
+func (o *GetDataextensionsCoretypesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get dataextensions coretypes gateway timeout response a status code equal to that given
+func (o *GetDataextensionsCoretypesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetDataextensionsCoretypesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetDataextensionsCoretypesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/dataextensions/coretypes][%d] getDataextensionsCoretypesGatewayTimeout  %+v", 504, o.Payload)
 }
 

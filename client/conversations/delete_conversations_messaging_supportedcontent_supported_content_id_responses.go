@@ -95,7 +95,6 @@ func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDReader) R
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent(
 	return &DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent{}
 }
 
-/*DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent handles this case with default header values.
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent describes a response with status code 204, with default header values.
 
 Operation was successful
 */
 type DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent struct {
 }
 
+// IsSuccess returns true when this delete conversations messaging supportedcontent supported content Id no content response has a 2xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete conversations messaging supportedcontent supported content Id no content response has a 3xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging supportedcontent supported content Id no content response has a 4xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging supportedcontent supported content Id no content response has a 5xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging supportedcontent supported content Id no content response a status code equal to that given
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdNoContent ", 204)
+}
+
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteConversationsMessagingSupportedcontentSupportedContentIDBadRequest
 	return &DeleteConversationsMessagingSupportedcontentSupportedContentIDBadRequest{}
 }
 
-/*DeleteConversationsMessagingSupportedcontentSupportedContentIDBadRequest handles this case with default header values.
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteConversationsMessagingSupportedcontentSupportedContentIDBadRequest st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging supportedcontent supported content Id bad request response has a 2xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging supportedcontent supported content Id bad request response has a 3xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging supportedcontent supported content Id bad request response has a 4xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging supportedcontent supported content Id bad request response has a 5xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging supportedcontent supported content Id bad request response a status code equal to that given
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteConversationsMessagingSupportedcontentSupportedContentIDUnauthoriz
 	return &DeleteConversationsMessagingSupportedcontentSupportedContentIDUnauthorized{}
 }
 
-/*DeleteConversationsMessagingSupportedcontentSupportedContentIDUnauthorized handles this case with default header values.
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteConversationsMessagingSupportedcontentSupportedContentIDUnauthorized 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging supportedcontent supported content Id unauthorized response has a 2xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging supportedcontent supported content Id unauthorized response has a 3xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging supportedcontent supported content Id unauthorized response has a 4xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging supportedcontent supported content Id unauthorized response has a 5xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging supportedcontent supported content Id unauthorized response a status code equal to that given
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteConversationsMessagingSupportedcontentSupportedContentIDForbidden(
 	return &DeleteConversationsMessagingSupportedcontentSupportedContentIDForbidden{}
 }
 
-/*DeleteConversationsMessagingSupportedcontentSupportedContentIDForbidden handles this case with default header values.
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteConversationsMessagingSupportedcontentSupportedContentIDForbidden str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging supportedcontent supported content Id forbidden response has a 2xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging supportedcontent supported content Id forbidden response has a 3xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging supportedcontent supported content Id forbidden response has a 4xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging supportedcontent supported content Id forbidden response has a 5xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging supportedcontent supported content Id forbidden response a status code equal to that given
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteConversationsMessagingSupportedcontentSupportedContentIDNotFound()
 	return &DeleteConversationsMessagingSupportedcontentSupportedContentIDNotFound{}
 }
 
-/*DeleteConversationsMessagingSupportedcontentSupportedContentIDNotFound handles this case with default header values.
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteConversationsMessagingSupportedcontentSupportedContentIDNotFound stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging supportedcontent supported content Id not found response has a 2xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging supportedcontent supported content Id not found response has a 3xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging supportedcontent supported content Id not found response has a 4xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging supportedcontent supported content Id not found response has a 5xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging supportedcontent supported content Id not found response a status code equal to that given
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteConversationsMessagingSupportedcontentSupportedContentIDRequestTim
 	return &DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestTimeout{}
 }
 
-/*DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestTimeout handles this case with default header values.
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestTimeou
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging supportedcontent supported content Id request timeout response has a 2xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging supportedcontent supported content Id request timeout response has a 3xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging supportedcontent supported content Id request timeout response has a 4xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging supportedcontent supported content Id request timeout response has a 5xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging supportedcontent supported content Id request timeout response a status code equal to that given
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteConversationsMessagingSupportedcontentSupportedContentIDRequestEnt
 	return &DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge{}
 }
 
-/*DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestEntity
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging supportedcontent supported content Id request entity too large response has a 2xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging supportedcontent supported content Id request entity too large response has a 3xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging supportedcontent supported content Id request entity too large response has a 4xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging supportedcontent supported content Id request entity too large response has a 5xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging supportedcontent supported content Id request entity too large response a status code equal to that given
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteConversationsMessagingSupportedcontentSupportedContentIDUnsupporte
 	return &DeleteConversationsMessagingSupportedcontentSupportedContentIDUnsupportedMediaType{}
 }
 
-/*DeleteConversationsMessagingSupportedcontentSupportedContentIDUnsupportedMediaType handles this case with default header values.
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteConversationsMessagingSupportedcontentSupportedContentIDUnsupportedMe
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging supportedcontent supported content Id unsupported media type response has a 2xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging supportedcontent supported content Id unsupported media type response has a 3xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging supportedcontent supported content Id unsupported media type response has a 4xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging supportedcontent supported content Id unsupported media type response has a 5xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging supportedcontent supported content Id unsupported media type response a status code equal to that given
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteConversationsMessagingSupportedcontentSupportedContentIDTooManyReq
 	return &DeleteConversationsMessagingSupportedcontentSupportedContentIDTooManyRequests{}
 }
 
-/*DeleteConversationsMessagingSupportedcontentSupportedContentIDTooManyRequests handles this case with default header values.
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteConversationsMessagingSupportedcontentSupportedContentIDTooManyReques
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging supportedcontent supported content Id too many requests response has a 2xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging supportedcontent supported content Id too many requests response has a 3xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging supportedcontent supported content Id too many requests response has a 4xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging supportedcontent supported content Id too many requests response has a 5xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging supportedcontent supported content Id too many requests response a status code equal to that given
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteConversationsMessagingSupportedcontentSupportedContentIDInternalSe
 	return &DeleteConversationsMessagingSupportedcontentSupportedContentIDInternalServerError{}
 }
 
-/*DeleteConversationsMessagingSupportedcontentSupportedContentIDInternalServerError handles this case with default header values.
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteConversationsMessagingSupportedcontentSupportedContentIDInternalServe
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging supportedcontent supported content Id internal server error response has a 2xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging supportedcontent supported content Id internal server error response has a 3xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging supportedcontent supported content Id internal server error response has a 4xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging supportedcontent supported content Id internal server error response has a 5xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations messaging supportedcontent supported content Id internal server error response a status code equal to that given
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteConversationsMessagingSupportedcontentSupportedContentIDServiceUna
 	return &DeleteConversationsMessagingSupportedcontentSupportedContentIDServiceUnavailable{}
 }
 
-/*DeleteConversationsMessagingSupportedcontentSupportedContentIDServiceUnavailable handles this case with default header values.
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteConversationsMessagingSupportedcontentSupportedContentIDServiceUnavai
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging supportedcontent supported content Id service unavailable response has a 2xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging supportedcontent supported content Id service unavailable response has a 3xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging supportedcontent supported content Id service unavailable response has a 4xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging supportedcontent supported content Id service unavailable response has a 5xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations messaging supportedcontent supported content Id service unavailable response a status code equal to that given
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteConversationsMessagingSupportedcontentSupportedContentIDGatewayTim
 	return &DeleteConversationsMessagingSupportedcontentSupportedContentIDGatewayTimeout{}
 }
 
-/*DeleteConversationsMessagingSupportedcontentSupportedContentIDGatewayTimeout handles this case with default header values.
+/*
+DeleteConversationsMessagingSupportedcontentSupportedContentIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteConversationsMessagingSupportedcontentSupportedContentIDGatewayTimeou
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging supportedcontent supported content Id gateway timeout response has a 2xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging supportedcontent supported content Id gateway timeout response has a 3xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging supportedcontent supported content Id gateway timeout response has a 4xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging supportedcontent supported content Id gateway timeout response has a 5xx status code
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations messaging supportedcontent supported content Id gateway timeout response a status code equal to that given
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingSupportedcontentSupportedContentIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/supportedcontent/{supportedContentId}][%d] deleteConversationsMessagingSupportedcontentSupportedContentIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

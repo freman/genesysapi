@@ -19,69 +19,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementBusinessunitIntradayParams creates a new PostWorkforcemanagementBusinessunitIntradayParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementBusinessunitIntradayParams creates a new PostWorkforcemanagementBusinessunitIntradayParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementBusinessunitIntradayParams() *PostWorkforcemanagementBusinessunitIntradayParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitIntradayParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitIntradayParamsWithTimeout creates a new PostWorkforcemanagementBusinessunitIntradayParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementBusinessunitIntradayParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementBusinessunitIntradayParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitIntradayParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitIntradayParamsWithContext creates a new PostWorkforcemanagementBusinessunitIntradayParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementBusinessunitIntradayParamsWithContext(ctx context.Context) *PostWorkforcemanagementBusinessunitIntradayParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitIntradayParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitIntradayParamsWithHTTPClient creates a new PostWorkforcemanagementBusinessunitIntradayParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementBusinessunitIntradayParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementBusinessunitIntradayParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitIntradayParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement businessunit intraday operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementBusinessunitIntradayParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement businessunit intraday operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementBusinessunitIntradayParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.IntradayPlanningGroupRequest
-	/*BusinessUnitID
-	  The ID of the business unit
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit
 	*/
 	BusinessUnitID string
-	/*ForceAsync
-	  Force the result of this operation to be sent asynchronously via notification.  For testing/app development purposes
 
+	/* ForceAsync.
+
+	   Force the result of this operation to be sent asynchronously via notification.  For testing/app development purposes
 	*/
 	ForceAsync *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement businessunit intraday params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitIntradayParams) WithDefaults() *PostWorkforcemanagementBusinessunitIntradayParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement businessunit intraday params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitIntradayParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement businessunit intraday params
@@ -157,7 +175,6 @@ func (o *PostWorkforcemanagementBusinessunitIntradayParams) WriteToRequest(r run
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -173,16 +190,17 @@ func (o *PostWorkforcemanagementBusinessunitIntradayParams) WriteToRequest(r run
 
 		// query param forceAsync
 		var qrForceAsync bool
+
 		if o.ForceAsync != nil {
 			qrForceAsync = *o.ForceAsync
 		}
 		qForceAsync := swag.FormatBool(qrForceAsync)
 		if qForceAsync != "" {
+
 			if err := r.SetQueryParam("forceAsync", qForceAsync); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

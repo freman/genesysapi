@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -22,46 +24,57 @@ type SchemaQuantityLimits struct {
 	ID string `json:"id,omitempty"`
 
 	// The maximum number of schema field description characters allowed.
+	// Example: \"maxFieldDescriptionCharacters\":200
 	// Read Only: true
 	MaxFieldDescriptionCharacters int32 `json:"maxFieldDescriptionCharacters,omitempty"`
 
 	// The maximum number of schema field name characters allowed.
+	// Example: \"minFieldNameCharacters\":100
 	// Read Only: true
 	MaxFieldNameCharacters int32 `json:"maxFieldNameCharacters,omitempty"`
 
 	// The maximum number of schema fields allowed per organization across all of their schemas.
+	// Example: \"maxNumberOfFieldsPerOrg\":500
 	// Read Only: true
 	MaxNumberOfFieldsPerOrg int32 `json:"maxNumberOfFieldsPerOrg,omitempty"`
 
 	// The maximum number of schema fields allowed per schema.
+	// Example: \"maxNumberOfFieldsPerSchema\":25
 	// Read Only: true
 	MaxNumberOfFieldsPerSchema int32 `json:"maxNumberOfFieldsPerSchema,omitempty"`
 
 	// The maximum number of schema allowed per org.
+	// Example: \"maxNumberOfSchemasPerOrg\":20
 	// Read Only: true
 	MaxNumberOfSchemasPerOrg int32 `json:"maxNumberOfSchemasPerOrg,omitempty"`
 
 	// The maximum number of schema description characters allowed.
+	// Example: \"maxSchemaDescriptionCharacters\":200
 	// Read Only: true
 	MaxSchemaDescriptionCharacters int32 `json:"maxSchemaDescriptionCharacters,omitempty"`
 
 	// The maximum number of schema name characters allowed.
+	// Example: \"maxSchemaNameCharacters\":50
 	// Read Only: true
 	MaxSchemaNameCharacters int32 `json:"maxSchemaNameCharacters,omitempty"`
 
 	// The minimum number of schema field description characters allowed.
+	// Example: \"minFieldDescriptionCharacters\":0
 	// Read Only: true
 	MinFieldDescriptionCharacters int32 `json:"minFieldDescriptionCharacters,omitempty"`
 
 	// The minimum number of schema field name characters allowed.
+	// Example: \"minFieldNameCharacters\":1
 	// Read Only: true
 	MinFieldNameCharacters int32 `json:"minFieldNameCharacters,omitempty"`
 
 	// The minimum number of schema description characters allowed.
+	// Example: \"minSchemaDescriptionCharacters\":0
 	// Read Only: true
 	MinSchemaDescriptionCharacters int32 `json:"minSchemaDescriptionCharacters,omitempty"`
 
 	// The minimum number of schema name characters allowed.
+	// Example: \"minSchemaNameCharacters\":1
 	// Read Only: true
 	MinSchemaNameCharacters int32 `json:"minSchemaNameCharacters,omitempty"`
 
@@ -89,12 +102,190 @@ func (m *SchemaQuantityLimits) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SchemaQuantityLimits) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this schema quantity limits based on the context it is used
+func (m *SchemaQuantityLimits) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxFieldDescriptionCharacters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxFieldNameCharacters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxNumberOfFieldsPerOrg(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxNumberOfFieldsPerSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxNumberOfSchemasPerOrg(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxSchemaDescriptionCharacters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxSchemaNameCharacters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMinFieldDescriptionCharacters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMinFieldNameCharacters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMinSchemaDescriptionCharacters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMinSchemaNameCharacters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateMaxFieldDescriptionCharacters(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxFieldDescriptionCharacters", "body", int32(m.MaxFieldDescriptionCharacters)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateMaxFieldNameCharacters(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxFieldNameCharacters", "body", int32(m.MaxFieldNameCharacters)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateMaxNumberOfFieldsPerOrg(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxNumberOfFieldsPerOrg", "body", int32(m.MaxNumberOfFieldsPerOrg)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateMaxNumberOfFieldsPerSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxNumberOfFieldsPerSchema", "body", int32(m.MaxNumberOfFieldsPerSchema)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateMaxNumberOfSchemasPerOrg(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxNumberOfSchemasPerOrg", "body", int32(m.MaxNumberOfSchemasPerOrg)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateMaxSchemaDescriptionCharacters(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxSchemaDescriptionCharacters", "body", int32(m.MaxSchemaDescriptionCharacters)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateMaxSchemaNameCharacters(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxSchemaNameCharacters", "body", int32(m.MaxSchemaNameCharacters)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateMinFieldDescriptionCharacters(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "minFieldDescriptionCharacters", "body", int32(m.MinFieldDescriptionCharacters)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateMinFieldNameCharacters(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "minFieldNameCharacters", "body", int32(m.MinFieldNameCharacters)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateMinSchemaDescriptionCharacters(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "minSchemaDescriptionCharacters", "body", int32(m.MinSchemaDescriptionCharacters)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateMinSchemaNameCharacters(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "minSchemaNameCharacters", "body", int32(m.MinSchemaNameCharacters)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SchemaQuantityLimits) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

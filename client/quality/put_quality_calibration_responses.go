@@ -95,7 +95,6 @@ func (o *PutQualityCalibrationReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutQualityCalibrationOK() *PutQualityCalibrationOK {
 	return &PutQualityCalibrationOK{}
 }
 
-/*PutQualityCalibrationOK handles this case with default header values.
+/*
+PutQualityCalibrationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutQualityCalibrationOK struct {
 	Payload *models.Calibration
 }
 
+// IsSuccess returns true when this put quality calibration o k response has a 2xx status code
+func (o *PutQualityCalibrationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put quality calibration o k response has a 3xx status code
+func (o *PutQualityCalibrationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality calibration o k response has a 4xx status code
+func (o *PutQualityCalibrationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put quality calibration o k response has a 5xx status code
+func (o *PutQualityCalibrationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality calibration o k response a status code equal to that given
+func (o *PutQualityCalibrationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutQualityCalibrationOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationOK  %+v", 200, o.Payload)
+}
+
+func (o *PutQualityCalibrationOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutQualityCalibrationBadRequest() *PutQualityCalibrationBadRequest {
 	return &PutQualityCalibrationBadRequest{}
 }
 
-/*PutQualityCalibrationBadRequest handles this case with default header values.
+/*
+PutQualityCalibrationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutQualityCalibrationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality calibration bad request response has a 2xx status code
+func (o *PutQualityCalibrationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality calibration bad request response has a 3xx status code
+func (o *PutQualityCalibrationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality calibration bad request response has a 4xx status code
+func (o *PutQualityCalibrationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality calibration bad request response has a 5xx status code
+func (o *PutQualityCalibrationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality calibration bad request response a status code equal to that given
+func (o *PutQualityCalibrationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutQualityCalibrationBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutQualityCalibrationBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutQualityCalibrationUnauthorized() *PutQualityCalibrationUnauthorized {
 	return &PutQualityCalibrationUnauthorized{}
 }
 
-/*PutQualityCalibrationUnauthorized handles this case with default header values.
+/*
+PutQualityCalibrationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutQualityCalibrationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality calibration unauthorized response has a 2xx status code
+func (o *PutQualityCalibrationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality calibration unauthorized response has a 3xx status code
+func (o *PutQualityCalibrationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality calibration unauthorized response has a 4xx status code
+func (o *PutQualityCalibrationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality calibration unauthorized response has a 5xx status code
+func (o *PutQualityCalibrationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality calibration unauthorized response a status code equal to that given
+func (o *PutQualityCalibrationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutQualityCalibrationUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutQualityCalibrationUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutQualityCalibrationForbidden() *PutQualityCalibrationForbidden {
 	return &PutQualityCalibrationForbidden{}
 }
 
-/*PutQualityCalibrationForbidden handles this case with default header values.
+/*
+PutQualityCalibrationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutQualityCalibrationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality calibration forbidden response has a 2xx status code
+func (o *PutQualityCalibrationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality calibration forbidden response has a 3xx status code
+func (o *PutQualityCalibrationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality calibration forbidden response has a 4xx status code
+func (o *PutQualityCalibrationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality calibration forbidden response has a 5xx status code
+func (o *PutQualityCalibrationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality calibration forbidden response a status code equal to that given
+func (o *PutQualityCalibrationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutQualityCalibrationForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutQualityCalibrationForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutQualityCalibrationNotFound() *PutQualityCalibrationNotFound {
 	return &PutQualityCalibrationNotFound{}
 }
 
-/*PutQualityCalibrationNotFound handles this case with default header values.
+/*
+PutQualityCalibrationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutQualityCalibrationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality calibration not found response has a 2xx status code
+func (o *PutQualityCalibrationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality calibration not found response has a 3xx status code
+func (o *PutQualityCalibrationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality calibration not found response has a 4xx status code
+func (o *PutQualityCalibrationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality calibration not found response has a 5xx status code
+func (o *PutQualityCalibrationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality calibration not found response a status code equal to that given
+func (o *PutQualityCalibrationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutQualityCalibrationNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutQualityCalibrationNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutQualityCalibrationRequestTimeout() *PutQualityCalibrationRequestTimeo
 	return &PutQualityCalibrationRequestTimeout{}
 }
 
-/*PutQualityCalibrationRequestTimeout handles this case with default header values.
+/*
+PutQualityCalibrationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutQualityCalibrationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality calibration request timeout response has a 2xx status code
+func (o *PutQualityCalibrationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality calibration request timeout response has a 3xx status code
+func (o *PutQualityCalibrationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality calibration request timeout response has a 4xx status code
+func (o *PutQualityCalibrationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality calibration request timeout response has a 5xx status code
+func (o *PutQualityCalibrationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality calibration request timeout response a status code equal to that given
+func (o *PutQualityCalibrationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutQualityCalibrationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutQualityCalibrationRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutQualityCalibrationRequestEntityTooLarge() *PutQualityCalibrationReque
 	return &PutQualityCalibrationRequestEntityTooLarge{}
 }
 
-/*PutQualityCalibrationRequestEntityTooLarge handles this case with default header values.
+/*
+PutQualityCalibrationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutQualityCalibrationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality calibration request entity too large response has a 2xx status code
+func (o *PutQualityCalibrationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality calibration request entity too large response has a 3xx status code
+func (o *PutQualityCalibrationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality calibration request entity too large response has a 4xx status code
+func (o *PutQualityCalibrationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality calibration request entity too large response has a 5xx status code
+func (o *PutQualityCalibrationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality calibration request entity too large response a status code equal to that given
+func (o *PutQualityCalibrationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutQualityCalibrationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutQualityCalibrationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutQualityCalibrationUnsupportedMediaType() *PutQualityCalibrationUnsupp
 	return &PutQualityCalibrationUnsupportedMediaType{}
 }
 
-/*PutQualityCalibrationUnsupportedMediaType handles this case with default header values.
+/*
+PutQualityCalibrationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutQualityCalibrationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality calibration unsupported media type response has a 2xx status code
+func (o *PutQualityCalibrationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality calibration unsupported media type response has a 3xx status code
+func (o *PutQualityCalibrationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality calibration unsupported media type response has a 4xx status code
+func (o *PutQualityCalibrationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality calibration unsupported media type response has a 5xx status code
+func (o *PutQualityCalibrationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality calibration unsupported media type response a status code equal to that given
+func (o *PutQualityCalibrationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutQualityCalibrationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutQualityCalibrationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutQualityCalibrationTooManyRequests() *PutQualityCalibrationTooManyRequ
 	return &PutQualityCalibrationTooManyRequests{}
 }
 
-/*PutQualityCalibrationTooManyRequests handles this case with default header values.
+/*
+PutQualityCalibrationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutQualityCalibrationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality calibration too many requests response has a 2xx status code
+func (o *PutQualityCalibrationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality calibration too many requests response has a 3xx status code
+func (o *PutQualityCalibrationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality calibration too many requests response has a 4xx status code
+func (o *PutQualityCalibrationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put quality calibration too many requests response has a 5xx status code
+func (o *PutQualityCalibrationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put quality calibration too many requests response a status code equal to that given
+func (o *PutQualityCalibrationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutQualityCalibrationTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutQualityCalibrationTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutQualityCalibrationInternalServerError() *PutQualityCalibrationInterna
 	return &PutQualityCalibrationInternalServerError{}
 }
 
-/*PutQualityCalibrationInternalServerError handles this case with default header values.
+/*
+PutQualityCalibrationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutQualityCalibrationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality calibration internal server error response has a 2xx status code
+func (o *PutQualityCalibrationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality calibration internal server error response has a 3xx status code
+func (o *PutQualityCalibrationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality calibration internal server error response has a 4xx status code
+func (o *PutQualityCalibrationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put quality calibration internal server error response has a 5xx status code
+func (o *PutQualityCalibrationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put quality calibration internal server error response a status code equal to that given
+func (o *PutQualityCalibrationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutQualityCalibrationInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutQualityCalibrationInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutQualityCalibrationServiceUnavailable() *PutQualityCalibrationServiceU
 	return &PutQualityCalibrationServiceUnavailable{}
 }
 
-/*PutQualityCalibrationServiceUnavailable handles this case with default header values.
+/*
+PutQualityCalibrationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutQualityCalibrationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality calibration service unavailable response has a 2xx status code
+func (o *PutQualityCalibrationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality calibration service unavailable response has a 3xx status code
+func (o *PutQualityCalibrationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality calibration service unavailable response has a 4xx status code
+func (o *PutQualityCalibrationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put quality calibration service unavailable response has a 5xx status code
+func (o *PutQualityCalibrationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put quality calibration service unavailable response a status code equal to that given
+func (o *PutQualityCalibrationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutQualityCalibrationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutQualityCalibrationServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutQualityCalibrationGatewayTimeout() *PutQualityCalibrationGatewayTimeo
 	return &PutQualityCalibrationGatewayTimeout{}
 }
 
-/*PutQualityCalibrationGatewayTimeout handles this case with default header values.
+/*
+PutQualityCalibrationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutQualityCalibrationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put quality calibration gateway timeout response has a 2xx status code
+func (o *PutQualityCalibrationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put quality calibration gateway timeout response has a 3xx status code
+func (o *PutQualityCalibrationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put quality calibration gateway timeout response has a 4xx status code
+func (o *PutQualityCalibrationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put quality calibration gateway timeout response has a 5xx status code
+func (o *PutQualityCalibrationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put quality calibration gateway timeout response a status code equal to that given
+func (o *PutQualityCalibrationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutQualityCalibrationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutQualityCalibrationGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/quality/calibrations/{calibrationId}][%d] putQualityCalibrationGatewayTimeout  %+v", 504, o.Payload)
 }
 

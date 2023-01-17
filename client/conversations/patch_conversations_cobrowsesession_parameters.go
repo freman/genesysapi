@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchConversationsCobrowsesessionParams creates a new PatchConversationsCobrowsesessionParams object
-// with the default values initialized.
+// NewPatchConversationsCobrowsesessionParams creates a new PatchConversationsCobrowsesessionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchConversationsCobrowsesessionParams() *PatchConversationsCobrowsesessionParams {
-	var ()
 	return &PatchConversationsCobrowsesessionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchConversationsCobrowsesessionParamsWithTimeout creates a new PatchConversationsCobrowsesessionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchConversationsCobrowsesessionParamsWithTimeout(timeout time.Duration) *PatchConversationsCobrowsesessionParams {
-	var ()
 	return &PatchConversationsCobrowsesessionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchConversationsCobrowsesessionParamsWithContext creates a new PatchConversationsCobrowsesessionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchConversationsCobrowsesessionParamsWithContext(ctx context.Context) *PatchConversationsCobrowsesessionParams {
-	var ()
 	return &PatchConversationsCobrowsesessionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchConversationsCobrowsesessionParamsWithHTTPClient creates a new PatchConversationsCobrowsesessionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchConversationsCobrowsesessionParamsWithHTTPClient(client *http.Client) *PatchConversationsCobrowsesessionParams {
-	var ()
 	return &PatchConversationsCobrowsesessionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchConversationsCobrowsesessionParams contains all the parameters to send to the API endpoint
-for the patch conversations cobrowsesession operation typically these are written to a http.Request
+/*
+PatchConversationsCobrowsesessionParams contains all the parameters to send to the API endpoint
+
+	for the patch conversations cobrowsesession operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchConversationsCobrowsesessionParams struct {
 
-	/*Body
-	  Conversation
+	/* Body.
 
+	   Conversation
 	*/
 	Body *models.Conversation
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch conversations cobrowsesession params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsCobrowsesessionParams) WithDefaults() *PatchConversationsCobrowsesessionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch conversations cobrowsesession params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsCobrowsesessionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch conversations cobrowsesession params
@@ -140,7 +157,6 @@ func (o *PatchConversationsCobrowsesessionParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

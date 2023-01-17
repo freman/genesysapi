@@ -95,7 +95,6 @@ func (o *PostQualityEvaluationsAggregatesQueryMeReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostQualityEvaluationsAggregatesQueryMeOK() *PostQualityEvaluationsAggre
 	return &PostQualityEvaluationsAggregatesQueryMeOK{}
 }
 
-/*PostQualityEvaluationsAggregatesQueryMeOK handles this case with default header values.
+/*
+PostQualityEvaluationsAggregatesQueryMeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostQualityEvaluationsAggregatesQueryMeOK struct {
 	Payload *models.EvaluationAggregateQueryResponse
 }
 
+// IsSuccess returns true when this post quality evaluations aggregates query me o k response has a 2xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post quality evaluations aggregates query me o k response has a 3xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality evaluations aggregates query me o k response has a 4xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post quality evaluations aggregates query me o k response has a 5xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality evaluations aggregates query me o k response a status code equal to that given
+func (o *PostQualityEvaluationsAggregatesQueryMeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostQualityEvaluationsAggregatesQueryMeOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeOK  %+v", 200, o.Payload)
+}
+
+func (o *PostQualityEvaluationsAggregatesQueryMeOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostQualityEvaluationsAggregatesQueryMeBadRequest() *PostQualityEvaluati
 	return &PostQualityEvaluationsAggregatesQueryMeBadRequest{}
 }
 
-/*PostQualityEvaluationsAggregatesQueryMeBadRequest handles this case with default header values.
+/*
+PostQualityEvaluationsAggregatesQueryMeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostQualityEvaluationsAggregatesQueryMeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality evaluations aggregates query me bad request response has a 2xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality evaluations aggregates query me bad request response has a 3xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality evaluations aggregates query me bad request response has a 4xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality evaluations aggregates query me bad request response has a 5xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality evaluations aggregates query me bad request response a status code equal to that given
+func (o *PostQualityEvaluationsAggregatesQueryMeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostQualityEvaluationsAggregatesQueryMeBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostQualityEvaluationsAggregatesQueryMeBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostQualityEvaluationsAggregatesQueryMeUnauthorized() *PostQualityEvalua
 	return &PostQualityEvaluationsAggregatesQueryMeUnauthorized{}
 }
 
-/*PostQualityEvaluationsAggregatesQueryMeUnauthorized handles this case with default header values.
+/*
+PostQualityEvaluationsAggregatesQueryMeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostQualityEvaluationsAggregatesQueryMeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality evaluations aggregates query me unauthorized response has a 2xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality evaluations aggregates query me unauthorized response has a 3xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality evaluations aggregates query me unauthorized response has a 4xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality evaluations aggregates query me unauthorized response has a 5xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality evaluations aggregates query me unauthorized response a status code equal to that given
+func (o *PostQualityEvaluationsAggregatesQueryMeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostQualityEvaluationsAggregatesQueryMeUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostQualityEvaluationsAggregatesQueryMeUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostQualityEvaluationsAggregatesQueryMeForbidden() *PostQualityEvaluatio
 	return &PostQualityEvaluationsAggregatesQueryMeForbidden{}
 }
 
-/*PostQualityEvaluationsAggregatesQueryMeForbidden handles this case with default header values.
+/*
+PostQualityEvaluationsAggregatesQueryMeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostQualityEvaluationsAggregatesQueryMeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality evaluations aggregates query me forbidden response has a 2xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality evaluations aggregates query me forbidden response has a 3xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality evaluations aggregates query me forbidden response has a 4xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality evaluations aggregates query me forbidden response has a 5xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality evaluations aggregates query me forbidden response a status code equal to that given
+func (o *PostQualityEvaluationsAggregatesQueryMeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostQualityEvaluationsAggregatesQueryMeForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostQualityEvaluationsAggregatesQueryMeForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostQualityEvaluationsAggregatesQueryMeNotFound() *PostQualityEvaluation
 	return &PostQualityEvaluationsAggregatesQueryMeNotFound{}
 }
 
-/*PostQualityEvaluationsAggregatesQueryMeNotFound handles this case with default header values.
+/*
+PostQualityEvaluationsAggregatesQueryMeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostQualityEvaluationsAggregatesQueryMeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality evaluations aggregates query me not found response has a 2xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality evaluations aggregates query me not found response has a 3xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality evaluations aggregates query me not found response has a 4xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality evaluations aggregates query me not found response has a 5xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality evaluations aggregates query me not found response a status code equal to that given
+func (o *PostQualityEvaluationsAggregatesQueryMeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostQualityEvaluationsAggregatesQueryMeNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostQualityEvaluationsAggregatesQueryMeNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostQualityEvaluationsAggregatesQueryMeRequestTimeout() *PostQualityEval
 	return &PostQualityEvaluationsAggregatesQueryMeRequestTimeout{}
 }
 
-/*PostQualityEvaluationsAggregatesQueryMeRequestTimeout handles this case with default header values.
+/*
+PostQualityEvaluationsAggregatesQueryMeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostQualityEvaluationsAggregatesQueryMeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality evaluations aggregates query me request timeout response has a 2xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality evaluations aggregates query me request timeout response has a 3xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality evaluations aggregates query me request timeout response has a 4xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality evaluations aggregates query me request timeout response has a 5xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality evaluations aggregates query me request timeout response a status code equal to that given
+func (o *PostQualityEvaluationsAggregatesQueryMeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostQualityEvaluationsAggregatesQueryMeRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostQualityEvaluationsAggregatesQueryMeRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge() *PostQual
 	return &PostQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge{}
 }
 
-/*PostQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge handles this case with default header values.
+/*
+PostQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality evaluations aggregates query me request entity too large response has a 2xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality evaluations aggregates query me request entity too large response has a 3xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality evaluations aggregates query me request entity too large response has a 4xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality evaluations aggregates query me request entity too large response has a 5xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality evaluations aggregates query me request entity too large response a status code equal to that given
+func (o *PostQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostQualityEvaluationsAggregatesQueryMeUnsupportedMediaType() *PostQuali
 	return &PostQualityEvaluationsAggregatesQueryMeUnsupportedMediaType{}
 }
 
-/*PostQualityEvaluationsAggregatesQueryMeUnsupportedMediaType handles this case with default header values.
+/*
+PostQualityEvaluationsAggregatesQueryMeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostQualityEvaluationsAggregatesQueryMeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality evaluations aggregates query me unsupported media type response has a 2xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality evaluations aggregates query me unsupported media type response has a 3xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality evaluations aggregates query me unsupported media type response has a 4xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality evaluations aggregates query me unsupported media type response has a 5xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality evaluations aggregates query me unsupported media type response a status code equal to that given
+func (o *PostQualityEvaluationsAggregatesQueryMeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostQualityEvaluationsAggregatesQueryMeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostQualityEvaluationsAggregatesQueryMeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostQualityEvaluationsAggregatesQueryMeTooManyRequests() *PostQualityEva
 	return &PostQualityEvaluationsAggregatesQueryMeTooManyRequests{}
 }
 
-/*PostQualityEvaluationsAggregatesQueryMeTooManyRequests handles this case with default header values.
+/*
+PostQualityEvaluationsAggregatesQueryMeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostQualityEvaluationsAggregatesQueryMeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality evaluations aggregates query me too many requests response has a 2xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality evaluations aggregates query me too many requests response has a 3xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality evaluations aggregates query me too many requests response has a 4xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post quality evaluations aggregates query me too many requests response has a 5xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post quality evaluations aggregates query me too many requests response a status code equal to that given
+func (o *PostQualityEvaluationsAggregatesQueryMeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostQualityEvaluationsAggregatesQueryMeTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostQualityEvaluationsAggregatesQueryMeTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostQualityEvaluationsAggregatesQueryMeInternalServerError() *PostQualit
 	return &PostQualityEvaluationsAggregatesQueryMeInternalServerError{}
 }
 
-/*PostQualityEvaluationsAggregatesQueryMeInternalServerError handles this case with default header values.
+/*
+PostQualityEvaluationsAggregatesQueryMeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostQualityEvaluationsAggregatesQueryMeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality evaluations aggregates query me internal server error response has a 2xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality evaluations aggregates query me internal server error response has a 3xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality evaluations aggregates query me internal server error response has a 4xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post quality evaluations aggregates query me internal server error response has a 5xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post quality evaluations aggregates query me internal server error response a status code equal to that given
+func (o *PostQualityEvaluationsAggregatesQueryMeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostQualityEvaluationsAggregatesQueryMeInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostQualityEvaluationsAggregatesQueryMeInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostQualityEvaluationsAggregatesQueryMeServiceUnavailable() *PostQuality
 	return &PostQualityEvaluationsAggregatesQueryMeServiceUnavailable{}
 }
 
-/*PostQualityEvaluationsAggregatesQueryMeServiceUnavailable handles this case with default header values.
+/*
+PostQualityEvaluationsAggregatesQueryMeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostQualityEvaluationsAggregatesQueryMeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality evaluations aggregates query me service unavailable response has a 2xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality evaluations aggregates query me service unavailable response has a 3xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality evaluations aggregates query me service unavailable response has a 4xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post quality evaluations aggregates query me service unavailable response has a 5xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post quality evaluations aggregates query me service unavailable response a status code equal to that given
+func (o *PostQualityEvaluationsAggregatesQueryMeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostQualityEvaluationsAggregatesQueryMeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostQualityEvaluationsAggregatesQueryMeServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostQualityEvaluationsAggregatesQueryMeGatewayTimeout() *PostQualityEval
 	return &PostQualityEvaluationsAggregatesQueryMeGatewayTimeout{}
 }
 
-/*PostQualityEvaluationsAggregatesQueryMeGatewayTimeout handles this case with default header values.
+/*
+PostQualityEvaluationsAggregatesQueryMeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostQualityEvaluationsAggregatesQueryMeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post quality evaluations aggregates query me gateway timeout response has a 2xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post quality evaluations aggregates query me gateway timeout response has a 3xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post quality evaluations aggregates query me gateway timeout response has a 4xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post quality evaluations aggregates query me gateway timeout response has a 5xx status code
+func (o *PostQualityEvaluationsAggregatesQueryMeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post quality evaluations aggregates query me gateway timeout response a status code equal to that given
+func (o *PostQualityEvaluationsAggregatesQueryMeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostQualityEvaluationsAggregatesQueryMeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostQualityEvaluationsAggregatesQueryMeGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/quality/evaluations/aggregates/query/me][%d] postQualityEvaluationsAggregatesQueryMeGatewayTimeout  %+v", 504, o.Payload)
 }
 

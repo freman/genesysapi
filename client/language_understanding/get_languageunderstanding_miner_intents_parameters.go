@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetLanguageunderstandingMinerIntentsParams creates a new GetLanguageunderstandingMinerIntentsParams object
-// with the default values initialized.
+// NewGetLanguageunderstandingMinerIntentsParams creates a new GetLanguageunderstandingMinerIntentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLanguageunderstandingMinerIntentsParams() *GetLanguageunderstandingMinerIntentsParams {
-	var ()
 	return &GetLanguageunderstandingMinerIntentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLanguageunderstandingMinerIntentsParamsWithTimeout creates a new GetLanguageunderstandingMinerIntentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLanguageunderstandingMinerIntentsParamsWithTimeout(timeout time.Duration) *GetLanguageunderstandingMinerIntentsParams {
-	var ()
 	return &GetLanguageunderstandingMinerIntentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLanguageunderstandingMinerIntentsParamsWithContext creates a new GetLanguageunderstandingMinerIntentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLanguageunderstandingMinerIntentsParamsWithContext(ctx context.Context) *GetLanguageunderstandingMinerIntentsParams {
-	var ()
 	return &GetLanguageunderstandingMinerIntentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLanguageunderstandingMinerIntentsParamsWithHTTPClient creates a new GetLanguageunderstandingMinerIntentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLanguageunderstandingMinerIntentsParamsWithHTTPClient(client *http.Client) *GetLanguageunderstandingMinerIntentsParams {
-	var ()
 	return &GetLanguageunderstandingMinerIntentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLanguageunderstandingMinerIntentsParams contains all the parameters to send to the API endpoint
-for the get languageunderstanding miner intents operation typically these are written to a http.Request
+/*
+GetLanguageunderstandingMinerIntentsParams contains all the parameters to send to the API endpoint
+
+	for the get languageunderstanding miner intents operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLanguageunderstandingMinerIntentsParams struct {
 
-	/*Expand
-	  Option to fetch utterances.
+	/* Expand.
 
+	   Option to fetch utterances.
 	*/
 	Expand *string
-	/*MinerID
-	  Miner ID
 
+	/* MinerID.
+
+	   Miner ID
 	*/
 	MinerID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get languageunderstanding miner intents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingMinerIntentsParams) WithDefaults() *GetLanguageunderstandingMinerIntentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get languageunderstanding miner intents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingMinerIntentsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get languageunderstanding miner intents params
@@ -143,16 +160,17 @@ func (o *GetLanguageunderstandingMinerIntentsParams) WriteToRequest(r runtime.Cl
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param minerId

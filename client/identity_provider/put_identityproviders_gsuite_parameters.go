@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutIdentityprovidersGsuiteParams creates a new PutIdentityprovidersGsuiteParams object
-// with the default values initialized.
+// NewPutIdentityprovidersGsuiteParams creates a new PutIdentityprovidersGsuiteParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutIdentityprovidersGsuiteParams() *PutIdentityprovidersGsuiteParams {
-	var ()
 	return &PutIdentityprovidersGsuiteParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutIdentityprovidersGsuiteParamsWithTimeout creates a new PutIdentityprovidersGsuiteParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutIdentityprovidersGsuiteParamsWithTimeout(timeout time.Duration) *PutIdentityprovidersGsuiteParams {
-	var ()
 	return &PutIdentityprovidersGsuiteParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutIdentityprovidersGsuiteParamsWithContext creates a new PutIdentityprovidersGsuiteParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutIdentityprovidersGsuiteParamsWithContext(ctx context.Context) *PutIdentityprovidersGsuiteParams {
-	var ()
 	return &PutIdentityprovidersGsuiteParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutIdentityprovidersGsuiteParamsWithHTTPClient creates a new PutIdentityprovidersGsuiteParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutIdentityprovidersGsuiteParamsWithHTTPClient(client *http.Client) *PutIdentityprovidersGsuiteParams {
-	var ()
 	return &PutIdentityprovidersGsuiteParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutIdentityprovidersGsuiteParams contains all the parameters to send to the API endpoint
-for the put identityproviders gsuite operation typically these are written to a http.Request
+/*
+PutIdentityprovidersGsuiteParams contains all the parameters to send to the API endpoint
+
+	for the put identityproviders gsuite operation.
+
+	Typically these are written to a http.Request.
 */
 type PutIdentityprovidersGsuiteParams struct {
 
-	/*Body
-	  Provider
+	/* Body.
 
+	   Provider
 	*/
 	Body *models.GSuite
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put identityproviders gsuite params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersGsuiteParams) WithDefaults() *PutIdentityprovidersGsuiteParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put identityproviders gsuite params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersGsuiteParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put identityproviders gsuite params
@@ -124,7 +140,6 @@ func (o *PutIdentityprovidersGsuiteParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutConversationsVideoRecordingstateParams creates a new PutConversationsVideoRecordingstateParams object
-// with the default values initialized.
+// NewPutConversationsVideoRecordingstateParams creates a new PutConversationsVideoRecordingstateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutConversationsVideoRecordingstateParams() *PutConversationsVideoRecordingstateParams {
-	var ()
 	return &PutConversationsVideoRecordingstateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutConversationsVideoRecordingstateParamsWithTimeout creates a new PutConversationsVideoRecordingstateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutConversationsVideoRecordingstateParamsWithTimeout(timeout time.Duration) *PutConversationsVideoRecordingstateParams {
-	var ()
 	return &PutConversationsVideoRecordingstateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutConversationsVideoRecordingstateParamsWithContext creates a new PutConversationsVideoRecordingstateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutConversationsVideoRecordingstateParamsWithContext(ctx context.Context) *PutConversationsVideoRecordingstateParams {
-	var ()
 	return &PutConversationsVideoRecordingstateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutConversationsVideoRecordingstateParamsWithHTTPClient creates a new PutConversationsVideoRecordingstateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutConversationsVideoRecordingstateParamsWithHTTPClient(client *http.Client) *PutConversationsVideoRecordingstateParams {
-	var ()
 	return &PutConversationsVideoRecordingstateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutConversationsVideoRecordingstateParams contains all the parameters to send to the API endpoint
-for the put conversations video recordingstate operation typically these are written to a http.Request
+/*
+PutConversationsVideoRecordingstateParams contains all the parameters to send to the API endpoint
+
+	for the put conversations video recordingstate operation.
+
+	Typically these are written to a http.Request.
 */
 type PutConversationsVideoRecordingstateParams struct {
 
-	/*Body
-	  SetRecordingState
+	/* Body.
 
+	   SetRecordingState
 	*/
 	Body *models.SetRecordingState
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put conversations video recordingstate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationsVideoRecordingstateParams) WithDefaults() *PutConversationsVideoRecordingstateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put conversations video recordingstate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationsVideoRecordingstateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put conversations video recordingstate params
@@ -140,7 +157,6 @@ func (o *PutConversationsVideoRecordingstateParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

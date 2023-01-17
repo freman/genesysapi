@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetFaxSummaryParams creates a new GetFaxSummaryParams object
-// with the default values initialized.
+// NewGetFaxSummaryParams creates a new GetFaxSummaryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFaxSummaryParams() *GetFaxSummaryParams {
-
 	return &GetFaxSummaryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFaxSummaryParamsWithTimeout creates a new GetFaxSummaryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFaxSummaryParamsWithTimeout(timeout time.Duration) *GetFaxSummaryParams {
-
 	return &GetFaxSummaryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFaxSummaryParamsWithContext creates a new GetFaxSummaryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFaxSummaryParamsWithContext(ctx context.Context) *GetFaxSummaryParams {
-
 	return &GetFaxSummaryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetFaxSummaryParamsWithHTTPClient creates a new GetFaxSummaryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFaxSummaryParamsWithHTTPClient(client *http.Client) *GetFaxSummaryParams {
-
 	return &GetFaxSummaryParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetFaxSummaryParams contains all the parameters to send to the API endpoint
-for the get fax summary operation typically these are written to a http.Request
+/*
+GetFaxSummaryParams contains all the parameters to send to the API endpoint
+
+	for the get fax summary operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFaxSummaryParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get fax summary params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFaxSummaryParams) WithDefaults() *GetFaxSummaryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get fax summary params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFaxSummaryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get fax summary params

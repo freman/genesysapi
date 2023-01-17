@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -46,7 +47,6 @@ func (m *MoveManagementUnitResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MoveManagementUnitResponse) validateBusinessUnit(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BusinessUnit) { // not required
 		return nil
 	}
@@ -55,6 +55,8 @@ func (m *MoveManagementUnitResponse) validateBusinessUnit(formats strfmt.Registr
 		if err := m.BusinessUnit.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("businessUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("businessUnit")
 			}
 			return err
 		}
@@ -99,7 +101,6 @@ func (m *MoveManagementUnitResponse) validateStatusEnum(path, location string, v
 }
 
 func (m *MoveManagementUnitResponse) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -107,6 +108,36 @@ func (m *MoveManagementUnitResponse) validateStatus(formats strfmt.Registry) err
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this move management unit response based on the context it is used
+func (m *MoveManagementUnitResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBusinessUnit(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MoveManagementUnitResponse) contextValidateBusinessUnit(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.BusinessUnit != nil {
+		if err := m.BusinessUnit.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("businessUnit")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("businessUnit")
+			}
+			return err
+		}
 	}
 
 	return nil

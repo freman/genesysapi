@@ -16,64 +16,83 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams creates a new GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams creates a new GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams() *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsParamsWithTimeout creates a new GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsParamsWithContext creates a new GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsParamsWithContext(ctx context.Context) *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsParamsWithHTTPClient creates a new GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement businessunit intraday planninggroups operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement businessunit intraday planninggroups operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams struct {
 
-	/*BusinessUnitID
-	  The ID of the business unit
+	/* BusinessUnitID.
 
+	   The ID of the business unit
 	*/
 	BusinessUnitID string
-	/*Date
-	  yyyy-MM-dd date string interpreted in the configured business unit time zone. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* Date.
+
+	   yyyy-MM-dd date string interpreted in the configured business unit time zone. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	Date strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement businessunit intraday planninggroups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams) WithDefaults() *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement businessunit intraday planninggroups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement businessunit intraday planninggroups params
@@ -148,6 +167,7 @@ func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsParams) WriteTo
 	qrDate := o.Date
 	qDate := qrDate.String()
 	if qDate != "" {
+
 		if err := r.SetQueryParam("date", qDate); err != nil {
 			return err
 		}

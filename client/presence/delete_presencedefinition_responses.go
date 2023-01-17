@@ -106,7 +106,8 @@ func NewDeletePresencedefinitionBadRequest() *DeletePresencedefinitionBadRequest
 	return &DeletePresencedefinitionBadRequest{}
 }
 
-/*DeletePresencedefinitionBadRequest handles this case with default header values.
+/*
+DeletePresencedefinitionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type DeletePresencedefinitionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presencedefinition bad request response has a 2xx status code
+func (o *DeletePresencedefinitionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presencedefinition bad request response has a 3xx status code
+func (o *DeletePresencedefinitionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presencedefinition bad request response has a 4xx status code
+func (o *DeletePresencedefinitionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presencedefinition bad request response has a 5xx status code
+func (o *DeletePresencedefinitionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presencedefinition bad request response a status code equal to that given
+func (o *DeletePresencedefinitionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeletePresencedefinitionBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeletePresencedefinitionBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewDeletePresencedefinitionUnauthorized() *DeletePresencedefinitionUnauthor
 	return &DeletePresencedefinitionUnauthorized{}
 }
 
-/*DeletePresencedefinitionUnauthorized handles this case with default header values.
+/*
+DeletePresencedefinitionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type DeletePresencedefinitionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presencedefinition unauthorized response has a 2xx status code
+func (o *DeletePresencedefinitionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presencedefinition unauthorized response has a 3xx status code
+func (o *DeletePresencedefinitionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presencedefinition unauthorized response has a 4xx status code
+func (o *DeletePresencedefinitionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presencedefinition unauthorized response has a 5xx status code
+func (o *DeletePresencedefinitionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presencedefinition unauthorized response a status code equal to that given
+func (o *DeletePresencedefinitionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeletePresencedefinitionUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeletePresencedefinitionUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewDeletePresencedefinitionForbidden() *DeletePresencedefinitionForbidden {
 	return &DeletePresencedefinitionForbidden{}
 }
 
-/*DeletePresencedefinitionForbidden handles this case with default header values.
+/*
+DeletePresencedefinitionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type DeletePresencedefinitionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presencedefinition forbidden response has a 2xx status code
+func (o *DeletePresencedefinitionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presencedefinition forbidden response has a 3xx status code
+func (o *DeletePresencedefinitionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presencedefinition forbidden response has a 4xx status code
+func (o *DeletePresencedefinitionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presencedefinition forbidden response has a 5xx status code
+func (o *DeletePresencedefinitionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presencedefinition forbidden response a status code equal to that given
+func (o *DeletePresencedefinitionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeletePresencedefinitionForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeletePresencedefinitionForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewDeletePresencedefinitionNotFound() *DeletePresencedefinitionNotFound {
 	return &DeletePresencedefinitionNotFound{}
 }
 
-/*DeletePresencedefinitionNotFound handles this case with default header values.
+/*
+DeletePresencedefinitionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type DeletePresencedefinitionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presencedefinition not found response has a 2xx status code
+func (o *DeletePresencedefinitionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presencedefinition not found response has a 3xx status code
+func (o *DeletePresencedefinitionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presencedefinition not found response has a 4xx status code
+func (o *DeletePresencedefinitionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presencedefinition not found response has a 5xx status code
+func (o *DeletePresencedefinitionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presencedefinition not found response a status code equal to that given
+func (o *DeletePresencedefinitionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeletePresencedefinitionNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeletePresencedefinitionNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewDeletePresencedefinitionRequestTimeout() *DeletePresencedefinitionReques
 	return &DeletePresencedefinitionRequestTimeout{}
 }
 
-/*DeletePresencedefinitionRequestTimeout handles this case with default header values.
+/*
+DeletePresencedefinitionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type DeletePresencedefinitionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presencedefinition request timeout response has a 2xx status code
+func (o *DeletePresencedefinitionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presencedefinition request timeout response has a 3xx status code
+func (o *DeletePresencedefinitionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presencedefinition request timeout response has a 4xx status code
+func (o *DeletePresencedefinitionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presencedefinition request timeout response has a 5xx status code
+func (o *DeletePresencedefinitionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presencedefinition request timeout response a status code equal to that given
+func (o *DeletePresencedefinitionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeletePresencedefinitionRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeletePresencedefinitionRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewDeletePresencedefinitionRequestEntityTooLarge() *DeletePresencedefinitio
 	return &DeletePresencedefinitionRequestEntityTooLarge{}
 }
 
-/*DeletePresencedefinitionRequestEntityTooLarge handles this case with default header values.
+/*
+DeletePresencedefinitionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type DeletePresencedefinitionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presencedefinition request entity too large response has a 2xx status code
+func (o *DeletePresencedefinitionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presencedefinition request entity too large response has a 3xx status code
+func (o *DeletePresencedefinitionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presencedefinition request entity too large response has a 4xx status code
+func (o *DeletePresencedefinitionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presencedefinition request entity too large response has a 5xx status code
+func (o *DeletePresencedefinitionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presencedefinition request entity too large response a status code equal to that given
+func (o *DeletePresencedefinitionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeletePresencedefinitionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeletePresencedefinitionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewDeletePresencedefinitionUnsupportedMediaType() *DeletePresencedefinition
 	return &DeletePresencedefinitionUnsupportedMediaType{}
 }
 
-/*DeletePresencedefinitionUnsupportedMediaType handles this case with default header values.
+/*
+DeletePresencedefinitionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type DeletePresencedefinitionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presencedefinition unsupported media type response has a 2xx status code
+func (o *DeletePresencedefinitionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presencedefinition unsupported media type response has a 3xx status code
+func (o *DeletePresencedefinitionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presencedefinition unsupported media type response has a 4xx status code
+func (o *DeletePresencedefinitionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presencedefinition unsupported media type response has a 5xx status code
+func (o *DeletePresencedefinitionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presencedefinition unsupported media type response a status code equal to that given
+func (o *DeletePresencedefinitionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeletePresencedefinitionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeletePresencedefinitionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewDeletePresencedefinitionTooManyRequests() *DeletePresencedefinitionTooMa
 	return &DeletePresencedefinitionTooManyRequests{}
 }
 
-/*DeletePresencedefinitionTooManyRequests handles this case with default header values.
+/*
+DeletePresencedefinitionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type DeletePresencedefinitionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presencedefinition too many requests response has a 2xx status code
+func (o *DeletePresencedefinitionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presencedefinition too many requests response has a 3xx status code
+func (o *DeletePresencedefinitionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presencedefinition too many requests response has a 4xx status code
+func (o *DeletePresencedefinitionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete presencedefinition too many requests response has a 5xx status code
+func (o *DeletePresencedefinitionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete presencedefinition too many requests response a status code equal to that given
+func (o *DeletePresencedefinitionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeletePresencedefinitionTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeletePresencedefinitionTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewDeletePresencedefinitionInternalServerError() *DeletePresencedefinitionI
 	return &DeletePresencedefinitionInternalServerError{}
 }
 
-/*DeletePresencedefinitionInternalServerError handles this case with default header values.
+/*
+DeletePresencedefinitionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type DeletePresencedefinitionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presencedefinition internal server error response has a 2xx status code
+func (o *DeletePresencedefinitionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presencedefinition internal server error response has a 3xx status code
+func (o *DeletePresencedefinitionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presencedefinition internal server error response has a 4xx status code
+func (o *DeletePresencedefinitionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete presencedefinition internal server error response has a 5xx status code
+func (o *DeletePresencedefinitionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete presencedefinition internal server error response a status code equal to that given
+func (o *DeletePresencedefinitionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeletePresencedefinitionInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeletePresencedefinitionInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewDeletePresencedefinitionServiceUnavailable() *DeletePresencedefinitionSe
 	return &DeletePresencedefinitionServiceUnavailable{}
 }
 
-/*DeletePresencedefinitionServiceUnavailable handles this case with default header values.
+/*
+DeletePresencedefinitionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type DeletePresencedefinitionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presencedefinition service unavailable response has a 2xx status code
+func (o *DeletePresencedefinitionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presencedefinition service unavailable response has a 3xx status code
+func (o *DeletePresencedefinitionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presencedefinition service unavailable response has a 4xx status code
+func (o *DeletePresencedefinitionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete presencedefinition service unavailable response has a 5xx status code
+func (o *DeletePresencedefinitionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete presencedefinition service unavailable response a status code equal to that given
+func (o *DeletePresencedefinitionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeletePresencedefinitionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeletePresencedefinitionServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewDeletePresencedefinitionGatewayTimeout() *DeletePresencedefinitionGatewa
 	return &DeletePresencedefinitionGatewayTimeout{}
 }
 
-/*DeletePresencedefinitionGatewayTimeout handles this case with default header values.
+/*
+DeletePresencedefinitionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type DeletePresencedefinitionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete presencedefinition gateway timeout response has a 2xx status code
+func (o *DeletePresencedefinitionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete presencedefinition gateway timeout response has a 3xx status code
+func (o *DeletePresencedefinitionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete presencedefinition gateway timeout response has a 4xx status code
+func (o *DeletePresencedefinitionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete presencedefinition gateway timeout response has a 5xx status code
+func (o *DeletePresencedefinitionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete presencedefinition gateway timeout response a status code equal to that given
+func (o *DeletePresencedefinitionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeletePresencedefinitionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeletePresencedefinitionGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinitionGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewDeletePresencedefinitionDefault(code int) *DeletePresencedefinitionDefau
 	}
 }
 
-/*DeletePresencedefinitionDefault handles this case with default header values.
+/*
+DeletePresencedefinitionDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *DeletePresencedefinitionDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete presencedefinition default response has a 2xx status code
+func (o *DeletePresencedefinitionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete presencedefinition default response has a 3xx status code
+func (o *DeletePresencedefinitionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete presencedefinition default response has a 4xx status code
+func (o *DeletePresencedefinitionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete presencedefinition default response has a 5xx status code
+func (o *DeletePresencedefinitionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete presencedefinition default response a status code equal to that given
+func (o *DeletePresencedefinitionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeletePresencedefinitionDefault) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinition default ", o._statusCode)
+}
+
+func (o *DeletePresencedefinitionDefault) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/presencedefinitions/{presenceId}][%d] deletePresencedefinition default ", o._statusCode)
 }
 

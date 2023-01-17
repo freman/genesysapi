@@ -95,7 +95,6 @@ func (o *GetWebchatSettingsReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWebchatSettingsOK() *GetWebchatSettingsOK {
 	return &GetWebchatSettingsOK{}
 }
 
-/*GetWebchatSettingsOK handles this case with default header values.
+/*
+GetWebchatSettingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWebchatSettingsOK struct {
 	Payload *models.WebChatSettings
 }
 
+// IsSuccess returns true when this get webchat settings o k response has a 2xx status code
+func (o *GetWebchatSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get webchat settings o k response has a 3xx status code
+func (o *GetWebchatSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat settings o k response has a 4xx status code
+func (o *GetWebchatSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webchat settings o k response has a 5xx status code
+func (o *GetWebchatSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat settings o k response a status code equal to that given
+func (o *GetWebchatSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWebchatSettingsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWebchatSettingsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWebchatSettingsBadRequest() *GetWebchatSettingsBadRequest {
 	return &GetWebchatSettingsBadRequest{}
 }
 
-/*GetWebchatSettingsBadRequest handles this case with default header values.
+/*
+GetWebchatSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWebchatSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat settings bad request response has a 2xx status code
+func (o *GetWebchatSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat settings bad request response has a 3xx status code
+func (o *GetWebchatSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat settings bad request response has a 4xx status code
+func (o *GetWebchatSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat settings bad request response has a 5xx status code
+func (o *GetWebchatSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat settings bad request response a status code equal to that given
+func (o *GetWebchatSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWebchatSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWebchatSettingsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWebchatSettingsUnauthorized() *GetWebchatSettingsUnauthorized {
 	return &GetWebchatSettingsUnauthorized{}
 }
 
-/*GetWebchatSettingsUnauthorized handles this case with default header values.
+/*
+GetWebchatSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWebchatSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat settings unauthorized response has a 2xx status code
+func (o *GetWebchatSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat settings unauthorized response has a 3xx status code
+func (o *GetWebchatSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat settings unauthorized response has a 4xx status code
+func (o *GetWebchatSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat settings unauthorized response has a 5xx status code
+func (o *GetWebchatSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat settings unauthorized response a status code equal to that given
+func (o *GetWebchatSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWebchatSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWebchatSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWebchatSettingsForbidden() *GetWebchatSettingsForbidden {
 	return &GetWebchatSettingsForbidden{}
 }
 
-/*GetWebchatSettingsForbidden handles this case with default header values.
+/*
+GetWebchatSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWebchatSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat settings forbidden response has a 2xx status code
+func (o *GetWebchatSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat settings forbidden response has a 3xx status code
+func (o *GetWebchatSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat settings forbidden response has a 4xx status code
+func (o *GetWebchatSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat settings forbidden response has a 5xx status code
+func (o *GetWebchatSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat settings forbidden response a status code equal to that given
+func (o *GetWebchatSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWebchatSettingsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWebchatSettingsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWebchatSettingsNotFound() *GetWebchatSettingsNotFound {
 	return &GetWebchatSettingsNotFound{}
 }
 
-/*GetWebchatSettingsNotFound handles this case with default header values.
+/*
+GetWebchatSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWebchatSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat settings not found response has a 2xx status code
+func (o *GetWebchatSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat settings not found response has a 3xx status code
+func (o *GetWebchatSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat settings not found response has a 4xx status code
+func (o *GetWebchatSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat settings not found response has a 5xx status code
+func (o *GetWebchatSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat settings not found response a status code equal to that given
+func (o *GetWebchatSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWebchatSettingsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWebchatSettingsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWebchatSettingsRequestTimeout() *GetWebchatSettingsRequestTimeout {
 	return &GetWebchatSettingsRequestTimeout{}
 }
 
-/*GetWebchatSettingsRequestTimeout handles this case with default header values.
+/*
+GetWebchatSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWebchatSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat settings request timeout response has a 2xx status code
+func (o *GetWebchatSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat settings request timeout response has a 3xx status code
+func (o *GetWebchatSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat settings request timeout response has a 4xx status code
+func (o *GetWebchatSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat settings request timeout response has a 5xx status code
+func (o *GetWebchatSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat settings request timeout response a status code equal to that given
+func (o *GetWebchatSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWebchatSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWebchatSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWebchatSettingsRequestEntityTooLarge() *GetWebchatSettingsRequestEnti
 	return &GetWebchatSettingsRequestEntityTooLarge{}
 }
 
-/*GetWebchatSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+GetWebchatSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWebchatSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat settings request entity too large response has a 2xx status code
+func (o *GetWebchatSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat settings request entity too large response has a 3xx status code
+func (o *GetWebchatSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat settings request entity too large response has a 4xx status code
+func (o *GetWebchatSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat settings request entity too large response has a 5xx status code
+func (o *GetWebchatSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat settings request entity too large response a status code equal to that given
+func (o *GetWebchatSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWebchatSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWebchatSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWebchatSettingsUnsupportedMediaType() *GetWebchatSettingsUnsupportedM
 	return &GetWebchatSettingsUnsupportedMediaType{}
 }
 
-/*GetWebchatSettingsUnsupportedMediaType handles this case with default header values.
+/*
+GetWebchatSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWebchatSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat settings unsupported media type response has a 2xx status code
+func (o *GetWebchatSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat settings unsupported media type response has a 3xx status code
+func (o *GetWebchatSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat settings unsupported media type response has a 4xx status code
+func (o *GetWebchatSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat settings unsupported media type response has a 5xx status code
+func (o *GetWebchatSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat settings unsupported media type response a status code equal to that given
+func (o *GetWebchatSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWebchatSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWebchatSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWebchatSettingsTooManyRequests() *GetWebchatSettingsTooManyRequests {
 	return &GetWebchatSettingsTooManyRequests{}
 }
 
-/*GetWebchatSettingsTooManyRequests handles this case with default header values.
+/*
+GetWebchatSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWebchatSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat settings too many requests response has a 2xx status code
+func (o *GetWebchatSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat settings too many requests response has a 3xx status code
+func (o *GetWebchatSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat settings too many requests response has a 4xx status code
+func (o *GetWebchatSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webchat settings too many requests response has a 5xx status code
+func (o *GetWebchatSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webchat settings too many requests response a status code equal to that given
+func (o *GetWebchatSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWebchatSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWebchatSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWebchatSettingsInternalServerError() *GetWebchatSettingsInternalServe
 	return &GetWebchatSettingsInternalServerError{}
 }
 
-/*GetWebchatSettingsInternalServerError handles this case with default header values.
+/*
+GetWebchatSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWebchatSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat settings internal server error response has a 2xx status code
+func (o *GetWebchatSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat settings internal server error response has a 3xx status code
+func (o *GetWebchatSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat settings internal server error response has a 4xx status code
+func (o *GetWebchatSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webchat settings internal server error response has a 5xx status code
+func (o *GetWebchatSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webchat settings internal server error response a status code equal to that given
+func (o *GetWebchatSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWebchatSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWebchatSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWebchatSettingsServiceUnavailable() *GetWebchatSettingsServiceUnavail
 	return &GetWebchatSettingsServiceUnavailable{}
 }
 
-/*GetWebchatSettingsServiceUnavailable handles this case with default header values.
+/*
+GetWebchatSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWebchatSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat settings service unavailable response has a 2xx status code
+func (o *GetWebchatSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat settings service unavailable response has a 3xx status code
+func (o *GetWebchatSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat settings service unavailable response has a 4xx status code
+func (o *GetWebchatSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webchat settings service unavailable response has a 5xx status code
+func (o *GetWebchatSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webchat settings service unavailable response a status code equal to that given
+func (o *GetWebchatSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWebchatSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWebchatSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWebchatSettingsGatewayTimeout() *GetWebchatSettingsGatewayTimeout {
 	return &GetWebchatSettingsGatewayTimeout{}
 }
 
-/*GetWebchatSettingsGatewayTimeout handles this case with default header values.
+/*
+GetWebchatSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWebchatSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webchat settings gateway timeout response has a 2xx status code
+func (o *GetWebchatSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webchat settings gateway timeout response has a 3xx status code
+func (o *GetWebchatSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webchat settings gateway timeout response has a 4xx status code
+func (o *GetWebchatSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webchat settings gateway timeout response has a 5xx status code
+func (o *GetWebchatSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webchat settings gateway timeout response a status code equal to that given
+func (o *GetWebchatSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWebchatSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWebchatSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/webchat/settings][%d] getWebchatSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

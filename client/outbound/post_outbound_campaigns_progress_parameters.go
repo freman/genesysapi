@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostOutboundCampaignsProgressParams creates a new PostOutboundCampaignsProgressParams object
-// with the default values initialized.
+// NewPostOutboundCampaignsProgressParams creates a new PostOutboundCampaignsProgressParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundCampaignsProgressParams() *PostOutboundCampaignsProgressParams {
-	var ()
 	return &PostOutboundCampaignsProgressParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundCampaignsProgressParamsWithTimeout creates a new PostOutboundCampaignsProgressParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundCampaignsProgressParamsWithTimeout(timeout time.Duration) *PostOutboundCampaignsProgressParams {
-	var ()
 	return &PostOutboundCampaignsProgressParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundCampaignsProgressParamsWithContext creates a new PostOutboundCampaignsProgressParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundCampaignsProgressParamsWithContext(ctx context.Context) *PostOutboundCampaignsProgressParams {
-	var ()
 	return &PostOutboundCampaignsProgressParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundCampaignsProgressParamsWithHTTPClient creates a new PostOutboundCampaignsProgressParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundCampaignsProgressParamsWithHTTPClient(client *http.Client) *PostOutboundCampaignsProgressParams {
-	var ()
 	return &PostOutboundCampaignsProgressParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundCampaignsProgressParams contains all the parameters to send to the API endpoint
-for the post outbound campaigns progress operation typically these are written to a http.Request
+/*
+PostOutboundCampaignsProgressParams contains all the parameters to send to the API endpoint
+
+	for the post outbound campaigns progress operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundCampaignsProgressParams struct {
 
-	/*Body
-	  Campaign IDs
+	/* Body.
 
+	   Campaign IDs
 	*/
 	Body []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound campaigns progress params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundCampaignsProgressParams) WithDefaults() *PostOutboundCampaignsProgressParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound campaigns progress params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundCampaignsProgressParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound campaigns progress params
@@ -122,7 +138,6 @@ func (o *PostOutboundCampaignsProgressParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -147,7 +148,6 @@ func (m *ActionMap) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ActionMap) validateAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Action) { // not required
 		return nil
 	}
@@ -156,6 +156,8 @@ func (m *ActionMap) validateAction(formats strfmt.Registry) error {
 		if err := m.Action.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("action")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("action")
 			}
 			return err
 		}
@@ -165,7 +167,6 @@ func (m *ActionMap) validateAction(formats strfmt.Registry) error {
 }
 
 func (m *ActionMap) validateActionMapScheduleGroups(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionMapScheduleGroups) { // not required
 		return nil
 	}
@@ -174,6 +175,8 @@ func (m *ActionMap) validateActionMapScheduleGroups(formats strfmt.Registry) err
 		if err := m.ActionMapScheduleGroups.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("actionMapScheduleGroups")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actionMapScheduleGroups")
 			}
 			return err
 		}
@@ -183,7 +186,6 @@ func (m *ActionMap) validateActionMapScheduleGroups(formats strfmt.Registry) err
 }
 
 func (m *ActionMap) validateActivation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Activation) { // not required
 		return nil
 	}
@@ -192,6 +194,8 @@ func (m *ActionMap) validateActivation(formats strfmt.Registry) error {
 		if err := m.Activation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("activation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activation")
 			}
 			return err
 		}
@@ -201,7 +205,6 @@ func (m *ActionMap) validateActivation(formats strfmt.Registry) error {
 }
 
 func (m *ActionMap) validateCreatedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedDate) { // not required
 		return nil
 	}
@@ -223,7 +226,6 @@ func (m *ActionMap) validateDisplayName(formats strfmt.Registry) error {
 }
 
 func (m *ActionMap) validateEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndDate) { // not required
 		return nil
 	}
@@ -236,7 +238,6 @@ func (m *ActionMap) validateEndDate(formats strfmt.Registry) error {
 }
 
 func (m *ActionMap) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -263,6 +264,8 @@ func (m *ActionMap) validatePageURLConditions(formats strfmt.Registry) error {
 			if err := m.PageURLConditions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("pageUrlConditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("pageUrlConditions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -274,7 +277,6 @@ func (m *ActionMap) validatePageURLConditions(formats strfmt.Registry) error {
 }
 
 func (m *ActionMap) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -287,7 +289,6 @@ func (m *ActionMap) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *ActionMap) validateStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDate) { // not required
 		return nil
 	}
@@ -300,7 +301,6 @@ func (m *ActionMap) validateStartDate(formats strfmt.Registry) error {
 }
 
 func (m *ActionMap) validateTriggerWithEventConditions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TriggerWithEventConditions) { // not required
 		return nil
 	}
@@ -314,6 +314,8 @@ func (m *ActionMap) validateTriggerWithEventConditions(formats strfmt.Registry) 
 			if err := m.TriggerWithEventConditions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("triggerWithEventConditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("triggerWithEventConditions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -325,7 +327,6 @@ func (m *ActionMap) validateTriggerWithEventConditions(formats strfmt.Registry) 
 }
 
 func (m *ActionMap) validateTriggerWithOutcomeProbabilityConditions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TriggerWithOutcomeProbabilityConditions) { // not required
 		return nil
 	}
@@ -339,6 +340,8 @@ func (m *ActionMap) validateTriggerWithOutcomeProbabilityConditions(formats strf
 			if err := m.TriggerWithOutcomeProbabilityConditions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("triggerWithOutcomeProbabilityConditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("triggerWithOutcomeProbabilityConditions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -353,6 +356,174 @@ func (m *ActionMap) validateTriggerWithSegments(formats strfmt.Registry) error {
 
 	if err := validate.Required("triggerWithSegments", "body", m.TriggerWithSegments); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this action map based on the context it is used
+func (m *ActionMap) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAction(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateActionMapScheduleGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateActivation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePageURLConditions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTriggerWithEventConditions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTriggerWithOutcomeProbabilityConditions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ActionMap) contextValidateAction(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Action != nil {
+		if err := m.Action.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("action")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("action")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ActionMap) contextValidateActionMapScheduleGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ActionMapScheduleGroups != nil {
+		if err := m.ActionMapScheduleGroups.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("actionMapScheduleGroups")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actionMapScheduleGroups")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ActionMap) contextValidateActivation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Activation != nil {
+		if err := m.Activation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("activation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ActionMap) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ActionMap) contextValidatePageURLConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PageURLConditions); i++ {
+
+		if m.PageURLConditions[i] != nil {
+			if err := m.PageURLConditions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("pageUrlConditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("pageUrlConditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ActionMap) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ActionMap) contextValidateTriggerWithEventConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TriggerWithEventConditions); i++ {
+
+		if m.TriggerWithEventConditions[i] != nil {
+			if err := m.TriggerWithEventConditions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("triggerWithEventConditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("triggerWithEventConditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ActionMap) contextValidateTriggerWithOutcomeProbabilityConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TriggerWithOutcomeProbabilityConditions); i++ {
+
+		if m.TriggerWithOutcomeProbabilityConditions[i] != nil {
+			if err := m.TriggerWithOutcomeProbabilityConditions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("triggerWithOutcomeProbabilityConditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("triggerWithOutcomeProbabilityConditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

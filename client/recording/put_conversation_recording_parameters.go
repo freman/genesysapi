@@ -19,74 +19,93 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutConversationRecordingParams creates a new PutConversationRecordingParams object
-// with the default values initialized.
+// NewPutConversationRecordingParams creates a new PutConversationRecordingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutConversationRecordingParams() *PutConversationRecordingParams {
-	var ()
 	return &PutConversationRecordingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutConversationRecordingParamsWithTimeout creates a new PutConversationRecordingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutConversationRecordingParamsWithTimeout(timeout time.Duration) *PutConversationRecordingParams {
-	var ()
 	return &PutConversationRecordingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutConversationRecordingParamsWithContext creates a new PutConversationRecordingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutConversationRecordingParamsWithContext(ctx context.Context) *PutConversationRecordingParams {
-	var ()
 	return &PutConversationRecordingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutConversationRecordingParamsWithHTTPClient creates a new PutConversationRecordingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutConversationRecordingParamsWithHTTPClient(client *http.Client) *PutConversationRecordingParams {
-	var ()
 	return &PutConversationRecordingParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutConversationRecordingParams contains all the parameters to send to the API endpoint
-for the put conversation recording operation typically these are written to a http.Request
+/*
+PutConversationRecordingParams contains all the parameters to send to the API endpoint
+
+	for the put conversation recording operation.
+
+	Typically these are written to a http.Request.
 */
 type PutConversationRecordingParams struct {
 
-	/*Body
-	  recording
+	/* Body.
 
+	   recording
 	*/
 	Body *models.Recording
-	/*ClearExport
-	  Whether to clear the pending export for the recording
 
+	/* ClearExport.
+
+	   Whether to clear the pending export for the recording
 	*/
 	ClearExport *bool
-	/*ConversationID
-	  Conversation ID
 
+	/* ConversationID.
+
+	   Conversation ID
 	*/
 	ConversationID string
-	/*RecordingID
-	  Recording ID
 
+	/* RecordingID.
+
+	   Recording ID
 	*/
 	RecordingID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put conversation recording params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationRecordingParams) WithDefaults() *PutConversationRecordingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put conversation recording params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationRecordingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put conversation recording params
@@ -173,7 +192,6 @@ func (o *PutConversationRecordingParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -184,16 +202,17 @@ func (o *PutConversationRecordingParams) WriteToRequest(r runtime.ClientRequest,
 
 		// query param clearExport
 		var qrClearExport bool
+
 		if o.ClearExport != nil {
 			qrClearExport = *o.ClearExport
 		}
 		qClearExport := swag.FormatBool(qrClearExport)
 		if qClearExport != "" {
+
 			if err := r.SetQueryParam("clearExport", qClearExport); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param conversationId

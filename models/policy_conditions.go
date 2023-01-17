@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -121,7 +122,6 @@ func (m *PolicyConditions) validateCustomerParticipationEnum(path, location stri
 }
 
 func (m *PolicyConditions) validateCustomerParticipation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CustomerParticipation) { // not required
 		return nil
 	}
@@ -154,7 +154,6 @@ func (m *PolicyConditions) validateDirectionsItemsEnum(path, location string, va
 }
 
 func (m *PolicyConditions) validateDirections(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Directions) { // not required
 		return nil
 	}
@@ -172,7 +171,6 @@ func (m *PolicyConditions) validateDirections(formats strfmt.Registry) error {
 }
 
 func (m *PolicyConditions) validateDuration(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Duration) { // not required
 		return nil
 	}
@@ -181,6 +179,8 @@ func (m *PolicyConditions) validateDuration(formats strfmt.Registry) error {
 		if err := m.Duration.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("duration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("duration")
 			}
 			return err
 		}
@@ -190,7 +190,6 @@ func (m *PolicyConditions) validateDuration(formats strfmt.Registry) error {
 }
 
 func (m *PolicyConditions) validateForQueues(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ForQueues) { // not required
 		return nil
 	}
@@ -204,6 +203,8 @@ func (m *PolicyConditions) validateForQueues(formats strfmt.Registry) error {
 			if err := m.ForQueues[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("forQueues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forQueues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -215,7 +216,6 @@ func (m *PolicyConditions) validateForQueues(formats strfmt.Registry) error {
 }
 
 func (m *PolicyConditions) validateForUsers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ForUsers) { // not required
 		return nil
 	}
@@ -229,6 +229,8 @@ func (m *PolicyConditions) validateForUsers(formats strfmt.Registry) error {
 			if err := m.ForUsers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("forUsers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forUsers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -259,7 +261,6 @@ func (m *PolicyConditions) validateMediaTypesItemsEnum(path, location string, va
 }
 
 func (m *PolicyConditions) validateMediaTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaTypes) { // not required
 		return nil
 	}
@@ -277,7 +278,6 @@ func (m *PolicyConditions) validateMediaTypes(formats strfmt.Registry) error {
 }
 
 func (m *PolicyConditions) validateTimeAllowed(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TimeAllowed) { // not required
 		return nil
 	}
@@ -286,6 +286,8 @@ func (m *PolicyConditions) validateTimeAllowed(formats strfmt.Registry) error {
 		if err := m.TimeAllowed.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("timeAllowed")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeAllowed")
 			}
 			return err
 		}
@@ -295,7 +297,6 @@ func (m *PolicyConditions) validateTimeAllowed(formats strfmt.Registry) error {
 }
 
 func (m *PolicyConditions) validateWrapupCodes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WrapupCodes) { // not required
 		return nil
 	}
@@ -309,6 +310,130 @@ func (m *PolicyConditions) validateWrapupCodes(formats strfmt.Registry) error {
 			if err := m.WrapupCodes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("wrapupCodes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("wrapupCodes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this policy conditions based on the context it is used
+func (m *PolicyConditions) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDuration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateForQueues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateForUsers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTimeAllowed(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapupCodes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PolicyConditions) contextValidateDuration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Duration != nil {
+		if err := m.Duration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("duration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("duration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PolicyConditions) contextValidateForQueues(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ForQueues); i++ {
+
+		if m.ForQueues[i] != nil {
+			if err := m.ForQueues[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("forQueues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forQueues" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *PolicyConditions) contextValidateForUsers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ForUsers); i++ {
+
+		if m.ForUsers[i] != nil {
+			if err := m.ForUsers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("forUsers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forUsers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *PolicyConditions) contextValidateTimeAllowed(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TimeAllowed != nil {
+		if err := m.TimeAllowed.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("timeAllowed")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeAllowed")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PolicyConditions) contextValidateWrapupCodes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.WrapupCodes); i++ {
+
+		if m.WrapupCodes[i] != nil {
+			if err := m.WrapupCodes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("wrapupCodes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("wrapupCodes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -95,7 +95,6 @@ func (o *PostWorkforcemanagementHistoricaldataDeletejobReader) ReadResponse(resp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostWorkforcemanagementHistoricaldataDeletejobAccepted() *PostWorkforcem
 	return &PostWorkforcemanagementHistoricaldataDeletejobAccepted{}
 }
 
-/*PostWorkforcemanagementHistoricaldataDeletejobAccepted handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataDeletejobAccepted describes a response with status code 202, with default header values.
 
 Delete job is accepted. Try using get API to get the status.
 */
@@ -114,7 +114,36 @@ type PostWorkforcemanagementHistoricaldataDeletejobAccepted struct {
 	Payload *models.HistoricalImportDeleteJobResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata deletejob accepted response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata deletejob accepted response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata deletejob accepted response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata deletejob accepted response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata deletejob accepted response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataDeletejobAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostWorkforcemanagementHistoricaldataDeletejobAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataDeletejobAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobAccepted  %+v", 202, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostWorkforcemanagementHistoricaldataDeletejobBadRequest() *PostWorkforc
 	return &PostWorkforcemanagementHistoricaldataDeletejobBadRequest{}
 }
 
-/*PostWorkforcemanagementHistoricaldataDeletejobBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataDeletejobBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostWorkforcemanagementHistoricaldataDeletejobBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata deletejob bad request response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata deletejob bad request response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata deletejob bad request response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata deletejob bad request response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata deletejob bad request response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataDeletejobBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementHistoricaldataDeletejobBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataDeletejobBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostWorkforcemanagementHistoricaldataDeletejobUnauthorized() *PostWorkfo
 	return &PostWorkforcemanagementHistoricaldataDeletejobUnauthorized{}
 }
 
-/*PostWorkforcemanagementHistoricaldataDeletejobUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataDeletejobUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostWorkforcemanagementHistoricaldataDeletejobUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata deletejob unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata deletejob unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata deletejob unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata deletejob unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata deletejob unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataDeletejobUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementHistoricaldataDeletejobUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataDeletejobUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostWorkforcemanagementHistoricaldataDeletejobForbidden() *PostWorkforce
 	return &PostWorkforcemanagementHistoricaldataDeletejobForbidden{}
 }
 
-/*PostWorkforcemanagementHistoricaldataDeletejobForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataDeletejobForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostWorkforcemanagementHistoricaldataDeletejobForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata deletejob forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata deletejob forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata deletejob forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata deletejob forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata deletejob forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataDeletejobForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementHistoricaldataDeletejobForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataDeletejobForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostWorkforcemanagementHistoricaldataDeletejobNotFound() *PostWorkforcem
 	return &PostWorkforcemanagementHistoricaldataDeletejobNotFound{}
 }
 
-/*PostWorkforcemanagementHistoricaldataDeletejobNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataDeletejobNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostWorkforcemanagementHistoricaldataDeletejobNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata deletejob not found response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata deletejob not found response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata deletejob not found response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata deletejob not found response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata deletejob not found response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataDeletejobNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementHistoricaldataDeletejobNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataDeletejobNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostWorkforcemanagementHistoricaldataDeletejobRequestTimeout() *PostWork
 	return &PostWorkforcemanagementHistoricaldataDeletejobRequestTimeout{}
 }
 
-/*PostWorkforcemanagementHistoricaldataDeletejobRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataDeletejobRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostWorkforcemanagementHistoricaldataDeletejobRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata deletejob request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata deletejob request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata deletejob request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata deletejob request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata deletejob request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge() *P
 	return &PostWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata deletejob request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata deletejob request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata deletejob request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata deletejob request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata deletejob request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType() *Po
 	return &PostWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata deletejob unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata deletejob unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata deletejob unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata deletejob unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata deletejob unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostWorkforcemanagementHistoricaldataDeletejobTooManyRequests() *PostWor
 	return &PostWorkforcemanagementHistoricaldataDeletejobTooManyRequests{}
 }
 
-/*PostWorkforcemanagementHistoricaldataDeletejobTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataDeletejobTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostWorkforcemanagementHistoricaldataDeletejobTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata deletejob too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata deletejob too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata deletejob too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata deletejob too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata deletejob too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataDeletejobTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementHistoricaldataDeletejobTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataDeletejobTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostWorkforcemanagementHistoricaldataDeletejobInternalServerError() *Pos
 	return &PostWorkforcemanagementHistoricaldataDeletejobInternalServerError{}
 }
 
-/*PostWorkforcemanagementHistoricaldataDeletejobInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataDeletejobInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostWorkforcemanagementHistoricaldataDeletejobInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata deletejob internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata deletejob internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata deletejob internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata deletejob internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata deletejob internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataDeletejobInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementHistoricaldataDeletejobInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataDeletejobInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostWorkforcemanagementHistoricaldataDeletejobServiceUnavailable() *Post
 	return &PostWorkforcemanagementHistoricaldataDeletejobServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementHistoricaldataDeletejobServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataDeletejobServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostWorkforcemanagementHistoricaldataDeletejobServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata deletejob service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata deletejob service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata deletejob service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata deletejob service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata deletejob service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataDeletejobServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementHistoricaldataDeletejobServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataDeletejobServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostWorkforcemanagementHistoricaldataDeletejobGatewayTimeout() *PostWork
 	return &PostWorkforcemanagementHistoricaldataDeletejobGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementHistoricaldataDeletejobGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataDeletejobGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostWorkforcemanagementHistoricaldataDeletejobGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata deletejob gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata deletejob gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata deletejob gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata deletejob gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataDeletejobGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata deletejob gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataDeletejobGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementHistoricaldataDeletejobGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataDeletejobGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/deletejob][%d] postWorkforcemanagementHistoricaldataDeletejobGatewayTimeout  %+v", 504, o.Payload)
 }
 

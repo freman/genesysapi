@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostOutboundConversationDncParams creates a new PostOutboundConversationDncParams object
-// with the default values initialized.
+// NewPostOutboundConversationDncParams creates a new PostOutboundConversationDncParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundConversationDncParams() *PostOutboundConversationDncParams {
-	var ()
 	return &PostOutboundConversationDncParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundConversationDncParamsWithTimeout creates a new PostOutboundConversationDncParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundConversationDncParamsWithTimeout(timeout time.Duration) *PostOutboundConversationDncParams {
-	var ()
 	return &PostOutboundConversationDncParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundConversationDncParamsWithContext creates a new PostOutboundConversationDncParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundConversationDncParamsWithContext(ctx context.Context) *PostOutboundConversationDncParams {
-	var ()
 	return &PostOutboundConversationDncParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundConversationDncParamsWithHTTPClient creates a new PostOutboundConversationDncParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundConversationDncParamsWithHTTPClient(client *http.Client) *PostOutboundConversationDncParams {
-	var ()
 	return &PostOutboundConversationDncParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundConversationDncParams contains all the parameters to send to the API endpoint
-for the post outbound conversation dnc operation typically these are written to a http.Request
+/*
+PostOutboundConversationDncParams contains all the parameters to send to the API endpoint
+
+	for the post outbound conversation dnc operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundConversationDncParams struct {
 
-	/*ConversationID
-	  Conversation ID
+	/* ConversationID.
 
+	   Conversation ID
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound conversation dnc params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundConversationDncParams) WithDefaults() *PostOutboundConversationDncParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound conversation dnc params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundConversationDncParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound conversation dnc params

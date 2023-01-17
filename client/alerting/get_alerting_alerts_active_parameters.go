@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAlertingAlertsActiveParams creates a new GetAlertingAlertsActiveParams object
-// with the default values initialized.
+// NewGetAlertingAlertsActiveParams creates a new GetAlertingAlertsActiveParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAlertingAlertsActiveParams() *GetAlertingAlertsActiveParams {
-
 	return &GetAlertingAlertsActiveParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAlertingAlertsActiveParamsWithTimeout creates a new GetAlertingAlertsActiveParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAlertingAlertsActiveParamsWithTimeout(timeout time.Duration) *GetAlertingAlertsActiveParams {
-
 	return &GetAlertingAlertsActiveParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAlertingAlertsActiveParamsWithContext creates a new GetAlertingAlertsActiveParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAlertingAlertsActiveParamsWithContext(ctx context.Context) *GetAlertingAlertsActiveParams {
-
 	return &GetAlertingAlertsActiveParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAlertingAlertsActiveParamsWithHTTPClient creates a new GetAlertingAlertsActiveParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAlertingAlertsActiveParamsWithHTTPClient(client *http.Client) *GetAlertingAlertsActiveParams {
-
 	return &GetAlertingAlertsActiveParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAlertingAlertsActiveParams contains all the parameters to send to the API endpoint
-for the get alerting alerts active operation typically these are written to a http.Request
+/*
+GetAlertingAlertsActiveParams contains all the parameters to send to the API endpoint
+
+	for the get alerting alerts active operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAlertingAlertsActiveParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get alerting alerts active params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAlertingAlertsActiveParams) WithDefaults() *GetAlertingAlertsActiveParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get alerting alerts active params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAlertingAlertsActiveParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get alerting alerts active params

@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetDateParams creates a new GetDateParams object
-// with the default values initialized.
+// NewGetDateParams creates a new GetDateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetDateParams() *GetDateParams {
-
 	return &GetDateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetDateParamsWithTimeout creates a new GetDateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetDateParamsWithTimeout(timeout time.Duration) *GetDateParams {
-
 	return &GetDateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetDateParamsWithContext creates a new GetDateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetDateParamsWithContext(ctx context.Context) *GetDateParams {
-
 	return &GetDateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetDateParamsWithHTTPClient creates a new GetDateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetDateParamsWithHTTPClient(client *http.Client) *GetDateParams {
-
 	return &GetDateParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetDateParams contains all the parameters to send to the API endpoint
-for the get date operation typically these are written to a http.Request
+/*
+GetDateParams contains all the parameters to send to the API endpoint
+
+	for the get date operation.
+
+	Typically these are written to a http.Request.
 */
 type GetDateParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get date params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDateParams) WithDefaults() *GetDateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get date params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get date params

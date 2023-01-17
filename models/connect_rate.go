@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // ConnectRate connect rate
@@ -30,6 +34,55 @@ type ConnectRate struct {
 
 // Validate validates this connect rate
 func (m *ConnectRate) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this connect rate based on the context it is used
+func (m *ConnectRate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttempts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConnectRatio(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConnects(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConnectRate) contextValidateAttempts(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "attempts", "body", int64(m.Attempts)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConnectRate) contextValidateConnectRatio(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "connectRatio", "body", float64(m.ConnectRatio)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConnectRate) contextValidateConnects(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "connects", "body", int64(m.Connects)); err != nil {
+		return err
+	}
+
 	return nil
 }
 

@@ -95,7 +95,6 @@ func (o *GetUserrecordingReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetUserrecordingOK() *GetUserrecordingOK {
 	return &GetUserrecordingOK{}
 }
 
-/*GetUserrecordingOK handles this case with default header values.
+/*
+GetUserrecordingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetUserrecordingOK struct {
 	Payload *models.UserRecording
 }
 
+// IsSuccess returns true when this get userrecording o k response has a 2xx status code
+func (o *GetUserrecordingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get userrecording o k response has a 3xx status code
+func (o *GetUserrecordingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecording o k response has a 4xx status code
+func (o *GetUserrecordingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get userrecording o k response has a 5xx status code
+func (o *GetUserrecordingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecording o k response a status code equal to that given
+func (o *GetUserrecordingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUserrecordingOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingOK  %+v", 200, o.Payload)
+}
+
+func (o *GetUserrecordingOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetUserrecordingBadRequest() *GetUserrecordingBadRequest {
 	return &GetUserrecordingBadRequest{}
 }
 
-/*GetUserrecordingBadRequest handles this case with default header values.
+/*
+GetUserrecordingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetUserrecordingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecording bad request response has a 2xx status code
+func (o *GetUserrecordingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecording bad request response has a 3xx status code
+func (o *GetUserrecordingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecording bad request response has a 4xx status code
+func (o *GetUserrecordingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecording bad request response has a 5xx status code
+func (o *GetUserrecordingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecording bad request response a status code equal to that given
+func (o *GetUserrecordingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUserrecordingBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetUserrecordingBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetUserrecordingUnauthorized() *GetUserrecordingUnauthorized {
 	return &GetUserrecordingUnauthorized{}
 }
 
-/*GetUserrecordingUnauthorized handles this case with default header values.
+/*
+GetUserrecordingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetUserrecordingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecording unauthorized response has a 2xx status code
+func (o *GetUserrecordingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecording unauthorized response has a 3xx status code
+func (o *GetUserrecordingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecording unauthorized response has a 4xx status code
+func (o *GetUserrecordingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecording unauthorized response has a 5xx status code
+func (o *GetUserrecordingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecording unauthorized response a status code equal to that given
+func (o *GetUserrecordingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetUserrecordingUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetUserrecordingUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetUserrecordingForbidden() *GetUserrecordingForbidden {
 	return &GetUserrecordingForbidden{}
 }
 
-/*GetUserrecordingForbidden handles this case with default header values.
+/*
+GetUserrecordingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetUserrecordingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecording forbidden response has a 2xx status code
+func (o *GetUserrecordingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecording forbidden response has a 3xx status code
+func (o *GetUserrecordingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecording forbidden response has a 4xx status code
+func (o *GetUserrecordingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecording forbidden response has a 5xx status code
+func (o *GetUserrecordingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecording forbidden response a status code equal to that given
+func (o *GetUserrecordingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUserrecordingForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetUserrecordingForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetUserrecordingNotFound() *GetUserrecordingNotFound {
 	return &GetUserrecordingNotFound{}
 }
 
-/*GetUserrecordingNotFound handles this case with default header values.
+/*
+GetUserrecordingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetUserrecordingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecording not found response has a 2xx status code
+func (o *GetUserrecordingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecording not found response has a 3xx status code
+func (o *GetUserrecordingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecording not found response has a 4xx status code
+func (o *GetUserrecordingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecording not found response has a 5xx status code
+func (o *GetUserrecordingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecording not found response a status code equal to that given
+func (o *GetUserrecordingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetUserrecordingNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetUserrecordingNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetUserrecordingRequestTimeout() *GetUserrecordingRequestTimeout {
 	return &GetUserrecordingRequestTimeout{}
 }
 
-/*GetUserrecordingRequestTimeout handles this case with default header values.
+/*
+GetUserrecordingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetUserrecordingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecording request timeout response has a 2xx status code
+func (o *GetUserrecordingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecording request timeout response has a 3xx status code
+func (o *GetUserrecordingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecording request timeout response has a 4xx status code
+func (o *GetUserrecordingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecording request timeout response has a 5xx status code
+func (o *GetUserrecordingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecording request timeout response a status code equal to that given
+func (o *GetUserrecordingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetUserrecordingRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserrecordingRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetUserrecordingRequestEntityTooLarge() *GetUserrecordingRequestEntityTo
 	return &GetUserrecordingRequestEntityTooLarge{}
 }
 
-/*GetUserrecordingRequestEntityTooLarge handles this case with default header values.
+/*
+GetUserrecordingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetUserrecordingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecording request entity too large response has a 2xx status code
+func (o *GetUserrecordingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecording request entity too large response has a 3xx status code
+func (o *GetUserrecordingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecording request entity too large response has a 4xx status code
+func (o *GetUserrecordingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecording request entity too large response has a 5xx status code
+func (o *GetUserrecordingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecording request entity too large response a status code equal to that given
+func (o *GetUserrecordingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetUserrecordingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetUserrecordingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetUserrecordingUnsupportedMediaType() *GetUserrecordingUnsupportedMedia
 	return &GetUserrecordingUnsupportedMediaType{}
 }
 
-/*GetUserrecordingUnsupportedMediaType handles this case with default header values.
+/*
+GetUserrecordingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetUserrecordingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecording unsupported media type response has a 2xx status code
+func (o *GetUserrecordingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecording unsupported media type response has a 3xx status code
+func (o *GetUserrecordingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecording unsupported media type response has a 4xx status code
+func (o *GetUserrecordingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecording unsupported media type response has a 5xx status code
+func (o *GetUserrecordingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecording unsupported media type response a status code equal to that given
+func (o *GetUserrecordingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetUserrecordingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetUserrecordingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetUserrecordingTooManyRequests() *GetUserrecordingTooManyRequests {
 	return &GetUserrecordingTooManyRequests{}
 }
 
-/*GetUserrecordingTooManyRequests handles this case with default header values.
+/*
+GetUserrecordingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetUserrecordingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecording too many requests response has a 2xx status code
+func (o *GetUserrecordingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecording too many requests response has a 3xx status code
+func (o *GetUserrecordingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecording too many requests response has a 4xx status code
+func (o *GetUserrecordingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecording too many requests response has a 5xx status code
+func (o *GetUserrecordingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecording too many requests response a status code equal to that given
+func (o *GetUserrecordingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUserrecordingTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetUserrecordingTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetUserrecordingInternalServerError() *GetUserrecordingInternalServerErr
 	return &GetUserrecordingInternalServerError{}
 }
 
-/*GetUserrecordingInternalServerError handles this case with default header values.
+/*
+GetUserrecordingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetUserrecordingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecording internal server error response has a 2xx status code
+func (o *GetUserrecordingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecording internal server error response has a 3xx status code
+func (o *GetUserrecordingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecording internal server error response has a 4xx status code
+func (o *GetUserrecordingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get userrecording internal server error response has a 5xx status code
+func (o *GetUserrecordingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get userrecording internal server error response a status code equal to that given
+func (o *GetUserrecordingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUserrecordingInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetUserrecordingInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetUserrecordingServiceUnavailable() *GetUserrecordingServiceUnavailable
 	return &GetUserrecordingServiceUnavailable{}
 }
 
-/*GetUserrecordingServiceUnavailable handles this case with default header values.
+/*
+GetUserrecordingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetUserrecordingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecording service unavailable response has a 2xx status code
+func (o *GetUserrecordingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecording service unavailable response has a 3xx status code
+func (o *GetUserrecordingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecording service unavailable response has a 4xx status code
+func (o *GetUserrecordingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get userrecording service unavailable response has a 5xx status code
+func (o *GetUserrecordingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get userrecording service unavailable response a status code equal to that given
+func (o *GetUserrecordingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetUserrecordingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetUserrecordingServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetUserrecordingGatewayTimeout() *GetUserrecordingGatewayTimeout {
 	return &GetUserrecordingGatewayTimeout{}
 }
 
-/*GetUserrecordingGatewayTimeout handles this case with default header values.
+/*
+GetUserrecordingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetUserrecordingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecording gateway timeout response has a 2xx status code
+func (o *GetUserrecordingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecording gateway timeout response has a 3xx status code
+func (o *GetUserrecordingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecording gateway timeout response has a 4xx status code
+func (o *GetUserrecordingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get userrecording gateway timeout response has a 5xx status code
+func (o *GetUserrecordingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get userrecording gateway timeout response a status code equal to that given
+func (o *GetUserrecordingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetUserrecordingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetUserrecordingGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/{recordingId}][%d] getUserrecordingGatewayTimeout  %+v", 504, o.Payload)
 }
 

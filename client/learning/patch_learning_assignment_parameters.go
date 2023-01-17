@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchLearningAssignmentParams creates a new PatchLearningAssignmentParams object
-// with the default values initialized.
+// NewPatchLearningAssignmentParams creates a new PatchLearningAssignmentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchLearningAssignmentParams() *PatchLearningAssignmentParams {
-	var ()
 	return &PatchLearningAssignmentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchLearningAssignmentParamsWithTimeout creates a new PatchLearningAssignmentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchLearningAssignmentParamsWithTimeout(timeout time.Duration) *PatchLearningAssignmentParams {
-	var ()
 	return &PatchLearningAssignmentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchLearningAssignmentParamsWithContext creates a new PatchLearningAssignmentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchLearningAssignmentParamsWithContext(ctx context.Context) *PatchLearningAssignmentParams {
-	var ()
 	return &PatchLearningAssignmentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchLearningAssignmentParamsWithHTTPClient creates a new PatchLearningAssignmentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchLearningAssignmentParamsWithHTTPClient(client *http.Client) *PatchLearningAssignmentParams {
-	var ()
 	return &PatchLearningAssignmentParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchLearningAssignmentParams contains all the parameters to send to the API endpoint
-for the patch learning assignment operation typically these are written to a http.Request
+/*
+PatchLearningAssignmentParams contains all the parameters to send to the API endpoint
+
+	for the patch learning assignment operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchLearningAssignmentParams struct {
 
-	/*AssignmentID
-	  The ID of Learning Assignment
+	/* AssignmentID.
 
+	   The ID of Learning Assignment
 	*/
 	AssignmentID string
-	/*Body
-	  The Learning Assignment to be updated
 
+	/* Body.
+
+	   The Learning Assignment to be updated
 	*/
 	Body *models.LearningAssignmentUpdate
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch learning assignment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchLearningAssignmentParams) WithDefaults() *PatchLearningAssignmentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch learning assignment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchLearningAssignmentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch learning assignment params
@@ -145,7 +162,6 @@ func (o *PatchLearningAssignmentParams) WriteToRequest(r runtime.ClientRequest, 
 	if err := r.SetPathParam("assignmentId", o.AssignmentID); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

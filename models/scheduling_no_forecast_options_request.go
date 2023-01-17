@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -82,7 +83,6 @@ func (m *SchedulingNoForecastOptionsRequest) validateShiftLengthEnum(path, locat
 }
 
 func (m *SchedulingNoForecastOptionsRequest) validateShiftLength(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShiftLength) { // not required
 		return nil
 	}
@@ -131,7 +131,6 @@ func (m *SchedulingNoForecastOptionsRequest) validateShiftStartEnum(path, locati
 }
 
 func (m *SchedulingNoForecastOptionsRequest) validateShiftStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShiftStart) { // not required
 		return nil
 	}
@@ -141,6 +140,11 @@ func (m *SchedulingNoForecastOptionsRequest) validateShiftStart(formats strfmt.R
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this scheduling no forecast options request based on context it is used
+func (m *SchedulingNoForecastOptionsRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostOutboundMessagingcampaignsProgressParams creates a new PostOutboundMessagingcampaignsProgressParams object
-// with the default values initialized.
+// NewPostOutboundMessagingcampaignsProgressParams creates a new PostOutboundMessagingcampaignsProgressParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundMessagingcampaignsProgressParams() *PostOutboundMessagingcampaignsProgressParams {
-	var ()
 	return &PostOutboundMessagingcampaignsProgressParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundMessagingcampaignsProgressParamsWithTimeout creates a new PostOutboundMessagingcampaignsProgressParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundMessagingcampaignsProgressParamsWithTimeout(timeout time.Duration) *PostOutboundMessagingcampaignsProgressParams {
-	var ()
 	return &PostOutboundMessagingcampaignsProgressParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundMessagingcampaignsProgressParamsWithContext creates a new PostOutboundMessagingcampaignsProgressParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundMessagingcampaignsProgressParamsWithContext(ctx context.Context) *PostOutboundMessagingcampaignsProgressParams {
-	var ()
 	return &PostOutboundMessagingcampaignsProgressParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundMessagingcampaignsProgressParamsWithHTTPClient creates a new PostOutboundMessagingcampaignsProgressParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundMessagingcampaignsProgressParamsWithHTTPClient(client *http.Client) *PostOutboundMessagingcampaignsProgressParams {
-	var ()
 	return &PostOutboundMessagingcampaignsProgressParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundMessagingcampaignsProgressParams contains all the parameters to send to the API endpoint
-for the post outbound messagingcampaigns progress operation typically these are written to a http.Request
+/*
+PostOutboundMessagingcampaignsProgressParams contains all the parameters to send to the API endpoint
+
+	for the post outbound messagingcampaigns progress operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundMessagingcampaignsProgressParams struct {
 
-	/*Body
-	  Messaging Campaign IDs
+	/* Body.
 
+	   Messaging Campaign IDs
 	*/
 	Body []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound messagingcampaigns progress params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundMessagingcampaignsProgressParams) WithDefaults() *PostOutboundMessagingcampaignsProgressParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound messagingcampaigns progress params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundMessagingcampaignsProgressParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound messagingcampaigns progress params
@@ -122,7 +138,6 @@ func (o *PostOutboundMessagingcampaignsProgressParams) WriteToRequest(r runtime.
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

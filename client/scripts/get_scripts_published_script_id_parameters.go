@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetScriptsPublishedScriptIDParams creates a new GetScriptsPublishedScriptIDParams object
-// with the default values initialized.
+// NewGetScriptsPublishedScriptIDParams creates a new GetScriptsPublishedScriptIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScriptsPublishedScriptIDParams() *GetScriptsPublishedScriptIDParams {
-	var ()
 	return &GetScriptsPublishedScriptIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScriptsPublishedScriptIDParamsWithTimeout creates a new GetScriptsPublishedScriptIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScriptsPublishedScriptIDParamsWithTimeout(timeout time.Duration) *GetScriptsPublishedScriptIDParams {
-	var ()
 	return &GetScriptsPublishedScriptIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScriptsPublishedScriptIDParamsWithContext creates a new GetScriptsPublishedScriptIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScriptsPublishedScriptIDParamsWithContext(ctx context.Context) *GetScriptsPublishedScriptIDParams {
-	var ()
 	return &GetScriptsPublishedScriptIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetScriptsPublishedScriptIDParamsWithHTTPClient creates a new GetScriptsPublishedScriptIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScriptsPublishedScriptIDParamsWithHTTPClient(client *http.Client) *GetScriptsPublishedScriptIDParams {
-	var ()
 	return &GetScriptsPublishedScriptIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetScriptsPublishedScriptIDParams contains all the parameters to send to the API endpoint
-for the get scripts published script Id operation typically these are written to a http.Request
+/*
+GetScriptsPublishedScriptIDParams contains all the parameters to send to the API endpoint
+
+	for the get scripts published script Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScriptsPublishedScriptIDParams struct {
 
-	/*ScriptDataVersion
-	  Advanced usage - controls the data version of the script
+	/* ScriptDataVersion.
 
+	   Advanced usage - controls the data version of the script
 	*/
 	ScriptDataVersion *string
-	/*ScriptID
-	  Script ID
 
+	/* ScriptID.
+
+	   Script ID
 	*/
 	ScriptID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get scripts published script Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScriptsPublishedScriptIDParams) WithDefaults() *GetScriptsPublishedScriptIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get scripts published script Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScriptsPublishedScriptIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get scripts published script Id params
@@ -143,16 +160,17 @@ func (o *GetScriptsPublishedScriptIDParams) WriteToRequest(r runtime.ClientReque
 
 		// query param scriptDataVersion
 		var qrScriptDataVersion string
+
 		if o.ScriptDataVersion != nil {
 			qrScriptDataVersion = *o.ScriptDataVersion
 		}
 		qScriptDataVersion := qrScriptDataVersion
 		if qScriptDataVersion != "" {
+
 			if err := r.SetQueryParam("scriptDataVersion", qScriptDataVersion); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param scriptId

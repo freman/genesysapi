@@ -95,7 +95,6 @@ func (o *DeleteOrphanrecordingReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteOrphanrecordingOK() *DeleteOrphanrecordingOK {
 	return &DeleteOrphanrecordingOK{}
 }
 
-/*DeleteOrphanrecordingOK handles this case with default header values.
+/*
+DeleteOrphanrecordingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteOrphanrecordingOK struct {
 	Payload *models.OrphanRecording
 }
 
+// IsSuccess returns true when this delete orphanrecording o k response has a 2xx status code
+func (o *DeleteOrphanrecordingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete orphanrecording o k response has a 3xx status code
+func (o *DeleteOrphanrecordingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orphanrecording o k response has a 4xx status code
+func (o *DeleteOrphanrecordingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete orphanrecording o k response has a 5xx status code
+func (o *DeleteOrphanrecordingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orphanrecording o k response a status code equal to that given
+func (o *DeleteOrphanrecordingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteOrphanrecordingOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteOrphanrecordingOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewDeleteOrphanrecordingBadRequest() *DeleteOrphanrecordingBadRequest {
 	return &DeleteOrphanrecordingBadRequest{}
 }
 
-/*DeleteOrphanrecordingBadRequest handles this case with default header values.
+/*
+DeleteOrphanrecordingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type DeleteOrphanrecordingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orphanrecording bad request response has a 2xx status code
+func (o *DeleteOrphanrecordingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orphanrecording bad request response has a 3xx status code
+func (o *DeleteOrphanrecordingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orphanrecording bad request response has a 4xx status code
+func (o *DeleteOrphanrecordingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orphanrecording bad request response has a 5xx status code
+func (o *DeleteOrphanrecordingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orphanrecording bad request response a status code equal to that given
+func (o *DeleteOrphanrecordingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOrphanrecordingBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOrphanrecordingBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewDeleteOrphanrecordingUnauthorized() *DeleteOrphanrecordingUnauthorized {
 	return &DeleteOrphanrecordingUnauthorized{}
 }
 
-/*DeleteOrphanrecordingUnauthorized handles this case with default header values.
+/*
+DeleteOrphanrecordingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type DeleteOrphanrecordingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orphanrecording unauthorized response has a 2xx status code
+func (o *DeleteOrphanrecordingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orphanrecording unauthorized response has a 3xx status code
+func (o *DeleteOrphanrecordingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orphanrecording unauthorized response has a 4xx status code
+func (o *DeleteOrphanrecordingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orphanrecording unauthorized response has a 5xx status code
+func (o *DeleteOrphanrecordingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orphanrecording unauthorized response a status code equal to that given
+func (o *DeleteOrphanrecordingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOrphanrecordingUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOrphanrecordingUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewDeleteOrphanrecordingForbidden() *DeleteOrphanrecordingForbidden {
 	return &DeleteOrphanrecordingForbidden{}
 }
 
-/*DeleteOrphanrecordingForbidden handles this case with default header values.
+/*
+DeleteOrphanrecordingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type DeleteOrphanrecordingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orphanrecording forbidden response has a 2xx status code
+func (o *DeleteOrphanrecordingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orphanrecording forbidden response has a 3xx status code
+func (o *DeleteOrphanrecordingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orphanrecording forbidden response has a 4xx status code
+func (o *DeleteOrphanrecordingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orphanrecording forbidden response has a 5xx status code
+func (o *DeleteOrphanrecordingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orphanrecording forbidden response a status code equal to that given
+func (o *DeleteOrphanrecordingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOrphanrecordingForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOrphanrecordingForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewDeleteOrphanrecordingNotFound() *DeleteOrphanrecordingNotFound {
 	return &DeleteOrphanrecordingNotFound{}
 }
 
-/*DeleteOrphanrecordingNotFound handles this case with default header values.
+/*
+DeleteOrphanrecordingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type DeleteOrphanrecordingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orphanrecording not found response has a 2xx status code
+func (o *DeleteOrphanrecordingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orphanrecording not found response has a 3xx status code
+func (o *DeleteOrphanrecordingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orphanrecording not found response has a 4xx status code
+func (o *DeleteOrphanrecordingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orphanrecording not found response has a 5xx status code
+func (o *DeleteOrphanrecordingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orphanrecording not found response a status code equal to that given
+func (o *DeleteOrphanrecordingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOrphanrecordingNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOrphanrecordingNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewDeleteOrphanrecordingRequestTimeout() *DeleteOrphanrecordingRequestTimeo
 	return &DeleteOrphanrecordingRequestTimeout{}
 }
 
-/*DeleteOrphanrecordingRequestTimeout handles this case with default header values.
+/*
+DeleteOrphanrecordingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type DeleteOrphanrecordingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orphanrecording request timeout response has a 2xx status code
+func (o *DeleteOrphanrecordingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orphanrecording request timeout response has a 3xx status code
+func (o *DeleteOrphanrecordingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orphanrecording request timeout response has a 4xx status code
+func (o *DeleteOrphanrecordingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orphanrecording request timeout response has a 5xx status code
+func (o *DeleteOrphanrecordingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orphanrecording request timeout response a status code equal to that given
+func (o *DeleteOrphanrecordingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOrphanrecordingRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOrphanrecordingRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewDeleteOrphanrecordingRequestEntityTooLarge() *DeleteOrphanrecordingReque
 	return &DeleteOrphanrecordingRequestEntityTooLarge{}
 }
 
-/*DeleteOrphanrecordingRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOrphanrecordingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type DeleteOrphanrecordingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orphanrecording request entity too large response has a 2xx status code
+func (o *DeleteOrphanrecordingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orphanrecording request entity too large response has a 3xx status code
+func (o *DeleteOrphanrecordingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orphanrecording request entity too large response has a 4xx status code
+func (o *DeleteOrphanrecordingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orphanrecording request entity too large response has a 5xx status code
+func (o *DeleteOrphanrecordingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orphanrecording request entity too large response a status code equal to that given
+func (o *DeleteOrphanrecordingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOrphanrecordingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOrphanrecordingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewDeleteOrphanrecordingUnsupportedMediaType() *DeleteOrphanrecordingUnsupp
 	return &DeleteOrphanrecordingUnsupportedMediaType{}
 }
 
-/*DeleteOrphanrecordingUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOrphanrecordingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type DeleteOrphanrecordingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orphanrecording unsupported media type response has a 2xx status code
+func (o *DeleteOrphanrecordingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orphanrecording unsupported media type response has a 3xx status code
+func (o *DeleteOrphanrecordingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orphanrecording unsupported media type response has a 4xx status code
+func (o *DeleteOrphanrecordingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orphanrecording unsupported media type response has a 5xx status code
+func (o *DeleteOrphanrecordingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orphanrecording unsupported media type response a status code equal to that given
+func (o *DeleteOrphanrecordingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOrphanrecordingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOrphanrecordingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewDeleteOrphanrecordingTooManyRequests() *DeleteOrphanrecordingTooManyRequ
 	return &DeleteOrphanrecordingTooManyRequests{}
 }
 
-/*DeleteOrphanrecordingTooManyRequests handles this case with default header values.
+/*
+DeleteOrphanrecordingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type DeleteOrphanrecordingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orphanrecording too many requests response has a 2xx status code
+func (o *DeleteOrphanrecordingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orphanrecording too many requests response has a 3xx status code
+func (o *DeleteOrphanrecordingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orphanrecording too many requests response has a 4xx status code
+func (o *DeleteOrphanrecordingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orphanrecording too many requests response has a 5xx status code
+func (o *DeleteOrphanrecordingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orphanrecording too many requests response a status code equal to that given
+func (o *DeleteOrphanrecordingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOrphanrecordingTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOrphanrecordingTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewDeleteOrphanrecordingInternalServerError() *DeleteOrphanrecordingInterna
 	return &DeleteOrphanrecordingInternalServerError{}
 }
 
-/*DeleteOrphanrecordingInternalServerError handles this case with default header values.
+/*
+DeleteOrphanrecordingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type DeleteOrphanrecordingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orphanrecording internal server error response has a 2xx status code
+func (o *DeleteOrphanrecordingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orphanrecording internal server error response has a 3xx status code
+func (o *DeleteOrphanrecordingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orphanrecording internal server error response has a 4xx status code
+func (o *DeleteOrphanrecordingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete orphanrecording internal server error response has a 5xx status code
+func (o *DeleteOrphanrecordingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete orphanrecording internal server error response a status code equal to that given
+func (o *DeleteOrphanrecordingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOrphanrecordingInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOrphanrecordingInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewDeleteOrphanrecordingServiceUnavailable() *DeleteOrphanrecordingServiceU
 	return &DeleteOrphanrecordingServiceUnavailable{}
 }
 
-/*DeleteOrphanrecordingServiceUnavailable handles this case with default header values.
+/*
+DeleteOrphanrecordingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type DeleteOrphanrecordingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orphanrecording service unavailable response has a 2xx status code
+func (o *DeleteOrphanrecordingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orphanrecording service unavailable response has a 3xx status code
+func (o *DeleteOrphanrecordingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orphanrecording service unavailable response has a 4xx status code
+func (o *DeleteOrphanrecordingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete orphanrecording service unavailable response has a 5xx status code
+func (o *DeleteOrphanrecordingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete orphanrecording service unavailable response a status code equal to that given
+func (o *DeleteOrphanrecordingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOrphanrecordingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOrphanrecordingServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewDeleteOrphanrecordingGatewayTimeout() *DeleteOrphanrecordingGatewayTimeo
 	return &DeleteOrphanrecordingGatewayTimeout{}
 }
 
-/*DeleteOrphanrecordingGatewayTimeout handles this case with default header values.
+/*
+DeleteOrphanrecordingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type DeleteOrphanrecordingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orphanrecording gateway timeout response has a 2xx status code
+func (o *DeleteOrphanrecordingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orphanrecording gateway timeout response has a 3xx status code
+func (o *DeleteOrphanrecordingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orphanrecording gateway timeout response has a 4xx status code
+func (o *DeleteOrphanrecordingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete orphanrecording gateway timeout response has a 5xx status code
+func (o *DeleteOrphanrecordingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete orphanrecording gateway timeout response a status code equal to that given
+func (o *DeleteOrphanrecordingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOrphanrecordingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOrphanrecordingGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orphanrecordings/{orphanId}][%d] deleteOrphanrecordingGatewayTimeout  %+v", 504, o.Payload)
 }
 

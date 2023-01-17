@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -27,6 +29,11 @@ type TrunkErrorInfoDetails struct {
 
 // Validate validates this trunk error info details
 func (m *TrunkErrorInfoDetails) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this trunk error info details based on context it is used
+func (m *TrunkErrorInfoDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

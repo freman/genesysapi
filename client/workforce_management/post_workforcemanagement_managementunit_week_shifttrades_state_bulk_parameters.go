@@ -19,74 +19,95 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams creates a new PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams creates a new PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams() *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkParamsWithTimeout creates a new PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkParamsWithContext creates a new PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkParamsWithContext(ctx context.Context) *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkParamsWithHTTPClient creates a new PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementManagementunitWeekShifttradesStateBulkParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement managementunit week shifttrades state bulk operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement managementunit week shifttrades state bulk operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.BulkShiftTradeStateUpdateRequest
-	/*ForceAsync
-	  Force the result of this operation to be sent asynchronously via notification.  For testing/app development purposes
 
+	/* ForceAsync.
+
+	   Force the result of this operation to be sent asynchronously via notification.  For testing/app development purposes
 	*/
 	ForceAsync *bool
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
-	/*WeekDateID
-	  The start date of the week schedule in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekDateID.
+
+	   The start date of the week schedule in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekDateID strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement managementunit week shifttrades state bulk params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams) WithDefaults() *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement managementunit week shifttrades state bulk params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement managementunit week shifttrades state bulk params
@@ -173,7 +194,6 @@ func (o *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams) Wr
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -184,16 +204,17 @@ func (o *PostWorkforcemanagementManagementunitWeekShifttradesStateBulkParams) Wr
 
 		// query param forceAsync
 		var qrForceAsync bool
+
 		if o.ForceAsync != nil {
 			qrForceAsync = *o.ForceAsync
 		}
 		qForceAsync := swag.FormatBool(qrForceAsync)
 		if qForceAsync != "" {
+
 			if err := r.SetQueryParam("forceAsync", qForceAsync); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param managementUnitId

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWebdeploymentsDeploymentConfigurationsParams creates a new GetWebdeploymentsDeploymentConfigurationsParams object
-// with the default values initialized.
+// NewGetWebdeploymentsDeploymentConfigurationsParams creates a new GetWebdeploymentsDeploymentConfigurationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWebdeploymentsDeploymentConfigurationsParams() *GetWebdeploymentsDeploymentConfigurationsParams {
-	var ()
 	return &GetWebdeploymentsDeploymentConfigurationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWebdeploymentsDeploymentConfigurationsParamsWithTimeout creates a new GetWebdeploymentsDeploymentConfigurationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWebdeploymentsDeploymentConfigurationsParamsWithTimeout(timeout time.Duration) *GetWebdeploymentsDeploymentConfigurationsParams {
-	var ()
 	return &GetWebdeploymentsDeploymentConfigurationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWebdeploymentsDeploymentConfigurationsParamsWithContext creates a new GetWebdeploymentsDeploymentConfigurationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWebdeploymentsDeploymentConfigurationsParamsWithContext(ctx context.Context) *GetWebdeploymentsDeploymentConfigurationsParams {
-	var ()
 	return &GetWebdeploymentsDeploymentConfigurationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWebdeploymentsDeploymentConfigurationsParamsWithHTTPClient creates a new GetWebdeploymentsDeploymentConfigurationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWebdeploymentsDeploymentConfigurationsParamsWithHTTPClient(client *http.Client) *GetWebdeploymentsDeploymentConfigurationsParams {
-	var ()
 	return &GetWebdeploymentsDeploymentConfigurationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWebdeploymentsDeploymentConfigurationsParams contains all the parameters to send to the API endpoint
-for the get webdeployments deployment configurations operation typically these are written to a http.Request
+/*
+GetWebdeploymentsDeploymentConfigurationsParams contains all the parameters to send to the API endpoint
+
+	for the get webdeployments deployment configurations operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWebdeploymentsDeploymentConfigurationsParams struct {
 
-	/*DeploymentID
-	  The deployment ID
+	/* DeploymentID.
 
+	   The deployment ID
 	*/
 	DeploymentID string
-	/*Type
-	  Get active configuration on a deployment
 
+	/* Type.
+
+	   Get active configuration on a deployment
 	*/
 	Type *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get webdeployments deployment configurations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebdeploymentsDeploymentConfigurationsParams) WithDefaults() *GetWebdeploymentsDeploymentConfigurationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get webdeployments deployment configurations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebdeploymentsDeploymentConfigurationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get webdeployments deployment configurations params
@@ -148,16 +165,17 @@ func (o *GetWebdeploymentsDeploymentConfigurationsParams) WriteToRequest(r runti
 
 		// query param type
 		var qrType string
+
 		if o.Type != nil {
 			qrType = *o.Type
 		}
 		qType := qrType
 		if qType != "" {
+
 			if err := r.SetQueryParam("type", qType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

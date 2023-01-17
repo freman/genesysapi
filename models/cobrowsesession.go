@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -140,7 +141,6 @@ func (m *Cobrowsesession) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Cobrowsesession) validateAfterCallWork(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AfterCallWork) { // not required
 		return nil
 	}
@@ -149,6 +149,8 @@ func (m *Cobrowsesession) validateAfterCallWork(formats strfmt.Registry) error {
 		if err := m.AfterCallWork.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
 			}
 			return err
 		}
@@ -158,7 +160,6 @@ func (m *Cobrowsesession) validateAfterCallWork(formats strfmt.Registry) error {
 }
 
 func (m *Cobrowsesession) validateConnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectedTime) { // not required
 		return nil
 	}
@@ -199,17 +200,17 @@ const (
 	// CobrowsesessionDisconnectTypeTransfer captures enum value "transfer"
 	CobrowsesessionDisconnectTypeTransfer string = "transfer"
 
-	// CobrowsesessionDisconnectTypeTransferConference captures enum value "transfer.conference"
-	CobrowsesessionDisconnectTypeTransferConference string = "transfer.conference"
+	// CobrowsesessionDisconnectTypeTransferDotConference captures enum value "transfer.conference"
+	CobrowsesessionDisconnectTypeTransferDotConference string = "transfer.conference"
 
-	// CobrowsesessionDisconnectTypeTransferConsult captures enum value "transfer.consult"
-	CobrowsesessionDisconnectTypeTransferConsult string = "transfer.consult"
+	// CobrowsesessionDisconnectTypeTransferDotConsult captures enum value "transfer.consult"
+	CobrowsesessionDisconnectTypeTransferDotConsult string = "transfer.consult"
 
-	// CobrowsesessionDisconnectTypeTransferForward captures enum value "transfer.forward"
-	CobrowsesessionDisconnectTypeTransferForward string = "transfer.forward"
+	// CobrowsesessionDisconnectTypeTransferDotForward captures enum value "transfer.forward"
+	CobrowsesessionDisconnectTypeTransferDotForward string = "transfer.forward"
 
-	// CobrowsesessionDisconnectTypeTransportFailure captures enum value "transport.failure"
-	CobrowsesessionDisconnectTypeTransportFailure string = "transport.failure"
+	// CobrowsesessionDisconnectTypeTransportDotFailure captures enum value "transport.failure"
+	CobrowsesessionDisconnectTypeTransportDotFailure string = "transport.failure"
 
 	// CobrowsesessionDisconnectTypeError captures enum value "error"
 	CobrowsesessionDisconnectTypeError string = "error"
@@ -236,7 +237,6 @@ func (m *Cobrowsesession) validateDisconnectTypeEnum(path, location string, valu
 }
 
 func (m *Cobrowsesession) validateDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectType) { // not required
 		return nil
 	}
@@ -250,7 +250,6 @@ func (m *Cobrowsesession) validateDisconnectType(formats strfmt.Registry) error 
 }
 
 func (m *Cobrowsesession) validateDisconnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectedTime) { // not required
 		return nil
 	}
@@ -313,7 +312,6 @@ func (m *Cobrowsesession) validateInitialStateEnum(path, location string, value 
 }
 
 func (m *Cobrowsesession) validateInitialState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitialState) { // not required
 		return nil
 	}
@@ -327,7 +325,6 @@ func (m *Cobrowsesession) validateInitialState(formats strfmt.Registry) error {
 }
 
 func (m *Cobrowsesession) validateProviderEventTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProviderEventTime) { // not required
 		return nil
 	}
@@ -340,7 +337,6 @@ func (m *Cobrowsesession) validateProviderEventTime(formats strfmt.Registry) err
 }
 
 func (m *Cobrowsesession) validateSegments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Segments) { // not required
 		return nil
 	}
@@ -354,6 +350,8 @@ func (m *Cobrowsesession) validateSegments(formats strfmt.Registry) error {
 			if err := m.Segments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -365,7 +363,6 @@ func (m *Cobrowsesession) validateSegments(formats strfmt.Registry) error {
 }
 
 func (m *Cobrowsesession) validateSelf(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Self) { // not required
 		return nil
 	}
@@ -374,6 +371,8 @@ func (m *Cobrowsesession) validateSelf(formats strfmt.Registry) error {
 		if err := m.Self.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("self")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("self")
 			}
 			return err
 		}
@@ -383,7 +382,6 @@ func (m *Cobrowsesession) validateSelf(formats strfmt.Registry) error {
 }
 
 func (m *Cobrowsesession) validateStartAlertingTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartAlertingTime) { // not required
 		return nil
 	}
@@ -446,7 +444,6 @@ func (m *Cobrowsesession) validateStateEnum(path, location string, value string)
 }
 
 func (m *Cobrowsesession) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -460,7 +457,6 @@ func (m *Cobrowsesession) validateState(formats strfmt.Registry) error {
 }
 
 func (m *Cobrowsesession) validateWrapup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Wrapup) { // not required
 		return nil
 	}
@@ -469,6 +465,102 @@ func (m *Cobrowsesession) validateWrapup(formats strfmt.Registry) error {
 		if err := m.Wrapup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this cobrowsesession based on the context it is used
+func (m *Cobrowsesession) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAfterCallWork(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSegments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelf(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Cobrowsesession) contextValidateAfterCallWork(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Cobrowsesession) contextValidateSegments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Segments); i++ {
+
+		if m.Segments[i] != nil {
+			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Cobrowsesession) contextValidateSelf(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Self != nil {
+		if err := m.Self.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("self")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("self")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Cobrowsesession) contextValidateWrapup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Wrapup != nil {
+		if err := m.Wrapup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
 			}
 			return err
 		}

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -45,7 +47,6 @@ func (m *TrustUpdate) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TrustUpdate) validateDateExpired(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateExpired) { // not required
 		return nil
 	}
@@ -63,6 +64,11 @@ func (m *TrustUpdate) validateEnabled(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this trust update based on context it is used
+func (m *TrustUpdate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

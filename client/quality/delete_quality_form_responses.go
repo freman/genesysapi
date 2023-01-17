@@ -101,7 +101,6 @@ func (o *DeleteQualityFormReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteQualityFormOK() *DeleteQualityFormOK {
 	return &DeleteQualityFormOK{}
 }
 
-/*DeleteQualityFormOK handles this case with default header values.
+/*
+DeleteQualityFormOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteQualityFormOK struct {
 }
 
+// IsSuccess returns true when this delete quality form o k response has a 2xx status code
+func (o *DeleteQualityFormOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete quality form o k response has a 3xx status code
+func (o *DeleteQualityFormOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form o k response has a 4xx status code
+func (o *DeleteQualityFormOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality form o k response has a 5xx status code
+func (o *DeleteQualityFormOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality form o k response a status code equal to that given
+func (o *DeleteQualityFormOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteQualityFormOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormOK ", 200)
+}
+
+func (o *DeleteQualityFormOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormOK ", 200)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteQualityFormBadRequest() *DeleteQualityFormBadRequest {
 	return &DeleteQualityFormBadRequest{}
 }
 
-/*DeleteQualityFormBadRequest handles this case with default header values.
+/*
+DeleteQualityFormBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteQualityFormBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality form bad request response has a 2xx status code
+func (o *DeleteQualityFormBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality form bad request response has a 3xx status code
+func (o *DeleteQualityFormBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form bad request response has a 4xx status code
+func (o *DeleteQualityFormBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality form bad request response has a 5xx status code
+func (o *DeleteQualityFormBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality form bad request response a status code equal to that given
+func (o *DeleteQualityFormBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteQualityFormBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteQualityFormBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteQualityFormUnauthorized() *DeleteQualityFormUnauthorized {
 	return &DeleteQualityFormUnauthorized{}
 }
 
-/*DeleteQualityFormUnauthorized handles this case with default header values.
+/*
+DeleteQualityFormUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteQualityFormUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality form unauthorized response has a 2xx status code
+func (o *DeleteQualityFormUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality form unauthorized response has a 3xx status code
+func (o *DeleteQualityFormUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form unauthorized response has a 4xx status code
+func (o *DeleteQualityFormUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality form unauthorized response has a 5xx status code
+func (o *DeleteQualityFormUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality form unauthorized response a status code equal to that given
+func (o *DeleteQualityFormUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteQualityFormUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteQualityFormUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteQualityFormForbidden() *DeleteQualityFormForbidden {
 	return &DeleteQualityFormForbidden{}
 }
 
-/*DeleteQualityFormForbidden handles this case with default header values.
+/*
+DeleteQualityFormForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteQualityFormForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality form forbidden response has a 2xx status code
+func (o *DeleteQualityFormForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality form forbidden response has a 3xx status code
+func (o *DeleteQualityFormForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form forbidden response has a 4xx status code
+func (o *DeleteQualityFormForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality form forbidden response has a 5xx status code
+func (o *DeleteQualityFormForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality form forbidden response a status code equal to that given
+func (o *DeleteQualityFormForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteQualityFormForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteQualityFormForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteQualityFormNotFound() *DeleteQualityFormNotFound {
 	return &DeleteQualityFormNotFound{}
 }
 
-/*DeleteQualityFormNotFound handles this case with default header values.
+/*
+DeleteQualityFormNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteQualityFormNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality form not found response has a 2xx status code
+func (o *DeleteQualityFormNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality form not found response has a 3xx status code
+func (o *DeleteQualityFormNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form not found response has a 4xx status code
+func (o *DeleteQualityFormNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality form not found response has a 5xx status code
+func (o *DeleteQualityFormNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality form not found response a status code equal to that given
+func (o *DeleteQualityFormNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteQualityFormNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteQualityFormNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteQualityFormRequestTimeout() *DeleteQualityFormRequestTimeout {
 	return &DeleteQualityFormRequestTimeout{}
 }
 
-/*DeleteQualityFormRequestTimeout handles this case with default header values.
+/*
+DeleteQualityFormRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteQualityFormRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality form request timeout response has a 2xx status code
+func (o *DeleteQualityFormRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality form request timeout response has a 3xx status code
+func (o *DeleteQualityFormRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form request timeout response has a 4xx status code
+func (o *DeleteQualityFormRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality form request timeout response has a 5xx status code
+func (o *DeleteQualityFormRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality form request timeout response a status code equal to that given
+func (o *DeleteQualityFormRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteQualityFormRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteQualityFormRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteQualityFormConflict() *DeleteQualityFormConflict {
 	return &DeleteQualityFormConflict{}
 }
 
-/*DeleteQualityFormConflict handles this case with default header values.
+/*
+DeleteQualityFormConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeleteQualityFormConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality form conflict response has a 2xx status code
+func (o *DeleteQualityFormConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality form conflict response has a 3xx status code
+func (o *DeleteQualityFormConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form conflict response has a 4xx status code
+func (o *DeleteQualityFormConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality form conflict response has a 5xx status code
+func (o *DeleteQualityFormConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality form conflict response a status code equal to that given
+func (o *DeleteQualityFormConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteQualityFormConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteQualityFormConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteQualityFormRequestEntityTooLarge() *DeleteQualityFormRequestEntity
 	return &DeleteQualityFormRequestEntityTooLarge{}
 }
 
-/*DeleteQualityFormRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteQualityFormRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteQualityFormRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality form request entity too large response has a 2xx status code
+func (o *DeleteQualityFormRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality form request entity too large response has a 3xx status code
+func (o *DeleteQualityFormRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form request entity too large response has a 4xx status code
+func (o *DeleteQualityFormRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality form request entity too large response has a 5xx status code
+func (o *DeleteQualityFormRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality form request entity too large response a status code equal to that given
+func (o *DeleteQualityFormRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteQualityFormRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteQualityFormRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteQualityFormUnsupportedMediaType() *DeleteQualityFormUnsupportedMed
 	return &DeleteQualityFormUnsupportedMediaType{}
 }
 
-/*DeleteQualityFormUnsupportedMediaType handles this case with default header values.
+/*
+DeleteQualityFormUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteQualityFormUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality form unsupported media type response has a 2xx status code
+func (o *DeleteQualityFormUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality form unsupported media type response has a 3xx status code
+func (o *DeleteQualityFormUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form unsupported media type response has a 4xx status code
+func (o *DeleteQualityFormUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality form unsupported media type response has a 5xx status code
+func (o *DeleteQualityFormUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality form unsupported media type response a status code equal to that given
+func (o *DeleteQualityFormUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteQualityFormUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteQualityFormUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteQualityFormTooManyRequests() *DeleteQualityFormTooManyRequests {
 	return &DeleteQualityFormTooManyRequests{}
 }
 
-/*DeleteQualityFormTooManyRequests handles this case with default header values.
+/*
+DeleteQualityFormTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteQualityFormTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality form too many requests response has a 2xx status code
+func (o *DeleteQualityFormTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality form too many requests response has a 3xx status code
+func (o *DeleteQualityFormTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form too many requests response has a 4xx status code
+func (o *DeleteQualityFormTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality form too many requests response has a 5xx status code
+func (o *DeleteQualityFormTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality form too many requests response a status code equal to that given
+func (o *DeleteQualityFormTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteQualityFormTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteQualityFormTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteQualityFormInternalServerError() *DeleteQualityFormInternalServerE
 	return &DeleteQualityFormInternalServerError{}
 }
 
-/*DeleteQualityFormInternalServerError handles this case with default header values.
+/*
+DeleteQualityFormInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteQualityFormInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality form internal server error response has a 2xx status code
+func (o *DeleteQualityFormInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality form internal server error response has a 3xx status code
+func (o *DeleteQualityFormInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form internal server error response has a 4xx status code
+func (o *DeleteQualityFormInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality form internal server error response has a 5xx status code
+func (o *DeleteQualityFormInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete quality form internal server error response a status code equal to that given
+func (o *DeleteQualityFormInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteQualityFormInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteQualityFormInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteQualityFormServiceUnavailable() *DeleteQualityFormServiceUnavailab
 	return &DeleteQualityFormServiceUnavailable{}
 }
 
-/*DeleteQualityFormServiceUnavailable handles this case with default header values.
+/*
+DeleteQualityFormServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteQualityFormServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality form service unavailable response has a 2xx status code
+func (o *DeleteQualityFormServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality form service unavailable response has a 3xx status code
+func (o *DeleteQualityFormServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form service unavailable response has a 4xx status code
+func (o *DeleteQualityFormServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality form service unavailable response has a 5xx status code
+func (o *DeleteQualityFormServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete quality form service unavailable response a status code equal to that given
+func (o *DeleteQualityFormServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteQualityFormServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteQualityFormServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteQualityFormGatewayTimeout() *DeleteQualityFormGatewayTimeout {
 	return &DeleteQualityFormGatewayTimeout{}
 }
 
-/*DeleteQualityFormGatewayTimeout handles this case with default header values.
+/*
+DeleteQualityFormGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteQualityFormGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality form gateway timeout response has a 2xx status code
+func (o *DeleteQualityFormGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality form gateway timeout response has a 3xx status code
+func (o *DeleteQualityFormGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality form gateway timeout response has a 4xx status code
+func (o *DeleteQualityFormGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality form gateway timeout response has a 5xx status code
+func (o *DeleteQualityFormGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete quality form gateway timeout response a status code equal to that given
+func (o *DeleteQualityFormGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteQualityFormGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteQualityFormGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/{formId}][%d] deleteQualityFormGatewayTimeout  %+v", 504, o.Payload)
 }
 

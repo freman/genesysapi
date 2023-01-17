@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundMessagingcampaignParams creates a new GetOutboundMessagingcampaignParams object
-// with the default values initialized.
+// NewGetOutboundMessagingcampaignParams creates a new GetOutboundMessagingcampaignParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundMessagingcampaignParams() *GetOutboundMessagingcampaignParams {
-	var ()
 	return &GetOutboundMessagingcampaignParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundMessagingcampaignParamsWithTimeout creates a new GetOutboundMessagingcampaignParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundMessagingcampaignParamsWithTimeout(timeout time.Duration) *GetOutboundMessagingcampaignParams {
-	var ()
 	return &GetOutboundMessagingcampaignParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundMessagingcampaignParamsWithContext creates a new GetOutboundMessagingcampaignParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundMessagingcampaignParamsWithContext(ctx context.Context) *GetOutboundMessagingcampaignParams {
-	var ()
 	return &GetOutboundMessagingcampaignParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundMessagingcampaignParamsWithHTTPClient creates a new GetOutboundMessagingcampaignParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundMessagingcampaignParamsWithHTTPClient(client *http.Client) *GetOutboundMessagingcampaignParams {
-	var ()
 	return &GetOutboundMessagingcampaignParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundMessagingcampaignParams contains all the parameters to send to the API endpoint
-for the get outbound messagingcampaign operation typically these are written to a http.Request
+/*
+GetOutboundMessagingcampaignParams contains all the parameters to send to the API endpoint
+
+	for the get outbound messagingcampaign operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundMessagingcampaignParams struct {
 
-	/*MessagingCampaignID
-	  The Messaging Campaign ID
+	/* MessagingCampaignID.
 
+	   The Messaging Campaign ID
 	*/
 	MessagingCampaignID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound messagingcampaign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundMessagingcampaignParams) WithDefaults() *GetOutboundMessagingcampaignParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound messagingcampaign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundMessagingcampaignParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get outbound messagingcampaign params

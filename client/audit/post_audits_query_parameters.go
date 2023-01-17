@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostAuditsQueryParams creates a new PostAuditsQueryParams object
-// with the default values initialized.
+// NewPostAuditsQueryParams creates a new PostAuditsQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAuditsQueryParams() *PostAuditsQueryParams {
-	var ()
 	return &PostAuditsQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAuditsQueryParamsWithTimeout creates a new PostAuditsQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAuditsQueryParamsWithTimeout(timeout time.Duration) *PostAuditsQueryParams {
-	var ()
 	return &PostAuditsQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAuditsQueryParamsWithContext creates a new PostAuditsQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAuditsQueryParamsWithContext(ctx context.Context) *PostAuditsQueryParams {
-	var ()
 	return &PostAuditsQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostAuditsQueryParamsWithHTTPClient creates a new PostAuditsQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAuditsQueryParamsWithHTTPClient(client *http.Client) *PostAuditsQueryParams {
-	var ()
 	return &PostAuditsQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostAuditsQueryParams contains all the parameters to send to the API endpoint
-for the post audits query operation typically these are written to a http.Request
+/*
+PostAuditsQueryParams contains all the parameters to send to the API endpoint
+
+	for the post audits query operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAuditsQueryParams struct {
 
-	/*Body
-	  query
+	/* Body.
 
+	   query
 	*/
 	Body *models.AuditQueryRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post audits query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuditsQueryParams) WithDefaults() *PostAuditsQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post audits query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuditsQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post audits query params
@@ -124,7 +140,6 @@ func (o *PostAuditsQueryParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

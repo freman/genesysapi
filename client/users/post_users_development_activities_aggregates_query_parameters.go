@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostUsersDevelopmentActivitiesAggregatesQueryParams creates a new PostUsersDevelopmentActivitiesAggregatesQueryParams object
-// with the default values initialized.
+// NewPostUsersDevelopmentActivitiesAggregatesQueryParams creates a new PostUsersDevelopmentActivitiesAggregatesQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostUsersDevelopmentActivitiesAggregatesQueryParams() *PostUsersDevelopmentActivitiesAggregatesQueryParams {
-	var ()
 	return &PostUsersDevelopmentActivitiesAggregatesQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostUsersDevelopmentActivitiesAggregatesQueryParamsWithTimeout creates a new PostUsersDevelopmentActivitiesAggregatesQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostUsersDevelopmentActivitiesAggregatesQueryParamsWithTimeout(timeout time.Duration) *PostUsersDevelopmentActivitiesAggregatesQueryParams {
-	var ()
 	return &PostUsersDevelopmentActivitiesAggregatesQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostUsersDevelopmentActivitiesAggregatesQueryParamsWithContext creates a new PostUsersDevelopmentActivitiesAggregatesQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostUsersDevelopmentActivitiesAggregatesQueryParamsWithContext(ctx context.Context) *PostUsersDevelopmentActivitiesAggregatesQueryParams {
-	var ()
 	return &PostUsersDevelopmentActivitiesAggregatesQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostUsersDevelopmentActivitiesAggregatesQueryParamsWithHTTPClient creates a new PostUsersDevelopmentActivitiesAggregatesQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostUsersDevelopmentActivitiesAggregatesQueryParamsWithHTTPClient(client *http.Client) *PostUsersDevelopmentActivitiesAggregatesQueryParams {
-	var ()
 	return &PostUsersDevelopmentActivitiesAggregatesQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryParams contains all the parameters to send to the API endpoint
-for the post users development activities aggregates query operation typically these are written to a http.Request
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryParams contains all the parameters to send to the API endpoint
+
+	for the post users development activities aggregates query operation.
+
+	Typically these are written to a http.Request.
 */
 type PostUsersDevelopmentActivitiesAggregatesQueryParams struct {
 
-	/*Body
-	  Aggregate Request
+	/* Body.
 
+	   Aggregate Request
 	*/
 	Body *models.DevelopmentActivityAggregateParam
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post users development activities aggregates query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryParams) WithDefaults() *PostUsersDevelopmentActivitiesAggregatesQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post users development activities aggregates query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post users development activities aggregates query params
@@ -124,7 +140,6 @@ func (o *PostUsersDevelopmentActivitiesAggregatesQueryParams) WriteToRequest(r r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

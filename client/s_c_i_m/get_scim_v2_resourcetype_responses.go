@@ -95,7 +95,6 @@ func (o *GetScimV2ResourcetypeReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetScimV2ResourcetypeOK() *GetScimV2ResourcetypeOK {
 	return &GetScimV2ResourcetypeOK{}
 }
 
-/*GetScimV2ResourcetypeOK handles this case with default header values.
+/*
+GetScimV2ResourcetypeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetScimV2ResourcetypeOK struct {
 	Payload *models.ScimConfigResourceType
 }
 
+// IsSuccess returns true when this get scim v2 resourcetype o k response has a 2xx status code
+func (o *GetScimV2ResourcetypeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get scim v2 resourcetype o k response has a 3xx status code
+func (o *GetScimV2ResourcetypeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 resourcetype o k response has a 4xx status code
+func (o *GetScimV2ResourcetypeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim v2 resourcetype o k response has a 5xx status code
+func (o *GetScimV2ResourcetypeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 resourcetype o k response a status code equal to that given
+func (o *GetScimV2ResourcetypeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetScimV2ResourcetypeOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeOK  %+v", 200, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypeOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetScimV2ResourcetypeBadRequest() *GetScimV2ResourcetypeBadRequest {
 	return &GetScimV2ResourcetypeBadRequest{}
 }
 
-/*GetScimV2ResourcetypeBadRequest handles this case with default header values.
+/*
+GetScimV2ResourcetypeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetScimV2ResourcetypeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 resourcetype bad request response has a 2xx status code
+func (o *GetScimV2ResourcetypeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 resourcetype bad request response has a 3xx status code
+func (o *GetScimV2ResourcetypeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 resourcetype bad request response has a 4xx status code
+func (o *GetScimV2ResourcetypeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 resourcetype bad request response has a 5xx status code
+func (o *GetScimV2ResourcetypeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 resourcetype bad request response a status code equal to that given
+func (o *GetScimV2ResourcetypeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetScimV2ResourcetypeBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypeBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetScimV2ResourcetypeUnauthorized() *GetScimV2ResourcetypeUnauthorized {
 	return &GetScimV2ResourcetypeUnauthorized{}
 }
 
-/*GetScimV2ResourcetypeUnauthorized handles this case with default header values.
+/*
+GetScimV2ResourcetypeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetScimV2ResourcetypeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 resourcetype unauthorized response has a 2xx status code
+func (o *GetScimV2ResourcetypeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 resourcetype unauthorized response has a 3xx status code
+func (o *GetScimV2ResourcetypeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 resourcetype unauthorized response has a 4xx status code
+func (o *GetScimV2ResourcetypeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 resourcetype unauthorized response has a 5xx status code
+func (o *GetScimV2ResourcetypeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 resourcetype unauthorized response a status code equal to that given
+func (o *GetScimV2ResourcetypeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetScimV2ResourcetypeUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypeUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetScimV2ResourcetypeForbidden() *GetScimV2ResourcetypeForbidden {
 	return &GetScimV2ResourcetypeForbidden{}
 }
 
-/*GetScimV2ResourcetypeForbidden handles this case with default header values.
+/*
+GetScimV2ResourcetypeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetScimV2ResourcetypeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 resourcetype forbidden response has a 2xx status code
+func (o *GetScimV2ResourcetypeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 resourcetype forbidden response has a 3xx status code
+func (o *GetScimV2ResourcetypeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 resourcetype forbidden response has a 4xx status code
+func (o *GetScimV2ResourcetypeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 resourcetype forbidden response has a 5xx status code
+func (o *GetScimV2ResourcetypeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 resourcetype forbidden response a status code equal to that given
+func (o *GetScimV2ResourcetypeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetScimV2ResourcetypeForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypeForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetScimV2ResourcetypeNotFound() *GetScimV2ResourcetypeNotFound {
 	return &GetScimV2ResourcetypeNotFound{}
 }
 
-/*GetScimV2ResourcetypeNotFound handles this case with default header values.
+/*
+GetScimV2ResourcetypeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetScimV2ResourcetypeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 resourcetype not found response has a 2xx status code
+func (o *GetScimV2ResourcetypeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 resourcetype not found response has a 3xx status code
+func (o *GetScimV2ResourcetypeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 resourcetype not found response has a 4xx status code
+func (o *GetScimV2ResourcetypeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 resourcetype not found response has a 5xx status code
+func (o *GetScimV2ResourcetypeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 resourcetype not found response a status code equal to that given
+func (o *GetScimV2ResourcetypeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetScimV2ResourcetypeNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypeNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetScimV2ResourcetypeRequestTimeout() *GetScimV2ResourcetypeRequestTimeo
 	return &GetScimV2ResourcetypeRequestTimeout{}
 }
 
-/*GetScimV2ResourcetypeRequestTimeout handles this case with default header values.
+/*
+GetScimV2ResourcetypeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetScimV2ResourcetypeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 resourcetype request timeout response has a 2xx status code
+func (o *GetScimV2ResourcetypeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 resourcetype request timeout response has a 3xx status code
+func (o *GetScimV2ResourcetypeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 resourcetype request timeout response has a 4xx status code
+func (o *GetScimV2ResourcetypeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 resourcetype request timeout response has a 5xx status code
+func (o *GetScimV2ResourcetypeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 resourcetype request timeout response a status code equal to that given
+func (o *GetScimV2ResourcetypeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetScimV2ResourcetypeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypeRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetScimV2ResourcetypeRequestEntityTooLarge() *GetScimV2ResourcetypeReque
 	return &GetScimV2ResourcetypeRequestEntityTooLarge{}
 }
 
-/*GetScimV2ResourcetypeRequestEntityTooLarge handles this case with default header values.
+/*
+GetScimV2ResourcetypeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetScimV2ResourcetypeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 resourcetype request entity too large response has a 2xx status code
+func (o *GetScimV2ResourcetypeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 resourcetype request entity too large response has a 3xx status code
+func (o *GetScimV2ResourcetypeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 resourcetype request entity too large response has a 4xx status code
+func (o *GetScimV2ResourcetypeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 resourcetype request entity too large response has a 5xx status code
+func (o *GetScimV2ResourcetypeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 resourcetype request entity too large response a status code equal to that given
+func (o *GetScimV2ResourcetypeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetScimV2ResourcetypeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetScimV2ResourcetypeUnsupportedMediaType() *GetScimV2ResourcetypeUnsupp
 	return &GetScimV2ResourcetypeUnsupportedMediaType{}
 }
 
-/*GetScimV2ResourcetypeUnsupportedMediaType handles this case with default header values.
+/*
+GetScimV2ResourcetypeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetScimV2ResourcetypeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 resourcetype unsupported media type response has a 2xx status code
+func (o *GetScimV2ResourcetypeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 resourcetype unsupported media type response has a 3xx status code
+func (o *GetScimV2ResourcetypeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 resourcetype unsupported media type response has a 4xx status code
+func (o *GetScimV2ResourcetypeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 resourcetype unsupported media type response has a 5xx status code
+func (o *GetScimV2ResourcetypeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 resourcetype unsupported media type response a status code equal to that given
+func (o *GetScimV2ResourcetypeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetScimV2ResourcetypeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetScimV2ResourcetypeTooManyRequests() *GetScimV2ResourcetypeTooManyRequ
 	return &GetScimV2ResourcetypeTooManyRequests{}
 }
 
-/*GetScimV2ResourcetypeTooManyRequests handles this case with default header values.
+/*
+GetScimV2ResourcetypeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetScimV2ResourcetypeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 resourcetype too many requests response has a 2xx status code
+func (o *GetScimV2ResourcetypeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 resourcetype too many requests response has a 3xx status code
+func (o *GetScimV2ResourcetypeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 resourcetype too many requests response has a 4xx status code
+func (o *GetScimV2ResourcetypeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim v2 resourcetype too many requests response has a 5xx status code
+func (o *GetScimV2ResourcetypeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim v2 resourcetype too many requests response a status code equal to that given
+func (o *GetScimV2ResourcetypeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetScimV2ResourcetypeTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypeTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetScimV2ResourcetypeInternalServerError() *GetScimV2ResourcetypeInterna
 	return &GetScimV2ResourcetypeInternalServerError{}
 }
 
-/*GetScimV2ResourcetypeInternalServerError handles this case with default header values.
+/*
+GetScimV2ResourcetypeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetScimV2ResourcetypeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 resourcetype internal server error response has a 2xx status code
+func (o *GetScimV2ResourcetypeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 resourcetype internal server error response has a 3xx status code
+func (o *GetScimV2ResourcetypeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 resourcetype internal server error response has a 4xx status code
+func (o *GetScimV2ResourcetypeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim v2 resourcetype internal server error response has a 5xx status code
+func (o *GetScimV2ResourcetypeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim v2 resourcetype internal server error response a status code equal to that given
+func (o *GetScimV2ResourcetypeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetScimV2ResourcetypeInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypeInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetScimV2ResourcetypeServiceUnavailable() *GetScimV2ResourcetypeServiceU
 	return &GetScimV2ResourcetypeServiceUnavailable{}
 }
 
-/*GetScimV2ResourcetypeServiceUnavailable handles this case with default header values.
+/*
+GetScimV2ResourcetypeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetScimV2ResourcetypeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 resourcetype service unavailable response has a 2xx status code
+func (o *GetScimV2ResourcetypeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 resourcetype service unavailable response has a 3xx status code
+func (o *GetScimV2ResourcetypeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 resourcetype service unavailable response has a 4xx status code
+func (o *GetScimV2ResourcetypeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim v2 resourcetype service unavailable response has a 5xx status code
+func (o *GetScimV2ResourcetypeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim v2 resourcetype service unavailable response a status code equal to that given
+func (o *GetScimV2ResourcetypeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetScimV2ResourcetypeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypeServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetScimV2ResourcetypeGatewayTimeout() *GetScimV2ResourcetypeGatewayTimeo
 	return &GetScimV2ResourcetypeGatewayTimeout{}
 }
 
-/*GetScimV2ResourcetypeGatewayTimeout handles this case with default header values.
+/*
+GetScimV2ResourcetypeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetScimV2ResourcetypeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim v2 resourcetype gateway timeout response has a 2xx status code
+func (o *GetScimV2ResourcetypeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim v2 resourcetype gateway timeout response has a 3xx status code
+func (o *GetScimV2ResourcetypeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim v2 resourcetype gateway timeout response has a 4xx status code
+func (o *GetScimV2ResourcetypeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim v2 resourcetype gateway timeout response has a 5xx status code
+func (o *GetScimV2ResourcetypeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim v2 resourcetype gateway timeout response a status code equal to that given
+func (o *GetScimV2ResourcetypeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetScimV2ResourcetypeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetScimV2ResourcetypeGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/v2/resourcetypes/{resourceType}][%d] getScimV2ResourcetypeGatewayTimeout  %+v", 504, o.Payload)
 }
 

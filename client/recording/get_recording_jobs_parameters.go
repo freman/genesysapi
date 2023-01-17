@@ -17,122 +17,142 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRecordingJobsParams creates a new GetRecordingJobsParams object
-// with the default values initialized.
+// NewGetRecordingJobsParams creates a new GetRecordingJobsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRecordingJobsParams() *GetRecordingJobsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("userId")
-	)
 	return &GetRecordingJobsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRecordingJobsParamsWithTimeout creates a new GetRecordingJobsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRecordingJobsParamsWithTimeout(timeout time.Duration) *GetRecordingJobsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("userId")
-	)
 	return &GetRecordingJobsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRecordingJobsParamsWithContext creates a new GetRecordingJobsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRecordingJobsParamsWithContext(ctx context.Context) *GetRecordingJobsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("userId")
-	)
 	return &GetRecordingJobsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetRecordingJobsParamsWithHTTPClient creates a new GetRecordingJobsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRecordingJobsParamsWithHTTPClient(client *http.Client) *GetRecordingJobsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("userId")
-	)
 	return &GetRecordingJobsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetRecordingJobsParams contains all the parameters to send to the API endpoint
-for the get recording jobs operation typically these are written to a http.Request
+/*
+GetRecordingJobsParams contains all the parameters to send to the API endpoint
+
+	for the get recording jobs operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRecordingJobsParams struct {
 
-	/*Cursor
-	  Indicates where to resume query results (not required for first page)
+	/* Cursor.
 
+	   Indicates where to resume query results (not required for first page)
 	*/
 	Cursor *string
-	/*IncludeTotal
-	  If false, cursor will be used to locate the page instead of pageNumber.
 
+	/* IncludeTotal.
+
+	   If false, cursor will be used to locate the page instead of pageNumber.
 	*/
 	IncludeTotal *bool
-	/*JobType
-	  Job Type (Can be left empty for both)
 
+	/* JobType.
+
+	   Job Type (Can be left empty for both)
 	*/
 	JobType *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*ShowOnlyMyJobs
-	  Show only my jobs
 
+	/* ShowOnlyMyJobs.
+
+	   Show only my jobs
 	*/
 	ShowOnlyMyJobs *bool
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
+
+	   Default: "userId"
 	*/
 	SortBy *string
-	/*State
-	  Filter by state
 
+	/* State.
+
+	   Filter by state
 	*/
 	State *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get recording jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingJobsParams) WithDefaults() *GetRecordingJobsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get recording jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingJobsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("userId")
+	)
+
+	val := GetRecordingJobsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get recording jobs params
@@ -268,128 +288,136 @@ func (o *GetRecordingJobsParams) WriteToRequest(r runtime.ClientRequest, reg str
 
 		// query param cursor
 		var qrCursor string
+
 		if o.Cursor != nil {
 			qrCursor = *o.Cursor
 		}
 		qCursor := qrCursor
 		if qCursor != "" {
+
 			if err := r.SetQueryParam("cursor", qCursor); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeTotal != nil {
 
 		// query param includeTotal
 		var qrIncludeTotal bool
+
 		if o.IncludeTotal != nil {
 			qrIncludeTotal = *o.IncludeTotal
 		}
 		qIncludeTotal := swag.FormatBool(qrIncludeTotal)
 		if qIncludeTotal != "" {
+
 			if err := r.SetQueryParam("includeTotal", qIncludeTotal); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.JobType != nil {
 
 		// query param jobType
 		var qrJobType string
+
 		if o.JobType != nil {
 			qrJobType = *o.JobType
 		}
 		qJobType := qrJobType
 		if qJobType != "" {
+
 			if err := r.SetQueryParam("jobType", qJobType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ShowOnlyMyJobs != nil {
 
 		// query param showOnlyMyJobs
 		var qrShowOnlyMyJobs bool
+
 		if o.ShowOnlyMyJobs != nil {
 			qrShowOnlyMyJobs = *o.ShowOnlyMyJobs
 		}
 		qShowOnlyMyJobs := swag.FormatBool(qrShowOnlyMyJobs)
 		if qShowOnlyMyJobs != "" {
+
 			if err := r.SetQueryParam("showOnlyMyJobs", qShowOnlyMyJobs); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.State != nil {
 
 		// query param state
 		var qrState string
+
 		if o.State != nil {
 			qrState = *o.State
 		}
 		qState := qrState
 		if qState != "" {
+
 			if err := r.SetQueryParam("state", qState); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

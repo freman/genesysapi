@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -16,6 +18,9 @@ import (
 //
 // swagger:model NluDetectionInput
 type NluDetectionInput struct {
+
+	// Language of the version for multilingual detection, e.g. `en-us`, `de-de`
+	Language string `json:"language,omitempty"`
 
 	// The text to perform NLU detection on.
 	// Required: true
@@ -42,6 +47,11 @@ func (m *NluDetectionInput) validateText(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this nlu detection input based on context it is used
+func (m *NluDetectionInput) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

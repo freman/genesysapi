@@ -17,137 +17,168 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetLanguageunderstandingDomainFeedbackParams creates a new GetLanguageunderstandingDomainFeedbackParams object
-// with the default values initialized.
+// NewGetLanguageunderstandingDomainFeedbackParams creates a new GetLanguageunderstandingDomainFeedbackParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLanguageunderstandingDomainFeedbackParams() *GetLanguageunderstandingDomainFeedbackParams {
-	var (
-		enableCursorPaginationDefault = bool(false)
-		pageNumberDefault             = int32(1)
-		pageSizeDefault               = int32(25)
-	)
 	return &GetLanguageunderstandingDomainFeedbackParams{
-		EnableCursorPagination: &enableCursorPaginationDefault,
-		PageNumber:             &pageNumberDefault,
-		PageSize:               &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLanguageunderstandingDomainFeedbackParamsWithTimeout creates a new GetLanguageunderstandingDomainFeedbackParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLanguageunderstandingDomainFeedbackParamsWithTimeout(timeout time.Duration) *GetLanguageunderstandingDomainFeedbackParams {
-	var (
-		enableCursorPaginationDefault = bool(false)
-		pageNumberDefault             = int32(1)
-		pageSizeDefault               = int32(25)
-	)
 	return &GetLanguageunderstandingDomainFeedbackParams{
-		EnableCursorPagination: &enableCursorPaginationDefault,
-		PageNumber:             &pageNumberDefault,
-		PageSize:               &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLanguageunderstandingDomainFeedbackParamsWithContext creates a new GetLanguageunderstandingDomainFeedbackParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLanguageunderstandingDomainFeedbackParamsWithContext(ctx context.Context) *GetLanguageunderstandingDomainFeedbackParams {
-	var (
-		enableCursorPaginationDefault = bool(false)
-		pageNumberDefault             = int32(1)
-		pageSizeDefault               = int32(25)
-	)
 	return &GetLanguageunderstandingDomainFeedbackParams{
-		EnableCursorPagination: &enableCursorPaginationDefault,
-		PageNumber:             &pageNumberDefault,
-		PageSize:               &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetLanguageunderstandingDomainFeedbackParamsWithHTTPClient creates a new GetLanguageunderstandingDomainFeedbackParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLanguageunderstandingDomainFeedbackParamsWithHTTPClient(client *http.Client) *GetLanguageunderstandingDomainFeedbackParams {
-	var (
-		enableCursorPaginationDefault = bool(false)
-		pageNumberDefault             = int32(1)
-		pageSizeDefault               = int32(25)
-	)
 	return &GetLanguageunderstandingDomainFeedbackParams{
-		EnableCursorPagination: &enableCursorPaginationDefault,
-		PageNumber:             &pageNumberDefault,
-		PageSize:               &pageSizeDefault,
-		HTTPClient:             client,
+		HTTPClient: client,
 	}
 }
 
-/*GetLanguageunderstandingDomainFeedbackParams contains all the parameters to send to the API endpoint
-for the get languageunderstanding domain feedback operation typically these are written to a http.Request
+/*
+GetLanguageunderstandingDomainFeedbackParams contains all the parameters to send to the API endpoint
+
+	for the get languageunderstanding domain feedback operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLanguageunderstandingDomainFeedbackParams struct {
 
-	/*After
-	  The cursor that points to the end of the set of entities that has been returned. This is considered only when enableCursorPagination=true
+	/* After.
 
+	   The cursor that points to the end of the set of entities that has been returned. This is considered only when enableCursorPagination=true
 	*/
 	After *string
-	/*Assessment
-	  The top assessment to retrieve feedback for.
 
+	/* Assessment.
+
+	   The top assessment to retrieve feedback for.
 	*/
 	Assessment *string
-	/*DateEnd
-	  End of time window as ISO-8601 date.
 
+	/* DateEnd.
+
+	   End of time window as ISO-8601 date.
+
+	   Format: date
 	*/
 	DateEnd *strfmt.Date
-	/*DateStart
-	  Begin of time window as ISO-8601 date.
 
+	/* DateStart.
+
+	   Begin of time window as ISO-8601 date.
+
+	   Format: date
 	*/
 	DateStart *strfmt.Date
-	/*DomainID
-	  ID of the NLU domain.
 
+	/* DomainID.
+
+	   ID of the NLU domain.
 	*/
 	DomainID string
-	/*EnableCursorPagination
-	  Enable Cursor Pagination
 
+	/* EnableCursorPagination.
+
+	   Enable Cursor Pagination
 	*/
 	EnableCursorPagination *bool
-	/*Fields
-	  Fields and properties to get, comma-separated
 
+	/* Fields.
+
+	   Fields and properties to get, comma-separated
 	*/
 	Fields []string
-	/*IncludeDeleted
-	  Whether to include soft-deleted items in the result.
 
+	/* IncludeDeleted.
+
+	   Whether to include soft-deleted items in the result.
 	*/
 	IncludeDeleted *bool
-	/*IntentName
-	  The top intent name to retrieve feedback for.
 
+	/* IntentName.
+
+	   The top intent name to retrieve feedback for.
 	*/
 	IntentName *string
-	/*PageNumber
-	  Page number
 
+	/* Language.
+
+	   Whether to filter response based on the language, e.g. en-us, pt-br.
+	*/
+	Language *string
+
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get languageunderstanding domain feedback params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingDomainFeedbackParams) WithDefaults() *GetLanguageunderstandingDomainFeedbackParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get languageunderstanding domain feedback params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingDomainFeedbackParams) SetDefaults() {
+	var (
+		enableCursorPaginationDefault = bool(false)
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetLanguageunderstandingDomainFeedbackParams{
+		EnableCursorPagination: &enableCursorPaginationDefault,
+		PageNumber:             &pageNumberDefault,
+		PageSize:               &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get languageunderstanding domain feedback params
@@ -282,6 +313,17 @@ func (o *GetLanguageunderstandingDomainFeedbackParams) SetIntentName(intentName 
 	o.IntentName = intentName
 }
 
+// WithLanguage adds the language to the get languageunderstanding domain feedback params
+func (o *GetLanguageunderstandingDomainFeedbackParams) WithLanguage(language *string) *GetLanguageunderstandingDomainFeedbackParams {
+	o.SetLanguage(language)
+	return o
+}
+
+// SetLanguage adds the language to the get languageunderstanding domain feedback params
+func (o *GetLanguageunderstandingDomainFeedbackParams) SetLanguage(language *string) {
+	o.Language = language
+}
+
 // WithPageNumber adds the pageNumber to the get languageunderstanding domain feedback params
 func (o *GetLanguageunderstandingDomainFeedbackParams) WithPageNumber(pageNumber *int32) *GetLanguageunderstandingDomainFeedbackParams {
 	o.SetPageNumber(pageNumber)
@@ -316,64 +358,68 @@ func (o *GetLanguageunderstandingDomainFeedbackParams) WriteToRequest(r runtime.
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Assessment != nil {
 
 		// query param assessment
 		var qrAssessment string
+
 		if o.Assessment != nil {
 			qrAssessment = *o.Assessment
 		}
 		qAssessment := qrAssessment
 		if qAssessment != "" {
+
 			if err := r.SetQueryParam("assessment", qAssessment); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.DateEnd != nil {
 
 		// query param dateEnd
 		var qrDateEnd strfmt.Date
+
 		if o.DateEnd != nil {
 			qrDateEnd = *o.DateEnd
 		}
 		qDateEnd := qrDateEnd.String()
 		if qDateEnd != "" {
+
 			if err := r.SetQueryParam("dateEnd", qDateEnd); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.DateStart != nil {
 
 		// query param dateStart
 		var qrDateStart strfmt.Date
+
 		if o.DateStart != nil {
 			qrDateStart = *o.DateStart
 		}
 		qDateStart := qrDateStart.String()
 		if qDateStart != "" {
+
 			if err := r.SetQueryParam("dateStart", qDateStart); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param domainId
@@ -385,92 +431,134 @@ func (o *GetLanguageunderstandingDomainFeedbackParams) WriteToRequest(r runtime.
 
 		// query param enableCursorPagination
 		var qrEnableCursorPagination bool
+
 		if o.EnableCursorPagination != nil {
 			qrEnableCursorPagination = *o.EnableCursorPagination
 		}
 		qEnableCursorPagination := swag.FormatBool(qrEnableCursorPagination)
 		if qEnableCursorPagination != "" {
+
 			if err := r.SetQueryParam("enableCursorPagination", qEnableCursorPagination); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesFields := o.Fields
+	if o.Fields != nil {
 
-	joinedFields := swag.JoinByFormat(valuesFields, "multi")
-	// query array param fields
-	if err := r.SetQueryParam("fields", joinedFields...); err != nil {
-		return err
+		// binding items for fields
+		joinedFields := o.bindParamFields(reg)
+
+		// query array param fields
+		if err := r.SetQueryParam("fields", joinedFields...); err != nil {
+			return err
+		}
 	}
 
 	if o.IncludeDeleted != nil {
 
 		// query param includeDeleted
 		var qrIncludeDeleted bool
+
 		if o.IncludeDeleted != nil {
 			qrIncludeDeleted = *o.IncludeDeleted
 		}
 		qIncludeDeleted := swag.FormatBool(qrIncludeDeleted)
 		if qIncludeDeleted != "" {
+
 			if err := r.SetQueryParam("includeDeleted", qIncludeDeleted); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IntentName != nil {
 
 		// query param intentName
 		var qrIntentName string
+
 		if o.IntentName != nil {
 			qrIntentName = *o.IntentName
 		}
 		qIntentName := qrIntentName
 		if qIntentName != "" {
+
 			if err := r.SetQueryParam("intentName", qIntentName); err != nil {
 				return err
 			}
 		}
+	}
 
+	if o.Language != nil {
+
+		// query param language
+		var qrLanguage string
+
+		if o.Language != nil {
+			qrLanguage = *o.Language
+		}
+		qLanguage := qrLanguage
+		if qLanguage != "" {
+
+			if err := r.SetQueryParam("language", qLanguage); err != nil {
+				return err
+			}
+		}
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetLanguageunderstandingDomainFeedback binds the parameter fields
+func (o *GetLanguageunderstandingDomainFeedbackParams) bindParamFields(formats strfmt.Registry) []string {
+	fieldsIR := o.Fields
+
+	var fieldsIC []string
+	for _, fieldsIIR := range fieldsIR { // explode []string
+
+		fieldsIIV := fieldsIIR // string as string
+		fieldsIC = append(fieldsIC, fieldsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	fieldsIS := swag.JoinByFormat(fieldsIC, "multi")
+
+	return fieldsIS
 }

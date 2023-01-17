@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -31,6 +32,7 @@ type LastAttemptByColumnConditionSettings struct {
 	SmsColumnName string `json:"smsColumnName,omitempty"`
 
 	// The period value to compare against the contact's data.
+	// Example: P1DT1H1M
 	// Required: true
 	Value *string `json:"value"`
 }
@@ -102,6 +104,11 @@ func (m *LastAttemptByColumnConditionSettings) validateValue(formats strfmt.Regi
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this last attempt by column condition settings based on context it is used
+func (m *LastAttemptByColumnConditionSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

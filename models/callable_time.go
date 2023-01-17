@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -24,6 +25,7 @@ type CallableTime struct {
 	TimeSlots []*CampaignTimeSlot `json:"timeSlots"`
 
 	// The time zone for the time slots; for example, Africa/Abidjan
+	// Example: Africa/Abidjan
 	// Required: true
 	TimeZoneID *string `json:"timeZoneId"`
 }
@@ -61,6 +63,8 @@ func (m *CallableTime) validateTimeSlots(formats strfmt.Registry) error {
 			if err := m.TimeSlots[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("timeSlots" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("timeSlots" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -75,6 +79,40 @@ func (m *CallableTime) validateTimeZoneID(formats strfmt.Registry) error {
 
 	if err := validate.Required("timeZoneId", "body", m.TimeZoneID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this callable time based on the context it is used
+func (m *CallableTime) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateTimeSlots(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CallableTime) contextValidateTimeSlots(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TimeSlots); i++ {
+
+		if m.TimeSlots[i] != nil {
+			if err := m.TimeSlots[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("timeSlots" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("timeSlots" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -63,6 +64,8 @@ func (m *TextBotUserInputEvent) validateAlternatives(formats strfmt.Registry) er
 			if err := m.Alternatives[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("alternatives" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("alternatives" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -108,6 +111,40 @@ func (m *TextBotUserInputEvent) validateMode(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateModeEnum("mode", "body", *m.Mode); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this text bot user input event based on the context it is used
+func (m *TextBotUserInputEvent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAlternatives(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TextBotUserInputEvent) contextValidateAlternatives(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Alternatives); i++ {
+
+		if m.Alternatives[i] != nil {
+			if err := m.Alternatives[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("alternatives" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("alternatives" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

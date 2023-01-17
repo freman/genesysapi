@@ -95,7 +95,6 @@ func (o *DeleteConversationParticipantFlaggedreasonReader) ReadResponse(response
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteConversationParticipantFlaggedreasonNoContent() *DeleteConversatio
 	return &DeleteConversationParticipantFlaggedreasonNoContent{}
 }
 
-/*DeleteConversationParticipantFlaggedreasonNoContent handles this case with default header values.
+/*
+DeleteConversationParticipantFlaggedreasonNoContent describes a response with status code 204, with default header values.
 
 The flagged reason was removed successfully.
 */
 type DeleteConversationParticipantFlaggedreasonNoContent struct {
 }
 
+// IsSuccess returns true when this delete conversation participant flaggedreason no content response has a 2xx status code
+func (o *DeleteConversationParticipantFlaggedreasonNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete conversation participant flaggedreason no content response has a 3xx status code
+func (o *DeleteConversationParticipantFlaggedreasonNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation participant flaggedreason no content response has a 4xx status code
+func (o *DeleteConversationParticipantFlaggedreasonNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversation participant flaggedreason no content response has a 5xx status code
+func (o *DeleteConversationParticipantFlaggedreasonNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation participant flaggedreason no content response a status code equal to that given
+func (o *DeleteConversationParticipantFlaggedreasonNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteConversationParticipantFlaggedreasonNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonNoContent ", 204)
+}
+
+func (o *DeleteConversationParticipantFlaggedreasonNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteConversationParticipantFlaggedreasonBadRequest() *DeleteConversati
 	return &DeleteConversationParticipantFlaggedreasonBadRequest{}
 }
 
-/*DeleteConversationParticipantFlaggedreasonBadRequest handles this case with default header values.
+/*
+DeleteConversationParticipantFlaggedreasonBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteConversationParticipantFlaggedreasonBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation participant flaggedreason bad request response has a 2xx status code
+func (o *DeleteConversationParticipantFlaggedreasonBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation participant flaggedreason bad request response has a 3xx status code
+func (o *DeleteConversationParticipantFlaggedreasonBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation participant flaggedreason bad request response has a 4xx status code
+func (o *DeleteConversationParticipantFlaggedreasonBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation participant flaggedreason bad request response has a 5xx status code
+func (o *DeleteConversationParticipantFlaggedreasonBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation participant flaggedreason bad request response a status code equal to that given
+func (o *DeleteConversationParticipantFlaggedreasonBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteConversationParticipantFlaggedreasonBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteConversationParticipantFlaggedreasonBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteConversationParticipantFlaggedreasonUnauthorized() *DeleteConversa
 	return &DeleteConversationParticipantFlaggedreasonUnauthorized{}
 }
 
-/*DeleteConversationParticipantFlaggedreasonUnauthorized handles this case with default header values.
+/*
+DeleteConversationParticipantFlaggedreasonUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteConversationParticipantFlaggedreasonUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation participant flaggedreason unauthorized response has a 2xx status code
+func (o *DeleteConversationParticipantFlaggedreasonUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation participant flaggedreason unauthorized response has a 3xx status code
+func (o *DeleteConversationParticipantFlaggedreasonUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation participant flaggedreason unauthorized response has a 4xx status code
+func (o *DeleteConversationParticipantFlaggedreasonUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation participant flaggedreason unauthorized response has a 5xx status code
+func (o *DeleteConversationParticipantFlaggedreasonUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation participant flaggedreason unauthorized response a status code equal to that given
+func (o *DeleteConversationParticipantFlaggedreasonUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteConversationParticipantFlaggedreasonUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteConversationParticipantFlaggedreasonUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteConversationParticipantFlaggedreasonForbidden() *DeleteConversatio
 	return &DeleteConversationParticipantFlaggedreasonForbidden{}
 }
 
-/*DeleteConversationParticipantFlaggedreasonForbidden handles this case with default header values.
+/*
+DeleteConversationParticipantFlaggedreasonForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteConversationParticipantFlaggedreasonForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation participant flaggedreason forbidden response has a 2xx status code
+func (o *DeleteConversationParticipantFlaggedreasonForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation participant flaggedreason forbidden response has a 3xx status code
+func (o *DeleteConversationParticipantFlaggedreasonForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation participant flaggedreason forbidden response has a 4xx status code
+func (o *DeleteConversationParticipantFlaggedreasonForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation participant flaggedreason forbidden response has a 5xx status code
+func (o *DeleteConversationParticipantFlaggedreasonForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation participant flaggedreason forbidden response a status code equal to that given
+func (o *DeleteConversationParticipantFlaggedreasonForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteConversationParticipantFlaggedreasonForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteConversationParticipantFlaggedreasonForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteConversationParticipantFlaggedreasonNotFound() *DeleteConversation
 	return &DeleteConversationParticipantFlaggedreasonNotFound{}
 }
 
-/*DeleteConversationParticipantFlaggedreasonNotFound handles this case with default header values.
+/*
+DeleteConversationParticipantFlaggedreasonNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteConversationParticipantFlaggedreasonNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation participant flaggedreason not found response has a 2xx status code
+func (o *DeleteConversationParticipantFlaggedreasonNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation participant flaggedreason not found response has a 3xx status code
+func (o *DeleteConversationParticipantFlaggedreasonNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation participant flaggedreason not found response has a 4xx status code
+func (o *DeleteConversationParticipantFlaggedreasonNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation participant flaggedreason not found response has a 5xx status code
+func (o *DeleteConversationParticipantFlaggedreasonNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation participant flaggedreason not found response a status code equal to that given
+func (o *DeleteConversationParticipantFlaggedreasonNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteConversationParticipantFlaggedreasonNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteConversationParticipantFlaggedreasonNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteConversationParticipantFlaggedreasonRequestTimeout() *DeleteConver
 	return &DeleteConversationParticipantFlaggedreasonRequestTimeout{}
 }
 
-/*DeleteConversationParticipantFlaggedreasonRequestTimeout handles this case with default header values.
+/*
+DeleteConversationParticipantFlaggedreasonRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteConversationParticipantFlaggedreasonRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation participant flaggedreason request timeout response has a 2xx status code
+func (o *DeleteConversationParticipantFlaggedreasonRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation participant flaggedreason request timeout response has a 3xx status code
+func (o *DeleteConversationParticipantFlaggedreasonRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation participant flaggedreason request timeout response has a 4xx status code
+func (o *DeleteConversationParticipantFlaggedreasonRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation participant flaggedreason request timeout response has a 5xx status code
+func (o *DeleteConversationParticipantFlaggedreasonRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation participant flaggedreason request timeout response a status code equal to that given
+func (o *DeleteConversationParticipantFlaggedreasonRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteConversationParticipantFlaggedreasonRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteConversationParticipantFlaggedreasonRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteConversationParticipantFlaggedreasonRequestEntityTooLarge() *Delet
 	return &DeleteConversationParticipantFlaggedreasonRequestEntityTooLarge{}
 }
 
-/*DeleteConversationParticipantFlaggedreasonRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteConversationParticipantFlaggedreasonRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteConversationParticipantFlaggedreasonRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation participant flaggedreason request entity too large response has a 2xx status code
+func (o *DeleteConversationParticipantFlaggedreasonRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation participant flaggedreason request entity too large response has a 3xx status code
+func (o *DeleteConversationParticipantFlaggedreasonRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation participant flaggedreason request entity too large response has a 4xx status code
+func (o *DeleteConversationParticipantFlaggedreasonRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation participant flaggedreason request entity too large response has a 5xx status code
+func (o *DeleteConversationParticipantFlaggedreasonRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation participant flaggedreason request entity too large response a status code equal to that given
+func (o *DeleteConversationParticipantFlaggedreasonRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteConversationParticipantFlaggedreasonRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteConversationParticipantFlaggedreasonRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteConversationParticipantFlaggedreasonUnsupportedMediaType() *Delete
 	return &DeleteConversationParticipantFlaggedreasonUnsupportedMediaType{}
 }
 
-/*DeleteConversationParticipantFlaggedreasonUnsupportedMediaType handles this case with default header values.
+/*
+DeleteConversationParticipantFlaggedreasonUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteConversationParticipantFlaggedreasonUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation participant flaggedreason unsupported media type response has a 2xx status code
+func (o *DeleteConversationParticipantFlaggedreasonUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation participant flaggedreason unsupported media type response has a 3xx status code
+func (o *DeleteConversationParticipantFlaggedreasonUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation participant flaggedreason unsupported media type response has a 4xx status code
+func (o *DeleteConversationParticipantFlaggedreasonUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation participant flaggedreason unsupported media type response has a 5xx status code
+func (o *DeleteConversationParticipantFlaggedreasonUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation participant flaggedreason unsupported media type response a status code equal to that given
+func (o *DeleteConversationParticipantFlaggedreasonUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteConversationParticipantFlaggedreasonUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteConversationParticipantFlaggedreasonUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteConversationParticipantFlaggedreasonTooManyRequests() *DeleteConve
 	return &DeleteConversationParticipantFlaggedreasonTooManyRequests{}
 }
 
-/*DeleteConversationParticipantFlaggedreasonTooManyRequests handles this case with default header values.
+/*
+DeleteConversationParticipantFlaggedreasonTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteConversationParticipantFlaggedreasonTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation participant flaggedreason too many requests response has a 2xx status code
+func (o *DeleteConversationParticipantFlaggedreasonTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation participant flaggedreason too many requests response has a 3xx status code
+func (o *DeleteConversationParticipantFlaggedreasonTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation participant flaggedreason too many requests response has a 4xx status code
+func (o *DeleteConversationParticipantFlaggedreasonTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation participant flaggedreason too many requests response has a 5xx status code
+func (o *DeleteConversationParticipantFlaggedreasonTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation participant flaggedreason too many requests response a status code equal to that given
+func (o *DeleteConversationParticipantFlaggedreasonTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteConversationParticipantFlaggedreasonTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteConversationParticipantFlaggedreasonTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteConversationParticipantFlaggedreasonInternalServerError() *DeleteC
 	return &DeleteConversationParticipantFlaggedreasonInternalServerError{}
 }
 
-/*DeleteConversationParticipantFlaggedreasonInternalServerError handles this case with default header values.
+/*
+DeleteConversationParticipantFlaggedreasonInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteConversationParticipantFlaggedreasonInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation participant flaggedreason internal server error response has a 2xx status code
+func (o *DeleteConversationParticipantFlaggedreasonInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation participant flaggedreason internal server error response has a 3xx status code
+func (o *DeleteConversationParticipantFlaggedreasonInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation participant flaggedreason internal server error response has a 4xx status code
+func (o *DeleteConversationParticipantFlaggedreasonInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversation participant flaggedreason internal server error response has a 5xx status code
+func (o *DeleteConversationParticipantFlaggedreasonInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversation participant flaggedreason internal server error response a status code equal to that given
+func (o *DeleteConversationParticipantFlaggedreasonInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteConversationParticipantFlaggedreasonInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteConversationParticipantFlaggedreasonInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteConversationParticipantFlaggedreasonServiceUnavailable() *DeleteCo
 	return &DeleteConversationParticipantFlaggedreasonServiceUnavailable{}
 }
 
-/*DeleteConversationParticipantFlaggedreasonServiceUnavailable handles this case with default header values.
+/*
+DeleteConversationParticipantFlaggedreasonServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteConversationParticipantFlaggedreasonServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation participant flaggedreason service unavailable response has a 2xx status code
+func (o *DeleteConversationParticipantFlaggedreasonServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation participant flaggedreason service unavailable response has a 3xx status code
+func (o *DeleteConversationParticipantFlaggedreasonServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation participant flaggedreason service unavailable response has a 4xx status code
+func (o *DeleteConversationParticipantFlaggedreasonServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversation participant flaggedreason service unavailable response has a 5xx status code
+func (o *DeleteConversationParticipantFlaggedreasonServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversation participant flaggedreason service unavailable response a status code equal to that given
+func (o *DeleteConversationParticipantFlaggedreasonServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteConversationParticipantFlaggedreasonServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteConversationParticipantFlaggedreasonServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteConversationParticipantFlaggedreasonGatewayTimeout() *DeleteConver
 	return &DeleteConversationParticipantFlaggedreasonGatewayTimeout{}
 }
 
-/*DeleteConversationParticipantFlaggedreasonGatewayTimeout handles this case with default header values.
+/*
+DeleteConversationParticipantFlaggedreasonGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteConversationParticipantFlaggedreasonGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation participant flaggedreason gateway timeout response has a 2xx status code
+func (o *DeleteConversationParticipantFlaggedreasonGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation participant flaggedreason gateway timeout response has a 3xx status code
+func (o *DeleteConversationParticipantFlaggedreasonGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation participant flaggedreason gateway timeout response has a 4xx status code
+func (o *DeleteConversationParticipantFlaggedreasonGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversation participant flaggedreason gateway timeout response has a 5xx status code
+func (o *DeleteConversationParticipantFlaggedreasonGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversation participant flaggedreason gateway timeout response a status code equal to that given
+func (o *DeleteConversationParticipantFlaggedreasonGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteConversationParticipantFlaggedreasonGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteConversationParticipantFlaggedreasonGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/participants/{participantId}/flaggedreason][%d] deleteConversationParticipantFlaggedreasonGatewayTimeout  %+v", 504, o.Payload)
 }
 

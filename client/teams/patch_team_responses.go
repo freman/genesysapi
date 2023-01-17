@@ -95,7 +95,6 @@ func (o *PatchTeamReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchTeamOK() *PatchTeamOK {
 	return &PatchTeamOK{}
 }
 
-/*PatchTeamOK handles this case with default header values.
+/*
+PatchTeamOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchTeamOK struct {
 	Payload *models.Team
 }
 
+// IsSuccess returns true when this patch team o k response has a 2xx status code
+func (o *PatchTeamOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch team o k response has a 3xx status code
+func (o *PatchTeamOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team o k response has a 4xx status code
+func (o *PatchTeamOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch team o k response has a 5xx status code
+func (o *PatchTeamOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team o k response a status code equal to that given
+func (o *PatchTeamOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchTeamOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchTeamOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchTeamBadRequest() *PatchTeamBadRequest {
 	return &PatchTeamBadRequest{}
 }
 
-/*PatchTeamBadRequest handles this case with default header values.
+/*
+PatchTeamBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchTeamBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch team bad request response has a 2xx status code
+func (o *PatchTeamBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team bad request response has a 3xx status code
+func (o *PatchTeamBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team bad request response has a 4xx status code
+func (o *PatchTeamBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch team bad request response has a 5xx status code
+func (o *PatchTeamBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team bad request response a status code equal to that given
+func (o *PatchTeamBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchTeamBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchTeamBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchTeamUnauthorized() *PatchTeamUnauthorized {
 	return &PatchTeamUnauthorized{}
 }
 
-/*PatchTeamUnauthorized handles this case with default header values.
+/*
+PatchTeamUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchTeamUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch team unauthorized response has a 2xx status code
+func (o *PatchTeamUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team unauthorized response has a 3xx status code
+func (o *PatchTeamUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team unauthorized response has a 4xx status code
+func (o *PatchTeamUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch team unauthorized response has a 5xx status code
+func (o *PatchTeamUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team unauthorized response a status code equal to that given
+func (o *PatchTeamUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchTeamUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchTeamUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchTeamForbidden() *PatchTeamForbidden {
 	return &PatchTeamForbidden{}
 }
 
-/*PatchTeamForbidden handles this case with default header values.
+/*
+PatchTeamForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchTeamForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch team forbidden response has a 2xx status code
+func (o *PatchTeamForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team forbidden response has a 3xx status code
+func (o *PatchTeamForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team forbidden response has a 4xx status code
+func (o *PatchTeamForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch team forbidden response has a 5xx status code
+func (o *PatchTeamForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team forbidden response a status code equal to that given
+func (o *PatchTeamForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchTeamForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchTeamForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchTeamNotFound() *PatchTeamNotFound {
 	return &PatchTeamNotFound{}
 }
 
-/*PatchTeamNotFound handles this case with default header values.
+/*
+PatchTeamNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchTeamNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch team not found response has a 2xx status code
+func (o *PatchTeamNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team not found response has a 3xx status code
+func (o *PatchTeamNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team not found response has a 4xx status code
+func (o *PatchTeamNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch team not found response has a 5xx status code
+func (o *PatchTeamNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team not found response a status code equal to that given
+func (o *PatchTeamNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchTeamNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchTeamNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchTeamRequestTimeout() *PatchTeamRequestTimeout {
 	return &PatchTeamRequestTimeout{}
 }
 
-/*PatchTeamRequestTimeout handles this case with default header values.
+/*
+PatchTeamRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchTeamRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch team request timeout response has a 2xx status code
+func (o *PatchTeamRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team request timeout response has a 3xx status code
+func (o *PatchTeamRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team request timeout response has a 4xx status code
+func (o *PatchTeamRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch team request timeout response has a 5xx status code
+func (o *PatchTeamRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team request timeout response a status code equal to that given
+func (o *PatchTeamRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchTeamRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchTeamRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchTeamRequestEntityTooLarge() *PatchTeamRequestEntityTooLarge {
 	return &PatchTeamRequestEntityTooLarge{}
 }
 
-/*PatchTeamRequestEntityTooLarge handles this case with default header values.
+/*
+PatchTeamRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchTeamRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch team request entity too large response has a 2xx status code
+func (o *PatchTeamRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team request entity too large response has a 3xx status code
+func (o *PatchTeamRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team request entity too large response has a 4xx status code
+func (o *PatchTeamRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch team request entity too large response has a 5xx status code
+func (o *PatchTeamRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team request entity too large response a status code equal to that given
+func (o *PatchTeamRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchTeamRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchTeamRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchTeamUnsupportedMediaType() *PatchTeamUnsupportedMediaType {
 	return &PatchTeamUnsupportedMediaType{}
 }
 
-/*PatchTeamUnsupportedMediaType handles this case with default header values.
+/*
+PatchTeamUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchTeamUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch team unsupported media type response has a 2xx status code
+func (o *PatchTeamUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team unsupported media type response has a 3xx status code
+func (o *PatchTeamUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team unsupported media type response has a 4xx status code
+func (o *PatchTeamUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch team unsupported media type response has a 5xx status code
+func (o *PatchTeamUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team unsupported media type response a status code equal to that given
+func (o *PatchTeamUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchTeamUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchTeamUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchTeamTooManyRequests() *PatchTeamTooManyRequests {
 	return &PatchTeamTooManyRequests{}
 }
 
-/*PatchTeamTooManyRequests handles this case with default header values.
+/*
+PatchTeamTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchTeamTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch team too many requests response has a 2xx status code
+func (o *PatchTeamTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team too many requests response has a 3xx status code
+func (o *PatchTeamTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team too many requests response has a 4xx status code
+func (o *PatchTeamTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch team too many requests response has a 5xx status code
+func (o *PatchTeamTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch team too many requests response a status code equal to that given
+func (o *PatchTeamTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchTeamTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchTeamTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchTeamInternalServerError() *PatchTeamInternalServerError {
 	return &PatchTeamInternalServerError{}
 }
 
-/*PatchTeamInternalServerError handles this case with default header values.
+/*
+PatchTeamInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchTeamInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch team internal server error response has a 2xx status code
+func (o *PatchTeamInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team internal server error response has a 3xx status code
+func (o *PatchTeamInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team internal server error response has a 4xx status code
+func (o *PatchTeamInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch team internal server error response has a 5xx status code
+func (o *PatchTeamInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch team internal server error response a status code equal to that given
+func (o *PatchTeamInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchTeamInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchTeamInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchTeamServiceUnavailable() *PatchTeamServiceUnavailable {
 	return &PatchTeamServiceUnavailable{}
 }
 
-/*PatchTeamServiceUnavailable handles this case with default header values.
+/*
+PatchTeamServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchTeamServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch team service unavailable response has a 2xx status code
+func (o *PatchTeamServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team service unavailable response has a 3xx status code
+func (o *PatchTeamServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team service unavailable response has a 4xx status code
+func (o *PatchTeamServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch team service unavailable response has a 5xx status code
+func (o *PatchTeamServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch team service unavailable response a status code equal to that given
+func (o *PatchTeamServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchTeamServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchTeamServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchTeamGatewayTimeout() *PatchTeamGatewayTimeout {
 	return &PatchTeamGatewayTimeout{}
 }
 
-/*PatchTeamGatewayTimeout handles this case with default header values.
+/*
+PatchTeamGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchTeamGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch team gateway timeout response has a 2xx status code
+func (o *PatchTeamGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch team gateway timeout response has a 3xx status code
+func (o *PatchTeamGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch team gateway timeout response has a 4xx status code
+func (o *PatchTeamGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch team gateway timeout response has a 5xx status code
+func (o *PatchTeamGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch team gateway timeout response a status code equal to that given
+func (o *PatchTeamGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchTeamGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchTeamGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/teams/{teamId}][%d] patchTeamGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -44,7 +46,6 @@ func (m *SessionSegmentAssignment) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SessionSegmentAssignment) validateAssignedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssignedDate) { // not required
 		return nil
 	}
@@ -57,7 +58,6 @@ func (m *SessionSegmentAssignment) validateAssignedDate(formats strfmt.Registry)
 }
 
 func (m *SessionSegmentAssignment) validateSegment(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Segment) { // not required
 		return nil
 	}
@@ -66,6 +66,38 @@ func (m *SessionSegmentAssignment) validateSegment(formats strfmt.Registry) erro
 		if err := m.Segment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("segment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("segment")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this session segment assignment based on the context it is used
+func (m *SessionSegmentAssignment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSegment(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SessionSegmentAssignment) contextValidateSegment(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Segment != nil {
+		if err := m.Segment.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("segment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("segment")
 			}
 			return err
 		}

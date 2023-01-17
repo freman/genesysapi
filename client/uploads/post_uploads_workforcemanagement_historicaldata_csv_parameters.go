@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostUploadsWorkforcemanagementHistoricaldataCsvParams creates a new PostUploadsWorkforcemanagementHistoricaldataCsvParams object
-// with the default values initialized.
+// NewPostUploadsWorkforcemanagementHistoricaldataCsvParams creates a new PostUploadsWorkforcemanagementHistoricaldataCsvParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostUploadsWorkforcemanagementHistoricaldataCsvParams() *PostUploadsWorkforcemanagementHistoricaldataCsvParams {
-	var ()
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostUploadsWorkforcemanagementHistoricaldataCsvParamsWithTimeout creates a new PostUploadsWorkforcemanagementHistoricaldataCsvParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostUploadsWorkforcemanagementHistoricaldataCsvParamsWithTimeout(timeout time.Duration) *PostUploadsWorkforcemanagementHistoricaldataCsvParams {
-	var ()
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostUploadsWorkforcemanagementHistoricaldataCsvParamsWithContext creates a new PostUploadsWorkforcemanagementHistoricaldataCsvParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostUploadsWorkforcemanagementHistoricaldataCsvParamsWithContext(ctx context.Context) *PostUploadsWorkforcemanagementHistoricaldataCsvParams {
-	var ()
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostUploadsWorkforcemanagementHistoricaldataCsvParamsWithHTTPClient creates a new PostUploadsWorkforcemanagementHistoricaldataCsvParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostUploadsWorkforcemanagementHistoricaldataCsvParamsWithHTTPClient(client *http.Client) *PostUploadsWorkforcemanagementHistoricaldataCsvParams {
-	var ()
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvParams contains all the parameters to send to the API endpoint
-for the post uploads workforcemanagement historicaldata csv operation typically these are written to a http.Request
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvParams contains all the parameters to send to the API endpoint
+
+	for the post uploads workforcemanagement historicaldata csv operation.
+
+	Typically these are written to a http.Request.
 */
 type PostUploadsWorkforcemanagementHistoricaldataCsvParams struct {
 
-	/*Body
-	  query
+	/* Body.
 
+	   query
 	*/
 	Body *models.UploadURLRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post uploads workforcemanagement historicaldata csv params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvParams) WithDefaults() *PostUploadsWorkforcemanagementHistoricaldataCsvParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post uploads workforcemanagement historicaldata csv params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post uploads workforcemanagement historicaldata csv params
@@ -124,7 +140,6 @@ func (o *PostUploadsWorkforcemanagementHistoricaldataCsvParams) WriteToRequest(r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

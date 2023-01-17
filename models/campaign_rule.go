@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -117,6 +118,8 @@ func (m *CampaignRule) validateCampaignRuleActions(formats strfmt.Registry) erro
 			if err := m.CampaignRuleActions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("campaignRuleActions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("campaignRuleActions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -142,6 +145,8 @@ func (m *CampaignRule) validateCampaignRuleConditions(formats strfmt.Registry) e
 			if err := m.CampaignRuleConditions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("campaignRuleConditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("campaignRuleConditions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -162,6 +167,8 @@ func (m *CampaignRule) validateCampaignRuleEntities(formats strfmt.Registry) err
 		if err := m.CampaignRuleEntities.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("campaignRuleEntities")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("campaignRuleEntities")
 			}
 			return err
 		}
@@ -171,7 +178,6 @@ func (m *CampaignRule) validateCampaignRuleEntities(formats strfmt.Registry) err
 }
 
 func (m *CampaignRule) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -184,7 +190,6 @@ func (m *CampaignRule) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *CampaignRule) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -206,12 +211,141 @@ func (m *CampaignRule) validateName(formats strfmt.Registry) error {
 }
 
 func (m *CampaignRule) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this campaign rule based on the context it is used
+func (m *CampaignRule) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCampaignRuleActions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCampaignRuleConditions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCampaignRuleEntities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CampaignRule) contextValidateCampaignRuleActions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CampaignRuleActions); i++ {
+
+		if m.CampaignRuleActions[i] != nil {
+			if err := m.CampaignRuleActions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("campaignRuleActions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("campaignRuleActions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CampaignRule) contextValidateCampaignRuleConditions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CampaignRuleConditions); i++ {
+
+		if m.CampaignRuleConditions[i] != nil {
+			if err := m.CampaignRuleConditions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("campaignRuleConditions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("campaignRuleConditions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CampaignRule) contextValidateCampaignRuleEntities(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CampaignRuleEntities != nil {
+		if err := m.CampaignRuleEntities.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("campaignRuleEntities")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("campaignRuleEntities")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignRule) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignRule) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignRule) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignRule) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

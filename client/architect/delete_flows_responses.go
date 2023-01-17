@@ -101,7 +101,6 @@ func (o *DeleteFlowsReader) ReadResponse(response runtime.ClientResponse, consum
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewDeleteFlowsOK() *DeleteFlowsOK {
 	return &DeleteFlowsOK{}
 }
 
-/*DeleteFlowsOK handles this case with default header values.
+/*
+DeleteFlowsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type DeleteFlowsOK struct {
 	Payload *models.Operation
 }
 
+// IsSuccess returns true when this delete flows o k response has a 2xx status code
+func (o *DeleteFlowsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete flows o k response has a 3xx status code
+func (o *DeleteFlowsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows o k response has a 4xx status code
+func (o *DeleteFlowsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete flows o k response has a 5xx status code
+func (o *DeleteFlowsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete flows o k response a status code equal to that given
+func (o *DeleteFlowsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteFlowsOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteFlowsOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewDeleteFlowsBadRequest() *DeleteFlowsBadRequest {
 	return &DeleteFlowsBadRequest{}
 }
 
-/*DeleteFlowsBadRequest handles this case with default header values.
+/*
+DeleteFlowsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type DeleteFlowsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete flows bad request response has a 2xx status code
+func (o *DeleteFlowsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete flows bad request response has a 3xx status code
+func (o *DeleteFlowsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows bad request response has a 4xx status code
+func (o *DeleteFlowsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete flows bad request response has a 5xx status code
+func (o *DeleteFlowsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete flows bad request response a status code equal to that given
+func (o *DeleteFlowsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteFlowsBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteFlowsBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewDeleteFlowsUnauthorized() *DeleteFlowsUnauthorized {
 	return &DeleteFlowsUnauthorized{}
 }
 
-/*DeleteFlowsUnauthorized handles this case with default header values.
+/*
+DeleteFlowsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type DeleteFlowsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete flows unauthorized response has a 2xx status code
+func (o *DeleteFlowsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete flows unauthorized response has a 3xx status code
+func (o *DeleteFlowsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows unauthorized response has a 4xx status code
+func (o *DeleteFlowsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete flows unauthorized response has a 5xx status code
+func (o *DeleteFlowsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete flows unauthorized response a status code equal to that given
+func (o *DeleteFlowsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteFlowsUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteFlowsUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewDeleteFlowsForbidden() *DeleteFlowsForbidden {
 	return &DeleteFlowsForbidden{}
 }
 
-/*DeleteFlowsForbidden handles this case with default header values.
+/*
+DeleteFlowsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type DeleteFlowsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete flows forbidden response has a 2xx status code
+func (o *DeleteFlowsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete flows forbidden response has a 3xx status code
+func (o *DeleteFlowsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows forbidden response has a 4xx status code
+func (o *DeleteFlowsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete flows forbidden response has a 5xx status code
+func (o *DeleteFlowsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete flows forbidden response a status code equal to that given
+func (o *DeleteFlowsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteFlowsForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteFlowsForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewDeleteFlowsNotFound() *DeleteFlowsNotFound {
 	return &DeleteFlowsNotFound{}
 }
 
-/*DeleteFlowsNotFound handles this case with default header values.
+/*
+DeleteFlowsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type DeleteFlowsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete flows not found response has a 2xx status code
+func (o *DeleteFlowsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete flows not found response has a 3xx status code
+func (o *DeleteFlowsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows not found response has a 4xx status code
+func (o *DeleteFlowsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete flows not found response has a 5xx status code
+func (o *DeleteFlowsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete flows not found response a status code equal to that given
+func (o *DeleteFlowsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteFlowsNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteFlowsNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewDeleteFlowsRequestTimeout() *DeleteFlowsRequestTimeout {
 	return &DeleteFlowsRequestTimeout{}
 }
 
-/*DeleteFlowsRequestTimeout handles this case with default header values.
+/*
+DeleteFlowsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type DeleteFlowsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete flows request timeout response has a 2xx status code
+func (o *DeleteFlowsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete flows request timeout response has a 3xx status code
+func (o *DeleteFlowsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows request timeout response has a 4xx status code
+func (o *DeleteFlowsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete flows request timeout response has a 5xx status code
+func (o *DeleteFlowsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete flows request timeout response a status code equal to that given
+func (o *DeleteFlowsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteFlowsRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteFlowsRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewDeleteFlowsConflict() *DeleteFlowsConflict {
 	return &DeleteFlowsConflict{}
 }
 
-/*DeleteFlowsConflict handles this case with default header values.
+/*
+DeleteFlowsConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type DeleteFlowsConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete flows conflict response has a 2xx status code
+func (o *DeleteFlowsConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete flows conflict response has a 3xx status code
+func (o *DeleteFlowsConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows conflict response has a 4xx status code
+func (o *DeleteFlowsConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete flows conflict response has a 5xx status code
+func (o *DeleteFlowsConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete flows conflict response a status code equal to that given
+func (o *DeleteFlowsConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteFlowsConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteFlowsConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewDeleteFlowsRequestEntityTooLarge() *DeleteFlowsRequestEntityTooLarge {
 	return &DeleteFlowsRequestEntityTooLarge{}
 }
 
-/*DeleteFlowsRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteFlowsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type DeleteFlowsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete flows request entity too large response has a 2xx status code
+func (o *DeleteFlowsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete flows request entity too large response has a 3xx status code
+func (o *DeleteFlowsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows request entity too large response has a 4xx status code
+func (o *DeleteFlowsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete flows request entity too large response has a 5xx status code
+func (o *DeleteFlowsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete flows request entity too large response a status code equal to that given
+func (o *DeleteFlowsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteFlowsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteFlowsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewDeleteFlowsUnsupportedMediaType() *DeleteFlowsUnsupportedMediaType {
 	return &DeleteFlowsUnsupportedMediaType{}
 }
 
-/*DeleteFlowsUnsupportedMediaType handles this case with default header values.
+/*
+DeleteFlowsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type DeleteFlowsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete flows unsupported media type response has a 2xx status code
+func (o *DeleteFlowsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete flows unsupported media type response has a 3xx status code
+func (o *DeleteFlowsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows unsupported media type response has a 4xx status code
+func (o *DeleteFlowsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete flows unsupported media type response has a 5xx status code
+func (o *DeleteFlowsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete flows unsupported media type response a status code equal to that given
+func (o *DeleteFlowsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteFlowsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteFlowsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewDeleteFlowsTooManyRequests() *DeleteFlowsTooManyRequests {
 	return &DeleteFlowsTooManyRequests{}
 }
 
-/*DeleteFlowsTooManyRequests handles this case with default header values.
+/*
+DeleteFlowsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type DeleteFlowsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete flows too many requests response has a 2xx status code
+func (o *DeleteFlowsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete flows too many requests response has a 3xx status code
+func (o *DeleteFlowsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows too many requests response has a 4xx status code
+func (o *DeleteFlowsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete flows too many requests response has a 5xx status code
+func (o *DeleteFlowsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete flows too many requests response a status code equal to that given
+func (o *DeleteFlowsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteFlowsTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteFlowsTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewDeleteFlowsInternalServerError() *DeleteFlowsInternalServerError {
 	return &DeleteFlowsInternalServerError{}
 }
 
-/*DeleteFlowsInternalServerError handles this case with default header values.
+/*
+DeleteFlowsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type DeleteFlowsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete flows internal server error response has a 2xx status code
+func (o *DeleteFlowsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete flows internal server error response has a 3xx status code
+func (o *DeleteFlowsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows internal server error response has a 4xx status code
+func (o *DeleteFlowsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete flows internal server error response has a 5xx status code
+func (o *DeleteFlowsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete flows internal server error response a status code equal to that given
+func (o *DeleteFlowsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteFlowsInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteFlowsInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewDeleteFlowsServiceUnavailable() *DeleteFlowsServiceUnavailable {
 	return &DeleteFlowsServiceUnavailable{}
 }
 
-/*DeleteFlowsServiceUnavailable handles this case with default header values.
+/*
+DeleteFlowsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type DeleteFlowsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete flows service unavailable response has a 2xx status code
+func (o *DeleteFlowsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete flows service unavailable response has a 3xx status code
+func (o *DeleteFlowsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows service unavailable response has a 4xx status code
+func (o *DeleteFlowsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete flows service unavailable response has a 5xx status code
+func (o *DeleteFlowsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete flows service unavailable response a status code equal to that given
+func (o *DeleteFlowsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteFlowsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteFlowsServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewDeleteFlowsGatewayTimeout() *DeleteFlowsGatewayTimeout {
 	return &DeleteFlowsGatewayTimeout{}
 }
 
-/*DeleteFlowsGatewayTimeout handles this case with default header values.
+/*
+DeleteFlowsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type DeleteFlowsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete flows gateway timeout response has a 2xx status code
+func (o *DeleteFlowsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete flows gateway timeout response has a 3xx status code
+func (o *DeleteFlowsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete flows gateway timeout response has a 4xx status code
+func (o *DeleteFlowsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete flows gateway timeout response has a 5xx status code
+func (o *DeleteFlowsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete flows gateway timeout response a status code equal to that given
+func (o *DeleteFlowsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteFlowsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteFlowsGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/flows][%d] deleteFlowsGatewayTimeout  %+v", 504, o.Payload)
 }
 

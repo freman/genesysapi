@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -38,7 +40,6 @@ func (m *ActionMapEstimateRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ActionMapEstimateRequest) validateOutcomeCriteria(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OutcomeCriteria) { // not required
 		return nil
 	}
@@ -47,6 +48,38 @@ func (m *ActionMapEstimateRequest) validateOutcomeCriteria(formats strfmt.Regist
 		if err := m.OutcomeCriteria.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outcomeCriteria")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outcomeCriteria")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this action map estimate request based on the context it is used
+func (m *ActionMapEstimateRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateOutcomeCriteria(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ActionMapEstimateRequest) contextValidateOutcomeCriteria(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OutcomeCriteria != nil {
+		if err := m.OutcomeCriteria.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outcomeCriteria")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outcomeCriteria")
 			}
 			return err
 		}

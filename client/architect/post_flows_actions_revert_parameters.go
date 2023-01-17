@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostFlowsActionsRevertParams creates a new PostFlowsActionsRevertParams object
-// with the default values initialized.
+// NewPostFlowsActionsRevertParams creates a new PostFlowsActionsRevertParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostFlowsActionsRevertParams() *PostFlowsActionsRevertParams {
-	var ()
 	return &PostFlowsActionsRevertParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostFlowsActionsRevertParamsWithTimeout creates a new PostFlowsActionsRevertParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostFlowsActionsRevertParamsWithTimeout(timeout time.Duration) *PostFlowsActionsRevertParams {
-	var ()
 	return &PostFlowsActionsRevertParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostFlowsActionsRevertParamsWithContext creates a new PostFlowsActionsRevertParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostFlowsActionsRevertParamsWithContext(ctx context.Context) *PostFlowsActionsRevertParams {
-	var ()
 	return &PostFlowsActionsRevertParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostFlowsActionsRevertParamsWithHTTPClient creates a new PostFlowsActionsRevertParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostFlowsActionsRevertParamsWithHTTPClient(client *http.Client) *PostFlowsActionsRevertParams {
-	var ()
 	return &PostFlowsActionsRevertParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostFlowsActionsRevertParams contains all the parameters to send to the API endpoint
-for the post flows actions revert operation typically these are written to a http.Request
+/*
+PostFlowsActionsRevertParams contains all the parameters to send to the API endpoint
+
+	for the post flows actions revert operation.
+
+	Typically these are written to a http.Request.
 */
 type PostFlowsActionsRevertParams struct {
 
-	/*Flow
-	  Flow ID
+	/* Flow.
 
+	   Flow ID
 	*/
 	Flow string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post flows actions revert params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsActionsRevertParams) WithDefaults() *PostFlowsActionsRevertParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post flows actions revert params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsActionsRevertParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post flows actions revert params
@@ -127,6 +143,7 @@ func (o *PostFlowsActionsRevertParams) WriteToRequest(r runtime.ClientRequest, r
 	qrFlow := o.Flow
 	qFlow := qrFlow
 	if qFlow != "" {
+
 		if err := r.SetQueryParam("flow", qFlow); err != nil {
 			return err
 		}

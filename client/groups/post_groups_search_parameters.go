@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostGroupsSearchParams creates a new PostGroupsSearchParams object
-// with the default values initialized.
+// NewPostGroupsSearchParams creates a new PostGroupsSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostGroupsSearchParams() *PostGroupsSearchParams {
-	var ()
 	return &PostGroupsSearchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostGroupsSearchParamsWithTimeout creates a new PostGroupsSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostGroupsSearchParamsWithTimeout(timeout time.Duration) *PostGroupsSearchParams {
-	var ()
 	return &PostGroupsSearchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostGroupsSearchParamsWithContext creates a new PostGroupsSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostGroupsSearchParamsWithContext(ctx context.Context) *PostGroupsSearchParams {
-	var ()
 	return &PostGroupsSearchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostGroupsSearchParamsWithHTTPClient creates a new PostGroupsSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostGroupsSearchParamsWithHTTPClient(client *http.Client) *PostGroupsSearchParams {
-	var ()
 	return &PostGroupsSearchParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostGroupsSearchParams contains all the parameters to send to the API endpoint
-for the post groups search operation typically these are written to a http.Request
+/*
+PostGroupsSearchParams contains all the parameters to send to the API endpoint
+
+	for the post groups search operation.
+
+	Typically these are written to a http.Request.
 */
 type PostGroupsSearchParams struct {
 
-	/*Body
-	  Search request options
+	/* Body.
 
+	   Search request options
 	*/
 	Body *models.GroupSearchRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post groups search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGroupsSearchParams) WithDefaults() *PostGroupsSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post groups search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGroupsSearchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post groups search params
@@ -124,7 +140,6 @@ func (o *PostGroupsSearchParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

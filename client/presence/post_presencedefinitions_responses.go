@@ -95,7 +95,6 @@ func (o *PostPresencedefinitionsReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostPresencedefinitionsOK() *PostPresencedefinitionsOK {
 	return &PostPresencedefinitionsOK{}
 }
 
-/*PostPresencedefinitionsOK handles this case with default header values.
+/*
+PostPresencedefinitionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostPresencedefinitionsOK struct {
 	Payload *models.OrganizationPresence
 }
 
+// IsSuccess returns true when this post presencedefinitions o k response has a 2xx status code
+func (o *PostPresencedefinitionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post presencedefinitions o k response has a 3xx status code
+func (o *PostPresencedefinitionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presencedefinitions o k response has a 4xx status code
+func (o *PostPresencedefinitionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post presencedefinitions o k response has a 5xx status code
+func (o *PostPresencedefinitionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presencedefinitions o k response a status code equal to that given
+func (o *PostPresencedefinitionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostPresencedefinitionsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostPresencedefinitionsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostPresencedefinitionsBadRequest() *PostPresencedefinitionsBadRequest {
 	return &PostPresencedefinitionsBadRequest{}
 }
 
-/*PostPresencedefinitionsBadRequest handles this case with default header values.
+/*
+PostPresencedefinitionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostPresencedefinitionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presencedefinitions bad request response has a 2xx status code
+func (o *PostPresencedefinitionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presencedefinitions bad request response has a 3xx status code
+func (o *PostPresencedefinitionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presencedefinitions bad request response has a 4xx status code
+func (o *PostPresencedefinitionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presencedefinitions bad request response has a 5xx status code
+func (o *PostPresencedefinitionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presencedefinitions bad request response a status code equal to that given
+func (o *PostPresencedefinitionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostPresencedefinitionsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostPresencedefinitionsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostPresencedefinitionsUnauthorized() *PostPresencedefinitionsUnauthoriz
 	return &PostPresencedefinitionsUnauthorized{}
 }
 
-/*PostPresencedefinitionsUnauthorized handles this case with default header values.
+/*
+PostPresencedefinitionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostPresencedefinitionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presencedefinitions unauthorized response has a 2xx status code
+func (o *PostPresencedefinitionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presencedefinitions unauthorized response has a 3xx status code
+func (o *PostPresencedefinitionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presencedefinitions unauthorized response has a 4xx status code
+func (o *PostPresencedefinitionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presencedefinitions unauthorized response has a 5xx status code
+func (o *PostPresencedefinitionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presencedefinitions unauthorized response a status code equal to that given
+func (o *PostPresencedefinitionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostPresencedefinitionsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostPresencedefinitionsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostPresencedefinitionsForbidden() *PostPresencedefinitionsForbidden {
 	return &PostPresencedefinitionsForbidden{}
 }
 
-/*PostPresencedefinitionsForbidden handles this case with default header values.
+/*
+PostPresencedefinitionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostPresencedefinitionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presencedefinitions forbidden response has a 2xx status code
+func (o *PostPresencedefinitionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presencedefinitions forbidden response has a 3xx status code
+func (o *PostPresencedefinitionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presencedefinitions forbidden response has a 4xx status code
+func (o *PostPresencedefinitionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presencedefinitions forbidden response has a 5xx status code
+func (o *PostPresencedefinitionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presencedefinitions forbidden response a status code equal to that given
+func (o *PostPresencedefinitionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostPresencedefinitionsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostPresencedefinitionsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostPresencedefinitionsNotFound() *PostPresencedefinitionsNotFound {
 	return &PostPresencedefinitionsNotFound{}
 }
 
-/*PostPresencedefinitionsNotFound handles this case with default header values.
+/*
+PostPresencedefinitionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostPresencedefinitionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presencedefinitions not found response has a 2xx status code
+func (o *PostPresencedefinitionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presencedefinitions not found response has a 3xx status code
+func (o *PostPresencedefinitionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presencedefinitions not found response has a 4xx status code
+func (o *PostPresencedefinitionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presencedefinitions not found response has a 5xx status code
+func (o *PostPresencedefinitionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presencedefinitions not found response a status code equal to that given
+func (o *PostPresencedefinitionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostPresencedefinitionsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostPresencedefinitionsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostPresencedefinitionsRequestTimeout() *PostPresencedefinitionsRequestT
 	return &PostPresencedefinitionsRequestTimeout{}
 }
 
-/*PostPresencedefinitionsRequestTimeout handles this case with default header values.
+/*
+PostPresencedefinitionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostPresencedefinitionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presencedefinitions request timeout response has a 2xx status code
+func (o *PostPresencedefinitionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presencedefinitions request timeout response has a 3xx status code
+func (o *PostPresencedefinitionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presencedefinitions request timeout response has a 4xx status code
+func (o *PostPresencedefinitionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presencedefinitions request timeout response has a 5xx status code
+func (o *PostPresencedefinitionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presencedefinitions request timeout response a status code equal to that given
+func (o *PostPresencedefinitionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostPresencedefinitionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostPresencedefinitionsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostPresencedefinitionsRequestEntityTooLarge() *PostPresencedefinitionsR
 	return &PostPresencedefinitionsRequestEntityTooLarge{}
 }
 
-/*PostPresencedefinitionsRequestEntityTooLarge handles this case with default header values.
+/*
+PostPresencedefinitionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostPresencedefinitionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presencedefinitions request entity too large response has a 2xx status code
+func (o *PostPresencedefinitionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presencedefinitions request entity too large response has a 3xx status code
+func (o *PostPresencedefinitionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presencedefinitions request entity too large response has a 4xx status code
+func (o *PostPresencedefinitionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presencedefinitions request entity too large response has a 5xx status code
+func (o *PostPresencedefinitionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presencedefinitions request entity too large response a status code equal to that given
+func (o *PostPresencedefinitionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostPresencedefinitionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostPresencedefinitionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostPresencedefinitionsUnsupportedMediaType() *PostPresencedefinitionsUn
 	return &PostPresencedefinitionsUnsupportedMediaType{}
 }
 
-/*PostPresencedefinitionsUnsupportedMediaType handles this case with default header values.
+/*
+PostPresencedefinitionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostPresencedefinitionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presencedefinitions unsupported media type response has a 2xx status code
+func (o *PostPresencedefinitionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presencedefinitions unsupported media type response has a 3xx status code
+func (o *PostPresencedefinitionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presencedefinitions unsupported media type response has a 4xx status code
+func (o *PostPresencedefinitionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presencedefinitions unsupported media type response has a 5xx status code
+func (o *PostPresencedefinitionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presencedefinitions unsupported media type response a status code equal to that given
+func (o *PostPresencedefinitionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostPresencedefinitionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostPresencedefinitionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostPresencedefinitionsTooManyRequests() *PostPresencedefinitionsTooMany
 	return &PostPresencedefinitionsTooManyRequests{}
 }
 
-/*PostPresencedefinitionsTooManyRequests handles this case with default header values.
+/*
+PostPresencedefinitionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostPresencedefinitionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presencedefinitions too many requests response has a 2xx status code
+func (o *PostPresencedefinitionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presencedefinitions too many requests response has a 3xx status code
+func (o *PostPresencedefinitionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presencedefinitions too many requests response has a 4xx status code
+func (o *PostPresencedefinitionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post presencedefinitions too many requests response has a 5xx status code
+func (o *PostPresencedefinitionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post presencedefinitions too many requests response a status code equal to that given
+func (o *PostPresencedefinitionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostPresencedefinitionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostPresencedefinitionsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostPresencedefinitionsInternalServerError() *PostPresencedefinitionsInt
 	return &PostPresencedefinitionsInternalServerError{}
 }
 
-/*PostPresencedefinitionsInternalServerError handles this case with default header values.
+/*
+PostPresencedefinitionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostPresencedefinitionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presencedefinitions internal server error response has a 2xx status code
+func (o *PostPresencedefinitionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presencedefinitions internal server error response has a 3xx status code
+func (o *PostPresencedefinitionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presencedefinitions internal server error response has a 4xx status code
+func (o *PostPresencedefinitionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post presencedefinitions internal server error response has a 5xx status code
+func (o *PostPresencedefinitionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post presencedefinitions internal server error response a status code equal to that given
+func (o *PostPresencedefinitionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostPresencedefinitionsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostPresencedefinitionsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostPresencedefinitionsServiceUnavailable() *PostPresencedefinitionsServ
 	return &PostPresencedefinitionsServiceUnavailable{}
 }
 
-/*PostPresencedefinitionsServiceUnavailable handles this case with default header values.
+/*
+PostPresencedefinitionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostPresencedefinitionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presencedefinitions service unavailable response has a 2xx status code
+func (o *PostPresencedefinitionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presencedefinitions service unavailable response has a 3xx status code
+func (o *PostPresencedefinitionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presencedefinitions service unavailable response has a 4xx status code
+func (o *PostPresencedefinitionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post presencedefinitions service unavailable response has a 5xx status code
+func (o *PostPresencedefinitionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post presencedefinitions service unavailable response a status code equal to that given
+func (o *PostPresencedefinitionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostPresencedefinitionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostPresencedefinitionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostPresencedefinitionsGatewayTimeout() *PostPresencedefinitionsGatewayT
 	return &PostPresencedefinitionsGatewayTimeout{}
 }
 
-/*PostPresencedefinitionsGatewayTimeout handles this case with default header values.
+/*
+PostPresencedefinitionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostPresencedefinitionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post presencedefinitions gateway timeout response has a 2xx status code
+func (o *PostPresencedefinitionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post presencedefinitions gateway timeout response has a 3xx status code
+func (o *PostPresencedefinitionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post presencedefinitions gateway timeout response has a 4xx status code
+func (o *PostPresencedefinitionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post presencedefinitions gateway timeout response has a 5xx status code
+func (o *PostPresencedefinitionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post presencedefinitions gateway timeout response a status code equal to that given
+func (o *PostPresencedefinitionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostPresencedefinitionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostPresencedefinitionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/presencedefinitions][%d] postPresencedefinitionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

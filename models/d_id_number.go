@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -75,7 +76,6 @@ func (m *DIDNumber) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DIDNumber) validateDidPool(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DidPool) { // not required
 		return nil
 	}
@@ -84,6 +84,8 @@ func (m *DIDNumber) validateDidPool(formats strfmt.Registry) error {
 		if err := m.DidPool.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("didPool")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("didPool")
 			}
 			return err
 		}
@@ -93,7 +95,6 @@ func (m *DIDNumber) validateDidPool(formats strfmt.Registry) error {
 }
 
 func (m *DIDNumber) validateOwner(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Owner) { // not required
 		return nil
 	}
@@ -102,6 +103,8 @@ func (m *DIDNumber) validateOwner(formats strfmt.Registry) error {
 		if err := m.Owner.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("owner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("owner")
 			}
 			return err
 		}
@@ -146,7 +149,6 @@ func (m *DIDNumber) validateOwnerTypeEnum(path, location string, value string) e
 }
 
 func (m *DIDNumber) validateOwnerType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OwnerType) { // not required
 		return nil
 	}
@@ -160,12 +162,87 @@ func (m *DIDNumber) validateOwnerType(formats strfmt.Registry) error {
 }
 
 func (m *DIDNumber) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this d ID number based on the context it is used
+func (m *DIDNumber) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDidPool(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOwner(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DIDNumber) contextValidateDidPool(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DidPool != nil {
+		if err := m.DidPool.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("didPool")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("didPool")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DIDNumber) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DIDNumber) contextValidateOwner(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Owner != nil {
+		if err := m.Owner.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("owner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("owner")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DIDNumber) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

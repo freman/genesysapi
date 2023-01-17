@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWorkforcemanagementManagementunitAdherenceParams creates a new GetWorkforcemanagementManagementunitAdherenceParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementManagementunitAdherenceParams creates a new GetWorkforcemanagementManagementunitAdherenceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementManagementunitAdherenceParams() *GetWorkforcemanagementManagementunitAdherenceParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitAdherenceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitAdherenceParamsWithTimeout creates a new GetWorkforcemanagementManagementunitAdherenceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementManagementunitAdherenceParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementManagementunitAdherenceParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitAdherenceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitAdherenceParamsWithContext creates a new GetWorkforcemanagementManagementunitAdherenceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementManagementunitAdherenceParamsWithContext(ctx context.Context) *GetWorkforcemanagementManagementunitAdherenceParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitAdherenceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitAdherenceParamsWithHTTPClient creates a new GetWorkforcemanagementManagementunitAdherenceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementManagementunitAdherenceParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementManagementunitAdherenceParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitAdherenceParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementManagementunitAdherenceParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement managementunit adherence operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementManagementunitAdherenceParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement managementunit adherence operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementManagementunitAdherenceParams struct {
 
-	/*ForceDownloadService
-	  Force the result of this operation to be sent via download service.  For testing/app development purposes
+	/* ForceDownloadService.
 
+	   Force the result of this operation to be sent via download service.  For testing/app development purposes
 	*/
 	ForceDownloadService *bool
-	/*ManagementUnitID
-	  The ID of the management unit
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit
 	*/
 	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement managementunit adherence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitAdherenceParams) WithDefaults() *GetWorkforcemanagementManagementunitAdherenceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement managementunit adherence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitAdherenceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement managementunit adherence params
@@ -144,16 +161,17 @@ func (o *GetWorkforcemanagementManagementunitAdherenceParams) WriteToRequest(r r
 
 		// query param forceDownloadService
 		var qrForceDownloadService bool
+
 		if o.ForceDownloadService != nil {
 			qrForceDownloadService = *o.ForceDownloadService
 		}
 		qForceDownloadService := swag.FormatBool(qrForceDownloadService)
 		if qForceDownloadService != "" {
+
 			if err := r.SetQueryParam("forceDownloadService", qForceDownloadService); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param managementUnitId

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -83,7 +85,6 @@ func (m *CoachingSlotsRequest) validateAttendeeIds(formats strfmt.Registry) erro
 }
 
 func (m *CoachingSlotsRequest) validateFacilitatorIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FacilitatorIds) { // not required
 		return nil
 	}
@@ -96,7 +97,6 @@ func (m *CoachingSlotsRequest) validateFacilitatorIds(formats strfmt.Registry) e
 }
 
 func (m *CoachingSlotsRequest) validateInterruptibleAppointmentIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InterruptibleAppointmentIds) { // not required
 		return nil
 	}
@@ -123,6 +123,11 @@ func (m *CoachingSlotsRequest) validateLengthInMinutes(formats strfmt.Registry) 
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this coaching slots request based on context it is used
+func (m *CoachingSlotsRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

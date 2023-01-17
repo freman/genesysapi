@@ -95,7 +95,6 @@ func (o *DeleteOutboundSequenceReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteOutboundSequenceOK() *DeleteOutboundSequenceOK {
 	return &DeleteOutboundSequenceOK{}
 }
 
-/*DeleteOutboundSequenceOK handles this case with default header values.
+/*
+DeleteOutboundSequenceOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteOutboundSequenceOK struct {
 }
 
+// IsSuccess returns true when this delete outbound sequence o k response has a 2xx status code
+func (o *DeleteOutboundSequenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete outbound sequence o k response has a 3xx status code
+func (o *DeleteOutboundSequenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound sequence o k response has a 4xx status code
+func (o *DeleteOutboundSequenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound sequence o k response has a 5xx status code
+func (o *DeleteOutboundSequenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound sequence o k response a status code equal to that given
+func (o *DeleteOutboundSequenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteOutboundSequenceOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceOK ", 200)
+}
+
+func (o *DeleteOutboundSequenceOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteOutboundSequenceBadRequest() *DeleteOutboundSequenceBadRequest {
 	return &DeleteOutboundSequenceBadRequest{}
 }
 
-/*DeleteOutboundSequenceBadRequest handles this case with default header values.
+/*
+DeleteOutboundSequenceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteOutboundSequenceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound sequence bad request response has a 2xx status code
+func (o *DeleteOutboundSequenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound sequence bad request response has a 3xx status code
+func (o *DeleteOutboundSequenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound sequence bad request response has a 4xx status code
+func (o *DeleteOutboundSequenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound sequence bad request response has a 5xx status code
+func (o *DeleteOutboundSequenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound sequence bad request response a status code equal to that given
+func (o *DeleteOutboundSequenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOutboundSequenceBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOutboundSequenceBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteOutboundSequenceUnauthorized() *DeleteOutboundSequenceUnauthorized
 	return &DeleteOutboundSequenceUnauthorized{}
 }
 
-/*DeleteOutboundSequenceUnauthorized handles this case with default header values.
+/*
+DeleteOutboundSequenceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteOutboundSequenceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound sequence unauthorized response has a 2xx status code
+func (o *DeleteOutboundSequenceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound sequence unauthorized response has a 3xx status code
+func (o *DeleteOutboundSequenceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound sequence unauthorized response has a 4xx status code
+func (o *DeleteOutboundSequenceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound sequence unauthorized response has a 5xx status code
+func (o *DeleteOutboundSequenceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound sequence unauthorized response a status code equal to that given
+func (o *DeleteOutboundSequenceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOutboundSequenceUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOutboundSequenceUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteOutboundSequenceForbidden() *DeleteOutboundSequenceForbidden {
 	return &DeleteOutboundSequenceForbidden{}
 }
 
-/*DeleteOutboundSequenceForbidden handles this case with default header values.
+/*
+DeleteOutboundSequenceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteOutboundSequenceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound sequence forbidden response has a 2xx status code
+func (o *DeleteOutboundSequenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound sequence forbidden response has a 3xx status code
+func (o *DeleteOutboundSequenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound sequence forbidden response has a 4xx status code
+func (o *DeleteOutboundSequenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound sequence forbidden response has a 5xx status code
+func (o *DeleteOutboundSequenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound sequence forbidden response a status code equal to that given
+func (o *DeleteOutboundSequenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOutboundSequenceForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOutboundSequenceForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteOutboundSequenceNotFound() *DeleteOutboundSequenceNotFound {
 	return &DeleteOutboundSequenceNotFound{}
 }
 
-/*DeleteOutboundSequenceNotFound handles this case with default header values.
+/*
+DeleteOutboundSequenceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteOutboundSequenceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound sequence not found response has a 2xx status code
+func (o *DeleteOutboundSequenceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound sequence not found response has a 3xx status code
+func (o *DeleteOutboundSequenceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound sequence not found response has a 4xx status code
+func (o *DeleteOutboundSequenceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound sequence not found response has a 5xx status code
+func (o *DeleteOutboundSequenceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound sequence not found response a status code equal to that given
+func (o *DeleteOutboundSequenceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOutboundSequenceNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOutboundSequenceNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteOutboundSequenceRequestTimeout() *DeleteOutboundSequenceRequestTim
 	return &DeleteOutboundSequenceRequestTimeout{}
 }
 
-/*DeleteOutboundSequenceRequestTimeout handles this case with default header values.
+/*
+DeleteOutboundSequenceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteOutboundSequenceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound sequence request timeout response has a 2xx status code
+func (o *DeleteOutboundSequenceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound sequence request timeout response has a 3xx status code
+func (o *DeleteOutboundSequenceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound sequence request timeout response has a 4xx status code
+func (o *DeleteOutboundSequenceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound sequence request timeout response has a 5xx status code
+func (o *DeleteOutboundSequenceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound sequence request timeout response a status code equal to that given
+func (o *DeleteOutboundSequenceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOutboundSequenceRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundSequenceRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteOutboundSequenceRequestEntityTooLarge() *DeleteOutboundSequenceReq
 	return &DeleteOutboundSequenceRequestEntityTooLarge{}
 }
 
-/*DeleteOutboundSequenceRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOutboundSequenceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteOutboundSequenceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound sequence request entity too large response has a 2xx status code
+func (o *DeleteOutboundSequenceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound sequence request entity too large response has a 3xx status code
+func (o *DeleteOutboundSequenceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound sequence request entity too large response has a 4xx status code
+func (o *DeleteOutboundSequenceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound sequence request entity too large response has a 5xx status code
+func (o *DeleteOutboundSequenceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound sequence request entity too large response a status code equal to that given
+func (o *DeleteOutboundSequenceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOutboundSequenceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOutboundSequenceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteOutboundSequenceUnsupportedMediaType() *DeleteOutboundSequenceUnsu
 	return &DeleteOutboundSequenceUnsupportedMediaType{}
 }
 
-/*DeleteOutboundSequenceUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOutboundSequenceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteOutboundSequenceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound sequence unsupported media type response has a 2xx status code
+func (o *DeleteOutboundSequenceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound sequence unsupported media type response has a 3xx status code
+func (o *DeleteOutboundSequenceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound sequence unsupported media type response has a 4xx status code
+func (o *DeleteOutboundSequenceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound sequence unsupported media type response has a 5xx status code
+func (o *DeleteOutboundSequenceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound sequence unsupported media type response a status code equal to that given
+func (o *DeleteOutboundSequenceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOutboundSequenceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOutboundSequenceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteOutboundSequenceTooManyRequests() *DeleteOutboundSequenceTooManyRe
 	return &DeleteOutboundSequenceTooManyRequests{}
 }
 
-/*DeleteOutboundSequenceTooManyRequests handles this case with default header values.
+/*
+DeleteOutboundSequenceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteOutboundSequenceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound sequence too many requests response has a 2xx status code
+func (o *DeleteOutboundSequenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound sequence too many requests response has a 3xx status code
+func (o *DeleteOutboundSequenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound sequence too many requests response has a 4xx status code
+func (o *DeleteOutboundSequenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound sequence too many requests response has a 5xx status code
+func (o *DeleteOutboundSequenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound sequence too many requests response a status code equal to that given
+func (o *DeleteOutboundSequenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOutboundSequenceTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOutboundSequenceTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteOutboundSequenceInternalServerError() *DeleteOutboundSequenceInter
 	return &DeleteOutboundSequenceInternalServerError{}
 }
 
-/*DeleteOutboundSequenceInternalServerError handles this case with default header values.
+/*
+DeleteOutboundSequenceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteOutboundSequenceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound sequence internal server error response has a 2xx status code
+func (o *DeleteOutboundSequenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound sequence internal server error response has a 3xx status code
+func (o *DeleteOutboundSequenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound sequence internal server error response has a 4xx status code
+func (o *DeleteOutboundSequenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound sequence internal server error response has a 5xx status code
+func (o *DeleteOutboundSequenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound sequence internal server error response a status code equal to that given
+func (o *DeleteOutboundSequenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOutboundSequenceInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOutboundSequenceInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteOutboundSequenceServiceUnavailable() *DeleteOutboundSequenceServic
 	return &DeleteOutboundSequenceServiceUnavailable{}
 }
 
-/*DeleteOutboundSequenceServiceUnavailable handles this case with default header values.
+/*
+DeleteOutboundSequenceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteOutboundSequenceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound sequence service unavailable response has a 2xx status code
+func (o *DeleteOutboundSequenceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound sequence service unavailable response has a 3xx status code
+func (o *DeleteOutboundSequenceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound sequence service unavailable response has a 4xx status code
+func (o *DeleteOutboundSequenceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound sequence service unavailable response has a 5xx status code
+func (o *DeleteOutboundSequenceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound sequence service unavailable response a status code equal to that given
+func (o *DeleteOutboundSequenceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOutboundSequenceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOutboundSequenceServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteOutboundSequenceGatewayTimeout() *DeleteOutboundSequenceGatewayTim
 	return &DeleteOutboundSequenceGatewayTimeout{}
 }
 
-/*DeleteOutboundSequenceGatewayTimeout handles this case with default header values.
+/*
+DeleteOutboundSequenceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteOutboundSequenceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound sequence gateway timeout response has a 2xx status code
+func (o *DeleteOutboundSequenceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound sequence gateway timeout response has a 3xx status code
+func (o *DeleteOutboundSequenceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound sequence gateway timeout response has a 4xx status code
+func (o *DeleteOutboundSequenceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound sequence gateway timeout response has a 5xx status code
+func (o *DeleteOutboundSequenceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound sequence gateway timeout response a status code equal to that given
+func (o *DeleteOutboundSequenceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOutboundSequenceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOutboundSequenceGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/sequences/{sequenceId}][%d] deleteOutboundSequenceGatewayTimeout  %+v", 504, o.Payload)
 }
 

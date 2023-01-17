@@ -16,84 +16,105 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams creates a new GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams object
-// with the default values initialized.
+// NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams creates a new GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams() *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams {
-	var ()
 	return &GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParamsWithTimeout creates a new GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParamsWithTimeout(timeout time.Duration) *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams {
-	var ()
 	return &GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParamsWithContext creates a new GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParamsWithContext(ctx context.Context) *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams {
-	var ()
 	return &GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParamsWithHTTPClient creates a new GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParamsWithHTTPClient(client *http.Client) *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams {
-	var ()
 	return &GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams contains all the parameters to send to the API endpoint
-for the get configuration schemas edges vnext schema category schema type schema Id extension type metadata Id operation typically these are written to a http.Request
+/*
+GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams contains all the parameters to send to the API endpoint
+
+	for the get configuration schemas edges vnext schema category schema type schema Id extension type metadata Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams struct {
 
-	/*ExtensionType
-	  extension
+	/* ExtensionType.
 
+	   extension
 	*/
 	ExtensionType string
-	/*MetadataID
-	  Metadata ID
 
+	/* MetadataID.
+
+	   Metadata ID
 	*/
 	MetadataID string
-	/*SchemaCategory
-	  Schema category
 
+	/* SchemaCategory.
+
+	   Schema category
 	*/
 	SchemaCategory string
-	/*SchemaID
-	  Schema ID
 
+	/* SchemaID.
+
+	   Schema ID
 	*/
 	SchemaID string
-	/*SchemaType
-	  Schema type
 
+	/* SchemaType.
+
+	   Schema type
 	*/
 	SchemaType string
-	/*Type
-	  Type
 
+	/* Type.
+
+	   Type
 	*/
 	Type *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get configuration schemas edges vnext schema category schema type schema Id extension type metadata Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams) WithDefaults() *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get configuration schemas edges vnext schema category schema type schema Id extension type metadata Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtensionTypeMetadataIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get configuration schemas edges vnext schema category schema type schema Id extension type metadata Id params
@@ -232,16 +253,17 @@ func (o *GetConfigurationSchemasEdgesVnextSchemaCategorySchemaTypeSchemaIDExtens
 
 		// query param type
 		var qrType string
+
 		if o.Type != nil {
 			qrType = *o.Type
 		}
 		qType := qrType
 		if qType != "" {
+
 			if err := r.SetQueryParam("type", qType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

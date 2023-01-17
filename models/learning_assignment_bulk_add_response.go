@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -44,7 +45,6 @@ func (m *LearningAssignmentBulkAddResponse) Validate(formats strfmt.Registry) er
 }
 
 func (m *LearningAssignmentBulkAddResponse) validateDisallowedEntities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisallowedEntities) { // not required
 		return nil
 	}
@@ -58,6 +58,8 @@ func (m *LearningAssignmentBulkAddResponse) validateDisallowedEntities(formats s
 			if err := m.DisallowedEntities[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("disallowedEntities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("disallowedEntities" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -69,7 +71,6 @@ func (m *LearningAssignmentBulkAddResponse) validateDisallowedEntities(formats s
 }
 
 func (m *LearningAssignmentBulkAddResponse) validateEntities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Entities) { // not required
 		return nil
 	}
@@ -83,6 +84,66 @@ func (m *LearningAssignmentBulkAddResponse) validateEntities(formats strfmt.Regi
 			if err := m.Entities[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this learning assignment bulk add response based on the context it is used
+func (m *LearningAssignmentBulkAddResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDisallowedEntities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEntities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *LearningAssignmentBulkAddResponse) contextValidateDisallowedEntities(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DisallowedEntities); i++ {
+
+		if m.DisallowedEntities[i] != nil {
+			if err := m.DisallowedEntities[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("disallowedEntities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("disallowedEntities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *LearningAssignmentBulkAddResponse) contextValidateEntities(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Entities); i++ {
+
+		if m.Entities[i] != nil {
+			if err := m.Entities[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entities" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

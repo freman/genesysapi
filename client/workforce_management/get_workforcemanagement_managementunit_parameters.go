@@ -17,61 +17,78 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWorkforcemanagementManagementunitParams creates a new GetWorkforcemanagementManagementunitParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementManagementunitParams creates a new GetWorkforcemanagementManagementunitParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementManagementunitParams() *GetWorkforcemanagementManagementunitParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitParamsWithTimeout creates a new GetWorkforcemanagementManagementunitParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementManagementunitParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementManagementunitParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitParamsWithContext creates a new GetWorkforcemanagementManagementunitParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementManagementunitParamsWithContext(ctx context.Context) *GetWorkforcemanagementManagementunitParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitParamsWithHTTPClient creates a new GetWorkforcemanagementManagementunitParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementManagementunitParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementManagementunitParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementManagementunitParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement managementunit operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementManagementunitParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement managementunit operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementManagementunitParams struct {
 
-	/*Expand*/
+	// Expand.
 	Expand []string
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement managementunit params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitParams) WithDefaults() *GetWorkforcemanagementManagementunitParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement managementunit params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement managementunit params
@@ -137,12 +154,15 @@ func (o *GetWorkforcemanagementManagementunitParams) WriteToRequest(r runtime.Cl
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// path param managementUnitId
@@ -154,4 +174,21 @@ func (o *GetWorkforcemanagementManagementunitParams) WriteToRequest(r runtime.Cl
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetWorkforcemanagementManagementunit binds the parameter expand
+func (o *GetWorkforcemanagementManagementunitParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

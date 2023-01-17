@@ -95,7 +95,6 @@ func (o *PatchAuthorizationRoleReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchAuthorizationRoleOK() *PatchAuthorizationRoleOK {
 	return &PatchAuthorizationRoleOK{}
 }
 
-/*PatchAuthorizationRoleOK handles this case with default header values.
+/*
+PatchAuthorizationRoleOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchAuthorizationRoleOK struct {
 	Payload *models.DomainOrganizationRole
 }
 
+// IsSuccess returns true when this patch authorization role o k response has a 2xx status code
+func (o *PatchAuthorizationRoleOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch authorization role o k response has a 3xx status code
+func (o *PatchAuthorizationRoleOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch authorization role o k response has a 4xx status code
+func (o *PatchAuthorizationRoleOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch authorization role o k response has a 5xx status code
+func (o *PatchAuthorizationRoleOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch authorization role o k response a status code equal to that given
+func (o *PatchAuthorizationRoleOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchAuthorizationRoleOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchAuthorizationRoleOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchAuthorizationRoleBadRequest() *PatchAuthorizationRoleBadRequest {
 	return &PatchAuthorizationRoleBadRequest{}
 }
 
-/*PatchAuthorizationRoleBadRequest handles this case with default header values.
+/*
+PatchAuthorizationRoleBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchAuthorizationRoleBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch authorization role bad request response has a 2xx status code
+func (o *PatchAuthorizationRoleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch authorization role bad request response has a 3xx status code
+func (o *PatchAuthorizationRoleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch authorization role bad request response has a 4xx status code
+func (o *PatchAuthorizationRoleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch authorization role bad request response has a 5xx status code
+func (o *PatchAuthorizationRoleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch authorization role bad request response a status code equal to that given
+func (o *PatchAuthorizationRoleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchAuthorizationRoleBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchAuthorizationRoleBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchAuthorizationRoleUnauthorized() *PatchAuthorizationRoleUnauthorized
 	return &PatchAuthorizationRoleUnauthorized{}
 }
 
-/*PatchAuthorizationRoleUnauthorized handles this case with default header values.
+/*
+PatchAuthorizationRoleUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchAuthorizationRoleUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch authorization role unauthorized response has a 2xx status code
+func (o *PatchAuthorizationRoleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch authorization role unauthorized response has a 3xx status code
+func (o *PatchAuthorizationRoleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch authorization role unauthorized response has a 4xx status code
+func (o *PatchAuthorizationRoleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch authorization role unauthorized response has a 5xx status code
+func (o *PatchAuthorizationRoleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch authorization role unauthorized response a status code equal to that given
+func (o *PatchAuthorizationRoleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchAuthorizationRoleUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchAuthorizationRoleUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchAuthorizationRoleForbidden() *PatchAuthorizationRoleForbidden {
 	return &PatchAuthorizationRoleForbidden{}
 }
 
-/*PatchAuthorizationRoleForbidden handles this case with default header values.
+/*
+PatchAuthorizationRoleForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchAuthorizationRoleForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch authorization role forbidden response has a 2xx status code
+func (o *PatchAuthorizationRoleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch authorization role forbidden response has a 3xx status code
+func (o *PatchAuthorizationRoleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch authorization role forbidden response has a 4xx status code
+func (o *PatchAuthorizationRoleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch authorization role forbidden response has a 5xx status code
+func (o *PatchAuthorizationRoleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch authorization role forbidden response a status code equal to that given
+func (o *PatchAuthorizationRoleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchAuthorizationRoleForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchAuthorizationRoleForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchAuthorizationRoleNotFound() *PatchAuthorizationRoleNotFound {
 	return &PatchAuthorizationRoleNotFound{}
 }
 
-/*PatchAuthorizationRoleNotFound handles this case with default header values.
+/*
+PatchAuthorizationRoleNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchAuthorizationRoleNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch authorization role not found response has a 2xx status code
+func (o *PatchAuthorizationRoleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch authorization role not found response has a 3xx status code
+func (o *PatchAuthorizationRoleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch authorization role not found response has a 4xx status code
+func (o *PatchAuthorizationRoleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch authorization role not found response has a 5xx status code
+func (o *PatchAuthorizationRoleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch authorization role not found response a status code equal to that given
+func (o *PatchAuthorizationRoleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchAuthorizationRoleNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchAuthorizationRoleNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchAuthorizationRoleRequestTimeout() *PatchAuthorizationRoleRequestTim
 	return &PatchAuthorizationRoleRequestTimeout{}
 }
 
-/*PatchAuthorizationRoleRequestTimeout handles this case with default header values.
+/*
+PatchAuthorizationRoleRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchAuthorizationRoleRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch authorization role request timeout response has a 2xx status code
+func (o *PatchAuthorizationRoleRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch authorization role request timeout response has a 3xx status code
+func (o *PatchAuthorizationRoleRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch authorization role request timeout response has a 4xx status code
+func (o *PatchAuthorizationRoleRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch authorization role request timeout response has a 5xx status code
+func (o *PatchAuthorizationRoleRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch authorization role request timeout response a status code equal to that given
+func (o *PatchAuthorizationRoleRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchAuthorizationRoleRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchAuthorizationRoleRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchAuthorizationRoleRequestEntityTooLarge() *PatchAuthorizationRoleReq
 	return &PatchAuthorizationRoleRequestEntityTooLarge{}
 }
 
-/*PatchAuthorizationRoleRequestEntityTooLarge handles this case with default header values.
+/*
+PatchAuthorizationRoleRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchAuthorizationRoleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch authorization role request entity too large response has a 2xx status code
+func (o *PatchAuthorizationRoleRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch authorization role request entity too large response has a 3xx status code
+func (o *PatchAuthorizationRoleRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch authorization role request entity too large response has a 4xx status code
+func (o *PatchAuthorizationRoleRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch authorization role request entity too large response has a 5xx status code
+func (o *PatchAuthorizationRoleRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch authorization role request entity too large response a status code equal to that given
+func (o *PatchAuthorizationRoleRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchAuthorizationRoleRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchAuthorizationRoleRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchAuthorizationRoleUnsupportedMediaType() *PatchAuthorizationRoleUnsu
 	return &PatchAuthorizationRoleUnsupportedMediaType{}
 }
 
-/*PatchAuthorizationRoleUnsupportedMediaType handles this case with default header values.
+/*
+PatchAuthorizationRoleUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchAuthorizationRoleUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch authorization role unsupported media type response has a 2xx status code
+func (o *PatchAuthorizationRoleUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch authorization role unsupported media type response has a 3xx status code
+func (o *PatchAuthorizationRoleUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch authorization role unsupported media type response has a 4xx status code
+func (o *PatchAuthorizationRoleUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch authorization role unsupported media type response has a 5xx status code
+func (o *PatchAuthorizationRoleUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch authorization role unsupported media type response a status code equal to that given
+func (o *PatchAuthorizationRoleUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchAuthorizationRoleUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchAuthorizationRoleUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchAuthorizationRoleTooManyRequests() *PatchAuthorizationRoleTooManyRe
 	return &PatchAuthorizationRoleTooManyRequests{}
 }
 
-/*PatchAuthorizationRoleTooManyRequests handles this case with default header values.
+/*
+PatchAuthorizationRoleTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchAuthorizationRoleTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch authorization role too many requests response has a 2xx status code
+func (o *PatchAuthorizationRoleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch authorization role too many requests response has a 3xx status code
+func (o *PatchAuthorizationRoleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch authorization role too many requests response has a 4xx status code
+func (o *PatchAuthorizationRoleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch authorization role too many requests response has a 5xx status code
+func (o *PatchAuthorizationRoleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch authorization role too many requests response a status code equal to that given
+func (o *PatchAuthorizationRoleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchAuthorizationRoleTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchAuthorizationRoleTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchAuthorizationRoleInternalServerError() *PatchAuthorizationRoleInter
 	return &PatchAuthorizationRoleInternalServerError{}
 }
 
-/*PatchAuthorizationRoleInternalServerError handles this case with default header values.
+/*
+PatchAuthorizationRoleInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchAuthorizationRoleInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch authorization role internal server error response has a 2xx status code
+func (o *PatchAuthorizationRoleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch authorization role internal server error response has a 3xx status code
+func (o *PatchAuthorizationRoleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch authorization role internal server error response has a 4xx status code
+func (o *PatchAuthorizationRoleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch authorization role internal server error response has a 5xx status code
+func (o *PatchAuthorizationRoleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch authorization role internal server error response a status code equal to that given
+func (o *PatchAuthorizationRoleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchAuthorizationRoleInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchAuthorizationRoleInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchAuthorizationRoleServiceUnavailable() *PatchAuthorizationRoleServic
 	return &PatchAuthorizationRoleServiceUnavailable{}
 }
 
-/*PatchAuthorizationRoleServiceUnavailable handles this case with default header values.
+/*
+PatchAuthorizationRoleServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchAuthorizationRoleServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch authorization role service unavailable response has a 2xx status code
+func (o *PatchAuthorizationRoleServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch authorization role service unavailable response has a 3xx status code
+func (o *PatchAuthorizationRoleServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch authorization role service unavailable response has a 4xx status code
+func (o *PatchAuthorizationRoleServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch authorization role service unavailable response has a 5xx status code
+func (o *PatchAuthorizationRoleServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch authorization role service unavailable response a status code equal to that given
+func (o *PatchAuthorizationRoleServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchAuthorizationRoleServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchAuthorizationRoleServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchAuthorizationRoleGatewayTimeout() *PatchAuthorizationRoleGatewayTim
 	return &PatchAuthorizationRoleGatewayTimeout{}
 }
 
-/*PatchAuthorizationRoleGatewayTimeout handles this case with default header values.
+/*
+PatchAuthorizationRoleGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchAuthorizationRoleGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch authorization role gateway timeout response has a 2xx status code
+func (o *PatchAuthorizationRoleGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch authorization role gateway timeout response has a 3xx status code
+func (o *PatchAuthorizationRoleGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch authorization role gateway timeout response has a 4xx status code
+func (o *PatchAuthorizationRoleGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch authorization role gateway timeout response has a 5xx status code
+func (o *PatchAuthorizationRoleGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch authorization role gateway timeout response a status code equal to that given
+func (o *PatchAuthorizationRoleGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchAuthorizationRoleGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchAuthorizationRoleGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/authorization/roles/{roleId}][%d] patchAuthorizationRoleGatewayTimeout  %+v", 504, o.Payload)
 }
 

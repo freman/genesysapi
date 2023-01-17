@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -106,7 +107,6 @@ func (m *CreateShareResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CreateShareResponse) validateFailed(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Failed) { // not required
 		return nil
 	}
@@ -120,6 +120,8 @@ func (m *CreateShareResponse) validateFailed(formats strfmt.Registry) error {
 			if err := m.Failed[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("failed" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("failed" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -131,7 +133,6 @@ func (m *CreateShareResponse) validateFailed(formats strfmt.Registry) error {
 }
 
 func (m *CreateShareResponse) validateMember(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Member) { // not required
 		return nil
 	}
@@ -140,6 +141,8 @@ func (m *CreateShareResponse) validateMember(formats strfmt.Registry) error {
 		if err := m.Member.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("member")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("member")
 			}
 			return err
 		}
@@ -181,7 +184,6 @@ func (m *CreateShareResponse) validateMemberTypeEnum(path, location string, valu
 }
 
 func (m *CreateShareResponse) validateMemberType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MemberType) { // not required
 		return nil
 	}
@@ -195,7 +197,6 @@ func (m *CreateShareResponse) validateMemberType(formats strfmt.Registry) error 
 }
 
 func (m *CreateShareResponse) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -208,7 +209,6 @@ func (m *CreateShareResponse) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *CreateShareResponse) validateSharedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SharedBy) { // not required
 		return nil
 	}
@@ -217,6 +217,8 @@ func (m *CreateShareResponse) validateSharedBy(formats strfmt.Registry) error {
 		if err := m.SharedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sharedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sharedBy")
 			}
 			return err
 		}
@@ -226,7 +228,6 @@ func (m *CreateShareResponse) validateSharedBy(formats strfmt.Registry) error {
 }
 
 func (m *CreateShareResponse) validateSharedEntity(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SharedEntity) { // not required
 		return nil
 	}
@@ -235,6 +236,8 @@ func (m *CreateShareResponse) validateSharedEntity(formats strfmt.Registry) erro
 		if err := m.SharedEntity.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sharedEntity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sharedEntity")
 			}
 			return err
 		}
@@ -270,7 +273,6 @@ func (m *CreateShareResponse) validateSharedEntityTypeEnum(path, location string
 }
 
 func (m *CreateShareResponse) validateSharedEntityType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SharedEntityType) { // not required
 		return nil
 	}
@@ -284,7 +286,6 @@ func (m *CreateShareResponse) validateSharedEntityType(formats strfmt.Registry) 
 }
 
 func (m *CreateShareResponse) validateSucceeded(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Succeeded) { // not required
 		return nil
 	}
@@ -298,6 +299,8 @@ func (m *CreateShareResponse) validateSucceeded(formats strfmt.Registry) error {
 			if err := m.Succeeded[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("succeeded" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("succeeded" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -309,7 +312,6 @@ func (m *CreateShareResponse) validateSucceeded(formats strfmt.Registry) error {
 }
 
 func (m *CreateShareResponse) validateWorkspace(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Workspace) { // not required
 		return nil
 	}
@@ -318,6 +320,172 @@ func (m *CreateShareResponse) validateWorkspace(formats strfmt.Registry) error {
 		if err := m.Workspace.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workspace")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this create share response based on the context it is used
+func (m *CreateShareResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFailed(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMember(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSharedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSharedEntity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSucceeded(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkspace(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CreateShareResponse) contextValidateFailed(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Failed); i++ {
+
+		if m.Failed[i] != nil {
+			if err := m.Failed[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("failed" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("failed" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CreateShareResponse) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CreateShareResponse) contextValidateMember(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Member != nil {
+		if err := m.Member.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("member")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("member")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CreateShareResponse) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CreateShareResponse) contextValidateSharedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SharedBy != nil {
+		if err := m.SharedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sharedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sharedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CreateShareResponse) contextValidateSharedEntity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SharedEntity != nil {
+		if err := m.SharedEntity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sharedEntity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sharedEntity")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CreateShareResponse) contextValidateSucceeded(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Succeeded); i++ {
+
+		if m.Succeeded[i] != nil {
+			if err := m.Succeeded[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("succeeded" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("succeeded" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CreateShareResponse) contextValidateWorkspace(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Workspace != nil {
+		if err := m.Workspace.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workspace")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workspace")
 			}
 			return err
 		}

@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsParams creates a new PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams object
-// with the default values initialized.
+// NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsParams creates a new PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsParams() *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams {
-	var ()
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsParamsWithTimeout creates a new PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsParamsWithTimeout(timeout time.Duration) *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams {
-	var ()
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsParamsWithContext creates a new PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsParamsWithContext(ctx context.Context) *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams {
-	var ()
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsParamsWithHTTPClient creates a new PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsParamsWithHTTPClient(client *http.Client) *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams {
-	var ()
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams contains all the parameters to send to the API endpoint
-for the post knowledge guest session documents search suggestions operation typically these are written to a http.Request
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams contains all the parameters to send to the API endpoint
+
+	for the post knowledge guest session documents search suggestions operation.
+
+	Typically these are written to a http.Request.
 */
 type PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.KnowledgeGuestDocumentSuggestionRequest
-	/*SessionID
-	  Knowledge guest session ID.
 
+	/* SessionID.
+
+	   Knowledge guest session ID.
 	*/
 	SessionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post knowledge guest session documents search suggestions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams) WithDefaults() *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post knowledge guest session documents search suggestions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post knowledge guest session documents search suggestions params
@@ -137,7 +154,6 @@ func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsParams) WriteToReque
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

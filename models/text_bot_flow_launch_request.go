@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -34,6 +36,9 @@ type TextBotFlowLaunchRequest struct {
 
 	// Input values to the flow. Valid values are defined by the flow's input JSON schema.
 	InputData *TextBotInputOutputData `json:"inputData,omitempty"`
+
+	// The language that the bot will use in the session. Validated against list of supported languages and if the value is omitted or is invalid, the default language will be used.
+	Language string `json:"language,omitempty"`
 }
 
 // Validate validates this text bot flow launch request
@@ -72,6 +77,8 @@ func (m *TextBotFlowLaunchRequest) validateChannel(formats strfmt.Registry) erro
 		if err := m.Channel.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("channel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("channel")
 			}
 			return err
 		}
@@ -99,6 +106,8 @@ func (m *TextBotFlowLaunchRequest) validateFlow(formats strfmt.Registry) error {
 		if err := m.Flow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
 			}
 			return err
 		}
@@ -108,7 +117,6 @@ func (m *TextBotFlowLaunchRequest) validateFlow(formats strfmt.Registry) error {
 }
 
 func (m *TextBotFlowLaunchRequest) validateInputData(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InputData) { // not required
 		return nil
 	}
@@ -117,6 +125,78 @@ func (m *TextBotFlowLaunchRequest) validateInputData(formats strfmt.Registry) er
 		if err := m.InputData.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("inputData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputData")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this text bot flow launch request based on the context it is used
+func (m *TextBotFlowLaunchRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateChannel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInputData(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TextBotFlowLaunchRequest) contextValidateChannel(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Channel != nil {
+		if err := m.Channel.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("channel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("channel")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TextBotFlowLaunchRequest) contextValidateFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Flow != nil {
+		if err := m.Flow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TextBotFlowLaunchRequest) contextValidateInputData(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InputData != nil {
+		if err := m.InputData.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("inputData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputData")
 			}
 			return err
 		}

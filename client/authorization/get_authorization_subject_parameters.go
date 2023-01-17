@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAuthorizationSubjectParams creates a new GetAuthorizationSubjectParams object
-// with the default values initialized.
+// NewGetAuthorizationSubjectParams creates a new GetAuthorizationSubjectParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAuthorizationSubjectParams() *GetAuthorizationSubjectParams {
-	var ()
 	return &GetAuthorizationSubjectParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAuthorizationSubjectParamsWithTimeout creates a new GetAuthorizationSubjectParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAuthorizationSubjectParamsWithTimeout(timeout time.Duration) *GetAuthorizationSubjectParams {
-	var ()
 	return &GetAuthorizationSubjectParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAuthorizationSubjectParamsWithContext creates a new GetAuthorizationSubjectParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAuthorizationSubjectParamsWithContext(ctx context.Context) *GetAuthorizationSubjectParams {
-	var ()
 	return &GetAuthorizationSubjectParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAuthorizationSubjectParamsWithHTTPClient creates a new GetAuthorizationSubjectParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAuthorizationSubjectParamsWithHTTPClient(client *http.Client) *GetAuthorizationSubjectParams {
-	var ()
 	return &GetAuthorizationSubjectParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAuthorizationSubjectParams contains all the parameters to send to the API endpoint
-for the get authorization subject operation typically these are written to a http.Request
+/*
+GetAuthorizationSubjectParams contains all the parameters to send to the API endpoint
+
+	for the get authorization subject operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAuthorizationSubjectParams struct {
 
-	/*SubjectID
-	  Subject ID (user or group)
+	/* SubjectID.
 
+	   Subject ID (user or group)
 	*/
 	SubjectID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get authorization subject params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationSubjectParams) WithDefaults() *GetAuthorizationSubjectParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get authorization subject params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationSubjectParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get authorization subject params

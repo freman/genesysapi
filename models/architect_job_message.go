@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -50,7 +51,6 @@ func (m *ArchitectJobMessage) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ArchitectJobMessage) validateDateTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateTime) { // not required
 		return nil
 	}
@@ -92,7 +92,6 @@ func (m *ArchitectJobMessage) validateTypeEnum(path, location string, value stri
 }
 
 func (m *ArchitectJobMessage) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -102,6 +101,11 @@ func (m *ArchitectJobMessage) validateType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this architect job message based on context it is used
+func (m *ArchitectJobMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

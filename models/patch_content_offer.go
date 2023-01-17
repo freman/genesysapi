@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -73,7 +74,6 @@ func (m *PatchContentOffer) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PatchContentOffer) validateCallToAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallToAction) { // not required
 		return nil
 	}
@@ -82,6 +82,8 @@ func (m *PatchContentOffer) validateCallToAction(formats strfmt.Registry) error 
 		if err := m.CallToAction.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("callToAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callToAction")
 			}
 			return err
 		}
@@ -123,7 +125,6 @@ func (m *PatchContentOffer) validateDisplayModeEnum(path, location string, value
 }
 
 func (m *PatchContentOffer) validateDisplayMode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisplayMode) { // not required
 		return nil
 	}
@@ -178,7 +179,6 @@ func (m *PatchContentOffer) validateLayoutModeEnum(path, location string, value 
 }
 
 func (m *PatchContentOffer) validateLayoutMode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LayoutMode) { // not required
 		return nil
 	}
@@ -192,7 +192,6 @@ func (m *PatchContentOffer) validateLayoutMode(formats strfmt.Registry) error {
 }
 
 func (m *PatchContentOffer) validateStyle(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Style) { // not required
 		return nil
 	}
@@ -201,6 +200,58 @@ func (m *PatchContentOffer) validateStyle(formats strfmt.Registry) error {
 		if err := m.Style.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("style")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("style")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this patch content offer based on the context it is used
+func (m *PatchContentOffer) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCallToAction(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStyle(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PatchContentOffer) contextValidateCallToAction(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CallToAction != nil {
+		if err := m.CallToAction.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("callToAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callToAction")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PatchContentOffer) contextValidateStyle(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Style != nil {
+		if err := m.Style.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("style")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("style")
 			}
 			return err
 		}

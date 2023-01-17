@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutQualitySurveysScorableParams creates a new PutQualitySurveysScorableParams object
-// with the default values initialized.
+// NewPutQualitySurveysScorableParams creates a new PutQualitySurveysScorableParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutQualitySurveysScorableParams() *PutQualitySurveysScorableParams {
-	var ()
 	return &PutQualitySurveysScorableParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutQualitySurveysScorableParamsWithTimeout creates a new PutQualitySurveysScorableParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutQualitySurveysScorableParamsWithTimeout(timeout time.Duration) *PutQualitySurveysScorableParams {
-	var ()
 	return &PutQualitySurveysScorableParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutQualitySurveysScorableParamsWithContext creates a new PutQualitySurveysScorableParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutQualitySurveysScorableParamsWithContext(ctx context.Context) *PutQualitySurveysScorableParams {
-	var ()
 	return &PutQualitySurveysScorableParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutQualitySurveysScorableParamsWithHTTPClient creates a new PutQualitySurveysScorableParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutQualitySurveysScorableParamsWithHTTPClient(client *http.Client) *PutQualitySurveysScorableParams {
-	var ()
 	return &PutQualitySurveysScorableParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutQualitySurveysScorableParams contains all the parameters to send to the API endpoint
-for the put quality surveys scorable operation typically these are written to a http.Request
+/*
+PutQualitySurveysScorableParams contains all the parameters to send to the API endpoint
+
+	for the put quality surveys scorable operation.
+
+	Typically these are written to a http.Request.
 */
 type PutQualitySurveysScorableParams struct {
 
-	/*Body
-	  survey
+	/* Body.
 
+	   survey
 	*/
 	Body *models.ScorableSurvey
-	/*CustomerSurveyURL
-	  customerSurveyUrl
 
+	/* CustomerSurveyURL.
+
+	   customerSurveyUrl
 	*/
 	CustomerSurveyURL string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put quality surveys scorable params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutQualitySurveysScorableParams) WithDefaults() *PutQualitySurveysScorableParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put quality surveys scorable params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutQualitySurveysScorableParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put quality surveys scorable params
@@ -140,7 +157,6 @@ func (o *PutQualitySurveysScorableParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -151,6 +167,7 @@ func (o *PutQualitySurveysScorableParams) WriteToRequest(r runtime.ClientRequest
 	qrCustomerSurveyURL := o.CustomerSurveyURL
 	qCustomerSurveyURL := qrCustomerSurveyURL
 	if qCustomerSurveyURL != "" {
+
 		if err := r.SetQueryParam("customerSurveyUrl", qCustomerSurveyURL); err != nil {
 			return err
 		}

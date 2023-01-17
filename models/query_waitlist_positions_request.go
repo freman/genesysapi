@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -53,6 +54,42 @@ func (m *QueryWaitlistPositionsRequest) validateTimeOffRequests(formats strfmt.R
 			if err := m.TimeOffRequests[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("timeOffRequests" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("timeOffRequests" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this query waitlist positions request based on the context it is used
+func (m *QueryWaitlistPositionsRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateTimeOffRequests(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *QueryWaitlistPositionsRequest) contextValidateTimeOffRequests(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TimeOffRequests); i++ {
+
+		if m.TimeOffRequests[i] != nil {
+			if err := m.TimeOffRequests[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("timeOffRequests" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("timeOffRequests" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -17,76 +17,92 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteSpeechandtextanalyticsProgramParams creates a new DeleteSpeechandtextanalyticsProgramParams object
-// with the default values initialized.
+// NewDeleteSpeechandtextanalyticsProgramParams creates a new DeleteSpeechandtextanalyticsProgramParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteSpeechandtextanalyticsProgramParams() *DeleteSpeechandtextanalyticsProgramParams {
-	var (
-		forceDeleteDefault = bool(false)
-	)
 	return &DeleteSpeechandtextanalyticsProgramParams{
-		ForceDelete: &forceDeleteDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteSpeechandtextanalyticsProgramParamsWithTimeout creates a new DeleteSpeechandtextanalyticsProgramParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteSpeechandtextanalyticsProgramParamsWithTimeout(timeout time.Duration) *DeleteSpeechandtextanalyticsProgramParams {
-	var (
-		forceDeleteDefault = bool(false)
-	)
 	return &DeleteSpeechandtextanalyticsProgramParams{
-		ForceDelete: &forceDeleteDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteSpeechandtextanalyticsProgramParamsWithContext creates a new DeleteSpeechandtextanalyticsProgramParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteSpeechandtextanalyticsProgramParamsWithContext(ctx context.Context) *DeleteSpeechandtextanalyticsProgramParams {
-	var (
-		forceDeleteDefault = bool(false)
-	)
 	return &DeleteSpeechandtextanalyticsProgramParams{
-		ForceDelete: &forceDeleteDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteSpeechandtextanalyticsProgramParamsWithHTTPClient creates a new DeleteSpeechandtextanalyticsProgramParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteSpeechandtextanalyticsProgramParamsWithHTTPClient(client *http.Client) *DeleteSpeechandtextanalyticsProgramParams {
-	var (
-		forceDeleteDefault = bool(false)
-	)
 	return &DeleteSpeechandtextanalyticsProgramParams{
-		ForceDelete: &forceDeleteDefault,
-		HTTPClient:  client,
+		HTTPClient: client,
 	}
 }
 
-/*DeleteSpeechandtextanalyticsProgramParams contains all the parameters to send to the API endpoint
-for the delete speechandtextanalytics program operation typically these are written to a http.Request
+/*
+DeleteSpeechandtextanalyticsProgramParams contains all the parameters to send to the API endpoint
+
+	for the delete speechandtextanalytics program operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteSpeechandtextanalyticsProgramParams struct {
 
-	/*ForceDelete
-	  Indicates whether the program is forced to be deleted or not. Required when the program to delete is the default program.
+	/* ForceDelete.
 
+	   Indicates whether the program is forced to be deleted or not. Required when the program to delete is the default program.
 	*/
 	ForceDelete *bool
-	/*ProgramID
-	  The id of the program
 
+	/* ProgramID.
+
+	   The id of the program
 	*/
 	ProgramID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete speechandtextanalytics program params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteSpeechandtextanalyticsProgramParams) WithDefaults() *DeleteSpeechandtextanalyticsProgramParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete speechandtextanalytics program params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteSpeechandtextanalyticsProgramParams) SetDefaults() {
+	var (
+		forceDeleteDefault = bool(false)
+	)
+
+	val := DeleteSpeechandtextanalyticsProgramParams{
+		ForceDelete: &forceDeleteDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the delete speechandtextanalytics program params
@@ -156,16 +172,17 @@ func (o *DeleteSpeechandtextanalyticsProgramParams) WriteToRequest(r runtime.Cli
 
 		// query param forceDelete
 		var qrForceDelete bool
+
 		if o.ForceDelete != nil {
 			qrForceDelete = *o.ForceDelete
 		}
 		qForceDelete := swag.FormatBool(qrForceDelete)
 		if qForceDelete != "" {
+
 			if err := r.SetQueryParam("forceDelete", qForceDelete); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param programId

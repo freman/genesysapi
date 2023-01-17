@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -143,7 +144,6 @@ func (m *ScimV2SchemaAttribute) validateMutabilityEnum(path, location string, va
 }
 
 func (m *ScimV2SchemaAttribute) validateMutability(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Mutability) { // not required
 		return nil
 	}
@@ -176,7 +176,6 @@ func (m *ScimV2SchemaAttribute) validateReferenceTypesItemsEnum(path, location s
 }
 
 func (m *ScimV2SchemaAttribute) validateReferenceTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReferenceTypes) { // not required
 		return nil
 	}
@@ -229,7 +228,6 @@ func (m *ScimV2SchemaAttribute) validateReturnedEnum(path, location string, valu
 }
 
 func (m *ScimV2SchemaAttribute) validateReturned(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Returned) { // not required
 		return nil
 	}
@@ -243,7 +241,6 @@ func (m *ScimV2SchemaAttribute) validateReturned(formats strfmt.Registry) error 
 }
 
 func (m *ScimV2SchemaAttribute) validateSubAttributes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SubAttributes) { // not required
 		return nil
 	}
@@ -257,6 +254,8 @@ func (m *ScimV2SchemaAttribute) validateSubAttributes(formats strfmt.Registry) e
 			if err := m.SubAttributes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("subAttributes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("subAttributes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -312,7 +311,6 @@ func (m *ScimV2SchemaAttribute) validateTypeEnum(path, location string, value st
 }
 
 func (m *ScimV2SchemaAttribute) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -358,13 +356,193 @@ func (m *ScimV2SchemaAttribute) validateUniquenessEnum(path, location string, va
 }
 
 func (m *ScimV2SchemaAttribute) validateUniqueness(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Uniqueness) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateUniquenessEnum("uniqueness", "body", m.Uniqueness); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scim v2 schema attribute based on the context it is used
+func (m *ScimV2SchemaAttribute) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCanonicalValues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCaseExact(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDescription(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMultiValued(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMutability(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReferenceTypes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRequired(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReturned(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSubAttributes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUniqueness(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimV2SchemaAttribute) contextValidateCanonicalValues(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "canonicalValues", "body", []string(m.CanonicalValues)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2SchemaAttribute) contextValidateCaseExact(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "caseExact", "body", m.CaseExact); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2SchemaAttribute) contextValidateDescription(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "description", "body", string(m.Description)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2SchemaAttribute) contextValidateMultiValued(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "multiValued", "body", m.MultiValued); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2SchemaAttribute) contextValidateMutability(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "mutability", "body", string(m.Mutability)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2SchemaAttribute) contextValidateName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "name", "body", string(m.Name)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2SchemaAttribute) contextValidateReferenceTypes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "referenceTypes", "body", []string(m.ReferenceTypes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2SchemaAttribute) contextValidateRequired(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "required", "body", m.Required); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2SchemaAttribute) contextValidateReturned(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "returned", "body", string(m.Returned)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2SchemaAttribute) contextValidateSubAttributes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "subAttributes", "body", []*ScimV2SchemaAttribute(m.SubAttributes)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.SubAttributes); i++ {
+
+		if m.SubAttributes[i] != nil {
+			if err := m.SubAttributes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("subAttributes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("subAttributes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScimV2SchemaAttribute) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "type", "body", string(m.Type)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2SchemaAttribute) contextValidateUniqueness(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "uniqueness", "body", string(m.Uniqueness)); err != nil {
 		return err
 	}
 

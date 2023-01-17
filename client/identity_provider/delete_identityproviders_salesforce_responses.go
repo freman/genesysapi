@@ -95,7 +95,6 @@ func (o *DeleteIdentityprovidersSalesforceReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteIdentityprovidersSalesforceOK() *DeleteIdentityprovidersSalesforce
 	return &DeleteIdentityprovidersSalesforceOK{}
 }
 
-/*DeleteIdentityprovidersSalesforceOK handles this case with default header values.
+/*
+DeleteIdentityprovidersSalesforceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteIdentityprovidersSalesforceOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete identityproviders salesforce o k response has a 2xx status code
+func (o *DeleteIdentityprovidersSalesforceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete identityproviders salesforce o k response has a 3xx status code
+func (o *DeleteIdentityprovidersSalesforceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders salesforce o k response has a 4xx status code
+func (o *DeleteIdentityprovidersSalesforceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders salesforce o k response has a 5xx status code
+func (o *DeleteIdentityprovidersSalesforceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders salesforce o k response a status code equal to that given
+func (o *DeleteIdentityprovidersSalesforceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteIdentityprovidersSalesforceOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersSalesforceOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewDeleteIdentityprovidersSalesforceBadRequest() *DeleteIdentityprovidersSa
 	return &DeleteIdentityprovidersSalesforceBadRequest{}
 }
 
-/*DeleteIdentityprovidersSalesforceBadRequest handles this case with default header values.
+/*
+DeleteIdentityprovidersSalesforceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type DeleteIdentityprovidersSalesforceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders salesforce bad request response has a 2xx status code
+func (o *DeleteIdentityprovidersSalesforceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders salesforce bad request response has a 3xx status code
+func (o *DeleteIdentityprovidersSalesforceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders salesforce bad request response has a 4xx status code
+func (o *DeleteIdentityprovidersSalesforceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders salesforce bad request response has a 5xx status code
+func (o *DeleteIdentityprovidersSalesforceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders salesforce bad request response a status code equal to that given
+func (o *DeleteIdentityprovidersSalesforceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteIdentityprovidersSalesforceBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersSalesforceBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteIdentityprovidersSalesforceUnauthorized() *DeleteIdentityproviders
 	return &DeleteIdentityprovidersSalesforceUnauthorized{}
 }
 
-/*DeleteIdentityprovidersSalesforceUnauthorized handles this case with default header values.
+/*
+DeleteIdentityprovidersSalesforceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type DeleteIdentityprovidersSalesforceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders salesforce unauthorized response has a 2xx status code
+func (o *DeleteIdentityprovidersSalesforceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders salesforce unauthorized response has a 3xx status code
+func (o *DeleteIdentityprovidersSalesforceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders salesforce unauthorized response has a 4xx status code
+func (o *DeleteIdentityprovidersSalesforceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders salesforce unauthorized response has a 5xx status code
+func (o *DeleteIdentityprovidersSalesforceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders salesforce unauthorized response a status code equal to that given
+func (o *DeleteIdentityprovidersSalesforceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteIdentityprovidersSalesforceUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersSalesforceUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteIdentityprovidersSalesforceForbidden() *DeleteIdentityprovidersSal
 	return &DeleteIdentityprovidersSalesforceForbidden{}
 }
 
-/*DeleteIdentityprovidersSalesforceForbidden handles this case with default header values.
+/*
+DeleteIdentityprovidersSalesforceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type DeleteIdentityprovidersSalesforceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders salesforce forbidden response has a 2xx status code
+func (o *DeleteIdentityprovidersSalesforceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders salesforce forbidden response has a 3xx status code
+func (o *DeleteIdentityprovidersSalesforceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders salesforce forbidden response has a 4xx status code
+func (o *DeleteIdentityprovidersSalesforceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders salesforce forbidden response has a 5xx status code
+func (o *DeleteIdentityprovidersSalesforceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders salesforce forbidden response a status code equal to that given
+func (o *DeleteIdentityprovidersSalesforceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteIdentityprovidersSalesforceForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersSalesforceForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteIdentityprovidersSalesforceNotFound() *DeleteIdentityprovidersSale
 	return &DeleteIdentityprovidersSalesforceNotFound{}
 }
 
-/*DeleteIdentityprovidersSalesforceNotFound handles this case with default header values.
+/*
+DeleteIdentityprovidersSalesforceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type DeleteIdentityprovidersSalesforceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders salesforce not found response has a 2xx status code
+func (o *DeleteIdentityprovidersSalesforceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders salesforce not found response has a 3xx status code
+func (o *DeleteIdentityprovidersSalesforceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders salesforce not found response has a 4xx status code
+func (o *DeleteIdentityprovidersSalesforceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders salesforce not found response has a 5xx status code
+func (o *DeleteIdentityprovidersSalesforceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders salesforce not found response a status code equal to that given
+func (o *DeleteIdentityprovidersSalesforceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteIdentityprovidersSalesforceNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersSalesforceNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteIdentityprovidersSalesforceRequestTimeout() *DeleteIdentityprovide
 	return &DeleteIdentityprovidersSalesforceRequestTimeout{}
 }
 
-/*DeleteIdentityprovidersSalesforceRequestTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersSalesforceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type DeleteIdentityprovidersSalesforceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders salesforce request timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersSalesforceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders salesforce request timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersSalesforceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders salesforce request timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersSalesforceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders salesforce request timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersSalesforceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders salesforce request timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersSalesforceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteIdentityprovidersSalesforceRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersSalesforceRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteIdentityprovidersSalesforceRequestEntityTooLarge() *DeleteIdentity
 	return &DeleteIdentityprovidersSalesforceRequestEntityTooLarge{}
 }
 
-/*DeleteIdentityprovidersSalesforceRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteIdentityprovidersSalesforceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type DeleteIdentityprovidersSalesforceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders salesforce request entity too large response has a 2xx status code
+func (o *DeleteIdentityprovidersSalesforceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders salesforce request entity too large response has a 3xx status code
+func (o *DeleteIdentityprovidersSalesforceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders salesforce request entity too large response has a 4xx status code
+func (o *DeleteIdentityprovidersSalesforceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders salesforce request entity too large response has a 5xx status code
+func (o *DeleteIdentityprovidersSalesforceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders salesforce request entity too large response a status code equal to that given
+func (o *DeleteIdentityprovidersSalesforceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteIdentityprovidersSalesforceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersSalesforceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteIdentityprovidersSalesforceUnsupportedMediaType() *DeleteIdentityp
 	return &DeleteIdentityprovidersSalesforceUnsupportedMediaType{}
 }
 
-/*DeleteIdentityprovidersSalesforceUnsupportedMediaType handles this case with default header values.
+/*
+DeleteIdentityprovidersSalesforceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type DeleteIdentityprovidersSalesforceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders salesforce unsupported media type response has a 2xx status code
+func (o *DeleteIdentityprovidersSalesforceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders salesforce unsupported media type response has a 3xx status code
+func (o *DeleteIdentityprovidersSalesforceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders salesforce unsupported media type response has a 4xx status code
+func (o *DeleteIdentityprovidersSalesforceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders salesforce unsupported media type response has a 5xx status code
+func (o *DeleteIdentityprovidersSalesforceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders salesforce unsupported media type response a status code equal to that given
+func (o *DeleteIdentityprovidersSalesforceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteIdentityprovidersSalesforceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersSalesforceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteIdentityprovidersSalesforceTooManyRequests() *DeleteIdentityprovid
 	return &DeleteIdentityprovidersSalesforceTooManyRequests{}
 }
 
-/*DeleteIdentityprovidersSalesforceTooManyRequests handles this case with default header values.
+/*
+DeleteIdentityprovidersSalesforceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type DeleteIdentityprovidersSalesforceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders salesforce too many requests response has a 2xx status code
+func (o *DeleteIdentityprovidersSalesforceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders salesforce too many requests response has a 3xx status code
+func (o *DeleteIdentityprovidersSalesforceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders salesforce too many requests response has a 4xx status code
+func (o *DeleteIdentityprovidersSalesforceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders salesforce too many requests response has a 5xx status code
+func (o *DeleteIdentityprovidersSalesforceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders salesforce too many requests response a status code equal to that given
+func (o *DeleteIdentityprovidersSalesforceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteIdentityprovidersSalesforceTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersSalesforceTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteIdentityprovidersSalesforceInternalServerError() *DeleteIdentitypr
 	return &DeleteIdentityprovidersSalesforceInternalServerError{}
 }
 
-/*DeleteIdentityprovidersSalesforceInternalServerError handles this case with default header values.
+/*
+DeleteIdentityprovidersSalesforceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type DeleteIdentityprovidersSalesforceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders salesforce internal server error response has a 2xx status code
+func (o *DeleteIdentityprovidersSalesforceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders salesforce internal server error response has a 3xx status code
+func (o *DeleteIdentityprovidersSalesforceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders salesforce internal server error response has a 4xx status code
+func (o *DeleteIdentityprovidersSalesforceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders salesforce internal server error response has a 5xx status code
+func (o *DeleteIdentityprovidersSalesforceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders salesforce internal server error response a status code equal to that given
+func (o *DeleteIdentityprovidersSalesforceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteIdentityprovidersSalesforceInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersSalesforceInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteIdentityprovidersSalesforceServiceUnavailable() *DeleteIdentitypro
 	return &DeleteIdentityprovidersSalesforceServiceUnavailable{}
 }
 
-/*DeleteIdentityprovidersSalesforceServiceUnavailable handles this case with default header values.
+/*
+DeleteIdentityprovidersSalesforceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type DeleteIdentityprovidersSalesforceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders salesforce service unavailable response has a 2xx status code
+func (o *DeleteIdentityprovidersSalesforceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders salesforce service unavailable response has a 3xx status code
+func (o *DeleteIdentityprovidersSalesforceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders salesforce service unavailable response has a 4xx status code
+func (o *DeleteIdentityprovidersSalesforceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders salesforce service unavailable response has a 5xx status code
+func (o *DeleteIdentityprovidersSalesforceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders salesforce service unavailable response a status code equal to that given
+func (o *DeleteIdentityprovidersSalesforceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteIdentityprovidersSalesforceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersSalesforceServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteIdentityprovidersSalesforceGatewayTimeout() *DeleteIdentityprovide
 	return &DeleteIdentityprovidersSalesforceGatewayTimeout{}
 }
 
-/*DeleteIdentityprovidersSalesforceGatewayTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersSalesforceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type DeleteIdentityprovidersSalesforceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders salesforce gateway timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersSalesforceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders salesforce gateway timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersSalesforceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders salesforce gateway timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersSalesforceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders salesforce gateway timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersSalesforceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders salesforce gateway timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersSalesforceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteIdentityprovidersSalesforceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersSalesforceGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/salesforce][%d] deleteIdentityprovidersSalesforceGatewayTimeout  %+v", 504, o.Payload)
 }
 

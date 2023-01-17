@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetKnowledgeKnowledgebaseUnansweredGroupParams creates a new GetKnowledgeKnowledgebaseUnansweredGroupParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseUnansweredGroupParams creates a new GetKnowledgeKnowledgebaseUnansweredGroupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseUnansweredGroupParams() *GetKnowledgeKnowledgebaseUnansweredGroupParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseUnansweredGroupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseUnansweredGroupParamsWithTimeout creates a new GetKnowledgeKnowledgebaseUnansweredGroupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseUnansweredGroupParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseUnansweredGroupParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseUnansweredGroupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseUnansweredGroupParamsWithContext creates a new GetKnowledgeKnowledgebaseUnansweredGroupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseUnansweredGroupParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseUnansweredGroupParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseUnansweredGroupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseUnansweredGroupParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseUnansweredGroupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseUnansweredGroupParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseUnansweredGroupParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseUnansweredGroupParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseUnansweredGroupParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase unanswered group operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseUnansweredGroupParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase unanswered group operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseUnansweredGroupParams struct {
 
-	/*App
-	  The app value to be used for filtering phrases.
+	/* App.
 
+	   The app value to be used for filtering phrases.
 	*/
 	App *string
-	/*GroupID
-	  The ID of the group to be retrieved.
 
+	/* GroupID.
+
+	   The ID of the group to be retrieved.
 	*/
 	GroupID string
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase unanswered group params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupParams) WithDefaults() *GetKnowledgeKnowledgebaseUnansweredGroupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase unanswered group params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseUnansweredGroupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase unanswered group params
@@ -159,16 +177,17 @@ func (o *GetKnowledgeKnowledgebaseUnansweredGroupParams) WriteToRequest(r runtim
 
 		// query param app
 		var qrApp string
+
 		if o.App != nil {
 			qrApp = *o.App
 		}
 		qApp := qrApp
 		if qApp != "" {
+
 			if err := r.SetQueryParam("app", qApp); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param groupId

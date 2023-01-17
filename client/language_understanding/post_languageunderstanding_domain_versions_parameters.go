@@ -14,68 +14,92 @@ import (
 	"github.com/go-openapi/runtime"
 	cr "github.com/go-openapi/runtime/client"
 	"github.com/go-openapi/strfmt"
+	"github.com/go-openapi/swag"
 
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostLanguageunderstandingDomainVersionsParams creates a new PostLanguageunderstandingDomainVersionsParams object
-// with the default values initialized.
+// NewPostLanguageunderstandingDomainVersionsParams creates a new PostLanguageunderstandingDomainVersionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostLanguageunderstandingDomainVersionsParams() *PostLanguageunderstandingDomainVersionsParams {
-	var ()
 	return &PostLanguageunderstandingDomainVersionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostLanguageunderstandingDomainVersionsParamsWithTimeout creates a new PostLanguageunderstandingDomainVersionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostLanguageunderstandingDomainVersionsParamsWithTimeout(timeout time.Duration) *PostLanguageunderstandingDomainVersionsParams {
-	var ()
 	return &PostLanguageunderstandingDomainVersionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostLanguageunderstandingDomainVersionsParamsWithContext creates a new PostLanguageunderstandingDomainVersionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostLanguageunderstandingDomainVersionsParamsWithContext(ctx context.Context) *PostLanguageunderstandingDomainVersionsParams {
-	var ()
 	return &PostLanguageunderstandingDomainVersionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostLanguageunderstandingDomainVersionsParamsWithHTTPClient creates a new PostLanguageunderstandingDomainVersionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostLanguageunderstandingDomainVersionsParamsWithHTTPClient(client *http.Client) *PostLanguageunderstandingDomainVersionsParams {
-	var ()
 	return &PostLanguageunderstandingDomainVersionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostLanguageunderstandingDomainVersionsParams contains all the parameters to send to the API endpoint
-for the post languageunderstanding domain versions operation typically these are written to a http.Request
+/*
+PostLanguageunderstandingDomainVersionsParams contains all the parameters to send to the API endpoint
+
+	for the post languageunderstanding domain versions operation.
+
+	Typically these are written to a http.Request.
 */
 type PostLanguageunderstandingDomainVersionsParams struct {
 
-	/*Body
-	  The NLU Domain Version to create.
+	/* Body.
 
+	   The NLU Domain Version to create.
 	*/
 	Body *models.NluDomainVersion
-	/*DomainID
-	  ID of the NLU domain.
 
+	/* DomainID.
+
+	   ID of the NLU domain.
 	*/
 	DomainID string
+
+	/* IncludeUtterances.
+
+	   Whether utterances for intent definition should be included when marshalling response.
+	*/
+	IncludeUtterances *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post languageunderstanding domain versions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLanguageunderstandingDomainVersionsParams) WithDefaults() *PostLanguageunderstandingDomainVersionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post languageunderstanding domain versions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLanguageunderstandingDomainVersionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post languageunderstanding domain versions params
@@ -133,6 +157,17 @@ func (o *PostLanguageunderstandingDomainVersionsParams) SetDomainID(domainID str
 	o.DomainID = domainID
 }
 
+// WithIncludeUtterances adds the includeUtterances to the post languageunderstanding domain versions params
+func (o *PostLanguageunderstandingDomainVersionsParams) WithIncludeUtterances(includeUtterances *bool) *PostLanguageunderstandingDomainVersionsParams {
+	o.SetIncludeUtterances(includeUtterances)
+	return o
+}
+
+// SetIncludeUtterances adds the includeUtterances to the post languageunderstanding domain versions params
+func (o *PostLanguageunderstandingDomainVersionsParams) SetIncludeUtterances(includeUtterances *bool) {
+	o.IncludeUtterances = includeUtterances
+}
+
 // WriteToRequest writes these params to a swagger request
 func (o *PostLanguageunderstandingDomainVersionsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Registry) error {
 
@@ -140,7 +175,6 @@ func (o *PostLanguageunderstandingDomainVersionsParams) WriteToRequest(r runtime
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -150,6 +184,23 @@ func (o *PostLanguageunderstandingDomainVersionsParams) WriteToRequest(r runtime
 	// path param domainId
 	if err := r.SetPathParam("domainId", o.DomainID); err != nil {
 		return err
+	}
+
+	if o.IncludeUtterances != nil {
+
+		// query param includeUtterances
+		var qrIncludeUtterances bool
+
+		if o.IncludeUtterances != nil {
+			qrIncludeUtterances = *o.IncludeUtterances
+		}
+		qIncludeUtterances := swag.FormatBool(qrIncludeUtterances)
+		if qIncludeUtterances != "" {
+
+			if err := r.SetQueryParam("includeUtterances", qIncludeUtterances); err != nil {
+				return err
+			}
+		}
 	}
 
 	if len(res) > 0 {

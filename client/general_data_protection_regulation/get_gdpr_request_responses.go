@@ -95,7 +95,6 @@ func (o *GetGdprRequestReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGdprRequestOK() *GetGdprRequestOK {
 	return &GetGdprRequestOK{}
 }
 
-/*GetGdprRequestOK handles this case with default header values.
+/*
+GetGdprRequestOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGdprRequestOK struct {
 	Payload *models.GDPRRequest
 }
 
+// IsSuccess returns true when this get gdpr request o k response has a 2xx status code
+func (o *GetGdprRequestOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get gdpr request o k response has a 3xx status code
+func (o *GetGdprRequestOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gdpr request o k response has a 4xx status code
+func (o *GetGdprRequestOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gdpr request o k response has a 5xx status code
+func (o *GetGdprRequestOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gdpr request o k response a status code equal to that given
+func (o *GetGdprRequestOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGdprRequestOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGdprRequestOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGdprRequestBadRequest() *GetGdprRequestBadRequest {
 	return &GetGdprRequestBadRequest{}
 }
 
-/*GetGdprRequestBadRequest handles this case with default header values.
+/*
+GetGdprRequestBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGdprRequestBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gdpr request bad request response has a 2xx status code
+func (o *GetGdprRequestBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gdpr request bad request response has a 3xx status code
+func (o *GetGdprRequestBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gdpr request bad request response has a 4xx status code
+func (o *GetGdprRequestBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gdpr request bad request response has a 5xx status code
+func (o *GetGdprRequestBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gdpr request bad request response a status code equal to that given
+func (o *GetGdprRequestBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGdprRequestBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGdprRequestBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGdprRequestUnauthorized() *GetGdprRequestUnauthorized {
 	return &GetGdprRequestUnauthorized{}
 }
 
-/*GetGdprRequestUnauthorized handles this case with default header values.
+/*
+GetGdprRequestUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGdprRequestUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gdpr request unauthorized response has a 2xx status code
+func (o *GetGdprRequestUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gdpr request unauthorized response has a 3xx status code
+func (o *GetGdprRequestUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gdpr request unauthorized response has a 4xx status code
+func (o *GetGdprRequestUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gdpr request unauthorized response has a 5xx status code
+func (o *GetGdprRequestUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gdpr request unauthorized response a status code equal to that given
+func (o *GetGdprRequestUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGdprRequestUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGdprRequestUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGdprRequestForbidden() *GetGdprRequestForbidden {
 	return &GetGdprRequestForbidden{}
 }
 
-/*GetGdprRequestForbidden handles this case with default header values.
+/*
+GetGdprRequestForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGdprRequestForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gdpr request forbidden response has a 2xx status code
+func (o *GetGdprRequestForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gdpr request forbidden response has a 3xx status code
+func (o *GetGdprRequestForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gdpr request forbidden response has a 4xx status code
+func (o *GetGdprRequestForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gdpr request forbidden response has a 5xx status code
+func (o *GetGdprRequestForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gdpr request forbidden response a status code equal to that given
+func (o *GetGdprRequestForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGdprRequestForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGdprRequestForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGdprRequestNotFound() *GetGdprRequestNotFound {
 	return &GetGdprRequestNotFound{}
 }
 
-/*GetGdprRequestNotFound handles this case with default header values.
+/*
+GetGdprRequestNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGdprRequestNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gdpr request not found response has a 2xx status code
+func (o *GetGdprRequestNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gdpr request not found response has a 3xx status code
+func (o *GetGdprRequestNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gdpr request not found response has a 4xx status code
+func (o *GetGdprRequestNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gdpr request not found response has a 5xx status code
+func (o *GetGdprRequestNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gdpr request not found response a status code equal to that given
+func (o *GetGdprRequestNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGdprRequestNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGdprRequestNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGdprRequestRequestTimeout() *GetGdprRequestRequestTimeout {
 	return &GetGdprRequestRequestTimeout{}
 }
 
-/*GetGdprRequestRequestTimeout handles this case with default header values.
+/*
+GetGdprRequestRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGdprRequestRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gdpr request request timeout response has a 2xx status code
+func (o *GetGdprRequestRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gdpr request request timeout response has a 3xx status code
+func (o *GetGdprRequestRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gdpr request request timeout response has a 4xx status code
+func (o *GetGdprRequestRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gdpr request request timeout response has a 5xx status code
+func (o *GetGdprRequestRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gdpr request request timeout response a status code equal to that given
+func (o *GetGdprRequestRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGdprRequestRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGdprRequestRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGdprRequestRequestEntityTooLarge() *GetGdprRequestRequestEntityTooLar
 	return &GetGdprRequestRequestEntityTooLarge{}
 }
 
-/*GetGdprRequestRequestEntityTooLarge handles this case with default header values.
+/*
+GetGdprRequestRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGdprRequestRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gdpr request request entity too large response has a 2xx status code
+func (o *GetGdprRequestRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gdpr request request entity too large response has a 3xx status code
+func (o *GetGdprRequestRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gdpr request request entity too large response has a 4xx status code
+func (o *GetGdprRequestRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gdpr request request entity too large response has a 5xx status code
+func (o *GetGdprRequestRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gdpr request request entity too large response a status code equal to that given
+func (o *GetGdprRequestRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGdprRequestRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGdprRequestRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGdprRequestUnsupportedMediaType() *GetGdprRequestUnsupportedMediaType
 	return &GetGdprRequestUnsupportedMediaType{}
 }
 
-/*GetGdprRequestUnsupportedMediaType handles this case with default header values.
+/*
+GetGdprRequestUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGdprRequestUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gdpr request unsupported media type response has a 2xx status code
+func (o *GetGdprRequestUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gdpr request unsupported media type response has a 3xx status code
+func (o *GetGdprRequestUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gdpr request unsupported media type response has a 4xx status code
+func (o *GetGdprRequestUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gdpr request unsupported media type response has a 5xx status code
+func (o *GetGdprRequestUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gdpr request unsupported media type response a status code equal to that given
+func (o *GetGdprRequestUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGdprRequestUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGdprRequestUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGdprRequestTooManyRequests() *GetGdprRequestTooManyRequests {
 	return &GetGdprRequestTooManyRequests{}
 }
 
-/*GetGdprRequestTooManyRequests handles this case with default header values.
+/*
+GetGdprRequestTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGdprRequestTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gdpr request too many requests response has a 2xx status code
+func (o *GetGdprRequestTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gdpr request too many requests response has a 3xx status code
+func (o *GetGdprRequestTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gdpr request too many requests response has a 4xx status code
+func (o *GetGdprRequestTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gdpr request too many requests response has a 5xx status code
+func (o *GetGdprRequestTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gdpr request too many requests response a status code equal to that given
+func (o *GetGdprRequestTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGdprRequestTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGdprRequestTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGdprRequestInternalServerError() *GetGdprRequestInternalServerError {
 	return &GetGdprRequestInternalServerError{}
 }
 
-/*GetGdprRequestInternalServerError handles this case with default header values.
+/*
+GetGdprRequestInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGdprRequestInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gdpr request internal server error response has a 2xx status code
+func (o *GetGdprRequestInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gdpr request internal server error response has a 3xx status code
+func (o *GetGdprRequestInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gdpr request internal server error response has a 4xx status code
+func (o *GetGdprRequestInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gdpr request internal server error response has a 5xx status code
+func (o *GetGdprRequestInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gdpr request internal server error response a status code equal to that given
+func (o *GetGdprRequestInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGdprRequestInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGdprRequestInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGdprRequestServiceUnavailable() *GetGdprRequestServiceUnavailable {
 	return &GetGdprRequestServiceUnavailable{}
 }
 
-/*GetGdprRequestServiceUnavailable handles this case with default header values.
+/*
+GetGdprRequestServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGdprRequestServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gdpr request service unavailable response has a 2xx status code
+func (o *GetGdprRequestServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gdpr request service unavailable response has a 3xx status code
+func (o *GetGdprRequestServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gdpr request service unavailable response has a 4xx status code
+func (o *GetGdprRequestServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gdpr request service unavailable response has a 5xx status code
+func (o *GetGdprRequestServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gdpr request service unavailable response a status code equal to that given
+func (o *GetGdprRequestServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGdprRequestServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGdprRequestServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGdprRequestGatewayTimeout() *GetGdprRequestGatewayTimeout {
 	return &GetGdprRequestGatewayTimeout{}
 }
 
-/*GetGdprRequestGatewayTimeout handles this case with default header values.
+/*
+GetGdprRequestGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGdprRequestGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gdpr request gateway timeout response has a 2xx status code
+func (o *GetGdprRequestGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gdpr request gateway timeout response has a 3xx status code
+func (o *GetGdprRequestGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gdpr request gateway timeout response has a 4xx status code
+func (o *GetGdprRequestGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gdpr request gateway timeout response has a 5xx status code
+func (o *GetGdprRequestGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gdpr request gateway timeout response a status code equal to that given
+func (o *GetGdprRequestGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGdprRequestGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGdprRequestGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gdpr/requests/{requestId}][%d] getGdprRequestGatewayTimeout  %+v", 504, o.Payload)
 }
 

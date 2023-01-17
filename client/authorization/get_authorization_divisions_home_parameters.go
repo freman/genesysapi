@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAuthorizationDivisionsHomeParams creates a new GetAuthorizationDivisionsHomeParams object
-// with the default values initialized.
+// NewGetAuthorizationDivisionsHomeParams creates a new GetAuthorizationDivisionsHomeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAuthorizationDivisionsHomeParams() *GetAuthorizationDivisionsHomeParams {
-
 	return &GetAuthorizationDivisionsHomeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAuthorizationDivisionsHomeParamsWithTimeout creates a new GetAuthorizationDivisionsHomeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAuthorizationDivisionsHomeParamsWithTimeout(timeout time.Duration) *GetAuthorizationDivisionsHomeParams {
-
 	return &GetAuthorizationDivisionsHomeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAuthorizationDivisionsHomeParamsWithContext creates a new GetAuthorizationDivisionsHomeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAuthorizationDivisionsHomeParamsWithContext(ctx context.Context) *GetAuthorizationDivisionsHomeParams {
-
 	return &GetAuthorizationDivisionsHomeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAuthorizationDivisionsHomeParamsWithHTTPClient creates a new GetAuthorizationDivisionsHomeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAuthorizationDivisionsHomeParamsWithHTTPClient(client *http.Client) *GetAuthorizationDivisionsHomeParams {
-
 	return &GetAuthorizationDivisionsHomeParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAuthorizationDivisionsHomeParams contains all the parameters to send to the API endpoint
-for the get authorization divisions home operation typically these are written to a http.Request
+/*
+GetAuthorizationDivisionsHomeParams contains all the parameters to send to the API endpoint
+
+	for the get authorization divisions home operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAuthorizationDivisionsHomeParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get authorization divisions home params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationDivisionsHomeParams) WithDefaults() *GetAuthorizationDivisionsHomeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get authorization divisions home params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationDivisionsHomeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get authorization divisions home params

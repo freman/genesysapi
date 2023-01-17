@@ -101,7 +101,6 @@ func (o *PutArchitectPromptReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutArchitectPromptOK() *PutArchitectPromptOK {
 	return &PutArchitectPromptOK{}
 }
 
-/*PutArchitectPromptOK handles this case with default header values.
+/*
+PutArchitectPromptOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutArchitectPromptOK struct {
 	Payload *models.Prompt
 }
 
+// IsSuccess returns true when this put architect prompt o k response has a 2xx status code
+func (o *PutArchitectPromptOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put architect prompt o k response has a 3xx status code
+func (o *PutArchitectPromptOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt o k response has a 4xx status code
+func (o *PutArchitectPromptOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect prompt o k response has a 5xx status code
+func (o *PutArchitectPromptOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect prompt o k response a status code equal to that given
+func (o *PutArchitectPromptOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutArchitectPromptOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptOK  %+v", 200, o.Payload)
+}
+
+func (o *PutArchitectPromptOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutArchitectPromptBadRequest() *PutArchitectPromptBadRequest {
 	return &PutArchitectPromptBadRequest{}
 }
 
-/*PutArchitectPromptBadRequest handles this case with default header values.
+/*
+PutArchitectPromptBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutArchitectPromptBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect prompt bad request response has a 2xx status code
+func (o *PutArchitectPromptBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect prompt bad request response has a 3xx status code
+func (o *PutArchitectPromptBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt bad request response has a 4xx status code
+func (o *PutArchitectPromptBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect prompt bad request response has a 5xx status code
+func (o *PutArchitectPromptBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect prompt bad request response a status code equal to that given
+func (o *PutArchitectPromptBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutArchitectPromptBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutArchitectPromptBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutArchitectPromptUnauthorized() *PutArchitectPromptUnauthorized {
 	return &PutArchitectPromptUnauthorized{}
 }
 
-/*PutArchitectPromptUnauthorized handles this case with default header values.
+/*
+PutArchitectPromptUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutArchitectPromptUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect prompt unauthorized response has a 2xx status code
+func (o *PutArchitectPromptUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect prompt unauthorized response has a 3xx status code
+func (o *PutArchitectPromptUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt unauthorized response has a 4xx status code
+func (o *PutArchitectPromptUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect prompt unauthorized response has a 5xx status code
+func (o *PutArchitectPromptUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect prompt unauthorized response a status code equal to that given
+func (o *PutArchitectPromptUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutArchitectPromptUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutArchitectPromptUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutArchitectPromptForbidden() *PutArchitectPromptForbidden {
 	return &PutArchitectPromptForbidden{}
 }
 
-/*PutArchitectPromptForbidden handles this case with default header values.
+/*
+PutArchitectPromptForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutArchitectPromptForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect prompt forbidden response has a 2xx status code
+func (o *PutArchitectPromptForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect prompt forbidden response has a 3xx status code
+func (o *PutArchitectPromptForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt forbidden response has a 4xx status code
+func (o *PutArchitectPromptForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect prompt forbidden response has a 5xx status code
+func (o *PutArchitectPromptForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect prompt forbidden response a status code equal to that given
+func (o *PutArchitectPromptForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutArchitectPromptForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutArchitectPromptForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutArchitectPromptNotFound() *PutArchitectPromptNotFound {
 	return &PutArchitectPromptNotFound{}
 }
 
-/*PutArchitectPromptNotFound handles this case with default header values.
+/*
+PutArchitectPromptNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutArchitectPromptNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect prompt not found response has a 2xx status code
+func (o *PutArchitectPromptNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect prompt not found response has a 3xx status code
+func (o *PutArchitectPromptNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt not found response has a 4xx status code
+func (o *PutArchitectPromptNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect prompt not found response has a 5xx status code
+func (o *PutArchitectPromptNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect prompt not found response a status code equal to that given
+func (o *PutArchitectPromptNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutArchitectPromptNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutArchitectPromptNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutArchitectPromptRequestTimeout() *PutArchitectPromptRequestTimeout {
 	return &PutArchitectPromptRequestTimeout{}
 }
 
-/*PutArchitectPromptRequestTimeout handles this case with default header values.
+/*
+PutArchitectPromptRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutArchitectPromptRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect prompt request timeout response has a 2xx status code
+func (o *PutArchitectPromptRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect prompt request timeout response has a 3xx status code
+func (o *PutArchitectPromptRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt request timeout response has a 4xx status code
+func (o *PutArchitectPromptRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect prompt request timeout response has a 5xx status code
+func (o *PutArchitectPromptRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect prompt request timeout response a status code equal to that given
+func (o *PutArchitectPromptRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutArchitectPromptRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutArchitectPromptRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutArchitectPromptConflict() *PutArchitectPromptConflict {
 	return &PutArchitectPromptConflict{}
 }
 
-/*PutArchitectPromptConflict handles this case with default header values.
+/*
+PutArchitectPromptConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PutArchitectPromptConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect prompt conflict response has a 2xx status code
+func (o *PutArchitectPromptConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect prompt conflict response has a 3xx status code
+func (o *PutArchitectPromptConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt conflict response has a 4xx status code
+func (o *PutArchitectPromptConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect prompt conflict response has a 5xx status code
+func (o *PutArchitectPromptConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect prompt conflict response a status code equal to that given
+func (o *PutArchitectPromptConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutArchitectPromptConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutArchitectPromptConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutArchitectPromptRequestEntityTooLarge() *PutArchitectPromptRequestEnti
 	return &PutArchitectPromptRequestEntityTooLarge{}
 }
 
-/*PutArchitectPromptRequestEntityTooLarge handles this case with default header values.
+/*
+PutArchitectPromptRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PutArchitectPromptRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect prompt request entity too large response has a 2xx status code
+func (o *PutArchitectPromptRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect prompt request entity too large response has a 3xx status code
+func (o *PutArchitectPromptRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt request entity too large response has a 4xx status code
+func (o *PutArchitectPromptRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect prompt request entity too large response has a 5xx status code
+func (o *PutArchitectPromptRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect prompt request entity too large response a status code equal to that given
+func (o *PutArchitectPromptRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutArchitectPromptRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutArchitectPromptRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutArchitectPromptUnsupportedMediaType() *PutArchitectPromptUnsupportedM
 	return &PutArchitectPromptUnsupportedMediaType{}
 }
 
-/*PutArchitectPromptUnsupportedMediaType handles this case with default header values.
+/*
+PutArchitectPromptUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PutArchitectPromptUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect prompt unsupported media type response has a 2xx status code
+func (o *PutArchitectPromptUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect prompt unsupported media type response has a 3xx status code
+func (o *PutArchitectPromptUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt unsupported media type response has a 4xx status code
+func (o *PutArchitectPromptUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect prompt unsupported media type response has a 5xx status code
+func (o *PutArchitectPromptUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect prompt unsupported media type response a status code equal to that given
+func (o *PutArchitectPromptUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutArchitectPromptUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutArchitectPromptUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutArchitectPromptTooManyRequests() *PutArchitectPromptTooManyRequests {
 	return &PutArchitectPromptTooManyRequests{}
 }
 
-/*PutArchitectPromptTooManyRequests handles this case with default header values.
+/*
+PutArchitectPromptTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutArchitectPromptTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect prompt too many requests response has a 2xx status code
+func (o *PutArchitectPromptTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect prompt too many requests response has a 3xx status code
+func (o *PutArchitectPromptTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt too many requests response has a 4xx status code
+func (o *PutArchitectPromptTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect prompt too many requests response has a 5xx status code
+func (o *PutArchitectPromptTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect prompt too many requests response a status code equal to that given
+func (o *PutArchitectPromptTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutArchitectPromptTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutArchitectPromptTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutArchitectPromptInternalServerError() *PutArchitectPromptInternalServe
 	return &PutArchitectPromptInternalServerError{}
 }
 
-/*PutArchitectPromptInternalServerError handles this case with default header values.
+/*
+PutArchitectPromptInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutArchitectPromptInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect prompt internal server error response has a 2xx status code
+func (o *PutArchitectPromptInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect prompt internal server error response has a 3xx status code
+func (o *PutArchitectPromptInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt internal server error response has a 4xx status code
+func (o *PutArchitectPromptInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect prompt internal server error response has a 5xx status code
+func (o *PutArchitectPromptInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put architect prompt internal server error response a status code equal to that given
+func (o *PutArchitectPromptInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutArchitectPromptInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutArchitectPromptInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutArchitectPromptServiceUnavailable() *PutArchitectPromptServiceUnavail
 	return &PutArchitectPromptServiceUnavailable{}
 }
 
-/*PutArchitectPromptServiceUnavailable handles this case with default header values.
+/*
+PutArchitectPromptServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutArchitectPromptServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect prompt service unavailable response has a 2xx status code
+func (o *PutArchitectPromptServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect prompt service unavailable response has a 3xx status code
+func (o *PutArchitectPromptServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt service unavailable response has a 4xx status code
+func (o *PutArchitectPromptServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect prompt service unavailable response has a 5xx status code
+func (o *PutArchitectPromptServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put architect prompt service unavailable response a status code equal to that given
+func (o *PutArchitectPromptServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutArchitectPromptServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutArchitectPromptServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutArchitectPromptGatewayTimeout() *PutArchitectPromptGatewayTimeout {
 	return &PutArchitectPromptGatewayTimeout{}
 }
 
-/*PutArchitectPromptGatewayTimeout handles this case with default header values.
+/*
+PutArchitectPromptGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutArchitectPromptGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect prompt gateway timeout response has a 2xx status code
+func (o *PutArchitectPromptGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect prompt gateway timeout response has a 3xx status code
+func (o *PutArchitectPromptGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect prompt gateway timeout response has a 4xx status code
+func (o *PutArchitectPromptGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect prompt gateway timeout response has a 5xx status code
+func (o *PutArchitectPromptGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put architect prompt gateway timeout response a status code equal to that given
+func (o *PutArchitectPromptGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutArchitectPromptGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutArchitectPromptGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/prompts/{promptId}][%d] putArchitectPromptGatewayTimeout  %+v", 504, o.Payload)
 }
 

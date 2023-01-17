@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -45,7 +47,6 @@ func (m *ActionInput) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ActionInput) validateInputSchema(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InputSchema) { // not required
 		return nil
 	}
@@ -54,6 +55,8 @@ func (m *ActionInput) validateInputSchema(formats strfmt.Registry) error {
 		if err := m.InputSchema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("inputSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputSchema")
 			}
 			return err
 		}
@@ -63,7 +66,6 @@ func (m *ActionInput) validateInputSchema(formats strfmt.Registry) error {
 }
 
 func (m *ActionInput) validateInputSchemaFlattened(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InputSchemaFlattened) { // not required
 		return nil
 	}
@@ -72,6 +74,58 @@ func (m *ActionInput) validateInputSchemaFlattened(formats strfmt.Registry) erro
 		if err := m.InputSchemaFlattened.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("inputSchemaFlattened")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputSchemaFlattened")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this action input based on the context it is used
+func (m *ActionInput) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateInputSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInputSchemaFlattened(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ActionInput) contextValidateInputSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InputSchema != nil {
+		if err := m.InputSchema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("inputSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputSchema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ActionInput) contextValidateInputSchemaFlattened(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InputSchemaFlattened != nil {
+		if err := m.InputSchemaFlattened.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("inputSchemaFlattened")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputSchemaFlattened")
 			}
 			return err
 		}

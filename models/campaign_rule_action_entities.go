@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -47,7 +48,6 @@ func (m *CampaignRuleActionEntities) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CampaignRuleActionEntities) validateCampaigns(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Campaigns) { // not required
 		return nil
 	}
@@ -61,6 +61,8 @@ func (m *CampaignRuleActionEntities) validateCampaigns(formats strfmt.Registry) 
 			if err := m.Campaigns[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("campaigns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("campaigns" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -72,7 +74,6 @@ func (m *CampaignRuleActionEntities) validateCampaigns(formats strfmt.Registry) 
 }
 
 func (m *CampaignRuleActionEntities) validateSequences(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Sequences) { // not required
 		return nil
 	}
@@ -86,6 +87,66 @@ func (m *CampaignRuleActionEntities) validateSequences(formats strfmt.Registry) 
 			if err := m.Sequences[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sequences" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sequences" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this campaign rule action entities based on the context it is used
+func (m *CampaignRuleActionEntities) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCampaigns(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSequences(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CampaignRuleActionEntities) contextValidateCampaigns(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Campaigns); i++ {
+
+		if m.Campaigns[i] != nil {
+			if err := m.Campaigns[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("campaigns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("campaigns" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CampaignRuleActionEntities) contextValidateSequences(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Sequences); i++ {
+
+		if m.Sequences[i] != nil {
+			if err := m.Sequences[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sequences" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sequences" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

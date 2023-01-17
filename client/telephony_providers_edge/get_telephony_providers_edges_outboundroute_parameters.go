@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesOutboundrouteParams creates a new GetTelephonyProvidersEdgesOutboundrouteParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesOutboundrouteParams creates a new GetTelephonyProvidersEdgesOutboundrouteParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesOutboundrouteParams() *GetTelephonyProvidersEdgesOutboundrouteParams {
-	var ()
 	return &GetTelephonyProvidersEdgesOutboundrouteParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesOutboundrouteParamsWithTimeout creates a new GetTelephonyProvidersEdgesOutboundrouteParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesOutboundrouteParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesOutboundrouteParams {
-	var ()
 	return &GetTelephonyProvidersEdgesOutboundrouteParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesOutboundrouteParamsWithContext creates a new GetTelephonyProvidersEdgesOutboundrouteParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesOutboundrouteParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesOutboundrouteParams {
-	var ()
 	return &GetTelephonyProvidersEdgesOutboundrouteParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesOutboundrouteParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesOutboundrouteParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesOutboundrouteParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesOutboundrouteParams {
-	var ()
 	return &GetTelephonyProvidersEdgesOutboundrouteParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesOutboundrouteParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges outboundroute operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesOutboundrouteParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges outboundroute operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesOutboundrouteParams struct {
 
-	/*OutboundRouteID
-	  Outbound route ID
+	/* OutboundRouteID.
 
+	   Outbound route ID
 	*/
 	OutboundRouteID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges outboundroute params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesOutboundrouteParams) WithDefaults() *GetTelephonyProvidersEdgesOutboundrouteParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges outboundroute params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesOutboundrouteParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges outboundroute params

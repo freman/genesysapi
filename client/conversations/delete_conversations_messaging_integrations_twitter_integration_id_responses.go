@@ -95,7 +95,6 @@ func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDReader) Rea
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent() 
 	return &DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent{}
 }
 
-/*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent describes a response with status code 204, with default header values.
 
 Operation was successful
 */
 type DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent struct {
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations twitter integration Id no content response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations twitter integration Id no content response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations twitter integration Id no content response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations twitter integration Id no content response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations twitter integration Id no content response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdNoContent ", 204)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest()
 	return &DeleteConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest{}
 }
 
-/*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations twitter integration Id bad request response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations twitter integration Id bad request response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations twitter integration Id bad request response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations twitter integration Id bad request response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations twitter integration Id bad request response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized
 	return &DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized{}
 }
 
-/*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations twitter integration Id unauthorized response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations twitter integration Id unauthorized response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations twitter integration Id unauthorized response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations twitter integration Id unauthorized response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations twitter integration Id unauthorized response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteConversationsMessagingIntegrationsTwitterIntegrationIDForbidden() 
 	return &DeleteConversationsMessagingIntegrationsTwitterIntegrationIDForbidden{}
 }
 
-/*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDForbidden handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsTwitterIntegrationIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteConversationsMessagingIntegrationsTwitterIntegrationIDForbidden struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations twitter integration Id forbidden response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations twitter integration Id forbidden response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations twitter integration Id forbidden response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations twitter integration Id forbidden response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations twitter integration Id forbidden response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteConversationsMessagingIntegrationsTwitterIntegrationIDNotFound() *
 	return &DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNotFound{}
 }
 
-/*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNotFound handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNotFound struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations twitter integration Id not found response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations twitter integration Id not found response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations twitter integration Id not found response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations twitter integration Id not found response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations twitter integration Id not found response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeo
 	return &DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout{}
 }
 
-/*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations twitter integration Id request timeout response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations twitter integration Id request timeout response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations twitter integration Id request timeout response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations twitter integration Id request timeout response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations twitter integration Id request timeout response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntit
 	return &DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge{}
 }
 
-/*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTo
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations twitter integration Id request entity too large response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations twitter integration Id request entity too large response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations twitter integration Id request entity too large response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations twitter integration Id request entity too large response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations twitter integration Id request entity too large response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedM
 	return &DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType{}
 }
 
-/*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMedi
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations twitter integration Id unsupported media type response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations twitter integration Id unsupported media type response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations twitter integration Id unsupported media type response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations twitter integration Id unsupported media type response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations twitter integration Id unsupported media type response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteConversationsMessagingIntegrationsTwitterIntegrationIDTooManyReque
 	return &DeleteConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests{}
 }
 
-/*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations twitter integration Id too many requests response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations twitter integration Id too many requests response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations twitter integration Id too many requests response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversations messaging integrations twitter integration Id too many requests response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversations messaging integrations twitter integration Id too many requests response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteConversationsMessagingIntegrationsTwitterIntegrationIDInternalServ
 	return &DeleteConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError{}
 }
 
-/*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerE
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations twitter integration Id internal server error response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations twitter integration Id internal server error response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations twitter integration Id internal server error response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations twitter integration Id internal server error response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations messaging integrations twitter integration Id internal server error response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnava
 	return &DeleteConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable{}
 }
 
-/*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavaila
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations twitter integration Id service unavailable response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations twitter integration Id service unavailable response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations twitter integration Id service unavailable response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations twitter integration Id service unavailable response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations messaging integrations twitter integration Id service unavailable response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeo
 	return &DeleteConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout{}
 }
 
-/*DeleteConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout handles this case with default header values.
+/*
+DeleteConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversations messaging integrations twitter integration Id gateway timeout response has a 2xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversations messaging integrations twitter integration Id gateway timeout response has a 3xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversations messaging integrations twitter integration Id gateway timeout response has a 4xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversations messaging integrations twitter integration Id gateway timeout response has a 5xx status code
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversations messaging integrations twitter integration Id gateway timeout response a status code equal to that given
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteConversationsMessagingIntegrationsTwitterIntegrationIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/messaging/integrations/twitter/{integrationId}][%d] deleteConversationsMessagingIntegrationsTwitterIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

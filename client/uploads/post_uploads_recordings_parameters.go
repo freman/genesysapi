@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostUploadsRecordingsParams creates a new PostUploadsRecordingsParams object
-// with the default values initialized.
+// NewPostUploadsRecordingsParams creates a new PostUploadsRecordingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostUploadsRecordingsParams() *PostUploadsRecordingsParams {
-	var ()
 	return &PostUploadsRecordingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostUploadsRecordingsParamsWithTimeout creates a new PostUploadsRecordingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostUploadsRecordingsParamsWithTimeout(timeout time.Duration) *PostUploadsRecordingsParams {
-	var ()
 	return &PostUploadsRecordingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostUploadsRecordingsParamsWithContext creates a new PostUploadsRecordingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostUploadsRecordingsParamsWithContext(ctx context.Context) *PostUploadsRecordingsParams {
-	var ()
 	return &PostUploadsRecordingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostUploadsRecordingsParamsWithHTTPClient creates a new PostUploadsRecordingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostUploadsRecordingsParamsWithHTTPClient(client *http.Client) *PostUploadsRecordingsParams {
-	var ()
 	return &PostUploadsRecordingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostUploadsRecordingsParams contains all the parameters to send to the API endpoint
-for the post uploads recordings operation typically these are written to a http.Request
+/*
+PostUploadsRecordingsParams contains all the parameters to send to the API endpoint
+
+	for the post uploads recordings operation.
+
+	Typically these are written to a http.Request.
 */
 type PostUploadsRecordingsParams struct {
 
-	/*Body
-	  query
+	/* Body.
 
+	   query
 	*/
 	Body *models.UploadURLRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post uploads recordings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUploadsRecordingsParams) WithDefaults() *PostUploadsRecordingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post uploads recordings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUploadsRecordingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post uploads recordings params
@@ -124,7 +140,6 @@ func (o *PostUploadsRecordingsParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

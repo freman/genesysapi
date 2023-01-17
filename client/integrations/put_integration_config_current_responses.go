@@ -101,7 +101,6 @@ func (o *PutIntegrationConfigCurrentReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutIntegrationConfigCurrentOK() *PutIntegrationConfigCurrentOK {
 	return &PutIntegrationConfigCurrentOK{}
 }
 
-/*PutIntegrationConfigCurrentOK handles this case with default header values.
+/*
+PutIntegrationConfigCurrentOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutIntegrationConfigCurrentOK struct {
 	Payload *models.IntegrationConfiguration
 }
 
+// IsSuccess returns true when this put integration config current o k response has a 2xx status code
+func (o *PutIntegrationConfigCurrentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put integration config current o k response has a 3xx status code
+func (o *PutIntegrationConfigCurrentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current o k response has a 4xx status code
+func (o *PutIntegrationConfigCurrentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integration config current o k response has a 5xx status code
+func (o *PutIntegrationConfigCurrentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integration config current o k response a status code equal to that given
+func (o *PutIntegrationConfigCurrentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutIntegrationConfigCurrentOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentOK  %+v", 200, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutIntegrationConfigCurrentBadRequest() *PutIntegrationConfigCurrentBadR
 	return &PutIntegrationConfigCurrentBadRequest{}
 }
 
-/*PutIntegrationConfigCurrentBadRequest handles this case with default header values.
+/*
+PutIntegrationConfigCurrentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutIntegrationConfigCurrentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integration config current bad request response has a 2xx status code
+func (o *PutIntegrationConfigCurrentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integration config current bad request response has a 3xx status code
+func (o *PutIntegrationConfigCurrentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current bad request response has a 4xx status code
+func (o *PutIntegrationConfigCurrentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integration config current bad request response has a 5xx status code
+func (o *PutIntegrationConfigCurrentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integration config current bad request response a status code equal to that given
+func (o *PutIntegrationConfigCurrentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutIntegrationConfigCurrentBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutIntegrationConfigCurrentUnauthorized() *PutIntegrationConfigCurrentUn
 	return &PutIntegrationConfigCurrentUnauthorized{}
 }
 
-/*PutIntegrationConfigCurrentUnauthorized handles this case with default header values.
+/*
+PutIntegrationConfigCurrentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutIntegrationConfigCurrentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integration config current unauthorized response has a 2xx status code
+func (o *PutIntegrationConfigCurrentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integration config current unauthorized response has a 3xx status code
+func (o *PutIntegrationConfigCurrentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current unauthorized response has a 4xx status code
+func (o *PutIntegrationConfigCurrentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integration config current unauthorized response has a 5xx status code
+func (o *PutIntegrationConfigCurrentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integration config current unauthorized response a status code equal to that given
+func (o *PutIntegrationConfigCurrentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutIntegrationConfigCurrentUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutIntegrationConfigCurrentForbidden() *PutIntegrationConfigCurrentForbi
 	return &PutIntegrationConfigCurrentForbidden{}
 }
 
-/*PutIntegrationConfigCurrentForbidden handles this case with default header values.
+/*
+PutIntegrationConfigCurrentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutIntegrationConfigCurrentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integration config current forbidden response has a 2xx status code
+func (o *PutIntegrationConfigCurrentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integration config current forbidden response has a 3xx status code
+func (o *PutIntegrationConfigCurrentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current forbidden response has a 4xx status code
+func (o *PutIntegrationConfigCurrentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integration config current forbidden response has a 5xx status code
+func (o *PutIntegrationConfigCurrentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integration config current forbidden response a status code equal to that given
+func (o *PutIntegrationConfigCurrentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutIntegrationConfigCurrentForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutIntegrationConfigCurrentNotFound() *PutIntegrationConfigCurrentNotFou
 	return &PutIntegrationConfigCurrentNotFound{}
 }
 
-/*PutIntegrationConfigCurrentNotFound handles this case with default header values.
+/*
+PutIntegrationConfigCurrentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutIntegrationConfigCurrentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integration config current not found response has a 2xx status code
+func (o *PutIntegrationConfigCurrentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integration config current not found response has a 3xx status code
+func (o *PutIntegrationConfigCurrentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current not found response has a 4xx status code
+func (o *PutIntegrationConfigCurrentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integration config current not found response has a 5xx status code
+func (o *PutIntegrationConfigCurrentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integration config current not found response a status code equal to that given
+func (o *PutIntegrationConfigCurrentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutIntegrationConfigCurrentNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutIntegrationConfigCurrentRequestTimeout() *PutIntegrationConfigCurrent
 	return &PutIntegrationConfigCurrentRequestTimeout{}
 }
 
-/*PutIntegrationConfigCurrentRequestTimeout handles this case with default header values.
+/*
+PutIntegrationConfigCurrentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutIntegrationConfigCurrentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integration config current request timeout response has a 2xx status code
+func (o *PutIntegrationConfigCurrentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integration config current request timeout response has a 3xx status code
+func (o *PutIntegrationConfigCurrentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current request timeout response has a 4xx status code
+func (o *PutIntegrationConfigCurrentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integration config current request timeout response has a 5xx status code
+func (o *PutIntegrationConfigCurrentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integration config current request timeout response a status code equal to that given
+func (o *PutIntegrationConfigCurrentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutIntegrationConfigCurrentRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutIntegrationConfigCurrentConflict() *PutIntegrationConfigCurrentConfli
 	return &PutIntegrationConfigCurrentConflict{}
 }
 
-/*PutIntegrationConfigCurrentConflict handles this case with default header values.
+/*
+PutIntegrationConfigCurrentConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PutIntegrationConfigCurrentConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integration config current conflict response has a 2xx status code
+func (o *PutIntegrationConfigCurrentConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integration config current conflict response has a 3xx status code
+func (o *PutIntegrationConfigCurrentConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current conflict response has a 4xx status code
+func (o *PutIntegrationConfigCurrentConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integration config current conflict response has a 5xx status code
+func (o *PutIntegrationConfigCurrentConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integration config current conflict response a status code equal to that given
+func (o *PutIntegrationConfigCurrentConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutIntegrationConfigCurrentConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutIntegrationConfigCurrentRequestEntityTooLarge() *PutIntegrationConfig
 	return &PutIntegrationConfigCurrentRequestEntityTooLarge{}
 }
 
-/*PutIntegrationConfigCurrentRequestEntityTooLarge handles this case with default header values.
+/*
+PutIntegrationConfigCurrentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PutIntegrationConfigCurrentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integration config current request entity too large response has a 2xx status code
+func (o *PutIntegrationConfigCurrentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integration config current request entity too large response has a 3xx status code
+func (o *PutIntegrationConfigCurrentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current request entity too large response has a 4xx status code
+func (o *PutIntegrationConfigCurrentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integration config current request entity too large response has a 5xx status code
+func (o *PutIntegrationConfigCurrentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integration config current request entity too large response a status code equal to that given
+func (o *PutIntegrationConfigCurrentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutIntegrationConfigCurrentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutIntegrationConfigCurrentUnsupportedMediaType() *PutIntegrationConfigC
 	return &PutIntegrationConfigCurrentUnsupportedMediaType{}
 }
 
-/*PutIntegrationConfigCurrentUnsupportedMediaType handles this case with default header values.
+/*
+PutIntegrationConfigCurrentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PutIntegrationConfigCurrentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integration config current unsupported media type response has a 2xx status code
+func (o *PutIntegrationConfigCurrentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integration config current unsupported media type response has a 3xx status code
+func (o *PutIntegrationConfigCurrentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current unsupported media type response has a 4xx status code
+func (o *PutIntegrationConfigCurrentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integration config current unsupported media type response has a 5xx status code
+func (o *PutIntegrationConfigCurrentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integration config current unsupported media type response a status code equal to that given
+func (o *PutIntegrationConfigCurrentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutIntegrationConfigCurrentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutIntegrationConfigCurrentTooManyRequests() *PutIntegrationConfigCurren
 	return &PutIntegrationConfigCurrentTooManyRequests{}
 }
 
-/*PutIntegrationConfigCurrentTooManyRequests handles this case with default header values.
+/*
+PutIntegrationConfigCurrentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutIntegrationConfigCurrentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integration config current too many requests response has a 2xx status code
+func (o *PutIntegrationConfigCurrentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integration config current too many requests response has a 3xx status code
+func (o *PutIntegrationConfigCurrentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current too many requests response has a 4xx status code
+func (o *PutIntegrationConfigCurrentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integration config current too many requests response has a 5xx status code
+func (o *PutIntegrationConfigCurrentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integration config current too many requests response a status code equal to that given
+func (o *PutIntegrationConfigCurrentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutIntegrationConfigCurrentTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutIntegrationConfigCurrentInternalServerError() *PutIntegrationConfigCu
 	return &PutIntegrationConfigCurrentInternalServerError{}
 }
 
-/*PutIntegrationConfigCurrentInternalServerError handles this case with default header values.
+/*
+PutIntegrationConfigCurrentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutIntegrationConfigCurrentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integration config current internal server error response has a 2xx status code
+func (o *PutIntegrationConfigCurrentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integration config current internal server error response has a 3xx status code
+func (o *PutIntegrationConfigCurrentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current internal server error response has a 4xx status code
+func (o *PutIntegrationConfigCurrentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integration config current internal server error response has a 5xx status code
+func (o *PutIntegrationConfigCurrentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put integration config current internal server error response a status code equal to that given
+func (o *PutIntegrationConfigCurrentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutIntegrationConfigCurrentInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutIntegrationConfigCurrentServiceUnavailable() *PutIntegrationConfigCur
 	return &PutIntegrationConfigCurrentServiceUnavailable{}
 }
 
-/*PutIntegrationConfigCurrentServiceUnavailable handles this case with default header values.
+/*
+PutIntegrationConfigCurrentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutIntegrationConfigCurrentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integration config current service unavailable response has a 2xx status code
+func (o *PutIntegrationConfigCurrentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integration config current service unavailable response has a 3xx status code
+func (o *PutIntegrationConfigCurrentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current service unavailable response has a 4xx status code
+func (o *PutIntegrationConfigCurrentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integration config current service unavailable response has a 5xx status code
+func (o *PutIntegrationConfigCurrentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put integration config current service unavailable response a status code equal to that given
+func (o *PutIntegrationConfigCurrentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutIntegrationConfigCurrentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutIntegrationConfigCurrentGatewayTimeout() *PutIntegrationConfigCurrent
 	return &PutIntegrationConfigCurrentGatewayTimeout{}
 }
 
-/*PutIntegrationConfigCurrentGatewayTimeout handles this case with default header values.
+/*
+PutIntegrationConfigCurrentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutIntegrationConfigCurrentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integration config current gateway timeout response has a 2xx status code
+func (o *PutIntegrationConfigCurrentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integration config current gateway timeout response has a 3xx status code
+func (o *PutIntegrationConfigCurrentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integration config current gateway timeout response has a 4xx status code
+func (o *PutIntegrationConfigCurrentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integration config current gateway timeout response has a 5xx status code
+func (o *PutIntegrationConfigCurrentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put integration config current gateway timeout response a status code equal to that given
+func (o *PutIntegrationConfigCurrentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutIntegrationConfigCurrentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutIntegrationConfigCurrentGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/{integrationId}/config/current][%d] putIntegrationConfigCurrentGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -17,125 +17,141 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetArchitectSystempromptHistoryHistoryIDParams creates a new GetArchitectSystempromptHistoryHistoryIDParams object
-// with the default values initialized.
+// NewGetArchitectSystempromptHistoryHistoryIDParams creates a new GetArchitectSystempromptHistoryHistoryIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetArchitectSystempromptHistoryHistoryIDParams() *GetArchitectSystempromptHistoryHistoryIDParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("timestamp")
-		sortOrderDefault  = string("desc")
-	)
 	return &GetArchitectSystempromptHistoryHistoryIDParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetArchitectSystempromptHistoryHistoryIDParamsWithTimeout creates a new GetArchitectSystempromptHistoryHistoryIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetArchitectSystempromptHistoryHistoryIDParamsWithTimeout(timeout time.Duration) *GetArchitectSystempromptHistoryHistoryIDParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("timestamp")
-		sortOrderDefault  = string("desc")
-	)
 	return &GetArchitectSystempromptHistoryHistoryIDParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetArchitectSystempromptHistoryHistoryIDParamsWithContext creates a new GetArchitectSystempromptHistoryHistoryIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetArchitectSystempromptHistoryHistoryIDParamsWithContext(ctx context.Context) *GetArchitectSystempromptHistoryHistoryIDParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("timestamp")
-		sortOrderDefault  = string("desc")
-	)
 	return &GetArchitectSystempromptHistoryHistoryIDParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetArchitectSystempromptHistoryHistoryIDParamsWithHTTPClient creates a new GetArchitectSystempromptHistoryHistoryIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetArchitectSystempromptHistoryHistoryIDParamsWithHTTPClient(client *http.Client) *GetArchitectSystempromptHistoryHistoryIDParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("timestamp")
-		sortOrderDefault  = string("desc")
-	)
 	return &GetArchitectSystempromptHistoryHistoryIDParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetArchitectSystempromptHistoryHistoryIDParams contains all the parameters to send to the API endpoint
-for the get architect systemprompt history history Id operation typically these are written to a http.Request
+/*
+GetArchitectSystempromptHistoryHistoryIDParams contains all the parameters to send to the API endpoint
+
+	for the get architect systemprompt history history Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetArchitectSystempromptHistoryHistoryIDParams struct {
 
-	/*Action
-	  Flow actions to include (omit to include all)
+	/* Action.
 
+	   Flow actions to include (omit to include all)
 	*/
 	Action []string
-	/*HistoryID
-	  History request ID
 
+	/* HistoryID.
+
+	   History request ID
 	*/
 	HistoryID string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*PromptID
-	  promptId
 
+	/* PromptID.
+
+	   promptId
 	*/
 	PromptID string
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
+
+	   Default: "timestamp"
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "desc"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get architect systemprompt history history Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectSystempromptHistoryHistoryIDParams) WithDefaults() *GetArchitectSystempromptHistoryHistoryIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get architect systemprompt history history Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectSystempromptHistoryHistoryIDParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("timestamp")
+
+		sortOrderDefault = string("desc")
+	)
+
+	val := GetArchitectSystempromptHistoryHistoryIDParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get architect systemprompt history history Id params
@@ -256,12 +272,15 @@ func (o *GetArchitectSystempromptHistoryHistoryIDParams) WriteToRequest(r runtim
 	}
 	var res []error
 
-	valuesAction := o.Action
+	if o.Action != nil {
 
-	joinedAction := swag.JoinByFormat(valuesAction, "multi")
-	// query array param action
-	if err := r.SetQueryParam("action", joinedAction...); err != nil {
-		return err
+		// binding items for action
+		joinedAction := o.bindParamAction(reg)
+
+		// query array param action
+		if err := r.SetQueryParam("action", joinedAction...); err != nil {
+			return err
+		}
 	}
 
 	// path param historyId
@@ -273,32 +292,34 @@ func (o *GetArchitectSystempromptHistoryHistoryIDParams) WriteToRequest(r runtim
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param promptId
@@ -310,36 +331,55 @@ func (o *GetArchitectSystempromptHistoryHistoryIDParams) WriteToRequest(r runtim
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetArchitectSystempromptHistoryHistoryID binds the parameter action
+func (o *GetArchitectSystempromptHistoryHistoryIDParams) bindParamAction(formats strfmt.Registry) []string {
+	actionIR := o.Action
+
+	var actionIC []string
+	for _, actionIIR := range actionIR { // explode []string
+
+		actionIIV := actionIIR // string as string
+		actionIC = append(actionIC, actionIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	actionIS := swag.JoinByFormat(actionIC, "multi")
+
+	return actionIS
 }

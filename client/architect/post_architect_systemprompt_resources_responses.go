@@ -101,7 +101,6 @@ func (o *PostArchitectSystempromptResourcesReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostArchitectSystempromptResourcesOK() *PostArchitectSystempromptResourc
 	return &PostArchitectSystempromptResourcesOK{}
 }
 
-/*PostArchitectSystempromptResourcesOK handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostArchitectSystempromptResourcesOK struct {
 	Payload *models.SystemPromptAsset
 }
 
+// IsSuccess returns true when this post architect systemprompt resources o k response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post architect systemprompt resources o k response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources o k response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect systemprompt resources o k response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt resources o k response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostArchitectSystempromptResourcesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostArchitectSystempromptResourcesBadRequest() *PostArchitectSystempromp
 	return &PostArchitectSystempromptResourcesBadRequest{}
 }
 
-/*PostArchitectSystempromptResourcesBadRequest handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostArchitectSystempromptResourcesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt resources bad request response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt resources bad request response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources bad request response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt resources bad request response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt resources bad request response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostArchitectSystempromptResourcesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostArchitectSystempromptResourcesUnauthorized() *PostArchitectSystempro
 	return &PostArchitectSystempromptResourcesUnauthorized{}
 }
 
-/*PostArchitectSystempromptResourcesUnauthorized handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostArchitectSystempromptResourcesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt resources unauthorized response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt resources unauthorized response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources unauthorized response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt resources unauthorized response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt resources unauthorized response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostArchitectSystempromptResourcesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostArchitectSystempromptResourcesForbidden() *PostArchitectSystemprompt
 	return &PostArchitectSystempromptResourcesForbidden{}
 }
 
-/*PostArchitectSystempromptResourcesForbidden handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostArchitectSystempromptResourcesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt resources forbidden response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt resources forbidden response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources forbidden response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt resources forbidden response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt resources forbidden response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostArchitectSystempromptResourcesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostArchitectSystempromptResourcesNotFound() *PostArchitectSystempromptR
 	return &PostArchitectSystempromptResourcesNotFound{}
 }
 
-/*PostArchitectSystempromptResourcesNotFound handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostArchitectSystempromptResourcesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt resources not found response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt resources not found response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources not found response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt resources not found response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt resources not found response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostArchitectSystempromptResourcesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostArchitectSystempromptResourcesRequestTimeout() *PostArchitectSystemp
 	return &PostArchitectSystempromptResourcesRequestTimeout{}
 }
 
-/*PostArchitectSystempromptResourcesRequestTimeout handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostArchitectSystempromptResourcesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt resources request timeout response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt resources request timeout response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources request timeout response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt resources request timeout response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt resources request timeout response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostArchitectSystempromptResourcesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostArchitectSystempromptResourcesConflict() *PostArchitectSystempromptR
 	return &PostArchitectSystempromptResourcesConflict{}
 }
 
-/*PostArchitectSystempromptResourcesConflict handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PostArchitectSystempromptResourcesConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt resources conflict response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt resources conflict response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources conflict response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt resources conflict response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt resources conflict response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostArchitectSystempromptResourcesConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostArchitectSystempromptResourcesRequestEntityTooLarge() *PostArchitect
 	return &PostArchitectSystempromptResourcesRequestEntityTooLarge{}
 }
 
-/*PostArchitectSystempromptResourcesRequestEntityTooLarge handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostArchitectSystempromptResourcesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt resources request entity too large response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt resources request entity too large response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources request entity too large response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt resources request entity too large response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt resources request entity too large response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostArchitectSystempromptResourcesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostArchitectSystempromptResourcesUnsupportedMediaType() *PostArchitectS
 	return &PostArchitectSystempromptResourcesUnsupportedMediaType{}
 }
 
-/*PostArchitectSystempromptResourcesUnsupportedMediaType handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostArchitectSystempromptResourcesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt resources unsupported media type response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt resources unsupported media type response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources unsupported media type response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt resources unsupported media type response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt resources unsupported media type response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostArchitectSystempromptResourcesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostArchitectSystempromptResourcesTooManyRequests() *PostArchitectSystem
 	return &PostArchitectSystempromptResourcesTooManyRequests{}
 }
 
-/*PostArchitectSystempromptResourcesTooManyRequests handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostArchitectSystempromptResourcesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt resources too many requests response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt resources too many requests response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources too many requests response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post architect systemprompt resources too many requests response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post architect systemprompt resources too many requests response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostArchitectSystempromptResourcesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostArchitectSystempromptResourcesInternalServerError() *PostArchitectSy
 	return &PostArchitectSystempromptResourcesInternalServerError{}
 }
 
-/*PostArchitectSystempromptResourcesInternalServerError handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostArchitectSystempromptResourcesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt resources internal server error response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt resources internal server error response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources internal server error response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect systemprompt resources internal server error response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post architect systemprompt resources internal server error response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostArchitectSystempromptResourcesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostArchitectSystempromptResourcesServiceUnavailable() *PostArchitectSys
 	return &PostArchitectSystempromptResourcesServiceUnavailable{}
 }
 
-/*PostArchitectSystempromptResourcesServiceUnavailable handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostArchitectSystempromptResourcesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt resources service unavailable response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt resources service unavailable response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources service unavailable response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect systemprompt resources service unavailable response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post architect systemprompt resources service unavailable response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostArchitectSystempromptResourcesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostArchitectSystempromptResourcesGatewayTimeout() *PostArchitectSystemp
 	return &PostArchitectSystempromptResourcesGatewayTimeout{}
 }
 
-/*PostArchitectSystempromptResourcesGatewayTimeout handles this case with default header values.
+/*
+PostArchitectSystempromptResourcesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostArchitectSystempromptResourcesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post architect systemprompt resources gateway timeout response has a 2xx status code
+func (o *PostArchitectSystempromptResourcesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post architect systemprompt resources gateway timeout response has a 3xx status code
+func (o *PostArchitectSystempromptResourcesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post architect systemprompt resources gateway timeout response has a 4xx status code
+func (o *PostArchitectSystempromptResourcesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post architect systemprompt resources gateway timeout response has a 5xx status code
+func (o *PostArchitectSystempromptResourcesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post architect systemprompt resources gateway timeout response a status code equal to that given
+func (o *PostArchitectSystempromptResourcesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostArchitectSystempromptResourcesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostArchitectSystempromptResourcesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/architect/systemprompts/{promptId}/resources][%d] postArchitectSystempromptResourcesGatewayTimeout  %+v", 504, o.Payload)
 }
 

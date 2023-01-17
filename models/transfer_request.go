@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -33,6 +35,11 @@ type TransferRequest struct {
 
 // Validate validates this transfer request
 func (m *TransferRequest) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this transfer request based on context it is used
+func (m *TransferRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

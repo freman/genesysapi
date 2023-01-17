@@ -17,91 +17,117 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetOrganizationsLimitsChangerequestsParams creates a new GetOrganizationsLimitsChangerequestsParams object
-// with the default values initialized.
+// NewGetOrganizationsLimitsChangerequestsParams creates a new GetOrganizationsLimitsChangerequestsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOrganizationsLimitsChangerequestsParams() *GetOrganizationsLimitsChangerequestsParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetOrganizationsLimitsChangerequestsParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOrganizationsLimitsChangerequestsParamsWithTimeout creates a new GetOrganizationsLimitsChangerequestsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOrganizationsLimitsChangerequestsParamsWithTimeout(timeout time.Duration) *GetOrganizationsLimitsChangerequestsParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetOrganizationsLimitsChangerequestsParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOrganizationsLimitsChangerequestsParamsWithContext creates a new GetOrganizationsLimitsChangerequestsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOrganizationsLimitsChangerequestsParamsWithContext(ctx context.Context) *GetOrganizationsLimitsChangerequestsParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetOrganizationsLimitsChangerequestsParams{
-		PageSize: &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOrganizationsLimitsChangerequestsParamsWithHTTPClient creates a new GetOrganizationsLimitsChangerequestsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOrganizationsLimitsChangerequestsParamsWithHTTPClient(client *http.Client) *GetOrganizationsLimitsChangerequestsParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetOrganizationsLimitsChangerequestsParams{
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetOrganizationsLimitsChangerequestsParams contains all the parameters to send to the API endpoint
-for the get organizations limits changerequests operation typically these are written to a http.Request
+/*
+GetOrganizationsLimitsChangerequestsParams contains all the parameters to send to the API endpoint
+
+	for the get organizations limits changerequests operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOrganizationsLimitsChangerequestsParams struct {
 
-	/*After
-	  Timestamp indicating the date to begin after when searching for requests.
+	/* After.
 
+	   Timestamp indicating the date to begin after when searching for requests.
+
+	   Format: int64
 	*/
 	After *int64
-	/*Before
-	  Timestamp indicating the date to end before when searching for requests.
 
+	/* Before.
+
+	   Timestamp indicating the date to end before when searching for requests.
+
+	   Format: int64
 	*/
 	Before *int64
-	/*Expand
-	  Which fields, if any, to expand.
 
+	/* Expand.
+
+	   Which fields, if any, to expand.
 	*/
 	Expand []string
-	/*PageSize
-	  Page Size
 
+	/* PageSize.
+
+	   Page Size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*Status
-	  Status of the request to be filtered by
 
+	/* Status.
+
+	   Status of the request to be filtered by
 	*/
 	Status *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get organizations limits changerequests params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrganizationsLimitsChangerequestsParams) WithDefaults() *GetOrganizationsLimitsChangerequestsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get organizations limits changerequests params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrganizationsLimitsChangerequestsParams) SetDefaults() {
+	var (
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetOrganizationsLimitsChangerequestsParams{
+		PageSize: &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get organizations limits changerequests params
@@ -204,76 +230,100 @@ func (o *GetOrganizationsLimitsChangerequestsParams) WriteToRequest(r runtime.Cl
 
 		// query param after
 		var qrAfter int64
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := swag.FormatInt64(qrAfter)
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore int64
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := swag.FormatInt64(qrBefore)
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Status != nil {
 
 		// query param status
 		var qrStatus string
+
 		if o.Status != nil {
 			qrStatus = *o.Status
 		}
 		qStatus := qrStatus
 		if qStatus != "" {
+
 			if err := r.SetQueryParam("status", qStatus); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetOrganizationsLimitsChangerequests binds the parameter expand
+func (o *GetOrganizationsLimitsChangerequestsParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

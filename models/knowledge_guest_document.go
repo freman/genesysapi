@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -135,7 +136,6 @@ func (m *KnowledgeGuestDocument) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeGuestDocument) validateAlternatives(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Alternatives) { // not required
 		return nil
 	}
@@ -149,6 +149,8 @@ func (m *KnowledgeGuestDocument) validateAlternatives(formats strfmt.Registry) e
 			if err := m.Alternatives[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("alternatives" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("alternatives" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -160,7 +162,6 @@ func (m *KnowledgeGuestDocument) validateAlternatives(formats strfmt.Registry) e
 }
 
 func (m *KnowledgeGuestDocument) validateCategory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Category) { // not required
 		return nil
 	}
@@ -169,6 +170,8 @@ func (m *KnowledgeGuestDocument) validateCategory(formats strfmt.Registry) error
 		if err := m.Category.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("category")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("category")
 			}
 			return err
 		}
@@ -178,7 +181,6 @@ func (m *KnowledgeGuestDocument) validateCategory(formats strfmt.Registry) error
 }
 
 func (m *KnowledgeGuestDocument) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -187,6 +189,8 @@ func (m *KnowledgeGuestDocument) validateCreatedBy(formats strfmt.Registry) erro
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -196,7 +200,6 @@ func (m *KnowledgeGuestDocument) validateCreatedBy(formats strfmt.Registry) erro
 }
 
 func (m *KnowledgeGuestDocument) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -209,7 +212,6 @@ func (m *KnowledgeGuestDocument) validateDateCreated(formats strfmt.Registry) er
 }
 
 func (m *KnowledgeGuestDocument) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -222,7 +224,6 @@ func (m *KnowledgeGuestDocument) validateDateModified(formats strfmt.Registry) e
 }
 
 func (m *KnowledgeGuestDocument) validateDatePublished(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DatePublished) { // not required
 		return nil
 	}
@@ -235,7 +236,6 @@ func (m *KnowledgeGuestDocument) validateDatePublished(formats strfmt.Registry) 
 }
 
 func (m *KnowledgeGuestDocument) validateDocumentVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DocumentVersion) { // not required
 		return nil
 	}
@@ -244,6 +244,8 @@ func (m *KnowledgeGuestDocument) validateDocumentVersion(formats strfmt.Registry
 		if err := m.DocumentVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("documentVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("documentVersion")
 			}
 			return err
 		}
@@ -253,7 +255,6 @@ func (m *KnowledgeGuestDocument) validateDocumentVersion(formats strfmt.Registry
 }
 
 func (m *KnowledgeGuestDocument) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -262,6 +263,8 @@ func (m *KnowledgeGuestDocument) validateModifiedBy(formats strfmt.Registry) err
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -271,7 +274,6 @@ func (m *KnowledgeGuestDocument) validateModifiedBy(formats strfmt.Registry) err
 }
 
 func (m *KnowledgeGuestDocument) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -316,7 +318,6 @@ func (m *KnowledgeGuestDocument) validateStateEnum(path, location string, value 
 }
 
 func (m *KnowledgeGuestDocument) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -330,7 +331,6 @@ func (m *KnowledgeGuestDocument) validateState(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeGuestDocument) validateVariations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Variations) { // not required
 		return nil
 	}
@@ -344,6 +344,185 @@ func (m *KnowledgeGuestDocument) validateVariations(formats strfmt.Registry) err
 			if err := m.Variations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("variations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("variations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge guest document based on the context it is used
+func (m *KnowledgeGuestDocument) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAlternatives(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCategory(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDocumentVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSessionID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVariations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeGuestDocument) contextValidateAlternatives(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Alternatives); i++ {
+
+		if m.Alternatives[i] != nil {
+			if err := m.Alternatives[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("alternatives" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("alternatives" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *KnowledgeGuestDocument) contextValidateCategory(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Category != nil {
+		if err := m.Category.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("category")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("category")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeGuestDocument) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeGuestDocument) contextValidateDocumentVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DocumentVersion != nil {
+		if err := m.DocumentVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("documentVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("documentVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeGuestDocument) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeGuestDocument) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeGuestDocument) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeGuestDocument) contextValidateSessionID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "sessionId", "body", string(m.SessionID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeGuestDocument) contextValidateVariations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Variations); i++ {
+
+		if m.Variations[i] != nil {
+			if err := m.Variations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("variations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("variations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

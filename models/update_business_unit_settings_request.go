@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -75,6 +76,8 @@ func (m *UpdateBusinessUnitSettingsRequest) validateMetadata(formats strfmt.Regi
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -84,7 +87,6 @@ func (m *UpdateBusinessUnitSettingsRequest) validateMetadata(formats strfmt.Regi
 }
 
 func (m *UpdateBusinessUnitSettingsRequest) validateScheduling(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Scheduling) { // not required
 		return nil
 	}
@@ -93,6 +95,8 @@ func (m *UpdateBusinessUnitSettingsRequest) validateScheduling(formats strfmt.Re
 		if err := m.Scheduling.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scheduling")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scheduling")
 			}
 			return err
 		}
@@ -102,7 +106,6 @@ func (m *UpdateBusinessUnitSettingsRequest) validateScheduling(formats strfmt.Re
 }
 
 func (m *UpdateBusinessUnitSettingsRequest) validateShortTermForecasting(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShortTermForecasting) { // not required
 		return nil
 	}
@@ -111,6 +114,8 @@ func (m *UpdateBusinessUnitSettingsRequest) validateShortTermForecasting(formats
 		if err := m.ShortTermForecasting.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("shortTermForecasting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecasting")
 			}
 			return err
 		}
@@ -164,13 +169,108 @@ func (m *UpdateBusinessUnitSettingsRequest) validateStartDayOfWeekEnum(path, loc
 }
 
 func (m *UpdateBusinessUnitSettingsRequest) validateStartDayOfWeek(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDayOfWeek) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStartDayOfWeekEnum("startDayOfWeek", "body", m.StartDayOfWeek); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this update business unit settings request based on the context it is used
+func (m *UpdateBusinessUnitSettingsRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScheduling(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShortTermForecasting(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStartDayOfWeek(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTimeZone(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UpdateBusinessUnitSettingsRequest) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateBusinessUnitSettingsRequest) contextValidateScheduling(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Scheduling != nil {
+		if err := m.Scheduling.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scheduling")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scheduling")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateBusinessUnitSettingsRequest) contextValidateShortTermForecasting(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ShortTermForecasting != nil {
+		if err := m.ShortTermForecasting.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("shortTermForecasting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecasting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateBusinessUnitSettingsRequest) contextValidateStartDayOfWeek(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "startDayOfWeek", "body", string(m.StartDayOfWeek)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UpdateBusinessUnitSettingsRequest) contextValidateTimeZone(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "timeZone", "body", string(m.TimeZone)); err != nil {
 		return err
 	}
 

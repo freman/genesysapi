@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -82,7 +83,6 @@ func (m *BuIntradayDataGroup) Validate(formats strfmt.Registry) error {
 }
 
 func (m *BuIntradayDataGroup) validateForecastDataPerInterval(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ForecastDataPerInterval) { // not required
 		return nil
 	}
@@ -96,6 +96,8 @@ func (m *BuIntradayDataGroup) validateForecastDataPerInterval(formats strfmt.Reg
 			if err := m.ForecastDataPerInterval[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("forecastDataPerInterval" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forecastDataPerInterval" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -107,7 +109,6 @@ func (m *BuIntradayDataGroup) validateForecastDataPerInterval(formats strfmt.Reg
 }
 
 func (m *BuIntradayDataGroup) validateForecastDataSummary(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ForecastDataSummary) { // not required
 		return nil
 	}
@@ -116,6 +117,8 @@ func (m *BuIntradayDataGroup) validateForecastDataSummary(formats strfmt.Registr
 		if err := m.ForecastDataSummary.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("forecastDataSummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("forecastDataSummary")
 			}
 			return err
 		}
@@ -163,7 +166,6 @@ func (m *BuIntradayDataGroup) validateMediaTypeEnum(path, location string, value
 }
 
 func (m *BuIntradayDataGroup) validateMediaType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaType) { // not required
 		return nil
 	}
@@ -177,7 +179,6 @@ func (m *BuIntradayDataGroup) validateMediaType(formats strfmt.Registry) error {
 }
 
 func (m *BuIntradayDataGroup) validatePerformancePredictionDataPerInterval(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PerformancePredictionDataPerInterval) { // not required
 		return nil
 	}
@@ -191,6 +192,8 @@ func (m *BuIntradayDataGroup) validatePerformancePredictionDataPerInterval(forma
 			if err := m.PerformancePredictionDataPerInterval[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("performancePredictionDataPerInterval" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("performancePredictionDataPerInterval" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -202,7 +205,6 @@ func (m *BuIntradayDataGroup) validatePerformancePredictionDataPerInterval(forma
 }
 
 func (m *BuIntradayDataGroup) validatePerformancePredictionDataSummary(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PerformancePredictionDataSummary) { // not required
 		return nil
 	}
@@ -211,6 +213,8 @@ func (m *BuIntradayDataGroup) validatePerformancePredictionDataSummary(formats s
 		if err := m.PerformancePredictionDataSummary.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("performancePredictionDataSummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("performancePredictionDataSummary")
 			}
 			return err
 		}
@@ -220,7 +224,6 @@ func (m *BuIntradayDataGroup) validatePerformancePredictionDataSummary(formats s
 }
 
 func (m *BuIntradayDataGroup) validateScheduleDataPerInterval(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScheduleDataPerInterval) { // not required
 		return nil
 	}
@@ -234,6 +237,8 @@ func (m *BuIntradayDataGroup) validateScheduleDataPerInterval(formats strfmt.Reg
 			if err := m.ScheduleDataPerInterval[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("scheduleDataPerInterval" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scheduleDataPerInterval" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -245,7 +250,6 @@ func (m *BuIntradayDataGroup) validateScheduleDataPerInterval(formats strfmt.Reg
 }
 
 func (m *BuIntradayDataGroup) validateScheduleDataSummary(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScheduleDataSummary) { // not required
 		return nil
 	}
@@ -254,6 +258,150 @@ func (m *BuIntradayDataGroup) validateScheduleDataSummary(formats strfmt.Registr
 		if err := m.ScheduleDataSummary.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scheduleDataSummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scheduleDataSummary")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu intraday data group based on the context it is used
+func (m *BuIntradayDataGroup) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateForecastDataPerInterval(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateForecastDataSummary(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePerformancePredictionDataPerInterval(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePerformancePredictionDataSummary(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScheduleDataPerInterval(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScheduleDataSummary(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuIntradayDataGroup) contextValidateForecastDataPerInterval(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ForecastDataPerInterval); i++ {
+
+		if m.ForecastDataPerInterval[i] != nil {
+			if err := m.ForecastDataPerInterval[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("forecastDataPerInterval" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("forecastDataPerInterval" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuIntradayDataGroup) contextValidateForecastDataSummary(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ForecastDataSummary != nil {
+		if err := m.ForecastDataSummary.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("forecastDataSummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("forecastDataSummary")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuIntradayDataGroup) contextValidatePerformancePredictionDataPerInterval(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PerformancePredictionDataPerInterval); i++ {
+
+		if m.PerformancePredictionDataPerInterval[i] != nil {
+			if err := m.PerformancePredictionDataPerInterval[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("performancePredictionDataPerInterval" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("performancePredictionDataPerInterval" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuIntradayDataGroup) contextValidatePerformancePredictionDataSummary(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PerformancePredictionDataSummary != nil {
+		if err := m.PerformancePredictionDataSummary.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("performancePredictionDataSummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("performancePredictionDataSummary")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuIntradayDataGroup) contextValidateScheduleDataPerInterval(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ScheduleDataPerInterval); i++ {
+
+		if m.ScheduleDataPerInterval[i] != nil {
+			if err := m.ScheduleDataPerInterval[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scheduleDataPerInterval" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scheduleDataPerInterval" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuIntradayDataGroup) contextValidateScheduleDataSummary(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ScheduleDataSummary != nil {
+		if err := m.ScheduleDataSummary.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scheduleDataSummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scheduleDataSummary")
 			}
 			return err
 		}

@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteOutboundContactlistContactsParams creates a new DeleteOutboundContactlistContactsParams object
-// with the default values initialized.
+// NewDeleteOutboundContactlistContactsParams creates a new DeleteOutboundContactlistContactsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundContactlistContactsParams() *DeleteOutboundContactlistContactsParams {
-	var ()
 	return &DeleteOutboundContactlistContactsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundContactlistContactsParamsWithTimeout creates a new DeleteOutboundContactlistContactsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundContactlistContactsParamsWithTimeout(timeout time.Duration) *DeleteOutboundContactlistContactsParams {
-	var ()
 	return &DeleteOutboundContactlistContactsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundContactlistContactsParamsWithContext creates a new DeleteOutboundContactlistContactsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundContactlistContactsParamsWithContext(ctx context.Context) *DeleteOutboundContactlistContactsParams {
-	var ()
 	return &DeleteOutboundContactlistContactsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundContactlistContactsParamsWithHTTPClient creates a new DeleteOutboundContactlistContactsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundContactlistContactsParamsWithHTTPClient(client *http.Client) *DeleteOutboundContactlistContactsParams {
-	var ()
 	return &DeleteOutboundContactlistContactsParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundContactlistContactsParams contains all the parameters to send to the API endpoint
-for the delete outbound contactlist contacts operation typically these are written to a http.Request
+/*
+DeleteOutboundContactlistContactsParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound contactlist contacts operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundContactlistContactsParams struct {
 
-	/*ContactIds
-	  ContactIds to delete.
+	/* ContactIds.
 
+	   ContactIds to delete.
 	*/
 	ContactIds []string
-	/*ContactListID
-	  Contact List ID
 
+	/* ContactListID.
+
+	   Contact List ID
 	*/
 	ContactListID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound contactlist contacts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundContactlistContactsParams) WithDefaults() *DeleteOutboundContactlistContactsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound contactlist contacts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundContactlistContactsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound contactlist contacts params
@@ -140,12 +157,15 @@ func (o *DeleteOutboundContactlistContactsParams) WriteToRequest(r runtime.Clien
 	}
 	var res []error
 
-	valuesContactIds := o.ContactIds
+	if o.ContactIds != nil {
 
-	joinedContactIds := swag.JoinByFormat(valuesContactIds, "multi")
-	// query array param contactIds
-	if err := r.SetQueryParam("contactIds", joinedContactIds...); err != nil {
-		return err
+		// binding items for contactIds
+		joinedContactIds := o.bindParamContactIds(reg)
+
+		// query array param contactIds
+		if err := r.SetQueryParam("contactIds", joinedContactIds...); err != nil {
+			return err
+		}
 	}
 
 	// path param contactListId
@@ -157,4 +177,21 @@ func (o *DeleteOutboundContactlistContactsParams) WriteToRequest(r runtime.Clien
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteOutboundContactlistContacts binds the parameter contactIds
+func (o *DeleteOutboundContactlistContactsParams) bindParamContactIds(formats strfmt.Registry) []string {
+	contactIdsIR := o.ContactIds
+
+	var contactIdsIC []string
+	for _, contactIdsIIR := range contactIdsIR { // explode []string
+
+		contactIdsIIV := contactIdsIIR // string as string
+		contactIdsIC = append(contactIdsIC, contactIdsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	contactIdsIS := swag.JoinByFormat(contactIdsIC, "multi")
+
+	return contactIdsIS
 }

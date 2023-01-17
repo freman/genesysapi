@@ -17,117 +17,136 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetProfilesUsersParams creates a new GetProfilesUsersParams object
-// with the default values initialized.
+// NewGetProfilesUsersParams creates a new GetProfilesUsersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetProfilesUsersParams() *GetProfilesUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetProfilesUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetProfilesUsersParamsWithTimeout creates a new GetProfilesUsersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetProfilesUsersParamsWithTimeout(timeout time.Duration) *GetProfilesUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetProfilesUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetProfilesUsersParamsWithContext creates a new GetProfilesUsersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetProfilesUsersParamsWithContext(ctx context.Context) *GetProfilesUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetProfilesUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetProfilesUsersParamsWithHTTPClient creates a new GetProfilesUsersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetProfilesUsersParamsWithHTTPClient(client *http.Client) *GetProfilesUsersParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetProfilesUsersParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetProfilesUsersParams contains all the parameters to send to the API endpoint
-for the get profiles users operation typically these are written to a http.Request
+/*
+GetProfilesUsersParams contains all the parameters to send to the API endpoint
+
+	for the get profiles users operation.
+
+	Typically these are written to a http.Request.
 */
 type GetProfilesUsersParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand
+	/* Expand.
 
+	   Which fields, if any, to expand
 	*/
 	Expand []string
-	/*ID
-	  id
 
+	/* ID.
+
+	   id
 	*/
 	ID []string
-	/*IntegrationPresenceSource
-	  Gets an integration presence for users instead of their defaults. This parameter will only be used when presence is provided as an "expand".
 
+	/* IntegrationPresenceSource.
+
+	   Gets an integration presence for users instead of their defaults. This parameter will only be used when presence is provided as an "expand".
 	*/
 	IntegrationPresenceSource *string
-	/*Jid
-	  jid
 
+	/* Jid.
+
+	   jid
 	*/
 	Jid []string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortOrder
-	  Ascending or descending sort order
 
+	/* SortOrder.
+
+	   Ascending or descending sort order
+
+	   Default: "ASC"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get profiles users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetProfilesUsersParams) WithDefaults() *GetProfilesUsersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get profiles users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetProfilesUsersParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortOrderDefault = string("ASC")
+	)
+
+	val := GetProfilesUsersParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get profiles users params
@@ -248,96 +267,160 @@ func (o *GetProfilesUsersParams) WriteToRequest(r runtime.ClientRequest, reg str
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if o.IntegrationPresenceSource != nil {
 
 		// query param integrationPresenceSource
 		var qrIntegrationPresenceSource string
+
 		if o.IntegrationPresenceSource != nil {
 			qrIntegrationPresenceSource = *o.IntegrationPresenceSource
 		}
 		qIntegrationPresenceSource := qrIntegrationPresenceSource
 		if qIntegrationPresenceSource != "" {
+
 			if err := r.SetQueryParam("integrationPresenceSource", qIntegrationPresenceSource); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesJid := o.Jid
+	if o.Jid != nil {
 
-	joinedJid := swag.JoinByFormat(valuesJid, "multi")
-	// query array param jid
-	if err := r.SetQueryParam("jid", joinedJid...); err != nil {
-		return err
+		// binding items for jid
+		joinedJid := o.bindParamJid(reg)
+
+		// query array param jid
+		if err := r.SetQueryParam("jid", joinedJid...); err != nil {
+			return err
+		}
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetProfilesUsers binds the parameter expand
+func (o *GetProfilesUsersParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
+}
+
+// bindParamGetProfilesUsers binds the parameter id
+func (o *GetProfilesUsersParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
+}
+
+// bindParamGetProfilesUsers binds the parameter jid
+func (o *GetProfilesUsersParams) bindParamJid(formats strfmt.Registry) []string {
+	jidIR := o.Jid
+
+	var jidIC []string
+	for _, jidIIR := range jidIR { // explode []string
+
+		jidIIV := jidIIR // string as string
+		jidIC = append(jidIC, jidIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	jidIS := swag.JoinByFormat(jidIC, "multi")
+
+	return jidIS
 }

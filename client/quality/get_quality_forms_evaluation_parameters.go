@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetQualityFormsEvaluationParams creates a new GetQualityFormsEvaluationParams object
-// with the default values initialized.
+// NewGetQualityFormsEvaluationParams creates a new GetQualityFormsEvaluationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetQualityFormsEvaluationParams() *GetQualityFormsEvaluationParams {
-	var ()
 	return &GetQualityFormsEvaluationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetQualityFormsEvaluationParamsWithTimeout creates a new GetQualityFormsEvaluationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetQualityFormsEvaluationParamsWithTimeout(timeout time.Duration) *GetQualityFormsEvaluationParams {
-	var ()
 	return &GetQualityFormsEvaluationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetQualityFormsEvaluationParamsWithContext creates a new GetQualityFormsEvaluationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetQualityFormsEvaluationParamsWithContext(ctx context.Context) *GetQualityFormsEvaluationParams {
-	var ()
 	return &GetQualityFormsEvaluationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetQualityFormsEvaluationParamsWithHTTPClient creates a new GetQualityFormsEvaluationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetQualityFormsEvaluationParamsWithHTTPClient(client *http.Client) *GetQualityFormsEvaluationParams {
-	var ()
 	return &GetQualityFormsEvaluationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetQualityFormsEvaluationParams contains all the parameters to send to the API endpoint
-for the get quality forms evaluation operation typically these are written to a http.Request
+/*
+GetQualityFormsEvaluationParams contains all the parameters to send to the API endpoint
+
+	for the get quality forms evaluation operation.
+
+	Typically these are written to a http.Request.
 */
 type GetQualityFormsEvaluationParams struct {
 
-	/*FormID
-	  Form ID
+	/* FormID.
 
+	   Form ID
 	*/
 	FormID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get quality forms evaluation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityFormsEvaluationParams) WithDefaults() *GetQualityFormsEvaluationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get quality forms evaluation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityFormsEvaluationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get quality forms evaluation params

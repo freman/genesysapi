@@ -95,7 +95,6 @@ func (o *GetIdentityprovidersCicReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIdentityprovidersCicOK() *GetIdentityprovidersCicOK {
 	return &GetIdentityprovidersCicOK{}
 }
 
-/*GetIdentityprovidersCicOK handles this case with default header values.
+/*
+GetIdentityprovidersCicOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIdentityprovidersCicOK struct {
 	Payload *models.CustomerInteractionCenter
 }
 
+// IsSuccess returns true when this get identityproviders cic o k response has a 2xx status code
+func (o *GetIdentityprovidersCicOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get identityproviders cic o k response has a 3xx status code
+func (o *GetIdentityprovidersCicOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders cic o k response has a 4xx status code
+func (o *GetIdentityprovidersCicOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders cic o k response has a 5xx status code
+func (o *GetIdentityprovidersCicOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders cic o k response a status code equal to that given
+func (o *GetIdentityprovidersCicOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIdentityprovidersCicOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIdentityprovidersCicOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIdentityprovidersCicBadRequest() *GetIdentityprovidersCicBadRequest {
 	return &GetIdentityprovidersCicBadRequest{}
 }
 
-/*GetIdentityprovidersCicBadRequest handles this case with default header values.
+/*
+GetIdentityprovidersCicBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIdentityprovidersCicBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders cic bad request response has a 2xx status code
+func (o *GetIdentityprovidersCicBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders cic bad request response has a 3xx status code
+func (o *GetIdentityprovidersCicBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders cic bad request response has a 4xx status code
+func (o *GetIdentityprovidersCicBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders cic bad request response has a 5xx status code
+func (o *GetIdentityprovidersCicBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders cic bad request response a status code equal to that given
+func (o *GetIdentityprovidersCicBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIdentityprovidersCicBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIdentityprovidersCicBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIdentityprovidersCicUnauthorized() *GetIdentityprovidersCicUnauthoriz
 	return &GetIdentityprovidersCicUnauthorized{}
 }
 
-/*GetIdentityprovidersCicUnauthorized handles this case with default header values.
+/*
+GetIdentityprovidersCicUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIdentityprovidersCicUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders cic unauthorized response has a 2xx status code
+func (o *GetIdentityprovidersCicUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders cic unauthorized response has a 3xx status code
+func (o *GetIdentityprovidersCicUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders cic unauthorized response has a 4xx status code
+func (o *GetIdentityprovidersCicUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders cic unauthorized response has a 5xx status code
+func (o *GetIdentityprovidersCicUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders cic unauthorized response a status code equal to that given
+func (o *GetIdentityprovidersCicUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIdentityprovidersCicUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIdentityprovidersCicUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIdentityprovidersCicForbidden() *GetIdentityprovidersCicForbidden {
 	return &GetIdentityprovidersCicForbidden{}
 }
 
-/*GetIdentityprovidersCicForbidden handles this case with default header values.
+/*
+GetIdentityprovidersCicForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIdentityprovidersCicForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders cic forbidden response has a 2xx status code
+func (o *GetIdentityprovidersCicForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders cic forbidden response has a 3xx status code
+func (o *GetIdentityprovidersCicForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders cic forbidden response has a 4xx status code
+func (o *GetIdentityprovidersCicForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders cic forbidden response has a 5xx status code
+func (o *GetIdentityprovidersCicForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders cic forbidden response a status code equal to that given
+func (o *GetIdentityprovidersCicForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIdentityprovidersCicForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIdentityprovidersCicForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIdentityprovidersCicNotFound() *GetIdentityprovidersCicNotFound {
 	return &GetIdentityprovidersCicNotFound{}
 }
 
-/*GetIdentityprovidersCicNotFound handles this case with default header values.
+/*
+GetIdentityprovidersCicNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIdentityprovidersCicNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders cic not found response has a 2xx status code
+func (o *GetIdentityprovidersCicNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders cic not found response has a 3xx status code
+func (o *GetIdentityprovidersCicNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders cic not found response has a 4xx status code
+func (o *GetIdentityprovidersCicNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders cic not found response has a 5xx status code
+func (o *GetIdentityprovidersCicNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders cic not found response a status code equal to that given
+func (o *GetIdentityprovidersCicNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIdentityprovidersCicNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIdentityprovidersCicNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIdentityprovidersCicRequestTimeout() *GetIdentityprovidersCicRequestT
 	return &GetIdentityprovidersCicRequestTimeout{}
 }
 
-/*GetIdentityprovidersCicRequestTimeout handles this case with default header values.
+/*
+GetIdentityprovidersCicRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIdentityprovidersCicRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders cic request timeout response has a 2xx status code
+func (o *GetIdentityprovidersCicRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders cic request timeout response has a 3xx status code
+func (o *GetIdentityprovidersCicRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders cic request timeout response has a 4xx status code
+func (o *GetIdentityprovidersCicRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders cic request timeout response has a 5xx status code
+func (o *GetIdentityprovidersCicRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders cic request timeout response a status code equal to that given
+func (o *GetIdentityprovidersCicRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIdentityprovidersCicRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIdentityprovidersCicRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIdentityprovidersCicRequestEntityTooLarge() *GetIdentityprovidersCicR
 	return &GetIdentityprovidersCicRequestEntityTooLarge{}
 }
 
-/*GetIdentityprovidersCicRequestEntityTooLarge handles this case with default header values.
+/*
+GetIdentityprovidersCicRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIdentityprovidersCicRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders cic request entity too large response has a 2xx status code
+func (o *GetIdentityprovidersCicRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders cic request entity too large response has a 3xx status code
+func (o *GetIdentityprovidersCicRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders cic request entity too large response has a 4xx status code
+func (o *GetIdentityprovidersCicRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders cic request entity too large response has a 5xx status code
+func (o *GetIdentityprovidersCicRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders cic request entity too large response a status code equal to that given
+func (o *GetIdentityprovidersCicRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIdentityprovidersCicRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIdentityprovidersCicRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIdentityprovidersCicUnsupportedMediaType() *GetIdentityprovidersCicUn
 	return &GetIdentityprovidersCicUnsupportedMediaType{}
 }
 
-/*GetIdentityprovidersCicUnsupportedMediaType handles this case with default header values.
+/*
+GetIdentityprovidersCicUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIdentityprovidersCicUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders cic unsupported media type response has a 2xx status code
+func (o *GetIdentityprovidersCicUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders cic unsupported media type response has a 3xx status code
+func (o *GetIdentityprovidersCicUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders cic unsupported media type response has a 4xx status code
+func (o *GetIdentityprovidersCicUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders cic unsupported media type response has a 5xx status code
+func (o *GetIdentityprovidersCicUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders cic unsupported media type response a status code equal to that given
+func (o *GetIdentityprovidersCicUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIdentityprovidersCicUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIdentityprovidersCicUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIdentityprovidersCicTooManyRequests() *GetIdentityprovidersCicTooMany
 	return &GetIdentityprovidersCicTooManyRequests{}
 }
 
-/*GetIdentityprovidersCicTooManyRequests handles this case with default header values.
+/*
+GetIdentityprovidersCicTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIdentityprovidersCicTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders cic too many requests response has a 2xx status code
+func (o *GetIdentityprovidersCicTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders cic too many requests response has a 3xx status code
+func (o *GetIdentityprovidersCicTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders cic too many requests response has a 4xx status code
+func (o *GetIdentityprovidersCicTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get identityproviders cic too many requests response has a 5xx status code
+func (o *GetIdentityprovidersCicTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get identityproviders cic too many requests response a status code equal to that given
+func (o *GetIdentityprovidersCicTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIdentityprovidersCicTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIdentityprovidersCicTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIdentityprovidersCicInternalServerError() *GetIdentityprovidersCicInt
 	return &GetIdentityprovidersCicInternalServerError{}
 }
 
-/*GetIdentityprovidersCicInternalServerError handles this case with default header values.
+/*
+GetIdentityprovidersCicInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIdentityprovidersCicInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders cic internal server error response has a 2xx status code
+func (o *GetIdentityprovidersCicInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders cic internal server error response has a 3xx status code
+func (o *GetIdentityprovidersCicInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders cic internal server error response has a 4xx status code
+func (o *GetIdentityprovidersCicInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders cic internal server error response has a 5xx status code
+func (o *GetIdentityprovidersCicInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders cic internal server error response a status code equal to that given
+func (o *GetIdentityprovidersCicInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIdentityprovidersCicInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIdentityprovidersCicInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIdentityprovidersCicServiceUnavailable() *GetIdentityprovidersCicServ
 	return &GetIdentityprovidersCicServiceUnavailable{}
 }
 
-/*GetIdentityprovidersCicServiceUnavailable handles this case with default header values.
+/*
+GetIdentityprovidersCicServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIdentityprovidersCicServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders cic service unavailable response has a 2xx status code
+func (o *GetIdentityprovidersCicServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders cic service unavailable response has a 3xx status code
+func (o *GetIdentityprovidersCicServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders cic service unavailable response has a 4xx status code
+func (o *GetIdentityprovidersCicServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders cic service unavailable response has a 5xx status code
+func (o *GetIdentityprovidersCicServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders cic service unavailable response a status code equal to that given
+func (o *GetIdentityprovidersCicServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIdentityprovidersCicServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIdentityprovidersCicServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIdentityprovidersCicGatewayTimeout() *GetIdentityprovidersCicGatewayT
 	return &GetIdentityprovidersCicGatewayTimeout{}
 }
 
-/*GetIdentityprovidersCicGatewayTimeout handles this case with default header values.
+/*
+GetIdentityprovidersCicGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIdentityprovidersCicGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get identityproviders cic gateway timeout response has a 2xx status code
+func (o *GetIdentityprovidersCicGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get identityproviders cic gateway timeout response has a 3xx status code
+func (o *GetIdentityprovidersCicGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get identityproviders cic gateway timeout response has a 4xx status code
+func (o *GetIdentityprovidersCicGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get identityproviders cic gateway timeout response has a 5xx status code
+func (o *GetIdentityprovidersCicGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get identityproviders cic gateway timeout response a status code equal to that given
+func (o *GetIdentityprovidersCicGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIdentityprovidersCicGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIdentityprovidersCicGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/identityproviders/cic][%d] getIdentityprovidersCicGatewayTimeout  %+v", 504, o.Payload)
 }
 

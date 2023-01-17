@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingPredictorsKeyperformanceindicatorsParams creates a new GetRoutingPredictorsKeyperformanceindicatorsParams object
-// with the default values initialized.
+// NewGetRoutingPredictorsKeyperformanceindicatorsParams creates a new GetRoutingPredictorsKeyperformanceindicatorsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingPredictorsKeyperformanceindicatorsParams() *GetRoutingPredictorsKeyperformanceindicatorsParams {
-	var ()
 	return &GetRoutingPredictorsKeyperformanceindicatorsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithTimeout creates a new GetRoutingPredictorsKeyperformanceindicatorsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithTimeout(timeout time.Duration) *GetRoutingPredictorsKeyperformanceindicatorsParams {
-	var ()
 	return &GetRoutingPredictorsKeyperformanceindicatorsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithContext creates a new GetRoutingPredictorsKeyperformanceindicatorsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithContext(ctx context.Context) *GetRoutingPredictorsKeyperformanceindicatorsParams {
-	var ()
 	return &GetRoutingPredictorsKeyperformanceindicatorsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithHTTPClient creates a new GetRoutingPredictorsKeyperformanceindicatorsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingPredictorsKeyperformanceindicatorsParamsWithHTTPClient(client *http.Client) *GetRoutingPredictorsKeyperformanceindicatorsParams {
-	var ()
 	return &GetRoutingPredictorsKeyperformanceindicatorsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingPredictorsKeyperformanceindicatorsParams contains all the parameters to send to the API endpoint
-for the get routing predictors keyperformanceindicators operation typically these are written to a http.Request
+/*
+GetRoutingPredictorsKeyperformanceindicatorsParams contains all the parameters to send to the API endpoint
+
+	for the get routing predictors keyperformanceindicators operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingPredictorsKeyperformanceindicatorsParams struct {
 
-	/*KpiGroup
-	  The Group of Key Performance Indicators to return
+	/* KpiGroup.
 
+	   The Group of Key Performance Indicators to return
 	*/
 	KpiGroup *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing predictors keyperformanceindicators params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingPredictorsKeyperformanceindicatorsParams) WithDefaults() *GetRoutingPredictorsKeyperformanceindicatorsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing predictors keyperformanceindicators params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingPredictorsKeyperformanceindicatorsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing predictors keyperformanceindicators params
@@ -127,16 +143,17 @@ func (o *GetRoutingPredictorsKeyperformanceindicatorsParams) WriteToRequest(r ru
 
 		// query param kpiGroup
 		var qrKpiGroup string
+
 		if o.KpiGroup != nil {
 			qrKpiGroup = *o.KpiGroup
 		}
 		qKpiGroup := qrKpiGroup
 		if qKpiGroup != "" {
+
 			if err := r.SetQueryParam("kpiGroup", qKpiGroup); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

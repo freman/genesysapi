@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -53,7 +54,6 @@ func (m *GenericTemplate) Validate(formats strfmt.Registry) error {
 }
 
 func (m *GenericTemplate) validateActions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Actions) { // not required
 		return nil
 	}
@@ -62,6 +62,8 @@ func (m *GenericTemplate) validateActions(formats strfmt.Registry) error {
 		if err := m.Actions.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("actions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actions")
 			}
 			return err
 		}
@@ -71,7 +73,6 @@ func (m *GenericTemplate) validateActions(formats strfmt.Registry) error {
 }
 
 func (m *GenericTemplate) validateComponents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Components) { // not required
 		return nil
 	}
@@ -85,6 +86,62 @@ func (m *GenericTemplate) validateComponents(formats strfmt.Registry) error {
 			if err := m.Components[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("components" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("components" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this generic template based on the context it is used
+func (m *GenericTemplate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateComponents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *GenericTemplate) contextValidateActions(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Actions != nil {
+		if err := m.Actions.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("actions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actions")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *GenericTemplate) contextValidateComponents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Components); i++ {
+
+		if m.Components[i] != nil {
+			if err := m.Components[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("components" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("components" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

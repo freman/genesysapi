@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteConversationRecordingAnnotationParams creates a new DeleteConversationRecordingAnnotationParams object
-// with the default values initialized.
+// NewDeleteConversationRecordingAnnotationParams creates a new DeleteConversationRecordingAnnotationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteConversationRecordingAnnotationParams() *DeleteConversationRecordingAnnotationParams {
-	var ()
 	return &DeleteConversationRecordingAnnotationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteConversationRecordingAnnotationParamsWithTimeout creates a new DeleteConversationRecordingAnnotationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteConversationRecordingAnnotationParamsWithTimeout(timeout time.Duration) *DeleteConversationRecordingAnnotationParams {
-	var ()
 	return &DeleteConversationRecordingAnnotationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteConversationRecordingAnnotationParamsWithContext creates a new DeleteConversationRecordingAnnotationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteConversationRecordingAnnotationParamsWithContext(ctx context.Context) *DeleteConversationRecordingAnnotationParams {
-	var ()
 	return &DeleteConversationRecordingAnnotationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteConversationRecordingAnnotationParamsWithHTTPClient creates a new DeleteConversationRecordingAnnotationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteConversationRecordingAnnotationParamsWithHTTPClient(client *http.Client) *DeleteConversationRecordingAnnotationParams {
-	var ()
 	return &DeleteConversationRecordingAnnotationParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteConversationRecordingAnnotationParams contains all the parameters to send to the API endpoint
-for the delete conversation recording annotation operation typically these are written to a http.Request
+/*
+DeleteConversationRecordingAnnotationParams contains all the parameters to send to the API endpoint
+
+	for the delete conversation recording annotation operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteConversationRecordingAnnotationParams struct {
 
-	/*AnnotationID
-	  Annotation ID
+	/* AnnotationID.
 
+	   Annotation ID
 	*/
 	AnnotationID string
-	/*ConversationID
-	  Conversation ID
 
+	/* ConversationID.
+
+	   Conversation ID
 	*/
 	ConversationID string
-	/*RecordingID
-	  Recording ID
 
+	/* RecordingID.
+
+	   Recording ID
 	*/
 	RecordingID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete conversation recording annotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteConversationRecordingAnnotationParams) WithDefaults() *DeleteConversationRecordingAnnotationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete conversation recording annotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteConversationRecordingAnnotationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete conversation recording annotation params

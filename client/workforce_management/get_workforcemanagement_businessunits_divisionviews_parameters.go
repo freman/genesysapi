@@ -17,59 +17,75 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWorkforcemanagementBusinessunitsDivisionviewsParams creates a new GetWorkforcemanagementBusinessunitsDivisionviewsParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementBusinessunitsDivisionviewsParams creates a new GetWorkforcemanagementBusinessunitsDivisionviewsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementBusinessunitsDivisionviewsParams() *GetWorkforcemanagementBusinessunitsDivisionviewsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitsDivisionviewsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitsDivisionviewsParamsWithTimeout creates a new GetWorkforcemanagementBusinessunitsDivisionviewsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementBusinessunitsDivisionviewsParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementBusinessunitsDivisionviewsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitsDivisionviewsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitsDivisionviewsParamsWithContext creates a new GetWorkforcemanagementBusinessunitsDivisionviewsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementBusinessunitsDivisionviewsParamsWithContext(ctx context.Context) *GetWorkforcemanagementBusinessunitsDivisionviewsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitsDivisionviewsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitsDivisionviewsParamsWithHTTPClient creates a new GetWorkforcemanagementBusinessunitsDivisionviewsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementBusinessunitsDivisionviewsParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementBusinessunitsDivisionviewsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitsDivisionviewsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementBusinessunitsDivisionviewsParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement businessunits divisionviews operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementBusinessunitsDivisionviewsParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement businessunits divisionviews operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementBusinessunitsDivisionviewsParams struct {
 
-	/*DivisionID
-	  The divisionIds to filter by. If omitted, will return business units in all divisions
+	/* DivisionID.
 
+	   The divisionIds to filter by. If omitted, will return business units in all divisions
 	*/
 	DivisionID []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement businessunits divisionviews params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitsDivisionviewsParams) WithDefaults() *GetWorkforcemanagementBusinessunitsDivisionviewsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement businessunits divisionviews params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitsDivisionviewsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement businessunits divisionviews params
@@ -124,16 +140,36 @@ func (o *GetWorkforcemanagementBusinessunitsDivisionviewsParams) WriteToRequest(
 	}
 	var res []error
 
-	valuesDivisionID := o.DivisionID
+	if o.DivisionID != nil {
 
-	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
-	// query array param divisionId
-	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
-		return err
+		// binding items for divisionId
+		joinedDivisionID := o.bindParamDivisionID(reg)
+
+		// query array param divisionId
+		if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetWorkforcemanagementBusinessunitsDivisionviews binds the parameter divisionId
+func (o *GetWorkforcemanagementBusinessunitsDivisionviewsParams) bindParamDivisionID(formats strfmt.Registry) []string {
+	divisionIDIR := o.DivisionID
+
+	var divisionIDIC []string
+	for _, divisionIDIIR := range divisionIDIR { // explode []string
+
+		divisionIDIIV := divisionIDIIR // string as string
+		divisionIDIC = append(divisionIDIC, divisionIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	divisionIDIS := swag.JoinByFormat(divisionIDIC, "multi")
+
+	return divisionIDIS
 }

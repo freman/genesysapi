@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAuthorizationProductsParams creates a new GetAuthorizationProductsParams object
-// with the default values initialized.
+// NewGetAuthorizationProductsParams creates a new GetAuthorizationProductsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAuthorizationProductsParams() *GetAuthorizationProductsParams {
-
 	return &GetAuthorizationProductsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAuthorizationProductsParamsWithTimeout creates a new GetAuthorizationProductsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAuthorizationProductsParamsWithTimeout(timeout time.Duration) *GetAuthorizationProductsParams {
-
 	return &GetAuthorizationProductsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAuthorizationProductsParamsWithContext creates a new GetAuthorizationProductsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAuthorizationProductsParamsWithContext(ctx context.Context) *GetAuthorizationProductsParams {
-
 	return &GetAuthorizationProductsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAuthorizationProductsParamsWithHTTPClient creates a new GetAuthorizationProductsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAuthorizationProductsParamsWithHTTPClient(client *http.Client) *GetAuthorizationProductsParams {
-
 	return &GetAuthorizationProductsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAuthorizationProductsParams contains all the parameters to send to the API endpoint
-for the get authorization products operation typically these are written to a http.Request
+/*
+GetAuthorizationProductsParams contains all the parameters to send to the API endpoint
+
+	for the get authorization products operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAuthorizationProductsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get authorization products params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationProductsParams) WithDefaults() *GetAuthorizationProductsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get authorization products params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationProductsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get authorization products params

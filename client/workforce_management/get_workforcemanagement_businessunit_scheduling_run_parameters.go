@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementBusinessunitSchedulingRunParams creates a new GetWorkforcemanagementBusinessunitSchedulingRunParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementBusinessunitSchedulingRunParams creates a new GetWorkforcemanagementBusinessunitSchedulingRunParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementBusinessunitSchedulingRunParams() *GetWorkforcemanagementBusinessunitSchedulingRunParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitSchedulingRunParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitSchedulingRunParamsWithTimeout creates a new GetWorkforcemanagementBusinessunitSchedulingRunParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementBusinessunitSchedulingRunParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementBusinessunitSchedulingRunParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitSchedulingRunParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitSchedulingRunParamsWithContext creates a new GetWorkforcemanagementBusinessunitSchedulingRunParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementBusinessunitSchedulingRunParamsWithContext(ctx context.Context) *GetWorkforcemanagementBusinessunitSchedulingRunParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitSchedulingRunParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitSchedulingRunParamsWithHTTPClient creates a new GetWorkforcemanagementBusinessunitSchedulingRunParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementBusinessunitSchedulingRunParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementBusinessunitSchedulingRunParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitSchedulingRunParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementBusinessunitSchedulingRunParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement businessunit scheduling run operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementBusinessunitSchedulingRunParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement businessunit scheduling run operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementBusinessunitSchedulingRunParams struct {
 
-	/*BusinessUnitID
-	  The ID of the business unit
+	/* BusinessUnitID.
 
+	   The ID of the business unit
 	*/
 	BusinessUnitID string
-	/*RunID
-	  The ID of the schedule run
 
+	/* RunID.
+
+	   The ID of the schedule run
 	*/
 	RunID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement businessunit scheduling run params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunParams) WithDefaults() *GetWorkforcemanagementBusinessunitSchedulingRunParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement businessunit scheduling run params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitSchedulingRunParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement businessunit scheduling run params

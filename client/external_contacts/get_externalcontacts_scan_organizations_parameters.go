@@ -17,64 +17,83 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetExternalcontactsScanOrganizationsParams creates a new GetExternalcontactsScanOrganizationsParams object
-// with the default values initialized.
+// NewGetExternalcontactsScanOrganizationsParams creates a new GetExternalcontactsScanOrganizationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetExternalcontactsScanOrganizationsParams() *GetExternalcontactsScanOrganizationsParams {
-	var ()
 	return &GetExternalcontactsScanOrganizationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetExternalcontactsScanOrganizationsParamsWithTimeout creates a new GetExternalcontactsScanOrganizationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetExternalcontactsScanOrganizationsParamsWithTimeout(timeout time.Duration) *GetExternalcontactsScanOrganizationsParams {
-	var ()
 	return &GetExternalcontactsScanOrganizationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetExternalcontactsScanOrganizationsParamsWithContext creates a new GetExternalcontactsScanOrganizationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetExternalcontactsScanOrganizationsParamsWithContext(ctx context.Context) *GetExternalcontactsScanOrganizationsParams {
-	var ()
 	return &GetExternalcontactsScanOrganizationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetExternalcontactsScanOrganizationsParamsWithHTTPClient creates a new GetExternalcontactsScanOrganizationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetExternalcontactsScanOrganizationsParamsWithHTTPClient(client *http.Client) *GetExternalcontactsScanOrganizationsParams {
-	var ()
 	return &GetExternalcontactsScanOrganizationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetExternalcontactsScanOrganizationsParams contains all the parameters to send to the API endpoint
-for the get externalcontacts scan organizations operation typically these are written to a http.Request
+/*
+GetExternalcontactsScanOrganizationsParams contains all the parameters to send to the API endpoint
+
+	for the get externalcontacts scan organizations operation.
+
+	Typically these are written to a http.Request.
 */
 type GetExternalcontactsScanOrganizationsParams struct {
 
-	/*Cursor
-	  Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL
+	/* Cursor.
 
+	   Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL
 	*/
 	Cursor *string
-	/*Limit
-	  The number of organizations per page; must be between 10 and 200, default is 100)
 
+	/* Limit.
+
+	   The number of organizations per page; must be between 10 and 200, default is 100)
+
+	   Format: int32
 	*/
 	Limit *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get externalcontacts scan organizations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsScanOrganizationsParams) WithDefaults() *GetExternalcontactsScanOrganizationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get externalcontacts scan organizations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsScanOrganizationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get externalcontacts scan organizations params
@@ -144,32 +163,34 @@ func (o *GetExternalcontactsScanOrganizationsParams) WriteToRequest(r runtime.Cl
 
 		// query param cursor
 		var qrCursor string
+
 		if o.Cursor != nil {
 			qrCursor = *o.Cursor
 		}
 		qCursor := qrCursor
 		if qCursor != "" {
+
 			if err := r.SetQueryParam("cursor", qCursor); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int32
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt32(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIntegrationsSpeechTtsEngineVoiceParams creates a new GetIntegrationsSpeechTtsEngineVoiceParams object
-// with the default values initialized.
+// NewGetIntegrationsSpeechTtsEngineVoiceParams creates a new GetIntegrationsSpeechTtsEngineVoiceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntegrationsSpeechTtsEngineVoiceParams() *GetIntegrationsSpeechTtsEngineVoiceParams {
-	var ()
 	return &GetIntegrationsSpeechTtsEngineVoiceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntegrationsSpeechTtsEngineVoiceParamsWithTimeout creates a new GetIntegrationsSpeechTtsEngineVoiceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntegrationsSpeechTtsEngineVoiceParamsWithTimeout(timeout time.Duration) *GetIntegrationsSpeechTtsEngineVoiceParams {
-	var ()
 	return &GetIntegrationsSpeechTtsEngineVoiceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntegrationsSpeechTtsEngineVoiceParamsWithContext creates a new GetIntegrationsSpeechTtsEngineVoiceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntegrationsSpeechTtsEngineVoiceParamsWithContext(ctx context.Context) *GetIntegrationsSpeechTtsEngineVoiceParams {
-	var ()
 	return &GetIntegrationsSpeechTtsEngineVoiceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntegrationsSpeechTtsEngineVoiceParamsWithHTTPClient creates a new GetIntegrationsSpeechTtsEngineVoiceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntegrationsSpeechTtsEngineVoiceParamsWithHTTPClient(client *http.Client) *GetIntegrationsSpeechTtsEngineVoiceParams {
-	var ()
 	return &GetIntegrationsSpeechTtsEngineVoiceParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceParams contains all the parameters to send to the API endpoint
-for the get integrations speech tts engine voice operation typically these are written to a http.Request
+/*
+GetIntegrationsSpeechTtsEngineVoiceParams contains all the parameters to send to the API endpoint
+
+	for the get integrations speech tts engine voice operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntegrationsSpeechTtsEngineVoiceParams struct {
 
-	/*EngineID
-	  The engine ID
+	/* EngineID.
 
+	   The engine ID
 	*/
 	EngineID string
-	/*VoiceID
-	  The voice ID
 
+	/* VoiceID.
+
+	   The voice ID
 	*/
 	VoiceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get integrations speech tts engine voice params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsSpeechTtsEngineVoiceParams) WithDefaults() *GetIntegrationsSpeechTtsEngineVoiceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get integrations speech tts engine voice params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsSpeechTtsEngineVoiceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get integrations speech tts engine voice params

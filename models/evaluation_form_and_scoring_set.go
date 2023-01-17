@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *EvaluationFormAndScoringSet) Validate(formats strfmt.Registry) error {
 }
 
 func (m *EvaluationFormAndScoringSet) validateAnswers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Answers) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *EvaluationFormAndScoringSet) validateAnswers(formats strfmt.Registry) e
 		if err := m.Answers.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("answers")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("answers")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *EvaluationFormAndScoringSet) validateAnswers(formats strfmt.Registry) e
 }
 
 func (m *EvaluationFormAndScoringSet) validateEvaluationForm(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EvaluationForm) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *EvaluationFormAndScoringSet) validateEvaluationForm(formats strfmt.Regi
 		if err := m.EvaluationForm.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("evaluationForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("evaluationForm")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this evaluation form and scoring set based on the context it is used
+func (m *EvaluationFormAndScoringSet) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAnswers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvaluationForm(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EvaluationFormAndScoringSet) contextValidateAnswers(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Answers != nil {
+		if err := m.Answers.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("answers")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("answers")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EvaluationFormAndScoringSet) contextValidateEvaluationForm(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EvaluationForm != nil {
+		if err := m.EvaluationForm.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("evaluationForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("evaluationForm")
 			}
 			return err
 		}

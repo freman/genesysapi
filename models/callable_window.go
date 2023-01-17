@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *CallableWindow) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CallableWindow) validateMapped(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Mapped) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *CallableWindow) validateMapped(formats strfmt.Registry) error {
 		if err := m.Mapped.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mapped")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mapped")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *CallableWindow) validateMapped(formats strfmt.Registry) error {
 }
 
 func (m *CallableWindow) validateUnmapped(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Unmapped) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *CallableWindow) validateUnmapped(formats strfmt.Registry) error {
 		if err := m.Unmapped.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("unmapped")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("unmapped")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this callable window based on the context it is used
+func (m *CallableWindow) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMapped(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUnmapped(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CallableWindow) contextValidateMapped(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Mapped != nil {
+		if err := m.Mapped.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mapped")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mapped")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CallableWindow) contextValidateUnmapped(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Unmapped != nil {
+		if err := m.Unmapped.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("unmapped")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("unmapped")
 			}
 			return err
 		}

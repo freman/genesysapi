@@ -95,7 +95,6 @@ func (o *GetRecordingLocalkeysSettingReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRecordingLocalkeysSettingOK() *GetRecordingLocalkeysSettingOK {
 	return &GetRecordingLocalkeysSettingOK{}
 }
 
-/*GetRecordingLocalkeysSettingOK handles this case with default header values.
+/*
+GetRecordingLocalkeysSettingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRecordingLocalkeysSettingOK struct {
 	Payload *models.LocalEncryptionConfiguration
 }
 
+// IsSuccess returns true when this get recording localkeys setting o k response has a 2xx status code
+func (o *GetRecordingLocalkeysSettingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get recording localkeys setting o k response has a 3xx status code
+func (o *GetRecordingLocalkeysSettingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording localkeys setting o k response has a 4xx status code
+func (o *GetRecordingLocalkeysSettingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording localkeys setting o k response has a 5xx status code
+func (o *GetRecordingLocalkeysSettingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording localkeys setting o k response a status code equal to that given
+func (o *GetRecordingLocalkeysSettingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRecordingLocalkeysSettingOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRecordingLocalkeysSettingBadRequest() *GetRecordingLocalkeysSettingBa
 	return &GetRecordingLocalkeysSettingBadRequest{}
 }
 
-/*GetRecordingLocalkeysSettingBadRequest handles this case with default header values.
+/*
+GetRecordingLocalkeysSettingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRecordingLocalkeysSettingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording localkeys setting bad request response has a 2xx status code
+func (o *GetRecordingLocalkeysSettingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording localkeys setting bad request response has a 3xx status code
+func (o *GetRecordingLocalkeysSettingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording localkeys setting bad request response has a 4xx status code
+func (o *GetRecordingLocalkeysSettingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording localkeys setting bad request response has a 5xx status code
+func (o *GetRecordingLocalkeysSettingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording localkeys setting bad request response a status code equal to that given
+func (o *GetRecordingLocalkeysSettingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRecordingLocalkeysSettingBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRecordingLocalkeysSettingUnauthorized() *GetRecordingLocalkeysSetting
 	return &GetRecordingLocalkeysSettingUnauthorized{}
 }
 
-/*GetRecordingLocalkeysSettingUnauthorized handles this case with default header values.
+/*
+GetRecordingLocalkeysSettingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRecordingLocalkeysSettingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording localkeys setting unauthorized response has a 2xx status code
+func (o *GetRecordingLocalkeysSettingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording localkeys setting unauthorized response has a 3xx status code
+func (o *GetRecordingLocalkeysSettingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording localkeys setting unauthorized response has a 4xx status code
+func (o *GetRecordingLocalkeysSettingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording localkeys setting unauthorized response has a 5xx status code
+func (o *GetRecordingLocalkeysSettingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording localkeys setting unauthorized response a status code equal to that given
+func (o *GetRecordingLocalkeysSettingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRecordingLocalkeysSettingUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRecordingLocalkeysSettingForbidden() *GetRecordingLocalkeysSettingFor
 	return &GetRecordingLocalkeysSettingForbidden{}
 }
 
-/*GetRecordingLocalkeysSettingForbidden handles this case with default header values.
+/*
+GetRecordingLocalkeysSettingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRecordingLocalkeysSettingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording localkeys setting forbidden response has a 2xx status code
+func (o *GetRecordingLocalkeysSettingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording localkeys setting forbidden response has a 3xx status code
+func (o *GetRecordingLocalkeysSettingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording localkeys setting forbidden response has a 4xx status code
+func (o *GetRecordingLocalkeysSettingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording localkeys setting forbidden response has a 5xx status code
+func (o *GetRecordingLocalkeysSettingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording localkeys setting forbidden response a status code equal to that given
+func (o *GetRecordingLocalkeysSettingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRecordingLocalkeysSettingForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRecordingLocalkeysSettingNotFound() *GetRecordingLocalkeysSettingNotF
 	return &GetRecordingLocalkeysSettingNotFound{}
 }
 
-/*GetRecordingLocalkeysSettingNotFound handles this case with default header values.
+/*
+GetRecordingLocalkeysSettingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRecordingLocalkeysSettingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording localkeys setting not found response has a 2xx status code
+func (o *GetRecordingLocalkeysSettingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording localkeys setting not found response has a 3xx status code
+func (o *GetRecordingLocalkeysSettingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording localkeys setting not found response has a 4xx status code
+func (o *GetRecordingLocalkeysSettingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording localkeys setting not found response has a 5xx status code
+func (o *GetRecordingLocalkeysSettingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording localkeys setting not found response a status code equal to that given
+func (o *GetRecordingLocalkeysSettingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRecordingLocalkeysSettingNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRecordingLocalkeysSettingRequestTimeout() *GetRecordingLocalkeysSetti
 	return &GetRecordingLocalkeysSettingRequestTimeout{}
 }
 
-/*GetRecordingLocalkeysSettingRequestTimeout handles this case with default header values.
+/*
+GetRecordingLocalkeysSettingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRecordingLocalkeysSettingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording localkeys setting request timeout response has a 2xx status code
+func (o *GetRecordingLocalkeysSettingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording localkeys setting request timeout response has a 3xx status code
+func (o *GetRecordingLocalkeysSettingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording localkeys setting request timeout response has a 4xx status code
+func (o *GetRecordingLocalkeysSettingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording localkeys setting request timeout response has a 5xx status code
+func (o *GetRecordingLocalkeysSettingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording localkeys setting request timeout response a status code equal to that given
+func (o *GetRecordingLocalkeysSettingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRecordingLocalkeysSettingRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRecordingLocalkeysSettingRequestEntityTooLarge() *GetRecordingLocalke
 	return &GetRecordingLocalkeysSettingRequestEntityTooLarge{}
 }
 
-/*GetRecordingLocalkeysSettingRequestEntityTooLarge handles this case with default header values.
+/*
+GetRecordingLocalkeysSettingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRecordingLocalkeysSettingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording localkeys setting request entity too large response has a 2xx status code
+func (o *GetRecordingLocalkeysSettingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording localkeys setting request entity too large response has a 3xx status code
+func (o *GetRecordingLocalkeysSettingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording localkeys setting request entity too large response has a 4xx status code
+func (o *GetRecordingLocalkeysSettingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording localkeys setting request entity too large response has a 5xx status code
+func (o *GetRecordingLocalkeysSettingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording localkeys setting request entity too large response a status code equal to that given
+func (o *GetRecordingLocalkeysSettingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRecordingLocalkeysSettingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRecordingLocalkeysSettingUnsupportedMediaType() *GetRecordingLocalkey
 	return &GetRecordingLocalkeysSettingUnsupportedMediaType{}
 }
 
-/*GetRecordingLocalkeysSettingUnsupportedMediaType handles this case with default header values.
+/*
+GetRecordingLocalkeysSettingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRecordingLocalkeysSettingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording localkeys setting unsupported media type response has a 2xx status code
+func (o *GetRecordingLocalkeysSettingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording localkeys setting unsupported media type response has a 3xx status code
+func (o *GetRecordingLocalkeysSettingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording localkeys setting unsupported media type response has a 4xx status code
+func (o *GetRecordingLocalkeysSettingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording localkeys setting unsupported media type response has a 5xx status code
+func (o *GetRecordingLocalkeysSettingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording localkeys setting unsupported media type response a status code equal to that given
+func (o *GetRecordingLocalkeysSettingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRecordingLocalkeysSettingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRecordingLocalkeysSettingTooManyRequests() *GetRecordingLocalkeysSett
 	return &GetRecordingLocalkeysSettingTooManyRequests{}
 }
 
-/*GetRecordingLocalkeysSettingTooManyRequests handles this case with default header values.
+/*
+GetRecordingLocalkeysSettingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRecordingLocalkeysSettingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording localkeys setting too many requests response has a 2xx status code
+func (o *GetRecordingLocalkeysSettingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording localkeys setting too many requests response has a 3xx status code
+func (o *GetRecordingLocalkeysSettingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording localkeys setting too many requests response has a 4xx status code
+func (o *GetRecordingLocalkeysSettingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording localkeys setting too many requests response has a 5xx status code
+func (o *GetRecordingLocalkeysSettingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording localkeys setting too many requests response a status code equal to that given
+func (o *GetRecordingLocalkeysSettingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRecordingLocalkeysSettingTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRecordingLocalkeysSettingInternalServerError() *GetRecordingLocalkeys
 	return &GetRecordingLocalkeysSettingInternalServerError{}
 }
 
-/*GetRecordingLocalkeysSettingInternalServerError handles this case with default header values.
+/*
+GetRecordingLocalkeysSettingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRecordingLocalkeysSettingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording localkeys setting internal server error response has a 2xx status code
+func (o *GetRecordingLocalkeysSettingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording localkeys setting internal server error response has a 3xx status code
+func (o *GetRecordingLocalkeysSettingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording localkeys setting internal server error response has a 4xx status code
+func (o *GetRecordingLocalkeysSettingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording localkeys setting internal server error response has a 5xx status code
+func (o *GetRecordingLocalkeysSettingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording localkeys setting internal server error response a status code equal to that given
+func (o *GetRecordingLocalkeysSettingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRecordingLocalkeysSettingInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRecordingLocalkeysSettingServiceUnavailable() *GetRecordingLocalkeysS
 	return &GetRecordingLocalkeysSettingServiceUnavailable{}
 }
 
-/*GetRecordingLocalkeysSettingServiceUnavailable handles this case with default header values.
+/*
+GetRecordingLocalkeysSettingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRecordingLocalkeysSettingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording localkeys setting service unavailable response has a 2xx status code
+func (o *GetRecordingLocalkeysSettingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording localkeys setting service unavailable response has a 3xx status code
+func (o *GetRecordingLocalkeysSettingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording localkeys setting service unavailable response has a 4xx status code
+func (o *GetRecordingLocalkeysSettingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording localkeys setting service unavailable response has a 5xx status code
+func (o *GetRecordingLocalkeysSettingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording localkeys setting service unavailable response a status code equal to that given
+func (o *GetRecordingLocalkeysSettingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRecordingLocalkeysSettingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRecordingLocalkeysSettingGatewayTimeout() *GetRecordingLocalkeysSetti
 	return &GetRecordingLocalkeysSettingGatewayTimeout{}
 }
 
-/*GetRecordingLocalkeysSettingGatewayTimeout handles this case with default header values.
+/*
+GetRecordingLocalkeysSettingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRecordingLocalkeysSettingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording localkeys setting gateway timeout response has a 2xx status code
+func (o *GetRecordingLocalkeysSettingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording localkeys setting gateway timeout response has a 3xx status code
+func (o *GetRecordingLocalkeysSettingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording localkeys setting gateway timeout response has a 4xx status code
+func (o *GetRecordingLocalkeysSettingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording localkeys setting gateway timeout response has a 5xx status code
+func (o *GetRecordingLocalkeysSettingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording localkeys setting gateway timeout response a status code equal to that given
+func (o *GetRecordingLocalkeysSettingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRecordingLocalkeysSettingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRecordingLocalkeysSettingGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/localkeys/settings/{settingsId}][%d] getRecordingLocalkeysSettingGatewayTimeout  %+v", 504, o.Payload)
 }
 

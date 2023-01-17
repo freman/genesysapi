@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -55,6 +56,9 @@ type MessagingCampaign struct {
 
 	// The dnc lists to check before sending a message for this messaging campaign.
 	DncLists []*DomainEntityRef `json:"dncLists"`
+
+	// Indicates (when true) that the campaign supports dynamic queueing of the contact list at the time of a request for contacts.
+	DynamicContactQueueingSettings *DynamicContactQueueingSettings `json:"dynamicContactQueueingSettings,omitempty"`
 
 	// Configuration for this messaging campaign to send Email messages.
 	EmailConfig *EmailConfig `json:"emailConfig,omitempty"`
@@ -128,6 +132,10 @@ func (m *MessagingCampaign) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateDynamicContactQueueingSettings(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateEmailConfig(formats); err != nil {
 		res = append(res, err)
 	}
@@ -159,7 +167,6 @@ func (m *MessagingCampaign) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MessagingCampaign) validateCallableTimeSet(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallableTimeSet) { // not required
 		return nil
 	}
@@ -168,6 +175,8 @@ func (m *MessagingCampaign) validateCallableTimeSet(formats strfmt.Registry) err
 		if err := m.CallableTimeSet.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("callableTimeSet")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callableTimeSet")
 			}
 			return err
 		}
@@ -215,7 +224,6 @@ func (m *MessagingCampaign) validateCampaignStatusEnum(path, location string, va
 }
 
 func (m *MessagingCampaign) validateCampaignStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CampaignStatus) { // not required
 		return nil
 	}
@@ -238,6 +246,8 @@ func (m *MessagingCampaign) validateContactList(formats strfmt.Registry) error {
 		if err := m.ContactList.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contactList")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactList")
 			}
 			return err
 		}
@@ -247,7 +257,6 @@ func (m *MessagingCampaign) validateContactList(formats strfmt.Registry) error {
 }
 
 func (m *MessagingCampaign) validateContactListFilters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactListFilters) { // not required
 		return nil
 	}
@@ -261,6 +270,8 @@ func (m *MessagingCampaign) validateContactListFilters(formats strfmt.Registry) 
 			if err := m.ContactListFilters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("contactListFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contactListFilters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -272,7 +283,6 @@ func (m *MessagingCampaign) validateContactListFilters(formats strfmt.Registry) 
 }
 
 func (m *MessagingCampaign) validateContactSorts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactSorts) { // not required
 		return nil
 	}
@@ -286,6 +296,8 @@ func (m *MessagingCampaign) validateContactSorts(formats strfmt.Registry) error 
 			if err := m.ContactSorts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("contactSorts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contactSorts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -297,7 +309,6 @@ func (m *MessagingCampaign) validateContactSorts(formats strfmt.Registry) error 
 }
 
 func (m *MessagingCampaign) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -310,7 +321,6 @@ func (m *MessagingCampaign) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *MessagingCampaign) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -323,7 +333,6 @@ func (m *MessagingCampaign) validateDateModified(formats strfmt.Registry) error 
 }
 
 func (m *MessagingCampaign) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -332,6 +341,8 @@ func (m *MessagingCampaign) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -341,7 +352,6 @@ func (m *MessagingCampaign) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *MessagingCampaign) validateDncLists(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DncLists) { // not required
 		return nil
 	}
@@ -355,6 +365,8 @@ func (m *MessagingCampaign) validateDncLists(formats strfmt.Registry) error {
 			if err := m.DncLists[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("dncLists" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dncLists" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -365,8 +377,26 @@ func (m *MessagingCampaign) validateDncLists(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *MessagingCampaign) validateEmailConfig(formats strfmt.Registry) error {
+func (m *MessagingCampaign) validateDynamicContactQueueingSettings(formats strfmt.Registry) error {
+	if swag.IsZero(m.DynamicContactQueueingSettings) { // not required
+		return nil
+	}
 
+	if m.DynamicContactQueueingSettings != nil {
+		if err := m.DynamicContactQueueingSettings.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dynamicContactQueueingSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dynamicContactQueueingSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) validateEmailConfig(formats strfmt.Registry) error {
 	if swag.IsZero(m.EmailConfig) { // not required
 		return nil
 	}
@@ -375,6 +405,8 @@ func (m *MessagingCampaign) validateEmailConfig(formats strfmt.Registry) error {
 		if err := m.EmailConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("emailConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emailConfig")
 			}
 			return err
 		}
@@ -384,7 +416,6 @@ func (m *MessagingCampaign) validateEmailConfig(formats strfmt.Registry) error {
 }
 
 func (m *MessagingCampaign) validateErrors(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Errors) { // not required
 		return nil
 	}
@@ -398,6 +429,8 @@ func (m *MessagingCampaign) validateErrors(formats strfmt.Registry) error {
 			if err := m.Errors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -418,7 +451,6 @@ func (m *MessagingCampaign) validateMessagesPerMinute(formats strfmt.Registry) e
 }
 
 func (m *MessagingCampaign) validateRuleSets(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RuleSets) { // not required
 		return nil
 	}
@@ -432,6 +464,8 @@ func (m *MessagingCampaign) validateRuleSets(formats strfmt.Registry) error {
 			if err := m.RuleSets[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ruleSets" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ruleSets" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -443,7 +477,6 @@ func (m *MessagingCampaign) validateRuleSets(formats strfmt.Registry) error {
 }
 
 func (m *MessagingCampaign) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -456,7 +489,6 @@ func (m *MessagingCampaign) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *MessagingCampaign) validateSmsConfig(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SmsConfig) { // not required
 		return nil
 	}
@@ -465,6 +497,310 @@ func (m *MessagingCampaign) validateSmsConfig(formats strfmt.Registry) error {
 		if err := m.SmsConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("smsConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("smsConfig")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this messaging campaign based on the context it is used
+func (m *MessagingCampaign) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCallableTimeSet(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContactList(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContactListFilters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContactSorts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDncLists(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDynamicContactQueueingSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmailConfig(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRuleSets(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSmsConfig(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateCallableTimeSet(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CallableTimeSet != nil {
+		if err := m.CallableTimeSet.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("callableTimeSet")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("callableTimeSet")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateContactList(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContactList != nil {
+		if err := m.ContactList.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contactList")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactList")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateContactListFilters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ContactListFilters); i++ {
+
+		if m.ContactListFilters[i] != nil {
+			if err := m.ContactListFilters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("contactListFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contactListFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateContactSorts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ContactSorts); i++ {
+
+		if m.ContactSorts[i] != nil {
+			if err := m.ContactSorts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("contactSorts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contactSorts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateDncLists(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DncLists); i++ {
+
+		if m.DncLists[i] != nil {
+			if err := m.DncLists[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("dncLists" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("dncLists" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateDynamicContactQueueingSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DynamicContactQueueingSettings != nil {
+		if err := m.DynamicContactQueueingSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dynamicContactQueueingSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dynamicContactQueueingSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateEmailConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EmailConfig != nil {
+		if err := m.EmailConfig.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("emailConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emailConfig")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Errors); i++ {
+
+		if m.Errors[i] != nil {
+			if err := m.Errors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("errors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateRuleSets(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RuleSets); i++ {
+
+		if m.RuleSets[i] != nil {
+			if err := m.RuleSets[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ruleSets" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ruleSets" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingCampaign) contextValidateSmsConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SmsConfig != nil {
+		if err := m.SmsConfig.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("smsConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("smsConfig")
 			}
 			return err
 		}

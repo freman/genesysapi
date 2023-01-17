@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostGroupMembersParams creates a new PostGroupMembersParams object
-// with the default values initialized.
+// NewPostGroupMembersParams creates a new PostGroupMembersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostGroupMembersParams() *PostGroupMembersParams {
-	var ()
 	return &PostGroupMembersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostGroupMembersParamsWithTimeout creates a new PostGroupMembersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostGroupMembersParamsWithTimeout(timeout time.Duration) *PostGroupMembersParams {
-	var ()
 	return &PostGroupMembersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostGroupMembersParamsWithContext creates a new PostGroupMembersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostGroupMembersParamsWithContext(ctx context.Context) *PostGroupMembersParams {
-	var ()
 	return &PostGroupMembersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostGroupMembersParamsWithHTTPClient creates a new PostGroupMembersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostGroupMembersParamsWithHTTPClient(client *http.Client) *PostGroupMembersParams {
-	var ()
 	return &PostGroupMembersParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostGroupMembersParams contains all the parameters to send to the API endpoint
-for the post group members operation typically these are written to a http.Request
+/*
+PostGroupMembersParams contains all the parameters to send to the API endpoint
+
+	for the post group members operation.
+
+	Typically these are written to a http.Request.
 */
 type PostGroupMembersParams struct {
 
-	/*Body
-	  Add members
+	/* Body.
 
+	   Add members
 	*/
 	Body *models.GroupMembersUpdate
-	/*GroupID
-	  Group ID
 
+	/* GroupID.
+
+	   Group ID
 	*/
 	GroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post group members params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGroupMembersParams) WithDefaults() *PostGroupMembersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post group members params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGroupMembersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post group members params
@@ -140,7 +157,6 @@ func (o *PostGroupMembersParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

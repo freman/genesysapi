@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutUserOutofofficeParams creates a new PutUserOutofofficeParams object
-// with the default values initialized.
+// NewPutUserOutofofficeParams creates a new PutUserOutofofficeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutUserOutofofficeParams() *PutUserOutofofficeParams {
-	var ()
 	return &PutUserOutofofficeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutUserOutofofficeParamsWithTimeout creates a new PutUserOutofofficeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutUserOutofofficeParamsWithTimeout(timeout time.Duration) *PutUserOutofofficeParams {
-	var ()
 	return &PutUserOutofofficeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutUserOutofofficeParamsWithContext creates a new PutUserOutofofficeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutUserOutofofficeParamsWithContext(ctx context.Context) *PutUserOutofofficeParams {
-	var ()
 	return &PutUserOutofofficeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutUserOutofofficeParamsWithHTTPClient creates a new PutUserOutofofficeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutUserOutofofficeParamsWithHTTPClient(client *http.Client) *PutUserOutofofficeParams {
-	var ()
 	return &PutUserOutofofficeParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutUserOutofofficeParams contains all the parameters to send to the API endpoint
-for the put user outofoffice operation typically these are written to a http.Request
+/*
+PutUserOutofofficeParams contains all the parameters to send to the API endpoint
+
+	for the put user outofoffice operation.
+
+	Typically these are written to a http.Request.
 */
 type PutUserOutofofficeParams struct {
 
-	/*Body
-	  The updated OutOffOffice
+	/* Body.
 
+	   The updated OutOffOffice
 	*/
 	Body *models.OutOfOffice
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put user outofoffice params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutUserOutofofficeParams) WithDefaults() *PutUserOutofofficeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put user outofoffice params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutUserOutofofficeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put user outofoffice params
@@ -140,7 +157,6 @@ func (o *PutUserOutofofficeParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -95,7 +95,6 @@ func (o *GetIntegrationsTypeConfigschemaReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIntegrationsTypeConfigschemaOK() *GetIntegrationsTypeConfigschemaOK {
 	return &GetIntegrationsTypeConfigschemaOK{}
 }
 
-/*GetIntegrationsTypeConfigschemaOK handles this case with default header values.
+/*
+GetIntegrationsTypeConfigschemaOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIntegrationsTypeConfigschemaOK struct {
 	Payload *models.JSONSchemaDocument
 }
 
+// IsSuccess returns true when this get integrations type configschema o k response has a 2xx status code
+func (o *GetIntegrationsTypeConfigschemaOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get integrations type configschema o k response has a 3xx status code
+func (o *GetIntegrationsTypeConfigschemaOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type configschema o k response has a 4xx status code
+func (o *GetIntegrationsTypeConfigschemaOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations type configschema o k response has a 5xx status code
+func (o *GetIntegrationsTypeConfigschemaOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type configschema o k response a status code equal to that given
+func (o *GetIntegrationsTypeConfigschemaOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntegrationsTypeConfigschemaOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIntegrationsTypeConfigschemaOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIntegrationsTypeConfigschemaBadRequest() *GetIntegrationsTypeConfigsc
 	return &GetIntegrationsTypeConfigschemaBadRequest{}
 }
 
-/*GetIntegrationsTypeConfigschemaBadRequest handles this case with default header values.
+/*
+GetIntegrationsTypeConfigschemaBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIntegrationsTypeConfigschemaBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type configschema bad request response has a 2xx status code
+func (o *GetIntegrationsTypeConfigschemaBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type configschema bad request response has a 3xx status code
+func (o *GetIntegrationsTypeConfigschemaBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type configschema bad request response has a 4xx status code
+func (o *GetIntegrationsTypeConfigschemaBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type configschema bad request response has a 5xx status code
+func (o *GetIntegrationsTypeConfigschemaBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type configschema bad request response a status code equal to that given
+func (o *GetIntegrationsTypeConfigschemaBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntegrationsTypeConfigschemaBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIntegrationsTypeConfigschemaBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIntegrationsTypeConfigschemaUnauthorized() *GetIntegrationsTypeConfig
 	return &GetIntegrationsTypeConfigschemaUnauthorized{}
 }
 
-/*GetIntegrationsTypeConfigschemaUnauthorized handles this case with default header values.
+/*
+GetIntegrationsTypeConfigschemaUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIntegrationsTypeConfigschemaUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type configschema unauthorized response has a 2xx status code
+func (o *GetIntegrationsTypeConfigschemaUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type configschema unauthorized response has a 3xx status code
+func (o *GetIntegrationsTypeConfigschemaUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type configschema unauthorized response has a 4xx status code
+func (o *GetIntegrationsTypeConfigschemaUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type configschema unauthorized response has a 5xx status code
+func (o *GetIntegrationsTypeConfigschemaUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type configschema unauthorized response a status code equal to that given
+func (o *GetIntegrationsTypeConfigschemaUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIntegrationsTypeConfigschemaUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIntegrationsTypeConfigschemaUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIntegrationsTypeConfigschemaForbidden() *GetIntegrationsTypeConfigsch
 	return &GetIntegrationsTypeConfigschemaForbidden{}
 }
 
-/*GetIntegrationsTypeConfigschemaForbidden handles this case with default header values.
+/*
+GetIntegrationsTypeConfigschemaForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIntegrationsTypeConfigschemaForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type configschema forbidden response has a 2xx status code
+func (o *GetIntegrationsTypeConfigschemaForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type configschema forbidden response has a 3xx status code
+func (o *GetIntegrationsTypeConfigschemaForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type configschema forbidden response has a 4xx status code
+func (o *GetIntegrationsTypeConfigschemaForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type configschema forbidden response has a 5xx status code
+func (o *GetIntegrationsTypeConfigschemaForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type configschema forbidden response a status code equal to that given
+func (o *GetIntegrationsTypeConfigschemaForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntegrationsTypeConfigschemaForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIntegrationsTypeConfigschemaForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIntegrationsTypeConfigschemaNotFound() *GetIntegrationsTypeConfigsche
 	return &GetIntegrationsTypeConfigschemaNotFound{}
 }
 
-/*GetIntegrationsTypeConfigschemaNotFound handles this case with default header values.
+/*
+GetIntegrationsTypeConfigschemaNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIntegrationsTypeConfigschemaNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type configschema not found response has a 2xx status code
+func (o *GetIntegrationsTypeConfigschemaNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type configschema not found response has a 3xx status code
+func (o *GetIntegrationsTypeConfigschemaNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type configschema not found response has a 4xx status code
+func (o *GetIntegrationsTypeConfigschemaNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type configschema not found response has a 5xx status code
+func (o *GetIntegrationsTypeConfigschemaNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type configschema not found response a status code equal to that given
+func (o *GetIntegrationsTypeConfigschemaNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntegrationsTypeConfigschemaNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIntegrationsTypeConfigschemaNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIntegrationsTypeConfigschemaRequestTimeout() *GetIntegrationsTypeConf
 	return &GetIntegrationsTypeConfigschemaRequestTimeout{}
 }
 
-/*GetIntegrationsTypeConfigschemaRequestTimeout handles this case with default header values.
+/*
+GetIntegrationsTypeConfigschemaRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIntegrationsTypeConfigschemaRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type configschema request timeout response has a 2xx status code
+func (o *GetIntegrationsTypeConfigschemaRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type configschema request timeout response has a 3xx status code
+func (o *GetIntegrationsTypeConfigschemaRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type configschema request timeout response has a 4xx status code
+func (o *GetIntegrationsTypeConfigschemaRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type configschema request timeout response has a 5xx status code
+func (o *GetIntegrationsTypeConfigschemaRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type configschema request timeout response a status code equal to that given
+func (o *GetIntegrationsTypeConfigschemaRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIntegrationsTypeConfigschemaRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsTypeConfigschemaRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIntegrationsTypeConfigschemaRequestEntityTooLarge() *GetIntegrationsT
 	return &GetIntegrationsTypeConfigschemaRequestEntityTooLarge{}
 }
 
-/*GetIntegrationsTypeConfigschemaRequestEntityTooLarge handles this case with default header values.
+/*
+GetIntegrationsTypeConfigschemaRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIntegrationsTypeConfigschemaRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type configschema request entity too large response has a 2xx status code
+func (o *GetIntegrationsTypeConfigschemaRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type configschema request entity too large response has a 3xx status code
+func (o *GetIntegrationsTypeConfigschemaRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type configschema request entity too large response has a 4xx status code
+func (o *GetIntegrationsTypeConfigschemaRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type configschema request entity too large response has a 5xx status code
+func (o *GetIntegrationsTypeConfigschemaRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type configschema request entity too large response a status code equal to that given
+func (o *GetIntegrationsTypeConfigschemaRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIntegrationsTypeConfigschemaRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIntegrationsTypeConfigschemaRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIntegrationsTypeConfigschemaUnsupportedMediaType() *GetIntegrationsTy
 	return &GetIntegrationsTypeConfigschemaUnsupportedMediaType{}
 }
 
-/*GetIntegrationsTypeConfigschemaUnsupportedMediaType handles this case with default header values.
+/*
+GetIntegrationsTypeConfigschemaUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIntegrationsTypeConfigschemaUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type configschema unsupported media type response has a 2xx status code
+func (o *GetIntegrationsTypeConfigschemaUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type configschema unsupported media type response has a 3xx status code
+func (o *GetIntegrationsTypeConfigschemaUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type configschema unsupported media type response has a 4xx status code
+func (o *GetIntegrationsTypeConfigschemaUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type configschema unsupported media type response has a 5xx status code
+func (o *GetIntegrationsTypeConfigschemaUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type configschema unsupported media type response a status code equal to that given
+func (o *GetIntegrationsTypeConfigschemaUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIntegrationsTypeConfigschemaUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIntegrationsTypeConfigschemaUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIntegrationsTypeConfigschemaTooManyRequests() *GetIntegrationsTypeCon
 	return &GetIntegrationsTypeConfigschemaTooManyRequests{}
 }
 
-/*GetIntegrationsTypeConfigschemaTooManyRequests handles this case with default header values.
+/*
+GetIntegrationsTypeConfigschemaTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIntegrationsTypeConfigschemaTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type configschema too many requests response has a 2xx status code
+func (o *GetIntegrationsTypeConfigschemaTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type configschema too many requests response has a 3xx status code
+func (o *GetIntegrationsTypeConfigschemaTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type configschema too many requests response has a 4xx status code
+func (o *GetIntegrationsTypeConfigschemaTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations type configschema too many requests response has a 5xx status code
+func (o *GetIntegrationsTypeConfigschemaTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations type configschema too many requests response a status code equal to that given
+func (o *GetIntegrationsTypeConfigschemaTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntegrationsTypeConfigschemaTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIntegrationsTypeConfigschemaTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIntegrationsTypeConfigschemaInternalServerError() *GetIntegrationsTyp
 	return &GetIntegrationsTypeConfigschemaInternalServerError{}
 }
 
-/*GetIntegrationsTypeConfigschemaInternalServerError handles this case with default header values.
+/*
+GetIntegrationsTypeConfigschemaInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIntegrationsTypeConfigschemaInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type configschema internal server error response has a 2xx status code
+func (o *GetIntegrationsTypeConfigschemaInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type configschema internal server error response has a 3xx status code
+func (o *GetIntegrationsTypeConfigschemaInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type configschema internal server error response has a 4xx status code
+func (o *GetIntegrationsTypeConfigschemaInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations type configschema internal server error response has a 5xx status code
+func (o *GetIntegrationsTypeConfigschemaInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations type configschema internal server error response a status code equal to that given
+func (o *GetIntegrationsTypeConfigschemaInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntegrationsTypeConfigschemaInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIntegrationsTypeConfigschemaInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIntegrationsTypeConfigschemaServiceUnavailable() *GetIntegrationsType
 	return &GetIntegrationsTypeConfigschemaServiceUnavailable{}
 }
 
-/*GetIntegrationsTypeConfigschemaServiceUnavailable handles this case with default header values.
+/*
+GetIntegrationsTypeConfigschemaServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIntegrationsTypeConfigschemaServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type configschema service unavailable response has a 2xx status code
+func (o *GetIntegrationsTypeConfigschemaServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type configschema service unavailable response has a 3xx status code
+func (o *GetIntegrationsTypeConfigschemaServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type configschema service unavailable response has a 4xx status code
+func (o *GetIntegrationsTypeConfigschemaServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations type configschema service unavailable response has a 5xx status code
+func (o *GetIntegrationsTypeConfigschemaServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations type configschema service unavailable response a status code equal to that given
+func (o *GetIntegrationsTypeConfigschemaServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIntegrationsTypeConfigschemaServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIntegrationsTypeConfigschemaServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIntegrationsTypeConfigschemaGatewayTimeout() *GetIntegrationsTypeConf
 	return &GetIntegrationsTypeConfigschemaGatewayTimeout{}
 }
 
-/*GetIntegrationsTypeConfigschemaGatewayTimeout handles this case with default header values.
+/*
+GetIntegrationsTypeConfigschemaGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIntegrationsTypeConfigschemaGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations type configschema gateway timeout response has a 2xx status code
+func (o *GetIntegrationsTypeConfigschemaGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations type configschema gateway timeout response has a 3xx status code
+func (o *GetIntegrationsTypeConfigschemaGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations type configschema gateway timeout response has a 4xx status code
+func (o *GetIntegrationsTypeConfigschemaGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations type configschema gateway timeout response has a 5xx status code
+func (o *GetIntegrationsTypeConfigschemaGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations type configschema gateway timeout response a status code equal to that given
+func (o *GetIntegrationsTypeConfigschemaGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIntegrationsTypeConfigschemaGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIntegrationsTypeConfigschemaGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/types/{typeId}/configschemas/{configType}][%d] getIntegrationsTypeConfigschemaGatewayTimeout  %+v", 504, o.Payload)
 }
 

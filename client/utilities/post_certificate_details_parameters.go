@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostCertificateDetailsParams creates a new PostCertificateDetailsParams object
-// with the default values initialized.
+// NewPostCertificateDetailsParams creates a new PostCertificateDetailsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostCertificateDetailsParams() *PostCertificateDetailsParams {
-	var ()
 	return &PostCertificateDetailsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostCertificateDetailsParamsWithTimeout creates a new PostCertificateDetailsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostCertificateDetailsParamsWithTimeout(timeout time.Duration) *PostCertificateDetailsParams {
-	var ()
 	return &PostCertificateDetailsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostCertificateDetailsParamsWithContext creates a new PostCertificateDetailsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostCertificateDetailsParamsWithContext(ctx context.Context) *PostCertificateDetailsParams {
-	var ()
 	return &PostCertificateDetailsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostCertificateDetailsParamsWithHTTPClient creates a new PostCertificateDetailsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostCertificateDetailsParamsWithHTTPClient(client *http.Client) *PostCertificateDetailsParams {
-	var ()
 	return &PostCertificateDetailsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostCertificateDetailsParams contains all the parameters to send to the API endpoint
-for the post certificate details operation typically these are written to a http.Request
+/*
+PostCertificateDetailsParams contains all the parameters to send to the API endpoint
+
+	for the post certificate details operation.
+
+	Typically these are written to a http.Request.
 */
 type PostCertificateDetailsParams struct {
 
-	/*Body
-	  Certificate
+	/* Body.
 
+	   Certificate
 	*/
 	Body *models.Certificate
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post certificate details params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostCertificateDetailsParams) WithDefaults() *PostCertificateDetailsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post certificate details params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostCertificateDetailsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post certificate details params
@@ -124,7 +140,6 @@ func (o *PostCertificateDetailsParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

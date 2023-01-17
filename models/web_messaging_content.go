@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -83,7 +84,6 @@ func (m *WebMessagingContent) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WebMessagingContent) validateAttachment(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Attachment) { // not required
 		return nil
 	}
@@ -92,6 +92,8 @@ func (m *WebMessagingContent) validateAttachment(formats strfmt.Registry) error 
 		if err := m.Attachment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("attachment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attachment")
 			}
 			return err
 		}
@@ -101,7 +103,6 @@ func (m *WebMessagingContent) validateAttachment(formats strfmt.Registry) error 
 }
 
 func (m *WebMessagingContent) validateButtonResponse(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ButtonResponse) { // not required
 		return nil
 	}
@@ -110,6 +111,8 @@ func (m *WebMessagingContent) validateButtonResponse(formats strfmt.Registry) er
 		if err := m.ButtonResponse.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("buttonResponse")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("buttonResponse")
 			}
 			return err
 		}
@@ -119,7 +122,6 @@ func (m *WebMessagingContent) validateButtonResponse(formats strfmt.Registry) er
 }
 
 func (m *WebMessagingContent) validateCard(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Card) { // not required
 		return nil
 	}
@@ -128,6 +130,8 @@ func (m *WebMessagingContent) validateCard(formats strfmt.Registry) error {
 		if err := m.Card.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("card")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("card")
 			}
 			return err
 		}
@@ -137,7 +141,6 @@ func (m *WebMessagingContent) validateCard(formats strfmt.Registry) error {
 }
 
 func (m *WebMessagingContent) validateCarousel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Carousel) { // not required
 		return nil
 	}
@@ -146,6 +149,8 @@ func (m *WebMessagingContent) validateCarousel(formats strfmt.Registry) error {
 		if err := m.Carousel.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("carousel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("carousel")
 			}
 			return err
 		}
@@ -196,7 +201,6 @@ func (m *WebMessagingContent) validateContentTypeEnum(path, location string, val
 }
 
 func (m *WebMessagingContent) validateContentType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContentType) { // not required
 		return nil
 	}
@@ -210,7 +214,6 @@ func (m *WebMessagingContent) validateContentType(formats strfmt.Registry) error
 }
 
 func (m *WebMessagingContent) validateGeneric(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Generic) { // not required
 		return nil
 	}
@@ -219,6 +222,8 @@ func (m *WebMessagingContent) validateGeneric(formats strfmt.Registry) error {
 		if err := m.Generic.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("generic")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("generic")
 			}
 			return err
 		}
@@ -228,7 +233,6 @@ func (m *WebMessagingContent) validateGeneric(formats strfmt.Registry) error {
 }
 
 func (m *WebMessagingContent) validateQuickReply(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.QuickReply) { // not required
 		return nil
 	}
@@ -237,6 +241,151 @@ func (m *WebMessagingContent) validateQuickReply(formats strfmt.Registry) error 
 		if err := m.QuickReply.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("quickReply")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quickReply")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this web messaging content based on the context it is used
+func (m *WebMessagingContent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttachment(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateButtonResponse(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCard(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCarousel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContentType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGeneric(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuickReply(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WebMessagingContent) contextValidateAttachment(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Attachment != nil {
+		if err := m.Attachment.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("attachment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("attachment")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebMessagingContent) contextValidateButtonResponse(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ButtonResponse != nil {
+		if err := m.ButtonResponse.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("buttonResponse")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("buttonResponse")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebMessagingContent) contextValidateCard(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Card != nil {
+		if err := m.Card.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("card")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("card")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebMessagingContent) contextValidateCarousel(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Carousel != nil {
+		if err := m.Carousel.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("carousel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("carousel")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebMessagingContent) contextValidateContentType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "contentType", "body", string(m.ContentType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WebMessagingContent) contextValidateGeneric(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Generic != nil {
+		if err := m.Generic.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("generic")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("generic")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebMessagingContent) contextValidateQuickReply(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.QuickReply != nil {
+		if err := m.QuickReply.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("quickReply")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("quickReply")
 			}
 			return err
 		}

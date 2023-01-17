@@ -95,7 +95,6 @@ func (o *PutRoutingMessageRecipientReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutRoutingMessageRecipientOK() *PutRoutingMessageRecipientOK {
 	return &PutRoutingMessageRecipientOK{}
 }
 
-/*PutRoutingMessageRecipientOK handles this case with default header values.
+/*
+PutRoutingMessageRecipientOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutRoutingMessageRecipientOK struct {
 	Payload *models.Recipient
 }
 
+// IsSuccess returns true when this put routing message recipient o k response has a 2xx status code
+func (o *PutRoutingMessageRecipientOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put routing message recipient o k response has a 3xx status code
+func (o *PutRoutingMessageRecipientOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing message recipient o k response has a 4xx status code
+func (o *PutRoutingMessageRecipientOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put routing message recipient o k response has a 5xx status code
+func (o *PutRoutingMessageRecipientOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing message recipient o k response a status code equal to that given
+func (o *PutRoutingMessageRecipientOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutRoutingMessageRecipientOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientOK  %+v", 200, o.Payload)
+}
+
+func (o *PutRoutingMessageRecipientOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutRoutingMessageRecipientBadRequest() *PutRoutingMessageRecipientBadReq
 	return &PutRoutingMessageRecipientBadRequest{}
 }
 
-/*PutRoutingMessageRecipientBadRequest handles this case with default header values.
+/*
+PutRoutingMessageRecipientBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutRoutingMessageRecipientBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing message recipient bad request response has a 2xx status code
+func (o *PutRoutingMessageRecipientBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing message recipient bad request response has a 3xx status code
+func (o *PutRoutingMessageRecipientBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing message recipient bad request response has a 4xx status code
+func (o *PutRoutingMessageRecipientBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing message recipient bad request response has a 5xx status code
+func (o *PutRoutingMessageRecipientBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing message recipient bad request response a status code equal to that given
+func (o *PutRoutingMessageRecipientBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutRoutingMessageRecipientBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutRoutingMessageRecipientBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutRoutingMessageRecipientUnauthorized() *PutRoutingMessageRecipientUnau
 	return &PutRoutingMessageRecipientUnauthorized{}
 }
 
-/*PutRoutingMessageRecipientUnauthorized handles this case with default header values.
+/*
+PutRoutingMessageRecipientUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutRoutingMessageRecipientUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing message recipient unauthorized response has a 2xx status code
+func (o *PutRoutingMessageRecipientUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing message recipient unauthorized response has a 3xx status code
+func (o *PutRoutingMessageRecipientUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing message recipient unauthorized response has a 4xx status code
+func (o *PutRoutingMessageRecipientUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing message recipient unauthorized response has a 5xx status code
+func (o *PutRoutingMessageRecipientUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing message recipient unauthorized response a status code equal to that given
+func (o *PutRoutingMessageRecipientUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutRoutingMessageRecipientUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutRoutingMessageRecipientUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutRoutingMessageRecipientForbidden() *PutRoutingMessageRecipientForbidd
 	return &PutRoutingMessageRecipientForbidden{}
 }
 
-/*PutRoutingMessageRecipientForbidden handles this case with default header values.
+/*
+PutRoutingMessageRecipientForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutRoutingMessageRecipientForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing message recipient forbidden response has a 2xx status code
+func (o *PutRoutingMessageRecipientForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing message recipient forbidden response has a 3xx status code
+func (o *PutRoutingMessageRecipientForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing message recipient forbidden response has a 4xx status code
+func (o *PutRoutingMessageRecipientForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing message recipient forbidden response has a 5xx status code
+func (o *PutRoutingMessageRecipientForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing message recipient forbidden response a status code equal to that given
+func (o *PutRoutingMessageRecipientForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutRoutingMessageRecipientForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutRoutingMessageRecipientForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutRoutingMessageRecipientNotFound() *PutRoutingMessageRecipientNotFound
 	return &PutRoutingMessageRecipientNotFound{}
 }
 
-/*PutRoutingMessageRecipientNotFound handles this case with default header values.
+/*
+PutRoutingMessageRecipientNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutRoutingMessageRecipientNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing message recipient not found response has a 2xx status code
+func (o *PutRoutingMessageRecipientNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing message recipient not found response has a 3xx status code
+func (o *PutRoutingMessageRecipientNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing message recipient not found response has a 4xx status code
+func (o *PutRoutingMessageRecipientNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing message recipient not found response has a 5xx status code
+func (o *PutRoutingMessageRecipientNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing message recipient not found response a status code equal to that given
+func (o *PutRoutingMessageRecipientNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutRoutingMessageRecipientNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutRoutingMessageRecipientNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutRoutingMessageRecipientRequestTimeout() *PutRoutingMessageRecipientRe
 	return &PutRoutingMessageRecipientRequestTimeout{}
 }
 
-/*PutRoutingMessageRecipientRequestTimeout handles this case with default header values.
+/*
+PutRoutingMessageRecipientRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutRoutingMessageRecipientRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing message recipient request timeout response has a 2xx status code
+func (o *PutRoutingMessageRecipientRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing message recipient request timeout response has a 3xx status code
+func (o *PutRoutingMessageRecipientRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing message recipient request timeout response has a 4xx status code
+func (o *PutRoutingMessageRecipientRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing message recipient request timeout response has a 5xx status code
+func (o *PutRoutingMessageRecipientRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing message recipient request timeout response a status code equal to that given
+func (o *PutRoutingMessageRecipientRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutRoutingMessageRecipientRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutRoutingMessageRecipientRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutRoutingMessageRecipientRequestEntityTooLarge() *PutRoutingMessageReci
 	return &PutRoutingMessageRecipientRequestEntityTooLarge{}
 }
 
-/*PutRoutingMessageRecipientRequestEntityTooLarge handles this case with default header values.
+/*
+PutRoutingMessageRecipientRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutRoutingMessageRecipientRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing message recipient request entity too large response has a 2xx status code
+func (o *PutRoutingMessageRecipientRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing message recipient request entity too large response has a 3xx status code
+func (o *PutRoutingMessageRecipientRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing message recipient request entity too large response has a 4xx status code
+func (o *PutRoutingMessageRecipientRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing message recipient request entity too large response has a 5xx status code
+func (o *PutRoutingMessageRecipientRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing message recipient request entity too large response a status code equal to that given
+func (o *PutRoutingMessageRecipientRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutRoutingMessageRecipientRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutRoutingMessageRecipientRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutRoutingMessageRecipientUnsupportedMediaType() *PutRoutingMessageRecip
 	return &PutRoutingMessageRecipientUnsupportedMediaType{}
 }
 
-/*PutRoutingMessageRecipientUnsupportedMediaType handles this case with default header values.
+/*
+PutRoutingMessageRecipientUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutRoutingMessageRecipientUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing message recipient unsupported media type response has a 2xx status code
+func (o *PutRoutingMessageRecipientUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing message recipient unsupported media type response has a 3xx status code
+func (o *PutRoutingMessageRecipientUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing message recipient unsupported media type response has a 4xx status code
+func (o *PutRoutingMessageRecipientUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing message recipient unsupported media type response has a 5xx status code
+func (o *PutRoutingMessageRecipientUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing message recipient unsupported media type response a status code equal to that given
+func (o *PutRoutingMessageRecipientUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutRoutingMessageRecipientUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutRoutingMessageRecipientUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutRoutingMessageRecipientTooManyRequests() *PutRoutingMessageRecipientT
 	return &PutRoutingMessageRecipientTooManyRequests{}
 }
 
-/*PutRoutingMessageRecipientTooManyRequests handles this case with default header values.
+/*
+PutRoutingMessageRecipientTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutRoutingMessageRecipientTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing message recipient too many requests response has a 2xx status code
+func (o *PutRoutingMessageRecipientTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing message recipient too many requests response has a 3xx status code
+func (o *PutRoutingMessageRecipientTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing message recipient too many requests response has a 4xx status code
+func (o *PutRoutingMessageRecipientTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put routing message recipient too many requests response has a 5xx status code
+func (o *PutRoutingMessageRecipientTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put routing message recipient too many requests response a status code equal to that given
+func (o *PutRoutingMessageRecipientTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutRoutingMessageRecipientTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutRoutingMessageRecipientTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutRoutingMessageRecipientInternalServerError() *PutRoutingMessageRecipi
 	return &PutRoutingMessageRecipientInternalServerError{}
 }
 
-/*PutRoutingMessageRecipientInternalServerError handles this case with default header values.
+/*
+PutRoutingMessageRecipientInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutRoutingMessageRecipientInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing message recipient internal server error response has a 2xx status code
+func (o *PutRoutingMessageRecipientInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing message recipient internal server error response has a 3xx status code
+func (o *PutRoutingMessageRecipientInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing message recipient internal server error response has a 4xx status code
+func (o *PutRoutingMessageRecipientInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put routing message recipient internal server error response has a 5xx status code
+func (o *PutRoutingMessageRecipientInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put routing message recipient internal server error response a status code equal to that given
+func (o *PutRoutingMessageRecipientInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutRoutingMessageRecipientInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutRoutingMessageRecipientInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutRoutingMessageRecipientServiceUnavailable() *PutRoutingMessageRecipie
 	return &PutRoutingMessageRecipientServiceUnavailable{}
 }
 
-/*PutRoutingMessageRecipientServiceUnavailable handles this case with default header values.
+/*
+PutRoutingMessageRecipientServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutRoutingMessageRecipientServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing message recipient service unavailable response has a 2xx status code
+func (o *PutRoutingMessageRecipientServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing message recipient service unavailable response has a 3xx status code
+func (o *PutRoutingMessageRecipientServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing message recipient service unavailable response has a 4xx status code
+func (o *PutRoutingMessageRecipientServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put routing message recipient service unavailable response has a 5xx status code
+func (o *PutRoutingMessageRecipientServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put routing message recipient service unavailable response a status code equal to that given
+func (o *PutRoutingMessageRecipientServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutRoutingMessageRecipientServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutRoutingMessageRecipientServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutRoutingMessageRecipientGatewayTimeout() *PutRoutingMessageRecipientGa
 	return &PutRoutingMessageRecipientGatewayTimeout{}
 }
 
-/*PutRoutingMessageRecipientGatewayTimeout handles this case with default header values.
+/*
+PutRoutingMessageRecipientGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutRoutingMessageRecipientGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put routing message recipient gateway timeout response has a 2xx status code
+func (o *PutRoutingMessageRecipientGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put routing message recipient gateway timeout response has a 3xx status code
+func (o *PutRoutingMessageRecipientGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put routing message recipient gateway timeout response has a 4xx status code
+func (o *PutRoutingMessageRecipientGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put routing message recipient gateway timeout response has a 5xx status code
+func (o *PutRoutingMessageRecipientGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put routing message recipient gateway timeout response a status code equal to that given
+func (o *PutRoutingMessageRecipientGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutRoutingMessageRecipientGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutRoutingMessageRecipientGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/routing/message/recipients/{recipientId}][%d] putRoutingMessageRecipientGatewayTimeout  %+v", 504, o.Payload)
 }
 

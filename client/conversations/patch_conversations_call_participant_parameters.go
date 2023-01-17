@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchConversationsCallParticipantParams creates a new PatchConversationsCallParticipantParams object
-// with the default values initialized.
+// NewPatchConversationsCallParticipantParams creates a new PatchConversationsCallParticipantParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchConversationsCallParticipantParams() *PatchConversationsCallParticipantParams {
-	var ()
 	return &PatchConversationsCallParticipantParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchConversationsCallParticipantParamsWithTimeout creates a new PatchConversationsCallParticipantParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchConversationsCallParticipantParamsWithTimeout(timeout time.Duration) *PatchConversationsCallParticipantParams {
-	var ()
 	return &PatchConversationsCallParticipantParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchConversationsCallParticipantParamsWithContext creates a new PatchConversationsCallParticipantParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchConversationsCallParticipantParamsWithContext(ctx context.Context) *PatchConversationsCallParticipantParams {
-	var ()
 	return &PatchConversationsCallParticipantParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchConversationsCallParticipantParamsWithHTTPClient creates a new PatchConversationsCallParticipantParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchConversationsCallParticipantParamsWithHTTPClient(client *http.Client) *PatchConversationsCallParticipantParams {
-	var ()
 	return &PatchConversationsCallParticipantParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchConversationsCallParticipantParams contains all the parameters to send to the API endpoint
-for the patch conversations call participant operation typically these are written to a http.Request
+/*
+PatchConversationsCallParticipantParams contains all the parameters to send to the API endpoint
+
+	for the patch conversations call participant operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchConversationsCallParticipantParams struct {
 
-	/*Body
-	  Participant request
+	/* Body.
 
+	   Participant request
 	*/
 	Body *models.MediaParticipantRequest
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch conversations call participant params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsCallParticipantParams) WithDefaults() *PatchConversationsCallParticipantParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch conversations call participant params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsCallParticipantParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch conversations call participant params
@@ -156,7 +174,6 @@ func (o *PatchConversationsCallParticipantParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

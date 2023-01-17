@@ -95,7 +95,6 @@ func (o *GetWorkforcemanagementManagementunitShifttradesUsersReader) ReadRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWorkforcemanagementManagementunitShifttradesUsersOK() *GetWorkforcema
 	return &GetWorkforcemanagementManagementunitShifttradesUsersOK{}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesUsersOK handles this case with default header values.
+/*
+GetWorkforcemanagementManagementunitShifttradesUsersOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWorkforcemanagementManagementunitShifttradesUsersOK struct {
 	Payload *models.WfmUserEntityListing
 }
 
+// IsSuccess returns true when this get workforcemanagement managementunit shifttrades users o k response has a 2xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get workforcemanagement managementunit shifttrades users o k response has a 3xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement managementunit shifttrades users o k response has a 4xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement managementunit shifttrades users o k response has a 5xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement managementunit shifttrades users o k response a status code equal to that given
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWorkforcemanagementManagementunitShifttradesUsersBadRequest() *GetWor
 	return &GetWorkforcemanagementManagementunitShifttradesUsersBadRequest{}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesUsersBadRequest handles this case with default header values.
+/*
+GetWorkforcemanagementManagementunitShifttradesUsersBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWorkforcemanagementManagementunitShifttradesUsersBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement managementunit shifttrades users bad request response has a 2xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement managementunit shifttrades users bad request response has a 3xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement managementunit shifttrades users bad request response has a 4xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement managementunit shifttrades users bad request response has a 5xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement managementunit shifttrades users bad request response a status code equal to that given
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWorkforcemanagementManagementunitShifttradesUsersUnauthorized() *GetW
 	return &GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized{}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized handles this case with default header values.
+/*
+GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement managementunit shifttrades users unauthorized response has a 2xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement managementunit shifttrades users unauthorized response has a 3xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement managementunit shifttrades users unauthorized response has a 4xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement managementunit shifttrades users unauthorized response has a 5xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement managementunit shifttrades users unauthorized response a status code equal to that given
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWorkforcemanagementManagementunitShifttradesUsersForbidden() *GetWork
 	return &GetWorkforcemanagementManagementunitShifttradesUsersForbidden{}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesUsersForbidden handles this case with default header values.
+/*
+GetWorkforcemanagementManagementunitShifttradesUsersForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWorkforcemanagementManagementunitShifttradesUsersForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement managementunit shifttrades users forbidden response has a 2xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement managementunit shifttrades users forbidden response has a 3xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement managementunit shifttrades users forbidden response has a 4xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement managementunit shifttrades users forbidden response has a 5xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement managementunit shifttrades users forbidden response a status code equal to that given
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWorkforcemanagementManagementunitShifttradesUsersNotFound() *GetWorkf
 	return &GetWorkforcemanagementManagementunitShifttradesUsersNotFound{}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesUsersNotFound handles this case with default header values.
+/*
+GetWorkforcemanagementManagementunitShifttradesUsersNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWorkforcemanagementManagementunitShifttradesUsersNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement managementunit shifttrades users not found response has a 2xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement managementunit shifttrades users not found response has a 3xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement managementunit shifttrades users not found response has a 4xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement managementunit shifttrades users not found response has a 5xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement managementunit shifttrades users not found response a status code equal to that given
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWorkforcemanagementManagementunitShifttradesUsersRequestTimeout() *Ge
 	return &GetWorkforcemanagementManagementunitShifttradesUsersRequestTimeout{}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesUsersRequestTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementManagementunitShifttradesUsersRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWorkforcemanagementManagementunitShifttradesUsersRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement managementunit shifttrades users request timeout response has a 2xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement managementunit shifttrades users request timeout response has a 3xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement managementunit shifttrades users request timeout response has a 4xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement managementunit shifttrades users request timeout response has a 5xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement managementunit shifttrades users request timeout response a status code equal to that given
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarg
 	return &GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge{}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge handles this case with default header values.
+/*
+GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement managementunit shifttrades users request entity too large response has a 2xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement managementunit shifttrades users request entity too large response has a 3xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement managementunit shifttrades users request entity too large response has a 4xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement managementunit shifttrades users request entity too large response has a 5xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement managementunit shifttrades users request entity too large response a status code equal to that given
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType
 	return &GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType{}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType handles this case with default header values.
+/*
+GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement managementunit shifttrades users unsupported media type response has a 2xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement managementunit shifttrades users unsupported media type response has a 3xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement managementunit shifttrades users unsupported media type response has a 4xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement managementunit shifttrades users unsupported media type response has a 5xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement managementunit shifttrades users unsupported media type response a status code equal to that given
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests() *G
 	return &GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests{}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests handles this case with default header values.
+/*
+GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement managementunit shifttrades users too many requests response has a 2xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement managementunit shifttrades users too many requests response has a 3xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement managementunit shifttrades users too many requests response has a 4xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement managementunit shifttrades users too many requests response has a 5xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement managementunit shifttrades users too many requests response a status code equal to that given
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWorkforcemanagementManagementunitShifttradesUsersInternalServerError(
 	return &GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError{}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError handles this case with default header values.
+/*
+GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement managementunit shifttrades users internal server error response has a 2xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement managementunit shifttrades users internal server error response has a 3xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement managementunit shifttrades users internal server error response has a 4xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement managementunit shifttrades users internal server error response has a 5xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement managementunit shifttrades users internal server error response a status code equal to that given
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable()
 	return &GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable{}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable handles this case with default header values.
+/*
+GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement managementunit shifttrades users service unavailable response has a 2xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement managementunit shifttrades users service unavailable response has a 3xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement managementunit shifttrades users service unavailable response has a 4xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement managementunit shifttrades users service unavailable response has a 5xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement managementunit shifttrades users service unavailable response a status code equal to that given
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout() *Ge
 	return &GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout{}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement managementunit shifttrades users gateway timeout response has a 2xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement managementunit shifttrades users gateway timeout response has a 3xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement managementunit shifttrades users gateway timeout response has a 4xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement managementunit shifttrades users gateway timeout response has a 5xx status code
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement managementunit shifttrades users gateway timeout response a status code equal to that given
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/managementunits/{managementUnitId}/shifttrades/users][%d] getWorkforcemanagementManagementunitShifttradesUsersGatewayTimeout  %+v", 504, o.Payload)
 }
 

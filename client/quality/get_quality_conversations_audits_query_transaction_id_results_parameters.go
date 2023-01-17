@@ -17,86 +17,107 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetQualityConversationsAuditsQueryTransactionIDResultsParams creates a new GetQualityConversationsAuditsQueryTransactionIDResultsParams object
-// with the default values initialized.
+// NewGetQualityConversationsAuditsQueryTransactionIDResultsParams creates a new GetQualityConversationsAuditsQueryTransactionIDResultsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetQualityConversationsAuditsQueryTransactionIDResultsParams() *GetQualityConversationsAuditsQueryTransactionIDResultsParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetQualityConversationsAuditsQueryTransactionIDResultsParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetQualityConversationsAuditsQueryTransactionIDResultsParamsWithTimeout creates a new GetQualityConversationsAuditsQueryTransactionIDResultsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetQualityConversationsAuditsQueryTransactionIDResultsParamsWithTimeout(timeout time.Duration) *GetQualityConversationsAuditsQueryTransactionIDResultsParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetQualityConversationsAuditsQueryTransactionIDResultsParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetQualityConversationsAuditsQueryTransactionIDResultsParamsWithContext creates a new GetQualityConversationsAuditsQueryTransactionIDResultsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetQualityConversationsAuditsQueryTransactionIDResultsParamsWithContext(ctx context.Context) *GetQualityConversationsAuditsQueryTransactionIDResultsParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetQualityConversationsAuditsQueryTransactionIDResultsParams{
-		PageSize: &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetQualityConversationsAuditsQueryTransactionIDResultsParamsWithHTTPClient creates a new GetQualityConversationsAuditsQueryTransactionIDResultsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetQualityConversationsAuditsQueryTransactionIDResultsParamsWithHTTPClient(client *http.Client) *GetQualityConversationsAuditsQueryTransactionIDResultsParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetQualityConversationsAuditsQueryTransactionIDResultsParams{
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDResultsParams contains all the parameters to send to the API endpoint
-for the get quality conversations audits query transaction Id results operation typically these are written to a http.Request
+/*
+GetQualityConversationsAuditsQueryTransactionIDResultsParams contains all the parameters to send to the API endpoint
+
+	for the get quality conversations audits query transaction Id results operation.
+
+	Typically these are written to a http.Request.
 */
 type GetQualityConversationsAuditsQueryTransactionIDResultsParams struct {
 
-	/*Cursor
-	  Indicates where to resume query results (not required for first page)
+	/* Cursor.
 
+	   Indicates where to resume query results (not required for first page)
 	*/
 	Cursor *string
-	/*Expand
-	  Which fields, if any, to expand
 
+	/* Expand.
+
+	   Which fields, if any, to expand
 	*/
 	Expand []string
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*TransactionID
-	  Transaction ID
 
+	/* TransactionID.
+
+	   Transaction ID
 	*/
 	TransactionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get quality conversations audits query transaction Id results params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityConversationsAuditsQueryTransactionIDResultsParams) WithDefaults() *GetQualityConversationsAuditsQueryTransactionIDResultsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get quality conversations audits query transaction Id results params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityConversationsAuditsQueryTransactionIDResultsParams) SetDefaults() {
+	var (
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetQualityConversationsAuditsQueryTransactionIDResultsParams{
+		PageSize: &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get quality conversations audits query transaction Id results params
@@ -188,40 +209,45 @@ func (o *GetQualityConversationsAuditsQueryTransactionIDResultsParams) WriteToRe
 
 		// query param cursor
 		var qrCursor string
+
 		if o.Cursor != nil {
 			qrCursor = *o.Cursor
 		}
 		qCursor := qrCursor
 		if qCursor != "" {
+
 			if err := r.SetQueryParam("cursor", qCursor); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param transactionId
@@ -233,4 +259,21 @@ func (o *GetQualityConversationsAuditsQueryTransactionIDResultsParams) WriteToRe
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetQualityConversationsAuditsQueryTransactionIDResults binds the parameter expand
+func (o *GetQualityConversationsAuditsQueryTransactionIDResultsParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

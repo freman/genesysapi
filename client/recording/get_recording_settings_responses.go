@@ -95,7 +95,6 @@ func (o *GetRecordingSettingsReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRecordingSettingsOK() *GetRecordingSettingsOK {
 	return &GetRecordingSettingsOK{}
 }
 
-/*GetRecordingSettingsOK handles this case with default header values.
+/*
+GetRecordingSettingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRecordingSettingsOK struct {
 	Payload *models.RecordingSettings
 }
 
+// IsSuccess returns true when this get recording settings o k response has a 2xx status code
+func (o *GetRecordingSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get recording settings o k response has a 3xx status code
+func (o *GetRecordingSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording settings o k response has a 4xx status code
+func (o *GetRecordingSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording settings o k response has a 5xx status code
+func (o *GetRecordingSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording settings o k response a status code equal to that given
+func (o *GetRecordingSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRecordingSettingsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRecordingSettingsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRecordingSettingsBadRequest() *GetRecordingSettingsBadRequest {
 	return &GetRecordingSettingsBadRequest{}
 }
 
-/*GetRecordingSettingsBadRequest handles this case with default header values.
+/*
+GetRecordingSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRecordingSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording settings bad request response has a 2xx status code
+func (o *GetRecordingSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording settings bad request response has a 3xx status code
+func (o *GetRecordingSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording settings bad request response has a 4xx status code
+func (o *GetRecordingSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording settings bad request response has a 5xx status code
+func (o *GetRecordingSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording settings bad request response a status code equal to that given
+func (o *GetRecordingSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRecordingSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRecordingSettingsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRecordingSettingsUnauthorized() *GetRecordingSettingsUnauthorized {
 	return &GetRecordingSettingsUnauthorized{}
 }
 
-/*GetRecordingSettingsUnauthorized handles this case with default header values.
+/*
+GetRecordingSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRecordingSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording settings unauthorized response has a 2xx status code
+func (o *GetRecordingSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording settings unauthorized response has a 3xx status code
+func (o *GetRecordingSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording settings unauthorized response has a 4xx status code
+func (o *GetRecordingSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording settings unauthorized response has a 5xx status code
+func (o *GetRecordingSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording settings unauthorized response a status code equal to that given
+func (o *GetRecordingSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRecordingSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRecordingSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRecordingSettingsForbidden() *GetRecordingSettingsForbidden {
 	return &GetRecordingSettingsForbidden{}
 }
 
-/*GetRecordingSettingsForbidden handles this case with default header values.
+/*
+GetRecordingSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRecordingSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording settings forbidden response has a 2xx status code
+func (o *GetRecordingSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording settings forbidden response has a 3xx status code
+func (o *GetRecordingSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording settings forbidden response has a 4xx status code
+func (o *GetRecordingSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording settings forbidden response has a 5xx status code
+func (o *GetRecordingSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording settings forbidden response a status code equal to that given
+func (o *GetRecordingSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRecordingSettingsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRecordingSettingsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRecordingSettingsNotFound() *GetRecordingSettingsNotFound {
 	return &GetRecordingSettingsNotFound{}
 }
 
-/*GetRecordingSettingsNotFound handles this case with default header values.
+/*
+GetRecordingSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRecordingSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording settings not found response has a 2xx status code
+func (o *GetRecordingSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording settings not found response has a 3xx status code
+func (o *GetRecordingSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording settings not found response has a 4xx status code
+func (o *GetRecordingSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording settings not found response has a 5xx status code
+func (o *GetRecordingSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording settings not found response a status code equal to that given
+func (o *GetRecordingSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRecordingSettingsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRecordingSettingsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRecordingSettingsRequestTimeout() *GetRecordingSettingsRequestTimeout
 	return &GetRecordingSettingsRequestTimeout{}
 }
 
-/*GetRecordingSettingsRequestTimeout handles this case with default header values.
+/*
+GetRecordingSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRecordingSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording settings request timeout response has a 2xx status code
+func (o *GetRecordingSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording settings request timeout response has a 3xx status code
+func (o *GetRecordingSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording settings request timeout response has a 4xx status code
+func (o *GetRecordingSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording settings request timeout response has a 5xx status code
+func (o *GetRecordingSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording settings request timeout response a status code equal to that given
+func (o *GetRecordingSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRecordingSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRecordingSettingsRequestEntityTooLarge() *GetRecordingSettingsRequest
 	return &GetRecordingSettingsRequestEntityTooLarge{}
 }
 
-/*GetRecordingSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+GetRecordingSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRecordingSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording settings request entity too large response has a 2xx status code
+func (o *GetRecordingSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording settings request entity too large response has a 3xx status code
+func (o *GetRecordingSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording settings request entity too large response has a 4xx status code
+func (o *GetRecordingSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording settings request entity too large response has a 5xx status code
+func (o *GetRecordingSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording settings request entity too large response a status code equal to that given
+func (o *GetRecordingSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRecordingSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRecordingSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRecordingSettingsUnsupportedMediaType() *GetRecordingSettingsUnsuppor
 	return &GetRecordingSettingsUnsupportedMediaType{}
 }
 
-/*GetRecordingSettingsUnsupportedMediaType handles this case with default header values.
+/*
+GetRecordingSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRecordingSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording settings unsupported media type response has a 2xx status code
+func (o *GetRecordingSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording settings unsupported media type response has a 3xx status code
+func (o *GetRecordingSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording settings unsupported media type response has a 4xx status code
+func (o *GetRecordingSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording settings unsupported media type response has a 5xx status code
+func (o *GetRecordingSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording settings unsupported media type response a status code equal to that given
+func (o *GetRecordingSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRecordingSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRecordingSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRecordingSettingsTooManyRequests() *GetRecordingSettingsTooManyReques
 	return &GetRecordingSettingsTooManyRequests{}
 }
 
-/*GetRecordingSettingsTooManyRequests handles this case with default header values.
+/*
+GetRecordingSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRecordingSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording settings too many requests response has a 2xx status code
+func (o *GetRecordingSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording settings too many requests response has a 3xx status code
+func (o *GetRecordingSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording settings too many requests response has a 4xx status code
+func (o *GetRecordingSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording settings too many requests response has a 5xx status code
+func (o *GetRecordingSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording settings too many requests response a status code equal to that given
+func (o *GetRecordingSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRecordingSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRecordingSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRecordingSettingsInternalServerError() *GetRecordingSettingsInternalS
 	return &GetRecordingSettingsInternalServerError{}
 }
 
-/*GetRecordingSettingsInternalServerError handles this case with default header values.
+/*
+GetRecordingSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRecordingSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording settings internal server error response has a 2xx status code
+func (o *GetRecordingSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording settings internal server error response has a 3xx status code
+func (o *GetRecordingSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording settings internal server error response has a 4xx status code
+func (o *GetRecordingSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording settings internal server error response has a 5xx status code
+func (o *GetRecordingSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording settings internal server error response a status code equal to that given
+func (o *GetRecordingSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRecordingSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRecordingSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRecordingSettingsServiceUnavailable() *GetRecordingSettingsServiceUna
 	return &GetRecordingSettingsServiceUnavailable{}
 }
 
-/*GetRecordingSettingsServiceUnavailable handles this case with default header values.
+/*
+GetRecordingSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRecordingSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording settings service unavailable response has a 2xx status code
+func (o *GetRecordingSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording settings service unavailable response has a 3xx status code
+func (o *GetRecordingSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording settings service unavailable response has a 4xx status code
+func (o *GetRecordingSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording settings service unavailable response has a 5xx status code
+func (o *GetRecordingSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording settings service unavailable response a status code equal to that given
+func (o *GetRecordingSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRecordingSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRecordingSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRecordingSettingsGatewayTimeout() *GetRecordingSettingsGatewayTimeout
 	return &GetRecordingSettingsGatewayTimeout{}
 }
 
-/*GetRecordingSettingsGatewayTimeout handles this case with default header values.
+/*
+GetRecordingSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRecordingSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording settings gateway timeout response has a 2xx status code
+func (o *GetRecordingSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording settings gateway timeout response has a 3xx status code
+func (o *GetRecordingSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording settings gateway timeout response has a 4xx status code
+func (o *GetRecordingSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording settings gateway timeout response has a 5xx status code
+func (o *GetRecordingSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording settings gateway timeout response a status code equal to that given
+func (o *GetRecordingSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRecordingSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRecordingSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/settings][%d] getRecordingSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

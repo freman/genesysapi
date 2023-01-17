@@ -95,7 +95,6 @@ func (o *GetContentmanagementShareReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetContentmanagementShareOK() *GetContentmanagementShareOK {
 	return &GetContentmanagementShareOK{}
 }
 
-/*GetContentmanagementShareOK handles this case with default header values.
+/*
+GetContentmanagementShareOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetContentmanagementShareOK struct {
 	Payload *models.Share
 }
 
+// IsSuccess returns true when this get contentmanagement share o k response has a 2xx status code
+func (o *GetContentmanagementShareOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get contentmanagement share o k response has a 3xx status code
+func (o *GetContentmanagementShareOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement share o k response has a 4xx status code
+func (o *GetContentmanagementShareOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement share o k response has a 5xx status code
+func (o *GetContentmanagementShareOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement share o k response a status code equal to that given
+func (o *GetContentmanagementShareOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetContentmanagementShareOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareOK  %+v", 200, o.Payload)
+}
+
+func (o *GetContentmanagementShareOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetContentmanagementShareBadRequest() *GetContentmanagementShareBadReque
 	return &GetContentmanagementShareBadRequest{}
 }
 
-/*GetContentmanagementShareBadRequest handles this case with default header values.
+/*
+GetContentmanagementShareBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetContentmanagementShareBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement share bad request response has a 2xx status code
+func (o *GetContentmanagementShareBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement share bad request response has a 3xx status code
+func (o *GetContentmanagementShareBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement share bad request response has a 4xx status code
+func (o *GetContentmanagementShareBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement share bad request response has a 5xx status code
+func (o *GetContentmanagementShareBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement share bad request response a status code equal to that given
+func (o *GetContentmanagementShareBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetContentmanagementShareBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetContentmanagementShareBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetContentmanagementShareUnauthorized() *GetContentmanagementShareUnauth
 	return &GetContentmanagementShareUnauthorized{}
 }
 
-/*GetContentmanagementShareUnauthorized handles this case with default header values.
+/*
+GetContentmanagementShareUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetContentmanagementShareUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement share unauthorized response has a 2xx status code
+func (o *GetContentmanagementShareUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement share unauthorized response has a 3xx status code
+func (o *GetContentmanagementShareUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement share unauthorized response has a 4xx status code
+func (o *GetContentmanagementShareUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement share unauthorized response has a 5xx status code
+func (o *GetContentmanagementShareUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement share unauthorized response a status code equal to that given
+func (o *GetContentmanagementShareUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetContentmanagementShareUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetContentmanagementShareUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetContentmanagementShareForbidden() *GetContentmanagementShareForbidden
 	return &GetContentmanagementShareForbidden{}
 }
 
-/*GetContentmanagementShareForbidden handles this case with default header values.
+/*
+GetContentmanagementShareForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetContentmanagementShareForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement share forbidden response has a 2xx status code
+func (o *GetContentmanagementShareForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement share forbidden response has a 3xx status code
+func (o *GetContentmanagementShareForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement share forbidden response has a 4xx status code
+func (o *GetContentmanagementShareForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement share forbidden response has a 5xx status code
+func (o *GetContentmanagementShareForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement share forbidden response a status code equal to that given
+func (o *GetContentmanagementShareForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetContentmanagementShareForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetContentmanagementShareForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetContentmanagementShareNotFound() *GetContentmanagementShareNotFound {
 	return &GetContentmanagementShareNotFound{}
 }
 
-/*GetContentmanagementShareNotFound handles this case with default header values.
+/*
+GetContentmanagementShareNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetContentmanagementShareNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement share not found response has a 2xx status code
+func (o *GetContentmanagementShareNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement share not found response has a 3xx status code
+func (o *GetContentmanagementShareNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement share not found response has a 4xx status code
+func (o *GetContentmanagementShareNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement share not found response has a 5xx status code
+func (o *GetContentmanagementShareNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement share not found response a status code equal to that given
+func (o *GetContentmanagementShareNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetContentmanagementShareNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetContentmanagementShareNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetContentmanagementShareRequestTimeout() *GetContentmanagementShareRequ
 	return &GetContentmanagementShareRequestTimeout{}
 }
 
-/*GetContentmanagementShareRequestTimeout handles this case with default header values.
+/*
+GetContentmanagementShareRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetContentmanagementShareRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement share request timeout response has a 2xx status code
+func (o *GetContentmanagementShareRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement share request timeout response has a 3xx status code
+func (o *GetContentmanagementShareRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement share request timeout response has a 4xx status code
+func (o *GetContentmanagementShareRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement share request timeout response has a 5xx status code
+func (o *GetContentmanagementShareRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement share request timeout response a status code equal to that given
+func (o *GetContentmanagementShareRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetContentmanagementShareRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetContentmanagementShareRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetContentmanagementShareRequestEntityTooLarge() *GetContentmanagementSh
 	return &GetContentmanagementShareRequestEntityTooLarge{}
 }
 
-/*GetContentmanagementShareRequestEntityTooLarge handles this case with default header values.
+/*
+GetContentmanagementShareRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetContentmanagementShareRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement share request entity too large response has a 2xx status code
+func (o *GetContentmanagementShareRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement share request entity too large response has a 3xx status code
+func (o *GetContentmanagementShareRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement share request entity too large response has a 4xx status code
+func (o *GetContentmanagementShareRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement share request entity too large response has a 5xx status code
+func (o *GetContentmanagementShareRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement share request entity too large response a status code equal to that given
+func (o *GetContentmanagementShareRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetContentmanagementShareRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetContentmanagementShareRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetContentmanagementShareUnsupportedMediaType() *GetContentmanagementSha
 	return &GetContentmanagementShareUnsupportedMediaType{}
 }
 
-/*GetContentmanagementShareUnsupportedMediaType handles this case with default header values.
+/*
+GetContentmanagementShareUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetContentmanagementShareUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement share unsupported media type response has a 2xx status code
+func (o *GetContentmanagementShareUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement share unsupported media type response has a 3xx status code
+func (o *GetContentmanagementShareUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement share unsupported media type response has a 4xx status code
+func (o *GetContentmanagementShareUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement share unsupported media type response has a 5xx status code
+func (o *GetContentmanagementShareUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement share unsupported media type response a status code equal to that given
+func (o *GetContentmanagementShareUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetContentmanagementShareUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetContentmanagementShareUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetContentmanagementShareTooManyRequests() *GetContentmanagementShareToo
 	return &GetContentmanagementShareTooManyRequests{}
 }
 
-/*GetContentmanagementShareTooManyRequests handles this case with default header values.
+/*
+GetContentmanagementShareTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetContentmanagementShareTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement share too many requests response has a 2xx status code
+func (o *GetContentmanagementShareTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement share too many requests response has a 3xx status code
+func (o *GetContentmanagementShareTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement share too many requests response has a 4xx status code
+func (o *GetContentmanagementShareTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement share too many requests response has a 5xx status code
+func (o *GetContentmanagementShareTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement share too many requests response a status code equal to that given
+func (o *GetContentmanagementShareTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetContentmanagementShareTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetContentmanagementShareTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetContentmanagementShareInternalServerError() *GetContentmanagementShar
 	return &GetContentmanagementShareInternalServerError{}
 }
 
-/*GetContentmanagementShareInternalServerError handles this case with default header values.
+/*
+GetContentmanagementShareInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetContentmanagementShareInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement share internal server error response has a 2xx status code
+func (o *GetContentmanagementShareInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement share internal server error response has a 3xx status code
+func (o *GetContentmanagementShareInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement share internal server error response has a 4xx status code
+func (o *GetContentmanagementShareInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement share internal server error response has a 5xx status code
+func (o *GetContentmanagementShareInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement share internal server error response a status code equal to that given
+func (o *GetContentmanagementShareInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetContentmanagementShareInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetContentmanagementShareInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetContentmanagementShareServiceUnavailable() *GetContentmanagementShare
 	return &GetContentmanagementShareServiceUnavailable{}
 }
 
-/*GetContentmanagementShareServiceUnavailable handles this case with default header values.
+/*
+GetContentmanagementShareServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetContentmanagementShareServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement share service unavailable response has a 2xx status code
+func (o *GetContentmanagementShareServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement share service unavailable response has a 3xx status code
+func (o *GetContentmanagementShareServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement share service unavailable response has a 4xx status code
+func (o *GetContentmanagementShareServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement share service unavailable response has a 5xx status code
+func (o *GetContentmanagementShareServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement share service unavailable response a status code equal to that given
+func (o *GetContentmanagementShareServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetContentmanagementShareServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetContentmanagementShareServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetContentmanagementShareGatewayTimeout() *GetContentmanagementShareGate
 	return &GetContentmanagementShareGatewayTimeout{}
 }
 
-/*GetContentmanagementShareGatewayTimeout handles this case with default header values.
+/*
+GetContentmanagementShareGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetContentmanagementShareGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement share gateway timeout response has a 2xx status code
+func (o *GetContentmanagementShareGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement share gateway timeout response has a 3xx status code
+func (o *GetContentmanagementShareGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement share gateway timeout response has a 4xx status code
+func (o *GetContentmanagementShareGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement share gateway timeout response has a 5xx status code
+func (o *GetContentmanagementShareGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement share gateway timeout response a status code equal to that given
+func (o *GetContentmanagementShareGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetContentmanagementShareGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetContentmanagementShareGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/shares/{shareId}][%d] getContentmanagementShareGatewayTimeout  %+v", 504, o.Payload)
 }
 

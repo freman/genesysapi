@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchChatSettingsParams creates a new PatchChatSettingsParams object
-// with the default values initialized.
+// NewPatchChatSettingsParams creates a new PatchChatSettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchChatSettingsParams() *PatchChatSettingsParams {
-	var ()
 	return &PatchChatSettingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchChatSettingsParamsWithTimeout creates a new PatchChatSettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchChatSettingsParamsWithTimeout(timeout time.Duration) *PatchChatSettingsParams {
-	var ()
 	return &PatchChatSettingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchChatSettingsParamsWithContext creates a new PatchChatSettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchChatSettingsParamsWithContext(ctx context.Context) *PatchChatSettingsParams {
-	var ()
 	return &PatchChatSettingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchChatSettingsParamsWithHTTPClient creates a new PatchChatSettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchChatSettingsParamsWithHTTPClient(client *http.Client) *PatchChatSettingsParams {
-	var ()
 	return &PatchChatSettingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchChatSettingsParams contains all the parameters to send to the API endpoint
-for the patch chat settings operation typically these are written to a http.Request
+/*
+PatchChatSettingsParams contains all the parameters to send to the API endpoint
+
+	for the patch chat settings operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchChatSettingsParams struct {
 
-	/*Body
-	  Chat
+	/* Body.
 
+	   Chat
 	*/
 	Body *models.ChatSettings
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch chat settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchChatSettingsParams) WithDefaults() *PatchChatSettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch chat settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchChatSettingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch chat settings params
@@ -124,7 +140,6 @@ func (o *PatchChatSettingsParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

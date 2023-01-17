@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -45,7 +47,6 @@ func (m *SearchShiftTradeResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SearchShiftTradeResponse) validatePreview(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Preview) { // not required
 		return nil
 	}
@@ -54,6 +55,8 @@ func (m *SearchShiftTradeResponse) validatePreview(formats strfmt.Registry) erro
 		if err := m.Preview.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("preview")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("preview")
 			}
 			return err
 		}
@@ -63,7 +66,6 @@ func (m *SearchShiftTradeResponse) validatePreview(formats strfmt.Registry) erro
 }
 
 func (m *SearchShiftTradeResponse) validateTrade(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Trade) { // not required
 		return nil
 	}
@@ -72,6 +74,58 @@ func (m *SearchShiftTradeResponse) validateTrade(formats strfmt.Registry) error 
 		if err := m.Trade.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("trade")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trade")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this search shift trade response based on the context it is used
+func (m *SearchShiftTradeResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePreview(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrade(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SearchShiftTradeResponse) contextValidatePreview(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Preview != nil {
+		if err := m.Preview.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("preview")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("preview")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SearchShiftTradeResponse) contextValidateTrade(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Trade != nil {
+		if err := m.Trade.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trade")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trade")
 			}
 			return err
 		}

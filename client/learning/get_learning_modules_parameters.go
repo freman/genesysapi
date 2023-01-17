@@ -17,151 +17,167 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetLearningModulesParams creates a new GetLearningModulesParams object
-// with the default values initialized.
+// NewGetLearningModulesParams creates a new GetLearningModulesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLearningModulesParams() *GetLearningModulesParams {
-	var (
-		isArchivedDefault  = bool(false)
-		isPublishedDefault = string("Any")
-		pageNumberDefault  = int32(1)
-		pageSizeDefault    = int32(25)
-		sortByDefault      = string("name")
-		sortOrderDefault   = string("ascending")
-	)
 	return &GetLearningModulesParams{
-		IsArchived:  &isArchivedDefault,
-		IsPublished: &isPublishedDefault,
-		PageNumber:  &pageNumberDefault,
-		PageSize:    &pageSizeDefault,
-		SortBy:      &sortByDefault,
-		SortOrder:   &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLearningModulesParamsWithTimeout creates a new GetLearningModulesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLearningModulesParamsWithTimeout(timeout time.Duration) *GetLearningModulesParams {
-	var (
-		isArchivedDefault  = bool(false)
-		isPublishedDefault = string("Any")
-		pageNumberDefault  = int32(1)
-		pageSizeDefault    = int32(25)
-		sortByDefault      = string("name")
-		sortOrderDefault   = string("ascending")
-	)
 	return &GetLearningModulesParams{
-		IsArchived:  &isArchivedDefault,
-		IsPublished: &isPublishedDefault,
-		PageNumber:  &pageNumberDefault,
-		PageSize:    &pageSizeDefault,
-		SortBy:      &sortByDefault,
-		SortOrder:   &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLearningModulesParamsWithContext creates a new GetLearningModulesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLearningModulesParamsWithContext(ctx context.Context) *GetLearningModulesParams {
-	var (
-		isArchivedDefault  = bool(false)
-		isPublishedDefault = string("Any")
-		pageNumberDefault  = int32(1)
-		pageSizeDefault    = int32(25)
-		sortByDefault      = string("name")
-		sortOrderDefault   = string("ascending")
-	)
 	return &GetLearningModulesParams{
-		IsArchived:  &isArchivedDefault,
-		IsPublished: &isPublishedDefault,
-		PageNumber:  &pageNumberDefault,
-		PageSize:    &pageSizeDefault,
-		SortBy:      &sortByDefault,
-		SortOrder:   &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetLearningModulesParamsWithHTTPClient creates a new GetLearningModulesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLearningModulesParamsWithHTTPClient(client *http.Client) *GetLearningModulesParams {
-	var (
-		isArchivedDefault  = bool(false)
-		isPublishedDefault = string("Any")
-		pageNumberDefault  = int32(1)
-		pageSizeDefault    = int32(25)
-		sortByDefault      = string("name")
-		sortOrderDefault   = string("ascending")
-	)
 	return &GetLearningModulesParams{
-		IsArchived:  &isArchivedDefault,
-		IsPublished: &isPublishedDefault,
-		PageNumber:  &pageNumberDefault,
-		PageSize:    &pageSizeDefault,
-		SortBy:      &sortByDefault,
-		SortOrder:   &sortOrderDefault,
-		HTTPClient:  client,
+		HTTPClient: client,
 	}
 }
 
-/*GetLearningModulesParams contains all the parameters to send to the API endpoint
-for the get learning modules operation typically these are written to a http.Request
+/*
+GetLearningModulesParams contains all the parameters to send to the API endpoint
+
+	for the get learning modules operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLearningModulesParams struct {
 
-	/*Expand
-	  Fields to expand in response(case insensitive)
+	/* Expand.
 
+	   Fields to expand in response(case insensitive)
 	*/
 	Expand []string
-	/*IsArchived
-	  Archive status
 
+	/* IsArchived.
+
+	   Archive status
 	*/
 	IsArchived *bool
-	/*IsPublished
-	  Specifies if only the Unpublished (isPublished is "False") or Published (isPublished is "True") modules are returned. If isPublished is "Any" or omitted, both types are returned
 
+	/* IsPublished.
+
+	   Specifies if only the Unpublished (isPublished is "False") or Published (isPublished is "True") modules are returned. If isPublished is "Any" or omitted, both types are returned
+
+	   Default: "Any"
 	*/
 	IsPublished *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SearchTerm
-	  Search Term (searchable by name)
 
+	/* SearchTerm.
+
+	   Search Term (searchable by name)
 	*/
 	SearchTerm *string
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
+
+	   Default: "name"
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "ascending"
 	*/
 	SortOrder *string
-	/*Types
-	  Specifies the module types.
 
+	/* Statuses.
+
+	   Specifies the module statuses to filter by
+	*/
+	Statuses []string
+
+	/* Types.
+
+	   Specifies the module types.
 	*/
 	Types []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get learning modules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLearningModulesParams) WithDefaults() *GetLearningModulesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get learning modules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLearningModulesParams) SetDefaults() {
+	var (
+		isArchivedDefault = bool(false)
+
+		isPublishedDefault = string("Any")
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("name")
+
+		sortOrderDefault = string("ascending")
+	)
+
+	val := GetLearningModulesParams{
+		IsArchived:  &isArchivedDefault,
+		IsPublished: &isPublishedDefault,
+		PageNumber:  &pageNumberDefault,
+		PageSize:    &pageSizeDefault,
+		SortBy:      &sortByDefault,
+		SortOrder:   &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get learning modules params
@@ -285,6 +301,17 @@ func (o *GetLearningModulesParams) SetSortOrder(sortOrder *string) {
 	o.SortOrder = sortOrder
 }
 
+// WithStatuses adds the statuses to the get learning modules params
+func (o *GetLearningModulesParams) WithStatuses(statuses []string) *GetLearningModulesParams {
+	o.SetStatuses(statuses)
+	return o
+}
+
+// SetStatuses adds the statuses to the get learning modules params
+func (o *GetLearningModulesParams) SetStatuses(statuses []string) {
+	o.Statuses = statuses
+}
+
 // WithTypes adds the types to the get learning modules params
 func (o *GetLearningModulesParams) WithTypes(types []string) *GetLearningModulesParams {
 	o.SetTypes(types)
@@ -304,136 +331,211 @@ func (o *GetLearningModulesParams) WriteToRequest(r runtime.ClientRequest, reg s
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.IsArchived != nil {
 
 		// query param isArchived
 		var qrIsArchived bool
+
 		if o.IsArchived != nil {
 			qrIsArchived = *o.IsArchived
 		}
 		qIsArchived := swag.FormatBool(qrIsArchived)
 		if qIsArchived != "" {
+
 			if err := r.SetQueryParam("isArchived", qIsArchived); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IsPublished != nil {
 
 		// query param isPublished
 		var qrIsPublished string
+
 		if o.IsPublished != nil {
 			qrIsPublished = *o.IsPublished
 		}
 		qIsPublished := qrIsPublished
 		if qIsPublished != "" {
+
 			if err := r.SetQueryParam("isPublished", qIsPublished); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SearchTerm != nil {
 
 		// query param searchTerm
 		var qrSearchTerm string
+
 		if o.SearchTerm != nil {
 			qrSearchTerm = *o.SearchTerm
 		}
 		qSearchTerm := qrSearchTerm
 		if qSearchTerm != "" {
+
 			if err := r.SetQueryParam("searchTerm", qSearchTerm); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesTypes := o.Types
+	if o.Statuses != nil {
 
-	joinedTypes := swag.JoinByFormat(valuesTypes, "multi")
-	// query array param types
-	if err := r.SetQueryParam("types", joinedTypes...); err != nil {
-		return err
+		// binding items for statuses
+		joinedStatuses := o.bindParamStatuses(reg)
+
+		// query array param statuses
+		if err := r.SetQueryParam("statuses", joinedStatuses...); err != nil {
+			return err
+		}
+	}
+
+	if o.Types != nil {
+
+		// binding items for types
+		joinedTypes := o.bindParamTypes(reg)
+
+		// query array param types
+		if err := r.SetQueryParam("types", joinedTypes...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetLearningModules binds the parameter expand
+func (o *GetLearningModulesParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
+}
+
+// bindParamGetLearningModules binds the parameter statuses
+func (o *GetLearningModulesParams) bindParamStatuses(formats strfmt.Registry) []string {
+	statusesIR := o.Statuses
+
+	var statusesIC []string
+	for _, statusesIIR := range statusesIR { // explode []string
+
+		statusesIIV := statusesIIR // string as string
+		statusesIC = append(statusesIC, statusesIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	statusesIS := swag.JoinByFormat(statusesIC, "multi")
+
+	return statusesIS
+}
+
+// bindParamGetLearningModules binds the parameter types
+func (o *GetLearningModulesParams) bindParamTypes(formats strfmt.Registry) []string {
+	typesIR := o.Types
+
+	var typesIC []string
+	for _, typesIIR := range typesIR { // explode []string
+
+		typesIIV := typesIIR // string as string
+		typesIC = append(typesIC, typesIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	typesIS := swag.JoinByFormat(typesIC, "multi")
+
+	return typesIS
 }

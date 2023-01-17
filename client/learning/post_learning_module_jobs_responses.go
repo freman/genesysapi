@@ -101,7 +101,6 @@ func (o *PostLearningModuleJobsReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostLearningModuleJobsAccepted() *PostLearningModuleJobsAccepted {
 	return &PostLearningModuleJobsAccepted{}
 }
 
-/*PostLearningModuleJobsAccepted handles this case with default header values.
+/*
+PostLearningModuleJobsAccepted describes a response with status code 202, with default header values.
 
 Start a specific Learning Module job
 */
@@ -120,7 +120,36 @@ type PostLearningModuleJobsAccepted struct {
 	Payload *models.LearningModuleJobResponse
 }
 
+// IsSuccess returns true when this post learning module jobs accepted response has a 2xx status code
+func (o *PostLearningModuleJobsAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post learning module jobs accepted response has a 3xx status code
+func (o *PostLearningModuleJobsAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs accepted response has a 4xx status code
+func (o *PostLearningModuleJobsAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning module jobs accepted response has a 5xx status code
+func (o *PostLearningModuleJobsAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module jobs accepted response a status code equal to that given
+func (o *PostLearningModuleJobsAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostLearningModuleJobsAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostLearningModuleJobsAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsAccepted  %+v", 202, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostLearningModuleJobsBadRequest() *PostLearningModuleJobsBadRequest {
 	return &PostLearningModuleJobsBadRequest{}
 }
 
-/*PostLearningModuleJobsBadRequest handles this case with default header values.
+/*
+PostLearningModuleJobsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostLearningModuleJobsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module jobs bad request response has a 2xx status code
+func (o *PostLearningModuleJobsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module jobs bad request response has a 3xx status code
+func (o *PostLearningModuleJobsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs bad request response has a 4xx status code
+func (o *PostLearningModuleJobsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module jobs bad request response has a 5xx status code
+func (o *PostLearningModuleJobsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module jobs bad request response a status code equal to that given
+func (o *PostLearningModuleJobsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLearningModuleJobsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLearningModuleJobsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostLearningModuleJobsUnauthorized() *PostLearningModuleJobsUnauthorized
 	return &PostLearningModuleJobsUnauthorized{}
 }
 
-/*PostLearningModuleJobsUnauthorized handles this case with default header values.
+/*
+PostLearningModuleJobsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostLearningModuleJobsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module jobs unauthorized response has a 2xx status code
+func (o *PostLearningModuleJobsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module jobs unauthorized response has a 3xx status code
+func (o *PostLearningModuleJobsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs unauthorized response has a 4xx status code
+func (o *PostLearningModuleJobsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module jobs unauthorized response has a 5xx status code
+func (o *PostLearningModuleJobsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module jobs unauthorized response a status code equal to that given
+func (o *PostLearningModuleJobsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLearningModuleJobsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLearningModuleJobsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostLearningModuleJobsForbidden() *PostLearningModuleJobsForbidden {
 	return &PostLearningModuleJobsForbidden{}
 }
 
-/*PostLearningModuleJobsForbidden handles this case with default header values.
+/*
+PostLearningModuleJobsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostLearningModuleJobsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module jobs forbidden response has a 2xx status code
+func (o *PostLearningModuleJobsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module jobs forbidden response has a 3xx status code
+func (o *PostLearningModuleJobsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs forbidden response has a 4xx status code
+func (o *PostLearningModuleJobsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module jobs forbidden response has a 5xx status code
+func (o *PostLearningModuleJobsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module jobs forbidden response a status code equal to that given
+func (o *PostLearningModuleJobsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLearningModuleJobsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLearningModuleJobsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostLearningModuleJobsNotFound() *PostLearningModuleJobsNotFound {
 	return &PostLearningModuleJobsNotFound{}
 }
 
-/*PostLearningModuleJobsNotFound handles this case with default header values.
+/*
+PostLearningModuleJobsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostLearningModuleJobsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module jobs not found response has a 2xx status code
+func (o *PostLearningModuleJobsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module jobs not found response has a 3xx status code
+func (o *PostLearningModuleJobsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs not found response has a 4xx status code
+func (o *PostLearningModuleJobsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module jobs not found response has a 5xx status code
+func (o *PostLearningModuleJobsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module jobs not found response a status code equal to that given
+func (o *PostLearningModuleJobsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLearningModuleJobsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLearningModuleJobsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostLearningModuleJobsRequestTimeout() *PostLearningModuleJobsRequestTim
 	return &PostLearningModuleJobsRequestTimeout{}
 }
 
-/*PostLearningModuleJobsRequestTimeout handles this case with default header values.
+/*
+PostLearningModuleJobsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostLearningModuleJobsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module jobs request timeout response has a 2xx status code
+func (o *PostLearningModuleJobsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module jobs request timeout response has a 3xx status code
+func (o *PostLearningModuleJobsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs request timeout response has a 4xx status code
+func (o *PostLearningModuleJobsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module jobs request timeout response has a 5xx status code
+func (o *PostLearningModuleJobsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module jobs request timeout response a status code equal to that given
+func (o *PostLearningModuleJobsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLearningModuleJobsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLearningModuleJobsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostLearningModuleJobsConflict() *PostLearningModuleJobsConflict {
 	return &PostLearningModuleJobsConflict{}
 }
 
-/*PostLearningModuleJobsConflict handles this case with default header values.
+/*
+PostLearningModuleJobsConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PostLearningModuleJobsConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module jobs conflict response has a 2xx status code
+func (o *PostLearningModuleJobsConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module jobs conflict response has a 3xx status code
+func (o *PostLearningModuleJobsConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs conflict response has a 4xx status code
+func (o *PostLearningModuleJobsConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module jobs conflict response has a 5xx status code
+func (o *PostLearningModuleJobsConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module jobs conflict response a status code equal to that given
+func (o *PostLearningModuleJobsConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostLearningModuleJobsConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostLearningModuleJobsConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostLearningModuleJobsRequestEntityTooLarge() *PostLearningModuleJobsReq
 	return &PostLearningModuleJobsRequestEntityTooLarge{}
 }
 
-/*PostLearningModuleJobsRequestEntityTooLarge handles this case with default header values.
+/*
+PostLearningModuleJobsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostLearningModuleJobsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module jobs request entity too large response has a 2xx status code
+func (o *PostLearningModuleJobsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module jobs request entity too large response has a 3xx status code
+func (o *PostLearningModuleJobsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs request entity too large response has a 4xx status code
+func (o *PostLearningModuleJobsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module jobs request entity too large response has a 5xx status code
+func (o *PostLearningModuleJobsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module jobs request entity too large response a status code equal to that given
+func (o *PostLearningModuleJobsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLearningModuleJobsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLearningModuleJobsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostLearningModuleJobsUnsupportedMediaType() *PostLearningModuleJobsUnsu
 	return &PostLearningModuleJobsUnsupportedMediaType{}
 }
 
-/*PostLearningModuleJobsUnsupportedMediaType handles this case with default header values.
+/*
+PostLearningModuleJobsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostLearningModuleJobsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module jobs unsupported media type response has a 2xx status code
+func (o *PostLearningModuleJobsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module jobs unsupported media type response has a 3xx status code
+func (o *PostLearningModuleJobsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs unsupported media type response has a 4xx status code
+func (o *PostLearningModuleJobsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module jobs unsupported media type response has a 5xx status code
+func (o *PostLearningModuleJobsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module jobs unsupported media type response a status code equal to that given
+func (o *PostLearningModuleJobsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLearningModuleJobsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLearningModuleJobsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostLearningModuleJobsTooManyRequests() *PostLearningModuleJobsTooManyRe
 	return &PostLearningModuleJobsTooManyRequests{}
 }
 
-/*PostLearningModuleJobsTooManyRequests handles this case with default header values.
+/*
+PostLearningModuleJobsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostLearningModuleJobsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module jobs too many requests response has a 2xx status code
+func (o *PostLearningModuleJobsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module jobs too many requests response has a 3xx status code
+func (o *PostLearningModuleJobsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs too many requests response has a 4xx status code
+func (o *PostLearningModuleJobsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning module jobs too many requests response has a 5xx status code
+func (o *PostLearningModuleJobsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning module jobs too many requests response a status code equal to that given
+func (o *PostLearningModuleJobsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLearningModuleJobsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLearningModuleJobsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostLearningModuleJobsInternalServerError() *PostLearningModuleJobsInter
 	return &PostLearningModuleJobsInternalServerError{}
 }
 
-/*PostLearningModuleJobsInternalServerError handles this case with default header values.
+/*
+PostLearningModuleJobsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostLearningModuleJobsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module jobs internal server error response has a 2xx status code
+func (o *PostLearningModuleJobsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module jobs internal server error response has a 3xx status code
+func (o *PostLearningModuleJobsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs internal server error response has a 4xx status code
+func (o *PostLearningModuleJobsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning module jobs internal server error response has a 5xx status code
+func (o *PostLearningModuleJobsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning module jobs internal server error response a status code equal to that given
+func (o *PostLearningModuleJobsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLearningModuleJobsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLearningModuleJobsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostLearningModuleJobsServiceUnavailable() *PostLearningModuleJobsServic
 	return &PostLearningModuleJobsServiceUnavailable{}
 }
 
-/*PostLearningModuleJobsServiceUnavailable handles this case with default header values.
+/*
+PostLearningModuleJobsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostLearningModuleJobsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module jobs service unavailable response has a 2xx status code
+func (o *PostLearningModuleJobsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module jobs service unavailable response has a 3xx status code
+func (o *PostLearningModuleJobsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs service unavailable response has a 4xx status code
+func (o *PostLearningModuleJobsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning module jobs service unavailable response has a 5xx status code
+func (o *PostLearningModuleJobsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning module jobs service unavailable response a status code equal to that given
+func (o *PostLearningModuleJobsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLearningModuleJobsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLearningModuleJobsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostLearningModuleJobsGatewayTimeout() *PostLearningModuleJobsGatewayTim
 	return &PostLearningModuleJobsGatewayTimeout{}
 }
 
-/*PostLearningModuleJobsGatewayTimeout handles this case with default header values.
+/*
+PostLearningModuleJobsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostLearningModuleJobsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning module jobs gateway timeout response has a 2xx status code
+func (o *PostLearningModuleJobsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning module jobs gateway timeout response has a 3xx status code
+func (o *PostLearningModuleJobsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning module jobs gateway timeout response has a 4xx status code
+func (o *PostLearningModuleJobsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning module jobs gateway timeout response has a 5xx status code
+func (o *PostLearningModuleJobsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning module jobs gateway timeout response a status code equal to that given
+func (o *PostLearningModuleJobsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLearningModuleJobsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLearningModuleJobsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/modules/{moduleId}/jobs][%d] postLearningModuleJobsGatewayTimeout  %+v", 504, o.Payload)
 }
 

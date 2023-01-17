@@ -95,7 +95,6 @@ func (o *GetAnalyticsReportingScheduleHistoryReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetAnalyticsReportingScheduleHistoryOK() *GetAnalyticsReportingScheduleH
 	return &GetAnalyticsReportingScheduleHistoryOK{}
 }
 
-/*GetAnalyticsReportingScheduleHistoryOK handles this case with default header values.
+/*
+GetAnalyticsReportingScheduleHistoryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetAnalyticsReportingScheduleHistoryOK struct {
 	Payload *models.ReportRunEntryEntityDomainListing
 }
 
+// IsSuccess returns true when this get analytics reporting schedule history o k response has a 2xx status code
+func (o *GetAnalyticsReportingScheduleHistoryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get analytics reporting schedule history o k response has a 3xx status code
+func (o *GetAnalyticsReportingScheduleHistoryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting schedule history o k response has a 4xx status code
+func (o *GetAnalyticsReportingScheduleHistoryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics reporting schedule history o k response has a 5xx status code
+func (o *GetAnalyticsReportingScheduleHistoryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting schedule history o k response a status code equal to that given
+func (o *GetAnalyticsReportingScheduleHistoryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAnalyticsReportingScheduleHistoryOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryOK  %+v", 200, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetAnalyticsReportingScheduleHistoryBadRequest() *GetAnalyticsReportingS
 	return &GetAnalyticsReportingScheduleHistoryBadRequest{}
 }
 
-/*GetAnalyticsReportingScheduleHistoryBadRequest handles this case with default header values.
+/*
+GetAnalyticsReportingScheduleHistoryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetAnalyticsReportingScheduleHistoryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting schedule history bad request response has a 2xx status code
+func (o *GetAnalyticsReportingScheduleHistoryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting schedule history bad request response has a 3xx status code
+func (o *GetAnalyticsReportingScheduleHistoryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting schedule history bad request response has a 4xx status code
+func (o *GetAnalyticsReportingScheduleHistoryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting schedule history bad request response has a 5xx status code
+func (o *GetAnalyticsReportingScheduleHistoryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting schedule history bad request response a status code equal to that given
+func (o *GetAnalyticsReportingScheduleHistoryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAnalyticsReportingScheduleHistoryBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetAnalyticsReportingScheduleHistoryUnauthorized() *GetAnalyticsReportin
 	return &GetAnalyticsReportingScheduleHistoryUnauthorized{}
 }
 
-/*GetAnalyticsReportingScheduleHistoryUnauthorized handles this case with default header values.
+/*
+GetAnalyticsReportingScheduleHistoryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetAnalyticsReportingScheduleHistoryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting schedule history unauthorized response has a 2xx status code
+func (o *GetAnalyticsReportingScheduleHistoryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting schedule history unauthorized response has a 3xx status code
+func (o *GetAnalyticsReportingScheduleHistoryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting schedule history unauthorized response has a 4xx status code
+func (o *GetAnalyticsReportingScheduleHistoryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting schedule history unauthorized response has a 5xx status code
+func (o *GetAnalyticsReportingScheduleHistoryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting schedule history unauthorized response a status code equal to that given
+func (o *GetAnalyticsReportingScheduleHistoryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetAnalyticsReportingScheduleHistoryUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetAnalyticsReportingScheduleHistoryForbidden() *GetAnalyticsReportingSc
 	return &GetAnalyticsReportingScheduleHistoryForbidden{}
 }
 
-/*GetAnalyticsReportingScheduleHistoryForbidden handles this case with default header values.
+/*
+GetAnalyticsReportingScheduleHistoryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetAnalyticsReportingScheduleHistoryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting schedule history forbidden response has a 2xx status code
+func (o *GetAnalyticsReportingScheduleHistoryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting schedule history forbidden response has a 3xx status code
+func (o *GetAnalyticsReportingScheduleHistoryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting schedule history forbidden response has a 4xx status code
+func (o *GetAnalyticsReportingScheduleHistoryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting schedule history forbidden response has a 5xx status code
+func (o *GetAnalyticsReportingScheduleHistoryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting schedule history forbidden response a status code equal to that given
+func (o *GetAnalyticsReportingScheduleHistoryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAnalyticsReportingScheduleHistoryForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetAnalyticsReportingScheduleHistoryNotFound() *GetAnalyticsReportingSch
 	return &GetAnalyticsReportingScheduleHistoryNotFound{}
 }
 
-/*GetAnalyticsReportingScheduleHistoryNotFound handles this case with default header values.
+/*
+GetAnalyticsReportingScheduleHistoryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetAnalyticsReportingScheduleHistoryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting schedule history not found response has a 2xx status code
+func (o *GetAnalyticsReportingScheduleHistoryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting schedule history not found response has a 3xx status code
+func (o *GetAnalyticsReportingScheduleHistoryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting schedule history not found response has a 4xx status code
+func (o *GetAnalyticsReportingScheduleHistoryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting schedule history not found response has a 5xx status code
+func (o *GetAnalyticsReportingScheduleHistoryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting schedule history not found response a status code equal to that given
+func (o *GetAnalyticsReportingScheduleHistoryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAnalyticsReportingScheduleHistoryNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetAnalyticsReportingScheduleHistoryRequestTimeout() *GetAnalyticsReport
 	return &GetAnalyticsReportingScheduleHistoryRequestTimeout{}
 }
 
-/*GetAnalyticsReportingScheduleHistoryRequestTimeout handles this case with default header values.
+/*
+GetAnalyticsReportingScheduleHistoryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetAnalyticsReportingScheduleHistoryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting schedule history request timeout response has a 2xx status code
+func (o *GetAnalyticsReportingScheduleHistoryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting schedule history request timeout response has a 3xx status code
+func (o *GetAnalyticsReportingScheduleHistoryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting schedule history request timeout response has a 4xx status code
+func (o *GetAnalyticsReportingScheduleHistoryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting schedule history request timeout response has a 5xx status code
+func (o *GetAnalyticsReportingScheduleHistoryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting schedule history request timeout response a status code equal to that given
+func (o *GetAnalyticsReportingScheduleHistoryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetAnalyticsReportingScheduleHistoryRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetAnalyticsReportingScheduleHistoryRequestEntityTooLarge() *GetAnalytic
 	return &GetAnalyticsReportingScheduleHistoryRequestEntityTooLarge{}
 }
 
-/*GetAnalyticsReportingScheduleHistoryRequestEntityTooLarge handles this case with default header values.
+/*
+GetAnalyticsReportingScheduleHistoryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetAnalyticsReportingScheduleHistoryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting schedule history request entity too large response has a 2xx status code
+func (o *GetAnalyticsReportingScheduleHistoryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting schedule history request entity too large response has a 3xx status code
+func (o *GetAnalyticsReportingScheduleHistoryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting schedule history request entity too large response has a 4xx status code
+func (o *GetAnalyticsReportingScheduleHistoryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting schedule history request entity too large response has a 5xx status code
+func (o *GetAnalyticsReportingScheduleHistoryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting schedule history request entity too large response a status code equal to that given
+func (o *GetAnalyticsReportingScheduleHistoryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetAnalyticsReportingScheduleHistoryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetAnalyticsReportingScheduleHistoryUnsupportedMediaType() *GetAnalytics
 	return &GetAnalyticsReportingScheduleHistoryUnsupportedMediaType{}
 }
 
-/*GetAnalyticsReportingScheduleHistoryUnsupportedMediaType handles this case with default header values.
+/*
+GetAnalyticsReportingScheduleHistoryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetAnalyticsReportingScheduleHistoryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting schedule history unsupported media type response has a 2xx status code
+func (o *GetAnalyticsReportingScheduleHistoryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting schedule history unsupported media type response has a 3xx status code
+func (o *GetAnalyticsReportingScheduleHistoryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting schedule history unsupported media type response has a 4xx status code
+func (o *GetAnalyticsReportingScheduleHistoryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting schedule history unsupported media type response has a 5xx status code
+func (o *GetAnalyticsReportingScheduleHistoryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting schedule history unsupported media type response a status code equal to that given
+func (o *GetAnalyticsReportingScheduleHistoryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetAnalyticsReportingScheduleHistoryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetAnalyticsReportingScheduleHistoryTooManyRequests() *GetAnalyticsRepor
 	return &GetAnalyticsReportingScheduleHistoryTooManyRequests{}
 }
 
-/*GetAnalyticsReportingScheduleHistoryTooManyRequests handles this case with default header values.
+/*
+GetAnalyticsReportingScheduleHistoryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetAnalyticsReportingScheduleHistoryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting schedule history too many requests response has a 2xx status code
+func (o *GetAnalyticsReportingScheduleHistoryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting schedule history too many requests response has a 3xx status code
+func (o *GetAnalyticsReportingScheduleHistoryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting schedule history too many requests response has a 4xx status code
+func (o *GetAnalyticsReportingScheduleHistoryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting schedule history too many requests response has a 5xx status code
+func (o *GetAnalyticsReportingScheduleHistoryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting schedule history too many requests response a status code equal to that given
+func (o *GetAnalyticsReportingScheduleHistoryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAnalyticsReportingScheduleHistoryTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetAnalyticsReportingScheduleHistoryInternalServerError() *GetAnalyticsR
 	return &GetAnalyticsReportingScheduleHistoryInternalServerError{}
 }
 
-/*GetAnalyticsReportingScheduleHistoryInternalServerError handles this case with default header values.
+/*
+GetAnalyticsReportingScheduleHistoryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetAnalyticsReportingScheduleHistoryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting schedule history internal server error response has a 2xx status code
+func (o *GetAnalyticsReportingScheduleHistoryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting schedule history internal server error response has a 3xx status code
+func (o *GetAnalyticsReportingScheduleHistoryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting schedule history internal server error response has a 4xx status code
+func (o *GetAnalyticsReportingScheduleHistoryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics reporting schedule history internal server error response has a 5xx status code
+func (o *GetAnalyticsReportingScheduleHistoryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics reporting schedule history internal server error response a status code equal to that given
+func (o *GetAnalyticsReportingScheduleHistoryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAnalyticsReportingScheduleHistoryInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetAnalyticsReportingScheduleHistoryServiceUnavailable() *GetAnalyticsRe
 	return &GetAnalyticsReportingScheduleHistoryServiceUnavailable{}
 }
 
-/*GetAnalyticsReportingScheduleHistoryServiceUnavailable handles this case with default header values.
+/*
+GetAnalyticsReportingScheduleHistoryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetAnalyticsReportingScheduleHistoryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting schedule history service unavailable response has a 2xx status code
+func (o *GetAnalyticsReportingScheduleHistoryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting schedule history service unavailable response has a 3xx status code
+func (o *GetAnalyticsReportingScheduleHistoryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting schedule history service unavailable response has a 4xx status code
+func (o *GetAnalyticsReportingScheduleHistoryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics reporting schedule history service unavailable response has a 5xx status code
+func (o *GetAnalyticsReportingScheduleHistoryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics reporting schedule history service unavailable response a status code equal to that given
+func (o *GetAnalyticsReportingScheduleHistoryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetAnalyticsReportingScheduleHistoryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetAnalyticsReportingScheduleHistoryGatewayTimeout() *GetAnalyticsReport
 	return &GetAnalyticsReportingScheduleHistoryGatewayTimeout{}
 }
 
-/*GetAnalyticsReportingScheduleHistoryGatewayTimeout handles this case with default header values.
+/*
+GetAnalyticsReportingScheduleHistoryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetAnalyticsReportingScheduleHistoryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting schedule history gateway timeout response has a 2xx status code
+func (o *GetAnalyticsReportingScheduleHistoryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting schedule history gateway timeout response has a 3xx status code
+func (o *GetAnalyticsReportingScheduleHistoryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting schedule history gateway timeout response has a 4xx status code
+func (o *GetAnalyticsReportingScheduleHistoryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics reporting schedule history gateway timeout response has a 5xx status code
+func (o *GetAnalyticsReportingScheduleHistoryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics reporting schedule history gateway timeout response a status code equal to that given
+func (o *GetAnalyticsReportingScheduleHistoryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetAnalyticsReportingScheduleHistoryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetAnalyticsReportingScheduleHistoryGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/schedules/{scheduleId}/history][%d] getAnalyticsReportingScheduleHistoryGatewayTimeout  %+v", 504, o.Payload)
 }
 

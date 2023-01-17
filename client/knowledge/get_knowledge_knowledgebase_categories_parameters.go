@@ -17,116 +17,142 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetKnowledgeKnowledgebaseCategoriesParams creates a new GetKnowledgeKnowledgebaseCategoriesParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseCategoriesParams creates a new GetKnowledgeKnowledgebaseCategoriesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseCategoriesParams() *GetKnowledgeKnowledgebaseCategoriesParams {
-	var (
-		sortByDefault = string("Name")
-	)
 	return &GetKnowledgeKnowledgebaseCategoriesParams{
-		SortBy: &sortByDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseCategoriesParamsWithTimeout creates a new GetKnowledgeKnowledgebaseCategoriesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseCategoriesParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseCategoriesParams {
-	var (
-		sortByDefault = string("Name")
-	)
 	return &GetKnowledgeKnowledgebaseCategoriesParams{
-		SortBy: &sortByDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseCategoriesParamsWithContext creates a new GetKnowledgeKnowledgebaseCategoriesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseCategoriesParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseCategoriesParams {
-	var (
-		sortByDefault = string("Name")
-	)
 	return &GetKnowledgeKnowledgebaseCategoriesParams{
-		SortBy: &sortByDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseCategoriesParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseCategoriesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseCategoriesParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseCategoriesParams {
-	var (
-		sortByDefault = string("Name")
-	)
 	return &GetKnowledgeKnowledgebaseCategoriesParams{
-		SortBy:     &sortByDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseCategoriesParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase categories operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseCategoriesParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase categories operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseCategoriesParams struct {
 
-	/*After
-	  The cursor that points to the end of the set of entities that has been returned.
+	/* After.
 
+	   The cursor that points to the end of the set of entities that has been returned.
 	*/
 	After *string
-	/*Before
-	  The cursor that points to the start of the set of entities that has been returned.
 
+	/* Before.
+
+	   The cursor that points to the start of the set of entities that has been returned.
 	*/
 	Before *string
-	/*Expand
-	  The specified entity attribute will be filled. Supported value:"Ancestors": every ancestors will be filled via the parent attribute recursively,but only the id, name, parentId will be present for the ancestors.
 
+	/* Expand.
+
+	   The specified entity attribute will be filled. Supported value:"Ancestors": every ancestors will be filled via the parent attribute recursively,but only the id, name, parentId will be present for the ancestors.
 	*/
 	Expand *string
-	/*IncludeDocumentCount
-	  If specified, retrieves the number of documents related to category.
 
+	/* IncludeDocumentCount.
+
+	   If specified, retrieves the number of documents related to category.
 	*/
 	IncludeDocumentCount *bool
-	/*IsRoot
-	  If specified, retrieves only the root categories.
 
+	/* IsRoot.
+
+	   If specified, retrieves only the root categories.
 	*/
 	IsRoot *bool
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*Name
-	  Filter to return the categories that starts with the given category name.
 
+	/* Name.
+
+	   Filter to return the categories that starts with the given category name.
 	*/
 	Name *string
-	/*PageSize
-	  Number of entities to return. Maximum of 200.
 
+	/* PageSize.
+
+	   Number of entities to return. Maximum of 200.
 	*/
 	PageSize *string
-	/*ParentID
-	  If specified, retrieves the children categories by parent category ID.
 
+	/* ParentID.
+
+	   If specified, retrieves the children categories by parent category ID.
 	*/
 	ParentID *string
-	/*SortBy
-	  Name: sort by category names alphabetically; Hierarchy: sort by the full path of hierarchical category names alphabetically
 
+	/* SortBy.
+
+	   Name: sort by category names alphabetically; Hierarchy: sort by the full path of hierarchical category names alphabetically
+
+	   Default: "Name"
 	*/
 	SortBy *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase categories params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseCategoriesParams) WithDefaults() *GetKnowledgeKnowledgebaseCategoriesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase categories params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseCategoriesParams) SetDefaults() {
+	var (
+		sortByDefault = string("Name")
+	)
+
+	val := GetKnowledgeKnowledgebaseCategoriesParams{
+		SortBy: &sortByDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase categories params
@@ -284,80 +310,85 @@ func (o *GetKnowledgeKnowledgebaseCategoriesParams) WriteToRequest(r runtime.Cli
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Expand != nil {
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeDocumentCount != nil {
 
 		// query param includeDocumentCount
 		var qrIncludeDocumentCount bool
+
 		if o.IncludeDocumentCount != nil {
 			qrIncludeDocumentCount = *o.IncludeDocumentCount
 		}
 		qIncludeDocumentCount := swag.FormatBool(qrIncludeDocumentCount)
 		if qIncludeDocumentCount != "" {
+
 			if err := r.SetQueryParam("includeDocumentCount", qIncludeDocumentCount); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IsRoot != nil {
 
 		// query param isRoot
 		var qrIsRoot bool
+
 		if o.IsRoot != nil {
 			qrIsRoot = *o.IsRoot
 		}
 		qIsRoot := swag.FormatBool(qrIsRoot)
 		if qIsRoot != "" {
+
 			if err := r.SetQueryParam("isRoot", qIsRoot); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param knowledgeBaseId
@@ -369,64 +400,68 @@ func (o *GetKnowledgeKnowledgebaseCategoriesParams) WriteToRequest(r runtime.Cli
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize string
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := qrPageSize
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ParentID != nil {
 
 		// query param parentId
 		var qrParentID string
+
 		if o.ParentID != nil {
 			qrParentID = *o.ParentID
 		}
 		qParentID := qrParentID
 		if qParentID != "" {
+
 			if err := r.SetQueryParam("parentId", qParentID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

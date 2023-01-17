@@ -16,63 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementBusinessunitManagementunitsParams creates a new GetWorkforcemanagementBusinessunitManagementunitsParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementBusinessunitManagementunitsParams creates a new GetWorkforcemanagementBusinessunitManagementunitsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementBusinessunitManagementunitsParams() *GetWorkforcemanagementBusinessunitManagementunitsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitManagementunitsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitManagementunitsParamsWithTimeout creates a new GetWorkforcemanagementBusinessunitManagementunitsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementBusinessunitManagementunitsParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementBusinessunitManagementunitsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitManagementunitsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitManagementunitsParamsWithContext creates a new GetWorkforcemanagementBusinessunitManagementunitsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementBusinessunitManagementunitsParamsWithContext(ctx context.Context) *GetWorkforcemanagementBusinessunitManagementunitsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitManagementunitsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitManagementunitsParamsWithHTTPClient creates a new GetWorkforcemanagementBusinessunitManagementunitsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementBusinessunitManagementunitsParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementBusinessunitManagementunitsParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitManagementunitsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementBusinessunitManagementunitsParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement businessunit managementunits operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementBusinessunitManagementunitsParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement businessunit managementunits operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementBusinessunitManagementunitsParams struct {
 
-	/*BusinessUnitID
-	  The ID of the business unit, or 'mine' for the business unit of the logged-in user.
+	/* BusinessUnitID.
 
+	   The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 	*/
 	BusinessUnitID string
-	/*DivisionID*/
+
+	// DivisionID.
 	DivisionID *string
-	/*Feature*/
+
+	// Feature.
 	Feature *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement businessunit managementunits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitManagementunitsParams) WithDefaults() *GetWorkforcemanagementBusinessunitManagementunitsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement businessunit managementunits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitManagementunitsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement businessunit managementunits params
@@ -158,32 +176,34 @@ func (o *GetWorkforcemanagementBusinessunitManagementunitsParams) WriteToRequest
 
 		// query param divisionId
 		var qrDivisionID string
+
 		if o.DivisionID != nil {
 			qrDivisionID = *o.DivisionID
 		}
 		qDivisionID := qrDivisionID
 		if qDivisionID != "" {
+
 			if err := r.SetQueryParam("divisionId", qDivisionID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Feature != nil {
 
 		// query param feature
 		var qrFeature string
+
 		if o.Feature != nil {
 			qrFeature = *o.Feature
 		}
 		qFeature := qrFeature
 		if qFeature != "" {
+
 			if err := r.SetQueryParam("feature", qFeature); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

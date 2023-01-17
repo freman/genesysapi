@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingEmailDomainRouteParams creates a new GetRoutingEmailDomainRouteParams object
-// with the default values initialized.
+// NewGetRoutingEmailDomainRouteParams creates a new GetRoutingEmailDomainRouteParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingEmailDomainRouteParams() *GetRoutingEmailDomainRouteParams {
-	var ()
 	return &GetRoutingEmailDomainRouteParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingEmailDomainRouteParamsWithTimeout creates a new GetRoutingEmailDomainRouteParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingEmailDomainRouteParamsWithTimeout(timeout time.Duration) *GetRoutingEmailDomainRouteParams {
-	var ()
 	return &GetRoutingEmailDomainRouteParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingEmailDomainRouteParamsWithContext creates a new GetRoutingEmailDomainRouteParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingEmailDomainRouteParamsWithContext(ctx context.Context) *GetRoutingEmailDomainRouteParams {
-	var ()
 	return &GetRoutingEmailDomainRouteParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingEmailDomainRouteParamsWithHTTPClient creates a new GetRoutingEmailDomainRouteParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingEmailDomainRouteParamsWithHTTPClient(client *http.Client) *GetRoutingEmailDomainRouteParams {
-	var ()
 	return &GetRoutingEmailDomainRouteParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingEmailDomainRouteParams contains all the parameters to send to the API endpoint
-for the get routing email domain route operation typically these are written to a http.Request
+/*
+GetRoutingEmailDomainRouteParams contains all the parameters to send to the API endpoint
+
+	for the get routing email domain route operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingEmailDomainRouteParams struct {
 
-	/*DomainName
-	  email domain
+	/* DomainName.
 
+	   email domain
 	*/
 	DomainName string
-	/*RouteID
-	  route ID
 
+	/* RouteID.
+
+	   route ID
 	*/
 	RouteID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing email domain route params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingEmailDomainRouteParams) WithDefaults() *GetRoutingEmailDomainRouteParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing email domain route params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingEmailDomainRouteParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing email domain route params

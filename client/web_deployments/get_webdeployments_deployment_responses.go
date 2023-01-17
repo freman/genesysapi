@@ -95,7 +95,6 @@ func (o *GetWebdeploymentsDeploymentReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWebdeploymentsDeploymentOK() *GetWebdeploymentsDeploymentOK {
 	return &GetWebdeploymentsDeploymentOK{}
 }
 
-/*GetWebdeploymentsDeploymentOK handles this case with default header values.
+/*
+GetWebdeploymentsDeploymentOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWebdeploymentsDeploymentOK struct {
 	Payload *models.WebDeployment
 }
 
+// IsSuccess returns true when this get webdeployments deployment o k response has a 2xx status code
+func (o *GetWebdeploymentsDeploymentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get webdeployments deployment o k response has a 3xx status code
+func (o *GetWebdeploymentsDeploymentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments deployment o k response has a 4xx status code
+func (o *GetWebdeploymentsDeploymentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webdeployments deployment o k response has a 5xx status code
+func (o *GetWebdeploymentsDeploymentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments deployment o k response a status code equal to that given
+func (o *GetWebdeploymentsDeploymentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWebdeploymentsDeploymentOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWebdeploymentsDeploymentOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWebdeploymentsDeploymentBadRequest() *GetWebdeploymentsDeploymentBadR
 	return &GetWebdeploymentsDeploymentBadRequest{}
 }
 
-/*GetWebdeploymentsDeploymentBadRequest handles this case with default header values.
+/*
+GetWebdeploymentsDeploymentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWebdeploymentsDeploymentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments deployment bad request response has a 2xx status code
+func (o *GetWebdeploymentsDeploymentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments deployment bad request response has a 3xx status code
+func (o *GetWebdeploymentsDeploymentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments deployment bad request response has a 4xx status code
+func (o *GetWebdeploymentsDeploymentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments deployment bad request response has a 5xx status code
+func (o *GetWebdeploymentsDeploymentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments deployment bad request response a status code equal to that given
+func (o *GetWebdeploymentsDeploymentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWebdeploymentsDeploymentBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWebdeploymentsDeploymentBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWebdeploymentsDeploymentUnauthorized() *GetWebdeploymentsDeploymentUn
 	return &GetWebdeploymentsDeploymentUnauthorized{}
 }
 
-/*GetWebdeploymentsDeploymentUnauthorized handles this case with default header values.
+/*
+GetWebdeploymentsDeploymentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWebdeploymentsDeploymentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments deployment unauthorized response has a 2xx status code
+func (o *GetWebdeploymentsDeploymentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments deployment unauthorized response has a 3xx status code
+func (o *GetWebdeploymentsDeploymentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments deployment unauthorized response has a 4xx status code
+func (o *GetWebdeploymentsDeploymentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments deployment unauthorized response has a 5xx status code
+func (o *GetWebdeploymentsDeploymentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments deployment unauthorized response a status code equal to that given
+func (o *GetWebdeploymentsDeploymentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWebdeploymentsDeploymentUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWebdeploymentsDeploymentUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWebdeploymentsDeploymentForbidden() *GetWebdeploymentsDeploymentForbi
 	return &GetWebdeploymentsDeploymentForbidden{}
 }
 
-/*GetWebdeploymentsDeploymentForbidden handles this case with default header values.
+/*
+GetWebdeploymentsDeploymentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWebdeploymentsDeploymentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments deployment forbidden response has a 2xx status code
+func (o *GetWebdeploymentsDeploymentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments deployment forbidden response has a 3xx status code
+func (o *GetWebdeploymentsDeploymentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments deployment forbidden response has a 4xx status code
+func (o *GetWebdeploymentsDeploymentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments deployment forbidden response has a 5xx status code
+func (o *GetWebdeploymentsDeploymentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments deployment forbidden response a status code equal to that given
+func (o *GetWebdeploymentsDeploymentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWebdeploymentsDeploymentForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWebdeploymentsDeploymentForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWebdeploymentsDeploymentNotFound() *GetWebdeploymentsDeploymentNotFou
 	return &GetWebdeploymentsDeploymentNotFound{}
 }
 
-/*GetWebdeploymentsDeploymentNotFound handles this case with default header values.
+/*
+GetWebdeploymentsDeploymentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWebdeploymentsDeploymentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments deployment not found response has a 2xx status code
+func (o *GetWebdeploymentsDeploymentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments deployment not found response has a 3xx status code
+func (o *GetWebdeploymentsDeploymentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments deployment not found response has a 4xx status code
+func (o *GetWebdeploymentsDeploymentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments deployment not found response has a 5xx status code
+func (o *GetWebdeploymentsDeploymentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments deployment not found response a status code equal to that given
+func (o *GetWebdeploymentsDeploymentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWebdeploymentsDeploymentNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWebdeploymentsDeploymentNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWebdeploymentsDeploymentRequestTimeout() *GetWebdeploymentsDeployment
 	return &GetWebdeploymentsDeploymentRequestTimeout{}
 }
 
-/*GetWebdeploymentsDeploymentRequestTimeout handles this case with default header values.
+/*
+GetWebdeploymentsDeploymentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWebdeploymentsDeploymentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments deployment request timeout response has a 2xx status code
+func (o *GetWebdeploymentsDeploymentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments deployment request timeout response has a 3xx status code
+func (o *GetWebdeploymentsDeploymentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments deployment request timeout response has a 4xx status code
+func (o *GetWebdeploymentsDeploymentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments deployment request timeout response has a 5xx status code
+func (o *GetWebdeploymentsDeploymentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments deployment request timeout response a status code equal to that given
+func (o *GetWebdeploymentsDeploymentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWebdeploymentsDeploymentRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWebdeploymentsDeploymentRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWebdeploymentsDeploymentRequestEntityTooLarge() *GetWebdeploymentsDep
 	return &GetWebdeploymentsDeploymentRequestEntityTooLarge{}
 }
 
-/*GetWebdeploymentsDeploymentRequestEntityTooLarge handles this case with default header values.
+/*
+GetWebdeploymentsDeploymentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWebdeploymentsDeploymentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments deployment request entity too large response has a 2xx status code
+func (o *GetWebdeploymentsDeploymentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments deployment request entity too large response has a 3xx status code
+func (o *GetWebdeploymentsDeploymentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments deployment request entity too large response has a 4xx status code
+func (o *GetWebdeploymentsDeploymentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments deployment request entity too large response has a 5xx status code
+func (o *GetWebdeploymentsDeploymentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments deployment request entity too large response a status code equal to that given
+func (o *GetWebdeploymentsDeploymentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWebdeploymentsDeploymentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWebdeploymentsDeploymentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWebdeploymentsDeploymentUnsupportedMediaType() *GetWebdeploymentsDepl
 	return &GetWebdeploymentsDeploymentUnsupportedMediaType{}
 }
 
-/*GetWebdeploymentsDeploymentUnsupportedMediaType handles this case with default header values.
+/*
+GetWebdeploymentsDeploymentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWebdeploymentsDeploymentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments deployment unsupported media type response has a 2xx status code
+func (o *GetWebdeploymentsDeploymentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments deployment unsupported media type response has a 3xx status code
+func (o *GetWebdeploymentsDeploymentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments deployment unsupported media type response has a 4xx status code
+func (o *GetWebdeploymentsDeploymentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments deployment unsupported media type response has a 5xx status code
+func (o *GetWebdeploymentsDeploymentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments deployment unsupported media type response a status code equal to that given
+func (o *GetWebdeploymentsDeploymentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWebdeploymentsDeploymentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWebdeploymentsDeploymentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWebdeploymentsDeploymentTooManyRequests() *GetWebdeploymentsDeploymen
 	return &GetWebdeploymentsDeploymentTooManyRequests{}
 }
 
-/*GetWebdeploymentsDeploymentTooManyRequests handles this case with default header values.
+/*
+GetWebdeploymentsDeploymentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWebdeploymentsDeploymentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments deployment too many requests response has a 2xx status code
+func (o *GetWebdeploymentsDeploymentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments deployment too many requests response has a 3xx status code
+func (o *GetWebdeploymentsDeploymentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments deployment too many requests response has a 4xx status code
+func (o *GetWebdeploymentsDeploymentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments deployment too many requests response has a 5xx status code
+func (o *GetWebdeploymentsDeploymentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments deployment too many requests response a status code equal to that given
+func (o *GetWebdeploymentsDeploymentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWebdeploymentsDeploymentTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWebdeploymentsDeploymentTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWebdeploymentsDeploymentInternalServerError() *GetWebdeploymentsDeplo
 	return &GetWebdeploymentsDeploymentInternalServerError{}
 }
 
-/*GetWebdeploymentsDeploymentInternalServerError handles this case with default header values.
+/*
+GetWebdeploymentsDeploymentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWebdeploymentsDeploymentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments deployment internal server error response has a 2xx status code
+func (o *GetWebdeploymentsDeploymentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments deployment internal server error response has a 3xx status code
+func (o *GetWebdeploymentsDeploymentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments deployment internal server error response has a 4xx status code
+func (o *GetWebdeploymentsDeploymentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webdeployments deployment internal server error response has a 5xx status code
+func (o *GetWebdeploymentsDeploymentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webdeployments deployment internal server error response a status code equal to that given
+func (o *GetWebdeploymentsDeploymentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWebdeploymentsDeploymentInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWebdeploymentsDeploymentInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWebdeploymentsDeploymentServiceUnavailable() *GetWebdeploymentsDeploy
 	return &GetWebdeploymentsDeploymentServiceUnavailable{}
 }
 
-/*GetWebdeploymentsDeploymentServiceUnavailable handles this case with default header values.
+/*
+GetWebdeploymentsDeploymentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWebdeploymentsDeploymentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments deployment service unavailable response has a 2xx status code
+func (o *GetWebdeploymentsDeploymentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments deployment service unavailable response has a 3xx status code
+func (o *GetWebdeploymentsDeploymentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments deployment service unavailable response has a 4xx status code
+func (o *GetWebdeploymentsDeploymentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webdeployments deployment service unavailable response has a 5xx status code
+func (o *GetWebdeploymentsDeploymentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webdeployments deployment service unavailable response a status code equal to that given
+func (o *GetWebdeploymentsDeploymentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWebdeploymentsDeploymentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWebdeploymentsDeploymentServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWebdeploymentsDeploymentGatewayTimeout() *GetWebdeploymentsDeployment
 	return &GetWebdeploymentsDeploymentGatewayTimeout{}
 }
 
-/*GetWebdeploymentsDeploymentGatewayTimeout handles this case with default header values.
+/*
+GetWebdeploymentsDeploymentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWebdeploymentsDeploymentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments deployment gateway timeout response has a 2xx status code
+func (o *GetWebdeploymentsDeploymentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments deployment gateway timeout response has a 3xx status code
+func (o *GetWebdeploymentsDeploymentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments deployment gateway timeout response has a 4xx status code
+func (o *GetWebdeploymentsDeploymentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webdeployments deployment gateway timeout response has a 5xx status code
+func (o *GetWebdeploymentsDeploymentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webdeployments deployment gateway timeout response a status code equal to that given
+func (o *GetWebdeploymentsDeploymentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWebdeploymentsDeploymentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWebdeploymentsDeploymentGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/deployments/{deploymentId}][%d] getWebdeploymentsDeploymentGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOrganizationsLimitsDocsParams creates a new GetOrganizationsLimitsDocsParams object
-// with the default values initialized.
+// NewGetOrganizationsLimitsDocsParams creates a new GetOrganizationsLimitsDocsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOrganizationsLimitsDocsParams() *GetOrganizationsLimitsDocsParams {
-
 	return &GetOrganizationsLimitsDocsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOrganizationsLimitsDocsParamsWithTimeout creates a new GetOrganizationsLimitsDocsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOrganizationsLimitsDocsParamsWithTimeout(timeout time.Duration) *GetOrganizationsLimitsDocsParams {
-
 	return &GetOrganizationsLimitsDocsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOrganizationsLimitsDocsParamsWithContext creates a new GetOrganizationsLimitsDocsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOrganizationsLimitsDocsParamsWithContext(ctx context.Context) *GetOrganizationsLimitsDocsParams {
-
 	return &GetOrganizationsLimitsDocsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOrganizationsLimitsDocsParamsWithHTTPClient creates a new GetOrganizationsLimitsDocsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOrganizationsLimitsDocsParamsWithHTTPClient(client *http.Client) *GetOrganizationsLimitsDocsParams {
-
 	return &GetOrganizationsLimitsDocsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOrganizationsLimitsDocsParams contains all the parameters to send to the API endpoint
-for the get organizations limits docs operation typically these are written to a http.Request
+/*
+GetOrganizationsLimitsDocsParams contains all the parameters to send to the API endpoint
+
+	for the get organizations limits docs operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOrganizationsLimitsDocsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get organizations limits docs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrganizationsLimitsDocsParams) WithDefaults() *GetOrganizationsLimitsDocsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get organizations limits docs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrganizationsLimitsDocsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get organizations limits docs params

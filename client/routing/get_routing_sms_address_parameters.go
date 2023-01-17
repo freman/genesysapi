@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingSmsAddressParams creates a new GetRoutingSmsAddressParams object
-// with the default values initialized.
+// NewGetRoutingSmsAddressParams creates a new GetRoutingSmsAddressParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingSmsAddressParams() *GetRoutingSmsAddressParams {
-	var ()
 	return &GetRoutingSmsAddressParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingSmsAddressParamsWithTimeout creates a new GetRoutingSmsAddressParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingSmsAddressParamsWithTimeout(timeout time.Duration) *GetRoutingSmsAddressParams {
-	var ()
 	return &GetRoutingSmsAddressParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingSmsAddressParamsWithContext creates a new GetRoutingSmsAddressParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingSmsAddressParamsWithContext(ctx context.Context) *GetRoutingSmsAddressParams {
-	var ()
 	return &GetRoutingSmsAddressParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingSmsAddressParamsWithHTTPClient creates a new GetRoutingSmsAddressParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingSmsAddressParamsWithHTTPClient(client *http.Client) *GetRoutingSmsAddressParams {
-	var ()
 	return &GetRoutingSmsAddressParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingSmsAddressParams contains all the parameters to send to the API endpoint
-for the get routing sms address operation typically these are written to a http.Request
+/*
+GetRoutingSmsAddressParams contains all the parameters to send to the API endpoint
+
+	for the get routing sms address operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingSmsAddressParams struct {
 
-	/*AddressID
-	  Address ID
+	/* AddressID.
 
+	   Address ID
 	*/
 	AddressID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing sms address params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingSmsAddressParams) WithDefaults() *GetRoutingSmsAddressParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing sms address params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingSmsAddressParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing sms address params

@@ -95,7 +95,6 @@ func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsReader) ReadResponse
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsOK() *PostKnowledgeGu
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK{}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK handles this case with default header values.
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK struct {
 	Payload *models.KnowledgeGuestDocumentSuggestion
 }
 
+// IsSuccess returns true when this post knowledge guest session documents search suggestions o k response has a 2xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post knowledge guest session documents search suggestions o k response has a 3xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest session documents search suggestions o k response has a 4xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge guest session documents search suggestions o k response has a 5xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest session documents search suggestions o k response a status code equal to that given
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest() *PostKno
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest{}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest handles this case with default header values.
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest session documents search suggestions bad request response has a 2xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest session documents search suggestions bad request response has a 3xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest session documents search suggestions bad request response has a 4xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest session documents search suggestions bad request response has a 5xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest session documents search suggestions bad request response a status code equal to that given
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized() *PostK
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized{}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized handles this case with default header values.
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest session documents search suggestions unauthorized response has a 2xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest session documents search suggestions unauthorized response has a 3xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest session documents search suggestions unauthorized response has a 4xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest session documents search suggestions unauthorized response has a 5xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest session documents search suggestions unauthorized response a status code equal to that given
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden() *PostKnow
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden{}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden handles this case with default header values.
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest session documents search suggestions forbidden response has a 2xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest session documents search suggestions forbidden response has a 3xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest session documents search suggestions forbidden response has a 4xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest session documents search suggestions forbidden response has a 5xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest session documents search suggestions forbidden response a status code equal to that given
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound() *PostKnowl
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound{}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound handles this case with default header values.
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest session documents search suggestions not found response has a 2xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest session documents search suggestions not found response has a 3xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest session documents search suggestions not found response has a 4xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest session documents search suggestions not found response has a 5xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest session documents search suggestions not found response a status code equal to that given
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout() *Pos
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout{}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout handles this case with default header values.
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest session documents search suggestions request timeout response has a 2xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest session documents search suggestions request timeout response has a 3xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest session documents search suggestions request timeout response has a 4xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest session documents search suggestions request timeout response has a 5xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest session documents search suggestions request timeout response a status code equal to that given
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge{}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge handles this case with default header values.
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest session documents search suggestions request entity too large response has a 2xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest session documents search suggestions request entity too large response has a 3xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest session documents search suggestions request entity too large response has a 4xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest session documents search suggestions request entity too large response has a 5xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest session documents search suggestions request entity too large response a status code equal to that given
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType(
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType{}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType handles this case with default header values.
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest session documents search suggestions unsupported media type response has a 2xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest session documents search suggestions unsupported media type response has a 3xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest session documents search suggestions unsupported media type response has a 4xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest session documents search suggestions unsupported media type response has a 5xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest session documents search suggestions unsupported media type response a status code equal to that given
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests() *Po
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests{}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests handles this case with default header values.
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest session documents search suggestions too many requests response has a 2xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest session documents search suggestions too many requests response has a 3xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest session documents search suggestions too many requests response has a 4xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest session documents search suggestions too many requests response has a 5xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest session documents search suggestions too many requests response a status code equal to that given
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError()
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError{}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError handles this case with default header values.
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest session documents search suggestions internal server error response has a 2xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest session documents search suggestions internal server error response has a 3xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest session documents search suggestions internal server error response has a 4xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge guest session documents search suggestions internal server error response has a 5xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge guest session documents search suggestions internal server error response a status code equal to that given
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable() 
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable{}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable handles this case with default header values.
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest session documents search suggestions service unavailable response has a 2xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest session documents search suggestions service unavailable response has a 3xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest session documents search suggestions service unavailable response has a 4xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge guest session documents search suggestions service unavailable response has a 5xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge guest session documents search suggestions service unavailable response a status code equal to that given
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout() *Pos
 	return &PostKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout{}
 }
 
-/*PostKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout handles this case with default header values.
+/*
+PostKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest session documents search suggestions gateway timeout response has a 2xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest session documents search suggestions gateway timeout response has a 3xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest session documents search suggestions gateway timeout response has a 4xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge guest session documents search suggestions gateway timeout response has a 5xx status code
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge guest session documents search suggestions gateway timeout response a status code equal to that given
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions/{sessionId}/documents/search/suggestions][%d] postKnowledgeGuestSessionDocumentsSearchSuggestionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

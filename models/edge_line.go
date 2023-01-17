@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -153,7 +154,6 @@ func (m *EdgeLine) Validate(formats strfmt.Registry) error {
 }
 
 func (m *EdgeLine) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -166,7 +166,6 @@ func (m *EdgeLine) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *EdgeLine) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -179,7 +178,6 @@ func (m *EdgeLine) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *EdgeLine) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -188,6 +186,8 @@ func (m *EdgeLine) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -197,7 +197,6 @@ func (m *EdgeLine) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *EdgeLine) validateEdge(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Edge) { // not required
 		return nil
 	}
@@ -206,6 +205,8 @@ func (m *EdgeLine) validateEdge(formats strfmt.Registry) error {
 		if err := m.Edge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edge")
 			}
 			return err
 		}
@@ -215,7 +216,6 @@ func (m *EdgeLine) validateEdge(formats strfmt.Registry) error {
 }
 
 func (m *EdgeLine) validateEdgeGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EdgeGroup) { // not required
 		return nil
 	}
@@ -224,6 +224,8 @@ func (m *EdgeLine) validateEdgeGroup(formats strfmt.Registry) error {
 		if err := m.EdgeGroup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edgeGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edgeGroup")
 			}
 			return err
 		}
@@ -233,7 +235,6 @@ func (m *EdgeLine) validateEdgeGroup(formats strfmt.Registry) error {
 }
 
 func (m *EdgeLine) validateEndpoint(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Endpoint) { // not required
 		return nil
 	}
@@ -242,6 +243,8 @@ func (m *EdgeLine) validateEndpoint(formats strfmt.Registry) error {
 		if err := m.Endpoint.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("endpoint")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("endpoint")
 			}
 			return err
 		}
@@ -286,7 +289,6 @@ func (m *EdgeLine) validateLineTypeEnum(path, location string, value string) err
 }
 
 func (m *EdgeLine) validateLineType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LineType) { // not required
 		return nil
 	}
@@ -309,7 +311,6 @@ func (m *EdgeLine) validateName(formats strfmt.Registry) error {
 }
 
 func (m *EdgeLine) validateSchema(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Schema) { // not required
 		return nil
 	}
@@ -318,6 +319,8 @@ func (m *EdgeLine) validateSchema(formats strfmt.Registry) error {
 		if err := m.Schema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schema")
 			}
 			return err
 		}
@@ -327,7 +330,6 @@ func (m *EdgeLine) validateSchema(formats strfmt.Registry) error {
 }
 
 func (m *EdgeLine) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -372,13 +374,239 @@ func (m *EdgeLine) validateStateEnum(path, location string, value string) error 
 }
 
 func (m *EdgeLine) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this edge line based on the context it is used
+func (m *EdgeLine) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEdge(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEdgeGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEndpoint(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EdgeLine) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdBy", "body", string(m.CreatedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateCreatedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdByApp", "body", string(m.CreatedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateEdge(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Edge != nil {
+		if err := m.Edge.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("edge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateEdgeGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EdgeGroup != nil {
+		if err := m.EdgeGroup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("edgeGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edgeGroup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateEndpoint(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Endpoint != nil {
+		if err := m.Endpoint.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("endpoint")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("endpoint")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedBy", "body", string(m.ModifiedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateModifiedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedByApp", "body", string(m.ModifiedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Schema != nil {
+		if err := m.Schema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EdgeLine) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
 		return err
 	}
 

@@ -95,7 +95,6 @@ func (o *DeleteOutboundCampaignruleReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteOutboundCampaignruleOK() *DeleteOutboundCampaignruleOK {
 	return &DeleteOutboundCampaignruleOK{}
 }
 
-/*DeleteOutboundCampaignruleOK handles this case with default header values.
+/*
+DeleteOutboundCampaignruleOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteOutboundCampaignruleOK struct {
 }
 
+// IsSuccess returns true when this delete outbound campaignrule o k response has a 2xx status code
+func (o *DeleteOutboundCampaignruleOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete outbound campaignrule o k response has a 3xx status code
+func (o *DeleteOutboundCampaignruleOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaignrule o k response has a 4xx status code
+func (o *DeleteOutboundCampaignruleOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound campaignrule o k response has a 5xx status code
+func (o *DeleteOutboundCampaignruleOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaignrule o k response a status code equal to that given
+func (o *DeleteOutboundCampaignruleOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteOutboundCampaignruleOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleOK ", 200)
+}
+
+func (o *DeleteOutboundCampaignruleOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteOutboundCampaignruleBadRequest() *DeleteOutboundCampaignruleBadReq
 	return &DeleteOutboundCampaignruleBadRequest{}
 }
 
-/*DeleteOutboundCampaignruleBadRequest handles this case with default header values.
+/*
+DeleteOutboundCampaignruleBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteOutboundCampaignruleBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaignrule bad request response has a 2xx status code
+func (o *DeleteOutboundCampaignruleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaignrule bad request response has a 3xx status code
+func (o *DeleteOutboundCampaignruleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaignrule bad request response has a 4xx status code
+func (o *DeleteOutboundCampaignruleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaignrule bad request response has a 5xx status code
+func (o *DeleteOutboundCampaignruleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaignrule bad request response a status code equal to that given
+func (o *DeleteOutboundCampaignruleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOutboundCampaignruleBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignruleBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteOutboundCampaignruleUnauthorized() *DeleteOutboundCampaignruleUnau
 	return &DeleteOutboundCampaignruleUnauthorized{}
 }
 
-/*DeleteOutboundCampaignruleUnauthorized handles this case with default header values.
+/*
+DeleteOutboundCampaignruleUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteOutboundCampaignruleUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaignrule unauthorized response has a 2xx status code
+func (o *DeleteOutboundCampaignruleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaignrule unauthorized response has a 3xx status code
+func (o *DeleteOutboundCampaignruleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaignrule unauthorized response has a 4xx status code
+func (o *DeleteOutboundCampaignruleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaignrule unauthorized response has a 5xx status code
+func (o *DeleteOutboundCampaignruleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaignrule unauthorized response a status code equal to that given
+func (o *DeleteOutboundCampaignruleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOutboundCampaignruleUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignruleUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteOutboundCampaignruleForbidden() *DeleteOutboundCampaignruleForbidd
 	return &DeleteOutboundCampaignruleForbidden{}
 }
 
-/*DeleteOutboundCampaignruleForbidden handles this case with default header values.
+/*
+DeleteOutboundCampaignruleForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteOutboundCampaignruleForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaignrule forbidden response has a 2xx status code
+func (o *DeleteOutboundCampaignruleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaignrule forbidden response has a 3xx status code
+func (o *DeleteOutboundCampaignruleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaignrule forbidden response has a 4xx status code
+func (o *DeleteOutboundCampaignruleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaignrule forbidden response has a 5xx status code
+func (o *DeleteOutboundCampaignruleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaignrule forbidden response a status code equal to that given
+func (o *DeleteOutboundCampaignruleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOutboundCampaignruleForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignruleForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteOutboundCampaignruleNotFound() *DeleteOutboundCampaignruleNotFound
 	return &DeleteOutboundCampaignruleNotFound{}
 }
 
-/*DeleteOutboundCampaignruleNotFound handles this case with default header values.
+/*
+DeleteOutboundCampaignruleNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteOutboundCampaignruleNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaignrule not found response has a 2xx status code
+func (o *DeleteOutboundCampaignruleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaignrule not found response has a 3xx status code
+func (o *DeleteOutboundCampaignruleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaignrule not found response has a 4xx status code
+func (o *DeleteOutboundCampaignruleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaignrule not found response has a 5xx status code
+func (o *DeleteOutboundCampaignruleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaignrule not found response a status code equal to that given
+func (o *DeleteOutboundCampaignruleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOutboundCampaignruleNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignruleNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteOutboundCampaignruleRequestTimeout() *DeleteOutboundCampaignruleRe
 	return &DeleteOutboundCampaignruleRequestTimeout{}
 }
 
-/*DeleteOutboundCampaignruleRequestTimeout handles this case with default header values.
+/*
+DeleteOutboundCampaignruleRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteOutboundCampaignruleRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaignrule request timeout response has a 2xx status code
+func (o *DeleteOutboundCampaignruleRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaignrule request timeout response has a 3xx status code
+func (o *DeleteOutboundCampaignruleRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaignrule request timeout response has a 4xx status code
+func (o *DeleteOutboundCampaignruleRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaignrule request timeout response has a 5xx status code
+func (o *DeleteOutboundCampaignruleRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaignrule request timeout response a status code equal to that given
+func (o *DeleteOutboundCampaignruleRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOutboundCampaignruleRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignruleRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteOutboundCampaignruleRequestEntityTooLarge() *DeleteOutboundCampaig
 	return &DeleteOutboundCampaignruleRequestEntityTooLarge{}
 }
 
-/*DeleteOutboundCampaignruleRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOutboundCampaignruleRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteOutboundCampaignruleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaignrule request entity too large response has a 2xx status code
+func (o *DeleteOutboundCampaignruleRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaignrule request entity too large response has a 3xx status code
+func (o *DeleteOutboundCampaignruleRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaignrule request entity too large response has a 4xx status code
+func (o *DeleteOutboundCampaignruleRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaignrule request entity too large response has a 5xx status code
+func (o *DeleteOutboundCampaignruleRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaignrule request entity too large response a status code equal to that given
+func (o *DeleteOutboundCampaignruleRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOutboundCampaignruleRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignruleRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteOutboundCampaignruleUnsupportedMediaType() *DeleteOutboundCampaign
 	return &DeleteOutboundCampaignruleUnsupportedMediaType{}
 }
 
-/*DeleteOutboundCampaignruleUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOutboundCampaignruleUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteOutboundCampaignruleUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaignrule unsupported media type response has a 2xx status code
+func (o *DeleteOutboundCampaignruleUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaignrule unsupported media type response has a 3xx status code
+func (o *DeleteOutboundCampaignruleUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaignrule unsupported media type response has a 4xx status code
+func (o *DeleteOutboundCampaignruleUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaignrule unsupported media type response has a 5xx status code
+func (o *DeleteOutboundCampaignruleUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaignrule unsupported media type response a status code equal to that given
+func (o *DeleteOutboundCampaignruleUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOutboundCampaignruleUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignruleUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteOutboundCampaignruleTooManyRequests() *DeleteOutboundCampaignruleT
 	return &DeleteOutboundCampaignruleTooManyRequests{}
 }
 
-/*DeleteOutboundCampaignruleTooManyRequests handles this case with default header values.
+/*
+DeleteOutboundCampaignruleTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteOutboundCampaignruleTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaignrule too many requests response has a 2xx status code
+func (o *DeleteOutboundCampaignruleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaignrule too many requests response has a 3xx status code
+func (o *DeleteOutboundCampaignruleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaignrule too many requests response has a 4xx status code
+func (o *DeleteOutboundCampaignruleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound campaignrule too many requests response has a 5xx status code
+func (o *DeleteOutboundCampaignruleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound campaignrule too many requests response a status code equal to that given
+func (o *DeleteOutboundCampaignruleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOutboundCampaignruleTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignruleTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteOutboundCampaignruleInternalServerError() *DeleteOutboundCampaignr
 	return &DeleteOutboundCampaignruleInternalServerError{}
 }
 
-/*DeleteOutboundCampaignruleInternalServerError handles this case with default header values.
+/*
+DeleteOutboundCampaignruleInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteOutboundCampaignruleInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaignrule internal server error response has a 2xx status code
+func (o *DeleteOutboundCampaignruleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaignrule internal server error response has a 3xx status code
+func (o *DeleteOutboundCampaignruleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaignrule internal server error response has a 4xx status code
+func (o *DeleteOutboundCampaignruleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound campaignrule internal server error response has a 5xx status code
+func (o *DeleteOutboundCampaignruleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound campaignrule internal server error response a status code equal to that given
+func (o *DeleteOutboundCampaignruleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOutboundCampaignruleInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignruleInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteOutboundCampaignruleServiceUnavailable() *DeleteOutboundCampaignru
 	return &DeleteOutboundCampaignruleServiceUnavailable{}
 }
 
-/*DeleteOutboundCampaignruleServiceUnavailable handles this case with default header values.
+/*
+DeleteOutboundCampaignruleServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteOutboundCampaignruleServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaignrule service unavailable response has a 2xx status code
+func (o *DeleteOutboundCampaignruleServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaignrule service unavailable response has a 3xx status code
+func (o *DeleteOutboundCampaignruleServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaignrule service unavailable response has a 4xx status code
+func (o *DeleteOutboundCampaignruleServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound campaignrule service unavailable response has a 5xx status code
+func (o *DeleteOutboundCampaignruleServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound campaignrule service unavailable response a status code equal to that given
+func (o *DeleteOutboundCampaignruleServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOutboundCampaignruleServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignruleServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteOutboundCampaignruleGatewayTimeout() *DeleteOutboundCampaignruleGa
 	return &DeleteOutboundCampaignruleGatewayTimeout{}
 }
 
-/*DeleteOutboundCampaignruleGatewayTimeout handles this case with default header values.
+/*
+DeleteOutboundCampaignruleGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteOutboundCampaignruleGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound campaignrule gateway timeout response has a 2xx status code
+func (o *DeleteOutboundCampaignruleGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound campaignrule gateway timeout response has a 3xx status code
+func (o *DeleteOutboundCampaignruleGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound campaignrule gateway timeout response has a 4xx status code
+func (o *DeleteOutboundCampaignruleGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound campaignrule gateway timeout response has a 5xx status code
+func (o *DeleteOutboundCampaignruleGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound campaignrule gateway timeout response a status code equal to that given
+func (o *DeleteOutboundCampaignruleGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOutboundCampaignruleGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOutboundCampaignruleGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/campaignrules/{campaignRuleId}][%d] deleteOutboundCampaignruleGatewayTimeout  %+v", 504, o.Payload)
 }
 

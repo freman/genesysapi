@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -81,6 +82,8 @@ func (m *DocumentBodyBlock) validateImage(formats strfmt.Registry) error {
 		if err := m.Image.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("image")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("image")
 			}
 			return err
 		}
@@ -99,6 +102,8 @@ func (m *DocumentBodyBlock) validateList(formats strfmt.Registry) error {
 		if err := m.List.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("list")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("list")
 			}
 			return err
 		}
@@ -117,6 +122,8 @@ func (m *DocumentBodyBlock) validateParagraph(formats strfmt.Registry) error {
 		if err := m.Paragraph.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("paragraph")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("paragraph")
 			}
 			return err
 		}
@@ -187,6 +194,98 @@ func (m *DocumentBodyBlock) validateVideo(formats strfmt.Registry) error {
 		if err := m.Video.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("video")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("video")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this document body block based on the context it is used
+func (m *DocumentBodyBlock) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateImage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateList(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateParagraph(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVideo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DocumentBodyBlock) contextValidateImage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Image != nil {
+		if err := m.Image.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("image")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("image")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DocumentBodyBlock) contextValidateList(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.List != nil {
+		if err := m.List.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("list")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("list")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DocumentBodyBlock) contextValidateParagraph(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Paragraph != nil {
+		if err := m.Paragraph.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("paragraph")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("paragraph")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DocumentBodyBlock) contextValidateVideo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Video != nil {
+		if err := m.Video.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("video")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("video")
 			}
 			return err
 		}

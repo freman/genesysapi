@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -20,6 +22,12 @@ type PredictorWorkloadBalancing struct {
 	// Flag to activate and deactivate workload balancing.
 	// Required: true
 	Enabled *bool `json:"enabled"`
+
+	// Desired maximum occupancy threshold of agents. Must be between 0 and 100.
+	MaximumOccupancy int32 `json:"maximumOccupancy,omitempty"`
+
+	// Desired minimum occupancy threshold of agents. Must be between 0 and 100.
+	MinimumOccupancy int32 `json:"minimumOccupancy,omitempty"`
 }
 
 // Validate validates this predictor workload balancing
@@ -42,6 +50,11 @@ func (m *PredictorWorkloadBalancing) validateEnabled(formats strfmt.Registry) er
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this predictor workload balancing based on context it is used
+func (m *PredictorWorkloadBalancing) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

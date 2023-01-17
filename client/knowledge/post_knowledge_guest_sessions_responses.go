@@ -101,7 +101,6 @@ func (o *PostKnowledgeGuestSessionsReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostKnowledgeGuestSessionsOK() *PostKnowledgeGuestSessionsOK {
 	return &PostKnowledgeGuestSessionsOK{}
 }
 
-/*PostKnowledgeGuestSessionsOK handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostKnowledgeGuestSessionsOK struct {
 	Payload *models.KnowledgeGuestSession
 }
 
+// IsSuccess returns true when this post knowledge guest sessions o k response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post knowledge guest sessions o k response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions o k response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge guest sessions o k response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest sessions o k response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostKnowledgeGuestSessionsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostKnowledgeGuestSessionsCreated() *PostKnowledgeGuestSessionsCreated {
 	return &PostKnowledgeGuestSessionsCreated{}
 }
 
-/*PostKnowledgeGuestSessionsCreated handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -153,7 +183,36 @@ type PostKnowledgeGuestSessionsCreated struct {
 	Payload *models.KnowledgeGuestSession
 }
 
+// IsSuccess returns true when this post knowledge guest sessions created response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post knowledge guest sessions created response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions created response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge guest sessions created response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest sessions created response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostKnowledgeGuestSessionsCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsCreated  %+v", 201, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostKnowledgeGuestSessionsBadRequest() *PostKnowledgeGuestSessionsBadReq
 	return &PostKnowledgeGuestSessionsBadRequest{}
 }
 
-/*PostKnowledgeGuestSessionsBadRequest handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostKnowledgeGuestSessionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest sessions bad request response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest sessions bad request response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions bad request response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest sessions bad request response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest sessions bad request response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostKnowledgeGuestSessionsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostKnowledgeGuestSessionsUnauthorized() *PostKnowledgeGuestSessionsUnau
 	return &PostKnowledgeGuestSessionsUnauthorized{}
 }
 
-/*PostKnowledgeGuestSessionsUnauthorized handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostKnowledgeGuestSessionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest sessions unauthorized response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest sessions unauthorized response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions unauthorized response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest sessions unauthorized response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest sessions unauthorized response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostKnowledgeGuestSessionsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostKnowledgeGuestSessionsForbidden() *PostKnowledgeGuestSessionsForbidd
 	return &PostKnowledgeGuestSessionsForbidden{}
 }
 
-/*PostKnowledgeGuestSessionsForbidden handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostKnowledgeGuestSessionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest sessions forbidden response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest sessions forbidden response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions forbidden response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest sessions forbidden response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest sessions forbidden response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostKnowledgeGuestSessionsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostKnowledgeGuestSessionsNotFound() *PostKnowledgeGuestSessionsNotFound
 	return &PostKnowledgeGuestSessionsNotFound{}
 }
 
-/*PostKnowledgeGuestSessionsNotFound handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostKnowledgeGuestSessionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest sessions not found response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest sessions not found response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions not found response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest sessions not found response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest sessions not found response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostKnowledgeGuestSessionsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostKnowledgeGuestSessionsRequestTimeout() *PostKnowledgeGuestSessionsRe
 	return &PostKnowledgeGuestSessionsRequestTimeout{}
 }
 
-/*PostKnowledgeGuestSessionsRequestTimeout handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostKnowledgeGuestSessionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest sessions request timeout response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest sessions request timeout response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions request timeout response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest sessions request timeout response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest sessions request timeout response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostKnowledgeGuestSessionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostKnowledgeGuestSessionsRequestEntityTooLarge() *PostKnowledgeGuestSes
 	return &PostKnowledgeGuestSessionsRequestEntityTooLarge{}
 }
 
-/*PostKnowledgeGuestSessionsRequestEntityTooLarge handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostKnowledgeGuestSessionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest sessions request entity too large response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest sessions request entity too large response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions request entity too large response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest sessions request entity too large response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest sessions request entity too large response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostKnowledgeGuestSessionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostKnowledgeGuestSessionsUnsupportedMediaType() *PostKnowledgeGuestSess
 	return &PostKnowledgeGuestSessionsUnsupportedMediaType{}
 }
 
-/*PostKnowledgeGuestSessionsUnsupportedMediaType handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostKnowledgeGuestSessionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest sessions unsupported media type response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest sessions unsupported media type response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions unsupported media type response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest sessions unsupported media type response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest sessions unsupported media type response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostKnowledgeGuestSessionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostKnowledgeGuestSessionsTooManyRequests() *PostKnowledgeGuestSessionsT
 	return &PostKnowledgeGuestSessionsTooManyRequests{}
 }
 
-/*PostKnowledgeGuestSessionsTooManyRequests handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostKnowledgeGuestSessionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest sessions too many requests response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest sessions too many requests response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions too many requests response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge guest sessions too many requests response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge guest sessions too many requests response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostKnowledgeGuestSessionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostKnowledgeGuestSessionsInternalServerError() *PostKnowledgeGuestSessi
 	return &PostKnowledgeGuestSessionsInternalServerError{}
 }
 
-/*PostKnowledgeGuestSessionsInternalServerError handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostKnowledgeGuestSessionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest sessions internal server error response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest sessions internal server error response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions internal server error response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge guest sessions internal server error response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge guest sessions internal server error response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostKnowledgeGuestSessionsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostKnowledgeGuestSessionsServiceUnavailable() *PostKnowledgeGuestSessio
 	return &PostKnowledgeGuestSessionsServiceUnavailable{}
 }
 
-/*PostKnowledgeGuestSessionsServiceUnavailable handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostKnowledgeGuestSessionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest sessions service unavailable response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest sessions service unavailable response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions service unavailable response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge guest sessions service unavailable response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge guest sessions service unavailable response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostKnowledgeGuestSessionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostKnowledgeGuestSessionsGatewayTimeout() *PostKnowledgeGuestSessionsGa
 	return &PostKnowledgeGuestSessionsGatewayTimeout{}
 }
 
-/*PostKnowledgeGuestSessionsGatewayTimeout handles this case with default header values.
+/*
+PostKnowledgeGuestSessionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostKnowledgeGuestSessionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge guest sessions gateway timeout response has a 2xx status code
+func (o *PostKnowledgeGuestSessionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge guest sessions gateway timeout response has a 3xx status code
+func (o *PostKnowledgeGuestSessionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge guest sessions gateway timeout response has a 4xx status code
+func (o *PostKnowledgeGuestSessionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge guest sessions gateway timeout response has a 5xx status code
+func (o *PostKnowledgeGuestSessionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge guest sessions gateway timeout response a status code equal to that given
+func (o *PostKnowledgeGuestSessionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostKnowledgeGuestSessionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostKnowledgeGuestSessionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/guest/sessions][%d] postKnowledgeGuestSessionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

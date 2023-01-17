@@ -95,7 +95,6 @@ func (o *GetGreetingMediaReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGreetingMediaOK() *GetGreetingMediaOK {
 	return &GetGreetingMediaOK{}
 }
 
-/*GetGreetingMediaOK handles this case with default header values.
+/*
+GetGreetingMediaOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGreetingMediaOK struct {
 	Payload *models.GreetingMediaInfo
 }
 
+// IsSuccess returns true when this get greeting media o k response has a 2xx status code
+func (o *GetGreetingMediaOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get greeting media o k response has a 3xx status code
+func (o *GetGreetingMediaOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greeting media o k response has a 4xx status code
+func (o *GetGreetingMediaOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get greeting media o k response has a 5xx status code
+func (o *GetGreetingMediaOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greeting media o k response a status code equal to that given
+func (o *GetGreetingMediaOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGreetingMediaOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGreetingMediaOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGreetingMediaBadRequest() *GetGreetingMediaBadRequest {
 	return &GetGreetingMediaBadRequest{}
 }
 
-/*GetGreetingMediaBadRequest handles this case with default header values.
+/*
+GetGreetingMediaBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGreetingMediaBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greeting media bad request response has a 2xx status code
+func (o *GetGreetingMediaBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greeting media bad request response has a 3xx status code
+func (o *GetGreetingMediaBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greeting media bad request response has a 4xx status code
+func (o *GetGreetingMediaBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greeting media bad request response has a 5xx status code
+func (o *GetGreetingMediaBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greeting media bad request response a status code equal to that given
+func (o *GetGreetingMediaBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGreetingMediaBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGreetingMediaBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGreetingMediaUnauthorized() *GetGreetingMediaUnauthorized {
 	return &GetGreetingMediaUnauthorized{}
 }
 
-/*GetGreetingMediaUnauthorized handles this case with default header values.
+/*
+GetGreetingMediaUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGreetingMediaUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greeting media unauthorized response has a 2xx status code
+func (o *GetGreetingMediaUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greeting media unauthorized response has a 3xx status code
+func (o *GetGreetingMediaUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greeting media unauthorized response has a 4xx status code
+func (o *GetGreetingMediaUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greeting media unauthorized response has a 5xx status code
+func (o *GetGreetingMediaUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greeting media unauthorized response a status code equal to that given
+func (o *GetGreetingMediaUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGreetingMediaUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGreetingMediaUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGreetingMediaForbidden() *GetGreetingMediaForbidden {
 	return &GetGreetingMediaForbidden{}
 }
 
-/*GetGreetingMediaForbidden handles this case with default header values.
+/*
+GetGreetingMediaForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGreetingMediaForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greeting media forbidden response has a 2xx status code
+func (o *GetGreetingMediaForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greeting media forbidden response has a 3xx status code
+func (o *GetGreetingMediaForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greeting media forbidden response has a 4xx status code
+func (o *GetGreetingMediaForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greeting media forbidden response has a 5xx status code
+func (o *GetGreetingMediaForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greeting media forbidden response a status code equal to that given
+func (o *GetGreetingMediaForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGreetingMediaForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGreetingMediaForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGreetingMediaNotFound() *GetGreetingMediaNotFound {
 	return &GetGreetingMediaNotFound{}
 }
 
-/*GetGreetingMediaNotFound handles this case with default header values.
+/*
+GetGreetingMediaNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGreetingMediaNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greeting media not found response has a 2xx status code
+func (o *GetGreetingMediaNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greeting media not found response has a 3xx status code
+func (o *GetGreetingMediaNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greeting media not found response has a 4xx status code
+func (o *GetGreetingMediaNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greeting media not found response has a 5xx status code
+func (o *GetGreetingMediaNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greeting media not found response a status code equal to that given
+func (o *GetGreetingMediaNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGreetingMediaNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGreetingMediaNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGreetingMediaRequestTimeout() *GetGreetingMediaRequestTimeout {
 	return &GetGreetingMediaRequestTimeout{}
 }
 
-/*GetGreetingMediaRequestTimeout handles this case with default header values.
+/*
+GetGreetingMediaRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGreetingMediaRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greeting media request timeout response has a 2xx status code
+func (o *GetGreetingMediaRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greeting media request timeout response has a 3xx status code
+func (o *GetGreetingMediaRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greeting media request timeout response has a 4xx status code
+func (o *GetGreetingMediaRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greeting media request timeout response has a 5xx status code
+func (o *GetGreetingMediaRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greeting media request timeout response a status code equal to that given
+func (o *GetGreetingMediaRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGreetingMediaRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGreetingMediaRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGreetingMediaRequestEntityTooLarge() *GetGreetingMediaRequestEntityTo
 	return &GetGreetingMediaRequestEntityTooLarge{}
 }
 
-/*GetGreetingMediaRequestEntityTooLarge handles this case with default header values.
+/*
+GetGreetingMediaRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGreetingMediaRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greeting media request entity too large response has a 2xx status code
+func (o *GetGreetingMediaRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greeting media request entity too large response has a 3xx status code
+func (o *GetGreetingMediaRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greeting media request entity too large response has a 4xx status code
+func (o *GetGreetingMediaRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greeting media request entity too large response has a 5xx status code
+func (o *GetGreetingMediaRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greeting media request entity too large response a status code equal to that given
+func (o *GetGreetingMediaRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGreetingMediaRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGreetingMediaRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGreetingMediaUnsupportedMediaType() *GetGreetingMediaUnsupportedMedia
 	return &GetGreetingMediaUnsupportedMediaType{}
 }
 
-/*GetGreetingMediaUnsupportedMediaType handles this case with default header values.
+/*
+GetGreetingMediaUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGreetingMediaUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greeting media unsupported media type response has a 2xx status code
+func (o *GetGreetingMediaUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greeting media unsupported media type response has a 3xx status code
+func (o *GetGreetingMediaUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greeting media unsupported media type response has a 4xx status code
+func (o *GetGreetingMediaUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greeting media unsupported media type response has a 5xx status code
+func (o *GetGreetingMediaUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greeting media unsupported media type response a status code equal to that given
+func (o *GetGreetingMediaUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGreetingMediaUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGreetingMediaUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGreetingMediaTooManyRequests() *GetGreetingMediaTooManyRequests {
 	return &GetGreetingMediaTooManyRequests{}
 }
 
-/*GetGreetingMediaTooManyRequests handles this case with default header values.
+/*
+GetGreetingMediaTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGreetingMediaTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greeting media too many requests response has a 2xx status code
+func (o *GetGreetingMediaTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greeting media too many requests response has a 3xx status code
+func (o *GetGreetingMediaTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greeting media too many requests response has a 4xx status code
+func (o *GetGreetingMediaTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get greeting media too many requests response has a 5xx status code
+func (o *GetGreetingMediaTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get greeting media too many requests response a status code equal to that given
+func (o *GetGreetingMediaTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGreetingMediaTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGreetingMediaTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGreetingMediaInternalServerError() *GetGreetingMediaInternalServerErr
 	return &GetGreetingMediaInternalServerError{}
 }
 
-/*GetGreetingMediaInternalServerError handles this case with default header values.
+/*
+GetGreetingMediaInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGreetingMediaInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greeting media internal server error response has a 2xx status code
+func (o *GetGreetingMediaInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greeting media internal server error response has a 3xx status code
+func (o *GetGreetingMediaInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greeting media internal server error response has a 4xx status code
+func (o *GetGreetingMediaInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get greeting media internal server error response has a 5xx status code
+func (o *GetGreetingMediaInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get greeting media internal server error response a status code equal to that given
+func (o *GetGreetingMediaInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGreetingMediaInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGreetingMediaInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGreetingMediaServiceUnavailable() *GetGreetingMediaServiceUnavailable
 	return &GetGreetingMediaServiceUnavailable{}
 }
 
-/*GetGreetingMediaServiceUnavailable handles this case with default header values.
+/*
+GetGreetingMediaServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGreetingMediaServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greeting media service unavailable response has a 2xx status code
+func (o *GetGreetingMediaServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greeting media service unavailable response has a 3xx status code
+func (o *GetGreetingMediaServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greeting media service unavailable response has a 4xx status code
+func (o *GetGreetingMediaServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get greeting media service unavailable response has a 5xx status code
+func (o *GetGreetingMediaServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get greeting media service unavailable response a status code equal to that given
+func (o *GetGreetingMediaServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGreetingMediaServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGreetingMediaServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGreetingMediaGatewayTimeout() *GetGreetingMediaGatewayTimeout {
 	return &GetGreetingMediaGatewayTimeout{}
 }
 
-/*GetGreetingMediaGatewayTimeout handles this case with default header values.
+/*
+GetGreetingMediaGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGreetingMediaGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get greeting media gateway timeout response has a 2xx status code
+func (o *GetGreetingMediaGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get greeting media gateway timeout response has a 3xx status code
+func (o *GetGreetingMediaGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get greeting media gateway timeout response has a 4xx status code
+func (o *GetGreetingMediaGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get greeting media gateway timeout response has a 5xx status code
+func (o *GetGreetingMediaGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get greeting media gateway timeout response a status code equal to that given
+func (o *GetGreetingMediaGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGreetingMediaGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGreetingMediaGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/greetings/{greetingId}/media][%d] getGreetingMediaGatewayTimeout  %+v", 504, o.Payload)
 }
 

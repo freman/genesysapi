@@ -95,7 +95,6 @@ func (o *GetRecordingJobReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRecordingJobOK() *GetRecordingJobOK {
 	return &GetRecordingJobOK{}
 }
 
-/*GetRecordingJobOK handles this case with default header values.
+/*
+GetRecordingJobOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRecordingJobOK struct {
 	Payload *models.RecordingJob
 }
 
+// IsSuccess returns true when this get recording job o k response has a 2xx status code
+func (o *GetRecordingJobOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get recording job o k response has a 3xx status code
+func (o *GetRecordingJobOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording job o k response has a 4xx status code
+func (o *GetRecordingJobOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording job o k response has a 5xx status code
+func (o *GetRecordingJobOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording job o k response a status code equal to that given
+func (o *GetRecordingJobOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRecordingJobOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRecordingJobOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRecordingJobBadRequest() *GetRecordingJobBadRequest {
 	return &GetRecordingJobBadRequest{}
 }
 
-/*GetRecordingJobBadRequest handles this case with default header values.
+/*
+GetRecordingJobBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRecordingJobBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording job bad request response has a 2xx status code
+func (o *GetRecordingJobBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording job bad request response has a 3xx status code
+func (o *GetRecordingJobBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording job bad request response has a 4xx status code
+func (o *GetRecordingJobBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording job bad request response has a 5xx status code
+func (o *GetRecordingJobBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording job bad request response a status code equal to that given
+func (o *GetRecordingJobBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRecordingJobBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRecordingJobBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRecordingJobUnauthorized() *GetRecordingJobUnauthorized {
 	return &GetRecordingJobUnauthorized{}
 }
 
-/*GetRecordingJobUnauthorized handles this case with default header values.
+/*
+GetRecordingJobUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRecordingJobUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording job unauthorized response has a 2xx status code
+func (o *GetRecordingJobUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording job unauthorized response has a 3xx status code
+func (o *GetRecordingJobUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording job unauthorized response has a 4xx status code
+func (o *GetRecordingJobUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording job unauthorized response has a 5xx status code
+func (o *GetRecordingJobUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording job unauthorized response a status code equal to that given
+func (o *GetRecordingJobUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRecordingJobUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRecordingJobUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRecordingJobForbidden() *GetRecordingJobForbidden {
 	return &GetRecordingJobForbidden{}
 }
 
-/*GetRecordingJobForbidden handles this case with default header values.
+/*
+GetRecordingJobForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRecordingJobForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording job forbidden response has a 2xx status code
+func (o *GetRecordingJobForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording job forbidden response has a 3xx status code
+func (o *GetRecordingJobForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording job forbidden response has a 4xx status code
+func (o *GetRecordingJobForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording job forbidden response has a 5xx status code
+func (o *GetRecordingJobForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording job forbidden response a status code equal to that given
+func (o *GetRecordingJobForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRecordingJobForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRecordingJobForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRecordingJobNotFound() *GetRecordingJobNotFound {
 	return &GetRecordingJobNotFound{}
 }
 
-/*GetRecordingJobNotFound handles this case with default header values.
+/*
+GetRecordingJobNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRecordingJobNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording job not found response has a 2xx status code
+func (o *GetRecordingJobNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording job not found response has a 3xx status code
+func (o *GetRecordingJobNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording job not found response has a 4xx status code
+func (o *GetRecordingJobNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording job not found response has a 5xx status code
+func (o *GetRecordingJobNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording job not found response a status code equal to that given
+func (o *GetRecordingJobNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRecordingJobNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRecordingJobNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRecordingJobRequestTimeout() *GetRecordingJobRequestTimeout {
 	return &GetRecordingJobRequestTimeout{}
 }
 
-/*GetRecordingJobRequestTimeout handles this case with default header values.
+/*
+GetRecordingJobRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRecordingJobRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording job request timeout response has a 2xx status code
+func (o *GetRecordingJobRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording job request timeout response has a 3xx status code
+func (o *GetRecordingJobRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording job request timeout response has a 4xx status code
+func (o *GetRecordingJobRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording job request timeout response has a 5xx status code
+func (o *GetRecordingJobRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording job request timeout response a status code equal to that given
+func (o *GetRecordingJobRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRecordingJobRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingJobRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRecordingJobRequestEntityTooLarge() *GetRecordingJobRequestEntityTooL
 	return &GetRecordingJobRequestEntityTooLarge{}
 }
 
-/*GetRecordingJobRequestEntityTooLarge handles this case with default header values.
+/*
+GetRecordingJobRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRecordingJobRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording job request entity too large response has a 2xx status code
+func (o *GetRecordingJobRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording job request entity too large response has a 3xx status code
+func (o *GetRecordingJobRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording job request entity too large response has a 4xx status code
+func (o *GetRecordingJobRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording job request entity too large response has a 5xx status code
+func (o *GetRecordingJobRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording job request entity too large response a status code equal to that given
+func (o *GetRecordingJobRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRecordingJobRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRecordingJobRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRecordingJobUnsupportedMediaType() *GetRecordingJobUnsupportedMediaTy
 	return &GetRecordingJobUnsupportedMediaType{}
 }
 
-/*GetRecordingJobUnsupportedMediaType handles this case with default header values.
+/*
+GetRecordingJobUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRecordingJobUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording job unsupported media type response has a 2xx status code
+func (o *GetRecordingJobUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording job unsupported media type response has a 3xx status code
+func (o *GetRecordingJobUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording job unsupported media type response has a 4xx status code
+func (o *GetRecordingJobUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording job unsupported media type response has a 5xx status code
+func (o *GetRecordingJobUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording job unsupported media type response a status code equal to that given
+func (o *GetRecordingJobUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRecordingJobUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRecordingJobUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRecordingJobTooManyRequests() *GetRecordingJobTooManyRequests {
 	return &GetRecordingJobTooManyRequests{}
 }
 
-/*GetRecordingJobTooManyRequests handles this case with default header values.
+/*
+GetRecordingJobTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRecordingJobTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording job too many requests response has a 2xx status code
+func (o *GetRecordingJobTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording job too many requests response has a 3xx status code
+func (o *GetRecordingJobTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording job too many requests response has a 4xx status code
+func (o *GetRecordingJobTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording job too many requests response has a 5xx status code
+func (o *GetRecordingJobTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording job too many requests response a status code equal to that given
+func (o *GetRecordingJobTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRecordingJobTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRecordingJobTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRecordingJobInternalServerError() *GetRecordingJobInternalServerError
 	return &GetRecordingJobInternalServerError{}
 }
 
-/*GetRecordingJobInternalServerError handles this case with default header values.
+/*
+GetRecordingJobInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRecordingJobInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording job internal server error response has a 2xx status code
+func (o *GetRecordingJobInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording job internal server error response has a 3xx status code
+func (o *GetRecordingJobInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording job internal server error response has a 4xx status code
+func (o *GetRecordingJobInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording job internal server error response has a 5xx status code
+func (o *GetRecordingJobInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording job internal server error response a status code equal to that given
+func (o *GetRecordingJobInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRecordingJobInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRecordingJobInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRecordingJobServiceUnavailable() *GetRecordingJobServiceUnavailable {
 	return &GetRecordingJobServiceUnavailable{}
 }
 
-/*GetRecordingJobServiceUnavailable handles this case with default header values.
+/*
+GetRecordingJobServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRecordingJobServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording job service unavailable response has a 2xx status code
+func (o *GetRecordingJobServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording job service unavailable response has a 3xx status code
+func (o *GetRecordingJobServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording job service unavailable response has a 4xx status code
+func (o *GetRecordingJobServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording job service unavailable response has a 5xx status code
+func (o *GetRecordingJobServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording job service unavailable response a status code equal to that given
+func (o *GetRecordingJobServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRecordingJobServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRecordingJobServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRecordingJobGatewayTimeout() *GetRecordingJobGatewayTimeout {
 	return &GetRecordingJobGatewayTimeout{}
 }
 
-/*GetRecordingJobGatewayTimeout handles this case with default header values.
+/*
+GetRecordingJobGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRecordingJobGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording job gateway timeout response has a 2xx status code
+func (o *GetRecordingJobGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording job gateway timeout response has a 3xx status code
+func (o *GetRecordingJobGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording job gateway timeout response has a 4xx status code
+func (o *GetRecordingJobGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording job gateway timeout response has a 5xx status code
+func (o *GetRecordingJobGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording job gateway timeout response a status code equal to that given
+func (o *GetRecordingJobGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRecordingJobGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRecordingJobGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/jobs/{jobId}][%d] getRecordingJobGatewayTimeout  %+v", 504, o.Payload)
 }
 

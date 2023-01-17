@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteAlertingInteractionstatsRuleParams creates a new DeleteAlertingInteractionstatsRuleParams object
-// with the default values initialized.
+// NewDeleteAlertingInteractionstatsRuleParams creates a new DeleteAlertingInteractionstatsRuleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteAlertingInteractionstatsRuleParams() *DeleteAlertingInteractionstatsRuleParams {
-	var ()
 	return &DeleteAlertingInteractionstatsRuleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteAlertingInteractionstatsRuleParamsWithTimeout creates a new DeleteAlertingInteractionstatsRuleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteAlertingInteractionstatsRuleParamsWithTimeout(timeout time.Duration) *DeleteAlertingInteractionstatsRuleParams {
-	var ()
 	return &DeleteAlertingInteractionstatsRuleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteAlertingInteractionstatsRuleParamsWithContext creates a new DeleteAlertingInteractionstatsRuleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteAlertingInteractionstatsRuleParamsWithContext(ctx context.Context) *DeleteAlertingInteractionstatsRuleParams {
-	var ()
 	return &DeleteAlertingInteractionstatsRuleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteAlertingInteractionstatsRuleParamsWithHTTPClient creates a new DeleteAlertingInteractionstatsRuleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteAlertingInteractionstatsRuleParamsWithHTTPClient(client *http.Client) *DeleteAlertingInteractionstatsRuleParams {
-	var ()
 	return &DeleteAlertingInteractionstatsRuleParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteAlertingInteractionstatsRuleParams contains all the parameters to send to the API endpoint
-for the delete alerting interactionstats rule operation typically these are written to a http.Request
+/*
+DeleteAlertingInteractionstatsRuleParams contains all the parameters to send to the API endpoint
+
+	for the delete alerting interactionstats rule operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteAlertingInteractionstatsRuleParams struct {
 
-	/*RuleID
-	  Rule ID
+	/* RuleID.
 
+	   Rule ID
 	*/
 	RuleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete alerting interactionstats rule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteAlertingInteractionstatsRuleParams) WithDefaults() *DeleteAlertingInteractionstatsRuleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete alerting interactionstats rule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteAlertingInteractionstatsRuleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete alerting interactionstats rule params

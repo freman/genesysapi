@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRecordingLocalkeysParams creates a new PostRecordingLocalkeysParams object
-// with the default values initialized.
+// NewPostRecordingLocalkeysParams creates a new PostRecordingLocalkeysParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRecordingLocalkeysParams() *PostRecordingLocalkeysParams {
-	var ()
 	return &PostRecordingLocalkeysParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRecordingLocalkeysParamsWithTimeout creates a new PostRecordingLocalkeysParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRecordingLocalkeysParamsWithTimeout(timeout time.Duration) *PostRecordingLocalkeysParams {
-	var ()
 	return &PostRecordingLocalkeysParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRecordingLocalkeysParamsWithContext creates a new PostRecordingLocalkeysParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRecordingLocalkeysParamsWithContext(ctx context.Context) *PostRecordingLocalkeysParams {
-	var ()
 	return &PostRecordingLocalkeysParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRecordingLocalkeysParamsWithHTTPClient creates a new PostRecordingLocalkeysParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRecordingLocalkeysParamsWithHTTPClient(client *http.Client) *PostRecordingLocalkeysParams {
-	var ()
 	return &PostRecordingLocalkeysParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRecordingLocalkeysParams contains all the parameters to send to the API endpoint
-for the post recording localkeys operation typically these are written to a http.Request
+/*
+PostRecordingLocalkeysParams contains all the parameters to send to the API endpoint
+
+	for the post recording localkeys operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRecordingLocalkeysParams struct {
 
-	/*Body
-	  Local Encryption body
+	/* Body.
 
+	   Local Encryption body
 	*/
 	Body *models.LocalEncryptionKeyRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post recording localkeys params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingLocalkeysParams) WithDefaults() *PostRecordingLocalkeysParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post recording localkeys params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingLocalkeysParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post recording localkeys params
@@ -124,7 +140,6 @@ func (o *PostRecordingLocalkeysParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -95,7 +95,6 @@ func (o *DeleteWidgetsDeploymentReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteWidgetsDeploymentNoContent() *DeleteWidgetsDeploymentNoContent {
 	return &DeleteWidgetsDeploymentNoContent{}
 }
 
-/*DeleteWidgetsDeploymentNoContent handles this case with default header values.
+/*
+DeleteWidgetsDeploymentNoContent describes a response with status code 204, with default header values.
 
 Deleted
 */
 type DeleteWidgetsDeploymentNoContent struct {
 }
 
+// IsSuccess returns true when this delete widgets deployment no content response has a 2xx status code
+func (o *DeleteWidgetsDeploymentNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete widgets deployment no content response has a 3xx status code
+func (o *DeleteWidgetsDeploymentNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete widgets deployment no content response has a 4xx status code
+func (o *DeleteWidgetsDeploymentNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete widgets deployment no content response has a 5xx status code
+func (o *DeleteWidgetsDeploymentNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete widgets deployment no content response a status code equal to that given
+func (o *DeleteWidgetsDeploymentNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteWidgetsDeploymentNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentNoContent ", 204)
+}
+
+func (o *DeleteWidgetsDeploymentNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteWidgetsDeploymentBadRequest() *DeleteWidgetsDeploymentBadRequest {
 	return &DeleteWidgetsDeploymentBadRequest{}
 }
 
-/*DeleteWidgetsDeploymentBadRequest handles this case with default header values.
+/*
+DeleteWidgetsDeploymentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteWidgetsDeploymentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete widgets deployment bad request response has a 2xx status code
+func (o *DeleteWidgetsDeploymentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete widgets deployment bad request response has a 3xx status code
+func (o *DeleteWidgetsDeploymentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete widgets deployment bad request response has a 4xx status code
+func (o *DeleteWidgetsDeploymentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete widgets deployment bad request response has a 5xx status code
+func (o *DeleteWidgetsDeploymentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete widgets deployment bad request response a status code equal to that given
+func (o *DeleteWidgetsDeploymentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteWidgetsDeploymentBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteWidgetsDeploymentBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteWidgetsDeploymentUnauthorized() *DeleteWidgetsDeploymentUnauthoriz
 	return &DeleteWidgetsDeploymentUnauthorized{}
 }
 
-/*DeleteWidgetsDeploymentUnauthorized handles this case with default header values.
+/*
+DeleteWidgetsDeploymentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteWidgetsDeploymentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete widgets deployment unauthorized response has a 2xx status code
+func (o *DeleteWidgetsDeploymentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete widgets deployment unauthorized response has a 3xx status code
+func (o *DeleteWidgetsDeploymentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete widgets deployment unauthorized response has a 4xx status code
+func (o *DeleteWidgetsDeploymentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete widgets deployment unauthorized response has a 5xx status code
+func (o *DeleteWidgetsDeploymentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete widgets deployment unauthorized response a status code equal to that given
+func (o *DeleteWidgetsDeploymentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteWidgetsDeploymentUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteWidgetsDeploymentUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteWidgetsDeploymentForbidden() *DeleteWidgetsDeploymentForbidden {
 	return &DeleteWidgetsDeploymentForbidden{}
 }
 
-/*DeleteWidgetsDeploymentForbidden handles this case with default header values.
+/*
+DeleteWidgetsDeploymentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteWidgetsDeploymentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete widgets deployment forbidden response has a 2xx status code
+func (o *DeleteWidgetsDeploymentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete widgets deployment forbidden response has a 3xx status code
+func (o *DeleteWidgetsDeploymentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete widgets deployment forbidden response has a 4xx status code
+func (o *DeleteWidgetsDeploymentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete widgets deployment forbidden response has a 5xx status code
+func (o *DeleteWidgetsDeploymentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete widgets deployment forbidden response a status code equal to that given
+func (o *DeleteWidgetsDeploymentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteWidgetsDeploymentForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteWidgetsDeploymentForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteWidgetsDeploymentNotFound() *DeleteWidgetsDeploymentNotFound {
 	return &DeleteWidgetsDeploymentNotFound{}
 }
 
-/*DeleteWidgetsDeploymentNotFound handles this case with default header values.
+/*
+DeleteWidgetsDeploymentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteWidgetsDeploymentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete widgets deployment not found response has a 2xx status code
+func (o *DeleteWidgetsDeploymentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete widgets deployment not found response has a 3xx status code
+func (o *DeleteWidgetsDeploymentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete widgets deployment not found response has a 4xx status code
+func (o *DeleteWidgetsDeploymentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete widgets deployment not found response has a 5xx status code
+func (o *DeleteWidgetsDeploymentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete widgets deployment not found response a status code equal to that given
+func (o *DeleteWidgetsDeploymentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteWidgetsDeploymentNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteWidgetsDeploymentNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteWidgetsDeploymentRequestTimeout() *DeleteWidgetsDeploymentRequestT
 	return &DeleteWidgetsDeploymentRequestTimeout{}
 }
 
-/*DeleteWidgetsDeploymentRequestTimeout handles this case with default header values.
+/*
+DeleteWidgetsDeploymentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteWidgetsDeploymentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete widgets deployment request timeout response has a 2xx status code
+func (o *DeleteWidgetsDeploymentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete widgets deployment request timeout response has a 3xx status code
+func (o *DeleteWidgetsDeploymentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete widgets deployment request timeout response has a 4xx status code
+func (o *DeleteWidgetsDeploymentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete widgets deployment request timeout response has a 5xx status code
+func (o *DeleteWidgetsDeploymentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete widgets deployment request timeout response a status code equal to that given
+func (o *DeleteWidgetsDeploymentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteWidgetsDeploymentRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteWidgetsDeploymentRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteWidgetsDeploymentRequestEntityTooLarge() *DeleteWidgetsDeploymentR
 	return &DeleteWidgetsDeploymentRequestEntityTooLarge{}
 }
 
-/*DeleteWidgetsDeploymentRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteWidgetsDeploymentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteWidgetsDeploymentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete widgets deployment request entity too large response has a 2xx status code
+func (o *DeleteWidgetsDeploymentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete widgets deployment request entity too large response has a 3xx status code
+func (o *DeleteWidgetsDeploymentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete widgets deployment request entity too large response has a 4xx status code
+func (o *DeleteWidgetsDeploymentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete widgets deployment request entity too large response has a 5xx status code
+func (o *DeleteWidgetsDeploymentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete widgets deployment request entity too large response a status code equal to that given
+func (o *DeleteWidgetsDeploymentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteWidgetsDeploymentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteWidgetsDeploymentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteWidgetsDeploymentUnsupportedMediaType() *DeleteWidgetsDeploymentUn
 	return &DeleteWidgetsDeploymentUnsupportedMediaType{}
 }
 
-/*DeleteWidgetsDeploymentUnsupportedMediaType handles this case with default header values.
+/*
+DeleteWidgetsDeploymentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteWidgetsDeploymentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete widgets deployment unsupported media type response has a 2xx status code
+func (o *DeleteWidgetsDeploymentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete widgets deployment unsupported media type response has a 3xx status code
+func (o *DeleteWidgetsDeploymentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete widgets deployment unsupported media type response has a 4xx status code
+func (o *DeleteWidgetsDeploymentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete widgets deployment unsupported media type response has a 5xx status code
+func (o *DeleteWidgetsDeploymentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete widgets deployment unsupported media type response a status code equal to that given
+func (o *DeleteWidgetsDeploymentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteWidgetsDeploymentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteWidgetsDeploymentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteWidgetsDeploymentTooManyRequests() *DeleteWidgetsDeploymentTooMany
 	return &DeleteWidgetsDeploymentTooManyRequests{}
 }
 
-/*DeleteWidgetsDeploymentTooManyRequests handles this case with default header values.
+/*
+DeleteWidgetsDeploymentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteWidgetsDeploymentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete widgets deployment too many requests response has a 2xx status code
+func (o *DeleteWidgetsDeploymentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete widgets deployment too many requests response has a 3xx status code
+func (o *DeleteWidgetsDeploymentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete widgets deployment too many requests response has a 4xx status code
+func (o *DeleteWidgetsDeploymentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete widgets deployment too many requests response has a 5xx status code
+func (o *DeleteWidgetsDeploymentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete widgets deployment too many requests response a status code equal to that given
+func (o *DeleteWidgetsDeploymentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteWidgetsDeploymentTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteWidgetsDeploymentTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteWidgetsDeploymentInternalServerError() *DeleteWidgetsDeploymentInt
 	return &DeleteWidgetsDeploymentInternalServerError{}
 }
 
-/*DeleteWidgetsDeploymentInternalServerError handles this case with default header values.
+/*
+DeleteWidgetsDeploymentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteWidgetsDeploymentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete widgets deployment internal server error response has a 2xx status code
+func (o *DeleteWidgetsDeploymentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete widgets deployment internal server error response has a 3xx status code
+func (o *DeleteWidgetsDeploymentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete widgets deployment internal server error response has a 4xx status code
+func (o *DeleteWidgetsDeploymentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete widgets deployment internal server error response has a 5xx status code
+func (o *DeleteWidgetsDeploymentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete widgets deployment internal server error response a status code equal to that given
+func (o *DeleteWidgetsDeploymentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteWidgetsDeploymentInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteWidgetsDeploymentInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteWidgetsDeploymentServiceUnavailable() *DeleteWidgetsDeploymentServ
 	return &DeleteWidgetsDeploymentServiceUnavailable{}
 }
 
-/*DeleteWidgetsDeploymentServiceUnavailable handles this case with default header values.
+/*
+DeleteWidgetsDeploymentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteWidgetsDeploymentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete widgets deployment service unavailable response has a 2xx status code
+func (o *DeleteWidgetsDeploymentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete widgets deployment service unavailable response has a 3xx status code
+func (o *DeleteWidgetsDeploymentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete widgets deployment service unavailable response has a 4xx status code
+func (o *DeleteWidgetsDeploymentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete widgets deployment service unavailable response has a 5xx status code
+func (o *DeleteWidgetsDeploymentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete widgets deployment service unavailable response a status code equal to that given
+func (o *DeleteWidgetsDeploymentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteWidgetsDeploymentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteWidgetsDeploymentServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteWidgetsDeploymentGatewayTimeout() *DeleteWidgetsDeploymentGatewayT
 	return &DeleteWidgetsDeploymentGatewayTimeout{}
 }
 
-/*DeleteWidgetsDeploymentGatewayTimeout handles this case with default header values.
+/*
+DeleteWidgetsDeploymentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteWidgetsDeploymentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete widgets deployment gateway timeout response has a 2xx status code
+func (o *DeleteWidgetsDeploymentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete widgets deployment gateway timeout response has a 3xx status code
+func (o *DeleteWidgetsDeploymentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete widgets deployment gateway timeout response has a 4xx status code
+func (o *DeleteWidgetsDeploymentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete widgets deployment gateway timeout response has a 5xx status code
+func (o *DeleteWidgetsDeploymentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete widgets deployment gateway timeout response a status code equal to that given
+func (o *DeleteWidgetsDeploymentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteWidgetsDeploymentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteWidgetsDeploymentGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/widgets/deployments/{deploymentId}][%d] deleteWidgetsDeploymentGatewayTimeout  %+v", 504, o.Payload)
 }
 

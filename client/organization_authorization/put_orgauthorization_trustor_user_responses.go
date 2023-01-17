@@ -95,7 +95,6 @@ func (o *PutOrgauthorizationTrustorUserReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutOrgauthorizationTrustorUserOK() *PutOrgauthorizationTrustorUserOK {
 	return &PutOrgauthorizationTrustorUserOK{}
 }
 
-/*PutOrgauthorizationTrustorUserOK handles this case with default header values.
+/*
+PutOrgauthorizationTrustorUserOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutOrgauthorizationTrustorUserOK struct {
 	Payload *models.TrustUser
 }
 
+// IsSuccess returns true when this put orgauthorization trustor user o k response has a 2xx status code
+func (o *PutOrgauthorizationTrustorUserOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put orgauthorization trustor user o k response has a 3xx status code
+func (o *PutOrgauthorizationTrustorUserOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustor user o k response has a 4xx status code
+func (o *PutOrgauthorizationTrustorUserOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put orgauthorization trustor user o k response has a 5xx status code
+func (o *PutOrgauthorizationTrustorUserOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustor user o k response a status code equal to that given
+func (o *PutOrgauthorizationTrustorUserOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOrgauthorizationTrustorUserOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrustorUserOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutOrgauthorizationTrustorUserBadRequest() *PutOrgauthorizationTrustorUs
 	return &PutOrgauthorizationTrustorUserBadRequest{}
 }
 
-/*PutOrgauthorizationTrustorUserBadRequest handles this case with default header values.
+/*
+PutOrgauthorizationTrustorUserBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutOrgauthorizationTrustorUserBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustor user bad request response has a 2xx status code
+func (o *PutOrgauthorizationTrustorUserBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustor user bad request response has a 3xx status code
+func (o *PutOrgauthorizationTrustorUserBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustor user bad request response has a 4xx status code
+func (o *PutOrgauthorizationTrustorUserBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustor user bad request response has a 5xx status code
+func (o *PutOrgauthorizationTrustorUserBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustor user bad request response a status code equal to that given
+func (o *PutOrgauthorizationTrustorUserBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOrgauthorizationTrustorUserBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrustorUserBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutOrgauthorizationTrustorUserUnauthorized() *PutOrgauthorizationTrustor
 	return &PutOrgauthorizationTrustorUserUnauthorized{}
 }
 
-/*PutOrgauthorizationTrustorUserUnauthorized handles this case with default header values.
+/*
+PutOrgauthorizationTrustorUserUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutOrgauthorizationTrustorUserUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustor user unauthorized response has a 2xx status code
+func (o *PutOrgauthorizationTrustorUserUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustor user unauthorized response has a 3xx status code
+func (o *PutOrgauthorizationTrustorUserUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustor user unauthorized response has a 4xx status code
+func (o *PutOrgauthorizationTrustorUserUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustor user unauthorized response has a 5xx status code
+func (o *PutOrgauthorizationTrustorUserUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustor user unauthorized response a status code equal to that given
+func (o *PutOrgauthorizationTrustorUserUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOrgauthorizationTrustorUserUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrustorUserUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutOrgauthorizationTrustorUserForbidden() *PutOrgauthorizationTrustorUse
 	return &PutOrgauthorizationTrustorUserForbidden{}
 }
 
-/*PutOrgauthorizationTrustorUserForbidden handles this case with default header values.
+/*
+PutOrgauthorizationTrustorUserForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutOrgauthorizationTrustorUserForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustor user forbidden response has a 2xx status code
+func (o *PutOrgauthorizationTrustorUserForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustor user forbidden response has a 3xx status code
+func (o *PutOrgauthorizationTrustorUserForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustor user forbidden response has a 4xx status code
+func (o *PutOrgauthorizationTrustorUserForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustor user forbidden response has a 5xx status code
+func (o *PutOrgauthorizationTrustorUserForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustor user forbidden response a status code equal to that given
+func (o *PutOrgauthorizationTrustorUserForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOrgauthorizationTrustorUserForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrustorUserForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutOrgauthorizationTrustorUserNotFound() *PutOrgauthorizationTrustorUser
 	return &PutOrgauthorizationTrustorUserNotFound{}
 }
 
-/*PutOrgauthorizationTrustorUserNotFound handles this case with default header values.
+/*
+PutOrgauthorizationTrustorUserNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutOrgauthorizationTrustorUserNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustor user not found response has a 2xx status code
+func (o *PutOrgauthorizationTrustorUserNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustor user not found response has a 3xx status code
+func (o *PutOrgauthorizationTrustorUserNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustor user not found response has a 4xx status code
+func (o *PutOrgauthorizationTrustorUserNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustor user not found response has a 5xx status code
+func (o *PutOrgauthorizationTrustorUserNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustor user not found response a status code equal to that given
+func (o *PutOrgauthorizationTrustorUserNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOrgauthorizationTrustorUserNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrustorUserNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutOrgauthorizationTrustorUserRequestTimeout() *PutOrgauthorizationTrust
 	return &PutOrgauthorizationTrustorUserRequestTimeout{}
 }
 
-/*PutOrgauthorizationTrustorUserRequestTimeout handles this case with default header values.
+/*
+PutOrgauthorizationTrustorUserRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutOrgauthorizationTrustorUserRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustor user request timeout response has a 2xx status code
+func (o *PutOrgauthorizationTrustorUserRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustor user request timeout response has a 3xx status code
+func (o *PutOrgauthorizationTrustorUserRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustor user request timeout response has a 4xx status code
+func (o *PutOrgauthorizationTrustorUserRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustor user request timeout response has a 5xx status code
+func (o *PutOrgauthorizationTrustorUserRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustor user request timeout response a status code equal to that given
+func (o *PutOrgauthorizationTrustorUserRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOrgauthorizationTrustorUserRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrustorUserRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutOrgauthorizationTrustorUserRequestEntityTooLarge() *PutOrgauthorizati
 	return &PutOrgauthorizationTrustorUserRequestEntityTooLarge{}
 }
 
-/*PutOrgauthorizationTrustorUserRequestEntityTooLarge handles this case with default header values.
+/*
+PutOrgauthorizationTrustorUserRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutOrgauthorizationTrustorUserRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustor user request entity too large response has a 2xx status code
+func (o *PutOrgauthorizationTrustorUserRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustor user request entity too large response has a 3xx status code
+func (o *PutOrgauthorizationTrustorUserRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustor user request entity too large response has a 4xx status code
+func (o *PutOrgauthorizationTrustorUserRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustor user request entity too large response has a 5xx status code
+func (o *PutOrgauthorizationTrustorUserRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustor user request entity too large response a status code equal to that given
+func (o *PutOrgauthorizationTrustorUserRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOrgauthorizationTrustorUserRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrustorUserRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutOrgauthorizationTrustorUserUnsupportedMediaType() *PutOrgauthorizatio
 	return &PutOrgauthorizationTrustorUserUnsupportedMediaType{}
 }
 
-/*PutOrgauthorizationTrustorUserUnsupportedMediaType handles this case with default header values.
+/*
+PutOrgauthorizationTrustorUserUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutOrgauthorizationTrustorUserUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustor user unsupported media type response has a 2xx status code
+func (o *PutOrgauthorizationTrustorUserUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustor user unsupported media type response has a 3xx status code
+func (o *PutOrgauthorizationTrustorUserUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustor user unsupported media type response has a 4xx status code
+func (o *PutOrgauthorizationTrustorUserUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustor user unsupported media type response has a 5xx status code
+func (o *PutOrgauthorizationTrustorUserUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustor user unsupported media type response a status code equal to that given
+func (o *PutOrgauthorizationTrustorUserUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOrgauthorizationTrustorUserUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrustorUserUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutOrgauthorizationTrustorUserTooManyRequests() *PutOrgauthorizationTrus
 	return &PutOrgauthorizationTrustorUserTooManyRequests{}
 }
 
-/*PutOrgauthorizationTrustorUserTooManyRequests handles this case with default header values.
+/*
+PutOrgauthorizationTrustorUserTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutOrgauthorizationTrustorUserTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustor user too many requests response has a 2xx status code
+func (o *PutOrgauthorizationTrustorUserTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustor user too many requests response has a 3xx status code
+func (o *PutOrgauthorizationTrustorUserTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustor user too many requests response has a 4xx status code
+func (o *PutOrgauthorizationTrustorUserTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put orgauthorization trustor user too many requests response has a 5xx status code
+func (o *PutOrgauthorizationTrustorUserTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put orgauthorization trustor user too many requests response a status code equal to that given
+func (o *PutOrgauthorizationTrustorUserTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOrgauthorizationTrustorUserTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrustorUserTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutOrgauthorizationTrustorUserInternalServerError() *PutOrgauthorization
 	return &PutOrgauthorizationTrustorUserInternalServerError{}
 }
 
-/*PutOrgauthorizationTrustorUserInternalServerError handles this case with default header values.
+/*
+PutOrgauthorizationTrustorUserInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutOrgauthorizationTrustorUserInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustor user internal server error response has a 2xx status code
+func (o *PutOrgauthorizationTrustorUserInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustor user internal server error response has a 3xx status code
+func (o *PutOrgauthorizationTrustorUserInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustor user internal server error response has a 4xx status code
+func (o *PutOrgauthorizationTrustorUserInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put orgauthorization trustor user internal server error response has a 5xx status code
+func (o *PutOrgauthorizationTrustorUserInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put orgauthorization trustor user internal server error response a status code equal to that given
+func (o *PutOrgauthorizationTrustorUserInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOrgauthorizationTrustorUserInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrustorUserInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutOrgauthorizationTrustorUserServiceUnavailable() *PutOrgauthorizationT
 	return &PutOrgauthorizationTrustorUserServiceUnavailable{}
 }
 
-/*PutOrgauthorizationTrustorUserServiceUnavailable handles this case with default header values.
+/*
+PutOrgauthorizationTrustorUserServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutOrgauthorizationTrustorUserServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustor user service unavailable response has a 2xx status code
+func (o *PutOrgauthorizationTrustorUserServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustor user service unavailable response has a 3xx status code
+func (o *PutOrgauthorizationTrustorUserServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustor user service unavailable response has a 4xx status code
+func (o *PutOrgauthorizationTrustorUserServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put orgauthorization trustor user service unavailable response has a 5xx status code
+func (o *PutOrgauthorizationTrustorUserServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put orgauthorization trustor user service unavailable response a status code equal to that given
+func (o *PutOrgauthorizationTrustorUserServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOrgauthorizationTrustorUserServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrustorUserServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutOrgauthorizationTrustorUserGatewayTimeout() *PutOrgauthorizationTrust
 	return &PutOrgauthorizationTrustorUserGatewayTimeout{}
 }
 
-/*PutOrgauthorizationTrustorUserGatewayTimeout handles this case with default header values.
+/*
+PutOrgauthorizationTrustorUserGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutOrgauthorizationTrustorUserGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put orgauthorization trustor user gateway timeout response has a 2xx status code
+func (o *PutOrgauthorizationTrustorUserGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put orgauthorization trustor user gateway timeout response has a 3xx status code
+func (o *PutOrgauthorizationTrustorUserGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put orgauthorization trustor user gateway timeout response has a 4xx status code
+func (o *PutOrgauthorizationTrustorUserGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put orgauthorization trustor user gateway timeout response has a 5xx status code
+func (o *PutOrgauthorizationTrustorUserGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put orgauthorization trustor user gateway timeout response a status code equal to that given
+func (o *PutOrgauthorizationTrustorUserGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOrgauthorizationTrustorUserGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOrgauthorizationTrustorUserGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/orgauthorization/trustors/{trustorOrgId}/users/{trusteeUserId}][%d] putOrgauthorizationTrustorUserGatewayTimeout  %+v", 504, o.Payload)
 }
 

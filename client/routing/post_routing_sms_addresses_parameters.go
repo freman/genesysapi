@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRoutingSmsAddressesParams creates a new PostRoutingSmsAddressesParams object
-// with the default values initialized.
+// NewPostRoutingSmsAddressesParams creates a new PostRoutingSmsAddressesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRoutingSmsAddressesParams() *PostRoutingSmsAddressesParams {
-	var ()
 	return &PostRoutingSmsAddressesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRoutingSmsAddressesParamsWithTimeout creates a new PostRoutingSmsAddressesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRoutingSmsAddressesParamsWithTimeout(timeout time.Duration) *PostRoutingSmsAddressesParams {
-	var ()
 	return &PostRoutingSmsAddressesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRoutingSmsAddressesParamsWithContext creates a new PostRoutingSmsAddressesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRoutingSmsAddressesParamsWithContext(ctx context.Context) *PostRoutingSmsAddressesParams {
-	var ()
 	return &PostRoutingSmsAddressesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRoutingSmsAddressesParamsWithHTTPClient creates a new PostRoutingSmsAddressesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRoutingSmsAddressesParamsWithHTTPClient(client *http.Client) *PostRoutingSmsAddressesParams {
-	var ()
 	return &PostRoutingSmsAddressesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRoutingSmsAddressesParams contains all the parameters to send to the API endpoint
-for the post routing sms addresses operation typically these are written to a http.Request
+/*
+PostRoutingSmsAddressesParams contains all the parameters to send to the API endpoint
+
+	for the post routing sms addresses operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRoutingSmsAddressesParams struct {
 
-	/*Body
-	  SmsAddress
+	/* Body.
 
+	   SmsAddress
 	*/
 	Body *models.SmsAddressProvision
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post routing sms addresses params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingSmsAddressesParams) WithDefaults() *PostRoutingSmsAddressesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post routing sms addresses params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingSmsAddressesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post routing sms addresses params
@@ -124,7 +140,6 @@ func (o *PostRoutingSmsAddressesParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

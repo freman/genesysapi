@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -70,7 +72,6 @@ func (m *ValidationLimits) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ValidationLimits) validateMaxItems(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MaxItems) { // not required
 		return nil
 	}
@@ -79,6 +80,8 @@ func (m *ValidationLimits) validateMaxItems(formats strfmt.Registry) error {
 		if err := m.MaxItems.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("maxItems")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("maxItems")
 			}
 			return err
 		}
@@ -88,7 +91,6 @@ func (m *ValidationLimits) validateMaxItems(formats strfmt.Registry) error {
 }
 
 func (m *ValidationLimits) validateMaxLength(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MaxLength) { // not required
 		return nil
 	}
@@ -97,6 +99,8 @@ func (m *ValidationLimits) validateMaxLength(formats strfmt.Registry) error {
 		if err := m.MaxLength.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("maxLength")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("maxLength")
 			}
 			return err
 		}
@@ -106,7 +110,6 @@ func (m *ValidationLimits) validateMaxLength(formats strfmt.Registry) error {
 }
 
 func (m *ValidationLimits) validateMaximum(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Maximum) { // not required
 		return nil
 	}
@@ -115,6 +118,8 @@ func (m *ValidationLimits) validateMaximum(formats strfmt.Registry) error {
 		if err := m.Maximum.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("maximum")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("maximum")
 			}
 			return err
 		}
@@ -124,7 +129,6 @@ func (m *ValidationLimits) validateMaximum(formats strfmt.Registry) error {
 }
 
 func (m *ValidationLimits) validateMinItems(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MinItems) { // not required
 		return nil
 	}
@@ -133,6 +137,8 @@ func (m *ValidationLimits) validateMinItems(formats strfmt.Registry) error {
 		if err := m.MinItems.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("minItems")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("minItems")
 			}
 			return err
 		}
@@ -142,7 +148,6 @@ func (m *ValidationLimits) validateMinItems(formats strfmt.Registry) error {
 }
 
 func (m *ValidationLimits) validateMinLength(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MinLength) { // not required
 		return nil
 	}
@@ -151,6 +156,8 @@ func (m *ValidationLimits) validateMinLength(formats strfmt.Registry) error {
 		if err := m.MinLength.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("minLength")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("minLength")
 			}
 			return err
 		}
@@ -160,7 +167,6 @@ func (m *ValidationLimits) validateMinLength(formats strfmt.Registry) error {
 }
 
 func (m *ValidationLimits) validateMinimum(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Minimum) { // not required
 		return nil
 	}
@@ -169,6 +175,138 @@ func (m *ValidationLimits) validateMinimum(formats strfmt.Registry) error {
 		if err := m.Minimum.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("minimum")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("minimum")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this validation limits based on the context it is used
+func (m *ValidationLimits) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMaxItems(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxLength(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaximum(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMinItems(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMinLength(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMinimum(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ValidationLimits) contextValidateMaxItems(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MaxItems != nil {
+		if err := m.MaxItems.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("maxItems")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("maxItems")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ValidationLimits) contextValidateMaxLength(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MaxLength != nil {
+		if err := m.MaxLength.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("maxLength")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("maxLength")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ValidationLimits) contextValidateMaximum(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Maximum != nil {
+		if err := m.Maximum.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("maximum")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("maximum")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ValidationLimits) contextValidateMinItems(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MinItems != nil {
+		if err := m.MinItems.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("minItems")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("minItems")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ValidationLimits) contextValidateMinLength(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MinLength != nil {
+		if err := m.MinLength.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("minLength")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("minLength")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ValidationLimits) contextValidateMinimum(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Minimum != nil {
+		if err := m.Minimum.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("minimum")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("minimum")
 			}
 			return err
 		}

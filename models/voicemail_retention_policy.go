@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -74,7 +75,6 @@ func (m *VoicemailRetentionPolicy) validateVoicemailRetentionPolicyTypeEnum(path
 }
 
 func (m *VoicemailRetentionPolicy) validateVoicemailRetentionPolicyType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.VoicemailRetentionPolicyType) { // not required
 		return nil
 	}
@@ -84,6 +84,11 @@ func (m *VoicemailRetentionPolicy) validateVoicemailRetentionPolicyType(formats 
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this voicemail retention policy based on context it is used
+func (m *VoicemailRetentionPolicy) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

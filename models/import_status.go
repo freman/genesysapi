@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -120,7 +121,7 @@ func (m *ImportStatus) validateStateEnum(path, location string, value string) er
 
 func (m *ImportStatus) validateState(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("state", "body", string(m.State)); err != nil {
+	if err := validate.RequiredString("state", "body", m.State); err != nil {
 		return err
 	}
 
@@ -135,6 +136,81 @@ func (m *ImportStatus) validateState(formats strfmt.Registry) error {
 func (m *ImportStatus) validateTotalRecords(formats strfmt.Registry) error {
 
 	if err := validate.Required("totalRecords", "body", int64(m.TotalRecords)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this import status based on the context it is used
+func (m *ImportStatus) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCompletedRecords(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFailureReason(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePercentComplete(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalRecords(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ImportStatus) contextValidateCompletedRecords(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "completedRecords", "body", int64(m.CompletedRecords)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ImportStatus) contextValidateFailureReason(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "failureReason", "body", string(m.FailureReason)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ImportStatus) contextValidatePercentComplete(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "percentComplete", "body", int32(m.PercentComplete)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ImportStatus) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ImportStatus) contextValidateTotalRecords(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalRecords", "body", int64(m.TotalRecords)); err != nil {
 		return err
 	}
 

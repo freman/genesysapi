@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTelephonyProvidersEdgeDiagnosticTracepathParams creates a new PostTelephonyProvidersEdgeDiagnosticTracepathParams object
-// with the default values initialized.
+// NewPostTelephonyProvidersEdgeDiagnosticTracepathParams creates a new PostTelephonyProvidersEdgeDiagnosticTracepathParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTelephonyProvidersEdgeDiagnosticTracepathParams() *PostTelephonyProvidersEdgeDiagnosticTracepathParams {
-	var ()
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeDiagnosticTracepathParamsWithTimeout creates a new PostTelephonyProvidersEdgeDiagnosticTracepathParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTelephonyProvidersEdgeDiagnosticTracepathParamsWithTimeout(timeout time.Duration) *PostTelephonyProvidersEdgeDiagnosticTracepathParams {
-	var ()
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeDiagnosticTracepathParamsWithContext creates a new PostTelephonyProvidersEdgeDiagnosticTracepathParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTelephonyProvidersEdgeDiagnosticTracepathParamsWithContext(ctx context.Context) *PostTelephonyProvidersEdgeDiagnosticTracepathParams {
-	var ()
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeDiagnosticTracepathParamsWithHTTPClient creates a new PostTelephonyProvidersEdgeDiagnosticTracepathParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTelephonyProvidersEdgeDiagnosticTracepathParamsWithHTTPClient(client *http.Client) *PostTelephonyProvidersEdgeDiagnosticTracepathParams {
-	var ()
 	return &PostTelephonyProvidersEdgeDiagnosticTracepathParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticTracepathParams contains all the parameters to send to the API endpoint
-for the post telephony providers edge diagnostic tracepath operation typically these are written to a http.Request
+/*
+PostTelephonyProvidersEdgeDiagnosticTracepathParams contains all the parameters to send to the API endpoint
+
+	for the post telephony providers edge diagnostic tracepath operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTelephonyProvidersEdgeDiagnosticTracepathParams struct {
 
-	/*Body
-	  request payload to get network diagnostic
+	/* Body.
 
+	   request payload to get network diagnostic
 	*/
 	Body *models.EdgeNetworkDiagnosticRequest
-	/*EdgeID
-	  Edge Id
 
+	/* EdgeID.
+
+	   Edge Id
 	*/
 	EdgeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post telephony providers edge diagnostic tracepath params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathParams) WithDefaults() *PostTelephonyProvidersEdgeDiagnosticTracepathParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post telephony providers edge diagnostic tracepath params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeDiagnosticTracepathParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post telephony providers edge diagnostic tracepath params
@@ -140,7 +157,6 @@ func (o *PostTelephonyProvidersEdgeDiagnosticTracepathParams) WriteToRequest(r r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -151,7 +152,6 @@ func (m *TrusteeBillingOverview) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TrusteeBillingOverview) validateBillingPeriodEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BillingPeriodEndDate) { // not required
 		return nil
 	}
@@ -164,7 +164,6 @@ func (m *TrusteeBillingOverview) validateBillingPeriodEndDate(formats strfmt.Reg
 }
 
 func (m *TrusteeBillingOverview) validateBillingPeriodStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BillingPeriodStartDate) { // not required
 		return nil
 	}
@@ -177,7 +176,6 @@ func (m *TrusteeBillingOverview) validateBillingPeriodStartDate(formats strfmt.R
 }
 
 func (m *TrusteeBillingOverview) validateContractAmendmentDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContractAmendmentDate) { // not required
 		return nil
 	}
@@ -190,7 +188,6 @@ func (m *TrusteeBillingOverview) validateContractAmendmentDate(formats strfmt.Re
 }
 
 func (m *TrusteeBillingOverview) validateContractEffectiveDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContractEffectiveDate) { // not required
 		return nil
 	}
@@ -203,7 +200,6 @@ func (m *TrusteeBillingOverview) validateContractEffectiveDate(formats strfmt.Re
 }
 
 func (m *TrusteeBillingOverview) validateContractEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContractEndDate) { // not required
 		return nil
 	}
@@ -243,6 +239,8 @@ func (m *TrusteeBillingOverview) validateOrganization(formats strfmt.Registry) e
 		if err := m.Organization.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("organization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("organization")
 			}
 			return err
 		}
@@ -252,7 +250,6 @@ func (m *TrusteeBillingOverview) validateOrganization(formats strfmt.Registry) e
 }
 
 func (m *TrusteeBillingOverview) validateRampPeriodEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RampPeriodEndDate) { // not required
 		return nil
 	}
@@ -265,7 +262,6 @@ func (m *TrusteeBillingOverview) validateRampPeriodEndDate(formats strfmt.Regist
 }
 
 func (m *TrusteeBillingOverview) validateRampPeriodStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RampPeriodStartDate) { // not required
 		return nil
 	}
@@ -278,7 +274,6 @@ func (m *TrusteeBillingOverview) validateRampPeriodStartDate(formats strfmt.Regi
 }
 
 func (m *TrusteeBillingOverview) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -366,6 +361,88 @@ func (m *TrusteeBillingOverview) validateUsages(formats strfmt.Registry) error {
 			if err := m.Usages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("usages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("usages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this trustee billing overview based on the context it is used
+func (m *TrusteeBillingOverview) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOrganization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUsages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TrusteeBillingOverview) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TrusteeBillingOverview) contextValidateOrganization(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Organization != nil {
+		if err := m.Organization.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("organization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("organization")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TrusteeBillingOverview) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TrusteeBillingOverview) contextValidateUsages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Usages); i++ {
+
+		if m.Usages[i] != nil {
+			if err := m.Usages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("usages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("usages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

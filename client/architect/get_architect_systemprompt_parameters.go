@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetArchitectSystempromptParams creates a new GetArchitectSystempromptParams object
-// with the default values initialized.
+// NewGetArchitectSystempromptParams creates a new GetArchitectSystempromptParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetArchitectSystempromptParams() *GetArchitectSystempromptParams {
-	var ()
 	return &GetArchitectSystempromptParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetArchitectSystempromptParamsWithTimeout creates a new GetArchitectSystempromptParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetArchitectSystempromptParamsWithTimeout(timeout time.Duration) *GetArchitectSystempromptParams {
-	var ()
 	return &GetArchitectSystempromptParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetArchitectSystempromptParamsWithContext creates a new GetArchitectSystempromptParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetArchitectSystempromptParamsWithContext(ctx context.Context) *GetArchitectSystempromptParams {
-	var ()
 	return &GetArchitectSystempromptParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetArchitectSystempromptParamsWithHTTPClient creates a new GetArchitectSystempromptParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetArchitectSystempromptParamsWithHTTPClient(client *http.Client) *GetArchitectSystempromptParams {
-	var ()
 	return &GetArchitectSystempromptParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetArchitectSystempromptParams contains all the parameters to send to the API endpoint
-for the get architect systemprompt operation typically these are written to a http.Request
+/*
+GetArchitectSystempromptParams contains all the parameters to send to the API endpoint
+
+	for the get architect systemprompt operation.
+
+	Typically these are written to a http.Request.
 */
 type GetArchitectSystempromptParams struct {
 
-	/*PromptID
-	  promptId
+	/* PromptID.
 
+	   promptId
 	*/
 	PromptID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get architect systemprompt params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectSystempromptParams) WithDefaults() *GetArchitectSystempromptParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get architect systemprompt params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectSystempromptParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get architect systemprompt params

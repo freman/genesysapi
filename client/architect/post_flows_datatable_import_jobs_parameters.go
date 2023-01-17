@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostFlowsDatatableImportJobsParams creates a new PostFlowsDatatableImportJobsParams object
-// with the default values initialized.
+// NewPostFlowsDatatableImportJobsParams creates a new PostFlowsDatatableImportJobsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostFlowsDatatableImportJobsParams() *PostFlowsDatatableImportJobsParams {
-	var ()
 	return &PostFlowsDatatableImportJobsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostFlowsDatatableImportJobsParamsWithTimeout creates a new PostFlowsDatatableImportJobsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostFlowsDatatableImportJobsParamsWithTimeout(timeout time.Duration) *PostFlowsDatatableImportJobsParams {
-	var ()
 	return &PostFlowsDatatableImportJobsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostFlowsDatatableImportJobsParamsWithContext creates a new PostFlowsDatatableImportJobsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostFlowsDatatableImportJobsParamsWithContext(ctx context.Context) *PostFlowsDatatableImportJobsParams {
-	var ()
 	return &PostFlowsDatatableImportJobsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostFlowsDatatableImportJobsParamsWithHTTPClient creates a new PostFlowsDatatableImportJobsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostFlowsDatatableImportJobsParamsWithHTTPClient(client *http.Client) *PostFlowsDatatableImportJobsParams {
-	var ()
 	return &PostFlowsDatatableImportJobsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostFlowsDatatableImportJobsParams contains all the parameters to send to the API endpoint
-for the post flows datatable import jobs operation typically these are written to a http.Request
+/*
+PostFlowsDatatableImportJobsParams contains all the parameters to send to the API endpoint
+
+	for the post flows datatable import jobs operation.
+
+	Typically these are written to a http.Request.
 */
 type PostFlowsDatatableImportJobsParams struct {
 
-	/*Body
-	  import job information
+	/* Body.
 
+	   import job information
 	*/
 	Body *models.DataTableImportJob
-	/*DatatableID
-	  id of datatable
 
+	/* DatatableID.
+
+	   id of datatable
 	*/
 	DatatableID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post flows datatable import jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsDatatableImportJobsParams) WithDefaults() *PostFlowsDatatableImportJobsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post flows datatable import jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsDatatableImportJobsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post flows datatable import jobs params
@@ -140,7 +157,6 @@ func (o *PostFlowsDatatableImportJobsParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

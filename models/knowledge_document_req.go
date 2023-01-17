@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -68,7 +69,6 @@ func (m *KnowledgeDocumentReq) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeDocumentReq) validateAlternatives(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Alternatives) { // not required
 		return nil
 	}
@@ -82,6 +82,8 @@ func (m *KnowledgeDocumentReq) validateAlternatives(formats strfmt.Registry) err
 			if err := m.Alternatives[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("alternatives" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("alternatives" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -93,7 +95,6 @@ func (m *KnowledgeDocumentReq) validateAlternatives(formats strfmt.Registry) err
 }
 
 func (m *KnowledgeDocumentReq) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -108,6 +109,66 @@ func (m *KnowledgeDocumentReq) validateSelfURI(formats strfmt.Registry) error {
 func (m *KnowledgeDocumentReq) validateTitle(formats strfmt.Registry) error {
 
 	if err := validate.Required("title", "body", m.Title); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge document req based on the context it is used
+func (m *KnowledgeDocumentReq) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAlternatives(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeDocumentReq) contextValidateAlternatives(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Alternatives); i++ {
+
+		if m.Alternatives[i] != nil {
+			if err := m.Alternatives[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("alternatives" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("alternatives" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentReq) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentReq) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

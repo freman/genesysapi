@@ -95,7 +95,6 @@ func (o *DeleteSpeechandtextanalyticsProgramReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteSpeechandtextanalyticsProgramNoContent() *DeleteSpeechandtextanaly
 	return &DeleteSpeechandtextanalyticsProgramNoContent{}
 }
 
-/*DeleteSpeechandtextanalyticsProgramNoContent handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsProgramNoContent describes a response with status code 204, with default header values.
 
 The program was deleted successfully
 */
 type DeleteSpeechandtextanalyticsProgramNoContent struct {
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics program no content response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsProgramNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics program no content response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsProgramNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics program no content response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsProgramNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete speechandtextanalytics program no content response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsProgramNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics program no content response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsProgramNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteSpeechandtextanalyticsProgramNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramNoContent ", 204)
+}
+
+func (o *DeleteSpeechandtextanalyticsProgramNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteSpeechandtextanalyticsProgramBadRequest() *DeleteSpeechandtextanal
 	return &DeleteSpeechandtextanalyticsProgramBadRequest{}
 }
 
-/*DeleteSpeechandtextanalyticsProgramBadRequest handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsProgramBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteSpeechandtextanalyticsProgramBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics program bad request response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsProgramBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics program bad request response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsProgramBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics program bad request response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsProgramBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics program bad request response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsProgramBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics program bad request response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsProgramBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteSpeechandtextanalyticsProgramBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsProgramBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteSpeechandtextanalyticsProgramUnauthorized() *DeleteSpeechandtextan
 	return &DeleteSpeechandtextanalyticsProgramUnauthorized{}
 }
 
-/*DeleteSpeechandtextanalyticsProgramUnauthorized handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsProgramUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteSpeechandtextanalyticsProgramUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics program unauthorized response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsProgramUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics program unauthorized response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsProgramUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics program unauthorized response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsProgramUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics program unauthorized response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsProgramUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics program unauthorized response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsProgramUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteSpeechandtextanalyticsProgramUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsProgramUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteSpeechandtextanalyticsProgramForbidden() *DeleteSpeechandtextanaly
 	return &DeleteSpeechandtextanalyticsProgramForbidden{}
 }
 
-/*DeleteSpeechandtextanalyticsProgramForbidden handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsProgramForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteSpeechandtextanalyticsProgramForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics program forbidden response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsProgramForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics program forbidden response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsProgramForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics program forbidden response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsProgramForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics program forbidden response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsProgramForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics program forbidden response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsProgramForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteSpeechandtextanalyticsProgramForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsProgramForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteSpeechandtextanalyticsProgramNotFound() *DeleteSpeechandtextanalyt
 	return &DeleteSpeechandtextanalyticsProgramNotFound{}
 }
 
-/*DeleteSpeechandtextanalyticsProgramNotFound handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsProgramNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteSpeechandtextanalyticsProgramNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics program not found response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsProgramNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics program not found response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsProgramNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics program not found response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsProgramNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics program not found response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsProgramNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics program not found response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsProgramNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteSpeechandtextanalyticsProgramNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsProgramNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteSpeechandtextanalyticsProgramRequestTimeout() *DeleteSpeechandtext
 	return &DeleteSpeechandtextanalyticsProgramRequestTimeout{}
 }
 
-/*DeleteSpeechandtextanalyticsProgramRequestTimeout handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsProgramRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteSpeechandtextanalyticsProgramRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics program request timeout response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsProgramRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics program request timeout response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsProgramRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics program request timeout response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsProgramRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics program request timeout response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsProgramRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics program request timeout response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsProgramRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteSpeechandtextanalyticsProgramRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsProgramRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteSpeechandtextanalyticsProgramRequestEntityTooLarge() *DeleteSpeech
 	return &DeleteSpeechandtextanalyticsProgramRequestEntityTooLarge{}
 }
 
-/*DeleteSpeechandtextanalyticsProgramRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsProgramRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteSpeechandtextanalyticsProgramRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics program request entity too large response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsProgramRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics program request entity too large response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsProgramRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics program request entity too large response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsProgramRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics program request entity too large response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsProgramRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics program request entity too large response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsProgramRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteSpeechandtextanalyticsProgramRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsProgramRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteSpeechandtextanalyticsProgramUnsupportedMediaType() *DeleteSpeecha
 	return &DeleteSpeechandtextanalyticsProgramUnsupportedMediaType{}
 }
 
-/*DeleteSpeechandtextanalyticsProgramUnsupportedMediaType handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsProgramUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteSpeechandtextanalyticsProgramUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics program unsupported media type response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsProgramUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics program unsupported media type response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsProgramUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics program unsupported media type response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsProgramUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics program unsupported media type response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsProgramUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics program unsupported media type response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsProgramUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteSpeechandtextanalyticsProgramUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsProgramUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteSpeechandtextanalyticsProgramTooManyRequests() *DeleteSpeechandtex
 	return &DeleteSpeechandtextanalyticsProgramTooManyRequests{}
 }
 
-/*DeleteSpeechandtextanalyticsProgramTooManyRequests handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsProgramTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteSpeechandtextanalyticsProgramTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics program too many requests response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsProgramTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics program too many requests response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsProgramTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics program too many requests response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsProgramTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete speechandtextanalytics program too many requests response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsProgramTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete speechandtextanalytics program too many requests response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsProgramTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteSpeechandtextanalyticsProgramTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsProgramTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteSpeechandtextanalyticsProgramInternalServerError() *DeleteSpeechan
 	return &DeleteSpeechandtextanalyticsProgramInternalServerError{}
 }
 
-/*DeleteSpeechandtextanalyticsProgramInternalServerError handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsProgramInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteSpeechandtextanalyticsProgramInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics program internal server error response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsProgramInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics program internal server error response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsProgramInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics program internal server error response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsProgramInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete speechandtextanalytics program internal server error response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsProgramInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete speechandtextanalytics program internal server error response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsProgramInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteSpeechandtextanalyticsProgramInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsProgramInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteSpeechandtextanalyticsProgramServiceUnavailable() *DeleteSpeechand
 	return &DeleteSpeechandtextanalyticsProgramServiceUnavailable{}
 }
 
-/*DeleteSpeechandtextanalyticsProgramServiceUnavailable handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsProgramServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteSpeechandtextanalyticsProgramServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics program service unavailable response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsProgramServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics program service unavailable response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsProgramServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics program service unavailable response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsProgramServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete speechandtextanalytics program service unavailable response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsProgramServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete speechandtextanalytics program service unavailable response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsProgramServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteSpeechandtextanalyticsProgramServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsProgramServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteSpeechandtextanalyticsProgramGatewayTimeout() *DeleteSpeechandtext
 	return &DeleteSpeechandtextanalyticsProgramGatewayTimeout{}
 }
 
-/*DeleteSpeechandtextanalyticsProgramGatewayTimeout handles this case with default header values.
+/*
+DeleteSpeechandtextanalyticsProgramGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteSpeechandtextanalyticsProgramGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete speechandtextanalytics program gateway timeout response has a 2xx status code
+func (o *DeleteSpeechandtextanalyticsProgramGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete speechandtextanalytics program gateway timeout response has a 3xx status code
+func (o *DeleteSpeechandtextanalyticsProgramGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete speechandtextanalytics program gateway timeout response has a 4xx status code
+func (o *DeleteSpeechandtextanalyticsProgramGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete speechandtextanalytics program gateway timeout response has a 5xx status code
+func (o *DeleteSpeechandtextanalyticsProgramGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete speechandtextanalytics program gateway timeout response a status code equal to that given
+func (o *DeleteSpeechandtextanalyticsProgramGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteSpeechandtextanalyticsProgramGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteSpeechandtextanalyticsProgramGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/speechandtextanalytics/programs/{programId}][%d] deleteSpeechandtextanalyticsProgramGatewayTimeout  %+v", 504, o.Payload)
 }
 

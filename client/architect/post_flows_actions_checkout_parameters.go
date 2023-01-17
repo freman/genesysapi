@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostFlowsActionsCheckoutParams creates a new PostFlowsActionsCheckoutParams object
-// with the default values initialized.
+// NewPostFlowsActionsCheckoutParams creates a new PostFlowsActionsCheckoutParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostFlowsActionsCheckoutParams() *PostFlowsActionsCheckoutParams {
-	var ()
 	return &PostFlowsActionsCheckoutParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostFlowsActionsCheckoutParamsWithTimeout creates a new PostFlowsActionsCheckoutParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostFlowsActionsCheckoutParamsWithTimeout(timeout time.Duration) *PostFlowsActionsCheckoutParams {
-	var ()
 	return &PostFlowsActionsCheckoutParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostFlowsActionsCheckoutParamsWithContext creates a new PostFlowsActionsCheckoutParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostFlowsActionsCheckoutParamsWithContext(ctx context.Context) *PostFlowsActionsCheckoutParams {
-	var ()
 	return &PostFlowsActionsCheckoutParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostFlowsActionsCheckoutParamsWithHTTPClient creates a new PostFlowsActionsCheckoutParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostFlowsActionsCheckoutParamsWithHTTPClient(client *http.Client) *PostFlowsActionsCheckoutParams {
-	var ()
 	return &PostFlowsActionsCheckoutParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostFlowsActionsCheckoutParams contains all the parameters to send to the API endpoint
-for the post flows actions checkout operation typically these are written to a http.Request
+/*
+PostFlowsActionsCheckoutParams contains all the parameters to send to the API endpoint
+
+	for the post flows actions checkout operation.
+
+	Typically these are written to a http.Request.
 */
 type PostFlowsActionsCheckoutParams struct {
 
-	/*Flow
-	  Flow ID
+	/* Flow.
 
+	   Flow ID
 	*/
 	Flow string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post flows actions checkout params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsActionsCheckoutParams) WithDefaults() *PostFlowsActionsCheckoutParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post flows actions checkout params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsActionsCheckoutParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post flows actions checkout params
@@ -127,6 +143,7 @@ func (o *PostFlowsActionsCheckoutParams) WriteToRequest(r runtime.ClientRequest,
 	qrFlow := o.Flow
 	qFlow := qrFlow
 	if qFlow != "" {
+
 		if err := r.SetQueryParam("flow", qFlow); err != nil {
 			return err
 		}

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetProcessautomationTriggerParams creates a new GetProcessautomationTriggerParams object
-// with the default values initialized.
+// NewGetProcessautomationTriggerParams creates a new GetProcessautomationTriggerParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetProcessautomationTriggerParams() *GetProcessautomationTriggerParams {
-	var ()
 	return &GetProcessautomationTriggerParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetProcessautomationTriggerParamsWithTimeout creates a new GetProcessautomationTriggerParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetProcessautomationTriggerParamsWithTimeout(timeout time.Duration) *GetProcessautomationTriggerParams {
-	var ()
 	return &GetProcessautomationTriggerParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetProcessautomationTriggerParamsWithContext creates a new GetProcessautomationTriggerParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetProcessautomationTriggerParamsWithContext(ctx context.Context) *GetProcessautomationTriggerParams {
-	var ()
 	return &GetProcessautomationTriggerParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetProcessautomationTriggerParamsWithHTTPClient creates a new GetProcessautomationTriggerParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetProcessautomationTriggerParamsWithHTTPClient(client *http.Client) *GetProcessautomationTriggerParams {
-	var ()
 	return &GetProcessautomationTriggerParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetProcessautomationTriggerParams contains all the parameters to send to the API endpoint
-for the get processautomation trigger operation typically these are written to a http.Request
+/*
+GetProcessautomationTriggerParams contains all the parameters to send to the API endpoint
+
+	for the get processautomation trigger operation.
+
+	Typically these are written to a http.Request.
 */
 type GetProcessautomationTriggerParams struct {
 
-	/*TriggerID
-	  triggerId
+	/* TriggerID.
 
+	   triggerId
 	*/
 	TriggerID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get processautomation trigger params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetProcessautomationTriggerParams) WithDefaults() *GetProcessautomationTriggerParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get processautomation trigger params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetProcessautomationTriggerParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get processautomation trigger params

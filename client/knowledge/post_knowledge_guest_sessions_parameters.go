@@ -18,56 +18,72 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostKnowledgeGuestSessionsParams creates a new PostKnowledgeGuestSessionsParams object
-// with the default values initialized.
+// NewPostKnowledgeGuestSessionsParams creates a new PostKnowledgeGuestSessionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostKnowledgeGuestSessionsParams() *PostKnowledgeGuestSessionsParams {
-	var ()
 	return &PostKnowledgeGuestSessionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostKnowledgeGuestSessionsParamsWithTimeout creates a new PostKnowledgeGuestSessionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostKnowledgeGuestSessionsParamsWithTimeout(timeout time.Duration) *PostKnowledgeGuestSessionsParams {
-	var ()
 	return &PostKnowledgeGuestSessionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostKnowledgeGuestSessionsParamsWithContext creates a new PostKnowledgeGuestSessionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostKnowledgeGuestSessionsParamsWithContext(ctx context.Context) *PostKnowledgeGuestSessionsParams {
-	var ()
 	return &PostKnowledgeGuestSessionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostKnowledgeGuestSessionsParamsWithHTTPClient creates a new PostKnowledgeGuestSessionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostKnowledgeGuestSessionsParamsWithHTTPClient(client *http.Client) *PostKnowledgeGuestSessionsParams {
-	var ()
 	return &PostKnowledgeGuestSessionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostKnowledgeGuestSessionsParams contains all the parameters to send to the API endpoint
-for the post knowledge guest sessions operation typically these are written to a http.Request
+/*
+PostKnowledgeGuestSessionsParams contains all the parameters to send to the API endpoint
+
+	for the post knowledge guest sessions operation.
+
+	Typically these are written to a http.Request.
 */
 type PostKnowledgeGuestSessionsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.KnowledgeGuestSession
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post knowledge guest sessions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeGuestSessionsParams) WithDefaults() *PostKnowledgeGuestSessionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post knowledge guest sessions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeGuestSessionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post knowledge guest sessions params
@@ -121,7 +137,6 @@ func (o *PostKnowledgeGuestSessionsParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

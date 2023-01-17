@@ -18,69 +18,89 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams creates a new PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams creates a new PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams() *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParamsWithTimeout creates a new PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParamsWithContext creates a new PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParamsWithContext(ctx context.Context) *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParamsWithHTTPClient creates a new PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement businessunit week schedules import uploadurl operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement businessunit week schedules import uploadurl operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.UploadURLRequestBody
-	/*BusinessUnitID
-	  The ID of the business unit
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit
 	*/
 	BusinessUnitID string
-	/*WeekID
-	  First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekID.
+
+	   First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekID strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement businessunit week schedules import uploadurl params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams) WithDefaults() *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement businessunit week schedules import uploadurl params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement businessunit week schedules import uploadurl params
@@ -156,7 +176,6 @@ func (o *PostWorkforcemanagementBusinessunitWeekSchedulesImportUploadurlParams) 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

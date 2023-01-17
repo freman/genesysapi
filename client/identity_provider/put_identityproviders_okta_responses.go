@@ -95,7 +95,6 @@ func (o *PutIdentityprovidersOktaReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutIdentityprovidersOktaOK() *PutIdentityprovidersOktaOK {
 	return &PutIdentityprovidersOktaOK{}
 }
 
-/*PutIdentityprovidersOktaOK handles this case with default header values.
+/*
+PutIdentityprovidersOktaOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutIdentityprovidersOktaOK struct {
 	Payload *models.OAuthProvider
 }
 
+// IsSuccess returns true when this put identityproviders okta o k response has a 2xx status code
+func (o *PutIdentityprovidersOktaOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put identityproviders okta o k response has a 3xx status code
+func (o *PutIdentityprovidersOktaOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders okta o k response has a 4xx status code
+func (o *PutIdentityprovidersOktaOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders okta o k response has a 5xx status code
+func (o *PutIdentityprovidersOktaOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders okta o k response a status code equal to that given
+func (o *PutIdentityprovidersOktaOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutIdentityprovidersOktaOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaOK  %+v", 200, o.Payload)
+}
+
+func (o *PutIdentityprovidersOktaOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutIdentityprovidersOktaBadRequest() *PutIdentityprovidersOktaBadRequest
 	return &PutIdentityprovidersOktaBadRequest{}
 }
 
-/*PutIdentityprovidersOktaBadRequest handles this case with default header values.
+/*
+PutIdentityprovidersOktaBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutIdentityprovidersOktaBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders okta bad request response has a 2xx status code
+func (o *PutIdentityprovidersOktaBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders okta bad request response has a 3xx status code
+func (o *PutIdentityprovidersOktaBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders okta bad request response has a 4xx status code
+func (o *PutIdentityprovidersOktaBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders okta bad request response has a 5xx status code
+func (o *PutIdentityprovidersOktaBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders okta bad request response a status code equal to that given
+func (o *PutIdentityprovidersOktaBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutIdentityprovidersOktaBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutIdentityprovidersOktaBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutIdentityprovidersOktaUnauthorized() *PutIdentityprovidersOktaUnauthor
 	return &PutIdentityprovidersOktaUnauthorized{}
 }
 
-/*PutIdentityprovidersOktaUnauthorized handles this case with default header values.
+/*
+PutIdentityprovidersOktaUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutIdentityprovidersOktaUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders okta unauthorized response has a 2xx status code
+func (o *PutIdentityprovidersOktaUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders okta unauthorized response has a 3xx status code
+func (o *PutIdentityprovidersOktaUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders okta unauthorized response has a 4xx status code
+func (o *PutIdentityprovidersOktaUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders okta unauthorized response has a 5xx status code
+func (o *PutIdentityprovidersOktaUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders okta unauthorized response a status code equal to that given
+func (o *PutIdentityprovidersOktaUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutIdentityprovidersOktaUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutIdentityprovidersOktaUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutIdentityprovidersOktaForbidden() *PutIdentityprovidersOktaForbidden {
 	return &PutIdentityprovidersOktaForbidden{}
 }
 
-/*PutIdentityprovidersOktaForbidden handles this case with default header values.
+/*
+PutIdentityprovidersOktaForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutIdentityprovidersOktaForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders okta forbidden response has a 2xx status code
+func (o *PutIdentityprovidersOktaForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders okta forbidden response has a 3xx status code
+func (o *PutIdentityprovidersOktaForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders okta forbidden response has a 4xx status code
+func (o *PutIdentityprovidersOktaForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders okta forbidden response has a 5xx status code
+func (o *PutIdentityprovidersOktaForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders okta forbidden response a status code equal to that given
+func (o *PutIdentityprovidersOktaForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutIdentityprovidersOktaForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutIdentityprovidersOktaForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutIdentityprovidersOktaNotFound() *PutIdentityprovidersOktaNotFound {
 	return &PutIdentityprovidersOktaNotFound{}
 }
 
-/*PutIdentityprovidersOktaNotFound handles this case with default header values.
+/*
+PutIdentityprovidersOktaNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutIdentityprovidersOktaNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders okta not found response has a 2xx status code
+func (o *PutIdentityprovidersOktaNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders okta not found response has a 3xx status code
+func (o *PutIdentityprovidersOktaNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders okta not found response has a 4xx status code
+func (o *PutIdentityprovidersOktaNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders okta not found response has a 5xx status code
+func (o *PutIdentityprovidersOktaNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders okta not found response a status code equal to that given
+func (o *PutIdentityprovidersOktaNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutIdentityprovidersOktaNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutIdentityprovidersOktaNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutIdentityprovidersOktaRequestTimeout() *PutIdentityprovidersOktaReques
 	return &PutIdentityprovidersOktaRequestTimeout{}
 }
 
-/*PutIdentityprovidersOktaRequestTimeout handles this case with default header values.
+/*
+PutIdentityprovidersOktaRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutIdentityprovidersOktaRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders okta request timeout response has a 2xx status code
+func (o *PutIdentityprovidersOktaRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders okta request timeout response has a 3xx status code
+func (o *PutIdentityprovidersOktaRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders okta request timeout response has a 4xx status code
+func (o *PutIdentityprovidersOktaRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders okta request timeout response has a 5xx status code
+func (o *PutIdentityprovidersOktaRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders okta request timeout response a status code equal to that given
+func (o *PutIdentityprovidersOktaRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutIdentityprovidersOktaRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIdentityprovidersOktaRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutIdentityprovidersOktaRequestEntityTooLarge() *PutIdentityprovidersOkt
 	return &PutIdentityprovidersOktaRequestEntityTooLarge{}
 }
 
-/*PutIdentityprovidersOktaRequestEntityTooLarge handles this case with default header values.
+/*
+PutIdentityprovidersOktaRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutIdentityprovidersOktaRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders okta request entity too large response has a 2xx status code
+func (o *PutIdentityprovidersOktaRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders okta request entity too large response has a 3xx status code
+func (o *PutIdentityprovidersOktaRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders okta request entity too large response has a 4xx status code
+func (o *PutIdentityprovidersOktaRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders okta request entity too large response has a 5xx status code
+func (o *PutIdentityprovidersOktaRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders okta request entity too large response a status code equal to that given
+func (o *PutIdentityprovidersOktaRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutIdentityprovidersOktaRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutIdentityprovidersOktaRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutIdentityprovidersOktaUnsupportedMediaType() *PutIdentityprovidersOkta
 	return &PutIdentityprovidersOktaUnsupportedMediaType{}
 }
 
-/*PutIdentityprovidersOktaUnsupportedMediaType handles this case with default header values.
+/*
+PutIdentityprovidersOktaUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutIdentityprovidersOktaUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders okta unsupported media type response has a 2xx status code
+func (o *PutIdentityprovidersOktaUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders okta unsupported media type response has a 3xx status code
+func (o *PutIdentityprovidersOktaUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders okta unsupported media type response has a 4xx status code
+func (o *PutIdentityprovidersOktaUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders okta unsupported media type response has a 5xx status code
+func (o *PutIdentityprovidersOktaUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders okta unsupported media type response a status code equal to that given
+func (o *PutIdentityprovidersOktaUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutIdentityprovidersOktaUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutIdentityprovidersOktaUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutIdentityprovidersOktaTooManyRequests() *PutIdentityprovidersOktaTooMa
 	return &PutIdentityprovidersOktaTooManyRequests{}
 }
 
-/*PutIdentityprovidersOktaTooManyRequests handles this case with default header values.
+/*
+PutIdentityprovidersOktaTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutIdentityprovidersOktaTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders okta too many requests response has a 2xx status code
+func (o *PutIdentityprovidersOktaTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders okta too many requests response has a 3xx status code
+func (o *PutIdentityprovidersOktaTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders okta too many requests response has a 4xx status code
+func (o *PutIdentityprovidersOktaTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders okta too many requests response has a 5xx status code
+func (o *PutIdentityprovidersOktaTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders okta too many requests response a status code equal to that given
+func (o *PutIdentityprovidersOktaTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutIdentityprovidersOktaTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutIdentityprovidersOktaTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutIdentityprovidersOktaInternalServerError() *PutIdentityprovidersOktaI
 	return &PutIdentityprovidersOktaInternalServerError{}
 }
 
-/*PutIdentityprovidersOktaInternalServerError handles this case with default header values.
+/*
+PutIdentityprovidersOktaInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutIdentityprovidersOktaInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders okta internal server error response has a 2xx status code
+func (o *PutIdentityprovidersOktaInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders okta internal server error response has a 3xx status code
+func (o *PutIdentityprovidersOktaInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders okta internal server error response has a 4xx status code
+func (o *PutIdentityprovidersOktaInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders okta internal server error response has a 5xx status code
+func (o *PutIdentityprovidersOktaInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders okta internal server error response a status code equal to that given
+func (o *PutIdentityprovidersOktaInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutIdentityprovidersOktaInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutIdentityprovidersOktaInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutIdentityprovidersOktaServiceUnavailable() *PutIdentityprovidersOktaSe
 	return &PutIdentityprovidersOktaServiceUnavailable{}
 }
 
-/*PutIdentityprovidersOktaServiceUnavailable handles this case with default header values.
+/*
+PutIdentityprovidersOktaServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutIdentityprovidersOktaServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders okta service unavailable response has a 2xx status code
+func (o *PutIdentityprovidersOktaServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders okta service unavailable response has a 3xx status code
+func (o *PutIdentityprovidersOktaServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders okta service unavailable response has a 4xx status code
+func (o *PutIdentityprovidersOktaServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders okta service unavailable response has a 5xx status code
+func (o *PutIdentityprovidersOktaServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders okta service unavailable response a status code equal to that given
+func (o *PutIdentityprovidersOktaServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutIdentityprovidersOktaServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutIdentityprovidersOktaServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutIdentityprovidersOktaGatewayTimeout() *PutIdentityprovidersOktaGatewa
 	return &PutIdentityprovidersOktaGatewayTimeout{}
 }
 
-/*PutIdentityprovidersOktaGatewayTimeout handles this case with default header values.
+/*
+PutIdentityprovidersOktaGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutIdentityprovidersOktaGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders okta gateway timeout response has a 2xx status code
+func (o *PutIdentityprovidersOktaGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders okta gateway timeout response has a 3xx status code
+func (o *PutIdentityprovidersOktaGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders okta gateway timeout response has a 4xx status code
+func (o *PutIdentityprovidersOktaGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders okta gateway timeout response has a 5xx status code
+func (o *PutIdentityprovidersOktaGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders okta gateway timeout response a status code equal to that given
+func (o *PutIdentityprovidersOktaGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutIdentityprovidersOktaGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutIdentityprovidersOktaGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/okta][%d] putIdentityprovidersOktaGatewayTimeout  %+v", 504, o.Payload)
 }
 

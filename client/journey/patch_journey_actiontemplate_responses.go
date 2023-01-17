@@ -101,7 +101,6 @@ func (o *PatchJourneyActiontemplateReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchJourneyActiontemplateOK() *PatchJourneyActiontemplateOK {
 	return &PatchJourneyActiontemplateOK{}
 }
 
-/*PatchJourneyActiontemplateOK handles this case with default header values.
+/*
+PatchJourneyActiontemplateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchJourneyActiontemplateOK struct {
 	Payload *models.ActionTemplate
 }
 
+// IsSuccess returns true when this patch journey actiontemplate o k response has a 2xx status code
+func (o *PatchJourneyActiontemplateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch journey actiontemplate o k response has a 3xx status code
+func (o *PatchJourneyActiontemplateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate o k response has a 4xx status code
+func (o *PatchJourneyActiontemplateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch journey actiontemplate o k response has a 5xx status code
+func (o *PatchJourneyActiontemplateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey actiontemplate o k response a status code equal to that given
+func (o *PatchJourneyActiontemplateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchJourneyActiontemplateOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchJourneyActiontemplateBadRequest() *PatchJourneyActiontemplateBadReq
 	return &PatchJourneyActiontemplateBadRequest{}
 }
 
-/*PatchJourneyActiontemplateBadRequest handles this case with default header values.
+/*
+PatchJourneyActiontemplateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchJourneyActiontemplateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey actiontemplate bad request response has a 2xx status code
+func (o *PatchJourneyActiontemplateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey actiontemplate bad request response has a 3xx status code
+func (o *PatchJourneyActiontemplateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate bad request response has a 4xx status code
+func (o *PatchJourneyActiontemplateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey actiontemplate bad request response has a 5xx status code
+func (o *PatchJourneyActiontemplateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey actiontemplate bad request response a status code equal to that given
+func (o *PatchJourneyActiontemplateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchJourneyActiontemplateBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchJourneyActiontemplateUnauthorized() *PatchJourneyActiontemplateUnau
 	return &PatchJourneyActiontemplateUnauthorized{}
 }
 
-/*PatchJourneyActiontemplateUnauthorized handles this case with default header values.
+/*
+PatchJourneyActiontemplateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchJourneyActiontemplateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey actiontemplate unauthorized response has a 2xx status code
+func (o *PatchJourneyActiontemplateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey actiontemplate unauthorized response has a 3xx status code
+func (o *PatchJourneyActiontemplateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate unauthorized response has a 4xx status code
+func (o *PatchJourneyActiontemplateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey actiontemplate unauthorized response has a 5xx status code
+func (o *PatchJourneyActiontemplateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey actiontemplate unauthorized response a status code equal to that given
+func (o *PatchJourneyActiontemplateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchJourneyActiontemplateUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchJourneyActiontemplateForbidden() *PatchJourneyActiontemplateForbidd
 	return &PatchJourneyActiontemplateForbidden{}
 }
 
-/*PatchJourneyActiontemplateForbidden handles this case with default header values.
+/*
+PatchJourneyActiontemplateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchJourneyActiontemplateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey actiontemplate forbidden response has a 2xx status code
+func (o *PatchJourneyActiontemplateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey actiontemplate forbidden response has a 3xx status code
+func (o *PatchJourneyActiontemplateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate forbidden response has a 4xx status code
+func (o *PatchJourneyActiontemplateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey actiontemplate forbidden response has a 5xx status code
+func (o *PatchJourneyActiontemplateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey actiontemplate forbidden response a status code equal to that given
+func (o *PatchJourneyActiontemplateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchJourneyActiontemplateForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchJourneyActiontemplateNotFound() *PatchJourneyActiontemplateNotFound
 	return &PatchJourneyActiontemplateNotFound{}
 }
 
-/*PatchJourneyActiontemplateNotFound handles this case with default header values.
+/*
+PatchJourneyActiontemplateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchJourneyActiontemplateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey actiontemplate not found response has a 2xx status code
+func (o *PatchJourneyActiontemplateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey actiontemplate not found response has a 3xx status code
+func (o *PatchJourneyActiontemplateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate not found response has a 4xx status code
+func (o *PatchJourneyActiontemplateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey actiontemplate not found response has a 5xx status code
+func (o *PatchJourneyActiontemplateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey actiontemplate not found response a status code equal to that given
+func (o *PatchJourneyActiontemplateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchJourneyActiontemplateNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchJourneyActiontemplateRequestTimeout() *PatchJourneyActiontemplateRe
 	return &PatchJourneyActiontemplateRequestTimeout{}
 }
 
-/*PatchJourneyActiontemplateRequestTimeout handles this case with default header values.
+/*
+PatchJourneyActiontemplateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchJourneyActiontemplateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey actiontemplate request timeout response has a 2xx status code
+func (o *PatchJourneyActiontemplateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey actiontemplate request timeout response has a 3xx status code
+func (o *PatchJourneyActiontemplateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate request timeout response has a 4xx status code
+func (o *PatchJourneyActiontemplateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey actiontemplate request timeout response has a 5xx status code
+func (o *PatchJourneyActiontemplateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey actiontemplate request timeout response a status code equal to that given
+func (o *PatchJourneyActiontemplateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchJourneyActiontemplateRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchJourneyActiontemplateConflict() *PatchJourneyActiontemplateConflict
 	return &PatchJourneyActiontemplateConflict{}
 }
 
-/*PatchJourneyActiontemplateConflict handles this case with default header values.
+/*
+PatchJourneyActiontemplateConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PatchJourneyActiontemplateConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey actiontemplate conflict response has a 2xx status code
+func (o *PatchJourneyActiontemplateConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey actiontemplate conflict response has a 3xx status code
+func (o *PatchJourneyActiontemplateConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate conflict response has a 4xx status code
+func (o *PatchJourneyActiontemplateConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey actiontemplate conflict response has a 5xx status code
+func (o *PatchJourneyActiontemplateConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey actiontemplate conflict response a status code equal to that given
+func (o *PatchJourneyActiontemplateConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchJourneyActiontemplateConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchJourneyActiontemplateRequestEntityTooLarge() *PatchJourneyActiontem
 	return &PatchJourneyActiontemplateRequestEntityTooLarge{}
 }
 
-/*PatchJourneyActiontemplateRequestEntityTooLarge handles this case with default header values.
+/*
+PatchJourneyActiontemplateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchJourneyActiontemplateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey actiontemplate request entity too large response has a 2xx status code
+func (o *PatchJourneyActiontemplateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey actiontemplate request entity too large response has a 3xx status code
+func (o *PatchJourneyActiontemplateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate request entity too large response has a 4xx status code
+func (o *PatchJourneyActiontemplateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey actiontemplate request entity too large response has a 5xx status code
+func (o *PatchJourneyActiontemplateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey actiontemplate request entity too large response a status code equal to that given
+func (o *PatchJourneyActiontemplateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchJourneyActiontemplateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchJourneyActiontemplateUnsupportedMediaType() *PatchJourneyActiontemp
 	return &PatchJourneyActiontemplateUnsupportedMediaType{}
 }
 
-/*PatchJourneyActiontemplateUnsupportedMediaType handles this case with default header values.
+/*
+PatchJourneyActiontemplateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchJourneyActiontemplateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey actiontemplate unsupported media type response has a 2xx status code
+func (o *PatchJourneyActiontemplateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey actiontemplate unsupported media type response has a 3xx status code
+func (o *PatchJourneyActiontemplateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate unsupported media type response has a 4xx status code
+func (o *PatchJourneyActiontemplateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey actiontemplate unsupported media type response has a 5xx status code
+func (o *PatchJourneyActiontemplateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey actiontemplate unsupported media type response a status code equal to that given
+func (o *PatchJourneyActiontemplateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchJourneyActiontemplateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchJourneyActiontemplateTooManyRequests() *PatchJourneyActiontemplateT
 	return &PatchJourneyActiontemplateTooManyRequests{}
 }
 
-/*PatchJourneyActiontemplateTooManyRequests handles this case with default header values.
+/*
+PatchJourneyActiontemplateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchJourneyActiontemplateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey actiontemplate too many requests response has a 2xx status code
+func (o *PatchJourneyActiontemplateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey actiontemplate too many requests response has a 3xx status code
+func (o *PatchJourneyActiontemplateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate too many requests response has a 4xx status code
+func (o *PatchJourneyActiontemplateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch journey actiontemplate too many requests response has a 5xx status code
+func (o *PatchJourneyActiontemplateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch journey actiontemplate too many requests response a status code equal to that given
+func (o *PatchJourneyActiontemplateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchJourneyActiontemplateTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchJourneyActiontemplateInternalServerError() *PatchJourneyActiontempl
 	return &PatchJourneyActiontemplateInternalServerError{}
 }
 
-/*PatchJourneyActiontemplateInternalServerError handles this case with default header values.
+/*
+PatchJourneyActiontemplateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchJourneyActiontemplateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey actiontemplate internal server error response has a 2xx status code
+func (o *PatchJourneyActiontemplateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey actiontemplate internal server error response has a 3xx status code
+func (o *PatchJourneyActiontemplateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate internal server error response has a 4xx status code
+func (o *PatchJourneyActiontemplateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch journey actiontemplate internal server error response has a 5xx status code
+func (o *PatchJourneyActiontemplateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch journey actiontemplate internal server error response a status code equal to that given
+func (o *PatchJourneyActiontemplateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchJourneyActiontemplateInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchJourneyActiontemplateServiceUnavailable() *PatchJourneyActiontempla
 	return &PatchJourneyActiontemplateServiceUnavailable{}
 }
 
-/*PatchJourneyActiontemplateServiceUnavailable handles this case with default header values.
+/*
+PatchJourneyActiontemplateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchJourneyActiontemplateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey actiontemplate service unavailable response has a 2xx status code
+func (o *PatchJourneyActiontemplateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey actiontemplate service unavailable response has a 3xx status code
+func (o *PatchJourneyActiontemplateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate service unavailable response has a 4xx status code
+func (o *PatchJourneyActiontemplateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch journey actiontemplate service unavailable response has a 5xx status code
+func (o *PatchJourneyActiontemplateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch journey actiontemplate service unavailable response a status code equal to that given
+func (o *PatchJourneyActiontemplateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchJourneyActiontemplateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchJourneyActiontemplateGatewayTimeout() *PatchJourneyActiontemplateGa
 	return &PatchJourneyActiontemplateGatewayTimeout{}
 }
 
-/*PatchJourneyActiontemplateGatewayTimeout handles this case with default header values.
+/*
+PatchJourneyActiontemplateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchJourneyActiontemplateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch journey actiontemplate gateway timeout response has a 2xx status code
+func (o *PatchJourneyActiontemplateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch journey actiontemplate gateway timeout response has a 3xx status code
+func (o *PatchJourneyActiontemplateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch journey actiontemplate gateway timeout response has a 4xx status code
+func (o *PatchJourneyActiontemplateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch journey actiontemplate gateway timeout response has a 5xx status code
+func (o *PatchJourneyActiontemplateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch journey actiontemplate gateway timeout response a status code equal to that given
+func (o *PatchJourneyActiontemplateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchJourneyActiontemplateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchJourneyActiontemplateGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/journey/actiontemplates/{actionTemplateId}][%d] patchJourneyActiontemplateGatewayTimeout  %+v", 504, o.Payload)
 }
 

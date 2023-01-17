@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -25,6 +26,9 @@ type ContactListDivisionView struct {
 
 	// The division to which this entity belongs.
 	Division *Division `json:"division,omitempty"`
+
+	// Indicates which columns are email addresses.
+	EmailColumns []*EmailColumn `json:"emailColumns"`
 
 	// The globally unique identifier for the object.
 	// Read Only: true
@@ -62,6 +66,10 @@ func (m *ContactListDivisionView) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateEmailColumns(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateImportStatus(formats); err != nil {
 		res = append(res, err)
 	}
@@ -90,7 +98,6 @@ func (m *ContactListDivisionView) validateColumnNames(formats strfmt.Registry) e
 }
 
 func (m *ContactListDivisionView) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -99,6 +106,8 @@ func (m *ContactListDivisionView) validateDivision(formats strfmt.Registry) erro
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -107,8 +116,33 @@ func (m *ContactListDivisionView) validateDivision(formats strfmt.Registry) erro
 	return nil
 }
 
-func (m *ContactListDivisionView) validateImportStatus(formats strfmt.Registry) error {
+func (m *ContactListDivisionView) validateEmailColumns(formats strfmt.Registry) error {
+	if swag.IsZero(m.EmailColumns) { // not required
+		return nil
+	}
 
+	for i := 0; i < len(m.EmailColumns); i++ {
+		if swag.IsZero(m.EmailColumns[i]) { // not required
+			continue
+		}
+
+		if m.EmailColumns[i] != nil {
+			if err := m.EmailColumns[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("emailColumns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("emailColumns" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ContactListDivisionView) validateImportStatus(formats strfmt.Registry) error {
 	if swag.IsZero(m.ImportStatus) { // not required
 		return nil
 	}
@@ -117,6 +151,8 @@ func (m *ContactListDivisionView) validateImportStatus(formats strfmt.Registry) 
 		if err := m.ImportStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("importStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("importStatus")
 			}
 			return err
 		}
@@ -126,7 +162,6 @@ func (m *ContactListDivisionView) validateImportStatus(formats strfmt.Registry) 
 }
 
 func (m *ContactListDivisionView) validatePhoneColumns(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PhoneColumns) { // not required
 		return nil
 	}
@@ -140,6 +175,8 @@ func (m *ContactListDivisionView) validatePhoneColumns(formats strfmt.Registry) 
 			if err := m.PhoneColumns[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("phoneColumns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phoneColumns" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -151,12 +188,148 @@ func (m *ContactListDivisionView) validatePhoneColumns(formats strfmt.Registry) 
 }
 
 func (m *ContactListDivisionView) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this contact list division view based on the context it is used
+func (m *ContactListDivisionView) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmailColumns(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateImportStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhoneColumns(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSize(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ContactListDivisionView) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ContactListDivisionView) contextValidateEmailColumns(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.EmailColumns); i++ {
+
+		if m.EmailColumns[i] != nil {
+			if err := m.EmailColumns[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("emailColumns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("emailColumns" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ContactListDivisionView) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ContactListDivisionView) contextValidateImportStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ImportStatus != nil {
+		if err := m.ImportStatus.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("importStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("importStatus")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ContactListDivisionView) contextValidatePhoneColumns(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PhoneColumns); i++ {
+
+		if m.PhoneColumns[i] != nil {
+			if err := m.PhoneColumns[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("phoneColumns" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phoneColumns" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ContactListDivisionView) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ContactListDivisionView) contextValidateSize(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "size", "body", int64(m.Size)); err != nil {
 		return err
 	}
 

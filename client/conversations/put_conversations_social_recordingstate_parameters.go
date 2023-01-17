@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutConversationsSocialRecordingstateParams creates a new PutConversationsSocialRecordingstateParams object
-// with the default values initialized.
+// NewPutConversationsSocialRecordingstateParams creates a new PutConversationsSocialRecordingstateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutConversationsSocialRecordingstateParams() *PutConversationsSocialRecordingstateParams {
-	var ()
 	return &PutConversationsSocialRecordingstateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutConversationsSocialRecordingstateParamsWithTimeout creates a new PutConversationsSocialRecordingstateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutConversationsSocialRecordingstateParamsWithTimeout(timeout time.Duration) *PutConversationsSocialRecordingstateParams {
-	var ()
 	return &PutConversationsSocialRecordingstateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutConversationsSocialRecordingstateParamsWithContext creates a new PutConversationsSocialRecordingstateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutConversationsSocialRecordingstateParamsWithContext(ctx context.Context) *PutConversationsSocialRecordingstateParams {
-	var ()
 	return &PutConversationsSocialRecordingstateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutConversationsSocialRecordingstateParamsWithHTTPClient creates a new PutConversationsSocialRecordingstateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutConversationsSocialRecordingstateParamsWithHTTPClient(client *http.Client) *PutConversationsSocialRecordingstateParams {
-	var ()
 	return &PutConversationsSocialRecordingstateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutConversationsSocialRecordingstateParams contains all the parameters to send to the API endpoint
-for the put conversations social recordingstate operation typically these are written to a http.Request
+/*
+PutConversationsSocialRecordingstateParams contains all the parameters to send to the API endpoint
+
+	for the put conversations social recordingstate operation.
+
+	Typically these are written to a http.Request.
 */
 type PutConversationsSocialRecordingstateParams struct {
 
-	/*Body
-	  SetRecordingState
+	/* Body.
 
+	   SetRecordingState
 	*/
 	Body *models.SetRecordingState
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put conversations social recordingstate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationsSocialRecordingstateParams) WithDefaults() *PutConversationsSocialRecordingstateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put conversations social recordingstate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationsSocialRecordingstateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put conversations social recordingstate params
@@ -140,7 +157,6 @@ func (o *PutConversationsSocialRecordingstateParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

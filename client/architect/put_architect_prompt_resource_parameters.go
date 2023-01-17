@@ -18,66 +18,84 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutArchitectPromptResourceParams creates a new PutArchitectPromptResourceParams object
-// with the default values initialized.
+// NewPutArchitectPromptResourceParams creates a new PutArchitectPromptResourceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutArchitectPromptResourceParams() *PutArchitectPromptResourceParams {
-	var ()
 	return &PutArchitectPromptResourceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutArchitectPromptResourceParamsWithTimeout creates a new PutArchitectPromptResourceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutArchitectPromptResourceParamsWithTimeout(timeout time.Duration) *PutArchitectPromptResourceParams {
-	var ()
 	return &PutArchitectPromptResourceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutArchitectPromptResourceParamsWithContext creates a new PutArchitectPromptResourceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutArchitectPromptResourceParamsWithContext(ctx context.Context) *PutArchitectPromptResourceParams {
-	var ()
 	return &PutArchitectPromptResourceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutArchitectPromptResourceParamsWithHTTPClient creates a new PutArchitectPromptResourceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutArchitectPromptResourceParamsWithHTTPClient(client *http.Client) *PutArchitectPromptResourceParams {
-	var ()
 	return &PutArchitectPromptResourceParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutArchitectPromptResourceParams contains all the parameters to send to the API endpoint
-for the put architect prompt resource operation typically these are written to a http.Request
+/*
+PutArchitectPromptResourceParams contains all the parameters to send to the API endpoint
+
+	for the put architect prompt resource operation.
+
+	Typically these are written to a http.Request.
 */
 type PutArchitectPromptResourceParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.PromptAsset
-	/*LanguageCode
-	  Language
 
+	/* LanguageCode.
+
+	   Language
 	*/
 	LanguageCode string
-	/*PromptID
-	  Prompt ID
 
+	/* PromptID.
+
+	   Prompt ID
 	*/
 	PromptID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put architect prompt resource params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutArchitectPromptResourceParams) WithDefaults() *PutArchitectPromptResourceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put architect prompt resource params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutArchitectPromptResourceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put architect prompt resource params
@@ -153,7 +171,6 @@ func (o *PutArchitectPromptResourceParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -17,59 +17,75 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteArchitectPromptsParams creates a new DeleteArchitectPromptsParams object
-// with the default values initialized.
+// NewDeleteArchitectPromptsParams creates a new DeleteArchitectPromptsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteArchitectPromptsParams() *DeleteArchitectPromptsParams {
-	var ()
 	return &DeleteArchitectPromptsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteArchitectPromptsParamsWithTimeout creates a new DeleteArchitectPromptsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteArchitectPromptsParamsWithTimeout(timeout time.Duration) *DeleteArchitectPromptsParams {
-	var ()
 	return &DeleteArchitectPromptsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteArchitectPromptsParamsWithContext creates a new DeleteArchitectPromptsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteArchitectPromptsParamsWithContext(ctx context.Context) *DeleteArchitectPromptsParams {
-	var ()
 	return &DeleteArchitectPromptsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteArchitectPromptsParamsWithHTTPClient creates a new DeleteArchitectPromptsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteArchitectPromptsParamsWithHTTPClient(client *http.Client) *DeleteArchitectPromptsParams {
-	var ()
 	return &DeleteArchitectPromptsParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteArchitectPromptsParams contains all the parameters to send to the API endpoint
-for the delete architect prompts operation typically these are written to a http.Request
+/*
+DeleteArchitectPromptsParams contains all the parameters to send to the API endpoint
+
+	for the delete architect prompts operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteArchitectPromptsParams struct {
 
-	/*ID
-	  List of Prompt IDs
+	/* ID.
 
+	   List of Prompt IDs
 	*/
 	ID []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete architect prompts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteArchitectPromptsParams) WithDefaults() *DeleteArchitectPromptsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete architect prompts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteArchitectPromptsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete architect prompts params
@@ -124,16 +140,36 @@ func (o *DeleteArchitectPromptsParams) WriteToRequest(r runtime.ClientRequest, r
 	}
 	var res []error
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteArchitectPrompts binds the parameter id
+func (o *DeleteArchitectPromptsParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
 }

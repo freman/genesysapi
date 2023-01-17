@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -73,6 +74,11 @@ func (m *MarkContactUncontactableActionSettings) validateMediaTypes(formats strf
 
 	}
 
+	return nil
+}
+
+// ContextValidate validates this mark contact uncontactable action settings based on context it is used
+func (m *MarkContactUncontactableActionSettings) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -20,7 +21,7 @@ import (
 type FlowAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentOwned agentRank agentScore ani assignerId authenticated conversationId conversationInitiator convertedFrom convertedTo customerParticipation deliveryStatus destinationAddress direction disconnectType divisionId dnis edgeId eligibleAgentCount endingLanguage entryReason entryType exitReason extendedDeliveryStatus externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowId flowInType flowMilestoneId flowName flowOutType flowOutcome flowOutcomeId flowOutcomeValue flowType flowVersion groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType knowledgeBaseId mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId recognitionFailureReason remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank selfServed sessionDnis sessionId startingLanguage stationId teamId transferTargetAddress transferTargetName transferType usedRouting userId waitingInteractionCount wrapUpCode]
+	// Enum: [activeSkillId addressFrom addressTo agentAssistantId agentBullseyeRing agentOwned agentRank agentScore ani assignerId authenticated conversationId conversationInitiator convertedFrom convertedTo customerParticipation deliveryStatus destinationAddress direction disconnectType divisionId dnis edgeId eligibleAgentCount endingLanguage entryReason entryType errorCode exitReason extendedDeliveryStatus externalContactId externalMediaCount externalOrganizationId externalTag firstQueue flaggedReason flowId flowInType flowMilestoneId flowName flowOutType flowOutcome flowOutcomeId flowOutcomeValue flowType flowVersion groupId interactionType journeyActionId journeyActionMapId journeyActionMapVersion journeyCustomerId journeyCustomerIdType journeyCustomerSessionId journeyCustomerSessionIdType knowledgeBaseId mediaCount mediaType messageType originatingDirection outboundCampaignId outboundContactId outboundContactListId participantName peerId proposedAgentId provider purpose queueId recognitionFailureReason remote removedSkillId reoffered requestedLanguageId requestedRouting requestedRoutingSkillId roomId routingPriority routingRing scoredAgentId selectedAgentId selectedAgentRank selfServed sessionDnis sessionId startingLanguage stationId teamId transferTargetAddress transferTargetName transferType usedRouting userId waitingInteractionCount wrapUpCode]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +69,7 @@ var flowAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","conversationInitiator","convertedFrom","convertedTo","customerParticipation","deliveryStatus","destinationAddress","direction","disconnectType","divisionId","dnis","edgeId","eligibleAgentCount","endingLanguage","entryReason","entryType","exitReason","extendedDeliveryStatus","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowId","flowInType","flowMilestoneId","flowName","flowOutType","flowOutcome","flowOutcomeId","flowOutcomeValue","flowType","flowVersion","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","knowledgeBaseId","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","recognitionFailureReason","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","selfServed","sessionDnis","sessionId","startingLanguage","stationId","teamId","transferTargetAddress","transferTargetName","transferType","usedRouting","userId","waitingInteractionCount","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","conversationInitiator","convertedFrom","convertedTo","customerParticipation","deliveryStatus","destinationAddress","direction","disconnectType","divisionId","dnis","edgeId","eligibleAgentCount","endingLanguage","entryReason","entryType","errorCode","exitReason","extendedDeliveryStatus","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowId","flowInType","flowMilestoneId","flowName","flowOutType","flowOutcome","flowOutcomeId","flowOutcomeValue","flowType","flowVersion","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","knowledgeBaseId","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","recognitionFailureReason","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","selfServed","sessionDnis","sessionId","startingLanguage","stationId","teamId","transferTargetAddress","transferTargetName","transferType","usedRouting","userId","waitingInteractionCount","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -158,6 +159,9 @@ const (
 
 	// FlowAggregateQueryPredicateDimensionEntryType captures enum value "entryType"
 	FlowAggregateQueryPredicateDimensionEntryType string = "entryType"
+
+	// FlowAggregateQueryPredicateDimensionErrorCode captures enum value "errorCode"
+	FlowAggregateQueryPredicateDimensionErrorCode string = "errorCode"
 
 	// FlowAggregateQueryPredicateDimensionExitReason captures enum value "exitReason"
 	FlowAggregateQueryPredicateDimensionExitReason string = "exitReason"
@@ -370,7 +374,6 @@ func (m *FlowAggregateQueryPredicate) validateDimensionEnum(path, location strin
 }
 
 func (m *FlowAggregateQueryPredicate) validateDimension(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Dimension) { // not required
 		return nil
 	}
@@ -416,7 +419,6 @@ func (m *FlowAggregateQueryPredicate) validateOperatorEnum(path, location string
 }
 
 func (m *FlowAggregateQueryPredicate) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -430,7 +432,6 @@ func (m *FlowAggregateQueryPredicate) validateOperator(formats strfmt.Registry) 
 }
 
 func (m *FlowAggregateQueryPredicate) validateRange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Range) { // not required
 		return nil
 	}
@@ -439,6 +440,8 @@ func (m *FlowAggregateQueryPredicate) validateRange(formats strfmt.Registry) err
 		if err := m.Range.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
 			}
 			return err
 		}
@@ -480,7 +483,6 @@ func (m *FlowAggregateQueryPredicate) validateTypeEnum(path, location string, va
 }
 
 func (m *FlowAggregateQueryPredicate) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -488,6 +490,36 @@ func (m *FlowAggregateQueryPredicate) validateType(formats strfmt.Registry) erro
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this flow aggregate query predicate based on the context it is used
+func (m *FlowAggregateQueryPredicate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FlowAggregateQueryPredicate) contextValidateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Range != nil {
+		if err := m.Range.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
+			}
+			return err
+		}
 	}
 
 	return nil

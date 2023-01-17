@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -87,7 +88,6 @@ func (m *QueryResponseMetric) validateMetricEnum(path, location string, value st
 }
 
 func (m *QueryResponseMetric) validateMetric(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metric) { // not required
 		return nil
 	}
@@ -101,7 +101,6 @@ func (m *QueryResponseMetric) validateMetric(formats strfmt.Registry) error {
 }
 
 func (m *QueryResponseMetric) validateStats(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Stats) { // not required
 		return nil
 	}
@@ -110,6 +109,38 @@ func (m *QueryResponseMetric) validateStats(formats strfmt.Registry) error {
 		if err := m.Stats.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("stats")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("stats")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this query response metric based on the context it is used
+func (m *QueryResponseMetric) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateStats(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *QueryResponseMetric) contextValidateStats(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Stats != nil {
+		if err := m.Stats.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("stats")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("stats")
 			}
 			return err
 		}

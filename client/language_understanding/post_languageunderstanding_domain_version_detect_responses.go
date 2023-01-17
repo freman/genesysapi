@@ -95,7 +95,6 @@ func (o *PostLanguageunderstandingDomainVersionDetectReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostLanguageunderstandingDomainVersionDetectOK() *PostLanguageunderstand
 	return &PostLanguageunderstandingDomainVersionDetectOK{}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectOK handles this case with default header values.
+/*
+PostLanguageunderstandingDomainVersionDetectOK describes a response with status code 200, with default header values.
 
 Requested NLU detection for the given input using the specified NLU domain version
 */
@@ -114,7 +114,36 @@ type PostLanguageunderstandingDomainVersionDetectOK struct {
 	Payload *models.NluDetectionResponse
 }
 
+// IsSuccess returns true when this post languageunderstanding domain version detect o k response has a 2xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post languageunderstanding domain version detect o k response has a 3xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain version detect o k response has a 4xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding domain version detect o k response has a 5xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain version detect o k response a status code equal to that given
+func (o *PostLanguageunderstandingDomainVersionDetectOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLanguageunderstandingDomainVersionDetectOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionDetectOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostLanguageunderstandingDomainVersionDetectBadRequest() *PostLanguageun
 	return &PostLanguageunderstandingDomainVersionDetectBadRequest{}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectBadRequest handles this case with default header values.
+/*
+PostLanguageunderstandingDomainVersionDetectBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostLanguageunderstandingDomainVersionDetectBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain version detect bad request response has a 2xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain version detect bad request response has a 3xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain version detect bad request response has a 4xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain version detect bad request response has a 5xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain version detect bad request response a status code equal to that given
+func (o *PostLanguageunderstandingDomainVersionDetectBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLanguageunderstandingDomainVersionDetectBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionDetectBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostLanguageunderstandingDomainVersionDetectUnauthorized() *PostLanguage
 	return &PostLanguageunderstandingDomainVersionDetectUnauthorized{}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectUnauthorized handles this case with default header values.
+/*
+PostLanguageunderstandingDomainVersionDetectUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostLanguageunderstandingDomainVersionDetectUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain version detect unauthorized response has a 2xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain version detect unauthorized response has a 3xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain version detect unauthorized response has a 4xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain version detect unauthorized response has a 5xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain version detect unauthorized response a status code equal to that given
+func (o *PostLanguageunderstandingDomainVersionDetectUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLanguageunderstandingDomainVersionDetectUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionDetectUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostLanguageunderstandingDomainVersionDetectForbidden() *PostLanguageund
 	return &PostLanguageunderstandingDomainVersionDetectForbidden{}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectForbidden handles this case with default header values.
+/*
+PostLanguageunderstandingDomainVersionDetectForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostLanguageunderstandingDomainVersionDetectForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain version detect forbidden response has a 2xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain version detect forbidden response has a 3xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain version detect forbidden response has a 4xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain version detect forbidden response has a 5xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain version detect forbidden response a status code equal to that given
+func (o *PostLanguageunderstandingDomainVersionDetectForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLanguageunderstandingDomainVersionDetectForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionDetectForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostLanguageunderstandingDomainVersionDetectNotFound() *PostLanguageunde
 	return &PostLanguageunderstandingDomainVersionDetectNotFound{}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectNotFound handles this case with default header values.
+/*
+PostLanguageunderstandingDomainVersionDetectNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostLanguageunderstandingDomainVersionDetectNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain version detect not found response has a 2xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain version detect not found response has a 3xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain version detect not found response has a 4xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain version detect not found response has a 5xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain version detect not found response a status code equal to that given
+func (o *PostLanguageunderstandingDomainVersionDetectNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLanguageunderstandingDomainVersionDetectNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionDetectNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostLanguageunderstandingDomainVersionDetectRequestTimeout() *PostLangua
 	return &PostLanguageunderstandingDomainVersionDetectRequestTimeout{}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectRequestTimeout handles this case with default header values.
+/*
+PostLanguageunderstandingDomainVersionDetectRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostLanguageunderstandingDomainVersionDetectRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain version detect request timeout response has a 2xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain version detect request timeout response has a 3xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain version detect request timeout response has a 4xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain version detect request timeout response has a 5xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain version detect request timeout response a status code equal to that given
+func (o *PostLanguageunderstandingDomainVersionDetectRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLanguageunderstandingDomainVersionDetectRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionDetectRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostLanguageunderstandingDomainVersionDetectRequestEntityTooLarge() *Pos
 	return &PostLanguageunderstandingDomainVersionDetectRequestEntityTooLarge{}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectRequestEntityTooLarge handles this case with default header values.
+/*
+PostLanguageunderstandingDomainVersionDetectRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostLanguageunderstandingDomainVersionDetectRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain version detect request entity too large response has a 2xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain version detect request entity too large response has a 3xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain version detect request entity too large response has a 4xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain version detect request entity too large response has a 5xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain version detect request entity too large response a status code equal to that given
+func (o *PostLanguageunderstandingDomainVersionDetectRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLanguageunderstandingDomainVersionDetectRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionDetectRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostLanguageunderstandingDomainVersionDetectUnsupportedMediaType() *Post
 	return &PostLanguageunderstandingDomainVersionDetectUnsupportedMediaType{}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectUnsupportedMediaType handles this case with default header values.
+/*
+PostLanguageunderstandingDomainVersionDetectUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostLanguageunderstandingDomainVersionDetectUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain version detect unsupported media type response has a 2xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain version detect unsupported media type response has a 3xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain version detect unsupported media type response has a 4xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain version detect unsupported media type response has a 5xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain version detect unsupported media type response a status code equal to that given
+func (o *PostLanguageunderstandingDomainVersionDetectUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLanguageunderstandingDomainVersionDetectUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionDetectUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostLanguageunderstandingDomainVersionDetectTooManyRequests() *PostLangu
 	return &PostLanguageunderstandingDomainVersionDetectTooManyRequests{}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectTooManyRequests handles this case with default header values.
+/*
+PostLanguageunderstandingDomainVersionDetectTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostLanguageunderstandingDomainVersionDetectTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain version detect too many requests response has a 2xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain version detect too many requests response has a 3xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain version detect too many requests response has a 4xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain version detect too many requests response has a 5xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain version detect too many requests response a status code equal to that given
+func (o *PostLanguageunderstandingDomainVersionDetectTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLanguageunderstandingDomainVersionDetectTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionDetectTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostLanguageunderstandingDomainVersionDetectInternalServerError() *PostL
 	return &PostLanguageunderstandingDomainVersionDetectInternalServerError{}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectInternalServerError handles this case with default header values.
+/*
+PostLanguageunderstandingDomainVersionDetectInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostLanguageunderstandingDomainVersionDetectInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain version detect internal server error response has a 2xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain version detect internal server error response has a 3xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain version detect internal server error response has a 4xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding domain version detect internal server error response has a 5xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post languageunderstanding domain version detect internal server error response a status code equal to that given
+func (o *PostLanguageunderstandingDomainVersionDetectInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLanguageunderstandingDomainVersionDetectInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionDetectInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostLanguageunderstandingDomainVersionDetectServiceUnavailable() *PostLa
 	return &PostLanguageunderstandingDomainVersionDetectServiceUnavailable{}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectServiceUnavailable handles this case with default header values.
+/*
+PostLanguageunderstandingDomainVersionDetectServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostLanguageunderstandingDomainVersionDetectServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain version detect service unavailable response has a 2xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain version detect service unavailable response has a 3xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain version detect service unavailable response has a 4xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding domain version detect service unavailable response has a 5xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post languageunderstanding domain version detect service unavailable response a status code equal to that given
+func (o *PostLanguageunderstandingDomainVersionDetectServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLanguageunderstandingDomainVersionDetectServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionDetectServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostLanguageunderstandingDomainVersionDetectGatewayTimeout() *PostLangua
 	return &PostLanguageunderstandingDomainVersionDetectGatewayTimeout{}
 }
 
-/*PostLanguageunderstandingDomainVersionDetectGatewayTimeout handles this case with default header values.
+/*
+PostLanguageunderstandingDomainVersionDetectGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostLanguageunderstandingDomainVersionDetectGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain version detect gateway timeout response has a 2xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain version detect gateway timeout response has a 3xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain version detect gateway timeout response has a 4xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding domain version detect gateway timeout response has a 5xx status code
+func (o *PostLanguageunderstandingDomainVersionDetectGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post languageunderstanding domain version detect gateway timeout response a status code equal to that given
+func (o *PostLanguageunderstandingDomainVersionDetectGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLanguageunderstandingDomainVersionDetectGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainVersionDetectGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}/detect][%d] postLanguageunderstandingDomainVersionDetectGatewayTimeout  %+v", 504, o.Payload)
 }
 

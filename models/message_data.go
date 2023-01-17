@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -139,7 +140,6 @@ func (m *MessageData) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MessageData) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -148,6 +148,8 @@ func (m *MessageData) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -186,7 +188,6 @@ func (m *MessageData) validateDirectionEnum(path, location string, value string)
 }
 
 func (m *MessageData) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -200,7 +201,6 @@ func (m *MessageData) validateDirection(formats strfmt.Registry) error {
 }
 
 func (m *MessageData) validateMedia(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Media) { // not required
 		return nil
 	}
@@ -214,6 +214,8 @@ func (m *MessageData) validateMedia(formats strfmt.Registry) error {
 			if err := m.Media[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("media" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("media" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -272,7 +274,6 @@ func (m *MessageData) validateMessengerTypeEnum(path, location string, value str
 }
 
 func (m *MessageData) validateMessengerType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessengerType) { // not required
 		return nil
 	}
@@ -286,7 +287,6 @@ func (m *MessageData) validateMessengerType(formats strfmt.Registry) error {
 }
 
 func (m *MessageData) validateNormalizedMessage(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NormalizedMessage) { // not required
 		return nil
 	}
@@ -295,6 +295,8 @@ func (m *MessageData) validateNormalizedMessage(formats strfmt.Registry) error {
 		if err := m.NormalizedMessage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("normalizedMessage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("normalizedMessage")
 			}
 			return err
 		}
@@ -304,7 +306,6 @@ func (m *MessageData) validateNormalizedMessage(formats strfmt.Registry) error {
 }
 
 func (m *MessageData) validateNormalizedReceipts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NormalizedReceipts) { // not required
 		return nil
 	}
@@ -318,6 +319,8 @@ func (m *MessageData) validateNormalizedReceipts(formats strfmt.Registry) error 
 			if err := m.NormalizedReceipts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("normalizedReceipts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("normalizedReceipts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -329,7 +332,6 @@ func (m *MessageData) validateNormalizedReceipts(formats strfmt.Registry) error 
 }
 
 func (m *MessageData) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -367,11 +369,11 @@ const (
 	// MessageDataStatusReceived captures enum value "received"
 	MessageDataStatusReceived string = "received"
 
-	// MessageDataStatusDeliverySuccess captures enum value "delivery-success"
-	MessageDataStatusDeliverySuccess string = "delivery-success"
+	// MessageDataStatusDeliveryDashSuccess captures enum value "delivery-success"
+	MessageDataStatusDeliveryDashSuccess string = "delivery-success"
 
-	// MessageDataStatusDeliveryFailed captures enum value "delivery-failed"
-	MessageDataStatusDeliveryFailed string = "delivery-failed"
+	// MessageDataStatusDeliveryDashFailed captures enum value "delivery-failed"
+	MessageDataStatusDeliveryDashFailed string = "delivery-failed"
 
 	// MessageDataStatusRead captures enum value "read"
 	MessageDataStatusRead string = "read"
@@ -403,7 +405,6 @@ func (m *MessageData) validateStatus(formats strfmt.Registry) error {
 }
 
 func (m *MessageData) validateStickers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Stickers) { // not required
 		return nil
 	}
@@ -417,6 +418,8 @@ func (m *MessageData) validateStickers(formats strfmt.Registry) error {
 			if err := m.Stickers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("stickers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("stickers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -444,6 +447,158 @@ func (m *MessageData) validateTimestamp(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("timestamp", "body", "date-time", m.Timestamp.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this message data based on the context it is used
+func (m *MessageData) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMedia(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNormalizedMessage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNormalizedReceipts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStickers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MessageData) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessageData) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessageData) contextValidateMedia(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Media); i++ {
+
+		if m.Media[i] != nil {
+			if err := m.Media[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("media" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("media" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessageData) contextValidateNormalizedMessage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.NormalizedMessage != nil {
+		if err := m.NormalizedMessage.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("normalizedMessage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("normalizedMessage")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessageData) contextValidateNormalizedReceipts(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "normalizedReceipts", "body", []*ConversationNormalizedMessage(m.NormalizedReceipts)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.NormalizedReceipts); i++ {
+
+		if m.NormalizedReceipts[i] != nil {
+			if err := m.NormalizedReceipts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("normalizedReceipts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("normalizedReceipts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *MessageData) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessageData) contextValidateStickers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Stickers); i++ {
+
+		if m.Stickers[i] != nil {
+			if err := m.Stickers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("stickers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("stickers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIdentityprovidersSalesforceParams creates a new GetIdentityprovidersSalesforceParams object
-// with the default values initialized.
+// NewGetIdentityprovidersSalesforceParams creates a new GetIdentityprovidersSalesforceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIdentityprovidersSalesforceParams() *GetIdentityprovidersSalesforceParams {
-
 	return &GetIdentityprovidersSalesforceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIdentityprovidersSalesforceParamsWithTimeout creates a new GetIdentityprovidersSalesforceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIdentityprovidersSalesforceParamsWithTimeout(timeout time.Duration) *GetIdentityprovidersSalesforceParams {
-
 	return &GetIdentityprovidersSalesforceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIdentityprovidersSalesforceParamsWithContext creates a new GetIdentityprovidersSalesforceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIdentityprovidersSalesforceParamsWithContext(ctx context.Context) *GetIdentityprovidersSalesforceParams {
-
 	return &GetIdentityprovidersSalesforceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIdentityprovidersSalesforceParamsWithHTTPClient creates a new GetIdentityprovidersSalesforceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIdentityprovidersSalesforceParamsWithHTTPClient(client *http.Client) *GetIdentityprovidersSalesforceParams {
-
 	return &GetIdentityprovidersSalesforceParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIdentityprovidersSalesforceParams contains all the parameters to send to the API endpoint
-for the get identityproviders salesforce operation typically these are written to a http.Request
+/*
+GetIdentityprovidersSalesforceParams contains all the parameters to send to the API endpoint
+
+	for the get identityproviders salesforce operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIdentityprovidersSalesforceParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get identityproviders salesforce params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIdentityprovidersSalesforceParams) WithDefaults() *GetIdentityprovidersSalesforceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get identityproviders salesforce params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIdentityprovidersSalesforceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get identityproviders salesforce params

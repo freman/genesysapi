@@ -101,7 +101,6 @@ func (o *PostVoicemailMessagesReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostVoicemailMessagesOK() *PostVoicemailMessagesOK {
 	return &PostVoicemailMessagesOK{}
 }
 
-/*PostVoicemailMessagesOK handles this case with default header values.
+/*
+PostVoicemailMessagesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostVoicemailMessagesOK struct {
 	Payload *models.VoicemailMessage
 }
 
+// IsSuccess returns true when this post voicemail messages o k response has a 2xx status code
+func (o *PostVoicemailMessagesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post voicemail messages o k response has a 3xx status code
+func (o *PostVoicemailMessagesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages o k response has a 4xx status code
+func (o *PostVoicemailMessagesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post voicemail messages o k response has a 5xx status code
+func (o *PostVoicemailMessagesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post voicemail messages o k response a status code equal to that given
+func (o *PostVoicemailMessagesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostVoicemailMessagesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostVoicemailMessagesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostVoicemailMessagesBadRequest() *PostVoicemailMessagesBadRequest {
 	return &PostVoicemailMessagesBadRequest{}
 }
 
-/*PostVoicemailMessagesBadRequest handles this case with default header values.
+/*
+PostVoicemailMessagesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostVoicemailMessagesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post voicemail messages bad request response has a 2xx status code
+func (o *PostVoicemailMessagesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post voicemail messages bad request response has a 3xx status code
+func (o *PostVoicemailMessagesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages bad request response has a 4xx status code
+func (o *PostVoicemailMessagesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post voicemail messages bad request response has a 5xx status code
+func (o *PostVoicemailMessagesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post voicemail messages bad request response a status code equal to that given
+func (o *PostVoicemailMessagesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostVoicemailMessagesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostVoicemailMessagesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostVoicemailMessagesUnauthorized() *PostVoicemailMessagesUnauthorized {
 	return &PostVoicemailMessagesUnauthorized{}
 }
 
-/*PostVoicemailMessagesUnauthorized handles this case with default header values.
+/*
+PostVoicemailMessagesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostVoicemailMessagesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post voicemail messages unauthorized response has a 2xx status code
+func (o *PostVoicemailMessagesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post voicemail messages unauthorized response has a 3xx status code
+func (o *PostVoicemailMessagesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages unauthorized response has a 4xx status code
+func (o *PostVoicemailMessagesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post voicemail messages unauthorized response has a 5xx status code
+func (o *PostVoicemailMessagesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post voicemail messages unauthorized response a status code equal to that given
+func (o *PostVoicemailMessagesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostVoicemailMessagesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostVoicemailMessagesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostVoicemailMessagesForbidden() *PostVoicemailMessagesForbidden {
 	return &PostVoicemailMessagesForbidden{}
 }
 
-/*PostVoicemailMessagesForbidden handles this case with default header values.
+/*
+PostVoicemailMessagesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostVoicemailMessagesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post voicemail messages forbidden response has a 2xx status code
+func (o *PostVoicemailMessagesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post voicemail messages forbidden response has a 3xx status code
+func (o *PostVoicemailMessagesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages forbidden response has a 4xx status code
+func (o *PostVoicemailMessagesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post voicemail messages forbidden response has a 5xx status code
+func (o *PostVoicemailMessagesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post voicemail messages forbidden response a status code equal to that given
+func (o *PostVoicemailMessagesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostVoicemailMessagesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostVoicemailMessagesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostVoicemailMessagesNotFound() *PostVoicemailMessagesNotFound {
 	return &PostVoicemailMessagesNotFound{}
 }
 
-/*PostVoicemailMessagesNotFound handles this case with default header values.
+/*
+PostVoicemailMessagesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostVoicemailMessagesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post voicemail messages not found response has a 2xx status code
+func (o *PostVoicemailMessagesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post voicemail messages not found response has a 3xx status code
+func (o *PostVoicemailMessagesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages not found response has a 4xx status code
+func (o *PostVoicemailMessagesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post voicemail messages not found response has a 5xx status code
+func (o *PostVoicemailMessagesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post voicemail messages not found response a status code equal to that given
+func (o *PostVoicemailMessagesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostVoicemailMessagesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostVoicemailMessagesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostVoicemailMessagesRequestTimeout() *PostVoicemailMessagesRequestTimeo
 	return &PostVoicemailMessagesRequestTimeout{}
 }
 
-/*PostVoicemailMessagesRequestTimeout handles this case with default header values.
+/*
+PostVoicemailMessagesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostVoicemailMessagesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post voicemail messages request timeout response has a 2xx status code
+func (o *PostVoicemailMessagesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post voicemail messages request timeout response has a 3xx status code
+func (o *PostVoicemailMessagesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages request timeout response has a 4xx status code
+func (o *PostVoicemailMessagesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post voicemail messages request timeout response has a 5xx status code
+func (o *PostVoicemailMessagesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post voicemail messages request timeout response a status code equal to that given
+func (o *PostVoicemailMessagesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostVoicemailMessagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostVoicemailMessagesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostVoicemailMessagesConflict() *PostVoicemailMessagesConflict {
 	return &PostVoicemailMessagesConflict{}
 }
 
-/*PostVoicemailMessagesConflict handles this case with default header values.
+/*
+PostVoicemailMessagesConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PostVoicemailMessagesConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post voicemail messages conflict response has a 2xx status code
+func (o *PostVoicemailMessagesConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post voicemail messages conflict response has a 3xx status code
+func (o *PostVoicemailMessagesConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages conflict response has a 4xx status code
+func (o *PostVoicemailMessagesConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post voicemail messages conflict response has a 5xx status code
+func (o *PostVoicemailMessagesConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post voicemail messages conflict response a status code equal to that given
+func (o *PostVoicemailMessagesConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostVoicemailMessagesConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostVoicemailMessagesConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostVoicemailMessagesRequestEntityTooLarge() *PostVoicemailMessagesReque
 	return &PostVoicemailMessagesRequestEntityTooLarge{}
 }
 
-/*PostVoicemailMessagesRequestEntityTooLarge handles this case with default header values.
+/*
+PostVoicemailMessagesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostVoicemailMessagesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post voicemail messages request entity too large response has a 2xx status code
+func (o *PostVoicemailMessagesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post voicemail messages request entity too large response has a 3xx status code
+func (o *PostVoicemailMessagesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages request entity too large response has a 4xx status code
+func (o *PostVoicemailMessagesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post voicemail messages request entity too large response has a 5xx status code
+func (o *PostVoicemailMessagesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post voicemail messages request entity too large response a status code equal to that given
+func (o *PostVoicemailMessagesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostVoicemailMessagesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostVoicemailMessagesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostVoicemailMessagesUnsupportedMediaType() *PostVoicemailMessagesUnsupp
 	return &PostVoicemailMessagesUnsupportedMediaType{}
 }
 
-/*PostVoicemailMessagesUnsupportedMediaType handles this case with default header values.
+/*
+PostVoicemailMessagesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostVoicemailMessagesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post voicemail messages unsupported media type response has a 2xx status code
+func (o *PostVoicemailMessagesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post voicemail messages unsupported media type response has a 3xx status code
+func (o *PostVoicemailMessagesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages unsupported media type response has a 4xx status code
+func (o *PostVoicemailMessagesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post voicemail messages unsupported media type response has a 5xx status code
+func (o *PostVoicemailMessagesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post voicemail messages unsupported media type response a status code equal to that given
+func (o *PostVoicemailMessagesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostVoicemailMessagesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostVoicemailMessagesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostVoicemailMessagesTooManyRequests() *PostVoicemailMessagesTooManyRequ
 	return &PostVoicemailMessagesTooManyRequests{}
 }
 
-/*PostVoicemailMessagesTooManyRequests handles this case with default header values.
+/*
+PostVoicemailMessagesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostVoicemailMessagesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post voicemail messages too many requests response has a 2xx status code
+func (o *PostVoicemailMessagesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post voicemail messages too many requests response has a 3xx status code
+func (o *PostVoicemailMessagesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages too many requests response has a 4xx status code
+func (o *PostVoicemailMessagesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post voicemail messages too many requests response has a 5xx status code
+func (o *PostVoicemailMessagesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post voicemail messages too many requests response a status code equal to that given
+func (o *PostVoicemailMessagesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostVoicemailMessagesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostVoicemailMessagesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostVoicemailMessagesInternalServerError() *PostVoicemailMessagesInterna
 	return &PostVoicemailMessagesInternalServerError{}
 }
 
-/*PostVoicemailMessagesInternalServerError handles this case with default header values.
+/*
+PostVoicemailMessagesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostVoicemailMessagesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post voicemail messages internal server error response has a 2xx status code
+func (o *PostVoicemailMessagesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post voicemail messages internal server error response has a 3xx status code
+func (o *PostVoicemailMessagesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages internal server error response has a 4xx status code
+func (o *PostVoicemailMessagesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post voicemail messages internal server error response has a 5xx status code
+func (o *PostVoicemailMessagesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post voicemail messages internal server error response a status code equal to that given
+func (o *PostVoicemailMessagesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostVoicemailMessagesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostVoicemailMessagesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostVoicemailMessagesServiceUnavailable() *PostVoicemailMessagesServiceU
 	return &PostVoicemailMessagesServiceUnavailable{}
 }
 
-/*PostVoicemailMessagesServiceUnavailable handles this case with default header values.
+/*
+PostVoicemailMessagesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostVoicemailMessagesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post voicemail messages service unavailable response has a 2xx status code
+func (o *PostVoicemailMessagesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post voicemail messages service unavailable response has a 3xx status code
+func (o *PostVoicemailMessagesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages service unavailable response has a 4xx status code
+func (o *PostVoicemailMessagesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post voicemail messages service unavailable response has a 5xx status code
+func (o *PostVoicemailMessagesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post voicemail messages service unavailable response a status code equal to that given
+func (o *PostVoicemailMessagesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostVoicemailMessagesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostVoicemailMessagesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostVoicemailMessagesGatewayTimeout() *PostVoicemailMessagesGatewayTimeo
 	return &PostVoicemailMessagesGatewayTimeout{}
 }
 
-/*PostVoicemailMessagesGatewayTimeout handles this case with default header values.
+/*
+PostVoicemailMessagesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostVoicemailMessagesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post voicemail messages gateway timeout response has a 2xx status code
+func (o *PostVoicemailMessagesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post voicemail messages gateway timeout response has a 3xx status code
+func (o *PostVoicemailMessagesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post voicemail messages gateway timeout response has a 4xx status code
+func (o *PostVoicemailMessagesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post voicemail messages gateway timeout response has a 5xx status code
+func (o *PostVoicemailMessagesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post voicemail messages gateway timeout response a status code equal to that given
+func (o *PostVoicemailMessagesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostVoicemailMessagesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostVoicemailMessagesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/voicemail/messages][%d] postVoicemailMessagesGatewayTimeout  %+v", 504, o.Payload)
 }
 

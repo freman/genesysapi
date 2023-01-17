@@ -95,7 +95,6 @@ func (o *GetLanguageunderstandingDomainVersionReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetLanguageunderstandingDomainVersionOK() *GetLanguageunderstandingDomai
 	return &GetLanguageunderstandingDomainVersionOK{}
 }
 
-/*GetLanguageunderstandingDomainVersionOK handles this case with default header values.
+/*
+GetLanguageunderstandingDomainVersionOK describes a response with status code 200, with default header values.
 
 Retrieved the specified NLU Domain Version
 */
@@ -114,7 +114,36 @@ type GetLanguageunderstandingDomainVersionOK struct {
 	Payload *models.NluDomainVersion
 }
 
+// IsSuccess returns true when this get languageunderstanding domain version o k response has a 2xx status code
+func (o *GetLanguageunderstandingDomainVersionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get languageunderstanding domain version o k response has a 3xx status code
+func (o *GetLanguageunderstandingDomainVersionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding domain version o k response has a 4xx status code
+func (o *GetLanguageunderstandingDomainVersionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languageunderstanding domain version o k response has a 5xx status code
+func (o *GetLanguageunderstandingDomainVersionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding domain version o k response a status code equal to that given
+func (o *GetLanguageunderstandingDomainVersionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLanguageunderstandingDomainVersionOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionOK  %+v", 200, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetLanguageunderstandingDomainVersionBadRequest() *GetLanguageunderstand
 	return &GetLanguageunderstandingDomainVersionBadRequest{}
 }
 
-/*GetLanguageunderstandingDomainVersionBadRequest handles this case with default header values.
+/*
+GetLanguageunderstandingDomainVersionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetLanguageunderstandingDomainVersionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding domain version bad request response has a 2xx status code
+func (o *GetLanguageunderstandingDomainVersionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding domain version bad request response has a 3xx status code
+func (o *GetLanguageunderstandingDomainVersionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding domain version bad request response has a 4xx status code
+func (o *GetLanguageunderstandingDomainVersionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding domain version bad request response has a 5xx status code
+func (o *GetLanguageunderstandingDomainVersionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding domain version bad request response a status code equal to that given
+func (o *GetLanguageunderstandingDomainVersionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLanguageunderstandingDomainVersionBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetLanguageunderstandingDomainVersionUnauthorized() *GetLanguageundersta
 	return &GetLanguageunderstandingDomainVersionUnauthorized{}
 }
 
-/*GetLanguageunderstandingDomainVersionUnauthorized handles this case with default header values.
+/*
+GetLanguageunderstandingDomainVersionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetLanguageunderstandingDomainVersionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding domain version unauthorized response has a 2xx status code
+func (o *GetLanguageunderstandingDomainVersionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding domain version unauthorized response has a 3xx status code
+func (o *GetLanguageunderstandingDomainVersionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding domain version unauthorized response has a 4xx status code
+func (o *GetLanguageunderstandingDomainVersionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding domain version unauthorized response has a 5xx status code
+func (o *GetLanguageunderstandingDomainVersionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding domain version unauthorized response a status code equal to that given
+func (o *GetLanguageunderstandingDomainVersionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetLanguageunderstandingDomainVersionUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetLanguageunderstandingDomainVersionForbidden() *GetLanguageunderstandi
 	return &GetLanguageunderstandingDomainVersionForbidden{}
 }
 
-/*GetLanguageunderstandingDomainVersionForbidden handles this case with default header values.
+/*
+GetLanguageunderstandingDomainVersionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetLanguageunderstandingDomainVersionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding domain version forbidden response has a 2xx status code
+func (o *GetLanguageunderstandingDomainVersionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding domain version forbidden response has a 3xx status code
+func (o *GetLanguageunderstandingDomainVersionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding domain version forbidden response has a 4xx status code
+func (o *GetLanguageunderstandingDomainVersionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding domain version forbidden response has a 5xx status code
+func (o *GetLanguageunderstandingDomainVersionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding domain version forbidden response a status code equal to that given
+func (o *GetLanguageunderstandingDomainVersionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLanguageunderstandingDomainVersionForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetLanguageunderstandingDomainVersionNotFound() *GetLanguageunderstandin
 	return &GetLanguageunderstandingDomainVersionNotFound{}
 }
 
-/*GetLanguageunderstandingDomainVersionNotFound handles this case with default header values.
+/*
+GetLanguageunderstandingDomainVersionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetLanguageunderstandingDomainVersionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding domain version not found response has a 2xx status code
+func (o *GetLanguageunderstandingDomainVersionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding domain version not found response has a 3xx status code
+func (o *GetLanguageunderstandingDomainVersionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding domain version not found response has a 4xx status code
+func (o *GetLanguageunderstandingDomainVersionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding domain version not found response has a 5xx status code
+func (o *GetLanguageunderstandingDomainVersionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding domain version not found response a status code equal to that given
+func (o *GetLanguageunderstandingDomainVersionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLanguageunderstandingDomainVersionNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetLanguageunderstandingDomainVersionRequestTimeout() *GetLanguageunders
 	return &GetLanguageunderstandingDomainVersionRequestTimeout{}
 }
 
-/*GetLanguageunderstandingDomainVersionRequestTimeout handles this case with default header values.
+/*
+GetLanguageunderstandingDomainVersionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetLanguageunderstandingDomainVersionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding domain version request timeout response has a 2xx status code
+func (o *GetLanguageunderstandingDomainVersionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding domain version request timeout response has a 3xx status code
+func (o *GetLanguageunderstandingDomainVersionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding domain version request timeout response has a 4xx status code
+func (o *GetLanguageunderstandingDomainVersionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding domain version request timeout response has a 5xx status code
+func (o *GetLanguageunderstandingDomainVersionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding domain version request timeout response a status code equal to that given
+func (o *GetLanguageunderstandingDomainVersionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetLanguageunderstandingDomainVersionRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetLanguageunderstandingDomainVersionRequestEntityTooLarge() *GetLanguag
 	return &GetLanguageunderstandingDomainVersionRequestEntityTooLarge{}
 }
 
-/*GetLanguageunderstandingDomainVersionRequestEntityTooLarge handles this case with default header values.
+/*
+GetLanguageunderstandingDomainVersionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetLanguageunderstandingDomainVersionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding domain version request entity too large response has a 2xx status code
+func (o *GetLanguageunderstandingDomainVersionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding domain version request entity too large response has a 3xx status code
+func (o *GetLanguageunderstandingDomainVersionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding domain version request entity too large response has a 4xx status code
+func (o *GetLanguageunderstandingDomainVersionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding domain version request entity too large response has a 5xx status code
+func (o *GetLanguageunderstandingDomainVersionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding domain version request entity too large response a status code equal to that given
+func (o *GetLanguageunderstandingDomainVersionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetLanguageunderstandingDomainVersionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetLanguageunderstandingDomainVersionUnsupportedMediaType() *GetLanguage
 	return &GetLanguageunderstandingDomainVersionUnsupportedMediaType{}
 }
 
-/*GetLanguageunderstandingDomainVersionUnsupportedMediaType handles this case with default header values.
+/*
+GetLanguageunderstandingDomainVersionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetLanguageunderstandingDomainVersionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding domain version unsupported media type response has a 2xx status code
+func (o *GetLanguageunderstandingDomainVersionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding domain version unsupported media type response has a 3xx status code
+func (o *GetLanguageunderstandingDomainVersionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding domain version unsupported media type response has a 4xx status code
+func (o *GetLanguageunderstandingDomainVersionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding domain version unsupported media type response has a 5xx status code
+func (o *GetLanguageunderstandingDomainVersionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding domain version unsupported media type response a status code equal to that given
+func (o *GetLanguageunderstandingDomainVersionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetLanguageunderstandingDomainVersionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetLanguageunderstandingDomainVersionTooManyRequests() *GetLanguageunder
 	return &GetLanguageunderstandingDomainVersionTooManyRequests{}
 }
 
-/*GetLanguageunderstandingDomainVersionTooManyRequests handles this case with default header values.
+/*
+GetLanguageunderstandingDomainVersionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetLanguageunderstandingDomainVersionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding domain version too many requests response has a 2xx status code
+func (o *GetLanguageunderstandingDomainVersionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding domain version too many requests response has a 3xx status code
+func (o *GetLanguageunderstandingDomainVersionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding domain version too many requests response has a 4xx status code
+func (o *GetLanguageunderstandingDomainVersionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languageunderstanding domain version too many requests response has a 5xx status code
+func (o *GetLanguageunderstandingDomainVersionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languageunderstanding domain version too many requests response a status code equal to that given
+func (o *GetLanguageunderstandingDomainVersionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLanguageunderstandingDomainVersionTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetLanguageunderstandingDomainVersionInternalServerError() *GetLanguageu
 	return &GetLanguageunderstandingDomainVersionInternalServerError{}
 }
 
-/*GetLanguageunderstandingDomainVersionInternalServerError handles this case with default header values.
+/*
+GetLanguageunderstandingDomainVersionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetLanguageunderstandingDomainVersionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding domain version internal server error response has a 2xx status code
+func (o *GetLanguageunderstandingDomainVersionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding domain version internal server error response has a 3xx status code
+func (o *GetLanguageunderstandingDomainVersionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding domain version internal server error response has a 4xx status code
+func (o *GetLanguageunderstandingDomainVersionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languageunderstanding domain version internal server error response has a 5xx status code
+func (o *GetLanguageunderstandingDomainVersionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get languageunderstanding domain version internal server error response a status code equal to that given
+func (o *GetLanguageunderstandingDomainVersionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLanguageunderstandingDomainVersionInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetLanguageunderstandingDomainVersionServiceUnavailable() *GetLanguageun
 	return &GetLanguageunderstandingDomainVersionServiceUnavailable{}
 }
 
-/*GetLanguageunderstandingDomainVersionServiceUnavailable handles this case with default header values.
+/*
+GetLanguageunderstandingDomainVersionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetLanguageunderstandingDomainVersionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding domain version service unavailable response has a 2xx status code
+func (o *GetLanguageunderstandingDomainVersionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding domain version service unavailable response has a 3xx status code
+func (o *GetLanguageunderstandingDomainVersionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding domain version service unavailable response has a 4xx status code
+func (o *GetLanguageunderstandingDomainVersionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languageunderstanding domain version service unavailable response has a 5xx status code
+func (o *GetLanguageunderstandingDomainVersionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get languageunderstanding domain version service unavailable response a status code equal to that given
+func (o *GetLanguageunderstandingDomainVersionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetLanguageunderstandingDomainVersionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetLanguageunderstandingDomainVersionGatewayTimeout() *GetLanguageunders
 	return &GetLanguageunderstandingDomainVersionGatewayTimeout{}
 }
 
-/*GetLanguageunderstandingDomainVersionGatewayTimeout handles this case with default header values.
+/*
+GetLanguageunderstandingDomainVersionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetLanguageunderstandingDomainVersionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languageunderstanding domain version gateway timeout response has a 2xx status code
+func (o *GetLanguageunderstandingDomainVersionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languageunderstanding domain version gateway timeout response has a 3xx status code
+func (o *GetLanguageunderstandingDomainVersionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languageunderstanding domain version gateway timeout response has a 4xx status code
+func (o *GetLanguageunderstandingDomainVersionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languageunderstanding domain version gateway timeout response has a 5xx status code
+func (o *GetLanguageunderstandingDomainVersionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get languageunderstanding domain version gateway timeout response a status code equal to that given
+func (o *GetLanguageunderstandingDomainVersionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetLanguageunderstandingDomainVersionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetLanguageunderstandingDomainVersionGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/languageunderstanding/domains/{domainId}/versions/{domainVersionId}][%d] getLanguageunderstandingDomainVersionGatewayTimeout  %+v", 504, o.Payload)
 }
 

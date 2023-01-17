@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementCalendarDataIcsParams creates a new GetWorkforcemanagementCalendarDataIcsParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementCalendarDataIcsParams creates a new GetWorkforcemanagementCalendarDataIcsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementCalendarDataIcsParams() *GetWorkforcemanagementCalendarDataIcsParams {
-	var ()
 	return &GetWorkforcemanagementCalendarDataIcsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementCalendarDataIcsParamsWithTimeout creates a new GetWorkforcemanagementCalendarDataIcsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementCalendarDataIcsParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementCalendarDataIcsParams {
-	var ()
 	return &GetWorkforcemanagementCalendarDataIcsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementCalendarDataIcsParamsWithContext creates a new GetWorkforcemanagementCalendarDataIcsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementCalendarDataIcsParamsWithContext(ctx context.Context) *GetWorkforcemanagementCalendarDataIcsParams {
-	var ()
 	return &GetWorkforcemanagementCalendarDataIcsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementCalendarDataIcsParamsWithHTTPClient creates a new GetWorkforcemanagementCalendarDataIcsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementCalendarDataIcsParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementCalendarDataIcsParams {
-	var ()
 	return &GetWorkforcemanagementCalendarDataIcsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementCalendarDataIcsParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement calendar data ics operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementCalendarDataIcsParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement calendar data ics operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementCalendarDataIcsParams struct {
 
-	/*CalendarID
-	  The id of the ics-formatted calendar
+	/* CalendarID.
 
+	   The id of the ics-formatted calendar
 	*/
 	CalendarID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement calendar data ics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementCalendarDataIcsParams) WithDefaults() *GetWorkforcemanagementCalendarDataIcsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement calendar data ics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementCalendarDataIcsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement calendar data ics params
@@ -127,6 +143,7 @@ func (o *GetWorkforcemanagementCalendarDataIcsParams) WriteToRequest(r runtime.C
 	qrCalendarID := o.CalendarID
 	qCalendarID := qrCalendarID
 	if qCalendarID != "" {
+
 		if err := r.SetQueryParam("calendarId", qCalendarID); err != nil {
 			return err
 		}

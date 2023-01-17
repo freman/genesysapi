@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -86,7 +87,6 @@ func (m *LearningAssessment) Validate(formats strfmt.Registry) error {
 }
 
 func (m *LearningAssessment) validateAnswers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Answers) { // not required
 		return nil
 	}
@@ -95,6 +95,8 @@ func (m *LearningAssessment) validateAnswers(formats strfmt.Registry) error {
 		if err := m.Answers.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("answers")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("answers")
 			}
 			return err
 		}
@@ -104,7 +106,6 @@ func (m *LearningAssessment) validateAnswers(formats strfmt.Registry) error {
 }
 
 func (m *LearningAssessment) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -117,7 +118,6 @@ func (m *LearningAssessment) validateDateCreated(formats strfmt.Registry) error 
 }
 
 func (m *LearningAssessment) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -130,7 +130,6 @@ func (m *LearningAssessment) validateDateModified(formats strfmt.Registry) error
 }
 
 func (m *LearningAssessment) validateDateSubmitted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateSubmitted) { // not required
 		return nil
 	}
@@ -175,13 +174,133 @@ func (m *LearningAssessment) validateStatusEnum(path, location string, value str
 }
 
 func (m *LearningAssessment) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this learning assessment based on the context it is used
+func (m *LearningAssessment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAnswers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAssessmentFormID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAssessmentID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContextID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateSubmitted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *LearningAssessment) contextValidateAnswers(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Answers != nil {
+		if err := m.Answers.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("answers")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("answers")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LearningAssessment) contextValidateAssessmentFormID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "assessmentFormId", "body", string(m.AssessmentFormID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssessment) contextValidateAssessmentID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "assessmentId", "body", string(m.AssessmentID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssessment) contextValidateContextID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "contextId", "body", string(m.ContextID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssessment) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssessment) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssessment) contextValidateDateSubmitted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateSubmitted", "body", strfmt.DateTime(m.DateSubmitted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LearningAssessment) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
 		return err
 	}
 

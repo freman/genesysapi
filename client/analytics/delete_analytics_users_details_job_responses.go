@@ -95,7 +95,6 @@ func (o *DeleteAnalyticsUsersDetailsJobReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteAnalyticsUsersDetailsJobNoContent() *DeleteAnalyticsUsersDetailsJo
 	return &DeleteAnalyticsUsersDetailsJobNoContent{}
 }
 
-/*DeleteAnalyticsUsersDetailsJobNoContent handles this case with default header values.
+/*
+DeleteAnalyticsUsersDetailsJobNoContent describes a response with status code 204, with default header values.
 
 Deleted
 */
 type DeleteAnalyticsUsersDetailsJobNoContent struct {
 }
 
+// IsSuccess returns true when this delete analytics users details job no content response has a 2xx status code
+func (o *DeleteAnalyticsUsersDetailsJobNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete analytics users details job no content response has a 3xx status code
+func (o *DeleteAnalyticsUsersDetailsJobNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics users details job no content response has a 4xx status code
+func (o *DeleteAnalyticsUsersDetailsJobNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete analytics users details job no content response has a 5xx status code
+func (o *DeleteAnalyticsUsersDetailsJobNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics users details job no content response a status code equal to that given
+func (o *DeleteAnalyticsUsersDetailsJobNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteAnalyticsUsersDetailsJobNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobNoContent ", 204)
+}
+
+func (o *DeleteAnalyticsUsersDetailsJobNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteAnalyticsUsersDetailsJobBadRequest() *DeleteAnalyticsUsersDetailsJ
 	return &DeleteAnalyticsUsersDetailsJobBadRequest{}
 }
 
-/*DeleteAnalyticsUsersDetailsJobBadRequest handles this case with default header values.
+/*
+DeleteAnalyticsUsersDetailsJobBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteAnalyticsUsersDetailsJobBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics users details job bad request response has a 2xx status code
+func (o *DeleteAnalyticsUsersDetailsJobBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics users details job bad request response has a 3xx status code
+func (o *DeleteAnalyticsUsersDetailsJobBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics users details job bad request response has a 4xx status code
+func (o *DeleteAnalyticsUsersDetailsJobBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics users details job bad request response has a 5xx status code
+func (o *DeleteAnalyticsUsersDetailsJobBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics users details job bad request response a status code equal to that given
+func (o *DeleteAnalyticsUsersDetailsJobBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteAnalyticsUsersDetailsJobBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteAnalyticsUsersDetailsJobBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteAnalyticsUsersDetailsJobUnauthorized() *DeleteAnalyticsUsersDetail
 	return &DeleteAnalyticsUsersDetailsJobUnauthorized{}
 }
 
-/*DeleteAnalyticsUsersDetailsJobUnauthorized handles this case with default header values.
+/*
+DeleteAnalyticsUsersDetailsJobUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteAnalyticsUsersDetailsJobUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics users details job unauthorized response has a 2xx status code
+func (o *DeleteAnalyticsUsersDetailsJobUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics users details job unauthorized response has a 3xx status code
+func (o *DeleteAnalyticsUsersDetailsJobUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics users details job unauthorized response has a 4xx status code
+func (o *DeleteAnalyticsUsersDetailsJobUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics users details job unauthorized response has a 5xx status code
+func (o *DeleteAnalyticsUsersDetailsJobUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics users details job unauthorized response a status code equal to that given
+func (o *DeleteAnalyticsUsersDetailsJobUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteAnalyticsUsersDetailsJobUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteAnalyticsUsersDetailsJobUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteAnalyticsUsersDetailsJobForbidden() *DeleteAnalyticsUsersDetailsJo
 	return &DeleteAnalyticsUsersDetailsJobForbidden{}
 }
 
-/*DeleteAnalyticsUsersDetailsJobForbidden handles this case with default header values.
+/*
+DeleteAnalyticsUsersDetailsJobForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteAnalyticsUsersDetailsJobForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics users details job forbidden response has a 2xx status code
+func (o *DeleteAnalyticsUsersDetailsJobForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics users details job forbidden response has a 3xx status code
+func (o *DeleteAnalyticsUsersDetailsJobForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics users details job forbidden response has a 4xx status code
+func (o *DeleteAnalyticsUsersDetailsJobForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics users details job forbidden response has a 5xx status code
+func (o *DeleteAnalyticsUsersDetailsJobForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics users details job forbidden response a status code equal to that given
+func (o *DeleteAnalyticsUsersDetailsJobForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteAnalyticsUsersDetailsJobForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteAnalyticsUsersDetailsJobForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteAnalyticsUsersDetailsJobNotFound() *DeleteAnalyticsUsersDetailsJob
 	return &DeleteAnalyticsUsersDetailsJobNotFound{}
 }
 
-/*DeleteAnalyticsUsersDetailsJobNotFound handles this case with default header values.
+/*
+DeleteAnalyticsUsersDetailsJobNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteAnalyticsUsersDetailsJobNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics users details job not found response has a 2xx status code
+func (o *DeleteAnalyticsUsersDetailsJobNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics users details job not found response has a 3xx status code
+func (o *DeleteAnalyticsUsersDetailsJobNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics users details job not found response has a 4xx status code
+func (o *DeleteAnalyticsUsersDetailsJobNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics users details job not found response has a 5xx status code
+func (o *DeleteAnalyticsUsersDetailsJobNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics users details job not found response a status code equal to that given
+func (o *DeleteAnalyticsUsersDetailsJobNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteAnalyticsUsersDetailsJobNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteAnalyticsUsersDetailsJobNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteAnalyticsUsersDetailsJobRequestTimeout() *DeleteAnalyticsUsersDeta
 	return &DeleteAnalyticsUsersDetailsJobRequestTimeout{}
 }
 
-/*DeleteAnalyticsUsersDetailsJobRequestTimeout handles this case with default header values.
+/*
+DeleteAnalyticsUsersDetailsJobRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteAnalyticsUsersDetailsJobRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics users details job request timeout response has a 2xx status code
+func (o *DeleteAnalyticsUsersDetailsJobRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics users details job request timeout response has a 3xx status code
+func (o *DeleteAnalyticsUsersDetailsJobRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics users details job request timeout response has a 4xx status code
+func (o *DeleteAnalyticsUsersDetailsJobRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics users details job request timeout response has a 5xx status code
+func (o *DeleteAnalyticsUsersDetailsJobRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics users details job request timeout response a status code equal to that given
+func (o *DeleteAnalyticsUsersDetailsJobRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteAnalyticsUsersDetailsJobRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteAnalyticsUsersDetailsJobRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteAnalyticsUsersDetailsJobRequestEntityTooLarge() *DeleteAnalyticsUs
 	return &DeleteAnalyticsUsersDetailsJobRequestEntityTooLarge{}
 }
 
-/*DeleteAnalyticsUsersDetailsJobRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteAnalyticsUsersDetailsJobRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteAnalyticsUsersDetailsJobRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics users details job request entity too large response has a 2xx status code
+func (o *DeleteAnalyticsUsersDetailsJobRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics users details job request entity too large response has a 3xx status code
+func (o *DeleteAnalyticsUsersDetailsJobRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics users details job request entity too large response has a 4xx status code
+func (o *DeleteAnalyticsUsersDetailsJobRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics users details job request entity too large response has a 5xx status code
+func (o *DeleteAnalyticsUsersDetailsJobRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics users details job request entity too large response a status code equal to that given
+func (o *DeleteAnalyticsUsersDetailsJobRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteAnalyticsUsersDetailsJobRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteAnalyticsUsersDetailsJobRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteAnalyticsUsersDetailsJobUnsupportedMediaType() *DeleteAnalyticsUse
 	return &DeleteAnalyticsUsersDetailsJobUnsupportedMediaType{}
 }
 
-/*DeleteAnalyticsUsersDetailsJobUnsupportedMediaType handles this case with default header values.
+/*
+DeleteAnalyticsUsersDetailsJobUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteAnalyticsUsersDetailsJobUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics users details job unsupported media type response has a 2xx status code
+func (o *DeleteAnalyticsUsersDetailsJobUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics users details job unsupported media type response has a 3xx status code
+func (o *DeleteAnalyticsUsersDetailsJobUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics users details job unsupported media type response has a 4xx status code
+func (o *DeleteAnalyticsUsersDetailsJobUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics users details job unsupported media type response has a 5xx status code
+func (o *DeleteAnalyticsUsersDetailsJobUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics users details job unsupported media type response a status code equal to that given
+func (o *DeleteAnalyticsUsersDetailsJobUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteAnalyticsUsersDetailsJobUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteAnalyticsUsersDetailsJobUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteAnalyticsUsersDetailsJobTooManyRequests() *DeleteAnalyticsUsersDet
 	return &DeleteAnalyticsUsersDetailsJobTooManyRequests{}
 }
 
-/*DeleteAnalyticsUsersDetailsJobTooManyRequests handles this case with default header values.
+/*
+DeleteAnalyticsUsersDetailsJobTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteAnalyticsUsersDetailsJobTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics users details job too many requests response has a 2xx status code
+func (o *DeleteAnalyticsUsersDetailsJobTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics users details job too many requests response has a 3xx status code
+func (o *DeleteAnalyticsUsersDetailsJobTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics users details job too many requests response has a 4xx status code
+func (o *DeleteAnalyticsUsersDetailsJobTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete analytics users details job too many requests response has a 5xx status code
+func (o *DeleteAnalyticsUsersDetailsJobTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete analytics users details job too many requests response a status code equal to that given
+func (o *DeleteAnalyticsUsersDetailsJobTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteAnalyticsUsersDetailsJobTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteAnalyticsUsersDetailsJobTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteAnalyticsUsersDetailsJobInternalServerError() *DeleteAnalyticsUser
 	return &DeleteAnalyticsUsersDetailsJobInternalServerError{}
 }
 
-/*DeleteAnalyticsUsersDetailsJobInternalServerError handles this case with default header values.
+/*
+DeleteAnalyticsUsersDetailsJobInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteAnalyticsUsersDetailsJobInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics users details job internal server error response has a 2xx status code
+func (o *DeleteAnalyticsUsersDetailsJobInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics users details job internal server error response has a 3xx status code
+func (o *DeleteAnalyticsUsersDetailsJobInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics users details job internal server error response has a 4xx status code
+func (o *DeleteAnalyticsUsersDetailsJobInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete analytics users details job internal server error response has a 5xx status code
+func (o *DeleteAnalyticsUsersDetailsJobInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete analytics users details job internal server error response a status code equal to that given
+func (o *DeleteAnalyticsUsersDetailsJobInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteAnalyticsUsersDetailsJobInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteAnalyticsUsersDetailsJobInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteAnalyticsUsersDetailsJobServiceUnavailable() *DeleteAnalyticsUsers
 	return &DeleteAnalyticsUsersDetailsJobServiceUnavailable{}
 }
 
-/*DeleteAnalyticsUsersDetailsJobServiceUnavailable handles this case with default header values.
+/*
+DeleteAnalyticsUsersDetailsJobServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteAnalyticsUsersDetailsJobServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics users details job service unavailable response has a 2xx status code
+func (o *DeleteAnalyticsUsersDetailsJobServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics users details job service unavailable response has a 3xx status code
+func (o *DeleteAnalyticsUsersDetailsJobServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics users details job service unavailable response has a 4xx status code
+func (o *DeleteAnalyticsUsersDetailsJobServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete analytics users details job service unavailable response has a 5xx status code
+func (o *DeleteAnalyticsUsersDetailsJobServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete analytics users details job service unavailable response a status code equal to that given
+func (o *DeleteAnalyticsUsersDetailsJobServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteAnalyticsUsersDetailsJobServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteAnalyticsUsersDetailsJobServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteAnalyticsUsersDetailsJobGatewayTimeout() *DeleteAnalyticsUsersDeta
 	return &DeleteAnalyticsUsersDetailsJobGatewayTimeout{}
 }
 
-/*DeleteAnalyticsUsersDetailsJobGatewayTimeout handles this case with default header values.
+/*
+DeleteAnalyticsUsersDetailsJobGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteAnalyticsUsersDetailsJobGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete analytics users details job gateway timeout response has a 2xx status code
+func (o *DeleteAnalyticsUsersDetailsJobGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete analytics users details job gateway timeout response has a 3xx status code
+func (o *DeleteAnalyticsUsersDetailsJobGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete analytics users details job gateway timeout response has a 4xx status code
+func (o *DeleteAnalyticsUsersDetailsJobGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete analytics users details job gateway timeout response has a 5xx status code
+func (o *DeleteAnalyticsUsersDetailsJobGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete analytics users details job gateway timeout response a status code equal to that given
+func (o *DeleteAnalyticsUsersDetailsJobGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteAnalyticsUsersDetailsJobGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteAnalyticsUsersDetailsJobGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/analytics/users/details/jobs/{jobId}][%d] deleteAnalyticsUsersDetailsJobGatewayTimeout  %+v", 504, o.Payload)
 }
 

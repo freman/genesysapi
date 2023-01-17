@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -65,7 +66,6 @@ func (m *BuAgentScheduleShift) Validate(formats strfmt.Registry) error {
 }
 
 func (m *BuAgentScheduleShift) validateActivities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Activities) { // not required
 		return nil
 	}
@@ -79,6 +79,8 @@ func (m *BuAgentScheduleShift) validateActivities(formats strfmt.Registry) error
 			if err := m.Activities[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("activities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activities" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -90,7 +92,6 @@ func (m *BuAgentScheduleShift) validateActivities(formats strfmt.Registry) error
 }
 
 func (m *BuAgentScheduleShift) validateSchedule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Schedule) { // not required
 		return nil
 	}
@@ -99,6 +100,8 @@ func (m *BuAgentScheduleShift) validateSchedule(formats strfmt.Registry) error {
 		if err := m.Schedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedule")
 			}
 			return err
 		}
@@ -108,12 +111,91 @@ func (m *BuAgentScheduleShift) validateSchedule(formats strfmt.Registry) error {
 }
 
 func (m *BuAgentScheduleShift) validateStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDate) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("startDate", "body", "date-time", m.StartDate.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu agent schedule shift based on the context it is used
+func (m *BuAgentScheduleShift) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActivities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLengthMinutes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchedule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStartDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuAgentScheduleShift) contextValidateActivities(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Activities); i++ {
+
+		if m.Activities[i] != nil {
+			if err := m.Activities[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("activities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuAgentScheduleShift) contextValidateLengthMinutes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "lengthMinutes", "body", int32(m.LengthMinutes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BuAgentScheduleShift) contextValidateSchedule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Schedule != nil {
+		if err := m.Schedule.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedule")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuAgentScheduleShift) contextValidateStartDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "startDate", "body", strfmt.DateTime(m.StartDate)); err != nil {
 		return err
 	}
 

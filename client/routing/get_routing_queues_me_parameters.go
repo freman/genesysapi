@@ -17,102 +17,118 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRoutingQueuesMeParams creates a new GetRoutingQueuesMeParams object
-// with the default values initialized.
+// NewGetRoutingQueuesMeParams creates a new GetRoutingQueuesMeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingQueuesMeParams() *GetRoutingQueuesMeParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("asc")
-	)
 	return &GetRoutingQueuesMeParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingQueuesMeParamsWithTimeout creates a new GetRoutingQueuesMeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingQueuesMeParamsWithTimeout(timeout time.Duration) *GetRoutingQueuesMeParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("asc")
-	)
 	return &GetRoutingQueuesMeParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingQueuesMeParamsWithContext creates a new GetRoutingQueuesMeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingQueuesMeParamsWithContext(ctx context.Context) *GetRoutingQueuesMeParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("asc")
-	)
 	return &GetRoutingQueuesMeParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingQueuesMeParamsWithHTTPClient creates a new GetRoutingQueuesMeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingQueuesMeParamsWithHTTPClient(client *http.Client) *GetRoutingQueuesMeParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("asc")
-	)
 	return &GetRoutingQueuesMeParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingQueuesMeParams contains all the parameters to send to the API endpoint
-for the get routing queues me operation typically these are written to a http.Request
+/*
+GetRoutingQueuesMeParams contains all the parameters to send to the API endpoint
+
+	for the get routing queues me operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingQueuesMeParams struct {
 
-	/*Joined
-	  Filter by joined status.
+	/* Joined.
 
+	   Filter by joined status.
 	*/
 	Joined *bool
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortOrder
-	  Note: results are sorted by name.
 
+	/* SortOrder.
+
+	   Note: results are sorted by name.
+
+	   Default: "asc"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing queues me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingQueuesMeParams) WithDefaults() *GetRoutingQueuesMeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing queues me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingQueuesMeParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortOrderDefault = string("asc")
+	)
+
+	val := GetRoutingQueuesMeParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get routing queues me params
@@ -204,64 +220,68 @@ func (o *GetRoutingQueuesMeParams) WriteToRequest(r runtime.ClientRequest, reg s
 
 		// query param joined
 		var qrJoined bool
+
 		if o.Joined != nil {
 			qrJoined = *o.Joined
 		}
 		qJoined := swag.FormatBool(qrJoined)
 		if qJoined != "" {
+
 			if err := r.SetQueryParam("joined", qJoined); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

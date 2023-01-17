@@ -95,7 +95,6 @@ func (o *PostTelephonyProvidersEdgeDiagnosticNslookupReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticNslookupAccepted() *PostTelephonyPro
 	return &PostTelephonyProvidersEdgeDiagnosticNslookupAccepted{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticNslookupAccepted handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticNslookupAccepted describes a response with status code 202, with default header values.
 
 Request to get network diagnostic has been accepted
 */
@@ -114,7 +114,36 @@ type PostTelephonyProvidersEdgeDiagnosticNslookupAccepted struct {
 	Payload *models.EdgeNetworkDiagnostic
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic nslookup accepted response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic nslookup accepted response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic nslookup accepted response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic nslookup accepted response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic nslookup accepted response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticNslookupAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupAccepted  %+v", 202, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticNslookupBadRequest() *PostTelephonyP
 	return &PostTelephonyProvidersEdgeDiagnosticNslookupBadRequest{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticNslookupBadRequest handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticNslookupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostTelephonyProvidersEdgeDiagnosticNslookupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic nslookup bad request response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic nslookup bad request response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic nslookup bad request response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic nslookup bad request response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic nslookup bad request response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticNslookupBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticNslookupUnauthorized() *PostTelephon
 	return &PostTelephonyProvidersEdgeDiagnosticNslookupUnauthorized{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticNslookupUnauthorized handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticNslookupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostTelephonyProvidersEdgeDiagnosticNslookupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic nslookup unauthorized response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic nslookup unauthorized response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic nslookup unauthorized response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic nslookup unauthorized response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic nslookup unauthorized response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticNslookupForbidden() *PostTelephonyPr
 	return &PostTelephonyProvidersEdgeDiagnosticNslookupForbidden{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticNslookupForbidden handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticNslookupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostTelephonyProvidersEdgeDiagnosticNslookupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic nslookup forbidden response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic nslookup forbidden response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic nslookup forbidden response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic nslookup forbidden response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic nslookup forbidden response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticNslookupForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticNslookupNotFound() *PostTelephonyPro
 	return &PostTelephonyProvidersEdgeDiagnosticNslookupNotFound{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticNslookupNotFound handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticNslookupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostTelephonyProvidersEdgeDiagnosticNslookupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic nslookup not found response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic nslookup not found response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic nslookup not found response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic nslookup not found response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic nslookup not found response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticNslookupNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout() *PostTeleph
 	return &PostTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic nslookup request timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic nslookup request timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic nslookup request timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic nslookup request timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic nslookup request timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge() *Pos
 	return &PostTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic nslookup request entity too large response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic nslookup request entity too large response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic nslookup request entity too large response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic nslookup request entity too large response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic nslookup request entity too large response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType() *Post
 	return &PostTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic nslookup unsupported media type response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic nslookup unsupported media type response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic nslookup unsupported media type response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic nslookup unsupported media type response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic nslookup unsupported media type response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests() *PostTelep
 	return &PostTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic nslookup too many requests response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic nslookup too many requests response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic nslookup too many requests response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic nslookup too many requests response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic nslookup too many requests response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticNslookupInternalServerError() *PostT
 	return &PostTelephonyProvidersEdgeDiagnosticNslookupInternalServerError{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticNslookupInternalServerError handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticNslookupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostTelephonyProvidersEdgeDiagnosticNslookupInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic nslookup internal server error response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic nslookup internal server error response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic nslookup internal server error response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic nslookup internal server error response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic nslookup internal server error response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticNslookupInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable() *PostTe
 	return &PostTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic nslookup service unavailable response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic nslookup service unavailable response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic nslookup service unavailable response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic nslookup service unavailable response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic nslookup service unavailable response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout() *PostTeleph
 	return &PostTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout{}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edge diagnostic nslookup gateway timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edge diagnostic nslookup gateway timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edge diagnostic nslookup gateway timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edge diagnostic nslookup gateway timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edge diagnostic nslookup gateway timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/{edgeId}/diagnostic/nslookup][%d] postTelephonyProvidersEdgeDiagnosticNslookupGatewayTimeout  %+v", 504, o.Payload)
 }
 

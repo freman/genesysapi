@@ -17,109 +17,131 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetJourneyActiontemplatesParams creates a new GetJourneyActiontemplatesParams object
-// with the default values initialized.
+// NewGetJourneyActiontemplatesParams creates a new GetJourneyActiontemplatesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetJourneyActiontemplatesParams() *GetJourneyActiontemplatesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetJourneyActiontemplatesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetJourneyActiontemplatesParamsWithTimeout creates a new GetJourneyActiontemplatesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetJourneyActiontemplatesParamsWithTimeout(timeout time.Duration) *GetJourneyActiontemplatesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetJourneyActiontemplatesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetJourneyActiontemplatesParamsWithContext creates a new GetJourneyActiontemplatesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetJourneyActiontemplatesParamsWithContext(ctx context.Context) *GetJourneyActiontemplatesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetJourneyActiontemplatesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetJourneyActiontemplatesParamsWithHTTPClient creates a new GetJourneyActiontemplatesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetJourneyActiontemplatesParamsWithHTTPClient(client *http.Client) *GetJourneyActiontemplatesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetJourneyActiontemplatesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetJourneyActiontemplatesParams contains all the parameters to send to the API endpoint
-for the get journey actiontemplates operation typically these are written to a http.Request
+/*
+GetJourneyActiontemplatesParams contains all the parameters to send to the API endpoint
+
+	for the get journey actiontemplates operation.
+
+	Typically these are written to a http.Request.
 */
 type GetJourneyActiontemplatesParams struct {
 
-	/*MediaType
-	  Media type
+	/* MediaType.
 
+	   Media type
 	*/
 	MediaType *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*QueryFields
-	  ActionTemplate field(s) to query on. Requires 'queryValue' to also be set.
 
+	/* QueryFields.
+
+	   ActionTemplate field(s) to query on. Requires 'queryValue' to also be set.
 	*/
 	QueryFields []string
-	/*QueryValue
-	  Value to query on. Requires 'queryFields' to also be set.
 
+	/* QueryValue.
+
+	   Value to query on. Requires 'queryFields' to also be set.
 	*/
 	QueryValue *string
-	/*SortBy
-	  Field(s) to sort by. Prefix with '-' for descending (e.g. sortBy=name,-createdDate).
 
+	/* SortBy.
+
+	   Field(s) to sort by. Prefix with '-' for descending (e.g. sortBy=name,-createdDate).
 	*/
 	SortBy *string
-	/*State
-	  Action template state.
 
+	/* State.
+
+	   Action template state.
 	*/
 	State *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get journey actiontemplates params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetJourneyActiontemplatesParams) WithDefaults() *GetJourneyActiontemplatesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get journey actiontemplates params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetJourneyActiontemplatesParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetJourneyActiontemplatesParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get journey actiontemplates params
@@ -244,108 +266,134 @@ func (o *GetJourneyActiontemplatesParams) WriteToRequest(r runtime.ClientRequest
 
 		// query param mediaType
 		var qrMediaType string
+
 		if o.MediaType != nil {
 			qrMediaType = *o.MediaType
 		}
 		qMediaType := qrMediaType
 		if qMediaType != "" {
+
 			if err := r.SetQueryParam("mediaType", qMediaType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesQueryFields := o.QueryFields
+	if o.QueryFields != nil {
 
-	joinedQueryFields := swag.JoinByFormat(valuesQueryFields, "multi")
-	// query array param queryFields
-	if err := r.SetQueryParam("queryFields", joinedQueryFields...); err != nil {
-		return err
+		// binding items for queryFields
+		joinedQueryFields := o.bindParamQueryFields(reg)
+
+		// query array param queryFields
+		if err := r.SetQueryParam("queryFields", joinedQueryFields...); err != nil {
+			return err
+		}
 	}
 
 	if o.QueryValue != nil {
 
 		// query param queryValue
 		var qrQueryValue string
+
 		if o.QueryValue != nil {
 			qrQueryValue = *o.QueryValue
 		}
 		qQueryValue := qrQueryValue
 		if qQueryValue != "" {
+
 			if err := r.SetQueryParam("queryValue", qQueryValue); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.State != nil {
 
 		// query param state
 		var qrState string
+
 		if o.State != nil {
 			qrState = *o.State
 		}
 		qState := qrState
 		if qState != "" {
+
 			if err := r.SetQueryParam("state", qState); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetJourneyActiontemplates binds the parameter queryFields
+func (o *GetJourneyActiontemplatesParams) bindParamQueryFields(formats strfmt.Registry) []string {
+	queryFieldsIR := o.QueryFields
+
+	var queryFieldsIC []string
+	for _, queryFieldsIIR := range queryFieldsIR { // explode []string
+
+		queryFieldsIIV := queryFieldsIIR // string as string
+		queryFieldsIC = append(queryFieldsIC, queryFieldsIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	queryFieldsIS := swag.JoinByFormat(queryFieldsIC, "multi")
+
+	return queryFieldsIS
 }

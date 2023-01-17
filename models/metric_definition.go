@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -80,7 +81,6 @@ func (m *MetricDefinition) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MetricDefinition) validateDefaultObjective(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DefaultObjective) { // not required
 		return nil
 	}
@@ -89,6 +89,8 @@ func (m *MetricDefinition) validateDefaultObjective(formats strfmt.Registry) err
 		if err := m.DefaultObjective.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("defaultObjective")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("defaultObjective")
 			}
 			return err
 		}
@@ -98,7 +100,6 @@ func (m *MetricDefinition) validateDefaultObjective(formats strfmt.Registry) err
 }
 
 func (m *MetricDefinition) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -155,13 +156,68 @@ func (m *MetricDefinition) validateUnitTypeEnum(path, location string, value str
 }
 
 func (m *MetricDefinition) validateUnitType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UnitType) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateUnitTypeEnum("unitType", "body", m.UnitType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this metric definition based on the context it is used
+func (m *MetricDefinition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDefaultObjective(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MetricDefinition) contextValidateDefaultObjective(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DefaultObjective != nil {
+		if err := m.DefaultObjective.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("defaultObjective")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("defaultObjective")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MetricDefinition) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MetricDefinition) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

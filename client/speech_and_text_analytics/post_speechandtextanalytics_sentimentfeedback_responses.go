@@ -101,7 +101,6 @@ func (o *PostSpeechandtextanalyticsSentimentfeedbackReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackCreated() *PostSpeechandtexta
 	return &PostSpeechandtextanalyticsSentimentfeedbackCreated{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackCreated handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackCreated describes a response with status code 201, with default header values.
 
 Created
 */
@@ -120,7 +120,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackCreated struct {
 	Payload *models.SentimentFeedback
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback created response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback created response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback created response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback created response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback created response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackCreated  %+v", 201, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackBadRequest() *PostSpeechandte
 	return &PostSpeechandtextanalyticsSentimentfeedbackBadRequest{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackBadRequest handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback bad request response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback bad request response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback bad request response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback bad request response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback bad request response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackUnauthorized() *PostSpeechand
 	return &PostSpeechandtextanalyticsSentimentfeedbackUnauthorized{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackUnauthorized handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback unauthorized response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback unauthorized response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback unauthorized response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback unauthorized response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback unauthorized response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackForbidden() *PostSpeechandtex
 	return &PostSpeechandtextanalyticsSentimentfeedbackForbidden{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackForbidden handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback forbidden response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback forbidden response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback forbidden response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback forbidden response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback forbidden response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackNotFound() *PostSpeechandtext
 	return &PostSpeechandtextanalyticsSentimentfeedbackNotFound{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackNotFound handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback not found response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback not found response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback not found response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback not found response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback not found response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackRequestTimeout() *PostSpeecha
 	return &PostSpeechandtextanalyticsSentimentfeedbackRequestTimeout{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackRequestTimeout handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback request timeout response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback request timeout response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback request timeout response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback request timeout response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback request timeout response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge() *Post
 	return &PostSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -318,7 +498,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback request entity too large response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback request entity too large response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback request entity too large response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback request entity too large response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback request entity too large response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType() *PostS
 	return &PostSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -351,7 +561,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback unsupported media type response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback unsupported media type response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback unsupported media type response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback unsupported media type response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback unsupported media type response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity() *PostSp
 	return &PostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity describes a response with status code 422, with default header values.
 
 PostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity post speechandtextanalytics sentimentfeedback unprocessable entity
 */
@@ -384,7 +624,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback unprocessable entity response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback unprocessable entity response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback unprocessable entity response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback unprocessable entity response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback unprocessable entity response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity) IsCode(code int) bool {
+	return code == 422
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackUnprocessableEntity  %+v", 422, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackTooManyRequests() *PostSpeech
 	return &PostSpeechandtextanalyticsSentimentfeedbackTooManyRequests{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackTooManyRequests handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback too many requests response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback too many requests response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback too many requests response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback too many requests response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback too many requests response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackInternalServerError() *PostSp
 	return &PostSpeechandtextanalyticsSentimentfeedbackInternalServerError{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackInternalServerError handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback internal server error response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback internal server error response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback internal server error response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback internal server error response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback internal server error response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackServiceUnavailable() *PostSpe
 	return &PostSpeechandtextanalyticsSentimentfeedbackServiceUnavailable{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackServiceUnavailable handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback service unavailable response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback service unavailable response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback service unavailable response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback service unavailable response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback service unavailable response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostSpeechandtextanalyticsSentimentfeedbackGatewayTimeout() *PostSpeecha
 	return &PostSpeechandtextanalyticsSentimentfeedbackGatewayTimeout{}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackGatewayTimeout handles this case with default header values.
+/*
+PostSpeechandtextanalyticsSentimentfeedbackGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostSpeechandtextanalyticsSentimentfeedbackGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post speechandtextanalytics sentimentfeedback gateway timeout response has a 2xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post speechandtextanalytics sentimentfeedback gateway timeout response has a 3xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post speechandtextanalytics sentimentfeedback gateway timeout response has a 4xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post speechandtextanalytics sentimentfeedback gateway timeout response has a 5xx status code
+func (o *PostSpeechandtextanalyticsSentimentfeedbackGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post speechandtextanalytics sentimentfeedback gateway timeout response a status code equal to that given
+func (o *PostSpeechandtextanalyticsSentimentfeedbackGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostSpeechandtextanalyticsSentimentfeedbackGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostSpeechandtextanalyticsSentimentfeedbackGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/speechandtextanalytics/sentimentfeedback][%d] postSpeechandtextanalyticsSentimentfeedbackGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostGreetingsParams creates a new PostGreetingsParams object
-// with the default values initialized.
+// NewPostGreetingsParams creates a new PostGreetingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostGreetingsParams() *PostGreetingsParams {
-	var ()
 	return &PostGreetingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostGreetingsParamsWithTimeout creates a new PostGreetingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostGreetingsParamsWithTimeout(timeout time.Duration) *PostGreetingsParams {
-	var ()
 	return &PostGreetingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostGreetingsParamsWithContext creates a new PostGreetingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostGreetingsParamsWithContext(ctx context.Context) *PostGreetingsParams {
-	var ()
 	return &PostGreetingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostGreetingsParamsWithHTTPClient creates a new PostGreetingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostGreetingsParamsWithHTTPClient(client *http.Client) *PostGreetingsParams {
-	var ()
 	return &PostGreetingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostGreetingsParams contains all the parameters to send to the API endpoint
-for the post greetings operation typically these are written to a http.Request
+/*
+PostGreetingsParams contains all the parameters to send to the API endpoint
+
+	for the post greetings operation.
+
+	Typically these are written to a http.Request.
 */
 type PostGreetingsParams struct {
 
-	/*Body
-	  The Greeting to create
+	/* Body.
 
+	   The Greeting to create
 	*/
 	Body *models.Greeting
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post greetings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGreetingsParams) WithDefaults() *PostGreetingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post greetings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGreetingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post greetings params
@@ -124,7 +140,6 @@ func (o *PostGreetingsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

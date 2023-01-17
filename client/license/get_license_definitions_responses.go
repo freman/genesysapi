@@ -95,7 +95,6 @@ func (o *GetLicenseDefinitionsReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetLicenseDefinitionsOK() *GetLicenseDefinitionsOK {
 	return &GetLicenseDefinitionsOK{}
 }
 
-/*GetLicenseDefinitionsOK handles this case with default header values.
+/*
+GetLicenseDefinitionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetLicenseDefinitionsOK struct {
 	Payload []*models.LicenseDefinition
 }
 
+// IsSuccess returns true when this get license definitions o k response has a 2xx status code
+func (o *GetLicenseDefinitionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get license definitions o k response has a 3xx status code
+func (o *GetLicenseDefinitionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license definitions o k response has a 4xx status code
+func (o *GetLicenseDefinitionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get license definitions o k response has a 5xx status code
+func (o *GetLicenseDefinitionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license definitions o k response a status code equal to that given
+func (o *GetLicenseDefinitionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLicenseDefinitionsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetLicenseDefinitionsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetLicenseDefinitionsBadRequest() *GetLicenseDefinitionsBadRequest {
 	return &GetLicenseDefinitionsBadRequest{}
 }
 
-/*GetLicenseDefinitionsBadRequest handles this case with default header values.
+/*
+GetLicenseDefinitionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetLicenseDefinitionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license definitions bad request response has a 2xx status code
+func (o *GetLicenseDefinitionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license definitions bad request response has a 3xx status code
+func (o *GetLicenseDefinitionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license definitions bad request response has a 4xx status code
+func (o *GetLicenseDefinitionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license definitions bad request response has a 5xx status code
+func (o *GetLicenseDefinitionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license definitions bad request response a status code equal to that given
+func (o *GetLicenseDefinitionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLicenseDefinitionsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetLicenseDefinitionsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetLicenseDefinitionsUnauthorized() *GetLicenseDefinitionsUnauthorized {
 	return &GetLicenseDefinitionsUnauthorized{}
 }
 
-/*GetLicenseDefinitionsUnauthorized handles this case with default header values.
+/*
+GetLicenseDefinitionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetLicenseDefinitionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license definitions unauthorized response has a 2xx status code
+func (o *GetLicenseDefinitionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license definitions unauthorized response has a 3xx status code
+func (o *GetLicenseDefinitionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license definitions unauthorized response has a 4xx status code
+func (o *GetLicenseDefinitionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license definitions unauthorized response has a 5xx status code
+func (o *GetLicenseDefinitionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license definitions unauthorized response a status code equal to that given
+func (o *GetLicenseDefinitionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetLicenseDefinitionsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetLicenseDefinitionsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetLicenseDefinitionsForbidden() *GetLicenseDefinitionsForbidden {
 	return &GetLicenseDefinitionsForbidden{}
 }
 
-/*GetLicenseDefinitionsForbidden handles this case with default header values.
+/*
+GetLicenseDefinitionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetLicenseDefinitionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license definitions forbidden response has a 2xx status code
+func (o *GetLicenseDefinitionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license definitions forbidden response has a 3xx status code
+func (o *GetLicenseDefinitionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license definitions forbidden response has a 4xx status code
+func (o *GetLicenseDefinitionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license definitions forbidden response has a 5xx status code
+func (o *GetLicenseDefinitionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license definitions forbidden response a status code equal to that given
+func (o *GetLicenseDefinitionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLicenseDefinitionsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetLicenseDefinitionsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetLicenseDefinitionsNotFound() *GetLicenseDefinitionsNotFound {
 	return &GetLicenseDefinitionsNotFound{}
 }
 
-/*GetLicenseDefinitionsNotFound handles this case with default header values.
+/*
+GetLicenseDefinitionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetLicenseDefinitionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license definitions not found response has a 2xx status code
+func (o *GetLicenseDefinitionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license definitions not found response has a 3xx status code
+func (o *GetLicenseDefinitionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license definitions not found response has a 4xx status code
+func (o *GetLicenseDefinitionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license definitions not found response has a 5xx status code
+func (o *GetLicenseDefinitionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license definitions not found response a status code equal to that given
+func (o *GetLicenseDefinitionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLicenseDefinitionsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetLicenseDefinitionsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetLicenseDefinitionsRequestTimeout() *GetLicenseDefinitionsRequestTimeo
 	return &GetLicenseDefinitionsRequestTimeout{}
 }
 
-/*GetLicenseDefinitionsRequestTimeout handles this case with default header values.
+/*
+GetLicenseDefinitionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetLicenseDefinitionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license definitions request timeout response has a 2xx status code
+func (o *GetLicenseDefinitionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license definitions request timeout response has a 3xx status code
+func (o *GetLicenseDefinitionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license definitions request timeout response has a 4xx status code
+func (o *GetLicenseDefinitionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license definitions request timeout response has a 5xx status code
+func (o *GetLicenseDefinitionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license definitions request timeout response a status code equal to that given
+func (o *GetLicenseDefinitionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetLicenseDefinitionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLicenseDefinitionsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetLicenseDefinitionsRequestEntityTooLarge() *GetLicenseDefinitionsReque
 	return &GetLicenseDefinitionsRequestEntityTooLarge{}
 }
 
-/*GetLicenseDefinitionsRequestEntityTooLarge handles this case with default header values.
+/*
+GetLicenseDefinitionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetLicenseDefinitionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license definitions request entity too large response has a 2xx status code
+func (o *GetLicenseDefinitionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license definitions request entity too large response has a 3xx status code
+func (o *GetLicenseDefinitionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license definitions request entity too large response has a 4xx status code
+func (o *GetLicenseDefinitionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license definitions request entity too large response has a 5xx status code
+func (o *GetLicenseDefinitionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license definitions request entity too large response a status code equal to that given
+func (o *GetLicenseDefinitionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetLicenseDefinitionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetLicenseDefinitionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetLicenseDefinitionsUnsupportedMediaType() *GetLicenseDefinitionsUnsupp
 	return &GetLicenseDefinitionsUnsupportedMediaType{}
 }
 
-/*GetLicenseDefinitionsUnsupportedMediaType handles this case with default header values.
+/*
+GetLicenseDefinitionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetLicenseDefinitionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license definitions unsupported media type response has a 2xx status code
+func (o *GetLicenseDefinitionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license definitions unsupported media type response has a 3xx status code
+func (o *GetLicenseDefinitionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license definitions unsupported media type response has a 4xx status code
+func (o *GetLicenseDefinitionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license definitions unsupported media type response has a 5xx status code
+func (o *GetLicenseDefinitionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license definitions unsupported media type response a status code equal to that given
+func (o *GetLicenseDefinitionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetLicenseDefinitionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetLicenseDefinitionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetLicenseDefinitionsTooManyRequests() *GetLicenseDefinitionsTooManyRequ
 	return &GetLicenseDefinitionsTooManyRequests{}
 }
 
-/*GetLicenseDefinitionsTooManyRequests handles this case with default header values.
+/*
+GetLicenseDefinitionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetLicenseDefinitionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license definitions too many requests response has a 2xx status code
+func (o *GetLicenseDefinitionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license definitions too many requests response has a 3xx status code
+func (o *GetLicenseDefinitionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license definitions too many requests response has a 4xx status code
+func (o *GetLicenseDefinitionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get license definitions too many requests response has a 5xx status code
+func (o *GetLicenseDefinitionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get license definitions too many requests response a status code equal to that given
+func (o *GetLicenseDefinitionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLicenseDefinitionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetLicenseDefinitionsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetLicenseDefinitionsInternalServerError() *GetLicenseDefinitionsInterna
 	return &GetLicenseDefinitionsInternalServerError{}
 }
 
-/*GetLicenseDefinitionsInternalServerError handles this case with default header values.
+/*
+GetLicenseDefinitionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetLicenseDefinitionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license definitions internal server error response has a 2xx status code
+func (o *GetLicenseDefinitionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license definitions internal server error response has a 3xx status code
+func (o *GetLicenseDefinitionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license definitions internal server error response has a 4xx status code
+func (o *GetLicenseDefinitionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get license definitions internal server error response has a 5xx status code
+func (o *GetLicenseDefinitionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get license definitions internal server error response a status code equal to that given
+func (o *GetLicenseDefinitionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLicenseDefinitionsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetLicenseDefinitionsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetLicenseDefinitionsServiceUnavailable() *GetLicenseDefinitionsServiceU
 	return &GetLicenseDefinitionsServiceUnavailable{}
 }
 
-/*GetLicenseDefinitionsServiceUnavailable handles this case with default header values.
+/*
+GetLicenseDefinitionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetLicenseDefinitionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license definitions service unavailable response has a 2xx status code
+func (o *GetLicenseDefinitionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license definitions service unavailable response has a 3xx status code
+func (o *GetLicenseDefinitionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license definitions service unavailable response has a 4xx status code
+func (o *GetLicenseDefinitionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get license definitions service unavailable response has a 5xx status code
+func (o *GetLicenseDefinitionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get license definitions service unavailable response a status code equal to that given
+func (o *GetLicenseDefinitionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetLicenseDefinitionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetLicenseDefinitionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetLicenseDefinitionsGatewayTimeout() *GetLicenseDefinitionsGatewayTimeo
 	return &GetLicenseDefinitionsGatewayTimeout{}
 }
 
-/*GetLicenseDefinitionsGatewayTimeout handles this case with default header values.
+/*
+GetLicenseDefinitionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetLicenseDefinitionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get license definitions gateway timeout response has a 2xx status code
+func (o *GetLicenseDefinitionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get license definitions gateway timeout response has a 3xx status code
+func (o *GetLicenseDefinitionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get license definitions gateway timeout response has a 4xx status code
+func (o *GetLicenseDefinitionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get license definitions gateway timeout response has a 5xx status code
+func (o *GetLicenseDefinitionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get license definitions gateway timeout response a status code equal to that given
+func (o *GetLicenseDefinitionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetLicenseDefinitionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetLicenseDefinitionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/license/definitions][%d] getLicenseDefinitionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

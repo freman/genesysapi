@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -85,7 +86,6 @@ func (m *DurationCondition) validateDurationModeEnum(path, location string, valu
 }
 
 func (m *DurationCondition) validateDurationMode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DurationMode) { // not required
 		return nil
 	}
@@ -128,7 +128,6 @@ func (m *DurationCondition) validateDurationTargetEnum(path, location string, va
 }
 
 func (m *DurationCondition) validateDurationTarget(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DurationTarget) { // not required
 		return nil
 	}
@@ -138,6 +137,11 @@ func (m *DurationCondition) validateDurationTarget(formats strfmt.Registry) erro
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this duration condition based on context it is used
+func (m *DurationCondition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

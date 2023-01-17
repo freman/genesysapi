@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -66,7 +67,6 @@ func (m *FooterTemplate) validateApplicableResourcesItemsEnum(path, location str
 }
 
 func (m *FooterTemplate) validateApplicableResources(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ApplicableResources) { // not required
 		return nil
 	}
@@ -110,7 +110,6 @@ func (m *FooterTemplate) validateTypeEnum(path, location string, value string) e
 }
 
 func (m *FooterTemplate) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -120,6 +119,11 @@ func (m *FooterTemplate) validateType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this footer template based on context it is used
+func (m *FooterTemplate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

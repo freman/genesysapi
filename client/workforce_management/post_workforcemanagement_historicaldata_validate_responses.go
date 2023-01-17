@@ -101,7 +101,6 @@ func (o *PostWorkforcemanagementHistoricaldataValidateReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewPostWorkforcemanagementHistoricaldataValidateAccepted() *PostWorkforcema
 	return &PostWorkforcemanagementHistoricaldataValidateAccepted{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateAccepted handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateAccepted describes a response with status code 202, with default header values.
 
 Accepted - Triggering  validation process.
 */
 type PostWorkforcemanagementHistoricaldataValidateAccepted struct {
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate accepted response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate accepted response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate accepted response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate accepted response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate accepted response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateAccepted ", 202)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateAccepted ", 202)
 }
 
@@ -133,7 +162,8 @@ func NewPostWorkforcemanagementHistoricaldataValidateBadRequest() *PostWorkforce
 	return &PostWorkforcemanagementHistoricaldataValidateBadRequest{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type PostWorkforcemanagementHistoricaldataValidateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate bad request response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate bad request response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate bad request response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate bad request response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate bad request response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewPostWorkforcemanagementHistoricaldataValidateUnauthorized() *PostWorkfor
 	return &PostWorkforcemanagementHistoricaldataValidateUnauthorized{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type PostWorkforcemanagementHistoricaldataValidateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewPostWorkforcemanagementHistoricaldataValidateForbidden() *PostWorkforcem
 	return &PostWorkforcemanagementHistoricaldataValidateForbidden{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type PostWorkforcemanagementHistoricaldataValidateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewPostWorkforcemanagementHistoricaldataValidateNotFound() *PostWorkforcema
 	return &PostWorkforcemanagementHistoricaldataValidateNotFound{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type PostWorkforcemanagementHistoricaldataValidateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate not found response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate not found response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate not found response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate not found response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate not found response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewPostWorkforcemanagementHistoricaldataValidateRequestTimeout() *PostWorkf
 	return &PostWorkforcemanagementHistoricaldataValidateRequestTimeout{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type PostWorkforcemanagementHistoricaldataValidateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewPostWorkforcemanagementHistoricaldataValidateConflict() *PostWorkforcema
 	return &PostWorkforcemanagementHistoricaldataValidateConflict{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateConflict handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type PostWorkforcemanagementHistoricaldataValidateConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate conflict response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate conflict response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate conflict response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate conflict response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate conflict response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewPostWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge() *Po
 	return &PostWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type PostWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewPostWorkforcemanagementHistoricaldataValidateUnsupportedMediaType() *Pos
 	return &PostWorkforcemanagementHistoricaldataValidateUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type PostWorkforcemanagementHistoricaldataValidateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewPostWorkforcemanagementHistoricaldataValidateTooManyRequests() *PostWork
 	return &PostWorkforcemanagementHistoricaldataValidateTooManyRequests{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type PostWorkforcemanagementHistoricaldataValidateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewPostWorkforcemanagementHistoricaldataValidateInternalServerError() *Post
 	return &PostWorkforcemanagementHistoricaldataValidateInternalServerError{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type PostWorkforcemanagementHistoricaldataValidateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewPostWorkforcemanagementHistoricaldataValidateServiceUnavailable() *PostW
 	return &PostWorkforcemanagementHistoricaldataValidateServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type PostWorkforcemanagementHistoricaldataValidateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewPostWorkforcemanagementHistoricaldataValidateGatewayTimeout() *PostWorkf
 	return &PostWorkforcemanagementHistoricaldataValidateGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementHistoricaldataValidateGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementHistoricaldataValidateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type PostWorkforcemanagementHistoricaldataValidateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement historicaldata validate gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement historicaldata validate gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement historicaldata validate gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement historicaldata validate gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementHistoricaldataValidateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement historicaldata validate gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementHistoricaldataValidateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementHistoricaldataValidateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementHistoricaldataValidateGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/historicaldata/validate][%d] postWorkforcemanagementHistoricaldataValidateGatewayTimeout  %+v", 504, o.Payload)
 }
 

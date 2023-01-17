@@ -95,7 +95,6 @@ func (o *PutIdentityprovidersPingReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutIdentityprovidersPingOK() *PutIdentityprovidersPingOK {
 	return &PutIdentityprovidersPingOK{}
 }
 
-/*PutIdentityprovidersPingOK handles this case with default header values.
+/*
+PutIdentityprovidersPingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutIdentityprovidersPingOK struct {
 	Payload *models.OAuthProvider
 }
 
+// IsSuccess returns true when this put identityproviders ping o k response has a 2xx status code
+func (o *PutIdentityprovidersPingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put identityproviders ping o k response has a 3xx status code
+func (o *PutIdentityprovidersPingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders ping o k response has a 4xx status code
+func (o *PutIdentityprovidersPingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders ping o k response has a 5xx status code
+func (o *PutIdentityprovidersPingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders ping o k response a status code equal to that given
+func (o *PutIdentityprovidersPingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutIdentityprovidersPingOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingOK  %+v", 200, o.Payload)
+}
+
+func (o *PutIdentityprovidersPingOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutIdentityprovidersPingBadRequest() *PutIdentityprovidersPingBadRequest
 	return &PutIdentityprovidersPingBadRequest{}
 }
 
-/*PutIdentityprovidersPingBadRequest handles this case with default header values.
+/*
+PutIdentityprovidersPingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutIdentityprovidersPingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders ping bad request response has a 2xx status code
+func (o *PutIdentityprovidersPingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders ping bad request response has a 3xx status code
+func (o *PutIdentityprovidersPingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders ping bad request response has a 4xx status code
+func (o *PutIdentityprovidersPingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders ping bad request response has a 5xx status code
+func (o *PutIdentityprovidersPingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders ping bad request response a status code equal to that given
+func (o *PutIdentityprovidersPingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutIdentityprovidersPingBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutIdentityprovidersPingBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutIdentityprovidersPingUnauthorized() *PutIdentityprovidersPingUnauthor
 	return &PutIdentityprovidersPingUnauthorized{}
 }
 
-/*PutIdentityprovidersPingUnauthorized handles this case with default header values.
+/*
+PutIdentityprovidersPingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutIdentityprovidersPingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders ping unauthorized response has a 2xx status code
+func (o *PutIdentityprovidersPingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders ping unauthorized response has a 3xx status code
+func (o *PutIdentityprovidersPingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders ping unauthorized response has a 4xx status code
+func (o *PutIdentityprovidersPingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders ping unauthorized response has a 5xx status code
+func (o *PutIdentityprovidersPingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders ping unauthorized response a status code equal to that given
+func (o *PutIdentityprovidersPingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutIdentityprovidersPingUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutIdentityprovidersPingUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutIdentityprovidersPingForbidden() *PutIdentityprovidersPingForbidden {
 	return &PutIdentityprovidersPingForbidden{}
 }
 
-/*PutIdentityprovidersPingForbidden handles this case with default header values.
+/*
+PutIdentityprovidersPingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutIdentityprovidersPingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders ping forbidden response has a 2xx status code
+func (o *PutIdentityprovidersPingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders ping forbidden response has a 3xx status code
+func (o *PutIdentityprovidersPingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders ping forbidden response has a 4xx status code
+func (o *PutIdentityprovidersPingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders ping forbidden response has a 5xx status code
+func (o *PutIdentityprovidersPingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders ping forbidden response a status code equal to that given
+func (o *PutIdentityprovidersPingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutIdentityprovidersPingForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutIdentityprovidersPingForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutIdentityprovidersPingNotFound() *PutIdentityprovidersPingNotFound {
 	return &PutIdentityprovidersPingNotFound{}
 }
 
-/*PutIdentityprovidersPingNotFound handles this case with default header values.
+/*
+PutIdentityprovidersPingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutIdentityprovidersPingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders ping not found response has a 2xx status code
+func (o *PutIdentityprovidersPingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders ping not found response has a 3xx status code
+func (o *PutIdentityprovidersPingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders ping not found response has a 4xx status code
+func (o *PutIdentityprovidersPingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders ping not found response has a 5xx status code
+func (o *PutIdentityprovidersPingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders ping not found response a status code equal to that given
+func (o *PutIdentityprovidersPingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutIdentityprovidersPingNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutIdentityprovidersPingNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutIdentityprovidersPingRequestTimeout() *PutIdentityprovidersPingReques
 	return &PutIdentityprovidersPingRequestTimeout{}
 }
 
-/*PutIdentityprovidersPingRequestTimeout handles this case with default header values.
+/*
+PutIdentityprovidersPingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutIdentityprovidersPingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders ping request timeout response has a 2xx status code
+func (o *PutIdentityprovidersPingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders ping request timeout response has a 3xx status code
+func (o *PutIdentityprovidersPingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders ping request timeout response has a 4xx status code
+func (o *PutIdentityprovidersPingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders ping request timeout response has a 5xx status code
+func (o *PutIdentityprovidersPingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders ping request timeout response a status code equal to that given
+func (o *PutIdentityprovidersPingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutIdentityprovidersPingRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIdentityprovidersPingRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutIdentityprovidersPingRequestEntityTooLarge() *PutIdentityprovidersPin
 	return &PutIdentityprovidersPingRequestEntityTooLarge{}
 }
 
-/*PutIdentityprovidersPingRequestEntityTooLarge handles this case with default header values.
+/*
+PutIdentityprovidersPingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutIdentityprovidersPingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders ping request entity too large response has a 2xx status code
+func (o *PutIdentityprovidersPingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders ping request entity too large response has a 3xx status code
+func (o *PutIdentityprovidersPingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders ping request entity too large response has a 4xx status code
+func (o *PutIdentityprovidersPingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders ping request entity too large response has a 5xx status code
+func (o *PutIdentityprovidersPingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders ping request entity too large response a status code equal to that given
+func (o *PutIdentityprovidersPingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutIdentityprovidersPingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutIdentityprovidersPingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutIdentityprovidersPingUnsupportedMediaType() *PutIdentityprovidersPing
 	return &PutIdentityprovidersPingUnsupportedMediaType{}
 }
 
-/*PutIdentityprovidersPingUnsupportedMediaType handles this case with default header values.
+/*
+PutIdentityprovidersPingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutIdentityprovidersPingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders ping unsupported media type response has a 2xx status code
+func (o *PutIdentityprovidersPingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders ping unsupported media type response has a 3xx status code
+func (o *PutIdentityprovidersPingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders ping unsupported media type response has a 4xx status code
+func (o *PutIdentityprovidersPingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders ping unsupported media type response has a 5xx status code
+func (o *PutIdentityprovidersPingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders ping unsupported media type response a status code equal to that given
+func (o *PutIdentityprovidersPingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutIdentityprovidersPingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutIdentityprovidersPingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutIdentityprovidersPingTooManyRequests() *PutIdentityprovidersPingTooMa
 	return &PutIdentityprovidersPingTooManyRequests{}
 }
 
-/*PutIdentityprovidersPingTooManyRequests handles this case with default header values.
+/*
+PutIdentityprovidersPingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutIdentityprovidersPingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders ping too many requests response has a 2xx status code
+func (o *PutIdentityprovidersPingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders ping too many requests response has a 3xx status code
+func (o *PutIdentityprovidersPingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders ping too many requests response has a 4xx status code
+func (o *PutIdentityprovidersPingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders ping too many requests response has a 5xx status code
+func (o *PutIdentityprovidersPingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders ping too many requests response a status code equal to that given
+func (o *PutIdentityprovidersPingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutIdentityprovidersPingTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutIdentityprovidersPingTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutIdentityprovidersPingInternalServerError() *PutIdentityprovidersPingI
 	return &PutIdentityprovidersPingInternalServerError{}
 }
 
-/*PutIdentityprovidersPingInternalServerError handles this case with default header values.
+/*
+PutIdentityprovidersPingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutIdentityprovidersPingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders ping internal server error response has a 2xx status code
+func (o *PutIdentityprovidersPingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders ping internal server error response has a 3xx status code
+func (o *PutIdentityprovidersPingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders ping internal server error response has a 4xx status code
+func (o *PutIdentityprovidersPingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders ping internal server error response has a 5xx status code
+func (o *PutIdentityprovidersPingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders ping internal server error response a status code equal to that given
+func (o *PutIdentityprovidersPingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutIdentityprovidersPingInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutIdentityprovidersPingInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutIdentityprovidersPingServiceUnavailable() *PutIdentityprovidersPingSe
 	return &PutIdentityprovidersPingServiceUnavailable{}
 }
 
-/*PutIdentityprovidersPingServiceUnavailable handles this case with default header values.
+/*
+PutIdentityprovidersPingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutIdentityprovidersPingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders ping service unavailable response has a 2xx status code
+func (o *PutIdentityprovidersPingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders ping service unavailable response has a 3xx status code
+func (o *PutIdentityprovidersPingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders ping service unavailable response has a 4xx status code
+func (o *PutIdentityprovidersPingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders ping service unavailable response has a 5xx status code
+func (o *PutIdentityprovidersPingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders ping service unavailable response a status code equal to that given
+func (o *PutIdentityprovidersPingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutIdentityprovidersPingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutIdentityprovidersPingServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutIdentityprovidersPingGatewayTimeout() *PutIdentityprovidersPingGatewa
 	return &PutIdentityprovidersPingGatewayTimeout{}
 }
 
-/*PutIdentityprovidersPingGatewayTimeout handles this case with default header values.
+/*
+PutIdentityprovidersPingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutIdentityprovidersPingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders ping gateway timeout response has a 2xx status code
+func (o *PutIdentityprovidersPingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders ping gateway timeout response has a 3xx status code
+func (o *PutIdentityprovidersPingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders ping gateway timeout response has a 4xx status code
+func (o *PutIdentityprovidersPingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders ping gateway timeout response has a 5xx status code
+func (o *PutIdentityprovidersPingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders ping gateway timeout response a status code equal to that given
+func (o *PutIdentityprovidersPingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutIdentityprovidersPingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutIdentityprovidersPingGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/ping][%d] putIdentityprovidersPingGatewayTimeout  %+v", 504, o.Payload)
 }
 

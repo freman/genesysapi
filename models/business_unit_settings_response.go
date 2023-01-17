@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -79,6 +80,8 @@ func (m *BusinessUnitSettingsResponse) validateMetadata(formats strfmt.Registry)
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -88,7 +91,6 @@ func (m *BusinessUnitSettingsResponse) validateMetadata(formats strfmt.Registry)
 }
 
 func (m *BusinessUnitSettingsResponse) validateScheduling(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Scheduling) { // not required
 		return nil
 	}
@@ -97,6 +99,8 @@ func (m *BusinessUnitSettingsResponse) validateScheduling(formats strfmt.Registr
 		if err := m.Scheduling.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("scheduling")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scheduling")
 			}
 			return err
 		}
@@ -106,7 +110,6 @@ func (m *BusinessUnitSettingsResponse) validateScheduling(formats strfmt.Registr
 }
 
 func (m *BusinessUnitSettingsResponse) validateShortTermForecasting(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShortTermForecasting) { // not required
 		return nil
 	}
@@ -115,6 +118,8 @@ func (m *BusinessUnitSettingsResponse) validateShortTermForecasting(formats strf
 		if err := m.ShortTermForecasting.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("shortTermForecasting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecasting")
 			}
 			return err
 		}
@@ -185,6 +190,76 @@ func (m *BusinessUnitSettingsResponse) validateTimeZone(formats strfmt.Registry)
 
 	if err := validate.Required("timeZone", "body", m.TimeZone); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this business unit settings response based on the context it is used
+func (m *BusinessUnitSettingsResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScheduling(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShortTermForecasting(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BusinessUnitSettingsResponse) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BusinessUnitSettingsResponse) contextValidateScheduling(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Scheduling != nil {
+		if err := m.Scheduling.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("scheduling")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("scheduling")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BusinessUnitSettingsResponse) contextValidateShortTermForecasting(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ShortTermForecasting != nil {
+		if err := m.ShortTermForecasting.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("shortTermForecasting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecasting")
+			}
+			return err
+		}
 	}
 
 	return nil

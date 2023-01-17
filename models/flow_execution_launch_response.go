@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -51,7 +53,6 @@ func (m *FlowExecutionLaunchResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FlowExecutionLaunchResponse) validateFlowVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlowVersion) { // not required
 		return nil
 	}
@@ -60,6 +61,8 @@ func (m *FlowExecutionLaunchResponse) validateFlowVersion(formats strfmt.Registr
 		if err := m.FlowVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flowVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flowVersion")
 			}
 			return err
 		}
@@ -69,12 +72,54 @@ func (m *FlowExecutionLaunchResponse) validateFlowVersion(formats strfmt.Registr
 }
 
 func (m *FlowExecutionLaunchResponse) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this flow execution launch response based on the context it is used
+func (m *FlowExecutionLaunchResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFlowVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FlowExecutionLaunchResponse) contextValidateFlowVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FlowVersion != nil {
+		if err := m.FlowVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flowVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flowVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowExecutionLaunchResponse) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

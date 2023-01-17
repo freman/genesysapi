@@ -95,7 +95,6 @@ func (o *PostAuditsQueryRealtimeReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostAuditsQueryRealtimeOK() *PostAuditsQueryRealtimeOK {
 	return &PostAuditsQueryRealtimeOK{}
 }
 
-/*PostAuditsQueryRealtimeOK handles this case with default header values.
+/*
+PostAuditsQueryRealtimeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostAuditsQueryRealtimeOK struct {
 	Payload *models.AuditRealtimeQueryResultsResponse
 }
 
+// IsSuccess returns true when this post audits query realtime o k response has a 2xx status code
+func (o *PostAuditsQueryRealtimeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post audits query realtime o k response has a 3xx status code
+func (o *PostAuditsQueryRealtimeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post audits query realtime o k response has a 4xx status code
+func (o *PostAuditsQueryRealtimeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post audits query realtime o k response has a 5xx status code
+func (o *PostAuditsQueryRealtimeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post audits query realtime o k response a status code equal to that given
+func (o *PostAuditsQueryRealtimeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostAuditsQueryRealtimeOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeOK  %+v", 200, o.Payload)
+}
+
+func (o *PostAuditsQueryRealtimeOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostAuditsQueryRealtimeBadRequest() *PostAuditsQueryRealtimeBadRequest {
 	return &PostAuditsQueryRealtimeBadRequest{}
 }
 
-/*PostAuditsQueryRealtimeBadRequest handles this case with default header values.
+/*
+PostAuditsQueryRealtimeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostAuditsQueryRealtimeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post audits query realtime bad request response has a 2xx status code
+func (o *PostAuditsQueryRealtimeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post audits query realtime bad request response has a 3xx status code
+func (o *PostAuditsQueryRealtimeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post audits query realtime bad request response has a 4xx status code
+func (o *PostAuditsQueryRealtimeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post audits query realtime bad request response has a 5xx status code
+func (o *PostAuditsQueryRealtimeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post audits query realtime bad request response a status code equal to that given
+func (o *PostAuditsQueryRealtimeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAuditsQueryRealtimeBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAuditsQueryRealtimeBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostAuditsQueryRealtimeUnauthorized() *PostAuditsQueryRealtimeUnauthoriz
 	return &PostAuditsQueryRealtimeUnauthorized{}
 }
 
-/*PostAuditsQueryRealtimeUnauthorized handles this case with default header values.
+/*
+PostAuditsQueryRealtimeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostAuditsQueryRealtimeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post audits query realtime unauthorized response has a 2xx status code
+func (o *PostAuditsQueryRealtimeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post audits query realtime unauthorized response has a 3xx status code
+func (o *PostAuditsQueryRealtimeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post audits query realtime unauthorized response has a 4xx status code
+func (o *PostAuditsQueryRealtimeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post audits query realtime unauthorized response has a 5xx status code
+func (o *PostAuditsQueryRealtimeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post audits query realtime unauthorized response a status code equal to that given
+func (o *PostAuditsQueryRealtimeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAuditsQueryRealtimeUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAuditsQueryRealtimeUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostAuditsQueryRealtimeForbidden() *PostAuditsQueryRealtimeForbidden {
 	return &PostAuditsQueryRealtimeForbidden{}
 }
 
-/*PostAuditsQueryRealtimeForbidden handles this case with default header values.
+/*
+PostAuditsQueryRealtimeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostAuditsQueryRealtimeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post audits query realtime forbidden response has a 2xx status code
+func (o *PostAuditsQueryRealtimeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post audits query realtime forbidden response has a 3xx status code
+func (o *PostAuditsQueryRealtimeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post audits query realtime forbidden response has a 4xx status code
+func (o *PostAuditsQueryRealtimeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post audits query realtime forbidden response has a 5xx status code
+func (o *PostAuditsQueryRealtimeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post audits query realtime forbidden response a status code equal to that given
+func (o *PostAuditsQueryRealtimeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAuditsQueryRealtimeForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAuditsQueryRealtimeForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostAuditsQueryRealtimeNotFound() *PostAuditsQueryRealtimeNotFound {
 	return &PostAuditsQueryRealtimeNotFound{}
 }
 
-/*PostAuditsQueryRealtimeNotFound handles this case with default header values.
+/*
+PostAuditsQueryRealtimeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostAuditsQueryRealtimeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post audits query realtime not found response has a 2xx status code
+func (o *PostAuditsQueryRealtimeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post audits query realtime not found response has a 3xx status code
+func (o *PostAuditsQueryRealtimeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post audits query realtime not found response has a 4xx status code
+func (o *PostAuditsQueryRealtimeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post audits query realtime not found response has a 5xx status code
+func (o *PostAuditsQueryRealtimeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post audits query realtime not found response a status code equal to that given
+func (o *PostAuditsQueryRealtimeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAuditsQueryRealtimeNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAuditsQueryRealtimeNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostAuditsQueryRealtimeRequestTimeout() *PostAuditsQueryRealtimeRequestT
 	return &PostAuditsQueryRealtimeRequestTimeout{}
 }
 
-/*PostAuditsQueryRealtimeRequestTimeout handles this case with default header values.
+/*
+PostAuditsQueryRealtimeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostAuditsQueryRealtimeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post audits query realtime request timeout response has a 2xx status code
+func (o *PostAuditsQueryRealtimeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post audits query realtime request timeout response has a 3xx status code
+func (o *PostAuditsQueryRealtimeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post audits query realtime request timeout response has a 4xx status code
+func (o *PostAuditsQueryRealtimeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post audits query realtime request timeout response has a 5xx status code
+func (o *PostAuditsQueryRealtimeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post audits query realtime request timeout response a status code equal to that given
+func (o *PostAuditsQueryRealtimeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAuditsQueryRealtimeRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAuditsQueryRealtimeRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostAuditsQueryRealtimeRequestEntityTooLarge() *PostAuditsQueryRealtimeR
 	return &PostAuditsQueryRealtimeRequestEntityTooLarge{}
 }
 
-/*PostAuditsQueryRealtimeRequestEntityTooLarge handles this case with default header values.
+/*
+PostAuditsQueryRealtimeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostAuditsQueryRealtimeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post audits query realtime request entity too large response has a 2xx status code
+func (o *PostAuditsQueryRealtimeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post audits query realtime request entity too large response has a 3xx status code
+func (o *PostAuditsQueryRealtimeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post audits query realtime request entity too large response has a 4xx status code
+func (o *PostAuditsQueryRealtimeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post audits query realtime request entity too large response has a 5xx status code
+func (o *PostAuditsQueryRealtimeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post audits query realtime request entity too large response a status code equal to that given
+func (o *PostAuditsQueryRealtimeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAuditsQueryRealtimeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAuditsQueryRealtimeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostAuditsQueryRealtimeUnsupportedMediaType() *PostAuditsQueryRealtimeUn
 	return &PostAuditsQueryRealtimeUnsupportedMediaType{}
 }
 
-/*PostAuditsQueryRealtimeUnsupportedMediaType handles this case with default header values.
+/*
+PostAuditsQueryRealtimeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostAuditsQueryRealtimeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post audits query realtime unsupported media type response has a 2xx status code
+func (o *PostAuditsQueryRealtimeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post audits query realtime unsupported media type response has a 3xx status code
+func (o *PostAuditsQueryRealtimeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post audits query realtime unsupported media type response has a 4xx status code
+func (o *PostAuditsQueryRealtimeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post audits query realtime unsupported media type response has a 5xx status code
+func (o *PostAuditsQueryRealtimeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post audits query realtime unsupported media type response a status code equal to that given
+func (o *PostAuditsQueryRealtimeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAuditsQueryRealtimeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAuditsQueryRealtimeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostAuditsQueryRealtimeTooManyRequests() *PostAuditsQueryRealtimeTooMany
 	return &PostAuditsQueryRealtimeTooManyRequests{}
 }
 
-/*PostAuditsQueryRealtimeTooManyRequests handles this case with default header values.
+/*
+PostAuditsQueryRealtimeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostAuditsQueryRealtimeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post audits query realtime too many requests response has a 2xx status code
+func (o *PostAuditsQueryRealtimeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post audits query realtime too many requests response has a 3xx status code
+func (o *PostAuditsQueryRealtimeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post audits query realtime too many requests response has a 4xx status code
+func (o *PostAuditsQueryRealtimeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post audits query realtime too many requests response has a 5xx status code
+func (o *PostAuditsQueryRealtimeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post audits query realtime too many requests response a status code equal to that given
+func (o *PostAuditsQueryRealtimeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAuditsQueryRealtimeTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAuditsQueryRealtimeTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostAuditsQueryRealtimeInternalServerError() *PostAuditsQueryRealtimeInt
 	return &PostAuditsQueryRealtimeInternalServerError{}
 }
 
-/*PostAuditsQueryRealtimeInternalServerError handles this case with default header values.
+/*
+PostAuditsQueryRealtimeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostAuditsQueryRealtimeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post audits query realtime internal server error response has a 2xx status code
+func (o *PostAuditsQueryRealtimeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post audits query realtime internal server error response has a 3xx status code
+func (o *PostAuditsQueryRealtimeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post audits query realtime internal server error response has a 4xx status code
+func (o *PostAuditsQueryRealtimeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post audits query realtime internal server error response has a 5xx status code
+func (o *PostAuditsQueryRealtimeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post audits query realtime internal server error response a status code equal to that given
+func (o *PostAuditsQueryRealtimeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAuditsQueryRealtimeInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAuditsQueryRealtimeInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostAuditsQueryRealtimeServiceUnavailable() *PostAuditsQueryRealtimeServ
 	return &PostAuditsQueryRealtimeServiceUnavailable{}
 }
 
-/*PostAuditsQueryRealtimeServiceUnavailable handles this case with default header values.
+/*
+PostAuditsQueryRealtimeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostAuditsQueryRealtimeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post audits query realtime service unavailable response has a 2xx status code
+func (o *PostAuditsQueryRealtimeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post audits query realtime service unavailable response has a 3xx status code
+func (o *PostAuditsQueryRealtimeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post audits query realtime service unavailable response has a 4xx status code
+func (o *PostAuditsQueryRealtimeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post audits query realtime service unavailable response has a 5xx status code
+func (o *PostAuditsQueryRealtimeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post audits query realtime service unavailable response a status code equal to that given
+func (o *PostAuditsQueryRealtimeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAuditsQueryRealtimeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAuditsQueryRealtimeServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostAuditsQueryRealtimeGatewayTimeout() *PostAuditsQueryRealtimeGatewayT
 	return &PostAuditsQueryRealtimeGatewayTimeout{}
 }
 
-/*PostAuditsQueryRealtimeGatewayTimeout handles this case with default header values.
+/*
+PostAuditsQueryRealtimeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostAuditsQueryRealtimeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post audits query realtime gateway timeout response has a 2xx status code
+func (o *PostAuditsQueryRealtimeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post audits query realtime gateway timeout response has a 3xx status code
+func (o *PostAuditsQueryRealtimeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post audits query realtime gateway timeout response has a 4xx status code
+func (o *PostAuditsQueryRealtimeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post audits query realtime gateway timeout response has a 5xx status code
+func (o *PostAuditsQueryRealtimeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post audits query realtime gateway timeout response a status code equal to that given
+func (o *PostAuditsQueryRealtimeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAuditsQueryRealtimeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAuditsQueryRealtimeGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/audits/query/realtime][%d] postAuditsQueryRealtimeGatewayTimeout  %+v", 504, o.Payload)
 }
 

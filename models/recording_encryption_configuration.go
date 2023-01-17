@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -123,7 +124,6 @@ func (m *RecordingEncryptionConfiguration) validateKeyConfigurationType(formats 
 }
 
 func (m *RecordingEncryptionConfiguration) validateLastError(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastError) { // not required
 		return nil
 	}
@@ -132,6 +132,8 @@ func (m *RecordingEncryptionConfiguration) validateLastError(formats strfmt.Regi
 		if err := m.LastError.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastError")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastError")
 			}
 			return err
 		}
@@ -141,7 +143,6 @@ func (m *RecordingEncryptionConfiguration) validateLastError(formats strfmt.Regi
 }
 
 func (m *RecordingEncryptionConfiguration) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -156,6 +157,62 @@ func (m *RecordingEncryptionConfiguration) validateSelfURI(formats strfmt.Regist
 func (m *RecordingEncryptionConfiguration) validateURL(formats strfmt.Registry) error {
 
 	if err := validate.Required("url", "body", m.URL); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this recording encryption configuration based on the context it is used
+func (m *RecordingEncryptionConfiguration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastError(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RecordingEncryptionConfiguration) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *RecordingEncryptionConfiguration) contextValidateLastError(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastError != nil {
+		if err := m.LastError.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastError")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastError")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RecordingEncryptionConfiguration) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostLanguageunderstandingMinersParams creates a new PostLanguageunderstandingMinersParams object
-// with the default values initialized.
+// NewPostLanguageunderstandingMinersParams creates a new PostLanguageunderstandingMinersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostLanguageunderstandingMinersParams() *PostLanguageunderstandingMinersParams {
-	var ()
 	return &PostLanguageunderstandingMinersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostLanguageunderstandingMinersParamsWithTimeout creates a new PostLanguageunderstandingMinersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostLanguageunderstandingMinersParamsWithTimeout(timeout time.Duration) *PostLanguageunderstandingMinersParams {
-	var ()
 	return &PostLanguageunderstandingMinersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostLanguageunderstandingMinersParamsWithContext creates a new PostLanguageunderstandingMinersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostLanguageunderstandingMinersParamsWithContext(ctx context.Context) *PostLanguageunderstandingMinersParams {
-	var ()
 	return &PostLanguageunderstandingMinersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostLanguageunderstandingMinersParamsWithHTTPClient creates a new PostLanguageunderstandingMinersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostLanguageunderstandingMinersParamsWithHTTPClient(client *http.Client) *PostLanguageunderstandingMinersParams {
-	var ()
 	return &PostLanguageunderstandingMinersParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostLanguageunderstandingMinersParams contains all the parameters to send to the API endpoint
-for the post languageunderstanding miners operation typically these are written to a http.Request
+/*
+PostLanguageunderstandingMinersParams contains all the parameters to send to the API endpoint
+
+	for the post languageunderstanding miners operation.
+
+	Typically these are written to a http.Request.
 */
 type PostLanguageunderstandingMinersParams struct {
 
-	/*Body
-	  Details for creating a new miner resource.
+	/* Body.
 
+	   Details for creating a new miner resource.
 	*/
 	Body *models.Miner
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post languageunderstanding miners params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLanguageunderstandingMinersParams) WithDefaults() *PostLanguageunderstandingMinersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post languageunderstanding miners params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLanguageunderstandingMinersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post languageunderstanding miners params
@@ -124,7 +140,6 @@ func (o *PostLanguageunderstandingMinersParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

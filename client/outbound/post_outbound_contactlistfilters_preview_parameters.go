@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOutboundContactlistfiltersPreviewParams creates a new PostOutboundContactlistfiltersPreviewParams object
-// with the default values initialized.
+// NewPostOutboundContactlistfiltersPreviewParams creates a new PostOutboundContactlistfiltersPreviewParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundContactlistfiltersPreviewParams() *PostOutboundContactlistfiltersPreviewParams {
-	var ()
 	return &PostOutboundContactlistfiltersPreviewParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundContactlistfiltersPreviewParamsWithTimeout creates a new PostOutboundContactlistfiltersPreviewParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundContactlistfiltersPreviewParamsWithTimeout(timeout time.Duration) *PostOutboundContactlistfiltersPreviewParams {
-	var ()
 	return &PostOutboundContactlistfiltersPreviewParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundContactlistfiltersPreviewParamsWithContext creates a new PostOutboundContactlistfiltersPreviewParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundContactlistfiltersPreviewParamsWithContext(ctx context.Context) *PostOutboundContactlistfiltersPreviewParams {
-	var ()
 	return &PostOutboundContactlistfiltersPreviewParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundContactlistfiltersPreviewParamsWithHTTPClient creates a new PostOutboundContactlistfiltersPreviewParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundContactlistfiltersPreviewParamsWithHTTPClient(client *http.Client) *PostOutboundContactlistfiltersPreviewParams {
-	var ()
 	return &PostOutboundContactlistfiltersPreviewParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundContactlistfiltersPreviewParams contains all the parameters to send to the API endpoint
-for the post outbound contactlistfilters preview operation typically these are written to a http.Request
+/*
+PostOutboundContactlistfiltersPreviewParams contains all the parameters to send to the API endpoint
+
+	for the post outbound contactlistfilters preview operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundContactlistfiltersPreviewParams struct {
 
-	/*Body
-	  ContactListFilter
+	/* Body.
 
+	   ContactListFilter
 	*/
 	Body *models.ContactListFilter
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound contactlistfilters preview params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundContactlistfiltersPreviewParams) WithDefaults() *PostOutboundContactlistfiltersPreviewParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound contactlistfilters preview params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundContactlistfiltersPreviewParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound contactlistfilters preview params
@@ -124,7 +140,6 @@ func (o *PostOutboundContactlistfiltersPreviewParams) WriteToRequest(r runtime.C
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -65,7 +66,6 @@ func (m *CoachingSlot) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CoachingSlot) validateDateStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStart) { // not required
 		return nil
 	}
@@ -110,7 +110,6 @@ func (m *CoachingSlot) validateDifferenceRatingEnum(path, location string, value
 }
 
 func (m *CoachingSlot) validateDifferenceRating(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DifferenceRating) { // not required
 		return nil
 	}
@@ -124,7 +123,6 @@ func (m *CoachingSlot) validateDifferenceRating(formats strfmt.Registry) error {
 }
 
 func (m *CoachingSlot) validateWfmSchedule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WfmSchedule) { // not required
 		return nil
 	}
@@ -133,6 +131,90 @@ func (m *CoachingSlot) validateWfmSchedule(formats strfmt.Registry) error {
 		if err := m.WfmSchedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wfmSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wfmSchedule")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this coaching slot based on the context it is used
+func (m *CoachingSlot) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateStart(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDifferenceRating(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLengthInMinutes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStaffingDifference(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWfmSchedule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CoachingSlot) contextValidateDateStart(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateStart", "body", strfmt.DateTime(m.DateStart)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingSlot) contextValidateDifferenceRating(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "differenceRating", "body", string(m.DifferenceRating)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingSlot) contextValidateLengthInMinutes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "lengthInMinutes", "body", int32(m.LengthInMinutes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingSlot) contextValidateStaffingDifference(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "staffingDifference", "body", float64(m.StaffingDifference)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingSlot) contextValidateWfmSchedule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WfmSchedule != nil {
+		if err := m.WfmSchedule.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wfmSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wfmSchedule")
 			}
 			return err
 		}

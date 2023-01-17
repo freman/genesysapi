@@ -95,7 +95,6 @@ func (o *GetLearningModulesCoverartCoverArtIDReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetLearningModulesCoverartCoverArtIDOK() *GetLearningModulesCoverartCove
 	return &GetLearningModulesCoverartCoverArtIDOK{}
 }
 
-/*GetLearningModulesCoverartCoverArtIDOK handles this case with default header values.
+/*
+GetLearningModulesCoverartCoverArtIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetLearningModulesCoverartCoverArtIDOK struct {
 	Payload *models.LearningModuleCoverArtResponse
 }
 
+// IsSuccess returns true when this get learning modules coverart cover art Id o k response has a 2xx status code
+func (o *GetLearningModulesCoverartCoverArtIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get learning modules coverart cover art Id o k response has a 3xx status code
+func (o *GetLearningModulesCoverartCoverArtIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules coverart cover art Id o k response has a 4xx status code
+func (o *GetLearningModulesCoverartCoverArtIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get learning modules coverart cover art Id o k response has a 5xx status code
+func (o *GetLearningModulesCoverartCoverArtIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules coverart cover art Id o k response a status code equal to that given
+func (o *GetLearningModulesCoverartCoverArtIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLearningModulesCoverartCoverArtIDOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdOK  %+v", 200, o.Payload)
+}
+
+func (o *GetLearningModulesCoverartCoverArtIDOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetLearningModulesCoverartCoverArtIDBadRequest() *GetLearningModulesCove
 	return &GetLearningModulesCoverartCoverArtIDBadRequest{}
 }
 
-/*GetLearningModulesCoverartCoverArtIDBadRequest handles this case with default header values.
+/*
+GetLearningModulesCoverartCoverArtIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetLearningModulesCoverartCoverArtIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules coverart cover art Id bad request response has a 2xx status code
+func (o *GetLearningModulesCoverartCoverArtIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules coverart cover art Id bad request response has a 3xx status code
+func (o *GetLearningModulesCoverartCoverArtIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules coverart cover art Id bad request response has a 4xx status code
+func (o *GetLearningModulesCoverartCoverArtIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules coverart cover art Id bad request response has a 5xx status code
+func (o *GetLearningModulesCoverartCoverArtIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules coverart cover art Id bad request response a status code equal to that given
+func (o *GetLearningModulesCoverartCoverArtIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLearningModulesCoverartCoverArtIDBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetLearningModulesCoverartCoverArtIDBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetLearningModulesCoverartCoverArtIDUnauthorized() *GetLearningModulesCo
 	return &GetLearningModulesCoverartCoverArtIDUnauthorized{}
 }
 
-/*GetLearningModulesCoverartCoverArtIDUnauthorized handles this case with default header values.
+/*
+GetLearningModulesCoverartCoverArtIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetLearningModulesCoverartCoverArtIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules coverart cover art Id unauthorized response has a 2xx status code
+func (o *GetLearningModulesCoverartCoverArtIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules coverart cover art Id unauthorized response has a 3xx status code
+func (o *GetLearningModulesCoverartCoverArtIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules coverart cover art Id unauthorized response has a 4xx status code
+func (o *GetLearningModulesCoverartCoverArtIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules coverart cover art Id unauthorized response has a 5xx status code
+func (o *GetLearningModulesCoverartCoverArtIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules coverart cover art Id unauthorized response a status code equal to that given
+func (o *GetLearningModulesCoverartCoverArtIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetLearningModulesCoverartCoverArtIDUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetLearningModulesCoverartCoverArtIDUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetLearningModulesCoverartCoverArtIDForbidden() *GetLearningModulesCover
 	return &GetLearningModulesCoverartCoverArtIDForbidden{}
 }
 
-/*GetLearningModulesCoverartCoverArtIDForbidden handles this case with default header values.
+/*
+GetLearningModulesCoverartCoverArtIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetLearningModulesCoverartCoverArtIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules coverart cover art Id forbidden response has a 2xx status code
+func (o *GetLearningModulesCoverartCoverArtIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules coverart cover art Id forbidden response has a 3xx status code
+func (o *GetLearningModulesCoverartCoverArtIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules coverart cover art Id forbidden response has a 4xx status code
+func (o *GetLearningModulesCoverartCoverArtIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules coverart cover art Id forbidden response has a 5xx status code
+func (o *GetLearningModulesCoverartCoverArtIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules coverart cover art Id forbidden response a status code equal to that given
+func (o *GetLearningModulesCoverartCoverArtIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLearningModulesCoverartCoverArtIDForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetLearningModulesCoverartCoverArtIDForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetLearningModulesCoverartCoverArtIDNotFound() *GetLearningModulesCovera
 	return &GetLearningModulesCoverartCoverArtIDNotFound{}
 }
 
-/*GetLearningModulesCoverartCoverArtIDNotFound handles this case with default header values.
+/*
+GetLearningModulesCoverartCoverArtIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetLearningModulesCoverartCoverArtIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules coverart cover art Id not found response has a 2xx status code
+func (o *GetLearningModulesCoverartCoverArtIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules coverart cover art Id not found response has a 3xx status code
+func (o *GetLearningModulesCoverartCoverArtIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules coverart cover art Id not found response has a 4xx status code
+func (o *GetLearningModulesCoverartCoverArtIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules coverart cover art Id not found response has a 5xx status code
+func (o *GetLearningModulesCoverartCoverArtIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules coverart cover art Id not found response a status code equal to that given
+func (o *GetLearningModulesCoverartCoverArtIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLearningModulesCoverartCoverArtIDNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetLearningModulesCoverartCoverArtIDNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetLearningModulesCoverartCoverArtIDRequestTimeout() *GetLearningModules
 	return &GetLearningModulesCoverartCoverArtIDRequestTimeout{}
 }
 
-/*GetLearningModulesCoverartCoverArtIDRequestTimeout handles this case with default header values.
+/*
+GetLearningModulesCoverartCoverArtIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetLearningModulesCoverartCoverArtIDRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules coverart cover art Id request timeout response has a 2xx status code
+func (o *GetLearningModulesCoverartCoverArtIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules coverart cover art Id request timeout response has a 3xx status code
+func (o *GetLearningModulesCoverartCoverArtIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules coverart cover art Id request timeout response has a 4xx status code
+func (o *GetLearningModulesCoverartCoverArtIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules coverart cover art Id request timeout response has a 5xx status code
+func (o *GetLearningModulesCoverartCoverArtIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules coverart cover art Id request timeout response a status code equal to that given
+func (o *GetLearningModulesCoverartCoverArtIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetLearningModulesCoverartCoverArtIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLearningModulesCoverartCoverArtIDRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetLearningModulesCoverartCoverArtIDRequestEntityTooLarge() *GetLearning
 	return &GetLearningModulesCoverartCoverArtIDRequestEntityTooLarge{}
 }
 
-/*GetLearningModulesCoverartCoverArtIDRequestEntityTooLarge handles this case with default header values.
+/*
+GetLearningModulesCoverartCoverArtIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetLearningModulesCoverartCoverArtIDRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules coverart cover art Id request entity too large response has a 2xx status code
+func (o *GetLearningModulesCoverartCoverArtIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules coverart cover art Id request entity too large response has a 3xx status code
+func (o *GetLearningModulesCoverartCoverArtIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules coverart cover art Id request entity too large response has a 4xx status code
+func (o *GetLearningModulesCoverartCoverArtIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules coverart cover art Id request entity too large response has a 5xx status code
+func (o *GetLearningModulesCoverartCoverArtIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules coverart cover art Id request entity too large response a status code equal to that given
+func (o *GetLearningModulesCoverartCoverArtIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetLearningModulesCoverartCoverArtIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetLearningModulesCoverartCoverArtIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetLearningModulesCoverartCoverArtIDUnsupportedMediaType() *GetLearningM
 	return &GetLearningModulesCoverartCoverArtIDUnsupportedMediaType{}
 }
 
-/*GetLearningModulesCoverartCoverArtIDUnsupportedMediaType handles this case with default header values.
+/*
+GetLearningModulesCoverartCoverArtIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetLearningModulesCoverartCoverArtIDUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules coverart cover art Id unsupported media type response has a 2xx status code
+func (o *GetLearningModulesCoverartCoverArtIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules coverart cover art Id unsupported media type response has a 3xx status code
+func (o *GetLearningModulesCoverartCoverArtIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules coverart cover art Id unsupported media type response has a 4xx status code
+func (o *GetLearningModulesCoverartCoverArtIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules coverart cover art Id unsupported media type response has a 5xx status code
+func (o *GetLearningModulesCoverartCoverArtIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules coverart cover art Id unsupported media type response a status code equal to that given
+func (o *GetLearningModulesCoverartCoverArtIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetLearningModulesCoverartCoverArtIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetLearningModulesCoverartCoverArtIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetLearningModulesCoverartCoverArtIDTooManyRequests() *GetLearningModule
 	return &GetLearningModulesCoverartCoverArtIDTooManyRequests{}
 }
 
-/*GetLearningModulesCoverartCoverArtIDTooManyRequests handles this case with default header values.
+/*
+GetLearningModulesCoverartCoverArtIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetLearningModulesCoverartCoverArtIDTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules coverart cover art Id too many requests response has a 2xx status code
+func (o *GetLearningModulesCoverartCoverArtIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules coverart cover art Id too many requests response has a 3xx status code
+func (o *GetLearningModulesCoverartCoverArtIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules coverart cover art Id too many requests response has a 4xx status code
+func (o *GetLearningModulesCoverartCoverArtIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get learning modules coverart cover art Id too many requests response has a 5xx status code
+func (o *GetLearningModulesCoverartCoverArtIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get learning modules coverart cover art Id too many requests response a status code equal to that given
+func (o *GetLearningModulesCoverartCoverArtIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLearningModulesCoverartCoverArtIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetLearningModulesCoverartCoverArtIDTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetLearningModulesCoverartCoverArtIDInternalServerError() *GetLearningMo
 	return &GetLearningModulesCoverartCoverArtIDInternalServerError{}
 }
 
-/*GetLearningModulesCoverartCoverArtIDInternalServerError handles this case with default header values.
+/*
+GetLearningModulesCoverartCoverArtIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetLearningModulesCoverartCoverArtIDInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules coverart cover art Id internal server error response has a 2xx status code
+func (o *GetLearningModulesCoverartCoverArtIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules coverart cover art Id internal server error response has a 3xx status code
+func (o *GetLearningModulesCoverartCoverArtIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules coverart cover art Id internal server error response has a 4xx status code
+func (o *GetLearningModulesCoverartCoverArtIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get learning modules coverart cover art Id internal server error response has a 5xx status code
+func (o *GetLearningModulesCoverartCoverArtIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get learning modules coverart cover art Id internal server error response a status code equal to that given
+func (o *GetLearningModulesCoverartCoverArtIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLearningModulesCoverartCoverArtIDInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetLearningModulesCoverartCoverArtIDInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetLearningModulesCoverartCoverArtIDServiceUnavailable() *GetLearningMod
 	return &GetLearningModulesCoverartCoverArtIDServiceUnavailable{}
 }
 
-/*GetLearningModulesCoverartCoverArtIDServiceUnavailable handles this case with default header values.
+/*
+GetLearningModulesCoverartCoverArtIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetLearningModulesCoverartCoverArtIDServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules coverart cover art Id service unavailable response has a 2xx status code
+func (o *GetLearningModulesCoverartCoverArtIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules coverart cover art Id service unavailable response has a 3xx status code
+func (o *GetLearningModulesCoverartCoverArtIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules coverart cover art Id service unavailable response has a 4xx status code
+func (o *GetLearningModulesCoverartCoverArtIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get learning modules coverart cover art Id service unavailable response has a 5xx status code
+func (o *GetLearningModulesCoverartCoverArtIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get learning modules coverart cover art Id service unavailable response a status code equal to that given
+func (o *GetLearningModulesCoverartCoverArtIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetLearningModulesCoverartCoverArtIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetLearningModulesCoverartCoverArtIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetLearningModulesCoverartCoverArtIDGatewayTimeout() *GetLearningModules
 	return &GetLearningModulesCoverartCoverArtIDGatewayTimeout{}
 }
 
-/*GetLearningModulesCoverartCoverArtIDGatewayTimeout handles this case with default header values.
+/*
+GetLearningModulesCoverartCoverArtIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetLearningModulesCoverartCoverArtIDGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get learning modules coverart cover art Id gateway timeout response has a 2xx status code
+func (o *GetLearningModulesCoverartCoverArtIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get learning modules coverart cover art Id gateway timeout response has a 3xx status code
+func (o *GetLearningModulesCoverartCoverArtIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get learning modules coverart cover art Id gateway timeout response has a 4xx status code
+func (o *GetLearningModulesCoverartCoverArtIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get learning modules coverart cover art Id gateway timeout response has a 5xx status code
+func (o *GetLearningModulesCoverartCoverArtIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get learning modules coverart cover art Id gateway timeout response a status code equal to that given
+func (o *GetLearningModulesCoverartCoverArtIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetLearningModulesCoverartCoverArtIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetLearningModulesCoverartCoverArtIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/learning/modules/coverart/{coverArtId}][%d] getLearningModulesCoverartCoverArtIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

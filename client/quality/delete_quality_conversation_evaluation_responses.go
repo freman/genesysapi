@@ -95,7 +95,6 @@ func (o *DeleteQualityConversationEvaluationReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteQualityConversationEvaluationOK() *DeleteQualityConversationEvalua
 	return &DeleteQualityConversationEvaluationOK{}
 }
 
-/*DeleteQualityConversationEvaluationOK handles this case with default header values.
+/*
+DeleteQualityConversationEvaluationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteQualityConversationEvaluationOK struct {
 	Payload *models.EvaluationResponse
 }
 
+// IsSuccess returns true when this delete quality conversation evaluation o k response has a 2xx status code
+func (o *DeleteQualityConversationEvaluationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete quality conversation evaluation o k response has a 3xx status code
+func (o *DeleteQualityConversationEvaluationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality conversation evaluation o k response has a 4xx status code
+func (o *DeleteQualityConversationEvaluationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality conversation evaluation o k response has a 5xx status code
+func (o *DeleteQualityConversationEvaluationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality conversation evaluation o k response a status code equal to that given
+func (o *DeleteQualityConversationEvaluationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteQualityConversationEvaluationOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewDeleteQualityConversationEvaluationBadRequest() *DeleteQualityConversati
 	return &DeleteQualityConversationEvaluationBadRequest{}
 }
 
-/*DeleteQualityConversationEvaluationBadRequest handles this case with default header values.
+/*
+DeleteQualityConversationEvaluationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type DeleteQualityConversationEvaluationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality conversation evaluation bad request response has a 2xx status code
+func (o *DeleteQualityConversationEvaluationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality conversation evaluation bad request response has a 3xx status code
+func (o *DeleteQualityConversationEvaluationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality conversation evaluation bad request response has a 4xx status code
+func (o *DeleteQualityConversationEvaluationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality conversation evaluation bad request response has a 5xx status code
+func (o *DeleteQualityConversationEvaluationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality conversation evaluation bad request response a status code equal to that given
+func (o *DeleteQualityConversationEvaluationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteQualityConversationEvaluationBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewDeleteQualityConversationEvaluationUnauthorized() *DeleteQualityConversa
 	return &DeleteQualityConversationEvaluationUnauthorized{}
 }
 
-/*DeleteQualityConversationEvaluationUnauthorized handles this case with default header values.
+/*
+DeleteQualityConversationEvaluationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type DeleteQualityConversationEvaluationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality conversation evaluation unauthorized response has a 2xx status code
+func (o *DeleteQualityConversationEvaluationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality conversation evaluation unauthorized response has a 3xx status code
+func (o *DeleteQualityConversationEvaluationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality conversation evaluation unauthorized response has a 4xx status code
+func (o *DeleteQualityConversationEvaluationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality conversation evaluation unauthorized response has a 5xx status code
+func (o *DeleteQualityConversationEvaluationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality conversation evaluation unauthorized response a status code equal to that given
+func (o *DeleteQualityConversationEvaluationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteQualityConversationEvaluationUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewDeleteQualityConversationEvaluationForbidden() *DeleteQualityConversatio
 	return &DeleteQualityConversationEvaluationForbidden{}
 }
 
-/*DeleteQualityConversationEvaluationForbidden handles this case with default header values.
+/*
+DeleteQualityConversationEvaluationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type DeleteQualityConversationEvaluationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality conversation evaluation forbidden response has a 2xx status code
+func (o *DeleteQualityConversationEvaluationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality conversation evaluation forbidden response has a 3xx status code
+func (o *DeleteQualityConversationEvaluationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality conversation evaluation forbidden response has a 4xx status code
+func (o *DeleteQualityConversationEvaluationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality conversation evaluation forbidden response has a 5xx status code
+func (o *DeleteQualityConversationEvaluationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality conversation evaluation forbidden response a status code equal to that given
+func (o *DeleteQualityConversationEvaluationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteQualityConversationEvaluationForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewDeleteQualityConversationEvaluationNotFound() *DeleteQualityConversation
 	return &DeleteQualityConversationEvaluationNotFound{}
 }
 
-/*DeleteQualityConversationEvaluationNotFound handles this case with default header values.
+/*
+DeleteQualityConversationEvaluationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type DeleteQualityConversationEvaluationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality conversation evaluation not found response has a 2xx status code
+func (o *DeleteQualityConversationEvaluationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality conversation evaluation not found response has a 3xx status code
+func (o *DeleteQualityConversationEvaluationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality conversation evaluation not found response has a 4xx status code
+func (o *DeleteQualityConversationEvaluationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality conversation evaluation not found response has a 5xx status code
+func (o *DeleteQualityConversationEvaluationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality conversation evaluation not found response a status code equal to that given
+func (o *DeleteQualityConversationEvaluationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteQualityConversationEvaluationNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewDeleteQualityConversationEvaluationRequestTimeout() *DeleteQualityConver
 	return &DeleteQualityConversationEvaluationRequestTimeout{}
 }
 
-/*DeleteQualityConversationEvaluationRequestTimeout handles this case with default header values.
+/*
+DeleteQualityConversationEvaluationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type DeleteQualityConversationEvaluationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality conversation evaluation request timeout response has a 2xx status code
+func (o *DeleteQualityConversationEvaluationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality conversation evaluation request timeout response has a 3xx status code
+func (o *DeleteQualityConversationEvaluationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality conversation evaluation request timeout response has a 4xx status code
+func (o *DeleteQualityConversationEvaluationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality conversation evaluation request timeout response has a 5xx status code
+func (o *DeleteQualityConversationEvaluationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality conversation evaluation request timeout response a status code equal to that given
+func (o *DeleteQualityConversationEvaluationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteQualityConversationEvaluationRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewDeleteQualityConversationEvaluationRequestEntityTooLarge() *DeleteQualit
 	return &DeleteQualityConversationEvaluationRequestEntityTooLarge{}
 }
 
-/*DeleteQualityConversationEvaluationRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteQualityConversationEvaluationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type DeleteQualityConversationEvaluationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality conversation evaluation request entity too large response has a 2xx status code
+func (o *DeleteQualityConversationEvaluationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality conversation evaluation request entity too large response has a 3xx status code
+func (o *DeleteQualityConversationEvaluationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality conversation evaluation request entity too large response has a 4xx status code
+func (o *DeleteQualityConversationEvaluationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality conversation evaluation request entity too large response has a 5xx status code
+func (o *DeleteQualityConversationEvaluationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality conversation evaluation request entity too large response a status code equal to that given
+func (o *DeleteQualityConversationEvaluationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteQualityConversationEvaluationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewDeleteQualityConversationEvaluationUnsupportedMediaType() *DeleteQuality
 	return &DeleteQualityConversationEvaluationUnsupportedMediaType{}
 }
 
-/*DeleteQualityConversationEvaluationUnsupportedMediaType handles this case with default header values.
+/*
+DeleteQualityConversationEvaluationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type DeleteQualityConversationEvaluationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality conversation evaluation unsupported media type response has a 2xx status code
+func (o *DeleteQualityConversationEvaluationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality conversation evaluation unsupported media type response has a 3xx status code
+func (o *DeleteQualityConversationEvaluationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality conversation evaluation unsupported media type response has a 4xx status code
+func (o *DeleteQualityConversationEvaluationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality conversation evaluation unsupported media type response has a 5xx status code
+func (o *DeleteQualityConversationEvaluationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality conversation evaluation unsupported media type response a status code equal to that given
+func (o *DeleteQualityConversationEvaluationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteQualityConversationEvaluationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewDeleteQualityConversationEvaluationTooManyRequests() *DeleteQualityConve
 	return &DeleteQualityConversationEvaluationTooManyRequests{}
 }
 
-/*DeleteQualityConversationEvaluationTooManyRequests handles this case with default header values.
+/*
+DeleteQualityConversationEvaluationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type DeleteQualityConversationEvaluationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality conversation evaluation too many requests response has a 2xx status code
+func (o *DeleteQualityConversationEvaluationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality conversation evaluation too many requests response has a 3xx status code
+func (o *DeleteQualityConversationEvaluationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality conversation evaluation too many requests response has a 4xx status code
+func (o *DeleteQualityConversationEvaluationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality conversation evaluation too many requests response has a 5xx status code
+func (o *DeleteQualityConversationEvaluationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality conversation evaluation too many requests response a status code equal to that given
+func (o *DeleteQualityConversationEvaluationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteQualityConversationEvaluationTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewDeleteQualityConversationEvaluationInternalServerError() *DeleteQualityC
 	return &DeleteQualityConversationEvaluationInternalServerError{}
 }
 
-/*DeleteQualityConversationEvaluationInternalServerError handles this case with default header values.
+/*
+DeleteQualityConversationEvaluationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type DeleteQualityConversationEvaluationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality conversation evaluation internal server error response has a 2xx status code
+func (o *DeleteQualityConversationEvaluationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality conversation evaluation internal server error response has a 3xx status code
+func (o *DeleteQualityConversationEvaluationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality conversation evaluation internal server error response has a 4xx status code
+func (o *DeleteQualityConversationEvaluationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality conversation evaluation internal server error response has a 5xx status code
+func (o *DeleteQualityConversationEvaluationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete quality conversation evaluation internal server error response a status code equal to that given
+func (o *DeleteQualityConversationEvaluationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteQualityConversationEvaluationInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewDeleteQualityConversationEvaluationServiceUnavailable() *DeleteQualityCo
 	return &DeleteQualityConversationEvaluationServiceUnavailable{}
 }
 
-/*DeleteQualityConversationEvaluationServiceUnavailable handles this case with default header values.
+/*
+DeleteQualityConversationEvaluationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type DeleteQualityConversationEvaluationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality conversation evaluation service unavailable response has a 2xx status code
+func (o *DeleteQualityConversationEvaluationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality conversation evaluation service unavailable response has a 3xx status code
+func (o *DeleteQualityConversationEvaluationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality conversation evaluation service unavailable response has a 4xx status code
+func (o *DeleteQualityConversationEvaluationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality conversation evaluation service unavailable response has a 5xx status code
+func (o *DeleteQualityConversationEvaluationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete quality conversation evaluation service unavailable response a status code equal to that given
+func (o *DeleteQualityConversationEvaluationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteQualityConversationEvaluationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewDeleteQualityConversationEvaluationGatewayTimeout() *DeleteQualityConver
 	return &DeleteQualityConversationEvaluationGatewayTimeout{}
 }
 
-/*DeleteQualityConversationEvaluationGatewayTimeout handles this case with default header values.
+/*
+DeleteQualityConversationEvaluationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type DeleteQualityConversationEvaluationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality conversation evaluation gateway timeout response has a 2xx status code
+func (o *DeleteQualityConversationEvaluationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality conversation evaluation gateway timeout response has a 3xx status code
+func (o *DeleteQualityConversationEvaluationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality conversation evaluation gateway timeout response has a 4xx status code
+func (o *DeleteQualityConversationEvaluationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality conversation evaluation gateway timeout response has a 5xx status code
+func (o *DeleteQualityConversationEvaluationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete quality conversation evaluation gateway timeout response a status code equal to that given
+func (o *DeleteQualityConversationEvaluationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteQualityConversationEvaluationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteQualityConversationEvaluationGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] deleteQualityConversationEvaluationGatewayTimeout  %+v", 504, o.Payload)
 }
 

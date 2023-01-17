@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -60,7 +62,6 @@ func (m *UserStations) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserStations) validateAssociatedStation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssociatedStation) { // not required
 		return nil
 	}
@@ -69,6 +70,8 @@ func (m *UserStations) validateAssociatedStation(formats strfmt.Registry) error 
 		if err := m.AssociatedStation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("associatedStation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("associatedStation")
 			}
 			return err
 		}
@@ -78,7 +81,6 @@ func (m *UserStations) validateAssociatedStation(formats strfmt.Registry) error 
 }
 
 func (m *UserStations) validateDefaultStation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DefaultStation) { // not required
 		return nil
 	}
@@ -87,6 +89,8 @@ func (m *UserStations) validateDefaultStation(formats strfmt.Registry) error {
 		if err := m.DefaultStation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("defaultStation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("defaultStation")
 			}
 			return err
 		}
@@ -96,7 +100,6 @@ func (m *UserStations) validateDefaultStation(formats strfmt.Registry) error {
 }
 
 func (m *UserStations) validateEffectiveStation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EffectiveStation) { // not required
 		return nil
 	}
@@ -105,6 +108,8 @@ func (m *UserStations) validateEffectiveStation(formats strfmt.Registry) error {
 		if err := m.EffectiveStation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("effectiveStation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("effectiveStation")
 			}
 			return err
 		}
@@ -114,7 +119,6 @@ func (m *UserStations) validateEffectiveStation(formats strfmt.Registry) error {
 }
 
 func (m *UserStations) validateLastAssociatedStation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastAssociatedStation) { // not required
 		return nil
 	}
@@ -123,6 +127,98 @@ func (m *UserStations) validateLastAssociatedStation(formats strfmt.Registry) er
 		if err := m.LastAssociatedStation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastAssociatedStation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastAssociatedStation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user stations based on the context it is used
+func (m *UserStations) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAssociatedStation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDefaultStation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEffectiveStation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastAssociatedStation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserStations) contextValidateAssociatedStation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AssociatedStation != nil {
+		if err := m.AssociatedStation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("associatedStation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("associatedStation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserStations) contextValidateDefaultStation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DefaultStation != nil {
+		if err := m.DefaultStation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("defaultStation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("defaultStation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserStations) contextValidateEffectiveStation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EffectiveStation != nil {
+		if err := m.EffectiveStation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("effectiveStation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("effectiveStation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserStations) contextValidateLastAssociatedStation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastAssociatedStation != nil {
+		if err := m.LastAssociatedStation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastAssociatedStation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastAssociatedStation")
 			}
 			return err
 		}

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -76,7 +77,6 @@ func (m *SingleWorkdayAverageValues) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SingleWorkdayAverageValues) validateDateWorkday(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateWorkday) { // not required
 		return nil
 	}
@@ -89,7 +89,6 @@ func (m *SingleWorkdayAverageValues) validateDateWorkday(formats strfmt.Registry
 }
 
 func (m *SingleWorkdayAverageValues) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -98,6 +97,8 @@ func (m *SingleWorkdayAverageValues) validateDivision(formats strfmt.Registry) e
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -107,7 +108,6 @@ func (m *SingleWorkdayAverageValues) validateDivision(formats strfmt.Registry) e
 }
 
 func (m *SingleWorkdayAverageValues) validatePerformanceProfile(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PerformanceProfile) { // not required
 		return nil
 	}
@@ -116,6 +116,8 @@ func (m *SingleWorkdayAverageValues) validatePerformanceProfile(formats strfmt.R
 		if err := m.PerformanceProfile.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("performanceProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("performanceProfile")
 			}
 			return err
 		}
@@ -125,7 +127,6 @@ func (m *SingleWorkdayAverageValues) validatePerformanceProfile(formats strfmt.R
 }
 
 func (m *SingleWorkdayAverageValues) validateResults(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Results) { // not required
 		return nil
 	}
@@ -139,6 +140,8 @@ func (m *SingleWorkdayAverageValues) validateResults(formats strfmt.Registry) er
 			if err := m.Results[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("results" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("results" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -150,7 +153,6 @@ func (m *SingleWorkdayAverageValues) validateResults(formats strfmt.Registry) er
 }
 
 func (m *SingleWorkdayAverageValues) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -159,6 +161,132 @@ func (m *SingleWorkdayAverageValues) validateUser(formats strfmt.Registry) error
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this single workday average values based on the context it is used
+func (m *SingleWorkdayAverageValues) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateWorkday(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePerformanceProfile(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResults(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTimezone(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SingleWorkdayAverageValues) contextValidateDateWorkday(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateWorkday", "body", strfmt.Date(m.DateWorkday)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SingleWorkdayAverageValues) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SingleWorkdayAverageValues) contextValidatePerformanceProfile(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PerformanceProfile != nil {
+		if err := m.PerformanceProfile.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("performanceProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("performanceProfile")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SingleWorkdayAverageValues) contextValidateResults(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "results", "body", []*WorkdayValuesMetricItem(m.Results)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Results); i++ {
+
+		if m.Results[i] != nil {
+			if err := m.Results[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("results" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("results" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SingleWorkdayAverageValues) contextValidateTimezone(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "timezone", "body", string(m.Timezone)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SingleWorkdayAverageValues) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

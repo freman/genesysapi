@@ -95,7 +95,6 @@ func (o *GetProcessautomationTriggersReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetProcessautomationTriggersOK() *GetProcessautomationTriggersOK {
 	return &GetProcessautomationTriggersOK{}
 }
 
-/*GetProcessautomationTriggersOK handles this case with default header values.
+/*
+GetProcessautomationTriggersOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetProcessautomationTriggersOK struct {
 	Payload *models.TriggerEntityListing
 }
 
+// IsSuccess returns true when this get processautomation triggers o k response has a 2xx status code
+func (o *GetProcessautomationTriggersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get processautomation triggers o k response has a 3xx status code
+func (o *GetProcessautomationTriggersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get processautomation triggers o k response has a 4xx status code
+func (o *GetProcessautomationTriggersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get processautomation triggers o k response has a 5xx status code
+func (o *GetProcessautomationTriggersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get processautomation triggers o k response a status code equal to that given
+func (o *GetProcessautomationTriggersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetProcessautomationTriggersOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersOK  %+v", 200, o.Payload)
+}
+
+func (o *GetProcessautomationTriggersOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetProcessautomationTriggersBadRequest() *GetProcessautomationTriggersBa
 	return &GetProcessautomationTriggersBadRequest{}
 }
 
-/*GetProcessautomationTriggersBadRequest handles this case with default header values.
+/*
+GetProcessautomationTriggersBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetProcessautomationTriggersBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get processautomation triggers bad request response has a 2xx status code
+func (o *GetProcessautomationTriggersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get processautomation triggers bad request response has a 3xx status code
+func (o *GetProcessautomationTriggersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get processautomation triggers bad request response has a 4xx status code
+func (o *GetProcessautomationTriggersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get processautomation triggers bad request response has a 5xx status code
+func (o *GetProcessautomationTriggersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get processautomation triggers bad request response a status code equal to that given
+func (o *GetProcessautomationTriggersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetProcessautomationTriggersBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetProcessautomationTriggersBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetProcessautomationTriggersUnauthorized() *GetProcessautomationTriggers
 	return &GetProcessautomationTriggersUnauthorized{}
 }
 
-/*GetProcessautomationTriggersUnauthorized handles this case with default header values.
+/*
+GetProcessautomationTriggersUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetProcessautomationTriggersUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get processautomation triggers unauthorized response has a 2xx status code
+func (o *GetProcessautomationTriggersUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get processautomation triggers unauthorized response has a 3xx status code
+func (o *GetProcessautomationTriggersUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get processautomation triggers unauthorized response has a 4xx status code
+func (o *GetProcessautomationTriggersUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get processautomation triggers unauthorized response has a 5xx status code
+func (o *GetProcessautomationTriggersUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get processautomation triggers unauthorized response a status code equal to that given
+func (o *GetProcessautomationTriggersUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetProcessautomationTriggersUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetProcessautomationTriggersUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetProcessautomationTriggersForbidden() *GetProcessautomationTriggersFor
 	return &GetProcessautomationTriggersForbidden{}
 }
 
-/*GetProcessautomationTriggersForbidden handles this case with default header values.
+/*
+GetProcessautomationTriggersForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetProcessautomationTriggersForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get processautomation triggers forbidden response has a 2xx status code
+func (o *GetProcessautomationTriggersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get processautomation triggers forbidden response has a 3xx status code
+func (o *GetProcessautomationTriggersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get processautomation triggers forbidden response has a 4xx status code
+func (o *GetProcessautomationTriggersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get processautomation triggers forbidden response has a 5xx status code
+func (o *GetProcessautomationTriggersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get processautomation triggers forbidden response a status code equal to that given
+func (o *GetProcessautomationTriggersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetProcessautomationTriggersForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetProcessautomationTriggersForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetProcessautomationTriggersNotFound() *GetProcessautomationTriggersNotF
 	return &GetProcessautomationTriggersNotFound{}
 }
 
-/*GetProcessautomationTriggersNotFound handles this case with default header values.
+/*
+GetProcessautomationTriggersNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetProcessautomationTriggersNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get processautomation triggers not found response has a 2xx status code
+func (o *GetProcessautomationTriggersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get processautomation triggers not found response has a 3xx status code
+func (o *GetProcessautomationTriggersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get processautomation triggers not found response has a 4xx status code
+func (o *GetProcessautomationTriggersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get processautomation triggers not found response has a 5xx status code
+func (o *GetProcessautomationTriggersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get processautomation triggers not found response a status code equal to that given
+func (o *GetProcessautomationTriggersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetProcessautomationTriggersNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetProcessautomationTriggersNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetProcessautomationTriggersRequestTimeout() *GetProcessautomationTrigge
 	return &GetProcessautomationTriggersRequestTimeout{}
 }
 
-/*GetProcessautomationTriggersRequestTimeout handles this case with default header values.
+/*
+GetProcessautomationTriggersRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetProcessautomationTriggersRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get processautomation triggers request timeout response has a 2xx status code
+func (o *GetProcessautomationTriggersRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get processautomation triggers request timeout response has a 3xx status code
+func (o *GetProcessautomationTriggersRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get processautomation triggers request timeout response has a 4xx status code
+func (o *GetProcessautomationTriggersRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get processautomation triggers request timeout response has a 5xx status code
+func (o *GetProcessautomationTriggersRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get processautomation triggers request timeout response a status code equal to that given
+func (o *GetProcessautomationTriggersRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetProcessautomationTriggersRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetProcessautomationTriggersRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetProcessautomationTriggersRequestEntityTooLarge() *GetProcessautomatio
 	return &GetProcessautomationTriggersRequestEntityTooLarge{}
 }
 
-/*GetProcessautomationTriggersRequestEntityTooLarge handles this case with default header values.
+/*
+GetProcessautomationTriggersRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetProcessautomationTriggersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get processautomation triggers request entity too large response has a 2xx status code
+func (o *GetProcessautomationTriggersRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get processautomation triggers request entity too large response has a 3xx status code
+func (o *GetProcessautomationTriggersRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get processautomation triggers request entity too large response has a 4xx status code
+func (o *GetProcessautomationTriggersRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get processautomation triggers request entity too large response has a 5xx status code
+func (o *GetProcessautomationTriggersRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get processautomation triggers request entity too large response a status code equal to that given
+func (o *GetProcessautomationTriggersRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetProcessautomationTriggersRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetProcessautomationTriggersRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetProcessautomationTriggersUnsupportedMediaType() *GetProcessautomation
 	return &GetProcessautomationTriggersUnsupportedMediaType{}
 }
 
-/*GetProcessautomationTriggersUnsupportedMediaType handles this case with default header values.
+/*
+GetProcessautomationTriggersUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetProcessautomationTriggersUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get processautomation triggers unsupported media type response has a 2xx status code
+func (o *GetProcessautomationTriggersUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get processautomation triggers unsupported media type response has a 3xx status code
+func (o *GetProcessautomationTriggersUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get processautomation triggers unsupported media type response has a 4xx status code
+func (o *GetProcessautomationTriggersUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get processautomation triggers unsupported media type response has a 5xx status code
+func (o *GetProcessautomationTriggersUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get processautomation triggers unsupported media type response a status code equal to that given
+func (o *GetProcessautomationTriggersUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetProcessautomationTriggersUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetProcessautomationTriggersUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetProcessautomationTriggersTooManyRequests() *GetProcessautomationTrigg
 	return &GetProcessautomationTriggersTooManyRequests{}
 }
 
-/*GetProcessautomationTriggersTooManyRequests handles this case with default header values.
+/*
+GetProcessautomationTriggersTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetProcessautomationTriggersTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get processautomation triggers too many requests response has a 2xx status code
+func (o *GetProcessautomationTriggersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get processautomation triggers too many requests response has a 3xx status code
+func (o *GetProcessautomationTriggersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get processautomation triggers too many requests response has a 4xx status code
+func (o *GetProcessautomationTriggersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get processautomation triggers too many requests response has a 5xx status code
+func (o *GetProcessautomationTriggersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get processautomation triggers too many requests response a status code equal to that given
+func (o *GetProcessautomationTriggersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetProcessautomationTriggersTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetProcessautomationTriggersTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetProcessautomationTriggersInternalServerError() *GetProcessautomationT
 	return &GetProcessautomationTriggersInternalServerError{}
 }
 
-/*GetProcessautomationTriggersInternalServerError handles this case with default header values.
+/*
+GetProcessautomationTriggersInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetProcessautomationTriggersInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get processautomation triggers internal server error response has a 2xx status code
+func (o *GetProcessautomationTriggersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get processautomation triggers internal server error response has a 3xx status code
+func (o *GetProcessautomationTriggersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get processautomation triggers internal server error response has a 4xx status code
+func (o *GetProcessautomationTriggersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get processautomation triggers internal server error response has a 5xx status code
+func (o *GetProcessautomationTriggersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get processautomation triggers internal server error response a status code equal to that given
+func (o *GetProcessautomationTriggersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetProcessautomationTriggersInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetProcessautomationTriggersInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetProcessautomationTriggersServiceUnavailable() *GetProcessautomationTr
 	return &GetProcessautomationTriggersServiceUnavailable{}
 }
 
-/*GetProcessautomationTriggersServiceUnavailable handles this case with default header values.
+/*
+GetProcessautomationTriggersServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetProcessautomationTriggersServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get processautomation triggers service unavailable response has a 2xx status code
+func (o *GetProcessautomationTriggersServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get processautomation triggers service unavailable response has a 3xx status code
+func (o *GetProcessautomationTriggersServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get processautomation triggers service unavailable response has a 4xx status code
+func (o *GetProcessautomationTriggersServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get processautomation triggers service unavailable response has a 5xx status code
+func (o *GetProcessautomationTriggersServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get processautomation triggers service unavailable response a status code equal to that given
+func (o *GetProcessautomationTriggersServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetProcessautomationTriggersServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetProcessautomationTriggersServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetProcessautomationTriggersGatewayTimeout() *GetProcessautomationTrigge
 	return &GetProcessautomationTriggersGatewayTimeout{}
 }
 
-/*GetProcessautomationTriggersGatewayTimeout handles this case with default header values.
+/*
+GetProcessautomationTriggersGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetProcessautomationTriggersGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get processautomation triggers gateway timeout response has a 2xx status code
+func (o *GetProcessautomationTriggersGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get processautomation triggers gateway timeout response has a 3xx status code
+func (o *GetProcessautomationTriggersGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get processautomation triggers gateway timeout response has a 4xx status code
+func (o *GetProcessautomationTriggersGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get processautomation triggers gateway timeout response has a 5xx status code
+func (o *GetProcessautomationTriggersGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get processautomation triggers gateway timeout response a status code equal to that given
+func (o *GetProcessautomationTriggersGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetProcessautomationTriggersGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetProcessautomationTriggersGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/processautomation/triggers][%d] getProcessautomationTriggersGatewayTimeout  %+v", 504, o.Payload)
 }
 

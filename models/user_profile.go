@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -80,7 +81,6 @@ func (m *UserProfile) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserProfile) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -93,7 +93,6 @@ func (m *UserProfile) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *UserProfile) validateExpands(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Expands) { // not required
 		return nil
 	}
@@ -102,6 +101,8 @@ func (m *UserProfile) validateExpands(formats strfmt.Registry) error {
 		if err := m.Expands.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("expands")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("expands")
 			}
 			return err
 		}
@@ -111,7 +112,6 @@ func (m *UserProfile) validateExpands(formats strfmt.Registry) error {
 }
 
 func (m *UserProfile) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -156,7 +156,6 @@ func (m *UserProfile) validateStateEnum(path, location string, value string) err
 }
 
 func (m *UserProfile) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -172,6 +171,75 @@ func (m *UserProfile) validateState(formats strfmt.Registry) error {
 func (m *UserProfile) validateVersion(formats strfmt.Registry) error {
 
 	if err := validate.Required("version", "body", m.Version); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user profile based on the context it is used
+func (m *UserProfile) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExpands(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserProfile) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserProfile) contextValidateExpands(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Expands != nil {
+		if err := m.Expands.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("expands")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("expands")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserProfile) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserProfile) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

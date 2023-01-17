@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostLocationsSearchParams creates a new PostLocationsSearchParams object
-// with the default values initialized.
+// NewPostLocationsSearchParams creates a new PostLocationsSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostLocationsSearchParams() *PostLocationsSearchParams {
-	var ()
 	return &PostLocationsSearchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostLocationsSearchParamsWithTimeout creates a new PostLocationsSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostLocationsSearchParamsWithTimeout(timeout time.Duration) *PostLocationsSearchParams {
-	var ()
 	return &PostLocationsSearchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostLocationsSearchParamsWithContext creates a new PostLocationsSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostLocationsSearchParamsWithContext(ctx context.Context) *PostLocationsSearchParams {
-	var ()
 	return &PostLocationsSearchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostLocationsSearchParamsWithHTTPClient creates a new PostLocationsSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostLocationsSearchParamsWithHTTPClient(client *http.Client) *PostLocationsSearchParams {
-	var ()
 	return &PostLocationsSearchParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostLocationsSearchParams contains all the parameters to send to the API endpoint
-for the post locations search operation typically these are written to a http.Request
+/*
+PostLocationsSearchParams contains all the parameters to send to the API endpoint
+
+	for the post locations search operation.
+
+	Typically these are written to a http.Request.
 */
 type PostLocationsSearchParams struct {
 
-	/*Body
-	  Search request options
+	/* Body.
 
+	   Search request options
 	*/
 	Body *models.LocationSearchRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post locations search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLocationsSearchParams) WithDefaults() *PostLocationsSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post locations search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLocationsSearchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post locations search params
@@ -124,7 +140,6 @@ func (o *PostLocationsSearchParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

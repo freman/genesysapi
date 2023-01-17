@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -35,7 +37,6 @@ func (m *MessagingTemplate) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MessagingTemplate) validateWhatsApp(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WhatsApp) { // not required
 		return nil
 	}
@@ -44,6 +45,38 @@ func (m *MessagingTemplate) validateWhatsApp(formats strfmt.Registry) error {
 		if err := m.WhatsApp.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("whatsApp")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("whatsApp")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this messaging template based on the context it is used
+func (m *MessagingTemplate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateWhatsApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MessagingTemplate) contextValidateWhatsApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WhatsApp != nil {
+		if err := m.WhatsApp.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("whatsApp")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("whatsApp")
 			}
 			return err
 		}

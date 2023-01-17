@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -137,7 +138,6 @@ func (m *OAuthClientListing) Validate(formats strfmt.Registry) error {
 }
 
 func (m *OAuthClientListing) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -146,6 +146,8 @@ func (m *OAuthClientListing) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -155,7 +157,6 @@ func (m *OAuthClientListing) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *OAuthClientListing) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -168,7 +169,6 @@ func (m *OAuthClientListing) validateDateCreated(formats strfmt.Registry) error 
 }
 
 func (m *OAuthClientListing) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -181,7 +181,6 @@ func (m *OAuthClientListing) validateDateModified(formats strfmt.Registry) error
 }
 
 func (m *OAuthClientListing) validateDateToDelete(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateToDelete) { // not required
 		return nil
 	}
@@ -194,7 +193,6 @@ func (m *OAuthClientListing) validateDateToDelete(formats strfmt.Registry) error
 }
 
 func (m *OAuthClientListing) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -203,6 +201,8 @@ func (m *OAuthClientListing) validateModifiedBy(formats strfmt.Registry) error {
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -221,7 +221,6 @@ func (m *OAuthClientListing) validateName(formats strfmt.Registry) error {
 }
 
 func (m *OAuthClientListing) validateRegisteredRedirectURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RegisteredRedirectURI) { // not required
 		return nil
 	}
@@ -238,7 +237,6 @@ func (m *OAuthClientListing) validateRegisteredRedirectURI(formats strfmt.Regist
 }
 
 func (m *OAuthClientListing) validateRoleDivisions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoleDivisions) { // not required
 		return nil
 	}
@@ -256,6 +254,8 @@ func (m *OAuthClientListing) validateRoleDivisions(formats strfmt.Registry) erro
 			if err := m.RoleDivisions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("roleDivisions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("roleDivisions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -267,7 +267,6 @@ func (m *OAuthClientListing) validateRoleDivisions(formats strfmt.Registry) erro
 }
 
 func (m *OAuthClientListing) validateRoleIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoleIds) { // not required
 		return nil
 	}
@@ -280,7 +279,6 @@ func (m *OAuthClientListing) validateRoleIds(formats strfmt.Registry) error {
 }
 
 func (m *OAuthClientListing) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -325,13 +323,112 @@ func (m *OAuthClientListing) validateStateEnum(path, location string, value stri
 }
 
 func (m *OAuthClientListing) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this o auth client listing based on the context it is used
+func (m *OAuthClientListing) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoleDivisions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OAuthClientListing) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OAuthClientListing) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OAuthClientListing) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OAuthClientListing) contextValidateRoleDivisions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RoleDivisions); i++ {
+
+		if m.RoleDivisions[i] != nil {
+			if err := m.RoleDivisions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("roleDivisions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("roleDivisions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *OAuthClientListing) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

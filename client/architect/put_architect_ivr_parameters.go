@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutArchitectIvrParams creates a new PutArchitectIvrParams object
-// with the default values initialized.
+// NewPutArchitectIvrParams creates a new PutArchitectIvrParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutArchitectIvrParams() *PutArchitectIvrParams {
-	var ()
 	return &PutArchitectIvrParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutArchitectIvrParamsWithTimeout creates a new PutArchitectIvrParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutArchitectIvrParamsWithTimeout(timeout time.Duration) *PutArchitectIvrParams {
-	var ()
 	return &PutArchitectIvrParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutArchitectIvrParamsWithContext creates a new PutArchitectIvrParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutArchitectIvrParamsWithContext(ctx context.Context) *PutArchitectIvrParams {
-	var ()
 	return &PutArchitectIvrParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutArchitectIvrParamsWithHTTPClient creates a new PutArchitectIvrParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutArchitectIvrParamsWithHTTPClient(client *http.Client) *PutArchitectIvrParams {
-	var ()
 	return &PutArchitectIvrParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutArchitectIvrParams contains all the parameters to send to the API endpoint
-for the put architect ivr operation typically these are written to a http.Request
+/*
+PutArchitectIvrParams contains all the parameters to send to the API endpoint
+
+	for the put architect ivr operation.
+
+	Typically these are written to a http.Request.
 */
 type PutArchitectIvrParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.IVR
-	/*IvrID
-	  IVR id
 
+	/* IvrID.
+
+	   IVR id
 	*/
 	IvrID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put architect ivr params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutArchitectIvrParams) WithDefaults() *PutArchitectIvrParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put architect ivr params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutArchitectIvrParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put architect ivr params
@@ -137,7 +154,6 @@ func (o *PutArchitectIvrParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPutRoutingEmailOutboundDomainActivationParams creates a new PutRoutingEmailOutboundDomainActivationParams object
-// with the default values initialized.
+// NewPutRoutingEmailOutboundDomainActivationParams creates a new PutRoutingEmailOutboundDomainActivationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutRoutingEmailOutboundDomainActivationParams() *PutRoutingEmailOutboundDomainActivationParams {
-	var ()
 	return &PutRoutingEmailOutboundDomainActivationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutRoutingEmailOutboundDomainActivationParamsWithTimeout creates a new PutRoutingEmailOutboundDomainActivationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutRoutingEmailOutboundDomainActivationParamsWithTimeout(timeout time.Duration) *PutRoutingEmailOutboundDomainActivationParams {
-	var ()
 	return &PutRoutingEmailOutboundDomainActivationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutRoutingEmailOutboundDomainActivationParamsWithContext creates a new PutRoutingEmailOutboundDomainActivationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutRoutingEmailOutboundDomainActivationParamsWithContext(ctx context.Context) *PutRoutingEmailOutboundDomainActivationParams {
-	var ()
 	return &PutRoutingEmailOutboundDomainActivationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutRoutingEmailOutboundDomainActivationParamsWithHTTPClient creates a new PutRoutingEmailOutboundDomainActivationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutRoutingEmailOutboundDomainActivationParamsWithHTTPClient(client *http.Client) *PutRoutingEmailOutboundDomainActivationParams {
-	var ()
 	return &PutRoutingEmailOutboundDomainActivationParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutRoutingEmailOutboundDomainActivationParams contains all the parameters to send to the API endpoint
-for the put routing email outbound domain activation operation typically these are written to a http.Request
+/*
+PutRoutingEmailOutboundDomainActivationParams contains all the parameters to send to the API endpoint
+
+	for the put routing email outbound domain activation operation.
+
+	Typically these are written to a http.Request.
 */
 type PutRoutingEmailOutboundDomainActivationParams struct {
 
-	/*DomainID
-	  domain ID
+	/* DomainID.
 
+	   domain ID
 	*/
 	DomainID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put routing email outbound domain activation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRoutingEmailOutboundDomainActivationParams) WithDefaults() *PutRoutingEmailOutboundDomainActivationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put routing email outbound domain activation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRoutingEmailOutboundDomainActivationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put routing email outbound domain activation params

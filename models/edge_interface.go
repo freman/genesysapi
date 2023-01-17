@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -64,7 +65,6 @@ func (m *EdgeInterface) Validate(formats strfmt.Registry) error {
 }
 
 func (m *EdgeInterface) validateEndpoints(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Endpoints) { // not required
 		return nil
 	}
@@ -78,6 +78,8 @@ func (m *EdgeInterface) validateEndpoints(formats strfmt.Registry) error {
 			if err := m.Endpoints[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("endpoints" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("endpoints" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -108,7 +110,6 @@ func (m *EdgeInterface) validateLineTypesItemsEnum(path, location string, value 
 }
 
 func (m *EdgeInterface) validateLineTypes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LineTypes) { // not required
 		return nil
 	}
@@ -118,6 +119,40 @@ func (m *EdgeInterface) validateLineTypes(formats strfmt.Registry) error {
 		// value enum
 		if err := m.validateLineTypesItemsEnum("lineTypes"+"."+strconv.Itoa(i), "body", m.LineTypes[i]); err != nil {
 			return err
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this edge interface based on the context it is used
+func (m *EdgeInterface) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEndpoints(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EdgeInterface) contextValidateEndpoints(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Endpoints); i++ {
+
+		if m.Endpoints[i] != nil {
+			if err := m.Endpoints[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("endpoints" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("endpoints" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
 		}
 
 	}

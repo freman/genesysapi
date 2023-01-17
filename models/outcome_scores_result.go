@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -47,7 +48,6 @@ func (m *OutcomeScoresResult) Validate(formats strfmt.Registry) error {
 }
 
 func (m *OutcomeScoresResult) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -60,7 +60,6 @@ func (m *OutcomeScoresResult) validateModifiedDate(formats strfmt.Registry) erro
 }
 
 func (m *OutcomeScoresResult) validateOutcomeScores(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OutcomeScores) { // not required
 		return nil
 	}
@@ -74,6 +73,55 @@ func (m *OutcomeScoresResult) validateOutcomeScores(formats strfmt.Registry) err
 			if err := m.OutcomeScores[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("outcomeScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("outcomeScores" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this outcome scores result based on the context it is used
+func (m *OutcomeScoresResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateModifiedDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutcomeScores(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OutcomeScoresResult) contextValidateModifiedDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedDate", "body", strfmt.DateTime(m.ModifiedDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OutcomeScoresResult) contextValidateOutcomeScores(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.OutcomeScores); i++ {
+
+		if m.OutcomeScores[i] != nil {
+			if err := m.OutcomeScores[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("outcomeScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("outcomeScores" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

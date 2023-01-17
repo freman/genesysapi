@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -86,7 +87,6 @@ func (m *WebMessagingMessage) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WebMessagingMessage) validateChannel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Channel) { // not required
 		return nil
 	}
@@ -95,6 +95,8 @@ func (m *WebMessagingMessage) validateChannel(formats strfmt.Registry) error {
 		if err := m.Channel.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("channel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("channel")
 			}
 			return err
 		}
@@ -104,7 +106,6 @@ func (m *WebMessagingMessage) validateChannel(formats strfmt.Registry) error {
 }
 
 func (m *WebMessagingMessage) validateContent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Content) { // not required
 		return nil
 	}
@@ -118,6 +119,8 @@ func (m *WebMessagingMessage) validateContent(formats strfmt.Registry) error {
 			if err := m.Content[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("content" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("content" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -158,7 +161,6 @@ func (m *WebMessagingMessage) validateDirectionEnum(path, location string, value
 }
 
 func (m *WebMessagingMessage) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -172,7 +174,6 @@ func (m *WebMessagingMessage) validateDirection(formats strfmt.Registry) error {
 }
 
 func (m *WebMessagingMessage) validateEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Events) { // not required
 		return nil
 	}
@@ -186,6 +187,8 @@ func (m *WebMessagingMessage) validateEvents(formats strfmt.Registry) error {
 			if err := m.Events[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("events" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("events" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -226,7 +229,6 @@ func (m *WebMessagingMessage) validateOriginatingEntityEnum(path, location strin
 }
 
 func (m *WebMessagingMessage) validateOriginatingEntity(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OriginatingEntity) { // not required
 		return nil
 	}
@@ -275,7 +277,6 @@ func (m *WebMessagingMessage) validateTypeEnum(path, location string, value stri
 }
 
 func (m *WebMessagingMessage) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -283,6 +284,84 @@ func (m *WebMessagingMessage) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this web messaging message based on the context it is used
+func (m *WebMessagingMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateChannel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WebMessagingMessage) contextValidateChannel(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Channel != nil {
+		if err := m.Channel.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("channel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("channel")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WebMessagingMessage) contextValidateContent(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Content); i++ {
+
+		if m.Content[i] != nil {
+			if err := m.Content[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("content" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("content" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WebMessagingMessage) contextValidateEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Events); i++ {
+
+		if m.Events[i] != nil {
+			if err := m.Events[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("events" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("events" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

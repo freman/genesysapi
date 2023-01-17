@@ -95,7 +95,6 @@ func (o *GetUserrecordingsSummaryReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetUserrecordingsSummaryOK() *GetUserrecordingsSummaryOK {
 	return &GetUserrecordingsSummaryOK{}
 }
 
-/*GetUserrecordingsSummaryOK handles this case with default header values.
+/*
+GetUserrecordingsSummaryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetUserrecordingsSummaryOK struct {
 	Payload *models.FaxSummary
 }
 
+// IsSuccess returns true when this get userrecordings summary o k response has a 2xx status code
+func (o *GetUserrecordingsSummaryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get userrecordings summary o k response has a 3xx status code
+func (o *GetUserrecordingsSummaryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecordings summary o k response has a 4xx status code
+func (o *GetUserrecordingsSummaryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get userrecordings summary o k response has a 5xx status code
+func (o *GetUserrecordingsSummaryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecordings summary o k response a status code equal to that given
+func (o *GetUserrecordingsSummaryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUserrecordingsSummaryOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryOK  %+v", 200, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetUserrecordingsSummaryBadRequest() *GetUserrecordingsSummaryBadRequest
 	return &GetUserrecordingsSummaryBadRequest{}
 }
 
-/*GetUserrecordingsSummaryBadRequest handles this case with default header values.
+/*
+GetUserrecordingsSummaryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetUserrecordingsSummaryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecordings summary bad request response has a 2xx status code
+func (o *GetUserrecordingsSummaryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecordings summary bad request response has a 3xx status code
+func (o *GetUserrecordingsSummaryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecordings summary bad request response has a 4xx status code
+func (o *GetUserrecordingsSummaryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecordings summary bad request response has a 5xx status code
+func (o *GetUserrecordingsSummaryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecordings summary bad request response a status code equal to that given
+func (o *GetUserrecordingsSummaryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUserrecordingsSummaryBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetUserrecordingsSummaryUnauthorized() *GetUserrecordingsSummaryUnauthor
 	return &GetUserrecordingsSummaryUnauthorized{}
 }
 
-/*GetUserrecordingsSummaryUnauthorized handles this case with default header values.
+/*
+GetUserrecordingsSummaryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetUserrecordingsSummaryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecordings summary unauthorized response has a 2xx status code
+func (o *GetUserrecordingsSummaryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecordings summary unauthorized response has a 3xx status code
+func (o *GetUserrecordingsSummaryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecordings summary unauthorized response has a 4xx status code
+func (o *GetUserrecordingsSummaryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecordings summary unauthorized response has a 5xx status code
+func (o *GetUserrecordingsSummaryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecordings summary unauthorized response a status code equal to that given
+func (o *GetUserrecordingsSummaryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetUserrecordingsSummaryUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetUserrecordingsSummaryForbidden() *GetUserrecordingsSummaryForbidden {
 	return &GetUserrecordingsSummaryForbidden{}
 }
 
-/*GetUserrecordingsSummaryForbidden handles this case with default header values.
+/*
+GetUserrecordingsSummaryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetUserrecordingsSummaryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecordings summary forbidden response has a 2xx status code
+func (o *GetUserrecordingsSummaryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecordings summary forbidden response has a 3xx status code
+func (o *GetUserrecordingsSummaryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecordings summary forbidden response has a 4xx status code
+func (o *GetUserrecordingsSummaryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecordings summary forbidden response has a 5xx status code
+func (o *GetUserrecordingsSummaryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecordings summary forbidden response a status code equal to that given
+func (o *GetUserrecordingsSummaryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUserrecordingsSummaryForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetUserrecordingsSummaryNotFound() *GetUserrecordingsSummaryNotFound {
 	return &GetUserrecordingsSummaryNotFound{}
 }
 
-/*GetUserrecordingsSummaryNotFound handles this case with default header values.
+/*
+GetUserrecordingsSummaryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetUserrecordingsSummaryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecordings summary not found response has a 2xx status code
+func (o *GetUserrecordingsSummaryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecordings summary not found response has a 3xx status code
+func (o *GetUserrecordingsSummaryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecordings summary not found response has a 4xx status code
+func (o *GetUserrecordingsSummaryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecordings summary not found response has a 5xx status code
+func (o *GetUserrecordingsSummaryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecordings summary not found response a status code equal to that given
+func (o *GetUserrecordingsSummaryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetUserrecordingsSummaryNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetUserrecordingsSummaryRequestTimeout() *GetUserrecordingsSummaryReques
 	return &GetUserrecordingsSummaryRequestTimeout{}
 }
 
-/*GetUserrecordingsSummaryRequestTimeout handles this case with default header values.
+/*
+GetUserrecordingsSummaryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetUserrecordingsSummaryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecordings summary request timeout response has a 2xx status code
+func (o *GetUserrecordingsSummaryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecordings summary request timeout response has a 3xx status code
+func (o *GetUserrecordingsSummaryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecordings summary request timeout response has a 4xx status code
+func (o *GetUserrecordingsSummaryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecordings summary request timeout response has a 5xx status code
+func (o *GetUserrecordingsSummaryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecordings summary request timeout response a status code equal to that given
+func (o *GetUserrecordingsSummaryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetUserrecordingsSummaryRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetUserrecordingsSummaryRequestEntityTooLarge() *GetUserrecordingsSummar
 	return &GetUserrecordingsSummaryRequestEntityTooLarge{}
 }
 
-/*GetUserrecordingsSummaryRequestEntityTooLarge handles this case with default header values.
+/*
+GetUserrecordingsSummaryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetUserrecordingsSummaryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecordings summary request entity too large response has a 2xx status code
+func (o *GetUserrecordingsSummaryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecordings summary request entity too large response has a 3xx status code
+func (o *GetUserrecordingsSummaryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecordings summary request entity too large response has a 4xx status code
+func (o *GetUserrecordingsSummaryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecordings summary request entity too large response has a 5xx status code
+func (o *GetUserrecordingsSummaryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecordings summary request entity too large response a status code equal to that given
+func (o *GetUserrecordingsSummaryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetUserrecordingsSummaryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetUserrecordingsSummaryUnsupportedMediaType() *GetUserrecordingsSummary
 	return &GetUserrecordingsSummaryUnsupportedMediaType{}
 }
 
-/*GetUserrecordingsSummaryUnsupportedMediaType handles this case with default header values.
+/*
+GetUserrecordingsSummaryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetUserrecordingsSummaryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecordings summary unsupported media type response has a 2xx status code
+func (o *GetUserrecordingsSummaryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecordings summary unsupported media type response has a 3xx status code
+func (o *GetUserrecordingsSummaryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecordings summary unsupported media type response has a 4xx status code
+func (o *GetUserrecordingsSummaryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecordings summary unsupported media type response has a 5xx status code
+func (o *GetUserrecordingsSummaryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecordings summary unsupported media type response a status code equal to that given
+func (o *GetUserrecordingsSummaryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetUserrecordingsSummaryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetUserrecordingsSummaryTooManyRequests() *GetUserrecordingsSummaryTooMa
 	return &GetUserrecordingsSummaryTooManyRequests{}
 }
 
-/*GetUserrecordingsSummaryTooManyRequests handles this case with default header values.
+/*
+GetUserrecordingsSummaryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetUserrecordingsSummaryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecordings summary too many requests response has a 2xx status code
+func (o *GetUserrecordingsSummaryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecordings summary too many requests response has a 3xx status code
+func (o *GetUserrecordingsSummaryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecordings summary too many requests response has a 4xx status code
+func (o *GetUserrecordingsSummaryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get userrecordings summary too many requests response has a 5xx status code
+func (o *GetUserrecordingsSummaryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get userrecordings summary too many requests response a status code equal to that given
+func (o *GetUserrecordingsSummaryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUserrecordingsSummaryTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetUserrecordingsSummaryInternalServerError() *GetUserrecordingsSummaryI
 	return &GetUserrecordingsSummaryInternalServerError{}
 }
 
-/*GetUserrecordingsSummaryInternalServerError handles this case with default header values.
+/*
+GetUserrecordingsSummaryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetUserrecordingsSummaryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecordings summary internal server error response has a 2xx status code
+func (o *GetUserrecordingsSummaryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecordings summary internal server error response has a 3xx status code
+func (o *GetUserrecordingsSummaryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecordings summary internal server error response has a 4xx status code
+func (o *GetUserrecordingsSummaryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get userrecordings summary internal server error response has a 5xx status code
+func (o *GetUserrecordingsSummaryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get userrecordings summary internal server error response a status code equal to that given
+func (o *GetUserrecordingsSummaryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUserrecordingsSummaryInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetUserrecordingsSummaryServiceUnavailable() *GetUserrecordingsSummarySe
 	return &GetUserrecordingsSummaryServiceUnavailable{}
 }
 
-/*GetUserrecordingsSummaryServiceUnavailable handles this case with default header values.
+/*
+GetUserrecordingsSummaryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetUserrecordingsSummaryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecordings summary service unavailable response has a 2xx status code
+func (o *GetUserrecordingsSummaryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecordings summary service unavailable response has a 3xx status code
+func (o *GetUserrecordingsSummaryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecordings summary service unavailable response has a 4xx status code
+func (o *GetUserrecordingsSummaryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get userrecordings summary service unavailable response has a 5xx status code
+func (o *GetUserrecordingsSummaryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get userrecordings summary service unavailable response a status code equal to that given
+func (o *GetUserrecordingsSummaryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetUserrecordingsSummaryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetUserrecordingsSummaryGatewayTimeout() *GetUserrecordingsSummaryGatewa
 	return &GetUserrecordingsSummaryGatewayTimeout{}
 }
 
-/*GetUserrecordingsSummaryGatewayTimeout handles this case with default header values.
+/*
+GetUserrecordingsSummaryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetUserrecordingsSummaryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get userrecordings summary gateway timeout response has a 2xx status code
+func (o *GetUserrecordingsSummaryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get userrecordings summary gateway timeout response has a 3xx status code
+func (o *GetUserrecordingsSummaryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get userrecordings summary gateway timeout response has a 4xx status code
+func (o *GetUserrecordingsSummaryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get userrecordings summary gateway timeout response has a 5xx status code
+func (o *GetUserrecordingsSummaryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get userrecordings summary gateway timeout response a status code equal to that given
+func (o *GetUserrecordingsSummaryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetUserrecordingsSummaryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetUserrecordingsSummaryGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/userrecordings/summary][%d] getUserrecordingsSummaryGatewayTimeout  %+v", 504, o.Payload)
 }
 

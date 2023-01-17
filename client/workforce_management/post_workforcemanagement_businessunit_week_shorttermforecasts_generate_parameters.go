@@ -19,71 +19,92 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams() *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParamsWithTimeout creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParamsWithContext creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParamsWithContext(ctx context.Context) *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParamsWithHTTPClient creates a new PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement businessunit week shorttermforecasts generate operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement businessunit week shorttermforecasts generate operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.GenerateBuForecastRequest
-	/*BusinessUnitID
-	  The ID of the business unit to which the forecast belongs
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit to which the forecast belongs
 	*/
 	BusinessUnitID string
-	/*ForceAsync
-	  Force the result of this operation to be sent asynchronously via notification.  For testing/app development purposes
 
+	/* ForceAsync.
+
+	   Force the result of this operation to be sent asynchronously via notification.  For testing/app development purposes
 	*/
 	ForceAsync *bool
-	/*WeekDateID
-	  The week start date of the forecast in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekDateID.
+
+	   The week start date of the forecast in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekDateID strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement businessunit week shorttermforecasts generate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams) WithDefaults() *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement businessunit week shorttermforecasts generate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement businessunit week shorttermforecasts generate params
@@ -170,7 +191,6 @@ func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -186,16 +206,17 @@ func (o *PostWorkforcemanagementBusinessunitWeekShorttermforecastsGenerateParams
 
 		// query param forceAsync
 		var qrForceAsync bool
+
 		if o.ForceAsync != nil {
 			qrForceAsync = *o.ForceAsync
 		}
 		qForceAsync := swag.FormatBool(qrForceAsync)
 		if qForceAsync != "" {
+
 			if err := r.SetQueryParam("forceAsync", qForceAsync); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param weekDateId

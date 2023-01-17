@@ -95,7 +95,6 @@ func (o *PutArchitectEmergencygroupReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutArchitectEmergencygroupOK() *PutArchitectEmergencygroupOK {
 	return &PutArchitectEmergencygroupOK{}
 }
 
-/*PutArchitectEmergencygroupOK handles this case with default header values.
+/*
+PutArchitectEmergencygroupOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutArchitectEmergencygroupOK struct {
 	Payload *models.EmergencyGroup
 }
 
+// IsSuccess returns true when this put architect emergencygroup o k response has a 2xx status code
+func (o *PutArchitectEmergencygroupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put architect emergencygroup o k response has a 3xx status code
+func (o *PutArchitectEmergencygroupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect emergencygroup o k response has a 4xx status code
+func (o *PutArchitectEmergencygroupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect emergencygroup o k response has a 5xx status code
+func (o *PutArchitectEmergencygroupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect emergencygroup o k response a status code equal to that given
+func (o *PutArchitectEmergencygroupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutArchitectEmergencygroupOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupOK  %+v", 200, o.Payload)
+}
+
+func (o *PutArchitectEmergencygroupOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutArchitectEmergencygroupBadRequest() *PutArchitectEmergencygroupBadReq
 	return &PutArchitectEmergencygroupBadRequest{}
 }
 
-/*PutArchitectEmergencygroupBadRequest handles this case with default header values.
+/*
+PutArchitectEmergencygroupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutArchitectEmergencygroupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect emergencygroup bad request response has a 2xx status code
+func (o *PutArchitectEmergencygroupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect emergencygroup bad request response has a 3xx status code
+func (o *PutArchitectEmergencygroupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect emergencygroup bad request response has a 4xx status code
+func (o *PutArchitectEmergencygroupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect emergencygroup bad request response has a 5xx status code
+func (o *PutArchitectEmergencygroupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect emergencygroup bad request response a status code equal to that given
+func (o *PutArchitectEmergencygroupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutArchitectEmergencygroupBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutArchitectEmergencygroupBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutArchitectEmergencygroupUnauthorized() *PutArchitectEmergencygroupUnau
 	return &PutArchitectEmergencygroupUnauthorized{}
 }
 
-/*PutArchitectEmergencygroupUnauthorized handles this case with default header values.
+/*
+PutArchitectEmergencygroupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutArchitectEmergencygroupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect emergencygroup unauthorized response has a 2xx status code
+func (o *PutArchitectEmergencygroupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect emergencygroup unauthorized response has a 3xx status code
+func (o *PutArchitectEmergencygroupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect emergencygroup unauthorized response has a 4xx status code
+func (o *PutArchitectEmergencygroupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect emergencygroup unauthorized response has a 5xx status code
+func (o *PutArchitectEmergencygroupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect emergencygroup unauthorized response a status code equal to that given
+func (o *PutArchitectEmergencygroupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutArchitectEmergencygroupUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutArchitectEmergencygroupUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutArchitectEmergencygroupForbidden() *PutArchitectEmergencygroupForbidd
 	return &PutArchitectEmergencygroupForbidden{}
 }
 
-/*PutArchitectEmergencygroupForbidden handles this case with default header values.
+/*
+PutArchitectEmergencygroupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutArchitectEmergencygroupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect emergencygroup forbidden response has a 2xx status code
+func (o *PutArchitectEmergencygroupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect emergencygroup forbidden response has a 3xx status code
+func (o *PutArchitectEmergencygroupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect emergencygroup forbidden response has a 4xx status code
+func (o *PutArchitectEmergencygroupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect emergencygroup forbidden response has a 5xx status code
+func (o *PutArchitectEmergencygroupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect emergencygroup forbidden response a status code equal to that given
+func (o *PutArchitectEmergencygroupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutArchitectEmergencygroupForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutArchitectEmergencygroupForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutArchitectEmergencygroupNotFound() *PutArchitectEmergencygroupNotFound
 	return &PutArchitectEmergencygroupNotFound{}
 }
 
-/*PutArchitectEmergencygroupNotFound handles this case with default header values.
+/*
+PutArchitectEmergencygroupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutArchitectEmergencygroupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect emergencygroup not found response has a 2xx status code
+func (o *PutArchitectEmergencygroupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect emergencygroup not found response has a 3xx status code
+func (o *PutArchitectEmergencygroupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect emergencygroup not found response has a 4xx status code
+func (o *PutArchitectEmergencygroupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect emergencygroup not found response has a 5xx status code
+func (o *PutArchitectEmergencygroupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect emergencygroup not found response a status code equal to that given
+func (o *PutArchitectEmergencygroupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutArchitectEmergencygroupNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutArchitectEmergencygroupNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutArchitectEmergencygroupRequestTimeout() *PutArchitectEmergencygroupRe
 	return &PutArchitectEmergencygroupRequestTimeout{}
 }
 
-/*PutArchitectEmergencygroupRequestTimeout handles this case with default header values.
+/*
+PutArchitectEmergencygroupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutArchitectEmergencygroupRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect emergencygroup request timeout response has a 2xx status code
+func (o *PutArchitectEmergencygroupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect emergencygroup request timeout response has a 3xx status code
+func (o *PutArchitectEmergencygroupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect emergencygroup request timeout response has a 4xx status code
+func (o *PutArchitectEmergencygroupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect emergencygroup request timeout response has a 5xx status code
+func (o *PutArchitectEmergencygroupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect emergencygroup request timeout response a status code equal to that given
+func (o *PutArchitectEmergencygroupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutArchitectEmergencygroupRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutArchitectEmergencygroupRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutArchitectEmergencygroupRequestEntityTooLarge() *PutArchitectEmergency
 	return &PutArchitectEmergencygroupRequestEntityTooLarge{}
 }
 
-/*PutArchitectEmergencygroupRequestEntityTooLarge handles this case with default header values.
+/*
+PutArchitectEmergencygroupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutArchitectEmergencygroupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect emergencygroup request entity too large response has a 2xx status code
+func (o *PutArchitectEmergencygroupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect emergencygroup request entity too large response has a 3xx status code
+func (o *PutArchitectEmergencygroupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect emergencygroup request entity too large response has a 4xx status code
+func (o *PutArchitectEmergencygroupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect emergencygroup request entity too large response has a 5xx status code
+func (o *PutArchitectEmergencygroupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect emergencygroup request entity too large response a status code equal to that given
+func (o *PutArchitectEmergencygroupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutArchitectEmergencygroupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutArchitectEmergencygroupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutArchitectEmergencygroupUnsupportedMediaType() *PutArchitectEmergencyg
 	return &PutArchitectEmergencygroupUnsupportedMediaType{}
 }
 
-/*PutArchitectEmergencygroupUnsupportedMediaType handles this case with default header values.
+/*
+PutArchitectEmergencygroupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutArchitectEmergencygroupUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect emergencygroup unsupported media type response has a 2xx status code
+func (o *PutArchitectEmergencygroupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect emergencygroup unsupported media type response has a 3xx status code
+func (o *PutArchitectEmergencygroupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect emergencygroup unsupported media type response has a 4xx status code
+func (o *PutArchitectEmergencygroupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect emergencygroup unsupported media type response has a 5xx status code
+func (o *PutArchitectEmergencygroupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect emergencygroup unsupported media type response a status code equal to that given
+func (o *PutArchitectEmergencygroupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutArchitectEmergencygroupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutArchitectEmergencygroupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutArchitectEmergencygroupTooManyRequests() *PutArchitectEmergencygroupT
 	return &PutArchitectEmergencygroupTooManyRequests{}
 }
 
-/*PutArchitectEmergencygroupTooManyRequests handles this case with default header values.
+/*
+PutArchitectEmergencygroupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutArchitectEmergencygroupTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect emergencygroup too many requests response has a 2xx status code
+func (o *PutArchitectEmergencygroupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect emergencygroup too many requests response has a 3xx status code
+func (o *PutArchitectEmergencygroupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect emergencygroup too many requests response has a 4xx status code
+func (o *PutArchitectEmergencygroupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put architect emergencygroup too many requests response has a 5xx status code
+func (o *PutArchitectEmergencygroupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put architect emergencygroup too many requests response a status code equal to that given
+func (o *PutArchitectEmergencygroupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutArchitectEmergencygroupTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutArchitectEmergencygroupTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutArchitectEmergencygroupInternalServerError() *PutArchitectEmergencygr
 	return &PutArchitectEmergencygroupInternalServerError{}
 }
 
-/*PutArchitectEmergencygroupInternalServerError handles this case with default header values.
+/*
+PutArchitectEmergencygroupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutArchitectEmergencygroupInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect emergencygroup internal server error response has a 2xx status code
+func (o *PutArchitectEmergencygroupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect emergencygroup internal server error response has a 3xx status code
+func (o *PutArchitectEmergencygroupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect emergencygroup internal server error response has a 4xx status code
+func (o *PutArchitectEmergencygroupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect emergencygroup internal server error response has a 5xx status code
+func (o *PutArchitectEmergencygroupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put architect emergencygroup internal server error response a status code equal to that given
+func (o *PutArchitectEmergencygroupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutArchitectEmergencygroupInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutArchitectEmergencygroupInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutArchitectEmergencygroupServiceUnavailable() *PutArchitectEmergencygro
 	return &PutArchitectEmergencygroupServiceUnavailable{}
 }
 
-/*PutArchitectEmergencygroupServiceUnavailable handles this case with default header values.
+/*
+PutArchitectEmergencygroupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutArchitectEmergencygroupServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect emergencygroup service unavailable response has a 2xx status code
+func (o *PutArchitectEmergencygroupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect emergencygroup service unavailable response has a 3xx status code
+func (o *PutArchitectEmergencygroupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect emergencygroup service unavailable response has a 4xx status code
+func (o *PutArchitectEmergencygroupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect emergencygroup service unavailable response has a 5xx status code
+func (o *PutArchitectEmergencygroupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put architect emergencygroup service unavailable response a status code equal to that given
+func (o *PutArchitectEmergencygroupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutArchitectEmergencygroupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutArchitectEmergencygroupServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutArchitectEmergencygroupGatewayTimeout() *PutArchitectEmergencygroupGa
 	return &PutArchitectEmergencygroupGatewayTimeout{}
 }
 
-/*PutArchitectEmergencygroupGatewayTimeout handles this case with default header values.
+/*
+PutArchitectEmergencygroupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutArchitectEmergencygroupGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put architect emergencygroup gateway timeout response has a 2xx status code
+func (o *PutArchitectEmergencygroupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put architect emergencygroup gateway timeout response has a 3xx status code
+func (o *PutArchitectEmergencygroupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put architect emergencygroup gateway timeout response has a 4xx status code
+func (o *PutArchitectEmergencygroupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put architect emergencygroup gateway timeout response has a 5xx status code
+func (o *PutArchitectEmergencygroupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put architect emergencygroup gateway timeout response a status code equal to that given
+func (o *PutArchitectEmergencygroupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutArchitectEmergencygroupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutArchitectEmergencygroupGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] putArchitectEmergencygroupGatewayTimeout  %+v", 504, o.Payload)
 }
 

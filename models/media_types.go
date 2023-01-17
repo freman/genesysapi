@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -35,7 +37,6 @@ func (m *MediaTypes) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MediaTypes) validateAllow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Allow) { // not required
 		return nil
 	}
@@ -44,6 +45,38 @@ func (m *MediaTypes) validateAllow(formats strfmt.Registry) error {
 		if err := m.Allow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("allow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("allow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this media types based on the context it is used
+func (m *MediaTypes) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAllow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MediaTypes) contextValidateAllow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Allow != nil {
+		if err := m.Allow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("allow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("allow")
 			}
 			return err
 		}

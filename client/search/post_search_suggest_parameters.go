@@ -19,76 +19,94 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostSearchSuggestParams creates a new PostSearchSuggestParams object
-// with the default values initialized.
+// NewPostSearchSuggestParams creates a new PostSearchSuggestParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostSearchSuggestParams() *PostSearchSuggestParams {
-	var (
-		profileDefault = bool(true)
-	)
 	return &PostSearchSuggestParams{
-		Profile: &profileDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostSearchSuggestParamsWithTimeout creates a new PostSearchSuggestParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostSearchSuggestParamsWithTimeout(timeout time.Duration) *PostSearchSuggestParams {
-	var (
-		profileDefault = bool(true)
-	)
 	return &PostSearchSuggestParams{
-		Profile: &profileDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostSearchSuggestParamsWithContext creates a new PostSearchSuggestParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostSearchSuggestParamsWithContext(ctx context.Context) *PostSearchSuggestParams {
-	var (
-		profileDefault = bool(true)
-	)
 	return &PostSearchSuggestParams{
-		Profile: &profileDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostSearchSuggestParamsWithHTTPClient creates a new PostSearchSuggestParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostSearchSuggestParamsWithHTTPClient(client *http.Client) *PostSearchSuggestParams {
-	var (
-		profileDefault = bool(true)
-	)
 	return &PostSearchSuggestParams{
-		Profile:    &profileDefault,
 		HTTPClient: client,
 	}
 }
 
-/*PostSearchSuggestParams contains all the parameters to send to the API endpoint
-for the post search suggest operation typically these are written to a http.Request
+/*
+PostSearchSuggestParams contains all the parameters to send to the API endpoint
+
+	for the post search suggest operation.
+
+	Typically these are written to a http.Request.
 */
 type PostSearchSuggestParams struct {
 
-	/*Body
-	  Search request options
+	/* Body.
 
+	   Search request options
 	*/
 	Body *models.SuggestSearchRequest
-	/*Profile
-	  profile
 
+	/* Profile.
+
+	   profile
+
+	   Default: true
 	*/
 	Profile *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post search suggest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostSearchSuggestParams) WithDefaults() *PostSearchSuggestParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post search suggest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostSearchSuggestParams) SetDefaults() {
+	var (
+		profileDefault = bool(true)
+	)
+
+	val := PostSearchSuggestParams{
+		Profile: &profileDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post search suggest params
@@ -153,7 +171,6 @@ func (o *PostSearchSuggestParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -164,16 +181,17 @@ func (o *PostSearchSuggestParams) WriteToRequest(r runtime.ClientRequest, reg st
 
 		// query param profile
 		var qrProfile bool
+
 		if o.Profile != nil {
 			qrProfile = *o.Profile
 		}
 		qProfile := swag.FormatBool(qrProfile)
 		if qProfile != "" {
+
 			if err := r.SetQueryParam("profile", qProfile); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

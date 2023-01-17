@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -58,7 +59,6 @@ func (m *NotificationTemplateHeader) Validate(formats strfmt.Registry) error {
 }
 
 func (m *NotificationTemplateHeader) validateMedia(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Media) { // not required
 		return nil
 	}
@@ -67,6 +67,8 @@ func (m *NotificationTemplateHeader) validateMedia(formats strfmt.Registry) erro
 		if err := m.Media.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("media")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("media")
 			}
 			return err
 		}
@@ -76,7 +78,6 @@ func (m *NotificationTemplateHeader) validateMedia(formats strfmt.Registry) erro
 }
 
 func (m *NotificationTemplateHeader) validateParameters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Parameters) { // not required
 		return nil
 	}
@@ -90,6 +91,8 @@ func (m *NotificationTemplateHeader) validateParameters(formats strfmt.Registry)
 			if err := m.Parameters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("parameters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("parameters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -138,6 +141,60 @@ func (m *NotificationTemplateHeader) validateType(formats strfmt.Registry) error
 	// value enum
 	if err := m.validateTypeEnum("type", "body", *m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this notification template header based on the context it is used
+func (m *NotificationTemplateHeader) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMedia(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateParameters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *NotificationTemplateHeader) contextValidateMedia(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Media != nil {
+		if err := m.Media.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("media")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("media")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *NotificationTemplateHeader) contextValidateParameters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Parameters); i++ {
+
+		if m.Parameters[i] != nil {
+			if err := m.Parameters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("parameters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("parameters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

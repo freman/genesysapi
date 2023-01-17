@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -33,6 +35,11 @@ type ConversationContentLocation struct {
 
 // Validate validates this conversation content location
 func (m *ConversationContentLocation) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this conversation content location based on context it is used
+func (m *ConversationContentLocation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -95,7 +95,6 @@ func (o *DeleteIntegrationsCredentialReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteIntegrationsCredentialNoContent() *DeleteIntegrationsCredentialNoC
 	return &DeleteIntegrationsCredentialNoContent{}
 }
 
-/*DeleteIntegrationsCredentialNoContent handles this case with default header values.
+/*
+DeleteIntegrationsCredentialNoContent describes a response with status code 204, with default header values.
 
 Deleted
 */
 type DeleteIntegrationsCredentialNoContent struct {
 }
 
+// IsSuccess returns true when this delete integrations credential no content response has a 2xx status code
+func (o *DeleteIntegrationsCredentialNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete integrations credential no content response has a 3xx status code
+func (o *DeleteIntegrationsCredentialNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete integrations credential no content response has a 4xx status code
+func (o *DeleteIntegrationsCredentialNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete integrations credential no content response has a 5xx status code
+func (o *DeleteIntegrationsCredentialNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete integrations credential no content response a status code equal to that given
+func (o *DeleteIntegrationsCredentialNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteIntegrationsCredentialNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialNoContent ", 204)
+}
+
+func (o *DeleteIntegrationsCredentialNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteIntegrationsCredentialBadRequest() *DeleteIntegrationsCredentialBa
 	return &DeleteIntegrationsCredentialBadRequest{}
 }
 
-/*DeleteIntegrationsCredentialBadRequest handles this case with default header values.
+/*
+DeleteIntegrationsCredentialBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteIntegrationsCredentialBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete integrations credential bad request response has a 2xx status code
+func (o *DeleteIntegrationsCredentialBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete integrations credential bad request response has a 3xx status code
+func (o *DeleteIntegrationsCredentialBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete integrations credential bad request response has a 4xx status code
+func (o *DeleteIntegrationsCredentialBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete integrations credential bad request response has a 5xx status code
+func (o *DeleteIntegrationsCredentialBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete integrations credential bad request response a status code equal to that given
+func (o *DeleteIntegrationsCredentialBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteIntegrationsCredentialBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteIntegrationsCredentialBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteIntegrationsCredentialUnauthorized() *DeleteIntegrationsCredential
 	return &DeleteIntegrationsCredentialUnauthorized{}
 }
 
-/*DeleteIntegrationsCredentialUnauthorized handles this case with default header values.
+/*
+DeleteIntegrationsCredentialUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteIntegrationsCredentialUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete integrations credential unauthorized response has a 2xx status code
+func (o *DeleteIntegrationsCredentialUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete integrations credential unauthorized response has a 3xx status code
+func (o *DeleteIntegrationsCredentialUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete integrations credential unauthorized response has a 4xx status code
+func (o *DeleteIntegrationsCredentialUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete integrations credential unauthorized response has a 5xx status code
+func (o *DeleteIntegrationsCredentialUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete integrations credential unauthorized response a status code equal to that given
+func (o *DeleteIntegrationsCredentialUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteIntegrationsCredentialUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteIntegrationsCredentialUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteIntegrationsCredentialForbidden() *DeleteIntegrationsCredentialFor
 	return &DeleteIntegrationsCredentialForbidden{}
 }
 
-/*DeleteIntegrationsCredentialForbidden handles this case with default header values.
+/*
+DeleteIntegrationsCredentialForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteIntegrationsCredentialForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete integrations credential forbidden response has a 2xx status code
+func (o *DeleteIntegrationsCredentialForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete integrations credential forbidden response has a 3xx status code
+func (o *DeleteIntegrationsCredentialForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete integrations credential forbidden response has a 4xx status code
+func (o *DeleteIntegrationsCredentialForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete integrations credential forbidden response has a 5xx status code
+func (o *DeleteIntegrationsCredentialForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete integrations credential forbidden response a status code equal to that given
+func (o *DeleteIntegrationsCredentialForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteIntegrationsCredentialForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteIntegrationsCredentialForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteIntegrationsCredentialNotFound() *DeleteIntegrationsCredentialNotF
 	return &DeleteIntegrationsCredentialNotFound{}
 }
 
-/*DeleteIntegrationsCredentialNotFound handles this case with default header values.
+/*
+DeleteIntegrationsCredentialNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteIntegrationsCredentialNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete integrations credential not found response has a 2xx status code
+func (o *DeleteIntegrationsCredentialNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete integrations credential not found response has a 3xx status code
+func (o *DeleteIntegrationsCredentialNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete integrations credential not found response has a 4xx status code
+func (o *DeleteIntegrationsCredentialNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete integrations credential not found response has a 5xx status code
+func (o *DeleteIntegrationsCredentialNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete integrations credential not found response a status code equal to that given
+func (o *DeleteIntegrationsCredentialNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteIntegrationsCredentialNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteIntegrationsCredentialNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteIntegrationsCredentialRequestTimeout() *DeleteIntegrationsCredenti
 	return &DeleteIntegrationsCredentialRequestTimeout{}
 }
 
-/*DeleteIntegrationsCredentialRequestTimeout handles this case with default header values.
+/*
+DeleteIntegrationsCredentialRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteIntegrationsCredentialRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete integrations credential request timeout response has a 2xx status code
+func (o *DeleteIntegrationsCredentialRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete integrations credential request timeout response has a 3xx status code
+func (o *DeleteIntegrationsCredentialRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete integrations credential request timeout response has a 4xx status code
+func (o *DeleteIntegrationsCredentialRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete integrations credential request timeout response has a 5xx status code
+func (o *DeleteIntegrationsCredentialRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete integrations credential request timeout response a status code equal to that given
+func (o *DeleteIntegrationsCredentialRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteIntegrationsCredentialRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIntegrationsCredentialRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteIntegrationsCredentialRequestEntityTooLarge() *DeleteIntegrationsC
 	return &DeleteIntegrationsCredentialRequestEntityTooLarge{}
 }
 
-/*DeleteIntegrationsCredentialRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteIntegrationsCredentialRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteIntegrationsCredentialRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete integrations credential request entity too large response has a 2xx status code
+func (o *DeleteIntegrationsCredentialRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete integrations credential request entity too large response has a 3xx status code
+func (o *DeleteIntegrationsCredentialRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete integrations credential request entity too large response has a 4xx status code
+func (o *DeleteIntegrationsCredentialRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete integrations credential request entity too large response has a 5xx status code
+func (o *DeleteIntegrationsCredentialRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete integrations credential request entity too large response a status code equal to that given
+func (o *DeleteIntegrationsCredentialRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteIntegrationsCredentialRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteIntegrationsCredentialRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteIntegrationsCredentialUnsupportedMediaType() *DeleteIntegrationsCr
 	return &DeleteIntegrationsCredentialUnsupportedMediaType{}
 }
 
-/*DeleteIntegrationsCredentialUnsupportedMediaType handles this case with default header values.
+/*
+DeleteIntegrationsCredentialUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteIntegrationsCredentialUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete integrations credential unsupported media type response has a 2xx status code
+func (o *DeleteIntegrationsCredentialUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete integrations credential unsupported media type response has a 3xx status code
+func (o *DeleteIntegrationsCredentialUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete integrations credential unsupported media type response has a 4xx status code
+func (o *DeleteIntegrationsCredentialUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete integrations credential unsupported media type response has a 5xx status code
+func (o *DeleteIntegrationsCredentialUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete integrations credential unsupported media type response a status code equal to that given
+func (o *DeleteIntegrationsCredentialUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteIntegrationsCredentialUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteIntegrationsCredentialUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteIntegrationsCredentialTooManyRequests() *DeleteIntegrationsCredent
 	return &DeleteIntegrationsCredentialTooManyRequests{}
 }
 
-/*DeleteIntegrationsCredentialTooManyRequests handles this case with default header values.
+/*
+DeleteIntegrationsCredentialTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteIntegrationsCredentialTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete integrations credential too many requests response has a 2xx status code
+func (o *DeleteIntegrationsCredentialTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete integrations credential too many requests response has a 3xx status code
+func (o *DeleteIntegrationsCredentialTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete integrations credential too many requests response has a 4xx status code
+func (o *DeleteIntegrationsCredentialTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete integrations credential too many requests response has a 5xx status code
+func (o *DeleteIntegrationsCredentialTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete integrations credential too many requests response a status code equal to that given
+func (o *DeleteIntegrationsCredentialTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteIntegrationsCredentialTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteIntegrationsCredentialTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteIntegrationsCredentialInternalServerError() *DeleteIntegrationsCre
 	return &DeleteIntegrationsCredentialInternalServerError{}
 }
 
-/*DeleteIntegrationsCredentialInternalServerError handles this case with default header values.
+/*
+DeleteIntegrationsCredentialInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteIntegrationsCredentialInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete integrations credential internal server error response has a 2xx status code
+func (o *DeleteIntegrationsCredentialInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete integrations credential internal server error response has a 3xx status code
+func (o *DeleteIntegrationsCredentialInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete integrations credential internal server error response has a 4xx status code
+func (o *DeleteIntegrationsCredentialInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete integrations credential internal server error response has a 5xx status code
+func (o *DeleteIntegrationsCredentialInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete integrations credential internal server error response a status code equal to that given
+func (o *DeleteIntegrationsCredentialInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteIntegrationsCredentialInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteIntegrationsCredentialInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteIntegrationsCredentialServiceUnavailable() *DeleteIntegrationsCred
 	return &DeleteIntegrationsCredentialServiceUnavailable{}
 }
 
-/*DeleteIntegrationsCredentialServiceUnavailable handles this case with default header values.
+/*
+DeleteIntegrationsCredentialServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteIntegrationsCredentialServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete integrations credential service unavailable response has a 2xx status code
+func (o *DeleteIntegrationsCredentialServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete integrations credential service unavailable response has a 3xx status code
+func (o *DeleteIntegrationsCredentialServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete integrations credential service unavailable response has a 4xx status code
+func (o *DeleteIntegrationsCredentialServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete integrations credential service unavailable response has a 5xx status code
+func (o *DeleteIntegrationsCredentialServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete integrations credential service unavailable response a status code equal to that given
+func (o *DeleteIntegrationsCredentialServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteIntegrationsCredentialServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteIntegrationsCredentialServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteIntegrationsCredentialGatewayTimeout() *DeleteIntegrationsCredenti
 	return &DeleteIntegrationsCredentialGatewayTimeout{}
 }
 
-/*DeleteIntegrationsCredentialGatewayTimeout handles this case with default header values.
+/*
+DeleteIntegrationsCredentialGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteIntegrationsCredentialGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete integrations credential gateway timeout response has a 2xx status code
+func (o *DeleteIntegrationsCredentialGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete integrations credential gateway timeout response has a 3xx status code
+func (o *DeleteIntegrationsCredentialGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete integrations credential gateway timeout response has a 4xx status code
+func (o *DeleteIntegrationsCredentialGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete integrations credential gateway timeout response has a 5xx status code
+func (o *DeleteIntegrationsCredentialGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete integrations credential gateway timeout response a status code equal to that given
+func (o *DeleteIntegrationsCredentialGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteIntegrationsCredentialGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteIntegrationsCredentialGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/integrations/credentials/{credentialId}][%d] deleteIntegrationsCredentialGatewayTimeout  %+v", 504, o.Payload)
 }
 

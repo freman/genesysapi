@@ -18,7 +18,7 @@ import (
 // API is the interface of the analytics client
 type API interface {
 	/*
-	   DeleteAnalyticsConversationsDetailsJob deletes cancel an async request
+	   DeleteAnalyticsConversationsDetailsJob deletes cancel an async details job
 	*/
 	DeleteAnalyticsConversationsDetailsJob(ctx context.Context, params *DeleteAnalyticsConversationsDetailsJobParams) (*DeleteAnalyticsConversationsDetailsJobNoContent, error)
 	/*
@@ -46,7 +46,7 @@ type API interface {
 	*/
 	GetAnalyticsConversationsDetailsJob(ctx context.Context, params *GetAnalyticsConversationsDetailsJobParams) (*GetAnalyticsConversationsDetailsJobOK, *GetAnalyticsConversationsDetailsJobAccepted, error)
 	/*
-	   GetAnalyticsConversationsDetailsJobResults fetches a page of results for an async query
+	   GetAnalyticsConversationsDetailsJobResults fetches a page of results for an async details job
 	*/
 	GetAnalyticsConversationsDetailsJobResults(ctx context.Context, params *GetAnalyticsConversationsDetailsJobResultsParams) (*GetAnalyticsConversationsDetailsJobResultsOK, error)
 	/*
@@ -124,6 +124,10 @@ type API interface {
 	   PatchAnalyticsReportingSettings patches analytics reporting settings values for an organization
 	*/
 	PatchAnalyticsReportingSettings(ctx context.Context, params *PatchAnalyticsReportingSettingsParams) (*PatchAnalyticsReportingSettingsOK, error)
+	/*
+	   PostAnalyticsActionsAggregatesQuery queries for action aggregates
+	*/
+	PostAnalyticsActionsAggregatesQuery(ctx context.Context, params *PostAnalyticsActionsAggregatesQueryParams) (*PostAnalyticsActionsAggregatesQueryOK, error)
 	/*
 	   PostAnalyticsBotsAggregatesQuery queries for bot aggregates
 	*/
@@ -231,7 +235,7 @@ type Client struct {
 }
 
 /*
-DeleteAnalyticsConversationsDetailsJob deletes cancel an async request
+DeleteAnalyticsConversationsDetailsJob deletes cancel an async details job
 */
 func (a *Client) DeleteAnalyticsConversationsDetailsJob(ctx context.Context, params *DeleteAnalyticsConversationsDetailsJobParams) (*DeleteAnalyticsConversationsDetailsJobNoContent, error) {
 
@@ -412,7 +416,7 @@ func (a *Client) GetAnalyticsConversationsDetailsJob(ctx context.Context, params
 }
 
 /*
-GetAnalyticsConversationsDetailsJobResults fetches a page of results for an async query
+GetAnalyticsConversationsDetailsJobResults fetches a page of results for an async details job
 */
 func (a *Client) GetAnalyticsConversationsDetailsJobResults(ctx context.Context, params *GetAnalyticsConversationsDetailsJobResultsParams) (*GetAnalyticsConversationsDetailsJobResultsOK, error) {
 
@@ -895,6 +899,31 @@ func (a *Client) PatchAnalyticsReportingSettings(ctx context.Context, params *Pa
 		return nil, err
 	}
 	return result.(*PatchAnalyticsReportingSettingsOK), nil
+
+}
+
+/*
+PostAnalyticsActionsAggregatesQuery queries for action aggregates
+*/
+func (a *Client) PostAnalyticsActionsAggregatesQuery(ctx context.Context, params *PostAnalyticsActionsAggregatesQueryParams) (*PostAnalyticsActionsAggregatesQueryOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postAnalyticsActionsAggregatesQuery",
+		Method:             "POST",
+		PathPattern:        "/api/v2/analytics/actions/aggregates/query",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostAnalyticsActionsAggregatesQueryReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostAnalyticsActionsAggregatesQueryOK), nil
 
 }
 

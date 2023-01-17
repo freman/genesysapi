@@ -17,129 +17,159 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetQualityEvaluatorsActivityParams creates a new GetQualityEvaluatorsActivityParams object
-// with the default values initialized.
+// NewGetQualityEvaluatorsActivityParams creates a new GetQualityEvaluatorsActivityParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetQualityEvaluatorsActivityParams() *GetQualityEvaluatorsActivityParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetQualityEvaluatorsActivityParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetQualityEvaluatorsActivityParamsWithTimeout creates a new GetQualityEvaluatorsActivityParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetQualityEvaluatorsActivityParamsWithTimeout(timeout time.Duration) *GetQualityEvaluatorsActivityParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetQualityEvaluatorsActivityParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetQualityEvaluatorsActivityParamsWithContext creates a new GetQualityEvaluatorsActivityParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetQualityEvaluatorsActivityParamsWithContext(ctx context.Context) *GetQualityEvaluatorsActivityParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetQualityEvaluatorsActivityParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetQualityEvaluatorsActivityParamsWithHTTPClient creates a new GetQualityEvaluatorsActivityParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetQualityEvaluatorsActivityParamsWithHTTPClient(client *http.Client) *GetQualityEvaluatorsActivityParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetQualityEvaluatorsActivityParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetQualityEvaluatorsActivityParams contains all the parameters to send to the API endpoint
-for the get quality evaluators activity operation typically these are written to a http.Request
+/*
+GetQualityEvaluatorsActivityParams contains all the parameters to send to the API endpoint
+
+	for the get quality evaluators activity operation.
+
+	Typically these are written to a http.Request.
 */
 type GetQualityEvaluatorsActivityParams struct {
 
-	/*EndTime
-	  The end time specified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	/* EndTime.
 
+	   The end time specified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+
+	   Format: date-time
 	*/
 	EndTime *strfmt.DateTime
-	/*Expand
-	  variable name requested by expand list
 
+	/* Expand.
+
+	   variable name requested by expand list
 	*/
 	Expand []string
-	/*Group
-	  group id
 
+	/* Group.
+
+	   group id
 	*/
 	Group *string
-	/*Name
-	  Evaluator name
 
+	/* Name.
+
+	   Evaluator name
 	*/
 	Name *string
-	/*NextPage
-	  next page token
 
+	/* NextPage.
+
+	   next page token
 	*/
 	NextPage *string
-	/*PageNumber
-	  The page number requested
 
+	/* PageNumber.
+
+	   The page number requested
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  The total page size requested
 
+	/* PageSize.
+
+	   The total page size requested
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*Permission
-	  permission strings
 
+	/* Permission.
+
+	   permission strings
 	*/
 	Permission []string
-	/*PreviousPage
-	  Previous page token
 
+	/* PreviousPage.
+
+	   Previous page token
 	*/
 	PreviousPage *string
-	/*SortBy
-	  variable name requested to sort by
 
+	/* SortBy.
+
+	   variable name requested to sort by
 	*/
 	SortBy *string
-	/*StartTime
-	  The start time specified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
+	/* StartTime.
+
+	   The start time specified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+
+	   Format: date-time
 	*/
 	StartTime *strfmt.DateTime
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get quality evaluators activity params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityEvaluatorsActivityParams) WithDefaults() *GetQualityEvaluatorsActivityParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get quality evaluators activity params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityEvaluatorsActivityParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetQualityEvaluatorsActivityParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get quality evaluators activity params
@@ -308,164 +338,213 @@ func (o *GetQualityEvaluatorsActivityParams) WriteToRequest(r runtime.ClientRequ
 
 		// query param endTime
 		var qrEndTime strfmt.DateTime
+
 		if o.EndTime != nil {
 			qrEndTime = *o.EndTime
 		}
 		qEndTime := qrEndTime.String()
 		if qEndTime != "" {
+
 			if err := r.SetQueryParam("endTime", qEndTime); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.Group != nil {
 
 		// query param group
 		var qrGroup string
+
 		if o.Group != nil {
 			qrGroup = *o.Group
 		}
 		qGroup := qrGroup
 		if qGroup != "" {
+
 			if err := r.SetQueryParam("group", qGroup); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.NextPage != nil {
 
 		// query param nextPage
 		var qrNextPage string
+
 		if o.NextPage != nil {
 			qrNextPage = *o.NextPage
 		}
 		qNextPage := qrNextPage
 		if qNextPage != "" {
+
 			if err := r.SetQueryParam("nextPage", qNextPage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesPermission := o.Permission
+	if o.Permission != nil {
 
-	joinedPermission := swag.JoinByFormat(valuesPermission, "multi")
-	// query array param permission
-	if err := r.SetQueryParam("permission", joinedPermission...); err != nil {
-		return err
+		// binding items for permission
+		joinedPermission := o.bindParamPermission(reg)
+
+		// query array param permission
+		if err := r.SetQueryParam("permission", joinedPermission...); err != nil {
+			return err
+		}
 	}
 
 	if o.PreviousPage != nil {
 
 		// query param previousPage
 		var qrPreviousPage string
+
 		if o.PreviousPage != nil {
 			qrPreviousPage = *o.PreviousPage
 		}
 		qPreviousPage := qrPreviousPage
 		if qPreviousPage != "" {
+
 			if err := r.SetQueryParam("previousPage", qPreviousPage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.StartTime != nil {
 
 		// query param startTime
 		var qrStartTime strfmt.DateTime
+
 		if o.StartTime != nil {
 			qrStartTime = *o.StartTime
 		}
 		qStartTime := qrStartTime.String()
 		if qStartTime != "" {
+
 			if err := r.SetQueryParam("startTime", qStartTime); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetQualityEvaluatorsActivity binds the parameter expand
+func (o *GetQualityEvaluatorsActivityParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
+}
+
+// bindParamGetQualityEvaluatorsActivity binds the parameter permission
+func (o *GetQualityEvaluatorsActivityParams) bindParamPermission(formats strfmt.Registry) []string {
+	permissionIR := o.Permission
+
+	var permissionIC []string
+	for _, permissionIIR := range permissionIR { // explode []string
+
+		permissionIIV := permissionIIR // string as string
+		permissionIC = append(permissionIC, permissionIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	permissionIS := swag.JoinByFormat(permissionIC, "multi")
+
+	return permissionIS
 }

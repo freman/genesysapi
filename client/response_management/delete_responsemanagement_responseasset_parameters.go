@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteResponsemanagementResponseassetParams creates a new DeleteResponsemanagementResponseassetParams object
-// with the default values initialized.
+// NewDeleteResponsemanagementResponseassetParams creates a new DeleteResponsemanagementResponseassetParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteResponsemanagementResponseassetParams() *DeleteResponsemanagementResponseassetParams {
-	var ()
 	return &DeleteResponsemanagementResponseassetParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteResponsemanagementResponseassetParamsWithTimeout creates a new DeleteResponsemanagementResponseassetParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteResponsemanagementResponseassetParamsWithTimeout(timeout time.Duration) *DeleteResponsemanagementResponseassetParams {
-	var ()
 	return &DeleteResponsemanagementResponseassetParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteResponsemanagementResponseassetParamsWithContext creates a new DeleteResponsemanagementResponseassetParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteResponsemanagementResponseassetParamsWithContext(ctx context.Context) *DeleteResponsemanagementResponseassetParams {
-	var ()
 	return &DeleteResponsemanagementResponseassetParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteResponsemanagementResponseassetParamsWithHTTPClient creates a new DeleteResponsemanagementResponseassetParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteResponsemanagementResponseassetParamsWithHTTPClient(client *http.Client) *DeleteResponsemanagementResponseassetParams {
-	var ()
 	return &DeleteResponsemanagementResponseassetParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteResponsemanagementResponseassetParams contains all the parameters to send to the API endpoint
-for the delete responsemanagement responseasset operation typically these are written to a http.Request
+/*
+DeleteResponsemanagementResponseassetParams contains all the parameters to send to the API endpoint
+
+	for the delete responsemanagement responseasset operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteResponsemanagementResponseassetParams struct {
 
-	/*ResponseAssetID
-	  Asset Id
+	/* ResponseAssetID.
 
+	   Asset Id
 	*/
 	ResponseAssetID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete responsemanagement responseasset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteResponsemanagementResponseassetParams) WithDefaults() *DeleteResponsemanagementResponseassetParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete responsemanagement responseasset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteResponsemanagementResponseassetParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete responsemanagement responseasset params

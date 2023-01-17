@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteContentmanagementWorkspaceParams creates a new DeleteContentmanagementWorkspaceParams object
-// with the default values initialized.
+// NewDeleteContentmanagementWorkspaceParams creates a new DeleteContentmanagementWorkspaceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteContentmanagementWorkspaceParams() *DeleteContentmanagementWorkspaceParams {
-	var ()
 	return &DeleteContentmanagementWorkspaceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteContentmanagementWorkspaceParamsWithTimeout creates a new DeleteContentmanagementWorkspaceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteContentmanagementWorkspaceParamsWithTimeout(timeout time.Duration) *DeleteContentmanagementWorkspaceParams {
-	var ()
 	return &DeleteContentmanagementWorkspaceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteContentmanagementWorkspaceParamsWithContext creates a new DeleteContentmanagementWorkspaceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteContentmanagementWorkspaceParamsWithContext(ctx context.Context) *DeleteContentmanagementWorkspaceParams {
-	var ()
 	return &DeleteContentmanagementWorkspaceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteContentmanagementWorkspaceParamsWithHTTPClient creates a new DeleteContentmanagementWorkspaceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteContentmanagementWorkspaceParamsWithHTTPClient(client *http.Client) *DeleteContentmanagementWorkspaceParams {
-	var ()
 	return &DeleteContentmanagementWorkspaceParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteContentmanagementWorkspaceParams contains all the parameters to send to the API endpoint
-for the delete contentmanagement workspace operation typically these are written to a http.Request
+/*
+DeleteContentmanagementWorkspaceParams contains all the parameters to send to the API endpoint
+
+	for the delete contentmanagement workspace operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteContentmanagementWorkspaceParams struct {
 
-	/*MoveChildrenToWorkspaceID
-	  New location for objects in deleted workspace.
+	/* MoveChildrenToWorkspaceID.
 
+	   New location for objects in deleted workspace.
 	*/
 	MoveChildrenToWorkspaceID *string
-	/*WorkspaceID
-	  Workspace ID
 
+	/* WorkspaceID.
+
+	   Workspace ID
 	*/
 	WorkspaceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete contentmanagement workspace params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteContentmanagementWorkspaceParams) WithDefaults() *DeleteContentmanagementWorkspaceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete contentmanagement workspace params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteContentmanagementWorkspaceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete contentmanagement workspace params
@@ -143,16 +160,17 @@ func (o *DeleteContentmanagementWorkspaceParams) WriteToRequest(r runtime.Client
 
 		// query param moveChildrenToWorkspaceId
 		var qrMoveChildrenToWorkspaceID string
+
 		if o.MoveChildrenToWorkspaceID != nil {
 			qrMoveChildrenToWorkspaceID = *o.MoveChildrenToWorkspaceID
 		}
 		qMoveChildrenToWorkspaceID := qrMoveChildrenToWorkspaceID
 		if qMoveChildrenToWorkspaceID != "" {
+
 			if err := r.SetQueryParam("moveChildrenToWorkspaceId", qMoveChildrenToWorkspaceID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param workspaceId

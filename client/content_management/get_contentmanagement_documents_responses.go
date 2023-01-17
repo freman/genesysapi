@@ -95,7 +95,6 @@ func (o *GetContentmanagementDocumentsReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetContentmanagementDocumentsOK() *GetContentmanagementDocumentsOK {
 	return &GetContentmanagementDocumentsOK{}
 }
 
-/*GetContentmanagementDocumentsOK handles this case with default header values.
+/*
+GetContentmanagementDocumentsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetContentmanagementDocumentsOK struct {
 	Payload *models.DocumentEntityListing
 }
 
+// IsSuccess returns true when this get contentmanagement documents o k response has a 2xx status code
+func (o *GetContentmanagementDocumentsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get contentmanagement documents o k response has a 3xx status code
+func (o *GetContentmanagementDocumentsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement documents o k response has a 4xx status code
+func (o *GetContentmanagementDocumentsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement documents o k response has a 5xx status code
+func (o *GetContentmanagementDocumentsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement documents o k response a status code equal to that given
+func (o *GetContentmanagementDocumentsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetContentmanagementDocumentsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetContentmanagementDocumentsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetContentmanagementDocumentsBadRequest() *GetContentmanagementDocuments
 	return &GetContentmanagementDocumentsBadRequest{}
 }
 
-/*GetContentmanagementDocumentsBadRequest handles this case with default header values.
+/*
+GetContentmanagementDocumentsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetContentmanagementDocumentsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement documents bad request response has a 2xx status code
+func (o *GetContentmanagementDocumentsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement documents bad request response has a 3xx status code
+func (o *GetContentmanagementDocumentsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement documents bad request response has a 4xx status code
+func (o *GetContentmanagementDocumentsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement documents bad request response has a 5xx status code
+func (o *GetContentmanagementDocumentsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement documents bad request response a status code equal to that given
+func (o *GetContentmanagementDocumentsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetContentmanagementDocumentsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetContentmanagementDocumentsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetContentmanagementDocumentsUnauthorized() *GetContentmanagementDocumen
 	return &GetContentmanagementDocumentsUnauthorized{}
 }
 
-/*GetContentmanagementDocumentsUnauthorized handles this case with default header values.
+/*
+GetContentmanagementDocumentsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetContentmanagementDocumentsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement documents unauthorized response has a 2xx status code
+func (o *GetContentmanagementDocumentsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement documents unauthorized response has a 3xx status code
+func (o *GetContentmanagementDocumentsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement documents unauthorized response has a 4xx status code
+func (o *GetContentmanagementDocumentsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement documents unauthorized response has a 5xx status code
+func (o *GetContentmanagementDocumentsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement documents unauthorized response a status code equal to that given
+func (o *GetContentmanagementDocumentsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetContentmanagementDocumentsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetContentmanagementDocumentsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetContentmanagementDocumentsForbidden() *GetContentmanagementDocumentsF
 	return &GetContentmanagementDocumentsForbidden{}
 }
 
-/*GetContentmanagementDocumentsForbidden handles this case with default header values.
+/*
+GetContentmanagementDocumentsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetContentmanagementDocumentsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement documents forbidden response has a 2xx status code
+func (o *GetContentmanagementDocumentsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement documents forbidden response has a 3xx status code
+func (o *GetContentmanagementDocumentsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement documents forbidden response has a 4xx status code
+func (o *GetContentmanagementDocumentsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement documents forbidden response has a 5xx status code
+func (o *GetContentmanagementDocumentsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement documents forbidden response a status code equal to that given
+func (o *GetContentmanagementDocumentsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetContentmanagementDocumentsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetContentmanagementDocumentsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetContentmanagementDocumentsNotFound() *GetContentmanagementDocumentsNo
 	return &GetContentmanagementDocumentsNotFound{}
 }
 
-/*GetContentmanagementDocumentsNotFound handles this case with default header values.
+/*
+GetContentmanagementDocumentsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetContentmanagementDocumentsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement documents not found response has a 2xx status code
+func (o *GetContentmanagementDocumentsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement documents not found response has a 3xx status code
+func (o *GetContentmanagementDocumentsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement documents not found response has a 4xx status code
+func (o *GetContentmanagementDocumentsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement documents not found response has a 5xx status code
+func (o *GetContentmanagementDocumentsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement documents not found response a status code equal to that given
+func (o *GetContentmanagementDocumentsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetContentmanagementDocumentsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetContentmanagementDocumentsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetContentmanagementDocumentsRequestTimeout() *GetContentmanagementDocum
 	return &GetContentmanagementDocumentsRequestTimeout{}
 }
 
-/*GetContentmanagementDocumentsRequestTimeout handles this case with default header values.
+/*
+GetContentmanagementDocumentsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetContentmanagementDocumentsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement documents request timeout response has a 2xx status code
+func (o *GetContentmanagementDocumentsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement documents request timeout response has a 3xx status code
+func (o *GetContentmanagementDocumentsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement documents request timeout response has a 4xx status code
+func (o *GetContentmanagementDocumentsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement documents request timeout response has a 5xx status code
+func (o *GetContentmanagementDocumentsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement documents request timeout response a status code equal to that given
+func (o *GetContentmanagementDocumentsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetContentmanagementDocumentsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetContentmanagementDocumentsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetContentmanagementDocumentsRequestEntityTooLarge() *GetContentmanageme
 	return &GetContentmanagementDocumentsRequestEntityTooLarge{}
 }
 
-/*GetContentmanagementDocumentsRequestEntityTooLarge handles this case with default header values.
+/*
+GetContentmanagementDocumentsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetContentmanagementDocumentsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement documents request entity too large response has a 2xx status code
+func (o *GetContentmanagementDocumentsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement documents request entity too large response has a 3xx status code
+func (o *GetContentmanagementDocumentsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement documents request entity too large response has a 4xx status code
+func (o *GetContentmanagementDocumentsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement documents request entity too large response has a 5xx status code
+func (o *GetContentmanagementDocumentsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement documents request entity too large response a status code equal to that given
+func (o *GetContentmanagementDocumentsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetContentmanagementDocumentsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetContentmanagementDocumentsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetContentmanagementDocumentsUnsupportedMediaType() *GetContentmanagemen
 	return &GetContentmanagementDocumentsUnsupportedMediaType{}
 }
 
-/*GetContentmanagementDocumentsUnsupportedMediaType handles this case with default header values.
+/*
+GetContentmanagementDocumentsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetContentmanagementDocumentsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement documents unsupported media type response has a 2xx status code
+func (o *GetContentmanagementDocumentsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement documents unsupported media type response has a 3xx status code
+func (o *GetContentmanagementDocumentsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement documents unsupported media type response has a 4xx status code
+func (o *GetContentmanagementDocumentsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement documents unsupported media type response has a 5xx status code
+func (o *GetContentmanagementDocumentsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement documents unsupported media type response a status code equal to that given
+func (o *GetContentmanagementDocumentsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetContentmanagementDocumentsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetContentmanagementDocumentsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetContentmanagementDocumentsTooManyRequests() *GetContentmanagementDocu
 	return &GetContentmanagementDocumentsTooManyRequests{}
 }
 
-/*GetContentmanagementDocumentsTooManyRequests handles this case with default header values.
+/*
+GetContentmanagementDocumentsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetContentmanagementDocumentsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement documents too many requests response has a 2xx status code
+func (o *GetContentmanagementDocumentsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement documents too many requests response has a 3xx status code
+func (o *GetContentmanagementDocumentsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement documents too many requests response has a 4xx status code
+func (o *GetContentmanagementDocumentsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement documents too many requests response has a 5xx status code
+func (o *GetContentmanagementDocumentsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement documents too many requests response a status code equal to that given
+func (o *GetContentmanagementDocumentsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetContentmanagementDocumentsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetContentmanagementDocumentsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetContentmanagementDocumentsInternalServerError() *GetContentmanagement
 	return &GetContentmanagementDocumentsInternalServerError{}
 }
 
-/*GetContentmanagementDocumentsInternalServerError handles this case with default header values.
+/*
+GetContentmanagementDocumentsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetContentmanagementDocumentsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement documents internal server error response has a 2xx status code
+func (o *GetContentmanagementDocumentsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement documents internal server error response has a 3xx status code
+func (o *GetContentmanagementDocumentsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement documents internal server error response has a 4xx status code
+func (o *GetContentmanagementDocumentsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement documents internal server error response has a 5xx status code
+func (o *GetContentmanagementDocumentsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement documents internal server error response a status code equal to that given
+func (o *GetContentmanagementDocumentsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetContentmanagementDocumentsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetContentmanagementDocumentsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetContentmanagementDocumentsServiceUnavailable() *GetContentmanagementD
 	return &GetContentmanagementDocumentsServiceUnavailable{}
 }
 
-/*GetContentmanagementDocumentsServiceUnavailable handles this case with default header values.
+/*
+GetContentmanagementDocumentsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetContentmanagementDocumentsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement documents service unavailable response has a 2xx status code
+func (o *GetContentmanagementDocumentsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement documents service unavailable response has a 3xx status code
+func (o *GetContentmanagementDocumentsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement documents service unavailable response has a 4xx status code
+func (o *GetContentmanagementDocumentsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement documents service unavailable response has a 5xx status code
+func (o *GetContentmanagementDocumentsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement documents service unavailable response a status code equal to that given
+func (o *GetContentmanagementDocumentsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetContentmanagementDocumentsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetContentmanagementDocumentsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetContentmanagementDocumentsGatewayTimeout() *GetContentmanagementDocum
 	return &GetContentmanagementDocumentsGatewayTimeout{}
 }
 
-/*GetContentmanagementDocumentsGatewayTimeout handles this case with default header values.
+/*
+GetContentmanagementDocumentsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetContentmanagementDocumentsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement documents gateway timeout response has a 2xx status code
+func (o *GetContentmanagementDocumentsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement documents gateway timeout response has a 3xx status code
+func (o *GetContentmanagementDocumentsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement documents gateway timeout response has a 4xx status code
+func (o *GetContentmanagementDocumentsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement documents gateway timeout response has a 5xx status code
+func (o *GetContentmanagementDocumentsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement documents gateway timeout response a status code equal to that given
+func (o *GetContentmanagementDocumentsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetContentmanagementDocumentsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetContentmanagementDocumentsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/documents][%d] getContentmanagementDocumentsGatewayTimeout  %+v", 504, o.Payload)
 }
 

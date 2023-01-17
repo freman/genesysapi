@@ -17,76 +17,92 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteFlowsDatatableParams creates a new DeleteFlowsDatatableParams object
-// with the default values initialized.
+// NewDeleteFlowsDatatableParams creates a new DeleteFlowsDatatableParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteFlowsDatatableParams() *DeleteFlowsDatatableParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &DeleteFlowsDatatableParams{
-		Force: &forceDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteFlowsDatatableParamsWithTimeout creates a new DeleteFlowsDatatableParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteFlowsDatatableParamsWithTimeout(timeout time.Duration) *DeleteFlowsDatatableParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &DeleteFlowsDatatableParams{
-		Force: &forceDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteFlowsDatatableParamsWithContext creates a new DeleteFlowsDatatableParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteFlowsDatatableParamsWithContext(ctx context.Context) *DeleteFlowsDatatableParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &DeleteFlowsDatatableParams{
-		Force: &forceDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteFlowsDatatableParamsWithHTTPClient creates a new DeleteFlowsDatatableParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteFlowsDatatableParamsWithHTTPClient(client *http.Client) *DeleteFlowsDatatableParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &DeleteFlowsDatatableParams{
-		Force:      &forceDefault,
 		HTTPClient: client,
 	}
 }
 
-/*DeleteFlowsDatatableParams contains all the parameters to send to the API endpoint
-for the delete flows datatable operation typically these are written to a http.Request
+/*
+DeleteFlowsDatatableParams contains all the parameters to send to the API endpoint
+
+	for the delete flows datatable operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteFlowsDatatableParams struct {
 
-	/*DatatableID
-	  id of datatable
+	/* DatatableID.
 
+	   id of datatable
 	*/
 	DatatableID string
-	/*Force
-	  force delete, even if in use
 
+	/* Force.
+
+	   force delete, even if in use
 	*/
 	Force *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete flows datatable params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteFlowsDatatableParams) WithDefaults() *DeleteFlowsDatatableParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete flows datatable params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteFlowsDatatableParams) SetDefaults() {
+	var (
+		forceDefault = bool(false)
+	)
+
+	val := DeleteFlowsDatatableParams{
+		Force: &forceDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the delete flows datatable params
@@ -161,16 +177,17 @@ func (o *DeleteFlowsDatatableParams) WriteToRequest(r runtime.ClientRequest, reg
 
 		// query param force
 		var qrForce bool
+
 		if o.Force != nil {
 			qrForce = *o.Force
 		}
 		qForce := swag.FormatBool(qrForce)
 		if qForce != "" {
+
 			if err := r.SetQueryParam("force", qForce); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

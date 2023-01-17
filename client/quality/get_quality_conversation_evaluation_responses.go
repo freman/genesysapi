@@ -95,7 +95,6 @@ func (o *GetQualityConversationEvaluationReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetQualityConversationEvaluationOK() *GetQualityConversationEvaluationOK
 	return &GetQualityConversationEvaluationOK{}
 }
 
-/*GetQualityConversationEvaluationOK handles this case with default header values.
+/*
+GetQualityConversationEvaluationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetQualityConversationEvaluationOK struct {
 	Payload *models.EvaluationResponse
 }
 
+// IsSuccess returns true when this get quality conversation evaluation o k response has a 2xx status code
+func (o *GetQualityConversationEvaluationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get quality conversation evaluation o k response has a 3xx status code
+func (o *GetQualityConversationEvaluationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversation evaluation o k response has a 4xx status code
+func (o *GetQualityConversationEvaluationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality conversation evaluation o k response has a 5xx status code
+func (o *GetQualityConversationEvaluationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversation evaluation o k response a status code equal to that given
+func (o *GetQualityConversationEvaluationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetQualityConversationEvaluationOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationOK  %+v", 200, o.Payload)
+}
+
+func (o *GetQualityConversationEvaluationOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetQualityConversationEvaluationBadRequest() *GetQualityConversationEval
 	return &GetQualityConversationEvaluationBadRequest{}
 }
 
-/*GetQualityConversationEvaluationBadRequest handles this case with default header values.
+/*
+GetQualityConversationEvaluationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetQualityConversationEvaluationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversation evaluation bad request response has a 2xx status code
+func (o *GetQualityConversationEvaluationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversation evaluation bad request response has a 3xx status code
+func (o *GetQualityConversationEvaluationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversation evaluation bad request response has a 4xx status code
+func (o *GetQualityConversationEvaluationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversation evaluation bad request response has a 5xx status code
+func (o *GetQualityConversationEvaluationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversation evaluation bad request response a status code equal to that given
+func (o *GetQualityConversationEvaluationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetQualityConversationEvaluationBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetQualityConversationEvaluationBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetQualityConversationEvaluationUnauthorized() *GetQualityConversationEv
 	return &GetQualityConversationEvaluationUnauthorized{}
 }
 
-/*GetQualityConversationEvaluationUnauthorized handles this case with default header values.
+/*
+GetQualityConversationEvaluationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetQualityConversationEvaluationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversation evaluation unauthorized response has a 2xx status code
+func (o *GetQualityConversationEvaluationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversation evaluation unauthorized response has a 3xx status code
+func (o *GetQualityConversationEvaluationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversation evaluation unauthorized response has a 4xx status code
+func (o *GetQualityConversationEvaluationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversation evaluation unauthorized response has a 5xx status code
+func (o *GetQualityConversationEvaluationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversation evaluation unauthorized response a status code equal to that given
+func (o *GetQualityConversationEvaluationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetQualityConversationEvaluationUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetQualityConversationEvaluationUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetQualityConversationEvaluationForbidden() *GetQualityConversationEvalu
 	return &GetQualityConversationEvaluationForbidden{}
 }
 
-/*GetQualityConversationEvaluationForbidden handles this case with default header values.
+/*
+GetQualityConversationEvaluationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetQualityConversationEvaluationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversation evaluation forbidden response has a 2xx status code
+func (o *GetQualityConversationEvaluationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversation evaluation forbidden response has a 3xx status code
+func (o *GetQualityConversationEvaluationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversation evaluation forbidden response has a 4xx status code
+func (o *GetQualityConversationEvaluationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversation evaluation forbidden response has a 5xx status code
+func (o *GetQualityConversationEvaluationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversation evaluation forbidden response a status code equal to that given
+func (o *GetQualityConversationEvaluationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetQualityConversationEvaluationForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetQualityConversationEvaluationForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetQualityConversationEvaluationNotFound() *GetQualityConversationEvalua
 	return &GetQualityConversationEvaluationNotFound{}
 }
 
-/*GetQualityConversationEvaluationNotFound handles this case with default header values.
+/*
+GetQualityConversationEvaluationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetQualityConversationEvaluationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversation evaluation not found response has a 2xx status code
+func (o *GetQualityConversationEvaluationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversation evaluation not found response has a 3xx status code
+func (o *GetQualityConversationEvaluationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversation evaluation not found response has a 4xx status code
+func (o *GetQualityConversationEvaluationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversation evaluation not found response has a 5xx status code
+func (o *GetQualityConversationEvaluationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversation evaluation not found response a status code equal to that given
+func (o *GetQualityConversationEvaluationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetQualityConversationEvaluationNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetQualityConversationEvaluationNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetQualityConversationEvaluationRequestTimeout() *GetQualityConversation
 	return &GetQualityConversationEvaluationRequestTimeout{}
 }
 
-/*GetQualityConversationEvaluationRequestTimeout handles this case with default header values.
+/*
+GetQualityConversationEvaluationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetQualityConversationEvaluationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversation evaluation request timeout response has a 2xx status code
+func (o *GetQualityConversationEvaluationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversation evaluation request timeout response has a 3xx status code
+func (o *GetQualityConversationEvaluationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversation evaluation request timeout response has a 4xx status code
+func (o *GetQualityConversationEvaluationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversation evaluation request timeout response has a 5xx status code
+func (o *GetQualityConversationEvaluationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversation evaluation request timeout response a status code equal to that given
+func (o *GetQualityConversationEvaluationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetQualityConversationEvaluationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetQualityConversationEvaluationRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetQualityConversationEvaluationRequestEntityTooLarge() *GetQualityConve
 	return &GetQualityConversationEvaluationRequestEntityTooLarge{}
 }
 
-/*GetQualityConversationEvaluationRequestEntityTooLarge handles this case with default header values.
+/*
+GetQualityConversationEvaluationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetQualityConversationEvaluationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversation evaluation request entity too large response has a 2xx status code
+func (o *GetQualityConversationEvaluationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversation evaluation request entity too large response has a 3xx status code
+func (o *GetQualityConversationEvaluationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversation evaluation request entity too large response has a 4xx status code
+func (o *GetQualityConversationEvaluationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversation evaluation request entity too large response has a 5xx status code
+func (o *GetQualityConversationEvaluationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversation evaluation request entity too large response a status code equal to that given
+func (o *GetQualityConversationEvaluationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetQualityConversationEvaluationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetQualityConversationEvaluationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetQualityConversationEvaluationUnsupportedMediaType() *GetQualityConver
 	return &GetQualityConversationEvaluationUnsupportedMediaType{}
 }
 
-/*GetQualityConversationEvaluationUnsupportedMediaType handles this case with default header values.
+/*
+GetQualityConversationEvaluationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetQualityConversationEvaluationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversation evaluation unsupported media type response has a 2xx status code
+func (o *GetQualityConversationEvaluationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversation evaluation unsupported media type response has a 3xx status code
+func (o *GetQualityConversationEvaluationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversation evaluation unsupported media type response has a 4xx status code
+func (o *GetQualityConversationEvaluationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversation evaluation unsupported media type response has a 5xx status code
+func (o *GetQualityConversationEvaluationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversation evaluation unsupported media type response a status code equal to that given
+func (o *GetQualityConversationEvaluationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetQualityConversationEvaluationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetQualityConversationEvaluationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetQualityConversationEvaluationTooManyRequests() *GetQualityConversatio
 	return &GetQualityConversationEvaluationTooManyRequests{}
 }
 
-/*GetQualityConversationEvaluationTooManyRequests handles this case with default header values.
+/*
+GetQualityConversationEvaluationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetQualityConversationEvaluationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversation evaluation too many requests response has a 2xx status code
+func (o *GetQualityConversationEvaluationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversation evaluation too many requests response has a 3xx status code
+func (o *GetQualityConversationEvaluationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversation evaluation too many requests response has a 4xx status code
+func (o *GetQualityConversationEvaluationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversation evaluation too many requests response has a 5xx status code
+func (o *GetQualityConversationEvaluationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversation evaluation too many requests response a status code equal to that given
+func (o *GetQualityConversationEvaluationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetQualityConversationEvaluationTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetQualityConversationEvaluationTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetQualityConversationEvaluationInternalServerError() *GetQualityConvers
 	return &GetQualityConversationEvaluationInternalServerError{}
 }
 
-/*GetQualityConversationEvaluationInternalServerError handles this case with default header values.
+/*
+GetQualityConversationEvaluationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetQualityConversationEvaluationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversation evaluation internal server error response has a 2xx status code
+func (o *GetQualityConversationEvaluationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversation evaluation internal server error response has a 3xx status code
+func (o *GetQualityConversationEvaluationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversation evaluation internal server error response has a 4xx status code
+func (o *GetQualityConversationEvaluationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality conversation evaluation internal server error response has a 5xx status code
+func (o *GetQualityConversationEvaluationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality conversation evaluation internal server error response a status code equal to that given
+func (o *GetQualityConversationEvaluationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetQualityConversationEvaluationInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetQualityConversationEvaluationInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetQualityConversationEvaluationServiceUnavailable() *GetQualityConversa
 	return &GetQualityConversationEvaluationServiceUnavailable{}
 }
 
-/*GetQualityConversationEvaluationServiceUnavailable handles this case with default header values.
+/*
+GetQualityConversationEvaluationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetQualityConversationEvaluationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversation evaluation service unavailable response has a 2xx status code
+func (o *GetQualityConversationEvaluationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversation evaluation service unavailable response has a 3xx status code
+func (o *GetQualityConversationEvaluationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversation evaluation service unavailable response has a 4xx status code
+func (o *GetQualityConversationEvaluationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality conversation evaluation service unavailable response has a 5xx status code
+func (o *GetQualityConversationEvaluationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality conversation evaluation service unavailable response a status code equal to that given
+func (o *GetQualityConversationEvaluationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetQualityConversationEvaluationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetQualityConversationEvaluationServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetQualityConversationEvaluationGatewayTimeout() *GetQualityConversation
 	return &GetQualityConversationEvaluationGatewayTimeout{}
 }
 
-/*GetQualityConversationEvaluationGatewayTimeout handles this case with default header values.
+/*
+GetQualityConversationEvaluationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetQualityConversationEvaluationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversation evaluation gateway timeout response has a 2xx status code
+func (o *GetQualityConversationEvaluationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversation evaluation gateway timeout response has a 3xx status code
+func (o *GetQualityConversationEvaluationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversation evaluation gateway timeout response has a 4xx status code
+func (o *GetQualityConversationEvaluationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality conversation evaluation gateway timeout response has a 5xx status code
+func (o *GetQualityConversationEvaluationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality conversation evaluation gateway timeout response a status code equal to that given
+func (o *GetQualityConversationEvaluationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetQualityConversationEvaluationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetQualityConversationEvaluationGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/{conversationId}/evaluations/{evaluationId}][%d] getQualityConversationEvaluationGatewayTimeout  %+v", 504, o.Payload)
 }
 

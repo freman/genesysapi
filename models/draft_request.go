@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -20,6 +21,9 @@ type DraftRequest struct {
 
 	// Draft intent object.
 	Intents []*DraftIntents `json:"intents"`
+
+	// Draft topic object.
+	Topics []*DraftTopicRequest `json:"topics"`
 }
 
 // Validate validates this draft request
@@ -30,6 +34,10 @@ func (m *DraftRequest) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateTopics(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -37,7 +45,6 @@ func (m *DraftRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DraftRequest) validateIntents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Intents) { // not required
 		return nil
 	}
@@ -51,6 +58,92 @@ func (m *DraftRequest) validateIntents(formats strfmt.Registry) error {
 			if err := m.Intents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DraftRequest) validateTopics(formats strfmt.Registry) error {
+	if swag.IsZero(m.Topics) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Topics); i++ {
+		if swag.IsZero(m.Topics[i]) { // not required
+			continue
+		}
+
+		if m.Topics[i] != nil {
+			if err := m.Topics[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("topics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("topics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this draft request based on the context it is used
+func (m *DraftRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateIntents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTopics(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DraftRequest) contextValidateIntents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Intents); i++ {
+
+		if m.Intents[i] != nil {
+			if err := m.Intents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DraftRequest) contextValidateTopics(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Topics); i++ {
+
+		if m.Topics[i] != nil {
+			if err := m.Topics[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("topics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("topics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

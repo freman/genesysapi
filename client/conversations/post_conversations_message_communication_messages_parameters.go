@@ -19,86 +19,104 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsMessageCommunicationMessagesParams creates a new PostConversationsMessageCommunicationMessagesParams object
-// with the default values initialized.
+// NewPostConversationsMessageCommunicationMessagesParams creates a new PostConversationsMessageCommunicationMessagesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsMessageCommunicationMessagesParams() *PostConversationsMessageCommunicationMessagesParams {
-	var (
-		useNormalizedMessageDefault = bool(false)
-	)
 	return &PostConversationsMessageCommunicationMessagesParams{
-		UseNormalizedMessage: &useNormalizedMessageDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsMessageCommunicationMessagesParamsWithTimeout creates a new PostConversationsMessageCommunicationMessagesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsMessageCommunicationMessagesParamsWithTimeout(timeout time.Duration) *PostConversationsMessageCommunicationMessagesParams {
-	var (
-		useNormalizedMessageDefault = bool(false)
-	)
 	return &PostConversationsMessageCommunicationMessagesParams{
-		UseNormalizedMessage: &useNormalizedMessageDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsMessageCommunicationMessagesParamsWithContext creates a new PostConversationsMessageCommunicationMessagesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsMessageCommunicationMessagesParamsWithContext(ctx context.Context) *PostConversationsMessageCommunicationMessagesParams {
-	var (
-		useNormalizedMessageDefault = bool(false)
-	)
 	return &PostConversationsMessageCommunicationMessagesParams{
-		UseNormalizedMessage: &useNormalizedMessageDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsMessageCommunicationMessagesParamsWithHTTPClient creates a new PostConversationsMessageCommunicationMessagesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsMessageCommunicationMessagesParamsWithHTTPClient(client *http.Client) *PostConversationsMessageCommunicationMessagesParams {
-	var (
-		useNormalizedMessageDefault = bool(false)
-	)
 	return &PostConversationsMessageCommunicationMessagesParams{
-		UseNormalizedMessage: &useNormalizedMessageDefault,
-		HTTPClient:           client,
+		HTTPClient: client,
 	}
 }
 
-/*PostConversationsMessageCommunicationMessagesParams contains all the parameters to send to the API endpoint
-for the post conversations message communication messages operation typically these are written to a http.Request
+/*
+PostConversationsMessageCommunicationMessagesParams contains all the parameters to send to the API endpoint
+
+	for the post conversations message communication messages operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsMessageCommunicationMessagesParams struct {
 
-	/*Body
-	  Message
+	/* Body.
 
+	   Message
 	*/
 	Body *models.AdditionalMessage
-	/*CommunicationID
-	  communicationId
 
+	/* CommunicationID.
+
+	   communicationId
 	*/
 	CommunicationID string
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*UseNormalizedMessage
-	  If true, response removes deprecated fields (textBody, media, stickers)
 
+	/* UseNormalizedMessage.
+
+	   If true, response removes deprecated fields (textBody, media, stickers)
 	*/
 	UseNormalizedMessage *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations message communication messages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessageCommunicationMessagesParams) WithDefaults() *PostConversationsMessageCommunicationMessagesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations message communication messages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessageCommunicationMessagesParams) SetDefaults() {
+	var (
+		useNormalizedMessageDefault = bool(false)
+	)
+
+	val := PostConversationsMessageCommunicationMessagesParams{
+		UseNormalizedMessage: &useNormalizedMessageDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post conversations message communication messages params
@@ -185,7 +203,6 @@ func (o *PostConversationsMessageCommunicationMessagesParams) WriteToRequest(r r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -206,16 +223,17 @@ func (o *PostConversationsMessageCommunicationMessagesParams) WriteToRequest(r r
 
 		// query param useNormalizedMessage
 		var qrUseNormalizedMessage bool
+
 		if o.UseNormalizedMessage != nil {
 			qrUseNormalizedMessage = *o.UseNormalizedMessage
 		}
 		qUseNormalizedMessage := swag.FormatBool(qrUseNormalizedMessage)
 		if qUseNormalizedMessage != "" {
+
 			if err := r.SetQueryParam("useNormalizedMessage", qUseNormalizedMessage); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

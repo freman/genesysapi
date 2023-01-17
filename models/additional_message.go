@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -50,7 +52,6 @@ func (m *AdditionalMessage) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AdditionalMessage) validateMessagingTemplate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessagingTemplate) { // not required
 		return nil
 	}
@@ -59,6 +60,8 @@ func (m *AdditionalMessage) validateMessagingTemplate(formats strfmt.Registry) e
 		if err := m.MessagingTemplate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messagingTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingTemplate")
 			}
 			return err
 		}
@@ -71,6 +74,36 @@ func (m *AdditionalMessage) validateTextBody(formats strfmt.Registry) error {
 
 	if err := validate.Required("textBody", "body", m.TextBody); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this additional message based on the context it is used
+func (m *AdditionalMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMessagingTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AdditionalMessage) contextValidateMessagingTemplate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessagingTemplate != nil {
+		if err := m.MessagingTemplate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingTemplate")
+			}
+			return err
+		}
 	}
 
 	return nil

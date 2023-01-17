@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -51,15 +52,13 @@ type SurveyForm struct {
 	Name *string `json:"name"`
 
 	// Is this form published
-	// Read Only: true
-	Published *bool `json:"published"`
+	Published bool `json:"published"`
 
 	// List of published version of this form
 	// Read Only: true
 	PublishedVersions *DomainEntityListingSurveyForm `json:"publishedVersions,omitempty"`
 
 	// A list of question groups
-	// Required: true
 	QuestionGroups []*SurveyQuestionGroup `json:"questionGroups"`
 
 	// The URI for this object
@@ -108,7 +107,7 @@ func (m *SurveyForm) Validate(formats strfmt.Registry) error {
 
 func (m *SurveyForm) validateContextID(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("contextId", "body", string(m.ContextID)); err != nil {
+	if err := validate.RequiredString("contextId", "body", m.ContextID); err != nil {
 		return err
 	}
 
@@ -125,7 +124,6 @@ func (m *SurveyForm) validateLanguage(formats strfmt.Registry) error {
 }
 
 func (m *SurveyForm) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -147,7 +145,6 @@ func (m *SurveyForm) validateName(formats strfmt.Registry) error {
 }
 
 func (m *SurveyForm) validatePublishedVersions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PublishedVersions) { // not required
 		return nil
 	}
@@ -156,6 +153,8 @@ func (m *SurveyForm) validatePublishedVersions(formats strfmt.Registry) error {
 		if err := m.PublishedVersions.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("publishedVersions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedVersions")
 			}
 			return err
 		}
@@ -165,9 +164,8 @@ func (m *SurveyForm) validatePublishedVersions(formats strfmt.Registry) error {
 }
 
 func (m *SurveyForm) validateQuestionGroups(formats strfmt.Registry) error {
-
-	if err := validate.Required("questionGroups", "body", m.QuestionGroups); err != nil {
-		return err
+	if swag.IsZero(m.QuestionGroups) { // not required
+		return nil
 	}
 
 	for i := 0; i < len(m.QuestionGroups); i++ {
@@ -179,6 +177,8 @@ func (m *SurveyForm) validateQuestionGroups(formats strfmt.Registry) error {
 			if err := m.QuestionGroups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("questionGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questionGroups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -190,12 +190,117 @@ func (m *SurveyForm) validateQuestionGroups(formats strfmt.Registry) error {
 }
 
 func (m *SurveyForm) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this survey form based on the context it is used
+func (m *SurveyForm) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContextID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePublishedVersions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuestionGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SurveyForm) contextValidateContextID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "contextId", "body", string(m.ContextID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SurveyForm) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SurveyForm) contextValidateModifiedDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedDate", "body", strfmt.DateTime(m.ModifiedDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SurveyForm) contextValidatePublishedVersions(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PublishedVersions != nil {
+		if err := m.PublishedVersions.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("publishedVersions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedVersions")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SurveyForm) contextValidateQuestionGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.QuestionGroups); i++ {
+
+		if m.QuestionGroups[i] != nil {
+			if err := m.QuestionGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("questionGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questionGroups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SurveyForm) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

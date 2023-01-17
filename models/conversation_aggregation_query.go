@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -112,7 +113,6 @@ func (m *ConversationAggregationQuery) validateAlternateTimeDimensionEnum(path, 
 }
 
 func (m *ConversationAggregationQuery) validateAlternateTimeDimension(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AlternateTimeDimension) { // not required
 		return nil
 	}
@@ -126,7 +126,6 @@ func (m *ConversationAggregationQuery) validateAlternateTimeDimension(formats st
 }
 
 func (m *ConversationAggregationQuery) validateFilter(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Filter) { // not required
 		return nil
 	}
@@ -135,6 +134,8 @@ func (m *ConversationAggregationQuery) validateFilter(formats strfmt.Registry) e
 		if err := m.Filter.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
 			}
 			return err
 		}
@@ -147,7 +148,7 @@ var conversationAggregationQueryGroupByItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","conversationInitiator","convertedFrom","convertedTo","customerParticipation","deliveryStatus","destinationAddress","direction","disconnectType","divisionId","dnis","edgeId","eligibleAgentCount","extendedDeliveryStatus","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowInType","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","knowledgeBaseId","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","selfServed","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","waitingInteractionCount","wrapUpCode"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["activeSkillId","addressFrom","addressTo","agentAssistantId","agentBullseyeRing","agentOwned","agentRank","agentScore","ani","assignerId","authenticated","conversationId","conversationInitiator","convertedFrom","convertedTo","customerParticipation","deliveryStatus","destinationAddress","direction","disconnectType","divisionId","dnis","edgeId","eligibleAgentCount","errorCode","extendedDeliveryStatus","externalContactId","externalMediaCount","externalOrganizationId","externalTag","firstQueue","flaggedReason","flowInType","flowOutType","groupId","interactionType","journeyActionId","journeyActionMapId","journeyActionMapVersion","journeyCustomerId","journeyCustomerIdType","journeyCustomerSessionId","journeyCustomerSessionIdType","knowledgeBaseId","mediaCount","mediaType","messageType","originatingDirection","outboundCampaignId","outboundContactId","outboundContactListId","participantName","peerId","proposedAgentId","provider","purpose","queueId","remote","removedSkillId","reoffered","requestedLanguageId","requestedRouting","requestedRoutingSkillId","roomId","routingPriority","routingRing","scoredAgentId","selectedAgentId","selectedAgentRank","selfServed","sessionDnis","sessionId","stationId","teamId","usedRouting","userId","waitingInteractionCount","wrapUpCode"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -163,7 +164,6 @@ func (m *ConversationAggregationQuery) validateGroupByItemsEnum(path, location s
 }
 
 func (m *ConversationAggregationQuery) validateGroupBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GroupBy) { // not required
 		return nil
 	}
@@ -227,7 +227,6 @@ func (m *ConversationAggregationQuery) validateMetrics(formats strfmt.Registry) 
 }
 
 func (m *ConversationAggregationQuery) validateViews(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Views) { // not required
 		return nil
 	}
@@ -241,6 +240,62 @@ func (m *ConversationAggregationQuery) validateViews(formats strfmt.Registry) er
 			if err := m.Views[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("views" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("views" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation aggregation query based on the context it is used
+func (m *ConversationAggregationQuery) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFilter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateViews(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConversationAggregationQuery) contextValidateFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Filter != nil {
+		if err := m.Filter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationAggregationQuery) contextValidateViews(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Views); i++ {
+
+		if m.Views[i] != nil {
+			if err := m.Views[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("views" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("views" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

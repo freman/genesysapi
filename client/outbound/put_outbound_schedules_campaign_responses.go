@@ -95,7 +95,6 @@ func (o *PutOutboundSchedulesCampaignReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutOutboundSchedulesCampaignOK() *PutOutboundSchedulesCampaignOK {
 	return &PutOutboundSchedulesCampaignOK{}
 }
 
-/*PutOutboundSchedulesCampaignOK handles this case with default header values.
+/*
+PutOutboundSchedulesCampaignOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutOutboundSchedulesCampaignOK struct {
 	Payload *models.CampaignSchedule
 }
 
+// IsSuccess returns true when this put outbound schedules campaign o k response has a 2xx status code
+func (o *PutOutboundSchedulesCampaignOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put outbound schedules campaign o k response has a 3xx status code
+func (o *PutOutboundSchedulesCampaignOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules campaign o k response has a 4xx status code
+func (o *PutOutboundSchedulesCampaignOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound schedules campaign o k response has a 5xx status code
+func (o *PutOutboundSchedulesCampaignOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules campaign o k response a status code equal to that given
+func (o *PutOutboundSchedulesCampaignOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOutboundSchedulesCampaignOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutOutboundSchedulesCampaignBadRequest() *PutOutboundSchedulesCampaignBa
 	return &PutOutboundSchedulesCampaignBadRequest{}
 }
 
-/*PutOutboundSchedulesCampaignBadRequest handles this case with default header values.
+/*
+PutOutboundSchedulesCampaignBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutOutboundSchedulesCampaignBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules campaign bad request response has a 2xx status code
+func (o *PutOutboundSchedulesCampaignBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules campaign bad request response has a 3xx status code
+func (o *PutOutboundSchedulesCampaignBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules campaign bad request response has a 4xx status code
+func (o *PutOutboundSchedulesCampaignBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules campaign bad request response has a 5xx status code
+func (o *PutOutboundSchedulesCampaignBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules campaign bad request response a status code equal to that given
+func (o *PutOutboundSchedulesCampaignBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOutboundSchedulesCampaignBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutOutboundSchedulesCampaignUnauthorized() *PutOutboundSchedulesCampaign
 	return &PutOutboundSchedulesCampaignUnauthorized{}
 }
 
-/*PutOutboundSchedulesCampaignUnauthorized handles this case with default header values.
+/*
+PutOutboundSchedulesCampaignUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutOutboundSchedulesCampaignUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules campaign unauthorized response has a 2xx status code
+func (o *PutOutboundSchedulesCampaignUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules campaign unauthorized response has a 3xx status code
+func (o *PutOutboundSchedulesCampaignUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules campaign unauthorized response has a 4xx status code
+func (o *PutOutboundSchedulesCampaignUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules campaign unauthorized response has a 5xx status code
+func (o *PutOutboundSchedulesCampaignUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules campaign unauthorized response a status code equal to that given
+func (o *PutOutboundSchedulesCampaignUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOutboundSchedulesCampaignUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutOutboundSchedulesCampaignForbidden() *PutOutboundSchedulesCampaignFor
 	return &PutOutboundSchedulesCampaignForbidden{}
 }
 
-/*PutOutboundSchedulesCampaignForbidden handles this case with default header values.
+/*
+PutOutboundSchedulesCampaignForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutOutboundSchedulesCampaignForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules campaign forbidden response has a 2xx status code
+func (o *PutOutboundSchedulesCampaignForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules campaign forbidden response has a 3xx status code
+func (o *PutOutboundSchedulesCampaignForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules campaign forbidden response has a 4xx status code
+func (o *PutOutboundSchedulesCampaignForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules campaign forbidden response has a 5xx status code
+func (o *PutOutboundSchedulesCampaignForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules campaign forbidden response a status code equal to that given
+func (o *PutOutboundSchedulesCampaignForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOutboundSchedulesCampaignForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutOutboundSchedulesCampaignNotFound() *PutOutboundSchedulesCampaignNotF
 	return &PutOutboundSchedulesCampaignNotFound{}
 }
 
-/*PutOutboundSchedulesCampaignNotFound handles this case with default header values.
+/*
+PutOutboundSchedulesCampaignNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutOutboundSchedulesCampaignNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules campaign not found response has a 2xx status code
+func (o *PutOutboundSchedulesCampaignNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules campaign not found response has a 3xx status code
+func (o *PutOutboundSchedulesCampaignNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules campaign not found response has a 4xx status code
+func (o *PutOutboundSchedulesCampaignNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules campaign not found response has a 5xx status code
+func (o *PutOutboundSchedulesCampaignNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules campaign not found response a status code equal to that given
+func (o *PutOutboundSchedulesCampaignNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOutboundSchedulesCampaignNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutOutboundSchedulesCampaignRequestTimeout() *PutOutboundSchedulesCampai
 	return &PutOutboundSchedulesCampaignRequestTimeout{}
 }
 
-/*PutOutboundSchedulesCampaignRequestTimeout handles this case with default header values.
+/*
+PutOutboundSchedulesCampaignRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutOutboundSchedulesCampaignRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules campaign request timeout response has a 2xx status code
+func (o *PutOutboundSchedulesCampaignRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules campaign request timeout response has a 3xx status code
+func (o *PutOutboundSchedulesCampaignRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules campaign request timeout response has a 4xx status code
+func (o *PutOutboundSchedulesCampaignRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules campaign request timeout response has a 5xx status code
+func (o *PutOutboundSchedulesCampaignRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules campaign request timeout response a status code equal to that given
+func (o *PutOutboundSchedulesCampaignRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOutboundSchedulesCampaignRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutOutboundSchedulesCampaignRequestEntityTooLarge() *PutOutboundSchedule
 	return &PutOutboundSchedulesCampaignRequestEntityTooLarge{}
 }
 
-/*PutOutboundSchedulesCampaignRequestEntityTooLarge handles this case with default header values.
+/*
+PutOutboundSchedulesCampaignRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutOutboundSchedulesCampaignRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules campaign request entity too large response has a 2xx status code
+func (o *PutOutboundSchedulesCampaignRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules campaign request entity too large response has a 3xx status code
+func (o *PutOutboundSchedulesCampaignRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules campaign request entity too large response has a 4xx status code
+func (o *PutOutboundSchedulesCampaignRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules campaign request entity too large response has a 5xx status code
+func (o *PutOutboundSchedulesCampaignRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules campaign request entity too large response a status code equal to that given
+func (o *PutOutboundSchedulesCampaignRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOutboundSchedulesCampaignRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutOutboundSchedulesCampaignUnsupportedMediaType() *PutOutboundSchedules
 	return &PutOutboundSchedulesCampaignUnsupportedMediaType{}
 }
 
-/*PutOutboundSchedulesCampaignUnsupportedMediaType handles this case with default header values.
+/*
+PutOutboundSchedulesCampaignUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutOutboundSchedulesCampaignUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules campaign unsupported media type response has a 2xx status code
+func (o *PutOutboundSchedulesCampaignUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules campaign unsupported media type response has a 3xx status code
+func (o *PutOutboundSchedulesCampaignUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules campaign unsupported media type response has a 4xx status code
+func (o *PutOutboundSchedulesCampaignUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules campaign unsupported media type response has a 5xx status code
+func (o *PutOutboundSchedulesCampaignUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules campaign unsupported media type response a status code equal to that given
+func (o *PutOutboundSchedulesCampaignUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOutboundSchedulesCampaignUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutOutboundSchedulesCampaignTooManyRequests() *PutOutboundSchedulesCampa
 	return &PutOutboundSchedulesCampaignTooManyRequests{}
 }
 
-/*PutOutboundSchedulesCampaignTooManyRequests handles this case with default header values.
+/*
+PutOutboundSchedulesCampaignTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutOutboundSchedulesCampaignTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules campaign too many requests response has a 2xx status code
+func (o *PutOutboundSchedulesCampaignTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules campaign too many requests response has a 3xx status code
+func (o *PutOutboundSchedulesCampaignTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules campaign too many requests response has a 4xx status code
+func (o *PutOutboundSchedulesCampaignTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound schedules campaign too many requests response has a 5xx status code
+func (o *PutOutboundSchedulesCampaignTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound schedules campaign too many requests response a status code equal to that given
+func (o *PutOutboundSchedulesCampaignTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOutboundSchedulesCampaignTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutOutboundSchedulesCampaignInternalServerError() *PutOutboundSchedulesC
 	return &PutOutboundSchedulesCampaignInternalServerError{}
 }
 
-/*PutOutboundSchedulesCampaignInternalServerError handles this case with default header values.
+/*
+PutOutboundSchedulesCampaignInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutOutboundSchedulesCampaignInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules campaign internal server error response has a 2xx status code
+func (o *PutOutboundSchedulesCampaignInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules campaign internal server error response has a 3xx status code
+func (o *PutOutboundSchedulesCampaignInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules campaign internal server error response has a 4xx status code
+func (o *PutOutboundSchedulesCampaignInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound schedules campaign internal server error response has a 5xx status code
+func (o *PutOutboundSchedulesCampaignInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound schedules campaign internal server error response a status code equal to that given
+func (o *PutOutboundSchedulesCampaignInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOutboundSchedulesCampaignInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutOutboundSchedulesCampaignServiceUnavailable() *PutOutboundSchedulesCa
 	return &PutOutboundSchedulesCampaignServiceUnavailable{}
 }
 
-/*PutOutboundSchedulesCampaignServiceUnavailable handles this case with default header values.
+/*
+PutOutboundSchedulesCampaignServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutOutboundSchedulesCampaignServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules campaign service unavailable response has a 2xx status code
+func (o *PutOutboundSchedulesCampaignServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules campaign service unavailable response has a 3xx status code
+func (o *PutOutboundSchedulesCampaignServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules campaign service unavailable response has a 4xx status code
+func (o *PutOutboundSchedulesCampaignServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound schedules campaign service unavailable response has a 5xx status code
+func (o *PutOutboundSchedulesCampaignServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound schedules campaign service unavailable response a status code equal to that given
+func (o *PutOutboundSchedulesCampaignServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOutboundSchedulesCampaignServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutOutboundSchedulesCampaignGatewayTimeout() *PutOutboundSchedulesCampai
 	return &PutOutboundSchedulesCampaignGatewayTimeout{}
 }
 
-/*PutOutboundSchedulesCampaignGatewayTimeout handles this case with default header values.
+/*
+PutOutboundSchedulesCampaignGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutOutboundSchedulesCampaignGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound schedules campaign gateway timeout response has a 2xx status code
+func (o *PutOutboundSchedulesCampaignGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound schedules campaign gateway timeout response has a 3xx status code
+func (o *PutOutboundSchedulesCampaignGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound schedules campaign gateway timeout response has a 4xx status code
+func (o *PutOutboundSchedulesCampaignGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound schedules campaign gateway timeout response has a 5xx status code
+func (o *PutOutboundSchedulesCampaignGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound schedules campaign gateway timeout response a status code equal to that given
+func (o *PutOutboundSchedulesCampaignGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOutboundSchedulesCampaignGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOutboundSchedulesCampaignGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/schedules/campaigns/{campaignId}][%d] putOutboundSchedulesCampaignGatewayTimeout  %+v", 504, o.Payload)
 }
 

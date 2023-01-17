@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutContentmanagementWorkspaceTagvalueParams creates a new PutContentmanagementWorkspaceTagvalueParams object
-// with the default values initialized.
+// NewPutContentmanagementWorkspaceTagvalueParams creates a new PutContentmanagementWorkspaceTagvalueParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutContentmanagementWorkspaceTagvalueParams() *PutContentmanagementWorkspaceTagvalueParams {
-	var ()
 	return &PutContentmanagementWorkspaceTagvalueParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutContentmanagementWorkspaceTagvalueParamsWithTimeout creates a new PutContentmanagementWorkspaceTagvalueParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutContentmanagementWorkspaceTagvalueParamsWithTimeout(timeout time.Duration) *PutContentmanagementWorkspaceTagvalueParams {
-	var ()
 	return &PutContentmanagementWorkspaceTagvalueParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutContentmanagementWorkspaceTagvalueParamsWithContext creates a new PutContentmanagementWorkspaceTagvalueParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutContentmanagementWorkspaceTagvalueParamsWithContext(ctx context.Context) *PutContentmanagementWorkspaceTagvalueParams {
-	var ()
 	return &PutContentmanagementWorkspaceTagvalueParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutContentmanagementWorkspaceTagvalueParamsWithHTTPClient creates a new PutContentmanagementWorkspaceTagvalueParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutContentmanagementWorkspaceTagvalueParamsWithHTTPClient(client *http.Client) *PutContentmanagementWorkspaceTagvalueParams {
-	var ()
 	return &PutContentmanagementWorkspaceTagvalueParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutContentmanagementWorkspaceTagvalueParams contains all the parameters to send to the API endpoint
-for the put contentmanagement workspace tagvalue operation typically these are written to a http.Request
+/*
+PutContentmanagementWorkspaceTagvalueParams contains all the parameters to send to the API endpoint
+
+	for the put contentmanagement workspace tagvalue operation.
+
+	Typically these are written to a http.Request.
 */
 type PutContentmanagementWorkspaceTagvalueParams struct {
 
-	/*Body
-	  Workspace
+	/* Body.
 
+	   Workspace
 	*/
 	Body *models.TagValue
-	/*TagID
-	  Tag ID
 
+	/* TagID.
+
+	   Tag ID
 	*/
 	TagID string
-	/*WorkspaceID
-	  Workspace ID
 
+	/* WorkspaceID.
+
+	   Workspace ID
 	*/
 	WorkspaceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put contentmanagement workspace tagvalue params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutContentmanagementWorkspaceTagvalueParams) WithDefaults() *PutContentmanagementWorkspaceTagvalueParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put contentmanagement workspace tagvalue params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutContentmanagementWorkspaceTagvalueParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put contentmanagement workspace tagvalue params
@@ -156,7 +174,6 @@ func (o *PutContentmanagementWorkspaceTagvalueParams) WriteToRequest(r runtime.C
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

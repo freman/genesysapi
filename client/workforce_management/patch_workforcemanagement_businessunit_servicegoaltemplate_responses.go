@@ -101,7 +101,6 @@ func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateReader) ReadResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateOK() *PatchWorkfo
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateOK{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateOK handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateOK struct {
 	Payload *models.ServiceGoalTemplate
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate o k response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate o k response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate o k response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate o k response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate o k response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest() *Pat
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate bad request response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate bad request response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate bad request response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate bad request response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate bad request response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized() *P
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate unauthorized response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate unauthorized response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate unauthorized response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate unauthorized response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate unauthorized response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateForbidden() *Patc
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateForbidden{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateForbidden handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate forbidden response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate forbidden response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate forbidden response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate forbidden response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate forbidden response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateNotFound() *Patch
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateNotFound{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateNotFound handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate not found response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate not found response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate not found response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate not found response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate not found response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout() 
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate request timeout response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate request timeout response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate request timeout response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate request timeout response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate request timeout response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateConflict() *Patch
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateConflict{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateConflict handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate conflict response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate conflict response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate conflict response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate conflict response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate conflict response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooL
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarg
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate request entity too large response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate request entity too large response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate request entity too large response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate request entity too large response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate request entity too large response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaT
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate unsupported media type response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate unsupported media type response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate unsupported media type response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate unsupported media type response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate unsupported media type response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests()
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate too many requests response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate too many requests response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate too many requests response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate too many requests response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate too many requests response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerErr
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate internal server error response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate internal server error response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate internal server error response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate internal server error response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate internal server error response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailabl
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate service unavailable response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate service unavailable response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate service unavailable response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate service unavailable response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate service unavailable response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout() 
 	return &PatchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout{}
 }
 
-/*PatchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout handles this case with default header values.
+/*
+PatchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement businessunit servicegoaltemplate gateway timeout response has a 2xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement businessunit servicegoaltemplate gateway timeout response has a 3xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement businessunit servicegoaltemplate gateway timeout response has a 4xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch workforcemanagement businessunit servicegoaltemplate gateway timeout response has a 5xx status code
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch workforcemanagement businessunit servicegoaltemplate gateway timeout response a status code equal to that given
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/businessunits/{businessUnitId}/servicegoaltemplates/{serviceGoalTemplateId}][%d] patchWorkforcemanagementBusinessunitServicegoaltemplateGatewayTimeout  %+v", 504, o.Payload)
 }
 

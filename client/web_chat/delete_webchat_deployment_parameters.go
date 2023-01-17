@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteWebchatDeploymentParams creates a new DeleteWebchatDeploymentParams object
-// with the default values initialized.
+// NewDeleteWebchatDeploymentParams creates a new DeleteWebchatDeploymentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteWebchatDeploymentParams() *DeleteWebchatDeploymentParams {
-	var ()
 	return &DeleteWebchatDeploymentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteWebchatDeploymentParamsWithTimeout creates a new DeleteWebchatDeploymentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteWebchatDeploymentParamsWithTimeout(timeout time.Duration) *DeleteWebchatDeploymentParams {
-	var ()
 	return &DeleteWebchatDeploymentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteWebchatDeploymentParamsWithContext creates a new DeleteWebchatDeploymentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteWebchatDeploymentParamsWithContext(ctx context.Context) *DeleteWebchatDeploymentParams {
-	var ()
 	return &DeleteWebchatDeploymentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteWebchatDeploymentParamsWithHTTPClient creates a new DeleteWebchatDeploymentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteWebchatDeploymentParamsWithHTTPClient(client *http.Client) *DeleteWebchatDeploymentParams {
-	var ()
 	return &DeleteWebchatDeploymentParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteWebchatDeploymentParams contains all the parameters to send to the API endpoint
-for the delete webchat deployment operation typically these are written to a http.Request
+/*
+DeleteWebchatDeploymentParams contains all the parameters to send to the API endpoint
+
+	for the delete webchat deployment operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteWebchatDeploymentParams struct {
 
-	/*DeploymentID
-	  Deployment Id
+	/* DeploymentID.
 
+	   Deployment Id
 	*/
 	DeploymentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete webchat deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWebchatDeploymentParams) WithDefaults() *DeleteWebchatDeploymentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete webchat deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWebchatDeploymentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete webchat deployment params

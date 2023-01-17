@@ -101,7 +101,6 @@ func (o *PutOrganizationsMeReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutOrganizationsMeOK() *PutOrganizationsMeOK {
 	return &PutOrganizationsMeOK{}
 }
 
-/*PutOrganizationsMeOK handles this case with default header values.
+/*
+PutOrganizationsMeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutOrganizationsMeOK struct {
 	Payload *models.Organization
 }
 
+// IsSuccess returns true when this put organizations me o k response has a 2xx status code
+func (o *PutOrganizationsMeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put organizations me o k response has a 3xx status code
+func (o *PutOrganizationsMeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me o k response has a 4xx status code
+func (o *PutOrganizationsMeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put organizations me o k response has a 5xx status code
+func (o *PutOrganizationsMeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations me o k response a status code equal to that given
+func (o *PutOrganizationsMeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOrganizationsMeOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOrganizationsMeOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutOrganizationsMeBadRequest() *PutOrganizationsMeBadRequest {
 	return &PutOrganizationsMeBadRequest{}
 }
 
-/*PutOrganizationsMeBadRequest handles this case with default header values.
+/*
+PutOrganizationsMeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutOrganizationsMeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations me bad request response has a 2xx status code
+func (o *PutOrganizationsMeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations me bad request response has a 3xx status code
+func (o *PutOrganizationsMeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me bad request response has a 4xx status code
+func (o *PutOrganizationsMeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations me bad request response has a 5xx status code
+func (o *PutOrganizationsMeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations me bad request response a status code equal to that given
+func (o *PutOrganizationsMeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOrganizationsMeBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOrganizationsMeBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutOrganizationsMeUnauthorized() *PutOrganizationsMeUnauthorized {
 	return &PutOrganizationsMeUnauthorized{}
 }
 
-/*PutOrganizationsMeUnauthorized handles this case with default header values.
+/*
+PutOrganizationsMeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutOrganizationsMeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations me unauthorized response has a 2xx status code
+func (o *PutOrganizationsMeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations me unauthorized response has a 3xx status code
+func (o *PutOrganizationsMeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me unauthorized response has a 4xx status code
+func (o *PutOrganizationsMeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations me unauthorized response has a 5xx status code
+func (o *PutOrganizationsMeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations me unauthorized response a status code equal to that given
+func (o *PutOrganizationsMeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOrganizationsMeUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOrganizationsMeUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutOrganizationsMeForbidden() *PutOrganizationsMeForbidden {
 	return &PutOrganizationsMeForbidden{}
 }
 
-/*PutOrganizationsMeForbidden handles this case with default header values.
+/*
+PutOrganizationsMeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutOrganizationsMeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations me forbidden response has a 2xx status code
+func (o *PutOrganizationsMeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations me forbidden response has a 3xx status code
+func (o *PutOrganizationsMeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me forbidden response has a 4xx status code
+func (o *PutOrganizationsMeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations me forbidden response has a 5xx status code
+func (o *PutOrganizationsMeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations me forbidden response a status code equal to that given
+func (o *PutOrganizationsMeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOrganizationsMeForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOrganizationsMeForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutOrganizationsMeNotFound() *PutOrganizationsMeNotFound {
 	return &PutOrganizationsMeNotFound{}
 }
 
-/*PutOrganizationsMeNotFound handles this case with default header values.
+/*
+PutOrganizationsMeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutOrganizationsMeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations me not found response has a 2xx status code
+func (o *PutOrganizationsMeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations me not found response has a 3xx status code
+func (o *PutOrganizationsMeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me not found response has a 4xx status code
+func (o *PutOrganizationsMeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations me not found response has a 5xx status code
+func (o *PutOrganizationsMeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations me not found response a status code equal to that given
+func (o *PutOrganizationsMeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOrganizationsMeNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOrganizationsMeNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutOrganizationsMeRequestTimeout() *PutOrganizationsMeRequestTimeout {
 	return &PutOrganizationsMeRequestTimeout{}
 }
 
-/*PutOrganizationsMeRequestTimeout handles this case with default header values.
+/*
+PutOrganizationsMeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutOrganizationsMeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations me request timeout response has a 2xx status code
+func (o *PutOrganizationsMeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations me request timeout response has a 3xx status code
+func (o *PutOrganizationsMeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me request timeout response has a 4xx status code
+func (o *PutOrganizationsMeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations me request timeout response has a 5xx status code
+func (o *PutOrganizationsMeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations me request timeout response a status code equal to that given
+func (o *PutOrganizationsMeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOrganizationsMeRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOrganizationsMeRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,14 +489,44 @@ func NewPutOrganizationsMeConflict() *PutOrganizationsMeConflict {
 	return &PutOrganizationsMeConflict{}
 }
 
-/*PutOrganizationsMeConflict handles this case with default header values.
+/*
+PutOrganizationsMeConflict describes a response with status code 409, with default header values.
 
 Resource conflict - Unexpected version was provided
 */
 type PutOrganizationsMeConflict struct {
 }
 
+// IsSuccess returns true when this put organizations me conflict response has a 2xx status code
+func (o *PutOrganizationsMeConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations me conflict response has a 3xx status code
+func (o *PutOrganizationsMeConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me conflict response has a 4xx status code
+func (o *PutOrganizationsMeConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations me conflict response has a 5xx status code
+func (o *PutOrganizationsMeConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations me conflict response a status code equal to that given
+func (o *PutOrganizationsMeConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutOrganizationsMeConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeConflict ", 409)
+}
+
+func (o *PutOrganizationsMeConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeConflict ", 409)
 }
 
@@ -331,7 +540,8 @@ func NewPutOrganizationsMeRequestEntityTooLarge() *PutOrganizationsMeRequestEnti
 	return &PutOrganizationsMeRequestEntityTooLarge{}
 }
 
-/*PutOrganizationsMeRequestEntityTooLarge handles this case with default header values.
+/*
+PutOrganizationsMeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type PutOrganizationsMeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations me request entity too large response has a 2xx status code
+func (o *PutOrganizationsMeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations me request entity too large response has a 3xx status code
+func (o *PutOrganizationsMeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me request entity too large response has a 4xx status code
+func (o *PutOrganizationsMeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations me request entity too large response has a 5xx status code
+func (o *PutOrganizationsMeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations me request entity too large response a status code equal to that given
+func (o *PutOrganizationsMeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOrganizationsMeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOrganizationsMeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewPutOrganizationsMeUnsupportedMediaType() *PutOrganizationsMeUnsupportedM
 	return &PutOrganizationsMeUnsupportedMediaType{}
 }
 
-/*PutOrganizationsMeUnsupportedMediaType handles this case with default header values.
+/*
+PutOrganizationsMeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type PutOrganizationsMeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations me unsupported media type response has a 2xx status code
+func (o *PutOrganizationsMeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations me unsupported media type response has a 3xx status code
+func (o *PutOrganizationsMeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me unsupported media type response has a 4xx status code
+func (o *PutOrganizationsMeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations me unsupported media type response has a 5xx status code
+func (o *PutOrganizationsMeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations me unsupported media type response a status code equal to that given
+func (o *PutOrganizationsMeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOrganizationsMeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOrganizationsMeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewPutOrganizationsMeTooManyRequests() *PutOrganizationsMeTooManyRequests {
 	return &PutOrganizationsMeTooManyRequests{}
 }
 
-/*PutOrganizationsMeTooManyRequests handles this case with default header values.
+/*
+PutOrganizationsMeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type PutOrganizationsMeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations me too many requests response has a 2xx status code
+func (o *PutOrganizationsMeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations me too many requests response has a 3xx status code
+func (o *PutOrganizationsMeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me too many requests response has a 4xx status code
+func (o *PutOrganizationsMeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put organizations me too many requests response has a 5xx status code
+func (o *PutOrganizationsMeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put organizations me too many requests response a status code equal to that given
+func (o *PutOrganizationsMeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOrganizationsMeTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOrganizationsMeTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewPutOrganizationsMeInternalServerError() *PutOrganizationsMeInternalServe
 	return &PutOrganizationsMeInternalServerError{}
 }
 
-/*PutOrganizationsMeInternalServerError handles this case with default header values.
+/*
+PutOrganizationsMeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type PutOrganizationsMeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations me internal server error response has a 2xx status code
+func (o *PutOrganizationsMeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations me internal server error response has a 3xx status code
+func (o *PutOrganizationsMeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me internal server error response has a 4xx status code
+func (o *PutOrganizationsMeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put organizations me internal server error response has a 5xx status code
+func (o *PutOrganizationsMeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put organizations me internal server error response a status code equal to that given
+func (o *PutOrganizationsMeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOrganizationsMeInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOrganizationsMeInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewPutOrganizationsMeServiceUnavailable() *PutOrganizationsMeServiceUnavail
 	return &PutOrganizationsMeServiceUnavailable{}
 }
 
-/*PutOrganizationsMeServiceUnavailable handles this case with default header values.
+/*
+PutOrganizationsMeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type PutOrganizationsMeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations me service unavailable response has a 2xx status code
+func (o *PutOrganizationsMeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations me service unavailable response has a 3xx status code
+func (o *PutOrganizationsMeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me service unavailable response has a 4xx status code
+func (o *PutOrganizationsMeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put organizations me service unavailable response has a 5xx status code
+func (o *PutOrganizationsMeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put organizations me service unavailable response a status code equal to that given
+func (o *PutOrganizationsMeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOrganizationsMeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOrganizationsMeServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewPutOrganizationsMeGatewayTimeout() *PutOrganizationsMeGatewayTimeout {
 	return &PutOrganizationsMeGatewayTimeout{}
 }
 
-/*PutOrganizationsMeGatewayTimeout handles this case with default header values.
+/*
+PutOrganizationsMeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type PutOrganizationsMeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put organizations me gateway timeout response has a 2xx status code
+func (o *PutOrganizationsMeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put organizations me gateway timeout response has a 3xx status code
+func (o *PutOrganizationsMeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put organizations me gateway timeout response has a 4xx status code
+func (o *PutOrganizationsMeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put organizations me gateway timeout response has a 5xx status code
+func (o *PutOrganizationsMeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put organizations me gateway timeout response a status code equal to that given
+func (o *PutOrganizationsMeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOrganizationsMeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOrganizationsMeGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/organizations/me][%d] putOrganizationsMeGatewayTimeout  %+v", 504, o.Payload)
 }
 

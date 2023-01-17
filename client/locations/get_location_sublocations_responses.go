@@ -95,7 +95,6 @@ func (o *GetLocationSublocationsReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetLocationSublocationsOK() *GetLocationSublocationsOK {
 	return &GetLocationSublocationsOK{}
 }
 
-/*GetLocationSublocationsOK handles this case with default header values.
+/*
+GetLocationSublocationsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetLocationSublocationsOK struct {
 	Payload *models.LocationEntityListing
 }
 
+// IsSuccess returns true when this get location sublocations o k response has a 2xx status code
+func (o *GetLocationSublocationsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get location sublocations o k response has a 3xx status code
+func (o *GetLocationSublocationsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location sublocations o k response has a 4xx status code
+func (o *GetLocationSublocationsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get location sublocations o k response has a 5xx status code
+func (o *GetLocationSublocationsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location sublocations o k response a status code equal to that given
+func (o *GetLocationSublocationsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLocationSublocationsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetLocationSublocationsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetLocationSublocationsBadRequest() *GetLocationSublocationsBadRequest {
 	return &GetLocationSublocationsBadRequest{}
 }
 
-/*GetLocationSublocationsBadRequest handles this case with default header values.
+/*
+GetLocationSublocationsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetLocationSublocationsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location sublocations bad request response has a 2xx status code
+func (o *GetLocationSublocationsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location sublocations bad request response has a 3xx status code
+func (o *GetLocationSublocationsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location sublocations bad request response has a 4xx status code
+func (o *GetLocationSublocationsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location sublocations bad request response has a 5xx status code
+func (o *GetLocationSublocationsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location sublocations bad request response a status code equal to that given
+func (o *GetLocationSublocationsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLocationSublocationsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetLocationSublocationsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetLocationSublocationsUnauthorized() *GetLocationSublocationsUnauthoriz
 	return &GetLocationSublocationsUnauthorized{}
 }
 
-/*GetLocationSublocationsUnauthorized handles this case with default header values.
+/*
+GetLocationSublocationsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetLocationSublocationsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location sublocations unauthorized response has a 2xx status code
+func (o *GetLocationSublocationsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location sublocations unauthorized response has a 3xx status code
+func (o *GetLocationSublocationsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location sublocations unauthorized response has a 4xx status code
+func (o *GetLocationSublocationsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location sublocations unauthorized response has a 5xx status code
+func (o *GetLocationSublocationsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location sublocations unauthorized response a status code equal to that given
+func (o *GetLocationSublocationsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetLocationSublocationsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetLocationSublocationsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetLocationSublocationsForbidden() *GetLocationSublocationsForbidden {
 	return &GetLocationSublocationsForbidden{}
 }
 
-/*GetLocationSublocationsForbidden handles this case with default header values.
+/*
+GetLocationSublocationsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetLocationSublocationsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location sublocations forbidden response has a 2xx status code
+func (o *GetLocationSublocationsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location sublocations forbidden response has a 3xx status code
+func (o *GetLocationSublocationsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location sublocations forbidden response has a 4xx status code
+func (o *GetLocationSublocationsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location sublocations forbidden response has a 5xx status code
+func (o *GetLocationSublocationsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location sublocations forbidden response a status code equal to that given
+func (o *GetLocationSublocationsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLocationSublocationsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetLocationSublocationsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetLocationSublocationsNotFound() *GetLocationSublocationsNotFound {
 	return &GetLocationSublocationsNotFound{}
 }
 
-/*GetLocationSublocationsNotFound handles this case with default header values.
+/*
+GetLocationSublocationsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetLocationSublocationsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location sublocations not found response has a 2xx status code
+func (o *GetLocationSublocationsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location sublocations not found response has a 3xx status code
+func (o *GetLocationSublocationsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location sublocations not found response has a 4xx status code
+func (o *GetLocationSublocationsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location sublocations not found response has a 5xx status code
+func (o *GetLocationSublocationsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location sublocations not found response a status code equal to that given
+func (o *GetLocationSublocationsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLocationSublocationsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetLocationSublocationsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetLocationSublocationsRequestTimeout() *GetLocationSublocationsRequestT
 	return &GetLocationSublocationsRequestTimeout{}
 }
 
-/*GetLocationSublocationsRequestTimeout handles this case with default header values.
+/*
+GetLocationSublocationsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetLocationSublocationsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location sublocations request timeout response has a 2xx status code
+func (o *GetLocationSublocationsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location sublocations request timeout response has a 3xx status code
+func (o *GetLocationSublocationsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location sublocations request timeout response has a 4xx status code
+func (o *GetLocationSublocationsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location sublocations request timeout response has a 5xx status code
+func (o *GetLocationSublocationsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location sublocations request timeout response a status code equal to that given
+func (o *GetLocationSublocationsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetLocationSublocationsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLocationSublocationsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetLocationSublocationsRequestEntityTooLarge() *GetLocationSublocationsR
 	return &GetLocationSublocationsRequestEntityTooLarge{}
 }
 
-/*GetLocationSublocationsRequestEntityTooLarge handles this case with default header values.
+/*
+GetLocationSublocationsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetLocationSublocationsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location sublocations request entity too large response has a 2xx status code
+func (o *GetLocationSublocationsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location sublocations request entity too large response has a 3xx status code
+func (o *GetLocationSublocationsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location sublocations request entity too large response has a 4xx status code
+func (o *GetLocationSublocationsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location sublocations request entity too large response has a 5xx status code
+func (o *GetLocationSublocationsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location sublocations request entity too large response a status code equal to that given
+func (o *GetLocationSublocationsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetLocationSublocationsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetLocationSublocationsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetLocationSublocationsUnsupportedMediaType() *GetLocationSublocationsUn
 	return &GetLocationSublocationsUnsupportedMediaType{}
 }
 
-/*GetLocationSublocationsUnsupportedMediaType handles this case with default header values.
+/*
+GetLocationSublocationsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetLocationSublocationsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location sublocations unsupported media type response has a 2xx status code
+func (o *GetLocationSublocationsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location sublocations unsupported media type response has a 3xx status code
+func (o *GetLocationSublocationsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location sublocations unsupported media type response has a 4xx status code
+func (o *GetLocationSublocationsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location sublocations unsupported media type response has a 5xx status code
+func (o *GetLocationSublocationsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location sublocations unsupported media type response a status code equal to that given
+func (o *GetLocationSublocationsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetLocationSublocationsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetLocationSublocationsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetLocationSublocationsTooManyRequests() *GetLocationSublocationsTooMany
 	return &GetLocationSublocationsTooManyRequests{}
 }
 
-/*GetLocationSublocationsTooManyRequests handles this case with default header values.
+/*
+GetLocationSublocationsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetLocationSublocationsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location sublocations too many requests response has a 2xx status code
+func (o *GetLocationSublocationsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location sublocations too many requests response has a 3xx status code
+func (o *GetLocationSublocationsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location sublocations too many requests response has a 4xx status code
+func (o *GetLocationSublocationsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location sublocations too many requests response has a 5xx status code
+func (o *GetLocationSublocationsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location sublocations too many requests response a status code equal to that given
+func (o *GetLocationSublocationsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLocationSublocationsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetLocationSublocationsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetLocationSublocationsInternalServerError() *GetLocationSublocationsInt
 	return &GetLocationSublocationsInternalServerError{}
 }
 
-/*GetLocationSublocationsInternalServerError handles this case with default header values.
+/*
+GetLocationSublocationsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetLocationSublocationsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location sublocations internal server error response has a 2xx status code
+func (o *GetLocationSublocationsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location sublocations internal server error response has a 3xx status code
+func (o *GetLocationSublocationsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location sublocations internal server error response has a 4xx status code
+func (o *GetLocationSublocationsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get location sublocations internal server error response has a 5xx status code
+func (o *GetLocationSublocationsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get location sublocations internal server error response a status code equal to that given
+func (o *GetLocationSublocationsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLocationSublocationsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetLocationSublocationsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetLocationSublocationsServiceUnavailable() *GetLocationSublocationsServ
 	return &GetLocationSublocationsServiceUnavailable{}
 }
 
-/*GetLocationSublocationsServiceUnavailable handles this case with default header values.
+/*
+GetLocationSublocationsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetLocationSublocationsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location sublocations service unavailable response has a 2xx status code
+func (o *GetLocationSublocationsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location sublocations service unavailable response has a 3xx status code
+func (o *GetLocationSublocationsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location sublocations service unavailable response has a 4xx status code
+func (o *GetLocationSublocationsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get location sublocations service unavailable response has a 5xx status code
+func (o *GetLocationSublocationsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get location sublocations service unavailable response a status code equal to that given
+func (o *GetLocationSublocationsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetLocationSublocationsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetLocationSublocationsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetLocationSublocationsGatewayTimeout() *GetLocationSublocationsGatewayT
 	return &GetLocationSublocationsGatewayTimeout{}
 }
 
-/*GetLocationSublocationsGatewayTimeout handles this case with default header values.
+/*
+GetLocationSublocationsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetLocationSublocationsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location sublocations gateway timeout response has a 2xx status code
+func (o *GetLocationSublocationsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location sublocations gateway timeout response has a 3xx status code
+func (o *GetLocationSublocationsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location sublocations gateway timeout response has a 4xx status code
+func (o *GetLocationSublocationsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get location sublocations gateway timeout response has a 5xx status code
+func (o *GetLocationSublocationsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get location sublocations gateway timeout response a status code equal to that given
+func (o *GetLocationSublocationsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetLocationSublocationsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetLocationSublocationsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}/sublocations][%d] getLocationSublocationsGatewayTimeout  %+v", 504, o.Payload)
 }
 

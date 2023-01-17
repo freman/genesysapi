@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -122,7 +123,6 @@ func (m *Screenshare) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Screenshare) validateAfterCallWork(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AfterCallWork) { // not required
 		return nil
 	}
@@ -131,6 +131,8 @@ func (m *Screenshare) validateAfterCallWork(formats strfmt.Registry) error {
 		if err := m.AfterCallWork.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
 			}
 			return err
 		}
@@ -140,7 +142,6 @@ func (m *Screenshare) validateAfterCallWork(formats strfmt.Registry) error {
 }
 
 func (m *Screenshare) validateConnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectedTime) { // not required
 		return nil
 	}
@@ -181,23 +182,23 @@ const (
 	// ScreenshareDisconnectTypeTransfer captures enum value "transfer"
 	ScreenshareDisconnectTypeTransfer string = "transfer"
 
-	// ScreenshareDisconnectTypeTransferConference captures enum value "transfer.conference"
-	ScreenshareDisconnectTypeTransferConference string = "transfer.conference"
+	// ScreenshareDisconnectTypeTransferDotConference captures enum value "transfer.conference"
+	ScreenshareDisconnectTypeTransferDotConference string = "transfer.conference"
 
-	// ScreenshareDisconnectTypeTransferConsult captures enum value "transfer.consult"
-	ScreenshareDisconnectTypeTransferConsult string = "transfer.consult"
+	// ScreenshareDisconnectTypeTransferDotConsult captures enum value "transfer.consult"
+	ScreenshareDisconnectTypeTransferDotConsult string = "transfer.consult"
 
-	// ScreenshareDisconnectTypeTransferForward captures enum value "transfer.forward"
-	ScreenshareDisconnectTypeTransferForward string = "transfer.forward"
+	// ScreenshareDisconnectTypeTransferDotForward captures enum value "transfer.forward"
+	ScreenshareDisconnectTypeTransferDotForward string = "transfer.forward"
 
-	// ScreenshareDisconnectTypeTransferNoanswer captures enum value "transfer.noanswer"
-	ScreenshareDisconnectTypeTransferNoanswer string = "transfer.noanswer"
+	// ScreenshareDisconnectTypeTransferDotNoanswer captures enum value "transfer.noanswer"
+	ScreenshareDisconnectTypeTransferDotNoanswer string = "transfer.noanswer"
 
-	// ScreenshareDisconnectTypeTransferNotavailable captures enum value "transfer.notavailable"
-	ScreenshareDisconnectTypeTransferNotavailable string = "transfer.notavailable"
+	// ScreenshareDisconnectTypeTransferDotNotavailable captures enum value "transfer.notavailable"
+	ScreenshareDisconnectTypeTransferDotNotavailable string = "transfer.notavailable"
 
-	// ScreenshareDisconnectTypeTransportFailure captures enum value "transport.failure"
-	ScreenshareDisconnectTypeTransportFailure string = "transport.failure"
+	// ScreenshareDisconnectTypeTransportDotFailure captures enum value "transport.failure"
+	ScreenshareDisconnectTypeTransportDotFailure string = "transport.failure"
 
 	// ScreenshareDisconnectTypeError captures enum value "error"
 	ScreenshareDisconnectTypeError string = "error"
@@ -224,7 +225,6 @@ func (m *Screenshare) validateDisconnectTypeEnum(path, location string, value st
 }
 
 func (m *Screenshare) validateDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectType) { // not required
 		return nil
 	}
@@ -238,7 +238,6 @@ func (m *Screenshare) validateDisconnectType(formats strfmt.Registry) error {
 }
 
 func (m *Screenshare) validateDisconnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectedTime) { // not required
 		return nil
 	}
@@ -298,7 +297,6 @@ func (m *Screenshare) validateInitialStateEnum(path, location string, value stri
 }
 
 func (m *Screenshare) validateInitialState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitialState) { // not required
 		return nil
 	}
@@ -312,7 +310,6 @@ func (m *Screenshare) validateInitialState(formats strfmt.Registry) error {
 }
 
 func (m *Screenshare) validateSegments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Segments) { // not required
 		return nil
 	}
@@ -326,6 +323,8 @@ func (m *Screenshare) validateSegments(formats strfmt.Registry) error {
 			if err := m.Segments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -337,7 +336,6 @@ func (m *Screenshare) validateSegments(formats strfmt.Registry) error {
 }
 
 func (m *Screenshare) validateStartAlertingTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartAlertingTime) { // not required
 		return nil
 	}
@@ -397,7 +395,6 @@ func (m *Screenshare) validateStateEnum(path, location string, value string) err
 }
 
 func (m *Screenshare) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -411,7 +408,6 @@ func (m *Screenshare) validateState(formats strfmt.Registry) error {
 }
 
 func (m *Screenshare) validateWrapup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Wrapup) { // not required
 		return nil
 	}
@@ -420,6 +416,82 @@ func (m *Screenshare) validateWrapup(formats strfmt.Registry) error {
 		if err := m.Wrapup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this screenshare based on the context it is used
+func (m *Screenshare) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAfterCallWork(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSegments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Screenshare) contextValidateAfterCallWork(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Screenshare) contextValidateSegments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Segments); i++ {
+
+		if m.Segments[i] != nil {
+			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Screenshare) contextValidateWrapup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Wrapup != nil {
+		if err := m.Wrapup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
 			}
 			return err
 		}

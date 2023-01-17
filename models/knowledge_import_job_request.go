@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -21,7 +22,7 @@ type KnowledgeImportJobRequest struct {
 
 	// File type of the document
 	// Required: true
-	// Enum: [Json Csv]
+	// Enum: [Json Csv Xlsx]
 	FileType *string `json:"fileType"`
 
 	// Additional optional settings
@@ -58,7 +59,7 @@ var knowledgeImportJobRequestTypeFileTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Json","Csv"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Json","Csv","Xlsx"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -73,6 +74,9 @@ const (
 
 	// KnowledgeImportJobRequestFileTypeCsv captures enum value "Csv"
 	KnowledgeImportJobRequestFileTypeCsv string = "Csv"
+
+	// KnowledgeImportJobRequestFileTypeXlsx captures enum value "Xlsx"
+	KnowledgeImportJobRequestFileTypeXlsx string = "Xlsx"
 )
 
 // prop value enum
@@ -98,7 +102,6 @@ func (m *KnowledgeImportJobRequest) validateFileType(formats strfmt.Registry) er
 }
 
 func (m *KnowledgeImportJobRequest) validateSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Settings) { // not required
 		return nil
 	}
@@ -107,6 +110,8 @@ func (m *KnowledgeImportJobRequest) validateSettings(formats strfmt.Registry) er
 		if err := m.Settings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("settings")
 			}
 			return err
 		}
@@ -119,6 +124,36 @@ func (m *KnowledgeImportJobRequest) validateUploadKey(formats strfmt.Registry) e
 
 	if err := validate.Required("uploadKey", "body", m.UploadKey); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge import job request based on the context it is used
+func (m *KnowledgeImportJobRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeImportJobRequest) contextValidateSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Settings != nil {
+		if err := m.Settings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("settings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("settings")
+			}
+			return err
+		}
 	}
 
 	return nil

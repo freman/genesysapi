@@ -95,7 +95,6 @@ func (o *DeleteIdentityprovidersPingReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteIdentityprovidersPingOK() *DeleteIdentityprovidersPingOK {
 	return &DeleteIdentityprovidersPingOK{}
 }
 
-/*DeleteIdentityprovidersPingOK handles this case with default header values.
+/*
+DeleteIdentityprovidersPingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteIdentityprovidersPingOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete identityproviders ping o k response has a 2xx status code
+func (o *DeleteIdentityprovidersPingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete identityproviders ping o k response has a 3xx status code
+func (o *DeleteIdentityprovidersPingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders ping o k response has a 4xx status code
+func (o *DeleteIdentityprovidersPingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders ping o k response has a 5xx status code
+func (o *DeleteIdentityprovidersPingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders ping o k response a status code equal to that given
+func (o *DeleteIdentityprovidersPingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteIdentityprovidersPingOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPingOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewDeleteIdentityprovidersPingBadRequest() *DeleteIdentityprovidersPingBadR
 	return &DeleteIdentityprovidersPingBadRequest{}
 }
 
-/*DeleteIdentityprovidersPingBadRequest handles this case with default header values.
+/*
+DeleteIdentityprovidersPingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type DeleteIdentityprovidersPingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders ping bad request response has a 2xx status code
+func (o *DeleteIdentityprovidersPingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders ping bad request response has a 3xx status code
+func (o *DeleteIdentityprovidersPingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders ping bad request response has a 4xx status code
+func (o *DeleteIdentityprovidersPingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders ping bad request response has a 5xx status code
+func (o *DeleteIdentityprovidersPingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders ping bad request response a status code equal to that given
+func (o *DeleteIdentityprovidersPingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteIdentityprovidersPingBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPingBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteIdentityprovidersPingUnauthorized() *DeleteIdentityprovidersPingUn
 	return &DeleteIdentityprovidersPingUnauthorized{}
 }
 
-/*DeleteIdentityprovidersPingUnauthorized handles this case with default header values.
+/*
+DeleteIdentityprovidersPingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type DeleteIdentityprovidersPingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders ping unauthorized response has a 2xx status code
+func (o *DeleteIdentityprovidersPingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders ping unauthorized response has a 3xx status code
+func (o *DeleteIdentityprovidersPingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders ping unauthorized response has a 4xx status code
+func (o *DeleteIdentityprovidersPingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders ping unauthorized response has a 5xx status code
+func (o *DeleteIdentityprovidersPingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders ping unauthorized response a status code equal to that given
+func (o *DeleteIdentityprovidersPingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteIdentityprovidersPingUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPingUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteIdentityprovidersPingForbidden() *DeleteIdentityprovidersPingForbi
 	return &DeleteIdentityprovidersPingForbidden{}
 }
 
-/*DeleteIdentityprovidersPingForbidden handles this case with default header values.
+/*
+DeleteIdentityprovidersPingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type DeleteIdentityprovidersPingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders ping forbidden response has a 2xx status code
+func (o *DeleteIdentityprovidersPingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders ping forbidden response has a 3xx status code
+func (o *DeleteIdentityprovidersPingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders ping forbidden response has a 4xx status code
+func (o *DeleteIdentityprovidersPingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders ping forbidden response has a 5xx status code
+func (o *DeleteIdentityprovidersPingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders ping forbidden response a status code equal to that given
+func (o *DeleteIdentityprovidersPingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteIdentityprovidersPingForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPingForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteIdentityprovidersPingNotFound() *DeleteIdentityprovidersPingNotFou
 	return &DeleteIdentityprovidersPingNotFound{}
 }
 
-/*DeleteIdentityprovidersPingNotFound handles this case with default header values.
+/*
+DeleteIdentityprovidersPingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type DeleteIdentityprovidersPingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders ping not found response has a 2xx status code
+func (o *DeleteIdentityprovidersPingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders ping not found response has a 3xx status code
+func (o *DeleteIdentityprovidersPingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders ping not found response has a 4xx status code
+func (o *DeleteIdentityprovidersPingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders ping not found response has a 5xx status code
+func (o *DeleteIdentityprovidersPingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders ping not found response a status code equal to that given
+func (o *DeleteIdentityprovidersPingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteIdentityprovidersPingNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPingNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteIdentityprovidersPingRequestTimeout() *DeleteIdentityprovidersPing
 	return &DeleteIdentityprovidersPingRequestTimeout{}
 }
 
-/*DeleteIdentityprovidersPingRequestTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersPingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type DeleteIdentityprovidersPingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders ping request timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersPingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders ping request timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersPingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders ping request timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersPingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders ping request timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersPingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders ping request timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersPingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteIdentityprovidersPingRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPingRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteIdentityprovidersPingRequestEntityTooLarge() *DeleteIdentityprovid
 	return &DeleteIdentityprovidersPingRequestEntityTooLarge{}
 }
 
-/*DeleteIdentityprovidersPingRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteIdentityprovidersPingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type DeleteIdentityprovidersPingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders ping request entity too large response has a 2xx status code
+func (o *DeleteIdentityprovidersPingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders ping request entity too large response has a 3xx status code
+func (o *DeleteIdentityprovidersPingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders ping request entity too large response has a 4xx status code
+func (o *DeleteIdentityprovidersPingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders ping request entity too large response has a 5xx status code
+func (o *DeleteIdentityprovidersPingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders ping request entity too large response a status code equal to that given
+func (o *DeleteIdentityprovidersPingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteIdentityprovidersPingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteIdentityprovidersPingUnsupportedMediaType() *DeleteIdentityprovide
 	return &DeleteIdentityprovidersPingUnsupportedMediaType{}
 }
 
-/*DeleteIdentityprovidersPingUnsupportedMediaType handles this case with default header values.
+/*
+DeleteIdentityprovidersPingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type DeleteIdentityprovidersPingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders ping unsupported media type response has a 2xx status code
+func (o *DeleteIdentityprovidersPingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders ping unsupported media type response has a 3xx status code
+func (o *DeleteIdentityprovidersPingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders ping unsupported media type response has a 4xx status code
+func (o *DeleteIdentityprovidersPingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders ping unsupported media type response has a 5xx status code
+func (o *DeleteIdentityprovidersPingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders ping unsupported media type response a status code equal to that given
+func (o *DeleteIdentityprovidersPingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteIdentityprovidersPingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteIdentityprovidersPingTooManyRequests() *DeleteIdentityprovidersPin
 	return &DeleteIdentityprovidersPingTooManyRequests{}
 }
 
-/*DeleteIdentityprovidersPingTooManyRequests handles this case with default header values.
+/*
+DeleteIdentityprovidersPingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type DeleteIdentityprovidersPingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders ping too many requests response has a 2xx status code
+func (o *DeleteIdentityprovidersPingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders ping too many requests response has a 3xx status code
+func (o *DeleteIdentityprovidersPingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders ping too many requests response has a 4xx status code
+func (o *DeleteIdentityprovidersPingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders ping too many requests response has a 5xx status code
+func (o *DeleteIdentityprovidersPingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders ping too many requests response a status code equal to that given
+func (o *DeleteIdentityprovidersPingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteIdentityprovidersPingTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPingTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteIdentityprovidersPingInternalServerError() *DeleteIdentityprovider
 	return &DeleteIdentityprovidersPingInternalServerError{}
 }
 
-/*DeleteIdentityprovidersPingInternalServerError handles this case with default header values.
+/*
+DeleteIdentityprovidersPingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type DeleteIdentityprovidersPingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders ping internal server error response has a 2xx status code
+func (o *DeleteIdentityprovidersPingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders ping internal server error response has a 3xx status code
+func (o *DeleteIdentityprovidersPingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders ping internal server error response has a 4xx status code
+func (o *DeleteIdentityprovidersPingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders ping internal server error response has a 5xx status code
+func (o *DeleteIdentityprovidersPingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders ping internal server error response a status code equal to that given
+func (o *DeleteIdentityprovidersPingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteIdentityprovidersPingInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPingInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteIdentityprovidersPingServiceUnavailable() *DeleteIdentityproviders
 	return &DeleteIdentityprovidersPingServiceUnavailable{}
 }
 
-/*DeleteIdentityprovidersPingServiceUnavailable handles this case with default header values.
+/*
+DeleteIdentityprovidersPingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type DeleteIdentityprovidersPingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders ping service unavailable response has a 2xx status code
+func (o *DeleteIdentityprovidersPingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders ping service unavailable response has a 3xx status code
+func (o *DeleteIdentityprovidersPingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders ping service unavailable response has a 4xx status code
+func (o *DeleteIdentityprovidersPingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders ping service unavailable response has a 5xx status code
+func (o *DeleteIdentityprovidersPingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders ping service unavailable response a status code equal to that given
+func (o *DeleteIdentityprovidersPingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteIdentityprovidersPingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPingServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteIdentityprovidersPingGatewayTimeout() *DeleteIdentityprovidersPing
 	return &DeleteIdentityprovidersPingGatewayTimeout{}
 }
 
-/*DeleteIdentityprovidersPingGatewayTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersPingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type DeleteIdentityprovidersPingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders ping gateway timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersPingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders ping gateway timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersPingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders ping gateway timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersPingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders ping gateway timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersPingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders ping gateway timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersPingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteIdentityprovidersPingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersPingGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/ping][%d] deleteIdentityprovidersPingGatewayTimeout  %+v", 504, o.Payload)
 }
 

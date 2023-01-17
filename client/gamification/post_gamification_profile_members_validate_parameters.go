@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostGamificationProfileMembersValidateParams creates a new PostGamificationProfileMembersValidateParams object
-// with the default values initialized.
+// NewPostGamificationProfileMembersValidateParams creates a new PostGamificationProfileMembersValidateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostGamificationProfileMembersValidateParams() *PostGamificationProfileMembersValidateParams {
-	var ()
 	return &PostGamificationProfileMembersValidateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostGamificationProfileMembersValidateParamsWithTimeout creates a new PostGamificationProfileMembersValidateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostGamificationProfileMembersValidateParamsWithTimeout(timeout time.Duration) *PostGamificationProfileMembersValidateParams {
-	var ()
 	return &PostGamificationProfileMembersValidateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostGamificationProfileMembersValidateParamsWithContext creates a new PostGamificationProfileMembersValidateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostGamificationProfileMembersValidateParamsWithContext(ctx context.Context) *PostGamificationProfileMembersValidateParams {
-	var ()
 	return &PostGamificationProfileMembersValidateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostGamificationProfileMembersValidateParamsWithHTTPClient creates a new PostGamificationProfileMembersValidateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostGamificationProfileMembersValidateParamsWithHTTPClient(client *http.Client) *PostGamificationProfileMembersValidateParams {
-	var ()
 	return &PostGamificationProfileMembersValidateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostGamificationProfileMembersValidateParams contains all the parameters to send to the API endpoint
-for the post gamification profile members validate operation typically these are written to a http.Request
+/*
+PostGamificationProfileMembersValidateParams contains all the parameters to send to the API endpoint
+
+	for the post gamification profile members validate operation.
+
+	Typically these are written to a http.Request.
 */
 type PostGamificationProfileMembersValidateParams struct {
 
-	/*Body
-	  memberAssignments
+	/* Body.
 
+	   memberAssignments
 	*/
 	Body *models.ValidateAssignUsers
-	/*ProfileID
-	  Profile Id
 
+	/* ProfileID.
+
+	   Profile Id
 	*/
 	ProfileID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post gamification profile members validate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGamificationProfileMembersValidateParams) WithDefaults() *PostGamificationProfileMembersValidateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post gamification profile members validate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGamificationProfileMembersValidateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post gamification profile members validate params
@@ -140,7 +157,6 @@ func (o *PostGamificationProfileMembersValidateParams) WriteToRequest(r runtime.
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

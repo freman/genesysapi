@@ -17,81 +17,102 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWorkforcemanagementManagementunitWeekShifttradesParams creates a new GetWorkforcemanagementManagementunitWeekShifttradesParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementManagementunitWeekShifttradesParams creates a new GetWorkforcemanagementManagementunitWeekShifttradesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementManagementunitWeekShifttradesParams() *GetWorkforcemanagementManagementunitWeekShifttradesParams {
-	var (
-		evaluateMatchesDefault = bool(true)
-	)
 	return &GetWorkforcemanagementManagementunitWeekShifttradesParams{
-		EvaluateMatches: &evaluateMatchesDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitWeekShifttradesParamsWithTimeout creates a new GetWorkforcemanagementManagementunitWeekShifttradesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementManagementunitWeekShifttradesParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementManagementunitWeekShifttradesParams {
-	var (
-		evaluateMatchesDefault = bool(true)
-	)
 	return &GetWorkforcemanagementManagementunitWeekShifttradesParams{
-		EvaluateMatches: &evaluateMatchesDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitWeekShifttradesParamsWithContext creates a new GetWorkforcemanagementManagementunitWeekShifttradesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementManagementunitWeekShifttradesParamsWithContext(ctx context.Context) *GetWorkforcemanagementManagementunitWeekShifttradesParams {
-	var (
-		evaluateMatchesDefault = bool(true)
-	)
 	return &GetWorkforcemanagementManagementunitWeekShifttradesParams{
-		EvaluateMatches: &evaluateMatchesDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitWeekShifttradesParamsWithHTTPClient creates a new GetWorkforcemanagementManagementunitWeekShifttradesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementManagementunitWeekShifttradesParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementManagementunitWeekShifttradesParams {
-	var (
-		evaluateMatchesDefault = bool(true)
-	)
 	return &GetWorkforcemanagementManagementunitWeekShifttradesParams{
-		EvaluateMatches: &evaluateMatchesDefault,
-		HTTPClient:      client,
+		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementManagementunitWeekShifttradesParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement managementunit week shifttrades operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementManagementunitWeekShifttradesParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement managementunit week shifttrades operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementManagementunitWeekShifttradesParams struct {
 
-	/*EvaluateMatches
-	  Whether to evaluate the matches for violations
+	/* EvaluateMatches.
 
+	   Whether to evaluate the matches for violations
+
+	   Default: true
 	*/
 	EvaluateMatches *bool
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
-	/*WeekDateID
-	  The start date of the week schedule in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekDateID.
+
+	   The start date of the week schedule in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekDateID strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement managementunit week shifttrades params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitWeekShifttradesParams) WithDefaults() *GetWorkforcemanagementManagementunitWeekShifttradesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement managementunit week shifttrades params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitWeekShifttradesParams) SetDefaults() {
+	var (
+		evaluateMatchesDefault = bool(true)
+	)
+
+	val := GetWorkforcemanagementManagementunitWeekShifttradesParams{
+		EvaluateMatches: &evaluateMatchesDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement managementunit week shifttrades params
@@ -172,16 +193,17 @@ func (o *GetWorkforcemanagementManagementunitWeekShifttradesParams) WriteToReque
 
 		// query param evaluateMatches
 		var qrEvaluateMatches bool
+
 		if o.EvaluateMatches != nil {
 			qrEvaluateMatches = *o.EvaluateMatches
 		}
 		qEvaluateMatches := swag.FormatBool(qrEvaluateMatches)
 		if qEvaluateMatches != "" {
+
 			if err := r.SetQueryParam("evaluateMatches", qEvaluateMatches); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param managementUnitId

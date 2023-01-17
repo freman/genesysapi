@@ -17,99 +17,119 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetScimUsersParams creates a new GetScimUsersParams object
-// with the default values initialized.
+// NewGetScimUsersParams creates a new GetScimUsersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetScimUsersParams() *GetScimUsersParams {
-	var (
-		countDefault      = int32(25)
-		startIndexDefault = int32(1)
-	)
 	return &GetScimUsersParams{
-		Count:      &countDefault,
-		StartIndex: &startIndexDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetScimUsersParamsWithTimeout creates a new GetScimUsersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetScimUsersParamsWithTimeout(timeout time.Duration) *GetScimUsersParams {
-	var (
-		countDefault      = int32(25)
-		startIndexDefault = int32(1)
-	)
 	return &GetScimUsersParams{
-		Count:      &countDefault,
-		StartIndex: &startIndexDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetScimUsersParamsWithContext creates a new GetScimUsersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetScimUsersParamsWithContext(ctx context.Context) *GetScimUsersParams {
-	var (
-		countDefault      = int32(25)
-		startIndexDefault = int32(1)
-	)
 	return &GetScimUsersParams{
-		Count:      &countDefault,
-		StartIndex: &startIndexDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetScimUsersParamsWithHTTPClient creates a new GetScimUsersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetScimUsersParamsWithHTTPClient(client *http.Client) *GetScimUsersParams {
-	var (
-		countDefault      = int32(25)
-		startIndexDefault = int32(1)
-	)
 	return &GetScimUsersParams{
-		Count:      &countDefault,
-		StartIndex: &startIndexDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetScimUsersParams contains all the parameters to send to the API endpoint
-for the get scim users operation typically these are written to a http.Request
+/*
+GetScimUsersParams contains all the parameters to send to the API endpoint
+
+	for the get scim users operation.
+
+	Typically these are written to a http.Request.
 */
 type GetScimUsersParams struct {
 
-	/*Attributes
-	  Indicates which attributes to include. Returns these attributes and the "id", "userName", "active", and "meta" attributes. Use "attributes" to avoid expensive secondary calls for the default attributes.
+	/* Attributes.
 
+	   Indicates which attributes to include. Returns these attributes and the "id", "userName", "active", and "meta" attributes. Use "attributes" to avoid expensive secondary calls for the default attributes.
 	*/
 	Attributes []string
-	/*Count
-	  The requested number of items per page. A value of 0 returns "totalResults". A page size over 25 may exceed internal resource limits and return a 429 error. For a page size over 25, use the "excludedAttributes" or "attributes" query parameters to exclude or only include secondary lookup values such as "externalId",  "roles", "urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:routingLanguages", or "urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:routingSkills".
 
+	/* Count.
+
+	   The requested number of items per page. A value of 0 returns "totalResults". A page size over 25 may exceed internal resource limits and return a 429 error. For a page size over 25, use the "excludedAttributes" or "attributes" query parameters to exclude or only include secondary lookup values such as "externalId",  "roles", "urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:routingLanguages", or "urn:ietf:params:scim:schemas:extension:genesys:purecloud:2.0:User:routingSkills".
+
+	   Format: int32
+	   Default: 25
 	*/
 	Count *int32
-	/*ExcludedAttributes
-	  Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Always returns the "id", "userName", "active", and "meta" attributes. Use "excludedAttributes" to avoid expensive secondary calls for the default attributes.
 
+	/* ExcludedAttributes.
+
+	   Indicates which attributes to exclude. Returns the default attributes minus "excludedAttributes". Always returns the "id", "userName", "active", and "meta" attributes. Use "excludedAttributes" to avoid expensive secondary calls for the default attributes.
 	*/
 	ExcludedAttributes []string
-	/*Filter
-	  Filters results. If nothing is specified, returns all active users. Examples of valid values: "id eq 857449b0-d9e7-4cd0-acbf-a6adfb9ef1e9", "userName eq search@sample.org", "manager eq 16e10e2f-1136-43fe-bb84-eac073168a49", "email eq search@sample.org", "division eq divisionName", "externalId eq 167844", "active eq false", "employeeNumber eq 9876543210".
 
+	/* Filter.
+
+	   Filters results. If nothing is specified, returns all active users. Examples of valid values: "id eq 857449b0-d9e7-4cd0-acbf-a6adfb9ef1e9", "userName eq search@sample.org", "manager eq 16e10e2f-1136-43fe-bb84-eac073168a49", "email eq search@sample.org", "division eq divisionName", "externalId eq 167844", "active eq false", "employeeNumber eq 9876543210".
 	*/
 	Filter *string
-	/*StartIndex
-	  The 1-based index of the first query result.
 
+	/* StartIndex.
+
+	   The 1-based index of the first query result.
+
+	   Format: int32
+	   Default: 1
 	*/
 	StartIndex *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get scim users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScimUsersParams) WithDefaults() *GetScimUsersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get scim users params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetScimUsersParams) SetDefaults() {
+	var (
+		countDefault = int32(25)
+
+		startIndexDefault = int32(1)
+	)
+
+	val := GetScimUsersParams{
+		Count:      &countDefault,
+		StartIndex: &startIndexDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get scim users params
@@ -208,72 +228,115 @@ func (o *GetScimUsersParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.
 	}
 	var res []error
 
-	valuesAttributes := o.Attributes
+	if o.Attributes != nil {
 
-	joinedAttributes := swag.JoinByFormat(valuesAttributes, "multi")
-	// query array param attributes
-	if err := r.SetQueryParam("attributes", joinedAttributes...); err != nil {
-		return err
+		// binding items for attributes
+		joinedAttributes := o.bindParamAttributes(reg)
+
+		// query array param attributes
+		if err := r.SetQueryParam("attributes", joinedAttributes...); err != nil {
+			return err
+		}
 	}
 
 	if o.Count != nil {
 
 		// query param count
 		var qrCount int32
+
 		if o.Count != nil {
 			qrCount = *o.Count
 		}
 		qCount := swag.FormatInt32(qrCount)
 		if qCount != "" {
+
 			if err := r.SetQueryParam("count", qCount); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesExcludedAttributes := o.ExcludedAttributes
+	if o.ExcludedAttributes != nil {
 
-	joinedExcludedAttributes := swag.JoinByFormat(valuesExcludedAttributes, "multi")
-	// query array param excludedAttributes
-	if err := r.SetQueryParam("excludedAttributes", joinedExcludedAttributes...); err != nil {
-		return err
+		// binding items for excludedAttributes
+		joinedExcludedAttributes := o.bindParamExcludedAttributes(reg)
+
+		// query array param excludedAttributes
+		if err := r.SetQueryParam("excludedAttributes", joinedExcludedAttributes...); err != nil {
+			return err
+		}
 	}
 
 	if o.Filter != nil {
 
 		// query param filter
 		var qrFilter string
+
 		if o.Filter != nil {
 			qrFilter = *o.Filter
 		}
 		qFilter := qrFilter
 		if qFilter != "" {
+
 			if err := r.SetQueryParam("filter", qFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.StartIndex != nil {
 
 		// query param startIndex
 		var qrStartIndex int32
+
 		if o.StartIndex != nil {
 			qrStartIndex = *o.StartIndex
 		}
 		qStartIndex := swag.FormatInt32(qrStartIndex)
 		if qStartIndex != "" {
+
 			if err := r.SetQueryParam("startIndex", qStartIndex); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetScimUsers binds the parameter attributes
+func (o *GetScimUsersParams) bindParamAttributes(formats strfmt.Registry) []string {
+	attributesIR := o.Attributes
+
+	var attributesIC []string
+	for _, attributesIIR := range attributesIR { // explode []string
+
+		attributesIIV := attributesIIR // string as string
+		attributesIC = append(attributesIC, attributesIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	attributesIS := swag.JoinByFormat(attributesIC, "multi")
+
+	return attributesIS
+}
+
+// bindParamGetScimUsers binds the parameter excludedAttributes
+func (o *GetScimUsersParams) bindParamExcludedAttributes(formats strfmt.Registry) []string {
+	excludedAttributesIR := o.ExcludedAttributes
+
+	var excludedAttributesIC []string
+	for _, excludedAttributesIIR := range excludedAttributesIR { // explode []string
+
+		excludedAttributesIIV := excludedAttributesIIR // string as string
+		excludedAttributesIC = append(excludedAttributesIC, excludedAttributesIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	excludedAttributesIS := swag.JoinByFormat(excludedAttributesIC, "multi")
+
+	return excludedAttributesIS
 }

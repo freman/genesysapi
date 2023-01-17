@@ -106,7 +106,8 @@ func NewPostTelephonyProvidersEdgesPhoneRebootBadRequest() *PostTelephonyProvide
 	return &PostTelephonyProvidersEdgesPhoneRebootBadRequest{}
 }
 
-/*PostTelephonyProvidersEdgesPhoneRebootBadRequest handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesPhoneRebootBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type PostTelephonyProvidersEdgesPhoneRebootBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges phone reboot bad request response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges phone reboot bad request response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges phone reboot bad request response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges phone reboot bad request response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges phone reboot bad request response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesPhoneRebootBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostTelephonyProvidersEdgesPhoneRebootBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewPostTelephonyProvidersEdgesPhoneRebootUnauthorized() *PostTelephonyProvi
 	return &PostTelephonyProvidersEdgesPhoneRebootUnauthorized{}
 }
 
-/*PostTelephonyProvidersEdgesPhoneRebootUnauthorized handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesPhoneRebootUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type PostTelephonyProvidersEdgesPhoneRebootUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges phone reboot unauthorized response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges phone reboot unauthorized response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges phone reboot unauthorized response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges phone reboot unauthorized response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges phone reboot unauthorized response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesPhoneRebootUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostTelephonyProvidersEdgesPhoneRebootUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewPostTelephonyProvidersEdgesPhoneRebootForbidden() *PostTelephonyProvider
 	return &PostTelephonyProvidersEdgesPhoneRebootForbidden{}
 }
 
-/*PostTelephonyProvidersEdgesPhoneRebootForbidden handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesPhoneRebootForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type PostTelephonyProvidersEdgesPhoneRebootForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges phone reboot forbidden response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges phone reboot forbidden response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges phone reboot forbidden response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges phone reboot forbidden response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges phone reboot forbidden response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesPhoneRebootForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostTelephonyProvidersEdgesPhoneRebootForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewPostTelephonyProvidersEdgesPhoneRebootNotFound() *PostTelephonyProviders
 	return &PostTelephonyProvidersEdgesPhoneRebootNotFound{}
 }
 
-/*PostTelephonyProvidersEdgesPhoneRebootNotFound handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesPhoneRebootNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type PostTelephonyProvidersEdgesPhoneRebootNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges phone reboot not found response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges phone reboot not found response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges phone reboot not found response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges phone reboot not found response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges phone reboot not found response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesPhoneRebootNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostTelephonyProvidersEdgesPhoneRebootNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewPostTelephonyProvidersEdgesPhoneRebootRequestTimeout() *PostTelephonyPro
 	return &PostTelephonyProvidersEdgesPhoneRebootRequestTimeout{}
 }
 
-/*PostTelephonyProvidersEdgesPhoneRebootRequestTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesPhoneRebootRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type PostTelephonyProvidersEdgesPhoneRebootRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges phone reboot request timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges phone reboot request timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges phone reboot request timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges phone reboot request timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges phone reboot request timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostTelephonyProvidersEdgesPhoneRebootRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewPostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge() *PostTelep
 	return &PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge{}
 }
 
-/*PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges phone reboot request entity too large response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges phone reboot request entity too large response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges phone reboot request entity too large response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges phone reboot request entity too large response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges phone reboot request entity too large response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewPostTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType() *PostTeleph
 	return &PostTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType{}
 }
 
-/*PostTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type PostTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges phone reboot unsupported media type response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges phone reboot unsupported media type response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges phone reboot unsupported media type response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges phone reboot unsupported media type response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges phone reboot unsupported media type response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewPostTelephonyProvidersEdgesPhoneRebootTooManyRequests() *PostTelephonyPr
 	return &PostTelephonyProvidersEdgesPhoneRebootTooManyRequests{}
 }
 
-/*PostTelephonyProvidersEdgesPhoneRebootTooManyRequests handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesPhoneRebootTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type PostTelephonyProvidersEdgesPhoneRebootTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges phone reboot too many requests response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges phone reboot too many requests response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges phone reboot too many requests response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post telephony providers edges phone reboot too many requests response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post telephony providers edges phone reboot too many requests response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesPhoneRebootTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostTelephonyProvidersEdgesPhoneRebootTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewPostTelephonyProvidersEdgesPhoneRebootInternalServerError() *PostTelepho
 	return &PostTelephonyProvidersEdgesPhoneRebootInternalServerError{}
 }
 
-/*PostTelephonyProvidersEdgesPhoneRebootInternalServerError handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesPhoneRebootInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type PostTelephonyProvidersEdgesPhoneRebootInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges phone reboot internal server error response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges phone reboot internal server error response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges phone reboot internal server error response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edges phone reboot internal server error response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edges phone reboot internal server error response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesPhoneRebootInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostTelephonyProvidersEdgesPhoneRebootInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewPostTelephonyProvidersEdgesPhoneRebootServiceUnavailable() *PostTelephon
 	return &PostTelephonyProvidersEdgesPhoneRebootServiceUnavailable{}
 }
 
-/*PostTelephonyProvidersEdgesPhoneRebootServiceUnavailable handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesPhoneRebootServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type PostTelephonyProvidersEdgesPhoneRebootServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges phone reboot service unavailable response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges phone reboot service unavailable response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges phone reboot service unavailable response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edges phone reboot service unavailable response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edges phone reboot service unavailable response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesPhoneRebootServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostTelephonyProvidersEdgesPhoneRebootServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewPostTelephonyProvidersEdgesPhoneRebootGatewayTimeout() *PostTelephonyPro
 	return &PostTelephonyProvidersEdgesPhoneRebootGatewayTimeout{}
 }
 
-/*PostTelephonyProvidersEdgesPhoneRebootGatewayTimeout handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesPhoneRebootGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type PostTelephonyProvidersEdgesPhoneRebootGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post telephony providers edges phone reboot gateway timeout response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post telephony providers edges phone reboot gateway timeout response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post telephony providers edges phone reboot gateway timeout response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post telephony providers edges phone reboot gateway timeout response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post telephony providers edges phone reboot gateway timeout response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesPhoneRebootGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostTelephonyProvidersEdgesPhoneRebootGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneRebootGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewPostTelephonyProvidersEdgesPhoneRebootDefault(code int) *PostTelephonyPr
 	}
 }
 
-/*PostTelephonyProvidersEdgesPhoneRebootDefault handles this case with default header values.
+/*
+PostTelephonyProvidersEdgesPhoneRebootDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *PostTelephonyProvidersEdgesPhoneRebootDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this post telephony providers edges phone reboot default response has a 2xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this post telephony providers edges phone reboot default response has a 3xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this post telephony providers edges phone reboot default response has a 4xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this post telephony providers edges phone reboot default response has a 5xx status code
+func (o *PostTelephonyProvidersEdgesPhoneRebootDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this post telephony providers edges phone reboot default response a status code equal to that given
+func (o *PostTelephonyProvidersEdgesPhoneRebootDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PostTelephonyProvidersEdgesPhoneRebootDefault) Error() string {
+	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneReboot default ", o._statusCode)
+}
+
+func (o *PostTelephonyProvidersEdgesPhoneRebootDefault) String() string {
 	return fmt.Sprintf("[POST /api/v2/telephony/providers/edges/phones/{phoneId}/reboot][%d] postTelephonyProvidersEdgesPhoneReboot default ", o._statusCode)
 }
 

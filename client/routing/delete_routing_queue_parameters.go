@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteRoutingQueueParams creates a new DeleteRoutingQueueParams object
-// with the default values initialized.
+// NewDeleteRoutingQueueParams creates a new DeleteRoutingQueueParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRoutingQueueParams() *DeleteRoutingQueueParams {
-	var ()
 	return &DeleteRoutingQueueParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRoutingQueueParamsWithTimeout creates a new DeleteRoutingQueueParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRoutingQueueParamsWithTimeout(timeout time.Duration) *DeleteRoutingQueueParams {
-	var ()
 	return &DeleteRoutingQueueParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRoutingQueueParamsWithContext creates a new DeleteRoutingQueueParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRoutingQueueParamsWithContext(ctx context.Context) *DeleteRoutingQueueParams {
-	var ()
 	return &DeleteRoutingQueueParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRoutingQueueParamsWithHTTPClient creates a new DeleteRoutingQueueParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRoutingQueueParamsWithHTTPClient(client *http.Client) *DeleteRoutingQueueParams {
-	var ()
 	return &DeleteRoutingQueueParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRoutingQueueParams contains all the parameters to send to the API endpoint
-for the delete routing queue operation typically these are written to a http.Request
+/*
+DeleteRoutingQueueParams contains all the parameters to send to the API endpoint
+
+	for the delete routing queue operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteRoutingQueueParams struct {
 
-	/*ForceDelete
-	  forceDelete
+	/* ForceDelete.
 
+	   forceDelete
 	*/
 	ForceDelete *bool
-	/*QueueID
-	  Queue ID
 
+	/* QueueID.
+
+	   Queue ID
 	*/
 	QueueID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete routing queue params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingQueueParams) WithDefaults() *DeleteRoutingQueueParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete routing queue params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRoutingQueueParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete routing queue params
@@ -144,16 +161,17 @@ func (o *DeleteRoutingQueueParams) WriteToRequest(r runtime.ClientRequest, reg s
 
 		// query param forceDelete
 		var qrForceDelete bool
+
 		if o.ForceDelete != nil {
 			qrForceDelete = *o.ForceDelete
 		}
 		qForceDelete := swag.FormatBool(qrForceDelete)
 		if qForceDelete != "" {
+
 			if err := r.SetQueryParam("forceDelete", qForceDelete); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param queueId

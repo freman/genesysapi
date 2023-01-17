@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -53,6 +54,42 @@ func (m *BatchDownloadJobSubmission) validateBatchDownloadRequestList(formats st
 			if err := m.BatchDownloadRequestList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("batchDownloadRequestList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("batchDownloadRequestList" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this batch download job submission based on the context it is used
+func (m *BatchDownloadJobSubmission) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBatchDownloadRequestList(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BatchDownloadJobSubmission) contextValidateBatchDownloadRequestList(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.BatchDownloadRequestList); i++ {
+
+		if m.BatchDownloadRequestList[i] != nil {
+			if err := m.BatchDownloadRequestList[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("batchDownloadRequestList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("batchDownloadRequestList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

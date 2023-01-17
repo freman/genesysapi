@@ -95,7 +95,6 @@ func (o *PostOauthClientSecretReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOauthClientSecretOK() *PostOauthClientSecretOK {
 	return &PostOauthClientSecretOK{}
 }
 
-/*PostOauthClientSecretOK handles this case with default header values.
+/*
+PostOauthClientSecretOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOauthClientSecretOK struct {
 	Payload *models.OAuthClient
 }
 
+// IsSuccess returns true when this post oauth client secret o k response has a 2xx status code
+func (o *PostOauthClientSecretOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post oauth client secret o k response has a 3xx status code
+func (o *PostOauthClientSecretOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client secret o k response has a 4xx status code
+func (o *PostOauthClientSecretOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth client secret o k response has a 5xx status code
+func (o *PostOauthClientSecretOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client secret o k response a status code equal to that given
+func (o *PostOauthClientSecretOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOauthClientSecretOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOauthClientSecretOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostOauthClientSecretBadRequest() *PostOauthClientSecretBadRequest {
 	return &PostOauthClientSecretBadRequest{}
 }
 
-/*PostOauthClientSecretBadRequest handles this case with default header values.
+/*
+PostOauthClientSecretBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostOauthClientSecretBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client secret bad request response has a 2xx status code
+func (o *PostOauthClientSecretBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client secret bad request response has a 3xx status code
+func (o *PostOauthClientSecretBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client secret bad request response has a 4xx status code
+func (o *PostOauthClientSecretBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client secret bad request response has a 5xx status code
+func (o *PostOauthClientSecretBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client secret bad request response a status code equal to that given
+func (o *PostOauthClientSecretBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOauthClientSecretBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOauthClientSecretBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostOauthClientSecretUnauthorized() *PostOauthClientSecretUnauthorized {
 	return &PostOauthClientSecretUnauthorized{}
 }
 
-/*PostOauthClientSecretUnauthorized handles this case with default header values.
+/*
+PostOauthClientSecretUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostOauthClientSecretUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client secret unauthorized response has a 2xx status code
+func (o *PostOauthClientSecretUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client secret unauthorized response has a 3xx status code
+func (o *PostOauthClientSecretUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client secret unauthorized response has a 4xx status code
+func (o *PostOauthClientSecretUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client secret unauthorized response has a 5xx status code
+func (o *PostOauthClientSecretUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client secret unauthorized response a status code equal to that given
+func (o *PostOauthClientSecretUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOauthClientSecretUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOauthClientSecretUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostOauthClientSecretForbidden() *PostOauthClientSecretForbidden {
 	return &PostOauthClientSecretForbidden{}
 }
 
-/*PostOauthClientSecretForbidden handles this case with default header values.
+/*
+PostOauthClientSecretForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostOauthClientSecretForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client secret forbidden response has a 2xx status code
+func (o *PostOauthClientSecretForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client secret forbidden response has a 3xx status code
+func (o *PostOauthClientSecretForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client secret forbidden response has a 4xx status code
+func (o *PostOauthClientSecretForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client secret forbidden response has a 5xx status code
+func (o *PostOauthClientSecretForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client secret forbidden response a status code equal to that given
+func (o *PostOauthClientSecretForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOauthClientSecretForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOauthClientSecretForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostOauthClientSecretNotFound() *PostOauthClientSecretNotFound {
 	return &PostOauthClientSecretNotFound{}
 }
 
-/*PostOauthClientSecretNotFound handles this case with default header values.
+/*
+PostOauthClientSecretNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostOauthClientSecretNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client secret not found response has a 2xx status code
+func (o *PostOauthClientSecretNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client secret not found response has a 3xx status code
+func (o *PostOauthClientSecretNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client secret not found response has a 4xx status code
+func (o *PostOauthClientSecretNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client secret not found response has a 5xx status code
+func (o *PostOauthClientSecretNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client secret not found response a status code equal to that given
+func (o *PostOauthClientSecretNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOauthClientSecretNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOauthClientSecretNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostOauthClientSecretRequestTimeout() *PostOauthClientSecretRequestTimeo
 	return &PostOauthClientSecretRequestTimeout{}
 }
 
-/*PostOauthClientSecretRequestTimeout handles this case with default header values.
+/*
+PostOauthClientSecretRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostOauthClientSecretRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client secret request timeout response has a 2xx status code
+func (o *PostOauthClientSecretRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client secret request timeout response has a 3xx status code
+func (o *PostOauthClientSecretRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client secret request timeout response has a 4xx status code
+func (o *PostOauthClientSecretRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client secret request timeout response has a 5xx status code
+func (o *PostOauthClientSecretRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client secret request timeout response a status code equal to that given
+func (o *PostOauthClientSecretRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOauthClientSecretRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOauthClientSecretRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostOauthClientSecretRequestEntityTooLarge() *PostOauthClientSecretReque
 	return &PostOauthClientSecretRequestEntityTooLarge{}
 }
 
-/*PostOauthClientSecretRequestEntityTooLarge handles this case with default header values.
+/*
+PostOauthClientSecretRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostOauthClientSecretRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client secret request entity too large response has a 2xx status code
+func (o *PostOauthClientSecretRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client secret request entity too large response has a 3xx status code
+func (o *PostOauthClientSecretRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client secret request entity too large response has a 4xx status code
+func (o *PostOauthClientSecretRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client secret request entity too large response has a 5xx status code
+func (o *PostOauthClientSecretRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client secret request entity too large response a status code equal to that given
+func (o *PostOauthClientSecretRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOauthClientSecretRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOauthClientSecretRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostOauthClientSecretUnsupportedMediaType() *PostOauthClientSecretUnsupp
 	return &PostOauthClientSecretUnsupportedMediaType{}
 }
 
-/*PostOauthClientSecretUnsupportedMediaType handles this case with default header values.
+/*
+PostOauthClientSecretUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostOauthClientSecretUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client secret unsupported media type response has a 2xx status code
+func (o *PostOauthClientSecretUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client secret unsupported media type response has a 3xx status code
+func (o *PostOauthClientSecretUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client secret unsupported media type response has a 4xx status code
+func (o *PostOauthClientSecretUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client secret unsupported media type response has a 5xx status code
+func (o *PostOauthClientSecretUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client secret unsupported media type response a status code equal to that given
+func (o *PostOauthClientSecretUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOauthClientSecretUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOauthClientSecretUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostOauthClientSecretTooManyRequests() *PostOauthClientSecretTooManyRequ
 	return &PostOauthClientSecretTooManyRequests{}
 }
 
-/*PostOauthClientSecretTooManyRequests handles this case with default header values.
+/*
+PostOauthClientSecretTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostOauthClientSecretTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client secret too many requests response has a 2xx status code
+func (o *PostOauthClientSecretTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client secret too many requests response has a 3xx status code
+func (o *PostOauthClientSecretTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client secret too many requests response has a 4xx status code
+func (o *PostOauthClientSecretTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post oauth client secret too many requests response has a 5xx status code
+func (o *PostOauthClientSecretTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post oauth client secret too many requests response a status code equal to that given
+func (o *PostOauthClientSecretTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOauthClientSecretTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOauthClientSecretTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostOauthClientSecretInternalServerError() *PostOauthClientSecretInterna
 	return &PostOauthClientSecretInternalServerError{}
 }
 
-/*PostOauthClientSecretInternalServerError handles this case with default header values.
+/*
+PostOauthClientSecretInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostOauthClientSecretInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client secret internal server error response has a 2xx status code
+func (o *PostOauthClientSecretInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client secret internal server error response has a 3xx status code
+func (o *PostOauthClientSecretInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client secret internal server error response has a 4xx status code
+func (o *PostOauthClientSecretInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth client secret internal server error response has a 5xx status code
+func (o *PostOauthClientSecretInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post oauth client secret internal server error response a status code equal to that given
+func (o *PostOauthClientSecretInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOauthClientSecretInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOauthClientSecretInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostOauthClientSecretServiceUnavailable() *PostOauthClientSecretServiceU
 	return &PostOauthClientSecretServiceUnavailable{}
 }
 
-/*PostOauthClientSecretServiceUnavailable handles this case with default header values.
+/*
+PostOauthClientSecretServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostOauthClientSecretServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client secret service unavailable response has a 2xx status code
+func (o *PostOauthClientSecretServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client secret service unavailable response has a 3xx status code
+func (o *PostOauthClientSecretServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client secret service unavailable response has a 4xx status code
+func (o *PostOauthClientSecretServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth client secret service unavailable response has a 5xx status code
+func (o *PostOauthClientSecretServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post oauth client secret service unavailable response a status code equal to that given
+func (o *PostOauthClientSecretServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOauthClientSecretServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOauthClientSecretServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostOauthClientSecretGatewayTimeout() *PostOauthClientSecretGatewayTimeo
 	return &PostOauthClientSecretGatewayTimeout{}
 }
 
-/*PostOauthClientSecretGatewayTimeout handles this case with default header values.
+/*
+PostOauthClientSecretGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostOauthClientSecretGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post oauth client secret gateway timeout response has a 2xx status code
+func (o *PostOauthClientSecretGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post oauth client secret gateway timeout response has a 3xx status code
+func (o *PostOauthClientSecretGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post oauth client secret gateway timeout response has a 4xx status code
+func (o *PostOauthClientSecretGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post oauth client secret gateway timeout response has a 5xx status code
+func (o *PostOauthClientSecretGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post oauth client secret gateway timeout response a status code equal to that given
+func (o *PostOauthClientSecretGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOauthClientSecretGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOauthClientSecretGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/oauth/clients/{clientId}/secret][%d] postOauthClientSecretGatewayTimeout  %+v", 504, o.Payload)
 }
 

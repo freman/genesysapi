@@ -16,59 +16,77 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationProfilesUsersMeParams creates a new GetGamificationProfilesUsersMeParams object
-// with the default values initialized.
+// NewGetGamificationProfilesUsersMeParams creates a new GetGamificationProfilesUsersMeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationProfilesUsersMeParams() *GetGamificationProfilesUsersMeParams {
-	var ()
 	return &GetGamificationProfilesUsersMeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationProfilesUsersMeParamsWithTimeout creates a new GetGamificationProfilesUsersMeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationProfilesUsersMeParamsWithTimeout(timeout time.Duration) *GetGamificationProfilesUsersMeParams {
-	var ()
 	return &GetGamificationProfilesUsersMeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationProfilesUsersMeParamsWithContext creates a new GetGamificationProfilesUsersMeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationProfilesUsersMeParamsWithContext(ctx context.Context) *GetGamificationProfilesUsersMeParams {
-	var ()
 	return &GetGamificationProfilesUsersMeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationProfilesUsersMeParamsWithHTTPClient creates a new GetGamificationProfilesUsersMeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationProfilesUsersMeParamsWithHTTPClient(client *http.Client) *GetGamificationProfilesUsersMeParams {
-	var ()
 	return &GetGamificationProfilesUsersMeParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationProfilesUsersMeParams contains all the parameters to send to the API endpoint
-for the get gamification profiles users me operation typically these are written to a http.Request
+/*
+GetGamificationProfilesUsersMeParams contains all the parameters to send to the API endpoint
+
+	for the get gamification profiles users me operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationProfilesUsersMeParams struct {
 
-	/*Workday
-	  Target querying workday. If not provided, then queries the current performance profile. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+	/* Workday.
 
+	   Target querying workday. If not provided, then queries the current performance profile. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	Workday *strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification profiles users me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationProfilesUsersMeParams) WithDefaults() *GetGamificationProfilesUsersMeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification profiles users me params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationProfilesUsersMeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification profiles users me params
@@ -127,16 +145,17 @@ func (o *GetGamificationProfilesUsersMeParams) WriteToRequest(r runtime.ClientRe
 
 		// query param workday
 		var qrWorkday strfmt.Date
+
 		if o.Workday != nil {
 			qrWorkday = *o.Workday
 		}
 		qWorkday := qrWorkday.String()
 		if qWorkday != "" {
+
 			if err := r.SetQueryParam("workday", qWorkday); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

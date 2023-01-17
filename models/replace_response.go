@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -63,7 +64,6 @@ func (m *ReplaceResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ReplaceResponse) validateUploadDestinationURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UploadDestinationURI) { // not required
 		return nil
 	}
@@ -105,7 +105,6 @@ func (m *ReplaceResponse) validateUploadMethodEnum(path, location string, value 
 }
 
 func (m *ReplaceResponse) validateUploadMethod(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UploadMethod) { // not required
 		return nil
 	}
@@ -119,7 +118,6 @@ func (m *ReplaceResponse) validateUploadMethod(formats strfmt.Registry) error {
 }
 
 func (m *ReplaceResponse) validateUploadStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UploadStatus) { // not required
 		return nil
 	}
@@ -128,6 +126,38 @@ func (m *ReplaceResponse) validateUploadStatus(formats strfmt.Registry) error {
 		if err := m.UploadStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("uploadStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uploadStatus")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this replace response based on the context it is used
+func (m *ReplaceResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateUploadStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ReplaceResponse) contextValidateUploadStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UploadStatus != nil {
+		if err := m.UploadStatus.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("uploadStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("uploadStatus")
 			}
 			return err
 		}

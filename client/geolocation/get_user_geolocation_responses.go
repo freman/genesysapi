@@ -95,7 +95,6 @@ func (o *GetUserGeolocationReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetUserGeolocationOK() *GetUserGeolocationOK {
 	return &GetUserGeolocationOK{}
 }
 
-/*GetUserGeolocationOK handles this case with default header values.
+/*
+GetUserGeolocationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetUserGeolocationOK struct {
 	Payload *models.Geolocation
 }
 
+// IsSuccess returns true when this get user geolocation o k response has a 2xx status code
+func (o *GetUserGeolocationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get user geolocation o k response has a 3xx status code
+func (o *GetUserGeolocationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user geolocation o k response has a 4xx status code
+func (o *GetUserGeolocationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user geolocation o k response has a 5xx status code
+func (o *GetUserGeolocationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user geolocation o k response a status code equal to that given
+func (o *GetUserGeolocationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUserGeolocationOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationOK  %+v", 200, o.Payload)
+}
+
+func (o *GetUserGeolocationOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetUserGeolocationBadRequest() *GetUserGeolocationBadRequest {
 	return &GetUserGeolocationBadRequest{}
 }
 
-/*GetUserGeolocationBadRequest handles this case with default header values.
+/*
+GetUserGeolocationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetUserGeolocationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user geolocation bad request response has a 2xx status code
+func (o *GetUserGeolocationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user geolocation bad request response has a 3xx status code
+func (o *GetUserGeolocationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user geolocation bad request response has a 4xx status code
+func (o *GetUserGeolocationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user geolocation bad request response has a 5xx status code
+func (o *GetUserGeolocationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user geolocation bad request response a status code equal to that given
+func (o *GetUserGeolocationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUserGeolocationBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetUserGeolocationBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetUserGeolocationUnauthorized() *GetUserGeolocationUnauthorized {
 	return &GetUserGeolocationUnauthorized{}
 }
 
-/*GetUserGeolocationUnauthorized handles this case with default header values.
+/*
+GetUserGeolocationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetUserGeolocationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user geolocation unauthorized response has a 2xx status code
+func (o *GetUserGeolocationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user geolocation unauthorized response has a 3xx status code
+func (o *GetUserGeolocationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user geolocation unauthorized response has a 4xx status code
+func (o *GetUserGeolocationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user geolocation unauthorized response has a 5xx status code
+func (o *GetUserGeolocationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user geolocation unauthorized response a status code equal to that given
+func (o *GetUserGeolocationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetUserGeolocationUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetUserGeolocationUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetUserGeolocationForbidden() *GetUserGeolocationForbidden {
 	return &GetUserGeolocationForbidden{}
 }
 
-/*GetUserGeolocationForbidden handles this case with default header values.
+/*
+GetUserGeolocationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetUserGeolocationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user geolocation forbidden response has a 2xx status code
+func (o *GetUserGeolocationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user geolocation forbidden response has a 3xx status code
+func (o *GetUserGeolocationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user geolocation forbidden response has a 4xx status code
+func (o *GetUserGeolocationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user geolocation forbidden response has a 5xx status code
+func (o *GetUserGeolocationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user geolocation forbidden response a status code equal to that given
+func (o *GetUserGeolocationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUserGeolocationForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetUserGeolocationForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetUserGeolocationNotFound() *GetUserGeolocationNotFound {
 	return &GetUserGeolocationNotFound{}
 }
 
-/*GetUserGeolocationNotFound handles this case with default header values.
+/*
+GetUserGeolocationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetUserGeolocationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user geolocation not found response has a 2xx status code
+func (o *GetUserGeolocationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user geolocation not found response has a 3xx status code
+func (o *GetUserGeolocationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user geolocation not found response has a 4xx status code
+func (o *GetUserGeolocationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user geolocation not found response has a 5xx status code
+func (o *GetUserGeolocationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user geolocation not found response a status code equal to that given
+func (o *GetUserGeolocationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetUserGeolocationNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetUserGeolocationNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetUserGeolocationRequestTimeout() *GetUserGeolocationRequestTimeout {
 	return &GetUserGeolocationRequestTimeout{}
 }
 
-/*GetUserGeolocationRequestTimeout handles this case with default header values.
+/*
+GetUserGeolocationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetUserGeolocationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user geolocation request timeout response has a 2xx status code
+func (o *GetUserGeolocationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user geolocation request timeout response has a 3xx status code
+func (o *GetUserGeolocationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user geolocation request timeout response has a 4xx status code
+func (o *GetUserGeolocationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user geolocation request timeout response has a 5xx status code
+func (o *GetUserGeolocationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user geolocation request timeout response a status code equal to that given
+func (o *GetUserGeolocationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetUserGeolocationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserGeolocationRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetUserGeolocationRequestEntityTooLarge() *GetUserGeolocationRequestEnti
 	return &GetUserGeolocationRequestEntityTooLarge{}
 }
 
-/*GetUserGeolocationRequestEntityTooLarge handles this case with default header values.
+/*
+GetUserGeolocationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetUserGeolocationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user geolocation request entity too large response has a 2xx status code
+func (o *GetUserGeolocationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user geolocation request entity too large response has a 3xx status code
+func (o *GetUserGeolocationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user geolocation request entity too large response has a 4xx status code
+func (o *GetUserGeolocationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user geolocation request entity too large response has a 5xx status code
+func (o *GetUserGeolocationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user geolocation request entity too large response a status code equal to that given
+func (o *GetUserGeolocationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetUserGeolocationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetUserGeolocationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetUserGeolocationUnsupportedMediaType() *GetUserGeolocationUnsupportedM
 	return &GetUserGeolocationUnsupportedMediaType{}
 }
 
-/*GetUserGeolocationUnsupportedMediaType handles this case with default header values.
+/*
+GetUserGeolocationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetUserGeolocationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user geolocation unsupported media type response has a 2xx status code
+func (o *GetUserGeolocationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user geolocation unsupported media type response has a 3xx status code
+func (o *GetUserGeolocationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user geolocation unsupported media type response has a 4xx status code
+func (o *GetUserGeolocationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user geolocation unsupported media type response has a 5xx status code
+func (o *GetUserGeolocationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user geolocation unsupported media type response a status code equal to that given
+func (o *GetUserGeolocationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetUserGeolocationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetUserGeolocationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetUserGeolocationTooManyRequests() *GetUserGeolocationTooManyRequests {
 	return &GetUserGeolocationTooManyRequests{}
 }
 
-/*GetUserGeolocationTooManyRequests handles this case with default header values.
+/*
+GetUserGeolocationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetUserGeolocationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user geolocation too many requests response has a 2xx status code
+func (o *GetUserGeolocationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user geolocation too many requests response has a 3xx status code
+func (o *GetUserGeolocationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user geolocation too many requests response has a 4xx status code
+func (o *GetUserGeolocationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user geolocation too many requests response has a 5xx status code
+func (o *GetUserGeolocationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user geolocation too many requests response a status code equal to that given
+func (o *GetUserGeolocationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUserGeolocationTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetUserGeolocationTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetUserGeolocationInternalServerError() *GetUserGeolocationInternalServe
 	return &GetUserGeolocationInternalServerError{}
 }
 
-/*GetUserGeolocationInternalServerError handles this case with default header values.
+/*
+GetUserGeolocationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetUserGeolocationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user geolocation internal server error response has a 2xx status code
+func (o *GetUserGeolocationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user geolocation internal server error response has a 3xx status code
+func (o *GetUserGeolocationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user geolocation internal server error response has a 4xx status code
+func (o *GetUserGeolocationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user geolocation internal server error response has a 5xx status code
+func (o *GetUserGeolocationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user geolocation internal server error response a status code equal to that given
+func (o *GetUserGeolocationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUserGeolocationInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetUserGeolocationInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetUserGeolocationServiceUnavailable() *GetUserGeolocationServiceUnavail
 	return &GetUserGeolocationServiceUnavailable{}
 }
 
-/*GetUserGeolocationServiceUnavailable handles this case with default header values.
+/*
+GetUserGeolocationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetUserGeolocationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user geolocation service unavailable response has a 2xx status code
+func (o *GetUserGeolocationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user geolocation service unavailable response has a 3xx status code
+func (o *GetUserGeolocationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user geolocation service unavailable response has a 4xx status code
+func (o *GetUserGeolocationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user geolocation service unavailable response has a 5xx status code
+func (o *GetUserGeolocationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user geolocation service unavailable response a status code equal to that given
+func (o *GetUserGeolocationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetUserGeolocationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetUserGeolocationServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetUserGeolocationGatewayTimeout() *GetUserGeolocationGatewayTimeout {
 	return &GetUserGeolocationGatewayTimeout{}
 }
 
-/*GetUserGeolocationGatewayTimeout handles this case with default header values.
+/*
+GetUserGeolocationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetUserGeolocationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user geolocation gateway timeout response has a 2xx status code
+func (o *GetUserGeolocationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user geolocation gateway timeout response has a 3xx status code
+func (o *GetUserGeolocationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user geolocation gateway timeout response has a 4xx status code
+func (o *GetUserGeolocationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user geolocation gateway timeout response has a 5xx status code
+func (o *GetUserGeolocationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user geolocation gateway timeout response a status code equal to that given
+func (o *GetUserGeolocationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetUserGeolocationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetUserGeolocationGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/geolocations/{clientId}][%d] getUserGeolocationGatewayTimeout  %+v", 504, o.Payload)
 }
 

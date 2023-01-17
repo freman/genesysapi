@@ -95,7 +95,6 @@ func (o *PutMobiledeviceReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutMobiledeviceOK() *PutMobiledeviceOK {
 	return &PutMobiledeviceOK{}
 }
 
-/*PutMobiledeviceOK handles this case with default header values.
+/*
+PutMobiledeviceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutMobiledeviceOK struct {
 	Payload *models.UserDevice
 }
 
+// IsSuccess returns true when this put mobiledevice o k response has a 2xx status code
+func (o *PutMobiledeviceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put mobiledevice o k response has a 3xx status code
+func (o *PutMobiledeviceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put mobiledevice o k response has a 4xx status code
+func (o *PutMobiledeviceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put mobiledevice o k response has a 5xx status code
+func (o *PutMobiledeviceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put mobiledevice o k response a status code equal to that given
+func (o *PutMobiledeviceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutMobiledeviceOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceOK  %+v", 200, o.Payload)
+}
+
+func (o *PutMobiledeviceOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutMobiledeviceBadRequest() *PutMobiledeviceBadRequest {
 	return &PutMobiledeviceBadRequest{}
 }
 
-/*PutMobiledeviceBadRequest handles this case with default header values.
+/*
+PutMobiledeviceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutMobiledeviceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put mobiledevice bad request response has a 2xx status code
+func (o *PutMobiledeviceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put mobiledevice bad request response has a 3xx status code
+func (o *PutMobiledeviceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put mobiledevice bad request response has a 4xx status code
+func (o *PutMobiledeviceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put mobiledevice bad request response has a 5xx status code
+func (o *PutMobiledeviceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put mobiledevice bad request response a status code equal to that given
+func (o *PutMobiledeviceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutMobiledeviceBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutMobiledeviceBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutMobiledeviceUnauthorized() *PutMobiledeviceUnauthorized {
 	return &PutMobiledeviceUnauthorized{}
 }
 
-/*PutMobiledeviceUnauthorized handles this case with default header values.
+/*
+PutMobiledeviceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutMobiledeviceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put mobiledevice unauthorized response has a 2xx status code
+func (o *PutMobiledeviceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put mobiledevice unauthorized response has a 3xx status code
+func (o *PutMobiledeviceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put mobiledevice unauthorized response has a 4xx status code
+func (o *PutMobiledeviceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put mobiledevice unauthorized response has a 5xx status code
+func (o *PutMobiledeviceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put mobiledevice unauthorized response a status code equal to that given
+func (o *PutMobiledeviceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutMobiledeviceUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutMobiledeviceUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutMobiledeviceForbidden() *PutMobiledeviceForbidden {
 	return &PutMobiledeviceForbidden{}
 }
 
-/*PutMobiledeviceForbidden handles this case with default header values.
+/*
+PutMobiledeviceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutMobiledeviceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put mobiledevice forbidden response has a 2xx status code
+func (o *PutMobiledeviceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put mobiledevice forbidden response has a 3xx status code
+func (o *PutMobiledeviceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put mobiledevice forbidden response has a 4xx status code
+func (o *PutMobiledeviceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put mobiledevice forbidden response has a 5xx status code
+func (o *PutMobiledeviceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put mobiledevice forbidden response a status code equal to that given
+func (o *PutMobiledeviceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutMobiledeviceForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutMobiledeviceForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutMobiledeviceNotFound() *PutMobiledeviceNotFound {
 	return &PutMobiledeviceNotFound{}
 }
 
-/*PutMobiledeviceNotFound handles this case with default header values.
+/*
+PutMobiledeviceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutMobiledeviceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put mobiledevice not found response has a 2xx status code
+func (o *PutMobiledeviceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put mobiledevice not found response has a 3xx status code
+func (o *PutMobiledeviceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put mobiledevice not found response has a 4xx status code
+func (o *PutMobiledeviceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put mobiledevice not found response has a 5xx status code
+func (o *PutMobiledeviceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put mobiledevice not found response a status code equal to that given
+func (o *PutMobiledeviceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutMobiledeviceNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutMobiledeviceNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutMobiledeviceRequestTimeout() *PutMobiledeviceRequestTimeout {
 	return &PutMobiledeviceRequestTimeout{}
 }
 
-/*PutMobiledeviceRequestTimeout handles this case with default header values.
+/*
+PutMobiledeviceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutMobiledeviceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put mobiledevice request timeout response has a 2xx status code
+func (o *PutMobiledeviceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put mobiledevice request timeout response has a 3xx status code
+func (o *PutMobiledeviceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put mobiledevice request timeout response has a 4xx status code
+func (o *PutMobiledeviceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put mobiledevice request timeout response has a 5xx status code
+func (o *PutMobiledeviceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put mobiledevice request timeout response a status code equal to that given
+func (o *PutMobiledeviceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutMobiledeviceRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutMobiledeviceRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutMobiledeviceRequestEntityTooLarge() *PutMobiledeviceRequestEntityTooL
 	return &PutMobiledeviceRequestEntityTooLarge{}
 }
 
-/*PutMobiledeviceRequestEntityTooLarge handles this case with default header values.
+/*
+PutMobiledeviceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutMobiledeviceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put mobiledevice request entity too large response has a 2xx status code
+func (o *PutMobiledeviceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put mobiledevice request entity too large response has a 3xx status code
+func (o *PutMobiledeviceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put mobiledevice request entity too large response has a 4xx status code
+func (o *PutMobiledeviceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put mobiledevice request entity too large response has a 5xx status code
+func (o *PutMobiledeviceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put mobiledevice request entity too large response a status code equal to that given
+func (o *PutMobiledeviceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutMobiledeviceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutMobiledeviceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutMobiledeviceUnsupportedMediaType() *PutMobiledeviceUnsupportedMediaTy
 	return &PutMobiledeviceUnsupportedMediaType{}
 }
 
-/*PutMobiledeviceUnsupportedMediaType handles this case with default header values.
+/*
+PutMobiledeviceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutMobiledeviceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put mobiledevice unsupported media type response has a 2xx status code
+func (o *PutMobiledeviceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put mobiledevice unsupported media type response has a 3xx status code
+func (o *PutMobiledeviceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put mobiledevice unsupported media type response has a 4xx status code
+func (o *PutMobiledeviceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put mobiledevice unsupported media type response has a 5xx status code
+func (o *PutMobiledeviceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put mobiledevice unsupported media type response a status code equal to that given
+func (o *PutMobiledeviceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutMobiledeviceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutMobiledeviceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutMobiledeviceTooManyRequests() *PutMobiledeviceTooManyRequests {
 	return &PutMobiledeviceTooManyRequests{}
 }
 
-/*PutMobiledeviceTooManyRequests handles this case with default header values.
+/*
+PutMobiledeviceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutMobiledeviceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put mobiledevice too many requests response has a 2xx status code
+func (o *PutMobiledeviceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put mobiledevice too many requests response has a 3xx status code
+func (o *PutMobiledeviceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put mobiledevice too many requests response has a 4xx status code
+func (o *PutMobiledeviceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put mobiledevice too many requests response has a 5xx status code
+func (o *PutMobiledeviceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put mobiledevice too many requests response a status code equal to that given
+func (o *PutMobiledeviceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutMobiledeviceTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutMobiledeviceTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutMobiledeviceInternalServerError() *PutMobiledeviceInternalServerError
 	return &PutMobiledeviceInternalServerError{}
 }
 
-/*PutMobiledeviceInternalServerError handles this case with default header values.
+/*
+PutMobiledeviceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutMobiledeviceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put mobiledevice internal server error response has a 2xx status code
+func (o *PutMobiledeviceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put mobiledevice internal server error response has a 3xx status code
+func (o *PutMobiledeviceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put mobiledevice internal server error response has a 4xx status code
+func (o *PutMobiledeviceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put mobiledevice internal server error response has a 5xx status code
+func (o *PutMobiledeviceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put mobiledevice internal server error response a status code equal to that given
+func (o *PutMobiledeviceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutMobiledeviceInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutMobiledeviceInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutMobiledeviceServiceUnavailable() *PutMobiledeviceServiceUnavailable {
 	return &PutMobiledeviceServiceUnavailable{}
 }
 
-/*PutMobiledeviceServiceUnavailable handles this case with default header values.
+/*
+PutMobiledeviceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutMobiledeviceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put mobiledevice service unavailable response has a 2xx status code
+func (o *PutMobiledeviceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put mobiledevice service unavailable response has a 3xx status code
+func (o *PutMobiledeviceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put mobiledevice service unavailable response has a 4xx status code
+func (o *PutMobiledeviceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put mobiledevice service unavailable response has a 5xx status code
+func (o *PutMobiledeviceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put mobiledevice service unavailable response a status code equal to that given
+func (o *PutMobiledeviceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutMobiledeviceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutMobiledeviceServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutMobiledeviceGatewayTimeout() *PutMobiledeviceGatewayTimeout {
 	return &PutMobiledeviceGatewayTimeout{}
 }
 
-/*PutMobiledeviceGatewayTimeout handles this case with default header values.
+/*
+PutMobiledeviceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutMobiledeviceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put mobiledevice gateway timeout response has a 2xx status code
+func (o *PutMobiledeviceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put mobiledevice gateway timeout response has a 3xx status code
+func (o *PutMobiledeviceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put mobiledevice gateway timeout response has a 4xx status code
+func (o *PutMobiledeviceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put mobiledevice gateway timeout response has a 5xx status code
+func (o *PutMobiledeviceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put mobiledevice gateway timeout response a status code equal to that given
+func (o *PutMobiledeviceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutMobiledeviceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutMobiledeviceGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/mobiledevices/{deviceId}][%d] putMobiledeviceGatewayTimeout  %+v", 504, o.Payload)
 }
 

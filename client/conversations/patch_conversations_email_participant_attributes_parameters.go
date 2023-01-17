@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchConversationsEmailParticipantAttributesParams creates a new PatchConversationsEmailParticipantAttributesParams object
-// with the default values initialized.
+// NewPatchConversationsEmailParticipantAttributesParams creates a new PatchConversationsEmailParticipantAttributesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchConversationsEmailParticipantAttributesParams() *PatchConversationsEmailParticipantAttributesParams {
-	var ()
 	return &PatchConversationsEmailParticipantAttributesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchConversationsEmailParticipantAttributesParamsWithTimeout creates a new PatchConversationsEmailParticipantAttributesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchConversationsEmailParticipantAttributesParamsWithTimeout(timeout time.Duration) *PatchConversationsEmailParticipantAttributesParams {
-	var ()
 	return &PatchConversationsEmailParticipantAttributesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchConversationsEmailParticipantAttributesParamsWithContext creates a new PatchConversationsEmailParticipantAttributesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchConversationsEmailParticipantAttributesParamsWithContext(ctx context.Context) *PatchConversationsEmailParticipantAttributesParams {
-	var ()
 	return &PatchConversationsEmailParticipantAttributesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchConversationsEmailParticipantAttributesParamsWithHTTPClient creates a new PatchConversationsEmailParticipantAttributesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchConversationsEmailParticipantAttributesParamsWithHTTPClient(client *http.Client) *PatchConversationsEmailParticipantAttributesParams {
-	var ()
 	return &PatchConversationsEmailParticipantAttributesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchConversationsEmailParticipantAttributesParams contains all the parameters to send to the API endpoint
-for the patch conversations email participant attributes operation typically these are written to a http.Request
+/*
+PatchConversationsEmailParticipantAttributesParams contains all the parameters to send to the API endpoint
+
+	for the patch conversations email participant attributes operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchConversationsEmailParticipantAttributesParams struct {
 
-	/*Body
-	  Participant attributes
+	/* Body.
 
+	   Participant attributes
 	*/
 	Body *models.ParticipantAttributes
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch conversations email participant attributes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsEmailParticipantAttributesParams) WithDefaults() *PatchConversationsEmailParticipantAttributesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch conversations email participant attributes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsEmailParticipantAttributesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch conversations email participant attributes params
@@ -156,7 +174,6 @@ func (o *PatchConversationsEmailParticipantAttributesParams) WriteToRequest(r ru
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

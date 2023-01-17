@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -53,6 +55,8 @@ func (m *ActionMapScheduleGroups) validateActionMapScheduleGroup(formats strfmt.
 		if err := m.ActionMapScheduleGroup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("actionMapScheduleGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actionMapScheduleGroup")
 			}
 			return err
 		}
@@ -62,7 +66,6 @@ func (m *ActionMapScheduleGroups) validateActionMapScheduleGroup(formats strfmt.
 }
 
 func (m *ActionMapScheduleGroups) validateEmergencyActionMapScheduleGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EmergencyActionMapScheduleGroup) { // not required
 		return nil
 	}
@@ -71,6 +74,58 @@ func (m *ActionMapScheduleGroups) validateEmergencyActionMapScheduleGroup(format
 		if err := m.EmergencyActionMapScheduleGroup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("emergencyActionMapScheduleGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emergencyActionMapScheduleGroup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this action map schedule groups based on the context it is used
+func (m *ActionMapScheduleGroups) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActionMapScheduleGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmergencyActionMapScheduleGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ActionMapScheduleGroups) contextValidateActionMapScheduleGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ActionMapScheduleGroup != nil {
+		if err := m.ActionMapScheduleGroup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("actionMapScheduleGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("actionMapScheduleGroup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ActionMapScheduleGroups) contextValidateEmergencyActionMapScheduleGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EmergencyActionMapScheduleGroup != nil {
+		if err := m.EmergencyActionMapScheduleGroup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("emergencyActionMapScheduleGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emergencyActionMapScheduleGroup")
 			}
 			return err
 		}

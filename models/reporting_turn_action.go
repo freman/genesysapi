@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -29,7 +30,7 @@ type ReportingTurnAction struct {
 	ActionNumber int32 `json:"actionNumber,omitempty"`
 
 	// action type
-	// Enum: [AskForNLUIntentAction AskForBooleanAction AskForSlotAction AskForNLUNextIntentAction BotState DisconnectAction ExitBotFlowAction CallTaskAction EndTaskAction UpdateVariableAction CommunicateAction DecisionAction SwitchAction DataAction DataTableLookupAction GetExternalContactAction GetExternalOrganizationAction LoopAction ExitLoopAction NextLoopAction LoopUntilAction SetActiveIntentAction ClearSlotAction SetFlowOutcomeAction InitializeFlowOutcomeAction AddFlowMilestoneAction AskForStringAction SendResponseAction GetResponseAction ExtractSecureDataAction SecureAction TransferTaskAction DigitalMenuAction WaitForInputAction ShowKnowledgeArticleAction FindSystemPromptAction FindUserPromptAction TransferPureMatchAction Unknown]
+	// Enum: [AddFlowMilestoneAction AskForNLUIntentAction AskForBooleanAction AskForSlotAction AskForNLUNextIntentAction BotState CallTaskAction ClearSlotAction DisconnectAction EndTaskAction ExitBotFlowAction UpdateVariableAction CommunicateAction DecisionAction FindGrammarAction FindGroupAction FindLanguageSkillAction FindQueueAction FindQueueByIdAction FindSkillAction FindSystemPromptAction FindUserAction FindUserByIdAction FindUsersByIdAction FindUserPromptAction SwitchAction DataAction DataTableLookupAction GetExternalContactAction GetExternalOrganizationAction LoopAction ExitLoopAction NextLoopAction LoopUntilAction SetActiveIntentAction SetFlowOutcomeAction InitializeFlowOutcomeAction AskForStringAction SendResponseAction GetResponseAction ExtractSecureDataAction SecureAction TransferTaskAction DigitalMenuAction WaitForInputAction ShowKnowledgeArticleAction SetLocaleAction TransferPureMatchAction Unknown]
 	ActionType string `json:"actionType,omitempty"`
 }
 
@@ -51,7 +52,7 @@ var reportingTurnActionTypeActionTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AskForNLUIntentAction","AskForBooleanAction","AskForSlotAction","AskForNLUNextIntentAction","BotState","DisconnectAction","ExitBotFlowAction","CallTaskAction","EndTaskAction","UpdateVariableAction","CommunicateAction","DecisionAction","SwitchAction","DataAction","DataTableLookupAction","GetExternalContactAction","GetExternalOrganizationAction","LoopAction","ExitLoopAction","NextLoopAction","LoopUntilAction","SetActiveIntentAction","ClearSlotAction","SetFlowOutcomeAction","InitializeFlowOutcomeAction","AddFlowMilestoneAction","AskForStringAction","SendResponseAction","GetResponseAction","ExtractSecureDataAction","SecureAction","TransferTaskAction","DigitalMenuAction","WaitForInputAction","ShowKnowledgeArticleAction","FindSystemPromptAction","FindUserPromptAction","TransferPureMatchAction","Unknown"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AddFlowMilestoneAction","AskForNLUIntentAction","AskForBooleanAction","AskForSlotAction","AskForNLUNextIntentAction","BotState","CallTaskAction","ClearSlotAction","DisconnectAction","EndTaskAction","ExitBotFlowAction","UpdateVariableAction","CommunicateAction","DecisionAction","FindGrammarAction","FindGroupAction","FindLanguageSkillAction","FindQueueAction","FindQueueByIdAction","FindSkillAction","FindSystemPromptAction","FindUserAction","FindUserByIdAction","FindUsersByIdAction","FindUserPromptAction","SwitchAction","DataAction","DataTableLookupAction","GetExternalContactAction","GetExternalOrganizationAction","LoopAction","ExitLoopAction","NextLoopAction","LoopUntilAction","SetActiveIntentAction","SetFlowOutcomeAction","InitializeFlowOutcomeAction","AskForStringAction","SendResponseAction","GetResponseAction","ExtractSecureDataAction","SecureAction","TransferTaskAction","DigitalMenuAction","WaitForInputAction","ShowKnowledgeArticleAction","SetLocaleAction","TransferPureMatchAction","Unknown"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -60,6 +61,9 @@ func init() {
 }
 
 const (
+
+	// ReportingTurnActionActionTypeAddFlowMilestoneAction captures enum value "AddFlowMilestoneAction"
+	ReportingTurnActionActionTypeAddFlowMilestoneAction string = "AddFlowMilestoneAction"
 
 	// ReportingTurnActionActionTypeAskForNLUIntentAction captures enum value "AskForNLUIntentAction"
 	ReportingTurnActionActionTypeAskForNLUIntentAction string = "AskForNLUIntentAction"
@@ -76,17 +80,20 @@ const (
 	// ReportingTurnActionActionTypeBotState captures enum value "BotState"
 	ReportingTurnActionActionTypeBotState string = "BotState"
 
-	// ReportingTurnActionActionTypeDisconnectAction captures enum value "DisconnectAction"
-	ReportingTurnActionActionTypeDisconnectAction string = "DisconnectAction"
-
-	// ReportingTurnActionActionTypeExitBotFlowAction captures enum value "ExitBotFlowAction"
-	ReportingTurnActionActionTypeExitBotFlowAction string = "ExitBotFlowAction"
-
 	// ReportingTurnActionActionTypeCallTaskAction captures enum value "CallTaskAction"
 	ReportingTurnActionActionTypeCallTaskAction string = "CallTaskAction"
 
+	// ReportingTurnActionActionTypeClearSlotAction captures enum value "ClearSlotAction"
+	ReportingTurnActionActionTypeClearSlotAction string = "ClearSlotAction"
+
+	// ReportingTurnActionActionTypeDisconnectAction captures enum value "DisconnectAction"
+	ReportingTurnActionActionTypeDisconnectAction string = "DisconnectAction"
+
 	// ReportingTurnActionActionTypeEndTaskAction captures enum value "EndTaskAction"
 	ReportingTurnActionActionTypeEndTaskAction string = "EndTaskAction"
+
+	// ReportingTurnActionActionTypeExitBotFlowAction captures enum value "ExitBotFlowAction"
+	ReportingTurnActionActionTypeExitBotFlowAction string = "ExitBotFlowAction"
 
 	// ReportingTurnActionActionTypeUpdateVariableAction captures enum value "UpdateVariableAction"
 	ReportingTurnActionActionTypeUpdateVariableAction string = "UpdateVariableAction"
@@ -96,6 +103,39 @@ const (
 
 	// ReportingTurnActionActionTypeDecisionAction captures enum value "DecisionAction"
 	ReportingTurnActionActionTypeDecisionAction string = "DecisionAction"
+
+	// ReportingTurnActionActionTypeFindGrammarAction captures enum value "FindGrammarAction"
+	ReportingTurnActionActionTypeFindGrammarAction string = "FindGrammarAction"
+
+	// ReportingTurnActionActionTypeFindGroupAction captures enum value "FindGroupAction"
+	ReportingTurnActionActionTypeFindGroupAction string = "FindGroupAction"
+
+	// ReportingTurnActionActionTypeFindLanguageSkillAction captures enum value "FindLanguageSkillAction"
+	ReportingTurnActionActionTypeFindLanguageSkillAction string = "FindLanguageSkillAction"
+
+	// ReportingTurnActionActionTypeFindQueueAction captures enum value "FindQueueAction"
+	ReportingTurnActionActionTypeFindQueueAction string = "FindQueueAction"
+
+	// ReportingTurnActionActionTypeFindQueueByIDAction captures enum value "FindQueueByIdAction"
+	ReportingTurnActionActionTypeFindQueueByIDAction string = "FindQueueByIdAction"
+
+	// ReportingTurnActionActionTypeFindSkillAction captures enum value "FindSkillAction"
+	ReportingTurnActionActionTypeFindSkillAction string = "FindSkillAction"
+
+	// ReportingTurnActionActionTypeFindSystemPromptAction captures enum value "FindSystemPromptAction"
+	ReportingTurnActionActionTypeFindSystemPromptAction string = "FindSystemPromptAction"
+
+	// ReportingTurnActionActionTypeFindUserAction captures enum value "FindUserAction"
+	ReportingTurnActionActionTypeFindUserAction string = "FindUserAction"
+
+	// ReportingTurnActionActionTypeFindUserByIDAction captures enum value "FindUserByIdAction"
+	ReportingTurnActionActionTypeFindUserByIDAction string = "FindUserByIdAction"
+
+	// ReportingTurnActionActionTypeFindUsersByIDAction captures enum value "FindUsersByIdAction"
+	ReportingTurnActionActionTypeFindUsersByIDAction string = "FindUsersByIdAction"
+
+	// ReportingTurnActionActionTypeFindUserPromptAction captures enum value "FindUserPromptAction"
+	ReportingTurnActionActionTypeFindUserPromptAction string = "FindUserPromptAction"
 
 	// ReportingTurnActionActionTypeSwitchAction captures enum value "SwitchAction"
 	ReportingTurnActionActionTypeSwitchAction string = "SwitchAction"
@@ -127,17 +167,11 @@ const (
 	// ReportingTurnActionActionTypeSetActiveIntentAction captures enum value "SetActiveIntentAction"
 	ReportingTurnActionActionTypeSetActiveIntentAction string = "SetActiveIntentAction"
 
-	// ReportingTurnActionActionTypeClearSlotAction captures enum value "ClearSlotAction"
-	ReportingTurnActionActionTypeClearSlotAction string = "ClearSlotAction"
-
 	// ReportingTurnActionActionTypeSetFlowOutcomeAction captures enum value "SetFlowOutcomeAction"
 	ReportingTurnActionActionTypeSetFlowOutcomeAction string = "SetFlowOutcomeAction"
 
 	// ReportingTurnActionActionTypeInitializeFlowOutcomeAction captures enum value "InitializeFlowOutcomeAction"
 	ReportingTurnActionActionTypeInitializeFlowOutcomeAction string = "InitializeFlowOutcomeAction"
-
-	// ReportingTurnActionActionTypeAddFlowMilestoneAction captures enum value "AddFlowMilestoneAction"
-	ReportingTurnActionActionTypeAddFlowMilestoneAction string = "AddFlowMilestoneAction"
 
 	// ReportingTurnActionActionTypeAskForStringAction captures enum value "AskForStringAction"
 	ReportingTurnActionActionTypeAskForStringAction string = "AskForStringAction"
@@ -166,11 +200,8 @@ const (
 	// ReportingTurnActionActionTypeShowKnowledgeArticleAction captures enum value "ShowKnowledgeArticleAction"
 	ReportingTurnActionActionTypeShowKnowledgeArticleAction string = "ShowKnowledgeArticleAction"
 
-	// ReportingTurnActionActionTypeFindSystemPromptAction captures enum value "FindSystemPromptAction"
-	ReportingTurnActionActionTypeFindSystemPromptAction string = "FindSystemPromptAction"
-
-	// ReportingTurnActionActionTypeFindUserPromptAction captures enum value "FindUserPromptAction"
-	ReportingTurnActionActionTypeFindUserPromptAction string = "FindUserPromptAction"
+	// ReportingTurnActionActionTypeSetLocaleAction captures enum value "SetLocaleAction"
+	ReportingTurnActionActionTypeSetLocaleAction string = "SetLocaleAction"
 
 	// ReportingTurnActionActionTypeTransferPureMatchAction captures enum value "TransferPureMatchAction"
 	ReportingTurnActionActionTypeTransferPureMatchAction string = "TransferPureMatchAction"
@@ -188,7 +219,6 @@ func (m *ReportingTurnAction) validateActionTypeEnum(path, location string, valu
 }
 
 func (m *ReportingTurnAction) validateActionType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionType) { // not required
 		return nil
 	}
@@ -198,6 +228,11 @@ func (m *ReportingTurnAction) validateActionType(formats strfmt.Registry) error 
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this reporting turn action based on context it is used
+func (m *ReportingTurnAction) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

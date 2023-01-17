@@ -95,7 +95,6 @@ func (o *GetOrganizationsWhitelistReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOrganizationsWhitelistOK() *GetOrganizationsWhitelistOK {
 	return &GetOrganizationsWhitelistOK{}
 }
 
-/*GetOrganizationsWhitelistOK handles this case with default header values.
+/*
+GetOrganizationsWhitelistOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOrganizationsWhitelistOK struct {
 	Payload *models.OrgWhitelistSettings
 }
 
+// IsSuccess returns true when this get organizations whitelist o k response has a 2xx status code
+func (o *GetOrganizationsWhitelistOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get organizations whitelist o k response has a 3xx status code
+func (o *GetOrganizationsWhitelistOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations whitelist o k response has a 4xx status code
+func (o *GetOrganizationsWhitelistOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations whitelist o k response has a 5xx status code
+func (o *GetOrganizationsWhitelistOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations whitelist o k response a status code equal to that given
+func (o *GetOrganizationsWhitelistOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrganizationsWhitelistOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOrganizationsWhitelistOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOrganizationsWhitelistBadRequest() *GetOrganizationsWhitelistBadReque
 	return &GetOrganizationsWhitelistBadRequest{}
 }
 
-/*GetOrganizationsWhitelistBadRequest handles this case with default header values.
+/*
+GetOrganizationsWhitelistBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOrganizationsWhitelistBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations whitelist bad request response has a 2xx status code
+func (o *GetOrganizationsWhitelistBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations whitelist bad request response has a 3xx status code
+func (o *GetOrganizationsWhitelistBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations whitelist bad request response has a 4xx status code
+func (o *GetOrganizationsWhitelistBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations whitelist bad request response has a 5xx status code
+func (o *GetOrganizationsWhitelistBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations whitelist bad request response a status code equal to that given
+func (o *GetOrganizationsWhitelistBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOrganizationsWhitelistBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOrganizationsWhitelistBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOrganizationsWhitelistUnauthorized() *GetOrganizationsWhitelistUnauth
 	return &GetOrganizationsWhitelistUnauthorized{}
 }
 
-/*GetOrganizationsWhitelistUnauthorized handles this case with default header values.
+/*
+GetOrganizationsWhitelistUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOrganizationsWhitelistUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations whitelist unauthorized response has a 2xx status code
+func (o *GetOrganizationsWhitelistUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations whitelist unauthorized response has a 3xx status code
+func (o *GetOrganizationsWhitelistUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations whitelist unauthorized response has a 4xx status code
+func (o *GetOrganizationsWhitelistUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations whitelist unauthorized response has a 5xx status code
+func (o *GetOrganizationsWhitelistUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations whitelist unauthorized response a status code equal to that given
+func (o *GetOrganizationsWhitelistUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOrganizationsWhitelistUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOrganizationsWhitelistUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOrganizationsWhitelistForbidden() *GetOrganizationsWhitelistForbidden
 	return &GetOrganizationsWhitelistForbidden{}
 }
 
-/*GetOrganizationsWhitelistForbidden handles this case with default header values.
+/*
+GetOrganizationsWhitelistForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOrganizationsWhitelistForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations whitelist forbidden response has a 2xx status code
+func (o *GetOrganizationsWhitelistForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations whitelist forbidden response has a 3xx status code
+func (o *GetOrganizationsWhitelistForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations whitelist forbidden response has a 4xx status code
+func (o *GetOrganizationsWhitelistForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations whitelist forbidden response has a 5xx status code
+func (o *GetOrganizationsWhitelistForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations whitelist forbidden response a status code equal to that given
+func (o *GetOrganizationsWhitelistForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrganizationsWhitelistForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOrganizationsWhitelistForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOrganizationsWhitelistNotFound() *GetOrganizationsWhitelistNotFound {
 	return &GetOrganizationsWhitelistNotFound{}
 }
 
-/*GetOrganizationsWhitelistNotFound handles this case with default header values.
+/*
+GetOrganizationsWhitelistNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOrganizationsWhitelistNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations whitelist not found response has a 2xx status code
+func (o *GetOrganizationsWhitelistNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations whitelist not found response has a 3xx status code
+func (o *GetOrganizationsWhitelistNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations whitelist not found response has a 4xx status code
+func (o *GetOrganizationsWhitelistNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations whitelist not found response has a 5xx status code
+func (o *GetOrganizationsWhitelistNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations whitelist not found response a status code equal to that given
+func (o *GetOrganizationsWhitelistNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrganizationsWhitelistNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOrganizationsWhitelistNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOrganizationsWhitelistRequestTimeout() *GetOrganizationsWhitelistRequ
 	return &GetOrganizationsWhitelistRequestTimeout{}
 }
 
-/*GetOrganizationsWhitelistRequestTimeout handles this case with default header values.
+/*
+GetOrganizationsWhitelistRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOrganizationsWhitelistRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations whitelist request timeout response has a 2xx status code
+func (o *GetOrganizationsWhitelistRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations whitelist request timeout response has a 3xx status code
+func (o *GetOrganizationsWhitelistRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations whitelist request timeout response has a 4xx status code
+func (o *GetOrganizationsWhitelistRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations whitelist request timeout response has a 5xx status code
+func (o *GetOrganizationsWhitelistRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations whitelist request timeout response a status code equal to that given
+func (o *GetOrganizationsWhitelistRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOrganizationsWhitelistRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrganizationsWhitelistRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOrganizationsWhitelistRequestEntityTooLarge() *GetOrganizationsWhitel
 	return &GetOrganizationsWhitelistRequestEntityTooLarge{}
 }
 
-/*GetOrganizationsWhitelistRequestEntityTooLarge handles this case with default header values.
+/*
+GetOrganizationsWhitelistRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOrganizationsWhitelistRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations whitelist request entity too large response has a 2xx status code
+func (o *GetOrganizationsWhitelistRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations whitelist request entity too large response has a 3xx status code
+func (o *GetOrganizationsWhitelistRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations whitelist request entity too large response has a 4xx status code
+func (o *GetOrganizationsWhitelistRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations whitelist request entity too large response has a 5xx status code
+func (o *GetOrganizationsWhitelistRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations whitelist request entity too large response a status code equal to that given
+func (o *GetOrganizationsWhitelistRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOrganizationsWhitelistRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOrganizationsWhitelistRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOrganizationsWhitelistUnsupportedMediaType() *GetOrganizationsWhiteli
 	return &GetOrganizationsWhitelistUnsupportedMediaType{}
 }
 
-/*GetOrganizationsWhitelistUnsupportedMediaType handles this case with default header values.
+/*
+GetOrganizationsWhitelistUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOrganizationsWhitelistUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations whitelist unsupported media type response has a 2xx status code
+func (o *GetOrganizationsWhitelistUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations whitelist unsupported media type response has a 3xx status code
+func (o *GetOrganizationsWhitelistUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations whitelist unsupported media type response has a 4xx status code
+func (o *GetOrganizationsWhitelistUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations whitelist unsupported media type response has a 5xx status code
+func (o *GetOrganizationsWhitelistUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations whitelist unsupported media type response a status code equal to that given
+func (o *GetOrganizationsWhitelistUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOrganizationsWhitelistUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOrganizationsWhitelistUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOrganizationsWhitelistTooManyRequests() *GetOrganizationsWhitelistToo
 	return &GetOrganizationsWhitelistTooManyRequests{}
 }
 
-/*GetOrganizationsWhitelistTooManyRequests handles this case with default header values.
+/*
+GetOrganizationsWhitelistTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOrganizationsWhitelistTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations whitelist too many requests response has a 2xx status code
+func (o *GetOrganizationsWhitelistTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations whitelist too many requests response has a 3xx status code
+func (o *GetOrganizationsWhitelistTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations whitelist too many requests response has a 4xx status code
+func (o *GetOrganizationsWhitelistTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations whitelist too many requests response has a 5xx status code
+func (o *GetOrganizationsWhitelistTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations whitelist too many requests response a status code equal to that given
+func (o *GetOrganizationsWhitelistTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOrganizationsWhitelistTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOrganizationsWhitelistTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOrganizationsWhitelistInternalServerError() *GetOrganizationsWhitelis
 	return &GetOrganizationsWhitelistInternalServerError{}
 }
 
-/*GetOrganizationsWhitelistInternalServerError handles this case with default header values.
+/*
+GetOrganizationsWhitelistInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOrganizationsWhitelistInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations whitelist internal server error response has a 2xx status code
+func (o *GetOrganizationsWhitelistInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations whitelist internal server error response has a 3xx status code
+func (o *GetOrganizationsWhitelistInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations whitelist internal server error response has a 4xx status code
+func (o *GetOrganizationsWhitelistInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations whitelist internal server error response has a 5xx status code
+func (o *GetOrganizationsWhitelistInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations whitelist internal server error response a status code equal to that given
+func (o *GetOrganizationsWhitelistInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOrganizationsWhitelistInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOrganizationsWhitelistInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOrganizationsWhitelistServiceUnavailable() *GetOrganizationsWhitelist
 	return &GetOrganizationsWhitelistServiceUnavailable{}
 }
 
-/*GetOrganizationsWhitelistServiceUnavailable handles this case with default header values.
+/*
+GetOrganizationsWhitelistServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOrganizationsWhitelistServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations whitelist service unavailable response has a 2xx status code
+func (o *GetOrganizationsWhitelistServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations whitelist service unavailable response has a 3xx status code
+func (o *GetOrganizationsWhitelistServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations whitelist service unavailable response has a 4xx status code
+func (o *GetOrganizationsWhitelistServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations whitelist service unavailable response has a 5xx status code
+func (o *GetOrganizationsWhitelistServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations whitelist service unavailable response a status code equal to that given
+func (o *GetOrganizationsWhitelistServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOrganizationsWhitelistServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOrganizationsWhitelistServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOrganizationsWhitelistGatewayTimeout() *GetOrganizationsWhitelistGate
 	return &GetOrganizationsWhitelistGatewayTimeout{}
 }
 
-/*GetOrganizationsWhitelistGatewayTimeout handles this case with default header values.
+/*
+GetOrganizationsWhitelistGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOrganizationsWhitelistGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations whitelist gateway timeout response has a 2xx status code
+func (o *GetOrganizationsWhitelistGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations whitelist gateway timeout response has a 3xx status code
+func (o *GetOrganizationsWhitelistGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations whitelist gateway timeout response has a 4xx status code
+func (o *GetOrganizationsWhitelistGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations whitelist gateway timeout response has a 5xx status code
+func (o *GetOrganizationsWhitelistGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations whitelist gateway timeout response a status code equal to that given
+func (o *GetOrganizationsWhitelistGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOrganizationsWhitelistGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOrganizationsWhitelistGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/whitelist][%d] getOrganizationsWhitelistGatewayTimeout  %+v", 504, o.Payload)
 }
 

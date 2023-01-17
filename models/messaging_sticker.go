@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -160,7 +161,6 @@ func (m *MessagingSticker) validateProviderStickerID(formats strfmt.Registry) er
 }
 
 func (m *MessagingSticker) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -219,12 +219,47 @@ func (m *MessagingSticker) validateStickerType(formats strfmt.Registry) error {
 }
 
 func (m *MessagingSticker) validateURILocation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.URILocation) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("uriLocation", "body", "uri", m.URILocation.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this messaging sticker based on the context it is used
+func (m *MessagingSticker) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MessagingSticker) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingSticker) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

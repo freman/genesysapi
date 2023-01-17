@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteIntegrationsActionDraftParams creates a new DeleteIntegrationsActionDraftParams object
-// with the default values initialized.
+// NewDeleteIntegrationsActionDraftParams creates a new DeleteIntegrationsActionDraftParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteIntegrationsActionDraftParams() *DeleteIntegrationsActionDraftParams {
-	var ()
 	return &DeleteIntegrationsActionDraftParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteIntegrationsActionDraftParamsWithTimeout creates a new DeleteIntegrationsActionDraftParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteIntegrationsActionDraftParamsWithTimeout(timeout time.Duration) *DeleteIntegrationsActionDraftParams {
-	var ()
 	return &DeleteIntegrationsActionDraftParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteIntegrationsActionDraftParamsWithContext creates a new DeleteIntegrationsActionDraftParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteIntegrationsActionDraftParamsWithContext(ctx context.Context) *DeleteIntegrationsActionDraftParams {
-	var ()
 	return &DeleteIntegrationsActionDraftParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteIntegrationsActionDraftParamsWithHTTPClient creates a new DeleteIntegrationsActionDraftParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteIntegrationsActionDraftParamsWithHTTPClient(client *http.Client) *DeleteIntegrationsActionDraftParams {
-	var ()
 	return &DeleteIntegrationsActionDraftParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteIntegrationsActionDraftParams contains all the parameters to send to the API endpoint
-for the delete integrations action draft operation typically these are written to a http.Request
+/*
+DeleteIntegrationsActionDraftParams contains all the parameters to send to the API endpoint
+
+	for the delete integrations action draft operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteIntegrationsActionDraftParams struct {
 
-	/*ActionID
-	  actionId
+	/* ActionID.
 
+	   actionId
 	*/
 	ActionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete integrations action draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteIntegrationsActionDraftParams) WithDefaults() *DeleteIntegrationsActionDraftParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete integrations action draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteIntegrationsActionDraftParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete integrations action draft params

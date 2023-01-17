@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostIntegrationsActionDraftTestParams creates a new PostIntegrationsActionDraftTestParams object
-// with the default values initialized.
+// NewPostIntegrationsActionDraftTestParams creates a new PostIntegrationsActionDraftTestParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostIntegrationsActionDraftTestParams() *PostIntegrationsActionDraftTestParams {
-	var ()
 	return &PostIntegrationsActionDraftTestParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostIntegrationsActionDraftTestParamsWithTimeout creates a new PostIntegrationsActionDraftTestParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostIntegrationsActionDraftTestParamsWithTimeout(timeout time.Duration) *PostIntegrationsActionDraftTestParams {
-	var ()
 	return &PostIntegrationsActionDraftTestParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostIntegrationsActionDraftTestParamsWithContext creates a new PostIntegrationsActionDraftTestParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostIntegrationsActionDraftTestParamsWithContext(ctx context.Context) *PostIntegrationsActionDraftTestParams {
-	var ()
 	return &PostIntegrationsActionDraftTestParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostIntegrationsActionDraftTestParamsWithHTTPClient creates a new PostIntegrationsActionDraftTestParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostIntegrationsActionDraftTestParamsWithHTTPClient(client *http.Client) *PostIntegrationsActionDraftTestParams {
-	var ()
 	return &PostIntegrationsActionDraftTestParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostIntegrationsActionDraftTestParams contains all the parameters to send to the API endpoint
-for the post integrations action draft test operation typically these are written to a http.Request
+/*
+PostIntegrationsActionDraftTestParams contains all the parameters to send to the API endpoint
+
+	for the post integrations action draft test operation.
+
+	Typically these are written to a http.Request.
 */
 type PostIntegrationsActionDraftTestParams struct {
 
-	/*ActionID
-	  actionId
+	/* ActionID.
 
+	   actionId
 	*/
 	ActionID string
-	/*Body
-	  Map of parameters used for variable substitution.
 
+	/* Body.
+
+	   Map of parameters used for variable substitution.
 	*/
 	Body map[string]interface{}
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post integrations action draft test params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostIntegrationsActionDraftTestParams) WithDefaults() *PostIntegrationsActionDraftTestParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post integrations action draft test params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostIntegrationsActionDraftTestParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post integrations action draft test params
@@ -143,7 +160,6 @@ func (o *PostIntegrationsActionDraftTestParams) WriteToRequest(r runtime.ClientR
 	if err := r.SetPathParam("actionId", o.ActionID); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

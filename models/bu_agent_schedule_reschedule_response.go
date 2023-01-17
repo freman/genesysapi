@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -65,7 +66,6 @@ func (m *BuAgentScheduleRescheduleResponse) Validate(formats strfmt.Registry) er
 }
 
 func (m *BuAgentScheduleRescheduleResponse) validateFullDayTimeOffMarkers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FullDayTimeOffMarkers) { // not required
 		return nil
 	}
@@ -79,6 +79,8 @@ func (m *BuAgentScheduleRescheduleResponse) validateFullDayTimeOffMarkers(format
 			if err := m.FullDayTimeOffMarkers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -90,7 +92,6 @@ func (m *BuAgentScheduleRescheduleResponse) validateFullDayTimeOffMarkers(format
 }
 
 func (m *BuAgentScheduleRescheduleResponse) validateShifts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Shifts) { // not required
 		return nil
 	}
@@ -104,6 +105,8 @@ func (m *BuAgentScheduleRescheduleResponse) validateShifts(formats strfmt.Regist
 			if err := m.Shifts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("shifts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("shifts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -115,7 +118,6 @@ func (m *BuAgentScheduleRescheduleResponse) validateShifts(formats strfmt.Regist
 }
 
 func (m *BuAgentScheduleRescheduleResponse) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -124,6 +126,8 @@ func (m *BuAgentScheduleRescheduleResponse) validateUser(formats strfmt.Registry
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}
@@ -133,7 +137,6 @@ func (m *BuAgentScheduleRescheduleResponse) validateUser(formats strfmt.Registry
 }
 
 func (m *BuAgentScheduleRescheduleResponse) validateWorkPlan(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WorkPlan) { // not required
 		return nil
 	}
@@ -142,6 +145,8 @@ func (m *BuAgentScheduleRescheduleResponse) validateWorkPlan(formats strfmt.Regi
 		if err := m.WorkPlan.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workPlan")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPlan")
 			}
 			return err
 		}
@@ -151,7 +156,6 @@ func (m *BuAgentScheduleRescheduleResponse) validateWorkPlan(formats strfmt.Regi
 }
 
 func (m *BuAgentScheduleRescheduleResponse) validateWorkPlansPerWeek(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WorkPlansPerWeek) { // not required
 		return nil
 	}
@@ -165,6 +169,130 @@ func (m *BuAgentScheduleRescheduleResponse) validateWorkPlansPerWeek(formats str
 			if err := m.WorkPlansPerWeek[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("workPlansPerWeek" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("workPlansPerWeek" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu agent schedule reschedule response based on the context it is used
+func (m *BuAgentScheduleRescheduleResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFullDayTimeOffMarkers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShifts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkPlan(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkPlansPerWeek(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuAgentScheduleRescheduleResponse) contextValidateFullDayTimeOffMarkers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.FullDayTimeOffMarkers); i++ {
+
+		if m.FullDayTimeOffMarkers[i] != nil {
+			if err := m.FullDayTimeOffMarkers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuAgentScheduleRescheduleResponse) contextValidateShifts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Shifts); i++ {
+
+		if m.Shifts[i] != nil {
+			if err := m.Shifts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("shifts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("shifts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuAgentScheduleRescheduleResponse) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuAgentScheduleRescheduleResponse) contextValidateWorkPlan(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WorkPlan != nil {
+		if err := m.WorkPlan.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workPlan")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workPlan")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuAgentScheduleRescheduleResponse) contextValidateWorkPlansPerWeek(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.WorkPlansPerWeek); i++ {
+
+		if m.WorkPlansPerWeek[i] != nil {
+			if err := m.WorkPlansPerWeek[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("workPlansPerWeek" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("workPlansPerWeek" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

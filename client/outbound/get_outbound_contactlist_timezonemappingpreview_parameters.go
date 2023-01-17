@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundContactlistTimezonemappingpreviewParams creates a new GetOutboundContactlistTimezonemappingpreviewParams object
-// with the default values initialized.
+// NewGetOutboundContactlistTimezonemappingpreviewParams creates a new GetOutboundContactlistTimezonemappingpreviewParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundContactlistTimezonemappingpreviewParams() *GetOutboundContactlistTimezonemappingpreviewParams {
-	var ()
 	return &GetOutboundContactlistTimezonemappingpreviewParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundContactlistTimezonemappingpreviewParamsWithTimeout creates a new GetOutboundContactlistTimezonemappingpreviewParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundContactlistTimezonemappingpreviewParamsWithTimeout(timeout time.Duration) *GetOutboundContactlistTimezonemappingpreviewParams {
-	var ()
 	return &GetOutboundContactlistTimezonemappingpreviewParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundContactlistTimezonemappingpreviewParamsWithContext creates a new GetOutboundContactlistTimezonemappingpreviewParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundContactlistTimezonemappingpreviewParamsWithContext(ctx context.Context) *GetOutboundContactlistTimezonemappingpreviewParams {
-	var ()
 	return &GetOutboundContactlistTimezonemappingpreviewParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundContactlistTimezonemappingpreviewParamsWithHTTPClient creates a new GetOutboundContactlistTimezonemappingpreviewParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundContactlistTimezonemappingpreviewParamsWithHTTPClient(client *http.Client) *GetOutboundContactlistTimezonemappingpreviewParams {
-	var ()
 	return &GetOutboundContactlistTimezonemappingpreviewParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundContactlistTimezonemappingpreviewParams contains all the parameters to send to the API endpoint
-for the get outbound contactlist timezonemappingpreview operation typically these are written to a http.Request
+/*
+GetOutboundContactlistTimezonemappingpreviewParams contains all the parameters to send to the API endpoint
+
+	for the get outbound contactlist timezonemappingpreview operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundContactlistTimezonemappingpreviewParams struct {
 
-	/*ContactListID
-	  ContactList ID
+	/* ContactListID.
 
+	   ContactList ID
 	*/
 	ContactListID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound contactlist timezonemappingpreview params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundContactlistTimezonemappingpreviewParams) WithDefaults() *GetOutboundContactlistTimezonemappingpreviewParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound contactlist timezonemappingpreview params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundContactlistTimezonemappingpreviewParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get outbound contactlist timezonemappingpreview params

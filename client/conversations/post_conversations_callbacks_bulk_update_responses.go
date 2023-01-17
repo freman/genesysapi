@@ -95,7 +95,6 @@ func (o *PostConversationsCallbacksBulkUpdateReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostConversationsCallbacksBulkUpdateOK() *PostConversationsCallbacksBulk
 	return &PostConversationsCallbacksBulkUpdateOK{}
 }
 
-/*PostConversationsCallbacksBulkUpdateOK handles this case with default header values.
+/*
+PostConversationsCallbacksBulkUpdateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostConversationsCallbacksBulkUpdateOK struct {
 	Payload *models.BulkCallbackPatchResponse
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk update o k response has a 2xx status code
+func (o *PostConversationsCallbacksBulkUpdateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk update o k response has a 3xx status code
+func (o *PostConversationsCallbacksBulkUpdateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk update o k response has a 4xx status code
+func (o *PostConversationsCallbacksBulkUpdateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations callbacks bulk update o k response has a 5xx status code
+func (o *PostConversationsCallbacksBulkUpdateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk update o k response a status code equal to that given
+func (o *PostConversationsCallbacksBulkUpdateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostConversationsCallbacksBulkUpdateOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateOK  %+v", 200, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkUpdateOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostConversationsCallbacksBulkUpdateBadRequest() *PostConversationsCallb
 	return &PostConversationsCallbacksBulkUpdateBadRequest{}
 }
 
-/*PostConversationsCallbacksBulkUpdateBadRequest handles this case with default header values.
+/*
+PostConversationsCallbacksBulkUpdateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostConversationsCallbacksBulkUpdateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk update bad request response has a 2xx status code
+func (o *PostConversationsCallbacksBulkUpdateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk update bad request response has a 3xx status code
+func (o *PostConversationsCallbacksBulkUpdateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk update bad request response has a 4xx status code
+func (o *PostConversationsCallbacksBulkUpdateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk update bad request response has a 5xx status code
+func (o *PostConversationsCallbacksBulkUpdateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk update bad request response a status code equal to that given
+func (o *PostConversationsCallbacksBulkUpdateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsCallbacksBulkUpdateBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkUpdateBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostConversationsCallbacksBulkUpdateUnauthorized() *PostConversationsCal
 	return &PostConversationsCallbacksBulkUpdateUnauthorized{}
 }
 
-/*PostConversationsCallbacksBulkUpdateUnauthorized handles this case with default header values.
+/*
+PostConversationsCallbacksBulkUpdateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostConversationsCallbacksBulkUpdateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk update unauthorized response has a 2xx status code
+func (o *PostConversationsCallbacksBulkUpdateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk update unauthorized response has a 3xx status code
+func (o *PostConversationsCallbacksBulkUpdateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk update unauthorized response has a 4xx status code
+func (o *PostConversationsCallbacksBulkUpdateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk update unauthorized response has a 5xx status code
+func (o *PostConversationsCallbacksBulkUpdateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk update unauthorized response a status code equal to that given
+func (o *PostConversationsCallbacksBulkUpdateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsCallbacksBulkUpdateUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkUpdateUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostConversationsCallbacksBulkUpdateForbidden() *PostConversationsCallba
 	return &PostConversationsCallbacksBulkUpdateForbidden{}
 }
 
-/*PostConversationsCallbacksBulkUpdateForbidden handles this case with default header values.
+/*
+PostConversationsCallbacksBulkUpdateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostConversationsCallbacksBulkUpdateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk update forbidden response has a 2xx status code
+func (o *PostConversationsCallbacksBulkUpdateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk update forbidden response has a 3xx status code
+func (o *PostConversationsCallbacksBulkUpdateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk update forbidden response has a 4xx status code
+func (o *PostConversationsCallbacksBulkUpdateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk update forbidden response has a 5xx status code
+func (o *PostConversationsCallbacksBulkUpdateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk update forbidden response a status code equal to that given
+func (o *PostConversationsCallbacksBulkUpdateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsCallbacksBulkUpdateForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkUpdateForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostConversationsCallbacksBulkUpdateNotFound() *PostConversationsCallbac
 	return &PostConversationsCallbacksBulkUpdateNotFound{}
 }
 
-/*PostConversationsCallbacksBulkUpdateNotFound handles this case with default header values.
+/*
+PostConversationsCallbacksBulkUpdateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostConversationsCallbacksBulkUpdateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk update not found response has a 2xx status code
+func (o *PostConversationsCallbacksBulkUpdateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk update not found response has a 3xx status code
+func (o *PostConversationsCallbacksBulkUpdateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk update not found response has a 4xx status code
+func (o *PostConversationsCallbacksBulkUpdateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk update not found response has a 5xx status code
+func (o *PostConversationsCallbacksBulkUpdateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk update not found response a status code equal to that given
+func (o *PostConversationsCallbacksBulkUpdateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsCallbacksBulkUpdateNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkUpdateNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostConversationsCallbacksBulkUpdateRequestTimeout() *PostConversationsC
 	return &PostConversationsCallbacksBulkUpdateRequestTimeout{}
 }
 
-/*PostConversationsCallbacksBulkUpdateRequestTimeout handles this case with default header values.
+/*
+PostConversationsCallbacksBulkUpdateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostConversationsCallbacksBulkUpdateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk update request timeout response has a 2xx status code
+func (o *PostConversationsCallbacksBulkUpdateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk update request timeout response has a 3xx status code
+func (o *PostConversationsCallbacksBulkUpdateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk update request timeout response has a 4xx status code
+func (o *PostConversationsCallbacksBulkUpdateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk update request timeout response has a 5xx status code
+func (o *PostConversationsCallbacksBulkUpdateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk update request timeout response a status code equal to that given
+func (o *PostConversationsCallbacksBulkUpdateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsCallbacksBulkUpdateRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkUpdateRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostConversationsCallbacksBulkUpdateRequestEntityTooLarge() *PostConvers
 	return &PostConversationsCallbacksBulkUpdateRequestEntityTooLarge{}
 }
 
-/*PostConversationsCallbacksBulkUpdateRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsCallbacksBulkUpdateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostConversationsCallbacksBulkUpdateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk update request entity too large response has a 2xx status code
+func (o *PostConversationsCallbacksBulkUpdateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk update request entity too large response has a 3xx status code
+func (o *PostConversationsCallbacksBulkUpdateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk update request entity too large response has a 4xx status code
+func (o *PostConversationsCallbacksBulkUpdateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk update request entity too large response has a 5xx status code
+func (o *PostConversationsCallbacksBulkUpdateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk update request entity too large response a status code equal to that given
+func (o *PostConversationsCallbacksBulkUpdateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsCallbacksBulkUpdateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkUpdateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostConversationsCallbacksBulkUpdateUnsupportedMediaType() *PostConversa
 	return &PostConversationsCallbacksBulkUpdateUnsupportedMediaType{}
 }
 
-/*PostConversationsCallbacksBulkUpdateUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsCallbacksBulkUpdateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostConversationsCallbacksBulkUpdateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk update unsupported media type response has a 2xx status code
+func (o *PostConversationsCallbacksBulkUpdateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk update unsupported media type response has a 3xx status code
+func (o *PostConversationsCallbacksBulkUpdateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk update unsupported media type response has a 4xx status code
+func (o *PostConversationsCallbacksBulkUpdateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk update unsupported media type response has a 5xx status code
+func (o *PostConversationsCallbacksBulkUpdateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk update unsupported media type response a status code equal to that given
+func (o *PostConversationsCallbacksBulkUpdateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsCallbacksBulkUpdateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkUpdateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostConversationsCallbacksBulkUpdateTooManyRequests() *PostConversations
 	return &PostConversationsCallbacksBulkUpdateTooManyRequests{}
 }
 
-/*PostConversationsCallbacksBulkUpdateTooManyRequests handles this case with default header values.
+/*
+PostConversationsCallbacksBulkUpdateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostConversationsCallbacksBulkUpdateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk update too many requests response has a 2xx status code
+func (o *PostConversationsCallbacksBulkUpdateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk update too many requests response has a 3xx status code
+func (o *PostConversationsCallbacksBulkUpdateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk update too many requests response has a 4xx status code
+func (o *PostConversationsCallbacksBulkUpdateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk update too many requests response has a 5xx status code
+func (o *PostConversationsCallbacksBulkUpdateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk update too many requests response a status code equal to that given
+func (o *PostConversationsCallbacksBulkUpdateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsCallbacksBulkUpdateTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkUpdateTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostConversationsCallbacksBulkUpdateInternalServerError() *PostConversat
 	return &PostConversationsCallbacksBulkUpdateInternalServerError{}
 }
 
-/*PostConversationsCallbacksBulkUpdateInternalServerError handles this case with default header values.
+/*
+PostConversationsCallbacksBulkUpdateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostConversationsCallbacksBulkUpdateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk update internal server error response has a 2xx status code
+func (o *PostConversationsCallbacksBulkUpdateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk update internal server error response has a 3xx status code
+func (o *PostConversationsCallbacksBulkUpdateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk update internal server error response has a 4xx status code
+func (o *PostConversationsCallbacksBulkUpdateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations callbacks bulk update internal server error response has a 5xx status code
+func (o *PostConversationsCallbacksBulkUpdateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations callbacks bulk update internal server error response a status code equal to that given
+func (o *PostConversationsCallbacksBulkUpdateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsCallbacksBulkUpdateInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkUpdateInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostConversationsCallbacksBulkUpdateServiceUnavailable() *PostConversati
 	return &PostConversationsCallbacksBulkUpdateServiceUnavailable{}
 }
 
-/*PostConversationsCallbacksBulkUpdateServiceUnavailable handles this case with default header values.
+/*
+PostConversationsCallbacksBulkUpdateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostConversationsCallbacksBulkUpdateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk update service unavailable response has a 2xx status code
+func (o *PostConversationsCallbacksBulkUpdateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk update service unavailable response has a 3xx status code
+func (o *PostConversationsCallbacksBulkUpdateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk update service unavailable response has a 4xx status code
+func (o *PostConversationsCallbacksBulkUpdateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations callbacks bulk update service unavailable response has a 5xx status code
+func (o *PostConversationsCallbacksBulkUpdateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations callbacks bulk update service unavailable response a status code equal to that given
+func (o *PostConversationsCallbacksBulkUpdateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsCallbacksBulkUpdateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkUpdateServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostConversationsCallbacksBulkUpdateGatewayTimeout() *PostConversationsC
 	return &PostConversationsCallbacksBulkUpdateGatewayTimeout{}
 }
 
-/*PostConversationsCallbacksBulkUpdateGatewayTimeout handles this case with default header values.
+/*
+PostConversationsCallbacksBulkUpdateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostConversationsCallbacksBulkUpdateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk update gateway timeout response has a 2xx status code
+func (o *PostConversationsCallbacksBulkUpdateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk update gateway timeout response has a 3xx status code
+func (o *PostConversationsCallbacksBulkUpdateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk update gateway timeout response has a 4xx status code
+func (o *PostConversationsCallbacksBulkUpdateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations callbacks bulk update gateway timeout response has a 5xx status code
+func (o *PostConversationsCallbacksBulkUpdateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations callbacks bulk update gateway timeout response a status code equal to that given
+func (o *PostConversationsCallbacksBulkUpdateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsCallbacksBulkUpdateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkUpdateGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/update][%d] postConversationsCallbacksBulkUpdateGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -17,94 +17,117 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetArchitectDependencytrackingObjectParams creates a new GetArchitectDependencytrackingObjectParams object
-// with the default values initialized.
+// NewGetArchitectDependencytrackingObjectParams creates a new GetArchitectDependencytrackingObjectParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetArchitectDependencytrackingObjectParams() *GetArchitectDependencytrackingObjectParams {
-	var ()
 	return &GetArchitectDependencytrackingObjectParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetArchitectDependencytrackingObjectParamsWithTimeout creates a new GetArchitectDependencytrackingObjectParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetArchitectDependencytrackingObjectParamsWithTimeout(timeout time.Duration) *GetArchitectDependencytrackingObjectParams {
-	var ()
 	return &GetArchitectDependencytrackingObjectParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetArchitectDependencytrackingObjectParamsWithContext creates a new GetArchitectDependencytrackingObjectParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetArchitectDependencytrackingObjectParamsWithContext(ctx context.Context) *GetArchitectDependencytrackingObjectParams {
-	var ()
 	return &GetArchitectDependencytrackingObjectParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetArchitectDependencytrackingObjectParamsWithHTTPClient creates a new GetArchitectDependencytrackingObjectParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetArchitectDependencytrackingObjectParamsWithHTTPClient(client *http.Client) *GetArchitectDependencytrackingObjectParams {
-	var ()
 	return &GetArchitectDependencytrackingObjectParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetArchitectDependencytrackingObjectParams contains all the parameters to send to the API endpoint
-for the get architect dependencytracking object operation typically these are written to a http.Request
+/*
+GetArchitectDependencytrackingObjectParams contains all the parameters to send to the API endpoint
+
+	for the get architect dependencytracking object operation.
+
+	Typically these are written to a http.Request.
 */
 type GetArchitectDependencytrackingObjectParams struct {
 
-	/*ConsumedResourceRequest
-	  Indicate that this is going to look up a consumed resource object
+	/* ConsumedResourceRequest.
 
+	   Indicate that this is going to look up a consumed resource object
 	*/
 	ConsumedResourceRequest *bool
-	/*ConsumedResourceType
-	  Types of consumed resources to return, if consumed resources are requested
 
+	/* ConsumedResourceType.
+
+	   Types of consumed resources to return, if consumed resources are requested
 	*/
 	ConsumedResourceType []string
-	/*ConsumedResources
-	  Include resources this item consumes
 
+	/* ConsumedResources.
+
+	   Include resources this item consumes
 	*/
 	ConsumedResources *bool
-	/*ConsumingResourceType
-	  Types of consuming resources to return, if consuming resources are requested
 
+	/* ConsumingResourceType.
+
+	   Types of consuming resources to return, if consuming resources are requested
 	*/
 	ConsumingResourceType []string
-	/*ConsumingResources
-	  Include resources that consume this item
 
+	/* ConsumingResources.
+
+	   Include resources that consume this item
 	*/
 	ConsumingResources *bool
-	/*ID
-	  Object ID
 
+	/* ID.
+
+	   Object ID
 	*/
 	ID string
-	/*ObjectType
-	  Object type
 
+	/* ObjectType.
+
+	   Object type
 	*/
 	ObjectType *string
-	/*Version
-	  Object version
 
+	/* Version.
+
+	   Object version
 	*/
 	Version *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get architect dependencytracking object params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectDependencytrackingObjectParams) WithDefaults() *GetArchitectDependencytrackingObjectParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get architect dependencytracking object params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectDependencytrackingObjectParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get architect dependencytracking object params
@@ -240,70 +263,80 @@ func (o *GetArchitectDependencytrackingObjectParams) WriteToRequest(r runtime.Cl
 
 		// query param consumedResourceRequest
 		var qrConsumedResourceRequest bool
+
 		if o.ConsumedResourceRequest != nil {
 			qrConsumedResourceRequest = *o.ConsumedResourceRequest
 		}
 		qConsumedResourceRequest := swag.FormatBool(qrConsumedResourceRequest)
 		if qConsumedResourceRequest != "" {
+
 			if err := r.SetQueryParam("consumedResourceRequest", qConsumedResourceRequest); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesConsumedResourceType := o.ConsumedResourceType
+	if o.ConsumedResourceType != nil {
 
-	joinedConsumedResourceType := swag.JoinByFormat(valuesConsumedResourceType, "multi")
-	// query array param consumedResourceType
-	if err := r.SetQueryParam("consumedResourceType", joinedConsumedResourceType...); err != nil {
-		return err
+		// binding items for consumedResourceType
+		joinedConsumedResourceType := o.bindParamConsumedResourceType(reg)
+
+		// query array param consumedResourceType
+		if err := r.SetQueryParam("consumedResourceType", joinedConsumedResourceType...); err != nil {
+			return err
+		}
 	}
 
 	if o.ConsumedResources != nil {
 
 		// query param consumedResources
 		var qrConsumedResources bool
+
 		if o.ConsumedResources != nil {
 			qrConsumedResources = *o.ConsumedResources
 		}
 		qConsumedResources := swag.FormatBool(qrConsumedResources)
 		if qConsumedResources != "" {
+
 			if err := r.SetQueryParam("consumedResources", qConsumedResources); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesConsumingResourceType := o.ConsumingResourceType
+	if o.ConsumingResourceType != nil {
 
-	joinedConsumingResourceType := swag.JoinByFormat(valuesConsumingResourceType, "multi")
-	// query array param consumingResourceType
-	if err := r.SetQueryParam("consumingResourceType", joinedConsumingResourceType...); err != nil {
-		return err
+		// binding items for consumingResourceType
+		joinedConsumingResourceType := o.bindParamConsumingResourceType(reg)
+
+		// query array param consumingResourceType
+		if err := r.SetQueryParam("consumingResourceType", joinedConsumingResourceType...); err != nil {
+			return err
+		}
 	}
 
 	if o.ConsumingResources != nil {
 
 		// query param consumingResources
 		var qrConsumingResources bool
+
 		if o.ConsumingResources != nil {
 			qrConsumingResources = *o.ConsumingResources
 		}
 		qConsumingResources := swag.FormatBool(qrConsumingResources)
 		if qConsumingResources != "" {
+
 			if err := r.SetQueryParam("consumingResources", qConsumingResources); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param id
 	qrID := o.ID
 	qID := qrID
 	if qID != "" {
+
 		if err := r.SetQueryParam("id", qID); err != nil {
 			return err
 		}
@@ -313,36 +346,72 @@ func (o *GetArchitectDependencytrackingObjectParams) WriteToRequest(r runtime.Cl
 
 		// query param objectType
 		var qrObjectType string
+
 		if o.ObjectType != nil {
 			qrObjectType = *o.ObjectType
 		}
 		qObjectType := qrObjectType
 		if qObjectType != "" {
+
 			if err := r.SetQueryParam("objectType", qObjectType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Version != nil {
 
 		// query param version
 		var qrVersion string
+
 		if o.Version != nil {
 			qrVersion = *o.Version
 		}
 		qVersion := qrVersion
 		if qVersion != "" {
+
 			if err := r.SetQueryParam("version", qVersion); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetArchitectDependencytrackingObject binds the parameter consumedResourceType
+func (o *GetArchitectDependencytrackingObjectParams) bindParamConsumedResourceType(formats strfmt.Registry) []string {
+	consumedResourceTypeIR := o.ConsumedResourceType
+
+	var consumedResourceTypeIC []string
+	for _, consumedResourceTypeIIR := range consumedResourceTypeIR { // explode []string
+
+		consumedResourceTypeIIV := consumedResourceTypeIIR // string as string
+		consumedResourceTypeIC = append(consumedResourceTypeIC, consumedResourceTypeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	consumedResourceTypeIS := swag.JoinByFormat(consumedResourceTypeIC, "multi")
+
+	return consumedResourceTypeIS
+}
+
+// bindParamGetArchitectDependencytrackingObject binds the parameter consumingResourceType
+func (o *GetArchitectDependencytrackingObjectParams) bindParamConsumingResourceType(formats strfmt.Registry) []string {
+	consumingResourceTypeIR := o.ConsumingResourceType
+
+	var consumingResourceTypeIC []string
+	for _, consumingResourceTypeIIR := range consumingResourceTypeIR { // explode []string
+
+		consumingResourceTypeIIV := consumingResourceTypeIIR // string as string
+		consumingResourceTypeIC = append(consumingResourceTypeIC, consumingResourceTypeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	consumingResourceTypeIS := swag.JoinByFormat(consumingResourceTypeIC, "multi")
+
+	return consumingResourceTypeIS
 }

@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchWorkforcemanagementBusinessunitActivitycodeParams creates a new PatchWorkforcemanagementBusinessunitActivitycodeParams object
-// with the default values initialized.
+// NewPatchWorkforcemanagementBusinessunitActivitycodeParams creates a new PatchWorkforcemanagementBusinessunitActivitycodeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchWorkforcemanagementBusinessunitActivitycodeParams() *PatchWorkforcemanagementBusinessunitActivitycodeParams {
-	var ()
 	return &PatchWorkforcemanagementBusinessunitActivitycodeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchWorkforcemanagementBusinessunitActivitycodeParamsWithTimeout creates a new PatchWorkforcemanagementBusinessunitActivitycodeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchWorkforcemanagementBusinessunitActivitycodeParamsWithTimeout(timeout time.Duration) *PatchWorkforcemanagementBusinessunitActivitycodeParams {
-	var ()
 	return &PatchWorkforcemanagementBusinessunitActivitycodeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchWorkforcemanagementBusinessunitActivitycodeParamsWithContext creates a new PatchWorkforcemanagementBusinessunitActivitycodeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchWorkforcemanagementBusinessunitActivitycodeParamsWithContext(ctx context.Context) *PatchWorkforcemanagementBusinessunitActivitycodeParams {
-	var ()
 	return &PatchWorkforcemanagementBusinessunitActivitycodeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchWorkforcemanagementBusinessunitActivitycodeParamsWithHTTPClient creates a new PatchWorkforcemanagementBusinessunitActivitycodeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchWorkforcemanagementBusinessunitActivitycodeParamsWithHTTPClient(client *http.Client) *PatchWorkforcemanagementBusinessunitActivitycodeParams {
-	var ()
 	return &PatchWorkforcemanagementBusinessunitActivitycodeParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchWorkforcemanagementBusinessunitActivitycodeParams contains all the parameters to send to the API endpoint
-for the patch workforcemanagement businessunit activitycode operation typically these are written to a http.Request
+/*
+PatchWorkforcemanagementBusinessunitActivitycodeParams contains all the parameters to send to the API endpoint
+
+	for the patch workforcemanagement businessunit activitycode operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchWorkforcemanagementBusinessunitActivitycodeParams struct {
 
-	/*ActivityCodeID
-	  The ID of the activity code to update
+	/* ActivityCodeID.
 
+	   The ID of the activity code to update
 	*/
 	ActivityCodeID string
-	/*Body
-	  body
 
+	/* Body.
+
+	   body
 	*/
 	Body *models.UpdateActivityCodeRequest
-	/*BusinessUnitID
-	  The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 	*/
 	BusinessUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch workforcemanagement businessunit activitycode params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) WithDefaults() *PatchWorkforcemanagementBusinessunitActivitycodeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch workforcemanagement businessunit activitycode params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch workforcemanagement businessunit activitycode params
@@ -161,7 +179,6 @@ func (o *PatchWorkforcemanagementBusinessunitActivitycodeParams) WriteToRequest(
 	if err := r.SetPathParam("activityCodeId", o.ActivityCodeID); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

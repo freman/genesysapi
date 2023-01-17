@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -133,7 +134,6 @@ func (m *ScheduleGroup) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ScheduleGroup) validateClosedSchedules(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ClosedSchedules) { // not required
 		return nil
 	}
@@ -147,6 +147,8 @@ func (m *ScheduleGroup) validateClosedSchedules(formats strfmt.Registry) error {
 			if err := m.ClosedSchedules[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("closedSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("closedSchedules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -158,7 +160,6 @@ func (m *ScheduleGroup) validateClosedSchedules(formats strfmt.Registry) error {
 }
 
 func (m *ScheduleGroup) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -171,7 +172,6 @@ func (m *ScheduleGroup) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *ScheduleGroup) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -184,7 +184,6 @@ func (m *ScheduleGroup) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *ScheduleGroup) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -193,6 +192,8 @@ func (m *ScheduleGroup) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -202,7 +203,6 @@ func (m *ScheduleGroup) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *ScheduleGroup) validateHolidaySchedules(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HolidaySchedules) { // not required
 		return nil
 	}
@@ -216,6 +216,8 @@ func (m *ScheduleGroup) validateHolidaySchedules(formats strfmt.Registry) error 
 			if err := m.HolidaySchedules[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("holidaySchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("holidaySchedules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -236,7 +238,6 @@ func (m *ScheduleGroup) validateName(formats strfmt.Registry) error {
 }
 
 func (m *ScheduleGroup) validateOpenSchedules(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OpenSchedules) { // not required
 		return nil
 	}
@@ -250,6 +251,8 @@ func (m *ScheduleGroup) validateOpenSchedules(formats strfmt.Registry) error {
 			if err := m.OpenSchedules[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("openSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("openSchedules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -261,7 +264,6 @@ func (m *ScheduleGroup) validateOpenSchedules(formats strfmt.Registry) error {
 }
 
 func (m *ScheduleGroup) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -306,13 +308,231 @@ func (m *ScheduleGroup) validateStateEnum(path, location string, value string) e
 }
 
 func (m *ScheduleGroup) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this schedule group based on the context it is used
+func (m *ScheduleGroup) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateClosedSchedules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHolidaySchedules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOpenSchedules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateClosedSchedules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ClosedSchedules); i++ {
+
+		if m.ClosedSchedules[i] != nil {
+			if err := m.ClosedSchedules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("closedSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("closedSchedules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdBy", "body", string(m.CreatedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateCreatedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdByApp", "body", string(m.CreatedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateHolidaySchedules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.HolidaySchedules); i++ {
+
+		if m.HolidaySchedules[i] != nil {
+			if err := m.HolidaySchedules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("holidaySchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("holidaySchedules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedBy", "body", string(m.ModifiedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateModifiedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedByApp", "body", string(m.ModifiedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateOpenSchedules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.OpenSchedules); i++ {
+
+		if m.OpenSchedules[i] != nil {
+			if err := m.OpenSchedules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("openSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("openSchedules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScheduleGroup) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
 		return err
 	}
 

@@ -95,7 +95,6 @@ func (o *GetTimezonesReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetTimezonesOK() *GetTimezonesOK {
 	return &GetTimezonesOK{}
 }
 
-/*GetTimezonesOK handles this case with default header values.
+/*
+GetTimezonesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetTimezonesOK struct {
 	Payload *models.TimeZoneEntityListing
 }
 
+// IsSuccess returns true when this get timezones o k response has a 2xx status code
+func (o *GetTimezonesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get timezones o k response has a 3xx status code
+func (o *GetTimezonesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get timezones o k response has a 4xx status code
+func (o *GetTimezonesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get timezones o k response has a 5xx status code
+func (o *GetTimezonesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get timezones o k response a status code equal to that given
+func (o *GetTimezonesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetTimezonesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetTimezonesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetTimezonesBadRequest() *GetTimezonesBadRequest {
 	return &GetTimezonesBadRequest{}
 }
 
-/*GetTimezonesBadRequest handles this case with default header values.
+/*
+GetTimezonesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetTimezonesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get timezones bad request response has a 2xx status code
+func (o *GetTimezonesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get timezones bad request response has a 3xx status code
+func (o *GetTimezonesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get timezones bad request response has a 4xx status code
+func (o *GetTimezonesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get timezones bad request response has a 5xx status code
+func (o *GetTimezonesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get timezones bad request response a status code equal to that given
+func (o *GetTimezonesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetTimezonesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetTimezonesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetTimezonesUnauthorized() *GetTimezonesUnauthorized {
 	return &GetTimezonesUnauthorized{}
 }
 
-/*GetTimezonesUnauthorized handles this case with default header values.
+/*
+GetTimezonesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetTimezonesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get timezones unauthorized response has a 2xx status code
+func (o *GetTimezonesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get timezones unauthorized response has a 3xx status code
+func (o *GetTimezonesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get timezones unauthorized response has a 4xx status code
+func (o *GetTimezonesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get timezones unauthorized response has a 5xx status code
+func (o *GetTimezonesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get timezones unauthorized response a status code equal to that given
+func (o *GetTimezonesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetTimezonesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetTimezonesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetTimezonesForbidden() *GetTimezonesForbidden {
 	return &GetTimezonesForbidden{}
 }
 
-/*GetTimezonesForbidden handles this case with default header values.
+/*
+GetTimezonesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetTimezonesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get timezones forbidden response has a 2xx status code
+func (o *GetTimezonesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get timezones forbidden response has a 3xx status code
+func (o *GetTimezonesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get timezones forbidden response has a 4xx status code
+func (o *GetTimezonesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get timezones forbidden response has a 5xx status code
+func (o *GetTimezonesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get timezones forbidden response a status code equal to that given
+func (o *GetTimezonesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetTimezonesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetTimezonesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetTimezonesNotFound() *GetTimezonesNotFound {
 	return &GetTimezonesNotFound{}
 }
 
-/*GetTimezonesNotFound handles this case with default header values.
+/*
+GetTimezonesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetTimezonesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get timezones not found response has a 2xx status code
+func (o *GetTimezonesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get timezones not found response has a 3xx status code
+func (o *GetTimezonesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get timezones not found response has a 4xx status code
+func (o *GetTimezonesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get timezones not found response has a 5xx status code
+func (o *GetTimezonesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get timezones not found response a status code equal to that given
+func (o *GetTimezonesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetTimezonesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetTimezonesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetTimezonesRequestTimeout() *GetTimezonesRequestTimeout {
 	return &GetTimezonesRequestTimeout{}
 }
 
-/*GetTimezonesRequestTimeout handles this case with default header values.
+/*
+GetTimezonesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetTimezonesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get timezones request timeout response has a 2xx status code
+func (o *GetTimezonesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get timezones request timeout response has a 3xx status code
+func (o *GetTimezonesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get timezones request timeout response has a 4xx status code
+func (o *GetTimezonesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get timezones request timeout response has a 5xx status code
+func (o *GetTimezonesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get timezones request timeout response a status code equal to that given
+func (o *GetTimezonesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetTimezonesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTimezonesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetTimezonesRequestEntityTooLarge() *GetTimezonesRequestEntityTooLarge {
 	return &GetTimezonesRequestEntityTooLarge{}
 }
 
-/*GetTimezonesRequestEntityTooLarge handles this case with default header values.
+/*
+GetTimezonesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetTimezonesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get timezones request entity too large response has a 2xx status code
+func (o *GetTimezonesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get timezones request entity too large response has a 3xx status code
+func (o *GetTimezonesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get timezones request entity too large response has a 4xx status code
+func (o *GetTimezonesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get timezones request entity too large response has a 5xx status code
+func (o *GetTimezonesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get timezones request entity too large response a status code equal to that given
+func (o *GetTimezonesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetTimezonesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetTimezonesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetTimezonesUnsupportedMediaType() *GetTimezonesUnsupportedMediaType {
 	return &GetTimezonesUnsupportedMediaType{}
 }
 
-/*GetTimezonesUnsupportedMediaType handles this case with default header values.
+/*
+GetTimezonesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetTimezonesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get timezones unsupported media type response has a 2xx status code
+func (o *GetTimezonesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get timezones unsupported media type response has a 3xx status code
+func (o *GetTimezonesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get timezones unsupported media type response has a 4xx status code
+func (o *GetTimezonesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get timezones unsupported media type response has a 5xx status code
+func (o *GetTimezonesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get timezones unsupported media type response a status code equal to that given
+func (o *GetTimezonesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetTimezonesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetTimezonesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetTimezonesTooManyRequests() *GetTimezonesTooManyRequests {
 	return &GetTimezonesTooManyRequests{}
 }
 
-/*GetTimezonesTooManyRequests handles this case with default header values.
+/*
+GetTimezonesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetTimezonesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get timezones too many requests response has a 2xx status code
+func (o *GetTimezonesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get timezones too many requests response has a 3xx status code
+func (o *GetTimezonesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get timezones too many requests response has a 4xx status code
+func (o *GetTimezonesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get timezones too many requests response has a 5xx status code
+func (o *GetTimezonesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get timezones too many requests response a status code equal to that given
+func (o *GetTimezonesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetTimezonesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetTimezonesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetTimezonesInternalServerError() *GetTimezonesInternalServerError {
 	return &GetTimezonesInternalServerError{}
 }
 
-/*GetTimezonesInternalServerError handles this case with default header values.
+/*
+GetTimezonesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetTimezonesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get timezones internal server error response has a 2xx status code
+func (o *GetTimezonesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get timezones internal server error response has a 3xx status code
+func (o *GetTimezonesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get timezones internal server error response has a 4xx status code
+func (o *GetTimezonesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get timezones internal server error response has a 5xx status code
+func (o *GetTimezonesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get timezones internal server error response a status code equal to that given
+func (o *GetTimezonesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetTimezonesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetTimezonesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetTimezonesServiceUnavailable() *GetTimezonesServiceUnavailable {
 	return &GetTimezonesServiceUnavailable{}
 }
 
-/*GetTimezonesServiceUnavailable handles this case with default header values.
+/*
+GetTimezonesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetTimezonesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get timezones service unavailable response has a 2xx status code
+func (o *GetTimezonesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get timezones service unavailable response has a 3xx status code
+func (o *GetTimezonesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get timezones service unavailable response has a 4xx status code
+func (o *GetTimezonesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get timezones service unavailable response has a 5xx status code
+func (o *GetTimezonesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get timezones service unavailable response a status code equal to that given
+func (o *GetTimezonesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetTimezonesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetTimezonesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetTimezonesGatewayTimeout() *GetTimezonesGatewayTimeout {
 	return &GetTimezonesGatewayTimeout{}
 }
 
-/*GetTimezonesGatewayTimeout handles this case with default header values.
+/*
+GetTimezonesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetTimezonesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get timezones gateway timeout response has a 2xx status code
+func (o *GetTimezonesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get timezones gateway timeout response has a 3xx status code
+func (o *GetTimezonesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get timezones gateway timeout response has a 4xx status code
+func (o *GetTimezonesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get timezones gateway timeout response has a 5xx status code
+func (o *GetTimezonesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get timezones gateway timeout response a status code equal to that given
+func (o *GetTimezonesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetTimezonesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetTimezonesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/timezones][%d] getTimezonesGatewayTimeout  %+v", 504, o.Payload)
 }
 

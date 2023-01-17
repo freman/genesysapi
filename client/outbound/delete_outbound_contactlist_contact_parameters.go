@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteOutboundContactlistContactParams creates a new DeleteOutboundContactlistContactParams object
-// with the default values initialized.
+// NewDeleteOutboundContactlistContactParams creates a new DeleteOutboundContactlistContactParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundContactlistContactParams() *DeleteOutboundContactlistContactParams {
-	var ()
 	return &DeleteOutboundContactlistContactParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundContactlistContactParamsWithTimeout creates a new DeleteOutboundContactlistContactParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundContactlistContactParamsWithTimeout(timeout time.Duration) *DeleteOutboundContactlistContactParams {
-	var ()
 	return &DeleteOutboundContactlistContactParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundContactlistContactParamsWithContext creates a new DeleteOutboundContactlistContactParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundContactlistContactParamsWithContext(ctx context.Context) *DeleteOutboundContactlistContactParams {
-	var ()
 	return &DeleteOutboundContactlistContactParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundContactlistContactParamsWithHTTPClient creates a new DeleteOutboundContactlistContactParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundContactlistContactParamsWithHTTPClient(client *http.Client) *DeleteOutboundContactlistContactParams {
-	var ()
 	return &DeleteOutboundContactlistContactParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundContactlistContactParams contains all the parameters to send to the API endpoint
-for the delete outbound contactlist contact operation typically these are written to a http.Request
+/*
+DeleteOutboundContactlistContactParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound contactlist contact operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundContactlistContactParams struct {
 
-	/*ContactID
-	  Contact ID
+	/* ContactID.
 
+	   Contact ID
 	*/
 	ContactID string
-	/*ContactListID
-	  Contact List ID
 
+	/* ContactListID.
+
+	   Contact List ID
 	*/
 	ContactListID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound contactlist contact params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundContactlistContactParams) WithDefaults() *DeleteOutboundContactlistContactParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound contactlist contact params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundContactlistContactParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound contactlist contact params

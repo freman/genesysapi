@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutUserRoutingstatusParams creates a new PutUserRoutingstatusParams object
-// with the default values initialized.
+// NewPutUserRoutingstatusParams creates a new PutUserRoutingstatusParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutUserRoutingstatusParams() *PutUserRoutingstatusParams {
-	var ()
 	return &PutUserRoutingstatusParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutUserRoutingstatusParamsWithTimeout creates a new PutUserRoutingstatusParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutUserRoutingstatusParamsWithTimeout(timeout time.Duration) *PutUserRoutingstatusParams {
-	var ()
 	return &PutUserRoutingstatusParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutUserRoutingstatusParamsWithContext creates a new PutUserRoutingstatusParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutUserRoutingstatusParamsWithContext(ctx context.Context) *PutUserRoutingstatusParams {
-	var ()
 	return &PutUserRoutingstatusParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutUserRoutingstatusParamsWithHTTPClient creates a new PutUserRoutingstatusParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutUserRoutingstatusParamsWithHTTPClient(client *http.Client) *PutUserRoutingstatusParams {
-	var ()
 	return &PutUserRoutingstatusParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutUserRoutingstatusParams contains all the parameters to send to the API endpoint
-for the put user routingstatus operation typically these are written to a http.Request
+/*
+PutUserRoutingstatusParams contains all the parameters to send to the API endpoint
+
+	for the put user routingstatus operation.
+
+	Typically these are written to a http.Request.
 */
 type PutUserRoutingstatusParams struct {
 
-	/*Body
-	  Routing Status
+	/* Body.
 
+	   Routing Status
 	*/
 	Body *models.RoutingStatus
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put user routingstatus params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutUserRoutingstatusParams) WithDefaults() *PutUserRoutingstatusParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put user routingstatus params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutUserRoutingstatusParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put user routingstatus params
@@ -140,7 +157,6 @@ func (o *PutUserRoutingstatusParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

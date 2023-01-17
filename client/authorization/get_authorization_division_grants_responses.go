@@ -95,7 +95,6 @@ func (o *GetAuthorizationDivisionGrantsReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetAuthorizationDivisionGrantsOK() *GetAuthorizationDivisionGrantsOK {
 	return &GetAuthorizationDivisionGrantsOK{}
 }
 
-/*GetAuthorizationDivisionGrantsOK handles this case with default header values.
+/*
+GetAuthorizationDivisionGrantsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetAuthorizationDivisionGrantsOK struct {
 	Payload *models.AuthzDivisionGrantEntityListing
 }
 
+// IsSuccess returns true when this get authorization division grants o k response has a 2xx status code
+func (o *GetAuthorizationDivisionGrantsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get authorization division grants o k response has a 3xx status code
+func (o *GetAuthorizationDivisionGrantsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization division grants o k response has a 4xx status code
+func (o *GetAuthorizationDivisionGrantsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get authorization division grants o k response has a 5xx status code
+func (o *GetAuthorizationDivisionGrantsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization division grants o k response a status code equal to that given
+func (o *GetAuthorizationDivisionGrantsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAuthorizationDivisionGrantsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionGrantsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetAuthorizationDivisionGrantsBadRequest() *GetAuthorizationDivisionGran
 	return &GetAuthorizationDivisionGrantsBadRequest{}
 }
 
-/*GetAuthorizationDivisionGrantsBadRequest handles this case with default header values.
+/*
+GetAuthorizationDivisionGrantsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetAuthorizationDivisionGrantsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization division grants bad request response has a 2xx status code
+func (o *GetAuthorizationDivisionGrantsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization division grants bad request response has a 3xx status code
+func (o *GetAuthorizationDivisionGrantsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization division grants bad request response has a 4xx status code
+func (o *GetAuthorizationDivisionGrantsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization division grants bad request response has a 5xx status code
+func (o *GetAuthorizationDivisionGrantsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization division grants bad request response a status code equal to that given
+func (o *GetAuthorizationDivisionGrantsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAuthorizationDivisionGrantsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionGrantsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetAuthorizationDivisionGrantsUnauthorized() *GetAuthorizationDivisionGr
 	return &GetAuthorizationDivisionGrantsUnauthorized{}
 }
 
-/*GetAuthorizationDivisionGrantsUnauthorized handles this case with default header values.
+/*
+GetAuthorizationDivisionGrantsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetAuthorizationDivisionGrantsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization division grants unauthorized response has a 2xx status code
+func (o *GetAuthorizationDivisionGrantsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization division grants unauthorized response has a 3xx status code
+func (o *GetAuthorizationDivisionGrantsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization division grants unauthorized response has a 4xx status code
+func (o *GetAuthorizationDivisionGrantsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization division grants unauthorized response has a 5xx status code
+func (o *GetAuthorizationDivisionGrantsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization division grants unauthorized response a status code equal to that given
+func (o *GetAuthorizationDivisionGrantsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetAuthorizationDivisionGrantsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionGrantsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetAuthorizationDivisionGrantsForbidden() *GetAuthorizationDivisionGrant
 	return &GetAuthorizationDivisionGrantsForbidden{}
 }
 
-/*GetAuthorizationDivisionGrantsForbidden handles this case with default header values.
+/*
+GetAuthorizationDivisionGrantsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetAuthorizationDivisionGrantsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization division grants forbidden response has a 2xx status code
+func (o *GetAuthorizationDivisionGrantsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization division grants forbidden response has a 3xx status code
+func (o *GetAuthorizationDivisionGrantsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization division grants forbidden response has a 4xx status code
+func (o *GetAuthorizationDivisionGrantsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization division grants forbidden response has a 5xx status code
+func (o *GetAuthorizationDivisionGrantsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization division grants forbidden response a status code equal to that given
+func (o *GetAuthorizationDivisionGrantsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAuthorizationDivisionGrantsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionGrantsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetAuthorizationDivisionGrantsNotFound() *GetAuthorizationDivisionGrants
 	return &GetAuthorizationDivisionGrantsNotFound{}
 }
 
-/*GetAuthorizationDivisionGrantsNotFound handles this case with default header values.
+/*
+GetAuthorizationDivisionGrantsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetAuthorizationDivisionGrantsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization division grants not found response has a 2xx status code
+func (o *GetAuthorizationDivisionGrantsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization division grants not found response has a 3xx status code
+func (o *GetAuthorizationDivisionGrantsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization division grants not found response has a 4xx status code
+func (o *GetAuthorizationDivisionGrantsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization division grants not found response has a 5xx status code
+func (o *GetAuthorizationDivisionGrantsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization division grants not found response a status code equal to that given
+func (o *GetAuthorizationDivisionGrantsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAuthorizationDivisionGrantsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionGrantsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetAuthorizationDivisionGrantsRequestTimeout() *GetAuthorizationDivision
 	return &GetAuthorizationDivisionGrantsRequestTimeout{}
 }
 
-/*GetAuthorizationDivisionGrantsRequestTimeout handles this case with default header values.
+/*
+GetAuthorizationDivisionGrantsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetAuthorizationDivisionGrantsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization division grants request timeout response has a 2xx status code
+func (o *GetAuthorizationDivisionGrantsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization division grants request timeout response has a 3xx status code
+func (o *GetAuthorizationDivisionGrantsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization division grants request timeout response has a 4xx status code
+func (o *GetAuthorizationDivisionGrantsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization division grants request timeout response has a 5xx status code
+func (o *GetAuthorizationDivisionGrantsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization division grants request timeout response a status code equal to that given
+func (o *GetAuthorizationDivisionGrantsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetAuthorizationDivisionGrantsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionGrantsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetAuthorizationDivisionGrantsRequestEntityTooLarge() *GetAuthorizationD
 	return &GetAuthorizationDivisionGrantsRequestEntityTooLarge{}
 }
 
-/*GetAuthorizationDivisionGrantsRequestEntityTooLarge handles this case with default header values.
+/*
+GetAuthorizationDivisionGrantsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetAuthorizationDivisionGrantsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization division grants request entity too large response has a 2xx status code
+func (o *GetAuthorizationDivisionGrantsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization division grants request entity too large response has a 3xx status code
+func (o *GetAuthorizationDivisionGrantsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization division grants request entity too large response has a 4xx status code
+func (o *GetAuthorizationDivisionGrantsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization division grants request entity too large response has a 5xx status code
+func (o *GetAuthorizationDivisionGrantsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization division grants request entity too large response a status code equal to that given
+func (o *GetAuthorizationDivisionGrantsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetAuthorizationDivisionGrantsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionGrantsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetAuthorizationDivisionGrantsUnsupportedMediaType() *GetAuthorizationDi
 	return &GetAuthorizationDivisionGrantsUnsupportedMediaType{}
 }
 
-/*GetAuthorizationDivisionGrantsUnsupportedMediaType handles this case with default header values.
+/*
+GetAuthorizationDivisionGrantsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetAuthorizationDivisionGrantsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization division grants unsupported media type response has a 2xx status code
+func (o *GetAuthorizationDivisionGrantsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization division grants unsupported media type response has a 3xx status code
+func (o *GetAuthorizationDivisionGrantsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization division grants unsupported media type response has a 4xx status code
+func (o *GetAuthorizationDivisionGrantsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization division grants unsupported media type response has a 5xx status code
+func (o *GetAuthorizationDivisionGrantsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization division grants unsupported media type response a status code equal to that given
+func (o *GetAuthorizationDivisionGrantsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetAuthorizationDivisionGrantsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionGrantsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetAuthorizationDivisionGrantsTooManyRequests() *GetAuthorizationDivisio
 	return &GetAuthorizationDivisionGrantsTooManyRequests{}
 }
 
-/*GetAuthorizationDivisionGrantsTooManyRequests handles this case with default header values.
+/*
+GetAuthorizationDivisionGrantsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetAuthorizationDivisionGrantsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization division grants too many requests response has a 2xx status code
+func (o *GetAuthorizationDivisionGrantsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization division grants too many requests response has a 3xx status code
+func (o *GetAuthorizationDivisionGrantsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization division grants too many requests response has a 4xx status code
+func (o *GetAuthorizationDivisionGrantsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get authorization division grants too many requests response has a 5xx status code
+func (o *GetAuthorizationDivisionGrantsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get authorization division grants too many requests response a status code equal to that given
+func (o *GetAuthorizationDivisionGrantsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAuthorizationDivisionGrantsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionGrantsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetAuthorizationDivisionGrantsInternalServerError() *GetAuthorizationDiv
 	return &GetAuthorizationDivisionGrantsInternalServerError{}
 }
 
-/*GetAuthorizationDivisionGrantsInternalServerError handles this case with default header values.
+/*
+GetAuthorizationDivisionGrantsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetAuthorizationDivisionGrantsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization division grants internal server error response has a 2xx status code
+func (o *GetAuthorizationDivisionGrantsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization division grants internal server error response has a 3xx status code
+func (o *GetAuthorizationDivisionGrantsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization division grants internal server error response has a 4xx status code
+func (o *GetAuthorizationDivisionGrantsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get authorization division grants internal server error response has a 5xx status code
+func (o *GetAuthorizationDivisionGrantsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get authorization division grants internal server error response a status code equal to that given
+func (o *GetAuthorizationDivisionGrantsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAuthorizationDivisionGrantsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionGrantsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetAuthorizationDivisionGrantsServiceUnavailable() *GetAuthorizationDivi
 	return &GetAuthorizationDivisionGrantsServiceUnavailable{}
 }
 
-/*GetAuthorizationDivisionGrantsServiceUnavailable handles this case with default header values.
+/*
+GetAuthorizationDivisionGrantsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetAuthorizationDivisionGrantsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization division grants service unavailable response has a 2xx status code
+func (o *GetAuthorizationDivisionGrantsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization division grants service unavailable response has a 3xx status code
+func (o *GetAuthorizationDivisionGrantsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization division grants service unavailable response has a 4xx status code
+func (o *GetAuthorizationDivisionGrantsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get authorization division grants service unavailable response has a 5xx status code
+func (o *GetAuthorizationDivisionGrantsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get authorization division grants service unavailable response a status code equal to that given
+func (o *GetAuthorizationDivisionGrantsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetAuthorizationDivisionGrantsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionGrantsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetAuthorizationDivisionGrantsGatewayTimeout() *GetAuthorizationDivision
 	return &GetAuthorizationDivisionGrantsGatewayTimeout{}
 }
 
-/*GetAuthorizationDivisionGrantsGatewayTimeout handles this case with default header values.
+/*
+GetAuthorizationDivisionGrantsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetAuthorizationDivisionGrantsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get authorization division grants gateway timeout response has a 2xx status code
+func (o *GetAuthorizationDivisionGrantsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get authorization division grants gateway timeout response has a 3xx status code
+func (o *GetAuthorizationDivisionGrantsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get authorization division grants gateway timeout response has a 4xx status code
+func (o *GetAuthorizationDivisionGrantsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get authorization division grants gateway timeout response has a 5xx status code
+func (o *GetAuthorizationDivisionGrantsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get authorization division grants gateway timeout response a status code equal to that given
+func (o *GetAuthorizationDivisionGrantsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetAuthorizationDivisionGrantsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetAuthorizationDivisionGrantsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/authorization/divisions/{divisionId}/grants][%d] getAuthorizationDivisionGrantsGatewayTimeout  %+v", 504, o.Payload)
 }
 

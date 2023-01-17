@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -19,12 +20,19 @@ import (
 // swagger:model IntentDefinition
 type IntentDefinition struct {
 
+	// Additional languages for intents
+	AdditionalLanguages map[string]AdditionalLanguagesIntent `json:"additionalLanguages,omitempty"`
+
 	// The references for the named entity used in this intent.This field is mutually exclusive with entityTypeBindings
 	// Read Only: true
 	EntityNameReferences []string `json:"entityNameReferences"`
 
 	// The bindings for the named entity types used in this intent.This field is mutually exclusive with entityNameReferences and entities
 	EntityTypeBindings []*NamedEntityTypeBinding `json:"entityTypeBindings"`
+
+	// ID of the intent.
+	// Read Only: true
+	ID string `json:"id,omitempty"`
 
 	// The name of the intent.
 	// Required: true
@@ -38,6 +46,10 @@ type IntentDefinition struct {
 // Validate validates this intent definition
 func (m *IntentDefinition) Validate(formats strfmt.Registry) error {
 	var res []error
+
+	if err := m.validateAdditionalLanguages(formats); err != nil {
+		res = append(res, err)
+	}
 
 	if err := m.validateEntityTypeBindings(formats); err != nil {
 		res = append(res, err)
@@ -57,8 +69,33 @@ func (m *IntentDefinition) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *IntentDefinition) validateEntityTypeBindings(formats strfmt.Registry) error {
+func (m *IntentDefinition) validateAdditionalLanguages(formats strfmt.Registry) error {
+	if swag.IsZero(m.AdditionalLanguages) { // not required
+		return nil
+	}
 
+	for k := range m.AdditionalLanguages {
+
+		if err := validate.Required("additionalLanguages"+"."+k, "body", m.AdditionalLanguages[k]); err != nil {
+			return err
+		}
+		if val, ok := m.AdditionalLanguages[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("additionalLanguages" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("additionalLanguages" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *IntentDefinition) validateEntityTypeBindings(formats strfmt.Registry) error {
 	if swag.IsZero(m.EntityTypeBindings) { // not required
 		return nil
 	}
@@ -72,6 +109,8 @@ func (m *IntentDefinition) validateEntityTypeBindings(formats strfmt.Registry) e
 			if err := m.EntityTypeBindings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("entityTypeBindings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entityTypeBindings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -106,6 +145,111 @@ func (m *IntentDefinition) validateUtterances(formats strfmt.Registry) error {
 			if err := m.Utterances[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("utterances" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("utterances" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this intent definition based on the context it is used
+func (m *IntentDefinition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAdditionalLanguages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEntityNameReferences(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEntityTypeBindings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUtterances(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *IntentDefinition) contextValidateAdditionalLanguages(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.AdditionalLanguages {
+
+		if val, ok := m.AdditionalLanguages[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *IntentDefinition) contextValidateEntityNameReferences(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "entityNameReferences", "body", []string(m.EntityNameReferences)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntentDefinition) contextValidateEntityTypeBindings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.EntityTypeBindings); i++ {
+
+		if m.EntityTypeBindings[i] != nil {
+			if err := m.EntityTypeBindings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("entityTypeBindings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entityTypeBindings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *IntentDefinition) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntentDefinition) contextValidateUtterances(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Utterances); i++ {
+
+		if m.Utterances[i] != nil {
+			if err := m.Utterances[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("utterances" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("utterances" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

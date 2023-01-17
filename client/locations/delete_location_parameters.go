@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteLocationParams creates a new DeleteLocationParams object
-// with the default values initialized.
+// NewDeleteLocationParams creates a new DeleteLocationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteLocationParams() *DeleteLocationParams {
-	var ()
 	return &DeleteLocationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteLocationParamsWithTimeout creates a new DeleteLocationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteLocationParamsWithTimeout(timeout time.Duration) *DeleteLocationParams {
-	var ()
 	return &DeleteLocationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteLocationParamsWithContext creates a new DeleteLocationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteLocationParamsWithContext(ctx context.Context) *DeleteLocationParams {
-	var ()
 	return &DeleteLocationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteLocationParamsWithHTTPClient creates a new DeleteLocationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteLocationParamsWithHTTPClient(client *http.Client) *DeleteLocationParams {
-	var ()
 	return &DeleteLocationParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteLocationParams contains all the parameters to send to the API endpoint
-for the delete location operation typically these are written to a http.Request
+/*
+DeleteLocationParams contains all the parameters to send to the API endpoint
+
+	for the delete location operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteLocationParams struct {
 
-	/*LocationID
-	  Location ID
+	/* LocationID.
 
+	   Location ID
 	*/
 	LocationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete location params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteLocationParams) WithDefaults() *DeleteLocationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete location params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteLocationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete location params

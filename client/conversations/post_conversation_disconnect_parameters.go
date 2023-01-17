@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostConversationDisconnectParams creates a new PostConversationDisconnectParams object
-// with the default values initialized.
+// NewPostConversationDisconnectParams creates a new PostConversationDisconnectParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationDisconnectParams() *PostConversationDisconnectParams {
-	var ()
 	return &PostConversationDisconnectParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationDisconnectParamsWithTimeout creates a new PostConversationDisconnectParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationDisconnectParamsWithTimeout(timeout time.Duration) *PostConversationDisconnectParams {
-	var ()
 	return &PostConversationDisconnectParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationDisconnectParamsWithContext creates a new PostConversationDisconnectParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationDisconnectParamsWithContext(ctx context.Context) *PostConversationDisconnectParams {
-	var ()
 	return &PostConversationDisconnectParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationDisconnectParamsWithHTTPClient creates a new PostConversationDisconnectParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationDisconnectParamsWithHTTPClient(client *http.Client) *PostConversationDisconnectParams {
-	var ()
 	return &PostConversationDisconnectParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationDisconnectParams contains all the parameters to send to the API endpoint
-for the post conversation disconnect operation typically these are written to a http.Request
+/*
+PostConversationDisconnectParams contains all the parameters to send to the API endpoint
+
+	for the post conversation disconnect operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationDisconnectParams struct {
 
-	/*ConversationID
-	  conversation ID
+	/* ConversationID.
 
+	   conversation ID
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversation disconnect params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationDisconnectParams) WithDefaults() *PostConversationDisconnectParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversation disconnect params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationDisconnectParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversation disconnect params

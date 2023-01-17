@@ -95,7 +95,6 @@ func (o *GetRoutingPredictorModelsReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingPredictorModelsOK() *GetRoutingPredictorModelsOK {
 	return &GetRoutingPredictorModelsOK{}
 }
 
-/*GetRoutingPredictorModelsOK handles this case with default header values.
+/*
+GetRoutingPredictorModelsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingPredictorModelsOK struct {
 	Payload *models.PredictorModels
 }
 
+// IsSuccess returns true when this get routing predictor models o k response has a 2xx status code
+func (o *GetRoutingPredictorModelsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing predictor models o k response has a 3xx status code
+func (o *GetRoutingPredictorModelsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor models o k response has a 4xx status code
+func (o *GetRoutingPredictorModelsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing predictor models o k response has a 5xx status code
+func (o *GetRoutingPredictorModelsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor models o k response a status code equal to that given
+func (o *GetRoutingPredictorModelsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingPredictorModelsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingPredictorModelsBadRequest() *GetRoutingPredictorModelsBadReque
 	return &GetRoutingPredictorModelsBadRequest{}
 }
 
-/*GetRoutingPredictorModelsBadRequest handles this case with default header values.
+/*
+GetRoutingPredictorModelsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingPredictorModelsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor models bad request response has a 2xx status code
+func (o *GetRoutingPredictorModelsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor models bad request response has a 3xx status code
+func (o *GetRoutingPredictorModelsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor models bad request response has a 4xx status code
+func (o *GetRoutingPredictorModelsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor models bad request response has a 5xx status code
+func (o *GetRoutingPredictorModelsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor models bad request response a status code equal to that given
+func (o *GetRoutingPredictorModelsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingPredictorModelsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingPredictorModelsUnauthorized() *GetRoutingPredictorModelsUnauth
 	return &GetRoutingPredictorModelsUnauthorized{}
 }
 
-/*GetRoutingPredictorModelsUnauthorized handles this case with default header values.
+/*
+GetRoutingPredictorModelsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingPredictorModelsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor models unauthorized response has a 2xx status code
+func (o *GetRoutingPredictorModelsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor models unauthorized response has a 3xx status code
+func (o *GetRoutingPredictorModelsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor models unauthorized response has a 4xx status code
+func (o *GetRoutingPredictorModelsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor models unauthorized response has a 5xx status code
+func (o *GetRoutingPredictorModelsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor models unauthorized response a status code equal to that given
+func (o *GetRoutingPredictorModelsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingPredictorModelsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingPredictorModelsForbidden() *GetRoutingPredictorModelsForbidden
 	return &GetRoutingPredictorModelsForbidden{}
 }
 
-/*GetRoutingPredictorModelsForbidden handles this case with default header values.
+/*
+GetRoutingPredictorModelsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingPredictorModelsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor models forbidden response has a 2xx status code
+func (o *GetRoutingPredictorModelsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor models forbidden response has a 3xx status code
+func (o *GetRoutingPredictorModelsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor models forbidden response has a 4xx status code
+func (o *GetRoutingPredictorModelsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor models forbidden response has a 5xx status code
+func (o *GetRoutingPredictorModelsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor models forbidden response a status code equal to that given
+func (o *GetRoutingPredictorModelsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingPredictorModelsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingPredictorModelsNotFound() *GetRoutingPredictorModelsNotFound {
 	return &GetRoutingPredictorModelsNotFound{}
 }
 
-/*GetRoutingPredictorModelsNotFound handles this case with default header values.
+/*
+GetRoutingPredictorModelsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingPredictorModelsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor models not found response has a 2xx status code
+func (o *GetRoutingPredictorModelsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor models not found response has a 3xx status code
+func (o *GetRoutingPredictorModelsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor models not found response has a 4xx status code
+func (o *GetRoutingPredictorModelsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor models not found response has a 5xx status code
+func (o *GetRoutingPredictorModelsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor models not found response a status code equal to that given
+func (o *GetRoutingPredictorModelsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingPredictorModelsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingPredictorModelsRequestTimeout() *GetRoutingPredictorModelsRequ
 	return &GetRoutingPredictorModelsRequestTimeout{}
 }
 
-/*GetRoutingPredictorModelsRequestTimeout handles this case with default header values.
+/*
+GetRoutingPredictorModelsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingPredictorModelsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor models request timeout response has a 2xx status code
+func (o *GetRoutingPredictorModelsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor models request timeout response has a 3xx status code
+func (o *GetRoutingPredictorModelsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor models request timeout response has a 4xx status code
+func (o *GetRoutingPredictorModelsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor models request timeout response has a 5xx status code
+func (o *GetRoutingPredictorModelsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor models request timeout response a status code equal to that given
+func (o *GetRoutingPredictorModelsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingPredictorModelsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingPredictorModelsRequestEntityTooLarge() *GetRoutingPredictorMod
 	return &GetRoutingPredictorModelsRequestEntityTooLarge{}
 }
 
-/*GetRoutingPredictorModelsRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingPredictorModelsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingPredictorModelsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor models request entity too large response has a 2xx status code
+func (o *GetRoutingPredictorModelsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor models request entity too large response has a 3xx status code
+func (o *GetRoutingPredictorModelsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor models request entity too large response has a 4xx status code
+func (o *GetRoutingPredictorModelsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor models request entity too large response has a 5xx status code
+func (o *GetRoutingPredictorModelsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor models request entity too large response a status code equal to that given
+func (o *GetRoutingPredictorModelsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingPredictorModelsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingPredictorModelsUnsupportedMediaType() *GetRoutingPredictorMode
 	return &GetRoutingPredictorModelsUnsupportedMediaType{}
 }
 
-/*GetRoutingPredictorModelsUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingPredictorModelsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingPredictorModelsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor models unsupported media type response has a 2xx status code
+func (o *GetRoutingPredictorModelsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor models unsupported media type response has a 3xx status code
+func (o *GetRoutingPredictorModelsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor models unsupported media type response has a 4xx status code
+func (o *GetRoutingPredictorModelsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor models unsupported media type response has a 5xx status code
+func (o *GetRoutingPredictorModelsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor models unsupported media type response a status code equal to that given
+func (o *GetRoutingPredictorModelsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingPredictorModelsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingPredictorModelsTooManyRequests() *GetRoutingPredictorModelsToo
 	return &GetRoutingPredictorModelsTooManyRequests{}
 }
 
-/*GetRoutingPredictorModelsTooManyRequests handles this case with default header values.
+/*
+GetRoutingPredictorModelsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingPredictorModelsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor models too many requests response has a 2xx status code
+func (o *GetRoutingPredictorModelsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor models too many requests response has a 3xx status code
+func (o *GetRoutingPredictorModelsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor models too many requests response has a 4xx status code
+func (o *GetRoutingPredictorModelsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing predictor models too many requests response has a 5xx status code
+func (o *GetRoutingPredictorModelsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing predictor models too many requests response a status code equal to that given
+func (o *GetRoutingPredictorModelsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingPredictorModelsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingPredictorModelsInternalServerError() *GetRoutingPredictorModel
 	return &GetRoutingPredictorModelsInternalServerError{}
 }
 
-/*GetRoutingPredictorModelsInternalServerError handles this case with default header values.
+/*
+GetRoutingPredictorModelsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingPredictorModelsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor models internal server error response has a 2xx status code
+func (o *GetRoutingPredictorModelsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor models internal server error response has a 3xx status code
+func (o *GetRoutingPredictorModelsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor models internal server error response has a 4xx status code
+func (o *GetRoutingPredictorModelsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing predictor models internal server error response has a 5xx status code
+func (o *GetRoutingPredictorModelsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing predictor models internal server error response a status code equal to that given
+func (o *GetRoutingPredictorModelsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingPredictorModelsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingPredictorModelsServiceUnavailable() *GetRoutingPredictorModels
 	return &GetRoutingPredictorModelsServiceUnavailable{}
 }
 
-/*GetRoutingPredictorModelsServiceUnavailable handles this case with default header values.
+/*
+GetRoutingPredictorModelsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingPredictorModelsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor models service unavailable response has a 2xx status code
+func (o *GetRoutingPredictorModelsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor models service unavailable response has a 3xx status code
+func (o *GetRoutingPredictorModelsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor models service unavailable response has a 4xx status code
+func (o *GetRoutingPredictorModelsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing predictor models service unavailable response has a 5xx status code
+func (o *GetRoutingPredictorModelsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing predictor models service unavailable response a status code equal to that given
+func (o *GetRoutingPredictorModelsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingPredictorModelsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingPredictorModelsGatewayTimeout() *GetRoutingPredictorModelsGate
 	return &GetRoutingPredictorModelsGatewayTimeout{}
 }
 
-/*GetRoutingPredictorModelsGatewayTimeout handles this case with default header values.
+/*
+GetRoutingPredictorModelsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingPredictorModelsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing predictor models gateway timeout response has a 2xx status code
+func (o *GetRoutingPredictorModelsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing predictor models gateway timeout response has a 3xx status code
+func (o *GetRoutingPredictorModelsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing predictor models gateway timeout response has a 4xx status code
+func (o *GetRoutingPredictorModelsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing predictor models gateway timeout response has a 5xx status code
+func (o *GetRoutingPredictorModelsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing predictor models gateway timeout response a status code equal to that given
+func (o *GetRoutingPredictorModelsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingPredictorModelsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingPredictorModelsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/predictors/{predictorId}/models][%d] getRoutingPredictorModelsGatewayTimeout  %+v", 504, o.Payload)
 }
 

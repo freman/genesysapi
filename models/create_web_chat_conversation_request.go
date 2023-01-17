@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -80,7 +82,6 @@ func (m *CreateWebChatConversationRequest) validateDeploymentID(formats strfmt.R
 }
 
 func (m *CreateWebChatConversationRequest) validateJourneyContext(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.JourneyContext) { // not required
 		return nil
 	}
@@ -89,6 +90,8 @@ func (m *CreateWebChatConversationRequest) validateJourneyContext(formats strfmt
 		if err := m.JourneyContext.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("journeyContext")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journeyContext")
 			}
 			return err
 		}
@@ -107,6 +110,8 @@ func (m *CreateWebChatConversationRequest) validateMemberInfo(formats strfmt.Reg
 		if err := m.MemberInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("memberInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("memberInfo")
 			}
 			return err
 		}
@@ -134,6 +139,78 @@ func (m *CreateWebChatConversationRequest) validateRoutingTarget(formats strfmt.
 		if err := m.RoutingTarget.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("routingTarget")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("routingTarget")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this create web chat conversation request based on the context it is used
+func (m *CreateWebChatConversationRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateJourneyContext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMemberInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutingTarget(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CreateWebChatConversationRequest) contextValidateJourneyContext(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.JourneyContext != nil {
+		if err := m.JourneyContext.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("journeyContext")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journeyContext")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CreateWebChatConversationRequest) contextValidateMemberInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MemberInfo != nil {
+		if err := m.MemberInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("memberInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("memberInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CreateWebChatConversationRequest) contextValidateRoutingTarget(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RoutingTarget != nil {
+		if err := m.RoutingTarget.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("routingTarget")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("routingTarget")
 			}
 			return err
 		}

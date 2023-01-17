@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -102,7 +103,6 @@ func (m *JourneySurveyQuestion) validateCustomerPropertyEnum(path, location stri
 }
 
 func (m *JourneySurveyQuestion) validateCustomerProperty(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CustomerProperty) { // not required
 		return nil
 	}
@@ -163,7 +163,6 @@ func (m *JourneySurveyQuestion) validateTypeEnum(path, location string, value st
 }
 
 func (m *JourneySurveyQuestion) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -173,6 +172,11 @@ func (m *JourneySurveyQuestion) validateType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this journey survey question based on context it is used
+func (m *JourneySurveyQuestion) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

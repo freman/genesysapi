@@ -95,7 +95,6 @@ func (o *GetRecordingsRetentionQueryReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRecordingsRetentionQueryOK() *GetRecordingsRetentionQueryOK {
 	return &GetRecordingsRetentionQueryOK{}
 }
 
-/*GetRecordingsRetentionQueryOK handles this case with default header values.
+/*
+GetRecordingsRetentionQueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRecordingsRetentionQueryOK struct {
 	Payload *models.RecordingRetentionCursorEntityListing
 }
 
+// IsSuccess returns true when this get recordings retention query o k response has a 2xx status code
+func (o *GetRecordingsRetentionQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get recordings retention query o k response has a 3xx status code
+func (o *GetRecordingsRetentionQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings retention query o k response has a 4xx status code
+func (o *GetRecordingsRetentionQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recordings retention query o k response has a 5xx status code
+func (o *GetRecordingsRetentionQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings retention query o k response a status code equal to that given
+func (o *GetRecordingsRetentionQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRecordingsRetentionQueryOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRecordingsRetentionQueryOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRecordingsRetentionQueryBadRequest() *GetRecordingsRetentionQueryBadR
 	return &GetRecordingsRetentionQueryBadRequest{}
 }
 
-/*GetRecordingsRetentionQueryBadRequest handles this case with default header values.
+/*
+GetRecordingsRetentionQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRecordingsRetentionQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings retention query bad request response has a 2xx status code
+func (o *GetRecordingsRetentionQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings retention query bad request response has a 3xx status code
+func (o *GetRecordingsRetentionQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings retention query bad request response has a 4xx status code
+func (o *GetRecordingsRetentionQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings retention query bad request response has a 5xx status code
+func (o *GetRecordingsRetentionQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings retention query bad request response a status code equal to that given
+func (o *GetRecordingsRetentionQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRecordingsRetentionQueryBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRecordingsRetentionQueryBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRecordingsRetentionQueryUnauthorized() *GetRecordingsRetentionQueryUn
 	return &GetRecordingsRetentionQueryUnauthorized{}
 }
 
-/*GetRecordingsRetentionQueryUnauthorized handles this case with default header values.
+/*
+GetRecordingsRetentionQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRecordingsRetentionQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings retention query unauthorized response has a 2xx status code
+func (o *GetRecordingsRetentionQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings retention query unauthorized response has a 3xx status code
+func (o *GetRecordingsRetentionQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings retention query unauthorized response has a 4xx status code
+func (o *GetRecordingsRetentionQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings retention query unauthorized response has a 5xx status code
+func (o *GetRecordingsRetentionQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings retention query unauthorized response a status code equal to that given
+func (o *GetRecordingsRetentionQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRecordingsRetentionQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRecordingsRetentionQueryUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRecordingsRetentionQueryForbidden() *GetRecordingsRetentionQueryForbi
 	return &GetRecordingsRetentionQueryForbidden{}
 }
 
-/*GetRecordingsRetentionQueryForbidden handles this case with default header values.
+/*
+GetRecordingsRetentionQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRecordingsRetentionQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings retention query forbidden response has a 2xx status code
+func (o *GetRecordingsRetentionQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings retention query forbidden response has a 3xx status code
+func (o *GetRecordingsRetentionQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings retention query forbidden response has a 4xx status code
+func (o *GetRecordingsRetentionQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings retention query forbidden response has a 5xx status code
+func (o *GetRecordingsRetentionQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings retention query forbidden response a status code equal to that given
+func (o *GetRecordingsRetentionQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRecordingsRetentionQueryForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRecordingsRetentionQueryForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRecordingsRetentionQueryNotFound() *GetRecordingsRetentionQueryNotFou
 	return &GetRecordingsRetentionQueryNotFound{}
 }
 
-/*GetRecordingsRetentionQueryNotFound handles this case with default header values.
+/*
+GetRecordingsRetentionQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRecordingsRetentionQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings retention query not found response has a 2xx status code
+func (o *GetRecordingsRetentionQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings retention query not found response has a 3xx status code
+func (o *GetRecordingsRetentionQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings retention query not found response has a 4xx status code
+func (o *GetRecordingsRetentionQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings retention query not found response has a 5xx status code
+func (o *GetRecordingsRetentionQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings retention query not found response a status code equal to that given
+func (o *GetRecordingsRetentionQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRecordingsRetentionQueryNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRecordingsRetentionQueryNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRecordingsRetentionQueryRequestTimeout() *GetRecordingsRetentionQuery
 	return &GetRecordingsRetentionQueryRequestTimeout{}
 }
 
-/*GetRecordingsRetentionQueryRequestTimeout handles this case with default header values.
+/*
+GetRecordingsRetentionQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRecordingsRetentionQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings retention query request timeout response has a 2xx status code
+func (o *GetRecordingsRetentionQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings retention query request timeout response has a 3xx status code
+func (o *GetRecordingsRetentionQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings retention query request timeout response has a 4xx status code
+func (o *GetRecordingsRetentionQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings retention query request timeout response has a 5xx status code
+func (o *GetRecordingsRetentionQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings retention query request timeout response a status code equal to that given
+func (o *GetRecordingsRetentionQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRecordingsRetentionQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingsRetentionQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRecordingsRetentionQueryRequestEntityTooLarge() *GetRecordingsRetenti
 	return &GetRecordingsRetentionQueryRequestEntityTooLarge{}
 }
 
-/*GetRecordingsRetentionQueryRequestEntityTooLarge handles this case with default header values.
+/*
+GetRecordingsRetentionQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRecordingsRetentionQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings retention query request entity too large response has a 2xx status code
+func (o *GetRecordingsRetentionQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings retention query request entity too large response has a 3xx status code
+func (o *GetRecordingsRetentionQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings retention query request entity too large response has a 4xx status code
+func (o *GetRecordingsRetentionQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings retention query request entity too large response has a 5xx status code
+func (o *GetRecordingsRetentionQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings retention query request entity too large response a status code equal to that given
+func (o *GetRecordingsRetentionQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRecordingsRetentionQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRecordingsRetentionQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRecordingsRetentionQueryUnsupportedMediaType() *GetRecordingsRetentio
 	return &GetRecordingsRetentionQueryUnsupportedMediaType{}
 }
 
-/*GetRecordingsRetentionQueryUnsupportedMediaType handles this case with default header values.
+/*
+GetRecordingsRetentionQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRecordingsRetentionQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings retention query unsupported media type response has a 2xx status code
+func (o *GetRecordingsRetentionQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings retention query unsupported media type response has a 3xx status code
+func (o *GetRecordingsRetentionQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings retention query unsupported media type response has a 4xx status code
+func (o *GetRecordingsRetentionQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings retention query unsupported media type response has a 5xx status code
+func (o *GetRecordingsRetentionQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings retention query unsupported media type response a status code equal to that given
+func (o *GetRecordingsRetentionQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRecordingsRetentionQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRecordingsRetentionQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRecordingsRetentionQueryTooManyRequests() *GetRecordingsRetentionQuer
 	return &GetRecordingsRetentionQueryTooManyRequests{}
 }
 
-/*GetRecordingsRetentionQueryTooManyRequests handles this case with default header values.
+/*
+GetRecordingsRetentionQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRecordingsRetentionQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings retention query too many requests response has a 2xx status code
+func (o *GetRecordingsRetentionQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings retention query too many requests response has a 3xx status code
+func (o *GetRecordingsRetentionQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings retention query too many requests response has a 4xx status code
+func (o *GetRecordingsRetentionQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings retention query too many requests response has a 5xx status code
+func (o *GetRecordingsRetentionQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings retention query too many requests response a status code equal to that given
+func (o *GetRecordingsRetentionQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRecordingsRetentionQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRecordingsRetentionQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRecordingsRetentionQueryInternalServerError() *GetRecordingsRetention
 	return &GetRecordingsRetentionQueryInternalServerError{}
 }
 
-/*GetRecordingsRetentionQueryInternalServerError handles this case with default header values.
+/*
+GetRecordingsRetentionQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRecordingsRetentionQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings retention query internal server error response has a 2xx status code
+func (o *GetRecordingsRetentionQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings retention query internal server error response has a 3xx status code
+func (o *GetRecordingsRetentionQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings retention query internal server error response has a 4xx status code
+func (o *GetRecordingsRetentionQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recordings retention query internal server error response has a 5xx status code
+func (o *GetRecordingsRetentionQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recordings retention query internal server error response a status code equal to that given
+func (o *GetRecordingsRetentionQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRecordingsRetentionQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRecordingsRetentionQueryInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRecordingsRetentionQueryServiceUnavailable() *GetRecordingsRetentionQ
 	return &GetRecordingsRetentionQueryServiceUnavailable{}
 }
 
-/*GetRecordingsRetentionQueryServiceUnavailable handles this case with default header values.
+/*
+GetRecordingsRetentionQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRecordingsRetentionQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings retention query service unavailable response has a 2xx status code
+func (o *GetRecordingsRetentionQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings retention query service unavailable response has a 3xx status code
+func (o *GetRecordingsRetentionQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings retention query service unavailable response has a 4xx status code
+func (o *GetRecordingsRetentionQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recordings retention query service unavailable response has a 5xx status code
+func (o *GetRecordingsRetentionQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recordings retention query service unavailable response a status code equal to that given
+func (o *GetRecordingsRetentionQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRecordingsRetentionQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRecordingsRetentionQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRecordingsRetentionQueryGatewayTimeout() *GetRecordingsRetentionQuery
 	return &GetRecordingsRetentionQueryGatewayTimeout{}
 }
 
-/*GetRecordingsRetentionQueryGatewayTimeout handles this case with default header values.
+/*
+GetRecordingsRetentionQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRecordingsRetentionQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings retention query gateway timeout response has a 2xx status code
+func (o *GetRecordingsRetentionQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings retention query gateway timeout response has a 3xx status code
+func (o *GetRecordingsRetentionQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings retention query gateway timeout response has a 4xx status code
+func (o *GetRecordingsRetentionQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recordings retention query gateway timeout response has a 5xx status code
+func (o *GetRecordingsRetentionQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recordings retention query gateway timeout response a status code equal to that given
+func (o *GetRecordingsRetentionQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRecordingsRetentionQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRecordingsRetentionQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/retention/query][%d] getRecordingsRetentionQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

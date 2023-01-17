@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostGroupsParams creates a new PostGroupsParams object
-// with the default values initialized.
+// NewPostGroupsParams creates a new PostGroupsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostGroupsParams() *PostGroupsParams {
-	var ()
 	return &PostGroupsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostGroupsParamsWithTimeout creates a new PostGroupsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostGroupsParamsWithTimeout(timeout time.Duration) *PostGroupsParams {
-	var ()
 	return &PostGroupsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostGroupsParamsWithContext creates a new PostGroupsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostGroupsParamsWithContext(ctx context.Context) *PostGroupsParams {
-	var ()
 	return &PostGroupsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostGroupsParamsWithHTTPClient creates a new PostGroupsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostGroupsParamsWithHTTPClient(client *http.Client) *PostGroupsParams {
-	var ()
 	return &PostGroupsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostGroupsParams contains all the parameters to send to the API endpoint
-for the post groups operation typically these are written to a http.Request
+/*
+PostGroupsParams contains all the parameters to send to the API endpoint
+
+	for the post groups operation.
+
+	Typically these are written to a http.Request.
 */
 type PostGroupsParams struct {
 
-	/*Body
-	  Group
+	/* Body.
 
+	   Group
 	*/
 	Body *models.GroupCreate
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post groups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGroupsParams) WithDefaults() *PostGroupsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post groups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGroupsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post groups params
@@ -124,7 +140,6 @@ func (o *PostGroupsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

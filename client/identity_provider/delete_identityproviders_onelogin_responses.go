@@ -95,7 +95,6 @@ func (o *DeleteIdentityprovidersOneloginReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteIdentityprovidersOneloginOK() *DeleteIdentityprovidersOneloginOK {
 	return &DeleteIdentityprovidersOneloginOK{}
 }
 
-/*DeleteIdentityprovidersOneloginOK handles this case with default header values.
+/*
+DeleteIdentityprovidersOneloginOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteIdentityprovidersOneloginOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete identityproviders onelogin o k response has a 2xx status code
+func (o *DeleteIdentityprovidersOneloginOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete identityproviders onelogin o k response has a 3xx status code
+func (o *DeleteIdentityprovidersOneloginOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders onelogin o k response has a 4xx status code
+func (o *DeleteIdentityprovidersOneloginOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders onelogin o k response has a 5xx status code
+func (o *DeleteIdentityprovidersOneloginOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders onelogin o k response a status code equal to that given
+func (o *DeleteIdentityprovidersOneloginOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteIdentityprovidersOneloginOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOneloginOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewDeleteIdentityprovidersOneloginBadRequest() *DeleteIdentityprovidersOnel
 	return &DeleteIdentityprovidersOneloginBadRequest{}
 }
 
-/*DeleteIdentityprovidersOneloginBadRequest handles this case with default header values.
+/*
+DeleteIdentityprovidersOneloginBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type DeleteIdentityprovidersOneloginBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders onelogin bad request response has a 2xx status code
+func (o *DeleteIdentityprovidersOneloginBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders onelogin bad request response has a 3xx status code
+func (o *DeleteIdentityprovidersOneloginBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders onelogin bad request response has a 4xx status code
+func (o *DeleteIdentityprovidersOneloginBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders onelogin bad request response has a 5xx status code
+func (o *DeleteIdentityprovidersOneloginBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders onelogin bad request response a status code equal to that given
+func (o *DeleteIdentityprovidersOneloginBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteIdentityprovidersOneloginBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOneloginBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteIdentityprovidersOneloginUnauthorized() *DeleteIdentityprovidersOn
 	return &DeleteIdentityprovidersOneloginUnauthorized{}
 }
 
-/*DeleteIdentityprovidersOneloginUnauthorized handles this case with default header values.
+/*
+DeleteIdentityprovidersOneloginUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type DeleteIdentityprovidersOneloginUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders onelogin unauthorized response has a 2xx status code
+func (o *DeleteIdentityprovidersOneloginUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders onelogin unauthorized response has a 3xx status code
+func (o *DeleteIdentityprovidersOneloginUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders onelogin unauthorized response has a 4xx status code
+func (o *DeleteIdentityprovidersOneloginUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders onelogin unauthorized response has a 5xx status code
+func (o *DeleteIdentityprovidersOneloginUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders onelogin unauthorized response a status code equal to that given
+func (o *DeleteIdentityprovidersOneloginUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteIdentityprovidersOneloginUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOneloginUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteIdentityprovidersOneloginForbidden() *DeleteIdentityprovidersOnelo
 	return &DeleteIdentityprovidersOneloginForbidden{}
 }
 
-/*DeleteIdentityprovidersOneloginForbidden handles this case with default header values.
+/*
+DeleteIdentityprovidersOneloginForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type DeleteIdentityprovidersOneloginForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders onelogin forbidden response has a 2xx status code
+func (o *DeleteIdentityprovidersOneloginForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders onelogin forbidden response has a 3xx status code
+func (o *DeleteIdentityprovidersOneloginForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders onelogin forbidden response has a 4xx status code
+func (o *DeleteIdentityprovidersOneloginForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders onelogin forbidden response has a 5xx status code
+func (o *DeleteIdentityprovidersOneloginForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders onelogin forbidden response a status code equal to that given
+func (o *DeleteIdentityprovidersOneloginForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteIdentityprovidersOneloginForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOneloginForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteIdentityprovidersOneloginNotFound() *DeleteIdentityprovidersOnelog
 	return &DeleteIdentityprovidersOneloginNotFound{}
 }
 
-/*DeleteIdentityprovidersOneloginNotFound handles this case with default header values.
+/*
+DeleteIdentityprovidersOneloginNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type DeleteIdentityprovidersOneloginNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders onelogin not found response has a 2xx status code
+func (o *DeleteIdentityprovidersOneloginNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders onelogin not found response has a 3xx status code
+func (o *DeleteIdentityprovidersOneloginNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders onelogin not found response has a 4xx status code
+func (o *DeleteIdentityprovidersOneloginNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders onelogin not found response has a 5xx status code
+func (o *DeleteIdentityprovidersOneloginNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders onelogin not found response a status code equal to that given
+func (o *DeleteIdentityprovidersOneloginNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteIdentityprovidersOneloginNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOneloginNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteIdentityprovidersOneloginRequestTimeout() *DeleteIdentityproviders
 	return &DeleteIdentityprovidersOneloginRequestTimeout{}
 }
 
-/*DeleteIdentityprovidersOneloginRequestTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersOneloginRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type DeleteIdentityprovidersOneloginRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders onelogin request timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersOneloginRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders onelogin request timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersOneloginRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders onelogin request timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersOneloginRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders onelogin request timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersOneloginRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders onelogin request timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersOneloginRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteIdentityprovidersOneloginRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOneloginRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteIdentityprovidersOneloginRequestEntityTooLarge() *DeleteIdentitypr
 	return &DeleteIdentityprovidersOneloginRequestEntityTooLarge{}
 }
 
-/*DeleteIdentityprovidersOneloginRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteIdentityprovidersOneloginRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type DeleteIdentityprovidersOneloginRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders onelogin request entity too large response has a 2xx status code
+func (o *DeleteIdentityprovidersOneloginRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders onelogin request entity too large response has a 3xx status code
+func (o *DeleteIdentityprovidersOneloginRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders onelogin request entity too large response has a 4xx status code
+func (o *DeleteIdentityprovidersOneloginRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders onelogin request entity too large response has a 5xx status code
+func (o *DeleteIdentityprovidersOneloginRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders onelogin request entity too large response a status code equal to that given
+func (o *DeleteIdentityprovidersOneloginRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteIdentityprovidersOneloginRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOneloginRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteIdentityprovidersOneloginUnsupportedMediaType() *DeleteIdentitypro
 	return &DeleteIdentityprovidersOneloginUnsupportedMediaType{}
 }
 
-/*DeleteIdentityprovidersOneloginUnsupportedMediaType handles this case with default header values.
+/*
+DeleteIdentityprovidersOneloginUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type DeleteIdentityprovidersOneloginUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders onelogin unsupported media type response has a 2xx status code
+func (o *DeleteIdentityprovidersOneloginUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders onelogin unsupported media type response has a 3xx status code
+func (o *DeleteIdentityprovidersOneloginUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders onelogin unsupported media type response has a 4xx status code
+func (o *DeleteIdentityprovidersOneloginUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders onelogin unsupported media type response has a 5xx status code
+func (o *DeleteIdentityprovidersOneloginUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders onelogin unsupported media type response a status code equal to that given
+func (o *DeleteIdentityprovidersOneloginUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteIdentityprovidersOneloginUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOneloginUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteIdentityprovidersOneloginTooManyRequests() *DeleteIdentityprovider
 	return &DeleteIdentityprovidersOneloginTooManyRequests{}
 }
 
-/*DeleteIdentityprovidersOneloginTooManyRequests handles this case with default header values.
+/*
+DeleteIdentityprovidersOneloginTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type DeleteIdentityprovidersOneloginTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders onelogin too many requests response has a 2xx status code
+func (o *DeleteIdentityprovidersOneloginTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders onelogin too many requests response has a 3xx status code
+func (o *DeleteIdentityprovidersOneloginTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders onelogin too many requests response has a 4xx status code
+func (o *DeleteIdentityprovidersOneloginTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders onelogin too many requests response has a 5xx status code
+func (o *DeleteIdentityprovidersOneloginTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders onelogin too many requests response a status code equal to that given
+func (o *DeleteIdentityprovidersOneloginTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteIdentityprovidersOneloginTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOneloginTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteIdentityprovidersOneloginInternalServerError() *DeleteIdentityprov
 	return &DeleteIdentityprovidersOneloginInternalServerError{}
 }
 
-/*DeleteIdentityprovidersOneloginInternalServerError handles this case with default header values.
+/*
+DeleteIdentityprovidersOneloginInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type DeleteIdentityprovidersOneloginInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders onelogin internal server error response has a 2xx status code
+func (o *DeleteIdentityprovidersOneloginInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders onelogin internal server error response has a 3xx status code
+func (o *DeleteIdentityprovidersOneloginInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders onelogin internal server error response has a 4xx status code
+func (o *DeleteIdentityprovidersOneloginInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders onelogin internal server error response has a 5xx status code
+func (o *DeleteIdentityprovidersOneloginInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders onelogin internal server error response a status code equal to that given
+func (o *DeleteIdentityprovidersOneloginInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteIdentityprovidersOneloginInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOneloginInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteIdentityprovidersOneloginServiceUnavailable() *DeleteIdentityprovi
 	return &DeleteIdentityprovidersOneloginServiceUnavailable{}
 }
 
-/*DeleteIdentityprovidersOneloginServiceUnavailable handles this case with default header values.
+/*
+DeleteIdentityprovidersOneloginServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type DeleteIdentityprovidersOneloginServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders onelogin service unavailable response has a 2xx status code
+func (o *DeleteIdentityprovidersOneloginServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders onelogin service unavailable response has a 3xx status code
+func (o *DeleteIdentityprovidersOneloginServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders onelogin service unavailable response has a 4xx status code
+func (o *DeleteIdentityprovidersOneloginServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders onelogin service unavailable response has a 5xx status code
+func (o *DeleteIdentityprovidersOneloginServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders onelogin service unavailable response a status code equal to that given
+func (o *DeleteIdentityprovidersOneloginServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteIdentityprovidersOneloginServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOneloginServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteIdentityprovidersOneloginGatewayTimeout() *DeleteIdentityproviders
 	return &DeleteIdentityprovidersOneloginGatewayTimeout{}
 }
 
-/*DeleteIdentityprovidersOneloginGatewayTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersOneloginGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type DeleteIdentityprovidersOneloginGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders onelogin gateway timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersOneloginGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders onelogin gateway timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersOneloginGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders onelogin gateway timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersOneloginGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders onelogin gateway timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersOneloginGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders onelogin gateway timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersOneloginGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteIdentityprovidersOneloginGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOneloginGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/onelogin][%d] deleteIdentityprovidersOneloginGatewayTimeout  %+v", 504, o.Payload)
 }
 

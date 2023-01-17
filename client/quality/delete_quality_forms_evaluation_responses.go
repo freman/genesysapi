@@ -101,7 +101,6 @@ func (o *DeleteQualityFormsEvaluationReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteQualityFormsEvaluationNoContent() *DeleteQualityFormsEvaluationNoC
 	return &DeleteQualityFormsEvaluationNoContent{}
 }
 
-/*DeleteQualityFormsEvaluationNoContent handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationNoContent describes a response with status code 204, with default header values.
 
 Operation was successful.
 */
 type DeleteQualityFormsEvaluationNoContent struct {
 }
 
+// IsSuccess returns true when this delete quality forms evaluation no content response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete quality forms evaluation no content response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation no content response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality forms evaluation no content response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality forms evaluation no content response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteQualityFormsEvaluationNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationNoContent ", 204)
+}
+
+func (o *DeleteQualityFormsEvaluationNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationNoContent ", 204)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteQualityFormsEvaluationBadRequest() *DeleteQualityFormsEvaluationBa
 	return &DeleteQualityFormsEvaluationBadRequest{}
 }
 
-/*DeleteQualityFormsEvaluationBadRequest handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteQualityFormsEvaluationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality forms evaluation bad request response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality forms evaluation bad request response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation bad request response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality forms evaluation bad request response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality forms evaluation bad request response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteQualityFormsEvaluationBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteQualityFormsEvaluationUnauthorized() *DeleteQualityFormsEvaluation
 	return &DeleteQualityFormsEvaluationUnauthorized{}
 }
 
-/*DeleteQualityFormsEvaluationUnauthorized handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteQualityFormsEvaluationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality forms evaluation unauthorized response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality forms evaluation unauthorized response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation unauthorized response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality forms evaluation unauthorized response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality forms evaluation unauthorized response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteQualityFormsEvaluationUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteQualityFormsEvaluationForbidden() *DeleteQualityFormsEvaluationFor
 	return &DeleteQualityFormsEvaluationForbidden{}
 }
 
-/*DeleteQualityFormsEvaluationForbidden handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteQualityFormsEvaluationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality forms evaluation forbidden response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality forms evaluation forbidden response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation forbidden response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality forms evaluation forbidden response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality forms evaluation forbidden response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteQualityFormsEvaluationForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteQualityFormsEvaluationNotFound() *DeleteQualityFormsEvaluationNotF
 	return &DeleteQualityFormsEvaluationNotFound{}
 }
 
-/*DeleteQualityFormsEvaluationNotFound handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteQualityFormsEvaluationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality forms evaluation not found response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality forms evaluation not found response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation not found response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality forms evaluation not found response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality forms evaluation not found response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteQualityFormsEvaluationNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteQualityFormsEvaluationRequestTimeout() *DeleteQualityFormsEvaluati
 	return &DeleteQualityFormsEvaluationRequestTimeout{}
 }
 
-/*DeleteQualityFormsEvaluationRequestTimeout handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteQualityFormsEvaluationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality forms evaluation request timeout response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality forms evaluation request timeout response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation request timeout response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality forms evaluation request timeout response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality forms evaluation request timeout response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteQualityFormsEvaluationRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteQualityFormsEvaluationConflict() *DeleteQualityFormsEvaluationConf
 	return &DeleteQualityFormsEvaluationConflict{}
 }
 
-/*DeleteQualityFormsEvaluationConflict handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeleteQualityFormsEvaluationConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality forms evaluation conflict response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality forms evaluation conflict response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation conflict response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality forms evaluation conflict response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality forms evaluation conflict response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteQualityFormsEvaluationConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteQualityFormsEvaluationRequestEntityTooLarge() *DeleteQualityFormsE
 	return &DeleteQualityFormsEvaluationRequestEntityTooLarge{}
 }
 
-/*DeleteQualityFormsEvaluationRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteQualityFormsEvaluationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality forms evaluation request entity too large response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality forms evaluation request entity too large response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation request entity too large response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality forms evaluation request entity too large response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality forms evaluation request entity too large response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteQualityFormsEvaluationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteQualityFormsEvaluationUnsupportedMediaType() *DeleteQualityFormsEv
 	return &DeleteQualityFormsEvaluationUnsupportedMediaType{}
 }
 
-/*DeleteQualityFormsEvaluationUnsupportedMediaType handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteQualityFormsEvaluationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality forms evaluation unsupported media type response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality forms evaluation unsupported media type response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation unsupported media type response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality forms evaluation unsupported media type response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality forms evaluation unsupported media type response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteQualityFormsEvaluationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteQualityFormsEvaluationTooManyRequests() *DeleteQualityFormsEvaluat
 	return &DeleteQualityFormsEvaluationTooManyRequests{}
 }
 
-/*DeleteQualityFormsEvaluationTooManyRequests handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteQualityFormsEvaluationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality forms evaluation too many requests response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality forms evaluation too many requests response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation too many requests response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete quality forms evaluation too many requests response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete quality forms evaluation too many requests response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteQualityFormsEvaluationTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteQualityFormsEvaluationInternalServerError() *DeleteQualityFormsEva
 	return &DeleteQualityFormsEvaluationInternalServerError{}
 }
 
-/*DeleteQualityFormsEvaluationInternalServerError handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteQualityFormsEvaluationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality forms evaluation internal server error response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality forms evaluation internal server error response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation internal server error response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality forms evaluation internal server error response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete quality forms evaluation internal server error response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteQualityFormsEvaluationInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteQualityFormsEvaluationServiceUnavailable() *DeleteQualityFormsEval
 	return &DeleteQualityFormsEvaluationServiceUnavailable{}
 }
 
-/*DeleteQualityFormsEvaluationServiceUnavailable handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteQualityFormsEvaluationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality forms evaluation service unavailable response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality forms evaluation service unavailable response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation service unavailable response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality forms evaluation service unavailable response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete quality forms evaluation service unavailable response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteQualityFormsEvaluationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteQualityFormsEvaluationGatewayTimeout() *DeleteQualityFormsEvaluati
 	return &DeleteQualityFormsEvaluationGatewayTimeout{}
 }
 
-/*DeleteQualityFormsEvaluationGatewayTimeout handles this case with default header values.
+/*
+DeleteQualityFormsEvaluationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteQualityFormsEvaluationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete quality forms evaluation gateway timeout response has a 2xx status code
+func (o *DeleteQualityFormsEvaluationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete quality forms evaluation gateway timeout response has a 3xx status code
+func (o *DeleteQualityFormsEvaluationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete quality forms evaluation gateway timeout response has a 4xx status code
+func (o *DeleteQualityFormsEvaluationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete quality forms evaluation gateway timeout response has a 5xx status code
+func (o *DeleteQualityFormsEvaluationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete quality forms evaluation gateway timeout response a status code equal to that given
+func (o *DeleteQualityFormsEvaluationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteQualityFormsEvaluationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteQualityFormsEvaluationGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/quality/forms/evaluations/{formId}][%d] deleteQualityFormsEvaluationGatewayTimeout  %+v", 504, o.Payload)
 }
 

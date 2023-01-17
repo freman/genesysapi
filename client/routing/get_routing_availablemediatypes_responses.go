@@ -95,7 +95,6 @@ func (o *GetRoutingAvailablemediatypesReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingAvailablemediatypesOK() *GetRoutingAvailablemediatypesOK {
 	return &GetRoutingAvailablemediatypesOK{}
 }
 
-/*GetRoutingAvailablemediatypesOK handles this case with default header values.
+/*
+GetRoutingAvailablemediatypesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingAvailablemediatypesOK struct {
 	Payload *models.AvailableMediaTypeEntityListing
 }
 
+// IsSuccess returns true when this get routing availablemediatypes o k response has a 2xx status code
+func (o *GetRoutingAvailablemediatypesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing availablemediatypes o k response has a 3xx status code
+func (o *GetRoutingAvailablemediatypesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing availablemediatypes o k response has a 4xx status code
+func (o *GetRoutingAvailablemediatypesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing availablemediatypes o k response has a 5xx status code
+func (o *GetRoutingAvailablemediatypesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing availablemediatypes o k response a status code equal to that given
+func (o *GetRoutingAvailablemediatypesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingAvailablemediatypesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingAvailablemediatypesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingAvailablemediatypesBadRequest() *GetRoutingAvailablemediatypes
 	return &GetRoutingAvailablemediatypesBadRequest{}
 }
 
-/*GetRoutingAvailablemediatypesBadRequest handles this case with default header values.
+/*
+GetRoutingAvailablemediatypesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingAvailablemediatypesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing availablemediatypes bad request response has a 2xx status code
+func (o *GetRoutingAvailablemediatypesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing availablemediatypes bad request response has a 3xx status code
+func (o *GetRoutingAvailablemediatypesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing availablemediatypes bad request response has a 4xx status code
+func (o *GetRoutingAvailablemediatypesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing availablemediatypes bad request response has a 5xx status code
+func (o *GetRoutingAvailablemediatypesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing availablemediatypes bad request response a status code equal to that given
+func (o *GetRoutingAvailablemediatypesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingAvailablemediatypesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingAvailablemediatypesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingAvailablemediatypesUnauthorized() *GetRoutingAvailablemediatyp
 	return &GetRoutingAvailablemediatypesUnauthorized{}
 }
 
-/*GetRoutingAvailablemediatypesUnauthorized handles this case with default header values.
+/*
+GetRoutingAvailablemediatypesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingAvailablemediatypesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing availablemediatypes unauthorized response has a 2xx status code
+func (o *GetRoutingAvailablemediatypesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing availablemediatypes unauthorized response has a 3xx status code
+func (o *GetRoutingAvailablemediatypesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing availablemediatypes unauthorized response has a 4xx status code
+func (o *GetRoutingAvailablemediatypesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing availablemediatypes unauthorized response has a 5xx status code
+func (o *GetRoutingAvailablemediatypesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing availablemediatypes unauthorized response a status code equal to that given
+func (o *GetRoutingAvailablemediatypesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingAvailablemediatypesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingAvailablemediatypesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingAvailablemediatypesForbidden() *GetRoutingAvailablemediatypesF
 	return &GetRoutingAvailablemediatypesForbidden{}
 }
 
-/*GetRoutingAvailablemediatypesForbidden handles this case with default header values.
+/*
+GetRoutingAvailablemediatypesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingAvailablemediatypesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing availablemediatypes forbidden response has a 2xx status code
+func (o *GetRoutingAvailablemediatypesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing availablemediatypes forbidden response has a 3xx status code
+func (o *GetRoutingAvailablemediatypesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing availablemediatypes forbidden response has a 4xx status code
+func (o *GetRoutingAvailablemediatypesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing availablemediatypes forbidden response has a 5xx status code
+func (o *GetRoutingAvailablemediatypesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing availablemediatypes forbidden response a status code equal to that given
+func (o *GetRoutingAvailablemediatypesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingAvailablemediatypesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingAvailablemediatypesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingAvailablemediatypesNotFound() *GetRoutingAvailablemediatypesNo
 	return &GetRoutingAvailablemediatypesNotFound{}
 }
 
-/*GetRoutingAvailablemediatypesNotFound handles this case with default header values.
+/*
+GetRoutingAvailablemediatypesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingAvailablemediatypesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing availablemediatypes not found response has a 2xx status code
+func (o *GetRoutingAvailablemediatypesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing availablemediatypes not found response has a 3xx status code
+func (o *GetRoutingAvailablemediatypesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing availablemediatypes not found response has a 4xx status code
+func (o *GetRoutingAvailablemediatypesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing availablemediatypes not found response has a 5xx status code
+func (o *GetRoutingAvailablemediatypesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing availablemediatypes not found response a status code equal to that given
+func (o *GetRoutingAvailablemediatypesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingAvailablemediatypesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingAvailablemediatypesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingAvailablemediatypesRequestTimeout() *GetRoutingAvailablemediat
 	return &GetRoutingAvailablemediatypesRequestTimeout{}
 }
 
-/*GetRoutingAvailablemediatypesRequestTimeout handles this case with default header values.
+/*
+GetRoutingAvailablemediatypesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingAvailablemediatypesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing availablemediatypes request timeout response has a 2xx status code
+func (o *GetRoutingAvailablemediatypesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing availablemediatypes request timeout response has a 3xx status code
+func (o *GetRoutingAvailablemediatypesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing availablemediatypes request timeout response has a 4xx status code
+func (o *GetRoutingAvailablemediatypesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing availablemediatypes request timeout response has a 5xx status code
+func (o *GetRoutingAvailablemediatypesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing availablemediatypes request timeout response a status code equal to that given
+func (o *GetRoutingAvailablemediatypesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingAvailablemediatypesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingAvailablemediatypesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingAvailablemediatypesRequestEntityTooLarge() *GetRoutingAvailabl
 	return &GetRoutingAvailablemediatypesRequestEntityTooLarge{}
 }
 
-/*GetRoutingAvailablemediatypesRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingAvailablemediatypesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingAvailablemediatypesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing availablemediatypes request entity too large response has a 2xx status code
+func (o *GetRoutingAvailablemediatypesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing availablemediatypes request entity too large response has a 3xx status code
+func (o *GetRoutingAvailablemediatypesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing availablemediatypes request entity too large response has a 4xx status code
+func (o *GetRoutingAvailablemediatypesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing availablemediatypes request entity too large response has a 5xx status code
+func (o *GetRoutingAvailablemediatypesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing availablemediatypes request entity too large response a status code equal to that given
+func (o *GetRoutingAvailablemediatypesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingAvailablemediatypesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingAvailablemediatypesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingAvailablemediatypesUnsupportedMediaType() *GetRoutingAvailable
 	return &GetRoutingAvailablemediatypesUnsupportedMediaType{}
 }
 
-/*GetRoutingAvailablemediatypesUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingAvailablemediatypesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingAvailablemediatypesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing availablemediatypes unsupported media type response has a 2xx status code
+func (o *GetRoutingAvailablemediatypesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing availablemediatypes unsupported media type response has a 3xx status code
+func (o *GetRoutingAvailablemediatypesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing availablemediatypes unsupported media type response has a 4xx status code
+func (o *GetRoutingAvailablemediatypesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing availablemediatypes unsupported media type response has a 5xx status code
+func (o *GetRoutingAvailablemediatypesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing availablemediatypes unsupported media type response a status code equal to that given
+func (o *GetRoutingAvailablemediatypesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingAvailablemediatypesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingAvailablemediatypesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingAvailablemediatypesTooManyRequests() *GetRoutingAvailablemedia
 	return &GetRoutingAvailablemediatypesTooManyRequests{}
 }
 
-/*GetRoutingAvailablemediatypesTooManyRequests handles this case with default header values.
+/*
+GetRoutingAvailablemediatypesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingAvailablemediatypesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing availablemediatypes too many requests response has a 2xx status code
+func (o *GetRoutingAvailablemediatypesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing availablemediatypes too many requests response has a 3xx status code
+func (o *GetRoutingAvailablemediatypesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing availablemediatypes too many requests response has a 4xx status code
+func (o *GetRoutingAvailablemediatypesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing availablemediatypes too many requests response has a 5xx status code
+func (o *GetRoutingAvailablemediatypesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing availablemediatypes too many requests response a status code equal to that given
+func (o *GetRoutingAvailablemediatypesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingAvailablemediatypesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingAvailablemediatypesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingAvailablemediatypesInternalServerError() *GetRoutingAvailablem
 	return &GetRoutingAvailablemediatypesInternalServerError{}
 }
 
-/*GetRoutingAvailablemediatypesInternalServerError handles this case with default header values.
+/*
+GetRoutingAvailablemediatypesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingAvailablemediatypesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing availablemediatypes internal server error response has a 2xx status code
+func (o *GetRoutingAvailablemediatypesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing availablemediatypes internal server error response has a 3xx status code
+func (o *GetRoutingAvailablemediatypesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing availablemediatypes internal server error response has a 4xx status code
+func (o *GetRoutingAvailablemediatypesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing availablemediatypes internal server error response has a 5xx status code
+func (o *GetRoutingAvailablemediatypesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing availablemediatypes internal server error response a status code equal to that given
+func (o *GetRoutingAvailablemediatypesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingAvailablemediatypesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingAvailablemediatypesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingAvailablemediatypesServiceUnavailable() *GetRoutingAvailableme
 	return &GetRoutingAvailablemediatypesServiceUnavailable{}
 }
 
-/*GetRoutingAvailablemediatypesServiceUnavailable handles this case with default header values.
+/*
+GetRoutingAvailablemediatypesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingAvailablemediatypesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing availablemediatypes service unavailable response has a 2xx status code
+func (o *GetRoutingAvailablemediatypesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing availablemediatypes service unavailable response has a 3xx status code
+func (o *GetRoutingAvailablemediatypesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing availablemediatypes service unavailable response has a 4xx status code
+func (o *GetRoutingAvailablemediatypesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing availablemediatypes service unavailable response has a 5xx status code
+func (o *GetRoutingAvailablemediatypesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing availablemediatypes service unavailable response a status code equal to that given
+func (o *GetRoutingAvailablemediatypesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingAvailablemediatypesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingAvailablemediatypesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingAvailablemediatypesGatewayTimeout() *GetRoutingAvailablemediat
 	return &GetRoutingAvailablemediatypesGatewayTimeout{}
 }
 
-/*GetRoutingAvailablemediatypesGatewayTimeout handles this case with default header values.
+/*
+GetRoutingAvailablemediatypesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingAvailablemediatypesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing availablemediatypes gateway timeout response has a 2xx status code
+func (o *GetRoutingAvailablemediatypesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing availablemediatypes gateway timeout response has a 3xx status code
+func (o *GetRoutingAvailablemediatypesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing availablemediatypes gateway timeout response has a 4xx status code
+func (o *GetRoutingAvailablemediatypesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing availablemediatypes gateway timeout response has a 5xx status code
+func (o *GetRoutingAvailablemediatypesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing availablemediatypes gateway timeout response a status code equal to that given
+func (o *GetRoutingAvailablemediatypesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingAvailablemediatypesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingAvailablemediatypesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/availablemediatypes][%d] getRoutingAvailablemediatypesGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -17,59 +17,75 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRoutingAssessmentsJobsParams creates a new GetRoutingAssessmentsJobsParams object
-// with the default values initialized.
+// NewGetRoutingAssessmentsJobsParams creates a new GetRoutingAssessmentsJobsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingAssessmentsJobsParams() *GetRoutingAssessmentsJobsParams {
-	var ()
 	return &GetRoutingAssessmentsJobsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingAssessmentsJobsParamsWithTimeout creates a new GetRoutingAssessmentsJobsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingAssessmentsJobsParamsWithTimeout(timeout time.Duration) *GetRoutingAssessmentsJobsParams {
-	var ()
 	return &GetRoutingAssessmentsJobsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingAssessmentsJobsParamsWithContext creates a new GetRoutingAssessmentsJobsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingAssessmentsJobsParamsWithContext(ctx context.Context) *GetRoutingAssessmentsJobsParams {
-	var ()
 	return &GetRoutingAssessmentsJobsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingAssessmentsJobsParamsWithHTTPClient creates a new GetRoutingAssessmentsJobsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingAssessmentsJobsParamsWithHTTPClient(client *http.Client) *GetRoutingAssessmentsJobsParams {
-	var ()
 	return &GetRoutingAssessmentsJobsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingAssessmentsJobsParams contains all the parameters to send to the API endpoint
-for the get routing assessments jobs operation typically these are written to a http.Request
+/*
+GetRoutingAssessmentsJobsParams contains all the parameters to send to the API endpoint
+
+	for the get routing assessments jobs operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingAssessmentsJobsParams struct {
 
-	/*DivisionID
-	  Division ID(s) to filter assessment jobs by.
+	/* DivisionID.
 
+	   Division ID(s) to filter assessment jobs by.
 	*/
 	DivisionID []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing assessments jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingAssessmentsJobsParams) WithDefaults() *GetRoutingAssessmentsJobsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing assessments jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingAssessmentsJobsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing assessments jobs params
@@ -124,16 +140,36 @@ func (o *GetRoutingAssessmentsJobsParams) WriteToRequest(r runtime.ClientRequest
 	}
 	var res []error
 
-	valuesDivisionID := o.DivisionID
+	if o.DivisionID != nil {
 
-	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
-	// query array param divisionId
-	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
-		return err
+		// binding items for divisionId
+		joinedDivisionID := o.bindParamDivisionID(reg)
+
+		// query array param divisionId
+		if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetRoutingAssessmentsJobs binds the parameter divisionId
+func (o *GetRoutingAssessmentsJobsParams) bindParamDivisionID(formats strfmt.Registry) []string {
+	divisionIDIR := o.DivisionID
+
+	var divisionIDIC []string
+	for _, divisionIDIIR := range divisionIDIR { // explode []string
+
+		divisionIDIIV := divisionIDIIR // string as string
+		divisionIDIC = append(divisionIDIC, divisionIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	divisionIDIS := swag.JoinByFormat(divisionIDIC, "multi")
+
+	return divisionIDIS
 }

@@ -95,7 +95,6 @@ func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDReader) ReadRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDOK() *GetConvers
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDOK{}
 }
 
-/*GetConversationsMessageCommunicationMessagesMediaMediaIDOK handles this case with default header values.
+/*
+GetConversationsMessageCommunicationMessagesMediaMediaIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetConversationsMessageCommunicationMessagesMediaMediaIDOK struct {
 	Payload *models.MessageMediaData
 }
 
+// IsSuccess returns true when this get conversations message communication messages media media Id o k response has a 2xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversations message communication messages media media Id o k response has a 3xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations message communication messages media media Id o k response has a 4xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations message communication messages media media Id o k response has a 5xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations message communication messages media media Id o k response a status code equal to that given
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDBadRequest() *Ge
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDBadRequest{}
 }
 
-/*GetConversationsMessageCommunicationMessagesMediaMediaIDBadRequest handles this case with default header values.
+/*
+GetConversationsMessageCommunicationMessagesMediaMediaIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetConversationsMessageCommunicationMessagesMediaMediaIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations message communication messages media media Id bad request response has a 2xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations message communication messages media media Id bad request response has a 3xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations message communication messages media media Id bad request response has a 4xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations message communication messages media media Id bad request response has a 5xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations message communication messages media media Id bad request response a status code equal to that given
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDUnauthorized() *
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDUnauthorized{}
 }
 
-/*GetConversationsMessageCommunicationMessagesMediaMediaIDUnauthorized handles this case with default header values.
+/*
+GetConversationsMessageCommunicationMessagesMediaMediaIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetConversationsMessageCommunicationMessagesMediaMediaIDUnauthorized struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations message communication messages media media Id unauthorized response has a 2xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations message communication messages media media Id unauthorized response has a 3xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations message communication messages media media Id unauthorized response has a 4xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations message communication messages media media Id unauthorized response has a 5xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations message communication messages media media Id unauthorized response a status code equal to that given
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDForbidden() *Get
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDForbidden{}
 }
 
-/*GetConversationsMessageCommunicationMessagesMediaMediaIDForbidden handles this case with default header values.
+/*
+GetConversationsMessageCommunicationMessagesMediaMediaIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetConversationsMessageCommunicationMessagesMediaMediaIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations message communication messages media media Id forbidden response has a 2xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations message communication messages media media Id forbidden response has a 3xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations message communication messages media media Id forbidden response has a 4xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations message communication messages media media Id forbidden response has a 5xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations message communication messages media media Id forbidden response a status code equal to that given
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDNotFound() *GetC
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDNotFound{}
 }
 
-/*GetConversationsMessageCommunicationMessagesMediaMediaIDNotFound handles this case with default header values.
+/*
+GetConversationsMessageCommunicationMessagesMediaMediaIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetConversationsMessageCommunicationMessagesMediaMediaIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations message communication messages media media Id not found response has a 2xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations message communication messages media media Id not found response has a 3xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations message communication messages media media Id not found response has a 4xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations message communication messages media media Id not found response has a 5xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations message communication messages media media Id not found response a status code equal to that given
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout()
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout{}
 }
 
-/*GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout handles this case with default header values.
+/*
+GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations message communication messages media media Id request timeout response has a 2xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations message communication messages media media Id request timeout response has a 3xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations message communication messages media media Id request timeout response has a 4xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations message communication messages media media Id request timeout response has a 5xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations message communication messages media media Id request timeout response a status code equal to that given
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityToo
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge{}
 }
 
-/*GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLar
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations message communication messages media media Id request entity too large response has a 2xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations message communication messages media media Id request entity too large response has a 3xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations message communication messages media media Id request entity too large response has a 4xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations message communication messages media media Id request entity too large response has a 5xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations message communication messages media media Id request entity too large response a status code equal to that given
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDUnsupportedMedia
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDUnsupportedMediaType{}
 }
 
-/*GetConversationsMessageCommunicationMessagesMediaMediaIDUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationsMessageCommunicationMessagesMediaMediaIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetConversationsMessageCommunicationMessagesMediaMediaIDUnsupportedMediaTyp
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations message communication messages media media Id unsupported media type response has a 2xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations message communication messages media media Id unsupported media type response has a 3xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations message communication messages media media Id unsupported media type response has a 4xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations message communication messages media media Id unsupported media type response has a 5xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations message communication messages media media Id unsupported media type response a status code equal to that given
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests(
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests{}
 }
 
-/*GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests handles this case with default header values.
+/*
+GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations message communication messages media media Id too many requests response has a 2xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations message communication messages media media Id too many requests response has a 3xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations message communication messages media media Id too many requests response has a 4xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations message communication messages media media Id too many requests response has a 5xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations message communication messages media media Id too many requests response a status code equal to that given
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDInternalServerEr
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDInternalServerError{}
 }
 
-/*GetConversationsMessageCommunicationMessagesMediaMediaIDInternalServerError handles this case with default header values.
+/*
+GetConversationsMessageCommunicationMessagesMediaMediaIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetConversationsMessageCommunicationMessagesMediaMediaIDInternalServerError
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations message communication messages media media Id internal server error response has a 2xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations message communication messages media media Id internal server error response has a 3xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations message communication messages media media Id internal server error response has a 4xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations message communication messages media media Id internal server error response has a 5xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations message communication messages media media Id internal server error response a status code equal to that given
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDServiceUnavailab
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDServiceUnavailable{}
 }
 
-/*GetConversationsMessageCommunicationMessagesMediaMediaIDServiceUnavailable handles this case with default header values.
+/*
+GetConversationsMessageCommunicationMessagesMediaMediaIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetConversationsMessageCommunicationMessagesMediaMediaIDServiceUnavailable 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations message communication messages media media Id service unavailable response has a 2xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations message communication messages media media Id service unavailable response has a 3xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations message communication messages media media Id service unavailable response has a 4xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations message communication messages media media Id service unavailable response has a 5xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations message communication messages media media Id service unavailable response a status code equal to that given
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetConversationsMessageCommunicationMessagesMediaMediaIDGatewayTimeout()
 	return &GetConversationsMessageCommunicationMessagesMediaMediaIDGatewayTimeout{}
 }
 
-/*GetConversationsMessageCommunicationMessagesMediaMediaIDGatewayTimeout handles this case with default header values.
+/*
+GetConversationsMessageCommunicationMessagesMediaMediaIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetConversationsMessageCommunicationMessagesMediaMediaIDGatewayTimeout stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations message communication messages media media Id gateway timeout response has a 2xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations message communication messages media media Id gateway timeout response has a 3xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations message communication messages media media Id gateway timeout response has a 4xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations message communication messages media media Id gateway timeout response has a 5xx status code
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations message communication messages media media Id gateway timeout response a status code equal to that given
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationsMessageCommunicationMessagesMediaMediaIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages/media/{mediaId}][%d] getConversationsMessageCommunicationMessagesMediaMediaIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

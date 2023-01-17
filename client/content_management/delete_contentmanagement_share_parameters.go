@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteContentmanagementShareParams creates a new DeleteContentmanagementShareParams object
-// with the default values initialized.
+// NewDeleteContentmanagementShareParams creates a new DeleteContentmanagementShareParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteContentmanagementShareParams() *DeleteContentmanagementShareParams {
-	var ()
 	return &DeleteContentmanagementShareParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteContentmanagementShareParamsWithTimeout creates a new DeleteContentmanagementShareParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteContentmanagementShareParamsWithTimeout(timeout time.Duration) *DeleteContentmanagementShareParams {
-	var ()
 	return &DeleteContentmanagementShareParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteContentmanagementShareParamsWithContext creates a new DeleteContentmanagementShareParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteContentmanagementShareParamsWithContext(ctx context.Context) *DeleteContentmanagementShareParams {
-	var ()
 	return &DeleteContentmanagementShareParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteContentmanagementShareParamsWithHTTPClient creates a new DeleteContentmanagementShareParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteContentmanagementShareParamsWithHTTPClient(client *http.Client) *DeleteContentmanagementShareParams {
-	var ()
 	return &DeleteContentmanagementShareParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteContentmanagementShareParams contains all the parameters to send to the API endpoint
-for the delete contentmanagement share operation typically these are written to a http.Request
+/*
+DeleteContentmanagementShareParams contains all the parameters to send to the API endpoint
+
+	for the delete contentmanagement share operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteContentmanagementShareParams struct {
 
-	/*ShareID
-	  Share ID
+	/* ShareID.
 
+	   Share ID
 	*/
 	ShareID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete contentmanagement share params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteContentmanagementShareParams) WithDefaults() *DeleteContentmanagementShareParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete contentmanagement share params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteContentmanagementShareParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete contentmanagement share params

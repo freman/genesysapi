@@ -95,7 +95,6 @@ func (o *PostOutboundContactlistClearReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostOutboundContactlistClearNoContent() *PostOutboundContactlistClearNoC
 	return &PostOutboundContactlistClearNoContent{}
 }
 
-/*PostOutboundContactlistClearNoContent handles this case with default header values.
+/*
+PostOutboundContactlistClearNoContent describes a response with status code 204, with default header values.
 
 Contacts will be deleted.
 */
 type PostOutboundContactlistClearNoContent struct {
 }
 
+// IsSuccess returns true when this post outbound contactlist clear no content response has a 2xx status code
+func (o *PostOutboundContactlistClearNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post outbound contactlist clear no content response has a 3xx status code
+func (o *PostOutboundContactlistClearNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound contactlist clear no content response has a 4xx status code
+func (o *PostOutboundContactlistClearNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound contactlist clear no content response has a 5xx status code
+func (o *PostOutboundContactlistClearNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound contactlist clear no content response a status code equal to that given
+func (o *PostOutboundContactlistClearNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PostOutboundContactlistClearNoContent) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearNoContent ", 204)
+}
+
+func (o *PostOutboundContactlistClearNoContent) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewPostOutboundContactlistClearBadRequest() *PostOutboundContactlistClearBa
 	return &PostOutboundContactlistClearBadRequest{}
 }
 
-/*PostOutboundContactlistClearBadRequest handles this case with default header values.
+/*
+PostOutboundContactlistClearBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostOutboundContactlistClearBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound contactlist clear bad request response has a 2xx status code
+func (o *PostOutboundContactlistClearBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound contactlist clear bad request response has a 3xx status code
+func (o *PostOutboundContactlistClearBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound contactlist clear bad request response has a 4xx status code
+func (o *PostOutboundContactlistClearBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound contactlist clear bad request response has a 5xx status code
+func (o *PostOutboundContactlistClearBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound contactlist clear bad request response a status code equal to that given
+func (o *PostOutboundContactlistClearBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOutboundContactlistClearBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOutboundContactlistClearBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostOutboundContactlistClearUnauthorized() *PostOutboundContactlistClear
 	return &PostOutboundContactlistClearUnauthorized{}
 }
 
-/*PostOutboundContactlistClearUnauthorized handles this case with default header values.
+/*
+PostOutboundContactlistClearUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostOutboundContactlistClearUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound contactlist clear unauthorized response has a 2xx status code
+func (o *PostOutboundContactlistClearUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound contactlist clear unauthorized response has a 3xx status code
+func (o *PostOutboundContactlistClearUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound contactlist clear unauthorized response has a 4xx status code
+func (o *PostOutboundContactlistClearUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound contactlist clear unauthorized response has a 5xx status code
+func (o *PostOutboundContactlistClearUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound contactlist clear unauthorized response a status code equal to that given
+func (o *PostOutboundContactlistClearUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOutboundContactlistClearUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOutboundContactlistClearUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostOutboundContactlistClearForbidden() *PostOutboundContactlistClearFor
 	return &PostOutboundContactlistClearForbidden{}
 }
 
-/*PostOutboundContactlistClearForbidden handles this case with default header values.
+/*
+PostOutboundContactlistClearForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostOutboundContactlistClearForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound contactlist clear forbidden response has a 2xx status code
+func (o *PostOutboundContactlistClearForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound contactlist clear forbidden response has a 3xx status code
+func (o *PostOutboundContactlistClearForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound contactlist clear forbidden response has a 4xx status code
+func (o *PostOutboundContactlistClearForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound contactlist clear forbidden response has a 5xx status code
+func (o *PostOutboundContactlistClearForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound contactlist clear forbidden response a status code equal to that given
+func (o *PostOutboundContactlistClearForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOutboundContactlistClearForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOutboundContactlistClearForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostOutboundContactlistClearNotFound() *PostOutboundContactlistClearNotF
 	return &PostOutboundContactlistClearNotFound{}
 }
 
-/*PostOutboundContactlistClearNotFound handles this case with default header values.
+/*
+PostOutboundContactlistClearNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostOutboundContactlistClearNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound contactlist clear not found response has a 2xx status code
+func (o *PostOutboundContactlistClearNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound contactlist clear not found response has a 3xx status code
+func (o *PostOutboundContactlistClearNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound contactlist clear not found response has a 4xx status code
+func (o *PostOutboundContactlistClearNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound contactlist clear not found response has a 5xx status code
+func (o *PostOutboundContactlistClearNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound contactlist clear not found response a status code equal to that given
+func (o *PostOutboundContactlistClearNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOutboundContactlistClearNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOutboundContactlistClearNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostOutboundContactlistClearRequestTimeout() *PostOutboundContactlistCle
 	return &PostOutboundContactlistClearRequestTimeout{}
 }
 
-/*PostOutboundContactlistClearRequestTimeout handles this case with default header values.
+/*
+PostOutboundContactlistClearRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostOutboundContactlistClearRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound contactlist clear request timeout response has a 2xx status code
+func (o *PostOutboundContactlistClearRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound contactlist clear request timeout response has a 3xx status code
+func (o *PostOutboundContactlistClearRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound contactlist clear request timeout response has a 4xx status code
+func (o *PostOutboundContactlistClearRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound contactlist clear request timeout response has a 5xx status code
+func (o *PostOutboundContactlistClearRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound contactlist clear request timeout response a status code equal to that given
+func (o *PostOutboundContactlistClearRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOutboundContactlistClearRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundContactlistClearRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostOutboundContactlistClearRequestEntityTooLarge() *PostOutboundContact
 	return &PostOutboundContactlistClearRequestEntityTooLarge{}
 }
 
-/*PostOutboundContactlistClearRequestEntityTooLarge handles this case with default header values.
+/*
+PostOutboundContactlistClearRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostOutboundContactlistClearRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound contactlist clear request entity too large response has a 2xx status code
+func (o *PostOutboundContactlistClearRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound contactlist clear request entity too large response has a 3xx status code
+func (o *PostOutboundContactlistClearRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound contactlist clear request entity too large response has a 4xx status code
+func (o *PostOutboundContactlistClearRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound contactlist clear request entity too large response has a 5xx status code
+func (o *PostOutboundContactlistClearRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound contactlist clear request entity too large response a status code equal to that given
+func (o *PostOutboundContactlistClearRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOutboundContactlistClearRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOutboundContactlistClearRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostOutboundContactlistClearUnsupportedMediaType() *PostOutboundContactl
 	return &PostOutboundContactlistClearUnsupportedMediaType{}
 }
 
-/*PostOutboundContactlistClearUnsupportedMediaType handles this case with default header values.
+/*
+PostOutboundContactlistClearUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostOutboundContactlistClearUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound contactlist clear unsupported media type response has a 2xx status code
+func (o *PostOutboundContactlistClearUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound contactlist clear unsupported media type response has a 3xx status code
+func (o *PostOutboundContactlistClearUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound contactlist clear unsupported media type response has a 4xx status code
+func (o *PostOutboundContactlistClearUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound contactlist clear unsupported media type response has a 5xx status code
+func (o *PostOutboundContactlistClearUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound contactlist clear unsupported media type response a status code equal to that given
+func (o *PostOutboundContactlistClearUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOutboundContactlistClearUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOutboundContactlistClearUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostOutboundContactlistClearTooManyRequests() *PostOutboundContactlistCl
 	return &PostOutboundContactlistClearTooManyRequests{}
 }
 
-/*PostOutboundContactlistClearTooManyRequests handles this case with default header values.
+/*
+PostOutboundContactlistClearTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostOutboundContactlistClearTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound contactlist clear too many requests response has a 2xx status code
+func (o *PostOutboundContactlistClearTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound contactlist clear too many requests response has a 3xx status code
+func (o *PostOutboundContactlistClearTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound contactlist clear too many requests response has a 4xx status code
+func (o *PostOutboundContactlistClearTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound contactlist clear too many requests response has a 5xx status code
+func (o *PostOutboundContactlistClearTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound contactlist clear too many requests response a status code equal to that given
+func (o *PostOutboundContactlistClearTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOutboundContactlistClearTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOutboundContactlistClearTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostOutboundContactlistClearInternalServerError() *PostOutboundContactli
 	return &PostOutboundContactlistClearInternalServerError{}
 }
 
-/*PostOutboundContactlistClearInternalServerError handles this case with default header values.
+/*
+PostOutboundContactlistClearInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostOutboundContactlistClearInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound contactlist clear internal server error response has a 2xx status code
+func (o *PostOutboundContactlistClearInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound contactlist clear internal server error response has a 3xx status code
+func (o *PostOutboundContactlistClearInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound contactlist clear internal server error response has a 4xx status code
+func (o *PostOutboundContactlistClearInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound contactlist clear internal server error response has a 5xx status code
+func (o *PostOutboundContactlistClearInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound contactlist clear internal server error response a status code equal to that given
+func (o *PostOutboundContactlistClearInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOutboundContactlistClearInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOutboundContactlistClearInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostOutboundContactlistClearServiceUnavailable() *PostOutboundContactlis
 	return &PostOutboundContactlistClearServiceUnavailable{}
 }
 
-/*PostOutboundContactlistClearServiceUnavailable handles this case with default header values.
+/*
+PostOutboundContactlistClearServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostOutboundContactlistClearServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound contactlist clear service unavailable response has a 2xx status code
+func (o *PostOutboundContactlistClearServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound contactlist clear service unavailable response has a 3xx status code
+func (o *PostOutboundContactlistClearServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound contactlist clear service unavailable response has a 4xx status code
+func (o *PostOutboundContactlistClearServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound contactlist clear service unavailable response has a 5xx status code
+func (o *PostOutboundContactlistClearServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound contactlist clear service unavailable response a status code equal to that given
+func (o *PostOutboundContactlistClearServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOutboundContactlistClearServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOutboundContactlistClearServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostOutboundContactlistClearGatewayTimeout() *PostOutboundContactlistCle
 	return &PostOutboundContactlistClearGatewayTimeout{}
 }
 
-/*PostOutboundContactlistClearGatewayTimeout handles this case with default header values.
+/*
+PostOutboundContactlistClearGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostOutboundContactlistClearGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound contactlist clear gateway timeout response has a 2xx status code
+func (o *PostOutboundContactlistClearGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound contactlist clear gateway timeout response has a 3xx status code
+func (o *PostOutboundContactlistClearGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound contactlist clear gateway timeout response has a 4xx status code
+func (o *PostOutboundContactlistClearGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound contactlist clear gateway timeout response has a 5xx status code
+func (o *PostOutboundContactlistClearGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound contactlist clear gateway timeout response a status code equal to that given
+func (o *PostOutboundContactlistClearGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOutboundContactlistClearGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOutboundContactlistClearGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/contactlists/{contactListId}/clear][%d] postOutboundContactlistClearGatewayTimeout  %+v", 504, o.Payload)
 }
 

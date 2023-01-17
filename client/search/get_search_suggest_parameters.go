@@ -17,81 +17,100 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetSearchSuggestParams creates a new GetSearchSuggestParams object
-// with the default values initialized.
+// NewGetSearchSuggestParams creates a new GetSearchSuggestParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSearchSuggestParams() *GetSearchSuggestParams {
-	var (
-		profileDefault = bool(true)
-	)
 	return &GetSearchSuggestParams{
-		Profile: &profileDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSearchSuggestParamsWithTimeout creates a new GetSearchSuggestParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSearchSuggestParamsWithTimeout(timeout time.Duration) *GetSearchSuggestParams {
-	var (
-		profileDefault = bool(true)
-	)
 	return &GetSearchSuggestParams{
-		Profile: &profileDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSearchSuggestParamsWithContext creates a new GetSearchSuggestParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSearchSuggestParamsWithContext(ctx context.Context) *GetSearchSuggestParams {
-	var (
-		profileDefault = bool(true)
-	)
 	return &GetSearchSuggestParams{
-		Profile: &profileDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetSearchSuggestParamsWithHTTPClient creates a new GetSearchSuggestParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSearchSuggestParamsWithHTTPClient(client *http.Client) *GetSearchSuggestParams {
-	var (
-		profileDefault = bool(true)
-	)
 	return &GetSearchSuggestParams{
-		Profile:    &profileDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetSearchSuggestParams contains all the parameters to send to the API endpoint
-for the get search suggest operation typically these are written to a http.Request
+/*
+GetSearchSuggestParams contains all the parameters to send to the API endpoint
+
+	for the get search suggest operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSearchSuggestParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand
+	/* Expand.
 
+	   Which fields, if any, to expand
 	*/
 	Expand []string
-	/*Profile
-	  profile
 
+	/* Profile.
+
+	   profile
+
+	   Default: true
 	*/
 	Profile *bool
-	/*Q64
-	  q64
 
+	/* Q64.
+
+	   q64
 	*/
 	Q64 string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get search suggest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSearchSuggestParams) WithDefaults() *GetSearchSuggestParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get search suggest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSearchSuggestParams) SetDefaults() {
+	var (
+		profileDefault = bool(true)
+	)
+
+	val := GetSearchSuggestParams{
+		Profile: &profileDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get search suggest params
@@ -168,34 +187,39 @@ func (o *GetSearchSuggestParams) WriteToRequest(r runtime.ClientRequest, reg str
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.Profile != nil {
 
 		// query param profile
 		var qrProfile bool
+
 		if o.Profile != nil {
 			qrProfile = *o.Profile
 		}
 		qProfile := swag.FormatBool(qrProfile)
 		if qProfile != "" {
+
 			if err := r.SetQueryParam("profile", qProfile); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param q64
 	qrQ64 := o.Q64
 	qQ64 := qrQ64
 	if qQ64 != "" {
+
 		if err := r.SetQueryParam("q64", qQ64); err != nil {
 			return err
 		}
@@ -205,4 +229,21 @@ func (o *GetSearchSuggestParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetSearchSuggest binds the parameter expand
+func (o *GetSearchSuggestParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

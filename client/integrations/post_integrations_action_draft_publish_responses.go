@@ -95,7 +95,6 @@ func (o *PostIntegrationsActionDraftPublishReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostIntegrationsActionDraftPublishOK() *PostIntegrationsActionDraftPubli
 	return &PostIntegrationsActionDraftPublishOK{}
 }
 
-/*PostIntegrationsActionDraftPublishOK handles this case with default header values.
+/*
+PostIntegrationsActionDraftPublishOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostIntegrationsActionDraftPublishOK struct {
 	Payload *models.Action
 }
 
+// IsSuccess returns true when this post integrations action draft publish o k response has a 2xx status code
+func (o *PostIntegrationsActionDraftPublishOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post integrations action draft publish o k response has a 3xx status code
+func (o *PostIntegrationsActionDraftPublishOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations action draft publish o k response has a 4xx status code
+func (o *PostIntegrationsActionDraftPublishOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post integrations action draft publish o k response has a 5xx status code
+func (o *PostIntegrationsActionDraftPublishOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations action draft publish o k response a status code equal to that given
+func (o *PostIntegrationsActionDraftPublishOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostIntegrationsActionDraftPublishOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishOK  %+v", 200, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostIntegrationsActionDraftPublishBadRequest() *PostIntegrationsActionDr
 	return &PostIntegrationsActionDraftPublishBadRequest{}
 }
 
-/*PostIntegrationsActionDraftPublishBadRequest handles this case with default header values.
+/*
+PostIntegrationsActionDraftPublishBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostIntegrationsActionDraftPublishBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations action draft publish bad request response has a 2xx status code
+func (o *PostIntegrationsActionDraftPublishBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations action draft publish bad request response has a 3xx status code
+func (o *PostIntegrationsActionDraftPublishBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations action draft publish bad request response has a 4xx status code
+func (o *PostIntegrationsActionDraftPublishBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations action draft publish bad request response has a 5xx status code
+func (o *PostIntegrationsActionDraftPublishBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations action draft publish bad request response a status code equal to that given
+func (o *PostIntegrationsActionDraftPublishBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostIntegrationsActionDraftPublishBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostIntegrationsActionDraftPublishUnauthorized() *PostIntegrationsAction
 	return &PostIntegrationsActionDraftPublishUnauthorized{}
 }
 
-/*PostIntegrationsActionDraftPublishUnauthorized handles this case with default header values.
+/*
+PostIntegrationsActionDraftPublishUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostIntegrationsActionDraftPublishUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations action draft publish unauthorized response has a 2xx status code
+func (o *PostIntegrationsActionDraftPublishUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations action draft publish unauthorized response has a 3xx status code
+func (o *PostIntegrationsActionDraftPublishUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations action draft publish unauthorized response has a 4xx status code
+func (o *PostIntegrationsActionDraftPublishUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations action draft publish unauthorized response has a 5xx status code
+func (o *PostIntegrationsActionDraftPublishUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations action draft publish unauthorized response a status code equal to that given
+func (o *PostIntegrationsActionDraftPublishUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostIntegrationsActionDraftPublishUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostIntegrationsActionDraftPublishForbidden() *PostIntegrationsActionDra
 	return &PostIntegrationsActionDraftPublishForbidden{}
 }
 
-/*PostIntegrationsActionDraftPublishForbidden handles this case with default header values.
+/*
+PostIntegrationsActionDraftPublishForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostIntegrationsActionDraftPublishForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations action draft publish forbidden response has a 2xx status code
+func (o *PostIntegrationsActionDraftPublishForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations action draft publish forbidden response has a 3xx status code
+func (o *PostIntegrationsActionDraftPublishForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations action draft publish forbidden response has a 4xx status code
+func (o *PostIntegrationsActionDraftPublishForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations action draft publish forbidden response has a 5xx status code
+func (o *PostIntegrationsActionDraftPublishForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations action draft publish forbidden response a status code equal to that given
+func (o *PostIntegrationsActionDraftPublishForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostIntegrationsActionDraftPublishForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostIntegrationsActionDraftPublishNotFound() *PostIntegrationsActionDraf
 	return &PostIntegrationsActionDraftPublishNotFound{}
 }
 
-/*PostIntegrationsActionDraftPublishNotFound handles this case with default header values.
+/*
+PostIntegrationsActionDraftPublishNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostIntegrationsActionDraftPublishNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations action draft publish not found response has a 2xx status code
+func (o *PostIntegrationsActionDraftPublishNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations action draft publish not found response has a 3xx status code
+func (o *PostIntegrationsActionDraftPublishNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations action draft publish not found response has a 4xx status code
+func (o *PostIntegrationsActionDraftPublishNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations action draft publish not found response has a 5xx status code
+func (o *PostIntegrationsActionDraftPublishNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations action draft publish not found response a status code equal to that given
+func (o *PostIntegrationsActionDraftPublishNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostIntegrationsActionDraftPublishNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostIntegrationsActionDraftPublishRequestTimeout() *PostIntegrationsActi
 	return &PostIntegrationsActionDraftPublishRequestTimeout{}
 }
 
-/*PostIntegrationsActionDraftPublishRequestTimeout handles this case with default header values.
+/*
+PostIntegrationsActionDraftPublishRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostIntegrationsActionDraftPublishRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations action draft publish request timeout response has a 2xx status code
+func (o *PostIntegrationsActionDraftPublishRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations action draft publish request timeout response has a 3xx status code
+func (o *PostIntegrationsActionDraftPublishRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations action draft publish request timeout response has a 4xx status code
+func (o *PostIntegrationsActionDraftPublishRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations action draft publish request timeout response has a 5xx status code
+func (o *PostIntegrationsActionDraftPublishRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations action draft publish request timeout response a status code equal to that given
+func (o *PostIntegrationsActionDraftPublishRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostIntegrationsActionDraftPublishRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostIntegrationsActionDraftPublishRequestEntityTooLarge() *PostIntegrati
 	return &PostIntegrationsActionDraftPublishRequestEntityTooLarge{}
 }
 
-/*PostIntegrationsActionDraftPublishRequestEntityTooLarge handles this case with default header values.
+/*
+PostIntegrationsActionDraftPublishRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostIntegrationsActionDraftPublishRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations action draft publish request entity too large response has a 2xx status code
+func (o *PostIntegrationsActionDraftPublishRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations action draft publish request entity too large response has a 3xx status code
+func (o *PostIntegrationsActionDraftPublishRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations action draft publish request entity too large response has a 4xx status code
+func (o *PostIntegrationsActionDraftPublishRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations action draft publish request entity too large response has a 5xx status code
+func (o *PostIntegrationsActionDraftPublishRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations action draft publish request entity too large response a status code equal to that given
+func (o *PostIntegrationsActionDraftPublishRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostIntegrationsActionDraftPublishRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostIntegrationsActionDraftPublishUnsupportedMediaType() *PostIntegratio
 	return &PostIntegrationsActionDraftPublishUnsupportedMediaType{}
 }
 
-/*PostIntegrationsActionDraftPublishUnsupportedMediaType handles this case with default header values.
+/*
+PostIntegrationsActionDraftPublishUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostIntegrationsActionDraftPublishUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations action draft publish unsupported media type response has a 2xx status code
+func (o *PostIntegrationsActionDraftPublishUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations action draft publish unsupported media type response has a 3xx status code
+func (o *PostIntegrationsActionDraftPublishUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations action draft publish unsupported media type response has a 4xx status code
+func (o *PostIntegrationsActionDraftPublishUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations action draft publish unsupported media type response has a 5xx status code
+func (o *PostIntegrationsActionDraftPublishUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations action draft publish unsupported media type response a status code equal to that given
+func (o *PostIntegrationsActionDraftPublishUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostIntegrationsActionDraftPublishUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostIntegrationsActionDraftPublishTooManyRequests() *PostIntegrationsAct
 	return &PostIntegrationsActionDraftPublishTooManyRequests{}
 }
 
-/*PostIntegrationsActionDraftPublishTooManyRequests handles this case with default header values.
+/*
+PostIntegrationsActionDraftPublishTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostIntegrationsActionDraftPublishTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations action draft publish too many requests response has a 2xx status code
+func (o *PostIntegrationsActionDraftPublishTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations action draft publish too many requests response has a 3xx status code
+func (o *PostIntegrationsActionDraftPublishTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations action draft publish too many requests response has a 4xx status code
+func (o *PostIntegrationsActionDraftPublishTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations action draft publish too many requests response has a 5xx status code
+func (o *PostIntegrationsActionDraftPublishTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations action draft publish too many requests response a status code equal to that given
+func (o *PostIntegrationsActionDraftPublishTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostIntegrationsActionDraftPublishTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostIntegrationsActionDraftPublishInternalServerError() *PostIntegration
 	return &PostIntegrationsActionDraftPublishInternalServerError{}
 }
 
-/*PostIntegrationsActionDraftPublishInternalServerError handles this case with default header values.
+/*
+PostIntegrationsActionDraftPublishInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostIntegrationsActionDraftPublishInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations action draft publish internal server error response has a 2xx status code
+func (o *PostIntegrationsActionDraftPublishInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations action draft publish internal server error response has a 3xx status code
+func (o *PostIntegrationsActionDraftPublishInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations action draft publish internal server error response has a 4xx status code
+func (o *PostIntegrationsActionDraftPublishInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post integrations action draft publish internal server error response has a 5xx status code
+func (o *PostIntegrationsActionDraftPublishInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post integrations action draft publish internal server error response a status code equal to that given
+func (o *PostIntegrationsActionDraftPublishInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostIntegrationsActionDraftPublishInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostIntegrationsActionDraftPublishServiceUnavailable() *PostIntegrations
 	return &PostIntegrationsActionDraftPublishServiceUnavailable{}
 }
 
-/*PostIntegrationsActionDraftPublishServiceUnavailable handles this case with default header values.
+/*
+PostIntegrationsActionDraftPublishServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostIntegrationsActionDraftPublishServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations action draft publish service unavailable response has a 2xx status code
+func (o *PostIntegrationsActionDraftPublishServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations action draft publish service unavailable response has a 3xx status code
+func (o *PostIntegrationsActionDraftPublishServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations action draft publish service unavailable response has a 4xx status code
+func (o *PostIntegrationsActionDraftPublishServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post integrations action draft publish service unavailable response has a 5xx status code
+func (o *PostIntegrationsActionDraftPublishServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post integrations action draft publish service unavailable response a status code equal to that given
+func (o *PostIntegrationsActionDraftPublishServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostIntegrationsActionDraftPublishServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostIntegrationsActionDraftPublishGatewayTimeout() *PostIntegrationsActi
 	return &PostIntegrationsActionDraftPublishGatewayTimeout{}
 }
 
-/*PostIntegrationsActionDraftPublishGatewayTimeout handles this case with default header values.
+/*
+PostIntegrationsActionDraftPublishGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostIntegrationsActionDraftPublishGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations action draft publish gateway timeout response has a 2xx status code
+func (o *PostIntegrationsActionDraftPublishGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations action draft publish gateway timeout response has a 3xx status code
+func (o *PostIntegrationsActionDraftPublishGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations action draft publish gateway timeout response has a 4xx status code
+func (o *PostIntegrationsActionDraftPublishGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post integrations action draft publish gateway timeout response has a 5xx status code
+func (o *PostIntegrationsActionDraftPublishGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post integrations action draft publish gateway timeout response a status code equal to that given
+func (o *PostIntegrationsActionDraftPublishGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostIntegrationsActionDraftPublishGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostIntegrationsActionDraftPublishGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/actions/{actionId}/draft/publish][%d] postIntegrationsActionDraftPublishGatewayTimeout  %+v", 504, o.Payload)
 }
 

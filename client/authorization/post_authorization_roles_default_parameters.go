@@ -17,71 +17,86 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewPostAuthorizationRolesDefaultParams creates a new PostAuthorizationRolesDefaultParams object
-// with the default values initialized.
+// NewPostAuthorizationRolesDefaultParams creates a new PostAuthorizationRolesDefaultParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAuthorizationRolesDefaultParams() *PostAuthorizationRolesDefaultParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &PostAuthorizationRolesDefaultParams{
-		Force: &forceDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAuthorizationRolesDefaultParamsWithTimeout creates a new PostAuthorizationRolesDefaultParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAuthorizationRolesDefaultParamsWithTimeout(timeout time.Duration) *PostAuthorizationRolesDefaultParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &PostAuthorizationRolesDefaultParams{
-		Force: &forceDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAuthorizationRolesDefaultParamsWithContext creates a new PostAuthorizationRolesDefaultParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAuthorizationRolesDefaultParamsWithContext(ctx context.Context) *PostAuthorizationRolesDefaultParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &PostAuthorizationRolesDefaultParams{
-		Force: &forceDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostAuthorizationRolesDefaultParamsWithHTTPClient creates a new PostAuthorizationRolesDefaultParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAuthorizationRolesDefaultParamsWithHTTPClient(client *http.Client) *PostAuthorizationRolesDefaultParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &PostAuthorizationRolesDefaultParams{
-		Force:      &forceDefault,
 		HTTPClient: client,
 	}
 }
 
-/*PostAuthorizationRolesDefaultParams contains all the parameters to send to the API endpoint
-for the post authorization roles default operation typically these are written to a http.Request
+/*
+PostAuthorizationRolesDefaultParams contains all the parameters to send to the API endpoint
+
+	for the post authorization roles default operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAuthorizationRolesDefaultParams struct {
 
-	/*Force
-	  Restore default roles
+	/* Force.
 
+	   Restore default roles
 	*/
 	Force *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post authorization roles default params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuthorizationRolesDefaultParams) WithDefaults() *PostAuthorizationRolesDefaultParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post authorization roles default params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAuthorizationRolesDefaultParams) SetDefaults() {
+	var (
+		forceDefault = bool(false)
+	)
+
+	val := PostAuthorizationRolesDefaultParams{
+		Force: &forceDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post authorization roles default params
@@ -140,16 +155,17 @@ func (o *PostAuthorizationRolesDefaultParams) WriteToRequest(r runtime.ClientReq
 
 		// query param force
 		var qrForce bool
+
 		if o.Force != nil {
 			qrForce = *o.Force
 		}
 		qForce := swag.FormatBool(qrForce)
 		if qForce != "" {
+
 			if err := r.SetQueryParam("force", qForce); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

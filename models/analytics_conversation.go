@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -116,7 +117,6 @@ func (m *AnalyticsConversation) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AnalyticsConversation) validateConversationEnd(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationEnd) { // not required
 		return nil
 	}
@@ -206,7 +206,6 @@ func (m *AnalyticsConversation) validateConversationInitiatorEnum(path, location
 }
 
 func (m *AnalyticsConversation) validateConversationInitiator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationInitiator) { // not required
 		return nil
 	}
@@ -220,7 +219,6 @@ func (m *AnalyticsConversation) validateConversationInitiator(formats strfmt.Reg
 }
 
 func (m *AnalyticsConversation) validateConversationStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationStart) { // not required
 		return nil
 	}
@@ -233,7 +231,6 @@ func (m *AnalyticsConversation) validateConversationStart(formats strfmt.Registr
 }
 
 func (m *AnalyticsConversation) validateEvaluations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Evaluations) { // not required
 		return nil
 	}
@@ -247,6 +244,8 @@ func (m *AnalyticsConversation) validateEvaluations(formats strfmt.Registry) err
 			if err := m.Evaluations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("evaluations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("evaluations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -287,7 +286,6 @@ func (m *AnalyticsConversation) validateOriginatingDirectionEnum(path, location 
 }
 
 func (m *AnalyticsConversation) validateOriginatingDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OriginatingDirection) { // not required
 		return nil
 	}
@@ -301,7 +299,6 @@ func (m *AnalyticsConversation) validateOriginatingDirection(formats strfmt.Regi
 }
 
 func (m *AnalyticsConversation) validateParticipants(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Participants) { // not required
 		return nil
 	}
@@ -315,6 +312,8 @@ func (m *AnalyticsConversation) validateParticipants(formats strfmt.Registry) er
 			if err := m.Participants[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("participants" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("participants" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -326,7 +325,6 @@ func (m *AnalyticsConversation) validateParticipants(formats strfmt.Registry) er
 }
 
 func (m *AnalyticsConversation) validateResolutions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Resolutions) { // not required
 		return nil
 	}
@@ -340,6 +338,8 @@ func (m *AnalyticsConversation) validateResolutions(formats strfmt.Registry) err
 			if err := m.Resolutions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resolutions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resolutions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -351,7 +351,6 @@ func (m *AnalyticsConversation) validateResolutions(formats strfmt.Registry) err
 }
 
 func (m *AnalyticsConversation) validateSurveys(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Surveys) { // not required
 		return nil
 	}
@@ -365,6 +364,114 @@ func (m *AnalyticsConversation) validateSurveys(formats strfmt.Registry) error {
 			if err := m.Surveys[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("surveys" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("surveys" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this analytics conversation based on the context it is used
+func (m *AnalyticsConversation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEvaluations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateParticipants(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResolutions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSurveys(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AnalyticsConversation) contextValidateEvaluations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Evaluations); i++ {
+
+		if m.Evaluations[i] != nil {
+			if err := m.Evaluations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("evaluations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("evaluations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AnalyticsConversation) contextValidateParticipants(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Participants); i++ {
+
+		if m.Participants[i] != nil {
+			if err := m.Participants[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("participants" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("participants" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AnalyticsConversation) contextValidateResolutions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Resolutions); i++ {
+
+		if m.Resolutions[i] != nil {
+			if err := m.Resolutions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resolutions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resolutions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AnalyticsConversation) contextValidateSurveys(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Surveys); i++ {
+
+		if m.Surveys[i] != nil {
+			if err := m.Surveys[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("surveys" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("surveys" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

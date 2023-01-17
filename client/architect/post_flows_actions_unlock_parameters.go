@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostFlowsActionsUnlockParams creates a new PostFlowsActionsUnlockParams object
-// with the default values initialized.
+// NewPostFlowsActionsUnlockParams creates a new PostFlowsActionsUnlockParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostFlowsActionsUnlockParams() *PostFlowsActionsUnlockParams {
-	var ()
 	return &PostFlowsActionsUnlockParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostFlowsActionsUnlockParamsWithTimeout creates a new PostFlowsActionsUnlockParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostFlowsActionsUnlockParamsWithTimeout(timeout time.Duration) *PostFlowsActionsUnlockParams {
-	var ()
 	return &PostFlowsActionsUnlockParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostFlowsActionsUnlockParamsWithContext creates a new PostFlowsActionsUnlockParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostFlowsActionsUnlockParamsWithContext(ctx context.Context) *PostFlowsActionsUnlockParams {
-	var ()
 	return &PostFlowsActionsUnlockParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostFlowsActionsUnlockParamsWithHTTPClient creates a new PostFlowsActionsUnlockParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostFlowsActionsUnlockParamsWithHTTPClient(client *http.Client) *PostFlowsActionsUnlockParams {
-	var ()
 	return &PostFlowsActionsUnlockParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostFlowsActionsUnlockParams contains all the parameters to send to the API endpoint
-for the post flows actions unlock operation typically these are written to a http.Request
+/*
+PostFlowsActionsUnlockParams contains all the parameters to send to the API endpoint
+
+	for the post flows actions unlock operation.
+
+	Typically these are written to a http.Request.
 */
 type PostFlowsActionsUnlockParams struct {
 
-	/*Flow
-	  Flow ID
+	/* Flow.
 
+	   Flow ID
 	*/
 	Flow string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post flows actions unlock params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsActionsUnlockParams) WithDefaults() *PostFlowsActionsUnlockParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post flows actions unlock params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsActionsUnlockParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post flows actions unlock params
@@ -127,6 +143,7 @@ func (o *PostFlowsActionsUnlockParams) WriteToRequest(r runtime.ClientRequest, r
 	qrFlow := o.Flow
 	qFlow := qrFlow
 	if qFlow != "" {
+
 		if err := r.SetQueryParam("flow", qFlow); err != nil {
 			return err
 		}

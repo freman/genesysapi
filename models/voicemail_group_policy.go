@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -33,8 +34,14 @@ type VoicemailGroupPolicy struct {
 	// Enum: [RANDOM ROUND_ROBIN SEQUENTIAL]
 	GroupAlertType string `json:"groupAlertType,omitempty"`
 
+	// Whether to include the voicemail transcription in a group notification email
+	IncludeEmailTranscriptions bool `json:"includeEmailTranscriptions"`
+
 	// The prompt to use when connecting a user to a Group Ring call
 	InteractiveResponsePromptID string `json:"interactiveResponsePromptId,omitempty"`
+
+	// Whether user should be prompted with a confirmation prompt when connecting to a Group Ring call
+	InteractiveResponseRequired bool `json:"interactiveResponseRequired"`
 
 	// The language preference for the group.  Used for group voicemail transcription
 	LanguagePreference string `json:"languagePreference,omitempty"`
@@ -74,7 +81,6 @@ func (m *VoicemailGroupPolicy) Validate(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailGroupPolicy) validateGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Group) { // not required
 		return nil
 	}
@@ -83,6 +89,8 @@ func (m *VoicemailGroupPolicy) validateGroup(formats strfmt.Registry) error {
 		if err := m.Group.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("group")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("group")
 			}
 			return err
 		}
@@ -124,7 +132,6 @@ func (m *VoicemailGroupPolicy) validateGroupAlertTypeEnum(path, location string,
 }
 
 func (m *VoicemailGroupPolicy) validateGroupAlertType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GroupAlertType) { // not required
 		return nil
 	}
@@ -132,6 +139,36 @@ func (m *VoicemailGroupPolicy) validateGroupAlertType(formats strfmt.Registry) e
 	// value enum
 	if err := m.validateGroupAlertTypeEnum("groupAlertType", "body", m.GroupAlertType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this voicemail group policy based on the context it is used
+func (m *VoicemailGroupPolicy) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *VoicemailGroupPolicy) contextValidateGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Group != nil {
+		if err := m.Group.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("group")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("group")
+			}
+			return err
+		}
 	}
 
 	return nil

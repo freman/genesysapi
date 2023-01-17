@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementManagementunitWorkplanrotationsParams creates a new PostWorkforcemanagementManagementunitWorkplanrotationsParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementManagementunitWorkplanrotationsParams creates a new PostWorkforcemanagementManagementunitWorkplanrotationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementManagementunitWorkplanrotationsParams() *PostWorkforcemanagementManagementunitWorkplanrotationsParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplanrotationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWorkplanrotationsParamsWithTimeout creates a new PostWorkforcemanagementManagementunitWorkplanrotationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementManagementunitWorkplanrotationsParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementManagementunitWorkplanrotationsParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplanrotationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWorkplanrotationsParamsWithContext creates a new PostWorkforcemanagementManagementunitWorkplanrotationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementManagementunitWorkplanrotationsParamsWithContext(ctx context.Context) *PostWorkforcemanagementManagementunitWorkplanrotationsParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplanrotationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWorkplanrotationsParamsWithHTTPClient creates a new PostWorkforcemanagementManagementunitWorkplanrotationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementManagementunitWorkplanrotationsParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementManagementunitWorkplanrotationsParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplanrotationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationsParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement managementunit workplanrotations operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationsParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement managementunit workplanrotations operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementManagementunitWorkplanrotationsParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.AddWorkPlanRotationRequest
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement managementunit workplanrotations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationsParams) WithDefaults() *PostWorkforcemanagementManagementunitWorkplanrotationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement managementunit workplanrotations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement managementunit workplanrotations params
@@ -140,7 +157,6 @@ func (o *PostWorkforcemanagementManagementunitWorkplanrotationsParams) WriteToRe
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

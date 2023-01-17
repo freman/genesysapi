@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRoutingLanguagesParams creates a new PostRoutingLanguagesParams object
-// with the default values initialized.
+// NewPostRoutingLanguagesParams creates a new PostRoutingLanguagesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRoutingLanguagesParams() *PostRoutingLanguagesParams {
-	var ()
 	return &PostRoutingLanguagesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRoutingLanguagesParamsWithTimeout creates a new PostRoutingLanguagesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRoutingLanguagesParamsWithTimeout(timeout time.Duration) *PostRoutingLanguagesParams {
-	var ()
 	return &PostRoutingLanguagesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRoutingLanguagesParamsWithContext creates a new PostRoutingLanguagesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRoutingLanguagesParamsWithContext(ctx context.Context) *PostRoutingLanguagesParams {
-	var ()
 	return &PostRoutingLanguagesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRoutingLanguagesParamsWithHTTPClient creates a new PostRoutingLanguagesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRoutingLanguagesParamsWithHTTPClient(client *http.Client) *PostRoutingLanguagesParams {
-	var ()
 	return &PostRoutingLanguagesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRoutingLanguagesParams contains all the parameters to send to the API endpoint
-for the post routing languages operation typically these are written to a http.Request
+/*
+PostRoutingLanguagesParams contains all the parameters to send to the API endpoint
+
+	for the post routing languages operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRoutingLanguagesParams struct {
 
-	/*Body
-	  Language
+	/* Body.
 
+	   Language
 	*/
 	Body *models.Language
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post routing languages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingLanguagesParams) WithDefaults() *PostRoutingLanguagesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post routing languages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingLanguagesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post routing languages params
@@ -124,7 +140,6 @@ func (o *PostRoutingLanguagesParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -95,7 +95,6 @@ func (o *PutRecordingsDeletionprotectionReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPutRecordingsDeletionprotectionNoContent() *PutRecordingsDeletionprotect
 	return &PutRecordingsDeletionprotectionNoContent{}
 }
 
-/*PutRecordingsDeletionprotectionNoContent handles this case with default header values.
+/*
+PutRecordingsDeletionprotectionNoContent describes a response with status code 204, with default header values.
 
 Operation was successful.
 */
 type PutRecordingsDeletionprotectionNoContent struct {
 }
 
+// IsSuccess returns true when this put recordings deletionprotection no content response has a 2xx status code
+func (o *PutRecordingsDeletionprotectionNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put recordings deletionprotection no content response has a 3xx status code
+func (o *PutRecordingsDeletionprotectionNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recordings deletionprotection no content response has a 4xx status code
+func (o *PutRecordingsDeletionprotectionNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recordings deletionprotection no content response has a 5xx status code
+func (o *PutRecordingsDeletionprotectionNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recordings deletionprotection no content response a status code equal to that given
+func (o *PutRecordingsDeletionprotectionNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PutRecordingsDeletionprotectionNoContent) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionNoContent ", 204)
+}
+
+func (o *PutRecordingsDeletionprotectionNoContent) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewPutRecordingsDeletionprotectionBadRequest() *PutRecordingsDeletionprotec
 	return &PutRecordingsDeletionprotectionBadRequest{}
 }
 
-/*PutRecordingsDeletionprotectionBadRequest handles this case with default header values.
+/*
+PutRecordingsDeletionprotectionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PutRecordingsDeletionprotectionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recordings deletionprotection bad request response has a 2xx status code
+func (o *PutRecordingsDeletionprotectionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recordings deletionprotection bad request response has a 3xx status code
+func (o *PutRecordingsDeletionprotectionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recordings deletionprotection bad request response has a 4xx status code
+func (o *PutRecordingsDeletionprotectionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recordings deletionprotection bad request response has a 5xx status code
+func (o *PutRecordingsDeletionprotectionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recordings deletionprotection bad request response a status code equal to that given
+func (o *PutRecordingsDeletionprotectionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutRecordingsDeletionprotectionBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutRecordingsDeletionprotectionBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPutRecordingsDeletionprotectionUnauthorized() *PutRecordingsDeletionprot
 	return &PutRecordingsDeletionprotectionUnauthorized{}
 }
 
-/*PutRecordingsDeletionprotectionUnauthorized handles this case with default header values.
+/*
+PutRecordingsDeletionprotectionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PutRecordingsDeletionprotectionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recordings deletionprotection unauthorized response has a 2xx status code
+func (o *PutRecordingsDeletionprotectionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recordings deletionprotection unauthorized response has a 3xx status code
+func (o *PutRecordingsDeletionprotectionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recordings deletionprotection unauthorized response has a 4xx status code
+func (o *PutRecordingsDeletionprotectionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recordings deletionprotection unauthorized response has a 5xx status code
+func (o *PutRecordingsDeletionprotectionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recordings deletionprotection unauthorized response a status code equal to that given
+func (o *PutRecordingsDeletionprotectionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutRecordingsDeletionprotectionUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutRecordingsDeletionprotectionUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPutRecordingsDeletionprotectionForbidden() *PutRecordingsDeletionprotect
 	return &PutRecordingsDeletionprotectionForbidden{}
 }
 
-/*PutRecordingsDeletionprotectionForbidden handles this case with default header values.
+/*
+PutRecordingsDeletionprotectionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PutRecordingsDeletionprotectionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recordings deletionprotection forbidden response has a 2xx status code
+func (o *PutRecordingsDeletionprotectionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recordings deletionprotection forbidden response has a 3xx status code
+func (o *PutRecordingsDeletionprotectionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recordings deletionprotection forbidden response has a 4xx status code
+func (o *PutRecordingsDeletionprotectionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recordings deletionprotection forbidden response has a 5xx status code
+func (o *PutRecordingsDeletionprotectionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recordings deletionprotection forbidden response a status code equal to that given
+func (o *PutRecordingsDeletionprotectionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutRecordingsDeletionprotectionForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutRecordingsDeletionprotectionForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPutRecordingsDeletionprotectionNotFound() *PutRecordingsDeletionprotecti
 	return &PutRecordingsDeletionprotectionNotFound{}
 }
 
-/*PutRecordingsDeletionprotectionNotFound handles this case with default header values.
+/*
+PutRecordingsDeletionprotectionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PutRecordingsDeletionprotectionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recordings deletionprotection not found response has a 2xx status code
+func (o *PutRecordingsDeletionprotectionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recordings deletionprotection not found response has a 3xx status code
+func (o *PutRecordingsDeletionprotectionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recordings deletionprotection not found response has a 4xx status code
+func (o *PutRecordingsDeletionprotectionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recordings deletionprotection not found response has a 5xx status code
+func (o *PutRecordingsDeletionprotectionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recordings deletionprotection not found response a status code equal to that given
+func (o *PutRecordingsDeletionprotectionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutRecordingsDeletionprotectionNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutRecordingsDeletionprotectionNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPutRecordingsDeletionprotectionRequestTimeout() *PutRecordingsDeletionpr
 	return &PutRecordingsDeletionprotectionRequestTimeout{}
 }
 
-/*PutRecordingsDeletionprotectionRequestTimeout handles this case with default header values.
+/*
+PutRecordingsDeletionprotectionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PutRecordingsDeletionprotectionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recordings deletionprotection request timeout response has a 2xx status code
+func (o *PutRecordingsDeletionprotectionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recordings deletionprotection request timeout response has a 3xx status code
+func (o *PutRecordingsDeletionprotectionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recordings deletionprotection request timeout response has a 4xx status code
+func (o *PutRecordingsDeletionprotectionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recordings deletionprotection request timeout response has a 5xx status code
+func (o *PutRecordingsDeletionprotectionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recordings deletionprotection request timeout response a status code equal to that given
+func (o *PutRecordingsDeletionprotectionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutRecordingsDeletionprotectionRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutRecordingsDeletionprotectionRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPutRecordingsDeletionprotectionRequestEntityTooLarge() *PutRecordingsDel
 	return &PutRecordingsDeletionprotectionRequestEntityTooLarge{}
 }
 
-/*PutRecordingsDeletionprotectionRequestEntityTooLarge handles this case with default header values.
+/*
+PutRecordingsDeletionprotectionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PutRecordingsDeletionprotectionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recordings deletionprotection request entity too large response has a 2xx status code
+func (o *PutRecordingsDeletionprotectionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recordings deletionprotection request entity too large response has a 3xx status code
+func (o *PutRecordingsDeletionprotectionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recordings deletionprotection request entity too large response has a 4xx status code
+func (o *PutRecordingsDeletionprotectionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recordings deletionprotection request entity too large response has a 5xx status code
+func (o *PutRecordingsDeletionprotectionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recordings deletionprotection request entity too large response a status code equal to that given
+func (o *PutRecordingsDeletionprotectionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutRecordingsDeletionprotectionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutRecordingsDeletionprotectionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPutRecordingsDeletionprotectionUnsupportedMediaType() *PutRecordingsDele
 	return &PutRecordingsDeletionprotectionUnsupportedMediaType{}
 }
 
-/*PutRecordingsDeletionprotectionUnsupportedMediaType handles this case with default header values.
+/*
+PutRecordingsDeletionprotectionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PutRecordingsDeletionprotectionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recordings deletionprotection unsupported media type response has a 2xx status code
+func (o *PutRecordingsDeletionprotectionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recordings deletionprotection unsupported media type response has a 3xx status code
+func (o *PutRecordingsDeletionprotectionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recordings deletionprotection unsupported media type response has a 4xx status code
+func (o *PutRecordingsDeletionprotectionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recordings deletionprotection unsupported media type response has a 5xx status code
+func (o *PutRecordingsDeletionprotectionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recordings deletionprotection unsupported media type response a status code equal to that given
+func (o *PutRecordingsDeletionprotectionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutRecordingsDeletionprotectionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutRecordingsDeletionprotectionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPutRecordingsDeletionprotectionTooManyRequests() *PutRecordingsDeletionp
 	return &PutRecordingsDeletionprotectionTooManyRequests{}
 }
 
-/*PutRecordingsDeletionprotectionTooManyRequests handles this case with default header values.
+/*
+PutRecordingsDeletionprotectionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PutRecordingsDeletionprotectionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recordings deletionprotection too many requests response has a 2xx status code
+func (o *PutRecordingsDeletionprotectionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recordings deletionprotection too many requests response has a 3xx status code
+func (o *PutRecordingsDeletionprotectionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recordings deletionprotection too many requests response has a 4xx status code
+func (o *PutRecordingsDeletionprotectionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recordings deletionprotection too many requests response has a 5xx status code
+func (o *PutRecordingsDeletionprotectionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recordings deletionprotection too many requests response a status code equal to that given
+func (o *PutRecordingsDeletionprotectionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutRecordingsDeletionprotectionTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutRecordingsDeletionprotectionTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPutRecordingsDeletionprotectionInternalServerError() *PutRecordingsDelet
 	return &PutRecordingsDeletionprotectionInternalServerError{}
 }
 
-/*PutRecordingsDeletionprotectionInternalServerError handles this case with default header values.
+/*
+PutRecordingsDeletionprotectionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PutRecordingsDeletionprotectionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recordings deletionprotection internal server error response has a 2xx status code
+func (o *PutRecordingsDeletionprotectionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recordings deletionprotection internal server error response has a 3xx status code
+func (o *PutRecordingsDeletionprotectionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recordings deletionprotection internal server error response has a 4xx status code
+func (o *PutRecordingsDeletionprotectionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recordings deletionprotection internal server error response has a 5xx status code
+func (o *PutRecordingsDeletionprotectionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recordings deletionprotection internal server error response a status code equal to that given
+func (o *PutRecordingsDeletionprotectionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutRecordingsDeletionprotectionInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutRecordingsDeletionprotectionInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPutRecordingsDeletionprotectionServiceUnavailable() *PutRecordingsDeleti
 	return &PutRecordingsDeletionprotectionServiceUnavailable{}
 }
 
-/*PutRecordingsDeletionprotectionServiceUnavailable handles this case with default header values.
+/*
+PutRecordingsDeletionprotectionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PutRecordingsDeletionprotectionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recordings deletionprotection service unavailable response has a 2xx status code
+func (o *PutRecordingsDeletionprotectionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recordings deletionprotection service unavailable response has a 3xx status code
+func (o *PutRecordingsDeletionprotectionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recordings deletionprotection service unavailable response has a 4xx status code
+func (o *PutRecordingsDeletionprotectionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recordings deletionprotection service unavailable response has a 5xx status code
+func (o *PutRecordingsDeletionprotectionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recordings deletionprotection service unavailable response a status code equal to that given
+func (o *PutRecordingsDeletionprotectionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutRecordingsDeletionprotectionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutRecordingsDeletionprotectionServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPutRecordingsDeletionprotectionGatewayTimeout() *PutRecordingsDeletionpr
 	return &PutRecordingsDeletionprotectionGatewayTimeout{}
 }
 
-/*PutRecordingsDeletionprotectionGatewayTimeout handles this case with default header values.
+/*
+PutRecordingsDeletionprotectionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PutRecordingsDeletionprotectionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recordings deletionprotection gateway timeout response has a 2xx status code
+func (o *PutRecordingsDeletionprotectionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recordings deletionprotection gateway timeout response has a 3xx status code
+func (o *PutRecordingsDeletionprotectionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recordings deletionprotection gateway timeout response has a 4xx status code
+func (o *PutRecordingsDeletionprotectionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recordings deletionprotection gateway timeout response has a 5xx status code
+func (o *PutRecordingsDeletionprotectionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recordings deletionprotection gateway timeout response a status code equal to that given
+func (o *PutRecordingsDeletionprotectionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutRecordingsDeletionprotectionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutRecordingsDeletionprotectionGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recordings/deletionprotection][%d] putRecordingsDeletionprotectionGatewayTimeout  %+v", 504, o.Payload)
 }
 

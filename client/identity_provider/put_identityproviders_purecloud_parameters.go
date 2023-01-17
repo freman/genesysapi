@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutIdentityprovidersPurecloudParams creates a new PutIdentityprovidersPurecloudParams object
-// with the default values initialized.
+// NewPutIdentityprovidersPurecloudParams creates a new PutIdentityprovidersPurecloudParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutIdentityprovidersPurecloudParams() *PutIdentityprovidersPurecloudParams {
-	var ()
 	return &PutIdentityprovidersPurecloudParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutIdentityprovidersPurecloudParamsWithTimeout creates a new PutIdentityprovidersPurecloudParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutIdentityprovidersPurecloudParamsWithTimeout(timeout time.Duration) *PutIdentityprovidersPurecloudParams {
-	var ()
 	return &PutIdentityprovidersPurecloudParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutIdentityprovidersPurecloudParamsWithContext creates a new PutIdentityprovidersPurecloudParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutIdentityprovidersPurecloudParamsWithContext(ctx context.Context) *PutIdentityprovidersPurecloudParams {
-	var ()
 	return &PutIdentityprovidersPurecloudParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutIdentityprovidersPurecloudParamsWithHTTPClient creates a new PutIdentityprovidersPurecloudParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutIdentityprovidersPurecloudParamsWithHTTPClient(client *http.Client) *PutIdentityprovidersPurecloudParams {
-	var ()
 	return &PutIdentityprovidersPurecloudParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutIdentityprovidersPurecloudParams contains all the parameters to send to the API endpoint
-for the put identityproviders purecloud operation typically these are written to a http.Request
+/*
+PutIdentityprovidersPurecloudParams contains all the parameters to send to the API endpoint
+
+	for the put identityproviders purecloud operation.
+
+	Typically these are written to a http.Request.
 */
 type PutIdentityprovidersPurecloudParams struct {
 
-	/*Body
-	  Provider
+	/* Body.
 
+	   Provider
 	*/
 	Body *models.PureCloud
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put identityproviders purecloud params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersPurecloudParams) WithDefaults() *PutIdentityprovidersPurecloudParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put identityproviders purecloud params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersPurecloudParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put identityproviders purecloud params
@@ -124,7 +140,6 @@ func (o *PutIdentityprovidersPurecloudParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

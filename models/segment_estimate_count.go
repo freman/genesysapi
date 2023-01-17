@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -24,6 +26,11 @@ type SegmentEstimateCount struct {
 
 // Validate validates this segment estimate count
 func (m *SegmentEstimateCount) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this segment estimate count based on context it is used
+func (m *SegmentEstimateCount) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

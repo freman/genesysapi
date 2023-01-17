@@ -101,7 +101,6 @@ func (o *GetFlowsDatatableImportJobReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetFlowsDatatableImportJobOK() *GetFlowsDatatableImportJobOK {
 	return &GetFlowsDatatableImportJobOK{}
 }
 
-/*GetFlowsDatatableImportJobOK handles this case with default header values.
+/*
+GetFlowsDatatableImportJobOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type GetFlowsDatatableImportJobOK struct {
 	Payload *models.DataTableImportJob
 }
 
+// IsSuccess returns true when this get flows datatable import job o k response has a 2xx status code
+func (o *GetFlowsDatatableImportJobOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get flows datatable import job o k response has a 3xx status code
+func (o *GetFlowsDatatableImportJobOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job o k response has a 4xx status code
+func (o *GetFlowsDatatableImportJobOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows datatable import job o k response has a 5xx status code
+func (o *GetFlowsDatatableImportJobOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable import job o k response a status code equal to that given
+func (o *GetFlowsDatatableImportJobOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetFlowsDatatableImportJobOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobOK  %+v", 200, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewGetFlowsDatatableImportJobAccepted() *GetFlowsDatatableImportJobAccepted
 	return &GetFlowsDatatableImportJobAccepted{}
 }
 
-/*GetFlowsDatatableImportJobAccepted handles this case with default header values.
+/*
+GetFlowsDatatableImportJobAccepted describes a response with status code 202, with default header values.
 
 Request Accepted
 */
@@ -153,7 +183,36 @@ type GetFlowsDatatableImportJobAccepted struct {
 	Payload *models.DataTableImportJob
 }
 
+// IsSuccess returns true when this get flows datatable import job accepted response has a 2xx status code
+func (o *GetFlowsDatatableImportJobAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get flows datatable import job accepted response has a 3xx status code
+func (o *GetFlowsDatatableImportJobAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job accepted response has a 4xx status code
+func (o *GetFlowsDatatableImportJobAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows datatable import job accepted response has a 5xx status code
+func (o *GetFlowsDatatableImportJobAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable import job accepted response a status code equal to that given
+func (o *GetFlowsDatatableImportJobAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *GetFlowsDatatableImportJobAccepted) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobAccepted  %+v", 202, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobAccepted) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewGetFlowsDatatableImportJobBadRequest() *GetFlowsDatatableImportJobBadReq
 	return &GetFlowsDatatableImportJobBadRequest{}
 }
 
-/*GetFlowsDatatableImportJobBadRequest handles this case with default header values.
+/*
+GetFlowsDatatableImportJobBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type GetFlowsDatatableImportJobBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable import job bad request response has a 2xx status code
+func (o *GetFlowsDatatableImportJobBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable import job bad request response has a 3xx status code
+func (o *GetFlowsDatatableImportJobBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job bad request response has a 4xx status code
+func (o *GetFlowsDatatableImportJobBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable import job bad request response has a 5xx status code
+func (o *GetFlowsDatatableImportJobBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable import job bad request response a status code equal to that given
+func (o *GetFlowsDatatableImportJobBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetFlowsDatatableImportJobBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewGetFlowsDatatableImportJobUnauthorized() *GetFlowsDatatableImportJobUnau
 	return &GetFlowsDatatableImportJobUnauthorized{}
 }
 
-/*GetFlowsDatatableImportJobUnauthorized handles this case with default header values.
+/*
+GetFlowsDatatableImportJobUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type GetFlowsDatatableImportJobUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable import job unauthorized response has a 2xx status code
+func (o *GetFlowsDatatableImportJobUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable import job unauthorized response has a 3xx status code
+func (o *GetFlowsDatatableImportJobUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job unauthorized response has a 4xx status code
+func (o *GetFlowsDatatableImportJobUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable import job unauthorized response has a 5xx status code
+func (o *GetFlowsDatatableImportJobUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable import job unauthorized response a status code equal to that given
+func (o *GetFlowsDatatableImportJobUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetFlowsDatatableImportJobUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewGetFlowsDatatableImportJobForbidden() *GetFlowsDatatableImportJobForbidd
 	return &GetFlowsDatatableImportJobForbidden{}
 }
 
-/*GetFlowsDatatableImportJobForbidden handles this case with default header values.
+/*
+GetFlowsDatatableImportJobForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type GetFlowsDatatableImportJobForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable import job forbidden response has a 2xx status code
+func (o *GetFlowsDatatableImportJobForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable import job forbidden response has a 3xx status code
+func (o *GetFlowsDatatableImportJobForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job forbidden response has a 4xx status code
+func (o *GetFlowsDatatableImportJobForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable import job forbidden response has a 5xx status code
+func (o *GetFlowsDatatableImportJobForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable import job forbidden response a status code equal to that given
+func (o *GetFlowsDatatableImportJobForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetFlowsDatatableImportJobForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewGetFlowsDatatableImportJobNotFound() *GetFlowsDatatableImportJobNotFound
 	return &GetFlowsDatatableImportJobNotFound{}
 }
 
-/*GetFlowsDatatableImportJobNotFound handles this case with default header values.
+/*
+GetFlowsDatatableImportJobNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type GetFlowsDatatableImportJobNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable import job not found response has a 2xx status code
+func (o *GetFlowsDatatableImportJobNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable import job not found response has a 3xx status code
+func (o *GetFlowsDatatableImportJobNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job not found response has a 4xx status code
+func (o *GetFlowsDatatableImportJobNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable import job not found response has a 5xx status code
+func (o *GetFlowsDatatableImportJobNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable import job not found response a status code equal to that given
+func (o *GetFlowsDatatableImportJobNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetFlowsDatatableImportJobNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewGetFlowsDatatableImportJobRequestTimeout() *GetFlowsDatatableImportJobRe
 	return &GetFlowsDatatableImportJobRequestTimeout{}
 }
 
-/*GetFlowsDatatableImportJobRequestTimeout handles this case with default header values.
+/*
+GetFlowsDatatableImportJobRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type GetFlowsDatatableImportJobRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable import job request timeout response has a 2xx status code
+func (o *GetFlowsDatatableImportJobRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable import job request timeout response has a 3xx status code
+func (o *GetFlowsDatatableImportJobRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job request timeout response has a 4xx status code
+func (o *GetFlowsDatatableImportJobRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable import job request timeout response has a 5xx status code
+func (o *GetFlowsDatatableImportJobRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable import job request timeout response a status code equal to that given
+func (o *GetFlowsDatatableImportJobRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetFlowsDatatableImportJobRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewGetFlowsDatatableImportJobRequestEntityTooLarge() *GetFlowsDatatableImpo
 	return &GetFlowsDatatableImportJobRequestEntityTooLarge{}
 }
 
-/*GetFlowsDatatableImportJobRequestEntityTooLarge handles this case with default header values.
+/*
+GetFlowsDatatableImportJobRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type GetFlowsDatatableImportJobRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable import job request entity too large response has a 2xx status code
+func (o *GetFlowsDatatableImportJobRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable import job request entity too large response has a 3xx status code
+func (o *GetFlowsDatatableImportJobRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job request entity too large response has a 4xx status code
+func (o *GetFlowsDatatableImportJobRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable import job request entity too large response has a 5xx status code
+func (o *GetFlowsDatatableImportJobRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable import job request entity too large response a status code equal to that given
+func (o *GetFlowsDatatableImportJobRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetFlowsDatatableImportJobRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewGetFlowsDatatableImportJobUnsupportedMediaType() *GetFlowsDatatableImpor
 	return &GetFlowsDatatableImportJobUnsupportedMediaType{}
 }
 
-/*GetFlowsDatatableImportJobUnsupportedMediaType handles this case with default header values.
+/*
+GetFlowsDatatableImportJobUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type GetFlowsDatatableImportJobUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable import job unsupported media type response has a 2xx status code
+func (o *GetFlowsDatatableImportJobUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable import job unsupported media type response has a 3xx status code
+func (o *GetFlowsDatatableImportJobUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job unsupported media type response has a 4xx status code
+func (o *GetFlowsDatatableImportJobUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable import job unsupported media type response has a 5xx status code
+func (o *GetFlowsDatatableImportJobUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable import job unsupported media type response a status code equal to that given
+func (o *GetFlowsDatatableImportJobUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetFlowsDatatableImportJobUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewGetFlowsDatatableImportJobTooManyRequests() *GetFlowsDatatableImportJobT
 	return &GetFlowsDatatableImportJobTooManyRequests{}
 }
 
-/*GetFlowsDatatableImportJobTooManyRequests handles this case with default header values.
+/*
+GetFlowsDatatableImportJobTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type GetFlowsDatatableImportJobTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable import job too many requests response has a 2xx status code
+func (o *GetFlowsDatatableImportJobTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable import job too many requests response has a 3xx status code
+func (o *GetFlowsDatatableImportJobTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job too many requests response has a 4xx status code
+func (o *GetFlowsDatatableImportJobTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable import job too many requests response has a 5xx status code
+func (o *GetFlowsDatatableImportJobTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable import job too many requests response a status code equal to that given
+func (o *GetFlowsDatatableImportJobTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetFlowsDatatableImportJobTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewGetFlowsDatatableImportJobInternalServerError() *GetFlowsDatatableImport
 	return &GetFlowsDatatableImportJobInternalServerError{}
 }
 
-/*GetFlowsDatatableImportJobInternalServerError handles this case with default header values.
+/*
+GetFlowsDatatableImportJobInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type GetFlowsDatatableImportJobInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable import job internal server error response has a 2xx status code
+func (o *GetFlowsDatatableImportJobInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable import job internal server error response has a 3xx status code
+func (o *GetFlowsDatatableImportJobInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job internal server error response has a 4xx status code
+func (o *GetFlowsDatatableImportJobInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows datatable import job internal server error response has a 5xx status code
+func (o *GetFlowsDatatableImportJobInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows datatable import job internal server error response a status code equal to that given
+func (o *GetFlowsDatatableImportJobInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetFlowsDatatableImportJobInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewGetFlowsDatatableImportJobServiceUnavailable() *GetFlowsDatatableImportJ
 	return &GetFlowsDatatableImportJobServiceUnavailable{}
 }
 
-/*GetFlowsDatatableImportJobServiceUnavailable handles this case with default header values.
+/*
+GetFlowsDatatableImportJobServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type GetFlowsDatatableImportJobServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable import job service unavailable response has a 2xx status code
+func (o *GetFlowsDatatableImportJobServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable import job service unavailable response has a 3xx status code
+func (o *GetFlowsDatatableImportJobServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job service unavailable response has a 4xx status code
+func (o *GetFlowsDatatableImportJobServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows datatable import job service unavailable response has a 5xx status code
+func (o *GetFlowsDatatableImportJobServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows datatable import job service unavailable response a status code equal to that given
+func (o *GetFlowsDatatableImportJobServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetFlowsDatatableImportJobServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewGetFlowsDatatableImportJobGatewayTimeout() *GetFlowsDatatableImportJobGa
 	return &GetFlowsDatatableImportJobGatewayTimeout{}
 }
 
-/*GetFlowsDatatableImportJobGatewayTimeout handles this case with default header values.
+/*
+GetFlowsDatatableImportJobGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type GetFlowsDatatableImportJobGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable import job gateway timeout response has a 2xx status code
+func (o *GetFlowsDatatableImportJobGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable import job gateway timeout response has a 3xx status code
+func (o *GetFlowsDatatableImportJobGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable import job gateway timeout response has a 4xx status code
+func (o *GetFlowsDatatableImportJobGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows datatable import job gateway timeout response has a 5xx status code
+func (o *GetFlowsDatatableImportJobGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows datatable import job gateway timeout response a status code equal to that given
+func (o *GetFlowsDatatableImportJobGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetFlowsDatatableImportJobGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetFlowsDatatableImportJobGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/import/jobs/{importJobId}][%d] getFlowsDatatableImportJobGatewayTimeout  %+v", 504, o.Payload)
 }
 

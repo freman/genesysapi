@@ -17,81 +17,98 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetIntegrationsActionDraftParams creates a new GetIntegrationsActionDraftParams object
-// with the default values initialized.
+// NewGetIntegrationsActionDraftParams creates a new GetIntegrationsActionDraftParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntegrationsActionDraftParams() *GetIntegrationsActionDraftParams {
-	var (
-		includeConfigDefault = bool(false)
-	)
 	return &GetIntegrationsActionDraftParams{
-		IncludeConfig: &includeConfigDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntegrationsActionDraftParamsWithTimeout creates a new GetIntegrationsActionDraftParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntegrationsActionDraftParamsWithTimeout(timeout time.Duration) *GetIntegrationsActionDraftParams {
-	var (
-		includeConfigDefault = bool(false)
-	)
 	return &GetIntegrationsActionDraftParams{
-		IncludeConfig: &includeConfigDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntegrationsActionDraftParamsWithContext creates a new GetIntegrationsActionDraftParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntegrationsActionDraftParamsWithContext(ctx context.Context) *GetIntegrationsActionDraftParams {
-	var (
-		includeConfigDefault = bool(false)
-	)
 	return &GetIntegrationsActionDraftParams{
-		IncludeConfig: &includeConfigDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntegrationsActionDraftParamsWithHTTPClient creates a new GetIntegrationsActionDraftParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntegrationsActionDraftParamsWithHTTPClient(client *http.Client) *GetIntegrationsActionDraftParams {
-	var (
-		includeConfigDefault = bool(false)
-	)
 	return &GetIntegrationsActionDraftParams{
-		IncludeConfig: &includeConfigDefault,
-		HTTPClient:    client,
+		HTTPClient: client,
 	}
 }
 
-/*GetIntegrationsActionDraftParams contains all the parameters to send to the API endpoint
-for the get integrations action draft operation typically these are written to a http.Request
+/*
+GetIntegrationsActionDraftParams contains all the parameters to send to the API endpoint
+
+	for the get integrations action draft operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntegrationsActionDraftParams struct {
 
-	/*ActionID
-	  actionId
+	/* ActionID.
 
+	   actionId
 	*/
 	ActionID string
-	/*Expand
-	  Indicates a field in the response which should be expanded.
 
+	/* Expand.
+
+	   Indicates a field in the response which should be expanded.
 	*/
 	Expand *string
-	/*IncludeConfig
-	  Return config in response.
 
+	/* IncludeConfig.
+
+	   Return config in response.
 	*/
 	IncludeConfig *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get integrations action draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsActionDraftParams) WithDefaults() *GetIntegrationsActionDraftParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get integrations action draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsActionDraftParams) SetDefaults() {
+	var (
+		includeConfigDefault = bool(false)
+	)
+
+	val := GetIntegrationsActionDraftParams{
+		IncludeConfig: &includeConfigDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get integrations action draft params
@@ -177,32 +194,34 @@ func (o *GetIntegrationsActionDraftParams) WriteToRequest(r runtime.ClientReques
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeConfig != nil {
 
 		// query param includeConfig
 		var qrIncludeConfig bool
+
 		if o.IncludeConfig != nil {
 			qrIncludeConfig = *o.IncludeConfig
 		}
 		qIncludeConfig := swag.FormatBool(qrIncludeConfig)
 		if qIncludeConfig != "" {
+
 			if err := r.SetQueryParam("includeConfig", qIncludeConfig); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

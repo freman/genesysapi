@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -24,7 +25,7 @@ type TextBotFlowTurnRequest struct {
 
 	// Indicates the type of input event being requested. If appropriate, fill out the matching user input object details on this request.
 	// Required: true
-	// Enum: [NoOp UserInput Error NoMatch NoInput UserDisconnect]
+	// Enum: [NoOp UserInput Error NoMatch NoInput UserDisconnect ClientSessionExpired]
 	InputEventType *string `json:"inputEventType"`
 
 	// The data for the input event of this turn if it is a user input event. Only one inputEvent may be set.
@@ -61,7 +62,6 @@ func (m *TextBotFlowTurnRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TextBotFlowTurnRequest) validateInputEventError(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InputEventError) { // not required
 		return nil
 	}
@@ -70,6 +70,8 @@ func (m *TextBotFlowTurnRequest) validateInputEventError(formats strfmt.Registry
 		if err := m.InputEventError.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("inputEventError")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputEventError")
 			}
 			return err
 		}
@@ -82,7 +84,7 @@ var textBotFlowTurnRequestTypeInputEventTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["NoOp","UserInput","Error","NoMatch","NoInput","UserDisconnect"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["NoOp","UserInput","Error","NoMatch","NoInput","UserDisconnect","ClientSessionExpired"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -109,6 +111,9 @@ const (
 
 	// TextBotFlowTurnRequestInputEventTypeUserDisconnect captures enum value "UserDisconnect"
 	TextBotFlowTurnRequestInputEventTypeUserDisconnect string = "UserDisconnect"
+
+	// TextBotFlowTurnRequestInputEventTypeClientSessionExpired captures enum value "ClientSessionExpired"
+	TextBotFlowTurnRequestInputEventTypeClientSessionExpired string = "ClientSessionExpired"
 )
 
 // prop value enum
@@ -134,7 +139,6 @@ func (m *TextBotFlowTurnRequest) validateInputEventType(formats strfmt.Registry)
 }
 
 func (m *TextBotFlowTurnRequest) validateInputEventUserInput(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InputEventUserInput) { // not required
 		return nil
 	}
@@ -143,6 +147,8 @@ func (m *TextBotFlowTurnRequest) validateInputEventUserInput(formats strfmt.Regi
 		if err := m.InputEventUserInput.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("inputEventUserInput")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputEventUserInput")
 			}
 			return err
 		}
@@ -152,7 +158,6 @@ func (m *TextBotFlowTurnRequest) validateInputEventUserInput(formats strfmt.Regi
 }
 
 func (m *TextBotFlowTurnRequest) validatePreviousTurn(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PreviousTurn) { // not required
 		return nil
 	}
@@ -161,6 +166,78 @@ func (m *TextBotFlowTurnRequest) validatePreviousTurn(formats strfmt.Registry) e
 		if err := m.PreviousTurn.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("previousTurn")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("previousTurn")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this text bot flow turn request based on the context it is used
+func (m *TextBotFlowTurnRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateInputEventError(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInputEventUserInput(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePreviousTurn(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TextBotFlowTurnRequest) contextValidateInputEventError(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InputEventError != nil {
+		if err := m.InputEventError.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("inputEventError")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputEventError")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TextBotFlowTurnRequest) contextValidateInputEventUserInput(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InputEventUserInput != nil {
+		if err := m.InputEventUserInput.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("inputEventUserInput")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputEventUserInput")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TextBotFlowTurnRequest) contextValidatePreviousTurn(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PreviousTurn != nil {
+		if err := m.PreviousTurn.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("previousTurn")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("previousTurn")
 			}
 			return err
 		}

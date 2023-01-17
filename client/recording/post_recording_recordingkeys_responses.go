@@ -95,7 +95,6 @@ func (o *PostRecordingRecordingkeysReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostRecordingRecordingkeysOK() *PostRecordingRecordingkeysOK {
 	return &PostRecordingRecordingkeysOK{}
 }
 
-/*PostRecordingRecordingkeysOK handles this case with default header values.
+/*
+PostRecordingRecordingkeysOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostRecordingRecordingkeysOK struct {
 	Payload *models.EncryptionKey
 }
 
+// IsSuccess returns true when this post recording recordingkeys o k response has a 2xx status code
+func (o *PostRecordingRecordingkeysOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post recording recordingkeys o k response has a 3xx status code
+func (o *PostRecordingRecordingkeysOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording recordingkeys o k response has a 4xx status code
+func (o *PostRecordingRecordingkeysOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recording recordingkeys o k response has a 5xx status code
+func (o *PostRecordingRecordingkeysOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording recordingkeys o k response a status code equal to that given
+func (o *PostRecordingRecordingkeysOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostRecordingRecordingkeysOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysOK  %+v", 200, o.Payload)
+}
+
+func (o *PostRecordingRecordingkeysOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostRecordingRecordingkeysBadRequest() *PostRecordingRecordingkeysBadReq
 	return &PostRecordingRecordingkeysBadRequest{}
 }
 
-/*PostRecordingRecordingkeysBadRequest handles this case with default header values.
+/*
+PostRecordingRecordingkeysBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostRecordingRecordingkeysBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording recordingkeys bad request response has a 2xx status code
+func (o *PostRecordingRecordingkeysBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording recordingkeys bad request response has a 3xx status code
+func (o *PostRecordingRecordingkeysBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording recordingkeys bad request response has a 4xx status code
+func (o *PostRecordingRecordingkeysBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording recordingkeys bad request response has a 5xx status code
+func (o *PostRecordingRecordingkeysBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording recordingkeys bad request response a status code equal to that given
+func (o *PostRecordingRecordingkeysBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostRecordingRecordingkeysBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostRecordingRecordingkeysBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostRecordingRecordingkeysUnauthorized() *PostRecordingRecordingkeysUnau
 	return &PostRecordingRecordingkeysUnauthorized{}
 }
 
-/*PostRecordingRecordingkeysUnauthorized handles this case with default header values.
+/*
+PostRecordingRecordingkeysUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostRecordingRecordingkeysUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording recordingkeys unauthorized response has a 2xx status code
+func (o *PostRecordingRecordingkeysUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording recordingkeys unauthorized response has a 3xx status code
+func (o *PostRecordingRecordingkeysUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording recordingkeys unauthorized response has a 4xx status code
+func (o *PostRecordingRecordingkeysUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording recordingkeys unauthorized response has a 5xx status code
+func (o *PostRecordingRecordingkeysUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording recordingkeys unauthorized response a status code equal to that given
+func (o *PostRecordingRecordingkeysUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostRecordingRecordingkeysUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostRecordingRecordingkeysUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostRecordingRecordingkeysForbidden() *PostRecordingRecordingkeysForbidd
 	return &PostRecordingRecordingkeysForbidden{}
 }
 
-/*PostRecordingRecordingkeysForbidden handles this case with default header values.
+/*
+PostRecordingRecordingkeysForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostRecordingRecordingkeysForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording recordingkeys forbidden response has a 2xx status code
+func (o *PostRecordingRecordingkeysForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording recordingkeys forbidden response has a 3xx status code
+func (o *PostRecordingRecordingkeysForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording recordingkeys forbidden response has a 4xx status code
+func (o *PostRecordingRecordingkeysForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording recordingkeys forbidden response has a 5xx status code
+func (o *PostRecordingRecordingkeysForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording recordingkeys forbidden response a status code equal to that given
+func (o *PostRecordingRecordingkeysForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostRecordingRecordingkeysForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostRecordingRecordingkeysForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostRecordingRecordingkeysNotFound() *PostRecordingRecordingkeysNotFound
 	return &PostRecordingRecordingkeysNotFound{}
 }
 
-/*PostRecordingRecordingkeysNotFound handles this case with default header values.
+/*
+PostRecordingRecordingkeysNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostRecordingRecordingkeysNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording recordingkeys not found response has a 2xx status code
+func (o *PostRecordingRecordingkeysNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording recordingkeys not found response has a 3xx status code
+func (o *PostRecordingRecordingkeysNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording recordingkeys not found response has a 4xx status code
+func (o *PostRecordingRecordingkeysNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording recordingkeys not found response has a 5xx status code
+func (o *PostRecordingRecordingkeysNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording recordingkeys not found response a status code equal to that given
+func (o *PostRecordingRecordingkeysNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostRecordingRecordingkeysNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostRecordingRecordingkeysNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostRecordingRecordingkeysRequestTimeout() *PostRecordingRecordingkeysRe
 	return &PostRecordingRecordingkeysRequestTimeout{}
 }
 
-/*PostRecordingRecordingkeysRequestTimeout handles this case with default header values.
+/*
+PostRecordingRecordingkeysRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostRecordingRecordingkeysRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording recordingkeys request timeout response has a 2xx status code
+func (o *PostRecordingRecordingkeysRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording recordingkeys request timeout response has a 3xx status code
+func (o *PostRecordingRecordingkeysRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording recordingkeys request timeout response has a 4xx status code
+func (o *PostRecordingRecordingkeysRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording recordingkeys request timeout response has a 5xx status code
+func (o *PostRecordingRecordingkeysRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording recordingkeys request timeout response a status code equal to that given
+func (o *PostRecordingRecordingkeysRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostRecordingRecordingkeysRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRecordingRecordingkeysRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostRecordingRecordingkeysRequestEntityTooLarge() *PostRecordingRecordin
 	return &PostRecordingRecordingkeysRequestEntityTooLarge{}
 }
 
-/*PostRecordingRecordingkeysRequestEntityTooLarge handles this case with default header values.
+/*
+PostRecordingRecordingkeysRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostRecordingRecordingkeysRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording recordingkeys request entity too large response has a 2xx status code
+func (o *PostRecordingRecordingkeysRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording recordingkeys request entity too large response has a 3xx status code
+func (o *PostRecordingRecordingkeysRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording recordingkeys request entity too large response has a 4xx status code
+func (o *PostRecordingRecordingkeysRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording recordingkeys request entity too large response has a 5xx status code
+func (o *PostRecordingRecordingkeysRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording recordingkeys request entity too large response a status code equal to that given
+func (o *PostRecordingRecordingkeysRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostRecordingRecordingkeysRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostRecordingRecordingkeysRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostRecordingRecordingkeysUnsupportedMediaType() *PostRecordingRecording
 	return &PostRecordingRecordingkeysUnsupportedMediaType{}
 }
 
-/*PostRecordingRecordingkeysUnsupportedMediaType handles this case with default header values.
+/*
+PostRecordingRecordingkeysUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostRecordingRecordingkeysUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording recordingkeys unsupported media type response has a 2xx status code
+func (o *PostRecordingRecordingkeysUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording recordingkeys unsupported media type response has a 3xx status code
+func (o *PostRecordingRecordingkeysUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording recordingkeys unsupported media type response has a 4xx status code
+func (o *PostRecordingRecordingkeysUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording recordingkeys unsupported media type response has a 5xx status code
+func (o *PostRecordingRecordingkeysUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording recordingkeys unsupported media type response a status code equal to that given
+func (o *PostRecordingRecordingkeysUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostRecordingRecordingkeysUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostRecordingRecordingkeysUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostRecordingRecordingkeysTooManyRequests() *PostRecordingRecordingkeysT
 	return &PostRecordingRecordingkeysTooManyRequests{}
 }
 
-/*PostRecordingRecordingkeysTooManyRequests handles this case with default header values.
+/*
+PostRecordingRecordingkeysTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostRecordingRecordingkeysTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording recordingkeys too many requests response has a 2xx status code
+func (o *PostRecordingRecordingkeysTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording recordingkeys too many requests response has a 3xx status code
+func (o *PostRecordingRecordingkeysTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording recordingkeys too many requests response has a 4xx status code
+func (o *PostRecordingRecordingkeysTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording recordingkeys too many requests response has a 5xx status code
+func (o *PostRecordingRecordingkeysTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording recordingkeys too many requests response a status code equal to that given
+func (o *PostRecordingRecordingkeysTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostRecordingRecordingkeysTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostRecordingRecordingkeysTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostRecordingRecordingkeysInternalServerError() *PostRecordingRecordingk
 	return &PostRecordingRecordingkeysInternalServerError{}
 }
 
-/*PostRecordingRecordingkeysInternalServerError handles this case with default header values.
+/*
+PostRecordingRecordingkeysInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostRecordingRecordingkeysInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording recordingkeys internal server error response has a 2xx status code
+func (o *PostRecordingRecordingkeysInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording recordingkeys internal server error response has a 3xx status code
+func (o *PostRecordingRecordingkeysInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording recordingkeys internal server error response has a 4xx status code
+func (o *PostRecordingRecordingkeysInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recording recordingkeys internal server error response has a 5xx status code
+func (o *PostRecordingRecordingkeysInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post recording recordingkeys internal server error response a status code equal to that given
+func (o *PostRecordingRecordingkeysInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostRecordingRecordingkeysInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostRecordingRecordingkeysInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostRecordingRecordingkeysServiceUnavailable() *PostRecordingRecordingke
 	return &PostRecordingRecordingkeysServiceUnavailable{}
 }
 
-/*PostRecordingRecordingkeysServiceUnavailable handles this case with default header values.
+/*
+PostRecordingRecordingkeysServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostRecordingRecordingkeysServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording recordingkeys service unavailable response has a 2xx status code
+func (o *PostRecordingRecordingkeysServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording recordingkeys service unavailable response has a 3xx status code
+func (o *PostRecordingRecordingkeysServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording recordingkeys service unavailable response has a 4xx status code
+func (o *PostRecordingRecordingkeysServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recording recordingkeys service unavailable response has a 5xx status code
+func (o *PostRecordingRecordingkeysServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post recording recordingkeys service unavailable response a status code equal to that given
+func (o *PostRecordingRecordingkeysServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostRecordingRecordingkeysServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostRecordingRecordingkeysServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostRecordingRecordingkeysGatewayTimeout() *PostRecordingRecordingkeysGa
 	return &PostRecordingRecordingkeysGatewayTimeout{}
 }
 
-/*PostRecordingRecordingkeysGatewayTimeout handles this case with default header values.
+/*
+PostRecordingRecordingkeysGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostRecordingRecordingkeysGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording recordingkeys gateway timeout response has a 2xx status code
+func (o *PostRecordingRecordingkeysGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording recordingkeys gateway timeout response has a 3xx status code
+func (o *PostRecordingRecordingkeysGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording recordingkeys gateway timeout response has a 4xx status code
+func (o *PostRecordingRecordingkeysGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recording recordingkeys gateway timeout response has a 5xx status code
+func (o *PostRecordingRecordingkeysGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post recording recordingkeys gateway timeout response a status code equal to that given
+func (o *PostRecordingRecordingkeysGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostRecordingRecordingkeysGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostRecordingRecordingkeysGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/recordingkeys][%d] postRecordingRecordingkeysGatewayTimeout  %+v", 504, o.Payload)
 }
 

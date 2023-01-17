@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -84,7 +85,6 @@ func (m *CallForwarding) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CallForwarding) validateCalls(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Calls) { // not required
 		return nil
 	}
@@ -98,6 +98,8 @@ func (m *CallForwarding) validateCalls(formats strfmt.Registry) error {
 			if err := m.Calls[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("calls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("calls" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -109,7 +111,6 @@ func (m *CallForwarding) validateCalls(formats strfmt.Registry) error {
 }
 
 func (m *CallForwarding) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -122,7 +123,6 @@ func (m *CallForwarding) validateModifiedDate(formats strfmt.Registry) error {
 }
 
 func (m *CallForwarding) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -135,7 +135,6 @@ func (m *CallForwarding) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *CallForwarding) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -144,6 +143,8 @@ func (m *CallForwarding) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}
@@ -185,7 +186,6 @@ func (m *CallForwarding) validateVoicemailEnum(path, location string, value stri
 }
 
 func (m *CallForwarding) validateVoicemail(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Voicemail) { // not required
 		return nil
 	}
@@ -193,6 +193,86 @@ func (m *CallForwarding) validateVoicemail(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateVoicemailEnum("voicemail", "body", m.Voicemail); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this call forwarding based on the context it is used
+func (m *CallForwarding) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCalls(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CallForwarding) contextValidateCalls(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Calls); i++ {
+
+		if m.Calls[i] != nil {
+			if err := m.Calls[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("calls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("calls" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CallForwarding) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CallForwarding) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CallForwarding) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
 	}
 
 	return nil

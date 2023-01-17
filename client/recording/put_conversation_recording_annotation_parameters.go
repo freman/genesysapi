@@ -18,74 +18,93 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutConversationRecordingAnnotationParams creates a new PutConversationRecordingAnnotationParams object
-// with the default values initialized.
+// NewPutConversationRecordingAnnotationParams creates a new PutConversationRecordingAnnotationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutConversationRecordingAnnotationParams() *PutConversationRecordingAnnotationParams {
-	var ()
 	return &PutConversationRecordingAnnotationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutConversationRecordingAnnotationParamsWithTimeout creates a new PutConversationRecordingAnnotationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutConversationRecordingAnnotationParamsWithTimeout(timeout time.Duration) *PutConversationRecordingAnnotationParams {
-	var ()
 	return &PutConversationRecordingAnnotationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutConversationRecordingAnnotationParamsWithContext creates a new PutConversationRecordingAnnotationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutConversationRecordingAnnotationParamsWithContext(ctx context.Context) *PutConversationRecordingAnnotationParams {
-	var ()
 	return &PutConversationRecordingAnnotationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutConversationRecordingAnnotationParamsWithHTTPClient creates a new PutConversationRecordingAnnotationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutConversationRecordingAnnotationParamsWithHTTPClient(client *http.Client) *PutConversationRecordingAnnotationParams {
-	var ()
 	return &PutConversationRecordingAnnotationParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutConversationRecordingAnnotationParams contains all the parameters to send to the API endpoint
-for the put conversation recording annotation operation typically these are written to a http.Request
+/*
+PutConversationRecordingAnnotationParams contains all the parameters to send to the API endpoint
+
+	for the put conversation recording annotation operation.
+
+	Typically these are written to a http.Request.
 */
 type PutConversationRecordingAnnotationParams struct {
 
-	/*AnnotationID
-	  Annotation ID
+	/* AnnotationID.
 
+	   Annotation ID
 	*/
 	AnnotationID string
-	/*Body
-	  annotation
 
+	/* Body.
+
+	   annotation
 	*/
 	Body *models.Annotation
-	/*ConversationID
-	  Conversation ID
 
+	/* ConversationID.
+
+	   Conversation ID
 	*/
 	ConversationID string
-	/*RecordingID
-	  Recording ID
 
+	/* RecordingID.
+
+	   Recording ID
 	*/
 	RecordingID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put conversation recording annotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationRecordingAnnotationParams) WithDefaults() *PutConversationRecordingAnnotationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put conversation recording annotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationRecordingAnnotationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put conversation recording annotation params
@@ -177,7 +196,6 @@ func (o *PutConversationRecordingAnnotationParams) WriteToRequest(r runtime.Clie
 	if err := r.SetPathParam("annotationId", o.AnnotationID); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

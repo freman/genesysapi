@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -54,7 +55,6 @@ func (m *ConversationMessageMetadata) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ConversationMessageMetadata) validateContent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Content) { // not required
 		return nil
 	}
@@ -68,6 +68,8 @@ func (m *ConversationMessageMetadata) validateContent(formats strfmt.Registry) e
 			if err := m.Content[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("content" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("content" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -79,7 +81,6 @@ func (m *ConversationMessageMetadata) validateContent(formats strfmt.Registry) e
 }
 
 func (m *ConversationMessageMetadata) validateEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Events) { // not required
 		return nil
 	}
@@ -93,6 +94,8 @@ func (m *ConversationMessageMetadata) validateEvents(formats strfmt.Registry) er
 			if err := m.Events[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("events" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("events" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -145,7 +148,6 @@ func (m *ConversationMessageMetadata) validateTypeEnum(path, location string, va
 }
 
 func (m *ConversationMessageMetadata) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -153,6 +155,64 @@ func (m *ConversationMessageMetadata) validateType(formats strfmt.Registry) erro
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation message metadata based on the context it is used
+func (m *ConversationMessageMetadata) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConversationMessageMetadata) contextValidateContent(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Content); i++ {
+
+		if m.Content[i] != nil {
+			if err := m.Content[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("content" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("content" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ConversationMessageMetadata) contextValidateEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Events); i++ {
+
+		if m.Events[i] != nil {
+			if err := m.Events[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("events" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("events" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

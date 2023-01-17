@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -56,6 +57,8 @@ func (m *KnowledgeGuestDocumentVariationContext) validateContext(formats strfmt.
 		if err := m.Context.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("context")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("context")
 			}
 			return err
 		}
@@ -79,6 +82,62 @@ func (m *KnowledgeGuestDocumentVariationContext) validateValues(formats strfmt.R
 			if err := m.Values[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("values" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("values" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge guest document variation context based on the context it is used
+func (m *KnowledgeGuestDocumentVariationContext) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateValues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeGuestDocumentVariationContext) contextValidateContext(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Context != nil {
+		if err := m.Context.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("context")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("context")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeGuestDocumentVariationContext) contextValidateValues(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Values); i++ {
+
+		if m.Values[i] != nil {
+			if err := m.Values[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("values" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("values" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

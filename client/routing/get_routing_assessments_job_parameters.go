@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingAssessmentsJobParams creates a new GetRoutingAssessmentsJobParams object
-// with the default values initialized.
+// NewGetRoutingAssessmentsJobParams creates a new GetRoutingAssessmentsJobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingAssessmentsJobParams() *GetRoutingAssessmentsJobParams {
-	var ()
 	return &GetRoutingAssessmentsJobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingAssessmentsJobParamsWithTimeout creates a new GetRoutingAssessmentsJobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingAssessmentsJobParamsWithTimeout(timeout time.Duration) *GetRoutingAssessmentsJobParams {
-	var ()
 	return &GetRoutingAssessmentsJobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingAssessmentsJobParamsWithContext creates a new GetRoutingAssessmentsJobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingAssessmentsJobParamsWithContext(ctx context.Context) *GetRoutingAssessmentsJobParams {
-	var ()
 	return &GetRoutingAssessmentsJobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingAssessmentsJobParamsWithHTTPClient creates a new GetRoutingAssessmentsJobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingAssessmentsJobParamsWithHTTPClient(client *http.Client) *GetRoutingAssessmentsJobParams {
-	var ()
 	return &GetRoutingAssessmentsJobParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingAssessmentsJobParams contains all the parameters to send to the API endpoint
-for the get routing assessments job operation typically these are written to a http.Request
+/*
+GetRoutingAssessmentsJobParams contains all the parameters to send to the API endpoint
+
+	for the get routing assessments job operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingAssessmentsJobParams struct {
 
-	/*JobID
-	  Benefit Assessment Job ID
+	/* JobID.
 
+	   Benefit Assessment Job ID
 	*/
 	JobID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing assessments job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingAssessmentsJobParams) WithDefaults() *GetRoutingAssessmentsJobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing assessments job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingAssessmentsJobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing assessments job params

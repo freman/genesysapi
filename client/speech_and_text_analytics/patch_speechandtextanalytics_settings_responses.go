@@ -95,7 +95,6 @@ func (o *PatchSpeechandtextanalyticsSettingsReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchSpeechandtextanalyticsSettingsOK() *PatchSpeechandtextanalyticsSett
 	return &PatchSpeechandtextanalyticsSettingsOK{}
 }
 
-/*PatchSpeechandtextanalyticsSettingsOK handles this case with default header values.
+/*
+PatchSpeechandtextanalyticsSettingsOK describes a response with status code 200, with default header values.
 
 Speech And Text Analytics settings has been updated
 */
@@ -114,7 +114,36 @@ type PatchSpeechandtextanalyticsSettingsOK struct {
 	Payload *models.SpeechTextAnalyticsSettingsResponse
 }
 
+// IsSuccess returns true when this patch speechandtextanalytics settings o k response has a 2xx status code
+func (o *PatchSpeechandtextanalyticsSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch speechandtextanalytics settings o k response has a 3xx status code
+func (o *PatchSpeechandtextanalyticsSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch speechandtextanalytics settings o k response has a 4xx status code
+func (o *PatchSpeechandtextanalyticsSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch speechandtextanalytics settings o k response has a 5xx status code
+func (o *PatchSpeechandtextanalyticsSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch speechandtextanalytics settings o k response a status code equal to that given
+func (o *PatchSpeechandtextanalyticsSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchSpeechandtextanalyticsSettingsOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchSpeechandtextanalyticsSettingsBadRequest() *PatchSpeechandtextanaly
 	return &PatchSpeechandtextanalyticsSettingsBadRequest{}
 }
 
-/*PatchSpeechandtextanalyticsSettingsBadRequest handles this case with default header values.
+/*
+PatchSpeechandtextanalyticsSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchSpeechandtextanalyticsSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch speechandtextanalytics settings bad request response has a 2xx status code
+func (o *PatchSpeechandtextanalyticsSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch speechandtextanalytics settings bad request response has a 3xx status code
+func (o *PatchSpeechandtextanalyticsSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch speechandtextanalytics settings bad request response has a 4xx status code
+func (o *PatchSpeechandtextanalyticsSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch speechandtextanalytics settings bad request response has a 5xx status code
+func (o *PatchSpeechandtextanalyticsSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch speechandtextanalytics settings bad request response a status code equal to that given
+func (o *PatchSpeechandtextanalyticsSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchSpeechandtextanalyticsSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchSpeechandtextanalyticsSettingsUnauthorized() *PatchSpeechandtextana
 	return &PatchSpeechandtextanalyticsSettingsUnauthorized{}
 }
 
-/*PatchSpeechandtextanalyticsSettingsUnauthorized handles this case with default header values.
+/*
+PatchSpeechandtextanalyticsSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchSpeechandtextanalyticsSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch speechandtextanalytics settings unauthorized response has a 2xx status code
+func (o *PatchSpeechandtextanalyticsSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch speechandtextanalytics settings unauthorized response has a 3xx status code
+func (o *PatchSpeechandtextanalyticsSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch speechandtextanalytics settings unauthorized response has a 4xx status code
+func (o *PatchSpeechandtextanalyticsSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch speechandtextanalytics settings unauthorized response has a 5xx status code
+func (o *PatchSpeechandtextanalyticsSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch speechandtextanalytics settings unauthorized response a status code equal to that given
+func (o *PatchSpeechandtextanalyticsSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchSpeechandtextanalyticsSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchSpeechandtextanalyticsSettingsForbidden() *PatchSpeechandtextanalyt
 	return &PatchSpeechandtextanalyticsSettingsForbidden{}
 }
 
-/*PatchSpeechandtextanalyticsSettingsForbidden handles this case with default header values.
+/*
+PatchSpeechandtextanalyticsSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchSpeechandtextanalyticsSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch speechandtextanalytics settings forbidden response has a 2xx status code
+func (o *PatchSpeechandtextanalyticsSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch speechandtextanalytics settings forbidden response has a 3xx status code
+func (o *PatchSpeechandtextanalyticsSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch speechandtextanalytics settings forbidden response has a 4xx status code
+func (o *PatchSpeechandtextanalyticsSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch speechandtextanalytics settings forbidden response has a 5xx status code
+func (o *PatchSpeechandtextanalyticsSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch speechandtextanalytics settings forbidden response a status code equal to that given
+func (o *PatchSpeechandtextanalyticsSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchSpeechandtextanalyticsSettingsForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchSpeechandtextanalyticsSettingsNotFound() *PatchSpeechandtextanalyti
 	return &PatchSpeechandtextanalyticsSettingsNotFound{}
 }
 
-/*PatchSpeechandtextanalyticsSettingsNotFound handles this case with default header values.
+/*
+PatchSpeechandtextanalyticsSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchSpeechandtextanalyticsSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch speechandtextanalytics settings not found response has a 2xx status code
+func (o *PatchSpeechandtextanalyticsSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch speechandtextanalytics settings not found response has a 3xx status code
+func (o *PatchSpeechandtextanalyticsSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch speechandtextanalytics settings not found response has a 4xx status code
+func (o *PatchSpeechandtextanalyticsSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch speechandtextanalytics settings not found response has a 5xx status code
+func (o *PatchSpeechandtextanalyticsSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch speechandtextanalytics settings not found response a status code equal to that given
+func (o *PatchSpeechandtextanalyticsSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchSpeechandtextanalyticsSettingsNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchSpeechandtextanalyticsSettingsRequestTimeout() *PatchSpeechandtexta
 	return &PatchSpeechandtextanalyticsSettingsRequestTimeout{}
 }
 
-/*PatchSpeechandtextanalyticsSettingsRequestTimeout handles this case with default header values.
+/*
+PatchSpeechandtextanalyticsSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchSpeechandtextanalyticsSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch speechandtextanalytics settings request timeout response has a 2xx status code
+func (o *PatchSpeechandtextanalyticsSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch speechandtextanalytics settings request timeout response has a 3xx status code
+func (o *PatchSpeechandtextanalyticsSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch speechandtextanalytics settings request timeout response has a 4xx status code
+func (o *PatchSpeechandtextanalyticsSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch speechandtextanalytics settings request timeout response has a 5xx status code
+func (o *PatchSpeechandtextanalyticsSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch speechandtextanalytics settings request timeout response a status code equal to that given
+func (o *PatchSpeechandtextanalyticsSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchSpeechandtextanalyticsSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchSpeechandtextanalyticsSettingsRequestEntityTooLarge() *PatchSpeecha
 	return &PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge{}
 }
 
-/*PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch speechandtextanalytics settings request entity too large response has a 2xx status code
+func (o *PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch speechandtextanalytics settings request entity too large response has a 3xx status code
+func (o *PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch speechandtextanalytics settings request entity too large response has a 4xx status code
+func (o *PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch speechandtextanalytics settings request entity too large response has a 5xx status code
+func (o *PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch speechandtextanalytics settings request entity too large response a status code equal to that given
+func (o *PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchSpeechandtextanalyticsSettingsUnsupportedMediaType() *PatchSpeechan
 	return &PatchSpeechandtextanalyticsSettingsUnsupportedMediaType{}
 }
 
-/*PatchSpeechandtextanalyticsSettingsUnsupportedMediaType handles this case with default header values.
+/*
+PatchSpeechandtextanalyticsSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchSpeechandtextanalyticsSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch speechandtextanalytics settings unsupported media type response has a 2xx status code
+func (o *PatchSpeechandtextanalyticsSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch speechandtextanalytics settings unsupported media type response has a 3xx status code
+func (o *PatchSpeechandtextanalyticsSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch speechandtextanalytics settings unsupported media type response has a 4xx status code
+func (o *PatchSpeechandtextanalyticsSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch speechandtextanalytics settings unsupported media type response has a 5xx status code
+func (o *PatchSpeechandtextanalyticsSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch speechandtextanalytics settings unsupported media type response a status code equal to that given
+func (o *PatchSpeechandtextanalyticsSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchSpeechandtextanalyticsSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchSpeechandtextanalyticsSettingsTooManyRequests() *PatchSpeechandtext
 	return &PatchSpeechandtextanalyticsSettingsTooManyRequests{}
 }
 
-/*PatchSpeechandtextanalyticsSettingsTooManyRequests handles this case with default header values.
+/*
+PatchSpeechandtextanalyticsSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchSpeechandtextanalyticsSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch speechandtextanalytics settings too many requests response has a 2xx status code
+func (o *PatchSpeechandtextanalyticsSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch speechandtextanalytics settings too many requests response has a 3xx status code
+func (o *PatchSpeechandtextanalyticsSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch speechandtextanalytics settings too many requests response has a 4xx status code
+func (o *PatchSpeechandtextanalyticsSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch speechandtextanalytics settings too many requests response has a 5xx status code
+func (o *PatchSpeechandtextanalyticsSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch speechandtextanalytics settings too many requests response a status code equal to that given
+func (o *PatchSpeechandtextanalyticsSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchSpeechandtextanalyticsSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchSpeechandtextanalyticsSettingsInternalServerError() *PatchSpeechand
 	return &PatchSpeechandtextanalyticsSettingsInternalServerError{}
 }
 
-/*PatchSpeechandtextanalyticsSettingsInternalServerError handles this case with default header values.
+/*
+PatchSpeechandtextanalyticsSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchSpeechandtextanalyticsSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch speechandtextanalytics settings internal server error response has a 2xx status code
+func (o *PatchSpeechandtextanalyticsSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch speechandtextanalytics settings internal server error response has a 3xx status code
+func (o *PatchSpeechandtextanalyticsSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch speechandtextanalytics settings internal server error response has a 4xx status code
+func (o *PatchSpeechandtextanalyticsSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch speechandtextanalytics settings internal server error response has a 5xx status code
+func (o *PatchSpeechandtextanalyticsSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch speechandtextanalytics settings internal server error response a status code equal to that given
+func (o *PatchSpeechandtextanalyticsSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchSpeechandtextanalyticsSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchSpeechandtextanalyticsSettingsServiceUnavailable() *PatchSpeechandt
 	return &PatchSpeechandtextanalyticsSettingsServiceUnavailable{}
 }
 
-/*PatchSpeechandtextanalyticsSettingsServiceUnavailable handles this case with default header values.
+/*
+PatchSpeechandtextanalyticsSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchSpeechandtextanalyticsSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch speechandtextanalytics settings service unavailable response has a 2xx status code
+func (o *PatchSpeechandtextanalyticsSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch speechandtextanalytics settings service unavailable response has a 3xx status code
+func (o *PatchSpeechandtextanalyticsSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch speechandtextanalytics settings service unavailable response has a 4xx status code
+func (o *PatchSpeechandtextanalyticsSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch speechandtextanalytics settings service unavailable response has a 5xx status code
+func (o *PatchSpeechandtextanalyticsSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch speechandtextanalytics settings service unavailable response a status code equal to that given
+func (o *PatchSpeechandtextanalyticsSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchSpeechandtextanalyticsSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchSpeechandtextanalyticsSettingsGatewayTimeout() *PatchSpeechandtexta
 	return &PatchSpeechandtextanalyticsSettingsGatewayTimeout{}
 }
 
-/*PatchSpeechandtextanalyticsSettingsGatewayTimeout handles this case with default header values.
+/*
+PatchSpeechandtextanalyticsSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchSpeechandtextanalyticsSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch speechandtextanalytics settings gateway timeout response has a 2xx status code
+func (o *PatchSpeechandtextanalyticsSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch speechandtextanalytics settings gateway timeout response has a 3xx status code
+func (o *PatchSpeechandtextanalyticsSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch speechandtextanalytics settings gateway timeout response has a 4xx status code
+func (o *PatchSpeechandtextanalyticsSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch speechandtextanalytics settings gateway timeout response has a 5xx status code
+func (o *PatchSpeechandtextanalyticsSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch speechandtextanalytics settings gateway timeout response a status code equal to that given
+func (o *PatchSpeechandtextanalyticsSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchSpeechandtextanalyticsSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchSpeechandtextanalyticsSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/speechandtextanalytics/settings][%d] patchSpeechandtextanalyticsSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

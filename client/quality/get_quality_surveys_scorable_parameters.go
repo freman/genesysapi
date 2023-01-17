@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetQualitySurveysScorableParams creates a new GetQualitySurveysScorableParams object
-// with the default values initialized.
+// NewGetQualitySurveysScorableParams creates a new GetQualitySurveysScorableParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetQualitySurveysScorableParams() *GetQualitySurveysScorableParams {
-	var ()
 	return &GetQualitySurveysScorableParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetQualitySurveysScorableParamsWithTimeout creates a new GetQualitySurveysScorableParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetQualitySurveysScorableParamsWithTimeout(timeout time.Duration) *GetQualitySurveysScorableParams {
-	var ()
 	return &GetQualitySurveysScorableParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetQualitySurveysScorableParamsWithContext creates a new GetQualitySurveysScorableParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetQualitySurveysScorableParamsWithContext(ctx context.Context) *GetQualitySurveysScorableParams {
-	var ()
 	return &GetQualitySurveysScorableParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetQualitySurveysScorableParamsWithHTTPClient creates a new GetQualitySurveysScorableParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetQualitySurveysScorableParamsWithHTTPClient(client *http.Client) *GetQualitySurveysScorableParams {
-	var ()
 	return &GetQualitySurveysScorableParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetQualitySurveysScorableParams contains all the parameters to send to the API endpoint
-for the get quality surveys scorable operation typically these are written to a http.Request
+/*
+GetQualitySurveysScorableParams contains all the parameters to send to the API endpoint
+
+	for the get quality surveys scorable operation.
+
+	Typically these are written to a http.Request.
 */
 type GetQualitySurveysScorableParams struct {
 
-	/*CustomerSurveyURL
-	  customerSurveyUrl
+	/* CustomerSurveyURL.
 
+	   customerSurveyUrl
 	*/
 	CustomerSurveyURL string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get quality surveys scorable params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualitySurveysScorableParams) WithDefaults() *GetQualitySurveysScorableParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get quality surveys scorable params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualitySurveysScorableParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get quality surveys scorable params
@@ -127,6 +143,7 @@ func (o *GetQualitySurveysScorableParams) WriteToRequest(r runtime.ClientRequest
 	qrCustomerSurveyURL := o.CustomerSurveyURL
 	qCustomerSurveyURL := qrCustomerSurveyURL
 	if qCustomerSurveyURL != "" {
+
 		if err := r.SetQueryParam("customerSurveyUrl", qCustomerSurveyURL); err != nil {
 			return err
 		}

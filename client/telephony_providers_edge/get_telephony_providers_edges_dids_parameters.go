@@ -17,130 +17,147 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetTelephonyProvidersEdgesDidsParams creates a new GetTelephonyProvidersEdgesDidsParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesDidsParams creates a new GetTelephonyProvidersEdgesDidsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesDidsParams() *GetTelephonyProvidersEdgesDidsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("number")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetTelephonyProvidersEdgesDidsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesDidsParamsWithTimeout creates a new GetTelephonyProvidersEdgesDidsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesDidsParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesDidsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("number")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetTelephonyProvidersEdgesDidsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesDidsParamsWithContext creates a new GetTelephonyProvidersEdgesDidsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesDidsParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesDidsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("number")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetTelephonyProvidersEdgesDidsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesDidsParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesDidsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesDidsParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesDidsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("number")
-		sortOrderDefault  = string("ASC")
-	)
 	return &GetTelephonyProvidersEdgesDidsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesDidsParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges dids operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesDidsParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges dids operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesDidsParams struct {
 
-	/*DidPoolID
-	  Filter by the DID Pool assignment
+	/* DidPoolID.
 
+	   Filter by the DID Pool assignment
 	*/
 	DidPoolID *string
-	/*ID
-	  Filter by a specific list of ID's
 
+	/* ID.
+
+	   Filter by a specific list of ID's
 	*/
 	ID []string
-	/*OwnerID
-	  Filter by the owner of a phone number
 
+	/* OwnerID.
+
+	   Filter by the owner of a phone number
 	*/
 	OwnerID *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*PhoneNumber
-	  Filter by phoneNumber
 
+	/* PhoneNumber.
+
+	   Filter by phoneNumber
 	*/
 	PhoneNumber *string
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
+
+	   Default: "number"
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "ASC"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges dids params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesDidsParams) WithDefaults() *GetTelephonyProvidersEdgesDidsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges dids params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesDidsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("number")
+
+		sortOrderDefault = string("ASC")
+	)
+
+	val := GetTelephonyProvidersEdgesDidsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges dids params
@@ -276,124 +293,151 @@ func (o *GetTelephonyProvidersEdgesDidsParams) WriteToRequest(r runtime.ClientRe
 
 		// query param didPool.id
 		var qrDidPoolID string
+
 		if o.DidPoolID != nil {
 			qrDidPoolID = *o.DidPoolID
 		}
 		qDidPoolID := qrDidPoolID
 		if qDidPoolID != "" {
+
 			if err := r.SetQueryParam("didPool.id", qDidPoolID); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if o.OwnerID != nil {
 
 		// query param owner.id
 		var qrOwnerID string
+
 		if o.OwnerID != nil {
 			qrOwnerID = *o.OwnerID
 		}
 		qOwnerID := qrOwnerID
 		if qOwnerID != "" {
+
 			if err := r.SetQueryParam("owner.id", qOwnerID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PhoneNumber != nil {
 
 		// query param phoneNumber
 		var qrPhoneNumber string
+
 		if o.PhoneNumber != nil {
 			qrPhoneNumber = *o.PhoneNumber
 		}
 		qPhoneNumber := qrPhoneNumber
 		if qPhoneNumber != "" {
+
 			if err := r.SetQueryParam("phoneNumber", qPhoneNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetTelephonyProvidersEdgesDids binds the parameter id
+func (o *GetTelephonyProvidersEdgesDidsParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
 }

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAnalyticsReportingReportIDMetadataParams creates a new GetAnalyticsReportingReportIDMetadataParams object
-// with the default values initialized.
+// NewGetAnalyticsReportingReportIDMetadataParams creates a new GetAnalyticsReportingReportIDMetadataParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAnalyticsReportingReportIDMetadataParams() *GetAnalyticsReportingReportIDMetadataParams {
-	var ()
 	return &GetAnalyticsReportingReportIDMetadataParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAnalyticsReportingReportIDMetadataParamsWithTimeout creates a new GetAnalyticsReportingReportIDMetadataParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAnalyticsReportingReportIDMetadataParamsWithTimeout(timeout time.Duration) *GetAnalyticsReportingReportIDMetadataParams {
-	var ()
 	return &GetAnalyticsReportingReportIDMetadataParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAnalyticsReportingReportIDMetadataParamsWithContext creates a new GetAnalyticsReportingReportIDMetadataParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAnalyticsReportingReportIDMetadataParamsWithContext(ctx context.Context) *GetAnalyticsReportingReportIDMetadataParams {
-	var ()
 	return &GetAnalyticsReportingReportIDMetadataParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAnalyticsReportingReportIDMetadataParamsWithHTTPClient creates a new GetAnalyticsReportingReportIDMetadataParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAnalyticsReportingReportIDMetadataParamsWithHTTPClient(client *http.Client) *GetAnalyticsReportingReportIDMetadataParams {
-	var ()
 	return &GetAnalyticsReportingReportIDMetadataParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAnalyticsReportingReportIDMetadataParams contains all the parameters to send to the API endpoint
-for the get analytics reporting report Id metadata operation typically these are written to a http.Request
+/*
+GetAnalyticsReportingReportIDMetadataParams contains all the parameters to send to the API endpoint
+
+	for the get analytics reporting report Id metadata operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAnalyticsReportingReportIDMetadataParams struct {
 
-	/*Locale
-	  Locale
+	/* Locale.
 
+	   Locale
 	*/
 	Locale *string
-	/*ReportID
-	  Report ID
 
+	/* ReportID.
+
+	   Report ID
 	*/
 	ReportID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get analytics reporting report Id metadata params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAnalyticsReportingReportIDMetadataParams) WithDefaults() *GetAnalyticsReportingReportIDMetadataParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get analytics reporting report Id metadata params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAnalyticsReportingReportIDMetadataParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get analytics reporting report Id metadata params
@@ -143,16 +160,17 @@ func (o *GetAnalyticsReportingReportIDMetadataParams) WriteToRequest(r runtime.C
 
 		// query param locale
 		var qrLocale string
+
 		if o.Locale != nil {
 			qrLocale = *o.Locale
 		}
 		qLocale := qrLocale
 		if qLocale != "" {
+
 			if err := r.SetQueryParam("locale", qLocale); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param reportId

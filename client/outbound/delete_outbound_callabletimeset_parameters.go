@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteOutboundCallabletimesetParams creates a new DeleteOutboundCallabletimesetParams object
-// with the default values initialized.
+// NewDeleteOutboundCallabletimesetParams creates a new DeleteOutboundCallabletimesetParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundCallabletimesetParams() *DeleteOutboundCallabletimesetParams {
-	var ()
 	return &DeleteOutboundCallabletimesetParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundCallabletimesetParamsWithTimeout creates a new DeleteOutboundCallabletimesetParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundCallabletimesetParamsWithTimeout(timeout time.Duration) *DeleteOutboundCallabletimesetParams {
-	var ()
 	return &DeleteOutboundCallabletimesetParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundCallabletimesetParamsWithContext creates a new DeleteOutboundCallabletimesetParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundCallabletimesetParamsWithContext(ctx context.Context) *DeleteOutboundCallabletimesetParams {
-	var ()
 	return &DeleteOutboundCallabletimesetParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundCallabletimesetParamsWithHTTPClient creates a new DeleteOutboundCallabletimesetParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundCallabletimesetParamsWithHTTPClient(client *http.Client) *DeleteOutboundCallabletimesetParams {
-	var ()
 	return &DeleteOutboundCallabletimesetParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundCallabletimesetParams contains all the parameters to send to the API endpoint
-for the delete outbound callabletimeset operation typically these are written to a http.Request
+/*
+DeleteOutboundCallabletimesetParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound callabletimeset operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundCallabletimesetParams struct {
 
-	/*CallableTimeSetID
-	  Callable Time Set ID
+	/* CallableTimeSetID.
 
+	   Callable Time Set ID
 	*/
 	CallableTimeSetID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound callabletimeset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundCallabletimesetParams) WithDefaults() *DeleteOutboundCallabletimesetParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound callabletimeset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundCallabletimesetParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound callabletimeset params

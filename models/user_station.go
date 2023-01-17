@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -68,7 +70,6 @@ func (m *UserStation) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserStation) validateAssociatedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssociatedDate) { // not required
 		return nil
 	}
@@ -81,7 +82,6 @@ func (m *UserStation) validateAssociatedDate(formats strfmt.Registry) error {
 }
 
 func (m *UserStation) validateAssociatedUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssociatedUser) { // not required
 		return nil
 	}
@@ -90,6 +90,8 @@ func (m *UserStation) validateAssociatedUser(formats strfmt.Registry) error {
 		if err := m.AssociatedUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("associatedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("associatedUser")
 			}
 			return err
 		}
@@ -99,7 +101,6 @@ func (m *UserStation) validateAssociatedUser(formats strfmt.Registry) error {
 }
 
 func (m *UserStation) validateDefaultUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DefaultUser) { // not required
 		return nil
 	}
@@ -108,9 +109,87 @@ func (m *UserStation) validateDefaultUser(formats strfmt.Registry) error {
 		if err := m.DefaultUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("defaultUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("defaultUser")
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user station based on the context it is used
+func (m *UserStation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAssociatedUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDefaultUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWebRtcCallAppearances(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserStation) contextValidateAssociatedUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AssociatedUser != nil {
+		if err := m.AssociatedUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("associatedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("associatedUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserStation) contextValidateDefaultUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DefaultUser != nil {
+		if err := m.DefaultUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("defaultUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("defaultUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserStation) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserStation) contextValidateWebRtcCallAppearances(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "webRtcCallAppearances", "body", int32(m.WebRtcCallAppearances)); err != nil {
+		return err
 	}
 
 	return nil

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -120,7 +121,6 @@ func (m *AuditMessage) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AuditMessage) validateChanges(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Changes) { // not required
 		return nil
 	}
@@ -134,6 +134,8 @@ func (m *AuditMessage) validateChanges(formats strfmt.Registry) error {
 			if err := m.Changes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("changes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("changes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -145,7 +147,6 @@ func (m *AuditMessage) validateChanges(formats strfmt.Registry) error {
 }
 
 func (m *AuditMessage) validateEntity(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Entity) { // not required
 		return nil
 	}
@@ -154,6 +155,8 @@ func (m *AuditMessage) validateEntity(formats strfmt.Registry) error {
 		if err := m.Entity.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("entity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("entity")
 			}
 			return err
 		}
@@ -190,7 +193,6 @@ func (m *AuditMessage) validateReceivedTimestamp(formats strfmt.Registry) error 
 }
 
 func (m *AuditMessage) validateServiceContext(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ServiceContext) { // not required
 		return nil
 	}
@@ -199,6 +201,8 @@ func (m *AuditMessage) validateServiceContext(formats strfmt.Registry) error {
 		if err := m.ServiceContext.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("serviceContext")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("serviceContext")
 			}
 			return err
 		}
@@ -226,7 +230,6 @@ func (m *AuditMessage) validateStatus(formats strfmt.Registry) error {
 }
 
 func (m *AuditMessage) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -235,6 +238,102 @@ func (m *AuditMessage) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this audit message based on the context it is used
+func (m *AuditMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateChanges(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEntity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateServiceContext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AuditMessage) contextValidateChanges(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Changes); i++ {
+
+		if m.Changes[i] != nil {
+			if err := m.Changes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("changes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("changes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AuditMessage) contextValidateEntity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Entity != nil {
+		if err := m.Entity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("entity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("entity")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AuditMessage) contextValidateServiceContext(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ServiceContext != nil {
+		if err := m.ServiceContext.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("serviceContext")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("serviceContext")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AuditMessage) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

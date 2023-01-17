@@ -18,74 +18,95 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementManagementunitWeekShifttradeMatchParams creates a new PostWorkforcemanagementManagementunitWeekShifttradeMatchParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementManagementunitWeekShifttradeMatchParams creates a new PostWorkforcemanagementManagementunitWeekShifttradeMatchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementManagementunitWeekShifttradeMatchParams() *PostWorkforcemanagementManagementunitWeekShifttradeMatchParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWeekShifttradeMatchParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWeekShifttradeMatchParamsWithTimeout creates a new PostWorkforcemanagementManagementunitWeekShifttradeMatchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementManagementunitWeekShifttradeMatchParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementManagementunitWeekShifttradeMatchParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWeekShifttradeMatchParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWeekShifttradeMatchParamsWithContext creates a new PostWorkforcemanagementManagementunitWeekShifttradeMatchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementManagementunitWeekShifttradeMatchParamsWithContext(ctx context.Context) *PostWorkforcemanagementManagementunitWeekShifttradeMatchParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWeekShifttradeMatchParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWeekShifttradeMatchParamsWithHTTPClient creates a new PostWorkforcemanagementManagementunitWeekShifttradeMatchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementManagementunitWeekShifttradeMatchParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementManagementunitWeekShifttradeMatchParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWeekShifttradeMatchParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementManagementunitWeekShifttradeMatchParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement managementunit week shifttrade match operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementManagementunitWeekShifttradeMatchParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement managementunit week shifttrade match operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementManagementunitWeekShifttradeMatchParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.MatchShiftTradeRequest
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
-	/*TradeID
-	  The ID of the shift trade to update
 
+	/* TradeID.
+
+	   The ID of the shift trade to update
 	*/
 	TradeID string
-	/*WeekDateID
-	  The start date of the week schedule in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekDateID.
+
+	   The start date of the week schedule in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekDateID strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement managementunit week shifttrade match params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitWeekShifttradeMatchParams) WithDefaults() *PostWorkforcemanagementManagementunitWeekShifttradeMatchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement managementunit week shifttrade match params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitWeekShifttradeMatchParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement managementunit week shifttrade match params
@@ -172,7 +193,6 @@ func (o *PostWorkforcemanagementManagementunitWeekShifttradeMatchParams) WriteTo
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

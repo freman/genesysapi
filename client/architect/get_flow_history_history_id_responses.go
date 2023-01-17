@@ -95,7 +95,6 @@ func (o *GetFlowHistoryHistoryIDReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetFlowHistoryHistoryIDOK() *GetFlowHistoryHistoryIDOK {
 	return &GetFlowHistoryHistoryIDOK{}
 }
 
-/*GetFlowHistoryHistoryIDOK handles this case with default header values.
+/*
+GetFlowHistoryHistoryIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetFlowHistoryHistoryIDOK struct {
 	Payload *models.HistoryListing
 }
 
+// IsSuccess returns true when this get flow history history Id o k response has a 2xx status code
+func (o *GetFlowHistoryHistoryIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get flow history history Id o k response has a 3xx status code
+func (o *GetFlowHistoryHistoryIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow history history Id o k response has a 4xx status code
+func (o *GetFlowHistoryHistoryIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flow history history Id o k response has a 5xx status code
+func (o *GetFlowHistoryHistoryIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow history history Id o k response a status code equal to that given
+func (o *GetFlowHistoryHistoryIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetFlowHistoryHistoryIDOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdOK  %+v", 200, o.Payload)
+}
+
+func (o *GetFlowHistoryHistoryIDOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetFlowHistoryHistoryIDBadRequest() *GetFlowHistoryHistoryIDBadRequest {
 	return &GetFlowHistoryHistoryIDBadRequest{}
 }
 
-/*GetFlowHistoryHistoryIDBadRequest handles this case with default header values.
+/*
+GetFlowHistoryHistoryIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetFlowHistoryHistoryIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow history history Id bad request response has a 2xx status code
+func (o *GetFlowHistoryHistoryIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow history history Id bad request response has a 3xx status code
+func (o *GetFlowHistoryHistoryIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow history history Id bad request response has a 4xx status code
+func (o *GetFlowHistoryHistoryIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow history history Id bad request response has a 5xx status code
+func (o *GetFlowHistoryHistoryIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow history history Id bad request response a status code equal to that given
+func (o *GetFlowHistoryHistoryIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetFlowHistoryHistoryIDBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetFlowHistoryHistoryIDBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetFlowHistoryHistoryIDUnauthorized() *GetFlowHistoryHistoryIDUnauthoriz
 	return &GetFlowHistoryHistoryIDUnauthorized{}
 }
 
-/*GetFlowHistoryHistoryIDUnauthorized handles this case with default header values.
+/*
+GetFlowHistoryHistoryIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetFlowHistoryHistoryIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow history history Id unauthorized response has a 2xx status code
+func (o *GetFlowHistoryHistoryIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow history history Id unauthorized response has a 3xx status code
+func (o *GetFlowHistoryHistoryIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow history history Id unauthorized response has a 4xx status code
+func (o *GetFlowHistoryHistoryIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow history history Id unauthorized response has a 5xx status code
+func (o *GetFlowHistoryHistoryIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow history history Id unauthorized response a status code equal to that given
+func (o *GetFlowHistoryHistoryIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetFlowHistoryHistoryIDUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetFlowHistoryHistoryIDUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetFlowHistoryHistoryIDForbidden() *GetFlowHistoryHistoryIDForbidden {
 	return &GetFlowHistoryHistoryIDForbidden{}
 }
 
-/*GetFlowHistoryHistoryIDForbidden handles this case with default header values.
+/*
+GetFlowHistoryHistoryIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetFlowHistoryHistoryIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow history history Id forbidden response has a 2xx status code
+func (o *GetFlowHistoryHistoryIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow history history Id forbidden response has a 3xx status code
+func (o *GetFlowHistoryHistoryIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow history history Id forbidden response has a 4xx status code
+func (o *GetFlowHistoryHistoryIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow history history Id forbidden response has a 5xx status code
+func (o *GetFlowHistoryHistoryIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow history history Id forbidden response a status code equal to that given
+func (o *GetFlowHistoryHistoryIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetFlowHistoryHistoryIDForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetFlowHistoryHistoryIDForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetFlowHistoryHistoryIDNotFound() *GetFlowHistoryHistoryIDNotFound {
 	return &GetFlowHistoryHistoryIDNotFound{}
 }
 
-/*GetFlowHistoryHistoryIDNotFound handles this case with default header values.
+/*
+GetFlowHistoryHistoryIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetFlowHistoryHistoryIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow history history Id not found response has a 2xx status code
+func (o *GetFlowHistoryHistoryIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow history history Id not found response has a 3xx status code
+func (o *GetFlowHistoryHistoryIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow history history Id not found response has a 4xx status code
+func (o *GetFlowHistoryHistoryIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow history history Id not found response has a 5xx status code
+func (o *GetFlowHistoryHistoryIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow history history Id not found response a status code equal to that given
+func (o *GetFlowHistoryHistoryIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetFlowHistoryHistoryIDNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetFlowHistoryHistoryIDNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetFlowHistoryHistoryIDRequestTimeout() *GetFlowHistoryHistoryIDRequestT
 	return &GetFlowHistoryHistoryIDRequestTimeout{}
 }
 
-/*GetFlowHistoryHistoryIDRequestTimeout handles this case with default header values.
+/*
+GetFlowHistoryHistoryIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetFlowHistoryHistoryIDRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow history history Id request timeout response has a 2xx status code
+func (o *GetFlowHistoryHistoryIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow history history Id request timeout response has a 3xx status code
+func (o *GetFlowHistoryHistoryIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow history history Id request timeout response has a 4xx status code
+func (o *GetFlowHistoryHistoryIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow history history Id request timeout response has a 5xx status code
+func (o *GetFlowHistoryHistoryIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow history history Id request timeout response a status code equal to that given
+func (o *GetFlowHistoryHistoryIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetFlowHistoryHistoryIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFlowHistoryHistoryIDRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetFlowHistoryHistoryIDRequestEntityTooLarge() *GetFlowHistoryHistoryIDR
 	return &GetFlowHistoryHistoryIDRequestEntityTooLarge{}
 }
 
-/*GetFlowHistoryHistoryIDRequestEntityTooLarge handles this case with default header values.
+/*
+GetFlowHistoryHistoryIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetFlowHistoryHistoryIDRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow history history Id request entity too large response has a 2xx status code
+func (o *GetFlowHistoryHistoryIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow history history Id request entity too large response has a 3xx status code
+func (o *GetFlowHistoryHistoryIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow history history Id request entity too large response has a 4xx status code
+func (o *GetFlowHistoryHistoryIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow history history Id request entity too large response has a 5xx status code
+func (o *GetFlowHistoryHistoryIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow history history Id request entity too large response a status code equal to that given
+func (o *GetFlowHistoryHistoryIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetFlowHistoryHistoryIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetFlowHistoryHistoryIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetFlowHistoryHistoryIDUnsupportedMediaType() *GetFlowHistoryHistoryIDUn
 	return &GetFlowHistoryHistoryIDUnsupportedMediaType{}
 }
 
-/*GetFlowHistoryHistoryIDUnsupportedMediaType handles this case with default header values.
+/*
+GetFlowHistoryHistoryIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetFlowHistoryHistoryIDUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow history history Id unsupported media type response has a 2xx status code
+func (o *GetFlowHistoryHistoryIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow history history Id unsupported media type response has a 3xx status code
+func (o *GetFlowHistoryHistoryIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow history history Id unsupported media type response has a 4xx status code
+func (o *GetFlowHistoryHistoryIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow history history Id unsupported media type response has a 5xx status code
+func (o *GetFlowHistoryHistoryIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow history history Id unsupported media type response a status code equal to that given
+func (o *GetFlowHistoryHistoryIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetFlowHistoryHistoryIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetFlowHistoryHistoryIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetFlowHistoryHistoryIDTooManyRequests() *GetFlowHistoryHistoryIDTooMany
 	return &GetFlowHistoryHistoryIDTooManyRequests{}
 }
 
-/*GetFlowHistoryHistoryIDTooManyRequests handles this case with default header values.
+/*
+GetFlowHistoryHistoryIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetFlowHistoryHistoryIDTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow history history Id too many requests response has a 2xx status code
+func (o *GetFlowHistoryHistoryIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow history history Id too many requests response has a 3xx status code
+func (o *GetFlowHistoryHistoryIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow history history Id too many requests response has a 4xx status code
+func (o *GetFlowHistoryHistoryIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flow history history Id too many requests response has a 5xx status code
+func (o *GetFlowHistoryHistoryIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flow history history Id too many requests response a status code equal to that given
+func (o *GetFlowHistoryHistoryIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetFlowHistoryHistoryIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetFlowHistoryHistoryIDTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetFlowHistoryHistoryIDInternalServerError() *GetFlowHistoryHistoryIDInt
 	return &GetFlowHistoryHistoryIDInternalServerError{}
 }
 
-/*GetFlowHistoryHistoryIDInternalServerError handles this case with default header values.
+/*
+GetFlowHistoryHistoryIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetFlowHistoryHistoryIDInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow history history Id internal server error response has a 2xx status code
+func (o *GetFlowHistoryHistoryIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow history history Id internal server error response has a 3xx status code
+func (o *GetFlowHistoryHistoryIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow history history Id internal server error response has a 4xx status code
+func (o *GetFlowHistoryHistoryIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flow history history Id internal server error response has a 5xx status code
+func (o *GetFlowHistoryHistoryIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flow history history Id internal server error response a status code equal to that given
+func (o *GetFlowHistoryHistoryIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetFlowHistoryHistoryIDInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetFlowHistoryHistoryIDInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetFlowHistoryHistoryIDServiceUnavailable() *GetFlowHistoryHistoryIDServ
 	return &GetFlowHistoryHistoryIDServiceUnavailable{}
 }
 
-/*GetFlowHistoryHistoryIDServiceUnavailable handles this case with default header values.
+/*
+GetFlowHistoryHistoryIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetFlowHistoryHistoryIDServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow history history Id service unavailable response has a 2xx status code
+func (o *GetFlowHistoryHistoryIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow history history Id service unavailable response has a 3xx status code
+func (o *GetFlowHistoryHistoryIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow history history Id service unavailable response has a 4xx status code
+func (o *GetFlowHistoryHistoryIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flow history history Id service unavailable response has a 5xx status code
+func (o *GetFlowHistoryHistoryIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flow history history Id service unavailable response a status code equal to that given
+func (o *GetFlowHistoryHistoryIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetFlowHistoryHistoryIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetFlowHistoryHistoryIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetFlowHistoryHistoryIDGatewayTimeout() *GetFlowHistoryHistoryIDGatewayT
 	return &GetFlowHistoryHistoryIDGatewayTimeout{}
 }
 
-/*GetFlowHistoryHistoryIDGatewayTimeout handles this case with default header values.
+/*
+GetFlowHistoryHistoryIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetFlowHistoryHistoryIDGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flow history history Id gateway timeout response has a 2xx status code
+func (o *GetFlowHistoryHistoryIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flow history history Id gateway timeout response has a 3xx status code
+func (o *GetFlowHistoryHistoryIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flow history history Id gateway timeout response has a 4xx status code
+func (o *GetFlowHistoryHistoryIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flow history history Id gateway timeout response has a 5xx status code
+func (o *GetFlowHistoryHistoryIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flow history history Id gateway timeout response a status code equal to that given
+func (o *GetFlowHistoryHistoryIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetFlowHistoryHistoryIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetFlowHistoryHistoryIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/{flowId}/history/{historyId}][%d] getFlowHistoryHistoryIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

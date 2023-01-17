@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -96,7 +97,6 @@ func (m *WebChatMemberInfo) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WebChatMemberInfo) validateAvatarImageURL(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AvatarImageURL) { // not required
 		return nil
 	}
@@ -109,7 +109,6 @@ func (m *WebChatMemberInfo) validateAvatarImageURL(formats strfmt.Registry) erro
 }
 
 func (m *WebChatMemberInfo) validateJoinDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.JoinDate) { // not required
 		return nil
 	}
@@ -122,7 +121,6 @@ func (m *WebChatMemberInfo) validateJoinDate(formats strfmt.Registry) error {
 }
 
 func (m *WebChatMemberInfo) validateLeaveDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LeaveDate) { // not required
 		return nil
 	}
@@ -216,7 +214,6 @@ func (m *WebChatMemberInfo) validateStateEnum(path, location string, value strin
 }
 
 func (m *WebChatMemberInfo) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -226,6 +223,11 @@ func (m *WebChatMemberInfo) validateState(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this web chat member info based on context it is used
+func (m *WebChatMemberInfo) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

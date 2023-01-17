@@ -18,56 +18,72 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostVoicemailMessagesParams creates a new PostVoicemailMessagesParams object
-// with the default values initialized.
+// NewPostVoicemailMessagesParams creates a new PostVoicemailMessagesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostVoicemailMessagesParams() *PostVoicemailMessagesParams {
-	var ()
 	return &PostVoicemailMessagesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostVoicemailMessagesParamsWithTimeout creates a new PostVoicemailMessagesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostVoicemailMessagesParamsWithTimeout(timeout time.Duration) *PostVoicemailMessagesParams {
-	var ()
 	return &PostVoicemailMessagesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostVoicemailMessagesParamsWithContext creates a new PostVoicemailMessagesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostVoicemailMessagesParamsWithContext(ctx context.Context) *PostVoicemailMessagesParams {
-	var ()
 	return &PostVoicemailMessagesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostVoicemailMessagesParamsWithHTTPClient creates a new PostVoicemailMessagesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostVoicemailMessagesParamsWithHTTPClient(client *http.Client) *PostVoicemailMessagesParams {
-	var ()
 	return &PostVoicemailMessagesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostVoicemailMessagesParams contains all the parameters to send to the API endpoint
-for the post voicemail messages operation typically these are written to a http.Request
+/*
+PostVoicemailMessagesParams contains all the parameters to send to the API endpoint
+
+	for the post voicemail messages operation.
+
+	Typically these are written to a http.Request.
 */
 type PostVoicemailMessagesParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.CopyVoicemailMessage
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post voicemail messages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostVoicemailMessagesParams) WithDefaults() *PostVoicemailMessagesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post voicemail messages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostVoicemailMessagesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post voicemail messages params
@@ -121,7 +137,6 @@ func (o *PostVoicemailMessagesParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

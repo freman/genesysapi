@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConversationRecordingmetadataRecordingIDParams creates a new GetConversationRecordingmetadataRecordingIDParams object
-// with the default values initialized.
+// NewGetConversationRecordingmetadataRecordingIDParams creates a new GetConversationRecordingmetadataRecordingIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationRecordingmetadataRecordingIDParams() *GetConversationRecordingmetadataRecordingIDParams {
-	var ()
 	return &GetConversationRecordingmetadataRecordingIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationRecordingmetadataRecordingIDParamsWithTimeout creates a new GetConversationRecordingmetadataRecordingIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationRecordingmetadataRecordingIDParamsWithTimeout(timeout time.Duration) *GetConversationRecordingmetadataRecordingIDParams {
-	var ()
 	return &GetConversationRecordingmetadataRecordingIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationRecordingmetadataRecordingIDParamsWithContext creates a new GetConversationRecordingmetadataRecordingIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationRecordingmetadataRecordingIDParamsWithContext(ctx context.Context) *GetConversationRecordingmetadataRecordingIDParams {
-	var ()
 	return &GetConversationRecordingmetadataRecordingIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationRecordingmetadataRecordingIDParamsWithHTTPClient creates a new GetConversationRecordingmetadataRecordingIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationRecordingmetadataRecordingIDParamsWithHTTPClient(client *http.Client) *GetConversationRecordingmetadataRecordingIDParams {
-	var ()
 	return &GetConversationRecordingmetadataRecordingIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationRecordingmetadataRecordingIDParams contains all the parameters to send to the API endpoint
-for the get conversation recordingmetadata recording Id operation typically these are written to a http.Request
+/*
+GetConversationRecordingmetadataRecordingIDParams contains all the parameters to send to the API endpoint
+
+	for the get conversation recordingmetadata recording Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationRecordingmetadataRecordingIDParams struct {
 
-	/*ConversationID
-	  Conversation ID
+	/* ConversationID.
 
+	   Conversation ID
 	*/
 	ConversationID string
-	/*RecordingID
-	  Recording ID
 
+	/* RecordingID.
+
+	   Recording ID
 	*/
 	RecordingID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversation recordingmetadata recording Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationRecordingmetadataRecordingIDParams) WithDefaults() *GetConversationRecordingmetadataRecordingIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversation recordingmetadata recording Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationRecordingmetadataRecordingIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get conversation recordingmetadata recording Id params

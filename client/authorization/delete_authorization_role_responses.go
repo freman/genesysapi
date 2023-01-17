@@ -106,7 +106,8 @@ func NewDeleteAuthorizationRoleBadRequest() *DeleteAuthorizationRoleBadRequest {
 	return &DeleteAuthorizationRoleBadRequest{}
 }
 
-/*DeleteAuthorizationRoleBadRequest handles this case with default header values.
+/*
+DeleteAuthorizationRoleBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type DeleteAuthorizationRoleBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization role bad request response has a 2xx status code
+func (o *DeleteAuthorizationRoleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization role bad request response has a 3xx status code
+func (o *DeleteAuthorizationRoleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization role bad request response has a 4xx status code
+func (o *DeleteAuthorizationRoleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization role bad request response has a 5xx status code
+func (o *DeleteAuthorizationRoleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization role bad request response a status code equal to that given
+func (o *DeleteAuthorizationRoleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteAuthorizationRoleBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteAuthorizationRoleBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewDeleteAuthorizationRoleUnauthorized() *DeleteAuthorizationRoleUnauthoriz
 	return &DeleteAuthorizationRoleUnauthorized{}
 }
 
-/*DeleteAuthorizationRoleUnauthorized handles this case with default header values.
+/*
+DeleteAuthorizationRoleUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type DeleteAuthorizationRoleUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization role unauthorized response has a 2xx status code
+func (o *DeleteAuthorizationRoleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization role unauthorized response has a 3xx status code
+func (o *DeleteAuthorizationRoleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization role unauthorized response has a 4xx status code
+func (o *DeleteAuthorizationRoleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization role unauthorized response has a 5xx status code
+func (o *DeleteAuthorizationRoleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization role unauthorized response a status code equal to that given
+func (o *DeleteAuthorizationRoleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteAuthorizationRoleUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteAuthorizationRoleUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewDeleteAuthorizationRoleForbidden() *DeleteAuthorizationRoleForbidden {
 	return &DeleteAuthorizationRoleForbidden{}
 }
 
-/*DeleteAuthorizationRoleForbidden handles this case with default header values.
+/*
+DeleteAuthorizationRoleForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type DeleteAuthorizationRoleForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization role forbidden response has a 2xx status code
+func (o *DeleteAuthorizationRoleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization role forbidden response has a 3xx status code
+func (o *DeleteAuthorizationRoleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization role forbidden response has a 4xx status code
+func (o *DeleteAuthorizationRoleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization role forbidden response has a 5xx status code
+func (o *DeleteAuthorizationRoleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization role forbidden response a status code equal to that given
+func (o *DeleteAuthorizationRoleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteAuthorizationRoleForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteAuthorizationRoleForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewDeleteAuthorizationRoleNotFound() *DeleteAuthorizationRoleNotFound {
 	return &DeleteAuthorizationRoleNotFound{}
 }
 
-/*DeleteAuthorizationRoleNotFound handles this case with default header values.
+/*
+DeleteAuthorizationRoleNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type DeleteAuthorizationRoleNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization role not found response has a 2xx status code
+func (o *DeleteAuthorizationRoleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization role not found response has a 3xx status code
+func (o *DeleteAuthorizationRoleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization role not found response has a 4xx status code
+func (o *DeleteAuthorizationRoleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization role not found response has a 5xx status code
+func (o *DeleteAuthorizationRoleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization role not found response a status code equal to that given
+func (o *DeleteAuthorizationRoleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteAuthorizationRoleNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteAuthorizationRoleNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewDeleteAuthorizationRoleRequestTimeout() *DeleteAuthorizationRoleRequestT
 	return &DeleteAuthorizationRoleRequestTimeout{}
 }
 
-/*DeleteAuthorizationRoleRequestTimeout handles this case with default header values.
+/*
+DeleteAuthorizationRoleRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type DeleteAuthorizationRoleRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization role request timeout response has a 2xx status code
+func (o *DeleteAuthorizationRoleRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization role request timeout response has a 3xx status code
+func (o *DeleteAuthorizationRoleRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization role request timeout response has a 4xx status code
+func (o *DeleteAuthorizationRoleRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization role request timeout response has a 5xx status code
+func (o *DeleteAuthorizationRoleRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization role request timeout response a status code equal to that given
+func (o *DeleteAuthorizationRoleRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteAuthorizationRoleRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteAuthorizationRoleRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewDeleteAuthorizationRoleRequestEntityTooLarge() *DeleteAuthorizationRoleR
 	return &DeleteAuthorizationRoleRequestEntityTooLarge{}
 }
 
-/*DeleteAuthorizationRoleRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteAuthorizationRoleRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type DeleteAuthorizationRoleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization role request entity too large response has a 2xx status code
+func (o *DeleteAuthorizationRoleRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization role request entity too large response has a 3xx status code
+func (o *DeleteAuthorizationRoleRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization role request entity too large response has a 4xx status code
+func (o *DeleteAuthorizationRoleRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization role request entity too large response has a 5xx status code
+func (o *DeleteAuthorizationRoleRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization role request entity too large response a status code equal to that given
+func (o *DeleteAuthorizationRoleRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteAuthorizationRoleRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteAuthorizationRoleRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewDeleteAuthorizationRoleUnsupportedMediaType() *DeleteAuthorizationRoleUn
 	return &DeleteAuthorizationRoleUnsupportedMediaType{}
 }
 
-/*DeleteAuthorizationRoleUnsupportedMediaType handles this case with default header values.
+/*
+DeleteAuthorizationRoleUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type DeleteAuthorizationRoleUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization role unsupported media type response has a 2xx status code
+func (o *DeleteAuthorizationRoleUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization role unsupported media type response has a 3xx status code
+func (o *DeleteAuthorizationRoleUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization role unsupported media type response has a 4xx status code
+func (o *DeleteAuthorizationRoleUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization role unsupported media type response has a 5xx status code
+func (o *DeleteAuthorizationRoleUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization role unsupported media type response a status code equal to that given
+func (o *DeleteAuthorizationRoleUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteAuthorizationRoleUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteAuthorizationRoleUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewDeleteAuthorizationRoleTooManyRequests() *DeleteAuthorizationRoleTooMany
 	return &DeleteAuthorizationRoleTooManyRequests{}
 }
 
-/*DeleteAuthorizationRoleTooManyRequests handles this case with default header values.
+/*
+DeleteAuthorizationRoleTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type DeleteAuthorizationRoleTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization role too many requests response has a 2xx status code
+func (o *DeleteAuthorizationRoleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization role too many requests response has a 3xx status code
+func (o *DeleteAuthorizationRoleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization role too many requests response has a 4xx status code
+func (o *DeleteAuthorizationRoleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete authorization role too many requests response has a 5xx status code
+func (o *DeleteAuthorizationRoleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete authorization role too many requests response a status code equal to that given
+func (o *DeleteAuthorizationRoleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteAuthorizationRoleTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteAuthorizationRoleTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewDeleteAuthorizationRoleInternalServerError() *DeleteAuthorizationRoleInt
 	return &DeleteAuthorizationRoleInternalServerError{}
 }
 
-/*DeleteAuthorizationRoleInternalServerError handles this case with default header values.
+/*
+DeleteAuthorizationRoleInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type DeleteAuthorizationRoleInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization role internal server error response has a 2xx status code
+func (o *DeleteAuthorizationRoleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization role internal server error response has a 3xx status code
+func (o *DeleteAuthorizationRoleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization role internal server error response has a 4xx status code
+func (o *DeleteAuthorizationRoleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete authorization role internal server error response has a 5xx status code
+func (o *DeleteAuthorizationRoleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete authorization role internal server error response a status code equal to that given
+func (o *DeleteAuthorizationRoleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteAuthorizationRoleInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteAuthorizationRoleInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewDeleteAuthorizationRoleServiceUnavailable() *DeleteAuthorizationRoleServ
 	return &DeleteAuthorizationRoleServiceUnavailable{}
 }
 
-/*DeleteAuthorizationRoleServiceUnavailable handles this case with default header values.
+/*
+DeleteAuthorizationRoleServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type DeleteAuthorizationRoleServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization role service unavailable response has a 2xx status code
+func (o *DeleteAuthorizationRoleServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization role service unavailable response has a 3xx status code
+func (o *DeleteAuthorizationRoleServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization role service unavailable response has a 4xx status code
+func (o *DeleteAuthorizationRoleServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete authorization role service unavailable response has a 5xx status code
+func (o *DeleteAuthorizationRoleServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete authorization role service unavailable response a status code equal to that given
+func (o *DeleteAuthorizationRoleServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteAuthorizationRoleServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteAuthorizationRoleServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewDeleteAuthorizationRoleGatewayTimeout() *DeleteAuthorizationRoleGatewayT
 	return &DeleteAuthorizationRoleGatewayTimeout{}
 }
 
-/*DeleteAuthorizationRoleGatewayTimeout handles this case with default header values.
+/*
+DeleteAuthorizationRoleGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type DeleteAuthorizationRoleGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete authorization role gateway timeout response has a 2xx status code
+func (o *DeleteAuthorizationRoleGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete authorization role gateway timeout response has a 3xx status code
+func (o *DeleteAuthorizationRoleGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete authorization role gateway timeout response has a 4xx status code
+func (o *DeleteAuthorizationRoleGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete authorization role gateway timeout response has a 5xx status code
+func (o *DeleteAuthorizationRoleGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete authorization role gateway timeout response a status code equal to that given
+func (o *DeleteAuthorizationRoleGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteAuthorizationRoleGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteAuthorizationRoleGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRoleGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewDeleteAuthorizationRoleDefault(code int) *DeleteAuthorizationRoleDefault
 	}
 }
 
-/*DeleteAuthorizationRoleDefault handles this case with default header values.
+/*
+DeleteAuthorizationRoleDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *DeleteAuthorizationRoleDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete authorization role default response has a 2xx status code
+func (o *DeleteAuthorizationRoleDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete authorization role default response has a 3xx status code
+func (o *DeleteAuthorizationRoleDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete authorization role default response has a 4xx status code
+func (o *DeleteAuthorizationRoleDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete authorization role default response has a 5xx status code
+func (o *DeleteAuthorizationRoleDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete authorization role default response a status code equal to that given
+func (o *DeleteAuthorizationRoleDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteAuthorizationRoleDefault) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRole default ", o._statusCode)
+}
+
+func (o *DeleteAuthorizationRoleDefault) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/authorization/roles/{roleId}][%d] deleteAuthorizationRole default ", o._statusCode)
 }
 

@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchScimUserParams creates a new PatchScimUserParams object
-// with the default values initialized.
+// NewPatchScimUserParams creates a new PatchScimUserParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchScimUserParams() *PatchScimUserParams {
-	var ()
 	return &PatchScimUserParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchScimUserParamsWithTimeout creates a new PatchScimUserParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchScimUserParamsWithTimeout(timeout time.Duration) *PatchScimUserParams {
-	var ()
 	return &PatchScimUserParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchScimUserParamsWithContext creates a new PatchScimUserParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchScimUserParamsWithContext(ctx context.Context) *PatchScimUserParams {
-	var ()
 	return &PatchScimUserParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchScimUserParamsWithHTTPClient creates a new PatchScimUserParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchScimUserParamsWithHTTPClient(client *http.Client) *PatchScimUserParams {
-	var ()
 	return &PatchScimUserParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchScimUserParams contains all the parameters to send to the API endpoint
-for the patch scim user operation typically these are written to a http.Request
+/*
+PatchScimUserParams contains all the parameters to send to the API endpoint
+
+	for the patch scim user operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchScimUserParams struct {
 
-	/*IfMatch
-	  The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/users/{userId}. Example: "42". If the ETag is different from the version on the server, returns 400 with a "scimType" of "invalidVers".
+	/* IfMatch.
 
+	   The ETag of a resource in double quotes. Returned as header and meta.version with initial call to GET /api/v2/scim/users/{userId}. Example: "42". If the ETag is different from the version on the server, returns 400 with a "scimType" of "invalidVers".
 	*/
 	IfMatch *string
-	/*Body
-	  The information used to modify a user.
 
+	/* Body.
+
+	   The information used to modify a user.
 	*/
 	Body *models.ScimV2PatchRequest
-	/*UserID
-	  The ID of a user. Returned with GET /api/v2/scim/users.
 
+	/* UserID.
+
+	   The ID of a user. Returned with GET /api/v2/scim/users.
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch scim user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchScimUserParams) WithDefaults() *PatchScimUserParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch scim user params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchScimUserParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch scim user params
@@ -163,9 +181,7 @@ func (o *PatchScimUserParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		if err := r.SetHeaderParam("If-Match", *o.IfMatch); err != nil {
 			return err
 		}
-
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

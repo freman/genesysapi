@@ -19,115 +19,129 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOrgauthorizationTrusteesAuditsParams creates a new PostOrgauthorizationTrusteesAuditsParams object
-// with the default values initialized.
+// NewPostOrgauthorizationTrusteesAuditsParams creates a new PostOrgauthorizationTrusteesAuditsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOrgauthorizationTrusteesAuditsParams() *PostOrgauthorizationTrusteesAuditsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("timestamp")
-		sortOrderDefault  = string("descending")
-	)
 	return &PostOrgauthorizationTrusteesAuditsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOrgauthorizationTrusteesAuditsParamsWithTimeout creates a new PostOrgauthorizationTrusteesAuditsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOrgauthorizationTrusteesAuditsParamsWithTimeout(timeout time.Duration) *PostOrgauthorizationTrusteesAuditsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("timestamp")
-		sortOrderDefault  = string("descending")
-	)
 	return &PostOrgauthorizationTrusteesAuditsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOrgauthorizationTrusteesAuditsParamsWithContext creates a new PostOrgauthorizationTrusteesAuditsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOrgauthorizationTrusteesAuditsParamsWithContext(ctx context.Context) *PostOrgauthorizationTrusteesAuditsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("timestamp")
-		sortOrderDefault  = string("descending")
-	)
 	return &PostOrgauthorizationTrusteesAuditsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostOrgauthorizationTrusteesAuditsParamsWithHTTPClient creates a new PostOrgauthorizationTrusteesAuditsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOrgauthorizationTrusteesAuditsParamsWithHTTPClient(client *http.Client) *PostOrgauthorizationTrusteesAuditsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("timestamp")
-		sortOrderDefault  = string("descending")
-	)
 	return &PostOrgauthorizationTrusteesAuditsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*PostOrgauthorizationTrusteesAuditsParams contains all the parameters to send to the API endpoint
-for the post orgauthorization trustees audits operation typically these are written to a http.Request
+/*
+PostOrgauthorizationTrusteesAuditsParams contains all the parameters to send to the API endpoint
+
+	for the post orgauthorization trustees audits operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOrgauthorizationTrusteesAuditsParams struct {
 
-	/*Body
-	  Values to scope the request.
+	/* Body.
 
+	   Values to scope the request.
 	*/
 	Body *models.TrusteeAuditQueryRequest
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
+
+	   Default: "timestamp"
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "descending"
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post orgauthorization trustees audits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOrgauthorizationTrusteesAuditsParams) WithDefaults() *PostOrgauthorizationTrusteesAuditsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post orgauthorization trustees audits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOrgauthorizationTrusteesAuditsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("timestamp")
+
+		sortOrderDefault = string("descending")
+	)
+
+	val := PostOrgauthorizationTrusteesAuditsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post orgauthorization trustees audits params
@@ -225,7 +239,6 @@ func (o *PostOrgauthorizationTrusteesAuditsParams) WriteToRequest(r runtime.Clie
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -236,64 +249,68 @@ func (o *PostOrgauthorizationTrusteesAuditsParams) WriteToRequest(r runtime.Clie
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

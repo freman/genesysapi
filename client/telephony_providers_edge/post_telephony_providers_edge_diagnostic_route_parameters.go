@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTelephonyProvidersEdgeDiagnosticRouteParams creates a new PostTelephonyProvidersEdgeDiagnosticRouteParams object
-// with the default values initialized.
+// NewPostTelephonyProvidersEdgeDiagnosticRouteParams creates a new PostTelephonyProvidersEdgeDiagnosticRouteParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTelephonyProvidersEdgeDiagnosticRouteParams() *PostTelephonyProvidersEdgeDiagnosticRouteParams {
-	var ()
 	return &PostTelephonyProvidersEdgeDiagnosticRouteParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeDiagnosticRouteParamsWithTimeout creates a new PostTelephonyProvidersEdgeDiagnosticRouteParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTelephonyProvidersEdgeDiagnosticRouteParamsWithTimeout(timeout time.Duration) *PostTelephonyProvidersEdgeDiagnosticRouteParams {
-	var ()
 	return &PostTelephonyProvidersEdgeDiagnosticRouteParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeDiagnosticRouteParamsWithContext creates a new PostTelephonyProvidersEdgeDiagnosticRouteParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTelephonyProvidersEdgeDiagnosticRouteParamsWithContext(ctx context.Context) *PostTelephonyProvidersEdgeDiagnosticRouteParams {
-	var ()
 	return &PostTelephonyProvidersEdgeDiagnosticRouteParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeDiagnosticRouteParamsWithHTTPClient creates a new PostTelephonyProvidersEdgeDiagnosticRouteParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTelephonyProvidersEdgeDiagnosticRouteParamsWithHTTPClient(client *http.Client) *PostTelephonyProvidersEdgeDiagnosticRouteParams {
-	var ()
 	return &PostTelephonyProvidersEdgeDiagnosticRouteParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTelephonyProvidersEdgeDiagnosticRouteParams contains all the parameters to send to the API endpoint
-for the post telephony providers edge diagnostic route operation typically these are written to a http.Request
+/*
+PostTelephonyProvidersEdgeDiagnosticRouteParams contains all the parameters to send to the API endpoint
+
+	for the post telephony providers edge diagnostic route operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTelephonyProvidersEdgeDiagnosticRouteParams struct {
 
-	/*Body
-	  request payload to get network diagnostic
+	/* Body.
 
+	   request payload to get network diagnostic
 	*/
 	Body *models.EdgeNetworkDiagnosticRequest
-	/*EdgeID
-	  Edge Id
 
+	/* EdgeID.
+
+	   Edge Id
 	*/
 	EdgeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post telephony providers edge diagnostic route params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeDiagnosticRouteParams) WithDefaults() *PostTelephonyProvidersEdgeDiagnosticRouteParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post telephony providers edge diagnostic route params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeDiagnosticRouteParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post telephony providers edge diagnostic route params
@@ -140,7 +157,6 @@ func (o *PostTelephonyProvidersEdgeDiagnosticRouteParams) WriteToRequest(r runti
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

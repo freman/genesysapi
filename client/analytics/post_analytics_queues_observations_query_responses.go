@@ -95,7 +95,6 @@ func (o *PostAnalyticsQueuesObservationsQueryReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostAnalyticsQueuesObservationsQueryOK() *PostAnalyticsQueuesObservation
 	return &PostAnalyticsQueuesObservationsQueryOK{}
 }
 
-/*PostAnalyticsQueuesObservationsQueryOK handles this case with default header values.
+/*
+PostAnalyticsQueuesObservationsQueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostAnalyticsQueuesObservationsQueryOK struct {
 	Payload *models.QueueObservationQueryResponse
 }
 
+// IsSuccess returns true when this post analytics queues observations query o k response has a 2xx status code
+func (o *PostAnalyticsQueuesObservationsQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post analytics queues observations query o k response has a 3xx status code
+func (o *PostAnalyticsQueuesObservationsQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics queues observations query o k response has a 4xx status code
+func (o *PostAnalyticsQueuesObservationsQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics queues observations query o k response has a 5xx status code
+func (o *PostAnalyticsQueuesObservationsQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics queues observations query o k response a status code equal to that given
+func (o *PostAnalyticsQueuesObservationsQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostAnalyticsQueuesObservationsQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostAnalyticsQueuesObservationsQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostAnalyticsQueuesObservationsQueryBadRequest() *PostAnalyticsQueuesObs
 	return &PostAnalyticsQueuesObservationsQueryBadRequest{}
 }
 
-/*PostAnalyticsQueuesObservationsQueryBadRequest handles this case with default header values.
+/*
+PostAnalyticsQueuesObservationsQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostAnalyticsQueuesObservationsQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics queues observations query bad request response has a 2xx status code
+func (o *PostAnalyticsQueuesObservationsQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics queues observations query bad request response has a 3xx status code
+func (o *PostAnalyticsQueuesObservationsQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics queues observations query bad request response has a 4xx status code
+func (o *PostAnalyticsQueuesObservationsQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics queues observations query bad request response has a 5xx status code
+func (o *PostAnalyticsQueuesObservationsQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics queues observations query bad request response a status code equal to that given
+func (o *PostAnalyticsQueuesObservationsQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAnalyticsQueuesObservationsQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAnalyticsQueuesObservationsQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostAnalyticsQueuesObservationsQueryUnauthorized() *PostAnalyticsQueuesO
 	return &PostAnalyticsQueuesObservationsQueryUnauthorized{}
 }
 
-/*PostAnalyticsQueuesObservationsQueryUnauthorized handles this case with default header values.
+/*
+PostAnalyticsQueuesObservationsQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostAnalyticsQueuesObservationsQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics queues observations query unauthorized response has a 2xx status code
+func (o *PostAnalyticsQueuesObservationsQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics queues observations query unauthorized response has a 3xx status code
+func (o *PostAnalyticsQueuesObservationsQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics queues observations query unauthorized response has a 4xx status code
+func (o *PostAnalyticsQueuesObservationsQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics queues observations query unauthorized response has a 5xx status code
+func (o *PostAnalyticsQueuesObservationsQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics queues observations query unauthorized response a status code equal to that given
+func (o *PostAnalyticsQueuesObservationsQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAnalyticsQueuesObservationsQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAnalyticsQueuesObservationsQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostAnalyticsQueuesObservationsQueryForbidden() *PostAnalyticsQueuesObse
 	return &PostAnalyticsQueuesObservationsQueryForbidden{}
 }
 
-/*PostAnalyticsQueuesObservationsQueryForbidden handles this case with default header values.
+/*
+PostAnalyticsQueuesObservationsQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostAnalyticsQueuesObservationsQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics queues observations query forbidden response has a 2xx status code
+func (o *PostAnalyticsQueuesObservationsQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics queues observations query forbidden response has a 3xx status code
+func (o *PostAnalyticsQueuesObservationsQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics queues observations query forbidden response has a 4xx status code
+func (o *PostAnalyticsQueuesObservationsQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics queues observations query forbidden response has a 5xx status code
+func (o *PostAnalyticsQueuesObservationsQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics queues observations query forbidden response a status code equal to that given
+func (o *PostAnalyticsQueuesObservationsQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAnalyticsQueuesObservationsQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAnalyticsQueuesObservationsQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostAnalyticsQueuesObservationsQueryNotFound() *PostAnalyticsQueuesObser
 	return &PostAnalyticsQueuesObservationsQueryNotFound{}
 }
 
-/*PostAnalyticsQueuesObservationsQueryNotFound handles this case with default header values.
+/*
+PostAnalyticsQueuesObservationsQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostAnalyticsQueuesObservationsQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics queues observations query not found response has a 2xx status code
+func (o *PostAnalyticsQueuesObservationsQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics queues observations query not found response has a 3xx status code
+func (o *PostAnalyticsQueuesObservationsQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics queues observations query not found response has a 4xx status code
+func (o *PostAnalyticsQueuesObservationsQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics queues observations query not found response has a 5xx status code
+func (o *PostAnalyticsQueuesObservationsQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics queues observations query not found response a status code equal to that given
+func (o *PostAnalyticsQueuesObservationsQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAnalyticsQueuesObservationsQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAnalyticsQueuesObservationsQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostAnalyticsQueuesObservationsQueryRequestTimeout() *PostAnalyticsQueue
 	return &PostAnalyticsQueuesObservationsQueryRequestTimeout{}
 }
 
-/*PostAnalyticsQueuesObservationsQueryRequestTimeout handles this case with default header values.
+/*
+PostAnalyticsQueuesObservationsQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostAnalyticsQueuesObservationsQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics queues observations query request timeout response has a 2xx status code
+func (o *PostAnalyticsQueuesObservationsQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics queues observations query request timeout response has a 3xx status code
+func (o *PostAnalyticsQueuesObservationsQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics queues observations query request timeout response has a 4xx status code
+func (o *PostAnalyticsQueuesObservationsQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics queues observations query request timeout response has a 5xx status code
+func (o *PostAnalyticsQueuesObservationsQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics queues observations query request timeout response a status code equal to that given
+func (o *PostAnalyticsQueuesObservationsQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAnalyticsQueuesObservationsQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAnalyticsQueuesObservationsQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostAnalyticsQueuesObservationsQueryRequestEntityTooLarge() *PostAnalyti
 	return &PostAnalyticsQueuesObservationsQueryRequestEntityTooLarge{}
 }
 
-/*PostAnalyticsQueuesObservationsQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostAnalyticsQueuesObservationsQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostAnalyticsQueuesObservationsQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics queues observations query request entity too large response has a 2xx status code
+func (o *PostAnalyticsQueuesObservationsQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics queues observations query request entity too large response has a 3xx status code
+func (o *PostAnalyticsQueuesObservationsQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics queues observations query request entity too large response has a 4xx status code
+func (o *PostAnalyticsQueuesObservationsQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics queues observations query request entity too large response has a 5xx status code
+func (o *PostAnalyticsQueuesObservationsQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics queues observations query request entity too large response a status code equal to that given
+func (o *PostAnalyticsQueuesObservationsQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAnalyticsQueuesObservationsQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAnalyticsQueuesObservationsQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostAnalyticsQueuesObservationsQueryUnsupportedMediaType() *PostAnalytic
 	return &PostAnalyticsQueuesObservationsQueryUnsupportedMediaType{}
 }
 
-/*PostAnalyticsQueuesObservationsQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostAnalyticsQueuesObservationsQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostAnalyticsQueuesObservationsQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics queues observations query unsupported media type response has a 2xx status code
+func (o *PostAnalyticsQueuesObservationsQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics queues observations query unsupported media type response has a 3xx status code
+func (o *PostAnalyticsQueuesObservationsQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics queues observations query unsupported media type response has a 4xx status code
+func (o *PostAnalyticsQueuesObservationsQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics queues observations query unsupported media type response has a 5xx status code
+func (o *PostAnalyticsQueuesObservationsQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics queues observations query unsupported media type response a status code equal to that given
+func (o *PostAnalyticsQueuesObservationsQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAnalyticsQueuesObservationsQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAnalyticsQueuesObservationsQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostAnalyticsQueuesObservationsQueryTooManyRequests() *PostAnalyticsQueu
 	return &PostAnalyticsQueuesObservationsQueryTooManyRequests{}
 }
 
-/*PostAnalyticsQueuesObservationsQueryTooManyRequests handles this case with default header values.
+/*
+PostAnalyticsQueuesObservationsQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostAnalyticsQueuesObservationsQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics queues observations query too many requests response has a 2xx status code
+func (o *PostAnalyticsQueuesObservationsQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics queues observations query too many requests response has a 3xx status code
+func (o *PostAnalyticsQueuesObservationsQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics queues observations query too many requests response has a 4xx status code
+func (o *PostAnalyticsQueuesObservationsQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics queues observations query too many requests response has a 5xx status code
+func (o *PostAnalyticsQueuesObservationsQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics queues observations query too many requests response a status code equal to that given
+func (o *PostAnalyticsQueuesObservationsQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAnalyticsQueuesObservationsQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAnalyticsQueuesObservationsQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostAnalyticsQueuesObservationsQueryInternalServerError() *PostAnalytics
 	return &PostAnalyticsQueuesObservationsQueryInternalServerError{}
 }
 
-/*PostAnalyticsQueuesObservationsQueryInternalServerError handles this case with default header values.
+/*
+PostAnalyticsQueuesObservationsQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostAnalyticsQueuesObservationsQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics queues observations query internal server error response has a 2xx status code
+func (o *PostAnalyticsQueuesObservationsQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics queues observations query internal server error response has a 3xx status code
+func (o *PostAnalyticsQueuesObservationsQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics queues observations query internal server error response has a 4xx status code
+func (o *PostAnalyticsQueuesObservationsQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics queues observations query internal server error response has a 5xx status code
+func (o *PostAnalyticsQueuesObservationsQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics queues observations query internal server error response a status code equal to that given
+func (o *PostAnalyticsQueuesObservationsQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAnalyticsQueuesObservationsQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAnalyticsQueuesObservationsQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostAnalyticsQueuesObservationsQueryServiceUnavailable() *PostAnalyticsQ
 	return &PostAnalyticsQueuesObservationsQueryServiceUnavailable{}
 }
 
-/*PostAnalyticsQueuesObservationsQueryServiceUnavailable handles this case with default header values.
+/*
+PostAnalyticsQueuesObservationsQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostAnalyticsQueuesObservationsQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics queues observations query service unavailable response has a 2xx status code
+func (o *PostAnalyticsQueuesObservationsQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics queues observations query service unavailable response has a 3xx status code
+func (o *PostAnalyticsQueuesObservationsQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics queues observations query service unavailable response has a 4xx status code
+func (o *PostAnalyticsQueuesObservationsQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics queues observations query service unavailable response has a 5xx status code
+func (o *PostAnalyticsQueuesObservationsQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics queues observations query service unavailable response a status code equal to that given
+func (o *PostAnalyticsQueuesObservationsQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAnalyticsQueuesObservationsQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAnalyticsQueuesObservationsQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostAnalyticsQueuesObservationsQueryGatewayTimeout() *PostAnalyticsQueue
 	return &PostAnalyticsQueuesObservationsQueryGatewayTimeout{}
 }
 
-/*PostAnalyticsQueuesObservationsQueryGatewayTimeout handles this case with default header values.
+/*
+PostAnalyticsQueuesObservationsQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostAnalyticsQueuesObservationsQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics queues observations query gateway timeout response has a 2xx status code
+func (o *PostAnalyticsQueuesObservationsQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics queues observations query gateway timeout response has a 3xx status code
+func (o *PostAnalyticsQueuesObservationsQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics queues observations query gateway timeout response has a 4xx status code
+func (o *PostAnalyticsQueuesObservationsQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics queues observations query gateway timeout response has a 5xx status code
+func (o *PostAnalyticsQueuesObservationsQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics queues observations query gateway timeout response a status code equal to that given
+func (o *PostAnalyticsQueuesObservationsQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAnalyticsQueuesObservationsQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAnalyticsQueuesObservationsQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/queues/observations/query][%d] postAnalyticsQueuesObservationsQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

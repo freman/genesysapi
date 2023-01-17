@@ -95,7 +95,6 @@ func (o *GetGroupsReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGroupsOK() *GetGroupsOK {
 	return &GetGroupsOK{}
 }
 
-/*GetGroupsOK handles this case with default header values.
+/*
+GetGroupsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGroupsOK struct {
 	Payload *models.GroupEntityListing
 }
 
+// IsSuccess returns true when this get groups o k response has a 2xx status code
+func (o *GetGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get groups o k response has a 3xx status code
+func (o *GetGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups o k response has a 4xx status code
+func (o *GetGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get groups o k response has a 5xx status code
+func (o *GetGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups o k response a status code equal to that given
+func (o *GetGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGroupsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGroupsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGroupsBadRequest() *GetGroupsBadRequest {
 	return &GetGroupsBadRequest{}
 }
 
-/*GetGroupsBadRequest handles this case with default header values.
+/*
+GetGroupsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGroupsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups bad request response has a 2xx status code
+func (o *GetGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups bad request response has a 3xx status code
+func (o *GetGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups bad request response has a 4xx status code
+func (o *GetGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups bad request response has a 5xx status code
+func (o *GetGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups bad request response a status code equal to that given
+func (o *GetGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGroupsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGroupsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGroupsUnauthorized() *GetGroupsUnauthorized {
 	return &GetGroupsUnauthorized{}
 }
 
-/*GetGroupsUnauthorized handles this case with default header values.
+/*
+GetGroupsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGroupsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups unauthorized response has a 2xx status code
+func (o *GetGroupsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups unauthorized response has a 3xx status code
+func (o *GetGroupsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups unauthorized response has a 4xx status code
+func (o *GetGroupsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups unauthorized response has a 5xx status code
+func (o *GetGroupsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups unauthorized response a status code equal to that given
+func (o *GetGroupsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGroupsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGroupsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGroupsForbidden() *GetGroupsForbidden {
 	return &GetGroupsForbidden{}
 }
 
-/*GetGroupsForbidden handles this case with default header values.
+/*
+GetGroupsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGroupsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups forbidden response has a 2xx status code
+func (o *GetGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups forbidden response has a 3xx status code
+func (o *GetGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups forbidden response has a 4xx status code
+func (o *GetGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups forbidden response has a 5xx status code
+func (o *GetGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups forbidden response a status code equal to that given
+func (o *GetGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGroupsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGroupsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGroupsNotFound() *GetGroupsNotFound {
 	return &GetGroupsNotFound{}
 }
 
-/*GetGroupsNotFound handles this case with default header values.
+/*
+GetGroupsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGroupsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups not found response has a 2xx status code
+func (o *GetGroupsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups not found response has a 3xx status code
+func (o *GetGroupsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups not found response has a 4xx status code
+func (o *GetGroupsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups not found response has a 5xx status code
+func (o *GetGroupsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups not found response a status code equal to that given
+func (o *GetGroupsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGroupsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGroupsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGroupsRequestTimeout() *GetGroupsRequestTimeout {
 	return &GetGroupsRequestTimeout{}
 }
 
-/*GetGroupsRequestTimeout handles this case with default header values.
+/*
+GetGroupsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGroupsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups request timeout response has a 2xx status code
+func (o *GetGroupsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups request timeout response has a 3xx status code
+func (o *GetGroupsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups request timeout response has a 4xx status code
+func (o *GetGroupsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups request timeout response has a 5xx status code
+func (o *GetGroupsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups request timeout response a status code equal to that given
+func (o *GetGroupsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGroupsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGroupsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGroupsRequestEntityTooLarge() *GetGroupsRequestEntityTooLarge {
 	return &GetGroupsRequestEntityTooLarge{}
 }
 
-/*GetGroupsRequestEntityTooLarge handles this case with default header values.
+/*
+GetGroupsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGroupsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups request entity too large response has a 2xx status code
+func (o *GetGroupsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups request entity too large response has a 3xx status code
+func (o *GetGroupsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups request entity too large response has a 4xx status code
+func (o *GetGroupsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups request entity too large response has a 5xx status code
+func (o *GetGroupsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups request entity too large response a status code equal to that given
+func (o *GetGroupsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGroupsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGroupsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGroupsUnsupportedMediaType() *GetGroupsUnsupportedMediaType {
 	return &GetGroupsUnsupportedMediaType{}
 }
 
-/*GetGroupsUnsupportedMediaType handles this case with default header values.
+/*
+GetGroupsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGroupsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups unsupported media type response has a 2xx status code
+func (o *GetGroupsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups unsupported media type response has a 3xx status code
+func (o *GetGroupsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups unsupported media type response has a 4xx status code
+func (o *GetGroupsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups unsupported media type response has a 5xx status code
+func (o *GetGroupsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups unsupported media type response a status code equal to that given
+func (o *GetGroupsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGroupsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGroupsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGroupsTooManyRequests() *GetGroupsTooManyRequests {
 	return &GetGroupsTooManyRequests{}
 }
 
-/*GetGroupsTooManyRequests handles this case with default header values.
+/*
+GetGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGroupsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups too many requests response has a 2xx status code
+func (o *GetGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups too many requests response has a 3xx status code
+func (o *GetGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups too many requests response has a 4xx status code
+func (o *GetGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get groups too many requests response has a 5xx status code
+func (o *GetGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get groups too many requests response a status code equal to that given
+func (o *GetGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGroupsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGroupsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGroupsInternalServerError() *GetGroupsInternalServerError {
 	return &GetGroupsInternalServerError{}
 }
 
-/*GetGroupsInternalServerError handles this case with default header values.
+/*
+GetGroupsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGroupsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups internal server error response has a 2xx status code
+func (o *GetGroupsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups internal server error response has a 3xx status code
+func (o *GetGroupsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups internal server error response has a 4xx status code
+func (o *GetGroupsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get groups internal server error response has a 5xx status code
+func (o *GetGroupsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get groups internal server error response a status code equal to that given
+func (o *GetGroupsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGroupsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGroupsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGroupsServiceUnavailable() *GetGroupsServiceUnavailable {
 	return &GetGroupsServiceUnavailable{}
 }
 
-/*GetGroupsServiceUnavailable handles this case with default header values.
+/*
+GetGroupsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGroupsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups service unavailable response has a 2xx status code
+func (o *GetGroupsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups service unavailable response has a 3xx status code
+func (o *GetGroupsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups service unavailable response has a 4xx status code
+func (o *GetGroupsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get groups service unavailable response has a 5xx status code
+func (o *GetGroupsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get groups service unavailable response a status code equal to that given
+func (o *GetGroupsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGroupsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGroupsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGroupsGatewayTimeout() *GetGroupsGatewayTimeout {
 	return &GetGroupsGatewayTimeout{}
 }
 
-/*GetGroupsGatewayTimeout handles this case with default header values.
+/*
+GetGroupsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGroupsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get groups gateway timeout response has a 2xx status code
+func (o *GetGroupsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get groups gateway timeout response has a 3xx status code
+func (o *GetGroupsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get groups gateway timeout response has a 4xx status code
+func (o *GetGroupsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get groups gateway timeout response has a 5xx status code
+func (o *GetGroupsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get groups gateway timeout response a status code equal to that given
+func (o *GetGroupsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGroupsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGroupsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/groups][%d] getGroupsGatewayTimeout  %+v", 504, o.Payload)
 }
 

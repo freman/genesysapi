@@ -101,7 +101,6 @@ func (o *PostFlowsDatatablesReader) ReadResponse(response runtime.ClientResponse
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostFlowsDatatablesOK() *PostFlowsDatatablesOK {
 	return &PostFlowsDatatablesOK{}
 }
 
-/*PostFlowsDatatablesOK handles this case with default header values.
+/*
+PostFlowsDatatablesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostFlowsDatatablesOK struct {
 	Payload *models.DataTable
 }
 
+// IsSuccess returns true when this post flows datatables o k response has a 2xx status code
+func (o *PostFlowsDatatablesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post flows datatables o k response has a 3xx status code
+func (o *PostFlowsDatatablesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables o k response has a 4xx status code
+func (o *PostFlowsDatatablesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows datatables o k response has a 5xx status code
+func (o *PostFlowsDatatablesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows datatables o k response a status code equal to that given
+func (o *PostFlowsDatatablesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostFlowsDatatablesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostFlowsDatatablesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostFlowsDatatablesBadRequest() *PostFlowsDatatablesBadRequest {
 	return &PostFlowsDatatablesBadRequest{}
 }
 
-/*PostFlowsDatatablesBadRequest handles this case with default header values.
+/*
+PostFlowsDatatablesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostFlowsDatatablesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows datatables bad request response has a 2xx status code
+func (o *PostFlowsDatatablesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows datatables bad request response has a 3xx status code
+func (o *PostFlowsDatatablesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables bad request response has a 4xx status code
+func (o *PostFlowsDatatablesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows datatables bad request response has a 5xx status code
+func (o *PostFlowsDatatablesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows datatables bad request response a status code equal to that given
+func (o *PostFlowsDatatablesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostFlowsDatatablesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostFlowsDatatablesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostFlowsDatatablesUnauthorized() *PostFlowsDatatablesUnauthorized {
 	return &PostFlowsDatatablesUnauthorized{}
 }
 
-/*PostFlowsDatatablesUnauthorized handles this case with default header values.
+/*
+PostFlowsDatatablesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostFlowsDatatablesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows datatables unauthorized response has a 2xx status code
+func (o *PostFlowsDatatablesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows datatables unauthorized response has a 3xx status code
+func (o *PostFlowsDatatablesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables unauthorized response has a 4xx status code
+func (o *PostFlowsDatatablesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows datatables unauthorized response has a 5xx status code
+func (o *PostFlowsDatatablesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows datatables unauthorized response a status code equal to that given
+func (o *PostFlowsDatatablesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostFlowsDatatablesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostFlowsDatatablesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostFlowsDatatablesForbidden() *PostFlowsDatatablesForbidden {
 	return &PostFlowsDatatablesForbidden{}
 }
 
-/*PostFlowsDatatablesForbidden handles this case with default header values.
+/*
+PostFlowsDatatablesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostFlowsDatatablesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows datatables forbidden response has a 2xx status code
+func (o *PostFlowsDatatablesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows datatables forbidden response has a 3xx status code
+func (o *PostFlowsDatatablesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables forbidden response has a 4xx status code
+func (o *PostFlowsDatatablesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows datatables forbidden response has a 5xx status code
+func (o *PostFlowsDatatablesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows datatables forbidden response a status code equal to that given
+func (o *PostFlowsDatatablesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostFlowsDatatablesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostFlowsDatatablesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostFlowsDatatablesNotFound() *PostFlowsDatatablesNotFound {
 	return &PostFlowsDatatablesNotFound{}
 }
 
-/*PostFlowsDatatablesNotFound handles this case with default header values.
+/*
+PostFlowsDatatablesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostFlowsDatatablesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows datatables not found response has a 2xx status code
+func (o *PostFlowsDatatablesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows datatables not found response has a 3xx status code
+func (o *PostFlowsDatatablesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables not found response has a 4xx status code
+func (o *PostFlowsDatatablesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows datatables not found response has a 5xx status code
+func (o *PostFlowsDatatablesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows datatables not found response a status code equal to that given
+func (o *PostFlowsDatatablesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostFlowsDatatablesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostFlowsDatatablesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostFlowsDatatablesRequestTimeout() *PostFlowsDatatablesRequestTimeout {
 	return &PostFlowsDatatablesRequestTimeout{}
 }
 
-/*PostFlowsDatatablesRequestTimeout handles this case with default header values.
+/*
+PostFlowsDatatablesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostFlowsDatatablesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows datatables request timeout response has a 2xx status code
+func (o *PostFlowsDatatablesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows datatables request timeout response has a 3xx status code
+func (o *PostFlowsDatatablesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables request timeout response has a 4xx status code
+func (o *PostFlowsDatatablesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows datatables request timeout response has a 5xx status code
+func (o *PostFlowsDatatablesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows datatables request timeout response a status code equal to that given
+func (o *PostFlowsDatatablesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostFlowsDatatablesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowsDatatablesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostFlowsDatatablesConflict() *PostFlowsDatatablesConflict {
 	return &PostFlowsDatatablesConflict{}
 }
 
-/*PostFlowsDatatablesConflict handles this case with default header values.
+/*
+PostFlowsDatatablesConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PostFlowsDatatablesConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows datatables conflict response has a 2xx status code
+func (o *PostFlowsDatatablesConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows datatables conflict response has a 3xx status code
+func (o *PostFlowsDatatablesConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables conflict response has a 4xx status code
+func (o *PostFlowsDatatablesConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows datatables conflict response has a 5xx status code
+func (o *PostFlowsDatatablesConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows datatables conflict response a status code equal to that given
+func (o *PostFlowsDatatablesConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostFlowsDatatablesConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostFlowsDatatablesConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostFlowsDatatablesRequestEntityTooLarge() *PostFlowsDatatablesRequestEn
 	return &PostFlowsDatatablesRequestEntityTooLarge{}
 }
 
-/*PostFlowsDatatablesRequestEntityTooLarge handles this case with default header values.
+/*
+PostFlowsDatatablesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostFlowsDatatablesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows datatables request entity too large response has a 2xx status code
+func (o *PostFlowsDatatablesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows datatables request entity too large response has a 3xx status code
+func (o *PostFlowsDatatablesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables request entity too large response has a 4xx status code
+func (o *PostFlowsDatatablesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows datatables request entity too large response has a 5xx status code
+func (o *PostFlowsDatatablesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows datatables request entity too large response a status code equal to that given
+func (o *PostFlowsDatatablesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostFlowsDatatablesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostFlowsDatatablesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostFlowsDatatablesUnsupportedMediaType() *PostFlowsDatatablesUnsupporte
 	return &PostFlowsDatatablesUnsupportedMediaType{}
 }
 
-/*PostFlowsDatatablesUnsupportedMediaType handles this case with default header values.
+/*
+PostFlowsDatatablesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostFlowsDatatablesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows datatables unsupported media type response has a 2xx status code
+func (o *PostFlowsDatatablesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows datatables unsupported media type response has a 3xx status code
+func (o *PostFlowsDatatablesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables unsupported media type response has a 4xx status code
+func (o *PostFlowsDatatablesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows datatables unsupported media type response has a 5xx status code
+func (o *PostFlowsDatatablesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows datatables unsupported media type response a status code equal to that given
+func (o *PostFlowsDatatablesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostFlowsDatatablesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostFlowsDatatablesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostFlowsDatatablesTooManyRequests() *PostFlowsDatatablesTooManyRequests
 	return &PostFlowsDatatablesTooManyRequests{}
 }
 
-/*PostFlowsDatatablesTooManyRequests handles this case with default header values.
+/*
+PostFlowsDatatablesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostFlowsDatatablesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows datatables too many requests response has a 2xx status code
+func (o *PostFlowsDatatablesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows datatables too many requests response has a 3xx status code
+func (o *PostFlowsDatatablesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables too many requests response has a 4xx status code
+func (o *PostFlowsDatatablesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows datatables too many requests response has a 5xx status code
+func (o *PostFlowsDatatablesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows datatables too many requests response a status code equal to that given
+func (o *PostFlowsDatatablesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostFlowsDatatablesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostFlowsDatatablesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostFlowsDatatablesInternalServerError() *PostFlowsDatatablesInternalSer
 	return &PostFlowsDatatablesInternalServerError{}
 }
 
-/*PostFlowsDatatablesInternalServerError handles this case with default header values.
+/*
+PostFlowsDatatablesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostFlowsDatatablesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows datatables internal server error response has a 2xx status code
+func (o *PostFlowsDatatablesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows datatables internal server error response has a 3xx status code
+func (o *PostFlowsDatatablesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables internal server error response has a 4xx status code
+func (o *PostFlowsDatatablesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows datatables internal server error response has a 5xx status code
+func (o *PostFlowsDatatablesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows datatables internal server error response a status code equal to that given
+func (o *PostFlowsDatatablesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostFlowsDatatablesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostFlowsDatatablesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostFlowsDatatablesServiceUnavailable() *PostFlowsDatatablesServiceUnava
 	return &PostFlowsDatatablesServiceUnavailable{}
 }
 
-/*PostFlowsDatatablesServiceUnavailable handles this case with default header values.
+/*
+PostFlowsDatatablesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostFlowsDatatablesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows datatables service unavailable response has a 2xx status code
+func (o *PostFlowsDatatablesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows datatables service unavailable response has a 3xx status code
+func (o *PostFlowsDatatablesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables service unavailable response has a 4xx status code
+func (o *PostFlowsDatatablesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows datatables service unavailable response has a 5xx status code
+func (o *PostFlowsDatatablesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows datatables service unavailable response a status code equal to that given
+func (o *PostFlowsDatatablesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostFlowsDatatablesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostFlowsDatatablesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostFlowsDatatablesGatewayTimeout() *PostFlowsDatatablesGatewayTimeout {
 	return &PostFlowsDatatablesGatewayTimeout{}
 }
 
-/*PostFlowsDatatablesGatewayTimeout handles this case with default header values.
+/*
+PostFlowsDatatablesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostFlowsDatatablesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows datatables gateway timeout response has a 2xx status code
+func (o *PostFlowsDatatablesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows datatables gateway timeout response has a 3xx status code
+func (o *PostFlowsDatatablesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows datatables gateway timeout response has a 4xx status code
+func (o *PostFlowsDatatablesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows datatables gateway timeout response has a 5xx status code
+func (o *PostFlowsDatatablesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows datatables gateway timeout response a status code equal to that given
+func (o *PostFlowsDatatablesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostFlowsDatatablesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostFlowsDatatablesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/datatables][%d] postFlowsDatatablesGatewayTimeout  %+v", 504, o.Payload)
 }
 

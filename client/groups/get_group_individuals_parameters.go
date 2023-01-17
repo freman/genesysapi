@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGroupIndividualsParams creates a new GetGroupIndividualsParams object
-// with the default values initialized.
+// NewGetGroupIndividualsParams creates a new GetGroupIndividualsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGroupIndividualsParams() *GetGroupIndividualsParams {
-	var ()
 	return &GetGroupIndividualsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGroupIndividualsParamsWithTimeout creates a new GetGroupIndividualsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGroupIndividualsParamsWithTimeout(timeout time.Duration) *GetGroupIndividualsParams {
-	var ()
 	return &GetGroupIndividualsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGroupIndividualsParamsWithContext creates a new GetGroupIndividualsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGroupIndividualsParamsWithContext(ctx context.Context) *GetGroupIndividualsParams {
-	var ()
 	return &GetGroupIndividualsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGroupIndividualsParamsWithHTTPClient creates a new GetGroupIndividualsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGroupIndividualsParamsWithHTTPClient(client *http.Client) *GetGroupIndividualsParams {
-	var ()
 	return &GetGroupIndividualsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGroupIndividualsParams contains all the parameters to send to the API endpoint
-for the get group individuals operation typically these are written to a http.Request
+/*
+GetGroupIndividualsParams contains all the parameters to send to the API endpoint
+
+	for the get group individuals operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGroupIndividualsParams struct {
 
-	/*GroupID
-	  Group ID
+	/* GroupID.
 
+	   Group ID
 	*/
 	GroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get group individuals params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGroupIndividualsParams) WithDefaults() *GetGroupIndividualsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get group individuals params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGroupIndividualsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get group individuals params

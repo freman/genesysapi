@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -51,7 +52,6 @@ func (m *Assignment) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Assignment) validateAssignedMembers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssignedMembers) { // not required
 		return nil
 	}
@@ -65,6 +65,8 @@ func (m *Assignment) validateAssignedMembers(formats strfmt.Registry) error {
 			if err := m.AssignedMembers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("assignedMembers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignedMembers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -76,7 +78,6 @@ func (m *Assignment) validateAssignedMembers(formats strfmt.Registry) error {
 }
 
 func (m *Assignment) validateAssignmentErrors(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AssignmentErrors) { // not required
 		return nil
 	}
@@ -90,6 +91,8 @@ func (m *Assignment) validateAssignmentErrors(formats strfmt.Registry) error {
 			if err := m.AssignmentErrors[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("assignmentErrors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignmentErrors" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -101,7 +104,6 @@ func (m *Assignment) validateAssignmentErrors(formats strfmt.Registry) error {
 }
 
 func (m *Assignment) validateRemovedMembers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RemovedMembers) { // not required
 		return nil
 	}
@@ -115,6 +117,90 @@ func (m *Assignment) validateRemovedMembers(formats strfmt.Registry) error {
 			if err := m.RemovedMembers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("removedMembers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("removedMembers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this assignment based on the context it is used
+func (m *Assignment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAssignedMembers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAssignmentErrors(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRemovedMembers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Assignment) contextValidateAssignedMembers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AssignedMembers); i++ {
+
+		if m.AssignedMembers[i] != nil {
+			if err := m.AssignedMembers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("assignedMembers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignedMembers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Assignment) contextValidateAssignmentErrors(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AssignmentErrors); i++ {
+
+		if m.AssignmentErrors[i] != nil {
+			if err := m.AssignmentErrors[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("assignmentErrors" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assignmentErrors" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Assignment) contextValidateRemovedMembers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RemovedMembers); i++ {
+
+		if m.RemovedMembers[i] != nil {
+			if err := m.RemovedMembers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("removedMembers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("removedMembers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

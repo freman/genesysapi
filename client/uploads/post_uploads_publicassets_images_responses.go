@@ -95,7 +95,6 @@ func (o *PostUploadsPublicassetsImagesReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostUploadsPublicassetsImagesOK() *PostUploadsPublicassetsImagesOK {
 	return &PostUploadsPublicassetsImagesOK{}
 }
 
-/*PostUploadsPublicassetsImagesOK handles this case with default header values.
+/*
+PostUploadsPublicassetsImagesOK describes a response with status code 200, with default header values.
 
 Presigned url successfully created.
 */
@@ -114,7 +114,36 @@ type PostUploadsPublicassetsImagesOK struct {
 	Payload *models.UploadURLResponse
 }
 
+// IsSuccess returns true when this post uploads publicassets images o k response has a 2xx status code
+func (o *PostUploadsPublicassetsImagesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post uploads publicassets images o k response has a 3xx status code
+func (o *PostUploadsPublicassetsImagesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads publicassets images o k response has a 4xx status code
+func (o *PostUploadsPublicassetsImagesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post uploads publicassets images o k response has a 5xx status code
+func (o *PostUploadsPublicassetsImagesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads publicassets images o k response a status code equal to that given
+func (o *PostUploadsPublicassetsImagesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostUploadsPublicassetsImagesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostUploadsPublicassetsImagesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostUploadsPublicassetsImagesBadRequest() *PostUploadsPublicassetsImages
 	return &PostUploadsPublicassetsImagesBadRequest{}
 }
 
-/*PostUploadsPublicassetsImagesBadRequest handles this case with default header values.
+/*
+PostUploadsPublicassetsImagesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostUploadsPublicassetsImagesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads publicassets images bad request response has a 2xx status code
+func (o *PostUploadsPublicassetsImagesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads publicassets images bad request response has a 3xx status code
+func (o *PostUploadsPublicassetsImagesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads publicassets images bad request response has a 4xx status code
+func (o *PostUploadsPublicassetsImagesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads publicassets images bad request response has a 5xx status code
+func (o *PostUploadsPublicassetsImagesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads publicassets images bad request response a status code equal to that given
+func (o *PostUploadsPublicassetsImagesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostUploadsPublicassetsImagesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostUploadsPublicassetsImagesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostUploadsPublicassetsImagesUnauthorized() *PostUploadsPublicassetsImag
 	return &PostUploadsPublicassetsImagesUnauthorized{}
 }
 
-/*PostUploadsPublicassetsImagesUnauthorized handles this case with default header values.
+/*
+PostUploadsPublicassetsImagesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostUploadsPublicassetsImagesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads publicassets images unauthorized response has a 2xx status code
+func (o *PostUploadsPublicassetsImagesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads publicassets images unauthorized response has a 3xx status code
+func (o *PostUploadsPublicassetsImagesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads publicassets images unauthorized response has a 4xx status code
+func (o *PostUploadsPublicassetsImagesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads publicassets images unauthorized response has a 5xx status code
+func (o *PostUploadsPublicassetsImagesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads publicassets images unauthorized response a status code equal to that given
+func (o *PostUploadsPublicassetsImagesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostUploadsPublicassetsImagesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostUploadsPublicassetsImagesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostUploadsPublicassetsImagesForbidden() *PostUploadsPublicassetsImagesF
 	return &PostUploadsPublicassetsImagesForbidden{}
 }
 
-/*PostUploadsPublicassetsImagesForbidden handles this case with default header values.
+/*
+PostUploadsPublicassetsImagesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostUploadsPublicassetsImagesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads publicassets images forbidden response has a 2xx status code
+func (o *PostUploadsPublicassetsImagesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads publicassets images forbidden response has a 3xx status code
+func (o *PostUploadsPublicassetsImagesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads publicassets images forbidden response has a 4xx status code
+func (o *PostUploadsPublicassetsImagesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads publicassets images forbidden response has a 5xx status code
+func (o *PostUploadsPublicassetsImagesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads publicassets images forbidden response a status code equal to that given
+func (o *PostUploadsPublicassetsImagesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostUploadsPublicassetsImagesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostUploadsPublicassetsImagesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostUploadsPublicassetsImagesNotFound() *PostUploadsPublicassetsImagesNo
 	return &PostUploadsPublicassetsImagesNotFound{}
 }
 
-/*PostUploadsPublicassetsImagesNotFound handles this case with default header values.
+/*
+PostUploadsPublicassetsImagesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostUploadsPublicassetsImagesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads publicassets images not found response has a 2xx status code
+func (o *PostUploadsPublicassetsImagesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads publicassets images not found response has a 3xx status code
+func (o *PostUploadsPublicassetsImagesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads publicassets images not found response has a 4xx status code
+func (o *PostUploadsPublicassetsImagesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads publicassets images not found response has a 5xx status code
+func (o *PostUploadsPublicassetsImagesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads publicassets images not found response a status code equal to that given
+func (o *PostUploadsPublicassetsImagesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostUploadsPublicassetsImagesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostUploadsPublicassetsImagesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostUploadsPublicassetsImagesRequestTimeout() *PostUploadsPublicassetsIm
 	return &PostUploadsPublicassetsImagesRequestTimeout{}
 }
 
-/*PostUploadsPublicassetsImagesRequestTimeout handles this case with default header values.
+/*
+PostUploadsPublicassetsImagesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostUploadsPublicassetsImagesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads publicassets images request timeout response has a 2xx status code
+func (o *PostUploadsPublicassetsImagesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads publicassets images request timeout response has a 3xx status code
+func (o *PostUploadsPublicassetsImagesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads publicassets images request timeout response has a 4xx status code
+func (o *PostUploadsPublicassetsImagesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads publicassets images request timeout response has a 5xx status code
+func (o *PostUploadsPublicassetsImagesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads publicassets images request timeout response a status code equal to that given
+func (o *PostUploadsPublicassetsImagesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostUploadsPublicassetsImagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUploadsPublicassetsImagesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostUploadsPublicassetsImagesRequestEntityTooLarge() *PostUploadsPublica
 	return &PostUploadsPublicassetsImagesRequestEntityTooLarge{}
 }
 
-/*PostUploadsPublicassetsImagesRequestEntityTooLarge handles this case with default header values.
+/*
+PostUploadsPublicassetsImagesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostUploadsPublicassetsImagesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads publicassets images request entity too large response has a 2xx status code
+func (o *PostUploadsPublicassetsImagesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads publicassets images request entity too large response has a 3xx status code
+func (o *PostUploadsPublicassetsImagesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads publicassets images request entity too large response has a 4xx status code
+func (o *PostUploadsPublicassetsImagesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads publicassets images request entity too large response has a 5xx status code
+func (o *PostUploadsPublicassetsImagesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads publicassets images request entity too large response a status code equal to that given
+func (o *PostUploadsPublicassetsImagesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostUploadsPublicassetsImagesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostUploadsPublicassetsImagesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostUploadsPublicassetsImagesUnsupportedMediaType() *PostUploadsPublicas
 	return &PostUploadsPublicassetsImagesUnsupportedMediaType{}
 }
 
-/*PostUploadsPublicassetsImagesUnsupportedMediaType handles this case with default header values.
+/*
+PostUploadsPublicassetsImagesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostUploadsPublicassetsImagesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads publicassets images unsupported media type response has a 2xx status code
+func (o *PostUploadsPublicassetsImagesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads publicassets images unsupported media type response has a 3xx status code
+func (o *PostUploadsPublicassetsImagesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads publicassets images unsupported media type response has a 4xx status code
+func (o *PostUploadsPublicassetsImagesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads publicassets images unsupported media type response has a 5xx status code
+func (o *PostUploadsPublicassetsImagesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads publicassets images unsupported media type response a status code equal to that given
+func (o *PostUploadsPublicassetsImagesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostUploadsPublicassetsImagesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostUploadsPublicassetsImagesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostUploadsPublicassetsImagesTooManyRequests() *PostUploadsPublicassetsI
 	return &PostUploadsPublicassetsImagesTooManyRequests{}
 }
 
-/*PostUploadsPublicassetsImagesTooManyRequests handles this case with default header values.
+/*
+PostUploadsPublicassetsImagesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostUploadsPublicassetsImagesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads publicassets images too many requests response has a 2xx status code
+func (o *PostUploadsPublicassetsImagesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads publicassets images too many requests response has a 3xx status code
+func (o *PostUploadsPublicassetsImagesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads publicassets images too many requests response has a 4xx status code
+func (o *PostUploadsPublicassetsImagesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads publicassets images too many requests response has a 5xx status code
+func (o *PostUploadsPublicassetsImagesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads publicassets images too many requests response a status code equal to that given
+func (o *PostUploadsPublicassetsImagesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostUploadsPublicassetsImagesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostUploadsPublicassetsImagesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostUploadsPublicassetsImagesInternalServerError() *PostUploadsPublicass
 	return &PostUploadsPublicassetsImagesInternalServerError{}
 }
 
-/*PostUploadsPublicassetsImagesInternalServerError handles this case with default header values.
+/*
+PostUploadsPublicassetsImagesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostUploadsPublicassetsImagesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads publicassets images internal server error response has a 2xx status code
+func (o *PostUploadsPublicassetsImagesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads publicassets images internal server error response has a 3xx status code
+func (o *PostUploadsPublicassetsImagesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads publicassets images internal server error response has a 4xx status code
+func (o *PostUploadsPublicassetsImagesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post uploads publicassets images internal server error response has a 5xx status code
+func (o *PostUploadsPublicassetsImagesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post uploads publicassets images internal server error response a status code equal to that given
+func (o *PostUploadsPublicassetsImagesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostUploadsPublicassetsImagesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostUploadsPublicassetsImagesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostUploadsPublicassetsImagesServiceUnavailable() *PostUploadsPublicasse
 	return &PostUploadsPublicassetsImagesServiceUnavailable{}
 }
 
-/*PostUploadsPublicassetsImagesServiceUnavailable handles this case with default header values.
+/*
+PostUploadsPublicassetsImagesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostUploadsPublicassetsImagesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads publicassets images service unavailable response has a 2xx status code
+func (o *PostUploadsPublicassetsImagesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads publicassets images service unavailable response has a 3xx status code
+func (o *PostUploadsPublicassetsImagesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads publicassets images service unavailable response has a 4xx status code
+func (o *PostUploadsPublicassetsImagesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post uploads publicassets images service unavailable response has a 5xx status code
+func (o *PostUploadsPublicassetsImagesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post uploads publicassets images service unavailable response a status code equal to that given
+func (o *PostUploadsPublicassetsImagesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostUploadsPublicassetsImagesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostUploadsPublicassetsImagesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostUploadsPublicassetsImagesGatewayTimeout() *PostUploadsPublicassetsIm
 	return &PostUploadsPublicassetsImagesGatewayTimeout{}
 }
 
-/*PostUploadsPublicassetsImagesGatewayTimeout handles this case with default header values.
+/*
+PostUploadsPublicassetsImagesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostUploadsPublicassetsImagesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads publicassets images gateway timeout response has a 2xx status code
+func (o *PostUploadsPublicassetsImagesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads publicassets images gateway timeout response has a 3xx status code
+func (o *PostUploadsPublicassetsImagesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads publicassets images gateway timeout response has a 4xx status code
+func (o *PostUploadsPublicassetsImagesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post uploads publicassets images gateway timeout response has a 5xx status code
+func (o *PostUploadsPublicassetsImagesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post uploads publicassets images gateway timeout response a status code equal to that given
+func (o *PostUploadsPublicassetsImagesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostUploadsPublicassetsImagesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostUploadsPublicassetsImagesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/publicassets/images][%d] postUploadsPublicassetsImagesGatewayTimeout  %+v", 504, o.Payload)
 }
 

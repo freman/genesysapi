@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRecordingRecordingkeysRotationscheduleParams creates a new GetRecordingRecordingkeysRotationscheduleParams object
-// with the default values initialized.
+// NewGetRecordingRecordingkeysRotationscheduleParams creates a new GetRecordingRecordingkeysRotationscheduleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRecordingRecordingkeysRotationscheduleParams() *GetRecordingRecordingkeysRotationscheduleParams {
-
 	return &GetRecordingRecordingkeysRotationscheduleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRecordingRecordingkeysRotationscheduleParamsWithTimeout creates a new GetRecordingRecordingkeysRotationscheduleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRecordingRecordingkeysRotationscheduleParamsWithTimeout(timeout time.Duration) *GetRecordingRecordingkeysRotationscheduleParams {
-
 	return &GetRecordingRecordingkeysRotationscheduleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRecordingRecordingkeysRotationscheduleParamsWithContext creates a new GetRecordingRecordingkeysRotationscheduleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRecordingRecordingkeysRotationscheduleParamsWithContext(ctx context.Context) *GetRecordingRecordingkeysRotationscheduleParams {
-
 	return &GetRecordingRecordingkeysRotationscheduleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRecordingRecordingkeysRotationscheduleParamsWithHTTPClient creates a new GetRecordingRecordingkeysRotationscheduleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRecordingRecordingkeysRotationscheduleParamsWithHTTPClient(client *http.Client) *GetRecordingRecordingkeysRotationscheduleParams {
-
 	return &GetRecordingRecordingkeysRotationscheduleParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRecordingRecordingkeysRotationscheduleParams contains all the parameters to send to the API endpoint
-for the get recording recordingkeys rotationschedule operation typically these are written to a http.Request
+/*
+GetRecordingRecordingkeysRotationscheduleParams contains all the parameters to send to the API endpoint
+
+	for the get recording recordingkeys rotationschedule operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRecordingRecordingkeysRotationscheduleParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get recording recordingkeys rotationschedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingRecordingkeysRotationscheduleParams) WithDefaults() *GetRecordingRecordingkeysRotationscheduleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get recording recordingkeys rotationschedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingRecordingkeysRotationscheduleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get recording recordingkeys rotationschedule params

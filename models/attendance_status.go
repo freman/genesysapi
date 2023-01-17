@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -87,7 +88,6 @@ func (m *AttendanceStatus) validateAttendanceStatusTypeEnum(path, location strin
 }
 
 func (m *AttendanceStatus) validateAttendanceStatusType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AttendanceStatusType) { // not required
 		return nil
 	}
@@ -101,12 +101,47 @@ func (m *AttendanceStatus) validateAttendanceStatusType(formats strfmt.Registry)
 }
 
 func (m *AttendanceStatus) validateDateWorkday(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateWorkday) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("dateWorkday", "body", "date", m.DateWorkday.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this attendance status based on the context it is used
+func (m *AttendanceStatus) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttendanceStatusType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateWorkday(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AttendanceStatus) contextValidateAttendanceStatusType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "attendanceStatusType", "body", string(m.AttendanceStatusType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AttendanceStatus) contextValidateDateWorkday(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateWorkday", "body", strfmt.Date(m.DateWorkday)); err != nil {
 		return err
 	}
 

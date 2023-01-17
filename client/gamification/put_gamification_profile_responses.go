@@ -95,7 +95,6 @@ func (o *PutGamificationProfileReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutGamificationProfileOK() *PutGamificationProfileOK {
 	return &PutGamificationProfileOK{}
 }
 
-/*PutGamificationProfileOK handles this case with default header values.
+/*
+PutGamificationProfileOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutGamificationProfileOK struct {
 	Payload *models.PerformanceProfile
 }
 
+// IsSuccess returns true when this put gamification profile o k response has a 2xx status code
+func (o *PutGamificationProfileOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put gamification profile o k response has a 3xx status code
+func (o *PutGamificationProfileOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put gamification profile o k response has a 4xx status code
+func (o *PutGamificationProfileOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put gamification profile o k response has a 5xx status code
+func (o *PutGamificationProfileOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put gamification profile o k response a status code equal to that given
+func (o *PutGamificationProfileOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutGamificationProfileOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileOK  %+v", 200, o.Payload)
+}
+
+func (o *PutGamificationProfileOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutGamificationProfileBadRequest() *PutGamificationProfileBadRequest {
 	return &PutGamificationProfileBadRequest{}
 }
 
-/*PutGamificationProfileBadRequest handles this case with default header values.
+/*
+PutGamificationProfileBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutGamificationProfileBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put gamification profile bad request response has a 2xx status code
+func (o *PutGamificationProfileBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put gamification profile bad request response has a 3xx status code
+func (o *PutGamificationProfileBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put gamification profile bad request response has a 4xx status code
+func (o *PutGamificationProfileBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put gamification profile bad request response has a 5xx status code
+func (o *PutGamificationProfileBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put gamification profile bad request response a status code equal to that given
+func (o *PutGamificationProfileBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutGamificationProfileBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutGamificationProfileBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutGamificationProfileUnauthorized() *PutGamificationProfileUnauthorized
 	return &PutGamificationProfileUnauthorized{}
 }
 
-/*PutGamificationProfileUnauthorized handles this case with default header values.
+/*
+PutGamificationProfileUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutGamificationProfileUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put gamification profile unauthorized response has a 2xx status code
+func (o *PutGamificationProfileUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put gamification profile unauthorized response has a 3xx status code
+func (o *PutGamificationProfileUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put gamification profile unauthorized response has a 4xx status code
+func (o *PutGamificationProfileUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put gamification profile unauthorized response has a 5xx status code
+func (o *PutGamificationProfileUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put gamification profile unauthorized response a status code equal to that given
+func (o *PutGamificationProfileUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutGamificationProfileUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutGamificationProfileUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutGamificationProfileForbidden() *PutGamificationProfileForbidden {
 	return &PutGamificationProfileForbidden{}
 }
 
-/*PutGamificationProfileForbidden handles this case with default header values.
+/*
+PutGamificationProfileForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutGamificationProfileForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put gamification profile forbidden response has a 2xx status code
+func (o *PutGamificationProfileForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put gamification profile forbidden response has a 3xx status code
+func (o *PutGamificationProfileForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put gamification profile forbidden response has a 4xx status code
+func (o *PutGamificationProfileForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put gamification profile forbidden response has a 5xx status code
+func (o *PutGamificationProfileForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put gamification profile forbidden response a status code equal to that given
+func (o *PutGamificationProfileForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutGamificationProfileForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutGamificationProfileForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutGamificationProfileNotFound() *PutGamificationProfileNotFound {
 	return &PutGamificationProfileNotFound{}
 }
 
-/*PutGamificationProfileNotFound handles this case with default header values.
+/*
+PutGamificationProfileNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutGamificationProfileNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put gamification profile not found response has a 2xx status code
+func (o *PutGamificationProfileNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put gamification profile not found response has a 3xx status code
+func (o *PutGamificationProfileNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put gamification profile not found response has a 4xx status code
+func (o *PutGamificationProfileNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put gamification profile not found response has a 5xx status code
+func (o *PutGamificationProfileNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put gamification profile not found response a status code equal to that given
+func (o *PutGamificationProfileNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutGamificationProfileNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutGamificationProfileNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutGamificationProfileRequestTimeout() *PutGamificationProfileRequestTim
 	return &PutGamificationProfileRequestTimeout{}
 }
 
-/*PutGamificationProfileRequestTimeout handles this case with default header values.
+/*
+PutGamificationProfileRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutGamificationProfileRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put gamification profile request timeout response has a 2xx status code
+func (o *PutGamificationProfileRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put gamification profile request timeout response has a 3xx status code
+func (o *PutGamificationProfileRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put gamification profile request timeout response has a 4xx status code
+func (o *PutGamificationProfileRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put gamification profile request timeout response has a 5xx status code
+func (o *PutGamificationProfileRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put gamification profile request timeout response a status code equal to that given
+func (o *PutGamificationProfileRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutGamificationProfileRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutGamificationProfileRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutGamificationProfileRequestEntityTooLarge() *PutGamificationProfileReq
 	return &PutGamificationProfileRequestEntityTooLarge{}
 }
 
-/*PutGamificationProfileRequestEntityTooLarge handles this case with default header values.
+/*
+PutGamificationProfileRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutGamificationProfileRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put gamification profile request entity too large response has a 2xx status code
+func (o *PutGamificationProfileRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put gamification profile request entity too large response has a 3xx status code
+func (o *PutGamificationProfileRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put gamification profile request entity too large response has a 4xx status code
+func (o *PutGamificationProfileRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put gamification profile request entity too large response has a 5xx status code
+func (o *PutGamificationProfileRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put gamification profile request entity too large response a status code equal to that given
+func (o *PutGamificationProfileRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutGamificationProfileRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutGamificationProfileRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutGamificationProfileUnsupportedMediaType() *PutGamificationProfileUnsu
 	return &PutGamificationProfileUnsupportedMediaType{}
 }
 
-/*PutGamificationProfileUnsupportedMediaType handles this case with default header values.
+/*
+PutGamificationProfileUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutGamificationProfileUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put gamification profile unsupported media type response has a 2xx status code
+func (o *PutGamificationProfileUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put gamification profile unsupported media type response has a 3xx status code
+func (o *PutGamificationProfileUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put gamification profile unsupported media type response has a 4xx status code
+func (o *PutGamificationProfileUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put gamification profile unsupported media type response has a 5xx status code
+func (o *PutGamificationProfileUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put gamification profile unsupported media type response a status code equal to that given
+func (o *PutGamificationProfileUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutGamificationProfileUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutGamificationProfileUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutGamificationProfileTooManyRequests() *PutGamificationProfileTooManyRe
 	return &PutGamificationProfileTooManyRequests{}
 }
 
-/*PutGamificationProfileTooManyRequests handles this case with default header values.
+/*
+PutGamificationProfileTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutGamificationProfileTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put gamification profile too many requests response has a 2xx status code
+func (o *PutGamificationProfileTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put gamification profile too many requests response has a 3xx status code
+func (o *PutGamificationProfileTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put gamification profile too many requests response has a 4xx status code
+func (o *PutGamificationProfileTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put gamification profile too many requests response has a 5xx status code
+func (o *PutGamificationProfileTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put gamification profile too many requests response a status code equal to that given
+func (o *PutGamificationProfileTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutGamificationProfileTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutGamificationProfileTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutGamificationProfileInternalServerError() *PutGamificationProfileInter
 	return &PutGamificationProfileInternalServerError{}
 }
 
-/*PutGamificationProfileInternalServerError handles this case with default header values.
+/*
+PutGamificationProfileInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutGamificationProfileInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put gamification profile internal server error response has a 2xx status code
+func (o *PutGamificationProfileInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put gamification profile internal server error response has a 3xx status code
+func (o *PutGamificationProfileInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put gamification profile internal server error response has a 4xx status code
+func (o *PutGamificationProfileInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put gamification profile internal server error response has a 5xx status code
+func (o *PutGamificationProfileInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put gamification profile internal server error response a status code equal to that given
+func (o *PutGamificationProfileInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutGamificationProfileInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutGamificationProfileInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutGamificationProfileServiceUnavailable() *PutGamificationProfileServic
 	return &PutGamificationProfileServiceUnavailable{}
 }
 
-/*PutGamificationProfileServiceUnavailable handles this case with default header values.
+/*
+PutGamificationProfileServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutGamificationProfileServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put gamification profile service unavailable response has a 2xx status code
+func (o *PutGamificationProfileServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put gamification profile service unavailable response has a 3xx status code
+func (o *PutGamificationProfileServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put gamification profile service unavailable response has a 4xx status code
+func (o *PutGamificationProfileServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put gamification profile service unavailable response has a 5xx status code
+func (o *PutGamificationProfileServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put gamification profile service unavailable response a status code equal to that given
+func (o *PutGamificationProfileServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutGamificationProfileServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutGamificationProfileServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutGamificationProfileGatewayTimeout() *PutGamificationProfileGatewayTim
 	return &PutGamificationProfileGatewayTimeout{}
 }
 
-/*PutGamificationProfileGatewayTimeout handles this case with default header values.
+/*
+PutGamificationProfileGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutGamificationProfileGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put gamification profile gateway timeout response has a 2xx status code
+func (o *PutGamificationProfileGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put gamification profile gateway timeout response has a 3xx status code
+func (o *PutGamificationProfileGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put gamification profile gateway timeout response has a 4xx status code
+func (o *PutGamificationProfileGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put gamification profile gateway timeout response has a 5xx status code
+func (o *PutGamificationProfileGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put gamification profile gateway timeout response a status code equal to that given
+func (o *PutGamificationProfileGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutGamificationProfileGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutGamificationProfileGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/gamification/profiles/{profileId}][%d] putGamificationProfileGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsChatCommunicationMessagesParams creates a new PostConversationsChatCommunicationMessagesParams object
-// with the default values initialized.
+// NewPostConversationsChatCommunicationMessagesParams creates a new PostConversationsChatCommunicationMessagesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsChatCommunicationMessagesParams() *PostConversationsChatCommunicationMessagesParams {
-	var ()
 	return &PostConversationsChatCommunicationMessagesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsChatCommunicationMessagesParamsWithTimeout creates a new PostConversationsChatCommunicationMessagesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsChatCommunicationMessagesParamsWithTimeout(timeout time.Duration) *PostConversationsChatCommunicationMessagesParams {
-	var ()
 	return &PostConversationsChatCommunicationMessagesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsChatCommunicationMessagesParamsWithContext creates a new PostConversationsChatCommunicationMessagesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsChatCommunicationMessagesParamsWithContext(ctx context.Context) *PostConversationsChatCommunicationMessagesParams {
-	var ()
 	return &PostConversationsChatCommunicationMessagesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsChatCommunicationMessagesParamsWithHTTPClient creates a new PostConversationsChatCommunicationMessagesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsChatCommunicationMessagesParamsWithHTTPClient(client *http.Client) *PostConversationsChatCommunicationMessagesParams {
-	var ()
 	return &PostConversationsChatCommunicationMessagesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsChatCommunicationMessagesParams contains all the parameters to send to the API endpoint
-for the post conversations chat communication messages operation typically these are written to a http.Request
+/*
+PostConversationsChatCommunicationMessagesParams contains all the parameters to send to the API endpoint
+
+	for the post conversations chat communication messages operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsChatCommunicationMessagesParams struct {
 
-	/*Body
-	  Message
+	/* Body.
 
+	   Message
 	*/
 	Body *models.CreateWebChatMessageRequest
-	/*CommunicationID
-	  communicationId
 
+	/* CommunicationID.
+
+	   communicationId
 	*/
 	CommunicationID string
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations chat communication messages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsChatCommunicationMessagesParams) WithDefaults() *PostConversationsChatCommunicationMessagesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations chat communication messages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsChatCommunicationMessagesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations chat communication messages params
@@ -156,7 +174,6 @@ func (o *PostConversationsChatCommunicationMessagesParams) WriteToRequest(r runt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

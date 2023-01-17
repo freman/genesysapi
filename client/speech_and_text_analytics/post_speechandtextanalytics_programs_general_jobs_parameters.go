@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostSpeechandtextanalyticsProgramsGeneralJobsParams creates a new PostSpeechandtextanalyticsProgramsGeneralJobsParams object
-// with the default values initialized.
+// NewPostSpeechandtextanalyticsProgramsGeneralJobsParams creates a new PostSpeechandtextanalyticsProgramsGeneralJobsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostSpeechandtextanalyticsProgramsGeneralJobsParams() *PostSpeechandtextanalyticsProgramsGeneralJobsParams {
-	var ()
 	return &PostSpeechandtextanalyticsProgramsGeneralJobsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostSpeechandtextanalyticsProgramsGeneralJobsParamsWithTimeout creates a new PostSpeechandtextanalyticsProgramsGeneralJobsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostSpeechandtextanalyticsProgramsGeneralJobsParamsWithTimeout(timeout time.Duration) *PostSpeechandtextanalyticsProgramsGeneralJobsParams {
-	var ()
 	return &PostSpeechandtextanalyticsProgramsGeneralJobsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostSpeechandtextanalyticsProgramsGeneralJobsParamsWithContext creates a new PostSpeechandtextanalyticsProgramsGeneralJobsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostSpeechandtextanalyticsProgramsGeneralJobsParamsWithContext(ctx context.Context) *PostSpeechandtextanalyticsProgramsGeneralJobsParams {
-	var ()
 	return &PostSpeechandtextanalyticsProgramsGeneralJobsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostSpeechandtextanalyticsProgramsGeneralJobsParamsWithHTTPClient creates a new PostSpeechandtextanalyticsProgramsGeneralJobsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostSpeechandtextanalyticsProgramsGeneralJobsParamsWithHTTPClient(client *http.Client) *PostSpeechandtextanalyticsProgramsGeneralJobsParams {
-	var ()
 	return &PostSpeechandtextanalyticsProgramsGeneralJobsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostSpeechandtextanalyticsProgramsGeneralJobsParams contains all the parameters to send to the API endpoint
-for the post speechandtextanalytics programs general jobs operation typically these are written to a http.Request
+/*
+PostSpeechandtextanalyticsProgramsGeneralJobsParams contains all the parameters to send to the API endpoint
+
+	for the post speechandtextanalytics programs general jobs operation.
+
+	Typically these are written to a http.Request.
 */
 type PostSpeechandtextanalyticsProgramsGeneralJobsParams struct {
 
-	/*Body
-	  The general programs job to create
+	/* Body.
 
+	   The general programs job to create
 	*/
 	Body *models.GeneralProgramJobRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post speechandtextanalytics programs general jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostSpeechandtextanalyticsProgramsGeneralJobsParams) WithDefaults() *PostSpeechandtextanalyticsProgramsGeneralJobsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post speechandtextanalytics programs general jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostSpeechandtextanalyticsProgramsGeneralJobsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post speechandtextanalytics programs general jobs params
@@ -124,7 +140,6 @@ func (o *PostSpeechandtextanalyticsProgramsGeneralJobsParams) WriteToRequest(r r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

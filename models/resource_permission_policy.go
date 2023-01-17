@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -71,7 +73,6 @@ func (m *ResourcePermissionPolicy) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ResourcePermissionPolicy) validateActionSet(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionSet) { // not required
 		return nil
 	}
@@ -84,7 +85,6 @@ func (m *ResourcePermissionPolicy) validateActionSet(formats strfmt.Registry) er
 }
 
 func (m *ResourcePermissionPolicy) validateResourceConditionNode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ResourceConditionNode) { // not required
 		return nil
 	}
@@ -93,6 +93,38 @@ func (m *ResourcePermissionPolicy) validateResourceConditionNode(formats strfmt.
 		if err := m.ResourceConditionNode.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("resourceConditionNode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resourceConditionNode")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this resource permission policy based on the context it is used
+func (m *ResourcePermissionPolicy) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateResourceConditionNode(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ResourcePermissionPolicy) contextValidateResourceConditionNode(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ResourceConditionNode != nil {
+		if err := m.ResourceConditionNode.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("resourceConditionNode")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("resourceConditionNode")
 			}
 			return err
 		}

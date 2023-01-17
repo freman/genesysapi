@@ -101,7 +101,6 @@ func (o *PatchUserRoutinglanguageReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchUserRoutinglanguageOK() *PatchUserRoutinglanguageOK {
 	return &PatchUserRoutinglanguageOK{}
 }
 
-/*PatchUserRoutinglanguageOK handles this case with default header values.
+/*
+PatchUserRoutinglanguageOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchUserRoutinglanguageOK struct {
 	Payload *models.UserRoutingLanguage
 }
 
+// IsSuccess returns true when this patch user routinglanguage o k response has a 2xx status code
+func (o *PatchUserRoutinglanguageOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch user routinglanguage o k response has a 3xx status code
+func (o *PatchUserRoutinglanguageOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage o k response has a 4xx status code
+func (o *PatchUserRoutinglanguageOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user routinglanguage o k response has a 5xx status code
+func (o *PatchUserRoutinglanguageOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routinglanguage o k response a status code equal to that given
+func (o *PatchUserRoutinglanguageOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchUserRoutinglanguageOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchUserRoutinglanguageBadRequest() *PatchUserRoutinglanguageBadRequest
 	return &PatchUserRoutinglanguageBadRequest{}
 }
 
-/*PatchUserRoutinglanguageBadRequest handles this case with default header values.
+/*
+PatchUserRoutinglanguageBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchUserRoutinglanguageBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routinglanguage bad request response has a 2xx status code
+func (o *PatchUserRoutinglanguageBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routinglanguage bad request response has a 3xx status code
+func (o *PatchUserRoutinglanguageBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage bad request response has a 4xx status code
+func (o *PatchUserRoutinglanguageBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routinglanguage bad request response has a 5xx status code
+func (o *PatchUserRoutinglanguageBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routinglanguage bad request response a status code equal to that given
+func (o *PatchUserRoutinglanguageBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchUserRoutinglanguageBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchUserRoutinglanguageUnauthorized() *PatchUserRoutinglanguageUnauthor
 	return &PatchUserRoutinglanguageUnauthorized{}
 }
 
-/*PatchUserRoutinglanguageUnauthorized handles this case with default header values.
+/*
+PatchUserRoutinglanguageUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchUserRoutinglanguageUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routinglanguage unauthorized response has a 2xx status code
+func (o *PatchUserRoutinglanguageUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routinglanguage unauthorized response has a 3xx status code
+func (o *PatchUserRoutinglanguageUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage unauthorized response has a 4xx status code
+func (o *PatchUserRoutinglanguageUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routinglanguage unauthorized response has a 5xx status code
+func (o *PatchUserRoutinglanguageUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routinglanguage unauthorized response a status code equal to that given
+func (o *PatchUserRoutinglanguageUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchUserRoutinglanguageUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchUserRoutinglanguageForbidden() *PatchUserRoutinglanguageForbidden {
 	return &PatchUserRoutinglanguageForbidden{}
 }
 
-/*PatchUserRoutinglanguageForbidden handles this case with default header values.
+/*
+PatchUserRoutinglanguageForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchUserRoutinglanguageForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routinglanguage forbidden response has a 2xx status code
+func (o *PatchUserRoutinglanguageForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routinglanguage forbidden response has a 3xx status code
+func (o *PatchUserRoutinglanguageForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage forbidden response has a 4xx status code
+func (o *PatchUserRoutinglanguageForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routinglanguage forbidden response has a 5xx status code
+func (o *PatchUserRoutinglanguageForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routinglanguage forbidden response a status code equal to that given
+func (o *PatchUserRoutinglanguageForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchUserRoutinglanguageForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchUserRoutinglanguageNotFound() *PatchUserRoutinglanguageNotFound {
 	return &PatchUserRoutinglanguageNotFound{}
 }
 
-/*PatchUserRoutinglanguageNotFound handles this case with default header values.
+/*
+PatchUserRoutinglanguageNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchUserRoutinglanguageNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routinglanguage not found response has a 2xx status code
+func (o *PatchUserRoutinglanguageNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routinglanguage not found response has a 3xx status code
+func (o *PatchUserRoutinglanguageNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage not found response has a 4xx status code
+func (o *PatchUserRoutinglanguageNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routinglanguage not found response has a 5xx status code
+func (o *PatchUserRoutinglanguageNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routinglanguage not found response a status code equal to that given
+func (o *PatchUserRoutinglanguageNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchUserRoutinglanguageNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchUserRoutinglanguageRequestTimeout() *PatchUserRoutinglanguageReques
 	return &PatchUserRoutinglanguageRequestTimeout{}
 }
 
-/*PatchUserRoutinglanguageRequestTimeout handles this case with default header values.
+/*
+PatchUserRoutinglanguageRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchUserRoutinglanguageRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routinglanguage request timeout response has a 2xx status code
+func (o *PatchUserRoutinglanguageRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routinglanguage request timeout response has a 3xx status code
+func (o *PatchUserRoutinglanguageRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage request timeout response has a 4xx status code
+func (o *PatchUserRoutinglanguageRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routinglanguage request timeout response has a 5xx status code
+func (o *PatchUserRoutinglanguageRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routinglanguage request timeout response a status code equal to that given
+func (o *PatchUserRoutinglanguageRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchUserRoutinglanguageRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,14 +489,44 @@ func NewPatchUserRoutinglanguageConflict() *PatchUserRoutinglanguageConflict {
 	return &PatchUserRoutinglanguageConflict{}
 }
 
-/*PatchUserRoutinglanguageConflict handles this case with default header values.
+/*
+PatchUserRoutinglanguageConflict describes a response with status code 409, with default header values.
 
 Resource conflict - Unexpected version was provided
 */
 type PatchUserRoutinglanguageConflict struct {
 }
 
+// IsSuccess returns true when this patch user routinglanguage conflict response has a 2xx status code
+func (o *PatchUserRoutinglanguageConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routinglanguage conflict response has a 3xx status code
+func (o *PatchUserRoutinglanguageConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage conflict response has a 4xx status code
+func (o *PatchUserRoutinglanguageConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routinglanguage conflict response has a 5xx status code
+func (o *PatchUserRoutinglanguageConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routinglanguage conflict response a status code equal to that given
+func (o *PatchUserRoutinglanguageConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchUserRoutinglanguageConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageConflict ", 409)
+}
+
+func (o *PatchUserRoutinglanguageConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageConflict ", 409)
 }
 
@@ -331,7 +540,8 @@ func NewPatchUserRoutinglanguageRequestEntityTooLarge() *PatchUserRoutinglanguag
 	return &PatchUserRoutinglanguageRequestEntityTooLarge{}
 }
 
-/*PatchUserRoutinglanguageRequestEntityTooLarge handles this case with default header values.
+/*
+PatchUserRoutinglanguageRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type PatchUserRoutinglanguageRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routinglanguage request entity too large response has a 2xx status code
+func (o *PatchUserRoutinglanguageRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routinglanguage request entity too large response has a 3xx status code
+func (o *PatchUserRoutinglanguageRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage request entity too large response has a 4xx status code
+func (o *PatchUserRoutinglanguageRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routinglanguage request entity too large response has a 5xx status code
+func (o *PatchUserRoutinglanguageRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routinglanguage request entity too large response a status code equal to that given
+func (o *PatchUserRoutinglanguageRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchUserRoutinglanguageRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewPatchUserRoutinglanguageUnsupportedMediaType() *PatchUserRoutinglanguage
 	return &PatchUserRoutinglanguageUnsupportedMediaType{}
 }
 
-/*PatchUserRoutinglanguageUnsupportedMediaType handles this case with default header values.
+/*
+PatchUserRoutinglanguageUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type PatchUserRoutinglanguageUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routinglanguage unsupported media type response has a 2xx status code
+func (o *PatchUserRoutinglanguageUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routinglanguage unsupported media type response has a 3xx status code
+func (o *PatchUserRoutinglanguageUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage unsupported media type response has a 4xx status code
+func (o *PatchUserRoutinglanguageUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routinglanguage unsupported media type response has a 5xx status code
+func (o *PatchUserRoutinglanguageUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routinglanguage unsupported media type response a status code equal to that given
+func (o *PatchUserRoutinglanguageUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchUserRoutinglanguageUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewPatchUserRoutinglanguageTooManyRequests() *PatchUserRoutinglanguageTooMa
 	return &PatchUserRoutinglanguageTooManyRequests{}
 }
 
-/*PatchUserRoutinglanguageTooManyRequests handles this case with default header values.
+/*
+PatchUserRoutinglanguageTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type PatchUserRoutinglanguageTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routinglanguage too many requests response has a 2xx status code
+func (o *PatchUserRoutinglanguageTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routinglanguage too many requests response has a 3xx status code
+func (o *PatchUserRoutinglanguageTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage too many requests response has a 4xx status code
+func (o *PatchUserRoutinglanguageTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routinglanguage too many requests response has a 5xx status code
+func (o *PatchUserRoutinglanguageTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routinglanguage too many requests response a status code equal to that given
+func (o *PatchUserRoutinglanguageTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchUserRoutinglanguageTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewPatchUserRoutinglanguageInternalServerError() *PatchUserRoutinglanguageI
 	return &PatchUserRoutinglanguageInternalServerError{}
 }
 
-/*PatchUserRoutinglanguageInternalServerError handles this case with default header values.
+/*
+PatchUserRoutinglanguageInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type PatchUserRoutinglanguageInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routinglanguage internal server error response has a 2xx status code
+func (o *PatchUserRoutinglanguageInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routinglanguage internal server error response has a 3xx status code
+func (o *PatchUserRoutinglanguageInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage internal server error response has a 4xx status code
+func (o *PatchUserRoutinglanguageInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user routinglanguage internal server error response has a 5xx status code
+func (o *PatchUserRoutinglanguageInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user routinglanguage internal server error response a status code equal to that given
+func (o *PatchUserRoutinglanguageInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchUserRoutinglanguageInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewPatchUserRoutinglanguageServiceUnavailable() *PatchUserRoutinglanguageSe
 	return &PatchUserRoutinglanguageServiceUnavailable{}
 }
 
-/*PatchUserRoutinglanguageServiceUnavailable handles this case with default header values.
+/*
+PatchUserRoutinglanguageServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type PatchUserRoutinglanguageServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routinglanguage service unavailable response has a 2xx status code
+func (o *PatchUserRoutinglanguageServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routinglanguage service unavailable response has a 3xx status code
+func (o *PatchUserRoutinglanguageServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage service unavailable response has a 4xx status code
+func (o *PatchUserRoutinglanguageServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user routinglanguage service unavailable response has a 5xx status code
+func (o *PatchUserRoutinglanguageServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user routinglanguage service unavailable response a status code equal to that given
+func (o *PatchUserRoutinglanguageServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchUserRoutinglanguageServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewPatchUserRoutinglanguageGatewayTimeout() *PatchUserRoutinglanguageGatewa
 	return &PatchUserRoutinglanguageGatewayTimeout{}
 }
 
-/*PatchUserRoutinglanguageGatewayTimeout handles this case with default header values.
+/*
+PatchUserRoutinglanguageGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type PatchUserRoutinglanguageGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routinglanguage gateway timeout response has a 2xx status code
+func (o *PatchUserRoutinglanguageGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routinglanguage gateway timeout response has a 3xx status code
+func (o *PatchUserRoutinglanguageGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routinglanguage gateway timeout response has a 4xx status code
+func (o *PatchUserRoutinglanguageGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user routinglanguage gateway timeout response has a 5xx status code
+func (o *PatchUserRoutinglanguageGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user routinglanguage gateway timeout response a status code equal to that given
+func (o *PatchUserRoutinglanguageGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchUserRoutinglanguageGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchUserRoutinglanguageGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routinglanguages/{languageId}][%d] patchUserRoutinglanguageGatewayTimeout  %+v", 504, o.Payload)
 }
 

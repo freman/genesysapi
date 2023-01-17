@@ -107,7 +107,6 @@ func (o *PutFlowsMilestoneReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -118,7 +117,8 @@ func NewPutFlowsMilestoneOK() *PutFlowsMilestoneOK {
 	return &PutFlowsMilestoneOK{}
 }
 
-/*PutFlowsMilestoneOK handles this case with default header values.
+/*
+PutFlowsMilestoneOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -126,7 +126,36 @@ type PutFlowsMilestoneOK struct {
 	Payload *models.FlowMilestone
 }
 
+// IsSuccess returns true when this put flows milestone o k response has a 2xx status code
+func (o *PutFlowsMilestoneOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put flows milestone o k response has a 3xx status code
+func (o *PutFlowsMilestoneOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone o k response has a 4xx status code
+func (o *PutFlowsMilestoneOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put flows milestone o k response has a 5xx status code
+func (o *PutFlowsMilestoneOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows milestone o k response a status code equal to that given
+func (o *PutFlowsMilestoneOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutFlowsMilestoneOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneOK  %+v", 200, o.Payload)
+}
+
+func (o *PutFlowsMilestoneOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneOK  %+v", 200, o.Payload)
 }
 
@@ -151,7 +180,8 @@ func NewPutFlowsMilestoneBadRequest() *PutFlowsMilestoneBadRequest {
 	return &PutFlowsMilestoneBadRequest{}
 }
 
-/*PutFlowsMilestoneBadRequest handles this case with default header values.
+/*
+PutFlowsMilestoneBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -159,7 +189,36 @@ type PutFlowsMilestoneBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone bad request response has a 2xx status code
+func (o *PutFlowsMilestoneBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone bad request response has a 3xx status code
+func (o *PutFlowsMilestoneBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone bad request response has a 4xx status code
+func (o *PutFlowsMilestoneBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows milestone bad request response has a 5xx status code
+func (o *PutFlowsMilestoneBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows milestone bad request response a status code equal to that given
+func (o *PutFlowsMilestoneBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutFlowsMilestoneBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutFlowsMilestoneBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneBadRequest  %+v", 400, o.Payload)
 }
 
@@ -184,7 +243,8 @@ func NewPutFlowsMilestoneUnauthorized() *PutFlowsMilestoneUnauthorized {
 	return &PutFlowsMilestoneUnauthorized{}
 }
 
-/*PutFlowsMilestoneUnauthorized handles this case with default header values.
+/*
+PutFlowsMilestoneUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -192,7 +252,36 @@ type PutFlowsMilestoneUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone unauthorized response has a 2xx status code
+func (o *PutFlowsMilestoneUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone unauthorized response has a 3xx status code
+func (o *PutFlowsMilestoneUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone unauthorized response has a 4xx status code
+func (o *PutFlowsMilestoneUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows milestone unauthorized response has a 5xx status code
+func (o *PutFlowsMilestoneUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows milestone unauthorized response a status code equal to that given
+func (o *PutFlowsMilestoneUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutFlowsMilestoneUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutFlowsMilestoneUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -217,7 +306,8 @@ func NewPutFlowsMilestoneForbidden() *PutFlowsMilestoneForbidden {
 	return &PutFlowsMilestoneForbidden{}
 }
 
-/*PutFlowsMilestoneForbidden handles this case with default header values.
+/*
+PutFlowsMilestoneForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -225,7 +315,36 @@ type PutFlowsMilestoneForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone forbidden response has a 2xx status code
+func (o *PutFlowsMilestoneForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone forbidden response has a 3xx status code
+func (o *PutFlowsMilestoneForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone forbidden response has a 4xx status code
+func (o *PutFlowsMilestoneForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows milestone forbidden response has a 5xx status code
+func (o *PutFlowsMilestoneForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows milestone forbidden response a status code equal to that given
+func (o *PutFlowsMilestoneForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutFlowsMilestoneForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutFlowsMilestoneForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneForbidden  %+v", 403, o.Payload)
 }
 
@@ -250,7 +369,8 @@ func NewPutFlowsMilestoneNotFound() *PutFlowsMilestoneNotFound {
 	return &PutFlowsMilestoneNotFound{}
 }
 
-/*PutFlowsMilestoneNotFound handles this case with default header values.
+/*
+PutFlowsMilestoneNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -258,7 +378,36 @@ type PutFlowsMilestoneNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone not found response has a 2xx status code
+func (o *PutFlowsMilestoneNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone not found response has a 3xx status code
+func (o *PutFlowsMilestoneNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone not found response has a 4xx status code
+func (o *PutFlowsMilestoneNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows milestone not found response has a 5xx status code
+func (o *PutFlowsMilestoneNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows milestone not found response a status code equal to that given
+func (o *PutFlowsMilestoneNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutFlowsMilestoneNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutFlowsMilestoneNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneNotFound  %+v", 404, o.Payload)
 }
 
@@ -283,7 +432,8 @@ func NewPutFlowsMilestoneMethodNotAllowed() *PutFlowsMilestoneMethodNotAllowed {
 	return &PutFlowsMilestoneMethodNotAllowed{}
 }
 
-/*PutFlowsMilestoneMethodNotAllowed handles this case with default header values.
+/*
+PutFlowsMilestoneMethodNotAllowed describes a response with status code 405, with default header values.
 
 Method Not Allowed
 */
@@ -291,7 +441,36 @@ type PutFlowsMilestoneMethodNotAllowed struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone method not allowed response has a 2xx status code
+func (o *PutFlowsMilestoneMethodNotAllowed) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone method not allowed response has a 3xx status code
+func (o *PutFlowsMilestoneMethodNotAllowed) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone method not allowed response has a 4xx status code
+func (o *PutFlowsMilestoneMethodNotAllowed) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows milestone method not allowed response has a 5xx status code
+func (o *PutFlowsMilestoneMethodNotAllowed) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows milestone method not allowed response a status code equal to that given
+func (o *PutFlowsMilestoneMethodNotAllowed) IsCode(code int) bool {
+	return code == 405
+}
+
 func (o *PutFlowsMilestoneMethodNotAllowed) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneMethodNotAllowed  %+v", 405, o.Payload)
+}
+
+func (o *PutFlowsMilestoneMethodNotAllowed) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneMethodNotAllowed  %+v", 405, o.Payload)
 }
 
@@ -316,7 +495,8 @@ func NewPutFlowsMilestoneRequestTimeout() *PutFlowsMilestoneRequestTimeout {
 	return &PutFlowsMilestoneRequestTimeout{}
 }
 
-/*PutFlowsMilestoneRequestTimeout handles this case with default header values.
+/*
+PutFlowsMilestoneRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -324,7 +504,36 @@ type PutFlowsMilestoneRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone request timeout response has a 2xx status code
+func (o *PutFlowsMilestoneRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone request timeout response has a 3xx status code
+func (o *PutFlowsMilestoneRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone request timeout response has a 4xx status code
+func (o *PutFlowsMilestoneRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows milestone request timeout response has a 5xx status code
+func (o *PutFlowsMilestoneRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows milestone request timeout response a status code equal to that given
+func (o *PutFlowsMilestoneRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutFlowsMilestoneRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutFlowsMilestoneRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -349,7 +558,8 @@ func NewPutFlowsMilestoneConflict() *PutFlowsMilestoneConflict {
 	return &PutFlowsMilestoneConflict{}
 }
 
-/*PutFlowsMilestoneConflict handles this case with default header values.
+/*
+PutFlowsMilestoneConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -357,7 +567,36 @@ type PutFlowsMilestoneConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone conflict response has a 2xx status code
+func (o *PutFlowsMilestoneConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone conflict response has a 3xx status code
+func (o *PutFlowsMilestoneConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone conflict response has a 4xx status code
+func (o *PutFlowsMilestoneConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows milestone conflict response has a 5xx status code
+func (o *PutFlowsMilestoneConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows milestone conflict response a status code equal to that given
+func (o *PutFlowsMilestoneConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutFlowsMilestoneConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutFlowsMilestoneConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneConflict  %+v", 409, o.Payload)
 }
 
@@ -382,7 +621,8 @@ func NewPutFlowsMilestoneRequestEntityTooLarge() *PutFlowsMilestoneRequestEntity
 	return &PutFlowsMilestoneRequestEntityTooLarge{}
 }
 
-/*PutFlowsMilestoneRequestEntityTooLarge handles this case with default header values.
+/*
+PutFlowsMilestoneRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -390,7 +630,36 @@ type PutFlowsMilestoneRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone request entity too large response has a 2xx status code
+func (o *PutFlowsMilestoneRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone request entity too large response has a 3xx status code
+func (o *PutFlowsMilestoneRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone request entity too large response has a 4xx status code
+func (o *PutFlowsMilestoneRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows milestone request entity too large response has a 5xx status code
+func (o *PutFlowsMilestoneRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows milestone request entity too large response a status code equal to that given
+func (o *PutFlowsMilestoneRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutFlowsMilestoneRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutFlowsMilestoneRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -415,7 +684,8 @@ func NewPutFlowsMilestoneUnsupportedMediaType() *PutFlowsMilestoneUnsupportedMed
 	return &PutFlowsMilestoneUnsupportedMediaType{}
 }
 
-/*PutFlowsMilestoneUnsupportedMediaType handles this case with default header values.
+/*
+PutFlowsMilestoneUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -423,7 +693,36 @@ type PutFlowsMilestoneUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone unsupported media type response has a 2xx status code
+func (o *PutFlowsMilestoneUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone unsupported media type response has a 3xx status code
+func (o *PutFlowsMilestoneUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone unsupported media type response has a 4xx status code
+func (o *PutFlowsMilestoneUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows milestone unsupported media type response has a 5xx status code
+func (o *PutFlowsMilestoneUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows milestone unsupported media type response a status code equal to that given
+func (o *PutFlowsMilestoneUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutFlowsMilestoneUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutFlowsMilestoneUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -448,7 +747,8 @@ func NewPutFlowsMilestoneTooManyRequests() *PutFlowsMilestoneTooManyRequests {
 	return &PutFlowsMilestoneTooManyRequests{}
 }
 
-/*PutFlowsMilestoneTooManyRequests handles this case with default header values.
+/*
+PutFlowsMilestoneTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -456,7 +756,36 @@ type PutFlowsMilestoneTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone too many requests response has a 2xx status code
+func (o *PutFlowsMilestoneTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone too many requests response has a 3xx status code
+func (o *PutFlowsMilestoneTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone too many requests response has a 4xx status code
+func (o *PutFlowsMilestoneTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put flows milestone too many requests response has a 5xx status code
+func (o *PutFlowsMilestoneTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put flows milestone too many requests response a status code equal to that given
+func (o *PutFlowsMilestoneTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutFlowsMilestoneTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutFlowsMilestoneTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -481,7 +810,8 @@ func NewPutFlowsMilestoneInternalServerError() *PutFlowsMilestoneInternalServerE
 	return &PutFlowsMilestoneInternalServerError{}
 }
 
-/*PutFlowsMilestoneInternalServerError handles this case with default header values.
+/*
+PutFlowsMilestoneInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -489,7 +819,36 @@ type PutFlowsMilestoneInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone internal server error response has a 2xx status code
+func (o *PutFlowsMilestoneInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone internal server error response has a 3xx status code
+func (o *PutFlowsMilestoneInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone internal server error response has a 4xx status code
+func (o *PutFlowsMilestoneInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put flows milestone internal server error response has a 5xx status code
+func (o *PutFlowsMilestoneInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put flows milestone internal server error response a status code equal to that given
+func (o *PutFlowsMilestoneInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutFlowsMilestoneInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutFlowsMilestoneInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -514,7 +873,8 @@ func NewPutFlowsMilestoneServiceUnavailable() *PutFlowsMilestoneServiceUnavailab
 	return &PutFlowsMilestoneServiceUnavailable{}
 }
 
-/*PutFlowsMilestoneServiceUnavailable handles this case with default header values.
+/*
+PutFlowsMilestoneServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -522,7 +882,36 @@ type PutFlowsMilestoneServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone service unavailable response has a 2xx status code
+func (o *PutFlowsMilestoneServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone service unavailable response has a 3xx status code
+func (o *PutFlowsMilestoneServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone service unavailable response has a 4xx status code
+func (o *PutFlowsMilestoneServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put flows milestone service unavailable response has a 5xx status code
+func (o *PutFlowsMilestoneServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put flows milestone service unavailable response a status code equal to that given
+func (o *PutFlowsMilestoneServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutFlowsMilestoneServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutFlowsMilestoneServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -547,7 +936,8 @@ func NewPutFlowsMilestoneGatewayTimeout() *PutFlowsMilestoneGatewayTimeout {
 	return &PutFlowsMilestoneGatewayTimeout{}
 }
 
-/*PutFlowsMilestoneGatewayTimeout handles this case with default header values.
+/*
+PutFlowsMilestoneGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -555,7 +945,36 @@ type PutFlowsMilestoneGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put flows milestone gateway timeout response has a 2xx status code
+func (o *PutFlowsMilestoneGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put flows milestone gateway timeout response has a 3xx status code
+func (o *PutFlowsMilestoneGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put flows milestone gateway timeout response has a 4xx status code
+func (o *PutFlowsMilestoneGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put flows milestone gateway timeout response has a 5xx status code
+func (o *PutFlowsMilestoneGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put flows milestone gateway timeout response a status code equal to that given
+func (o *PutFlowsMilestoneGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutFlowsMilestoneGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutFlowsMilestoneGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/flows/milestones/{milestoneId}][%d] putFlowsMilestoneGatewayTimeout  %+v", 504, o.Payload)
 }
 

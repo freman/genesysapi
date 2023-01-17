@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -130,7 +131,6 @@ func (m *ReportRunEntry) validateRunStatusEnum(path, location string, value stri
 }
 
 func (m *ReportRunEntry) validateRunStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RunStatus) { // not required
 		return nil
 	}
@@ -144,7 +144,6 @@ func (m *ReportRunEntry) validateRunStatus(formats strfmt.Registry) error {
 }
 
 func (m *ReportRunEntry) validateRunTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RunTime) { // not required
 		return nil
 	}
@@ -157,7 +156,6 @@ func (m *ReportRunEntry) validateRunTime(formats strfmt.Registry) error {
 }
 
 func (m *ReportRunEntry) validateScheduleURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScheduleURI) { // not required
 		return nil
 	}
@@ -170,12 +168,47 @@ func (m *ReportRunEntry) validateScheduleURI(formats strfmt.Registry) error {
 }
 
 func (m *ReportRunEntry) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this report run entry based on the context it is used
+func (m *ReportRunEntry) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ReportRunEntry) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ReportRunEntry) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

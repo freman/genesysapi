@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -115,7 +116,6 @@ func (m *JourneySegment) Validate(formats strfmt.Registry) error {
 }
 
 func (m *JourneySegment) validateContext(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Context) { // not required
 		return nil
 	}
@@ -124,6 +124,8 @@ func (m *JourneySegment) validateContext(formats strfmt.Registry) error {
 		if err := m.Context.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("context")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("context")
 			}
 			return err
 		}
@@ -133,7 +135,6 @@ func (m *JourneySegment) validateContext(formats strfmt.Registry) error {
 }
 
 func (m *JourneySegment) validateCreatedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedDate) { // not required
 		return nil
 	}
@@ -155,7 +156,6 @@ func (m *JourneySegment) validateDisplayName(formats strfmt.Registry) error {
 }
 
 func (m *JourneySegment) validateExternalSegment(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalSegment) { // not required
 		return nil
 	}
@@ -164,6 +164,8 @@ func (m *JourneySegment) validateExternalSegment(formats strfmt.Registry) error 
 		if err := m.ExternalSegment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("externalSegment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalSegment")
 			}
 			return err
 		}
@@ -173,7 +175,6 @@ func (m *JourneySegment) validateExternalSegment(formats strfmt.Registry) error 
 }
 
 func (m *JourneySegment) validateJourney(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Journey) { // not required
 		return nil
 	}
@@ -182,6 +183,8 @@ func (m *JourneySegment) validateJourney(formats strfmt.Registry) error {
 		if err := m.Journey.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("journey")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journey")
 			}
 			return err
 		}
@@ -191,7 +194,6 @@ func (m *JourneySegment) validateJourney(formats strfmt.Registry) error {
 }
 
 func (m *JourneySegment) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -233,7 +235,6 @@ func (m *JourneySegment) validateScopeEnum(path, location string, value string) 
 }
 
 func (m *JourneySegment) validateScope(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Scope) { // not required
 		return nil
 	}
@@ -247,12 +248,107 @@ func (m *JourneySegment) validateScope(formats strfmt.Registry) error {
 }
 
 func (m *JourneySegment) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this journey segment based on the context it is used
+func (m *JourneySegment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContext(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExternalSegment(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateJourney(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *JourneySegment) contextValidateContext(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Context != nil {
+		if err := m.Context.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("context")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("context")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JourneySegment) contextValidateExternalSegment(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExternalSegment != nil {
+		if err := m.ExternalSegment.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("externalSegment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("externalSegment")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JourneySegment) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *JourneySegment) contextValidateJourney(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Journey != nil {
+		if err := m.Journey.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("journey")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("journey")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *JourneySegment) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

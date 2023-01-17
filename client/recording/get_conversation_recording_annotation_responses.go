@@ -95,7 +95,6 @@ func (o *GetConversationRecordingAnnotationReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConversationRecordingAnnotationOK() *GetConversationRecordingAnnotati
 	return &GetConversationRecordingAnnotationOK{}
 }
 
-/*GetConversationRecordingAnnotationOK handles this case with default header values.
+/*
+GetConversationRecordingAnnotationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetConversationRecordingAnnotationOK struct {
 	Payload *models.Annotation
 }
 
+// IsSuccess returns true when this get conversation recording annotation o k response has a 2xx status code
+func (o *GetConversationRecordingAnnotationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversation recording annotation o k response has a 3xx status code
+func (o *GetConversationRecordingAnnotationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recording annotation o k response has a 4xx status code
+func (o *GetConversationRecordingAnnotationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation recording annotation o k response has a 5xx status code
+func (o *GetConversationRecordingAnnotationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recording annotation o k response a status code equal to that given
+func (o *GetConversationRecordingAnnotationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationRecordingAnnotationOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationRecordingAnnotationOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetConversationRecordingAnnotationBadRequest() *GetConversationRecording
 	return &GetConversationRecordingAnnotationBadRequest{}
 }
 
-/*GetConversationRecordingAnnotationBadRequest handles this case with default header values.
+/*
+GetConversationRecordingAnnotationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetConversationRecordingAnnotationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recording annotation bad request response has a 2xx status code
+func (o *GetConversationRecordingAnnotationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recording annotation bad request response has a 3xx status code
+func (o *GetConversationRecordingAnnotationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recording annotation bad request response has a 4xx status code
+func (o *GetConversationRecordingAnnotationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recording annotation bad request response has a 5xx status code
+func (o *GetConversationRecordingAnnotationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recording annotation bad request response a status code equal to that given
+func (o *GetConversationRecordingAnnotationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationRecordingAnnotationBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationRecordingAnnotationBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetConversationRecordingAnnotationUnauthorized() *GetConversationRecordi
 	return &GetConversationRecordingAnnotationUnauthorized{}
 }
 
-/*GetConversationRecordingAnnotationUnauthorized handles this case with default header values.
+/*
+GetConversationRecordingAnnotationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetConversationRecordingAnnotationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recording annotation unauthorized response has a 2xx status code
+func (o *GetConversationRecordingAnnotationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recording annotation unauthorized response has a 3xx status code
+func (o *GetConversationRecordingAnnotationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recording annotation unauthorized response has a 4xx status code
+func (o *GetConversationRecordingAnnotationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recording annotation unauthorized response has a 5xx status code
+func (o *GetConversationRecordingAnnotationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recording annotation unauthorized response a status code equal to that given
+func (o *GetConversationRecordingAnnotationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationRecordingAnnotationUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationRecordingAnnotationUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetConversationRecordingAnnotationForbidden() *GetConversationRecordingA
 	return &GetConversationRecordingAnnotationForbidden{}
 }
 
-/*GetConversationRecordingAnnotationForbidden handles this case with default header values.
+/*
+GetConversationRecordingAnnotationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetConversationRecordingAnnotationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recording annotation forbidden response has a 2xx status code
+func (o *GetConversationRecordingAnnotationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recording annotation forbidden response has a 3xx status code
+func (o *GetConversationRecordingAnnotationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recording annotation forbidden response has a 4xx status code
+func (o *GetConversationRecordingAnnotationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recording annotation forbidden response has a 5xx status code
+func (o *GetConversationRecordingAnnotationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recording annotation forbidden response a status code equal to that given
+func (o *GetConversationRecordingAnnotationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationRecordingAnnotationForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationRecordingAnnotationForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetConversationRecordingAnnotationNotFound() *GetConversationRecordingAn
 	return &GetConversationRecordingAnnotationNotFound{}
 }
 
-/*GetConversationRecordingAnnotationNotFound handles this case with default header values.
+/*
+GetConversationRecordingAnnotationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetConversationRecordingAnnotationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recording annotation not found response has a 2xx status code
+func (o *GetConversationRecordingAnnotationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recording annotation not found response has a 3xx status code
+func (o *GetConversationRecordingAnnotationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recording annotation not found response has a 4xx status code
+func (o *GetConversationRecordingAnnotationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recording annotation not found response has a 5xx status code
+func (o *GetConversationRecordingAnnotationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recording annotation not found response a status code equal to that given
+func (o *GetConversationRecordingAnnotationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationRecordingAnnotationNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationRecordingAnnotationNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetConversationRecordingAnnotationRequestTimeout() *GetConversationRecor
 	return &GetConversationRecordingAnnotationRequestTimeout{}
 }
 
-/*GetConversationRecordingAnnotationRequestTimeout handles this case with default header values.
+/*
+GetConversationRecordingAnnotationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetConversationRecordingAnnotationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recording annotation request timeout response has a 2xx status code
+func (o *GetConversationRecordingAnnotationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recording annotation request timeout response has a 3xx status code
+func (o *GetConversationRecordingAnnotationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recording annotation request timeout response has a 4xx status code
+func (o *GetConversationRecordingAnnotationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recording annotation request timeout response has a 5xx status code
+func (o *GetConversationRecordingAnnotationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recording annotation request timeout response a status code equal to that given
+func (o *GetConversationRecordingAnnotationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationRecordingAnnotationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationRecordingAnnotationRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetConversationRecordingAnnotationRequestEntityTooLarge() *GetConversati
 	return &GetConversationRecordingAnnotationRequestEntityTooLarge{}
 }
 
-/*GetConversationRecordingAnnotationRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationRecordingAnnotationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetConversationRecordingAnnotationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recording annotation request entity too large response has a 2xx status code
+func (o *GetConversationRecordingAnnotationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recording annotation request entity too large response has a 3xx status code
+func (o *GetConversationRecordingAnnotationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recording annotation request entity too large response has a 4xx status code
+func (o *GetConversationRecordingAnnotationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recording annotation request entity too large response has a 5xx status code
+func (o *GetConversationRecordingAnnotationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recording annotation request entity too large response a status code equal to that given
+func (o *GetConversationRecordingAnnotationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationRecordingAnnotationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationRecordingAnnotationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetConversationRecordingAnnotationUnsupportedMediaType() *GetConversatio
 	return &GetConversationRecordingAnnotationUnsupportedMediaType{}
 }
 
-/*GetConversationRecordingAnnotationUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationRecordingAnnotationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetConversationRecordingAnnotationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recording annotation unsupported media type response has a 2xx status code
+func (o *GetConversationRecordingAnnotationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recording annotation unsupported media type response has a 3xx status code
+func (o *GetConversationRecordingAnnotationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recording annotation unsupported media type response has a 4xx status code
+func (o *GetConversationRecordingAnnotationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recording annotation unsupported media type response has a 5xx status code
+func (o *GetConversationRecordingAnnotationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recording annotation unsupported media type response a status code equal to that given
+func (o *GetConversationRecordingAnnotationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationRecordingAnnotationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationRecordingAnnotationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetConversationRecordingAnnotationTooManyRequests() *GetConversationReco
 	return &GetConversationRecordingAnnotationTooManyRequests{}
 }
 
-/*GetConversationRecordingAnnotationTooManyRequests handles this case with default header values.
+/*
+GetConversationRecordingAnnotationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetConversationRecordingAnnotationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recording annotation too many requests response has a 2xx status code
+func (o *GetConversationRecordingAnnotationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recording annotation too many requests response has a 3xx status code
+func (o *GetConversationRecordingAnnotationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recording annotation too many requests response has a 4xx status code
+func (o *GetConversationRecordingAnnotationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversation recording annotation too many requests response has a 5xx status code
+func (o *GetConversationRecordingAnnotationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversation recording annotation too many requests response a status code equal to that given
+func (o *GetConversationRecordingAnnotationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationRecordingAnnotationTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationRecordingAnnotationTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetConversationRecordingAnnotationInternalServerError() *GetConversation
 	return &GetConversationRecordingAnnotationInternalServerError{}
 }
 
-/*GetConversationRecordingAnnotationInternalServerError handles this case with default header values.
+/*
+GetConversationRecordingAnnotationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetConversationRecordingAnnotationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recording annotation internal server error response has a 2xx status code
+func (o *GetConversationRecordingAnnotationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recording annotation internal server error response has a 3xx status code
+func (o *GetConversationRecordingAnnotationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recording annotation internal server error response has a 4xx status code
+func (o *GetConversationRecordingAnnotationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation recording annotation internal server error response has a 5xx status code
+func (o *GetConversationRecordingAnnotationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversation recording annotation internal server error response a status code equal to that given
+func (o *GetConversationRecordingAnnotationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationRecordingAnnotationInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationRecordingAnnotationInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetConversationRecordingAnnotationServiceUnavailable() *GetConversationR
 	return &GetConversationRecordingAnnotationServiceUnavailable{}
 }
 
-/*GetConversationRecordingAnnotationServiceUnavailable handles this case with default header values.
+/*
+GetConversationRecordingAnnotationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetConversationRecordingAnnotationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recording annotation service unavailable response has a 2xx status code
+func (o *GetConversationRecordingAnnotationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recording annotation service unavailable response has a 3xx status code
+func (o *GetConversationRecordingAnnotationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recording annotation service unavailable response has a 4xx status code
+func (o *GetConversationRecordingAnnotationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation recording annotation service unavailable response has a 5xx status code
+func (o *GetConversationRecordingAnnotationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversation recording annotation service unavailable response a status code equal to that given
+func (o *GetConversationRecordingAnnotationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationRecordingAnnotationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationRecordingAnnotationServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetConversationRecordingAnnotationGatewayTimeout() *GetConversationRecor
 	return &GetConversationRecordingAnnotationGatewayTimeout{}
 }
 
-/*GetConversationRecordingAnnotationGatewayTimeout handles this case with default header values.
+/*
+GetConversationRecordingAnnotationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetConversationRecordingAnnotationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversation recording annotation gateway timeout response has a 2xx status code
+func (o *GetConversationRecordingAnnotationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversation recording annotation gateway timeout response has a 3xx status code
+func (o *GetConversationRecordingAnnotationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversation recording annotation gateway timeout response has a 4xx status code
+func (o *GetConversationRecordingAnnotationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversation recording annotation gateway timeout response has a 5xx status code
+func (o *GetConversationRecordingAnnotationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversation recording annotation gateway timeout response a status code equal to that given
+func (o *GetConversationRecordingAnnotationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationRecordingAnnotationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationRecordingAnnotationGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] getConversationRecordingAnnotationGatewayTimeout  %+v", 504, o.Payload)
 }
 

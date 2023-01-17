@@ -101,7 +101,6 @@ func (o *DeleteWebdeploymentsConfigurationReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteWebdeploymentsConfigurationNoContent() *DeleteWebdeploymentsConfig
 	return &DeleteWebdeploymentsConfigurationNoContent{}
 }
 
-/*DeleteWebdeploymentsConfigurationNoContent handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationNoContent describes a response with status code 204, with default header values.
 
 The configuration versions were deleted successfully
 */
 type DeleteWebdeploymentsConfigurationNoContent struct {
 }
 
+// IsSuccess returns true when this delete webdeployments configuration no content response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete webdeployments configuration no content response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration no content response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete webdeployments configuration no content response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webdeployments configuration no content response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteWebdeploymentsConfigurationNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationNoContent ", 204)
+}
+
+func (o *DeleteWebdeploymentsConfigurationNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationNoContent ", 204)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteWebdeploymentsConfigurationBadRequest() *DeleteWebdeploymentsConfi
 	return &DeleteWebdeploymentsConfigurationBadRequest{}
 }
 
-/*DeleteWebdeploymentsConfigurationBadRequest handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteWebdeploymentsConfigurationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webdeployments configuration bad request response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webdeployments configuration bad request response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration bad request response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webdeployments configuration bad request response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webdeployments configuration bad request response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteWebdeploymentsConfigurationBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteWebdeploymentsConfigurationBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteWebdeploymentsConfigurationUnauthorized() *DeleteWebdeploymentsCon
 	return &DeleteWebdeploymentsConfigurationUnauthorized{}
 }
 
-/*DeleteWebdeploymentsConfigurationUnauthorized handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteWebdeploymentsConfigurationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webdeployments configuration unauthorized response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webdeployments configuration unauthorized response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration unauthorized response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webdeployments configuration unauthorized response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webdeployments configuration unauthorized response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteWebdeploymentsConfigurationUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteWebdeploymentsConfigurationUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteWebdeploymentsConfigurationForbidden() *DeleteWebdeploymentsConfig
 	return &DeleteWebdeploymentsConfigurationForbidden{}
 }
 
-/*DeleteWebdeploymentsConfigurationForbidden handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteWebdeploymentsConfigurationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webdeployments configuration forbidden response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webdeployments configuration forbidden response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration forbidden response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webdeployments configuration forbidden response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webdeployments configuration forbidden response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteWebdeploymentsConfigurationForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteWebdeploymentsConfigurationForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteWebdeploymentsConfigurationNotFound() *DeleteWebdeploymentsConfigu
 	return &DeleteWebdeploymentsConfigurationNotFound{}
 }
 
-/*DeleteWebdeploymentsConfigurationNotFound handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteWebdeploymentsConfigurationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webdeployments configuration not found response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webdeployments configuration not found response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration not found response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webdeployments configuration not found response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webdeployments configuration not found response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteWebdeploymentsConfigurationNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteWebdeploymentsConfigurationNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteWebdeploymentsConfigurationRequestTimeout() *DeleteWebdeploymentsC
 	return &DeleteWebdeploymentsConfigurationRequestTimeout{}
 }
 
-/*DeleteWebdeploymentsConfigurationRequestTimeout handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteWebdeploymentsConfigurationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webdeployments configuration request timeout response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webdeployments configuration request timeout response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration request timeout response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webdeployments configuration request timeout response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webdeployments configuration request timeout response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteWebdeploymentsConfigurationRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteWebdeploymentsConfigurationRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteWebdeploymentsConfigurationConflict() *DeleteWebdeploymentsConfigu
 	return &DeleteWebdeploymentsConfigurationConflict{}
 }
 
-/*DeleteWebdeploymentsConfigurationConflict handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeleteWebdeploymentsConfigurationConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webdeployments configuration conflict response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webdeployments configuration conflict response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration conflict response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webdeployments configuration conflict response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webdeployments configuration conflict response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteWebdeploymentsConfigurationConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteWebdeploymentsConfigurationConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteWebdeploymentsConfigurationRequestEntityTooLarge() *DeleteWebdeplo
 	return &DeleteWebdeploymentsConfigurationRequestEntityTooLarge{}
 }
 
-/*DeleteWebdeploymentsConfigurationRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteWebdeploymentsConfigurationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webdeployments configuration request entity too large response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webdeployments configuration request entity too large response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration request entity too large response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webdeployments configuration request entity too large response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webdeployments configuration request entity too large response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteWebdeploymentsConfigurationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteWebdeploymentsConfigurationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteWebdeploymentsConfigurationUnsupportedMediaType() *DeleteWebdeploy
 	return &DeleteWebdeploymentsConfigurationUnsupportedMediaType{}
 }
 
-/*DeleteWebdeploymentsConfigurationUnsupportedMediaType handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteWebdeploymentsConfigurationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webdeployments configuration unsupported media type response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webdeployments configuration unsupported media type response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration unsupported media type response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webdeployments configuration unsupported media type response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webdeployments configuration unsupported media type response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteWebdeploymentsConfigurationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteWebdeploymentsConfigurationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteWebdeploymentsConfigurationTooManyRequests() *DeleteWebdeployments
 	return &DeleteWebdeploymentsConfigurationTooManyRequests{}
 }
 
-/*DeleteWebdeploymentsConfigurationTooManyRequests handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteWebdeploymentsConfigurationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webdeployments configuration too many requests response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webdeployments configuration too many requests response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration too many requests response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete webdeployments configuration too many requests response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete webdeployments configuration too many requests response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteWebdeploymentsConfigurationTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteWebdeploymentsConfigurationTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteWebdeploymentsConfigurationInternalServerError() *DeleteWebdeploym
 	return &DeleteWebdeploymentsConfigurationInternalServerError{}
 }
 
-/*DeleteWebdeploymentsConfigurationInternalServerError handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteWebdeploymentsConfigurationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webdeployments configuration internal server error response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webdeployments configuration internal server error response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration internal server error response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete webdeployments configuration internal server error response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete webdeployments configuration internal server error response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteWebdeploymentsConfigurationInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteWebdeploymentsConfigurationInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteWebdeploymentsConfigurationServiceUnavailable() *DeleteWebdeployme
 	return &DeleteWebdeploymentsConfigurationServiceUnavailable{}
 }
 
-/*DeleteWebdeploymentsConfigurationServiceUnavailable handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteWebdeploymentsConfigurationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webdeployments configuration service unavailable response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webdeployments configuration service unavailable response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration service unavailable response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete webdeployments configuration service unavailable response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete webdeployments configuration service unavailable response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteWebdeploymentsConfigurationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteWebdeploymentsConfigurationServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteWebdeploymentsConfigurationGatewayTimeout() *DeleteWebdeploymentsC
 	return &DeleteWebdeploymentsConfigurationGatewayTimeout{}
 }
 
-/*DeleteWebdeploymentsConfigurationGatewayTimeout handles this case with default header values.
+/*
+DeleteWebdeploymentsConfigurationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteWebdeploymentsConfigurationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete webdeployments configuration gateway timeout response has a 2xx status code
+func (o *DeleteWebdeploymentsConfigurationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete webdeployments configuration gateway timeout response has a 3xx status code
+func (o *DeleteWebdeploymentsConfigurationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete webdeployments configuration gateway timeout response has a 4xx status code
+func (o *DeleteWebdeploymentsConfigurationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete webdeployments configuration gateway timeout response has a 5xx status code
+func (o *DeleteWebdeploymentsConfigurationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete webdeployments configuration gateway timeout response a status code equal to that given
+func (o *DeleteWebdeploymentsConfigurationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteWebdeploymentsConfigurationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteWebdeploymentsConfigurationGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/webdeployments/configurations/{configurationId}][%d] deleteWebdeploymentsConfigurationGatewayTimeout  %+v", 504, o.Payload)
 }
 

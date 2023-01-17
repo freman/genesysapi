@@ -95,7 +95,6 @@ func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDReader) ReadResponse(
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent() *PatchKnow
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent describes a response with status code 204, with default header values.
 
 Search updated successfully.
 */
 type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent struct {
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase documents search search Id no content response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase documents search search Id no content response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase documents search search Id no content response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase documents search search Id no content response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase documents search search Id no content response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdNoContent ", 204)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNoContent) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDBadRequest() *PatchKno
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDBadRequest{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDBadRequest handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase documents search search Id bad request response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase documents search search Id bad request response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase documents search search Id bad request response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase documents search search Id bad request response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase documents search search Id bad request response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnauthorized() *PatchK
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnauthorized{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnauthorized handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase documents search search Id unauthorized response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase documents search search Id unauthorized response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase documents search search Id unauthorized response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase documents search search Id unauthorized response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase documents search search Id unauthorized response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDForbidden() *PatchKnow
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDForbidden{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDForbidden handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase documents search search Id forbidden response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase documents search search Id forbidden response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase documents search search Id forbidden response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase documents search search Id forbidden response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase documents search search Id forbidden response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNotFound() *PatchKnowl
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNotFound{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNotFound handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase documents search search Id not found response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase documents search search Id not found response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase documents search search Id not found response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase documents search search Id not found response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase documents search search Id not found response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestTimeout() *Patc
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestTimeout{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestTimeout handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase documents search search Id request timeout response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase documents search search Id request timeout response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase documents search search Id request timeout response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase documents search search Id request timeout response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase documents search search Id request timeout response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestEntityTooLarge(
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestEntityTooLarge{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestEntityTooLarge handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestEntityTooLarge str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase documents search search Id request entity too large response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase documents search search Id request entity too large response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase documents search search Id request entity too large response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase documents search search Id request entity too large response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase documents search search Id request entity too large response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnsupportedMediaType()
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnsupportedMediaType{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnsupportedMediaType handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnsupportedMediaType stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase documents search search Id unsupported media type response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase documents search search Id unsupported media type response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase documents search search Id unsupported media type response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase documents search search Id unsupported media type response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase documents search search Id unsupported media type response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDTooManyRequests() *Pat
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDTooManyRequests{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDTooManyRequests handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase documents search search Id too many requests response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase documents search search Id too many requests response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase documents search search Id too many requests response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase documents search search Id too many requests response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase documents search search Id too many requests response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDInternalServerError() 
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDInternalServerError{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDInternalServerError handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDInternalServerError struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase documents search search Id internal server error response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase documents search search Id internal server error response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase documents search search Id internal server error response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase documents search search Id internal server error response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge knowledgebase documents search search Id internal server error response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDServiceUnavailable() *
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDServiceUnavailable{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDServiceUnavailable handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDServiceUnavailable struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase documents search search Id service unavailable response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase documents search search Id service unavailable response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase documents search search Id service unavailable response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase documents search search Id service unavailable response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge knowledgebase documents search search Id service unavailable response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentsSearchSearchIDGatewayTimeout() *Patc
 	return &PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDGatewayTimeout{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDGatewayTimeout handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase documents search search Id gateway timeout response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase documents search search Id gateway timeout response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase documents search search Id gateway timeout response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase documents search search Id gateway timeout response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge knowledgebase documents search search Id gateway timeout response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentsSearchSearchIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/search/{searchId}][%d] patchKnowledgeKnowledgebaseDocumentsSearchSearchIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

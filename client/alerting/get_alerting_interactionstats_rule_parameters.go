@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetAlertingInteractionstatsRuleParams creates a new GetAlertingInteractionstatsRuleParams object
-// with the default values initialized.
+// NewGetAlertingInteractionstatsRuleParams creates a new GetAlertingInteractionstatsRuleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAlertingInteractionstatsRuleParams() *GetAlertingInteractionstatsRuleParams {
-	var ()
 	return &GetAlertingInteractionstatsRuleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAlertingInteractionstatsRuleParamsWithTimeout creates a new GetAlertingInteractionstatsRuleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAlertingInteractionstatsRuleParamsWithTimeout(timeout time.Duration) *GetAlertingInteractionstatsRuleParams {
-	var ()
 	return &GetAlertingInteractionstatsRuleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAlertingInteractionstatsRuleParamsWithContext creates a new GetAlertingInteractionstatsRuleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAlertingInteractionstatsRuleParamsWithContext(ctx context.Context) *GetAlertingInteractionstatsRuleParams {
-	var ()
 	return &GetAlertingInteractionstatsRuleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAlertingInteractionstatsRuleParamsWithHTTPClient creates a new GetAlertingInteractionstatsRuleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAlertingInteractionstatsRuleParamsWithHTTPClient(client *http.Client) *GetAlertingInteractionstatsRuleParams {
-	var ()
 	return &GetAlertingInteractionstatsRuleParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAlertingInteractionstatsRuleParams contains all the parameters to send to the API endpoint
-for the get alerting interactionstats rule operation typically these are written to a http.Request
+/*
+GetAlertingInteractionstatsRuleParams contains all the parameters to send to the API endpoint
+
+	for the get alerting interactionstats rule operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAlertingInteractionstatsRuleParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand
+	/* Expand.
 
+	   Which fields, if any, to expand
 	*/
 	Expand []string
-	/*RuleID
-	  Rule ID
 
+	/* RuleID.
+
+	   Rule ID
 	*/
 	RuleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get alerting interactionstats rule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAlertingInteractionstatsRuleParams) WithDefaults() *GetAlertingInteractionstatsRuleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get alerting interactionstats rule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAlertingInteractionstatsRuleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get alerting interactionstats rule params
@@ -140,12 +157,15 @@ func (o *GetAlertingInteractionstatsRuleParams) WriteToRequest(r runtime.ClientR
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// path param ruleId
@@ -157,4 +177,21 @@ func (o *GetAlertingInteractionstatsRuleParams) WriteToRequest(r runtime.ClientR
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetAlertingInteractionstatsRule binds the parameter expand
+func (o *GetAlertingInteractionstatsRuleParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

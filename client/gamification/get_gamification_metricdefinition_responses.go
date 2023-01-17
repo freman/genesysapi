@@ -95,7 +95,6 @@ func (o *GetGamificationMetricdefinitionReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGamificationMetricdefinitionOK() *GetGamificationMetricdefinitionOK {
 	return &GetGamificationMetricdefinitionOK{}
 }
 
-/*GetGamificationMetricdefinitionOK handles this case with default header values.
+/*
+GetGamificationMetricdefinitionOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGamificationMetricdefinitionOK struct {
 	Payload *models.MetricDefinition
 }
 
+// IsSuccess returns true when this get gamification metricdefinition o k response has a 2xx status code
+func (o *GetGamificationMetricdefinitionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get gamification metricdefinition o k response has a 3xx status code
+func (o *GetGamificationMetricdefinitionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification metricdefinition o k response has a 4xx status code
+func (o *GetGamificationMetricdefinitionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification metricdefinition o k response has a 5xx status code
+func (o *GetGamificationMetricdefinitionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification metricdefinition o k response a status code equal to that given
+func (o *GetGamificationMetricdefinitionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGamificationMetricdefinitionOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGamificationMetricdefinitionOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGamificationMetricdefinitionBadRequest() *GetGamificationMetricdefini
 	return &GetGamificationMetricdefinitionBadRequest{}
 }
 
-/*GetGamificationMetricdefinitionBadRequest handles this case with default header values.
+/*
+GetGamificationMetricdefinitionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGamificationMetricdefinitionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification metricdefinition bad request response has a 2xx status code
+func (o *GetGamificationMetricdefinitionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification metricdefinition bad request response has a 3xx status code
+func (o *GetGamificationMetricdefinitionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification metricdefinition bad request response has a 4xx status code
+func (o *GetGamificationMetricdefinitionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification metricdefinition bad request response has a 5xx status code
+func (o *GetGamificationMetricdefinitionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification metricdefinition bad request response a status code equal to that given
+func (o *GetGamificationMetricdefinitionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGamificationMetricdefinitionBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGamificationMetricdefinitionBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGamificationMetricdefinitionUnauthorized() *GetGamificationMetricdefi
 	return &GetGamificationMetricdefinitionUnauthorized{}
 }
 
-/*GetGamificationMetricdefinitionUnauthorized handles this case with default header values.
+/*
+GetGamificationMetricdefinitionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGamificationMetricdefinitionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification metricdefinition unauthorized response has a 2xx status code
+func (o *GetGamificationMetricdefinitionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification metricdefinition unauthorized response has a 3xx status code
+func (o *GetGamificationMetricdefinitionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification metricdefinition unauthorized response has a 4xx status code
+func (o *GetGamificationMetricdefinitionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification metricdefinition unauthorized response has a 5xx status code
+func (o *GetGamificationMetricdefinitionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification metricdefinition unauthorized response a status code equal to that given
+func (o *GetGamificationMetricdefinitionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGamificationMetricdefinitionUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGamificationMetricdefinitionUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGamificationMetricdefinitionForbidden() *GetGamificationMetricdefinit
 	return &GetGamificationMetricdefinitionForbidden{}
 }
 
-/*GetGamificationMetricdefinitionForbidden handles this case with default header values.
+/*
+GetGamificationMetricdefinitionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGamificationMetricdefinitionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification metricdefinition forbidden response has a 2xx status code
+func (o *GetGamificationMetricdefinitionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification metricdefinition forbidden response has a 3xx status code
+func (o *GetGamificationMetricdefinitionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification metricdefinition forbidden response has a 4xx status code
+func (o *GetGamificationMetricdefinitionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification metricdefinition forbidden response has a 5xx status code
+func (o *GetGamificationMetricdefinitionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification metricdefinition forbidden response a status code equal to that given
+func (o *GetGamificationMetricdefinitionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGamificationMetricdefinitionForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGamificationMetricdefinitionForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGamificationMetricdefinitionNotFound() *GetGamificationMetricdefiniti
 	return &GetGamificationMetricdefinitionNotFound{}
 }
 
-/*GetGamificationMetricdefinitionNotFound handles this case with default header values.
+/*
+GetGamificationMetricdefinitionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGamificationMetricdefinitionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification metricdefinition not found response has a 2xx status code
+func (o *GetGamificationMetricdefinitionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification metricdefinition not found response has a 3xx status code
+func (o *GetGamificationMetricdefinitionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification metricdefinition not found response has a 4xx status code
+func (o *GetGamificationMetricdefinitionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification metricdefinition not found response has a 5xx status code
+func (o *GetGamificationMetricdefinitionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification metricdefinition not found response a status code equal to that given
+func (o *GetGamificationMetricdefinitionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGamificationMetricdefinitionNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGamificationMetricdefinitionNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGamificationMetricdefinitionRequestTimeout() *GetGamificationMetricde
 	return &GetGamificationMetricdefinitionRequestTimeout{}
 }
 
-/*GetGamificationMetricdefinitionRequestTimeout handles this case with default header values.
+/*
+GetGamificationMetricdefinitionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGamificationMetricdefinitionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification metricdefinition request timeout response has a 2xx status code
+func (o *GetGamificationMetricdefinitionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification metricdefinition request timeout response has a 3xx status code
+func (o *GetGamificationMetricdefinitionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification metricdefinition request timeout response has a 4xx status code
+func (o *GetGamificationMetricdefinitionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification metricdefinition request timeout response has a 5xx status code
+func (o *GetGamificationMetricdefinitionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification metricdefinition request timeout response a status code equal to that given
+func (o *GetGamificationMetricdefinitionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGamificationMetricdefinitionRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGamificationMetricdefinitionRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGamificationMetricdefinitionRequestEntityTooLarge() *GetGamificationM
 	return &GetGamificationMetricdefinitionRequestEntityTooLarge{}
 }
 
-/*GetGamificationMetricdefinitionRequestEntityTooLarge handles this case with default header values.
+/*
+GetGamificationMetricdefinitionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGamificationMetricdefinitionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification metricdefinition request entity too large response has a 2xx status code
+func (o *GetGamificationMetricdefinitionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification metricdefinition request entity too large response has a 3xx status code
+func (o *GetGamificationMetricdefinitionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification metricdefinition request entity too large response has a 4xx status code
+func (o *GetGamificationMetricdefinitionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification metricdefinition request entity too large response has a 5xx status code
+func (o *GetGamificationMetricdefinitionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification metricdefinition request entity too large response a status code equal to that given
+func (o *GetGamificationMetricdefinitionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGamificationMetricdefinitionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGamificationMetricdefinitionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGamificationMetricdefinitionUnsupportedMediaType() *GetGamificationMe
 	return &GetGamificationMetricdefinitionUnsupportedMediaType{}
 }
 
-/*GetGamificationMetricdefinitionUnsupportedMediaType handles this case with default header values.
+/*
+GetGamificationMetricdefinitionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGamificationMetricdefinitionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification metricdefinition unsupported media type response has a 2xx status code
+func (o *GetGamificationMetricdefinitionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification metricdefinition unsupported media type response has a 3xx status code
+func (o *GetGamificationMetricdefinitionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification metricdefinition unsupported media type response has a 4xx status code
+func (o *GetGamificationMetricdefinitionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification metricdefinition unsupported media type response has a 5xx status code
+func (o *GetGamificationMetricdefinitionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification metricdefinition unsupported media type response a status code equal to that given
+func (o *GetGamificationMetricdefinitionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGamificationMetricdefinitionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGamificationMetricdefinitionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGamificationMetricdefinitionTooManyRequests() *GetGamificationMetricd
 	return &GetGamificationMetricdefinitionTooManyRequests{}
 }
 
-/*GetGamificationMetricdefinitionTooManyRequests handles this case with default header values.
+/*
+GetGamificationMetricdefinitionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGamificationMetricdefinitionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification metricdefinition too many requests response has a 2xx status code
+func (o *GetGamificationMetricdefinitionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification metricdefinition too many requests response has a 3xx status code
+func (o *GetGamificationMetricdefinitionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification metricdefinition too many requests response has a 4xx status code
+func (o *GetGamificationMetricdefinitionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification metricdefinition too many requests response has a 5xx status code
+func (o *GetGamificationMetricdefinitionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification metricdefinition too many requests response a status code equal to that given
+func (o *GetGamificationMetricdefinitionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGamificationMetricdefinitionTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGamificationMetricdefinitionTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGamificationMetricdefinitionInternalServerError() *GetGamificationMet
 	return &GetGamificationMetricdefinitionInternalServerError{}
 }
 
-/*GetGamificationMetricdefinitionInternalServerError handles this case with default header values.
+/*
+GetGamificationMetricdefinitionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGamificationMetricdefinitionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification metricdefinition internal server error response has a 2xx status code
+func (o *GetGamificationMetricdefinitionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification metricdefinition internal server error response has a 3xx status code
+func (o *GetGamificationMetricdefinitionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification metricdefinition internal server error response has a 4xx status code
+func (o *GetGamificationMetricdefinitionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification metricdefinition internal server error response has a 5xx status code
+func (o *GetGamificationMetricdefinitionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification metricdefinition internal server error response a status code equal to that given
+func (o *GetGamificationMetricdefinitionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGamificationMetricdefinitionInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGamificationMetricdefinitionInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGamificationMetricdefinitionServiceUnavailable() *GetGamificationMetr
 	return &GetGamificationMetricdefinitionServiceUnavailable{}
 }
 
-/*GetGamificationMetricdefinitionServiceUnavailable handles this case with default header values.
+/*
+GetGamificationMetricdefinitionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGamificationMetricdefinitionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification metricdefinition service unavailable response has a 2xx status code
+func (o *GetGamificationMetricdefinitionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification metricdefinition service unavailable response has a 3xx status code
+func (o *GetGamificationMetricdefinitionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification metricdefinition service unavailable response has a 4xx status code
+func (o *GetGamificationMetricdefinitionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification metricdefinition service unavailable response has a 5xx status code
+func (o *GetGamificationMetricdefinitionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification metricdefinition service unavailable response a status code equal to that given
+func (o *GetGamificationMetricdefinitionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGamificationMetricdefinitionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGamificationMetricdefinitionServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGamificationMetricdefinitionGatewayTimeout() *GetGamificationMetricde
 	return &GetGamificationMetricdefinitionGatewayTimeout{}
 }
 
-/*GetGamificationMetricdefinitionGatewayTimeout handles this case with default header values.
+/*
+GetGamificationMetricdefinitionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGamificationMetricdefinitionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification metricdefinition gateway timeout response has a 2xx status code
+func (o *GetGamificationMetricdefinitionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification metricdefinition gateway timeout response has a 3xx status code
+func (o *GetGamificationMetricdefinitionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification metricdefinition gateway timeout response has a 4xx status code
+func (o *GetGamificationMetricdefinitionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification metricdefinition gateway timeout response has a 5xx status code
+func (o *GetGamificationMetricdefinitionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification metricdefinition gateway timeout response a status code equal to that given
+func (o *GetGamificationMetricdefinitionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGamificationMetricdefinitionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGamificationMetricdefinitionGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/metricdefinitions/{metricDefinitionId}][%d] getGamificationMetricdefinitionGatewayTimeout  %+v", 504, o.Payload)
 }
 

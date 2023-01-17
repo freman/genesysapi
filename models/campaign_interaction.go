@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -159,7 +160,6 @@ func (m *CampaignInteraction) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CampaignInteraction) validateAgent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Agent) { // not required
 		return nil
 	}
@@ -168,6 +168,8 @@ func (m *CampaignInteraction) validateAgent(formats strfmt.Registry) error {
 		if err := m.Agent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("agent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent")
 			}
 			return err
 		}
@@ -177,7 +179,6 @@ func (m *CampaignInteraction) validateAgent(formats strfmt.Registry) error {
 }
 
 func (m *CampaignInteraction) validateCallPlacedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallPlacedTime) { // not required
 		return nil
 	}
@@ -190,7 +191,6 @@ func (m *CampaignInteraction) validateCallPlacedTime(formats strfmt.Registry) er
 }
 
 func (m *CampaignInteraction) validateCallRoutedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallRoutedTime) { // not required
 		return nil
 	}
@@ -203,7 +203,6 @@ func (m *CampaignInteraction) validateCallRoutedTime(formats strfmt.Registry) er
 }
 
 func (m *CampaignInteraction) validateCampaign(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Campaign) { // not required
 		return nil
 	}
@@ -212,6 +211,8 @@ func (m *CampaignInteraction) validateCampaign(formats strfmt.Registry) error {
 		if err := m.Campaign.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("campaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("campaign")
 			}
 			return err
 		}
@@ -221,7 +222,6 @@ func (m *CampaignInteraction) validateCampaign(formats strfmt.Registry) error {
 }
 
 func (m *CampaignInteraction) validateContact(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Contact) { // not required
 		return nil
 	}
@@ -230,6 +230,8 @@ func (m *CampaignInteraction) validateContact(formats strfmt.Registry) error {
 		if err := m.Contact.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contact")
 			}
 			return err
 		}
@@ -239,7 +241,6 @@ func (m *CampaignInteraction) validateContact(formats strfmt.Registry) error {
 }
 
 func (m *CampaignInteraction) validateConversation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversation) { // not required
 		return nil
 	}
@@ -248,6 +249,8 @@ func (m *CampaignInteraction) validateConversation(formats strfmt.Registry) erro
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}
@@ -257,7 +260,6 @@ func (m *CampaignInteraction) validateConversation(formats strfmt.Registry) erro
 }
 
 func (m *CampaignInteraction) validateCreationTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreationTime) { // not required
 		return nil
 	}
@@ -317,7 +319,6 @@ func (m *CampaignInteraction) validateDispositionEnum(path, location string, val
 }
 
 func (m *CampaignInteraction) validateDisposition(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Disposition) { // not required
 		return nil
 	}
@@ -331,7 +332,6 @@ func (m *CampaignInteraction) validateDisposition(formats strfmt.Registry) error
 }
 
 func (m *CampaignInteraction) validateLastActivePreviewWrapupTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastActivePreviewWrapupTime) { // not required
 		return nil
 	}
@@ -344,7 +344,6 @@ func (m *CampaignInteraction) validateLastActivePreviewWrapupTime(formats strfmt
 }
 
 func (m *CampaignInteraction) validatePreviewConnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PreviewConnectedTime) { // not required
 		return nil
 	}
@@ -357,7 +356,6 @@ func (m *CampaignInteraction) validatePreviewConnectedTime(formats strfmt.Regist
 }
 
 func (m *CampaignInteraction) validatePreviewPopDeliveredTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PreviewPopDeliveredTime) { // not required
 		return nil
 	}
@@ -370,7 +368,6 @@ func (m *CampaignInteraction) validatePreviewPopDeliveredTime(formats strfmt.Reg
 }
 
 func (m *CampaignInteraction) validateQueue(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queue) { // not required
 		return nil
 	}
@@ -379,6 +376,8 @@ func (m *CampaignInteraction) validateQueue(formats strfmt.Registry) error {
 		if err := m.Queue.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
 			}
 			return err
 		}
@@ -388,7 +387,6 @@ func (m *CampaignInteraction) validateQueue(formats strfmt.Registry) error {
 }
 
 func (m *CampaignInteraction) validateScript(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Script) { // not required
 		return nil
 	}
@@ -397,6 +395,8 @@ func (m *CampaignInteraction) validateScript(formats strfmt.Registry) error {
 		if err := m.Script.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("script")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("script")
 			}
 			return err
 		}
@@ -406,7 +406,6 @@ func (m *CampaignInteraction) validateScript(formats strfmt.Registry) error {
 }
 
 func (m *CampaignInteraction) validateSkills(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Skills) { // not required
 		return nil
 	}
@@ -424,6 +423,162 @@ func (m *CampaignInteraction) validateSkills(formats strfmt.Registry) error {
 			if err := m.Skills[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("skills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("skills" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this campaign interaction based on the context it is used
+func (m *CampaignInteraction) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCampaign(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContact(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScript(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSkills(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CampaignInteraction) contextValidateAgent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Agent != nil {
+		if err := m.Agent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("agent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignInteraction) contextValidateCampaign(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Campaign != nil {
+		if err := m.Campaign.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("campaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("campaign")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignInteraction) contextValidateContact(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Contact != nil {
+		if err := m.Contact.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contact")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contact")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignInteraction) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignInteraction) contextValidateQueue(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Queue != nil {
+		if err := m.Queue.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignInteraction) contextValidateScript(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Script != nil {
+		if err := m.Script.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("script")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("script")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignInteraction) contextValidateSkills(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Skills); i++ {
+
+		if m.Skills[i] != nil {
+			if err := m.Skills[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("skills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("skills" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

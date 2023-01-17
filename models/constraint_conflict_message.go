@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -44,7 +45,6 @@ func (m *ConstraintConflictMessage) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ConstraintConflictMessage) validateConflictedConstraintMessages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConflictedConstraintMessages) { // not required
 		return nil
 	}
@@ -58,6 +58,8 @@ func (m *ConstraintConflictMessage) validateConflictedConstraintMessages(formats
 			if err := m.ConflictedConstraintMessages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("conflictedConstraintMessages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conflictedConstraintMessages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -69,7 +71,6 @@ func (m *ConstraintConflictMessage) validateConflictedConstraintMessages(formats
 }
 
 func (m *ConstraintConflictMessage) validateMessage(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Message) { // not required
 		return nil
 	}
@@ -78,6 +79,62 @@ func (m *ConstraintConflictMessage) validateMessage(formats strfmt.Registry) err
 		if err := m.Message.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("message")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("message")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this constraint conflict message based on the context it is used
+func (m *ConstraintConflictMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConflictedConstraintMessages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConstraintConflictMessage) contextValidateConflictedConstraintMessages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ConflictedConstraintMessages); i++ {
+
+		if m.ConflictedConstraintMessages[i] != nil {
+			if err := m.ConflictedConstraintMessages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conflictedConstraintMessages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conflictedConstraintMessages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ConstraintConflictMessage) contextValidateMessage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Message != nil {
+		if err := m.Message.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("message")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("message")
 			}
 			return err
 		}

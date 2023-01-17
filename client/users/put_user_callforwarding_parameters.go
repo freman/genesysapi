@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutUserCallforwardingParams creates a new PutUserCallforwardingParams object
-// with the default values initialized.
+// NewPutUserCallforwardingParams creates a new PutUserCallforwardingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutUserCallforwardingParams() *PutUserCallforwardingParams {
-	var ()
 	return &PutUserCallforwardingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutUserCallforwardingParamsWithTimeout creates a new PutUserCallforwardingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutUserCallforwardingParamsWithTimeout(timeout time.Duration) *PutUserCallforwardingParams {
-	var ()
 	return &PutUserCallforwardingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutUserCallforwardingParamsWithContext creates a new PutUserCallforwardingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutUserCallforwardingParamsWithContext(ctx context.Context) *PutUserCallforwardingParams {
-	var ()
 	return &PutUserCallforwardingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutUserCallforwardingParamsWithHTTPClient creates a new PutUserCallforwardingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutUserCallforwardingParamsWithHTTPClient(client *http.Client) *PutUserCallforwardingParams {
-	var ()
 	return &PutUserCallforwardingParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutUserCallforwardingParams contains all the parameters to send to the API endpoint
-for the put user callforwarding operation typically these are written to a http.Request
+/*
+PutUserCallforwardingParams contains all the parameters to send to the API endpoint
+
+	for the put user callforwarding operation.
+
+	Typically these are written to a http.Request.
 */
 type PutUserCallforwardingParams struct {
 
-	/*Body
-	  Call forwarding
+	/* Body.
 
+	   Call forwarding
 	*/
 	Body *models.CallForwarding
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put user callforwarding params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutUserCallforwardingParams) WithDefaults() *PutUserCallforwardingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put user callforwarding params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutUserCallforwardingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put user callforwarding params
@@ -140,7 +157,6 @@ func (o *PutUserCallforwardingParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetSpeechandtextanalyticsTopicsGeneralParams creates a new GetSpeechandtextanalyticsTopicsGeneralParams object
-// with the default values initialized.
+// NewGetSpeechandtextanalyticsTopicsGeneralParams creates a new GetSpeechandtextanalyticsTopicsGeneralParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetSpeechandtextanalyticsTopicsGeneralParams() *GetSpeechandtextanalyticsTopicsGeneralParams {
-	var ()
 	return &GetSpeechandtextanalyticsTopicsGeneralParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsTopicsGeneralParamsWithTimeout creates a new GetSpeechandtextanalyticsTopicsGeneralParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetSpeechandtextanalyticsTopicsGeneralParamsWithTimeout(timeout time.Duration) *GetSpeechandtextanalyticsTopicsGeneralParams {
-	var ()
 	return &GetSpeechandtextanalyticsTopicsGeneralParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetSpeechandtextanalyticsTopicsGeneralParamsWithContext creates a new GetSpeechandtextanalyticsTopicsGeneralParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetSpeechandtextanalyticsTopicsGeneralParamsWithContext(ctx context.Context) *GetSpeechandtextanalyticsTopicsGeneralParams {
-	var ()
 	return &GetSpeechandtextanalyticsTopicsGeneralParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetSpeechandtextanalyticsTopicsGeneralParamsWithHTTPClient creates a new GetSpeechandtextanalyticsTopicsGeneralParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetSpeechandtextanalyticsTopicsGeneralParamsWithHTTPClient(client *http.Client) *GetSpeechandtextanalyticsTopicsGeneralParams {
-	var ()
 	return &GetSpeechandtextanalyticsTopicsGeneralParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetSpeechandtextanalyticsTopicsGeneralParams contains all the parameters to send to the API endpoint
-for the get speechandtextanalytics topics general operation typically these are written to a http.Request
+/*
+GetSpeechandtextanalyticsTopicsGeneralParams contains all the parameters to send to the API endpoint
+
+	for the get speechandtextanalytics topics general operation.
+
+	Typically these are written to a http.Request.
 */
 type GetSpeechandtextanalyticsTopicsGeneralParams struct {
 
-	/*Dialect
-	  The dialect of the general topics, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard
+	/* Dialect.
 
+	   The dialect of the general topics, dialect format is {language}-{country} where language follows ISO 639-1 standard and country follows ISO 3166-1 alpha 2 standard
 	*/
 	Dialect *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get speechandtextanalytics topics general params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsTopicsGeneralParams) WithDefaults() *GetSpeechandtextanalyticsTopicsGeneralParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get speechandtextanalytics topics general params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetSpeechandtextanalyticsTopicsGeneralParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get speechandtextanalytics topics general params
@@ -127,16 +143,17 @@ func (o *GetSpeechandtextanalyticsTopicsGeneralParams) WriteToRequest(r runtime.
 
 		// query param dialect
 		var qrDialect string
+
 		if o.Dialect != nil {
 			qrDialect = *o.Dialect
 		}
 		qDialect := qrDialect
 		if qDialect != "" {
+
 			if err := r.SetQueryParam("dialect", qDialect); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

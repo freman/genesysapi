@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -44,7 +45,6 @@ func (m *ArchitectFlowFields) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ArchitectFlowFields) validateArchitectFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ArchitectFlow) { // not required
 		return nil
 	}
@@ -53,6 +53,8 @@ func (m *ArchitectFlowFields) validateArchitectFlow(formats strfmt.Registry) err
 		if err := m.ArchitectFlow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("architectFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("architectFlow")
 			}
 			return err
 		}
@@ -62,7 +64,6 @@ func (m *ArchitectFlowFields) validateArchitectFlow(formats strfmt.Registry) err
 }
 
 func (m *ArchitectFlowFields) validateFlowRequestMappings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlowRequestMappings) { // not required
 		return nil
 	}
@@ -76,6 +77,62 @@ func (m *ArchitectFlowFields) validateFlowRequestMappings(formats strfmt.Registr
 			if err := m.FlowRequestMappings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("flowRequestMappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("flowRequestMappings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this architect flow fields based on the context it is used
+func (m *ArchitectFlowFields) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateArchitectFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFlowRequestMappings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ArchitectFlowFields) contextValidateArchitectFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ArchitectFlow != nil {
+		if err := m.ArchitectFlow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("architectFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("architectFlow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ArchitectFlowFields) contextValidateFlowRequestMappings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.FlowRequestMappings); i++ {
+
+		if m.FlowRequestMappings[i] != nil {
+			if err := m.FlowRequestMappings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("flowRequestMappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("flowRequestMappings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

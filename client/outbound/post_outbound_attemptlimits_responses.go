@@ -95,7 +95,6 @@ func (o *PostOutboundAttemptlimitsReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOutboundAttemptlimitsOK() *PostOutboundAttemptlimitsOK {
 	return &PostOutboundAttemptlimitsOK{}
 }
 
-/*PostOutboundAttemptlimitsOK handles this case with default header values.
+/*
+PostOutboundAttemptlimitsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOutboundAttemptlimitsOK struct {
 	Payload *models.AttemptLimits
 }
 
+// IsSuccess returns true when this post outbound attemptlimits o k response has a 2xx status code
+func (o *PostOutboundAttemptlimitsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post outbound attemptlimits o k response has a 3xx status code
+func (o *PostOutboundAttemptlimitsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound attemptlimits o k response has a 4xx status code
+func (o *PostOutboundAttemptlimitsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound attemptlimits o k response has a 5xx status code
+func (o *PostOutboundAttemptlimitsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound attemptlimits o k response a status code equal to that given
+func (o *PostOutboundAttemptlimitsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOutboundAttemptlimitsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostOutboundAttemptlimitsBadRequest() *PostOutboundAttemptlimitsBadReque
 	return &PostOutboundAttemptlimitsBadRequest{}
 }
 
-/*PostOutboundAttemptlimitsBadRequest handles this case with default header values.
+/*
+PostOutboundAttemptlimitsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostOutboundAttemptlimitsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound attemptlimits bad request response has a 2xx status code
+func (o *PostOutboundAttemptlimitsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound attemptlimits bad request response has a 3xx status code
+func (o *PostOutboundAttemptlimitsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound attemptlimits bad request response has a 4xx status code
+func (o *PostOutboundAttemptlimitsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound attemptlimits bad request response has a 5xx status code
+func (o *PostOutboundAttemptlimitsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound attemptlimits bad request response a status code equal to that given
+func (o *PostOutboundAttemptlimitsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOutboundAttemptlimitsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostOutboundAttemptlimitsUnauthorized() *PostOutboundAttemptlimitsUnauth
 	return &PostOutboundAttemptlimitsUnauthorized{}
 }
 
-/*PostOutboundAttemptlimitsUnauthorized handles this case with default header values.
+/*
+PostOutboundAttemptlimitsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostOutboundAttemptlimitsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound attemptlimits unauthorized response has a 2xx status code
+func (o *PostOutboundAttemptlimitsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound attemptlimits unauthorized response has a 3xx status code
+func (o *PostOutboundAttemptlimitsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound attemptlimits unauthorized response has a 4xx status code
+func (o *PostOutboundAttemptlimitsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound attemptlimits unauthorized response has a 5xx status code
+func (o *PostOutboundAttemptlimitsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound attemptlimits unauthorized response a status code equal to that given
+func (o *PostOutboundAttemptlimitsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOutboundAttemptlimitsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostOutboundAttemptlimitsForbidden() *PostOutboundAttemptlimitsForbidden
 	return &PostOutboundAttemptlimitsForbidden{}
 }
 
-/*PostOutboundAttemptlimitsForbidden handles this case with default header values.
+/*
+PostOutboundAttemptlimitsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostOutboundAttemptlimitsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound attemptlimits forbidden response has a 2xx status code
+func (o *PostOutboundAttemptlimitsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound attemptlimits forbidden response has a 3xx status code
+func (o *PostOutboundAttemptlimitsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound attemptlimits forbidden response has a 4xx status code
+func (o *PostOutboundAttemptlimitsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound attemptlimits forbidden response has a 5xx status code
+func (o *PostOutboundAttemptlimitsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound attemptlimits forbidden response a status code equal to that given
+func (o *PostOutboundAttemptlimitsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOutboundAttemptlimitsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostOutboundAttemptlimitsNotFound() *PostOutboundAttemptlimitsNotFound {
 	return &PostOutboundAttemptlimitsNotFound{}
 }
 
-/*PostOutboundAttemptlimitsNotFound handles this case with default header values.
+/*
+PostOutboundAttemptlimitsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostOutboundAttemptlimitsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound attemptlimits not found response has a 2xx status code
+func (o *PostOutboundAttemptlimitsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound attemptlimits not found response has a 3xx status code
+func (o *PostOutboundAttemptlimitsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound attemptlimits not found response has a 4xx status code
+func (o *PostOutboundAttemptlimitsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound attemptlimits not found response has a 5xx status code
+func (o *PostOutboundAttemptlimitsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound attemptlimits not found response a status code equal to that given
+func (o *PostOutboundAttemptlimitsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOutboundAttemptlimitsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostOutboundAttemptlimitsRequestTimeout() *PostOutboundAttemptlimitsRequ
 	return &PostOutboundAttemptlimitsRequestTimeout{}
 }
 
-/*PostOutboundAttemptlimitsRequestTimeout handles this case with default header values.
+/*
+PostOutboundAttemptlimitsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostOutboundAttemptlimitsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound attemptlimits request timeout response has a 2xx status code
+func (o *PostOutboundAttemptlimitsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound attemptlimits request timeout response has a 3xx status code
+func (o *PostOutboundAttemptlimitsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound attemptlimits request timeout response has a 4xx status code
+func (o *PostOutboundAttemptlimitsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound attemptlimits request timeout response has a 5xx status code
+func (o *PostOutboundAttemptlimitsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound attemptlimits request timeout response a status code equal to that given
+func (o *PostOutboundAttemptlimitsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOutboundAttemptlimitsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostOutboundAttemptlimitsRequestEntityTooLarge() *PostOutboundAttemptlim
 	return &PostOutboundAttemptlimitsRequestEntityTooLarge{}
 }
 
-/*PostOutboundAttemptlimitsRequestEntityTooLarge handles this case with default header values.
+/*
+PostOutboundAttemptlimitsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostOutboundAttemptlimitsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound attemptlimits request entity too large response has a 2xx status code
+func (o *PostOutboundAttemptlimitsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound attemptlimits request entity too large response has a 3xx status code
+func (o *PostOutboundAttemptlimitsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound attemptlimits request entity too large response has a 4xx status code
+func (o *PostOutboundAttemptlimitsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound attemptlimits request entity too large response has a 5xx status code
+func (o *PostOutboundAttemptlimitsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound attemptlimits request entity too large response a status code equal to that given
+func (o *PostOutboundAttemptlimitsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOutboundAttemptlimitsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostOutboundAttemptlimitsUnsupportedMediaType() *PostOutboundAttemptlimi
 	return &PostOutboundAttemptlimitsUnsupportedMediaType{}
 }
 
-/*PostOutboundAttemptlimitsUnsupportedMediaType handles this case with default header values.
+/*
+PostOutboundAttemptlimitsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostOutboundAttemptlimitsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound attemptlimits unsupported media type response has a 2xx status code
+func (o *PostOutboundAttemptlimitsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound attemptlimits unsupported media type response has a 3xx status code
+func (o *PostOutboundAttemptlimitsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound attemptlimits unsupported media type response has a 4xx status code
+func (o *PostOutboundAttemptlimitsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound attemptlimits unsupported media type response has a 5xx status code
+func (o *PostOutboundAttemptlimitsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound attemptlimits unsupported media type response a status code equal to that given
+func (o *PostOutboundAttemptlimitsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOutboundAttemptlimitsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostOutboundAttemptlimitsTooManyRequests() *PostOutboundAttemptlimitsToo
 	return &PostOutboundAttemptlimitsTooManyRequests{}
 }
 
-/*PostOutboundAttemptlimitsTooManyRequests handles this case with default header values.
+/*
+PostOutboundAttemptlimitsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostOutboundAttemptlimitsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound attemptlimits too many requests response has a 2xx status code
+func (o *PostOutboundAttemptlimitsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound attemptlimits too many requests response has a 3xx status code
+func (o *PostOutboundAttemptlimitsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound attemptlimits too many requests response has a 4xx status code
+func (o *PostOutboundAttemptlimitsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post outbound attemptlimits too many requests response has a 5xx status code
+func (o *PostOutboundAttemptlimitsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post outbound attemptlimits too many requests response a status code equal to that given
+func (o *PostOutboundAttemptlimitsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOutboundAttemptlimitsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostOutboundAttemptlimitsInternalServerError() *PostOutboundAttemptlimit
 	return &PostOutboundAttemptlimitsInternalServerError{}
 }
 
-/*PostOutboundAttemptlimitsInternalServerError handles this case with default header values.
+/*
+PostOutboundAttemptlimitsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostOutboundAttemptlimitsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound attemptlimits internal server error response has a 2xx status code
+func (o *PostOutboundAttemptlimitsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound attemptlimits internal server error response has a 3xx status code
+func (o *PostOutboundAttemptlimitsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound attemptlimits internal server error response has a 4xx status code
+func (o *PostOutboundAttemptlimitsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound attemptlimits internal server error response has a 5xx status code
+func (o *PostOutboundAttemptlimitsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound attemptlimits internal server error response a status code equal to that given
+func (o *PostOutboundAttemptlimitsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOutboundAttemptlimitsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostOutboundAttemptlimitsServiceUnavailable() *PostOutboundAttemptlimits
 	return &PostOutboundAttemptlimitsServiceUnavailable{}
 }
 
-/*PostOutboundAttemptlimitsServiceUnavailable handles this case with default header values.
+/*
+PostOutboundAttemptlimitsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostOutboundAttemptlimitsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound attemptlimits service unavailable response has a 2xx status code
+func (o *PostOutboundAttemptlimitsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound attemptlimits service unavailable response has a 3xx status code
+func (o *PostOutboundAttemptlimitsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound attemptlimits service unavailable response has a 4xx status code
+func (o *PostOutboundAttemptlimitsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound attemptlimits service unavailable response has a 5xx status code
+func (o *PostOutboundAttemptlimitsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound attemptlimits service unavailable response a status code equal to that given
+func (o *PostOutboundAttemptlimitsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOutboundAttemptlimitsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostOutboundAttemptlimitsGatewayTimeout() *PostOutboundAttemptlimitsGate
 	return &PostOutboundAttemptlimitsGatewayTimeout{}
 }
 
-/*PostOutboundAttemptlimitsGatewayTimeout handles this case with default header values.
+/*
+PostOutboundAttemptlimitsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostOutboundAttemptlimitsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post outbound attemptlimits gateway timeout response has a 2xx status code
+func (o *PostOutboundAttemptlimitsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post outbound attemptlimits gateway timeout response has a 3xx status code
+func (o *PostOutboundAttemptlimitsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post outbound attemptlimits gateway timeout response has a 4xx status code
+func (o *PostOutboundAttemptlimitsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post outbound attemptlimits gateway timeout response has a 5xx status code
+func (o *PostOutboundAttemptlimitsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post outbound attemptlimits gateway timeout response a status code equal to that given
+func (o *PostOutboundAttemptlimitsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOutboundAttemptlimitsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOutboundAttemptlimitsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/outbound/attemptlimits][%d] postOutboundAttemptlimitsGatewayTimeout  %+v", 504, o.Payload)
 }
 

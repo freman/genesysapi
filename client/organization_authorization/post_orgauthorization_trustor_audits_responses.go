@@ -95,7 +95,6 @@ func (o *PostOrgauthorizationTrustorAuditsReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostOrgauthorizationTrustorAuditsOK() *PostOrgauthorizationTrustorAudits
 	return &PostOrgauthorizationTrustorAuditsOK{}
 }
 
-/*PostOrgauthorizationTrustorAuditsOK handles this case with default header values.
+/*
+PostOrgauthorizationTrustorAuditsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostOrgauthorizationTrustorAuditsOK struct {
 	Payload models.AuditQueryResponse
 }
 
+// IsSuccess returns true when this post orgauthorization trustor audits o k response has a 2xx status code
+func (o *PostOrgauthorizationTrustorAuditsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post orgauthorization trustor audits o k response has a 3xx status code
+func (o *PostOrgauthorizationTrustorAuditsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustor audits o k response has a 4xx status code
+func (o *PostOrgauthorizationTrustorAuditsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post orgauthorization trustor audits o k response has a 5xx status code
+func (o *PostOrgauthorizationTrustorAuditsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustor audits o k response a status code equal to that given
+func (o *PostOrgauthorizationTrustorAuditsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostOrgauthorizationTrustorAuditsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrustorAuditsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewPostOrgauthorizationTrustorAuditsBadRequest() *PostOrgauthorizationTrust
 	return &PostOrgauthorizationTrustorAuditsBadRequest{}
 }
 
-/*PostOrgauthorizationTrustorAuditsBadRequest handles this case with default header values.
+/*
+PostOrgauthorizationTrustorAuditsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type PostOrgauthorizationTrustorAuditsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustor audits bad request response has a 2xx status code
+func (o *PostOrgauthorizationTrustorAuditsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustor audits bad request response has a 3xx status code
+func (o *PostOrgauthorizationTrustorAuditsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustor audits bad request response has a 4xx status code
+func (o *PostOrgauthorizationTrustorAuditsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustor audits bad request response has a 5xx status code
+func (o *PostOrgauthorizationTrustorAuditsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustor audits bad request response a status code equal to that given
+func (o *PostOrgauthorizationTrustorAuditsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostOrgauthorizationTrustorAuditsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrustorAuditsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewPostOrgauthorizationTrustorAuditsUnauthorized() *PostOrgauthorizationTru
 	return &PostOrgauthorizationTrustorAuditsUnauthorized{}
 }
 
-/*PostOrgauthorizationTrustorAuditsUnauthorized handles this case with default header values.
+/*
+PostOrgauthorizationTrustorAuditsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type PostOrgauthorizationTrustorAuditsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustor audits unauthorized response has a 2xx status code
+func (o *PostOrgauthorizationTrustorAuditsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustor audits unauthorized response has a 3xx status code
+func (o *PostOrgauthorizationTrustorAuditsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustor audits unauthorized response has a 4xx status code
+func (o *PostOrgauthorizationTrustorAuditsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustor audits unauthorized response has a 5xx status code
+func (o *PostOrgauthorizationTrustorAuditsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustor audits unauthorized response a status code equal to that given
+func (o *PostOrgauthorizationTrustorAuditsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostOrgauthorizationTrustorAuditsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrustorAuditsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewPostOrgauthorizationTrustorAuditsForbidden() *PostOrgauthorizationTrusto
 	return &PostOrgauthorizationTrustorAuditsForbidden{}
 }
 
-/*PostOrgauthorizationTrustorAuditsForbidden handles this case with default header values.
+/*
+PostOrgauthorizationTrustorAuditsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type PostOrgauthorizationTrustorAuditsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustor audits forbidden response has a 2xx status code
+func (o *PostOrgauthorizationTrustorAuditsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustor audits forbidden response has a 3xx status code
+func (o *PostOrgauthorizationTrustorAuditsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustor audits forbidden response has a 4xx status code
+func (o *PostOrgauthorizationTrustorAuditsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustor audits forbidden response has a 5xx status code
+func (o *PostOrgauthorizationTrustorAuditsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustor audits forbidden response a status code equal to that given
+func (o *PostOrgauthorizationTrustorAuditsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostOrgauthorizationTrustorAuditsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrustorAuditsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewPostOrgauthorizationTrustorAuditsNotFound() *PostOrgauthorizationTrustor
 	return &PostOrgauthorizationTrustorAuditsNotFound{}
 }
 
-/*PostOrgauthorizationTrustorAuditsNotFound handles this case with default header values.
+/*
+PostOrgauthorizationTrustorAuditsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type PostOrgauthorizationTrustorAuditsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustor audits not found response has a 2xx status code
+func (o *PostOrgauthorizationTrustorAuditsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustor audits not found response has a 3xx status code
+func (o *PostOrgauthorizationTrustorAuditsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustor audits not found response has a 4xx status code
+func (o *PostOrgauthorizationTrustorAuditsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustor audits not found response has a 5xx status code
+func (o *PostOrgauthorizationTrustorAuditsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustor audits not found response a status code equal to that given
+func (o *PostOrgauthorizationTrustorAuditsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostOrgauthorizationTrustorAuditsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrustorAuditsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewPostOrgauthorizationTrustorAuditsRequestTimeout() *PostOrgauthorizationT
 	return &PostOrgauthorizationTrustorAuditsRequestTimeout{}
 }
 
-/*PostOrgauthorizationTrustorAuditsRequestTimeout handles this case with default header values.
+/*
+PostOrgauthorizationTrustorAuditsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type PostOrgauthorizationTrustorAuditsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustor audits request timeout response has a 2xx status code
+func (o *PostOrgauthorizationTrustorAuditsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustor audits request timeout response has a 3xx status code
+func (o *PostOrgauthorizationTrustorAuditsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustor audits request timeout response has a 4xx status code
+func (o *PostOrgauthorizationTrustorAuditsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustor audits request timeout response has a 5xx status code
+func (o *PostOrgauthorizationTrustorAuditsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustor audits request timeout response a status code equal to that given
+func (o *PostOrgauthorizationTrustorAuditsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostOrgauthorizationTrustorAuditsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrustorAuditsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewPostOrgauthorizationTrustorAuditsRequestEntityTooLarge() *PostOrgauthori
 	return &PostOrgauthorizationTrustorAuditsRequestEntityTooLarge{}
 }
 
-/*PostOrgauthorizationTrustorAuditsRequestEntityTooLarge handles this case with default header values.
+/*
+PostOrgauthorizationTrustorAuditsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type PostOrgauthorizationTrustorAuditsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustor audits request entity too large response has a 2xx status code
+func (o *PostOrgauthorizationTrustorAuditsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustor audits request entity too large response has a 3xx status code
+func (o *PostOrgauthorizationTrustorAuditsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustor audits request entity too large response has a 4xx status code
+func (o *PostOrgauthorizationTrustorAuditsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustor audits request entity too large response has a 5xx status code
+func (o *PostOrgauthorizationTrustorAuditsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustor audits request entity too large response a status code equal to that given
+func (o *PostOrgauthorizationTrustorAuditsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostOrgauthorizationTrustorAuditsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrustorAuditsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewPostOrgauthorizationTrustorAuditsUnsupportedMediaType() *PostOrgauthoriz
 	return &PostOrgauthorizationTrustorAuditsUnsupportedMediaType{}
 }
 
-/*PostOrgauthorizationTrustorAuditsUnsupportedMediaType handles this case with default header values.
+/*
+PostOrgauthorizationTrustorAuditsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type PostOrgauthorizationTrustorAuditsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustor audits unsupported media type response has a 2xx status code
+func (o *PostOrgauthorizationTrustorAuditsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustor audits unsupported media type response has a 3xx status code
+func (o *PostOrgauthorizationTrustorAuditsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustor audits unsupported media type response has a 4xx status code
+func (o *PostOrgauthorizationTrustorAuditsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustor audits unsupported media type response has a 5xx status code
+func (o *PostOrgauthorizationTrustorAuditsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustor audits unsupported media type response a status code equal to that given
+func (o *PostOrgauthorizationTrustorAuditsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostOrgauthorizationTrustorAuditsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrustorAuditsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewPostOrgauthorizationTrustorAuditsTooManyRequests() *PostOrgauthorization
 	return &PostOrgauthorizationTrustorAuditsTooManyRequests{}
 }
 
-/*PostOrgauthorizationTrustorAuditsTooManyRequests handles this case with default header values.
+/*
+PostOrgauthorizationTrustorAuditsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type PostOrgauthorizationTrustorAuditsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustor audits too many requests response has a 2xx status code
+func (o *PostOrgauthorizationTrustorAuditsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustor audits too many requests response has a 3xx status code
+func (o *PostOrgauthorizationTrustorAuditsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustor audits too many requests response has a 4xx status code
+func (o *PostOrgauthorizationTrustorAuditsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post orgauthorization trustor audits too many requests response has a 5xx status code
+func (o *PostOrgauthorizationTrustorAuditsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post orgauthorization trustor audits too many requests response a status code equal to that given
+func (o *PostOrgauthorizationTrustorAuditsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostOrgauthorizationTrustorAuditsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrustorAuditsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewPostOrgauthorizationTrustorAuditsInternalServerError() *PostOrgauthoriza
 	return &PostOrgauthorizationTrustorAuditsInternalServerError{}
 }
 
-/*PostOrgauthorizationTrustorAuditsInternalServerError handles this case with default header values.
+/*
+PostOrgauthorizationTrustorAuditsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type PostOrgauthorizationTrustorAuditsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustor audits internal server error response has a 2xx status code
+func (o *PostOrgauthorizationTrustorAuditsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustor audits internal server error response has a 3xx status code
+func (o *PostOrgauthorizationTrustorAuditsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustor audits internal server error response has a 4xx status code
+func (o *PostOrgauthorizationTrustorAuditsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post orgauthorization trustor audits internal server error response has a 5xx status code
+func (o *PostOrgauthorizationTrustorAuditsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post orgauthorization trustor audits internal server error response a status code equal to that given
+func (o *PostOrgauthorizationTrustorAuditsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostOrgauthorizationTrustorAuditsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrustorAuditsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewPostOrgauthorizationTrustorAuditsServiceUnavailable() *PostOrgauthorizat
 	return &PostOrgauthorizationTrustorAuditsServiceUnavailable{}
 }
 
-/*PostOrgauthorizationTrustorAuditsServiceUnavailable handles this case with default header values.
+/*
+PostOrgauthorizationTrustorAuditsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type PostOrgauthorizationTrustorAuditsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustor audits service unavailable response has a 2xx status code
+func (o *PostOrgauthorizationTrustorAuditsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustor audits service unavailable response has a 3xx status code
+func (o *PostOrgauthorizationTrustorAuditsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustor audits service unavailable response has a 4xx status code
+func (o *PostOrgauthorizationTrustorAuditsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post orgauthorization trustor audits service unavailable response has a 5xx status code
+func (o *PostOrgauthorizationTrustorAuditsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post orgauthorization trustor audits service unavailable response a status code equal to that given
+func (o *PostOrgauthorizationTrustorAuditsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostOrgauthorizationTrustorAuditsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrustorAuditsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewPostOrgauthorizationTrustorAuditsGatewayTimeout() *PostOrgauthorizationT
 	return &PostOrgauthorizationTrustorAuditsGatewayTimeout{}
 }
 
-/*PostOrgauthorizationTrustorAuditsGatewayTimeout handles this case with default header values.
+/*
+PostOrgauthorizationTrustorAuditsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type PostOrgauthorizationTrustorAuditsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post orgauthorization trustor audits gateway timeout response has a 2xx status code
+func (o *PostOrgauthorizationTrustorAuditsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post orgauthorization trustor audits gateway timeout response has a 3xx status code
+func (o *PostOrgauthorizationTrustorAuditsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post orgauthorization trustor audits gateway timeout response has a 4xx status code
+func (o *PostOrgauthorizationTrustorAuditsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post orgauthorization trustor audits gateway timeout response has a 5xx status code
+func (o *PostOrgauthorizationTrustorAuditsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post orgauthorization trustor audits gateway timeout response a status code equal to that given
+func (o *PostOrgauthorizationTrustorAuditsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostOrgauthorizationTrustorAuditsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostOrgauthorizationTrustorAuditsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/orgauthorization/trustor/audits][%d] postOrgauthorizationTrustorAuditsGatewayTimeout  %+v", 504, o.Payload)
 }
 

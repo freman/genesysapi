@@ -95,7 +95,6 @@ func (o *GetJourneyActiontargetReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetJourneyActiontargetOK() *GetJourneyActiontargetOK {
 	return &GetJourneyActiontargetOK{}
 }
 
-/*GetJourneyActiontargetOK handles this case with default header values.
+/*
+GetJourneyActiontargetOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetJourneyActiontargetOK struct {
 	Payload *models.ActionTarget
 }
 
+// IsSuccess returns true when this get journey actiontarget o k response has a 2xx status code
+func (o *GetJourneyActiontargetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get journey actiontarget o k response has a 3xx status code
+func (o *GetJourneyActiontargetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actiontarget o k response has a 4xx status code
+func (o *GetJourneyActiontargetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get journey actiontarget o k response has a 5xx status code
+func (o *GetJourneyActiontargetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actiontarget o k response a status code equal to that given
+func (o *GetJourneyActiontargetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetJourneyActiontargetOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetOK  %+v", 200, o.Payload)
+}
+
+func (o *GetJourneyActiontargetOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetJourneyActiontargetBadRequest() *GetJourneyActiontargetBadRequest {
 	return &GetJourneyActiontargetBadRequest{}
 }
 
-/*GetJourneyActiontargetBadRequest handles this case with default header values.
+/*
+GetJourneyActiontargetBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetJourneyActiontargetBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actiontarget bad request response has a 2xx status code
+func (o *GetJourneyActiontargetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actiontarget bad request response has a 3xx status code
+func (o *GetJourneyActiontargetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actiontarget bad request response has a 4xx status code
+func (o *GetJourneyActiontargetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actiontarget bad request response has a 5xx status code
+func (o *GetJourneyActiontargetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actiontarget bad request response a status code equal to that given
+func (o *GetJourneyActiontargetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetJourneyActiontargetBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetJourneyActiontargetBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetJourneyActiontargetUnauthorized() *GetJourneyActiontargetUnauthorized
 	return &GetJourneyActiontargetUnauthorized{}
 }
 
-/*GetJourneyActiontargetUnauthorized handles this case with default header values.
+/*
+GetJourneyActiontargetUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetJourneyActiontargetUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actiontarget unauthorized response has a 2xx status code
+func (o *GetJourneyActiontargetUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actiontarget unauthorized response has a 3xx status code
+func (o *GetJourneyActiontargetUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actiontarget unauthorized response has a 4xx status code
+func (o *GetJourneyActiontargetUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actiontarget unauthorized response has a 5xx status code
+func (o *GetJourneyActiontargetUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actiontarget unauthorized response a status code equal to that given
+func (o *GetJourneyActiontargetUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetJourneyActiontargetUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetJourneyActiontargetUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetJourneyActiontargetForbidden() *GetJourneyActiontargetForbidden {
 	return &GetJourneyActiontargetForbidden{}
 }
 
-/*GetJourneyActiontargetForbidden handles this case with default header values.
+/*
+GetJourneyActiontargetForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetJourneyActiontargetForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actiontarget forbidden response has a 2xx status code
+func (o *GetJourneyActiontargetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actiontarget forbidden response has a 3xx status code
+func (o *GetJourneyActiontargetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actiontarget forbidden response has a 4xx status code
+func (o *GetJourneyActiontargetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actiontarget forbidden response has a 5xx status code
+func (o *GetJourneyActiontargetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actiontarget forbidden response a status code equal to that given
+func (o *GetJourneyActiontargetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetJourneyActiontargetForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetJourneyActiontargetForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetJourneyActiontargetNotFound() *GetJourneyActiontargetNotFound {
 	return &GetJourneyActiontargetNotFound{}
 }
 
-/*GetJourneyActiontargetNotFound handles this case with default header values.
+/*
+GetJourneyActiontargetNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetJourneyActiontargetNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actiontarget not found response has a 2xx status code
+func (o *GetJourneyActiontargetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actiontarget not found response has a 3xx status code
+func (o *GetJourneyActiontargetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actiontarget not found response has a 4xx status code
+func (o *GetJourneyActiontargetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actiontarget not found response has a 5xx status code
+func (o *GetJourneyActiontargetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actiontarget not found response a status code equal to that given
+func (o *GetJourneyActiontargetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetJourneyActiontargetNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetJourneyActiontargetNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetJourneyActiontargetRequestTimeout() *GetJourneyActiontargetRequestTim
 	return &GetJourneyActiontargetRequestTimeout{}
 }
 
-/*GetJourneyActiontargetRequestTimeout handles this case with default header values.
+/*
+GetJourneyActiontargetRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetJourneyActiontargetRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actiontarget request timeout response has a 2xx status code
+func (o *GetJourneyActiontargetRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actiontarget request timeout response has a 3xx status code
+func (o *GetJourneyActiontargetRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actiontarget request timeout response has a 4xx status code
+func (o *GetJourneyActiontargetRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actiontarget request timeout response has a 5xx status code
+func (o *GetJourneyActiontargetRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actiontarget request timeout response a status code equal to that given
+func (o *GetJourneyActiontargetRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetJourneyActiontargetRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetJourneyActiontargetRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetJourneyActiontargetRequestEntityTooLarge() *GetJourneyActiontargetReq
 	return &GetJourneyActiontargetRequestEntityTooLarge{}
 }
 
-/*GetJourneyActiontargetRequestEntityTooLarge handles this case with default header values.
+/*
+GetJourneyActiontargetRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetJourneyActiontargetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actiontarget request entity too large response has a 2xx status code
+func (o *GetJourneyActiontargetRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actiontarget request entity too large response has a 3xx status code
+func (o *GetJourneyActiontargetRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actiontarget request entity too large response has a 4xx status code
+func (o *GetJourneyActiontargetRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actiontarget request entity too large response has a 5xx status code
+func (o *GetJourneyActiontargetRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actiontarget request entity too large response a status code equal to that given
+func (o *GetJourneyActiontargetRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetJourneyActiontargetRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetJourneyActiontargetRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetJourneyActiontargetUnsupportedMediaType() *GetJourneyActiontargetUnsu
 	return &GetJourneyActiontargetUnsupportedMediaType{}
 }
 
-/*GetJourneyActiontargetUnsupportedMediaType handles this case with default header values.
+/*
+GetJourneyActiontargetUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetJourneyActiontargetUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actiontarget unsupported media type response has a 2xx status code
+func (o *GetJourneyActiontargetUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actiontarget unsupported media type response has a 3xx status code
+func (o *GetJourneyActiontargetUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actiontarget unsupported media type response has a 4xx status code
+func (o *GetJourneyActiontargetUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actiontarget unsupported media type response has a 5xx status code
+func (o *GetJourneyActiontargetUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actiontarget unsupported media type response a status code equal to that given
+func (o *GetJourneyActiontargetUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetJourneyActiontargetUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetJourneyActiontargetUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetJourneyActiontargetTooManyRequests() *GetJourneyActiontargetTooManyRe
 	return &GetJourneyActiontargetTooManyRequests{}
 }
 
-/*GetJourneyActiontargetTooManyRequests handles this case with default header values.
+/*
+GetJourneyActiontargetTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetJourneyActiontargetTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actiontarget too many requests response has a 2xx status code
+func (o *GetJourneyActiontargetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actiontarget too many requests response has a 3xx status code
+func (o *GetJourneyActiontargetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actiontarget too many requests response has a 4xx status code
+func (o *GetJourneyActiontargetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actiontarget too many requests response has a 5xx status code
+func (o *GetJourneyActiontargetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actiontarget too many requests response a status code equal to that given
+func (o *GetJourneyActiontargetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetJourneyActiontargetTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetJourneyActiontargetTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetJourneyActiontargetInternalServerError() *GetJourneyActiontargetInter
 	return &GetJourneyActiontargetInternalServerError{}
 }
 
-/*GetJourneyActiontargetInternalServerError handles this case with default header values.
+/*
+GetJourneyActiontargetInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetJourneyActiontargetInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actiontarget internal server error response has a 2xx status code
+func (o *GetJourneyActiontargetInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actiontarget internal server error response has a 3xx status code
+func (o *GetJourneyActiontargetInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actiontarget internal server error response has a 4xx status code
+func (o *GetJourneyActiontargetInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get journey actiontarget internal server error response has a 5xx status code
+func (o *GetJourneyActiontargetInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get journey actiontarget internal server error response a status code equal to that given
+func (o *GetJourneyActiontargetInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetJourneyActiontargetInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetJourneyActiontargetInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetJourneyActiontargetServiceUnavailable() *GetJourneyActiontargetServic
 	return &GetJourneyActiontargetServiceUnavailable{}
 }
 
-/*GetJourneyActiontargetServiceUnavailable handles this case with default header values.
+/*
+GetJourneyActiontargetServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetJourneyActiontargetServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actiontarget service unavailable response has a 2xx status code
+func (o *GetJourneyActiontargetServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actiontarget service unavailable response has a 3xx status code
+func (o *GetJourneyActiontargetServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actiontarget service unavailable response has a 4xx status code
+func (o *GetJourneyActiontargetServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get journey actiontarget service unavailable response has a 5xx status code
+func (o *GetJourneyActiontargetServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get journey actiontarget service unavailable response a status code equal to that given
+func (o *GetJourneyActiontargetServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetJourneyActiontargetServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetJourneyActiontargetServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetJourneyActiontargetGatewayTimeout() *GetJourneyActiontargetGatewayTim
 	return &GetJourneyActiontargetGatewayTimeout{}
 }
 
-/*GetJourneyActiontargetGatewayTimeout handles this case with default header values.
+/*
+GetJourneyActiontargetGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetJourneyActiontargetGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actiontarget gateway timeout response has a 2xx status code
+func (o *GetJourneyActiontargetGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actiontarget gateway timeout response has a 3xx status code
+func (o *GetJourneyActiontargetGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actiontarget gateway timeout response has a 4xx status code
+func (o *GetJourneyActiontargetGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get journey actiontarget gateway timeout response has a 5xx status code
+func (o *GetJourneyActiontargetGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get journey actiontarget gateway timeout response a status code equal to that given
+func (o *GetJourneyActiontargetGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetJourneyActiontargetGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetJourneyActiontargetGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actiontargets/{actionTargetId}][%d] getJourneyActiontargetGatewayTimeout  %+v", 504, o.Payload)
 }
 

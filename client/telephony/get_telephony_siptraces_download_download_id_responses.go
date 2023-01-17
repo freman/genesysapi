@@ -101,7 +101,6 @@ func (o *GetTelephonySiptracesDownloadDownloadIDReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDOK() *GetTelephonySiptracesDownlo
 	return &GetTelephonySiptracesDownloadDownloadIDOK{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDOK handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type GetTelephonySiptracesDownloadDownloadIDOK struct {
 	Payload *models.SignedURLResponse
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id o k response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id o k response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id o k response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id o k response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces download download Id o k response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdOK  %+v", 200, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDAccepted() *GetTelephonySiptraces
 	return &GetTelephonySiptracesDownloadDownloadIDAccepted{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDAccepted handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDAccepted describes a response with status code 202, with default header values.
 
 Request to download pcap file has been accepted
 */
@@ -153,7 +183,36 @@ type GetTelephonySiptracesDownloadDownloadIDAccepted struct {
 	Payload *models.SignedURLResponse
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id accepted response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id accepted response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id accepted response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id accepted response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces download download Id accepted response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDAccepted) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdAccepted  %+v", 202, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDAccepted) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDBadRequest() *GetTelephonySiptrac
 	return &GetTelephonySiptracesDownloadDownloadIDBadRequest{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDBadRequest handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type GetTelephonySiptracesDownloadDownloadIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id bad request response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id bad request response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id bad request response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id bad request response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces download download Id bad request response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDUnauthorized() *GetTelephonySiptr
 	return &GetTelephonySiptracesDownloadDownloadIDUnauthorized{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDUnauthorized handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type GetTelephonySiptracesDownloadDownloadIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id unauthorized response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id unauthorized response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id unauthorized response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id unauthorized response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces download download Id unauthorized response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDForbidden() *GetTelephonySiptrace
 	return &GetTelephonySiptracesDownloadDownloadIDForbidden{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDForbidden handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type GetTelephonySiptracesDownloadDownloadIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id forbidden response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id forbidden response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id forbidden response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id forbidden response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces download download Id forbidden response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDNotFound() *GetTelephonySiptraces
 	return &GetTelephonySiptracesDownloadDownloadIDNotFound{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDNotFound handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type GetTelephonySiptracesDownloadDownloadIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id not found response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id not found response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id not found response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id not found response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces download download Id not found response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDRequestTimeout() *GetTelephonySip
 	return &GetTelephonySiptracesDownloadDownloadIDRequestTimeout{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDRequestTimeout handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type GetTelephonySiptracesDownloadDownloadIDRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id request timeout response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id request timeout response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id request timeout response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id request timeout response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces download download Id request timeout response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge() *GetTelep
 	return &GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id request entity too large response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id request entity too large response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id request entity too large response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id request entity too large response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces download download Id request entity too large response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDUnsupportedMediaType() *GetTeleph
 	return &GetTelephonySiptracesDownloadDownloadIDUnsupportedMediaType{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDUnsupportedMediaType handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type GetTelephonySiptracesDownloadDownloadIDUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id unsupported media type response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id unsupported media type response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id unsupported media type response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id unsupported media type response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces download download Id unsupported media type response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDTooManyRequests() *GetTelephonySi
 	return &GetTelephonySiptracesDownloadDownloadIDTooManyRequests{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDTooManyRequests handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type GetTelephonySiptracesDownloadDownloadIDTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id too many requests response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id too many requests response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id too many requests response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id too many requests response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony siptraces download download Id too many requests response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDInternalServerError() *GetTelepho
 	return &GetTelephonySiptracesDownloadDownloadIDInternalServerError{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDInternalServerError handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type GetTelephonySiptracesDownloadDownloadIDInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id internal server error response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id internal server error response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id internal server error response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id internal server error response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony siptraces download download Id internal server error response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDServiceUnavailable() *GetTelephon
 	return &GetTelephonySiptracesDownloadDownloadIDServiceUnavailable{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDServiceUnavailable handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type GetTelephonySiptracesDownloadDownloadIDServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id service unavailable response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id service unavailable response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id service unavailable response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id service unavailable response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony siptraces download download Id service unavailable response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewGetTelephonySiptracesDownloadDownloadIDGatewayTimeout() *GetTelephonySip
 	return &GetTelephonySiptracesDownloadDownloadIDGatewayTimeout{}
 }
 
-/*GetTelephonySiptracesDownloadDownloadIDGatewayTimeout handles this case with default header values.
+/*
+GetTelephonySiptracesDownloadDownloadIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type GetTelephonySiptracesDownloadDownloadIDGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony siptraces download download Id gateway timeout response has a 2xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony siptraces download download Id gateway timeout response has a 3xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony siptraces download download Id gateway timeout response has a 4xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony siptraces download download Id gateway timeout response has a 5xx status code
+func (o *GetTelephonySiptracesDownloadDownloadIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony siptraces download download Id gateway timeout response a status code equal to that given
+func (o *GetTelephonySiptracesDownloadDownloadIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetTelephonySiptracesDownloadDownloadIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetTelephonySiptracesDownloadDownloadIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/siptraces/download/{downloadId}][%d] getTelephonySiptracesDownloadDownloadIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

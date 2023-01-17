@@ -106,7 +106,8 @@ func NewPatchRecordingsScreensessionBadRequest() *PatchRecordingsScreensessionBa
 	return &PatchRecordingsScreensessionBadRequest{}
 }
 
-/*PatchRecordingsScreensessionBadRequest handles this case with default header values.
+/*
+PatchRecordingsScreensessionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type PatchRecordingsScreensessionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch recordings screensession bad request response has a 2xx status code
+func (o *PatchRecordingsScreensessionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch recordings screensession bad request response has a 3xx status code
+func (o *PatchRecordingsScreensessionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch recordings screensession bad request response has a 4xx status code
+func (o *PatchRecordingsScreensessionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch recordings screensession bad request response has a 5xx status code
+func (o *PatchRecordingsScreensessionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch recordings screensession bad request response a status code equal to that given
+func (o *PatchRecordingsScreensessionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchRecordingsScreensessionBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchRecordingsScreensessionBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewPatchRecordingsScreensessionUnauthorized() *PatchRecordingsScreensession
 	return &PatchRecordingsScreensessionUnauthorized{}
 }
 
-/*PatchRecordingsScreensessionUnauthorized handles this case with default header values.
+/*
+PatchRecordingsScreensessionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type PatchRecordingsScreensessionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch recordings screensession unauthorized response has a 2xx status code
+func (o *PatchRecordingsScreensessionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch recordings screensession unauthorized response has a 3xx status code
+func (o *PatchRecordingsScreensessionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch recordings screensession unauthorized response has a 4xx status code
+func (o *PatchRecordingsScreensessionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch recordings screensession unauthorized response has a 5xx status code
+func (o *PatchRecordingsScreensessionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch recordings screensession unauthorized response a status code equal to that given
+func (o *PatchRecordingsScreensessionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchRecordingsScreensessionUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchRecordingsScreensessionUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewPatchRecordingsScreensessionForbidden() *PatchRecordingsScreensessionFor
 	return &PatchRecordingsScreensessionForbidden{}
 }
 
-/*PatchRecordingsScreensessionForbidden handles this case with default header values.
+/*
+PatchRecordingsScreensessionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type PatchRecordingsScreensessionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch recordings screensession forbidden response has a 2xx status code
+func (o *PatchRecordingsScreensessionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch recordings screensession forbidden response has a 3xx status code
+func (o *PatchRecordingsScreensessionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch recordings screensession forbidden response has a 4xx status code
+func (o *PatchRecordingsScreensessionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch recordings screensession forbidden response has a 5xx status code
+func (o *PatchRecordingsScreensessionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch recordings screensession forbidden response a status code equal to that given
+func (o *PatchRecordingsScreensessionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchRecordingsScreensessionForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchRecordingsScreensessionForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewPatchRecordingsScreensessionNotFound() *PatchRecordingsScreensessionNotF
 	return &PatchRecordingsScreensessionNotFound{}
 }
 
-/*PatchRecordingsScreensessionNotFound handles this case with default header values.
+/*
+PatchRecordingsScreensessionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type PatchRecordingsScreensessionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch recordings screensession not found response has a 2xx status code
+func (o *PatchRecordingsScreensessionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch recordings screensession not found response has a 3xx status code
+func (o *PatchRecordingsScreensessionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch recordings screensession not found response has a 4xx status code
+func (o *PatchRecordingsScreensessionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch recordings screensession not found response has a 5xx status code
+func (o *PatchRecordingsScreensessionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch recordings screensession not found response a status code equal to that given
+func (o *PatchRecordingsScreensessionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchRecordingsScreensessionNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchRecordingsScreensessionNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewPatchRecordingsScreensessionRequestTimeout() *PatchRecordingsScreensessi
 	return &PatchRecordingsScreensessionRequestTimeout{}
 }
 
-/*PatchRecordingsScreensessionRequestTimeout handles this case with default header values.
+/*
+PatchRecordingsScreensessionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type PatchRecordingsScreensessionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch recordings screensession request timeout response has a 2xx status code
+func (o *PatchRecordingsScreensessionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch recordings screensession request timeout response has a 3xx status code
+func (o *PatchRecordingsScreensessionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch recordings screensession request timeout response has a 4xx status code
+func (o *PatchRecordingsScreensessionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch recordings screensession request timeout response has a 5xx status code
+func (o *PatchRecordingsScreensessionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch recordings screensession request timeout response a status code equal to that given
+func (o *PatchRecordingsScreensessionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchRecordingsScreensessionRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchRecordingsScreensessionRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewPatchRecordingsScreensessionRequestEntityTooLarge() *PatchRecordingsScre
 	return &PatchRecordingsScreensessionRequestEntityTooLarge{}
 }
 
-/*PatchRecordingsScreensessionRequestEntityTooLarge handles this case with default header values.
+/*
+PatchRecordingsScreensessionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type PatchRecordingsScreensessionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch recordings screensession request entity too large response has a 2xx status code
+func (o *PatchRecordingsScreensessionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch recordings screensession request entity too large response has a 3xx status code
+func (o *PatchRecordingsScreensessionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch recordings screensession request entity too large response has a 4xx status code
+func (o *PatchRecordingsScreensessionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch recordings screensession request entity too large response has a 5xx status code
+func (o *PatchRecordingsScreensessionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch recordings screensession request entity too large response a status code equal to that given
+func (o *PatchRecordingsScreensessionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchRecordingsScreensessionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchRecordingsScreensessionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewPatchRecordingsScreensessionUnsupportedMediaType() *PatchRecordingsScree
 	return &PatchRecordingsScreensessionUnsupportedMediaType{}
 }
 
-/*PatchRecordingsScreensessionUnsupportedMediaType handles this case with default header values.
+/*
+PatchRecordingsScreensessionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type PatchRecordingsScreensessionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch recordings screensession unsupported media type response has a 2xx status code
+func (o *PatchRecordingsScreensessionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch recordings screensession unsupported media type response has a 3xx status code
+func (o *PatchRecordingsScreensessionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch recordings screensession unsupported media type response has a 4xx status code
+func (o *PatchRecordingsScreensessionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch recordings screensession unsupported media type response has a 5xx status code
+func (o *PatchRecordingsScreensessionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch recordings screensession unsupported media type response a status code equal to that given
+func (o *PatchRecordingsScreensessionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchRecordingsScreensessionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchRecordingsScreensessionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewPatchRecordingsScreensessionTooManyRequests() *PatchRecordingsScreensess
 	return &PatchRecordingsScreensessionTooManyRequests{}
 }
 
-/*PatchRecordingsScreensessionTooManyRequests handles this case with default header values.
+/*
+PatchRecordingsScreensessionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type PatchRecordingsScreensessionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch recordings screensession too many requests response has a 2xx status code
+func (o *PatchRecordingsScreensessionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch recordings screensession too many requests response has a 3xx status code
+func (o *PatchRecordingsScreensessionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch recordings screensession too many requests response has a 4xx status code
+func (o *PatchRecordingsScreensessionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch recordings screensession too many requests response has a 5xx status code
+func (o *PatchRecordingsScreensessionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch recordings screensession too many requests response a status code equal to that given
+func (o *PatchRecordingsScreensessionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchRecordingsScreensessionTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchRecordingsScreensessionTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewPatchRecordingsScreensessionInternalServerError() *PatchRecordingsScreen
 	return &PatchRecordingsScreensessionInternalServerError{}
 }
 
-/*PatchRecordingsScreensessionInternalServerError handles this case with default header values.
+/*
+PatchRecordingsScreensessionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type PatchRecordingsScreensessionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch recordings screensession internal server error response has a 2xx status code
+func (o *PatchRecordingsScreensessionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch recordings screensession internal server error response has a 3xx status code
+func (o *PatchRecordingsScreensessionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch recordings screensession internal server error response has a 4xx status code
+func (o *PatchRecordingsScreensessionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch recordings screensession internal server error response has a 5xx status code
+func (o *PatchRecordingsScreensessionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch recordings screensession internal server error response a status code equal to that given
+func (o *PatchRecordingsScreensessionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchRecordingsScreensessionInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchRecordingsScreensessionInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewPatchRecordingsScreensessionServiceUnavailable() *PatchRecordingsScreens
 	return &PatchRecordingsScreensessionServiceUnavailable{}
 }
 
-/*PatchRecordingsScreensessionServiceUnavailable handles this case with default header values.
+/*
+PatchRecordingsScreensessionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type PatchRecordingsScreensessionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch recordings screensession service unavailable response has a 2xx status code
+func (o *PatchRecordingsScreensessionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch recordings screensession service unavailable response has a 3xx status code
+func (o *PatchRecordingsScreensessionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch recordings screensession service unavailable response has a 4xx status code
+func (o *PatchRecordingsScreensessionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch recordings screensession service unavailable response has a 5xx status code
+func (o *PatchRecordingsScreensessionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch recordings screensession service unavailable response a status code equal to that given
+func (o *PatchRecordingsScreensessionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchRecordingsScreensessionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchRecordingsScreensessionServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewPatchRecordingsScreensessionGatewayTimeout() *PatchRecordingsScreensessi
 	return &PatchRecordingsScreensessionGatewayTimeout{}
 }
 
-/*PatchRecordingsScreensessionGatewayTimeout handles this case with default header values.
+/*
+PatchRecordingsScreensessionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type PatchRecordingsScreensessionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch recordings screensession gateway timeout response has a 2xx status code
+func (o *PatchRecordingsScreensessionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch recordings screensession gateway timeout response has a 3xx status code
+func (o *PatchRecordingsScreensessionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch recordings screensession gateway timeout response has a 4xx status code
+func (o *PatchRecordingsScreensessionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch recordings screensession gateway timeout response has a 5xx status code
+func (o *PatchRecordingsScreensessionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch recordings screensession gateway timeout response a status code equal to that given
+func (o *PatchRecordingsScreensessionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchRecordingsScreensessionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchRecordingsScreensessionGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensessionGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewPatchRecordingsScreensessionDefault(code int) *PatchRecordingsScreensess
 	}
 }
 
-/*PatchRecordingsScreensessionDefault handles this case with default header values.
+/*
+PatchRecordingsScreensessionDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *PatchRecordingsScreensessionDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this patch recordings screensession default response has a 2xx status code
+func (o *PatchRecordingsScreensessionDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this patch recordings screensession default response has a 3xx status code
+func (o *PatchRecordingsScreensessionDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this patch recordings screensession default response has a 4xx status code
+func (o *PatchRecordingsScreensessionDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this patch recordings screensession default response has a 5xx status code
+func (o *PatchRecordingsScreensessionDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this patch recordings screensession default response a status code equal to that given
+func (o *PatchRecordingsScreensessionDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PatchRecordingsScreensessionDefault) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensession default ", o._statusCode)
+}
+
+func (o *PatchRecordingsScreensessionDefault) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/recordings/screensessions/{recordingSessionId}][%d] patchRecordingsScreensession default ", o._statusCode)
 }
 

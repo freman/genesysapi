@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchUsersBulkParams creates a new PatchUsersBulkParams object
-// with the default values initialized.
+// NewPatchUsersBulkParams creates a new PatchUsersBulkParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchUsersBulkParams() *PatchUsersBulkParams {
-	var ()
 	return &PatchUsersBulkParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchUsersBulkParamsWithTimeout creates a new PatchUsersBulkParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchUsersBulkParamsWithTimeout(timeout time.Duration) *PatchUsersBulkParams {
-	var ()
 	return &PatchUsersBulkParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchUsersBulkParamsWithContext creates a new PatchUsersBulkParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchUsersBulkParamsWithContext(ctx context.Context) *PatchUsersBulkParams {
-	var ()
 	return &PatchUsersBulkParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchUsersBulkParamsWithHTTPClient creates a new PatchUsersBulkParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchUsersBulkParamsWithHTTPClient(client *http.Client) *PatchUsersBulkParams {
-	var ()
 	return &PatchUsersBulkParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchUsersBulkParams contains all the parameters to send to the API endpoint
-for the patch users bulk operation typically these are written to a http.Request
+/*
+PatchUsersBulkParams contains all the parameters to send to the API endpoint
+
+	for the patch users bulk operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchUsersBulkParams struct {
 
-	/*Body
-	  Users
+	/* Body.
 
+	   Users
 	*/
 	Body []*models.PatchUser
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch users bulk params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchUsersBulkParams) WithDefaults() *PatchUsersBulkParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch users bulk params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchUsersBulkParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch users bulk params
@@ -124,7 +140,6 @@ func (o *PatchUsersBulkParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

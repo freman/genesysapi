@@ -17,161 +17,169 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetOutboundDnclistsParams creates a new GetOutboundDnclistsParams object
-// with the default values initialized.
+// NewGetOutboundDnclistsParams creates a new GetOutboundDnclistsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundDnclistsParams() *GetOutboundDnclistsParams {
-	var (
-		allowEmptyResultDefault    = bool(false)
-		filterTypeDefault          = string("Prefix")
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-		pageNumberDefault          = int32(1)
-		pageSizeDefault            = int32(25)
-	)
 	return &GetOutboundDnclistsParams{
-		AllowEmptyResult:    &allowEmptyResultDefault,
-		FilterType:          &filterTypeDefault,
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-		PageNumber:          &pageNumberDefault,
-		PageSize:            &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundDnclistsParamsWithTimeout creates a new GetOutboundDnclistsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundDnclistsParamsWithTimeout(timeout time.Duration) *GetOutboundDnclistsParams {
-	var (
-		allowEmptyResultDefault    = bool(false)
-		filterTypeDefault          = string("Prefix")
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-		pageNumberDefault          = int32(1)
-		pageSizeDefault            = int32(25)
-	)
 	return &GetOutboundDnclistsParams{
-		AllowEmptyResult:    &allowEmptyResultDefault,
-		FilterType:          &filterTypeDefault,
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-		PageNumber:          &pageNumberDefault,
-		PageSize:            &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundDnclistsParamsWithContext creates a new GetOutboundDnclistsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundDnclistsParamsWithContext(ctx context.Context) *GetOutboundDnclistsParams {
-	var (
-		allowEmptyResultDefault    = bool(false)
-		filterTypeDefault          = string("Prefix")
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-		pageNumberDefault          = int32(1)
-		pageSizeDefault            = int32(25)
-	)
 	return &GetOutboundDnclistsParams{
-		AllowEmptyResult:    &allowEmptyResultDefault,
-		FilterType:          &filterTypeDefault,
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-		PageNumber:          &pageNumberDefault,
-		PageSize:            &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundDnclistsParamsWithHTTPClient creates a new GetOutboundDnclistsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundDnclistsParamsWithHTTPClient(client *http.Client) *GetOutboundDnclistsParams {
-	var (
-		allowEmptyResultDefault    = bool(false)
-		filterTypeDefault          = string("Prefix")
-		includeImportStatusDefault = bool(false)
-		includeSizeDefault         = bool(false)
-		pageNumberDefault          = int32(1)
-		pageSizeDefault            = int32(25)
-	)
 	return &GetOutboundDnclistsParams{
-		AllowEmptyResult:    &allowEmptyResultDefault,
-		FilterType:          &filterTypeDefault,
-		IncludeImportStatus: &includeImportStatusDefault,
-		IncludeSize:         &includeSizeDefault,
-		PageNumber:          &pageNumberDefault,
-		PageSize:            &pageSizeDefault,
-		HTTPClient:          client,
+		HTTPClient: client,
 	}
 }
 
-/*GetOutboundDnclistsParams contains all the parameters to send to the API endpoint
-for the get outbound dnclists operation typically these are written to a http.Request
+/*
+GetOutboundDnclistsParams contains all the parameters to send to the API endpoint
+
+	for the get outbound dnclists operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundDnclistsParams struct {
 
-	/*AllowEmptyResult
-	  Whether to return an empty page when there are no results for that page
+	/* AllowEmptyResult.
 
+	   Whether to return an empty page when there are no results for that page
 	*/
 	AllowEmptyResult *bool
-	/*DivisionID
-	  Division ID(s)
 
+	/* DivisionID.
+
+	   Division ID(s)
 	*/
 	DivisionID []string
-	/*DncSourceType
-	  DncSourceType
 
+	/* DncSourceType.
+
+	   DncSourceType
 	*/
 	DncSourceType *string
-	/*FilterType
-	  Filter type
 
+	/* FilterType.
+
+	   Filter type
+
+	   Default: "Prefix"
 	*/
 	FilterType *string
-	/*IncludeImportStatus
-	  Import status
 
+	/* IncludeImportStatus.
+
+	   Import status
 	*/
 	IncludeImportStatus *bool
-	/*IncludeSize
-	  Include size
 
+	/* IncludeSize.
+
+	   Include size
 	*/
 	IncludeSize *bool
-	/*Name
-	  Name
 
+	/* Name.
+
+	   Name
 	*/
 	Name *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size. The max that will be returned is 100.
 
+	/* PageSize.
+
+	   Page size. The max that will be returned is 100.
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound dnclists params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundDnclistsParams) WithDefaults() *GetOutboundDnclistsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound dnclists params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundDnclistsParams) SetDefaults() {
+	var (
+		allowEmptyResultDefault = bool(false)
+
+		filterTypeDefault = string("Prefix")
+
+		includeImportStatusDefault = bool(false)
+
+		includeSizeDefault = bool(false)
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetOutboundDnclistsParams{
+		AllowEmptyResult:    &allowEmptyResultDefault,
+		FilterType:          &filterTypeDefault,
+		IncludeImportStatus: &includeImportStatusDefault,
+		IncludeSize:         &includeSizeDefault,
+		PageNumber:          &pageNumberDefault,
+		PageSize:            &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get outbound dnclists params
@@ -340,172 +348,202 @@ func (o *GetOutboundDnclistsParams) WriteToRequest(r runtime.ClientRequest, reg 
 
 		// query param allowEmptyResult
 		var qrAllowEmptyResult bool
+
 		if o.AllowEmptyResult != nil {
 			qrAllowEmptyResult = *o.AllowEmptyResult
 		}
 		qAllowEmptyResult := swag.FormatBool(qrAllowEmptyResult)
 		if qAllowEmptyResult != "" {
+
 			if err := r.SetQueryParam("allowEmptyResult", qAllowEmptyResult); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesDivisionID := o.DivisionID
+	if o.DivisionID != nil {
 
-	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
-	// query array param divisionId
-	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
-		return err
+		// binding items for divisionId
+		joinedDivisionID := o.bindParamDivisionID(reg)
+
+		// query array param divisionId
+		if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+			return err
+		}
 	}
 
 	if o.DncSourceType != nil {
 
 		// query param dncSourceType
 		var qrDncSourceType string
+
 		if o.DncSourceType != nil {
 			qrDncSourceType = *o.DncSourceType
 		}
 		qDncSourceType := qrDncSourceType
 		if qDncSourceType != "" {
+
 			if err := r.SetQueryParam("dncSourceType", qDncSourceType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.FilterType != nil {
 
 		// query param filterType
 		var qrFilterType string
+
 		if o.FilterType != nil {
 			qrFilterType = *o.FilterType
 		}
 		qFilterType := qrFilterType
 		if qFilterType != "" {
+
 			if err := r.SetQueryParam("filterType", qFilterType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeImportStatus != nil {
 
 		// query param includeImportStatus
 		var qrIncludeImportStatus bool
+
 		if o.IncludeImportStatus != nil {
 			qrIncludeImportStatus = *o.IncludeImportStatus
 		}
 		qIncludeImportStatus := swag.FormatBool(qrIncludeImportStatus)
 		if qIncludeImportStatus != "" {
+
 			if err := r.SetQueryParam("includeImportStatus", qIncludeImportStatus); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.IncludeSize != nil {
 
 		// query param includeSize
 		var qrIncludeSize bool
+
 		if o.IncludeSize != nil {
 			qrIncludeSize = *o.IncludeSize
 		}
 		qIncludeSize := swag.FormatBool(qrIncludeSize)
 		if qIncludeSize != "" {
+
 			if err := r.SetQueryParam("includeSize", qIncludeSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetOutboundDnclists binds the parameter divisionId
+func (o *GetOutboundDnclistsParams) bindParamDivisionID(formats strfmt.Registry) []string {
+	divisionIDIR := o.DivisionID
+
+	var divisionIDIC []string
+	for _, divisionIDIIR := range divisionIDIR { // explode []string
+
+		divisionIDIIV := divisionIDIIR // string as string
+		divisionIDIC = append(divisionIDIC, divisionIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	divisionIDIS := swag.JoinByFormat(divisionIDIC, "multi")
+
+	return divisionIDIS
 }

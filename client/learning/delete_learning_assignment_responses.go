@@ -101,7 +101,6 @@ func (o *DeleteLearningAssignmentReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteLearningAssignmentNoContent() *DeleteLearningAssignmentNoContent {
 	return &DeleteLearningAssignmentNoContent{}
 }
 
-/*DeleteLearningAssignmentNoContent handles this case with default header values.
+/*
+DeleteLearningAssignmentNoContent describes a response with status code 204, with default header values.
 
 The learning assignment was deleted successfully
 */
 type DeleteLearningAssignmentNoContent struct {
 }
 
+// IsSuccess returns true when this delete learning assignment no content response has a 2xx status code
+func (o *DeleteLearningAssignmentNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete learning assignment no content response has a 3xx status code
+func (o *DeleteLearningAssignmentNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment no content response has a 4xx status code
+func (o *DeleteLearningAssignmentNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete learning assignment no content response has a 5xx status code
+func (o *DeleteLearningAssignmentNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete learning assignment no content response a status code equal to that given
+func (o *DeleteLearningAssignmentNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteLearningAssignmentNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentNoContent ", 204)
+}
+
+func (o *DeleteLearningAssignmentNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentNoContent ", 204)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteLearningAssignmentBadRequest() *DeleteLearningAssignmentBadRequest
 	return &DeleteLearningAssignmentBadRequest{}
 }
 
-/*DeleteLearningAssignmentBadRequest handles this case with default header values.
+/*
+DeleteLearningAssignmentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteLearningAssignmentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete learning assignment bad request response has a 2xx status code
+func (o *DeleteLearningAssignmentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete learning assignment bad request response has a 3xx status code
+func (o *DeleteLearningAssignmentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment bad request response has a 4xx status code
+func (o *DeleteLearningAssignmentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete learning assignment bad request response has a 5xx status code
+func (o *DeleteLearningAssignmentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete learning assignment bad request response a status code equal to that given
+func (o *DeleteLearningAssignmentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteLearningAssignmentBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteLearningAssignmentBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteLearningAssignmentUnauthorized() *DeleteLearningAssignmentUnauthor
 	return &DeleteLearningAssignmentUnauthorized{}
 }
 
-/*DeleteLearningAssignmentUnauthorized handles this case with default header values.
+/*
+DeleteLearningAssignmentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteLearningAssignmentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete learning assignment unauthorized response has a 2xx status code
+func (o *DeleteLearningAssignmentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete learning assignment unauthorized response has a 3xx status code
+func (o *DeleteLearningAssignmentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment unauthorized response has a 4xx status code
+func (o *DeleteLearningAssignmentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete learning assignment unauthorized response has a 5xx status code
+func (o *DeleteLearningAssignmentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete learning assignment unauthorized response a status code equal to that given
+func (o *DeleteLearningAssignmentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteLearningAssignmentUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteLearningAssignmentUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteLearningAssignmentForbidden() *DeleteLearningAssignmentForbidden {
 	return &DeleteLearningAssignmentForbidden{}
 }
 
-/*DeleteLearningAssignmentForbidden handles this case with default header values.
+/*
+DeleteLearningAssignmentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteLearningAssignmentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete learning assignment forbidden response has a 2xx status code
+func (o *DeleteLearningAssignmentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete learning assignment forbidden response has a 3xx status code
+func (o *DeleteLearningAssignmentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment forbidden response has a 4xx status code
+func (o *DeleteLearningAssignmentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete learning assignment forbidden response has a 5xx status code
+func (o *DeleteLearningAssignmentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete learning assignment forbidden response a status code equal to that given
+func (o *DeleteLearningAssignmentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteLearningAssignmentForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteLearningAssignmentForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteLearningAssignmentNotFound() *DeleteLearningAssignmentNotFound {
 	return &DeleteLearningAssignmentNotFound{}
 }
 
-/*DeleteLearningAssignmentNotFound handles this case with default header values.
+/*
+DeleteLearningAssignmentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteLearningAssignmentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete learning assignment not found response has a 2xx status code
+func (o *DeleteLearningAssignmentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete learning assignment not found response has a 3xx status code
+func (o *DeleteLearningAssignmentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment not found response has a 4xx status code
+func (o *DeleteLearningAssignmentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete learning assignment not found response has a 5xx status code
+func (o *DeleteLearningAssignmentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete learning assignment not found response a status code equal to that given
+func (o *DeleteLearningAssignmentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteLearningAssignmentNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteLearningAssignmentNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteLearningAssignmentRequestTimeout() *DeleteLearningAssignmentReques
 	return &DeleteLearningAssignmentRequestTimeout{}
 }
 
-/*DeleteLearningAssignmentRequestTimeout handles this case with default header values.
+/*
+DeleteLearningAssignmentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteLearningAssignmentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete learning assignment request timeout response has a 2xx status code
+func (o *DeleteLearningAssignmentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete learning assignment request timeout response has a 3xx status code
+func (o *DeleteLearningAssignmentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment request timeout response has a 4xx status code
+func (o *DeleteLearningAssignmentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete learning assignment request timeout response has a 5xx status code
+func (o *DeleteLearningAssignmentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete learning assignment request timeout response a status code equal to that given
+func (o *DeleteLearningAssignmentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteLearningAssignmentRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteLearningAssignmentRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteLearningAssignmentConflict() *DeleteLearningAssignmentConflict {
 	return &DeleteLearningAssignmentConflict{}
 }
 
-/*DeleteLearningAssignmentConflict handles this case with default header values.
+/*
+DeleteLearningAssignmentConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeleteLearningAssignmentConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete learning assignment conflict response has a 2xx status code
+func (o *DeleteLearningAssignmentConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete learning assignment conflict response has a 3xx status code
+func (o *DeleteLearningAssignmentConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment conflict response has a 4xx status code
+func (o *DeleteLearningAssignmentConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete learning assignment conflict response has a 5xx status code
+func (o *DeleteLearningAssignmentConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete learning assignment conflict response a status code equal to that given
+func (o *DeleteLearningAssignmentConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteLearningAssignmentConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteLearningAssignmentConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteLearningAssignmentRequestEntityTooLarge() *DeleteLearningAssignmen
 	return &DeleteLearningAssignmentRequestEntityTooLarge{}
 }
 
-/*DeleteLearningAssignmentRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteLearningAssignmentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteLearningAssignmentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete learning assignment request entity too large response has a 2xx status code
+func (o *DeleteLearningAssignmentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete learning assignment request entity too large response has a 3xx status code
+func (o *DeleteLearningAssignmentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment request entity too large response has a 4xx status code
+func (o *DeleteLearningAssignmentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete learning assignment request entity too large response has a 5xx status code
+func (o *DeleteLearningAssignmentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete learning assignment request entity too large response a status code equal to that given
+func (o *DeleteLearningAssignmentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteLearningAssignmentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteLearningAssignmentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteLearningAssignmentUnsupportedMediaType() *DeleteLearningAssignment
 	return &DeleteLearningAssignmentUnsupportedMediaType{}
 }
 
-/*DeleteLearningAssignmentUnsupportedMediaType handles this case with default header values.
+/*
+DeleteLearningAssignmentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteLearningAssignmentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete learning assignment unsupported media type response has a 2xx status code
+func (o *DeleteLearningAssignmentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete learning assignment unsupported media type response has a 3xx status code
+func (o *DeleteLearningAssignmentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment unsupported media type response has a 4xx status code
+func (o *DeleteLearningAssignmentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete learning assignment unsupported media type response has a 5xx status code
+func (o *DeleteLearningAssignmentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete learning assignment unsupported media type response a status code equal to that given
+func (o *DeleteLearningAssignmentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteLearningAssignmentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteLearningAssignmentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteLearningAssignmentTooManyRequests() *DeleteLearningAssignmentTooMa
 	return &DeleteLearningAssignmentTooManyRequests{}
 }
 
-/*DeleteLearningAssignmentTooManyRequests handles this case with default header values.
+/*
+DeleteLearningAssignmentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteLearningAssignmentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete learning assignment too many requests response has a 2xx status code
+func (o *DeleteLearningAssignmentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete learning assignment too many requests response has a 3xx status code
+func (o *DeleteLearningAssignmentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment too many requests response has a 4xx status code
+func (o *DeleteLearningAssignmentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete learning assignment too many requests response has a 5xx status code
+func (o *DeleteLearningAssignmentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete learning assignment too many requests response a status code equal to that given
+func (o *DeleteLearningAssignmentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteLearningAssignmentTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteLearningAssignmentTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteLearningAssignmentInternalServerError() *DeleteLearningAssignmentI
 	return &DeleteLearningAssignmentInternalServerError{}
 }
 
-/*DeleteLearningAssignmentInternalServerError handles this case with default header values.
+/*
+DeleteLearningAssignmentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteLearningAssignmentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete learning assignment internal server error response has a 2xx status code
+func (o *DeleteLearningAssignmentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete learning assignment internal server error response has a 3xx status code
+func (o *DeleteLearningAssignmentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment internal server error response has a 4xx status code
+func (o *DeleteLearningAssignmentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete learning assignment internal server error response has a 5xx status code
+func (o *DeleteLearningAssignmentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete learning assignment internal server error response a status code equal to that given
+func (o *DeleteLearningAssignmentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteLearningAssignmentInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteLearningAssignmentInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteLearningAssignmentServiceUnavailable() *DeleteLearningAssignmentSe
 	return &DeleteLearningAssignmentServiceUnavailable{}
 }
 
-/*DeleteLearningAssignmentServiceUnavailable handles this case with default header values.
+/*
+DeleteLearningAssignmentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteLearningAssignmentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete learning assignment service unavailable response has a 2xx status code
+func (o *DeleteLearningAssignmentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete learning assignment service unavailable response has a 3xx status code
+func (o *DeleteLearningAssignmentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment service unavailable response has a 4xx status code
+func (o *DeleteLearningAssignmentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete learning assignment service unavailable response has a 5xx status code
+func (o *DeleteLearningAssignmentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete learning assignment service unavailable response a status code equal to that given
+func (o *DeleteLearningAssignmentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteLearningAssignmentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteLearningAssignmentServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteLearningAssignmentGatewayTimeout() *DeleteLearningAssignmentGatewa
 	return &DeleteLearningAssignmentGatewayTimeout{}
 }
 
-/*DeleteLearningAssignmentGatewayTimeout handles this case with default header values.
+/*
+DeleteLearningAssignmentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteLearningAssignmentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete learning assignment gateway timeout response has a 2xx status code
+func (o *DeleteLearningAssignmentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete learning assignment gateway timeout response has a 3xx status code
+func (o *DeleteLearningAssignmentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete learning assignment gateway timeout response has a 4xx status code
+func (o *DeleteLearningAssignmentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete learning assignment gateway timeout response has a 5xx status code
+func (o *DeleteLearningAssignmentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete learning assignment gateway timeout response a status code equal to that given
+func (o *DeleteLearningAssignmentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteLearningAssignmentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteLearningAssignmentGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/learning/assignments/{assignmentId}][%d] deleteLearningAssignmentGatewayTimeout  %+v", 504, o.Payload)
 }
 

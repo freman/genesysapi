@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOutboundCallabletimesetParams creates a new PutOutboundCallabletimesetParams object
-// with the default values initialized.
+// NewPutOutboundCallabletimesetParams creates a new PutOutboundCallabletimesetParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOutboundCallabletimesetParams() *PutOutboundCallabletimesetParams {
-	var ()
 	return &PutOutboundCallabletimesetParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOutboundCallabletimesetParamsWithTimeout creates a new PutOutboundCallabletimesetParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOutboundCallabletimesetParamsWithTimeout(timeout time.Duration) *PutOutboundCallabletimesetParams {
-	var ()
 	return &PutOutboundCallabletimesetParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOutboundCallabletimesetParamsWithContext creates a new PutOutboundCallabletimesetParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOutboundCallabletimesetParamsWithContext(ctx context.Context) *PutOutboundCallabletimesetParams {
-	var ()
 	return &PutOutboundCallabletimesetParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOutboundCallabletimesetParamsWithHTTPClient creates a new PutOutboundCallabletimesetParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOutboundCallabletimesetParamsWithHTTPClient(client *http.Client) *PutOutboundCallabletimesetParams {
-	var ()
 	return &PutOutboundCallabletimesetParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOutboundCallabletimesetParams contains all the parameters to send to the API endpoint
-for the put outbound callabletimeset operation typically these are written to a http.Request
+/*
+PutOutboundCallabletimesetParams contains all the parameters to send to the API endpoint
+
+	for the put outbound callabletimeset operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOutboundCallabletimesetParams struct {
 
-	/*Body
-	  DialerCallableTimeSet
+	/* Body.
 
+	   DialerCallableTimeSet
 	*/
 	Body *models.CallableTimeSet
-	/*CallableTimeSetID
-	  Callable Time Set ID
 
+	/* CallableTimeSetID.
+
+	   Callable Time Set ID
 	*/
 	CallableTimeSetID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put outbound callabletimeset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundCallabletimesetParams) WithDefaults() *PutOutboundCallabletimesetParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put outbound callabletimeset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundCallabletimesetParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put outbound callabletimeset params
@@ -140,7 +157,6 @@ func (o *PutOutboundCallabletimesetParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

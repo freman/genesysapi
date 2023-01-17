@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -21,6 +23,11 @@ type ForecastAbandonRateResponse struct {
 
 // Validate validates this forecast abandon rate response
 func (m *ForecastAbandonRateResponse) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this forecast abandon rate response based on context it is used
+func (m *ForecastAbandonRateResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

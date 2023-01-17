@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutFlowsMilestoneParams creates a new PutFlowsMilestoneParams object
-// with the default values initialized.
+// NewPutFlowsMilestoneParams creates a new PutFlowsMilestoneParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutFlowsMilestoneParams() *PutFlowsMilestoneParams {
-	var ()
 	return &PutFlowsMilestoneParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutFlowsMilestoneParamsWithTimeout creates a new PutFlowsMilestoneParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutFlowsMilestoneParamsWithTimeout(timeout time.Duration) *PutFlowsMilestoneParams {
-	var ()
 	return &PutFlowsMilestoneParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutFlowsMilestoneParamsWithContext creates a new PutFlowsMilestoneParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutFlowsMilestoneParamsWithContext(ctx context.Context) *PutFlowsMilestoneParams {
-	var ()
 	return &PutFlowsMilestoneParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutFlowsMilestoneParamsWithHTTPClient creates a new PutFlowsMilestoneParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutFlowsMilestoneParamsWithHTTPClient(client *http.Client) *PutFlowsMilestoneParams {
-	var ()
 	return &PutFlowsMilestoneParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutFlowsMilestoneParams contains all the parameters to send to the API endpoint
-for the put flows milestone operation typically these are written to a http.Request
+/*
+PutFlowsMilestoneParams contains all the parameters to send to the API endpoint
+
+	for the put flows milestone operation.
+
+	Typically these are written to a http.Request.
 */
 type PutFlowsMilestoneParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.FlowMilestone
-	/*MilestoneID
-	  flow milestone ID
 
+	/* MilestoneID.
+
+	   flow milestone ID
 	*/
 	MilestoneID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put flows milestone params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutFlowsMilestoneParams) WithDefaults() *PutFlowsMilestoneParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put flows milestone params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutFlowsMilestoneParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put flows milestone params
@@ -137,7 +154,6 @@ func (o *PutFlowsMilestoneParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

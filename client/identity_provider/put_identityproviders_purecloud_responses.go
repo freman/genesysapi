@@ -95,7 +95,6 @@ func (o *PutIdentityprovidersPurecloudReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutIdentityprovidersPurecloudOK() *PutIdentityprovidersPurecloudOK {
 	return &PutIdentityprovidersPurecloudOK{}
 }
 
-/*PutIdentityprovidersPurecloudOK handles this case with default header values.
+/*
+PutIdentityprovidersPurecloudOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutIdentityprovidersPurecloudOK struct {
 	Payload *models.OAuthProvider
 }
 
+// IsSuccess returns true when this put identityproviders purecloud o k response has a 2xx status code
+func (o *PutIdentityprovidersPurecloudOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put identityproviders purecloud o k response has a 3xx status code
+func (o *PutIdentityprovidersPurecloudOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders purecloud o k response has a 4xx status code
+func (o *PutIdentityprovidersPurecloudOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders purecloud o k response has a 5xx status code
+func (o *PutIdentityprovidersPurecloudOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders purecloud o k response a status code equal to that given
+func (o *PutIdentityprovidersPurecloudOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutIdentityprovidersPurecloudOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudOK  %+v", 200, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutIdentityprovidersPurecloudBadRequest() *PutIdentityprovidersPurecloud
 	return &PutIdentityprovidersPurecloudBadRequest{}
 }
 
-/*PutIdentityprovidersPurecloudBadRequest handles this case with default header values.
+/*
+PutIdentityprovidersPurecloudBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutIdentityprovidersPurecloudBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders purecloud bad request response has a 2xx status code
+func (o *PutIdentityprovidersPurecloudBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders purecloud bad request response has a 3xx status code
+func (o *PutIdentityprovidersPurecloudBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders purecloud bad request response has a 4xx status code
+func (o *PutIdentityprovidersPurecloudBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders purecloud bad request response has a 5xx status code
+func (o *PutIdentityprovidersPurecloudBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders purecloud bad request response a status code equal to that given
+func (o *PutIdentityprovidersPurecloudBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutIdentityprovidersPurecloudBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutIdentityprovidersPurecloudUnauthorized() *PutIdentityprovidersPureclo
 	return &PutIdentityprovidersPurecloudUnauthorized{}
 }
 
-/*PutIdentityprovidersPurecloudUnauthorized handles this case with default header values.
+/*
+PutIdentityprovidersPurecloudUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutIdentityprovidersPurecloudUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders purecloud unauthorized response has a 2xx status code
+func (o *PutIdentityprovidersPurecloudUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders purecloud unauthorized response has a 3xx status code
+func (o *PutIdentityprovidersPurecloudUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders purecloud unauthorized response has a 4xx status code
+func (o *PutIdentityprovidersPurecloudUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders purecloud unauthorized response has a 5xx status code
+func (o *PutIdentityprovidersPurecloudUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders purecloud unauthorized response a status code equal to that given
+func (o *PutIdentityprovidersPurecloudUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutIdentityprovidersPurecloudUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutIdentityprovidersPurecloudForbidden() *PutIdentityprovidersPurecloudF
 	return &PutIdentityprovidersPurecloudForbidden{}
 }
 
-/*PutIdentityprovidersPurecloudForbidden handles this case with default header values.
+/*
+PutIdentityprovidersPurecloudForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutIdentityprovidersPurecloudForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders purecloud forbidden response has a 2xx status code
+func (o *PutIdentityprovidersPurecloudForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders purecloud forbidden response has a 3xx status code
+func (o *PutIdentityprovidersPurecloudForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders purecloud forbidden response has a 4xx status code
+func (o *PutIdentityprovidersPurecloudForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders purecloud forbidden response has a 5xx status code
+func (o *PutIdentityprovidersPurecloudForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders purecloud forbidden response a status code equal to that given
+func (o *PutIdentityprovidersPurecloudForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutIdentityprovidersPurecloudForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutIdentityprovidersPurecloudNotFound() *PutIdentityprovidersPurecloudNo
 	return &PutIdentityprovidersPurecloudNotFound{}
 }
 
-/*PutIdentityprovidersPurecloudNotFound handles this case with default header values.
+/*
+PutIdentityprovidersPurecloudNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutIdentityprovidersPurecloudNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders purecloud not found response has a 2xx status code
+func (o *PutIdentityprovidersPurecloudNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders purecloud not found response has a 3xx status code
+func (o *PutIdentityprovidersPurecloudNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders purecloud not found response has a 4xx status code
+func (o *PutIdentityprovidersPurecloudNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders purecloud not found response has a 5xx status code
+func (o *PutIdentityprovidersPurecloudNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders purecloud not found response a status code equal to that given
+func (o *PutIdentityprovidersPurecloudNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutIdentityprovidersPurecloudNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutIdentityprovidersPurecloudRequestTimeout() *PutIdentityprovidersPurec
 	return &PutIdentityprovidersPurecloudRequestTimeout{}
 }
 
-/*PutIdentityprovidersPurecloudRequestTimeout handles this case with default header values.
+/*
+PutIdentityprovidersPurecloudRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutIdentityprovidersPurecloudRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders purecloud request timeout response has a 2xx status code
+func (o *PutIdentityprovidersPurecloudRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders purecloud request timeout response has a 3xx status code
+func (o *PutIdentityprovidersPurecloudRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders purecloud request timeout response has a 4xx status code
+func (o *PutIdentityprovidersPurecloudRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders purecloud request timeout response has a 5xx status code
+func (o *PutIdentityprovidersPurecloudRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders purecloud request timeout response a status code equal to that given
+func (o *PutIdentityprovidersPurecloudRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutIdentityprovidersPurecloudRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutIdentityprovidersPurecloudRequestEntityTooLarge() *PutIdentityprovide
 	return &PutIdentityprovidersPurecloudRequestEntityTooLarge{}
 }
 
-/*PutIdentityprovidersPurecloudRequestEntityTooLarge handles this case with default header values.
+/*
+PutIdentityprovidersPurecloudRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutIdentityprovidersPurecloudRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders purecloud request entity too large response has a 2xx status code
+func (o *PutIdentityprovidersPurecloudRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders purecloud request entity too large response has a 3xx status code
+func (o *PutIdentityprovidersPurecloudRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders purecloud request entity too large response has a 4xx status code
+func (o *PutIdentityprovidersPurecloudRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders purecloud request entity too large response has a 5xx status code
+func (o *PutIdentityprovidersPurecloudRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders purecloud request entity too large response a status code equal to that given
+func (o *PutIdentityprovidersPurecloudRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutIdentityprovidersPurecloudRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutIdentityprovidersPurecloudUnsupportedMediaType() *PutIdentityprovider
 	return &PutIdentityprovidersPurecloudUnsupportedMediaType{}
 }
 
-/*PutIdentityprovidersPurecloudUnsupportedMediaType handles this case with default header values.
+/*
+PutIdentityprovidersPurecloudUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutIdentityprovidersPurecloudUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders purecloud unsupported media type response has a 2xx status code
+func (o *PutIdentityprovidersPurecloudUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders purecloud unsupported media type response has a 3xx status code
+func (o *PutIdentityprovidersPurecloudUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders purecloud unsupported media type response has a 4xx status code
+func (o *PutIdentityprovidersPurecloudUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders purecloud unsupported media type response has a 5xx status code
+func (o *PutIdentityprovidersPurecloudUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders purecloud unsupported media type response a status code equal to that given
+func (o *PutIdentityprovidersPurecloudUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutIdentityprovidersPurecloudUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutIdentityprovidersPurecloudTooManyRequests() *PutIdentityprovidersPure
 	return &PutIdentityprovidersPurecloudTooManyRequests{}
 }
 
-/*PutIdentityprovidersPurecloudTooManyRequests handles this case with default header values.
+/*
+PutIdentityprovidersPurecloudTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutIdentityprovidersPurecloudTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders purecloud too many requests response has a 2xx status code
+func (o *PutIdentityprovidersPurecloudTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders purecloud too many requests response has a 3xx status code
+func (o *PutIdentityprovidersPurecloudTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders purecloud too many requests response has a 4xx status code
+func (o *PutIdentityprovidersPurecloudTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders purecloud too many requests response has a 5xx status code
+func (o *PutIdentityprovidersPurecloudTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders purecloud too many requests response a status code equal to that given
+func (o *PutIdentityprovidersPurecloudTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutIdentityprovidersPurecloudTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutIdentityprovidersPurecloudInternalServerError() *PutIdentityproviders
 	return &PutIdentityprovidersPurecloudInternalServerError{}
 }
 
-/*PutIdentityprovidersPurecloudInternalServerError handles this case with default header values.
+/*
+PutIdentityprovidersPurecloudInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutIdentityprovidersPurecloudInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders purecloud internal server error response has a 2xx status code
+func (o *PutIdentityprovidersPurecloudInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders purecloud internal server error response has a 3xx status code
+func (o *PutIdentityprovidersPurecloudInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders purecloud internal server error response has a 4xx status code
+func (o *PutIdentityprovidersPurecloudInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders purecloud internal server error response has a 5xx status code
+func (o *PutIdentityprovidersPurecloudInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders purecloud internal server error response a status code equal to that given
+func (o *PutIdentityprovidersPurecloudInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutIdentityprovidersPurecloudInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutIdentityprovidersPurecloudServiceUnavailable() *PutIdentityprovidersP
 	return &PutIdentityprovidersPurecloudServiceUnavailable{}
 }
 
-/*PutIdentityprovidersPurecloudServiceUnavailable handles this case with default header values.
+/*
+PutIdentityprovidersPurecloudServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutIdentityprovidersPurecloudServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders purecloud service unavailable response has a 2xx status code
+func (o *PutIdentityprovidersPurecloudServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders purecloud service unavailable response has a 3xx status code
+func (o *PutIdentityprovidersPurecloudServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders purecloud service unavailable response has a 4xx status code
+func (o *PutIdentityprovidersPurecloudServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders purecloud service unavailable response has a 5xx status code
+func (o *PutIdentityprovidersPurecloudServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders purecloud service unavailable response a status code equal to that given
+func (o *PutIdentityprovidersPurecloudServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutIdentityprovidersPurecloudServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutIdentityprovidersPurecloudGatewayTimeout() *PutIdentityprovidersPurec
 	return &PutIdentityprovidersPurecloudGatewayTimeout{}
 }
 
-/*PutIdentityprovidersPurecloudGatewayTimeout handles this case with default header values.
+/*
+PutIdentityprovidersPurecloudGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutIdentityprovidersPurecloudGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders purecloud gateway timeout response has a 2xx status code
+func (o *PutIdentityprovidersPurecloudGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders purecloud gateway timeout response has a 3xx status code
+func (o *PutIdentityprovidersPurecloudGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders purecloud gateway timeout response has a 4xx status code
+func (o *PutIdentityprovidersPurecloudGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders purecloud gateway timeout response has a 5xx status code
+func (o *PutIdentityprovidersPurecloudGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders purecloud gateway timeout response a status code equal to that given
+func (o *PutIdentityprovidersPurecloudGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutIdentityprovidersPurecloudGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutIdentityprovidersPurecloudGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/purecloud][%d] putIdentityprovidersPurecloudGatewayTimeout  %+v", 504, o.Payload)
 }
 

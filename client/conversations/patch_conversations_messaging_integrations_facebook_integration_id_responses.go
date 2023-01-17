@@ -95,7 +95,6 @@ func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDReader) Rea
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDOK() *PatchC
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK{}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK struct {
 	Payload *models.FacebookIntegration
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations facebook integration Id o k response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations facebook integration Id o k response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations facebook integration Id o k response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations messaging integrations facebook integration Id o k response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations facebook integration Id o k response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDBadRequest()
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDBadRequest{}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDBadRequest handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchConversationsMessagingIntegrationsFacebookIntegrationIDBadRequest stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations facebook integration Id bad request response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations facebook integration Id bad request response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations facebook integration Id bad request response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations facebook integration Id bad request response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations facebook integration Id bad request response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDUnauthorized
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnauthorized{}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnauthorized handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnauthorized st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations facebook integration Id unauthorized response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations facebook integration Id unauthorized response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations facebook integration Id unauthorized response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations facebook integration Id unauthorized response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations facebook integration Id unauthorized response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDForbidden() 
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDForbidden{}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDForbidden handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchConversationsMessagingIntegrationsFacebookIntegrationIDForbidden struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations facebook integration Id forbidden response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations facebook integration Id forbidden response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations facebook integration Id forbidden response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations facebook integration Id forbidden response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations facebook integration Id forbidden response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDNotFound() *
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDNotFound{}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDNotFound handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchConversationsMessagingIntegrationsFacebookIntegrationIDNotFound struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations facebook integration Id not found response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations facebook integration Id not found response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations facebook integration Id not found response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations facebook integration Id not found response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations facebook integration Id not found response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestTimeo
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestTimeout{}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestTimeout handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestTimeout 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations facebook integration Id request timeout response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations facebook integration Id request timeout response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations facebook integration Id request timeout response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations facebook integration Id request timeout response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations facebook integration Id request timeout response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestEntit
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestEntityTooLarge{}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestEntityTooLarge handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestEntityTo
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations facebook integration Id request entity too large response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations facebook integration Id request entity too large response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations facebook integration Id request entity too large response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations facebook integration Id request entity too large response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations facebook integration Id request entity too large response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDUnsupportedM
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnsupportedMediaType{}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnsupportedMediaType handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnsupportedMedi
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations facebook integration Id unsupported media type response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations facebook integration Id unsupported media type response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations facebook integration Id unsupported media type response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations facebook integration Id unsupported media type response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations facebook integration Id unsupported media type response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDTooManyReque
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDTooManyRequests{}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDTooManyRequests handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchConversationsMessagingIntegrationsFacebookIntegrationIDTooManyRequests
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations facebook integration Id too many requests response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations facebook integration Id too many requests response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations facebook integration Id too many requests response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations facebook integration Id too many requests response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations facebook integration Id too many requests response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDInternalServ
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDInternalServerError{}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDInternalServerError handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchConversationsMessagingIntegrationsFacebookIntegrationIDInternalServerE
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations facebook integration Id internal server error response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations facebook integration Id internal server error response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations facebook integration Id internal server error response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations messaging integrations facebook integration Id internal server error response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations messaging integrations facebook integration Id internal server error response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDServiceUnava
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDServiceUnavailable{}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDServiceUnavailable handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchConversationsMessagingIntegrationsFacebookIntegrationIDServiceUnavaila
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations facebook integration Id service unavailable response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations facebook integration Id service unavailable response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations facebook integration Id service unavailable response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations messaging integrations facebook integration Id service unavailable response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations messaging integrations facebook integration Id service unavailable response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchConversationsMessagingIntegrationsFacebookIntegrationIDGatewayTimeo
 	return &PatchConversationsMessagingIntegrationsFacebookIntegrationIDGatewayTimeout{}
 }
 
-/*PatchConversationsMessagingIntegrationsFacebookIntegrationIDGatewayTimeout handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsFacebookIntegrationIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchConversationsMessagingIntegrationsFacebookIntegrationIDGatewayTimeout 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations facebook integration Id gateway timeout response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations facebook integration Id gateway timeout response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations facebook integration Id gateway timeout response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations messaging integrations facebook integration Id gateway timeout response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations messaging integrations facebook integration Id gateway timeout response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsFacebookIntegrationIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/facebook/{integrationId}][%d] patchConversationsMessagingIntegrationsFacebookIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,9 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // DetectedNamedEntity detected named entity
@@ -48,7 +51,6 @@ func (m *DetectedNamedEntity) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DetectedNamedEntity) validateValue(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Value) { // not required
 		return nil
 	}
@@ -57,6 +59,77 @@ func (m *DetectedNamedEntity) validateValue(formats strfmt.Registry) error {
 		if err := m.Value.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("value")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("value")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this detected named entity based on the context it is used
+func (m *DetectedNamedEntity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEntityType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProbability(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateValue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DetectedNamedEntity) contextValidateEntityType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "entityType", "body", string(m.EntityType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectedNamedEntity) contextValidateName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "name", "body", string(m.Name)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectedNamedEntity) contextValidateProbability(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "probability", "body", float64(m.Probability)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectedNamedEntity) contextValidateValue(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Value != nil {
+		if err := m.Value.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("value")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("value")
 			}
 			return err
 		}

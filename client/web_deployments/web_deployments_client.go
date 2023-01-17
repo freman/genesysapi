@@ -26,6 +26,10 @@ type API interface {
 	*/
 	DeleteWebdeploymentsDeployment(ctx context.Context, params *DeleteWebdeploymentsDeploymentParams) (*DeleteWebdeploymentsDeploymentNoContent, error)
 	/*
+	   DeleteWebdeploymentsTokenRevoke invalidates j w t
+	*/
+	DeleteWebdeploymentsTokenRevoke(ctx context.Context, params *DeleteWebdeploymentsTokenRevokeParams) (*DeleteWebdeploymentsTokenRevokeNoContent, error)
+	/*
 	   GetWebdeploymentsConfigurationVersion gets a configuration version
 	*/
 	GetWebdeploymentsConfigurationVersion(ctx context.Context, params *GetWebdeploymentsConfigurationVersionParams) (*GetWebdeploymentsConfigurationVersionOK, error)
@@ -66,6 +70,14 @@ type API interface {
 	   PostWebdeploymentsDeployments creates a deployment
 	*/
 	PostWebdeploymentsDeployments(ctx context.Context, params *PostWebdeploymentsDeploymentsParams) (*PostWebdeploymentsDeploymentsOK, *PostWebdeploymentsDeploymentsCreated, error)
+	/*
+	   PostWebdeploymentsTokenOauthcodegrantjwtexchange exchanges an o auth code obtained using the authorization code flow for a j w t that can be used by webdeployments
+	*/
+	PostWebdeploymentsTokenOauthcodegrantjwtexchange(ctx context.Context, params *PostWebdeploymentsTokenOauthcodegrantjwtexchangeParams) (*PostWebdeploymentsTokenOauthcodegrantjwtexchangeOK, error)
+	/*
+	   PostWebdeploymentsTokenRefresh refreshes a j w t
+	*/
+	PostWebdeploymentsTokenRefresh(ctx context.Context, params *PostWebdeploymentsTokenRefreshParams) (*PostWebdeploymentsTokenRefreshOK, error)
 	/*
 	   PutWebdeploymentsConfigurationVersionsDraft updates the configuration draft
 	*/
@@ -141,6 +153,31 @@ func (a *Client) DeleteWebdeploymentsDeployment(ctx context.Context, params *Del
 		return nil, err
 	}
 	return result.(*DeleteWebdeploymentsDeploymentNoContent), nil
+
+}
+
+/*
+DeleteWebdeploymentsTokenRevoke invalidates j w t
+*/
+func (a *Client) DeleteWebdeploymentsTokenRevoke(ctx context.Context, params *DeleteWebdeploymentsTokenRevokeParams) (*DeleteWebdeploymentsTokenRevokeNoContent, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "deleteWebdeploymentsTokenRevoke",
+		Method:             "DELETE",
+		PathPattern:        "/api/v2/webdeployments/token/revoke",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &DeleteWebdeploymentsTokenRevokeReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*DeleteWebdeploymentsTokenRevokeNoContent), nil
 
 }
 
@@ -405,6 +442,54 @@ func (a *Client) PostWebdeploymentsDeployments(ctx context.Context, params *Post
 		return nil, value, nil
 	}
 	return nil, nil, nil
+
+}
+
+/*
+PostWebdeploymentsTokenOauthcodegrantjwtexchange exchanges an o auth code obtained using the authorization code flow for a j w t that can be used by webdeployments
+*/
+func (a *Client) PostWebdeploymentsTokenOauthcodegrantjwtexchange(ctx context.Context, params *PostWebdeploymentsTokenOauthcodegrantjwtexchangeParams) (*PostWebdeploymentsTokenOauthcodegrantjwtexchangeOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWebdeploymentsTokenOauthcodegrantjwtexchange",
+		Method:             "POST",
+		PathPattern:        "/api/v2/webdeployments/token/oauthcodegrantjwtexchange",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWebdeploymentsTokenOauthcodegrantjwtexchangeReader{formats: a.formats},
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWebdeploymentsTokenOauthcodegrantjwtexchangeOK), nil
+
+}
+
+/*
+PostWebdeploymentsTokenRefresh refreshes a j w t
+*/
+func (a *Client) PostWebdeploymentsTokenRefresh(ctx context.Context, params *PostWebdeploymentsTokenRefreshParams) (*PostWebdeploymentsTokenRefreshOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postWebdeploymentsTokenRefresh",
+		Method:             "POST",
+		PathPattern:        "/api/v2/webdeployments/token/refresh",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostWebdeploymentsTokenRefreshReader{formats: a.formats},
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostWebdeploymentsTokenRefreshOK), nil
 
 }
 

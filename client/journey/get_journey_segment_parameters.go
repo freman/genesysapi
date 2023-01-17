@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetJourneySegmentParams creates a new GetJourneySegmentParams object
-// with the default values initialized.
+// NewGetJourneySegmentParams creates a new GetJourneySegmentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetJourneySegmentParams() *GetJourneySegmentParams {
-	var ()
 	return &GetJourneySegmentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetJourneySegmentParamsWithTimeout creates a new GetJourneySegmentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetJourneySegmentParamsWithTimeout(timeout time.Duration) *GetJourneySegmentParams {
-	var ()
 	return &GetJourneySegmentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetJourneySegmentParamsWithContext creates a new GetJourneySegmentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetJourneySegmentParamsWithContext(ctx context.Context) *GetJourneySegmentParams {
-	var ()
 	return &GetJourneySegmentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetJourneySegmentParamsWithHTTPClient creates a new GetJourneySegmentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetJourneySegmentParamsWithHTTPClient(client *http.Client) *GetJourneySegmentParams {
-	var ()
 	return &GetJourneySegmentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetJourneySegmentParams contains all the parameters to send to the API endpoint
-for the get journey segment operation typically these are written to a http.Request
+/*
+GetJourneySegmentParams contains all the parameters to send to the API endpoint
+
+	for the get journey segment operation.
+
+	Typically these are written to a http.Request.
 */
 type GetJourneySegmentParams struct {
 
-	/*SegmentID
-	  ID of the segment.
+	/* SegmentID.
 
+	   ID of the segment.
 	*/
 	SegmentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get journey segment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetJourneySegmentParams) WithDefaults() *GetJourneySegmentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get journey segment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetJourneySegmentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get journey segment params

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -44,7 +45,6 @@ func (m *PatchIntegrationActionFields) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PatchIntegrationActionFields) validateIntegrationAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IntegrationAction) { // not required
 		return nil
 	}
@@ -53,6 +53,8 @@ func (m *PatchIntegrationActionFields) validateIntegrationAction(formats strfmt.
 		if err := m.IntegrationAction.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("integrationAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integrationAction")
 			}
 			return err
 		}
@@ -62,7 +64,6 @@ func (m *PatchIntegrationActionFields) validateIntegrationAction(formats strfmt.
 }
 
 func (m *PatchIntegrationActionFields) validateRequestMappings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RequestMappings) { // not required
 		return nil
 	}
@@ -76,6 +77,62 @@ func (m *PatchIntegrationActionFields) validateRequestMappings(formats strfmt.Re
 			if err := m.RequestMappings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("requestMappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("requestMappings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this patch integration action fields based on the context it is used
+func (m *PatchIntegrationActionFields) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateIntegrationAction(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRequestMappings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PatchIntegrationActionFields) contextValidateIntegrationAction(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IntegrationAction != nil {
+		if err := m.IntegrationAction.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integrationAction")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integrationAction")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PatchIntegrationActionFields) contextValidateRequestMappings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RequestMappings); i++ {
+
+		if m.RequestMappings[i] != nil {
+			if err := m.RequestMappings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("requestMappings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("requestMappings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

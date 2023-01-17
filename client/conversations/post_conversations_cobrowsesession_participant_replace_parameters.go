@@ -18,66 +18,84 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsCobrowsesessionParticipantReplaceParams creates a new PostConversationsCobrowsesessionParticipantReplaceParams object
-// with the default values initialized.
+// NewPostConversationsCobrowsesessionParticipantReplaceParams creates a new PostConversationsCobrowsesessionParticipantReplaceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsCobrowsesessionParticipantReplaceParams() *PostConversationsCobrowsesessionParticipantReplaceParams {
-	var ()
 	return &PostConversationsCobrowsesessionParticipantReplaceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsCobrowsesessionParticipantReplaceParamsWithTimeout creates a new PostConversationsCobrowsesessionParticipantReplaceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsCobrowsesessionParticipantReplaceParamsWithTimeout(timeout time.Duration) *PostConversationsCobrowsesessionParticipantReplaceParams {
-	var ()
 	return &PostConversationsCobrowsesessionParticipantReplaceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsCobrowsesessionParticipantReplaceParamsWithContext creates a new PostConversationsCobrowsesessionParticipantReplaceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsCobrowsesessionParticipantReplaceParamsWithContext(ctx context.Context) *PostConversationsCobrowsesessionParticipantReplaceParams {
-	var ()
 	return &PostConversationsCobrowsesessionParticipantReplaceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsCobrowsesessionParticipantReplaceParamsWithHTTPClient creates a new PostConversationsCobrowsesessionParticipantReplaceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsCobrowsesessionParticipantReplaceParamsWithHTTPClient(client *http.Client) *PostConversationsCobrowsesessionParticipantReplaceParams {
-	var ()
 	return &PostConversationsCobrowsesessionParticipantReplaceParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsCobrowsesessionParticipantReplaceParams contains all the parameters to send to the API endpoint
-for the post conversations cobrowsesession participant replace operation typically these are written to a http.Request
+/*
+PostConversationsCobrowsesessionParticipantReplaceParams contains all the parameters to send to the API endpoint
+
+	for the post conversations cobrowsesession participant replace operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsCobrowsesessionParticipantReplaceParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.TransferRequest
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations cobrowsesession participant replace params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCobrowsesessionParticipantReplaceParams) WithDefaults() *PostConversationsCobrowsesessionParticipantReplaceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations cobrowsesession participant replace params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCobrowsesessionParticipantReplaceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations cobrowsesession participant replace params
@@ -153,7 +171,6 @@ func (o *PostConversationsCobrowsesessionParticipantReplaceParams) WriteToReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

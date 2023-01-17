@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOutboundContactlistfiltersParams creates a new PostOutboundContactlistfiltersParams object
-// with the default values initialized.
+// NewPostOutboundContactlistfiltersParams creates a new PostOutboundContactlistfiltersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundContactlistfiltersParams() *PostOutboundContactlistfiltersParams {
-	var ()
 	return &PostOutboundContactlistfiltersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundContactlistfiltersParamsWithTimeout creates a new PostOutboundContactlistfiltersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundContactlistfiltersParamsWithTimeout(timeout time.Duration) *PostOutboundContactlistfiltersParams {
-	var ()
 	return &PostOutboundContactlistfiltersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundContactlistfiltersParamsWithContext creates a new PostOutboundContactlistfiltersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundContactlistfiltersParamsWithContext(ctx context.Context) *PostOutboundContactlistfiltersParams {
-	var ()
 	return &PostOutboundContactlistfiltersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundContactlistfiltersParamsWithHTTPClient creates a new PostOutboundContactlistfiltersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundContactlistfiltersParamsWithHTTPClient(client *http.Client) *PostOutboundContactlistfiltersParams {
-	var ()
 	return &PostOutboundContactlistfiltersParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundContactlistfiltersParams contains all the parameters to send to the API endpoint
-for the post outbound contactlistfilters operation typically these are written to a http.Request
+/*
+PostOutboundContactlistfiltersParams contains all the parameters to send to the API endpoint
+
+	for the post outbound contactlistfilters operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundContactlistfiltersParams struct {
 
-	/*Body
-	  ContactListFilter
+	/* Body.
 
+	   ContactListFilter
 	*/
 	Body *models.ContactListFilter
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound contactlistfilters params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundContactlistfiltersParams) WithDefaults() *PostOutboundContactlistfiltersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound contactlistfilters params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundContactlistfiltersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound contactlistfilters params
@@ -124,7 +140,6 @@ func (o *PostOutboundContactlistfiltersParams) WriteToRequest(r runtime.ClientRe
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

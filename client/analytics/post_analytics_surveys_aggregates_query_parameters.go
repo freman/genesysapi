@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostAnalyticsSurveysAggregatesQueryParams creates a new PostAnalyticsSurveysAggregatesQueryParams object
-// with the default values initialized.
+// NewPostAnalyticsSurveysAggregatesQueryParams creates a new PostAnalyticsSurveysAggregatesQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAnalyticsSurveysAggregatesQueryParams() *PostAnalyticsSurveysAggregatesQueryParams {
-	var ()
 	return &PostAnalyticsSurveysAggregatesQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAnalyticsSurveysAggregatesQueryParamsWithTimeout creates a new PostAnalyticsSurveysAggregatesQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAnalyticsSurveysAggregatesQueryParamsWithTimeout(timeout time.Duration) *PostAnalyticsSurveysAggregatesQueryParams {
-	var ()
 	return &PostAnalyticsSurveysAggregatesQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAnalyticsSurveysAggregatesQueryParamsWithContext creates a new PostAnalyticsSurveysAggregatesQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAnalyticsSurveysAggregatesQueryParamsWithContext(ctx context.Context) *PostAnalyticsSurveysAggregatesQueryParams {
-	var ()
 	return &PostAnalyticsSurveysAggregatesQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostAnalyticsSurveysAggregatesQueryParamsWithHTTPClient creates a new PostAnalyticsSurveysAggregatesQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAnalyticsSurveysAggregatesQueryParamsWithHTTPClient(client *http.Client) *PostAnalyticsSurveysAggregatesQueryParams {
-	var ()
 	return &PostAnalyticsSurveysAggregatesQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostAnalyticsSurveysAggregatesQueryParams contains all the parameters to send to the API endpoint
-for the post analytics surveys aggregates query operation typically these are written to a http.Request
+/*
+PostAnalyticsSurveysAggregatesQueryParams contains all the parameters to send to the API endpoint
+
+	for the post analytics surveys aggregates query operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAnalyticsSurveysAggregatesQueryParams struct {
 
-	/*Body
-	  query
+	/* Body.
 
+	   query
 	*/
 	Body *models.SurveyAggregationQuery
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post analytics surveys aggregates query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsSurveysAggregatesQueryParams) WithDefaults() *PostAnalyticsSurveysAggregatesQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post analytics surveys aggregates query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsSurveysAggregatesQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post analytics surveys aggregates query params
@@ -124,7 +140,6 @@ func (o *PostAnalyticsSurveysAggregatesQueryParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

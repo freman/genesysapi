@@ -95,7 +95,6 @@ func (o *PatchIntegrationsActionReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchIntegrationsActionOK() *PatchIntegrationsActionOK {
 	return &PatchIntegrationsActionOK{}
 }
 
-/*PatchIntegrationsActionOK handles this case with default header values.
+/*
+PatchIntegrationsActionOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchIntegrationsActionOK struct {
 	Payload *models.Action
 }
 
+// IsSuccess returns true when this patch integrations action o k response has a 2xx status code
+func (o *PatchIntegrationsActionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch integrations action o k response has a 3xx status code
+func (o *PatchIntegrationsActionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch integrations action o k response has a 4xx status code
+func (o *PatchIntegrationsActionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch integrations action o k response has a 5xx status code
+func (o *PatchIntegrationsActionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch integrations action o k response a status code equal to that given
+func (o *PatchIntegrationsActionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchIntegrationsActionOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchIntegrationsActionOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchIntegrationsActionBadRequest() *PatchIntegrationsActionBadRequest {
 	return &PatchIntegrationsActionBadRequest{}
 }
 
-/*PatchIntegrationsActionBadRequest handles this case with default header values.
+/*
+PatchIntegrationsActionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchIntegrationsActionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch integrations action bad request response has a 2xx status code
+func (o *PatchIntegrationsActionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch integrations action bad request response has a 3xx status code
+func (o *PatchIntegrationsActionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch integrations action bad request response has a 4xx status code
+func (o *PatchIntegrationsActionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch integrations action bad request response has a 5xx status code
+func (o *PatchIntegrationsActionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch integrations action bad request response a status code equal to that given
+func (o *PatchIntegrationsActionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchIntegrationsActionBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchIntegrationsActionBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchIntegrationsActionUnauthorized() *PatchIntegrationsActionUnauthoriz
 	return &PatchIntegrationsActionUnauthorized{}
 }
 
-/*PatchIntegrationsActionUnauthorized handles this case with default header values.
+/*
+PatchIntegrationsActionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchIntegrationsActionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch integrations action unauthorized response has a 2xx status code
+func (o *PatchIntegrationsActionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch integrations action unauthorized response has a 3xx status code
+func (o *PatchIntegrationsActionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch integrations action unauthorized response has a 4xx status code
+func (o *PatchIntegrationsActionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch integrations action unauthorized response has a 5xx status code
+func (o *PatchIntegrationsActionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch integrations action unauthorized response a status code equal to that given
+func (o *PatchIntegrationsActionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchIntegrationsActionUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchIntegrationsActionUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchIntegrationsActionForbidden() *PatchIntegrationsActionForbidden {
 	return &PatchIntegrationsActionForbidden{}
 }
 
-/*PatchIntegrationsActionForbidden handles this case with default header values.
+/*
+PatchIntegrationsActionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchIntegrationsActionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch integrations action forbidden response has a 2xx status code
+func (o *PatchIntegrationsActionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch integrations action forbidden response has a 3xx status code
+func (o *PatchIntegrationsActionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch integrations action forbidden response has a 4xx status code
+func (o *PatchIntegrationsActionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch integrations action forbidden response has a 5xx status code
+func (o *PatchIntegrationsActionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch integrations action forbidden response a status code equal to that given
+func (o *PatchIntegrationsActionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchIntegrationsActionForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchIntegrationsActionForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchIntegrationsActionNotFound() *PatchIntegrationsActionNotFound {
 	return &PatchIntegrationsActionNotFound{}
 }
 
-/*PatchIntegrationsActionNotFound handles this case with default header values.
+/*
+PatchIntegrationsActionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchIntegrationsActionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch integrations action not found response has a 2xx status code
+func (o *PatchIntegrationsActionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch integrations action not found response has a 3xx status code
+func (o *PatchIntegrationsActionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch integrations action not found response has a 4xx status code
+func (o *PatchIntegrationsActionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch integrations action not found response has a 5xx status code
+func (o *PatchIntegrationsActionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch integrations action not found response a status code equal to that given
+func (o *PatchIntegrationsActionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchIntegrationsActionNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchIntegrationsActionNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchIntegrationsActionRequestTimeout() *PatchIntegrationsActionRequestT
 	return &PatchIntegrationsActionRequestTimeout{}
 }
 
-/*PatchIntegrationsActionRequestTimeout handles this case with default header values.
+/*
+PatchIntegrationsActionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchIntegrationsActionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch integrations action request timeout response has a 2xx status code
+func (o *PatchIntegrationsActionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch integrations action request timeout response has a 3xx status code
+func (o *PatchIntegrationsActionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch integrations action request timeout response has a 4xx status code
+func (o *PatchIntegrationsActionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch integrations action request timeout response has a 5xx status code
+func (o *PatchIntegrationsActionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch integrations action request timeout response a status code equal to that given
+func (o *PatchIntegrationsActionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchIntegrationsActionRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchIntegrationsActionRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchIntegrationsActionRequestEntityTooLarge() *PatchIntegrationsActionR
 	return &PatchIntegrationsActionRequestEntityTooLarge{}
 }
 
-/*PatchIntegrationsActionRequestEntityTooLarge handles this case with default header values.
+/*
+PatchIntegrationsActionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchIntegrationsActionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch integrations action request entity too large response has a 2xx status code
+func (o *PatchIntegrationsActionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch integrations action request entity too large response has a 3xx status code
+func (o *PatchIntegrationsActionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch integrations action request entity too large response has a 4xx status code
+func (o *PatchIntegrationsActionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch integrations action request entity too large response has a 5xx status code
+func (o *PatchIntegrationsActionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch integrations action request entity too large response a status code equal to that given
+func (o *PatchIntegrationsActionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchIntegrationsActionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchIntegrationsActionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchIntegrationsActionUnsupportedMediaType() *PatchIntegrationsActionUn
 	return &PatchIntegrationsActionUnsupportedMediaType{}
 }
 
-/*PatchIntegrationsActionUnsupportedMediaType handles this case with default header values.
+/*
+PatchIntegrationsActionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchIntegrationsActionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch integrations action unsupported media type response has a 2xx status code
+func (o *PatchIntegrationsActionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch integrations action unsupported media type response has a 3xx status code
+func (o *PatchIntegrationsActionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch integrations action unsupported media type response has a 4xx status code
+func (o *PatchIntegrationsActionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch integrations action unsupported media type response has a 5xx status code
+func (o *PatchIntegrationsActionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch integrations action unsupported media type response a status code equal to that given
+func (o *PatchIntegrationsActionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchIntegrationsActionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchIntegrationsActionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchIntegrationsActionTooManyRequests() *PatchIntegrationsActionTooMany
 	return &PatchIntegrationsActionTooManyRequests{}
 }
 
-/*PatchIntegrationsActionTooManyRequests handles this case with default header values.
+/*
+PatchIntegrationsActionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchIntegrationsActionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch integrations action too many requests response has a 2xx status code
+func (o *PatchIntegrationsActionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch integrations action too many requests response has a 3xx status code
+func (o *PatchIntegrationsActionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch integrations action too many requests response has a 4xx status code
+func (o *PatchIntegrationsActionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch integrations action too many requests response has a 5xx status code
+func (o *PatchIntegrationsActionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch integrations action too many requests response a status code equal to that given
+func (o *PatchIntegrationsActionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchIntegrationsActionTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchIntegrationsActionTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchIntegrationsActionInternalServerError() *PatchIntegrationsActionInt
 	return &PatchIntegrationsActionInternalServerError{}
 }
 
-/*PatchIntegrationsActionInternalServerError handles this case with default header values.
+/*
+PatchIntegrationsActionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchIntegrationsActionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch integrations action internal server error response has a 2xx status code
+func (o *PatchIntegrationsActionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch integrations action internal server error response has a 3xx status code
+func (o *PatchIntegrationsActionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch integrations action internal server error response has a 4xx status code
+func (o *PatchIntegrationsActionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch integrations action internal server error response has a 5xx status code
+func (o *PatchIntegrationsActionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch integrations action internal server error response a status code equal to that given
+func (o *PatchIntegrationsActionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchIntegrationsActionInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchIntegrationsActionInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchIntegrationsActionServiceUnavailable() *PatchIntegrationsActionServ
 	return &PatchIntegrationsActionServiceUnavailable{}
 }
 
-/*PatchIntegrationsActionServiceUnavailable handles this case with default header values.
+/*
+PatchIntegrationsActionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchIntegrationsActionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch integrations action service unavailable response has a 2xx status code
+func (o *PatchIntegrationsActionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch integrations action service unavailable response has a 3xx status code
+func (o *PatchIntegrationsActionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch integrations action service unavailable response has a 4xx status code
+func (o *PatchIntegrationsActionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch integrations action service unavailable response has a 5xx status code
+func (o *PatchIntegrationsActionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch integrations action service unavailable response a status code equal to that given
+func (o *PatchIntegrationsActionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchIntegrationsActionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchIntegrationsActionServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchIntegrationsActionGatewayTimeout() *PatchIntegrationsActionGatewayT
 	return &PatchIntegrationsActionGatewayTimeout{}
 }
 
-/*PatchIntegrationsActionGatewayTimeout handles this case with default header values.
+/*
+PatchIntegrationsActionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchIntegrationsActionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch integrations action gateway timeout response has a 2xx status code
+func (o *PatchIntegrationsActionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch integrations action gateway timeout response has a 3xx status code
+func (o *PatchIntegrationsActionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch integrations action gateway timeout response has a 4xx status code
+func (o *PatchIntegrationsActionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch integrations action gateway timeout response has a 5xx status code
+func (o *PatchIntegrationsActionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch integrations action gateway timeout response a status code equal to that given
+func (o *PatchIntegrationsActionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchIntegrationsActionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchIntegrationsActionGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/integrations/actions/{actionId}][%d] patchIntegrationsActionGatewayTimeout  %+v", 504, o.Payload)
 }
 

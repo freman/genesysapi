@@ -95,7 +95,6 @@ func (o *GetIntegrationsCredentialReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIntegrationsCredentialOK() *GetIntegrationsCredentialOK {
 	return &GetIntegrationsCredentialOK{}
 }
 
-/*GetIntegrationsCredentialOK handles this case with default header values.
+/*
+GetIntegrationsCredentialOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIntegrationsCredentialOK struct {
 	Payload *models.Credential
 }
 
+// IsSuccess returns true when this get integrations credential o k response has a 2xx status code
+func (o *GetIntegrationsCredentialOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get integrations credential o k response has a 3xx status code
+func (o *GetIntegrationsCredentialOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations credential o k response has a 4xx status code
+func (o *GetIntegrationsCredentialOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations credential o k response has a 5xx status code
+func (o *GetIntegrationsCredentialOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations credential o k response a status code equal to that given
+func (o *GetIntegrationsCredentialOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntegrationsCredentialOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIntegrationsCredentialOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIntegrationsCredentialBadRequest() *GetIntegrationsCredentialBadReque
 	return &GetIntegrationsCredentialBadRequest{}
 }
 
-/*GetIntegrationsCredentialBadRequest handles this case with default header values.
+/*
+GetIntegrationsCredentialBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIntegrationsCredentialBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations credential bad request response has a 2xx status code
+func (o *GetIntegrationsCredentialBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations credential bad request response has a 3xx status code
+func (o *GetIntegrationsCredentialBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations credential bad request response has a 4xx status code
+func (o *GetIntegrationsCredentialBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations credential bad request response has a 5xx status code
+func (o *GetIntegrationsCredentialBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations credential bad request response a status code equal to that given
+func (o *GetIntegrationsCredentialBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntegrationsCredentialBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIntegrationsCredentialBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIntegrationsCredentialUnauthorized() *GetIntegrationsCredentialUnauth
 	return &GetIntegrationsCredentialUnauthorized{}
 }
 
-/*GetIntegrationsCredentialUnauthorized handles this case with default header values.
+/*
+GetIntegrationsCredentialUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIntegrationsCredentialUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations credential unauthorized response has a 2xx status code
+func (o *GetIntegrationsCredentialUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations credential unauthorized response has a 3xx status code
+func (o *GetIntegrationsCredentialUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations credential unauthorized response has a 4xx status code
+func (o *GetIntegrationsCredentialUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations credential unauthorized response has a 5xx status code
+func (o *GetIntegrationsCredentialUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations credential unauthorized response a status code equal to that given
+func (o *GetIntegrationsCredentialUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIntegrationsCredentialUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIntegrationsCredentialUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIntegrationsCredentialForbidden() *GetIntegrationsCredentialForbidden
 	return &GetIntegrationsCredentialForbidden{}
 }
 
-/*GetIntegrationsCredentialForbidden handles this case with default header values.
+/*
+GetIntegrationsCredentialForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIntegrationsCredentialForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations credential forbidden response has a 2xx status code
+func (o *GetIntegrationsCredentialForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations credential forbidden response has a 3xx status code
+func (o *GetIntegrationsCredentialForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations credential forbidden response has a 4xx status code
+func (o *GetIntegrationsCredentialForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations credential forbidden response has a 5xx status code
+func (o *GetIntegrationsCredentialForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations credential forbidden response a status code equal to that given
+func (o *GetIntegrationsCredentialForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntegrationsCredentialForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIntegrationsCredentialForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIntegrationsCredentialNotFound() *GetIntegrationsCredentialNotFound {
 	return &GetIntegrationsCredentialNotFound{}
 }
 
-/*GetIntegrationsCredentialNotFound handles this case with default header values.
+/*
+GetIntegrationsCredentialNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIntegrationsCredentialNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations credential not found response has a 2xx status code
+func (o *GetIntegrationsCredentialNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations credential not found response has a 3xx status code
+func (o *GetIntegrationsCredentialNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations credential not found response has a 4xx status code
+func (o *GetIntegrationsCredentialNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations credential not found response has a 5xx status code
+func (o *GetIntegrationsCredentialNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations credential not found response a status code equal to that given
+func (o *GetIntegrationsCredentialNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntegrationsCredentialNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIntegrationsCredentialNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIntegrationsCredentialRequestTimeout() *GetIntegrationsCredentialRequ
 	return &GetIntegrationsCredentialRequestTimeout{}
 }
 
-/*GetIntegrationsCredentialRequestTimeout handles this case with default header values.
+/*
+GetIntegrationsCredentialRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIntegrationsCredentialRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations credential request timeout response has a 2xx status code
+func (o *GetIntegrationsCredentialRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations credential request timeout response has a 3xx status code
+func (o *GetIntegrationsCredentialRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations credential request timeout response has a 4xx status code
+func (o *GetIntegrationsCredentialRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations credential request timeout response has a 5xx status code
+func (o *GetIntegrationsCredentialRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations credential request timeout response a status code equal to that given
+func (o *GetIntegrationsCredentialRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIntegrationsCredentialRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsCredentialRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIntegrationsCredentialRequestEntityTooLarge() *GetIntegrationsCredent
 	return &GetIntegrationsCredentialRequestEntityTooLarge{}
 }
 
-/*GetIntegrationsCredentialRequestEntityTooLarge handles this case with default header values.
+/*
+GetIntegrationsCredentialRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIntegrationsCredentialRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations credential request entity too large response has a 2xx status code
+func (o *GetIntegrationsCredentialRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations credential request entity too large response has a 3xx status code
+func (o *GetIntegrationsCredentialRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations credential request entity too large response has a 4xx status code
+func (o *GetIntegrationsCredentialRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations credential request entity too large response has a 5xx status code
+func (o *GetIntegrationsCredentialRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations credential request entity too large response a status code equal to that given
+func (o *GetIntegrationsCredentialRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIntegrationsCredentialRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIntegrationsCredentialRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIntegrationsCredentialUnsupportedMediaType() *GetIntegrationsCredenti
 	return &GetIntegrationsCredentialUnsupportedMediaType{}
 }
 
-/*GetIntegrationsCredentialUnsupportedMediaType handles this case with default header values.
+/*
+GetIntegrationsCredentialUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIntegrationsCredentialUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations credential unsupported media type response has a 2xx status code
+func (o *GetIntegrationsCredentialUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations credential unsupported media type response has a 3xx status code
+func (o *GetIntegrationsCredentialUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations credential unsupported media type response has a 4xx status code
+func (o *GetIntegrationsCredentialUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations credential unsupported media type response has a 5xx status code
+func (o *GetIntegrationsCredentialUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations credential unsupported media type response a status code equal to that given
+func (o *GetIntegrationsCredentialUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIntegrationsCredentialUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIntegrationsCredentialUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIntegrationsCredentialTooManyRequests() *GetIntegrationsCredentialToo
 	return &GetIntegrationsCredentialTooManyRequests{}
 }
 
-/*GetIntegrationsCredentialTooManyRequests handles this case with default header values.
+/*
+GetIntegrationsCredentialTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIntegrationsCredentialTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations credential too many requests response has a 2xx status code
+func (o *GetIntegrationsCredentialTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations credential too many requests response has a 3xx status code
+func (o *GetIntegrationsCredentialTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations credential too many requests response has a 4xx status code
+func (o *GetIntegrationsCredentialTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations credential too many requests response has a 5xx status code
+func (o *GetIntegrationsCredentialTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations credential too many requests response a status code equal to that given
+func (o *GetIntegrationsCredentialTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntegrationsCredentialTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIntegrationsCredentialTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIntegrationsCredentialInternalServerError() *GetIntegrationsCredentia
 	return &GetIntegrationsCredentialInternalServerError{}
 }
 
-/*GetIntegrationsCredentialInternalServerError handles this case with default header values.
+/*
+GetIntegrationsCredentialInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIntegrationsCredentialInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations credential internal server error response has a 2xx status code
+func (o *GetIntegrationsCredentialInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations credential internal server error response has a 3xx status code
+func (o *GetIntegrationsCredentialInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations credential internal server error response has a 4xx status code
+func (o *GetIntegrationsCredentialInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations credential internal server error response has a 5xx status code
+func (o *GetIntegrationsCredentialInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations credential internal server error response a status code equal to that given
+func (o *GetIntegrationsCredentialInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntegrationsCredentialInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIntegrationsCredentialInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIntegrationsCredentialServiceUnavailable() *GetIntegrationsCredential
 	return &GetIntegrationsCredentialServiceUnavailable{}
 }
 
-/*GetIntegrationsCredentialServiceUnavailable handles this case with default header values.
+/*
+GetIntegrationsCredentialServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIntegrationsCredentialServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations credential service unavailable response has a 2xx status code
+func (o *GetIntegrationsCredentialServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations credential service unavailable response has a 3xx status code
+func (o *GetIntegrationsCredentialServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations credential service unavailable response has a 4xx status code
+func (o *GetIntegrationsCredentialServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations credential service unavailable response has a 5xx status code
+func (o *GetIntegrationsCredentialServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations credential service unavailable response a status code equal to that given
+func (o *GetIntegrationsCredentialServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIntegrationsCredentialServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIntegrationsCredentialServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIntegrationsCredentialGatewayTimeout() *GetIntegrationsCredentialGate
 	return &GetIntegrationsCredentialGatewayTimeout{}
 }
 
-/*GetIntegrationsCredentialGatewayTimeout handles this case with default header values.
+/*
+GetIntegrationsCredentialGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIntegrationsCredentialGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations credential gateway timeout response has a 2xx status code
+func (o *GetIntegrationsCredentialGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations credential gateway timeout response has a 3xx status code
+func (o *GetIntegrationsCredentialGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations credential gateway timeout response has a 4xx status code
+func (o *GetIntegrationsCredentialGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations credential gateway timeout response has a 5xx status code
+func (o *GetIntegrationsCredentialGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations credential gateway timeout response a status code equal to that given
+func (o *GetIntegrationsCredentialGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIntegrationsCredentialGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIntegrationsCredentialGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/credentials/{credentialId}][%d] getIntegrationsCredentialGatewayTimeout  %+v", 504, o.Payload)
 }
 

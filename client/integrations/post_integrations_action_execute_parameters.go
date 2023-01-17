@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostIntegrationsActionExecuteParams creates a new PostIntegrationsActionExecuteParams object
-// with the default values initialized.
+// NewPostIntegrationsActionExecuteParams creates a new PostIntegrationsActionExecuteParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostIntegrationsActionExecuteParams() *PostIntegrationsActionExecuteParams {
-	var ()
 	return &PostIntegrationsActionExecuteParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostIntegrationsActionExecuteParamsWithTimeout creates a new PostIntegrationsActionExecuteParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostIntegrationsActionExecuteParamsWithTimeout(timeout time.Duration) *PostIntegrationsActionExecuteParams {
-	var ()
 	return &PostIntegrationsActionExecuteParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostIntegrationsActionExecuteParamsWithContext creates a new PostIntegrationsActionExecuteParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostIntegrationsActionExecuteParamsWithContext(ctx context.Context) *PostIntegrationsActionExecuteParams {
-	var ()
 	return &PostIntegrationsActionExecuteParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostIntegrationsActionExecuteParamsWithHTTPClient creates a new PostIntegrationsActionExecuteParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostIntegrationsActionExecuteParamsWithHTTPClient(client *http.Client) *PostIntegrationsActionExecuteParams {
-	var ()
 	return &PostIntegrationsActionExecuteParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostIntegrationsActionExecuteParams contains all the parameters to send to the API endpoint
-for the post integrations action execute operation typically these are written to a http.Request
+/*
+PostIntegrationsActionExecuteParams contains all the parameters to send to the API endpoint
+
+	for the post integrations action execute operation.
+
+	Typically these are written to a http.Request.
 */
 type PostIntegrationsActionExecuteParams struct {
 
-	/*ActionID
-	  actionId
+	/* ActionID.
 
+	   actionId
 	*/
 	ActionID string
-	/*Body
-	  Map of parameters used for variable substitution.
 
+	/* Body.
+
+	   Map of parameters used for variable substitution.
 	*/
 	Body map[string]interface{}
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post integrations action execute params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostIntegrationsActionExecuteParams) WithDefaults() *PostIntegrationsActionExecuteParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post integrations action execute params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostIntegrationsActionExecuteParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post integrations action execute params
@@ -143,7 +160,6 @@ func (o *PostIntegrationsActionExecuteParams) WriteToRequest(r runtime.ClientReq
 	if err := r.SetPathParam("actionId", o.ActionID); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

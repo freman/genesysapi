@@ -95,7 +95,6 @@ func (o *GetOrganizationsMeReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOrganizationsMeOK() *GetOrganizationsMeOK {
 	return &GetOrganizationsMeOK{}
 }
 
-/*GetOrganizationsMeOK handles this case with default header values.
+/*
+GetOrganizationsMeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOrganizationsMeOK struct {
 	Payload *models.Organization
 }
 
+// IsSuccess returns true when this get organizations me o k response has a 2xx status code
+func (o *GetOrganizationsMeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get organizations me o k response has a 3xx status code
+func (o *GetOrganizationsMeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations me o k response has a 4xx status code
+func (o *GetOrganizationsMeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations me o k response has a 5xx status code
+func (o *GetOrganizationsMeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations me o k response a status code equal to that given
+func (o *GetOrganizationsMeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrganizationsMeOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOrganizationsMeOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOrganizationsMeBadRequest() *GetOrganizationsMeBadRequest {
 	return &GetOrganizationsMeBadRequest{}
 }
 
-/*GetOrganizationsMeBadRequest handles this case with default header values.
+/*
+GetOrganizationsMeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOrganizationsMeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations me bad request response has a 2xx status code
+func (o *GetOrganizationsMeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations me bad request response has a 3xx status code
+func (o *GetOrganizationsMeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations me bad request response has a 4xx status code
+func (o *GetOrganizationsMeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations me bad request response has a 5xx status code
+func (o *GetOrganizationsMeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations me bad request response a status code equal to that given
+func (o *GetOrganizationsMeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOrganizationsMeBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOrganizationsMeBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOrganizationsMeUnauthorized() *GetOrganizationsMeUnauthorized {
 	return &GetOrganizationsMeUnauthorized{}
 }
 
-/*GetOrganizationsMeUnauthorized handles this case with default header values.
+/*
+GetOrganizationsMeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOrganizationsMeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations me unauthorized response has a 2xx status code
+func (o *GetOrganizationsMeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations me unauthorized response has a 3xx status code
+func (o *GetOrganizationsMeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations me unauthorized response has a 4xx status code
+func (o *GetOrganizationsMeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations me unauthorized response has a 5xx status code
+func (o *GetOrganizationsMeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations me unauthorized response a status code equal to that given
+func (o *GetOrganizationsMeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOrganizationsMeUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOrganizationsMeUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOrganizationsMeForbidden() *GetOrganizationsMeForbidden {
 	return &GetOrganizationsMeForbidden{}
 }
 
-/*GetOrganizationsMeForbidden handles this case with default header values.
+/*
+GetOrganizationsMeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOrganizationsMeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations me forbidden response has a 2xx status code
+func (o *GetOrganizationsMeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations me forbidden response has a 3xx status code
+func (o *GetOrganizationsMeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations me forbidden response has a 4xx status code
+func (o *GetOrganizationsMeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations me forbidden response has a 5xx status code
+func (o *GetOrganizationsMeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations me forbidden response a status code equal to that given
+func (o *GetOrganizationsMeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrganizationsMeForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOrganizationsMeForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOrganizationsMeNotFound() *GetOrganizationsMeNotFound {
 	return &GetOrganizationsMeNotFound{}
 }
 
-/*GetOrganizationsMeNotFound handles this case with default header values.
+/*
+GetOrganizationsMeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOrganizationsMeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations me not found response has a 2xx status code
+func (o *GetOrganizationsMeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations me not found response has a 3xx status code
+func (o *GetOrganizationsMeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations me not found response has a 4xx status code
+func (o *GetOrganizationsMeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations me not found response has a 5xx status code
+func (o *GetOrganizationsMeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations me not found response a status code equal to that given
+func (o *GetOrganizationsMeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrganizationsMeNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOrganizationsMeNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOrganizationsMeRequestTimeout() *GetOrganizationsMeRequestTimeout {
 	return &GetOrganizationsMeRequestTimeout{}
 }
 
-/*GetOrganizationsMeRequestTimeout handles this case with default header values.
+/*
+GetOrganizationsMeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOrganizationsMeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations me request timeout response has a 2xx status code
+func (o *GetOrganizationsMeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations me request timeout response has a 3xx status code
+func (o *GetOrganizationsMeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations me request timeout response has a 4xx status code
+func (o *GetOrganizationsMeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations me request timeout response has a 5xx status code
+func (o *GetOrganizationsMeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations me request timeout response a status code equal to that given
+func (o *GetOrganizationsMeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOrganizationsMeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrganizationsMeRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOrganizationsMeRequestEntityTooLarge() *GetOrganizationsMeRequestEnti
 	return &GetOrganizationsMeRequestEntityTooLarge{}
 }
 
-/*GetOrganizationsMeRequestEntityTooLarge handles this case with default header values.
+/*
+GetOrganizationsMeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOrganizationsMeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations me request entity too large response has a 2xx status code
+func (o *GetOrganizationsMeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations me request entity too large response has a 3xx status code
+func (o *GetOrganizationsMeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations me request entity too large response has a 4xx status code
+func (o *GetOrganizationsMeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations me request entity too large response has a 5xx status code
+func (o *GetOrganizationsMeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations me request entity too large response a status code equal to that given
+func (o *GetOrganizationsMeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOrganizationsMeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOrganizationsMeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOrganizationsMeUnsupportedMediaType() *GetOrganizationsMeUnsupportedM
 	return &GetOrganizationsMeUnsupportedMediaType{}
 }
 
-/*GetOrganizationsMeUnsupportedMediaType handles this case with default header values.
+/*
+GetOrganizationsMeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOrganizationsMeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations me unsupported media type response has a 2xx status code
+func (o *GetOrganizationsMeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations me unsupported media type response has a 3xx status code
+func (o *GetOrganizationsMeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations me unsupported media type response has a 4xx status code
+func (o *GetOrganizationsMeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations me unsupported media type response has a 5xx status code
+func (o *GetOrganizationsMeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations me unsupported media type response a status code equal to that given
+func (o *GetOrganizationsMeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOrganizationsMeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOrganizationsMeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOrganizationsMeTooManyRequests() *GetOrganizationsMeTooManyRequests {
 	return &GetOrganizationsMeTooManyRequests{}
 }
 
-/*GetOrganizationsMeTooManyRequests handles this case with default header values.
+/*
+GetOrganizationsMeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOrganizationsMeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations me too many requests response has a 2xx status code
+func (o *GetOrganizationsMeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations me too many requests response has a 3xx status code
+func (o *GetOrganizationsMeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations me too many requests response has a 4xx status code
+func (o *GetOrganizationsMeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations me too many requests response has a 5xx status code
+func (o *GetOrganizationsMeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations me too many requests response a status code equal to that given
+func (o *GetOrganizationsMeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOrganizationsMeTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOrganizationsMeTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOrganizationsMeInternalServerError() *GetOrganizationsMeInternalServe
 	return &GetOrganizationsMeInternalServerError{}
 }
 
-/*GetOrganizationsMeInternalServerError handles this case with default header values.
+/*
+GetOrganizationsMeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOrganizationsMeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations me internal server error response has a 2xx status code
+func (o *GetOrganizationsMeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations me internal server error response has a 3xx status code
+func (o *GetOrganizationsMeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations me internal server error response has a 4xx status code
+func (o *GetOrganizationsMeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations me internal server error response has a 5xx status code
+func (o *GetOrganizationsMeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations me internal server error response a status code equal to that given
+func (o *GetOrganizationsMeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOrganizationsMeInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOrganizationsMeInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOrganizationsMeServiceUnavailable() *GetOrganizationsMeServiceUnavail
 	return &GetOrganizationsMeServiceUnavailable{}
 }
 
-/*GetOrganizationsMeServiceUnavailable handles this case with default header values.
+/*
+GetOrganizationsMeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOrganizationsMeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations me service unavailable response has a 2xx status code
+func (o *GetOrganizationsMeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations me service unavailable response has a 3xx status code
+func (o *GetOrganizationsMeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations me service unavailable response has a 4xx status code
+func (o *GetOrganizationsMeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations me service unavailable response has a 5xx status code
+func (o *GetOrganizationsMeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations me service unavailable response a status code equal to that given
+func (o *GetOrganizationsMeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOrganizationsMeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOrganizationsMeServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOrganizationsMeGatewayTimeout() *GetOrganizationsMeGatewayTimeout {
 	return &GetOrganizationsMeGatewayTimeout{}
 }
 
-/*GetOrganizationsMeGatewayTimeout handles this case with default header values.
+/*
+GetOrganizationsMeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOrganizationsMeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations me gateway timeout response has a 2xx status code
+func (o *GetOrganizationsMeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations me gateway timeout response has a 3xx status code
+func (o *GetOrganizationsMeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations me gateway timeout response has a 4xx status code
+func (o *GetOrganizationsMeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations me gateway timeout response has a 5xx status code
+func (o *GetOrganizationsMeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations me gateway timeout response a status code equal to that given
+func (o *GetOrganizationsMeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOrganizationsMeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOrganizationsMeGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/me][%d] getOrganizationsMeGatewayTimeout  %+v", 504, o.Payload)
 }
 

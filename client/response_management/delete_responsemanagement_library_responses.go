@@ -106,7 +106,8 @@ func NewDeleteResponsemanagementLibraryBadRequest() *DeleteResponsemanagementLib
 	return &DeleteResponsemanagementLibraryBadRequest{}
 }
 
-/*DeleteResponsemanagementLibraryBadRequest handles this case with default header values.
+/*
+DeleteResponsemanagementLibraryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type DeleteResponsemanagementLibraryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement library bad request response has a 2xx status code
+func (o *DeleteResponsemanagementLibraryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement library bad request response has a 3xx status code
+func (o *DeleteResponsemanagementLibraryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement library bad request response has a 4xx status code
+func (o *DeleteResponsemanagementLibraryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement library bad request response has a 5xx status code
+func (o *DeleteResponsemanagementLibraryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement library bad request response a status code equal to that given
+func (o *DeleteResponsemanagementLibraryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteResponsemanagementLibraryBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteResponsemanagementLibraryBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewDeleteResponsemanagementLibraryUnauthorized() *DeleteResponsemanagementL
 	return &DeleteResponsemanagementLibraryUnauthorized{}
 }
 
-/*DeleteResponsemanagementLibraryUnauthorized handles this case with default header values.
+/*
+DeleteResponsemanagementLibraryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type DeleteResponsemanagementLibraryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement library unauthorized response has a 2xx status code
+func (o *DeleteResponsemanagementLibraryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement library unauthorized response has a 3xx status code
+func (o *DeleteResponsemanagementLibraryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement library unauthorized response has a 4xx status code
+func (o *DeleteResponsemanagementLibraryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement library unauthorized response has a 5xx status code
+func (o *DeleteResponsemanagementLibraryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement library unauthorized response a status code equal to that given
+func (o *DeleteResponsemanagementLibraryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteResponsemanagementLibraryUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteResponsemanagementLibraryUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewDeleteResponsemanagementLibraryForbidden() *DeleteResponsemanagementLibr
 	return &DeleteResponsemanagementLibraryForbidden{}
 }
 
-/*DeleteResponsemanagementLibraryForbidden handles this case with default header values.
+/*
+DeleteResponsemanagementLibraryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type DeleteResponsemanagementLibraryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement library forbidden response has a 2xx status code
+func (o *DeleteResponsemanagementLibraryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement library forbidden response has a 3xx status code
+func (o *DeleteResponsemanagementLibraryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement library forbidden response has a 4xx status code
+func (o *DeleteResponsemanagementLibraryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement library forbidden response has a 5xx status code
+func (o *DeleteResponsemanagementLibraryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement library forbidden response a status code equal to that given
+func (o *DeleteResponsemanagementLibraryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteResponsemanagementLibraryForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteResponsemanagementLibraryForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewDeleteResponsemanagementLibraryNotFound() *DeleteResponsemanagementLibra
 	return &DeleteResponsemanagementLibraryNotFound{}
 }
 
-/*DeleteResponsemanagementLibraryNotFound handles this case with default header values.
+/*
+DeleteResponsemanagementLibraryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type DeleteResponsemanagementLibraryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement library not found response has a 2xx status code
+func (o *DeleteResponsemanagementLibraryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement library not found response has a 3xx status code
+func (o *DeleteResponsemanagementLibraryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement library not found response has a 4xx status code
+func (o *DeleteResponsemanagementLibraryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement library not found response has a 5xx status code
+func (o *DeleteResponsemanagementLibraryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement library not found response a status code equal to that given
+func (o *DeleteResponsemanagementLibraryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteResponsemanagementLibraryNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteResponsemanagementLibraryNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewDeleteResponsemanagementLibraryRequestTimeout() *DeleteResponsemanagemen
 	return &DeleteResponsemanagementLibraryRequestTimeout{}
 }
 
-/*DeleteResponsemanagementLibraryRequestTimeout handles this case with default header values.
+/*
+DeleteResponsemanagementLibraryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type DeleteResponsemanagementLibraryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement library request timeout response has a 2xx status code
+func (o *DeleteResponsemanagementLibraryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement library request timeout response has a 3xx status code
+func (o *DeleteResponsemanagementLibraryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement library request timeout response has a 4xx status code
+func (o *DeleteResponsemanagementLibraryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement library request timeout response has a 5xx status code
+func (o *DeleteResponsemanagementLibraryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement library request timeout response a status code equal to that given
+func (o *DeleteResponsemanagementLibraryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteResponsemanagementLibraryRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteResponsemanagementLibraryRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewDeleteResponsemanagementLibraryRequestEntityTooLarge() *DeleteResponsema
 	return &DeleteResponsemanagementLibraryRequestEntityTooLarge{}
 }
 
-/*DeleteResponsemanagementLibraryRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteResponsemanagementLibraryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type DeleteResponsemanagementLibraryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement library request entity too large response has a 2xx status code
+func (o *DeleteResponsemanagementLibraryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement library request entity too large response has a 3xx status code
+func (o *DeleteResponsemanagementLibraryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement library request entity too large response has a 4xx status code
+func (o *DeleteResponsemanagementLibraryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement library request entity too large response has a 5xx status code
+func (o *DeleteResponsemanagementLibraryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement library request entity too large response a status code equal to that given
+func (o *DeleteResponsemanagementLibraryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteResponsemanagementLibraryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteResponsemanagementLibraryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewDeleteResponsemanagementLibraryUnsupportedMediaType() *DeleteResponseman
 	return &DeleteResponsemanagementLibraryUnsupportedMediaType{}
 }
 
-/*DeleteResponsemanagementLibraryUnsupportedMediaType handles this case with default header values.
+/*
+DeleteResponsemanagementLibraryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type DeleteResponsemanagementLibraryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement library unsupported media type response has a 2xx status code
+func (o *DeleteResponsemanagementLibraryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement library unsupported media type response has a 3xx status code
+func (o *DeleteResponsemanagementLibraryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement library unsupported media type response has a 4xx status code
+func (o *DeleteResponsemanagementLibraryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement library unsupported media type response has a 5xx status code
+func (o *DeleteResponsemanagementLibraryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement library unsupported media type response a status code equal to that given
+func (o *DeleteResponsemanagementLibraryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteResponsemanagementLibraryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteResponsemanagementLibraryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewDeleteResponsemanagementLibraryTooManyRequests() *DeleteResponsemanageme
 	return &DeleteResponsemanagementLibraryTooManyRequests{}
 }
 
-/*DeleteResponsemanagementLibraryTooManyRequests handles this case with default header values.
+/*
+DeleteResponsemanagementLibraryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type DeleteResponsemanagementLibraryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement library too many requests response has a 2xx status code
+func (o *DeleteResponsemanagementLibraryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement library too many requests response has a 3xx status code
+func (o *DeleteResponsemanagementLibraryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement library too many requests response has a 4xx status code
+func (o *DeleteResponsemanagementLibraryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement library too many requests response has a 5xx status code
+func (o *DeleteResponsemanagementLibraryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement library too many requests response a status code equal to that given
+func (o *DeleteResponsemanagementLibraryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteResponsemanagementLibraryTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteResponsemanagementLibraryTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewDeleteResponsemanagementLibraryInternalServerError() *DeleteResponsemana
 	return &DeleteResponsemanagementLibraryInternalServerError{}
 }
 
-/*DeleteResponsemanagementLibraryInternalServerError handles this case with default header values.
+/*
+DeleteResponsemanagementLibraryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type DeleteResponsemanagementLibraryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement library internal server error response has a 2xx status code
+func (o *DeleteResponsemanagementLibraryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement library internal server error response has a 3xx status code
+func (o *DeleteResponsemanagementLibraryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement library internal server error response has a 4xx status code
+func (o *DeleteResponsemanagementLibraryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete responsemanagement library internal server error response has a 5xx status code
+func (o *DeleteResponsemanagementLibraryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete responsemanagement library internal server error response a status code equal to that given
+func (o *DeleteResponsemanagementLibraryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteResponsemanagementLibraryInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteResponsemanagementLibraryInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewDeleteResponsemanagementLibraryServiceUnavailable() *DeleteResponsemanag
 	return &DeleteResponsemanagementLibraryServiceUnavailable{}
 }
 
-/*DeleteResponsemanagementLibraryServiceUnavailable handles this case with default header values.
+/*
+DeleteResponsemanagementLibraryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type DeleteResponsemanagementLibraryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement library service unavailable response has a 2xx status code
+func (o *DeleteResponsemanagementLibraryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement library service unavailable response has a 3xx status code
+func (o *DeleteResponsemanagementLibraryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement library service unavailable response has a 4xx status code
+func (o *DeleteResponsemanagementLibraryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete responsemanagement library service unavailable response has a 5xx status code
+func (o *DeleteResponsemanagementLibraryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete responsemanagement library service unavailable response a status code equal to that given
+func (o *DeleteResponsemanagementLibraryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteResponsemanagementLibraryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteResponsemanagementLibraryServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewDeleteResponsemanagementLibraryGatewayTimeout() *DeleteResponsemanagemen
 	return &DeleteResponsemanagementLibraryGatewayTimeout{}
 }
 
-/*DeleteResponsemanagementLibraryGatewayTimeout handles this case with default header values.
+/*
+DeleteResponsemanagementLibraryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type DeleteResponsemanagementLibraryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement library gateway timeout response has a 2xx status code
+func (o *DeleteResponsemanagementLibraryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement library gateway timeout response has a 3xx status code
+func (o *DeleteResponsemanagementLibraryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement library gateway timeout response has a 4xx status code
+func (o *DeleteResponsemanagementLibraryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete responsemanagement library gateway timeout response has a 5xx status code
+func (o *DeleteResponsemanagementLibraryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete responsemanagement library gateway timeout response a status code equal to that given
+func (o *DeleteResponsemanagementLibraryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteResponsemanagementLibraryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteResponsemanagementLibraryGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibraryGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewDeleteResponsemanagementLibraryDefault(code int) *DeleteResponsemanageme
 	}
 }
 
-/*DeleteResponsemanagementLibraryDefault handles this case with default header values.
+/*
+DeleteResponsemanagementLibraryDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *DeleteResponsemanagementLibraryDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete responsemanagement library default response has a 2xx status code
+func (o *DeleteResponsemanagementLibraryDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete responsemanagement library default response has a 3xx status code
+func (o *DeleteResponsemanagementLibraryDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete responsemanagement library default response has a 4xx status code
+func (o *DeleteResponsemanagementLibraryDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete responsemanagement library default response has a 5xx status code
+func (o *DeleteResponsemanagementLibraryDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete responsemanagement library default response a status code equal to that given
+func (o *DeleteResponsemanagementLibraryDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteResponsemanagementLibraryDefault) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibrary default ", o._statusCode)
+}
+
+func (o *DeleteResponsemanagementLibraryDefault) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/libraries/{libraryId}][%d] deleteResponsemanagementLibrary default ", o._statusCode)
 }
 

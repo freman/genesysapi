@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -119,7 +120,6 @@ func (m *PostTextRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PostTextRequest) validateAmazonLexRequest(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AmazonLexRequest) { // not required
 		return nil
 	}
@@ -128,6 +128,8 @@ func (m *PostTextRequest) validateAmazonLexRequest(formats strfmt.Registry) erro
 		if err := m.AmazonLexRequest.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("amazonLexRequest")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("amazonLexRequest")
 			}
 			return err
 		}
@@ -156,7 +158,6 @@ func (m *PostTextRequest) validateBotChannelsItemsEnum(path, location string, va
 }
 
 func (m *PostTextRequest) validateBotChannels(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BotChannels) { // not required
 		return nil
 	}
@@ -192,7 +193,6 @@ func (m *PostTextRequest) validateBotSessionID(formats strfmt.Registry) error {
 }
 
 func (m *PostTextRequest) validateGenesysBotConnector(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GenesysBotConnector) { // not required
 		return nil
 	}
@@ -201,6 +201,8 @@ func (m *PostTextRequest) validateGenesysBotConnector(formats strfmt.Registry) e
 		if err := m.GenesysBotConnector.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("genesysBotConnector")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("genesysBotConnector")
 			}
 			return err
 		}
@@ -210,7 +212,6 @@ func (m *PostTextRequest) validateGenesysBotConnector(formats strfmt.Registry) e
 }
 
 func (m *PostTextRequest) validateGoogleDialogflow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GoogleDialogflow) { // not required
 		return nil
 	}
@@ -219,6 +220,8 @@ func (m *PostTextRequest) validateGoogleDialogflow(formats strfmt.Registry) erro
 		if err := m.GoogleDialogflow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("googleDialogflow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("googleDialogflow")
 			}
 			return err
 		}
@@ -305,7 +308,6 @@ func (m *PostTextRequest) validateMessagingPlatformTypeEnum(path, location strin
 }
 
 func (m *PostTextRequest) validateMessagingPlatformType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessagingPlatformType) { // not required
 		return nil
 	}
@@ -319,7 +321,6 @@ func (m *PostTextRequest) validateMessagingPlatformType(formats strfmt.Registry)
 }
 
 func (m *PostTextRequest) validateNuanceMixDlg(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.NuanceMixDlg) { // not required
 		return nil
 	}
@@ -328,6 +329,8 @@ func (m *PostTextRequest) validateNuanceMixDlg(formats strfmt.Registry) error {
 		if err := m.NuanceMixDlg.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("nuanceMixDlg")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nuanceMixDlg")
 			}
 			return err
 		}
@@ -346,6 +349,118 @@ func (m *PostTextRequest) validatePostTextMessage(formats strfmt.Registry) error
 		if err := m.PostTextMessage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("postTextMessage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("postTextMessage")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this post text request based on the context it is used
+func (m *PostTextRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAmazonLexRequest(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGenesysBotConnector(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGoogleDialogflow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNuanceMixDlg(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePostTextMessage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PostTextRequest) contextValidateAmazonLexRequest(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AmazonLexRequest != nil {
+		if err := m.AmazonLexRequest.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("amazonLexRequest")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("amazonLexRequest")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PostTextRequest) contextValidateGenesysBotConnector(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.GenesysBotConnector != nil {
+		if err := m.GenesysBotConnector.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("genesysBotConnector")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("genesysBotConnector")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PostTextRequest) contextValidateGoogleDialogflow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.GoogleDialogflow != nil {
+		if err := m.GoogleDialogflow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("googleDialogflow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("googleDialogflow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PostTextRequest) contextValidateNuanceMixDlg(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.NuanceMixDlg != nil {
+		if err := m.NuanceMixDlg.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("nuanceMixDlg")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nuanceMixDlg")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PostTextRequest) contextValidatePostTextMessage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PostTextMessage != nil {
+		if err := m.PostTextMessage.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("postTextMessage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("postTextMessage")
 			}
 			return err
 		}

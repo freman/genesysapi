@@ -95,7 +95,6 @@ func (o *PostCoachingAppointmentsAggregatesQueryReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostCoachingAppointmentsAggregatesQueryOK() *PostCoachingAppointmentsAgg
 	return &PostCoachingAppointmentsAggregatesQueryOK{}
 }
 
-/*PostCoachingAppointmentsAggregatesQueryOK handles this case with default header values.
+/*
+PostCoachingAppointmentsAggregatesQueryOK describes a response with status code 200, with default header values.
 
 Query completed successfully
 */
@@ -114,7 +114,36 @@ type PostCoachingAppointmentsAggregatesQueryOK struct {
 	Payload *models.CoachingAppointmentAggregateResponse
 }
 
+// IsSuccess returns true when this post coaching appointments aggregates query o k response has a 2xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post coaching appointments aggregates query o k response has a 3xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointments aggregates query o k response has a 4xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post coaching appointments aggregates query o k response has a 5xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointments aggregates query o k response a status code equal to that given
+func (o *PostCoachingAppointmentsAggregatesQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostCoachingAppointmentsAggregatesQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAggregatesQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostCoachingAppointmentsAggregatesQueryBadRequest() *PostCoachingAppoint
 	return &PostCoachingAppointmentsAggregatesQueryBadRequest{}
 }
 
-/*PostCoachingAppointmentsAggregatesQueryBadRequest handles this case with default header values.
+/*
+PostCoachingAppointmentsAggregatesQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostCoachingAppointmentsAggregatesQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointments aggregates query bad request response has a 2xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointments aggregates query bad request response has a 3xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointments aggregates query bad request response has a 4xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointments aggregates query bad request response has a 5xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointments aggregates query bad request response a status code equal to that given
+func (o *PostCoachingAppointmentsAggregatesQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostCoachingAppointmentsAggregatesQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAggregatesQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostCoachingAppointmentsAggregatesQueryUnauthorized() *PostCoachingAppoi
 	return &PostCoachingAppointmentsAggregatesQueryUnauthorized{}
 }
 
-/*PostCoachingAppointmentsAggregatesQueryUnauthorized handles this case with default header values.
+/*
+PostCoachingAppointmentsAggregatesQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostCoachingAppointmentsAggregatesQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointments aggregates query unauthorized response has a 2xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointments aggregates query unauthorized response has a 3xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointments aggregates query unauthorized response has a 4xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointments aggregates query unauthorized response has a 5xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointments aggregates query unauthorized response a status code equal to that given
+func (o *PostCoachingAppointmentsAggregatesQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostCoachingAppointmentsAggregatesQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAggregatesQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostCoachingAppointmentsAggregatesQueryForbidden() *PostCoachingAppointm
 	return &PostCoachingAppointmentsAggregatesQueryForbidden{}
 }
 
-/*PostCoachingAppointmentsAggregatesQueryForbidden handles this case with default header values.
+/*
+PostCoachingAppointmentsAggregatesQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostCoachingAppointmentsAggregatesQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointments aggregates query forbidden response has a 2xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointments aggregates query forbidden response has a 3xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointments aggregates query forbidden response has a 4xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointments aggregates query forbidden response has a 5xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointments aggregates query forbidden response a status code equal to that given
+func (o *PostCoachingAppointmentsAggregatesQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostCoachingAppointmentsAggregatesQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAggregatesQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostCoachingAppointmentsAggregatesQueryNotFound() *PostCoachingAppointme
 	return &PostCoachingAppointmentsAggregatesQueryNotFound{}
 }
 
-/*PostCoachingAppointmentsAggregatesQueryNotFound handles this case with default header values.
+/*
+PostCoachingAppointmentsAggregatesQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostCoachingAppointmentsAggregatesQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointments aggregates query not found response has a 2xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointments aggregates query not found response has a 3xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointments aggregates query not found response has a 4xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointments aggregates query not found response has a 5xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointments aggregates query not found response a status code equal to that given
+func (o *PostCoachingAppointmentsAggregatesQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostCoachingAppointmentsAggregatesQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAggregatesQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostCoachingAppointmentsAggregatesQueryRequestTimeout() *PostCoachingApp
 	return &PostCoachingAppointmentsAggregatesQueryRequestTimeout{}
 }
 
-/*PostCoachingAppointmentsAggregatesQueryRequestTimeout handles this case with default header values.
+/*
+PostCoachingAppointmentsAggregatesQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostCoachingAppointmentsAggregatesQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointments aggregates query request timeout response has a 2xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointments aggregates query request timeout response has a 3xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointments aggregates query request timeout response has a 4xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointments aggregates query request timeout response has a 5xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointments aggregates query request timeout response a status code equal to that given
+func (o *PostCoachingAppointmentsAggregatesQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostCoachingAppointmentsAggregatesQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAggregatesQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostCoachingAppointmentsAggregatesQueryRequestEntityTooLarge() *PostCoac
 	return &PostCoachingAppointmentsAggregatesQueryRequestEntityTooLarge{}
 }
 
-/*PostCoachingAppointmentsAggregatesQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostCoachingAppointmentsAggregatesQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostCoachingAppointmentsAggregatesQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointments aggregates query request entity too large response has a 2xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointments aggregates query request entity too large response has a 3xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointments aggregates query request entity too large response has a 4xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointments aggregates query request entity too large response has a 5xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointments aggregates query request entity too large response a status code equal to that given
+func (o *PostCoachingAppointmentsAggregatesQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostCoachingAppointmentsAggregatesQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAggregatesQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostCoachingAppointmentsAggregatesQueryUnsupportedMediaType() *PostCoach
 	return &PostCoachingAppointmentsAggregatesQueryUnsupportedMediaType{}
 }
 
-/*PostCoachingAppointmentsAggregatesQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostCoachingAppointmentsAggregatesQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostCoachingAppointmentsAggregatesQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointments aggregates query unsupported media type response has a 2xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointments aggregates query unsupported media type response has a 3xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointments aggregates query unsupported media type response has a 4xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointments aggregates query unsupported media type response has a 5xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointments aggregates query unsupported media type response a status code equal to that given
+func (o *PostCoachingAppointmentsAggregatesQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostCoachingAppointmentsAggregatesQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAggregatesQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostCoachingAppointmentsAggregatesQueryTooManyRequests() *PostCoachingAp
 	return &PostCoachingAppointmentsAggregatesQueryTooManyRequests{}
 }
 
-/*PostCoachingAppointmentsAggregatesQueryTooManyRequests handles this case with default header values.
+/*
+PostCoachingAppointmentsAggregatesQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostCoachingAppointmentsAggregatesQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointments aggregates query too many requests response has a 2xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointments aggregates query too many requests response has a 3xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointments aggregates query too many requests response has a 4xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post coaching appointments aggregates query too many requests response has a 5xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post coaching appointments aggregates query too many requests response a status code equal to that given
+func (o *PostCoachingAppointmentsAggregatesQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostCoachingAppointmentsAggregatesQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAggregatesQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostCoachingAppointmentsAggregatesQueryInternalServerError() *PostCoachi
 	return &PostCoachingAppointmentsAggregatesQueryInternalServerError{}
 }
 
-/*PostCoachingAppointmentsAggregatesQueryInternalServerError handles this case with default header values.
+/*
+PostCoachingAppointmentsAggregatesQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostCoachingAppointmentsAggregatesQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointments aggregates query internal server error response has a 2xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointments aggregates query internal server error response has a 3xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointments aggregates query internal server error response has a 4xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post coaching appointments aggregates query internal server error response has a 5xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post coaching appointments aggregates query internal server error response a status code equal to that given
+func (o *PostCoachingAppointmentsAggregatesQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostCoachingAppointmentsAggregatesQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAggregatesQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostCoachingAppointmentsAggregatesQueryServiceUnavailable() *PostCoachin
 	return &PostCoachingAppointmentsAggregatesQueryServiceUnavailable{}
 }
 
-/*PostCoachingAppointmentsAggregatesQueryServiceUnavailable handles this case with default header values.
+/*
+PostCoachingAppointmentsAggregatesQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostCoachingAppointmentsAggregatesQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointments aggregates query service unavailable response has a 2xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointments aggregates query service unavailable response has a 3xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointments aggregates query service unavailable response has a 4xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post coaching appointments aggregates query service unavailable response has a 5xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post coaching appointments aggregates query service unavailable response a status code equal to that given
+func (o *PostCoachingAppointmentsAggregatesQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostCoachingAppointmentsAggregatesQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAggregatesQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostCoachingAppointmentsAggregatesQueryGatewayTimeout() *PostCoachingApp
 	return &PostCoachingAppointmentsAggregatesQueryGatewayTimeout{}
 }
 
-/*PostCoachingAppointmentsAggregatesQueryGatewayTimeout handles this case with default header values.
+/*
+PostCoachingAppointmentsAggregatesQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostCoachingAppointmentsAggregatesQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post coaching appointments aggregates query gateway timeout response has a 2xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post coaching appointments aggregates query gateway timeout response has a 3xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post coaching appointments aggregates query gateway timeout response has a 4xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post coaching appointments aggregates query gateway timeout response has a 5xx status code
+func (o *PostCoachingAppointmentsAggregatesQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post coaching appointments aggregates query gateway timeout response a status code equal to that given
+func (o *PostCoachingAppointmentsAggregatesQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostCoachingAppointmentsAggregatesQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostCoachingAppointmentsAggregatesQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/coaching/appointments/aggregates/query][%d] postCoachingAppointmentsAggregatesQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

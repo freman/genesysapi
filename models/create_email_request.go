@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -118,7 +119,6 @@ func (m *CreateEmailRequest) validateDirectionEnum(path, location string, value 
 }
 
 func (m *CreateEmailRequest) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -137,6 +137,11 @@ func (m *CreateEmailRequest) validateProvider(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this create email request based on context it is used
+func (m *CreateEmailRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

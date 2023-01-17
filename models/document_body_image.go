@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -16,6 +18,9 @@ import (
 //
 // swagger:model DocumentBodyImage
 type DocumentBodyImage struct {
+
+	// The URL of the page that the hyperlink goes to.
+	Hyperlink string `json:"hyperlink,omitempty"`
 
 	// The URL for the image.
 	// Required: true
@@ -42,6 +47,11 @@ func (m *DocumentBodyImage) validateURL(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this document body image based on context it is used
+func (m *DocumentBodyImage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

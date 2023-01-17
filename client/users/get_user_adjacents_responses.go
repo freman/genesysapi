@@ -95,7 +95,6 @@ func (o *GetUserAdjacentsReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetUserAdjacentsOK() *GetUserAdjacentsOK {
 	return &GetUserAdjacentsOK{}
 }
 
-/*GetUserAdjacentsOK handles this case with default header values.
+/*
+GetUserAdjacentsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetUserAdjacentsOK struct {
 	Payload *models.Adjacents
 }
 
+// IsSuccess returns true when this get user adjacents o k response has a 2xx status code
+func (o *GetUserAdjacentsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get user adjacents o k response has a 3xx status code
+func (o *GetUserAdjacentsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user adjacents o k response has a 4xx status code
+func (o *GetUserAdjacentsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user adjacents o k response has a 5xx status code
+func (o *GetUserAdjacentsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user adjacents o k response a status code equal to that given
+func (o *GetUserAdjacentsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUserAdjacentsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetUserAdjacentsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetUserAdjacentsBadRequest() *GetUserAdjacentsBadRequest {
 	return &GetUserAdjacentsBadRequest{}
 }
 
-/*GetUserAdjacentsBadRequest handles this case with default header values.
+/*
+GetUserAdjacentsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetUserAdjacentsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user adjacents bad request response has a 2xx status code
+func (o *GetUserAdjacentsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user adjacents bad request response has a 3xx status code
+func (o *GetUserAdjacentsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user adjacents bad request response has a 4xx status code
+func (o *GetUserAdjacentsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user adjacents bad request response has a 5xx status code
+func (o *GetUserAdjacentsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user adjacents bad request response a status code equal to that given
+func (o *GetUserAdjacentsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUserAdjacentsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetUserAdjacentsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetUserAdjacentsUnauthorized() *GetUserAdjacentsUnauthorized {
 	return &GetUserAdjacentsUnauthorized{}
 }
 
-/*GetUserAdjacentsUnauthorized handles this case with default header values.
+/*
+GetUserAdjacentsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetUserAdjacentsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user adjacents unauthorized response has a 2xx status code
+func (o *GetUserAdjacentsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user adjacents unauthorized response has a 3xx status code
+func (o *GetUserAdjacentsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user adjacents unauthorized response has a 4xx status code
+func (o *GetUserAdjacentsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user adjacents unauthorized response has a 5xx status code
+func (o *GetUserAdjacentsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user adjacents unauthorized response a status code equal to that given
+func (o *GetUserAdjacentsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetUserAdjacentsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetUserAdjacentsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetUserAdjacentsForbidden() *GetUserAdjacentsForbidden {
 	return &GetUserAdjacentsForbidden{}
 }
 
-/*GetUserAdjacentsForbidden handles this case with default header values.
+/*
+GetUserAdjacentsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetUserAdjacentsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user adjacents forbidden response has a 2xx status code
+func (o *GetUserAdjacentsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user adjacents forbidden response has a 3xx status code
+func (o *GetUserAdjacentsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user adjacents forbidden response has a 4xx status code
+func (o *GetUserAdjacentsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user adjacents forbidden response has a 5xx status code
+func (o *GetUserAdjacentsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user adjacents forbidden response a status code equal to that given
+func (o *GetUserAdjacentsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUserAdjacentsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetUserAdjacentsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetUserAdjacentsNotFound() *GetUserAdjacentsNotFound {
 	return &GetUserAdjacentsNotFound{}
 }
 
-/*GetUserAdjacentsNotFound handles this case with default header values.
+/*
+GetUserAdjacentsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetUserAdjacentsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user adjacents not found response has a 2xx status code
+func (o *GetUserAdjacentsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user adjacents not found response has a 3xx status code
+func (o *GetUserAdjacentsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user adjacents not found response has a 4xx status code
+func (o *GetUserAdjacentsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user adjacents not found response has a 5xx status code
+func (o *GetUserAdjacentsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user adjacents not found response a status code equal to that given
+func (o *GetUserAdjacentsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetUserAdjacentsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetUserAdjacentsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetUserAdjacentsRequestTimeout() *GetUserAdjacentsRequestTimeout {
 	return &GetUserAdjacentsRequestTimeout{}
 }
 
-/*GetUserAdjacentsRequestTimeout handles this case with default header values.
+/*
+GetUserAdjacentsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetUserAdjacentsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user adjacents request timeout response has a 2xx status code
+func (o *GetUserAdjacentsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user adjacents request timeout response has a 3xx status code
+func (o *GetUserAdjacentsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user adjacents request timeout response has a 4xx status code
+func (o *GetUserAdjacentsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user adjacents request timeout response has a 5xx status code
+func (o *GetUserAdjacentsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user adjacents request timeout response a status code equal to that given
+func (o *GetUserAdjacentsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetUserAdjacentsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserAdjacentsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetUserAdjacentsRequestEntityTooLarge() *GetUserAdjacentsRequestEntityTo
 	return &GetUserAdjacentsRequestEntityTooLarge{}
 }
 
-/*GetUserAdjacentsRequestEntityTooLarge handles this case with default header values.
+/*
+GetUserAdjacentsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetUserAdjacentsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user adjacents request entity too large response has a 2xx status code
+func (o *GetUserAdjacentsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user adjacents request entity too large response has a 3xx status code
+func (o *GetUserAdjacentsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user adjacents request entity too large response has a 4xx status code
+func (o *GetUserAdjacentsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user adjacents request entity too large response has a 5xx status code
+func (o *GetUserAdjacentsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user adjacents request entity too large response a status code equal to that given
+func (o *GetUserAdjacentsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetUserAdjacentsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetUserAdjacentsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetUserAdjacentsUnsupportedMediaType() *GetUserAdjacentsUnsupportedMedia
 	return &GetUserAdjacentsUnsupportedMediaType{}
 }
 
-/*GetUserAdjacentsUnsupportedMediaType handles this case with default header values.
+/*
+GetUserAdjacentsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetUserAdjacentsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user adjacents unsupported media type response has a 2xx status code
+func (o *GetUserAdjacentsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user adjacents unsupported media type response has a 3xx status code
+func (o *GetUserAdjacentsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user adjacents unsupported media type response has a 4xx status code
+func (o *GetUserAdjacentsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user adjacents unsupported media type response has a 5xx status code
+func (o *GetUserAdjacentsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user adjacents unsupported media type response a status code equal to that given
+func (o *GetUserAdjacentsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetUserAdjacentsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetUserAdjacentsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetUserAdjacentsTooManyRequests() *GetUserAdjacentsTooManyRequests {
 	return &GetUserAdjacentsTooManyRequests{}
 }
 
-/*GetUserAdjacentsTooManyRequests handles this case with default header values.
+/*
+GetUserAdjacentsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetUserAdjacentsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user adjacents too many requests response has a 2xx status code
+func (o *GetUserAdjacentsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user adjacents too many requests response has a 3xx status code
+func (o *GetUserAdjacentsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user adjacents too many requests response has a 4xx status code
+func (o *GetUserAdjacentsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user adjacents too many requests response has a 5xx status code
+func (o *GetUserAdjacentsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user adjacents too many requests response a status code equal to that given
+func (o *GetUserAdjacentsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUserAdjacentsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetUserAdjacentsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetUserAdjacentsInternalServerError() *GetUserAdjacentsInternalServerErr
 	return &GetUserAdjacentsInternalServerError{}
 }
 
-/*GetUserAdjacentsInternalServerError handles this case with default header values.
+/*
+GetUserAdjacentsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetUserAdjacentsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user adjacents internal server error response has a 2xx status code
+func (o *GetUserAdjacentsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user adjacents internal server error response has a 3xx status code
+func (o *GetUserAdjacentsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user adjacents internal server error response has a 4xx status code
+func (o *GetUserAdjacentsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user adjacents internal server error response has a 5xx status code
+func (o *GetUserAdjacentsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user adjacents internal server error response a status code equal to that given
+func (o *GetUserAdjacentsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUserAdjacentsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetUserAdjacentsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetUserAdjacentsServiceUnavailable() *GetUserAdjacentsServiceUnavailable
 	return &GetUserAdjacentsServiceUnavailable{}
 }
 
-/*GetUserAdjacentsServiceUnavailable handles this case with default header values.
+/*
+GetUserAdjacentsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetUserAdjacentsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user adjacents service unavailable response has a 2xx status code
+func (o *GetUserAdjacentsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user adjacents service unavailable response has a 3xx status code
+func (o *GetUserAdjacentsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user adjacents service unavailable response has a 4xx status code
+func (o *GetUserAdjacentsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user adjacents service unavailable response has a 5xx status code
+func (o *GetUserAdjacentsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user adjacents service unavailable response a status code equal to that given
+func (o *GetUserAdjacentsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetUserAdjacentsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetUserAdjacentsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetUserAdjacentsGatewayTimeout() *GetUserAdjacentsGatewayTimeout {
 	return &GetUserAdjacentsGatewayTimeout{}
 }
 
-/*GetUserAdjacentsGatewayTimeout handles this case with default header values.
+/*
+GetUserAdjacentsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetUserAdjacentsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user adjacents gateway timeout response has a 2xx status code
+func (o *GetUserAdjacentsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user adjacents gateway timeout response has a 3xx status code
+func (o *GetUserAdjacentsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user adjacents gateway timeout response has a 4xx status code
+func (o *GetUserAdjacentsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user adjacents gateway timeout response has a 5xx status code
+func (o *GetUserAdjacentsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user adjacents gateway timeout response a status code equal to that given
+func (o *GetUserAdjacentsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetUserAdjacentsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetUserAdjacentsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/adjacents][%d] getUserAdjacentsGatewayTimeout  %+v", 504, o.Payload)
 }
 

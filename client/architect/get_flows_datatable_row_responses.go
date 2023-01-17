@@ -95,7 +95,6 @@ func (o *GetFlowsDatatableRowReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetFlowsDatatableRowOK() *GetFlowsDatatableRowOK {
 	return &GetFlowsDatatableRowOK{}
 }
 
-/*GetFlowsDatatableRowOK handles this case with default header values.
+/*
+GetFlowsDatatableRowOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetFlowsDatatableRowOK struct {
 	Payload map[string]interface{}
 }
 
+// IsSuccess returns true when this get flows datatable row o k response has a 2xx status code
+func (o *GetFlowsDatatableRowOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get flows datatable row o k response has a 3xx status code
+func (o *GetFlowsDatatableRowOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable row o k response has a 4xx status code
+func (o *GetFlowsDatatableRowOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows datatable row o k response has a 5xx status code
+func (o *GetFlowsDatatableRowOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable row o k response a status code equal to that given
+func (o *GetFlowsDatatableRowOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetFlowsDatatableRowOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowOK  %+v", 200, o.Payload)
+}
+
+func (o *GetFlowsDatatableRowOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetFlowsDatatableRowBadRequest() *GetFlowsDatatableRowBadRequest {
 	return &GetFlowsDatatableRowBadRequest{}
 }
 
-/*GetFlowsDatatableRowBadRequest handles this case with default header values.
+/*
+GetFlowsDatatableRowBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetFlowsDatatableRowBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable row bad request response has a 2xx status code
+func (o *GetFlowsDatatableRowBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable row bad request response has a 3xx status code
+func (o *GetFlowsDatatableRowBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable row bad request response has a 4xx status code
+func (o *GetFlowsDatatableRowBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable row bad request response has a 5xx status code
+func (o *GetFlowsDatatableRowBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable row bad request response a status code equal to that given
+func (o *GetFlowsDatatableRowBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetFlowsDatatableRowBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetFlowsDatatableRowBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetFlowsDatatableRowUnauthorized() *GetFlowsDatatableRowUnauthorized {
 	return &GetFlowsDatatableRowUnauthorized{}
 }
 
-/*GetFlowsDatatableRowUnauthorized handles this case with default header values.
+/*
+GetFlowsDatatableRowUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetFlowsDatatableRowUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable row unauthorized response has a 2xx status code
+func (o *GetFlowsDatatableRowUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable row unauthorized response has a 3xx status code
+func (o *GetFlowsDatatableRowUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable row unauthorized response has a 4xx status code
+func (o *GetFlowsDatatableRowUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable row unauthorized response has a 5xx status code
+func (o *GetFlowsDatatableRowUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable row unauthorized response a status code equal to that given
+func (o *GetFlowsDatatableRowUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetFlowsDatatableRowUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetFlowsDatatableRowUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetFlowsDatatableRowForbidden() *GetFlowsDatatableRowForbidden {
 	return &GetFlowsDatatableRowForbidden{}
 }
 
-/*GetFlowsDatatableRowForbidden handles this case with default header values.
+/*
+GetFlowsDatatableRowForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetFlowsDatatableRowForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable row forbidden response has a 2xx status code
+func (o *GetFlowsDatatableRowForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable row forbidden response has a 3xx status code
+func (o *GetFlowsDatatableRowForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable row forbidden response has a 4xx status code
+func (o *GetFlowsDatatableRowForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable row forbidden response has a 5xx status code
+func (o *GetFlowsDatatableRowForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable row forbidden response a status code equal to that given
+func (o *GetFlowsDatatableRowForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetFlowsDatatableRowForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetFlowsDatatableRowForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetFlowsDatatableRowNotFound() *GetFlowsDatatableRowNotFound {
 	return &GetFlowsDatatableRowNotFound{}
 }
 
-/*GetFlowsDatatableRowNotFound handles this case with default header values.
+/*
+GetFlowsDatatableRowNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetFlowsDatatableRowNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable row not found response has a 2xx status code
+func (o *GetFlowsDatatableRowNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable row not found response has a 3xx status code
+func (o *GetFlowsDatatableRowNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable row not found response has a 4xx status code
+func (o *GetFlowsDatatableRowNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable row not found response has a 5xx status code
+func (o *GetFlowsDatatableRowNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable row not found response a status code equal to that given
+func (o *GetFlowsDatatableRowNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetFlowsDatatableRowNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetFlowsDatatableRowNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetFlowsDatatableRowRequestTimeout() *GetFlowsDatatableRowRequestTimeout
 	return &GetFlowsDatatableRowRequestTimeout{}
 }
 
-/*GetFlowsDatatableRowRequestTimeout handles this case with default header values.
+/*
+GetFlowsDatatableRowRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetFlowsDatatableRowRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable row request timeout response has a 2xx status code
+func (o *GetFlowsDatatableRowRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable row request timeout response has a 3xx status code
+func (o *GetFlowsDatatableRowRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable row request timeout response has a 4xx status code
+func (o *GetFlowsDatatableRowRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable row request timeout response has a 5xx status code
+func (o *GetFlowsDatatableRowRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable row request timeout response a status code equal to that given
+func (o *GetFlowsDatatableRowRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetFlowsDatatableRowRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFlowsDatatableRowRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetFlowsDatatableRowRequestEntityTooLarge() *GetFlowsDatatableRowRequest
 	return &GetFlowsDatatableRowRequestEntityTooLarge{}
 }
 
-/*GetFlowsDatatableRowRequestEntityTooLarge handles this case with default header values.
+/*
+GetFlowsDatatableRowRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetFlowsDatatableRowRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable row request entity too large response has a 2xx status code
+func (o *GetFlowsDatatableRowRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable row request entity too large response has a 3xx status code
+func (o *GetFlowsDatatableRowRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable row request entity too large response has a 4xx status code
+func (o *GetFlowsDatatableRowRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable row request entity too large response has a 5xx status code
+func (o *GetFlowsDatatableRowRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable row request entity too large response a status code equal to that given
+func (o *GetFlowsDatatableRowRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetFlowsDatatableRowRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetFlowsDatatableRowRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetFlowsDatatableRowUnsupportedMediaType() *GetFlowsDatatableRowUnsuppor
 	return &GetFlowsDatatableRowUnsupportedMediaType{}
 }
 
-/*GetFlowsDatatableRowUnsupportedMediaType handles this case with default header values.
+/*
+GetFlowsDatatableRowUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetFlowsDatatableRowUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable row unsupported media type response has a 2xx status code
+func (o *GetFlowsDatatableRowUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable row unsupported media type response has a 3xx status code
+func (o *GetFlowsDatatableRowUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable row unsupported media type response has a 4xx status code
+func (o *GetFlowsDatatableRowUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable row unsupported media type response has a 5xx status code
+func (o *GetFlowsDatatableRowUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable row unsupported media type response a status code equal to that given
+func (o *GetFlowsDatatableRowUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetFlowsDatatableRowUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetFlowsDatatableRowUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetFlowsDatatableRowTooManyRequests() *GetFlowsDatatableRowTooManyReques
 	return &GetFlowsDatatableRowTooManyRequests{}
 }
 
-/*GetFlowsDatatableRowTooManyRequests handles this case with default header values.
+/*
+GetFlowsDatatableRowTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetFlowsDatatableRowTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable row too many requests response has a 2xx status code
+func (o *GetFlowsDatatableRowTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable row too many requests response has a 3xx status code
+func (o *GetFlowsDatatableRowTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable row too many requests response has a 4xx status code
+func (o *GetFlowsDatatableRowTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows datatable row too many requests response has a 5xx status code
+func (o *GetFlowsDatatableRowTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows datatable row too many requests response a status code equal to that given
+func (o *GetFlowsDatatableRowTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetFlowsDatatableRowTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetFlowsDatatableRowTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetFlowsDatatableRowInternalServerError() *GetFlowsDatatableRowInternalS
 	return &GetFlowsDatatableRowInternalServerError{}
 }
 
-/*GetFlowsDatatableRowInternalServerError handles this case with default header values.
+/*
+GetFlowsDatatableRowInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetFlowsDatatableRowInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable row internal server error response has a 2xx status code
+func (o *GetFlowsDatatableRowInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable row internal server error response has a 3xx status code
+func (o *GetFlowsDatatableRowInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable row internal server error response has a 4xx status code
+func (o *GetFlowsDatatableRowInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows datatable row internal server error response has a 5xx status code
+func (o *GetFlowsDatatableRowInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows datatable row internal server error response a status code equal to that given
+func (o *GetFlowsDatatableRowInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetFlowsDatatableRowInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetFlowsDatatableRowInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetFlowsDatatableRowServiceUnavailable() *GetFlowsDatatableRowServiceUna
 	return &GetFlowsDatatableRowServiceUnavailable{}
 }
 
-/*GetFlowsDatatableRowServiceUnavailable handles this case with default header values.
+/*
+GetFlowsDatatableRowServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetFlowsDatatableRowServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable row service unavailable response has a 2xx status code
+func (o *GetFlowsDatatableRowServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable row service unavailable response has a 3xx status code
+func (o *GetFlowsDatatableRowServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable row service unavailable response has a 4xx status code
+func (o *GetFlowsDatatableRowServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows datatable row service unavailable response has a 5xx status code
+func (o *GetFlowsDatatableRowServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows datatable row service unavailable response a status code equal to that given
+func (o *GetFlowsDatatableRowServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetFlowsDatatableRowServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetFlowsDatatableRowServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetFlowsDatatableRowGatewayTimeout() *GetFlowsDatatableRowGatewayTimeout
 	return &GetFlowsDatatableRowGatewayTimeout{}
 }
 
-/*GetFlowsDatatableRowGatewayTimeout handles this case with default header values.
+/*
+GetFlowsDatatableRowGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetFlowsDatatableRowGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows datatable row gateway timeout response has a 2xx status code
+func (o *GetFlowsDatatableRowGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows datatable row gateway timeout response has a 3xx status code
+func (o *GetFlowsDatatableRowGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows datatable row gateway timeout response has a 4xx status code
+func (o *GetFlowsDatatableRowGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows datatable row gateway timeout response has a 5xx status code
+func (o *GetFlowsDatatableRowGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows datatable row gateway timeout response a status code equal to that given
+func (o *GetFlowsDatatableRowGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetFlowsDatatableRowGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetFlowsDatatableRowGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/datatables/{datatableId}/rows/{rowId}][%d] getFlowsDatatableRowGatewayTimeout  %+v", 504, o.Payload)
 }
 

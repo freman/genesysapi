@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -102,6 +103,11 @@ func (m *WebChatRoutingTarget) validateTargetType(formats strfmt.Registry) error
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this web chat routing target based on context it is used
+func (m *WebChatRoutingTarget) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutContentmanagementWorkspaceParams creates a new PutContentmanagementWorkspaceParams object
-// with the default values initialized.
+// NewPutContentmanagementWorkspaceParams creates a new PutContentmanagementWorkspaceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutContentmanagementWorkspaceParams() *PutContentmanagementWorkspaceParams {
-	var ()
 	return &PutContentmanagementWorkspaceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutContentmanagementWorkspaceParamsWithTimeout creates a new PutContentmanagementWorkspaceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutContentmanagementWorkspaceParamsWithTimeout(timeout time.Duration) *PutContentmanagementWorkspaceParams {
-	var ()
 	return &PutContentmanagementWorkspaceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutContentmanagementWorkspaceParamsWithContext creates a new PutContentmanagementWorkspaceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutContentmanagementWorkspaceParamsWithContext(ctx context.Context) *PutContentmanagementWorkspaceParams {
-	var ()
 	return &PutContentmanagementWorkspaceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutContentmanagementWorkspaceParamsWithHTTPClient creates a new PutContentmanagementWorkspaceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutContentmanagementWorkspaceParamsWithHTTPClient(client *http.Client) *PutContentmanagementWorkspaceParams {
-	var ()
 	return &PutContentmanagementWorkspaceParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutContentmanagementWorkspaceParams contains all the parameters to send to the API endpoint
-for the put contentmanagement workspace operation typically these are written to a http.Request
+/*
+PutContentmanagementWorkspaceParams contains all the parameters to send to the API endpoint
+
+	for the put contentmanagement workspace operation.
+
+	Typically these are written to a http.Request.
 */
 type PutContentmanagementWorkspaceParams struct {
 
-	/*Body
-	  Workspace
+	/* Body.
 
+	   Workspace
 	*/
 	Body *models.Workspace
-	/*WorkspaceID
-	  Workspace ID
 
+	/* WorkspaceID.
+
+	   Workspace ID
 	*/
 	WorkspaceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put contentmanagement workspace params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutContentmanagementWorkspaceParams) WithDefaults() *PutContentmanagementWorkspaceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put contentmanagement workspace params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutContentmanagementWorkspaceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put contentmanagement workspace params
@@ -140,7 +157,6 @@ func (o *PutContentmanagementWorkspaceParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

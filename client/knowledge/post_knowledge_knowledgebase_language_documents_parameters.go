@@ -18,66 +18,84 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostKnowledgeKnowledgebaseLanguageDocumentsParams creates a new PostKnowledgeKnowledgebaseLanguageDocumentsParams object
-// with the default values initialized.
+// NewPostKnowledgeKnowledgebaseLanguageDocumentsParams creates a new PostKnowledgeKnowledgebaseLanguageDocumentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostKnowledgeKnowledgebaseLanguageDocumentsParams() *PostKnowledgeKnowledgebaseLanguageDocumentsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageDocumentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseLanguageDocumentsParamsWithTimeout creates a new PostKnowledgeKnowledgebaseLanguageDocumentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostKnowledgeKnowledgebaseLanguageDocumentsParamsWithTimeout(timeout time.Duration) *PostKnowledgeKnowledgebaseLanguageDocumentsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageDocumentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseLanguageDocumentsParamsWithContext creates a new PostKnowledgeKnowledgebaseLanguageDocumentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostKnowledgeKnowledgebaseLanguageDocumentsParamsWithContext(ctx context.Context) *PostKnowledgeKnowledgebaseLanguageDocumentsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageDocumentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseLanguageDocumentsParamsWithHTTPClient creates a new PostKnowledgeKnowledgebaseLanguageDocumentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostKnowledgeKnowledgebaseLanguageDocumentsParamsWithHTTPClient(client *http.Client) *PostKnowledgeKnowledgebaseLanguageDocumentsParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseLanguageDocumentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostKnowledgeKnowledgebaseLanguageDocumentsParams contains all the parameters to send to the API endpoint
-for the post knowledge knowledgebase language documents operation typically these are written to a http.Request
+/*
+PostKnowledgeKnowledgebaseLanguageDocumentsParams contains all the parameters to send to the API endpoint
+
+	for the post knowledge knowledgebase language documents operation.
+
+	Typically these are written to a http.Request.
 */
 type PostKnowledgeKnowledgebaseLanguageDocumentsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.KnowledgeDocumentRequest
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LanguageCode
-	  Language code, format: iso2-LOCALE
 
+	/* LanguageCode.
+
+	   Language code, format: iso2-LOCALE
 	*/
 	LanguageCode string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post knowledge knowledgebase language documents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseLanguageDocumentsParams) WithDefaults() *PostKnowledgeKnowledgebaseLanguageDocumentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post knowledge knowledgebase language documents params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseLanguageDocumentsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post knowledge knowledgebase language documents params
@@ -153,7 +171,6 @@ func (o *PostKnowledgeKnowledgebaseLanguageDocumentsParams) WriteToRequest(r run
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

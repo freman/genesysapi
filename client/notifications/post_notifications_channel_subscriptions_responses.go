@@ -95,7 +95,6 @@ func (o *PostNotificationsChannelSubscriptionsReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostNotificationsChannelSubscriptionsOK() *PostNotificationsChannelSubsc
 	return &PostNotificationsChannelSubscriptionsOK{}
 }
 
-/*PostNotificationsChannelSubscriptionsOK handles this case with default header values.
+/*
+PostNotificationsChannelSubscriptionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostNotificationsChannelSubscriptionsOK struct {
 	Payload *models.ChannelTopicEntityListing
 }
 
+// IsSuccess returns true when this post notifications channel subscriptions o k response has a 2xx status code
+func (o *PostNotificationsChannelSubscriptionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post notifications channel subscriptions o k response has a 3xx status code
+func (o *PostNotificationsChannelSubscriptionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post notifications channel subscriptions o k response has a 4xx status code
+func (o *PostNotificationsChannelSubscriptionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post notifications channel subscriptions o k response has a 5xx status code
+func (o *PostNotificationsChannelSubscriptionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post notifications channel subscriptions o k response a status code equal to that given
+func (o *PostNotificationsChannelSubscriptionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostNotificationsChannelSubscriptionsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostNotificationsChannelSubscriptionsBadRequest() *PostNotificationsChan
 	return &PostNotificationsChannelSubscriptionsBadRequest{}
 }
 
-/*PostNotificationsChannelSubscriptionsBadRequest handles this case with default header values.
+/*
+PostNotificationsChannelSubscriptionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostNotificationsChannelSubscriptionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post notifications channel subscriptions bad request response has a 2xx status code
+func (o *PostNotificationsChannelSubscriptionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post notifications channel subscriptions bad request response has a 3xx status code
+func (o *PostNotificationsChannelSubscriptionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post notifications channel subscriptions bad request response has a 4xx status code
+func (o *PostNotificationsChannelSubscriptionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post notifications channel subscriptions bad request response has a 5xx status code
+func (o *PostNotificationsChannelSubscriptionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post notifications channel subscriptions bad request response a status code equal to that given
+func (o *PostNotificationsChannelSubscriptionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostNotificationsChannelSubscriptionsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostNotificationsChannelSubscriptionsUnauthorized() *PostNotificationsCh
 	return &PostNotificationsChannelSubscriptionsUnauthorized{}
 }
 
-/*PostNotificationsChannelSubscriptionsUnauthorized handles this case with default header values.
+/*
+PostNotificationsChannelSubscriptionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostNotificationsChannelSubscriptionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post notifications channel subscriptions unauthorized response has a 2xx status code
+func (o *PostNotificationsChannelSubscriptionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post notifications channel subscriptions unauthorized response has a 3xx status code
+func (o *PostNotificationsChannelSubscriptionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post notifications channel subscriptions unauthorized response has a 4xx status code
+func (o *PostNotificationsChannelSubscriptionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post notifications channel subscriptions unauthorized response has a 5xx status code
+func (o *PostNotificationsChannelSubscriptionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post notifications channel subscriptions unauthorized response a status code equal to that given
+func (o *PostNotificationsChannelSubscriptionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostNotificationsChannelSubscriptionsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostNotificationsChannelSubscriptionsForbidden() *PostNotificationsChann
 	return &PostNotificationsChannelSubscriptionsForbidden{}
 }
 
-/*PostNotificationsChannelSubscriptionsForbidden handles this case with default header values.
+/*
+PostNotificationsChannelSubscriptionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostNotificationsChannelSubscriptionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post notifications channel subscriptions forbidden response has a 2xx status code
+func (o *PostNotificationsChannelSubscriptionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post notifications channel subscriptions forbidden response has a 3xx status code
+func (o *PostNotificationsChannelSubscriptionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post notifications channel subscriptions forbidden response has a 4xx status code
+func (o *PostNotificationsChannelSubscriptionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post notifications channel subscriptions forbidden response has a 5xx status code
+func (o *PostNotificationsChannelSubscriptionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post notifications channel subscriptions forbidden response a status code equal to that given
+func (o *PostNotificationsChannelSubscriptionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostNotificationsChannelSubscriptionsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostNotificationsChannelSubscriptionsNotFound() *PostNotificationsChanne
 	return &PostNotificationsChannelSubscriptionsNotFound{}
 }
 
-/*PostNotificationsChannelSubscriptionsNotFound handles this case with default header values.
+/*
+PostNotificationsChannelSubscriptionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostNotificationsChannelSubscriptionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post notifications channel subscriptions not found response has a 2xx status code
+func (o *PostNotificationsChannelSubscriptionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post notifications channel subscriptions not found response has a 3xx status code
+func (o *PostNotificationsChannelSubscriptionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post notifications channel subscriptions not found response has a 4xx status code
+func (o *PostNotificationsChannelSubscriptionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post notifications channel subscriptions not found response has a 5xx status code
+func (o *PostNotificationsChannelSubscriptionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post notifications channel subscriptions not found response a status code equal to that given
+func (o *PostNotificationsChannelSubscriptionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostNotificationsChannelSubscriptionsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostNotificationsChannelSubscriptionsRequestTimeout() *PostNotifications
 	return &PostNotificationsChannelSubscriptionsRequestTimeout{}
 }
 
-/*PostNotificationsChannelSubscriptionsRequestTimeout handles this case with default header values.
+/*
+PostNotificationsChannelSubscriptionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostNotificationsChannelSubscriptionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post notifications channel subscriptions request timeout response has a 2xx status code
+func (o *PostNotificationsChannelSubscriptionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post notifications channel subscriptions request timeout response has a 3xx status code
+func (o *PostNotificationsChannelSubscriptionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post notifications channel subscriptions request timeout response has a 4xx status code
+func (o *PostNotificationsChannelSubscriptionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post notifications channel subscriptions request timeout response has a 5xx status code
+func (o *PostNotificationsChannelSubscriptionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post notifications channel subscriptions request timeout response a status code equal to that given
+func (o *PostNotificationsChannelSubscriptionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostNotificationsChannelSubscriptionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostNotificationsChannelSubscriptionsRequestEntityTooLarge() *PostNotifi
 	return &PostNotificationsChannelSubscriptionsRequestEntityTooLarge{}
 }
 
-/*PostNotificationsChannelSubscriptionsRequestEntityTooLarge handles this case with default header values.
+/*
+PostNotificationsChannelSubscriptionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostNotificationsChannelSubscriptionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post notifications channel subscriptions request entity too large response has a 2xx status code
+func (o *PostNotificationsChannelSubscriptionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post notifications channel subscriptions request entity too large response has a 3xx status code
+func (o *PostNotificationsChannelSubscriptionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post notifications channel subscriptions request entity too large response has a 4xx status code
+func (o *PostNotificationsChannelSubscriptionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post notifications channel subscriptions request entity too large response has a 5xx status code
+func (o *PostNotificationsChannelSubscriptionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post notifications channel subscriptions request entity too large response a status code equal to that given
+func (o *PostNotificationsChannelSubscriptionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostNotificationsChannelSubscriptionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostNotificationsChannelSubscriptionsUnsupportedMediaType() *PostNotific
 	return &PostNotificationsChannelSubscriptionsUnsupportedMediaType{}
 }
 
-/*PostNotificationsChannelSubscriptionsUnsupportedMediaType handles this case with default header values.
+/*
+PostNotificationsChannelSubscriptionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostNotificationsChannelSubscriptionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post notifications channel subscriptions unsupported media type response has a 2xx status code
+func (o *PostNotificationsChannelSubscriptionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post notifications channel subscriptions unsupported media type response has a 3xx status code
+func (o *PostNotificationsChannelSubscriptionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post notifications channel subscriptions unsupported media type response has a 4xx status code
+func (o *PostNotificationsChannelSubscriptionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post notifications channel subscriptions unsupported media type response has a 5xx status code
+func (o *PostNotificationsChannelSubscriptionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post notifications channel subscriptions unsupported media type response a status code equal to that given
+func (o *PostNotificationsChannelSubscriptionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostNotificationsChannelSubscriptionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostNotificationsChannelSubscriptionsTooManyRequests() *PostNotification
 	return &PostNotificationsChannelSubscriptionsTooManyRequests{}
 }
 
-/*PostNotificationsChannelSubscriptionsTooManyRequests handles this case with default header values.
+/*
+PostNotificationsChannelSubscriptionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostNotificationsChannelSubscriptionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post notifications channel subscriptions too many requests response has a 2xx status code
+func (o *PostNotificationsChannelSubscriptionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post notifications channel subscriptions too many requests response has a 3xx status code
+func (o *PostNotificationsChannelSubscriptionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post notifications channel subscriptions too many requests response has a 4xx status code
+func (o *PostNotificationsChannelSubscriptionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post notifications channel subscriptions too many requests response has a 5xx status code
+func (o *PostNotificationsChannelSubscriptionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post notifications channel subscriptions too many requests response a status code equal to that given
+func (o *PostNotificationsChannelSubscriptionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostNotificationsChannelSubscriptionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostNotificationsChannelSubscriptionsInternalServerError() *PostNotifica
 	return &PostNotificationsChannelSubscriptionsInternalServerError{}
 }
 
-/*PostNotificationsChannelSubscriptionsInternalServerError handles this case with default header values.
+/*
+PostNotificationsChannelSubscriptionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostNotificationsChannelSubscriptionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post notifications channel subscriptions internal server error response has a 2xx status code
+func (o *PostNotificationsChannelSubscriptionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post notifications channel subscriptions internal server error response has a 3xx status code
+func (o *PostNotificationsChannelSubscriptionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post notifications channel subscriptions internal server error response has a 4xx status code
+func (o *PostNotificationsChannelSubscriptionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post notifications channel subscriptions internal server error response has a 5xx status code
+func (o *PostNotificationsChannelSubscriptionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post notifications channel subscriptions internal server error response a status code equal to that given
+func (o *PostNotificationsChannelSubscriptionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostNotificationsChannelSubscriptionsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostNotificationsChannelSubscriptionsServiceUnavailable() *PostNotificat
 	return &PostNotificationsChannelSubscriptionsServiceUnavailable{}
 }
 
-/*PostNotificationsChannelSubscriptionsServiceUnavailable handles this case with default header values.
+/*
+PostNotificationsChannelSubscriptionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostNotificationsChannelSubscriptionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post notifications channel subscriptions service unavailable response has a 2xx status code
+func (o *PostNotificationsChannelSubscriptionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post notifications channel subscriptions service unavailable response has a 3xx status code
+func (o *PostNotificationsChannelSubscriptionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post notifications channel subscriptions service unavailable response has a 4xx status code
+func (o *PostNotificationsChannelSubscriptionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post notifications channel subscriptions service unavailable response has a 5xx status code
+func (o *PostNotificationsChannelSubscriptionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post notifications channel subscriptions service unavailable response a status code equal to that given
+func (o *PostNotificationsChannelSubscriptionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostNotificationsChannelSubscriptionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostNotificationsChannelSubscriptionsGatewayTimeout() *PostNotifications
 	return &PostNotificationsChannelSubscriptionsGatewayTimeout{}
 }
 
-/*PostNotificationsChannelSubscriptionsGatewayTimeout handles this case with default header values.
+/*
+PostNotificationsChannelSubscriptionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostNotificationsChannelSubscriptionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post notifications channel subscriptions gateway timeout response has a 2xx status code
+func (o *PostNotificationsChannelSubscriptionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post notifications channel subscriptions gateway timeout response has a 3xx status code
+func (o *PostNotificationsChannelSubscriptionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post notifications channel subscriptions gateway timeout response has a 4xx status code
+func (o *PostNotificationsChannelSubscriptionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post notifications channel subscriptions gateway timeout response has a 5xx status code
+func (o *PostNotificationsChannelSubscriptionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post notifications channel subscriptions gateway timeout response a status code equal to that given
+func (o *PostNotificationsChannelSubscriptionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostNotificationsChannelSubscriptionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostNotificationsChannelSubscriptionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/notifications/channels/{channelId}/subscriptions][%d] postNotificationsChannelSubscriptionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

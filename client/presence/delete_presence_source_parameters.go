@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeletePresenceSourceParams creates a new DeletePresenceSourceParams object
-// with the default values initialized.
+// NewDeletePresenceSourceParams creates a new DeletePresenceSourceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeletePresenceSourceParams() *DeletePresenceSourceParams {
-	var ()
 	return &DeletePresenceSourceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeletePresenceSourceParamsWithTimeout creates a new DeletePresenceSourceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeletePresenceSourceParamsWithTimeout(timeout time.Duration) *DeletePresenceSourceParams {
-	var ()
 	return &DeletePresenceSourceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeletePresenceSourceParamsWithContext creates a new DeletePresenceSourceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeletePresenceSourceParamsWithContext(ctx context.Context) *DeletePresenceSourceParams {
-	var ()
 	return &DeletePresenceSourceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeletePresenceSourceParamsWithHTTPClient creates a new DeletePresenceSourceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeletePresenceSourceParamsWithHTTPClient(client *http.Client) *DeletePresenceSourceParams {
-	var ()
 	return &DeletePresenceSourceParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeletePresenceSourceParams contains all the parameters to send to the API endpoint
-for the delete presence source operation typically these are written to a http.Request
+/*
+DeletePresenceSourceParams contains all the parameters to send to the API endpoint
+
+	for the delete presence source operation.
+
+	Typically these are written to a http.Request.
 */
 type DeletePresenceSourceParams struct {
 
-	/*SourceID
-	  Presence Source ID
+	/* SourceID.
 
+	   Presence Source ID
 	*/
 	SourceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete presence source params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeletePresenceSourceParams) WithDefaults() *DeletePresenceSourceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete presence source params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeletePresenceSourceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete presence source params

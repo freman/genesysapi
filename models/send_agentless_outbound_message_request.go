@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -78,7 +79,6 @@ func (m *SendAgentlessOutboundMessageRequest) validateFromAddress(formats strfmt
 }
 
 func (m *SendAgentlessOutboundMessageRequest) validateMessagingTemplate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessagingTemplate) { // not required
 		return nil
 	}
@@ -87,6 +87,8 @@ func (m *SendAgentlessOutboundMessageRequest) validateMessagingTemplate(formats 
 		if err := m.MessagingTemplate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messagingTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingTemplate")
 			}
 			return err
 		}
@@ -145,6 +147,36 @@ func (m *SendAgentlessOutboundMessageRequest) validateToAddressMessengerType(for
 	// value enum
 	if err := m.validateToAddressMessengerTypeEnum("toAddressMessengerType", "body", *m.ToAddressMessengerType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this send agentless outbound message request based on the context it is used
+func (m *SendAgentlessOutboundMessageRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMessagingTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SendAgentlessOutboundMessageRequest) contextValidateMessagingTemplate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessagingTemplate != nil {
+		if err := m.MessagingTemplate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingTemplate")
+			}
+			return err
+		}
 	}
 
 	return nil

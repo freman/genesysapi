@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -30,7 +31,7 @@ type AuditQueryExecutionStatusResponse struct {
 	Interval string `json:"interval,omitempty"`
 
 	// Service name for the audit query.
-	// Enum: [AgentConfig AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits LogCapture Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony TopicsDefinitions Triggers ProcessAutomation Voicemail WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems SCIM NumberPurchasing Marketplace]
+	// Enum: [AgentConfig AnalyticsReporting Architect Coaching ContactCenter ContentManagement Datatables Directory Emails DynamicSchema Gamification Groups Integrations Knowledge LanguageUnderstanding Learning Limits LogCapture Outbound PeoplePermissions EmployeePerformance PredictiveEngagement Presence Quality ResponseManagement Routing SpeechAndTextAnalytics Telephony Triggers ProcessAutomation Voicemail WebDeployments Webhooks WorkforceManagement Messaging Supportability Callback Workitems SCIM NumberPurchasing Marketplace]
 	ServiceName string `json:"serviceName,omitempty"`
 
 	// Sort parameter for the audit query.
@@ -76,7 +77,6 @@ func (m *AuditQueryExecutionStatusResponse) Validate(formats strfmt.Registry) er
 }
 
 func (m *AuditQueryExecutionStatusResponse) validateFilters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Filters) { // not required
 		return nil
 	}
@@ -90,6 +90,8 @@ func (m *AuditQueryExecutionStatusResponse) validateFilters(formats strfmt.Regis
 			if err := m.Filters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("filters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("filters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -104,7 +106,7 @@ var auditQueryExecutionStatusResponseTypeServiceNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["AgentConfig","AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","LogCapture","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","TopicsDefinitions","Triggers","ProcessAutomation","Voicemail","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems","SCIM","NumberPurchasing","Marketplace"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["AgentConfig","AnalyticsReporting","Architect","Coaching","ContactCenter","ContentManagement","Datatables","Directory","Emails","DynamicSchema","Gamification","Groups","Integrations","Knowledge","LanguageUnderstanding","Learning","Limits","LogCapture","Outbound","PeoplePermissions","EmployeePerformance","PredictiveEngagement","Presence","Quality","ResponseManagement","Routing","SpeechAndTextAnalytics","Telephony","Triggers","ProcessAutomation","Voicemail","WebDeployments","Webhooks","WorkforceManagement","Messaging","Supportability","Callback","Workitems","SCIM","NumberPurchasing","Marketplace"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -137,6 +139,9 @@ const (
 
 	// AuditQueryExecutionStatusResponseServiceNameDirectory captures enum value "Directory"
 	AuditQueryExecutionStatusResponseServiceNameDirectory string = "Directory"
+
+	// AuditQueryExecutionStatusResponseServiceNameEmails captures enum value "Emails"
+	AuditQueryExecutionStatusResponseServiceNameEmails string = "Emails"
 
 	// AuditQueryExecutionStatusResponseServiceNameDynamicSchema captures enum value "DynamicSchema"
 	AuditQueryExecutionStatusResponseServiceNameDynamicSchema string = "DynamicSchema"
@@ -195,9 +200,6 @@ const (
 	// AuditQueryExecutionStatusResponseServiceNameTelephony captures enum value "Telephony"
 	AuditQueryExecutionStatusResponseServiceNameTelephony string = "Telephony"
 
-	// AuditQueryExecutionStatusResponseServiceNameTopicsDefinitions captures enum value "TopicsDefinitions"
-	AuditQueryExecutionStatusResponseServiceNameTopicsDefinitions string = "TopicsDefinitions"
-
 	// AuditQueryExecutionStatusResponseServiceNameTriggers captures enum value "Triggers"
 	AuditQueryExecutionStatusResponseServiceNameTriggers string = "Triggers"
 
@@ -247,7 +249,6 @@ func (m *AuditQueryExecutionStatusResponse) validateServiceNameEnum(path, locati
 }
 
 func (m *AuditQueryExecutionStatusResponse) validateServiceName(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ServiceName) { // not required
 		return nil
 	}
@@ -261,7 +262,6 @@ func (m *AuditQueryExecutionStatusResponse) validateServiceName(formats strfmt.R
 }
 
 func (m *AuditQueryExecutionStatusResponse) validateSort(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Sort) { // not required
 		return nil
 	}
@@ -275,6 +275,8 @@ func (m *AuditQueryExecutionStatusResponse) validateSort(formats strfmt.Registry
 			if err := m.Sort[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sort" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sort" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -286,7 +288,6 @@ func (m *AuditQueryExecutionStatusResponse) validateSort(formats strfmt.Registry
 }
 
 func (m *AuditQueryExecutionStatusResponse) validateStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDate) { // not required
 		return nil
 	}
@@ -337,7 +338,6 @@ func (m *AuditQueryExecutionStatusResponse) validateStateEnum(path, location str
 }
 
 func (m *AuditQueryExecutionStatusResponse) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -345,6 +345,64 @@ func (m *AuditQueryExecutionStatusResponse) validateState(formats strfmt.Registr
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this audit query execution status response based on the context it is used
+func (m *AuditQueryExecutionStatusResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFilters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSort(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AuditQueryExecutionStatusResponse) contextValidateFilters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Filters); i++ {
+
+		if m.Filters[i] != nil {
+			if err := m.Filters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("filters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("filters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AuditQueryExecutionStatusResponse) contextValidateSort(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Sort); i++ {
+
+		if m.Sort[i] != nil {
+			if err := m.Sort[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sort" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sort" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

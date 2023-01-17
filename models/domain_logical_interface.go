@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -266,7 +267,6 @@ func (m *DomainLogicalInterface) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DomainLogicalInterface) validateAddresses(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Addresses) { // not required
 		return nil
 	}
@@ -280,6 +280,8 @@ func (m *DomainLogicalInterface) validateAddresses(formats strfmt.Registry) erro
 			if err := m.Addresses[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("addresses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("addresses" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -291,7 +293,6 @@ func (m *DomainLogicalInterface) validateAddresses(formats strfmt.Registry) erro
 }
 
 func (m *DomainLogicalInterface) validateCommandResponses(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CommandResponses) { // not required
 		return nil
 	}
@@ -305,6 +306,8 @@ func (m *DomainLogicalInterface) validateCommandResponses(formats strfmt.Registr
 			if err := m.CommandResponses[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("commandResponses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("commandResponses" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -357,7 +360,6 @@ func (m *DomainLogicalInterface) validateCurrentStateEnum(path, location string,
 }
 
 func (m *DomainLogicalInterface) validateCurrentState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CurrentState) { // not required
 		return nil
 	}
@@ -371,7 +373,6 @@ func (m *DomainLogicalInterface) validateCurrentState(formats strfmt.Registry) e
 }
 
 func (m *DomainLogicalInterface) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -384,7 +385,6 @@ func (m *DomainLogicalInterface) validateDateCreated(formats strfmt.Registry) er
 }
 
 func (m *DomainLogicalInterface) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -397,7 +397,6 @@ func (m *DomainLogicalInterface) validateDateModified(formats strfmt.Registry) e
 }
 
 func (m *DomainLogicalInterface) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -406,6 +405,8 @@ func (m *DomainLogicalInterface) validateDivision(formats strfmt.Registry) error
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -415,7 +416,6 @@ func (m *DomainLogicalInterface) validateDivision(formats strfmt.Registry) error
 }
 
 func (m *DomainLogicalInterface) validateEdgeURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EdgeURI) { // not required
 		return nil
 	}
@@ -428,7 +428,6 @@ func (m *DomainLogicalInterface) validateEdgeURI(formats strfmt.Registry) error 
 }
 
 func (m *DomainLogicalInterface) validateEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndDate) { // not required
 		return nil
 	}
@@ -441,7 +440,6 @@ func (m *DomainLogicalInterface) validateEndDate(formats strfmt.Registry) error 
 }
 
 func (m *DomainLogicalInterface) validateExternalTrunkBaseAssignments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalTrunkBaseAssignments) { // not required
 		return nil
 	}
@@ -455,6 +453,8 @@ func (m *DomainLogicalInterface) validateExternalTrunkBaseAssignments(formats st
 			if err := m.ExternalTrunkBaseAssignments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("externalTrunkBaseAssignments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("externalTrunkBaseAssignments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -513,7 +513,6 @@ func (m *DomainLogicalInterface) validateInterfaceTypeEnum(path, location string
 }
 
 func (m *DomainLogicalInterface) validateInterfaceType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InterfaceType) { // not required
 		return nil
 	}
@@ -527,7 +526,6 @@ func (m *DomainLogicalInterface) validateInterfaceType(formats strfmt.Registry) 
 }
 
 func (m *DomainLogicalInterface) validateIPV4Capabilities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IPV4Capabilities) { // not required
 		return nil
 	}
@@ -536,6 +534,8 @@ func (m *DomainLogicalInterface) validateIPV4Capabilities(formats strfmt.Registr
 		if err := m.IPV4Capabilities.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ipv4Capabilities")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ipv4Capabilities")
 			}
 			return err
 		}
@@ -545,7 +545,6 @@ func (m *DomainLogicalInterface) validateIPV4Capabilities(formats strfmt.Registr
 }
 
 func (m *DomainLogicalInterface) validateIPV6Capabilities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IPV6Capabilities) { // not required
 		return nil
 	}
@@ -554,6 +553,8 @@ func (m *DomainLogicalInterface) validateIPV6Capabilities(formats strfmt.Registr
 		if err := m.IPV6Capabilities.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ipv6Capabilities")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ipv6Capabilities")
 			}
 			return err
 		}
@@ -572,7 +573,6 @@ func (m *DomainLogicalInterface) validateName(formats strfmt.Registry) error {
 }
 
 func (m *DomainLogicalInterface) validatePhoneTrunkBaseAssignments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PhoneTrunkBaseAssignments) { // not required
 		return nil
 	}
@@ -586,6 +586,8 @@ func (m *DomainLogicalInterface) validatePhoneTrunkBaseAssignments(formats strfm
 			if err := m.PhoneTrunkBaseAssignments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("phoneTrunkBaseAssignments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phoneTrunkBaseAssignments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -606,7 +608,6 @@ func (m *DomainLogicalInterface) validatePhysicalAdapterID(formats strfmt.Regist
 }
 
 func (m *DomainLogicalInterface) validateRoutes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Routes) { // not required
 		return nil
 	}
@@ -620,6 +621,8 @@ func (m *DomainLogicalInterface) validateRoutes(formats strfmt.Registry) error {
 			if err := m.Routes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("routes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -631,7 +634,6 @@ func (m *DomainLogicalInterface) validateRoutes(formats strfmt.Registry) error {
 }
 
 func (m *DomainLogicalInterface) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -644,7 +646,6 @@ func (m *DomainLogicalInterface) validateSelfURI(formats strfmt.Registry) error 
 }
 
 func (m *DomainLogicalInterface) validateStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDate) { // not required
 		return nil
 	}
@@ -689,13 +690,345 @@ func (m *DomainLogicalInterface) validateStateEnum(path, location string, value 
 }
 
 func (m *DomainLogicalInterface) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain logical interface based on the context it is used
+func (m *DomainLogicalInterface) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAddresses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCommandResponses(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExternalTrunkBaseAssignments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInterfaceType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIPV4Capabilities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIPV6Capabilities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhoneTrunkBaseAssignments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUseForWanInterface(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateAddresses(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Addresses); i++ {
+
+		if m.Addresses[i] != nil {
+			if err := m.Addresses[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("addresses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("addresses" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateCommandResponses(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.CommandResponses); i++ {
+
+		if m.CommandResponses[i] != nil {
+			if err := m.CommandResponses[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("commandResponses" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("commandResponses" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdBy", "body", string(m.CreatedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateCreatedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdByApp", "body", string(m.CreatedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateExternalTrunkBaseAssignments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ExternalTrunkBaseAssignments); i++ {
+
+		if m.ExternalTrunkBaseAssignments[i] != nil {
+			if err := m.ExternalTrunkBaseAssignments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("externalTrunkBaseAssignments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("externalTrunkBaseAssignments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateInterfaceType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "interfaceType", "body", string(m.InterfaceType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateIPV4Capabilities(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IPV4Capabilities != nil {
+		if err := m.IPV4Capabilities.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ipv4Capabilities")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ipv4Capabilities")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateIPV6Capabilities(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IPV6Capabilities != nil {
+		if err := m.IPV6Capabilities.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ipv6Capabilities")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ipv6Capabilities")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedBy", "body", string(m.ModifiedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateModifiedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedByApp", "body", string(m.ModifiedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidatePhoneTrunkBaseAssignments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PhoneTrunkBaseAssignments); i++ {
+
+		if m.PhoneTrunkBaseAssignments[i] != nil {
+			if err := m.PhoneTrunkBaseAssignments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("phoneTrunkBaseAssignments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phoneTrunkBaseAssignments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateRoutes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Routes); i++ {
+
+		if m.Routes[i] != nil {
+			if err := m.Routes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("routes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainLogicalInterface) contextValidateUseForWanInterface(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "useForWanInterface", "body", m.UseForWanInterface); err != nil {
 		return err
 	}
 

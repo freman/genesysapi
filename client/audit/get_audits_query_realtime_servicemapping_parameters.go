@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAuditsQueryRealtimeServicemappingParams creates a new GetAuditsQueryRealtimeServicemappingParams object
-// with the default values initialized.
+// NewGetAuditsQueryRealtimeServicemappingParams creates a new GetAuditsQueryRealtimeServicemappingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAuditsQueryRealtimeServicemappingParams() *GetAuditsQueryRealtimeServicemappingParams {
-
 	return &GetAuditsQueryRealtimeServicemappingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAuditsQueryRealtimeServicemappingParamsWithTimeout creates a new GetAuditsQueryRealtimeServicemappingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAuditsQueryRealtimeServicemappingParamsWithTimeout(timeout time.Duration) *GetAuditsQueryRealtimeServicemappingParams {
-
 	return &GetAuditsQueryRealtimeServicemappingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAuditsQueryRealtimeServicemappingParamsWithContext creates a new GetAuditsQueryRealtimeServicemappingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAuditsQueryRealtimeServicemappingParamsWithContext(ctx context.Context) *GetAuditsQueryRealtimeServicemappingParams {
-
 	return &GetAuditsQueryRealtimeServicemappingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAuditsQueryRealtimeServicemappingParamsWithHTTPClient creates a new GetAuditsQueryRealtimeServicemappingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAuditsQueryRealtimeServicemappingParamsWithHTTPClient(client *http.Client) *GetAuditsQueryRealtimeServicemappingParams {
-
 	return &GetAuditsQueryRealtimeServicemappingParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAuditsQueryRealtimeServicemappingParams contains all the parameters to send to the API endpoint
-for the get audits query realtime servicemapping operation typically these are written to a http.Request
+/*
+GetAuditsQueryRealtimeServicemappingParams contains all the parameters to send to the API endpoint
+
+	for the get audits query realtime servicemapping operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAuditsQueryRealtimeServicemappingParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get audits query realtime servicemapping params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuditsQueryRealtimeServicemappingParams) WithDefaults() *GetAuditsQueryRealtimeServicemappingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get audits query realtime servicemapping params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuditsQueryRealtimeServicemappingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get audits query realtime servicemapping params

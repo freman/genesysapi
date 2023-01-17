@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -76,7 +77,6 @@ func (m *ContactListFilterClause) validateFilterTypeEnum(path, location string, 
 }
 
 func (m *ContactListFilterClause) validateFilterType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FilterType) { // not required
 		return nil
 	}
@@ -90,7 +90,6 @@ func (m *ContactListFilterClause) validateFilterType(formats strfmt.Registry) er
 }
 
 func (m *ContactListFilterClause) validatePredicates(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Predicates) { // not required
 		return nil
 	}
@@ -104,6 +103,42 @@ func (m *ContactListFilterClause) validatePredicates(formats strfmt.Registry) er
 			if err := m.Predicates[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("predicates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("predicates" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this contact list filter clause based on the context it is used
+func (m *ContactListFilterClause) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePredicates(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ContactListFilterClause) contextValidatePredicates(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Predicates); i++ {
+
+		if m.Predicates[i] != nil {
+			if err := m.Predicates[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("predicates" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("predicates" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

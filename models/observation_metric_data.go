@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -53,7 +54,6 @@ func (m *ObservationMetricData) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ObservationMetricData) validateObservations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Observations) { // not required
 		return nil
 	}
@@ -67,6 +67,8 @@ func (m *ObservationMetricData) validateObservations(formats strfmt.Registry) er
 			if err := m.Observations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("observations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("observations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -78,7 +80,6 @@ func (m *ObservationMetricData) validateObservations(formats strfmt.Registry) er
 }
 
 func (m *ObservationMetricData) validateStats(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Stats) { // not required
 		return nil
 	}
@@ -87,6 +88,62 @@ func (m *ObservationMetricData) validateStats(formats strfmt.Registry) error {
 		if err := m.Stats.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("stats")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("stats")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this observation metric data based on the context it is used
+func (m *ObservationMetricData) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateObservations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStats(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ObservationMetricData) contextValidateObservations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Observations); i++ {
+
+		if m.Observations[i] != nil {
+			if err := m.Observations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("observations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("observations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ObservationMetricData) contextValidateStats(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Stats != nil {
+		if err := m.Stats.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("stats")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("stats")
 			}
 			return err
 		}

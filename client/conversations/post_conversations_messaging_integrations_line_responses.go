@@ -101,7 +101,6 @@ func (o *PostConversationsMessagingIntegrationsLineReader) ReadResponse(response
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostConversationsMessagingIntegrationsLineOK() *PostConversationsMessagi
 	return &PostConversationsMessagingIntegrationsLineOK{}
 }
 
-/*PostConversationsMessagingIntegrationsLineOK handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostConversationsMessagingIntegrationsLineOK struct {
 	Payload *models.LineIntegration
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line o k response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line o k response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line o k response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations messaging integrations line o k response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations messaging integrations line o k response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostConversationsMessagingIntegrationsLineOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineOK  %+v", 200, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostConversationsMessagingIntegrationsLineAccepted() *PostConversationsM
 	return &PostConversationsMessagingIntegrationsLineAccepted{}
 }
 
-/*PostConversationsMessagingIntegrationsLineAccepted handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineAccepted describes a response with status code 202, with default header values.
 
 Accepted - The integration creation in progress.
 */
@@ -153,7 +183,36 @@ type PostConversationsMessagingIntegrationsLineAccepted struct {
 	Payload *models.LineIntegration
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line accepted response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line accepted response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line accepted response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations messaging integrations line accepted response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations messaging integrations line accepted response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostConversationsMessagingIntegrationsLineAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostConversationsMessagingIntegrationsLineBadRequest() *PostConversation
 	return &PostConversationsMessagingIntegrationsLineBadRequest{}
 }
 
-/*PostConversationsMessagingIntegrationsLineBadRequest handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostConversationsMessagingIntegrationsLineBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line bad request response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line bad request response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line bad request response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations messaging integrations line bad request response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations messaging integrations line bad request response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsMessagingIntegrationsLineBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostConversationsMessagingIntegrationsLineUnauthorized() *PostConversati
 	return &PostConversationsMessagingIntegrationsLineUnauthorized{}
 }
 
-/*PostConversationsMessagingIntegrationsLineUnauthorized handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostConversationsMessagingIntegrationsLineUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line unauthorized response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line unauthorized response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line unauthorized response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations messaging integrations line unauthorized response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations messaging integrations line unauthorized response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsMessagingIntegrationsLineUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostConversationsMessagingIntegrationsLineForbidden() *PostConversations
 	return &PostConversationsMessagingIntegrationsLineForbidden{}
 }
 
-/*PostConversationsMessagingIntegrationsLineForbidden handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostConversationsMessagingIntegrationsLineForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line forbidden response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line forbidden response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line forbidden response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations messaging integrations line forbidden response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations messaging integrations line forbidden response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsMessagingIntegrationsLineForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostConversationsMessagingIntegrationsLineNotFound() *PostConversationsM
 	return &PostConversationsMessagingIntegrationsLineNotFound{}
 }
 
-/*PostConversationsMessagingIntegrationsLineNotFound handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostConversationsMessagingIntegrationsLineNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line not found response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line not found response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line not found response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations messaging integrations line not found response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations messaging integrations line not found response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsMessagingIntegrationsLineNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostConversationsMessagingIntegrationsLineRequestTimeout() *PostConversa
 	return &PostConversationsMessagingIntegrationsLineRequestTimeout{}
 }
 
-/*PostConversationsMessagingIntegrationsLineRequestTimeout handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostConversationsMessagingIntegrationsLineRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line request timeout response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line request timeout response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line request timeout response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations messaging integrations line request timeout response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations messaging integrations line request timeout response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsMessagingIntegrationsLineRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostConversationsMessagingIntegrationsLineRequestEntityTooLarge() *PostC
 	return &PostConversationsMessagingIntegrationsLineRequestEntityTooLarge{}
 }
 
-/*PostConversationsMessagingIntegrationsLineRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostConversationsMessagingIntegrationsLineRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line request entity too large response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line request entity too large response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line request entity too large response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations messaging integrations line request entity too large response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations messaging integrations line request entity too large response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsMessagingIntegrationsLineRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostConversationsMessagingIntegrationsLineUnsupportedMediaType() *PostCo
 	return &PostConversationsMessagingIntegrationsLineUnsupportedMediaType{}
 }
 
-/*PostConversationsMessagingIntegrationsLineUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostConversationsMessagingIntegrationsLineUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line unsupported media type response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line unsupported media type response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line unsupported media type response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations messaging integrations line unsupported media type response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations messaging integrations line unsupported media type response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsMessagingIntegrationsLineUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostConversationsMessagingIntegrationsLineTooManyRequests() *PostConvers
 	return &PostConversationsMessagingIntegrationsLineTooManyRequests{}
 }
 
-/*PostConversationsMessagingIntegrationsLineTooManyRequests handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostConversationsMessagingIntegrationsLineTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line too many requests response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line too many requests response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line too many requests response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations messaging integrations line too many requests response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations messaging integrations line too many requests response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsMessagingIntegrationsLineTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostConversationsMessagingIntegrationsLineInternalServerError() *PostCon
 	return &PostConversationsMessagingIntegrationsLineInternalServerError{}
 }
 
-/*PostConversationsMessagingIntegrationsLineInternalServerError handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostConversationsMessagingIntegrationsLineInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line internal server error response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line internal server error response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line internal server error response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations messaging integrations line internal server error response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations messaging integrations line internal server error response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsMessagingIntegrationsLineInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostConversationsMessagingIntegrationsLineServiceUnavailable() *PostConv
 	return &PostConversationsMessagingIntegrationsLineServiceUnavailable{}
 }
 
-/*PostConversationsMessagingIntegrationsLineServiceUnavailable handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostConversationsMessagingIntegrationsLineServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line service unavailable response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line service unavailable response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line service unavailable response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations messaging integrations line service unavailable response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations messaging integrations line service unavailable response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsMessagingIntegrationsLineServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostConversationsMessagingIntegrationsLineGatewayTimeout() *PostConversa
 	return &PostConversationsMessagingIntegrationsLineGatewayTimeout{}
 }
 
-/*PostConversationsMessagingIntegrationsLineGatewayTimeout handles this case with default header values.
+/*
+PostConversationsMessagingIntegrationsLineGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostConversationsMessagingIntegrationsLineGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations messaging integrations line gateway timeout response has a 2xx status code
+func (o *PostConversationsMessagingIntegrationsLineGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations messaging integrations line gateway timeout response has a 3xx status code
+func (o *PostConversationsMessagingIntegrationsLineGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations messaging integrations line gateway timeout response has a 4xx status code
+func (o *PostConversationsMessagingIntegrationsLineGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations messaging integrations line gateway timeout response has a 5xx status code
+func (o *PostConversationsMessagingIntegrationsLineGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations messaging integrations line gateway timeout response a status code equal to that given
+func (o *PostConversationsMessagingIntegrationsLineGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsMessagingIntegrationsLineGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsMessagingIntegrationsLineGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messaging/integrations/line][%d] postConversationsMessagingIntegrationsLineGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *PutUserStateReader) ReadResponse(response runtime.ClientResponse, consu
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutUserStateOK() *PutUserStateOK {
 	return &PutUserStateOK{}
 }
 
-/*PutUserStateOK handles this case with default header values.
+/*
+PutUserStateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutUserStateOK struct {
 	Payload *models.UserState
 }
 
+// IsSuccess returns true when this put user state o k response has a 2xx status code
+func (o *PutUserStateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put user state o k response has a 3xx status code
+func (o *PutUserStateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user state o k response has a 4xx status code
+func (o *PutUserStateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user state o k response has a 5xx status code
+func (o *PutUserStateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user state o k response a status code equal to that given
+func (o *PutUserStateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutUserStateOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateOK  %+v", 200, o.Payload)
+}
+
+func (o *PutUserStateOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutUserStateBadRequest() *PutUserStateBadRequest {
 	return &PutUserStateBadRequest{}
 }
 
-/*PutUserStateBadRequest handles this case with default header values.
+/*
+PutUserStateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutUserStateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user state bad request response has a 2xx status code
+func (o *PutUserStateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user state bad request response has a 3xx status code
+func (o *PutUserStateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user state bad request response has a 4xx status code
+func (o *PutUserStateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user state bad request response has a 5xx status code
+func (o *PutUserStateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user state bad request response a status code equal to that given
+func (o *PutUserStateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutUserStateBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutUserStateBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutUserStateUnauthorized() *PutUserStateUnauthorized {
 	return &PutUserStateUnauthorized{}
 }
 
-/*PutUserStateUnauthorized handles this case with default header values.
+/*
+PutUserStateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutUserStateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user state unauthorized response has a 2xx status code
+func (o *PutUserStateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user state unauthorized response has a 3xx status code
+func (o *PutUserStateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user state unauthorized response has a 4xx status code
+func (o *PutUserStateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user state unauthorized response has a 5xx status code
+func (o *PutUserStateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user state unauthorized response a status code equal to that given
+func (o *PutUserStateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutUserStateUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutUserStateUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutUserStateForbidden() *PutUserStateForbidden {
 	return &PutUserStateForbidden{}
 }
 
-/*PutUserStateForbidden handles this case with default header values.
+/*
+PutUserStateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutUserStateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user state forbidden response has a 2xx status code
+func (o *PutUserStateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user state forbidden response has a 3xx status code
+func (o *PutUserStateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user state forbidden response has a 4xx status code
+func (o *PutUserStateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user state forbidden response has a 5xx status code
+func (o *PutUserStateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user state forbidden response a status code equal to that given
+func (o *PutUserStateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutUserStateForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutUserStateForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutUserStateNotFound() *PutUserStateNotFound {
 	return &PutUserStateNotFound{}
 }
 
-/*PutUserStateNotFound handles this case with default header values.
+/*
+PutUserStateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutUserStateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user state not found response has a 2xx status code
+func (o *PutUserStateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user state not found response has a 3xx status code
+func (o *PutUserStateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user state not found response has a 4xx status code
+func (o *PutUserStateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user state not found response has a 5xx status code
+func (o *PutUserStateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user state not found response a status code equal to that given
+func (o *PutUserStateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutUserStateNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutUserStateNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutUserStateRequestTimeout() *PutUserStateRequestTimeout {
 	return &PutUserStateRequestTimeout{}
 }
 
-/*PutUserStateRequestTimeout handles this case with default header values.
+/*
+PutUserStateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutUserStateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user state request timeout response has a 2xx status code
+func (o *PutUserStateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user state request timeout response has a 3xx status code
+func (o *PutUserStateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user state request timeout response has a 4xx status code
+func (o *PutUserStateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user state request timeout response has a 5xx status code
+func (o *PutUserStateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user state request timeout response a status code equal to that given
+func (o *PutUserStateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutUserStateRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUserStateRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutUserStateRequestEntityTooLarge() *PutUserStateRequestEntityTooLarge {
 	return &PutUserStateRequestEntityTooLarge{}
 }
 
-/*PutUserStateRequestEntityTooLarge handles this case with default header values.
+/*
+PutUserStateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutUserStateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user state request entity too large response has a 2xx status code
+func (o *PutUserStateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user state request entity too large response has a 3xx status code
+func (o *PutUserStateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user state request entity too large response has a 4xx status code
+func (o *PutUserStateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user state request entity too large response has a 5xx status code
+func (o *PutUserStateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user state request entity too large response a status code equal to that given
+func (o *PutUserStateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutUserStateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutUserStateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutUserStateUnsupportedMediaType() *PutUserStateUnsupportedMediaType {
 	return &PutUserStateUnsupportedMediaType{}
 }
 
-/*PutUserStateUnsupportedMediaType handles this case with default header values.
+/*
+PutUserStateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutUserStateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user state unsupported media type response has a 2xx status code
+func (o *PutUserStateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user state unsupported media type response has a 3xx status code
+func (o *PutUserStateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user state unsupported media type response has a 4xx status code
+func (o *PutUserStateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user state unsupported media type response has a 5xx status code
+func (o *PutUserStateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user state unsupported media type response a status code equal to that given
+func (o *PutUserStateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutUserStateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutUserStateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutUserStateTooManyRequests() *PutUserStateTooManyRequests {
 	return &PutUserStateTooManyRequests{}
 }
 
-/*PutUserStateTooManyRequests handles this case with default header values.
+/*
+PutUserStateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutUserStateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user state too many requests response has a 2xx status code
+func (o *PutUserStateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user state too many requests response has a 3xx status code
+func (o *PutUserStateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user state too many requests response has a 4xx status code
+func (o *PutUserStateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user state too many requests response has a 5xx status code
+func (o *PutUserStateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user state too many requests response a status code equal to that given
+func (o *PutUserStateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutUserStateTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutUserStateTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutUserStateInternalServerError() *PutUserStateInternalServerError {
 	return &PutUserStateInternalServerError{}
 }
 
-/*PutUserStateInternalServerError handles this case with default header values.
+/*
+PutUserStateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutUserStateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user state internal server error response has a 2xx status code
+func (o *PutUserStateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user state internal server error response has a 3xx status code
+func (o *PutUserStateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user state internal server error response has a 4xx status code
+func (o *PutUserStateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user state internal server error response has a 5xx status code
+func (o *PutUserStateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user state internal server error response a status code equal to that given
+func (o *PutUserStateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutUserStateInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutUserStateInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutUserStateServiceUnavailable() *PutUserStateServiceUnavailable {
 	return &PutUserStateServiceUnavailable{}
 }
 
-/*PutUserStateServiceUnavailable handles this case with default header values.
+/*
+PutUserStateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutUserStateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user state service unavailable response has a 2xx status code
+func (o *PutUserStateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user state service unavailable response has a 3xx status code
+func (o *PutUserStateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user state service unavailable response has a 4xx status code
+func (o *PutUserStateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user state service unavailable response has a 5xx status code
+func (o *PutUserStateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user state service unavailable response a status code equal to that given
+func (o *PutUserStateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutUserStateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutUserStateServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutUserStateGatewayTimeout() *PutUserStateGatewayTimeout {
 	return &PutUserStateGatewayTimeout{}
 }
 
-/*PutUserStateGatewayTimeout handles this case with default header values.
+/*
+PutUserStateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutUserStateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user state gateway timeout response has a 2xx status code
+func (o *PutUserStateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user state gateway timeout response has a 3xx status code
+func (o *PutUserStateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user state gateway timeout response has a 4xx status code
+func (o *PutUserStateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user state gateway timeout response has a 5xx status code
+func (o *PutUserStateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user state gateway timeout response a status code equal to that given
+func (o *PutUserStateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutUserStateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutUserStateGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/state][%d] putUserStateGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -46,6 +48,38 @@ func (m *TextBotWaitForInputAction) validateModeConstraints(formats strfmt.Regis
 		if err := m.ModeConstraints.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modeConstraints")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modeConstraints")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this text bot wait for input action based on the context it is used
+func (m *TextBotWaitForInputAction) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateModeConstraints(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TextBotWaitForInputAction) contextValidateModeConstraints(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModeConstraints != nil {
+		if err := m.ModeConstraints.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modeConstraints")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modeConstraints")
 			}
 			return err
 		}

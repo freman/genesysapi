@@ -17,84 +17,105 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetKnowledgeKnowledgebaseDocumentVersionsParams creates a new GetKnowledgeKnowledgebaseDocumentVersionsParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseDocumentVersionsParams creates a new GetKnowledgeKnowledgebaseDocumentVersionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseDocumentVersionsParams() *GetKnowledgeKnowledgebaseDocumentVersionsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentVersionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentVersionsParamsWithTimeout creates a new GetKnowledgeKnowledgebaseDocumentVersionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseDocumentVersionsParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseDocumentVersionsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentVersionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentVersionsParamsWithContext creates a new GetKnowledgeKnowledgebaseDocumentVersionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseDocumentVersionsParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseDocumentVersionsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentVersionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseDocumentVersionsParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseDocumentVersionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseDocumentVersionsParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseDocumentVersionsParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseDocumentVersionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseDocumentVersionsParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase document versions operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseDocumentVersionsParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase document versions operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseDocumentVersionsParams struct {
 
-	/*After
-	  The cursor that points to the end of the set of entities that has been returned.
+	/* After.
 
+	   The cursor that points to the end of the set of entities that has been returned.
 	*/
 	After *string
-	/*Before
-	  The cursor that points to the start of the set of entities that has been returned.
 
+	/* Before.
+
+	   The cursor that points to the start of the set of entities that has been returned.
 	*/
 	Before *string
-	/*DocumentID
-	  Globally unique identifier for the document.
 
+	/* DocumentID.
+
+	   Globally unique identifier for the document.
 	*/
 	DocumentID string
-	/*Expand
-	  The specified entity attributes will be filled. Comma separated values expected.
 
+	/* Expand.
+
+	   The specified entity attributes will be filled. Comma separated values expected.
 	*/
 	Expand []string
-	/*KnowledgeBaseID
-	  Globally unique identifier for the knowledge base.
 
+	/* KnowledgeBaseID.
+
+	   Globally unique identifier for the knowledge base.
 	*/
 	KnowledgeBaseID string
-	/*PageSize
-	  Number of entities to return. Maximum of 200.
 
+	/* PageSize.
+
+	   Number of entities to return. Maximum of 200.
 	*/
 	PageSize *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase document versions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsParams) WithDefaults() *GetKnowledgeKnowledgebaseDocumentVersionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase document versions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase document versions params
@@ -208,32 +229,34 @@ func (o *GetKnowledgeKnowledgebaseDocumentVersionsParams) WriteToRequest(r runti
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param documentId
@@ -241,12 +264,15 @@ func (o *GetKnowledgeKnowledgebaseDocumentVersionsParams) WriteToRequest(r runti
 		return err
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	// path param knowledgeBaseId
@@ -258,20 +284,38 @@ func (o *GetKnowledgeKnowledgebaseDocumentVersionsParams) WriteToRequest(r runti
 
 		// query param pageSize
 		var qrPageSize string
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := qrPageSize
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetKnowledgeKnowledgebaseDocumentVersions binds the parameter expand
+func (o *GetKnowledgeKnowledgebaseDocumentVersionsParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

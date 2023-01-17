@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -20,7 +21,7 @@ import (
 type BotAggregateQueryPredicate struct {
 
 	// Left hand side for dimension predicates
-	// Enum: [botFinalIntent botId botIntent botProduct botProvider botRecognitionFailureReason botResult botSessionId botSlot botVersion conversationId externalContactId knowledgeBaseId lastActionId lastInputActionId mediaType messageType selfServed]
+	// Enum: [askActionId askActionResult botFinalIntent botId botIntent botProduct botProvider botRecognitionFailureReason botResult botSessionId botSlot botVersion conversationId externalContactId knowledgeBaseId lastActionId lastInputActionId mediaType messageType selfServed]
 	Dimension string `json:"dimension,omitempty"`
 
 	// Optional operator, default is matches
@@ -68,7 +69,7 @@ var botAggregateQueryPredicateTypeDimensionPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["botFinalIntent","botId","botIntent","botProduct","botProvider","botRecognitionFailureReason","botResult","botSessionId","botSlot","botVersion","conversationId","externalContactId","knowledgeBaseId","lastActionId","lastInputActionId","mediaType","messageType","selfServed"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["askActionId","askActionResult","botFinalIntent","botId","botIntent","botProduct","botProvider","botRecognitionFailureReason","botResult","botSessionId","botSlot","botVersion","conversationId","externalContactId","knowledgeBaseId","lastActionId","lastInputActionId","mediaType","messageType","selfServed"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -77,6 +78,12 @@ func init() {
 }
 
 const (
+
+	// BotAggregateQueryPredicateDimensionAskActionID captures enum value "askActionId"
+	BotAggregateQueryPredicateDimensionAskActionID string = "askActionId"
+
+	// BotAggregateQueryPredicateDimensionAskActionResult captures enum value "askActionResult"
+	BotAggregateQueryPredicateDimensionAskActionResult string = "askActionResult"
 
 	// BotAggregateQueryPredicateDimensionBotFinalIntent captures enum value "botFinalIntent"
 	BotAggregateQueryPredicateDimensionBotFinalIntent string = "botFinalIntent"
@@ -142,7 +149,6 @@ func (m *BotAggregateQueryPredicate) validateDimensionEnum(path, location string
 }
 
 func (m *BotAggregateQueryPredicate) validateDimension(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Dimension) { // not required
 		return nil
 	}
@@ -188,7 +194,6 @@ func (m *BotAggregateQueryPredicate) validateOperatorEnum(path, location string,
 }
 
 func (m *BotAggregateQueryPredicate) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -202,7 +207,6 @@ func (m *BotAggregateQueryPredicate) validateOperator(formats strfmt.Registry) e
 }
 
 func (m *BotAggregateQueryPredicate) validateRange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Range) { // not required
 		return nil
 	}
@@ -211,6 +215,8 @@ func (m *BotAggregateQueryPredicate) validateRange(formats strfmt.Registry) erro
 		if err := m.Range.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
 			}
 			return err
 		}
@@ -252,7 +258,6 @@ func (m *BotAggregateQueryPredicate) validateTypeEnum(path, location string, val
 }
 
 func (m *BotAggregateQueryPredicate) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -260,6 +265,36 @@ func (m *BotAggregateQueryPredicate) validateType(formats strfmt.Registry) error
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bot aggregate query predicate based on the context it is used
+func (m *BotAggregateQueryPredicate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BotAggregateQueryPredicate) contextValidateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Range != nil {
+		if err := m.Range.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
+			}
+			return err
+		}
 	}
 
 	return nil

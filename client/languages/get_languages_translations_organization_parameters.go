@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetLanguagesTranslationsOrganizationParams creates a new GetLanguagesTranslationsOrganizationParams object
-// with the default values initialized.
+// NewGetLanguagesTranslationsOrganizationParams creates a new GetLanguagesTranslationsOrganizationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLanguagesTranslationsOrganizationParams() *GetLanguagesTranslationsOrganizationParams {
-	var ()
 	return &GetLanguagesTranslationsOrganizationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLanguagesTranslationsOrganizationParamsWithTimeout creates a new GetLanguagesTranslationsOrganizationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLanguagesTranslationsOrganizationParamsWithTimeout(timeout time.Duration) *GetLanguagesTranslationsOrganizationParams {
-	var ()
 	return &GetLanguagesTranslationsOrganizationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLanguagesTranslationsOrganizationParamsWithContext creates a new GetLanguagesTranslationsOrganizationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLanguagesTranslationsOrganizationParamsWithContext(ctx context.Context) *GetLanguagesTranslationsOrganizationParams {
-	var ()
 	return &GetLanguagesTranslationsOrganizationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLanguagesTranslationsOrganizationParamsWithHTTPClient creates a new GetLanguagesTranslationsOrganizationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLanguagesTranslationsOrganizationParamsWithHTTPClient(client *http.Client) *GetLanguagesTranslationsOrganizationParams {
-	var ()
 	return &GetLanguagesTranslationsOrganizationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLanguagesTranslationsOrganizationParams contains all the parameters to send to the API endpoint
-for the get languages translations organization operation typically these are written to a http.Request
+/*
+GetLanguagesTranslationsOrganizationParams contains all the parameters to send to the API endpoint
+
+	for the get languages translations organization operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLanguagesTranslationsOrganizationParams struct {
 
-	/*Language
-	  The language of the translation to retrieve for the organization
+	/* Language.
 
+	   The language of the translation to retrieve for the organization
 	*/
 	Language string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get languages translations organization params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguagesTranslationsOrganizationParams) WithDefaults() *GetLanguagesTranslationsOrganizationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get languages translations organization params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguagesTranslationsOrganizationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get languages translations organization params
@@ -127,6 +143,7 @@ func (o *GetLanguagesTranslationsOrganizationParams) WriteToRequest(r runtime.Cl
 	qrLanguage := o.Language
 	qLanguage := qrLanguage
 	if qLanguage != "" {
+
 		if err := r.SetQueryParam("language", qLanguage); err != nil {
 			return err
 		}

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -90,7 +91,6 @@ func (m *AssessmentScoringSet) validateFailureReasonsItemsEnum(path, location st
 }
 
 func (m *AssessmentScoringSet) validateFailureReasons(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FailureReasons) { // not required
 		return nil
 	}
@@ -126,11 +126,112 @@ func (m *AssessmentScoringSet) validateQuestionGroupScores(formats strfmt.Regist
 			if err := m.QuestionGroupScores[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this assessment scoring set based on the context it is used
+func (m *AssessmentScoringSet) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFailureReasons(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIsPassed(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuestionGroupScores(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalCriticalScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalNonCriticalScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AssessmentScoringSet) contextValidateFailureReasons(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "failureReasons", "body", []string(m.FailureReasons)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentScoringSet) contextValidateIsPassed(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isPassed", "body", m.IsPassed); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentScoringSet) contextValidateQuestionGroupScores(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.QuestionGroupScores); i++ {
+
+		if m.QuestionGroupScores[i] != nil {
+			if err := m.QuestionGroupScores[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questionGroupScores" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AssessmentScoringSet) contextValidateTotalCriticalScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalCriticalScore", "body", float32(m.TotalCriticalScore)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentScoringSet) contextValidateTotalNonCriticalScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalNonCriticalScore", "body", float32(m.TotalNonCriticalScore)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentScoringSet) contextValidateTotalScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalScore", "body", float32(m.TotalScore)); err != nil {
+		return err
 	}
 
 	return nil

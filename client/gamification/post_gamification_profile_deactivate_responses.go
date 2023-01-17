@@ -95,7 +95,6 @@ func (o *PostGamificationProfileDeactivateReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostGamificationProfileDeactivateOK() *PostGamificationProfileDeactivate
 	return &PostGamificationProfileDeactivateOK{}
 }
 
-/*PostGamificationProfileDeactivateOK handles this case with default header values.
+/*
+PostGamificationProfileDeactivateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostGamificationProfileDeactivateOK struct {
 	Payload *models.PerformanceProfile
 }
 
+// IsSuccess returns true when this post gamification profile deactivate o k response has a 2xx status code
+func (o *PostGamificationProfileDeactivateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post gamification profile deactivate o k response has a 3xx status code
+func (o *PostGamificationProfileDeactivateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile deactivate o k response has a 4xx status code
+func (o *PostGamificationProfileDeactivateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post gamification profile deactivate o k response has a 5xx status code
+func (o *PostGamificationProfileDeactivateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile deactivate o k response a status code equal to that given
+func (o *PostGamificationProfileDeactivateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostGamificationProfileDeactivateOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateOK  %+v", 200, o.Payload)
+}
+
+func (o *PostGamificationProfileDeactivateOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostGamificationProfileDeactivateBadRequest() *PostGamificationProfileDe
 	return &PostGamificationProfileDeactivateBadRequest{}
 }
 
-/*PostGamificationProfileDeactivateBadRequest handles this case with default header values.
+/*
+PostGamificationProfileDeactivateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostGamificationProfileDeactivateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile deactivate bad request response has a 2xx status code
+func (o *PostGamificationProfileDeactivateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile deactivate bad request response has a 3xx status code
+func (o *PostGamificationProfileDeactivateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile deactivate bad request response has a 4xx status code
+func (o *PostGamificationProfileDeactivateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile deactivate bad request response has a 5xx status code
+func (o *PostGamificationProfileDeactivateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile deactivate bad request response a status code equal to that given
+func (o *PostGamificationProfileDeactivateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostGamificationProfileDeactivateBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostGamificationProfileDeactivateBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostGamificationProfileDeactivateUnauthorized() *PostGamificationProfile
 	return &PostGamificationProfileDeactivateUnauthorized{}
 }
 
-/*PostGamificationProfileDeactivateUnauthorized handles this case with default header values.
+/*
+PostGamificationProfileDeactivateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostGamificationProfileDeactivateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile deactivate unauthorized response has a 2xx status code
+func (o *PostGamificationProfileDeactivateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile deactivate unauthorized response has a 3xx status code
+func (o *PostGamificationProfileDeactivateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile deactivate unauthorized response has a 4xx status code
+func (o *PostGamificationProfileDeactivateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile deactivate unauthorized response has a 5xx status code
+func (o *PostGamificationProfileDeactivateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile deactivate unauthorized response a status code equal to that given
+func (o *PostGamificationProfileDeactivateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostGamificationProfileDeactivateUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostGamificationProfileDeactivateUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostGamificationProfileDeactivateForbidden() *PostGamificationProfileDea
 	return &PostGamificationProfileDeactivateForbidden{}
 }
 
-/*PostGamificationProfileDeactivateForbidden handles this case with default header values.
+/*
+PostGamificationProfileDeactivateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostGamificationProfileDeactivateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile deactivate forbidden response has a 2xx status code
+func (o *PostGamificationProfileDeactivateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile deactivate forbidden response has a 3xx status code
+func (o *PostGamificationProfileDeactivateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile deactivate forbidden response has a 4xx status code
+func (o *PostGamificationProfileDeactivateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile deactivate forbidden response has a 5xx status code
+func (o *PostGamificationProfileDeactivateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile deactivate forbidden response a status code equal to that given
+func (o *PostGamificationProfileDeactivateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostGamificationProfileDeactivateForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostGamificationProfileDeactivateForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostGamificationProfileDeactivateNotFound() *PostGamificationProfileDeac
 	return &PostGamificationProfileDeactivateNotFound{}
 }
 
-/*PostGamificationProfileDeactivateNotFound handles this case with default header values.
+/*
+PostGamificationProfileDeactivateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostGamificationProfileDeactivateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile deactivate not found response has a 2xx status code
+func (o *PostGamificationProfileDeactivateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile deactivate not found response has a 3xx status code
+func (o *PostGamificationProfileDeactivateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile deactivate not found response has a 4xx status code
+func (o *PostGamificationProfileDeactivateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile deactivate not found response has a 5xx status code
+func (o *PostGamificationProfileDeactivateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile deactivate not found response a status code equal to that given
+func (o *PostGamificationProfileDeactivateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostGamificationProfileDeactivateNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostGamificationProfileDeactivateNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostGamificationProfileDeactivateRequestTimeout() *PostGamificationProfi
 	return &PostGamificationProfileDeactivateRequestTimeout{}
 }
 
-/*PostGamificationProfileDeactivateRequestTimeout handles this case with default header values.
+/*
+PostGamificationProfileDeactivateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostGamificationProfileDeactivateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile deactivate request timeout response has a 2xx status code
+func (o *PostGamificationProfileDeactivateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile deactivate request timeout response has a 3xx status code
+func (o *PostGamificationProfileDeactivateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile deactivate request timeout response has a 4xx status code
+func (o *PostGamificationProfileDeactivateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile deactivate request timeout response has a 5xx status code
+func (o *PostGamificationProfileDeactivateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile deactivate request timeout response a status code equal to that given
+func (o *PostGamificationProfileDeactivateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostGamificationProfileDeactivateRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostGamificationProfileDeactivateRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostGamificationProfileDeactivateRequestEntityTooLarge() *PostGamificati
 	return &PostGamificationProfileDeactivateRequestEntityTooLarge{}
 }
 
-/*PostGamificationProfileDeactivateRequestEntityTooLarge handles this case with default header values.
+/*
+PostGamificationProfileDeactivateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostGamificationProfileDeactivateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile deactivate request entity too large response has a 2xx status code
+func (o *PostGamificationProfileDeactivateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile deactivate request entity too large response has a 3xx status code
+func (o *PostGamificationProfileDeactivateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile deactivate request entity too large response has a 4xx status code
+func (o *PostGamificationProfileDeactivateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile deactivate request entity too large response has a 5xx status code
+func (o *PostGamificationProfileDeactivateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile deactivate request entity too large response a status code equal to that given
+func (o *PostGamificationProfileDeactivateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostGamificationProfileDeactivateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostGamificationProfileDeactivateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostGamificationProfileDeactivateUnsupportedMediaType() *PostGamificatio
 	return &PostGamificationProfileDeactivateUnsupportedMediaType{}
 }
 
-/*PostGamificationProfileDeactivateUnsupportedMediaType handles this case with default header values.
+/*
+PostGamificationProfileDeactivateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostGamificationProfileDeactivateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile deactivate unsupported media type response has a 2xx status code
+func (o *PostGamificationProfileDeactivateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile deactivate unsupported media type response has a 3xx status code
+func (o *PostGamificationProfileDeactivateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile deactivate unsupported media type response has a 4xx status code
+func (o *PostGamificationProfileDeactivateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile deactivate unsupported media type response has a 5xx status code
+func (o *PostGamificationProfileDeactivateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile deactivate unsupported media type response a status code equal to that given
+func (o *PostGamificationProfileDeactivateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostGamificationProfileDeactivateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostGamificationProfileDeactivateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostGamificationProfileDeactivateTooManyRequests() *PostGamificationProf
 	return &PostGamificationProfileDeactivateTooManyRequests{}
 }
 
-/*PostGamificationProfileDeactivateTooManyRequests handles this case with default header values.
+/*
+PostGamificationProfileDeactivateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostGamificationProfileDeactivateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile deactivate too many requests response has a 2xx status code
+func (o *PostGamificationProfileDeactivateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile deactivate too many requests response has a 3xx status code
+func (o *PostGamificationProfileDeactivateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile deactivate too many requests response has a 4xx status code
+func (o *PostGamificationProfileDeactivateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post gamification profile deactivate too many requests response has a 5xx status code
+func (o *PostGamificationProfileDeactivateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post gamification profile deactivate too many requests response a status code equal to that given
+func (o *PostGamificationProfileDeactivateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostGamificationProfileDeactivateTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostGamificationProfileDeactivateTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostGamificationProfileDeactivateInternalServerError() *PostGamification
 	return &PostGamificationProfileDeactivateInternalServerError{}
 }
 
-/*PostGamificationProfileDeactivateInternalServerError handles this case with default header values.
+/*
+PostGamificationProfileDeactivateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostGamificationProfileDeactivateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile deactivate internal server error response has a 2xx status code
+func (o *PostGamificationProfileDeactivateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile deactivate internal server error response has a 3xx status code
+func (o *PostGamificationProfileDeactivateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile deactivate internal server error response has a 4xx status code
+func (o *PostGamificationProfileDeactivateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post gamification profile deactivate internal server error response has a 5xx status code
+func (o *PostGamificationProfileDeactivateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post gamification profile deactivate internal server error response a status code equal to that given
+func (o *PostGamificationProfileDeactivateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostGamificationProfileDeactivateInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostGamificationProfileDeactivateInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostGamificationProfileDeactivateServiceUnavailable() *PostGamificationP
 	return &PostGamificationProfileDeactivateServiceUnavailable{}
 }
 
-/*PostGamificationProfileDeactivateServiceUnavailable handles this case with default header values.
+/*
+PostGamificationProfileDeactivateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostGamificationProfileDeactivateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile deactivate service unavailable response has a 2xx status code
+func (o *PostGamificationProfileDeactivateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile deactivate service unavailable response has a 3xx status code
+func (o *PostGamificationProfileDeactivateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile deactivate service unavailable response has a 4xx status code
+func (o *PostGamificationProfileDeactivateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post gamification profile deactivate service unavailable response has a 5xx status code
+func (o *PostGamificationProfileDeactivateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post gamification profile deactivate service unavailable response a status code equal to that given
+func (o *PostGamificationProfileDeactivateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostGamificationProfileDeactivateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostGamificationProfileDeactivateServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostGamificationProfileDeactivateGatewayTimeout() *PostGamificationProfi
 	return &PostGamificationProfileDeactivateGatewayTimeout{}
 }
 
-/*PostGamificationProfileDeactivateGatewayTimeout handles this case with default header values.
+/*
+PostGamificationProfileDeactivateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostGamificationProfileDeactivateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post gamification profile deactivate gateway timeout response has a 2xx status code
+func (o *PostGamificationProfileDeactivateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post gamification profile deactivate gateway timeout response has a 3xx status code
+func (o *PostGamificationProfileDeactivateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post gamification profile deactivate gateway timeout response has a 4xx status code
+func (o *PostGamificationProfileDeactivateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post gamification profile deactivate gateway timeout response has a 5xx status code
+func (o *PostGamificationProfileDeactivateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post gamification profile deactivate gateway timeout response a status code equal to that given
+func (o *PostGamificationProfileDeactivateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostGamificationProfileDeactivateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostGamificationProfileDeactivateGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/gamification/profiles/{profileId}/deactivate][%d] postGamificationProfileDeactivateGatewayTimeout  %+v", 504, o.Payload)
 }
 

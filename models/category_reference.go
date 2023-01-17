@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -65,7 +67,6 @@ func (m *CategoryReference) validateID(formats strfmt.Registry) error {
 }
 
 func (m *CategoryReference) validateParentCategory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ParentCategory) { // not required
 		return nil
 	}
@@ -74,6 +75,8 @@ func (m *CategoryReference) validateParentCategory(formats strfmt.Registry) erro
 		if err := m.ParentCategory.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parentCategory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parentCategory")
 			}
 			return err
 		}
@@ -83,12 +86,54 @@ func (m *CategoryReference) validateParentCategory(formats strfmt.Registry) erro
 }
 
 func (m *CategoryReference) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this category reference based on the context it is used
+func (m *CategoryReference) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateParentCategory(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CategoryReference) contextValidateParentCategory(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ParentCategory != nil {
+		if err := m.ParentCategory.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parentCategory")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parentCategory")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CategoryReference) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

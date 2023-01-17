@@ -95,7 +95,6 @@ func (o *PutChatSettingsReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutChatSettingsOK() *PutChatSettingsOK {
 	return &PutChatSettingsOK{}
 }
 
-/*PutChatSettingsOK handles this case with default header values.
+/*
+PutChatSettingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutChatSettingsOK struct {
 	Payload *models.ChatSettings
 }
 
+// IsSuccess returns true when this put chat settings o k response has a 2xx status code
+func (o *PutChatSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put chat settings o k response has a 3xx status code
+func (o *PutChatSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put chat settings o k response has a 4xx status code
+func (o *PutChatSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put chat settings o k response has a 5xx status code
+func (o *PutChatSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put chat settings o k response a status code equal to that given
+func (o *PutChatSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutChatSettingsOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsOK  %+v", 200, o.Payload)
+}
+
+func (o *PutChatSettingsOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutChatSettingsBadRequest() *PutChatSettingsBadRequest {
 	return &PutChatSettingsBadRequest{}
 }
 
-/*PutChatSettingsBadRequest handles this case with default header values.
+/*
+PutChatSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutChatSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put chat settings bad request response has a 2xx status code
+func (o *PutChatSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put chat settings bad request response has a 3xx status code
+func (o *PutChatSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put chat settings bad request response has a 4xx status code
+func (o *PutChatSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put chat settings bad request response has a 5xx status code
+func (o *PutChatSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put chat settings bad request response a status code equal to that given
+func (o *PutChatSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutChatSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutChatSettingsBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutChatSettingsUnauthorized() *PutChatSettingsUnauthorized {
 	return &PutChatSettingsUnauthorized{}
 }
 
-/*PutChatSettingsUnauthorized handles this case with default header values.
+/*
+PutChatSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutChatSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put chat settings unauthorized response has a 2xx status code
+func (o *PutChatSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put chat settings unauthorized response has a 3xx status code
+func (o *PutChatSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put chat settings unauthorized response has a 4xx status code
+func (o *PutChatSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put chat settings unauthorized response has a 5xx status code
+func (o *PutChatSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put chat settings unauthorized response a status code equal to that given
+func (o *PutChatSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutChatSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutChatSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutChatSettingsForbidden() *PutChatSettingsForbidden {
 	return &PutChatSettingsForbidden{}
 }
 
-/*PutChatSettingsForbidden handles this case with default header values.
+/*
+PutChatSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutChatSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put chat settings forbidden response has a 2xx status code
+func (o *PutChatSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put chat settings forbidden response has a 3xx status code
+func (o *PutChatSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put chat settings forbidden response has a 4xx status code
+func (o *PutChatSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put chat settings forbidden response has a 5xx status code
+func (o *PutChatSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put chat settings forbidden response a status code equal to that given
+func (o *PutChatSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutChatSettingsForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutChatSettingsForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutChatSettingsNotFound() *PutChatSettingsNotFound {
 	return &PutChatSettingsNotFound{}
 }
 
-/*PutChatSettingsNotFound handles this case with default header values.
+/*
+PutChatSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutChatSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put chat settings not found response has a 2xx status code
+func (o *PutChatSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put chat settings not found response has a 3xx status code
+func (o *PutChatSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put chat settings not found response has a 4xx status code
+func (o *PutChatSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put chat settings not found response has a 5xx status code
+func (o *PutChatSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put chat settings not found response a status code equal to that given
+func (o *PutChatSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutChatSettingsNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutChatSettingsNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutChatSettingsRequestTimeout() *PutChatSettingsRequestTimeout {
 	return &PutChatSettingsRequestTimeout{}
 }
 
-/*PutChatSettingsRequestTimeout handles this case with default header values.
+/*
+PutChatSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutChatSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put chat settings request timeout response has a 2xx status code
+func (o *PutChatSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put chat settings request timeout response has a 3xx status code
+func (o *PutChatSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put chat settings request timeout response has a 4xx status code
+func (o *PutChatSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put chat settings request timeout response has a 5xx status code
+func (o *PutChatSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put chat settings request timeout response a status code equal to that given
+func (o *PutChatSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutChatSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutChatSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutChatSettingsRequestEntityTooLarge() *PutChatSettingsRequestEntityTooL
 	return &PutChatSettingsRequestEntityTooLarge{}
 }
 
-/*PutChatSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+PutChatSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutChatSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put chat settings request entity too large response has a 2xx status code
+func (o *PutChatSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put chat settings request entity too large response has a 3xx status code
+func (o *PutChatSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put chat settings request entity too large response has a 4xx status code
+func (o *PutChatSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put chat settings request entity too large response has a 5xx status code
+func (o *PutChatSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put chat settings request entity too large response a status code equal to that given
+func (o *PutChatSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutChatSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutChatSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutChatSettingsUnsupportedMediaType() *PutChatSettingsUnsupportedMediaTy
 	return &PutChatSettingsUnsupportedMediaType{}
 }
 
-/*PutChatSettingsUnsupportedMediaType handles this case with default header values.
+/*
+PutChatSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutChatSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put chat settings unsupported media type response has a 2xx status code
+func (o *PutChatSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put chat settings unsupported media type response has a 3xx status code
+func (o *PutChatSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put chat settings unsupported media type response has a 4xx status code
+func (o *PutChatSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put chat settings unsupported media type response has a 5xx status code
+func (o *PutChatSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put chat settings unsupported media type response a status code equal to that given
+func (o *PutChatSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutChatSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutChatSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutChatSettingsTooManyRequests() *PutChatSettingsTooManyRequests {
 	return &PutChatSettingsTooManyRequests{}
 }
 
-/*PutChatSettingsTooManyRequests handles this case with default header values.
+/*
+PutChatSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutChatSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put chat settings too many requests response has a 2xx status code
+func (o *PutChatSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put chat settings too many requests response has a 3xx status code
+func (o *PutChatSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put chat settings too many requests response has a 4xx status code
+func (o *PutChatSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put chat settings too many requests response has a 5xx status code
+func (o *PutChatSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put chat settings too many requests response a status code equal to that given
+func (o *PutChatSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutChatSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutChatSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutChatSettingsInternalServerError() *PutChatSettingsInternalServerError
 	return &PutChatSettingsInternalServerError{}
 }
 
-/*PutChatSettingsInternalServerError handles this case with default header values.
+/*
+PutChatSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutChatSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put chat settings internal server error response has a 2xx status code
+func (o *PutChatSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put chat settings internal server error response has a 3xx status code
+func (o *PutChatSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put chat settings internal server error response has a 4xx status code
+func (o *PutChatSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put chat settings internal server error response has a 5xx status code
+func (o *PutChatSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put chat settings internal server error response a status code equal to that given
+func (o *PutChatSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutChatSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutChatSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutChatSettingsServiceUnavailable() *PutChatSettingsServiceUnavailable {
 	return &PutChatSettingsServiceUnavailable{}
 }
 
-/*PutChatSettingsServiceUnavailable handles this case with default header values.
+/*
+PutChatSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutChatSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put chat settings service unavailable response has a 2xx status code
+func (o *PutChatSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put chat settings service unavailable response has a 3xx status code
+func (o *PutChatSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put chat settings service unavailable response has a 4xx status code
+func (o *PutChatSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put chat settings service unavailable response has a 5xx status code
+func (o *PutChatSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put chat settings service unavailable response a status code equal to that given
+func (o *PutChatSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutChatSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutChatSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutChatSettingsGatewayTimeout() *PutChatSettingsGatewayTimeout {
 	return &PutChatSettingsGatewayTimeout{}
 }
 
-/*PutChatSettingsGatewayTimeout handles this case with default header values.
+/*
+PutChatSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutChatSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put chat settings gateway timeout response has a 2xx status code
+func (o *PutChatSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put chat settings gateway timeout response has a 3xx status code
+func (o *PutChatSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put chat settings gateway timeout response has a 4xx status code
+func (o *PutChatSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put chat settings gateway timeout response has a 5xx status code
+func (o *PutChatSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put chat settings gateway timeout response a status code equal to that given
+func (o *PutChatSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutChatSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutChatSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/chat/settings][%d] putChatSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,69 +16,89 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationScorecardsUsersPointsAverageParams creates a new GetGamificationScorecardsUsersPointsAverageParams object
-// with the default values initialized.
+// NewGetGamificationScorecardsUsersPointsAverageParams creates a new GetGamificationScorecardsUsersPointsAverageParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationScorecardsUsersPointsAverageParams() *GetGamificationScorecardsUsersPointsAverageParams {
-	var ()
 	return &GetGamificationScorecardsUsersPointsAverageParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationScorecardsUsersPointsAverageParamsWithTimeout creates a new GetGamificationScorecardsUsersPointsAverageParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationScorecardsUsersPointsAverageParamsWithTimeout(timeout time.Duration) *GetGamificationScorecardsUsersPointsAverageParams {
-	var ()
 	return &GetGamificationScorecardsUsersPointsAverageParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationScorecardsUsersPointsAverageParamsWithContext creates a new GetGamificationScorecardsUsersPointsAverageParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationScorecardsUsersPointsAverageParamsWithContext(ctx context.Context) *GetGamificationScorecardsUsersPointsAverageParams {
-	var ()
 	return &GetGamificationScorecardsUsersPointsAverageParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationScorecardsUsersPointsAverageParamsWithHTTPClient creates a new GetGamificationScorecardsUsersPointsAverageParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationScorecardsUsersPointsAverageParamsWithHTTPClient(client *http.Client) *GetGamificationScorecardsUsersPointsAverageParams {
-	var ()
 	return &GetGamificationScorecardsUsersPointsAverageParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationScorecardsUsersPointsAverageParams contains all the parameters to send to the API endpoint
-for the get gamification scorecards users points average operation typically these are written to a http.Request
+/*
+GetGamificationScorecardsUsersPointsAverageParams contains all the parameters to send to the API endpoint
+
+	for the get gamification scorecards users points average operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationScorecardsUsersPointsAverageParams struct {
 
-	/*FilterID
-	  ID for the filter type.
+	/* FilterID.
 
+	   ID for the filter type.
 	*/
 	FilterID string
-	/*FilterType
-	  Filter type for the query request.
 
+	/* FilterType.
+
+	   Filter type for the query request.
 	*/
 	FilterType string
-	/*Workday
-	  The target workday. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* Workday.
+
+	   The target workday. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	Workday strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification scorecards users points average params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsUsersPointsAverageParams) WithDefaults() *GetGamificationScorecardsUsersPointsAverageParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification scorecards users points average params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationScorecardsUsersPointsAverageParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification scorecards users points average params
@@ -159,6 +179,7 @@ func (o *GetGamificationScorecardsUsersPointsAverageParams) WriteToRequest(r run
 	qrFilterID := o.FilterID
 	qFilterID := qrFilterID
 	if qFilterID != "" {
+
 		if err := r.SetQueryParam("filterId", qFilterID); err != nil {
 			return err
 		}
@@ -168,6 +189,7 @@ func (o *GetGamificationScorecardsUsersPointsAverageParams) WriteToRequest(r run
 	qrFilterType := o.FilterType
 	qFilterType := qrFilterType
 	if qFilterType != "" {
+
 		if err := r.SetQueryParam("filterType", qFilterType); err != nil {
 			return err
 		}
@@ -177,6 +199,7 @@ func (o *GetGamificationScorecardsUsersPointsAverageParams) WriteToRequest(r run
 	qrWorkday := o.Workday
 	qWorkday := qrWorkday.String()
 	if qWorkday != "" {
+
 		if err := r.SetQueryParam("workday", qWorkday); err != nil {
 			return err
 		}

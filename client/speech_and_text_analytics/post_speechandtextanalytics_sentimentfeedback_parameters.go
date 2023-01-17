@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostSpeechandtextanalyticsSentimentfeedbackParams creates a new PostSpeechandtextanalyticsSentimentfeedbackParams object
-// with the default values initialized.
+// NewPostSpeechandtextanalyticsSentimentfeedbackParams creates a new PostSpeechandtextanalyticsSentimentfeedbackParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostSpeechandtextanalyticsSentimentfeedbackParams() *PostSpeechandtextanalyticsSentimentfeedbackParams {
-	var ()
 	return &PostSpeechandtextanalyticsSentimentfeedbackParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostSpeechandtextanalyticsSentimentfeedbackParamsWithTimeout creates a new PostSpeechandtextanalyticsSentimentfeedbackParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostSpeechandtextanalyticsSentimentfeedbackParamsWithTimeout(timeout time.Duration) *PostSpeechandtextanalyticsSentimentfeedbackParams {
-	var ()
 	return &PostSpeechandtextanalyticsSentimentfeedbackParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostSpeechandtextanalyticsSentimentfeedbackParamsWithContext creates a new PostSpeechandtextanalyticsSentimentfeedbackParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostSpeechandtextanalyticsSentimentfeedbackParamsWithContext(ctx context.Context) *PostSpeechandtextanalyticsSentimentfeedbackParams {
-	var ()
 	return &PostSpeechandtextanalyticsSentimentfeedbackParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostSpeechandtextanalyticsSentimentfeedbackParamsWithHTTPClient creates a new PostSpeechandtextanalyticsSentimentfeedbackParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostSpeechandtextanalyticsSentimentfeedbackParamsWithHTTPClient(client *http.Client) *PostSpeechandtextanalyticsSentimentfeedbackParams {
-	var ()
 	return &PostSpeechandtextanalyticsSentimentfeedbackParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostSpeechandtextanalyticsSentimentfeedbackParams contains all the parameters to send to the API endpoint
-for the post speechandtextanalytics sentimentfeedback operation typically these are written to a http.Request
+/*
+PostSpeechandtextanalyticsSentimentfeedbackParams contains all the parameters to send to the API endpoint
+
+	for the post speechandtextanalytics sentimentfeedback operation.
+
+	Typically these are written to a http.Request.
 */
 type PostSpeechandtextanalyticsSentimentfeedbackParams struct {
 
-	/*Body
-	  The SentimentFeedback to create
+	/* Body.
 
+	   The SentimentFeedback to create
 	*/
 	Body *models.SentimentFeedback
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post speechandtextanalytics sentimentfeedback params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostSpeechandtextanalyticsSentimentfeedbackParams) WithDefaults() *PostSpeechandtextanalyticsSentimentfeedbackParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post speechandtextanalytics sentimentfeedback params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostSpeechandtextanalyticsSentimentfeedbackParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post speechandtextanalytics sentimentfeedback params
@@ -124,7 +140,6 @@ func (o *PostSpeechandtextanalyticsSentimentfeedbackParams) WriteToRequest(r run
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

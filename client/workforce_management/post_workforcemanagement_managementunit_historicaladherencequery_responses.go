@@ -95,7 +95,6 @@ func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryReader) Re
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted() 
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted{}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted describes a response with status code 202, with default header values.
 
 Processing request
 */
@@ -114,7 +114,36 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted struc
 	Payload *models.WfmHistoricalAdherenceResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit historicaladherencequery accepted response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit historicaladherencequery accepted response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit historicaladherencequery accepted response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit historicaladherencequery accepted response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit historicaladherencequery accepted response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryAccepted  %+v", 202, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest(
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest{}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit historicaladherencequery bad request response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit historicaladherencequery bad request response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit historicaladherencequery bad request response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit historicaladherencequery bad request response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit historicaladherencequery bad request response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorize
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized{}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit historicaladherencequery unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit historicaladherencequery unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit historicaladherencequery unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit historicaladherencequery unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit historicaladherencequery unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden()
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden{}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit historicaladherencequery forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit historicaladherencequery forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit historicaladherencequery forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit historicaladherencequery forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit historicaladherencequery forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound() 
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound{}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit historicaladherencequery not found response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit historicaladherencequery not found response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit historicaladherencequery not found response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit historicaladherencequery not found response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit historicaladherencequery not found response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryRequestTime
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout{}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit historicaladherencequery request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit historicaladherencequery request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit historicaladherencequery request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit historicaladherencequery request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit historicaladherencequery request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEnti
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityT
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit historicaladherencequery request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit historicaladherencequery request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit historicaladherencequery request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit historicaladherencequery request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit historicaladherencequery request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupported
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMed
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit historicaladherencequery unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit historicaladherencequery unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit historicaladherencequery unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit historicaladherencequery unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit historicaladherencequery unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequ
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests{}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequest
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit historicaladherencequery too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit historicaladherencequery too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit historicaladherencequery too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit historicaladherencequery too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit historicaladherencequery too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryInternalSer
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError{}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServer
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit historicaladherencequery internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit historicaladherencequery internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit historicaladherencequery internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit historicaladherencequery internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement managementunit historicaladherencequery internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnav
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavail
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit historicaladherencequery service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit historicaladherencequery service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit historicaladherencequery service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit historicaladherencequery service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement managementunit historicaladherencequery service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTime
 	return &PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit historicaladherencequery gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit historicaladherencequery gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit historicaladherencequery gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit historicaladherencequery gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement managementunit historicaladherencequery gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/historicaladherencequery][%d] postWorkforcemanagementManagementunitHistoricaladherencequeryGatewayTimeout  %+v", 504, o.Payload)
 }
 

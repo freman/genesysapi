@@ -95,7 +95,6 @@ func (o *PatchConversationsCobrowsesessionParticipantReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPatchConversationsCobrowsesessionParticipantAccepted() *PatchConversatio
 	return &PatchConversationsCobrowsesessionParticipantAccepted{}
 }
 
-/*PatchConversationsCobrowsesessionParticipantAccepted handles this case with default header values.
+/*
+PatchConversationsCobrowsesessionParticipantAccepted describes a response with status code 202, with default header values.
 
 Accepted
 */
 type PatchConversationsCobrowsesessionParticipantAccepted struct {
 }
 
+// IsSuccess returns true when this patch conversations cobrowsesession participant accepted response has a 2xx status code
+func (o *PatchConversationsCobrowsesessionParticipantAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch conversations cobrowsesession participant accepted response has a 3xx status code
+func (o *PatchConversationsCobrowsesessionParticipantAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations cobrowsesession participant accepted response has a 4xx status code
+func (o *PatchConversationsCobrowsesessionParticipantAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations cobrowsesession participant accepted response has a 5xx status code
+func (o *PatchConversationsCobrowsesessionParticipantAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations cobrowsesession participant accepted response a status code equal to that given
+func (o *PatchConversationsCobrowsesessionParticipantAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PatchConversationsCobrowsesessionParticipantAccepted) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantAccepted ", 202)
+}
+
+func (o *PatchConversationsCobrowsesessionParticipantAccepted) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantAccepted ", 202)
 }
 
@@ -127,7 +156,8 @@ func NewPatchConversationsCobrowsesessionParticipantBadRequest() *PatchConversat
 	return &PatchConversationsCobrowsesessionParticipantBadRequest{}
 }
 
-/*PatchConversationsCobrowsesessionParticipantBadRequest handles this case with default header values.
+/*
+PatchConversationsCobrowsesessionParticipantBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PatchConversationsCobrowsesessionParticipantBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations cobrowsesession participant bad request response has a 2xx status code
+func (o *PatchConversationsCobrowsesessionParticipantBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations cobrowsesession participant bad request response has a 3xx status code
+func (o *PatchConversationsCobrowsesessionParticipantBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations cobrowsesession participant bad request response has a 4xx status code
+func (o *PatchConversationsCobrowsesessionParticipantBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations cobrowsesession participant bad request response has a 5xx status code
+func (o *PatchConversationsCobrowsesessionParticipantBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations cobrowsesession participant bad request response a status code equal to that given
+func (o *PatchConversationsCobrowsesessionParticipantBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchConversationsCobrowsesessionParticipantBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchConversationsCobrowsesessionParticipantBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPatchConversationsCobrowsesessionParticipantUnauthorized() *PatchConvers
 	return &PatchConversationsCobrowsesessionParticipantUnauthorized{}
 }
 
-/*PatchConversationsCobrowsesessionParticipantUnauthorized handles this case with default header values.
+/*
+PatchConversationsCobrowsesessionParticipantUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PatchConversationsCobrowsesessionParticipantUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations cobrowsesession participant unauthorized response has a 2xx status code
+func (o *PatchConversationsCobrowsesessionParticipantUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations cobrowsesession participant unauthorized response has a 3xx status code
+func (o *PatchConversationsCobrowsesessionParticipantUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations cobrowsesession participant unauthorized response has a 4xx status code
+func (o *PatchConversationsCobrowsesessionParticipantUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations cobrowsesession participant unauthorized response has a 5xx status code
+func (o *PatchConversationsCobrowsesessionParticipantUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations cobrowsesession participant unauthorized response a status code equal to that given
+func (o *PatchConversationsCobrowsesessionParticipantUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchConversationsCobrowsesessionParticipantUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchConversationsCobrowsesessionParticipantUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPatchConversationsCobrowsesessionParticipantForbidden() *PatchConversati
 	return &PatchConversationsCobrowsesessionParticipantForbidden{}
 }
 
-/*PatchConversationsCobrowsesessionParticipantForbidden handles this case with default header values.
+/*
+PatchConversationsCobrowsesessionParticipantForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PatchConversationsCobrowsesessionParticipantForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations cobrowsesession participant forbidden response has a 2xx status code
+func (o *PatchConversationsCobrowsesessionParticipantForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations cobrowsesession participant forbidden response has a 3xx status code
+func (o *PatchConversationsCobrowsesessionParticipantForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations cobrowsesession participant forbidden response has a 4xx status code
+func (o *PatchConversationsCobrowsesessionParticipantForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations cobrowsesession participant forbidden response has a 5xx status code
+func (o *PatchConversationsCobrowsesessionParticipantForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations cobrowsesession participant forbidden response a status code equal to that given
+func (o *PatchConversationsCobrowsesessionParticipantForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchConversationsCobrowsesessionParticipantForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchConversationsCobrowsesessionParticipantForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPatchConversationsCobrowsesessionParticipantNotFound() *PatchConversatio
 	return &PatchConversationsCobrowsesessionParticipantNotFound{}
 }
 
-/*PatchConversationsCobrowsesessionParticipantNotFound handles this case with default header values.
+/*
+PatchConversationsCobrowsesessionParticipantNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PatchConversationsCobrowsesessionParticipantNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations cobrowsesession participant not found response has a 2xx status code
+func (o *PatchConversationsCobrowsesessionParticipantNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations cobrowsesession participant not found response has a 3xx status code
+func (o *PatchConversationsCobrowsesessionParticipantNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations cobrowsesession participant not found response has a 4xx status code
+func (o *PatchConversationsCobrowsesessionParticipantNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations cobrowsesession participant not found response has a 5xx status code
+func (o *PatchConversationsCobrowsesessionParticipantNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations cobrowsesession participant not found response a status code equal to that given
+func (o *PatchConversationsCobrowsesessionParticipantNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchConversationsCobrowsesessionParticipantNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchConversationsCobrowsesessionParticipantNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPatchConversationsCobrowsesessionParticipantRequestTimeout() *PatchConve
 	return &PatchConversationsCobrowsesessionParticipantRequestTimeout{}
 }
 
-/*PatchConversationsCobrowsesessionParticipantRequestTimeout handles this case with default header values.
+/*
+PatchConversationsCobrowsesessionParticipantRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PatchConversationsCobrowsesessionParticipantRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations cobrowsesession participant request timeout response has a 2xx status code
+func (o *PatchConversationsCobrowsesessionParticipantRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations cobrowsesession participant request timeout response has a 3xx status code
+func (o *PatchConversationsCobrowsesessionParticipantRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations cobrowsesession participant request timeout response has a 4xx status code
+func (o *PatchConversationsCobrowsesessionParticipantRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations cobrowsesession participant request timeout response has a 5xx status code
+func (o *PatchConversationsCobrowsesessionParticipantRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations cobrowsesession participant request timeout response a status code equal to that given
+func (o *PatchConversationsCobrowsesessionParticipantRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchConversationsCobrowsesessionParticipantRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchConversationsCobrowsesessionParticipantRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPatchConversationsCobrowsesessionParticipantRequestEntityTooLarge() *Pat
 	return &PatchConversationsCobrowsesessionParticipantRequestEntityTooLarge{}
 }
 
-/*PatchConversationsCobrowsesessionParticipantRequestEntityTooLarge handles this case with default header values.
+/*
+PatchConversationsCobrowsesessionParticipantRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PatchConversationsCobrowsesessionParticipantRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations cobrowsesession participant request entity too large response has a 2xx status code
+func (o *PatchConversationsCobrowsesessionParticipantRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations cobrowsesession participant request entity too large response has a 3xx status code
+func (o *PatchConversationsCobrowsesessionParticipantRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations cobrowsesession participant request entity too large response has a 4xx status code
+func (o *PatchConversationsCobrowsesessionParticipantRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations cobrowsesession participant request entity too large response has a 5xx status code
+func (o *PatchConversationsCobrowsesessionParticipantRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations cobrowsesession participant request entity too large response a status code equal to that given
+func (o *PatchConversationsCobrowsesessionParticipantRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchConversationsCobrowsesessionParticipantRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchConversationsCobrowsesessionParticipantRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPatchConversationsCobrowsesessionParticipantUnsupportedMediaType() *Patc
 	return &PatchConversationsCobrowsesessionParticipantUnsupportedMediaType{}
 }
 
-/*PatchConversationsCobrowsesessionParticipantUnsupportedMediaType handles this case with default header values.
+/*
+PatchConversationsCobrowsesessionParticipantUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PatchConversationsCobrowsesessionParticipantUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations cobrowsesession participant unsupported media type response has a 2xx status code
+func (o *PatchConversationsCobrowsesessionParticipantUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations cobrowsesession participant unsupported media type response has a 3xx status code
+func (o *PatchConversationsCobrowsesessionParticipantUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations cobrowsesession participant unsupported media type response has a 4xx status code
+func (o *PatchConversationsCobrowsesessionParticipantUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations cobrowsesession participant unsupported media type response has a 5xx status code
+func (o *PatchConversationsCobrowsesessionParticipantUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations cobrowsesession participant unsupported media type response a status code equal to that given
+func (o *PatchConversationsCobrowsesessionParticipantUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchConversationsCobrowsesessionParticipantUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchConversationsCobrowsesessionParticipantUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPatchConversationsCobrowsesessionParticipantTooManyRequests() *PatchConv
 	return &PatchConversationsCobrowsesessionParticipantTooManyRequests{}
 }
 
-/*PatchConversationsCobrowsesessionParticipantTooManyRequests handles this case with default header values.
+/*
+PatchConversationsCobrowsesessionParticipantTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PatchConversationsCobrowsesessionParticipantTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations cobrowsesession participant too many requests response has a 2xx status code
+func (o *PatchConversationsCobrowsesessionParticipantTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations cobrowsesession participant too many requests response has a 3xx status code
+func (o *PatchConversationsCobrowsesessionParticipantTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations cobrowsesession participant too many requests response has a 4xx status code
+func (o *PatchConversationsCobrowsesessionParticipantTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations cobrowsesession participant too many requests response has a 5xx status code
+func (o *PatchConversationsCobrowsesessionParticipantTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations cobrowsesession participant too many requests response a status code equal to that given
+func (o *PatchConversationsCobrowsesessionParticipantTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchConversationsCobrowsesessionParticipantTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchConversationsCobrowsesessionParticipantTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPatchConversationsCobrowsesessionParticipantInternalServerError() *Patch
 	return &PatchConversationsCobrowsesessionParticipantInternalServerError{}
 }
 
-/*PatchConversationsCobrowsesessionParticipantInternalServerError handles this case with default header values.
+/*
+PatchConversationsCobrowsesessionParticipantInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PatchConversationsCobrowsesessionParticipantInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations cobrowsesession participant internal server error response has a 2xx status code
+func (o *PatchConversationsCobrowsesessionParticipantInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations cobrowsesession participant internal server error response has a 3xx status code
+func (o *PatchConversationsCobrowsesessionParticipantInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations cobrowsesession participant internal server error response has a 4xx status code
+func (o *PatchConversationsCobrowsesessionParticipantInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations cobrowsesession participant internal server error response has a 5xx status code
+func (o *PatchConversationsCobrowsesessionParticipantInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations cobrowsesession participant internal server error response a status code equal to that given
+func (o *PatchConversationsCobrowsesessionParticipantInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchConversationsCobrowsesessionParticipantInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchConversationsCobrowsesessionParticipantInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPatchConversationsCobrowsesessionParticipantServiceUnavailable() *PatchC
 	return &PatchConversationsCobrowsesessionParticipantServiceUnavailable{}
 }
 
-/*PatchConversationsCobrowsesessionParticipantServiceUnavailable handles this case with default header values.
+/*
+PatchConversationsCobrowsesessionParticipantServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PatchConversationsCobrowsesessionParticipantServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations cobrowsesession participant service unavailable response has a 2xx status code
+func (o *PatchConversationsCobrowsesessionParticipantServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations cobrowsesession participant service unavailable response has a 3xx status code
+func (o *PatchConversationsCobrowsesessionParticipantServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations cobrowsesession participant service unavailable response has a 4xx status code
+func (o *PatchConversationsCobrowsesessionParticipantServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations cobrowsesession participant service unavailable response has a 5xx status code
+func (o *PatchConversationsCobrowsesessionParticipantServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations cobrowsesession participant service unavailable response a status code equal to that given
+func (o *PatchConversationsCobrowsesessionParticipantServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchConversationsCobrowsesessionParticipantServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchConversationsCobrowsesessionParticipantServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPatchConversationsCobrowsesessionParticipantGatewayTimeout() *PatchConve
 	return &PatchConversationsCobrowsesessionParticipantGatewayTimeout{}
 }
 
-/*PatchConversationsCobrowsesessionParticipantGatewayTimeout handles this case with default header values.
+/*
+PatchConversationsCobrowsesessionParticipantGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PatchConversationsCobrowsesessionParticipantGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations cobrowsesession participant gateway timeout response has a 2xx status code
+func (o *PatchConversationsCobrowsesessionParticipantGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations cobrowsesession participant gateway timeout response has a 3xx status code
+func (o *PatchConversationsCobrowsesessionParticipantGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations cobrowsesession participant gateway timeout response has a 4xx status code
+func (o *PatchConversationsCobrowsesessionParticipantGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations cobrowsesession participant gateway timeout response has a 5xx status code
+func (o *PatchConversationsCobrowsesessionParticipantGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations cobrowsesession participant gateway timeout response a status code equal to that given
+func (o *PatchConversationsCobrowsesessionParticipantGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchConversationsCobrowsesessionParticipantGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchConversationsCobrowsesessionParticipantGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/cobrowsesessions/{conversationId}/participants/{participantId}][%d] patchConversationsCobrowsesessionParticipantGatewayTimeout  %+v", 504, o.Payload)
 }
 

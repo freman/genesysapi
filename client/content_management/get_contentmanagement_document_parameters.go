@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetContentmanagementDocumentParams creates a new GetContentmanagementDocumentParams object
-// with the default values initialized.
+// NewGetContentmanagementDocumentParams creates a new GetContentmanagementDocumentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetContentmanagementDocumentParams() *GetContentmanagementDocumentParams {
-	var ()
 	return &GetContentmanagementDocumentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetContentmanagementDocumentParamsWithTimeout creates a new GetContentmanagementDocumentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetContentmanagementDocumentParamsWithTimeout(timeout time.Duration) *GetContentmanagementDocumentParams {
-	var ()
 	return &GetContentmanagementDocumentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetContentmanagementDocumentParamsWithContext creates a new GetContentmanagementDocumentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetContentmanagementDocumentParamsWithContext(ctx context.Context) *GetContentmanagementDocumentParams {
-	var ()
 	return &GetContentmanagementDocumentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetContentmanagementDocumentParamsWithHTTPClient creates a new GetContentmanagementDocumentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetContentmanagementDocumentParamsWithHTTPClient(client *http.Client) *GetContentmanagementDocumentParams {
-	var ()
 	return &GetContentmanagementDocumentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetContentmanagementDocumentParams contains all the parameters to send to the API endpoint
-for the get contentmanagement document operation typically these are written to a http.Request
+/*
+GetContentmanagementDocumentParams contains all the parameters to send to the API endpoint
+
+	for the get contentmanagement document operation.
+
+	Typically these are written to a http.Request.
 */
 type GetContentmanagementDocumentParams struct {
 
-	/*DocumentID
-	  Document ID
+	/* DocumentID.
 
+	   Document ID
 	*/
 	DocumentID string
-	/*Expand
-	  Which fields, if any, to expand.
 
+	/* Expand.
+
+	   Which fields, if any, to expand.
 	*/
 	Expand []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get contentmanagement document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementDocumentParams) WithDefaults() *GetContentmanagementDocumentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get contentmanagement document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementDocumentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get contentmanagement document params
@@ -145,16 +162,36 @@ func (o *GetContentmanagementDocumentParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetContentmanagementDocument binds the parameter expand
+func (o *GetContentmanagementDocumentParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

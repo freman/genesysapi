@@ -95,7 +95,6 @@ func (o *GetOrganizationsIpaddressauthenticationReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOrganizationsIpaddressauthenticationOK() *GetOrganizationsIpaddressau
 	return &GetOrganizationsIpaddressauthenticationOK{}
 }
 
-/*GetOrganizationsIpaddressauthenticationOK handles this case with default header values.
+/*
+GetOrganizationsIpaddressauthenticationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOrganizationsIpaddressauthenticationOK struct {
 	Payload *models.IPAddressAuthentication
 }
 
+// IsSuccess returns true when this get organizations ipaddressauthentication o k response has a 2xx status code
+func (o *GetOrganizationsIpaddressauthenticationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get organizations ipaddressauthentication o k response has a 3xx status code
+func (o *GetOrganizationsIpaddressauthenticationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations ipaddressauthentication o k response has a 4xx status code
+func (o *GetOrganizationsIpaddressauthenticationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations ipaddressauthentication o k response has a 5xx status code
+func (o *GetOrganizationsIpaddressauthenticationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations ipaddressauthentication o k response a status code equal to that given
+func (o *GetOrganizationsIpaddressauthenticationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrganizationsIpaddressauthenticationOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOrganizationsIpaddressauthenticationBadRequest() *GetOrganizationsIpa
 	return &GetOrganizationsIpaddressauthenticationBadRequest{}
 }
 
-/*GetOrganizationsIpaddressauthenticationBadRequest handles this case with default header values.
+/*
+GetOrganizationsIpaddressauthenticationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOrganizationsIpaddressauthenticationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations ipaddressauthentication bad request response has a 2xx status code
+func (o *GetOrganizationsIpaddressauthenticationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations ipaddressauthentication bad request response has a 3xx status code
+func (o *GetOrganizationsIpaddressauthenticationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations ipaddressauthentication bad request response has a 4xx status code
+func (o *GetOrganizationsIpaddressauthenticationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations ipaddressauthentication bad request response has a 5xx status code
+func (o *GetOrganizationsIpaddressauthenticationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations ipaddressauthentication bad request response a status code equal to that given
+func (o *GetOrganizationsIpaddressauthenticationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOrganizationsIpaddressauthenticationBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOrganizationsIpaddressauthenticationUnauthorized() *GetOrganizationsI
 	return &GetOrganizationsIpaddressauthenticationUnauthorized{}
 }
 
-/*GetOrganizationsIpaddressauthenticationUnauthorized handles this case with default header values.
+/*
+GetOrganizationsIpaddressauthenticationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOrganizationsIpaddressauthenticationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations ipaddressauthentication unauthorized response has a 2xx status code
+func (o *GetOrganizationsIpaddressauthenticationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations ipaddressauthentication unauthorized response has a 3xx status code
+func (o *GetOrganizationsIpaddressauthenticationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations ipaddressauthentication unauthorized response has a 4xx status code
+func (o *GetOrganizationsIpaddressauthenticationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations ipaddressauthentication unauthorized response has a 5xx status code
+func (o *GetOrganizationsIpaddressauthenticationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations ipaddressauthentication unauthorized response a status code equal to that given
+func (o *GetOrganizationsIpaddressauthenticationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOrganizationsIpaddressauthenticationUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOrganizationsIpaddressauthenticationForbidden() *GetOrganizationsIpad
 	return &GetOrganizationsIpaddressauthenticationForbidden{}
 }
 
-/*GetOrganizationsIpaddressauthenticationForbidden handles this case with default header values.
+/*
+GetOrganizationsIpaddressauthenticationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOrganizationsIpaddressauthenticationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations ipaddressauthentication forbidden response has a 2xx status code
+func (o *GetOrganizationsIpaddressauthenticationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations ipaddressauthentication forbidden response has a 3xx status code
+func (o *GetOrganizationsIpaddressauthenticationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations ipaddressauthentication forbidden response has a 4xx status code
+func (o *GetOrganizationsIpaddressauthenticationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations ipaddressauthentication forbidden response has a 5xx status code
+func (o *GetOrganizationsIpaddressauthenticationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations ipaddressauthentication forbidden response a status code equal to that given
+func (o *GetOrganizationsIpaddressauthenticationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrganizationsIpaddressauthenticationForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOrganizationsIpaddressauthenticationNotFound() *GetOrganizationsIpadd
 	return &GetOrganizationsIpaddressauthenticationNotFound{}
 }
 
-/*GetOrganizationsIpaddressauthenticationNotFound handles this case with default header values.
+/*
+GetOrganizationsIpaddressauthenticationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOrganizationsIpaddressauthenticationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations ipaddressauthentication not found response has a 2xx status code
+func (o *GetOrganizationsIpaddressauthenticationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations ipaddressauthentication not found response has a 3xx status code
+func (o *GetOrganizationsIpaddressauthenticationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations ipaddressauthentication not found response has a 4xx status code
+func (o *GetOrganizationsIpaddressauthenticationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations ipaddressauthentication not found response has a 5xx status code
+func (o *GetOrganizationsIpaddressauthenticationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations ipaddressauthentication not found response a status code equal to that given
+func (o *GetOrganizationsIpaddressauthenticationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrganizationsIpaddressauthenticationNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOrganizationsIpaddressauthenticationRequestTimeout() *GetOrganization
 	return &GetOrganizationsIpaddressauthenticationRequestTimeout{}
 }
 
-/*GetOrganizationsIpaddressauthenticationRequestTimeout handles this case with default header values.
+/*
+GetOrganizationsIpaddressauthenticationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOrganizationsIpaddressauthenticationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations ipaddressauthentication request timeout response has a 2xx status code
+func (o *GetOrganizationsIpaddressauthenticationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations ipaddressauthentication request timeout response has a 3xx status code
+func (o *GetOrganizationsIpaddressauthenticationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations ipaddressauthentication request timeout response has a 4xx status code
+func (o *GetOrganizationsIpaddressauthenticationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations ipaddressauthentication request timeout response has a 5xx status code
+func (o *GetOrganizationsIpaddressauthenticationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations ipaddressauthentication request timeout response a status code equal to that given
+func (o *GetOrganizationsIpaddressauthenticationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOrganizationsIpaddressauthenticationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOrganizationsIpaddressauthenticationRequestEntityTooLarge() *GetOrgan
 	return &GetOrganizationsIpaddressauthenticationRequestEntityTooLarge{}
 }
 
-/*GetOrganizationsIpaddressauthenticationRequestEntityTooLarge handles this case with default header values.
+/*
+GetOrganizationsIpaddressauthenticationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOrganizationsIpaddressauthenticationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations ipaddressauthentication request entity too large response has a 2xx status code
+func (o *GetOrganizationsIpaddressauthenticationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations ipaddressauthentication request entity too large response has a 3xx status code
+func (o *GetOrganizationsIpaddressauthenticationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations ipaddressauthentication request entity too large response has a 4xx status code
+func (o *GetOrganizationsIpaddressauthenticationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations ipaddressauthentication request entity too large response has a 5xx status code
+func (o *GetOrganizationsIpaddressauthenticationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations ipaddressauthentication request entity too large response a status code equal to that given
+func (o *GetOrganizationsIpaddressauthenticationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOrganizationsIpaddressauthenticationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOrganizationsIpaddressauthenticationUnsupportedMediaType() *GetOrgani
 	return &GetOrganizationsIpaddressauthenticationUnsupportedMediaType{}
 }
 
-/*GetOrganizationsIpaddressauthenticationUnsupportedMediaType handles this case with default header values.
+/*
+GetOrganizationsIpaddressauthenticationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOrganizationsIpaddressauthenticationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations ipaddressauthentication unsupported media type response has a 2xx status code
+func (o *GetOrganizationsIpaddressauthenticationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations ipaddressauthentication unsupported media type response has a 3xx status code
+func (o *GetOrganizationsIpaddressauthenticationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations ipaddressauthentication unsupported media type response has a 4xx status code
+func (o *GetOrganizationsIpaddressauthenticationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations ipaddressauthentication unsupported media type response has a 5xx status code
+func (o *GetOrganizationsIpaddressauthenticationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations ipaddressauthentication unsupported media type response a status code equal to that given
+func (o *GetOrganizationsIpaddressauthenticationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOrganizationsIpaddressauthenticationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOrganizationsIpaddressauthenticationTooManyRequests() *GetOrganizatio
 	return &GetOrganizationsIpaddressauthenticationTooManyRequests{}
 }
 
-/*GetOrganizationsIpaddressauthenticationTooManyRequests handles this case with default header values.
+/*
+GetOrganizationsIpaddressauthenticationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOrganizationsIpaddressauthenticationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations ipaddressauthentication too many requests response has a 2xx status code
+func (o *GetOrganizationsIpaddressauthenticationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations ipaddressauthentication too many requests response has a 3xx status code
+func (o *GetOrganizationsIpaddressauthenticationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations ipaddressauthentication too many requests response has a 4xx status code
+func (o *GetOrganizationsIpaddressauthenticationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get organizations ipaddressauthentication too many requests response has a 5xx status code
+func (o *GetOrganizationsIpaddressauthenticationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get organizations ipaddressauthentication too many requests response a status code equal to that given
+func (o *GetOrganizationsIpaddressauthenticationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOrganizationsIpaddressauthenticationTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOrganizationsIpaddressauthenticationInternalServerError() *GetOrganiz
 	return &GetOrganizationsIpaddressauthenticationInternalServerError{}
 }
 
-/*GetOrganizationsIpaddressauthenticationInternalServerError handles this case with default header values.
+/*
+GetOrganizationsIpaddressauthenticationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOrganizationsIpaddressauthenticationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations ipaddressauthentication internal server error response has a 2xx status code
+func (o *GetOrganizationsIpaddressauthenticationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations ipaddressauthentication internal server error response has a 3xx status code
+func (o *GetOrganizationsIpaddressauthenticationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations ipaddressauthentication internal server error response has a 4xx status code
+func (o *GetOrganizationsIpaddressauthenticationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations ipaddressauthentication internal server error response has a 5xx status code
+func (o *GetOrganizationsIpaddressauthenticationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations ipaddressauthentication internal server error response a status code equal to that given
+func (o *GetOrganizationsIpaddressauthenticationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOrganizationsIpaddressauthenticationInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOrganizationsIpaddressauthenticationServiceUnavailable() *GetOrganiza
 	return &GetOrganizationsIpaddressauthenticationServiceUnavailable{}
 }
 
-/*GetOrganizationsIpaddressauthenticationServiceUnavailable handles this case with default header values.
+/*
+GetOrganizationsIpaddressauthenticationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOrganizationsIpaddressauthenticationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations ipaddressauthentication service unavailable response has a 2xx status code
+func (o *GetOrganizationsIpaddressauthenticationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations ipaddressauthentication service unavailable response has a 3xx status code
+func (o *GetOrganizationsIpaddressauthenticationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations ipaddressauthentication service unavailable response has a 4xx status code
+func (o *GetOrganizationsIpaddressauthenticationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations ipaddressauthentication service unavailable response has a 5xx status code
+func (o *GetOrganizationsIpaddressauthenticationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations ipaddressauthentication service unavailable response a status code equal to that given
+func (o *GetOrganizationsIpaddressauthenticationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOrganizationsIpaddressauthenticationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOrganizationsIpaddressauthenticationGatewayTimeout() *GetOrganization
 	return &GetOrganizationsIpaddressauthenticationGatewayTimeout{}
 }
 
-/*GetOrganizationsIpaddressauthenticationGatewayTimeout handles this case with default header values.
+/*
+GetOrganizationsIpaddressauthenticationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOrganizationsIpaddressauthenticationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get organizations ipaddressauthentication gateway timeout response has a 2xx status code
+func (o *GetOrganizationsIpaddressauthenticationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get organizations ipaddressauthentication gateway timeout response has a 3xx status code
+func (o *GetOrganizationsIpaddressauthenticationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get organizations ipaddressauthentication gateway timeout response has a 4xx status code
+func (o *GetOrganizationsIpaddressauthenticationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get organizations ipaddressauthentication gateway timeout response has a 5xx status code
+func (o *GetOrganizationsIpaddressauthenticationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get organizations ipaddressauthentication gateway timeout response a status code equal to that given
+func (o *GetOrganizationsIpaddressauthenticationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOrganizationsIpaddressauthenticationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOrganizationsIpaddressauthenticationGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/organizations/ipaddressauthentication][%d] getOrganizationsIpaddressauthenticationGatewayTimeout  %+v", 504, o.Payload)
 }
 

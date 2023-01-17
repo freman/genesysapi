@@ -107,7 +107,6 @@ func (o *GetFlowsDivisionviewsReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -118,7 +117,8 @@ func NewGetFlowsDivisionviewsOK() *GetFlowsDivisionviewsOK {
 	return &GetFlowsDivisionviewsOK{}
 }
 
-/*GetFlowsDivisionviewsOK handles this case with default header values.
+/*
+GetFlowsDivisionviewsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -126,7 +126,36 @@ type GetFlowsDivisionviewsOK struct {
 	Payload *models.FlowDivisionViewEntityListing
 }
 
+// IsSuccess returns true when this get flows divisionviews o k response has a 2xx status code
+func (o *GetFlowsDivisionviewsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get flows divisionviews o k response has a 3xx status code
+func (o *GetFlowsDivisionviewsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews o k response has a 4xx status code
+func (o *GetFlowsDivisionviewsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows divisionviews o k response has a 5xx status code
+func (o *GetFlowsDivisionviewsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows divisionviews o k response a status code equal to that given
+func (o *GetFlowsDivisionviewsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetFlowsDivisionviewsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsOK  %+v", 200, o.Payload)
 }
 
@@ -151,7 +180,8 @@ func NewGetFlowsDivisionviewsBadRequest() *GetFlowsDivisionviewsBadRequest {
 	return &GetFlowsDivisionviewsBadRequest{}
 }
 
-/*GetFlowsDivisionviewsBadRequest handles this case with default header values.
+/*
+GetFlowsDivisionviewsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -159,7 +189,36 @@ type GetFlowsDivisionviewsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews bad request response has a 2xx status code
+func (o *GetFlowsDivisionviewsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews bad request response has a 3xx status code
+func (o *GetFlowsDivisionviewsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews bad request response has a 4xx status code
+func (o *GetFlowsDivisionviewsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows divisionviews bad request response has a 5xx status code
+func (o *GetFlowsDivisionviewsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows divisionviews bad request response a status code equal to that given
+func (o *GetFlowsDivisionviewsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetFlowsDivisionviewsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -184,7 +243,8 @@ func NewGetFlowsDivisionviewsUnauthorized() *GetFlowsDivisionviewsUnauthorized {
 	return &GetFlowsDivisionviewsUnauthorized{}
 }
 
-/*GetFlowsDivisionviewsUnauthorized handles this case with default header values.
+/*
+GetFlowsDivisionviewsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -192,7 +252,36 @@ type GetFlowsDivisionviewsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews unauthorized response has a 2xx status code
+func (o *GetFlowsDivisionviewsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews unauthorized response has a 3xx status code
+func (o *GetFlowsDivisionviewsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews unauthorized response has a 4xx status code
+func (o *GetFlowsDivisionviewsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows divisionviews unauthorized response has a 5xx status code
+func (o *GetFlowsDivisionviewsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows divisionviews unauthorized response a status code equal to that given
+func (o *GetFlowsDivisionviewsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetFlowsDivisionviewsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -217,7 +306,8 @@ func NewGetFlowsDivisionviewsForbidden() *GetFlowsDivisionviewsForbidden {
 	return &GetFlowsDivisionviewsForbidden{}
 }
 
-/*GetFlowsDivisionviewsForbidden handles this case with default header values.
+/*
+GetFlowsDivisionviewsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -225,7 +315,36 @@ type GetFlowsDivisionviewsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews forbidden response has a 2xx status code
+func (o *GetFlowsDivisionviewsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews forbidden response has a 3xx status code
+func (o *GetFlowsDivisionviewsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews forbidden response has a 4xx status code
+func (o *GetFlowsDivisionviewsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows divisionviews forbidden response has a 5xx status code
+func (o *GetFlowsDivisionviewsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows divisionviews forbidden response a status code equal to that given
+func (o *GetFlowsDivisionviewsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetFlowsDivisionviewsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsForbidden  %+v", 403, o.Payload)
 }
 
@@ -250,7 +369,8 @@ func NewGetFlowsDivisionviewsNotFound() *GetFlowsDivisionviewsNotFound {
 	return &GetFlowsDivisionviewsNotFound{}
 }
 
-/*GetFlowsDivisionviewsNotFound handles this case with default header values.
+/*
+GetFlowsDivisionviewsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -258,7 +378,36 @@ type GetFlowsDivisionviewsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews not found response has a 2xx status code
+func (o *GetFlowsDivisionviewsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews not found response has a 3xx status code
+func (o *GetFlowsDivisionviewsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews not found response has a 4xx status code
+func (o *GetFlowsDivisionviewsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows divisionviews not found response has a 5xx status code
+func (o *GetFlowsDivisionviewsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows divisionviews not found response a status code equal to that given
+func (o *GetFlowsDivisionviewsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetFlowsDivisionviewsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsNotFound  %+v", 404, o.Payload)
 }
 
@@ -283,7 +432,8 @@ func NewGetFlowsDivisionviewsMethodNotAllowed() *GetFlowsDivisionviewsMethodNotA
 	return &GetFlowsDivisionviewsMethodNotAllowed{}
 }
 
-/*GetFlowsDivisionviewsMethodNotAllowed handles this case with default header values.
+/*
+GetFlowsDivisionviewsMethodNotAllowed describes a response with status code 405, with default header values.
 
 Method Not Allowed
 */
@@ -291,7 +441,36 @@ type GetFlowsDivisionviewsMethodNotAllowed struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews method not allowed response has a 2xx status code
+func (o *GetFlowsDivisionviewsMethodNotAllowed) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews method not allowed response has a 3xx status code
+func (o *GetFlowsDivisionviewsMethodNotAllowed) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews method not allowed response has a 4xx status code
+func (o *GetFlowsDivisionviewsMethodNotAllowed) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows divisionviews method not allowed response has a 5xx status code
+func (o *GetFlowsDivisionviewsMethodNotAllowed) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows divisionviews method not allowed response a status code equal to that given
+func (o *GetFlowsDivisionviewsMethodNotAllowed) IsCode(code int) bool {
+	return code == 405
+}
+
 func (o *GetFlowsDivisionviewsMethodNotAllowed) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsMethodNotAllowed  %+v", 405, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsMethodNotAllowed) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsMethodNotAllowed  %+v", 405, o.Payload)
 }
 
@@ -316,7 +495,8 @@ func NewGetFlowsDivisionviewsRequestTimeout() *GetFlowsDivisionviewsRequestTimeo
 	return &GetFlowsDivisionviewsRequestTimeout{}
 }
 
-/*GetFlowsDivisionviewsRequestTimeout handles this case with default header values.
+/*
+GetFlowsDivisionviewsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -324,7 +504,36 @@ type GetFlowsDivisionviewsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews request timeout response has a 2xx status code
+func (o *GetFlowsDivisionviewsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews request timeout response has a 3xx status code
+func (o *GetFlowsDivisionviewsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews request timeout response has a 4xx status code
+func (o *GetFlowsDivisionviewsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows divisionviews request timeout response has a 5xx status code
+func (o *GetFlowsDivisionviewsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows divisionviews request timeout response a status code equal to that given
+func (o *GetFlowsDivisionviewsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetFlowsDivisionviewsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -349,7 +558,8 @@ func NewGetFlowsDivisionviewsRequestEntityTooLarge() *GetFlowsDivisionviewsReque
 	return &GetFlowsDivisionviewsRequestEntityTooLarge{}
 }
 
-/*GetFlowsDivisionviewsRequestEntityTooLarge handles this case with default header values.
+/*
+GetFlowsDivisionviewsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -357,7 +567,36 @@ type GetFlowsDivisionviewsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews request entity too large response has a 2xx status code
+func (o *GetFlowsDivisionviewsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews request entity too large response has a 3xx status code
+func (o *GetFlowsDivisionviewsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews request entity too large response has a 4xx status code
+func (o *GetFlowsDivisionviewsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows divisionviews request entity too large response has a 5xx status code
+func (o *GetFlowsDivisionviewsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows divisionviews request entity too large response a status code equal to that given
+func (o *GetFlowsDivisionviewsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetFlowsDivisionviewsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -382,7 +621,8 @@ func NewGetFlowsDivisionviewsUnsupportedMediaType() *GetFlowsDivisionviewsUnsupp
 	return &GetFlowsDivisionviewsUnsupportedMediaType{}
 }
 
-/*GetFlowsDivisionviewsUnsupportedMediaType handles this case with default header values.
+/*
+GetFlowsDivisionviewsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -390,7 +630,36 @@ type GetFlowsDivisionviewsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews unsupported media type response has a 2xx status code
+func (o *GetFlowsDivisionviewsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews unsupported media type response has a 3xx status code
+func (o *GetFlowsDivisionviewsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews unsupported media type response has a 4xx status code
+func (o *GetFlowsDivisionviewsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows divisionviews unsupported media type response has a 5xx status code
+func (o *GetFlowsDivisionviewsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows divisionviews unsupported media type response a status code equal to that given
+func (o *GetFlowsDivisionviewsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetFlowsDivisionviewsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -415,7 +684,8 @@ func NewGetFlowsDivisionviewsTooManyRequests() *GetFlowsDivisionviewsTooManyRequ
 	return &GetFlowsDivisionviewsTooManyRequests{}
 }
 
-/*GetFlowsDivisionviewsTooManyRequests handles this case with default header values.
+/*
+GetFlowsDivisionviewsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -423,7 +693,36 @@ type GetFlowsDivisionviewsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews too many requests response has a 2xx status code
+func (o *GetFlowsDivisionviewsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews too many requests response has a 3xx status code
+func (o *GetFlowsDivisionviewsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews too many requests response has a 4xx status code
+func (o *GetFlowsDivisionviewsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get flows divisionviews too many requests response has a 5xx status code
+func (o *GetFlowsDivisionviewsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get flows divisionviews too many requests response a status code equal to that given
+func (o *GetFlowsDivisionviewsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetFlowsDivisionviewsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -448,7 +747,8 @@ func NewGetFlowsDivisionviewsInternalServerError() *GetFlowsDivisionviewsInterna
 	return &GetFlowsDivisionviewsInternalServerError{}
 }
 
-/*GetFlowsDivisionviewsInternalServerError handles this case with default header values.
+/*
+GetFlowsDivisionviewsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -456,7 +756,36 @@ type GetFlowsDivisionviewsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews internal server error response has a 2xx status code
+func (o *GetFlowsDivisionviewsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews internal server error response has a 3xx status code
+func (o *GetFlowsDivisionviewsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews internal server error response has a 4xx status code
+func (o *GetFlowsDivisionviewsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows divisionviews internal server error response has a 5xx status code
+func (o *GetFlowsDivisionviewsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows divisionviews internal server error response a status code equal to that given
+func (o *GetFlowsDivisionviewsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetFlowsDivisionviewsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -481,7 +810,8 @@ func NewGetFlowsDivisionviewsNotImplemented() *GetFlowsDivisionviewsNotImplement
 	return &GetFlowsDivisionviewsNotImplemented{}
 }
 
-/*GetFlowsDivisionviewsNotImplemented handles this case with default header values.
+/*
+GetFlowsDivisionviewsNotImplemented describes a response with status code 501, with default header values.
 
 Not Implemented
 */
@@ -489,7 +819,36 @@ type GetFlowsDivisionviewsNotImplemented struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews not implemented response has a 2xx status code
+func (o *GetFlowsDivisionviewsNotImplemented) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews not implemented response has a 3xx status code
+func (o *GetFlowsDivisionviewsNotImplemented) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews not implemented response has a 4xx status code
+func (o *GetFlowsDivisionviewsNotImplemented) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows divisionviews not implemented response has a 5xx status code
+func (o *GetFlowsDivisionviewsNotImplemented) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows divisionviews not implemented response a status code equal to that given
+func (o *GetFlowsDivisionviewsNotImplemented) IsCode(code int) bool {
+	return code == 501
+}
+
 func (o *GetFlowsDivisionviewsNotImplemented) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsNotImplemented  %+v", 501, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsNotImplemented) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsNotImplemented  %+v", 501, o.Payload)
 }
 
@@ -514,7 +873,8 @@ func NewGetFlowsDivisionviewsServiceUnavailable() *GetFlowsDivisionviewsServiceU
 	return &GetFlowsDivisionviewsServiceUnavailable{}
 }
 
-/*GetFlowsDivisionviewsServiceUnavailable handles this case with default header values.
+/*
+GetFlowsDivisionviewsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -522,7 +882,36 @@ type GetFlowsDivisionviewsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews service unavailable response has a 2xx status code
+func (o *GetFlowsDivisionviewsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews service unavailable response has a 3xx status code
+func (o *GetFlowsDivisionviewsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews service unavailable response has a 4xx status code
+func (o *GetFlowsDivisionviewsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows divisionviews service unavailable response has a 5xx status code
+func (o *GetFlowsDivisionviewsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows divisionviews service unavailable response a status code equal to that given
+func (o *GetFlowsDivisionviewsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetFlowsDivisionviewsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -547,7 +936,8 @@ func NewGetFlowsDivisionviewsGatewayTimeout() *GetFlowsDivisionviewsGatewayTimeo
 	return &GetFlowsDivisionviewsGatewayTimeout{}
 }
 
-/*GetFlowsDivisionviewsGatewayTimeout handles this case with default header values.
+/*
+GetFlowsDivisionviewsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -555,7 +945,36 @@ type GetFlowsDivisionviewsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get flows divisionviews gateway timeout response has a 2xx status code
+func (o *GetFlowsDivisionviewsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get flows divisionviews gateway timeout response has a 3xx status code
+func (o *GetFlowsDivisionviewsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get flows divisionviews gateway timeout response has a 4xx status code
+func (o *GetFlowsDivisionviewsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get flows divisionviews gateway timeout response has a 5xx status code
+func (o *GetFlowsDivisionviewsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get flows divisionviews gateway timeout response a status code equal to that given
+func (o *GetFlowsDivisionviewsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetFlowsDivisionviewsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetFlowsDivisionviewsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/flows/divisionviews][%d] getFlowsDivisionviewsGatewayTimeout  %+v", 504, o.Payload)
 }
 

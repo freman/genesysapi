@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -65,7 +67,6 @@ func (m *TrunkMetrics) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TrunkMetrics) validateCalls(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Calls) { // not required
 		return nil
 	}
@@ -74,6 +75,8 @@ func (m *TrunkMetrics) validateCalls(formats strfmt.Registry) error {
 		if err := m.Calls.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("calls")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("calls")
 			}
 			return err
 		}
@@ -83,7 +86,6 @@ func (m *TrunkMetrics) validateCalls(formats strfmt.Registry) error {
 }
 
 func (m *TrunkMetrics) validateEventTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EventTime) { // not required
 		return nil
 	}
@@ -96,7 +98,6 @@ func (m *TrunkMetrics) validateEventTime(formats strfmt.Registry) error {
 }
 
 func (m *TrunkMetrics) validateLogicalInterface(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LogicalInterface) { // not required
 		return nil
 	}
@@ -105,6 +106,8 @@ func (m *TrunkMetrics) validateLogicalInterface(formats strfmt.Registry) error {
 		if err := m.LogicalInterface.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logicalInterface")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logicalInterface")
 			}
 			return err
 		}
@@ -114,7 +117,6 @@ func (m *TrunkMetrics) validateLogicalInterface(formats strfmt.Registry) error {
 }
 
 func (m *TrunkMetrics) validateQos(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Qos) { // not required
 		return nil
 	}
@@ -123,6 +125,8 @@ func (m *TrunkMetrics) validateQos(formats strfmt.Registry) error {
 		if err := m.Qos.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("qos")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("qos")
 			}
 			return err
 		}
@@ -132,7 +136,6 @@ func (m *TrunkMetrics) validateQos(formats strfmt.Registry) error {
 }
 
 func (m *TrunkMetrics) validateTrunk(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Trunk) { // not required
 		return nil
 	}
@@ -141,6 +144,98 @@ func (m *TrunkMetrics) validateTrunk(formats strfmt.Registry) error {
 		if err := m.Trunk.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("trunk")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trunk")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this trunk metrics based on the context it is used
+func (m *TrunkMetrics) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCalls(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLogicalInterface(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQos(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrunk(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TrunkMetrics) contextValidateCalls(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Calls != nil {
+		if err := m.Calls.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("calls")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("calls")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TrunkMetrics) contextValidateLogicalInterface(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LogicalInterface != nil {
+		if err := m.LogicalInterface.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("logicalInterface")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logicalInterface")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TrunkMetrics) contextValidateQos(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Qos != nil {
+		if err := m.Qos.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("qos")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("qos")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TrunkMetrics) contextValidateTrunk(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Trunk != nil {
+		if err := m.Trunk.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trunk")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trunk")
 			}
 			return err
 		}

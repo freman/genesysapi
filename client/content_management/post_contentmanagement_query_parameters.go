@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostContentmanagementQueryParams creates a new PostContentmanagementQueryParams object
-// with the default values initialized.
+// NewPostContentmanagementQueryParams creates a new PostContentmanagementQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostContentmanagementQueryParams() *PostContentmanagementQueryParams {
-	var ()
 	return &PostContentmanagementQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostContentmanagementQueryParamsWithTimeout creates a new PostContentmanagementQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostContentmanagementQueryParamsWithTimeout(timeout time.Duration) *PostContentmanagementQueryParams {
-	var ()
 	return &PostContentmanagementQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostContentmanagementQueryParamsWithContext creates a new PostContentmanagementQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostContentmanagementQueryParamsWithContext(ctx context.Context) *PostContentmanagementQueryParams {
-	var ()
 	return &PostContentmanagementQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostContentmanagementQueryParamsWithHTTPClient creates a new PostContentmanagementQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostContentmanagementQueryParamsWithHTTPClient(client *http.Client) *PostContentmanagementQueryParams {
-	var ()
 	return &PostContentmanagementQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostContentmanagementQueryParams contains all the parameters to send to the API endpoint
-for the post contentmanagement query operation typically these are written to a http.Request
+/*
+PostContentmanagementQueryParams contains all the parameters to send to the API endpoint
+
+	for the post contentmanagement query operation.
+
+	Typically these are written to a http.Request.
 */
 type PostContentmanagementQueryParams struct {
 
-	/*Body
-	  Allows for a filtered query returning facet information
+	/* Body.
 
+	   Allows for a filtered query returning facet information
 	*/
 	Body *models.QueryRequest
-	/*Expand
-	  Expand some document fields
 
+	/* Expand.
+
+	   Expand some document fields
 	*/
 	Expand *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post contentmanagement query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostContentmanagementQueryParams) WithDefaults() *PostContentmanagementQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post contentmanagement query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostContentmanagementQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post contentmanagement query params
@@ -140,7 +157,6 @@ func (o *PostContentmanagementQueryParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -151,16 +167,17 @@ func (o *PostContentmanagementQueryParams) WriteToRequest(r runtime.ClientReques
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

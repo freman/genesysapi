@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -33,6 +35,11 @@ type LearningModuleReassignSummary struct {
 
 // Validate validates this learning module reassign summary
 func (m *LearningModuleReassignSummary) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this learning module reassign summary based on context it is used
+func (m *LearningModuleReassignSummary) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

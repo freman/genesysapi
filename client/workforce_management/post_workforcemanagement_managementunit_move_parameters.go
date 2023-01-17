@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementManagementunitMoveParams creates a new PostWorkforcemanagementManagementunitMoveParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementManagementunitMoveParams creates a new PostWorkforcemanagementManagementunitMoveParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementManagementunitMoveParams() *PostWorkforcemanagementManagementunitMoveParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitMoveParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitMoveParamsWithTimeout creates a new PostWorkforcemanagementManagementunitMoveParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementManagementunitMoveParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementManagementunitMoveParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitMoveParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitMoveParamsWithContext creates a new PostWorkforcemanagementManagementunitMoveParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementManagementunitMoveParamsWithContext(ctx context.Context) *PostWorkforcemanagementManagementunitMoveParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitMoveParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitMoveParamsWithHTTPClient creates a new PostWorkforcemanagementManagementunitMoveParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementManagementunitMoveParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementManagementunitMoveParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitMoveParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementManagementunitMoveParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement managementunit move operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementManagementunitMoveParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement managementunit move operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementManagementunitMoveParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.MoveManagementUnitRequest
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement managementunit move params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitMoveParams) WithDefaults() *PostWorkforcemanagementManagementunitMoveParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement managementunit move params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitMoveParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement managementunit move params
@@ -140,7 +157,6 @@ func (o *PostWorkforcemanagementManagementunitMoveParams) WriteToRequest(r runti
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

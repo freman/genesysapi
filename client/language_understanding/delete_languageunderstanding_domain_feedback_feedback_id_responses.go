@@ -95,7 +95,6 @@ func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDReader) ReadResponse
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteLanguageunderstandingDomainFeedbackFeedbackIDNoContent() *DeleteLa
 	return &DeleteLanguageunderstandingDomainFeedbackFeedbackIDNoContent{}
 }
 
-/*DeleteLanguageunderstandingDomainFeedbackFeedbackIDNoContent handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainFeedbackFeedbackIDNoContent describes a response with status code 204, with default header values.
 
 Feedback deleted successfully
 */
 type DeleteLanguageunderstandingDomainFeedbackFeedbackIDNoContent struct {
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain feedback feedback Id no content response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain feedback feedback Id no content response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain feedback feedback Id no content response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete languageunderstanding domain feedback feedback Id no content response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain feedback feedback Id no content response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdNoContent ", 204)
+}
+
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteLanguageunderstandingDomainFeedbackFeedbackIDBadRequest() *DeleteL
 	return &DeleteLanguageunderstandingDomainFeedbackFeedbackIDBadRequest{}
 }
 
-/*DeleteLanguageunderstandingDomainFeedbackFeedbackIDBadRequest handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainFeedbackFeedbackIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteLanguageunderstandingDomainFeedbackFeedbackIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain feedback feedback Id bad request response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain feedback feedback Id bad request response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain feedback feedback Id bad request response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain feedback feedback Id bad request response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain feedback feedback Id bad request response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteLanguageunderstandingDomainFeedbackFeedbackIDUnauthorized() *Delet
 	return &DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnauthorized{}
 }
 
-/*DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnauthorized handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain feedback feedback Id unauthorized response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain feedback feedback Id unauthorized response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain feedback feedback Id unauthorized response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain feedback feedback Id unauthorized response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain feedback feedback Id unauthorized response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteLanguageunderstandingDomainFeedbackFeedbackIDForbidden() *DeleteLa
 	return &DeleteLanguageunderstandingDomainFeedbackFeedbackIDForbidden{}
 }
 
-/*DeleteLanguageunderstandingDomainFeedbackFeedbackIDForbidden handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainFeedbackFeedbackIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteLanguageunderstandingDomainFeedbackFeedbackIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain feedback feedback Id forbidden response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain feedback feedback Id forbidden response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain feedback feedback Id forbidden response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain feedback feedback Id forbidden response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain feedback feedback Id forbidden response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteLanguageunderstandingDomainFeedbackFeedbackIDNotFound() *DeleteLan
 	return &DeleteLanguageunderstandingDomainFeedbackFeedbackIDNotFound{}
 }
 
-/*DeleteLanguageunderstandingDomainFeedbackFeedbackIDNotFound handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainFeedbackFeedbackIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteLanguageunderstandingDomainFeedbackFeedbackIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain feedback feedback Id not found response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain feedback feedback Id not found response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain feedback feedback Id not found response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain feedback feedback Id not found response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain feedback feedback Id not found response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestTimeout() *Del
 	return &DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestTimeout{}
 }
 
-/*DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestTimeout handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain feedback feedback Id request timeout response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain feedback feedback Id request timeout response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain feedback feedback Id request timeout response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain feedback feedback Id request timeout response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain feedback feedback Id request timeout response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestEntityTooLarge
 	return &DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestEntityTooLarge{}
 }
 
-/*DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestEntityTooLarge st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain feedback feedback Id request entity too large response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain feedback feedback Id request entity too large response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain feedback feedback Id request entity too large response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain feedback feedback Id request entity too large response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain feedback feedback Id request entity too large response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteLanguageunderstandingDomainFeedbackFeedbackIDUnsupportedMediaType(
 	return &DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnsupportedMediaType{}
 }
 
-/*DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnsupportedMediaType handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnsupportedMediaType str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain feedback feedback Id unsupported media type response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain feedback feedback Id unsupported media type response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain feedback feedback Id unsupported media type response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain feedback feedback Id unsupported media type response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain feedback feedback Id unsupported media type response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteLanguageunderstandingDomainFeedbackFeedbackIDTooManyRequests() *De
 	return &DeleteLanguageunderstandingDomainFeedbackFeedbackIDTooManyRequests{}
 }
 
-/*DeleteLanguageunderstandingDomainFeedbackFeedbackIDTooManyRequests handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainFeedbackFeedbackIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteLanguageunderstandingDomainFeedbackFeedbackIDTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain feedback feedback Id too many requests response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain feedback feedback Id too many requests response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain feedback feedback Id too many requests response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete languageunderstanding domain feedback feedback Id too many requests response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete languageunderstanding domain feedback feedback Id too many requests response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteLanguageunderstandingDomainFeedbackFeedbackIDInternalServerError()
 	return &DeleteLanguageunderstandingDomainFeedbackFeedbackIDInternalServerError{}
 }
 
-/*DeleteLanguageunderstandingDomainFeedbackFeedbackIDInternalServerError handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainFeedbackFeedbackIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteLanguageunderstandingDomainFeedbackFeedbackIDInternalServerError stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain feedback feedback Id internal server error response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain feedback feedback Id internal server error response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain feedback feedback Id internal server error response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete languageunderstanding domain feedback feedback Id internal server error response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete languageunderstanding domain feedback feedback Id internal server error response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteLanguageunderstandingDomainFeedbackFeedbackIDServiceUnavailable() 
 	return &DeleteLanguageunderstandingDomainFeedbackFeedbackIDServiceUnavailable{}
 }
 
-/*DeleteLanguageunderstandingDomainFeedbackFeedbackIDServiceUnavailable handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainFeedbackFeedbackIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteLanguageunderstandingDomainFeedbackFeedbackIDServiceUnavailable struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain feedback feedback Id service unavailable response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain feedback feedback Id service unavailable response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain feedback feedback Id service unavailable response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete languageunderstanding domain feedback feedback Id service unavailable response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete languageunderstanding domain feedback feedback Id service unavailable response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteLanguageunderstandingDomainFeedbackFeedbackIDGatewayTimeout() *Del
 	return &DeleteLanguageunderstandingDomainFeedbackFeedbackIDGatewayTimeout{}
 }
 
-/*DeleteLanguageunderstandingDomainFeedbackFeedbackIDGatewayTimeout handles this case with default header values.
+/*
+DeleteLanguageunderstandingDomainFeedbackFeedbackIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteLanguageunderstandingDomainFeedbackFeedbackIDGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete languageunderstanding domain feedback feedback Id gateway timeout response has a 2xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete languageunderstanding domain feedback feedback Id gateway timeout response has a 3xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete languageunderstanding domain feedback feedback Id gateway timeout response has a 4xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete languageunderstanding domain feedback feedback Id gateway timeout response has a 5xx status code
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete languageunderstanding domain feedback feedback Id gateway timeout response a status code equal to that given
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteLanguageunderstandingDomainFeedbackFeedbackIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languageunderstanding/domains/{domainId}/feedback/{feedbackId}][%d] deleteLanguageunderstandingDomainFeedbackFeedbackIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

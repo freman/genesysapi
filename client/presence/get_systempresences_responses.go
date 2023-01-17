@@ -95,7 +95,6 @@ func (o *GetSystempresencesReader) ReadResponse(response runtime.ClientResponse,
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetSystempresencesOK() *GetSystempresencesOK {
 	return &GetSystempresencesOK{}
 }
 
-/*GetSystempresencesOK handles this case with default header values.
+/*
+GetSystempresencesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetSystempresencesOK struct {
 	Payload []*models.SystemPresence
 }
 
+// IsSuccess returns true when this get systempresences o k response has a 2xx status code
+func (o *GetSystempresencesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get systempresences o k response has a 3xx status code
+func (o *GetSystempresencesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get systempresences o k response has a 4xx status code
+func (o *GetSystempresencesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get systempresences o k response has a 5xx status code
+func (o *GetSystempresencesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get systempresences o k response a status code equal to that given
+func (o *GetSystempresencesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSystempresencesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetSystempresencesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetSystempresencesBadRequest() *GetSystempresencesBadRequest {
 	return &GetSystempresencesBadRequest{}
 }
 
-/*GetSystempresencesBadRequest handles this case with default header values.
+/*
+GetSystempresencesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetSystempresencesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get systempresences bad request response has a 2xx status code
+func (o *GetSystempresencesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get systempresences bad request response has a 3xx status code
+func (o *GetSystempresencesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get systempresences bad request response has a 4xx status code
+func (o *GetSystempresencesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get systempresences bad request response has a 5xx status code
+func (o *GetSystempresencesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get systempresences bad request response a status code equal to that given
+func (o *GetSystempresencesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetSystempresencesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetSystempresencesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetSystempresencesUnauthorized() *GetSystempresencesUnauthorized {
 	return &GetSystempresencesUnauthorized{}
 }
 
-/*GetSystempresencesUnauthorized handles this case with default header values.
+/*
+GetSystempresencesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetSystempresencesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get systempresences unauthorized response has a 2xx status code
+func (o *GetSystempresencesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get systempresences unauthorized response has a 3xx status code
+func (o *GetSystempresencesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get systempresences unauthorized response has a 4xx status code
+func (o *GetSystempresencesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get systempresences unauthorized response has a 5xx status code
+func (o *GetSystempresencesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get systempresences unauthorized response a status code equal to that given
+func (o *GetSystempresencesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetSystempresencesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetSystempresencesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetSystempresencesForbidden() *GetSystempresencesForbidden {
 	return &GetSystempresencesForbidden{}
 }
 
-/*GetSystempresencesForbidden handles this case with default header values.
+/*
+GetSystempresencesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetSystempresencesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get systempresences forbidden response has a 2xx status code
+func (o *GetSystempresencesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get systempresences forbidden response has a 3xx status code
+func (o *GetSystempresencesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get systempresences forbidden response has a 4xx status code
+func (o *GetSystempresencesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get systempresences forbidden response has a 5xx status code
+func (o *GetSystempresencesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get systempresences forbidden response a status code equal to that given
+func (o *GetSystempresencesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSystempresencesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetSystempresencesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetSystempresencesNotFound() *GetSystempresencesNotFound {
 	return &GetSystempresencesNotFound{}
 }
 
-/*GetSystempresencesNotFound handles this case with default header values.
+/*
+GetSystempresencesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetSystempresencesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get systempresences not found response has a 2xx status code
+func (o *GetSystempresencesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get systempresences not found response has a 3xx status code
+func (o *GetSystempresencesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get systempresences not found response has a 4xx status code
+func (o *GetSystempresencesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get systempresences not found response has a 5xx status code
+func (o *GetSystempresencesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get systempresences not found response a status code equal to that given
+func (o *GetSystempresencesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetSystempresencesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetSystempresencesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetSystempresencesRequestTimeout() *GetSystempresencesRequestTimeout {
 	return &GetSystempresencesRequestTimeout{}
 }
 
-/*GetSystempresencesRequestTimeout handles this case with default header values.
+/*
+GetSystempresencesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetSystempresencesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get systempresences request timeout response has a 2xx status code
+func (o *GetSystempresencesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get systempresences request timeout response has a 3xx status code
+func (o *GetSystempresencesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get systempresences request timeout response has a 4xx status code
+func (o *GetSystempresencesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get systempresences request timeout response has a 5xx status code
+func (o *GetSystempresencesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get systempresences request timeout response a status code equal to that given
+func (o *GetSystempresencesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetSystempresencesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetSystempresencesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetSystempresencesRequestEntityTooLarge() *GetSystempresencesRequestEnti
 	return &GetSystempresencesRequestEntityTooLarge{}
 }
 
-/*GetSystempresencesRequestEntityTooLarge handles this case with default header values.
+/*
+GetSystempresencesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetSystempresencesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get systempresences request entity too large response has a 2xx status code
+func (o *GetSystempresencesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get systempresences request entity too large response has a 3xx status code
+func (o *GetSystempresencesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get systempresences request entity too large response has a 4xx status code
+func (o *GetSystempresencesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get systempresences request entity too large response has a 5xx status code
+func (o *GetSystempresencesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get systempresences request entity too large response a status code equal to that given
+func (o *GetSystempresencesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetSystempresencesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetSystempresencesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetSystempresencesUnsupportedMediaType() *GetSystempresencesUnsupportedM
 	return &GetSystempresencesUnsupportedMediaType{}
 }
 
-/*GetSystempresencesUnsupportedMediaType handles this case with default header values.
+/*
+GetSystempresencesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetSystempresencesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get systempresences unsupported media type response has a 2xx status code
+func (o *GetSystempresencesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get systempresences unsupported media type response has a 3xx status code
+func (o *GetSystempresencesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get systempresences unsupported media type response has a 4xx status code
+func (o *GetSystempresencesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get systempresences unsupported media type response has a 5xx status code
+func (o *GetSystempresencesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get systempresences unsupported media type response a status code equal to that given
+func (o *GetSystempresencesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetSystempresencesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetSystempresencesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetSystempresencesTooManyRequests() *GetSystempresencesTooManyRequests {
 	return &GetSystempresencesTooManyRequests{}
 }
 
-/*GetSystempresencesTooManyRequests handles this case with default header values.
+/*
+GetSystempresencesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetSystempresencesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get systempresences too many requests response has a 2xx status code
+func (o *GetSystempresencesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get systempresences too many requests response has a 3xx status code
+func (o *GetSystempresencesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get systempresences too many requests response has a 4xx status code
+func (o *GetSystempresencesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get systempresences too many requests response has a 5xx status code
+func (o *GetSystempresencesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get systempresences too many requests response a status code equal to that given
+func (o *GetSystempresencesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetSystempresencesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetSystempresencesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetSystempresencesInternalServerError() *GetSystempresencesInternalServe
 	return &GetSystempresencesInternalServerError{}
 }
 
-/*GetSystempresencesInternalServerError handles this case with default header values.
+/*
+GetSystempresencesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetSystempresencesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get systempresences internal server error response has a 2xx status code
+func (o *GetSystempresencesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get systempresences internal server error response has a 3xx status code
+func (o *GetSystempresencesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get systempresences internal server error response has a 4xx status code
+func (o *GetSystempresencesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get systempresences internal server error response has a 5xx status code
+func (o *GetSystempresencesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get systempresences internal server error response a status code equal to that given
+func (o *GetSystempresencesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetSystempresencesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetSystempresencesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetSystempresencesServiceUnavailable() *GetSystempresencesServiceUnavail
 	return &GetSystempresencesServiceUnavailable{}
 }
 
-/*GetSystempresencesServiceUnavailable handles this case with default header values.
+/*
+GetSystempresencesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetSystempresencesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get systempresences service unavailable response has a 2xx status code
+func (o *GetSystempresencesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get systempresences service unavailable response has a 3xx status code
+func (o *GetSystempresencesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get systempresences service unavailable response has a 4xx status code
+func (o *GetSystempresencesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get systempresences service unavailable response has a 5xx status code
+func (o *GetSystempresencesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get systempresences service unavailable response a status code equal to that given
+func (o *GetSystempresencesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetSystempresencesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetSystempresencesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetSystempresencesGatewayTimeout() *GetSystempresencesGatewayTimeout {
 	return &GetSystempresencesGatewayTimeout{}
 }
 
-/*GetSystempresencesGatewayTimeout handles this case with default header values.
+/*
+GetSystempresencesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetSystempresencesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get systempresences gateway timeout response has a 2xx status code
+func (o *GetSystempresencesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get systempresences gateway timeout response has a 3xx status code
+func (o *GetSystempresencesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get systempresences gateway timeout response has a 4xx status code
+func (o *GetSystempresencesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get systempresences gateway timeout response has a 5xx status code
+func (o *GetSystempresencesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get systempresences gateway timeout response a status code equal to that given
+func (o *GetSystempresencesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetSystempresencesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetSystempresencesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/systempresences][%d] getSystempresencesGatewayTimeout  %+v", 504, o.Payload)
 }
 

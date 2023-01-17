@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -74,7 +75,6 @@ func (m *PatchCallToAction) validateTargetEnum(path, location string, value stri
 }
 
 func (m *PatchCallToAction) validateTarget(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Target) { // not required
 		return nil
 	}
@@ -84,6 +84,11 @@ func (m *PatchCallToAction) validateTarget(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this patch call to action based on context it is used
+func (m *PatchCallToAction) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

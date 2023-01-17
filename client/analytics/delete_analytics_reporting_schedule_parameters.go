@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteAnalyticsReportingScheduleParams creates a new DeleteAnalyticsReportingScheduleParams object
-// with the default values initialized.
+// NewDeleteAnalyticsReportingScheduleParams creates a new DeleteAnalyticsReportingScheduleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteAnalyticsReportingScheduleParams() *DeleteAnalyticsReportingScheduleParams {
-	var ()
 	return &DeleteAnalyticsReportingScheduleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteAnalyticsReportingScheduleParamsWithTimeout creates a new DeleteAnalyticsReportingScheduleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteAnalyticsReportingScheduleParamsWithTimeout(timeout time.Duration) *DeleteAnalyticsReportingScheduleParams {
-	var ()
 	return &DeleteAnalyticsReportingScheduleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteAnalyticsReportingScheduleParamsWithContext creates a new DeleteAnalyticsReportingScheduleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteAnalyticsReportingScheduleParamsWithContext(ctx context.Context) *DeleteAnalyticsReportingScheduleParams {
-	var ()
 	return &DeleteAnalyticsReportingScheduleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteAnalyticsReportingScheduleParamsWithHTTPClient creates a new DeleteAnalyticsReportingScheduleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteAnalyticsReportingScheduleParamsWithHTTPClient(client *http.Client) *DeleteAnalyticsReportingScheduleParams {
-	var ()
 	return &DeleteAnalyticsReportingScheduleParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteAnalyticsReportingScheduleParams contains all the parameters to send to the API endpoint
-for the delete analytics reporting schedule operation typically these are written to a http.Request
+/*
+DeleteAnalyticsReportingScheduleParams contains all the parameters to send to the API endpoint
+
+	for the delete analytics reporting schedule operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteAnalyticsReportingScheduleParams struct {
 
-	/*ScheduleID
-	  Schedule ID
+	/* ScheduleID.
 
+	   Schedule ID
 	*/
 	ScheduleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete analytics reporting schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteAnalyticsReportingScheduleParams) WithDefaults() *DeleteAnalyticsReportingScheduleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete analytics reporting schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteAnalyticsReportingScheduleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete analytics reporting schedule params

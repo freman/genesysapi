@@ -95,7 +95,6 @@ func (o *PostWebdeploymentsConfigurationVersionsDraftPublishReader) ReadResponse
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostWebdeploymentsConfigurationVersionsDraftPublishOK() *PostWebdeployme
 	return &PostWebdeploymentsConfigurationVersionsDraftPublishOK{}
 }
 
-/*PostWebdeploymentsConfigurationVersionsDraftPublishOK handles this case with default header values.
+/*
+PostWebdeploymentsConfigurationVersionsDraftPublishOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostWebdeploymentsConfigurationVersionsDraftPublishOK struct {
 	Payload *models.WebDeploymentConfigurationVersion
 }
 
+// IsSuccess returns true when this post webdeployments configuration versions draft publish o k response has a 2xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post webdeployments configuration versions draft publish o k response has a 3xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webdeployments configuration versions draft publish o k response has a 4xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post webdeployments configuration versions draft publish o k response has a 5xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webdeployments configuration versions draft publish o k response a status code equal to that given
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWebdeploymentsConfigurationVersionsDraftPublishOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostWebdeploymentsConfigurationVersionsDraftPublishBadRequest() *PostWeb
 	return &PostWebdeploymentsConfigurationVersionsDraftPublishBadRequest{}
 }
 
-/*PostWebdeploymentsConfigurationVersionsDraftPublishBadRequest handles this case with default header values.
+/*
+PostWebdeploymentsConfigurationVersionsDraftPublishBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostWebdeploymentsConfigurationVersionsDraftPublishBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webdeployments configuration versions draft publish bad request response has a 2xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webdeployments configuration versions draft publish bad request response has a 3xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webdeployments configuration versions draft publish bad request response has a 4xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webdeployments configuration versions draft publish bad request response has a 5xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webdeployments configuration versions draft publish bad request response a status code equal to that given
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWebdeploymentsConfigurationVersionsDraftPublishBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostWebdeploymentsConfigurationVersionsDraftPublishUnauthorized() *PostW
 	return &PostWebdeploymentsConfigurationVersionsDraftPublishUnauthorized{}
 }
 
-/*PostWebdeploymentsConfigurationVersionsDraftPublishUnauthorized handles this case with default header values.
+/*
+PostWebdeploymentsConfigurationVersionsDraftPublishUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostWebdeploymentsConfigurationVersionsDraftPublishUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webdeployments configuration versions draft publish unauthorized response has a 2xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webdeployments configuration versions draft publish unauthorized response has a 3xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webdeployments configuration versions draft publish unauthorized response has a 4xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webdeployments configuration versions draft publish unauthorized response has a 5xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webdeployments configuration versions draft publish unauthorized response a status code equal to that given
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostWebdeploymentsConfigurationVersionsDraftPublishForbidden() *PostWebd
 	return &PostWebdeploymentsConfigurationVersionsDraftPublishForbidden{}
 }
 
-/*PostWebdeploymentsConfigurationVersionsDraftPublishForbidden handles this case with default header values.
+/*
+PostWebdeploymentsConfigurationVersionsDraftPublishForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostWebdeploymentsConfigurationVersionsDraftPublishForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webdeployments configuration versions draft publish forbidden response has a 2xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webdeployments configuration versions draft publish forbidden response has a 3xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webdeployments configuration versions draft publish forbidden response has a 4xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webdeployments configuration versions draft publish forbidden response has a 5xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webdeployments configuration versions draft publish forbidden response a status code equal to that given
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWebdeploymentsConfigurationVersionsDraftPublishForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostWebdeploymentsConfigurationVersionsDraftPublishNotFound() *PostWebde
 	return &PostWebdeploymentsConfigurationVersionsDraftPublishNotFound{}
 }
 
-/*PostWebdeploymentsConfigurationVersionsDraftPublishNotFound handles this case with default header values.
+/*
+PostWebdeploymentsConfigurationVersionsDraftPublishNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostWebdeploymentsConfigurationVersionsDraftPublishNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webdeployments configuration versions draft publish not found response has a 2xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webdeployments configuration versions draft publish not found response has a 3xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webdeployments configuration versions draft publish not found response has a 4xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webdeployments configuration versions draft publish not found response has a 5xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webdeployments configuration versions draft publish not found response a status code equal to that given
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWebdeploymentsConfigurationVersionsDraftPublishNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout() *Pos
 	return &PostWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout{}
 }
 
-/*PostWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout handles this case with default header values.
+/*
+PostWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webdeployments configuration versions draft publish request timeout response has a 2xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webdeployments configuration versions draft publish request timeout response has a 3xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webdeployments configuration versions draft publish request timeout response has a 4xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webdeployments configuration versions draft publish request timeout response has a 5xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webdeployments configuration versions draft publish request timeout response a status code equal to that given
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge
 	return &PostWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge{}
 }
 
-/*PostWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge handles this case with default header values.
+/*
+PostWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webdeployments configuration versions draft publish request entity too large response has a 2xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webdeployments configuration versions draft publish request entity too large response has a 3xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webdeployments configuration versions draft publish request entity too large response has a 4xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webdeployments configuration versions draft publish request entity too large response has a 5xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webdeployments configuration versions draft publish request entity too large response a status code equal to that given
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType(
 	return &PostWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType{}
 }
 
-/*PostWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType handles this case with default header values.
+/*
+PostWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webdeployments configuration versions draft publish unsupported media type response has a 2xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webdeployments configuration versions draft publish unsupported media type response has a 3xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webdeployments configuration versions draft publish unsupported media type response has a 4xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webdeployments configuration versions draft publish unsupported media type response has a 5xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webdeployments configuration versions draft publish unsupported media type response a status code equal to that given
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests() *Po
 	return &PostWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests{}
 }
 
-/*PostWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests handles this case with default header values.
+/*
+PostWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webdeployments configuration versions draft publish too many requests response has a 2xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webdeployments configuration versions draft publish too many requests response has a 3xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webdeployments configuration versions draft publish too many requests response has a 4xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webdeployments configuration versions draft publish too many requests response has a 5xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webdeployments configuration versions draft publish too many requests response a status code equal to that given
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostWebdeploymentsConfigurationVersionsDraftPublishInternalServerError()
 	return &PostWebdeploymentsConfigurationVersionsDraftPublishInternalServerError{}
 }
 
-/*PostWebdeploymentsConfigurationVersionsDraftPublishInternalServerError handles this case with default header values.
+/*
+PostWebdeploymentsConfigurationVersionsDraftPublishInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostWebdeploymentsConfigurationVersionsDraftPublishInternalServerError stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webdeployments configuration versions draft publish internal server error response has a 2xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webdeployments configuration versions draft publish internal server error response has a 3xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webdeployments configuration versions draft publish internal server error response has a 4xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post webdeployments configuration versions draft publish internal server error response has a 5xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post webdeployments configuration versions draft publish internal server error response a status code equal to that given
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWebdeploymentsConfigurationVersionsDraftPublishInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable() 
 	return &PostWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable{}
 }
 
-/*PostWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable handles this case with default header values.
+/*
+PostWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webdeployments configuration versions draft publish service unavailable response has a 2xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webdeployments configuration versions draft publish service unavailable response has a 3xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webdeployments configuration versions draft publish service unavailable response has a 4xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post webdeployments configuration versions draft publish service unavailable response has a 5xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post webdeployments configuration versions draft publish service unavailable response a status code equal to that given
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout() *Pos
 	return &PostWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout{}
 }
 
-/*PostWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout handles this case with default header values.
+/*
+PostWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webdeployments configuration versions draft publish gateway timeout response has a 2xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webdeployments configuration versions draft publish gateway timeout response has a 3xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webdeployments configuration versions draft publish gateway timeout response has a 4xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post webdeployments configuration versions draft publish gateway timeout response has a 5xx status code
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post webdeployments configuration versions draft publish gateway timeout response a status code equal to that given
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/webdeployments/configurations/{configurationId}/versions/draft/publish][%d] postWebdeploymentsConfigurationVersionsDraftPublishGatewayTimeout  %+v", 504, o.Payload)
 }
 

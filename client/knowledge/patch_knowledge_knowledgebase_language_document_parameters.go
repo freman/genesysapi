@@ -18,71 +18,90 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchKnowledgeKnowledgebaseLanguageDocumentParams creates a new PatchKnowledgeKnowledgebaseLanguageDocumentParams object
-// with the default values initialized.
+// NewPatchKnowledgeKnowledgebaseLanguageDocumentParams creates a new PatchKnowledgeKnowledgebaseLanguageDocumentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchKnowledgeKnowledgebaseLanguageDocumentParams() *PatchKnowledgeKnowledgebaseLanguageDocumentParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseLanguageDocumentParamsWithTimeout creates a new PatchKnowledgeKnowledgebaseLanguageDocumentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchKnowledgeKnowledgebaseLanguageDocumentParamsWithTimeout(timeout time.Duration) *PatchKnowledgeKnowledgebaseLanguageDocumentParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseLanguageDocumentParamsWithContext creates a new PatchKnowledgeKnowledgebaseLanguageDocumentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchKnowledgeKnowledgebaseLanguageDocumentParamsWithContext(ctx context.Context) *PatchKnowledgeKnowledgebaseLanguageDocumentParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseLanguageDocumentParamsWithHTTPClient creates a new PatchKnowledgeKnowledgebaseLanguageDocumentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchKnowledgeKnowledgebaseLanguageDocumentParamsWithHTTPClient(client *http.Client) *PatchKnowledgeKnowledgebaseLanguageDocumentParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseLanguageDocumentParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchKnowledgeKnowledgebaseLanguageDocumentParams contains all the parameters to send to the API endpoint
-for the patch knowledge knowledgebase language document operation typically these are written to a http.Request
+/*
+PatchKnowledgeKnowledgebaseLanguageDocumentParams contains all the parameters to send to the API endpoint
+
+	for the patch knowledge knowledgebase language document operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchKnowledgeKnowledgebaseLanguageDocumentParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.KnowledgeDocumentRequest
-	/*DocumentID
-	  Document ID
 
+	/* DocumentID.
+
+	   Document ID
 	*/
 	DocumentID string
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
-	/*LanguageCode
-	  Language code, format: iso2-LOCALE
 
+	/* LanguageCode.
+
+	   Language code, format: iso2-LOCALE
 	*/
 	LanguageCode string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch knowledge knowledgebase language document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentParams) WithDefaults() *PatchKnowledgeKnowledgebaseLanguageDocumentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch knowledge knowledgebase language document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchKnowledgeKnowledgebaseLanguageDocumentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch knowledge knowledgebase language document params
@@ -169,7 +188,6 @@ func (o *PatchKnowledgeKnowledgebaseLanguageDocumentParams) WriteToRequest(r run
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -21,7 +22,7 @@ import (
 type HistoryListing struct {
 
 	// Action name
-	// Enum: [CREATE CHECKIN DEBUG DELETE HISTORY PUBLISH STATE_CHANGE UPDATE VALIDATE]
+	// Enum: [CREATE CHECKIN CHECKOUT DEBUG DELETE HISTORY PUBLISH REVERT SAVE STATE_CHANGE UPDATE VALIDATE]
 	ActionName string `json:"actionName,omitempty"`
 
 	// Action status
@@ -131,7 +132,7 @@ var historyListingTypeActionNamePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["CREATE","CHECKIN","DEBUG","DELETE","HISTORY","PUBLISH","STATE_CHANGE","UPDATE","VALIDATE"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["CREATE","CHECKIN","CHECKOUT","DEBUG","DELETE","HISTORY","PUBLISH","REVERT","SAVE","STATE_CHANGE","UPDATE","VALIDATE"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -147,6 +148,9 @@ const (
 	// HistoryListingActionNameCHECKIN captures enum value "CHECKIN"
 	HistoryListingActionNameCHECKIN string = "CHECKIN"
 
+	// HistoryListingActionNameCHECKOUT captures enum value "CHECKOUT"
+	HistoryListingActionNameCHECKOUT string = "CHECKOUT"
+
 	// HistoryListingActionNameDEBUG captures enum value "DEBUG"
 	HistoryListingActionNameDEBUG string = "DEBUG"
 
@@ -158,6 +162,12 @@ const (
 
 	// HistoryListingActionNamePUBLISH captures enum value "PUBLISH"
 	HistoryListingActionNamePUBLISH string = "PUBLISH"
+
+	// HistoryListingActionNameREVERT captures enum value "REVERT"
+	HistoryListingActionNameREVERT string = "REVERT"
+
+	// HistoryListingActionNameSAVE captures enum value "SAVE"
+	HistoryListingActionNameSAVE string = "SAVE"
 
 	// HistoryListingActionNameSTATECHANGE captures enum value "STATE_CHANGE"
 	HistoryListingActionNameSTATECHANGE string = "STATE_CHANGE"
@@ -178,7 +188,6 @@ func (m *HistoryListing) validateActionNameEnum(path, location string, value str
 }
 
 func (m *HistoryListing) validateActionName(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionName) { // not required
 		return nil
 	}
@@ -236,7 +245,6 @@ func (m *HistoryListing) validateActionStatusEnum(path, location string, value s
 }
 
 func (m *HistoryListing) validateActionStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionStatus) { // not required
 		return nil
 	}
@@ -250,7 +258,6 @@ func (m *HistoryListing) validateActionStatus(formats strfmt.Registry) error {
 }
 
 func (m *HistoryListing) validateClient(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Client) { // not required
 		return nil
 	}
@@ -259,6 +266,8 @@ func (m *HistoryListing) validateClient(formats strfmt.Registry) error {
 		if err := m.Client.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("client")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("client")
 			}
 			return err
 		}
@@ -268,7 +277,6 @@ func (m *HistoryListing) validateClient(formats strfmt.Registry) error {
 }
 
 func (m *HistoryListing) validateCompleted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Completed) { // not required
 		return nil
 	}
@@ -281,7 +289,6 @@ func (m *HistoryListing) validateCompleted(formats strfmt.Registry) error {
 }
 
 func (m *HistoryListing) validateEntities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Entities) { // not required
 		return nil
 	}
@@ -295,6 +302,8 @@ func (m *HistoryListing) validateEntities(formats strfmt.Registry) error {
 			if err := m.Entities[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entities" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -306,7 +315,6 @@ func (m *HistoryListing) validateEntities(formats strfmt.Registry) error {
 }
 
 func (m *HistoryListing) validateErrorDetails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorDetails) { // not required
 		return nil
 	}
@@ -320,6 +328,8 @@ func (m *HistoryListing) validateErrorDetails(formats strfmt.Registry) error {
 			if err := m.ErrorDetails[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("errorDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errorDetails" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -331,7 +341,6 @@ func (m *HistoryListing) validateErrorDetails(formats strfmt.Registry) error {
 }
 
 func (m *HistoryListing) validateStarted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Started) { // not required
 		return nil
 	}
@@ -344,7 +353,6 @@ func (m *HistoryListing) validateStarted(formats strfmt.Registry) error {
 }
 
 func (m *HistoryListing) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -353,6 +361,106 @@ func (m *HistoryListing) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this history listing based on the context it is used
+func (m *HistoryListing) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateClient(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEntities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateErrorDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *HistoryListing) contextValidateClient(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Client != nil {
+		if err := m.Client.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("client")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("client")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *HistoryListing) contextValidateEntities(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Entities); i++ {
+
+		if m.Entities[i] != nil {
+			if err := m.Entities[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("entities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("entities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *HistoryListing) contextValidateErrorDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ErrorDetails); i++ {
+
+		if m.ErrorDetails[i] != nil {
+			if err := m.ErrorDetails[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("errorDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("errorDetails" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *HistoryListing) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

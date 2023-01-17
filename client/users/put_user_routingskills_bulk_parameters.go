@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutUserRoutingskillsBulkParams creates a new PutUserRoutingskillsBulkParams object
-// with the default values initialized.
+// NewPutUserRoutingskillsBulkParams creates a new PutUserRoutingskillsBulkParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutUserRoutingskillsBulkParams() *PutUserRoutingskillsBulkParams {
-	var ()
 	return &PutUserRoutingskillsBulkParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutUserRoutingskillsBulkParamsWithTimeout creates a new PutUserRoutingskillsBulkParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutUserRoutingskillsBulkParamsWithTimeout(timeout time.Duration) *PutUserRoutingskillsBulkParams {
-	var ()
 	return &PutUserRoutingskillsBulkParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutUserRoutingskillsBulkParamsWithContext creates a new PutUserRoutingskillsBulkParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutUserRoutingskillsBulkParamsWithContext(ctx context.Context) *PutUserRoutingskillsBulkParams {
-	var ()
 	return &PutUserRoutingskillsBulkParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutUserRoutingskillsBulkParamsWithHTTPClient creates a new PutUserRoutingskillsBulkParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutUserRoutingskillsBulkParamsWithHTTPClient(client *http.Client) *PutUserRoutingskillsBulkParams {
-	var ()
 	return &PutUserRoutingskillsBulkParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutUserRoutingskillsBulkParams contains all the parameters to send to the API endpoint
-for the put user routingskills bulk operation typically these are written to a http.Request
+/*
+PutUserRoutingskillsBulkParams contains all the parameters to send to the API endpoint
+
+	for the put user routingskills bulk operation.
+
+	Typically these are written to a http.Request.
 */
 type PutUserRoutingskillsBulkParams struct {
 
-	/*Body
-	  Skill
+	/* Body.
 
+	   Skill
 	*/
 	Body []*models.UserRoutingSkillPost
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put user routingskills bulk params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutUserRoutingskillsBulkParams) WithDefaults() *PutUserRoutingskillsBulkParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put user routingskills bulk params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutUserRoutingskillsBulkParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put user routingskills bulk params
@@ -140,7 +157,6 @@ func (o *PutUserRoutingskillsBulkParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

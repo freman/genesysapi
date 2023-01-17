@@ -95,7 +95,6 @@ func (o *GetGamificationScorecardsBestpointsReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGamificationScorecardsBestpointsOK() *GetGamificationScorecardsBestpo
 	return &GetGamificationScorecardsBestpointsOK{}
 }
 
-/*GetGamificationScorecardsBestpointsOK handles this case with default header values.
+/*
+GetGamificationScorecardsBestpointsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGamificationScorecardsBestpointsOK struct {
 	Payload *models.UserBestPoints
 }
 
+// IsSuccess returns true when this get gamification scorecards bestpoints o k response has a 2xx status code
+func (o *GetGamificationScorecardsBestpointsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get gamification scorecards bestpoints o k response has a 3xx status code
+func (o *GetGamificationScorecardsBestpointsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards bestpoints o k response has a 4xx status code
+func (o *GetGamificationScorecardsBestpointsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification scorecards bestpoints o k response has a 5xx status code
+func (o *GetGamificationScorecardsBestpointsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards bestpoints o k response a status code equal to that given
+func (o *GetGamificationScorecardsBestpointsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGamificationScorecardsBestpointsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGamificationScorecardsBestpointsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGamificationScorecardsBestpointsBadRequest() *GetGamificationScorecar
 	return &GetGamificationScorecardsBestpointsBadRequest{}
 }
 
-/*GetGamificationScorecardsBestpointsBadRequest handles this case with default header values.
+/*
+GetGamificationScorecardsBestpointsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGamificationScorecardsBestpointsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards bestpoints bad request response has a 2xx status code
+func (o *GetGamificationScorecardsBestpointsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards bestpoints bad request response has a 3xx status code
+func (o *GetGamificationScorecardsBestpointsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards bestpoints bad request response has a 4xx status code
+func (o *GetGamificationScorecardsBestpointsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards bestpoints bad request response has a 5xx status code
+func (o *GetGamificationScorecardsBestpointsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards bestpoints bad request response a status code equal to that given
+func (o *GetGamificationScorecardsBestpointsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGamificationScorecardsBestpointsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGamificationScorecardsBestpointsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGamificationScorecardsBestpointsUnauthorized() *GetGamificationScorec
 	return &GetGamificationScorecardsBestpointsUnauthorized{}
 }
 
-/*GetGamificationScorecardsBestpointsUnauthorized handles this case with default header values.
+/*
+GetGamificationScorecardsBestpointsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGamificationScorecardsBestpointsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards bestpoints unauthorized response has a 2xx status code
+func (o *GetGamificationScorecardsBestpointsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards bestpoints unauthorized response has a 3xx status code
+func (o *GetGamificationScorecardsBestpointsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards bestpoints unauthorized response has a 4xx status code
+func (o *GetGamificationScorecardsBestpointsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards bestpoints unauthorized response has a 5xx status code
+func (o *GetGamificationScorecardsBestpointsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards bestpoints unauthorized response a status code equal to that given
+func (o *GetGamificationScorecardsBestpointsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGamificationScorecardsBestpointsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGamificationScorecardsBestpointsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGamificationScorecardsBestpointsForbidden() *GetGamificationScorecard
 	return &GetGamificationScorecardsBestpointsForbidden{}
 }
 
-/*GetGamificationScorecardsBestpointsForbidden handles this case with default header values.
+/*
+GetGamificationScorecardsBestpointsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGamificationScorecardsBestpointsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards bestpoints forbidden response has a 2xx status code
+func (o *GetGamificationScorecardsBestpointsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards bestpoints forbidden response has a 3xx status code
+func (o *GetGamificationScorecardsBestpointsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards bestpoints forbidden response has a 4xx status code
+func (o *GetGamificationScorecardsBestpointsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards bestpoints forbidden response has a 5xx status code
+func (o *GetGamificationScorecardsBestpointsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards bestpoints forbidden response a status code equal to that given
+func (o *GetGamificationScorecardsBestpointsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGamificationScorecardsBestpointsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGamificationScorecardsBestpointsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGamificationScorecardsBestpointsNotFound() *GetGamificationScorecards
 	return &GetGamificationScorecardsBestpointsNotFound{}
 }
 
-/*GetGamificationScorecardsBestpointsNotFound handles this case with default header values.
+/*
+GetGamificationScorecardsBestpointsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGamificationScorecardsBestpointsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards bestpoints not found response has a 2xx status code
+func (o *GetGamificationScorecardsBestpointsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards bestpoints not found response has a 3xx status code
+func (o *GetGamificationScorecardsBestpointsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards bestpoints not found response has a 4xx status code
+func (o *GetGamificationScorecardsBestpointsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards bestpoints not found response has a 5xx status code
+func (o *GetGamificationScorecardsBestpointsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards bestpoints not found response a status code equal to that given
+func (o *GetGamificationScorecardsBestpointsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGamificationScorecardsBestpointsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGamificationScorecardsBestpointsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGamificationScorecardsBestpointsRequestTimeout() *GetGamificationScor
 	return &GetGamificationScorecardsBestpointsRequestTimeout{}
 }
 
-/*GetGamificationScorecardsBestpointsRequestTimeout handles this case with default header values.
+/*
+GetGamificationScorecardsBestpointsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGamificationScorecardsBestpointsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards bestpoints request timeout response has a 2xx status code
+func (o *GetGamificationScorecardsBestpointsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards bestpoints request timeout response has a 3xx status code
+func (o *GetGamificationScorecardsBestpointsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards bestpoints request timeout response has a 4xx status code
+func (o *GetGamificationScorecardsBestpointsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards bestpoints request timeout response has a 5xx status code
+func (o *GetGamificationScorecardsBestpointsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards bestpoints request timeout response a status code equal to that given
+func (o *GetGamificationScorecardsBestpointsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGamificationScorecardsBestpointsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGamificationScorecardsBestpointsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGamificationScorecardsBestpointsRequestEntityTooLarge() *GetGamificat
 	return &GetGamificationScorecardsBestpointsRequestEntityTooLarge{}
 }
 
-/*GetGamificationScorecardsBestpointsRequestEntityTooLarge handles this case with default header values.
+/*
+GetGamificationScorecardsBestpointsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGamificationScorecardsBestpointsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards bestpoints request entity too large response has a 2xx status code
+func (o *GetGamificationScorecardsBestpointsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards bestpoints request entity too large response has a 3xx status code
+func (o *GetGamificationScorecardsBestpointsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards bestpoints request entity too large response has a 4xx status code
+func (o *GetGamificationScorecardsBestpointsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards bestpoints request entity too large response has a 5xx status code
+func (o *GetGamificationScorecardsBestpointsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards bestpoints request entity too large response a status code equal to that given
+func (o *GetGamificationScorecardsBestpointsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGamificationScorecardsBestpointsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGamificationScorecardsBestpointsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGamificationScorecardsBestpointsUnsupportedMediaType() *GetGamificati
 	return &GetGamificationScorecardsBestpointsUnsupportedMediaType{}
 }
 
-/*GetGamificationScorecardsBestpointsUnsupportedMediaType handles this case with default header values.
+/*
+GetGamificationScorecardsBestpointsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGamificationScorecardsBestpointsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards bestpoints unsupported media type response has a 2xx status code
+func (o *GetGamificationScorecardsBestpointsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards bestpoints unsupported media type response has a 3xx status code
+func (o *GetGamificationScorecardsBestpointsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards bestpoints unsupported media type response has a 4xx status code
+func (o *GetGamificationScorecardsBestpointsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards bestpoints unsupported media type response has a 5xx status code
+func (o *GetGamificationScorecardsBestpointsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards bestpoints unsupported media type response a status code equal to that given
+func (o *GetGamificationScorecardsBestpointsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGamificationScorecardsBestpointsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGamificationScorecardsBestpointsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGamificationScorecardsBestpointsTooManyRequests() *GetGamificationSco
 	return &GetGamificationScorecardsBestpointsTooManyRequests{}
 }
 
-/*GetGamificationScorecardsBestpointsTooManyRequests handles this case with default header values.
+/*
+GetGamificationScorecardsBestpointsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGamificationScorecardsBestpointsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards bestpoints too many requests response has a 2xx status code
+func (o *GetGamificationScorecardsBestpointsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards bestpoints too many requests response has a 3xx status code
+func (o *GetGamificationScorecardsBestpointsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards bestpoints too many requests response has a 4xx status code
+func (o *GetGamificationScorecardsBestpointsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards bestpoints too many requests response has a 5xx status code
+func (o *GetGamificationScorecardsBestpointsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards bestpoints too many requests response a status code equal to that given
+func (o *GetGamificationScorecardsBestpointsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGamificationScorecardsBestpointsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGamificationScorecardsBestpointsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGamificationScorecardsBestpointsInternalServerError() *GetGamificatio
 	return &GetGamificationScorecardsBestpointsInternalServerError{}
 }
 
-/*GetGamificationScorecardsBestpointsInternalServerError handles this case with default header values.
+/*
+GetGamificationScorecardsBestpointsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGamificationScorecardsBestpointsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards bestpoints internal server error response has a 2xx status code
+func (o *GetGamificationScorecardsBestpointsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards bestpoints internal server error response has a 3xx status code
+func (o *GetGamificationScorecardsBestpointsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards bestpoints internal server error response has a 4xx status code
+func (o *GetGamificationScorecardsBestpointsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification scorecards bestpoints internal server error response has a 5xx status code
+func (o *GetGamificationScorecardsBestpointsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification scorecards bestpoints internal server error response a status code equal to that given
+func (o *GetGamificationScorecardsBestpointsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGamificationScorecardsBestpointsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGamificationScorecardsBestpointsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGamificationScorecardsBestpointsServiceUnavailable() *GetGamification
 	return &GetGamificationScorecardsBestpointsServiceUnavailable{}
 }
 
-/*GetGamificationScorecardsBestpointsServiceUnavailable handles this case with default header values.
+/*
+GetGamificationScorecardsBestpointsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGamificationScorecardsBestpointsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards bestpoints service unavailable response has a 2xx status code
+func (o *GetGamificationScorecardsBestpointsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards bestpoints service unavailable response has a 3xx status code
+func (o *GetGamificationScorecardsBestpointsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards bestpoints service unavailable response has a 4xx status code
+func (o *GetGamificationScorecardsBestpointsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification scorecards bestpoints service unavailable response has a 5xx status code
+func (o *GetGamificationScorecardsBestpointsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification scorecards bestpoints service unavailable response a status code equal to that given
+func (o *GetGamificationScorecardsBestpointsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGamificationScorecardsBestpointsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGamificationScorecardsBestpointsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGamificationScorecardsBestpointsGatewayTimeout() *GetGamificationScor
 	return &GetGamificationScorecardsBestpointsGatewayTimeout{}
 }
 
-/*GetGamificationScorecardsBestpointsGatewayTimeout handles this case with default header values.
+/*
+GetGamificationScorecardsBestpointsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGamificationScorecardsBestpointsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards bestpoints gateway timeout response has a 2xx status code
+func (o *GetGamificationScorecardsBestpointsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards bestpoints gateway timeout response has a 3xx status code
+func (o *GetGamificationScorecardsBestpointsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards bestpoints gateway timeout response has a 4xx status code
+func (o *GetGamificationScorecardsBestpointsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification scorecards bestpoints gateway timeout response has a 5xx status code
+func (o *GetGamificationScorecardsBestpointsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification scorecards bestpoints gateway timeout response a status code equal to that given
+func (o *GetGamificationScorecardsBestpointsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGamificationScorecardsBestpointsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGamificationScorecardsBestpointsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/bestpoints][%d] getGamificationScorecardsBestpointsGatewayTimeout  %+v", 504, o.Payload)
 }
 

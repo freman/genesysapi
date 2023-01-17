@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -70,7 +71,6 @@ func (m *UpdateTimeOffPlanRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UpdateTimeOffPlanRequest) validateActivityCodeIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActivityCodeIds) { // not required
 		return nil
 	}
@@ -79,6 +79,8 @@ func (m *UpdateTimeOffPlanRequest) validateActivityCodeIds(formats strfmt.Regist
 		if err := m.ActivityCodeIds.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("activityCodeIds")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activityCodeIds")
 			}
 			return err
 		}
@@ -120,7 +122,6 @@ func (m *UpdateTimeOffPlanRequest) validateAutoApprovalRuleEnum(path, location s
 }
 
 func (m *UpdateTimeOffPlanRequest) validateAutoApprovalRule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AutoApprovalRule) { // not required
 		return nil
 	}
@@ -143,6 +144,8 @@ func (m *UpdateTimeOffPlanRequest) validateMetadata(formats strfmt.Registry) err
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -152,7 +155,6 @@ func (m *UpdateTimeOffPlanRequest) validateMetadata(formats strfmt.Registry) err
 }
 
 func (m *UpdateTimeOffPlanRequest) validateTimeOffLimitIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TimeOffLimitIds) { // not required
 		return nil
 	}
@@ -161,6 +163,78 @@ func (m *UpdateTimeOffPlanRequest) validateTimeOffLimitIds(formats strfmt.Regist
 		if err := m.TimeOffLimitIds.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("timeOffLimitIds")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeOffLimitIds")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this update time off plan request based on the context it is used
+func (m *UpdateTimeOffPlanRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActivityCodeIds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTimeOffLimitIds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UpdateTimeOffPlanRequest) contextValidateActivityCodeIds(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ActivityCodeIds != nil {
+		if err := m.ActivityCodeIds.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("activityCodeIds")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activityCodeIds")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateTimeOffPlanRequest) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UpdateTimeOffPlanRequest) contextValidateTimeOffLimitIds(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TimeOffLimitIds != nil {
+		if err := m.TimeOffLimitIds.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("timeOffLimitIds")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("timeOffLimitIds")
 			}
 			return err
 		}

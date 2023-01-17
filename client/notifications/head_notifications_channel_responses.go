@@ -106,7 +106,8 @@ func NewHeadNotificationsChannelBadRequest() *HeadNotificationsChannelBadRequest
 	return &HeadNotificationsChannelBadRequest{}
 }
 
-/*HeadNotificationsChannelBadRequest handles this case with default header values.
+/*
+HeadNotificationsChannelBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type HeadNotificationsChannelBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head notifications channel bad request response has a 2xx status code
+func (o *HeadNotificationsChannelBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head notifications channel bad request response has a 3xx status code
+func (o *HeadNotificationsChannelBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head notifications channel bad request response has a 4xx status code
+func (o *HeadNotificationsChannelBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head notifications channel bad request response has a 5xx status code
+func (o *HeadNotificationsChannelBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head notifications channel bad request response a status code equal to that given
+func (o *HeadNotificationsChannelBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *HeadNotificationsChannelBadRequest) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *HeadNotificationsChannelBadRequest) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewHeadNotificationsChannelUnauthorized() *HeadNotificationsChannelUnauthor
 	return &HeadNotificationsChannelUnauthorized{}
 }
 
-/*HeadNotificationsChannelUnauthorized handles this case with default header values.
+/*
+HeadNotificationsChannelUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type HeadNotificationsChannelUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head notifications channel unauthorized response has a 2xx status code
+func (o *HeadNotificationsChannelUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head notifications channel unauthorized response has a 3xx status code
+func (o *HeadNotificationsChannelUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head notifications channel unauthorized response has a 4xx status code
+func (o *HeadNotificationsChannelUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head notifications channel unauthorized response has a 5xx status code
+func (o *HeadNotificationsChannelUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head notifications channel unauthorized response a status code equal to that given
+func (o *HeadNotificationsChannelUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *HeadNotificationsChannelUnauthorized) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *HeadNotificationsChannelUnauthorized) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewHeadNotificationsChannelForbidden() *HeadNotificationsChannelForbidden {
 	return &HeadNotificationsChannelForbidden{}
 }
 
-/*HeadNotificationsChannelForbidden handles this case with default header values.
+/*
+HeadNotificationsChannelForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type HeadNotificationsChannelForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head notifications channel forbidden response has a 2xx status code
+func (o *HeadNotificationsChannelForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head notifications channel forbidden response has a 3xx status code
+func (o *HeadNotificationsChannelForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head notifications channel forbidden response has a 4xx status code
+func (o *HeadNotificationsChannelForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head notifications channel forbidden response has a 5xx status code
+func (o *HeadNotificationsChannelForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head notifications channel forbidden response a status code equal to that given
+func (o *HeadNotificationsChannelForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *HeadNotificationsChannelForbidden) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelForbidden  %+v", 403, o.Payload)
+}
+
+func (o *HeadNotificationsChannelForbidden) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewHeadNotificationsChannelNotFound() *HeadNotificationsChannelNotFound {
 	return &HeadNotificationsChannelNotFound{}
 }
 
-/*HeadNotificationsChannelNotFound handles this case with default header values.
+/*
+HeadNotificationsChannelNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type HeadNotificationsChannelNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head notifications channel not found response has a 2xx status code
+func (o *HeadNotificationsChannelNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head notifications channel not found response has a 3xx status code
+func (o *HeadNotificationsChannelNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head notifications channel not found response has a 4xx status code
+func (o *HeadNotificationsChannelNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head notifications channel not found response has a 5xx status code
+func (o *HeadNotificationsChannelNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head notifications channel not found response a status code equal to that given
+func (o *HeadNotificationsChannelNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *HeadNotificationsChannelNotFound) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelNotFound  %+v", 404, o.Payload)
+}
+
+func (o *HeadNotificationsChannelNotFound) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewHeadNotificationsChannelRequestTimeout() *HeadNotificationsChannelReques
 	return &HeadNotificationsChannelRequestTimeout{}
 }
 
-/*HeadNotificationsChannelRequestTimeout handles this case with default header values.
+/*
+HeadNotificationsChannelRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type HeadNotificationsChannelRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head notifications channel request timeout response has a 2xx status code
+func (o *HeadNotificationsChannelRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head notifications channel request timeout response has a 3xx status code
+func (o *HeadNotificationsChannelRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head notifications channel request timeout response has a 4xx status code
+func (o *HeadNotificationsChannelRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head notifications channel request timeout response has a 5xx status code
+func (o *HeadNotificationsChannelRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head notifications channel request timeout response a status code equal to that given
+func (o *HeadNotificationsChannelRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *HeadNotificationsChannelRequestTimeout) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *HeadNotificationsChannelRequestTimeout) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewHeadNotificationsChannelRequestEntityTooLarge() *HeadNotificationsChanne
 	return &HeadNotificationsChannelRequestEntityTooLarge{}
 }
 
-/*HeadNotificationsChannelRequestEntityTooLarge handles this case with default header values.
+/*
+HeadNotificationsChannelRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type HeadNotificationsChannelRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head notifications channel request entity too large response has a 2xx status code
+func (o *HeadNotificationsChannelRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head notifications channel request entity too large response has a 3xx status code
+func (o *HeadNotificationsChannelRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head notifications channel request entity too large response has a 4xx status code
+func (o *HeadNotificationsChannelRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head notifications channel request entity too large response has a 5xx status code
+func (o *HeadNotificationsChannelRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head notifications channel request entity too large response a status code equal to that given
+func (o *HeadNotificationsChannelRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *HeadNotificationsChannelRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *HeadNotificationsChannelRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewHeadNotificationsChannelUnsupportedMediaType() *HeadNotificationsChannel
 	return &HeadNotificationsChannelUnsupportedMediaType{}
 }
 
-/*HeadNotificationsChannelUnsupportedMediaType handles this case with default header values.
+/*
+HeadNotificationsChannelUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type HeadNotificationsChannelUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head notifications channel unsupported media type response has a 2xx status code
+func (o *HeadNotificationsChannelUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head notifications channel unsupported media type response has a 3xx status code
+func (o *HeadNotificationsChannelUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head notifications channel unsupported media type response has a 4xx status code
+func (o *HeadNotificationsChannelUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head notifications channel unsupported media type response has a 5xx status code
+func (o *HeadNotificationsChannelUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head notifications channel unsupported media type response a status code equal to that given
+func (o *HeadNotificationsChannelUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *HeadNotificationsChannelUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *HeadNotificationsChannelUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewHeadNotificationsChannelTooManyRequests() *HeadNotificationsChannelTooMa
 	return &HeadNotificationsChannelTooManyRequests{}
 }
 
-/*HeadNotificationsChannelTooManyRequests handles this case with default header values.
+/*
+HeadNotificationsChannelTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type HeadNotificationsChannelTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head notifications channel too many requests response has a 2xx status code
+func (o *HeadNotificationsChannelTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head notifications channel too many requests response has a 3xx status code
+func (o *HeadNotificationsChannelTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head notifications channel too many requests response has a 4xx status code
+func (o *HeadNotificationsChannelTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this head notifications channel too many requests response has a 5xx status code
+func (o *HeadNotificationsChannelTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this head notifications channel too many requests response a status code equal to that given
+func (o *HeadNotificationsChannelTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *HeadNotificationsChannelTooManyRequests) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *HeadNotificationsChannelTooManyRequests) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewHeadNotificationsChannelInternalServerError() *HeadNotificationsChannelI
 	return &HeadNotificationsChannelInternalServerError{}
 }
 
-/*HeadNotificationsChannelInternalServerError handles this case with default header values.
+/*
+HeadNotificationsChannelInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type HeadNotificationsChannelInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head notifications channel internal server error response has a 2xx status code
+func (o *HeadNotificationsChannelInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head notifications channel internal server error response has a 3xx status code
+func (o *HeadNotificationsChannelInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head notifications channel internal server error response has a 4xx status code
+func (o *HeadNotificationsChannelInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this head notifications channel internal server error response has a 5xx status code
+func (o *HeadNotificationsChannelInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this head notifications channel internal server error response a status code equal to that given
+func (o *HeadNotificationsChannelInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *HeadNotificationsChannelInternalServerError) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *HeadNotificationsChannelInternalServerError) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewHeadNotificationsChannelServiceUnavailable() *HeadNotificationsChannelSe
 	return &HeadNotificationsChannelServiceUnavailable{}
 }
 
-/*HeadNotificationsChannelServiceUnavailable handles this case with default header values.
+/*
+HeadNotificationsChannelServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type HeadNotificationsChannelServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head notifications channel service unavailable response has a 2xx status code
+func (o *HeadNotificationsChannelServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head notifications channel service unavailable response has a 3xx status code
+func (o *HeadNotificationsChannelServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head notifications channel service unavailable response has a 4xx status code
+func (o *HeadNotificationsChannelServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this head notifications channel service unavailable response has a 5xx status code
+func (o *HeadNotificationsChannelServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this head notifications channel service unavailable response a status code equal to that given
+func (o *HeadNotificationsChannelServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *HeadNotificationsChannelServiceUnavailable) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *HeadNotificationsChannelServiceUnavailable) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewHeadNotificationsChannelGatewayTimeout() *HeadNotificationsChannelGatewa
 	return &HeadNotificationsChannelGatewayTimeout{}
 }
 
-/*HeadNotificationsChannelGatewayTimeout handles this case with default header values.
+/*
+HeadNotificationsChannelGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type HeadNotificationsChannelGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this head notifications channel gateway timeout response has a 2xx status code
+func (o *HeadNotificationsChannelGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this head notifications channel gateway timeout response has a 3xx status code
+func (o *HeadNotificationsChannelGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this head notifications channel gateway timeout response has a 4xx status code
+func (o *HeadNotificationsChannelGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this head notifications channel gateway timeout response has a 5xx status code
+func (o *HeadNotificationsChannelGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this head notifications channel gateway timeout response a status code equal to that given
+func (o *HeadNotificationsChannelGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *HeadNotificationsChannelGatewayTimeout) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *HeadNotificationsChannelGatewayTimeout) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannelGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewHeadNotificationsChannelDefault(code int) *HeadNotificationsChannelDefau
 	}
 }
 
-/*HeadNotificationsChannelDefault handles this case with default header values.
+/*
+HeadNotificationsChannelDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *HeadNotificationsChannelDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this head notifications channel default response has a 2xx status code
+func (o *HeadNotificationsChannelDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this head notifications channel default response has a 3xx status code
+func (o *HeadNotificationsChannelDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this head notifications channel default response has a 4xx status code
+func (o *HeadNotificationsChannelDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this head notifications channel default response has a 5xx status code
+func (o *HeadNotificationsChannelDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this head notifications channel default response a status code equal to that given
+func (o *HeadNotificationsChannelDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *HeadNotificationsChannelDefault) Error() string {
+	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannel default ", o._statusCode)
+}
+
+func (o *HeadNotificationsChannelDefault) String() string {
 	return fmt.Sprintf("[HEAD /api/v2/notifications/channels/{channelId}][%d] headNotificationsChannel default ", o._statusCode)
 }
 

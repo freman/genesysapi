@@ -101,7 +101,6 @@ func (o *DeleteArchitectSystempromptResourceReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteArchitectSystempromptResourceOK() *DeleteArchitectSystempromptReso
 	return &DeleteArchitectSystempromptResourceOK{}
 }
 
-/*DeleteArchitectSystempromptResourceOK handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteArchitectSystempromptResourceOK struct {
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource o k response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource o k response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource o k response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect systemprompt resource o k response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect systemprompt resource o k response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteArchitectSystempromptResourceOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceOK ", 200)
+}
+
+func (o *DeleteArchitectSystempromptResourceOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceOK ", 200)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteArchitectSystempromptResourceBadRequest() *DeleteArchitectSystempr
 	return &DeleteArchitectSystempromptResourceBadRequest{}
 }
 
-/*DeleteArchitectSystempromptResourceBadRequest handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteArchitectSystempromptResourceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource bad request response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource bad request response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource bad request response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect systemprompt resource bad request response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect systemprompt resource bad request response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteArchitectSystempromptResourceBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteArchitectSystempromptResourceBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteArchitectSystempromptResourceUnauthorized() *DeleteArchitectSystem
 	return &DeleteArchitectSystempromptResourceUnauthorized{}
 }
 
-/*DeleteArchitectSystempromptResourceUnauthorized handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteArchitectSystempromptResourceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource unauthorized response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource unauthorized response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource unauthorized response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect systemprompt resource unauthorized response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect systemprompt resource unauthorized response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteArchitectSystempromptResourceUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteArchitectSystempromptResourceUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteArchitectSystempromptResourceForbidden() *DeleteArchitectSystempro
 	return &DeleteArchitectSystempromptResourceForbidden{}
 }
 
-/*DeleteArchitectSystempromptResourceForbidden handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteArchitectSystempromptResourceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource forbidden response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource forbidden response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource forbidden response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect systemprompt resource forbidden response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect systemprompt resource forbidden response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteArchitectSystempromptResourceForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteArchitectSystempromptResourceForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteArchitectSystempromptResourceNotFound() *DeleteArchitectSystemprom
 	return &DeleteArchitectSystempromptResourceNotFound{}
 }
 
-/*DeleteArchitectSystempromptResourceNotFound handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteArchitectSystempromptResourceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource not found response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource not found response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource not found response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect systemprompt resource not found response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect systemprompt resource not found response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteArchitectSystempromptResourceNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteArchitectSystempromptResourceNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteArchitectSystempromptResourceRequestTimeout() *DeleteArchitectSyst
 	return &DeleteArchitectSystempromptResourceRequestTimeout{}
 }
 
-/*DeleteArchitectSystempromptResourceRequestTimeout handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteArchitectSystempromptResourceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource request timeout response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource request timeout response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource request timeout response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect systemprompt resource request timeout response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect systemprompt resource request timeout response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteArchitectSystempromptResourceRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteArchitectSystempromptResourceRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteArchitectSystempromptResourceConflict() *DeleteArchitectSystemprom
 	return &DeleteArchitectSystempromptResourceConflict{}
 }
 
-/*DeleteArchitectSystempromptResourceConflict handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeleteArchitectSystempromptResourceConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource conflict response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource conflict response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource conflict response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect systemprompt resource conflict response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect systemprompt resource conflict response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteArchitectSystempromptResourceConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteArchitectSystempromptResourceConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteArchitectSystempromptResourceRequestEntityTooLarge() *DeleteArchit
 	return &DeleteArchitectSystempromptResourceRequestEntityTooLarge{}
 }
 
-/*DeleteArchitectSystempromptResourceRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteArchitectSystempromptResourceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource request entity too large response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource request entity too large response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource request entity too large response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect systemprompt resource request entity too large response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect systemprompt resource request entity too large response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteArchitectSystempromptResourceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteArchitectSystempromptResourceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteArchitectSystempromptResourceUnsupportedMediaType() *DeleteArchite
 	return &DeleteArchitectSystempromptResourceUnsupportedMediaType{}
 }
 
-/*DeleteArchitectSystempromptResourceUnsupportedMediaType handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteArchitectSystempromptResourceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource unsupported media type response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource unsupported media type response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource unsupported media type response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect systemprompt resource unsupported media type response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect systemprompt resource unsupported media type response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteArchitectSystempromptResourceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteArchitectSystempromptResourceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteArchitectSystempromptResourceTooManyRequests() *DeleteArchitectSys
 	return &DeleteArchitectSystempromptResourceTooManyRequests{}
 }
 
-/*DeleteArchitectSystempromptResourceTooManyRequests handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteArchitectSystempromptResourceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource too many requests response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource too many requests response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource too many requests response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect systemprompt resource too many requests response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect systemprompt resource too many requests response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteArchitectSystempromptResourceTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteArchitectSystempromptResourceTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteArchitectSystempromptResourceInternalServerError() *DeleteArchitec
 	return &DeleteArchitectSystempromptResourceInternalServerError{}
 }
 
-/*DeleteArchitectSystempromptResourceInternalServerError handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteArchitectSystempromptResourceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource internal server error response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource internal server error response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource internal server error response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect systemprompt resource internal server error response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect systemprompt resource internal server error response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteArchitectSystempromptResourceInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteArchitectSystempromptResourceInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteArchitectSystempromptResourceServiceUnavailable() *DeleteArchitect
 	return &DeleteArchitectSystempromptResourceServiceUnavailable{}
 }
 
-/*DeleteArchitectSystempromptResourceServiceUnavailable handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteArchitectSystempromptResourceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource service unavailable response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource service unavailable response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource service unavailable response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect systemprompt resource service unavailable response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect systemprompt resource service unavailable response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteArchitectSystempromptResourceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteArchitectSystempromptResourceServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteArchitectSystempromptResourceGatewayTimeout() *DeleteArchitectSyst
 	return &DeleteArchitectSystempromptResourceGatewayTimeout{}
 }
 
-/*DeleteArchitectSystempromptResourceGatewayTimeout handles this case with default header values.
+/*
+DeleteArchitectSystempromptResourceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteArchitectSystempromptResourceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect systemprompt resource gateway timeout response has a 2xx status code
+func (o *DeleteArchitectSystempromptResourceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect systemprompt resource gateway timeout response has a 3xx status code
+func (o *DeleteArchitectSystempromptResourceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect systemprompt resource gateway timeout response has a 4xx status code
+func (o *DeleteArchitectSystempromptResourceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect systemprompt resource gateway timeout response has a 5xx status code
+func (o *DeleteArchitectSystempromptResourceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect systemprompt resource gateway timeout response a status code equal to that given
+func (o *DeleteArchitectSystempromptResourceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteArchitectSystempromptResourceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteArchitectSystempromptResourceGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/systemprompts/{promptId}/resources/{languageCode}][%d] deleteArchitectSystempromptResourceGatewayTimeout  %+v", 504, o.Payload)
 }
 

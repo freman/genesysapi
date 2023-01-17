@@ -95,7 +95,6 @@ func (o *DeleteIdentityprovidersGenericReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteIdentityprovidersGenericOK() *DeleteIdentityprovidersGenericOK {
 	return &DeleteIdentityprovidersGenericOK{}
 }
 
-/*DeleteIdentityprovidersGenericOK handles this case with default header values.
+/*
+DeleteIdentityprovidersGenericOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteIdentityprovidersGenericOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete identityproviders generic o k response has a 2xx status code
+func (o *DeleteIdentityprovidersGenericOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete identityproviders generic o k response has a 3xx status code
+func (o *DeleteIdentityprovidersGenericOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders generic o k response has a 4xx status code
+func (o *DeleteIdentityprovidersGenericOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders generic o k response has a 5xx status code
+func (o *DeleteIdentityprovidersGenericOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders generic o k response a status code equal to that given
+func (o *DeleteIdentityprovidersGenericOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteIdentityprovidersGenericOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersGenericOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewDeleteIdentityprovidersGenericBadRequest() *DeleteIdentityprovidersGener
 	return &DeleteIdentityprovidersGenericBadRequest{}
 }
 
-/*DeleteIdentityprovidersGenericBadRequest handles this case with default header values.
+/*
+DeleteIdentityprovidersGenericBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type DeleteIdentityprovidersGenericBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders generic bad request response has a 2xx status code
+func (o *DeleteIdentityprovidersGenericBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders generic bad request response has a 3xx status code
+func (o *DeleteIdentityprovidersGenericBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders generic bad request response has a 4xx status code
+func (o *DeleteIdentityprovidersGenericBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders generic bad request response has a 5xx status code
+func (o *DeleteIdentityprovidersGenericBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders generic bad request response a status code equal to that given
+func (o *DeleteIdentityprovidersGenericBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteIdentityprovidersGenericBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersGenericBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteIdentityprovidersGenericUnauthorized() *DeleteIdentityprovidersGen
 	return &DeleteIdentityprovidersGenericUnauthorized{}
 }
 
-/*DeleteIdentityprovidersGenericUnauthorized handles this case with default header values.
+/*
+DeleteIdentityprovidersGenericUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type DeleteIdentityprovidersGenericUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders generic unauthorized response has a 2xx status code
+func (o *DeleteIdentityprovidersGenericUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders generic unauthorized response has a 3xx status code
+func (o *DeleteIdentityprovidersGenericUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders generic unauthorized response has a 4xx status code
+func (o *DeleteIdentityprovidersGenericUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders generic unauthorized response has a 5xx status code
+func (o *DeleteIdentityprovidersGenericUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders generic unauthorized response a status code equal to that given
+func (o *DeleteIdentityprovidersGenericUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteIdentityprovidersGenericUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersGenericUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteIdentityprovidersGenericForbidden() *DeleteIdentityprovidersGeneri
 	return &DeleteIdentityprovidersGenericForbidden{}
 }
 
-/*DeleteIdentityprovidersGenericForbidden handles this case with default header values.
+/*
+DeleteIdentityprovidersGenericForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type DeleteIdentityprovidersGenericForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders generic forbidden response has a 2xx status code
+func (o *DeleteIdentityprovidersGenericForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders generic forbidden response has a 3xx status code
+func (o *DeleteIdentityprovidersGenericForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders generic forbidden response has a 4xx status code
+func (o *DeleteIdentityprovidersGenericForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders generic forbidden response has a 5xx status code
+func (o *DeleteIdentityprovidersGenericForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders generic forbidden response a status code equal to that given
+func (o *DeleteIdentityprovidersGenericForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteIdentityprovidersGenericForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersGenericForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteIdentityprovidersGenericNotFound() *DeleteIdentityprovidersGeneric
 	return &DeleteIdentityprovidersGenericNotFound{}
 }
 
-/*DeleteIdentityprovidersGenericNotFound handles this case with default header values.
+/*
+DeleteIdentityprovidersGenericNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type DeleteIdentityprovidersGenericNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders generic not found response has a 2xx status code
+func (o *DeleteIdentityprovidersGenericNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders generic not found response has a 3xx status code
+func (o *DeleteIdentityprovidersGenericNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders generic not found response has a 4xx status code
+func (o *DeleteIdentityprovidersGenericNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders generic not found response has a 5xx status code
+func (o *DeleteIdentityprovidersGenericNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders generic not found response a status code equal to that given
+func (o *DeleteIdentityprovidersGenericNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteIdentityprovidersGenericNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersGenericNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteIdentityprovidersGenericRequestTimeout() *DeleteIdentityprovidersG
 	return &DeleteIdentityprovidersGenericRequestTimeout{}
 }
 
-/*DeleteIdentityprovidersGenericRequestTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersGenericRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type DeleteIdentityprovidersGenericRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders generic request timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersGenericRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders generic request timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersGenericRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders generic request timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersGenericRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders generic request timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersGenericRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders generic request timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersGenericRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteIdentityprovidersGenericRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersGenericRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteIdentityprovidersGenericRequestEntityTooLarge() *DeleteIdentitypro
 	return &DeleteIdentityprovidersGenericRequestEntityTooLarge{}
 }
 
-/*DeleteIdentityprovidersGenericRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteIdentityprovidersGenericRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type DeleteIdentityprovidersGenericRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders generic request entity too large response has a 2xx status code
+func (o *DeleteIdentityprovidersGenericRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders generic request entity too large response has a 3xx status code
+func (o *DeleteIdentityprovidersGenericRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders generic request entity too large response has a 4xx status code
+func (o *DeleteIdentityprovidersGenericRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders generic request entity too large response has a 5xx status code
+func (o *DeleteIdentityprovidersGenericRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders generic request entity too large response a status code equal to that given
+func (o *DeleteIdentityprovidersGenericRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteIdentityprovidersGenericRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersGenericRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteIdentityprovidersGenericUnsupportedMediaType() *DeleteIdentityprov
 	return &DeleteIdentityprovidersGenericUnsupportedMediaType{}
 }
 
-/*DeleteIdentityprovidersGenericUnsupportedMediaType handles this case with default header values.
+/*
+DeleteIdentityprovidersGenericUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type DeleteIdentityprovidersGenericUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders generic unsupported media type response has a 2xx status code
+func (o *DeleteIdentityprovidersGenericUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders generic unsupported media type response has a 3xx status code
+func (o *DeleteIdentityprovidersGenericUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders generic unsupported media type response has a 4xx status code
+func (o *DeleteIdentityprovidersGenericUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders generic unsupported media type response has a 5xx status code
+func (o *DeleteIdentityprovidersGenericUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders generic unsupported media type response a status code equal to that given
+func (o *DeleteIdentityprovidersGenericUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteIdentityprovidersGenericUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersGenericUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteIdentityprovidersGenericTooManyRequests() *DeleteIdentityproviders
 	return &DeleteIdentityprovidersGenericTooManyRequests{}
 }
 
-/*DeleteIdentityprovidersGenericTooManyRequests handles this case with default header values.
+/*
+DeleteIdentityprovidersGenericTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type DeleteIdentityprovidersGenericTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders generic too many requests response has a 2xx status code
+func (o *DeleteIdentityprovidersGenericTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders generic too many requests response has a 3xx status code
+func (o *DeleteIdentityprovidersGenericTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders generic too many requests response has a 4xx status code
+func (o *DeleteIdentityprovidersGenericTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders generic too many requests response has a 5xx status code
+func (o *DeleteIdentityprovidersGenericTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders generic too many requests response a status code equal to that given
+func (o *DeleteIdentityprovidersGenericTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteIdentityprovidersGenericTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersGenericTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteIdentityprovidersGenericInternalServerError() *DeleteIdentityprovi
 	return &DeleteIdentityprovidersGenericInternalServerError{}
 }
 
-/*DeleteIdentityprovidersGenericInternalServerError handles this case with default header values.
+/*
+DeleteIdentityprovidersGenericInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type DeleteIdentityprovidersGenericInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders generic internal server error response has a 2xx status code
+func (o *DeleteIdentityprovidersGenericInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders generic internal server error response has a 3xx status code
+func (o *DeleteIdentityprovidersGenericInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders generic internal server error response has a 4xx status code
+func (o *DeleteIdentityprovidersGenericInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders generic internal server error response has a 5xx status code
+func (o *DeleteIdentityprovidersGenericInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders generic internal server error response a status code equal to that given
+func (o *DeleteIdentityprovidersGenericInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteIdentityprovidersGenericInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersGenericInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteIdentityprovidersGenericServiceUnavailable() *DeleteIdentityprovid
 	return &DeleteIdentityprovidersGenericServiceUnavailable{}
 }
 
-/*DeleteIdentityprovidersGenericServiceUnavailable handles this case with default header values.
+/*
+DeleteIdentityprovidersGenericServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type DeleteIdentityprovidersGenericServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders generic service unavailable response has a 2xx status code
+func (o *DeleteIdentityprovidersGenericServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders generic service unavailable response has a 3xx status code
+func (o *DeleteIdentityprovidersGenericServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders generic service unavailable response has a 4xx status code
+func (o *DeleteIdentityprovidersGenericServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders generic service unavailable response has a 5xx status code
+func (o *DeleteIdentityprovidersGenericServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders generic service unavailable response a status code equal to that given
+func (o *DeleteIdentityprovidersGenericServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteIdentityprovidersGenericServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersGenericServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteIdentityprovidersGenericGatewayTimeout() *DeleteIdentityprovidersG
 	return &DeleteIdentityprovidersGenericGatewayTimeout{}
 }
 
-/*DeleteIdentityprovidersGenericGatewayTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersGenericGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type DeleteIdentityprovidersGenericGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders generic gateway timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersGenericGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders generic gateway timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersGenericGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders generic gateway timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersGenericGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders generic gateway timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersGenericGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders generic gateway timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersGenericGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteIdentityprovidersGenericGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersGenericGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/generic][%d] deleteIdentityprovidersGenericGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -101,7 +101,6 @@ func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportReader) ReadResponse(re
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportOK() *GetKnowledgeKnowle
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportOK{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportOK handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportOK describes a response with status code 200, with default header values.
 
 Finished import operation
 */
@@ -120,7 +120,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportOK struct {
 	Payload *models.KnowledgeImport
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import o k response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import o k response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import o k response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import o k response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import o k response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportOK  %+v", 200, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted() *GetKnowledge
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted describes a response with status code 202, with default header values.
 
 Pending import operation
 */
@@ -153,7 +183,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted struct {
 	Payload *models.KnowledgeImport
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import accepted response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import accepted response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import accepted response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import accepted response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import accepted response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportAccepted  %+v", 202, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportAccepted) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest() *GetKnowled
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import bad request response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import bad request response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import bad request response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import bad request response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import bad request response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized() *GetKnowl
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import unauthorized response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import unauthorized response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import unauthorized response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import unauthorized response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import unauthorized response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportForbidden() *GetKnowledg
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportForbidden{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportForbidden handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import forbidden response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import forbidden response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import forbidden response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import forbidden response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import forbidden response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportNotFound() *GetKnowledge
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportNotFound{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportNotFound handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import not found response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import not found response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import not found response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import not found response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import not found response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout() *GetKno
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import request timeout response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import request timeout response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import request timeout response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import request timeout response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import request timeout response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge() 
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import request entity too large response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import request entity too large response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import request entity too large response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import request entity too large response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import request entity too large response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType() *
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import unsupported media type response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import unsupported media type response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import unsupported media type response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import unsupported media type response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import unsupported media type response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests() *GetKn
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import too many requests response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import too many requests response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import too many requests response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import too many requests response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import too many requests response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError() *G
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import internal server error response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import internal server error response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import internal server error response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import internal server error response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import internal server error response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable() *Ge
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import service unavailable response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import service unavailable response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import service unavailable response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import service unavailable response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import service unavailable response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewGetKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout() *GetKno
 	return &GetKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout{}
 }
 
-/*GetKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type GetKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase language documents import gateway timeout response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase language documents import gateway timeout response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase language documents import gateway timeout response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase language documents import gateway timeout response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase language documents import gateway timeout response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/documents/imports/{importId}][%d] getKnowledgeKnowledgebaseLanguageDocumentsImportGatewayTimeout  %+v", 504, o.Payload)
 }
 

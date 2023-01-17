@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -199,7 +200,6 @@ func (m *Call) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Call) validateAfterCallWork(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AfterCallWork) { // not required
 		return nil
 	}
@@ -208,6 +208,8 @@ func (m *Call) validateAfterCallWork(formats strfmt.Registry) error {
 		if err := m.AfterCallWork.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
 			}
 			return err
 		}
@@ -217,7 +219,6 @@ func (m *Call) validateAfterCallWork(formats strfmt.Registry) error {
 }
 
 func (m *Call) validateConnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectedTime) { // not required
 		return nil
 	}
@@ -259,7 +260,6 @@ func (m *Call) validateDirectionEnum(path, location string, value string) error 
 }
 
 func (m *Call) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -273,7 +273,6 @@ func (m *Call) validateDirection(formats strfmt.Registry) error {
 }
 
 func (m *Call) validateDisconnectReasons(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectReasons) { // not required
 		return nil
 	}
@@ -287,6 +286,8 @@ func (m *Call) validateDisconnectReasons(formats strfmt.Registry) error {
 			if err := m.DisconnectReasons[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("disconnectReasons" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("disconnectReasons" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -326,23 +327,23 @@ const (
 	// CallDisconnectTypeTransfer captures enum value "transfer"
 	CallDisconnectTypeTransfer string = "transfer"
 
-	// CallDisconnectTypeTransferConference captures enum value "transfer.conference"
-	CallDisconnectTypeTransferConference string = "transfer.conference"
+	// CallDisconnectTypeTransferDotConference captures enum value "transfer.conference"
+	CallDisconnectTypeTransferDotConference string = "transfer.conference"
 
-	// CallDisconnectTypeTransferConsult captures enum value "transfer.consult"
-	CallDisconnectTypeTransferConsult string = "transfer.consult"
+	// CallDisconnectTypeTransferDotConsult captures enum value "transfer.consult"
+	CallDisconnectTypeTransferDotConsult string = "transfer.consult"
 
-	// CallDisconnectTypeTransferForward captures enum value "transfer.forward"
-	CallDisconnectTypeTransferForward string = "transfer.forward"
+	// CallDisconnectTypeTransferDotForward captures enum value "transfer.forward"
+	CallDisconnectTypeTransferDotForward string = "transfer.forward"
 
-	// CallDisconnectTypeTransferNoanswer captures enum value "transfer.noanswer"
-	CallDisconnectTypeTransferNoanswer string = "transfer.noanswer"
+	// CallDisconnectTypeTransferDotNoanswer captures enum value "transfer.noanswer"
+	CallDisconnectTypeTransferDotNoanswer string = "transfer.noanswer"
 
-	// CallDisconnectTypeTransferNotavailable captures enum value "transfer.notavailable"
-	CallDisconnectTypeTransferNotavailable string = "transfer.notavailable"
+	// CallDisconnectTypeTransferDotNotavailable captures enum value "transfer.notavailable"
+	CallDisconnectTypeTransferDotNotavailable string = "transfer.notavailable"
 
-	// CallDisconnectTypeTransportFailure captures enum value "transport.failure"
-	CallDisconnectTypeTransportFailure string = "transport.failure"
+	// CallDisconnectTypeTransportDotFailure captures enum value "transport.failure"
+	CallDisconnectTypeTransportDotFailure string = "transport.failure"
 
 	// CallDisconnectTypeError captures enum value "error"
 	CallDisconnectTypeError string = "error"
@@ -369,7 +370,6 @@ func (m *Call) validateDisconnectTypeEnum(path, location string, value string) e
 }
 
 func (m *Call) validateDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectType) { // not required
 		return nil
 	}
@@ -383,7 +383,6 @@ func (m *Call) validateDisconnectType(formats strfmt.Registry) error {
 }
 
 func (m *Call) validateDisconnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectedTime) { // not required
 		return nil
 	}
@@ -396,7 +395,6 @@ func (m *Call) validateDisconnectedTime(formats strfmt.Registry) error {
 }
 
 func (m *Call) validateErrorInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorInfo) { // not required
 		return nil
 	}
@@ -405,6 +403,8 @@ func (m *Call) validateErrorInfo(formats strfmt.Registry) error {
 		if err := m.ErrorInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInfo")
 			}
 			return err
 		}
@@ -414,7 +414,6 @@ func (m *Call) validateErrorInfo(formats strfmt.Registry) error {
 }
 
 func (m *Call) validateFaxStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FaxStatus) { // not required
 		return nil
 	}
@@ -423,6 +422,8 @@ func (m *Call) validateFaxStatus(formats strfmt.Registry) error {
 		if err := m.FaxStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("faxStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("faxStatus")
 			}
 			return err
 		}
@@ -488,7 +489,6 @@ func (m *Call) validateInitialStateEnum(path, location string, value string) err
 }
 
 func (m *Call) validateInitialState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitialState) { // not required
 		return nil
 	}
@@ -502,7 +502,6 @@ func (m *Call) validateInitialState(formats strfmt.Registry) error {
 }
 
 func (m *Call) validateOther(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Other) { // not required
 		return nil
 	}
@@ -511,6 +510,8 @@ func (m *Call) validateOther(formats strfmt.Registry) error {
 		if err := m.Other.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("other")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("other")
 			}
 			return err
 		}
@@ -552,7 +553,6 @@ func (m *Call) validateRecordingStateEnum(path, location string, value string) e
 }
 
 func (m *Call) validateRecordingState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RecordingState) { // not required
 		return nil
 	}
@@ -566,7 +566,6 @@ func (m *Call) validateRecordingState(formats strfmt.Registry) error {
 }
 
 func (m *Call) validateSegments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Segments) { // not required
 		return nil
 	}
@@ -580,6 +579,8 @@ func (m *Call) validateSegments(formats strfmt.Registry) error {
 			if err := m.Segments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -591,7 +592,6 @@ func (m *Call) validateSegments(formats strfmt.Registry) error {
 }
 
 func (m *Call) validateSelf(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Self) { // not required
 		return nil
 	}
@@ -600,6 +600,8 @@ func (m *Call) validateSelf(formats strfmt.Registry) error {
 		if err := m.Self.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("self")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("self")
 			}
 			return err
 		}
@@ -609,7 +611,6 @@ func (m *Call) validateSelf(formats strfmt.Registry) error {
 }
 
 func (m *Call) validateStartAlertingTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartAlertingTime) { // not required
 		return nil
 	}
@@ -622,7 +623,6 @@ func (m *Call) validateStartAlertingTime(formats strfmt.Registry) error {
 }
 
 func (m *Call) validateStartHoldTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartHoldTime) { // not required
 		return nil
 	}
@@ -691,7 +691,6 @@ func (m *Call) validateStateEnum(path, location string, value string) error {
 }
 
 func (m *Call) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -705,7 +704,6 @@ func (m *Call) validateState(formats strfmt.Registry) error {
 }
 
 func (m *Call) validateWrapup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Wrapup) { // not required
 		return nil
 	}
@@ -714,6 +712,186 @@ func (m *Call) validateWrapup(formats strfmt.Registry) error {
 		if err := m.Wrapup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this call based on the context it is used
+func (m *Call) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAfterCallWork(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDisconnectReasons(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateErrorInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFaxStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOther(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSegments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelf(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Call) contextValidateAfterCallWork(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Call) contextValidateDisconnectReasons(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DisconnectReasons); i++ {
+
+		if m.DisconnectReasons[i] != nil {
+			if err := m.DisconnectReasons[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("disconnectReasons" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("disconnectReasons" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Call) contextValidateErrorInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ErrorInfo != nil {
+		if err := m.ErrorInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Call) contextValidateFaxStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.FaxStatus != nil {
+		if err := m.FaxStatus.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("faxStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("faxStatus")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Call) contextValidateOther(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Other != nil {
+		if err := m.Other.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("other")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("other")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Call) contextValidateSegments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Segments); i++ {
+
+		if m.Segments[i] != nil {
+			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Call) contextValidateSelf(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Self != nil {
+		if err := m.Self.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("self")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("self")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Call) contextValidateWrapup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Wrapup != nil {
+		if err := m.Wrapup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
 			}
 			return err
 		}

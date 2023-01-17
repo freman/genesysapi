@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutIdentityprovidersPingParams creates a new PutIdentityprovidersPingParams object
-// with the default values initialized.
+// NewPutIdentityprovidersPingParams creates a new PutIdentityprovidersPingParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutIdentityprovidersPingParams() *PutIdentityprovidersPingParams {
-	var ()
 	return &PutIdentityprovidersPingParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutIdentityprovidersPingParamsWithTimeout creates a new PutIdentityprovidersPingParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutIdentityprovidersPingParamsWithTimeout(timeout time.Duration) *PutIdentityprovidersPingParams {
-	var ()
 	return &PutIdentityprovidersPingParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutIdentityprovidersPingParamsWithContext creates a new PutIdentityprovidersPingParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutIdentityprovidersPingParamsWithContext(ctx context.Context) *PutIdentityprovidersPingParams {
-	var ()
 	return &PutIdentityprovidersPingParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutIdentityprovidersPingParamsWithHTTPClient creates a new PutIdentityprovidersPingParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutIdentityprovidersPingParamsWithHTTPClient(client *http.Client) *PutIdentityprovidersPingParams {
-	var ()
 	return &PutIdentityprovidersPingParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutIdentityprovidersPingParams contains all the parameters to send to the API endpoint
-for the put identityproviders ping operation typically these are written to a http.Request
+/*
+PutIdentityprovidersPingParams contains all the parameters to send to the API endpoint
+
+	for the put identityproviders ping operation.
+
+	Typically these are written to a http.Request.
 */
 type PutIdentityprovidersPingParams struct {
 
-	/*Body
-	  Provider
+	/* Body.
 
+	   Provider
 	*/
 	Body *models.PingIdentity
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put identityproviders ping params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersPingParams) WithDefaults() *PutIdentityprovidersPingParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put identityproviders ping params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutIdentityprovidersPingParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put identityproviders ping params
@@ -124,7 +140,6 @@ func (o *PutIdentityprovidersPingParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

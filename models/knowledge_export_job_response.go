@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -38,6 +39,11 @@ type KnowledgeExportJobResponse struct {
 
 	// Filters to narrow down what to export.
 	ExportFilter *KnowledgeExportJobFilter `json:"exportFilter,omitempty"`
+
+	// File type of the document
+	// Required: true
+	// Enum: [Json Csv Xlsx]
+	FileType *string `json:"fileType"`
 
 	// Id of the export job.
 	ID string `json:"id,omitempty"`
@@ -75,6 +81,10 @@ func (m *KnowledgeExportJobResponse) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateFileType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateKnowledgeBase(formats); err != nil {
 		res = append(res, err)
 	}
@@ -94,7 +104,6 @@ func (m *KnowledgeExportJobResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeExportJobResponse) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -107,7 +116,6 @@ func (m *KnowledgeExportJobResponse) validateDateCreated(formats strfmt.Registry
 }
 
 func (m *KnowledgeExportJobResponse) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -120,7 +128,6 @@ func (m *KnowledgeExportJobResponse) validateDateModified(formats strfmt.Registr
 }
 
 func (m *KnowledgeExportJobResponse) validateErrorInformation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorInformation) { // not required
 		return nil
 	}
@@ -129,6 +136,8 @@ func (m *KnowledgeExportJobResponse) validateErrorInformation(formats strfmt.Reg
 		if err := m.ErrorInformation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errorInformation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInformation")
 			}
 			return err
 		}
@@ -138,7 +147,6 @@ func (m *KnowledgeExportJobResponse) validateErrorInformation(formats strfmt.Reg
 }
 
 func (m *KnowledgeExportJobResponse) validateExportFilter(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExportFilter) { // not required
 		return nil
 	}
@@ -147,6 +155,8 @@ func (m *KnowledgeExportJobResponse) validateExportFilter(formats strfmt.Registr
 		if err := m.ExportFilter.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("exportFilter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("exportFilter")
 			}
 			return err
 		}
@@ -155,8 +165,53 @@ func (m *KnowledgeExportJobResponse) validateExportFilter(formats strfmt.Registr
 	return nil
 }
 
-func (m *KnowledgeExportJobResponse) validateKnowledgeBase(formats strfmt.Registry) error {
+var knowledgeExportJobResponseTypeFileTypePropEnum []interface{}
 
+func init() {
+	var res []string
+	if err := json.Unmarshal([]byte(`["Json","Csv","Xlsx"]`), &res); err != nil {
+		panic(err)
+	}
+	for _, v := range res {
+		knowledgeExportJobResponseTypeFileTypePropEnum = append(knowledgeExportJobResponseTypeFileTypePropEnum, v)
+	}
+}
+
+const (
+
+	// KnowledgeExportJobResponseFileTypeJSON captures enum value "Json"
+	KnowledgeExportJobResponseFileTypeJSON string = "Json"
+
+	// KnowledgeExportJobResponseFileTypeCsv captures enum value "Csv"
+	KnowledgeExportJobResponseFileTypeCsv string = "Csv"
+
+	// KnowledgeExportJobResponseFileTypeXlsx captures enum value "Xlsx"
+	KnowledgeExportJobResponseFileTypeXlsx string = "Xlsx"
+)
+
+// prop value enum
+func (m *KnowledgeExportJobResponse) validateFileTypeEnum(path, location string, value string) error {
+	if err := validate.EnumCase(path, location, value, knowledgeExportJobResponseTypeFileTypePropEnum, true); err != nil {
+		return err
+	}
+	return nil
+}
+
+func (m *KnowledgeExportJobResponse) validateFileType(formats strfmt.Registry) error {
+
+	if err := validate.Required("fileType", "body", m.FileType); err != nil {
+		return err
+	}
+
+	// value enum
+	if err := m.validateFileTypeEnum("fileType", "body", *m.FileType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeExportJobResponse) validateKnowledgeBase(formats strfmt.Registry) error {
 	if swag.IsZero(m.KnowledgeBase) { // not required
 		return nil
 	}
@@ -165,6 +220,8 @@ func (m *KnowledgeExportJobResponse) validateKnowledgeBase(formats strfmt.Regist
 		if err := m.KnowledgeBase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
 			}
 			return err
 		}
@@ -174,7 +231,6 @@ func (m *KnowledgeExportJobResponse) validateKnowledgeBase(formats strfmt.Regist
 }
 
 func (m *KnowledgeExportJobResponse) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -243,13 +299,95 @@ func (m *KnowledgeExportJobResponse) validateStatusEnum(path, location string, v
 }
 
 func (m *KnowledgeExportJobResponse) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge export job response based on the context it is used
+func (m *KnowledgeExportJobResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateErrorInformation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExportFilter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKnowledgeBase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeExportJobResponse) contextValidateErrorInformation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ErrorInformation != nil {
+		if err := m.ErrorInformation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorInformation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInformation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeExportJobResponse) contextValidateExportFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ExportFilter != nil {
+		if err := m.ExportFilter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("exportFilter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("exportFilter")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeExportJobResponse) contextValidateKnowledgeBase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KnowledgeBase != nil {
+		if err := m.KnowledgeBase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeExportJobResponse) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

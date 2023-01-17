@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationLeaderboardAllBestpointsParams creates a new GetGamificationLeaderboardAllBestpointsParams object
-// with the default values initialized.
+// NewGetGamificationLeaderboardAllBestpointsParams creates a new GetGamificationLeaderboardAllBestpointsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationLeaderboardAllBestpointsParams() *GetGamificationLeaderboardAllBestpointsParams {
-	var ()
 	return &GetGamificationLeaderboardAllBestpointsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationLeaderboardAllBestpointsParamsWithTimeout creates a new GetGamificationLeaderboardAllBestpointsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationLeaderboardAllBestpointsParamsWithTimeout(timeout time.Duration) *GetGamificationLeaderboardAllBestpointsParams {
-	var ()
 	return &GetGamificationLeaderboardAllBestpointsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationLeaderboardAllBestpointsParamsWithContext creates a new GetGamificationLeaderboardAllBestpointsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationLeaderboardAllBestpointsParamsWithContext(ctx context.Context) *GetGamificationLeaderboardAllBestpointsParams {
-	var ()
 	return &GetGamificationLeaderboardAllBestpointsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationLeaderboardAllBestpointsParamsWithHTTPClient creates a new GetGamificationLeaderboardAllBestpointsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationLeaderboardAllBestpointsParamsWithHTTPClient(client *http.Client) *GetGamificationLeaderboardAllBestpointsParams {
-	var ()
 	return &GetGamificationLeaderboardAllBestpointsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationLeaderboardAllBestpointsParams contains all the parameters to send to the API endpoint
-for the get gamification leaderboard all bestpoints operation typically these are written to a http.Request
+/*
+GetGamificationLeaderboardAllBestpointsParams contains all the parameters to send to the API endpoint
+
+	for the get gamification leaderboard all bestpoints operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationLeaderboardAllBestpointsParams struct {
 
-	/*FilterID
-	  ID for the filter type. For example, division or performance profile Id
+	/* FilterID.
 
+	   ID for the filter type. For example, division or performance profile Id
 	*/
 	FilterID string
-	/*FilterType
-	  Filter type for the query request.
 
+	/* FilterType.
+
+	   Filter type for the query request.
 	*/
 	FilterType string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification leaderboard all bestpoints params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationLeaderboardAllBestpointsParams) WithDefaults() *GetGamificationLeaderboardAllBestpointsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification leaderboard all bestpoints params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationLeaderboardAllBestpointsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification leaderboard all bestpoints params
@@ -143,6 +160,7 @@ func (o *GetGamificationLeaderboardAllBestpointsParams) WriteToRequest(r runtime
 	qrFilterID := o.FilterID
 	qFilterID := qrFilterID
 	if qFilterID != "" {
+
 		if err := r.SetQueryParam("filterId", qFilterID); err != nil {
 			return err
 		}
@@ -152,6 +170,7 @@ func (o *GetGamificationLeaderboardAllBestpointsParams) WriteToRequest(r runtime
 	qrFilterType := o.FilterType
 	qFilterType := qrFilterType
 	if qFilterType != "" {
+
 		if err := r.SetQueryParam("filterType", qFilterType); err != nil {
 			return err
 		}

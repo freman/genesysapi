@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementManagementunitWorkplanrotationCopyParams creates a new PostWorkforcemanagementManagementunitWorkplanrotationCopyParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementManagementunitWorkplanrotationCopyParams creates a new PostWorkforcemanagementManagementunitWorkplanrotationCopyParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyParams() *PostWorkforcemanagementManagementunitWorkplanrotationCopyParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWorkplanrotationCopyParamsWithTimeout creates a new PostWorkforcemanagementManagementunitWorkplanrotationCopyParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementManagementunitWorkplanrotationCopyParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWorkplanrotationCopyParamsWithContext creates a new PostWorkforcemanagementManagementunitWorkplanrotationCopyParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyParamsWithContext(ctx context.Context) *PostWorkforcemanagementManagementunitWorkplanrotationCopyParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementManagementunitWorkplanrotationCopyParamsWithHTTPClient creates a new PostWorkforcemanagementManagementunitWorkplanrotationCopyParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementManagementunitWorkplanrotationCopyParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementManagementunitWorkplanrotationCopyParams {
-	var ()
 	return &PostWorkforcemanagementManagementunitWorkplanrotationCopyParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementManagementunitWorkplanrotationCopyParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement managementunit workplanrotation copy operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementManagementunitWorkplanrotationCopyParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement managementunit workplanrotation copy operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementManagementunitWorkplanrotationCopyParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.CopyWorkPlanRotationRequest
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
-	/*WorkPlanRotationID
-	  The ID of the work plan rotation to create a copy
 
+	/* WorkPlanRotationID.
+
+	   The ID of the work plan rotation to create a copy
 	*/
 	WorkPlanRotationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement managementunit workplanrotation copy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyParams) WithDefaults() *PostWorkforcemanagementManagementunitWorkplanrotationCopyParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement managementunit workplanrotation copy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement managementunit workplanrotation copy params
@@ -156,7 +174,6 @@ func (o *PostWorkforcemanagementManagementunitWorkplanrotationCopyParams) WriteT
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

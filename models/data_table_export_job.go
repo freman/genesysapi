@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -97,7 +98,6 @@ func (m *DataTableExportJob) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DataTableExportJob) validateDateCompleted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCompleted) { // not required
 		return nil
 	}
@@ -110,7 +110,6 @@ func (m *DataTableExportJob) validateDateCompleted(formats strfmt.Registry) erro
 }
 
 func (m *DataTableExportJob) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -123,7 +122,6 @@ func (m *DataTableExportJob) validateDateCreated(formats strfmt.Registry) error 
 }
 
 func (m *DataTableExportJob) validateDownloadURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DownloadURI) { // not required
 		return nil
 	}
@@ -136,7 +134,6 @@ func (m *DataTableExportJob) validateDownloadURI(formats strfmt.Registry) error 
 }
 
 func (m *DataTableExportJob) validateErrorInformation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorInformation) { // not required
 		return nil
 	}
@@ -145,6 +142,8 @@ func (m *DataTableExportJob) validateErrorInformation(formats strfmt.Registry) e
 		if err := m.ErrorInformation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errorInformation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInformation")
 			}
 			return err
 		}
@@ -154,7 +153,6 @@ func (m *DataTableExportJob) validateErrorInformation(formats strfmt.Registry) e
 }
 
 func (m *DataTableExportJob) validateOwner(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Owner) { // not required
 		return nil
 	}
@@ -163,6 +161,8 @@ func (m *DataTableExportJob) validateOwner(formats strfmt.Registry) error {
 		if err := m.Owner.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("owner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("owner")
 			}
 			return err
 		}
@@ -172,7 +172,6 @@ func (m *DataTableExportJob) validateOwner(formats strfmt.Registry) error {
 }
 
 func (m *DataTableExportJob) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -224,6 +223,82 @@ func (m *DataTableExportJob) validateStatus(formats strfmt.Registry) error {
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", *m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this data table export job based on the context it is used
+func (m *DataTableExportJob) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateErrorInformation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOwner(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DataTableExportJob) contextValidateErrorInformation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ErrorInformation != nil {
+		if err := m.ErrorInformation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorInformation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInformation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DataTableExportJob) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DataTableExportJob) contextValidateOwner(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Owner != nil {
+		if err := m.Owner.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("owner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("owner")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DataTableExportJob) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

@@ -118,11 +118,11 @@ type API interface {
 	*/
 	GetRecordingKeyconfigurations(ctx context.Context, params *GetRecordingKeyconfigurationsParams) (*GetRecordingKeyconfigurationsOK, error)
 	/*
-	   GetRecordingLocalkeysSetting gets the local encryption settings
+	   GetRecordingLocalkeysSetting gets the local encryption settings replaced by API recording keyconfigurations key configuration Id
 	*/
 	GetRecordingLocalkeysSetting(ctx context.Context, params *GetRecordingLocalkeysSettingParams) (*GetRecordingLocalkeysSettingOK, error)
 	/*
-	   GetRecordingLocalkeysSettings gets a list local key settings data
+	   GetRecordingLocalkeysSettings gets a list local key settings data replaced by API recording keyconfigurations
 	*/
 	GetRecordingLocalkeysSettings(ctx context.Context, params *GetRecordingLocalkeysSettingsParams) (*GetRecordingLocalkeysSettingsOK, error)
 	/*
@@ -146,6 +146,10 @@ type API interface {
 	   GetRecordingSettings gets the recording settings for the organization
 	*/
 	GetRecordingSettings(ctx context.Context, params *GetRecordingSettingsParams) (*GetRecordingSettingsOK, error)
+	/*
+	   GetRecordingUploadsReport gets the status of a recording upload status report
+	*/
+	GetRecordingUploadsReport(ctx context.Context, params *GetRecordingUploadsReportParams) (*GetRecordingUploadsReportOK, error)
 	/*
 	   GetRecordingsRetentionQuery queries for recording retention data
 	*/
@@ -193,11 +197,11 @@ type API interface {
 	*/
 	PostRecordingKeyconfigurationsValidate(ctx context.Context, params *PostRecordingKeyconfigurationsValidateParams) (*PostRecordingKeyconfigurationsValidateOK, error)
 	/*
-	   PostRecordingLocalkeys creates a local recording key
+	   PostRecordingLocalkeys creates a local key management recording key
 	*/
 	PostRecordingLocalkeys(ctx context.Context, params *PostRecordingLocalkeysParams) (*PostRecordingLocalkeysOK, error)
 	/*
-	   PostRecordingLocalkeysSettings creates settings for local key creation
+	   PostRecordingLocalkeysSettings creates settings for local key creation replaced by API recording keyconfigurations
 	*/
 	PostRecordingLocalkeysSettings(ctx context.Context, params *PostRecordingLocalkeysSettingsParams) (*PostRecordingLocalkeysSettingsOK, error)
 	/*
@@ -209,6 +213,10 @@ type API interface {
 	   PostRecordingRecordingkeys creates encryption key
 	*/
 	PostRecordingRecordingkeys(ctx context.Context, params *PostRecordingRecordingkeysParams) (*PostRecordingRecordingkeysOK, error)
+	/*
+	   PostRecordingUploadsReports creates a recording upload status report
+	*/
+	PostRecordingUploadsReports(ctx context.Context, params *PostRecordingUploadsReportsParams) (*PostRecordingUploadsReportsAccepted, error)
 	/*
 	   PostRecordingsDeletionprotection gets a list of conversations with protected recordings
 	*/
@@ -250,7 +258,7 @@ type API interface {
 	*/
 	PutRecordingKeyconfiguration(ctx context.Context, params *PutRecordingKeyconfigurationParams) (*PutRecordingKeyconfigurationOK, error)
 	/*
-	   PutRecordingLocalkeysSetting updates the local encryption settings
+	   PutRecordingLocalkeysSetting updates the local encryption settings replaced by API recording keyconfigurations key configuration Id
 	*/
 	PutRecordingLocalkeysSetting(ctx context.Context, params *PutRecordingLocalkeysSettingParams) (*PutRecordingLocalkeysSettingOK, error)
 	/*
@@ -911,7 +919,7 @@ func (a *Client) GetRecordingKeyconfigurations(ctx context.Context, params *GetR
 }
 
 /*
-GetRecordingLocalkeysSetting gets the local encryption settings
+GetRecordingLocalkeysSetting gets the local encryption settings replaced by API recording keyconfigurations key configuration Id
 */
 func (a *Client) GetRecordingLocalkeysSetting(ctx context.Context, params *GetRecordingLocalkeysSettingParams) (*GetRecordingLocalkeysSettingOK, error) {
 
@@ -936,7 +944,7 @@ func (a *Client) GetRecordingLocalkeysSetting(ctx context.Context, params *GetRe
 }
 
 /*
-GetRecordingLocalkeysSettings gets a list local key settings data
+GetRecordingLocalkeysSettings gets a list local key settings data replaced by API recording keyconfigurations
 */
 func (a *Client) GetRecordingLocalkeysSettings(ctx context.Context, params *GetRecordingLocalkeysSettingsParams) (*GetRecordingLocalkeysSettingsOK, error) {
 
@@ -1084,6 +1092,31 @@ func (a *Client) GetRecordingSettings(ctx context.Context, params *GetRecordingS
 		return nil, err
 	}
 	return result.(*GetRecordingSettingsOK), nil
+
+}
+
+/*
+GetRecordingUploadsReport gets the status of a recording upload status report
+*/
+func (a *Client) GetRecordingUploadsReport(ctx context.Context, params *GetRecordingUploadsReportParams) (*GetRecordingUploadsReportOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getRecordingUploadsReport",
+		Method:             "GET",
+		PathPattern:        "/api/v2/recording/uploads/reports/{reportId}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRecordingUploadsReportReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetRecordingUploadsReportOK), nil
 
 }
 
@@ -1367,7 +1400,7 @@ func (a *Client) PostRecordingKeyconfigurationsValidate(ctx context.Context, par
 }
 
 /*
-PostRecordingLocalkeys creates a local recording key
+PostRecordingLocalkeys creates a local key management recording key
 */
 func (a *Client) PostRecordingLocalkeys(ctx context.Context, params *PostRecordingLocalkeysParams) (*PostRecordingLocalkeysOK, error) {
 
@@ -1392,7 +1425,7 @@ func (a *Client) PostRecordingLocalkeys(ctx context.Context, params *PostRecordi
 }
 
 /*
-PostRecordingLocalkeysSettings creates settings for local key creation
+PostRecordingLocalkeysSettings creates settings for local key creation replaced by API recording keyconfigurations
 */
 func (a *Client) PostRecordingLocalkeysSettings(ctx context.Context, params *PostRecordingLocalkeysSettingsParams) (*PostRecordingLocalkeysSettingsOK, error) {
 
@@ -1465,6 +1498,31 @@ func (a *Client) PostRecordingRecordingkeys(ctx context.Context, params *PostRec
 		return nil, err
 	}
 	return result.(*PostRecordingRecordingkeysOK), nil
+
+}
+
+/*
+PostRecordingUploadsReports creates a recording upload status report
+*/
+func (a *Client) PostRecordingUploadsReports(ctx context.Context, params *PostRecordingUploadsReportsParams) (*PostRecordingUploadsReportsAccepted, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "postRecordingUploadsReports",
+		Method:             "POST",
+		PathPattern:        "/api/v2/recording/uploads/reports",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PostRecordingUploadsReportsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PostRecordingUploadsReportsAccepted), nil
 
 }
 
@@ -1702,7 +1760,7 @@ func (a *Client) PutRecordingKeyconfiguration(ctx context.Context, params *PutRe
 }
 
 /*
-PutRecordingLocalkeysSetting updates the local encryption settings
+PutRecordingLocalkeysSetting updates the local encryption settings replaced by API recording keyconfigurations key configuration Id
 */
 func (a *Client) PutRecordingLocalkeysSetting(ctx context.Context, params *PutRecordingLocalkeysSettingParams) (*PutRecordingLocalkeysSettingOK, error) {
 

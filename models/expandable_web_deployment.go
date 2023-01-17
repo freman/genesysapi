@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -123,6 +124,8 @@ func (m *ExpandableWebDeployment) validateConfiguration(formats strfmt.Registry)
 		if err := m.Configuration.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("configuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("configuration")
 			}
 			return err
 		}
@@ -132,7 +135,6 @@ func (m *ExpandableWebDeployment) validateConfiguration(formats strfmt.Registry)
 }
 
 func (m *ExpandableWebDeployment) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -145,7 +147,6 @@ func (m *ExpandableWebDeployment) validateDateCreated(formats strfmt.Registry) e
 }
 
 func (m *ExpandableWebDeployment) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -158,7 +159,6 @@ func (m *ExpandableWebDeployment) validateDateModified(formats strfmt.Registry) 
 }
 
 func (m *ExpandableWebDeployment) validateFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Flow) { // not required
 		return nil
 	}
@@ -167,6 +167,8 @@ func (m *ExpandableWebDeployment) validateFlow(formats strfmt.Registry) error {
 		if err := m.Flow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
 			}
 			return err
 		}
@@ -176,7 +178,6 @@ func (m *ExpandableWebDeployment) validateFlow(formats strfmt.Registry) error {
 }
 
 func (m *ExpandableWebDeployment) validateLastModifiedUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastModifiedUser) { // not required
 		return nil
 	}
@@ -185,6 +186,8 @@ func (m *ExpandableWebDeployment) validateLastModifiedUser(formats strfmt.Regist
 		if err := m.LastModifiedUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastModifiedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastModifiedUser")
 			}
 			return err
 		}
@@ -203,7 +206,6 @@ func (m *ExpandableWebDeployment) validateName(formats strfmt.Registry) error {
 }
 
 func (m *ExpandableWebDeployment) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -254,13 +256,147 @@ func (m *ExpandableWebDeployment) validateStatusEnum(path, location string, valu
 }
 
 func (m *ExpandableWebDeployment) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this expandable web deployment based on the context it is used
+func (m *ExpandableWebDeployment) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConfiguration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastModifiedUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSnippet(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ExpandableWebDeployment) contextValidateConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Configuration != nil {
+		if err := m.Configuration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("configuration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("configuration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExpandableWebDeployment) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ExpandableWebDeployment) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ExpandableWebDeployment) contextValidateFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Flow != nil {
+		if err := m.Flow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExpandableWebDeployment) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ExpandableWebDeployment) contextValidateLastModifiedUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastModifiedUser != nil {
+		if err := m.LastModifiedUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastModifiedUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastModifiedUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExpandableWebDeployment) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ExpandableWebDeployment) contextValidateSnippet(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "snippet", "body", string(m.Snippet)); err != nil {
 		return err
 	}
 

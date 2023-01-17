@@ -17,79 +17,105 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetProcessautomationTriggersParams creates a new GetProcessautomationTriggersParams object
-// with the default values initialized.
+// NewGetProcessautomationTriggersParams creates a new GetProcessautomationTriggersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetProcessautomationTriggersParams() *GetProcessautomationTriggersParams {
-	var ()
 	return &GetProcessautomationTriggersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetProcessautomationTriggersParamsWithTimeout creates a new GetProcessautomationTriggersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetProcessautomationTriggersParamsWithTimeout(timeout time.Duration) *GetProcessautomationTriggersParams {
-	var ()
 	return &GetProcessautomationTriggersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetProcessautomationTriggersParamsWithContext creates a new GetProcessautomationTriggersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetProcessautomationTriggersParamsWithContext(ctx context.Context) *GetProcessautomationTriggersParams {
-	var ()
 	return &GetProcessautomationTriggersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetProcessautomationTriggersParamsWithHTTPClient creates a new GetProcessautomationTriggersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetProcessautomationTriggersParamsWithHTTPClient(client *http.Client) *GetProcessautomationTriggersParams {
-	var ()
 	return &GetProcessautomationTriggersParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetProcessautomationTriggersParams contains all the parameters to send to the API endpoint
-for the get processautomation triggers operation typically these are written to a http.Request
+/*
+GetProcessautomationTriggersParams contains all the parameters to send to the API endpoint
+
+	for the get processautomation triggers operation.
+
+	Typically these are written to a http.Request.
 */
 type GetProcessautomationTriggersParams struct {
 
-	/*After
-	  The cursor that points to the end of the set of entities that has been returned.
+	/* After.
 
+	   The cursor that points to the end of the set of entities that has been returned.
 	*/
 	After *string
-	/*Before
-	  The cursor that points to the start of the set of entities that has been returned.
 
+	/* Before.
+
+	   The cursor that points to the start of the set of entities that has been returned.
 	*/
 	Before *string
-	/*Enabled
-	  Boolean indicating desired enabled state of triggers
 
+	/* Enabled.
+
+	   Boolean indicating desired enabled state of triggers
 	*/
 	Enabled *bool
-	/*PageSize
-	  Number of entities to return. Maximum of 200.
 
+	/* HasDelayBy.
+
+	   Boolean to filter based on delayBySeconds being set in triggers. Default returns all, true returns only those with delayBySeconds set, false returns those without delayBySeconds set.
+	*/
+	HasDelayBy *bool
+
+	/* PageSize.
+
+	   Number of entities to return. Maximum of 200.
 	*/
 	PageSize *string
-	/*TopicName
-	  Topic name
 
+	/* TopicName.
+
+	   Topic name(s). Separated by commas
 	*/
 	TopicName *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get processautomation triggers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetProcessautomationTriggersParams) WithDefaults() *GetProcessautomationTriggersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get processautomation triggers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetProcessautomationTriggersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get processautomation triggers params
@@ -158,6 +184,17 @@ func (o *GetProcessautomationTriggersParams) SetEnabled(enabled *bool) {
 	o.Enabled = enabled
 }
 
+// WithHasDelayBy adds the hasDelayBy to the get processautomation triggers params
+func (o *GetProcessautomationTriggersParams) WithHasDelayBy(hasDelayBy *bool) *GetProcessautomationTriggersParams {
+	o.SetHasDelayBy(hasDelayBy)
+	return o
+}
+
+// SetHasDelayBy adds the hasDelayBy to the get processautomation triggers params
+func (o *GetProcessautomationTriggersParams) SetHasDelayBy(hasDelayBy *bool) {
+	o.HasDelayBy = hasDelayBy
+}
+
 // WithPageSize adds the pageSize to the get processautomation triggers params
 func (o *GetProcessautomationTriggersParams) WithPageSize(pageSize *string) *GetProcessautomationTriggersParams {
 	o.SetPageSize(pageSize)
@@ -192,80 +229,102 @@ func (o *GetProcessautomationTriggersParams) WriteToRequest(r runtime.ClientRequ
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Enabled != nil {
 
 		// query param enabled
 		var qrEnabled bool
+
 		if o.Enabled != nil {
 			qrEnabled = *o.Enabled
 		}
 		qEnabled := swag.FormatBool(qrEnabled)
 		if qEnabled != "" {
+
 			if err := r.SetQueryParam("enabled", qEnabled); err != nil {
 				return err
 			}
 		}
+	}
 
+	if o.HasDelayBy != nil {
+
+		// query param hasDelayBy
+		var qrHasDelayBy bool
+
+		if o.HasDelayBy != nil {
+			qrHasDelayBy = *o.HasDelayBy
+		}
+		qHasDelayBy := swag.FormatBool(qrHasDelayBy)
+		if qHasDelayBy != "" {
+
+			if err := r.SetQueryParam("hasDelayBy", qHasDelayBy); err != nil {
+				return err
+			}
+		}
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize string
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := qrPageSize
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.TopicName != nil {
 
 		// query param topicName
 		var qrTopicName string
+
 		if o.TopicName != nil {
 			qrTopicName = *o.TopicName
 		}
 		qTopicName := qrTopicName
 		if qTopicName != "" {
+
 			if err := r.SetQueryParam("topicName", qTopicName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

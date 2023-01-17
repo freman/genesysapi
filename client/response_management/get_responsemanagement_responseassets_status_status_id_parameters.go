@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetResponsemanagementResponseassetsStatusStatusIDParams creates a new GetResponsemanagementResponseassetsStatusStatusIDParams object
-// with the default values initialized.
+// NewGetResponsemanagementResponseassetsStatusStatusIDParams creates a new GetResponsemanagementResponseassetsStatusStatusIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetResponsemanagementResponseassetsStatusStatusIDParams() *GetResponsemanagementResponseassetsStatusStatusIDParams {
-	var ()
 	return &GetResponsemanagementResponseassetsStatusStatusIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetResponsemanagementResponseassetsStatusStatusIDParamsWithTimeout creates a new GetResponsemanagementResponseassetsStatusStatusIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetResponsemanagementResponseassetsStatusStatusIDParamsWithTimeout(timeout time.Duration) *GetResponsemanagementResponseassetsStatusStatusIDParams {
-	var ()
 	return &GetResponsemanagementResponseassetsStatusStatusIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetResponsemanagementResponseassetsStatusStatusIDParamsWithContext creates a new GetResponsemanagementResponseassetsStatusStatusIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetResponsemanagementResponseassetsStatusStatusIDParamsWithContext(ctx context.Context) *GetResponsemanagementResponseassetsStatusStatusIDParams {
-	var ()
 	return &GetResponsemanagementResponseassetsStatusStatusIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetResponsemanagementResponseassetsStatusStatusIDParamsWithHTTPClient creates a new GetResponsemanagementResponseassetsStatusStatusIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetResponsemanagementResponseassetsStatusStatusIDParamsWithHTTPClient(client *http.Client) *GetResponsemanagementResponseassetsStatusStatusIDParams {
-	var ()
 	return &GetResponsemanagementResponseassetsStatusStatusIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetResponsemanagementResponseassetsStatusStatusIDParams contains all the parameters to send to the API endpoint
-for the get responsemanagement responseassets status status Id operation typically these are written to a http.Request
+/*
+GetResponsemanagementResponseassetsStatusStatusIDParams contains all the parameters to send to the API endpoint
+
+	for the get responsemanagement responseassets status status Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetResponsemanagementResponseassetsStatusStatusIDParams struct {
 
-	/*StatusID
-	  Status Id
+	/* StatusID.
 
+	   Status Id
 	*/
 	StatusID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get responsemanagement responseassets status status Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetResponsemanagementResponseassetsStatusStatusIDParams) WithDefaults() *GetResponsemanagementResponseassetsStatusStatusIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get responsemanagement responseassets status status Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetResponsemanagementResponseassetsStatusStatusIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get responsemanagement responseassets status status Id params

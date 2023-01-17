@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutPresenceUserPrimarysourceParams creates a new PutPresenceUserPrimarysourceParams object
-// with the default values initialized.
+// NewPutPresenceUserPrimarysourceParams creates a new PutPresenceUserPrimarysourceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutPresenceUserPrimarysourceParams() *PutPresenceUserPrimarysourceParams {
-	var ()
 	return &PutPresenceUserPrimarysourceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutPresenceUserPrimarysourceParamsWithTimeout creates a new PutPresenceUserPrimarysourceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutPresenceUserPrimarysourceParamsWithTimeout(timeout time.Duration) *PutPresenceUserPrimarysourceParams {
-	var ()
 	return &PutPresenceUserPrimarysourceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutPresenceUserPrimarysourceParamsWithContext creates a new PutPresenceUserPrimarysourceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutPresenceUserPrimarysourceParamsWithContext(ctx context.Context) *PutPresenceUserPrimarysourceParams {
-	var ()
 	return &PutPresenceUserPrimarysourceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutPresenceUserPrimarysourceParamsWithHTTPClient creates a new PutPresenceUserPrimarysourceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutPresenceUserPrimarysourceParamsWithHTTPClient(client *http.Client) *PutPresenceUserPrimarysourceParams {
-	var ()
 	return &PutPresenceUserPrimarysourceParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutPresenceUserPrimarysourceParams contains all the parameters to send to the API endpoint
-for the put presence user primarysource operation typically these are written to a http.Request
+/*
+PutPresenceUserPrimarysourceParams contains all the parameters to send to the API endpoint
+
+	for the put presence user primarysource operation.
+
+	Typically these are written to a http.Request.
 */
 type PutPresenceUserPrimarysourceParams struct {
 
-	/*Body
-	  Primary Source
+	/* Body.
 
+	   Primary Source
 	*/
 	Body *models.UserPrimarySource
-	/*UserID
-	  user ID
 
+	/* UserID.
+
+	   user ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put presence user primarysource params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutPresenceUserPrimarysourceParams) WithDefaults() *PutPresenceUserPrimarysourceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put presence user primarysource params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutPresenceUserPrimarysourceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put presence user primarysource params
@@ -140,7 +157,6 @@ func (o *PutPresenceUserPrimarysourceParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

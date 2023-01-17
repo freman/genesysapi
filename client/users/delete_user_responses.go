@@ -95,7 +95,6 @@ func (o *DeleteUserReader) ReadResponse(response runtime.ClientResponse, consume
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteUserOK() *DeleteUserOK {
 	return &DeleteUserOK{}
 }
 
-/*DeleteUserOK handles this case with default header values.
+/*
+DeleteUserOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteUserOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete user o k response has a 2xx status code
+func (o *DeleteUserOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete user o k response has a 3xx status code
+func (o *DeleteUserOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user o k response has a 4xx status code
+func (o *DeleteUserOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user o k response has a 5xx status code
+func (o *DeleteUserOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user o k response a status code equal to that given
+func (o *DeleteUserOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteUserOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteUserOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewDeleteUserBadRequest() *DeleteUserBadRequest {
 	return &DeleteUserBadRequest{}
 }
 
-/*DeleteUserBadRequest handles this case with default header values.
+/*
+DeleteUserBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type DeleteUserBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user bad request response has a 2xx status code
+func (o *DeleteUserBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user bad request response has a 3xx status code
+func (o *DeleteUserBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user bad request response has a 4xx status code
+func (o *DeleteUserBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user bad request response has a 5xx status code
+func (o *DeleteUserBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user bad request response a status code equal to that given
+func (o *DeleteUserBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteUserBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteUserBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteUserUnauthorized() *DeleteUserUnauthorized {
 	return &DeleteUserUnauthorized{}
 }
 
-/*DeleteUserUnauthorized handles this case with default header values.
+/*
+DeleteUserUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type DeleteUserUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user unauthorized response has a 2xx status code
+func (o *DeleteUserUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user unauthorized response has a 3xx status code
+func (o *DeleteUserUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user unauthorized response has a 4xx status code
+func (o *DeleteUserUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user unauthorized response has a 5xx status code
+func (o *DeleteUserUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user unauthorized response a status code equal to that given
+func (o *DeleteUserUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteUserUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteUserUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteUserForbidden() *DeleteUserForbidden {
 	return &DeleteUserForbidden{}
 }
 
-/*DeleteUserForbidden handles this case with default header values.
+/*
+DeleteUserForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type DeleteUserForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user forbidden response has a 2xx status code
+func (o *DeleteUserForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user forbidden response has a 3xx status code
+func (o *DeleteUserForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user forbidden response has a 4xx status code
+func (o *DeleteUserForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user forbidden response has a 5xx status code
+func (o *DeleteUserForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user forbidden response a status code equal to that given
+func (o *DeleteUserForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteUserForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteUserForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteUserNotFound() *DeleteUserNotFound {
 	return &DeleteUserNotFound{}
 }
 
-/*DeleteUserNotFound handles this case with default header values.
+/*
+DeleteUserNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type DeleteUserNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user not found response has a 2xx status code
+func (o *DeleteUserNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user not found response has a 3xx status code
+func (o *DeleteUserNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user not found response has a 4xx status code
+func (o *DeleteUserNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user not found response has a 5xx status code
+func (o *DeleteUserNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user not found response a status code equal to that given
+func (o *DeleteUserNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteUserNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteUserNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteUserRequestTimeout() *DeleteUserRequestTimeout {
 	return &DeleteUserRequestTimeout{}
 }
 
-/*DeleteUserRequestTimeout handles this case with default header values.
+/*
+DeleteUserRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type DeleteUserRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user request timeout response has a 2xx status code
+func (o *DeleteUserRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user request timeout response has a 3xx status code
+func (o *DeleteUserRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user request timeout response has a 4xx status code
+func (o *DeleteUserRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user request timeout response has a 5xx status code
+func (o *DeleteUserRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user request timeout response a status code equal to that given
+func (o *DeleteUserRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteUserRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteUserRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteUserRequestEntityTooLarge() *DeleteUserRequestEntityTooLarge {
 	return &DeleteUserRequestEntityTooLarge{}
 }
 
-/*DeleteUserRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteUserRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type DeleteUserRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user request entity too large response has a 2xx status code
+func (o *DeleteUserRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user request entity too large response has a 3xx status code
+func (o *DeleteUserRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user request entity too large response has a 4xx status code
+func (o *DeleteUserRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user request entity too large response has a 5xx status code
+func (o *DeleteUserRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user request entity too large response a status code equal to that given
+func (o *DeleteUserRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteUserRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteUserRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteUserUnsupportedMediaType() *DeleteUserUnsupportedMediaType {
 	return &DeleteUserUnsupportedMediaType{}
 }
 
-/*DeleteUserUnsupportedMediaType handles this case with default header values.
+/*
+DeleteUserUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type DeleteUserUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user unsupported media type response has a 2xx status code
+func (o *DeleteUserUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user unsupported media type response has a 3xx status code
+func (o *DeleteUserUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user unsupported media type response has a 4xx status code
+func (o *DeleteUserUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user unsupported media type response has a 5xx status code
+func (o *DeleteUserUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user unsupported media type response a status code equal to that given
+func (o *DeleteUserUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteUserUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteUserUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteUserTooManyRequests() *DeleteUserTooManyRequests {
 	return &DeleteUserTooManyRequests{}
 }
 
-/*DeleteUserTooManyRequests handles this case with default header values.
+/*
+DeleteUserTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type DeleteUserTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user too many requests response has a 2xx status code
+func (o *DeleteUserTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user too many requests response has a 3xx status code
+func (o *DeleteUserTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user too many requests response has a 4xx status code
+func (o *DeleteUserTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete user too many requests response has a 5xx status code
+func (o *DeleteUserTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete user too many requests response a status code equal to that given
+func (o *DeleteUserTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteUserTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteUserTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteUserInternalServerError() *DeleteUserInternalServerError {
 	return &DeleteUserInternalServerError{}
 }
 
-/*DeleteUserInternalServerError handles this case with default header values.
+/*
+DeleteUserInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type DeleteUserInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user internal server error response has a 2xx status code
+func (o *DeleteUserInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user internal server error response has a 3xx status code
+func (o *DeleteUserInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user internal server error response has a 4xx status code
+func (o *DeleteUserInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user internal server error response has a 5xx status code
+func (o *DeleteUserInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete user internal server error response a status code equal to that given
+func (o *DeleteUserInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteUserInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteUserInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteUserServiceUnavailable() *DeleteUserServiceUnavailable {
 	return &DeleteUserServiceUnavailable{}
 }
 
-/*DeleteUserServiceUnavailable handles this case with default header values.
+/*
+DeleteUserServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type DeleteUserServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user service unavailable response has a 2xx status code
+func (o *DeleteUserServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user service unavailable response has a 3xx status code
+func (o *DeleteUserServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user service unavailable response has a 4xx status code
+func (o *DeleteUserServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user service unavailable response has a 5xx status code
+func (o *DeleteUserServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete user service unavailable response a status code equal to that given
+func (o *DeleteUserServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteUserServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteUserServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteUserGatewayTimeout() *DeleteUserGatewayTimeout {
 	return &DeleteUserGatewayTimeout{}
 }
 
-/*DeleteUserGatewayTimeout handles this case with default header values.
+/*
+DeleteUserGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type DeleteUserGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete user gateway timeout response has a 2xx status code
+func (o *DeleteUserGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete user gateway timeout response has a 3xx status code
+func (o *DeleteUserGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete user gateway timeout response has a 4xx status code
+func (o *DeleteUserGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete user gateway timeout response has a 5xx status code
+func (o *DeleteUserGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete user gateway timeout response a status code equal to that given
+func (o *DeleteUserGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteUserGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteUserGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/users/{userId}][%d] deleteUserGatewayTimeout  %+v", 504, o.Payload)
 }
 

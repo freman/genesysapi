@@ -101,7 +101,6 @@ func (o *GetExternalcontactsOrganizationsSchemaVersionsReader) ReadResponse(resp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsOK() *GetExternalcontactsO
 	return &GetExternalcontactsOrganizationsSchemaVersionsOK{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsOK handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsOK struct {
 	Payload *models.DataSchema
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions o k response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions o k response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions o k response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions o k response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions o k response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsBadRequest() *GetExternalc
 	return &GetExternalcontactsOrganizationsSchemaVersionsBadRequest{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsBadRequest handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions bad request response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions bad request response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions bad request response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions bad request response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions bad request response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsUnauthorized() *GetExterna
 	return &GetExternalcontactsOrganizationsSchemaVersionsUnauthorized{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsUnauthorized handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions unauthorized response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions unauthorized response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions unauthorized response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions unauthorized response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions unauthorized response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsForbidden() *GetExternalco
 	return &GetExternalcontactsOrganizationsSchemaVersionsForbidden{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsForbidden handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions forbidden response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions forbidden response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions forbidden response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions forbidden response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions forbidden response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsNotFound() *GetExternalcon
 	return &GetExternalcontactsOrganizationsSchemaVersionsNotFound{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsNotFound handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions not found response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions not found response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions not found response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions not found response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions not found response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsRequestTimeout() *GetExter
 	return &GetExternalcontactsOrganizationsSchemaVersionsRequestTimeout{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsRequestTimeout handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions request timeout response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions request timeout response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions request timeout response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions request timeout response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions request timeout response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge() *G
 	return &GetExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -318,7 +498,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions request entity too large response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions request entity too large response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions request entity too large response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions request entity too large response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions request entity too large response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType() *Ge
 	return &GetExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -351,7 +561,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions unsupported media type response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions unsupported media type response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions unsupported media type response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions unsupported media type response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions unsupported media type response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity() *Get
 	return &GetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity describes a response with status code 422, with default header values.
 
 GetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity get externalcontacts organizations schema versions unprocessable entity
 */
@@ -384,7 +624,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions unprocessable entity response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions unprocessable entity response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions unprocessable entity response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions unprocessable entity response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions unprocessable entity response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity) IsCode(code int) bool {
+	return code == 422
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsUnprocessableEntity  %+v", 422, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsTooManyRequests() *GetExte
 	return &GetExternalcontactsOrganizationsSchemaVersionsTooManyRequests{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsTooManyRequests handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions too many requests response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions too many requests response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions too many requests response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions too many requests response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions too many requests response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsInternalServerError() *Get
 	return &GetExternalcontactsOrganizationsSchemaVersionsInternalServerError{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsInternalServerError handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions internal server error response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions internal server error response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions internal server error response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions internal server error response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions internal server error response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsServiceUnavailable() *GetE
 	return &GetExternalcontactsOrganizationsSchemaVersionsServiceUnavailable{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsServiceUnavailable handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions service unavailable response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions service unavailable response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions service unavailable response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions service unavailable response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions service unavailable response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewGetExternalcontactsOrganizationsSchemaVersionsGatewayTimeout() *GetExter
 	return &GetExternalcontactsOrganizationsSchemaVersionsGatewayTimeout{}
 }
 
-/*GetExternalcontactsOrganizationsSchemaVersionsGatewayTimeout handles this case with default header values.
+/*
+GetExternalcontactsOrganizationsSchemaVersionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type GetExternalcontactsOrganizationsSchemaVersionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get externalcontacts organizations schema versions gateway timeout response has a 2xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get externalcontacts organizations schema versions gateway timeout response has a 3xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get externalcontacts organizations schema versions gateway timeout response has a 4xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get externalcontacts organizations schema versions gateway timeout response has a 5xx status code
+func (o *GetExternalcontactsOrganizationsSchemaVersionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get externalcontacts organizations schema versions gateway timeout response a status code equal to that given
+func (o *GetExternalcontactsOrganizationsSchemaVersionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetExternalcontactsOrganizationsSchemaVersionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetExternalcontactsOrganizationsSchemaVersionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/externalcontacts/organizations/schemas/{schemaId}/versions][%d] getExternalcontactsOrganizationsSchemaVersionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

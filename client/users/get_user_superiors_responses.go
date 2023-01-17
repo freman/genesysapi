@@ -95,7 +95,6 @@ func (o *GetUserSuperiorsReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetUserSuperiorsOK() *GetUserSuperiorsOK {
 	return &GetUserSuperiorsOK{}
 }
 
-/*GetUserSuperiorsOK handles this case with default header values.
+/*
+GetUserSuperiorsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetUserSuperiorsOK struct {
 	Payload []*models.User
 }
 
+// IsSuccess returns true when this get user superiors o k response has a 2xx status code
+func (o *GetUserSuperiorsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get user superiors o k response has a 3xx status code
+func (o *GetUserSuperiorsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user superiors o k response has a 4xx status code
+func (o *GetUserSuperiorsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user superiors o k response has a 5xx status code
+func (o *GetUserSuperiorsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user superiors o k response a status code equal to that given
+func (o *GetUserSuperiorsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUserSuperiorsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetUserSuperiorsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetUserSuperiorsBadRequest() *GetUserSuperiorsBadRequest {
 	return &GetUserSuperiorsBadRequest{}
 }
 
-/*GetUserSuperiorsBadRequest handles this case with default header values.
+/*
+GetUserSuperiorsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetUserSuperiorsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user superiors bad request response has a 2xx status code
+func (o *GetUserSuperiorsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user superiors bad request response has a 3xx status code
+func (o *GetUserSuperiorsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user superiors bad request response has a 4xx status code
+func (o *GetUserSuperiorsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user superiors bad request response has a 5xx status code
+func (o *GetUserSuperiorsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user superiors bad request response a status code equal to that given
+func (o *GetUserSuperiorsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUserSuperiorsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetUserSuperiorsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetUserSuperiorsUnauthorized() *GetUserSuperiorsUnauthorized {
 	return &GetUserSuperiorsUnauthorized{}
 }
 
-/*GetUserSuperiorsUnauthorized handles this case with default header values.
+/*
+GetUserSuperiorsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetUserSuperiorsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user superiors unauthorized response has a 2xx status code
+func (o *GetUserSuperiorsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user superiors unauthorized response has a 3xx status code
+func (o *GetUserSuperiorsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user superiors unauthorized response has a 4xx status code
+func (o *GetUserSuperiorsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user superiors unauthorized response has a 5xx status code
+func (o *GetUserSuperiorsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user superiors unauthorized response a status code equal to that given
+func (o *GetUserSuperiorsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetUserSuperiorsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetUserSuperiorsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetUserSuperiorsForbidden() *GetUserSuperiorsForbidden {
 	return &GetUserSuperiorsForbidden{}
 }
 
-/*GetUserSuperiorsForbidden handles this case with default header values.
+/*
+GetUserSuperiorsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetUserSuperiorsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user superiors forbidden response has a 2xx status code
+func (o *GetUserSuperiorsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user superiors forbidden response has a 3xx status code
+func (o *GetUserSuperiorsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user superiors forbidden response has a 4xx status code
+func (o *GetUserSuperiorsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user superiors forbidden response has a 5xx status code
+func (o *GetUserSuperiorsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user superiors forbidden response a status code equal to that given
+func (o *GetUserSuperiorsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUserSuperiorsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetUserSuperiorsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetUserSuperiorsNotFound() *GetUserSuperiorsNotFound {
 	return &GetUserSuperiorsNotFound{}
 }
 
-/*GetUserSuperiorsNotFound handles this case with default header values.
+/*
+GetUserSuperiorsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetUserSuperiorsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user superiors not found response has a 2xx status code
+func (o *GetUserSuperiorsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user superiors not found response has a 3xx status code
+func (o *GetUserSuperiorsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user superiors not found response has a 4xx status code
+func (o *GetUserSuperiorsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user superiors not found response has a 5xx status code
+func (o *GetUserSuperiorsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user superiors not found response a status code equal to that given
+func (o *GetUserSuperiorsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetUserSuperiorsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetUserSuperiorsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetUserSuperiorsRequestTimeout() *GetUserSuperiorsRequestTimeout {
 	return &GetUserSuperiorsRequestTimeout{}
 }
 
-/*GetUserSuperiorsRequestTimeout handles this case with default header values.
+/*
+GetUserSuperiorsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetUserSuperiorsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user superiors request timeout response has a 2xx status code
+func (o *GetUserSuperiorsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user superiors request timeout response has a 3xx status code
+func (o *GetUserSuperiorsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user superiors request timeout response has a 4xx status code
+func (o *GetUserSuperiorsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user superiors request timeout response has a 5xx status code
+func (o *GetUserSuperiorsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user superiors request timeout response a status code equal to that given
+func (o *GetUserSuperiorsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetUserSuperiorsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserSuperiorsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetUserSuperiorsRequestEntityTooLarge() *GetUserSuperiorsRequestEntityTo
 	return &GetUserSuperiorsRequestEntityTooLarge{}
 }
 
-/*GetUserSuperiorsRequestEntityTooLarge handles this case with default header values.
+/*
+GetUserSuperiorsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetUserSuperiorsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user superiors request entity too large response has a 2xx status code
+func (o *GetUserSuperiorsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user superiors request entity too large response has a 3xx status code
+func (o *GetUserSuperiorsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user superiors request entity too large response has a 4xx status code
+func (o *GetUserSuperiorsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user superiors request entity too large response has a 5xx status code
+func (o *GetUserSuperiorsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user superiors request entity too large response a status code equal to that given
+func (o *GetUserSuperiorsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetUserSuperiorsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetUserSuperiorsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetUserSuperiorsUnsupportedMediaType() *GetUserSuperiorsUnsupportedMedia
 	return &GetUserSuperiorsUnsupportedMediaType{}
 }
 
-/*GetUserSuperiorsUnsupportedMediaType handles this case with default header values.
+/*
+GetUserSuperiorsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetUserSuperiorsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user superiors unsupported media type response has a 2xx status code
+func (o *GetUserSuperiorsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user superiors unsupported media type response has a 3xx status code
+func (o *GetUserSuperiorsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user superiors unsupported media type response has a 4xx status code
+func (o *GetUserSuperiorsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user superiors unsupported media type response has a 5xx status code
+func (o *GetUserSuperiorsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user superiors unsupported media type response a status code equal to that given
+func (o *GetUserSuperiorsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetUserSuperiorsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetUserSuperiorsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetUserSuperiorsTooManyRequests() *GetUserSuperiorsTooManyRequests {
 	return &GetUserSuperiorsTooManyRequests{}
 }
 
-/*GetUserSuperiorsTooManyRequests handles this case with default header values.
+/*
+GetUserSuperiorsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetUserSuperiorsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user superiors too many requests response has a 2xx status code
+func (o *GetUserSuperiorsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user superiors too many requests response has a 3xx status code
+func (o *GetUserSuperiorsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user superiors too many requests response has a 4xx status code
+func (o *GetUserSuperiorsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user superiors too many requests response has a 5xx status code
+func (o *GetUserSuperiorsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user superiors too many requests response a status code equal to that given
+func (o *GetUserSuperiorsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUserSuperiorsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetUserSuperiorsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetUserSuperiorsInternalServerError() *GetUserSuperiorsInternalServerErr
 	return &GetUserSuperiorsInternalServerError{}
 }
 
-/*GetUserSuperiorsInternalServerError handles this case with default header values.
+/*
+GetUserSuperiorsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetUserSuperiorsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user superiors internal server error response has a 2xx status code
+func (o *GetUserSuperiorsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user superiors internal server error response has a 3xx status code
+func (o *GetUserSuperiorsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user superiors internal server error response has a 4xx status code
+func (o *GetUserSuperiorsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user superiors internal server error response has a 5xx status code
+func (o *GetUserSuperiorsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user superiors internal server error response a status code equal to that given
+func (o *GetUserSuperiorsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUserSuperiorsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetUserSuperiorsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetUserSuperiorsServiceUnavailable() *GetUserSuperiorsServiceUnavailable
 	return &GetUserSuperiorsServiceUnavailable{}
 }
 
-/*GetUserSuperiorsServiceUnavailable handles this case with default header values.
+/*
+GetUserSuperiorsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetUserSuperiorsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user superiors service unavailable response has a 2xx status code
+func (o *GetUserSuperiorsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user superiors service unavailable response has a 3xx status code
+func (o *GetUserSuperiorsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user superiors service unavailable response has a 4xx status code
+func (o *GetUserSuperiorsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user superiors service unavailable response has a 5xx status code
+func (o *GetUserSuperiorsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user superiors service unavailable response a status code equal to that given
+func (o *GetUserSuperiorsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetUserSuperiorsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetUserSuperiorsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetUserSuperiorsGatewayTimeout() *GetUserSuperiorsGatewayTimeout {
 	return &GetUserSuperiorsGatewayTimeout{}
 }
 
-/*GetUserSuperiorsGatewayTimeout handles this case with default header values.
+/*
+GetUserSuperiorsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetUserSuperiorsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user superiors gateway timeout response has a 2xx status code
+func (o *GetUserSuperiorsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user superiors gateway timeout response has a 3xx status code
+func (o *GetUserSuperiorsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user superiors gateway timeout response has a 4xx status code
+func (o *GetUserSuperiorsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user superiors gateway timeout response has a 5xx status code
+func (o *GetUserSuperiorsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user superiors gateway timeout response a status code equal to that given
+func (o *GetUserSuperiorsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetUserSuperiorsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetUserSuperiorsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/superiors][%d] getUserSuperiorsGatewayTimeout  %+v", 504, o.Payload)
 }
 

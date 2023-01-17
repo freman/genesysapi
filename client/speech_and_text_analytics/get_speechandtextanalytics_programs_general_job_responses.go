@@ -95,7 +95,6 @@ func (o *GetSpeechandtextanalyticsProgramsGeneralJobReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetSpeechandtextanalyticsProgramsGeneralJobOK() *GetSpeechandtextanalyti
 	return &GetSpeechandtextanalyticsProgramsGeneralJobOK{}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobOK handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetSpeechandtextanalyticsProgramsGeneralJobOK struct {
 	Payload *models.GeneralProgramJob
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs general job o k response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs general job o k response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs general job o k response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs general job o k response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs general job o k response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSpeechandtextanalyticsProgramsGeneralJobOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobOK  %+v", 200, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetSpeechandtextanalyticsProgramsGeneralJobBadRequest() *GetSpeechandtex
 	return &GetSpeechandtextanalyticsProgramsGeneralJobBadRequest{}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobBadRequest handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetSpeechandtextanalyticsProgramsGeneralJobBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs general job bad request response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs general job bad request response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs general job bad request response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs general job bad request response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs general job bad request response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetSpeechandtextanalyticsProgramsGeneralJobBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetSpeechandtextanalyticsProgramsGeneralJobUnauthorized() *GetSpeechandt
 	return &GetSpeechandtextanalyticsProgramsGeneralJobUnauthorized{}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobUnauthorized handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetSpeechandtextanalyticsProgramsGeneralJobUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs general job unauthorized response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs general job unauthorized response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs general job unauthorized response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs general job unauthorized response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs general job unauthorized response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetSpeechandtextanalyticsProgramsGeneralJobForbidden() *GetSpeechandtext
 	return &GetSpeechandtextanalyticsProgramsGeneralJobForbidden{}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobForbidden handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetSpeechandtextanalyticsProgramsGeneralJobForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs general job forbidden response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs general job forbidden response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs general job forbidden response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs general job forbidden response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs general job forbidden response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSpeechandtextanalyticsProgramsGeneralJobForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetSpeechandtextanalyticsProgramsGeneralJobNotFound() *GetSpeechandtexta
 	return &GetSpeechandtextanalyticsProgramsGeneralJobNotFound{}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobNotFound handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetSpeechandtextanalyticsProgramsGeneralJobNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs general job not found response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs general job not found response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs general job not found response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs general job not found response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs general job not found response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetSpeechandtextanalyticsProgramsGeneralJobNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetSpeechandtextanalyticsProgramsGeneralJobRequestTimeout() *GetSpeechan
 	return &GetSpeechandtextanalyticsProgramsGeneralJobRequestTimeout{}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobRequestTimeout handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetSpeechandtextanalyticsProgramsGeneralJobRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs general job request timeout response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs general job request timeout response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs general job request timeout response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs general job request timeout response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs general job request timeout response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge() *GetS
 	return &GetSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge{}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs general job request entity too large response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs general job request entity too large response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs general job request entity too large response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs general job request entity too large response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs general job request entity too large response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType() *GetSp
 	return &GetSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType{}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs general job unsupported media type response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs general job unsupported media type response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs general job unsupported media type response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs general job unsupported media type response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs general job unsupported media type response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetSpeechandtextanalyticsProgramsGeneralJobTooManyRequests() *GetSpeecha
 	return &GetSpeechandtextanalyticsProgramsGeneralJobTooManyRequests{}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobTooManyRequests handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetSpeechandtextanalyticsProgramsGeneralJobTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs general job too many requests response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs general job too many requests response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs general job too many requests response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs general job too many requests response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs general job too many requests response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetSpeechandtextanalyticsProgramsGeneralJobTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetSpeechandtextanalyticsProgramsGeneralJobInternalServerError() *GetSpe
 	return &GetSpeechandtextanalyticsProgramsGeneralJobInternalServerError{}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobInternalServerError handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetSpeechandtextanalyticsProgramsGeneralJobInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs general job internal server error response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs general job internal server error response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs general job internal server error response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs general job internal server error response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get speechandtextanalytics programs general job internal server error response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetSpeechandtextanalyticsProgramsGeneralJobInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable() *GetSpee
 	return &GetSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable{}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs general job service unavailable response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs general job service unavailable response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs general job service unavailable response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs general job service unavailable response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get speechandtextanalytics programs general job service unavailable response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout() *GetSpeechan
 	return &GetSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout{}
 }
 
-/*GetSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs general job gateway timeout response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs general job gateway timeout response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs general job gateway timeout response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs general job gateway timeout response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get speechandtextanalytics programs general job gateway timeout response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/general/jobs/{jobId}][%d] getSpeechandtextanalyticsProgramsGeneralJobGatewayTimeout  %+v", 504, o.Payload)
 }
 

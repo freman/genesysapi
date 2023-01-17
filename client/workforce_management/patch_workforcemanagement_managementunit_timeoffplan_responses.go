@@ -101,7 +101,6 @@ func (o *PatchWorkforcemanagementManagementunitTimeoffplanReader) ReadResponse(r
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanOK() *PatchWorkforceman
 	return &PatchWorkforcemanagementManagementunitTimeoffplanOK{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanOK handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanOK struct {
 	Payload *models.TimeOffPlan
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan o k response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan o k response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan o k response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan o k response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan o k response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanBadRequest() *PatchWork
 	return &PatchWorkforcemanagementManagementunitTimeoffplanBadRequest{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanBadRequest handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan bad request response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan bad request response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan bad request response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan bad request response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan bad request response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanUnauthorized() *PatchWo
 	return &PatchWorkforcemanagementManagementunitTimeoffplanUnauthorized{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanUnauthorized handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan unauthorized response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan unauthorized response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan unauthorized response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan unauthorized response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan unauthorized response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanForbidden() *PatchWorkf
 	return &PatchWorkforcemanagementManagementunitTimeoffplanForbidden{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanForbidden handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan forbidden response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan forbidden response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan forbidden response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan forbidden response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan forbidden response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanNotFound() *PatchWorkfo
 	return &PatchWorkforcemanagementManagementunitTimeoffplanNotFound{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanNotFound handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan not found response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan not found response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan not found response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan not found response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan not found response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanRequestTimeout() *Patch
 	return &PatchWorkforcemanagementManagementunitTimeoffplanRequestTimeout{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanRequestTimeout handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan request timeout response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan request timeout response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan request timeout response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan request timeout response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan request timeout response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanConflict() *PatchWorkfo
 	return &PatchWorkforcemanagementManagementunitTimeoffplanConflict{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanConflict handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan conflict response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan conflict response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan conflict response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan conflict response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan conflict response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge()
 	return &PatchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan request entity too large response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan request entity too large response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan request entity too large response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan request entity too large response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan request entity too large response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType() 
 	return &PatchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan unsupported media type response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan unsupported media type response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan unsupported media type response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan unsupported media type response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan unsupported media type response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanTooManyRequests() *Patc
 	return &PatchWorkforcemanagementManagementunitTimeoffplanTooManyRequests{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanTooManyRequests handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan too many requests response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan too many requests response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan too many requests response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan too many requests response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan too many requests response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanInternalServerError() *
 	return &PatchWorkforcemanagementManagementunitTimeoffplanInternalServerError{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanInternalServerError handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanInternalServerError struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan internal server error response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan internal server error response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan internal server error response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan internal server error response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan internal server error response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable() *P
 	return &PatchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan service unavailable response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan service unavailable response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan service unavailable response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan service unavailable response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan service unavailable response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout() *Patch
 	return &PatchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout{}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout handles this case with default header values.
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch workforcemanagement managementunit timeoffplan gateway timeout response has a 2xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch workforcemanagement managementunit timeoffplan gateway timeout response has a 3xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch workforcemanagement managementunit timeoffplan gateway timeout response has a 4xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch workforcemanagement managementunit timeoffplan gateway timeout response has a 5xx status code
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch workforcemanagement managementunit timeoffplan gateway timeout response a status code equal to that given
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/workforcemanagement/managementunits/{managementUnitId}/timeoffplans/{timeOffPlanId}][%d] patchWorkforcemanagementManagementunitTimeoffplanGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConversationsKeyconfigurationParams creates a new GetConversationsKeyconfigurationParams object
-// with the default values initialized.
+// NewGetConversationsKeyconfigurationParams creates a new GetConversationsKeyconfigurationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationsKeyconfigurationParams() *GetConversationsKeyconfigurationParams {
-	var ()
 	return &GetConversationsKeyconfigurationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationsKeyconfigurationParamsWithTimeout creates a new GetConversationsKeyconfigurationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationsKeyconfigurationParamsWithTimeout(timeout time.Duration) *GetConversationsKeyconfigurationParams {
-	var ()
 	return &GetConversationsKeyconfigurationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationsKeyconfigurationParamsWithContext creates a new GetConversationsKeyconfigurationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationsKeyconfigurationParamsWithContext(ctx context.Context) *GetConversationsKeyconfigurationParams {
-	var ()
 	return &GetConversationsKeyconfigurationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationsKeyconfigurationParamsWithHTTPClient creates a new GetConversationsKeyconfigurationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationsKeyconfigurationParamsWithHTTPClient(client *http.Client) *GetConversationsKeyconfigurationParams {
-	var ()
 	return &GetConversationsKeyconfigurationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationsKeyconfigurationParams contains all the parameters to send to the API endpoint
-for the get conversations keyconfiguration operation typically these are written to a http.Request
+/*
+GetConversationsKeyconfigurationParams contains all the parameters to send to the API endpoint
+
+	for the get conversations keyconfiguration operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationsKeyconfigurationParams struct {
 
-	/*KeyconfigurationsID
-	  Key Configurations Id
+	/* KeyconfigurationsID.
 
+	   Key Configurations Id
 	*/
 	KeyconfigurationsID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversations keyconfiguration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsKeyconfigurationParams) WithDefaults() *GetConversationsKeyconfigurationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversations keyconfiguration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsKeyconfigurationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get conversations keyconfiguration params

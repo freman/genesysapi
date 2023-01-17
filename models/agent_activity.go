@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -88,7 +89,6 @@ func (m *AgentActivity) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AgentActivity) validateAgent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Agent) { // not required
 		return nil
 	}
@@ -97,6 +97,8 @@ func (m *AgentActivity) validateAgent(formats strfmt.Registry) error {
 		if err := m.Agent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("agent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent")
 			}
 			return err
 		}
@@ -106,7 +108,6 @@ func (m *AgentActivity) validateAgent(formats strfmt.Registry) error {
 }
 
 func (m *AgentActivity) validateAgentEvaluatorActivityList(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AgentEvaluatorActivityList) { // not required
 		return nil
 	}
@@ -120,6 +121,8 @@ func (m *AgentActivity) validateAgentEvaluatorActivityList(formats strfmt.Regist
 			if err := m.AgentEvaluatorActivityList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("agentEvaluatorActivityList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agentEvaluatorActivityList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -131,12 +134,91 @@ func (m *AgentActivity) validateAgentEvaluatorActivityList(formats strfmt.Regist
 }
 
 func (m *AgentActivity) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this agent activity based on the context it is used
+func (m *AgentActivity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAgentEvaluatorActivityList(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AgentActivity) contextValidateAgent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Agent != nil {
+		if err := m.Agent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("agent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("agent")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AgentActivity) contextValidateAgentEvaluatorActivityList(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AgentEvaluatorActivityList); i++ {
+
+		if m.AgentEvaluatorActivityList[i] != nil {
+			if err := m.AgentEvaluatorActivityList[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("agentEvaluatorActivityList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agentEvaluatorActivityList" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AgentActivity) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AgentActivity) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

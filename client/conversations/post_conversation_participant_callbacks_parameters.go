@@ -18,66 +18,84 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationParticipantCallbacksParams creates a new PostConversationParticipantCallbacksParams object
-// with the default values initialized.
+// NewPostConversationParticipantCallbacksParams creates a new PostConversationParticipantCallbacksParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationParticipantCallbacksParams() *PostConversationParticipantCallbacksParams {
-	var ()
 	return &PostConversationParticipantCallbacksParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationParticipantCallbacksParamsWithTimeout creates a new PostConversationParticipantCallbacksParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationParticipantCallbacksParamsWithTimeout(timeout time.Duration) *PostConversationParticipantCallbacksParams {
-	var ()
 	return &PostConversationParticipantCallbacksParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationParticipantCallbacksParamsWithContext creates a new PostConversationParticipantCallbacksParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationParticipantCallbacksParamsWithContext(ctx context.Context) *PostConversationParticipantCallbacksParams {
-	var ()
 	return &PostConversationParticipantCallbacksParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationParticipantCallbacksParamsWithHTTPClient creates a new PostConversationParticipantCallbacksParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationParticipantCallbacksParamsWithHTTPClient(client *http.Client) *PostConversationParticipantCallbacksParams {
-	var ()
 	return &PostConversationParticipantCallbacksParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationParticipantCallbacksParams contains all the parameters to send to the API endpoint
-for the post conversation participant callbacks operation typically these are written to a http.Request
+/*
+PostConversationParticipantCallbacksParams contains all the parameters to send to the API endpoint
+
+	for the post conversation participant callbacks operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationParticipantCallbacksParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.CreateCallbackOnConversationCommand
-	/*ConversationID
-	  conversation ID
 
+	/* ConversationID.
+
+	   conversation ID
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participant ID
 
+	/* ParticipantID.
+
+	   participant ID
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversation participant callbacks params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationParticipantCallbacksParams) WithDefaults() *PostConversationParticipantCallbacksParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversation participant callbacks params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationParticipantCallbacksParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversation participant callbacks params
@@ -153,7 +171,6 @@ func (o *PostConversationParticipantCallbacksParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

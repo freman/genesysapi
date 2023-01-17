@@ -95,7 +95,6 @@ func (o *DeleteOutboundCallabletimesetReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteOutboundCallabletimesetOK() *DeleteOutboundCallabletimesetOK {
 	return &DeleteOutboundCallabletimesetOK{}
 }
 
-/*DeleteOutboundCallabletimesetOK handles this case with default header values.
+/*
+DeleteOutboundCallabletimesetOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteOutboundCallabletimesetOK struct {
 }
 
+// IsSuccess returns true when this delete outbound callabletimeset o k response has a 2xx status code
+func (o *DeleteOutboundCallabletimesetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete outbound callabletimeset o k response has a 3xx status code
+func (o *DeleteOutboundCallabletimesetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callabletimeset o k response has a 4xx status code
+func (o *DeleteOutboundCallabletimesetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound callabletimeset o k response has a 5xx status code
+func (o *DeleteOutboundCallabletimesetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callabletimeset o k response a status code equal to that given
+func (o *DeleteOutboundCallabletimesetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteOutboundCallabletimesetOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetOK ", 200)
+}
+
+func (o *DeleteOutboundCallabletimesetOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteOutboundCallabletimesetBadRequest() *DeleteOutboundCallabletimeset
 	return &DeleteOutboundCallabletimesetBadRequest{}
 }
 
-/*DeleteOutboundCallabletimesetBadRequest handles this case with default header values.
+/*
+DeleteOutboundCallabletimesetBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteOutboundCallabletimesetBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callabletimeset bad request response has a 2xx status code
+func (o *DeleteOutboundCallabletimesetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callabletimeset bad request response has a 3xx status code
+func (o *DeleteOutboundCallabletimesetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callabletimeset bad request response has a 4xx status code
+func (o *DeleteOutboundCallabletimesetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callabletimeset bad request response has a 5xx status code
+func (o *DeleteOutboundCallabletimesetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callabletimeset bad request response a status code equal to that given
+func (o *DeleteOutboundCallabletimesetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOutboundCallabletimesetBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOutboundCallabletimesetBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteOutboundCallabletimesetUnauthorized() *DeleteOutboundCallabletimes
 	return &DeleteOutboundCallabletimesetUnauthorized{}
 }
 
-/*DeleteOutboundCallabletimesetUnauthorized handles this case with default header values.
+/*
+DeleteOutboundCallabletimesetUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteOutboundCallabletimesetUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callabletimeset unauthorized response has a 2xx status code
+func (o *DeleteOutboundCallabletimesetUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callabletimeset unauthorized response has a 3xx status code
+func (o *DeleteOutboundCallabletimesetUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callabletimeset unauthorized response has a 4xx status code
+func (o *DeleteOutboundCallabletimesetUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callabletimeset unauthorized response has a 5xx status code
+func (o *DeleteOutboundCallabletimesetUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callabletimeset unauthorized response a status code equal to that given
+func (o *DeleteOutboundCallabletimesetUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOutboundCallabletimesetUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOutboundCallabletimesetUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteOutboundCallabletimesetForbidden() *DeleteOutboundCallabletimesetF
 	return &DeleteOutboundCallabletimesetForbidden{}
 }
 
-/*DeleteOutboundCallabletimesetForbidden handles this case with default header values.
+/*
+DeleteOutboundCallabletimesetForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteOutboundCallabletimesetForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callabletimeset forbidden response has a 2xx status code
+func (o *DeleteOutboundCallabletimesetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callabletimeset forbidden response has a 3xx status code
+func (o *DeleteOutboundCallabletimesetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callabletimeset forbidden response has a 4xx status code
+func (o *DeleteOutboundCallabletimesetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callabletimeset forbidden response has a 5xx status code
+func (o *DeleteOutboundCallabletimesetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callabletimeset forbidden response a status code equal to that given
+func (o *DeleteOutboundCallabletimesetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOutboundCallabletimesetForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOutboundCallabletimesetForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteOutboundCallabletimesetNotFound() *DeleteOutboundCallabletimesetNo
 	return &DeleteOutboundCallabletimesetNotFound{}
 }
 
-/*DeleteOutboundCallabletimesetNotFound handles this case with default header values.
+/*
+DeleteOutboundCallabletimesetNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteOutboundCallabletimesetNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callabletimeset not found response has a 2xx status code
+func (o *DeleteOutboundCallabletimesetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callabletimeset not found response has a 3xx status code
+func (o *DeleteOutboundCallabletimesetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callabletimeset not found response has a 4xx status code
+func (o *DeleteOutboundCallabletimesetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callabletimeset not found response has a 5xx status code
+func (o *DeleteOutboundCallabletimesetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callabletimeset not found response a status code equal to that given
+func (o *DeleteOutboundCallabletimesetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOutboundCallabletimesetNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOutboundCallabletimesetNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteOutboundCallabletimesetRequestTimeout() *DeleteOutboundCallabletim
 	return &DeleteOutboundCallabletimesetRequestTimeout{}
 }
 
-/*DeleteOutboundCallabletimesetRequestTimeout handles this case with default header values.
+/*
+DeleteOutboundCallabletimesetRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteOutboundCallabletimesetRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callabletimeset request timeout response has a 2xx status code
+func (o *DeleteOutboundCallabletimesetRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callabletimeset request timeout response has a 3xx status code
+func (o *DeleteOutboundCallabletimesetRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callabletimeset request timeout response has a 4xx status code
+func (o *DeleteOutboundCallabletimesetRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callabletimeset request timeout response has a 5xx status code
+func (o *DeleteOutboundCallabletimesetRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callabletimeset request timeout response a status code equal to that given
+func (o *DeleteOutboundCallabletimesetRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOutboundCallabletimesetRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundCallabletimesetRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteOutboundCallabletimesetRequestEntityTooLarge() *DeleteOutboundCall
 	return &DeleteOutboundCallabletimesetRequestEntityTooLarge{}
 }
 
-/*DeleteOutboundCallabletimesetRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOutboundCallabletimesetRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteOutboundCallabletimesetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callabletimeset request entity too large response has a 2xx status code
+func (o *DeleteOutboundCallabletimesetRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callabletimeset request entity too large response has a 3xx status code
+func (o *DeleteOutboundCallabletimesetRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callabletimeset request entity too large response has a 4xx status code
+func (o *DeleteOutboundCallabletimesetRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callabletimeset request entity too large response has a 5xx status code
+func (o *DeleteOutboundCallabletimesetRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callabletimeset request entity too large response a status code equal to that given
+func (o *DeleteOutboundCallabletimesetRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOutboundCallabletimesetRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOutboundCallabletimesetRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteOutboundCallabletimesetUnsupportedMediaType() *DeleteOutboundCalla
 	return &DeleteOutboundCallabletimesetUnsupportedMediaType{}
 }
 
-/*DeleteOutboundCallabletimesetUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOutboundCallabletimesetUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteOutboundCallabletimesetUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callabletimeset unsupported media type response has a 2xx status code
+func (o *DeleteOutboundCallabletimesetUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callabletimeset unsupported media type response has a 3xx status code
+func (o *DeleteOutboundCallabletimesetUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callabletimeset unsupported media type response has a 4xx status code
+func (o *DeleteOutboundCallabletimesetUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callabletimeset unsupported media type response has a 5xx status code
+func (o *DeleteOutboundCallabletimesetUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callabletimeset unsupported media type response a status code equal to that given
+func (o *DeleteOutboundCallabletimesetUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOutboundCallabletimesetUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOutboundCallabletimesetUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteOutboundCallabletimesetTooManyRequests() *DeleteOutboundCallableti
 	return &DeleteOutboundCallabletimesetTooManyRequests{}
 }
 
-/*DeleteOutboundCallabletimesetTooManyRequests handles this case with default header values.
+/*
+DeleteOutboundCallabletimesetTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteOutboundCallabletimesetTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callabletimeset too many requests response has a 2xx status code
+func (o *DeleteOutboundCallabletimesetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callabletimeset too many requests response has a 3xx status code
+func (o *DeleteOutboundCallabletimesetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callabletimeset too many requests response has a 4xx status code
+func (o *DeleteOutboundCallabletimesetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound callabletimeset too many requests response has a 5xx status code
+func (o *DeleteOutboundCallabletimesetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound callabletimeset too many requests response a status code equal to that given
+func (o *DeleteOutboundCallabletimesetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOutboundCallabletimesetTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOutboundCallabletimesetTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteOutboundCallabletimesetInternalServerError() *DeleteOutboundCallab
 	return &DeleteOutboundCallabletimesetInternalServerError{}
 }
 
-/*DeleteOutboundCallabletimesetInternalServerError handles this case with default header values.
+/*
+DeleteOutboundCallabletimesetInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteOutboundCallabletimesetInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callabletimeset internal server error response has a 2xx status code
+func (o *DeleteOutboundCallabletimesetInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callabletimeset internal server error response has a 3xx status code
+func (o *DeleteOutboundCallabletimesetInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callabletimeset internal server error response has a 4xx status code
+func (o *DeleteOutboundCallabletimesetInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound callabletimeset internal server error response has a 5xx status code
+func (o *DeleteOutboundCallabletimesetInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound callabletimeset internal server error response a status code equal to that given
+func (o *DeleteOutboundCallabletimesetInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOutboundCallabletimesetInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOutboundCallabletimesetInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteOutboundCallabletimesetServiceUnavailable() *DeleteOutboundCallabl
 	return &DeleteOutboundCallabletimesetServiceUnavailable{}
 }
 
-/*DeleteOutboundCallabletimesetServiceUnavailable handles this case with default header values.
+/*
+DeleteOutboundCallabletimesetServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteOutboundCallabletimesetServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callabletimeset service unavailable response has a 2xx status code
+func (o *DeleteOutboundCallabletimesetServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callabletimeset service unavailable response has a 3xx status code
+func (o *DeleteOutboundCallabletimesetServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callabletimeset service unavailable response has a 4xx status code
+func (o *DeleteOutboundCallabletimesetServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound callabletimeset service unavailable response has a 5xx status code
+func (o *DeleteOutboundCallabletimesetServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound callabletimeset service unavailable response a status code equal to that given
+func (o *DeleteOutboundCallabletimesetServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOutboundCallabletimesetServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOutboundCallabletimesetServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteOutboundCallabletimesetGatewayTimeout() *DeleteOutboundCallabletim
 	return &DeleteOutboundCallabletimesetGatewayTimeout{}
 }
 
-/*DeleteOutboundCallabletimesetGatewayTimeout handles this case with default header values.
+/*
+DeleteOutboundCallabletimesetGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteOutboundCallabletimesetGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound callabletimeset gateway timeout response has a 2xx status code
+func (o *DeleteOutboundCallabletimesetGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound callabletimeset gateway timeout response has a 3xx status code
+func (o *DeleteOutboundCallabletimesetGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound callabletimeset gateway timeout response has a 4xx status code
+func (o *DeleteOutboundCallabletimesetGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound callabletimeset gateway timeout response has a 5xx status code
+func (o *DeleteOutboundCallabletimesetGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound callabletimeset gateway timeout response a status code equal to that given
+func (o *DeleteOutboundCallabletimesetGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOutboundCallabletimesetGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOutboundCallabletimesetGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/callabletimesets/{callableTimeSetId}][%d] deleteOutboundCallabletimesetGatewayTimeout  %+v", 504, o.Payload)
 }
 

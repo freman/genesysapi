@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -189,7 +190,6 @@ func (m *QualityAuditLogMessage) validateActionEnum(path, location string, value
 }
 
 func (m *QualityAuditLogMessage) validateAction(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Action) { // not required
 		return nil
 	}
@@ -203,7 +203,6 @@ func (m *QualityAuditLogMessage) validateAction(formats strfmt.Registry) error {
 }
 
 func (m *QualityAuditLogMessage) validateClient(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Client) { // not required
 		return nil
 	}
@@ -212,6 +211,8 @@ func (m *QualityAuditLogMessage) validateClient(formats strfmt.Registry) error {
 		if err := m.Client.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("client")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("client")
 			}
 			return err
 		}
@@ -221,7 +222,6 @@ func (m *QualityAuditLogMessage) validateClient(formats strfmt.Registry) error {
 }
 
 func (m *QualityAuditLogMessage) validateEntity(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Entity) { // not required
 		return nil
 	}
@@ -230,6 +230,8 @@ func (m *QualityAuditLogMessage) validateEntity(formats strfmt.Registry) error {
 		if err := m.Entity.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("entity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("entity")
 			}
 			return err
 		}
@@ -280,7 +282,6 @@ func (m *QualityAuditLogMessage) validateEntityTypeEnum(path, location string, v
 }
 
 func (m *QualityAuditLogMessage) validateEntityType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EntityType) { // not required
 		return nil
 	}
@@ -294,7 +295,6 @@ func (m *QualityAuditLogMessage) validateEntityType(formats strfmt.Registry) err
 }
 
 func (m *QualityAuditLogMessage) validateEventDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EventDate) { // not required
 		return nil
 	}
@@ -336,7 +336,6 @@ func (m *QualityAuditLogMessage) validateLevelEnum(path, location string, value 
 }
 
 func (m *QualityAuditLogMessage) validateLevel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Level) { // not required
 		return nil
 	}
@@ -350,7 +349,6 @@ func (m *QualityAuditLogMessage) validateLevel(formats strfmt.Registry) error {
 }
 
 func (m *QualityAuditLogMessage) validateMessageInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageInfo) { // not required
 		return nil
 	}
@@ -359,6 +357,8 @@ func (m *QualityAuditLogMessage) validateMessageInfo(formats strfmt.Registry) er
 		if err := m.MessageInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messageInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messageInfo")
 			}
 			return err
 		}
@@ -368,7 +368,6 @@ func (m *QualityAuditLogMessage) validateMessageInfo(formats strfmt.Registry) er
 }
 
 func (m *QualityAuditLogMessage) validatePropertyChanges(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PropertyChanges) { // not required
 		return nil
 	}
@@ -382,6 +381,8 @@ func (m *QualityAuditLogMessage) validatePropertyChanges(formats strfmt.Registry
 			if err := m.PropertyChanges[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("propertyChanges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("propertyChanges" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -425,7 +426,6 @@ func (m *QualityAuditLogMessage) validateServiceNameEnum(path, location string, 
 }
 
 func (m *QualityAuditLogMessage) validateServiceName(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ServiceName) { // not required
 		return nil
 	}
@@ -471,7 +471,6 @@ func (m *QualityAuditLogMessage) validateStatusEnum(path, location string, value
 }
 
 func (m *QualityAuditLogMessage) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -485,7 +484,6 @@ func (m *QualityAuditLogMessage) validateStatus(formats strfmt.Registry) error {
 }
 
 func (m *QualityAuditLogMessage) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -494,6 +492,122 @@ func (m *QualityAuditLogMessage) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this quality audit log message based on the context it is used
+func (m *QualityAuditLogMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateClient(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEntity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessageInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePropertyChanges(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *QualityAuditLogMessage) contextValidateClient(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Client != nil {
+		if err := m.Client.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("client")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("client")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *QualityAuditLogMessage) contextValidateEntity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Entity != nil {
+		if err := m.Entity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("entity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("entity")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *QualityAuditLogMessage) contextValidateMessageInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessageInfo != nil {
+		if err := m.MessageInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messageInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messageInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *QualityAuditLogMessage) contextValidatePropertyChanges(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PropertyChanges); i++ {
+
+		if m.PropertyChanges[i] != nil {
+			if err := m.PropertyChanges[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("propertyChanges" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("propertyChanges" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *QualityAuditLogMessage) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

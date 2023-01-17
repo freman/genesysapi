@@ -95,7 +95,6 @@ func (o *DeleteJourneyOutcomeReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteJourneyOutcomeNoContent() *DeleteJourneyOutcomeNoContent {
 	return &DeleteJourneyOutcomeNoContent{}
 }
 
-/*DeleteJourneyOutcomeNoContent handles this case with default header values.
+/*
+DeleteJourneyOutcomeNoContent describes a response with status code 204, with default header values.
 
 Outcome deleted.
 */
 type DeleteJourneyOutcomeNoContent struct {
 }
 
+// IsSuccess returns true when this delete journey outcome no content response has a 2xx status code
+func (o *DeleteJourneyOutcomeNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete journey outcome no content response has a 3xx status code
+func (o *DeleteJourneyOutcomeNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey outcome no content response has a 4xx status code
+func (o *DeleteJourneyOutcomeNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete journey outcome no content response has a 5xx status code
+func (o *DeleteJourneyOutcomeNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey outcome no content response a status code equal to that given
+func (o *DeleteJourneyOutcomeNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteJourneyOutcomeNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeNoContent ", 204)
+}
+
+func (o *DeleteJourneyOutcomeNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteJourneyOutcomeBadRequest() *DeleteJourneyOutcomeBadRequest {
 	return &DeleteJourneyOutcomeBadRequest{}
 }
 
-/*DeleteJourneyOutcomeBadRequest handles this case with default header values.
+/*
+DeleteJourneyOutcomeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteJourneyOutcomeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey outcome bad request response has a 2xx status code
+func (o *DeleteJourneyOutcomeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey outcome bad request response has a 3xx status code
+func (o *DeleteJourneyOutcomeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey outcome bad request response has a 4xx status code
+func (o *DeleteJourneyOutcomeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey outcome bad request response has a 5xx status code
+func (o *DeleteJourneyOutcomeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey outcome bad request response a status code equal to that given
+func (o *DeleteJourneyOutcomeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteJourneyOutcomeBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteJourneyOutcomeBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteJourneyOutcomeUnauthorized() *DeleteJourneyOutcomeUnauthorized {
 	return &DeleteJourneyOutcomeUnauthorized{}
 }
 
-/*DeleteJourneyOutcomeUnauthorized handles this case with default header values.
+/*
+DeleteJourneyOutcomeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteJourneyOutcomeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey outcome unauthorized response has a 2xx status code
+func (o *DeleteJourneyOutcomeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey outcome unauthorized response has a 3xx status code
+func (o *DeleteJourneyOutcomeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey outcome unauthorized response has a 4xx status code
+func (o *DeleteJourneyOutcomeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey outcome unauthorized response has a 5xx status code
+func (o *DeleteJourneyOutcomeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey outcome unauthorized response a status code equal to that given
+func (o *DeleteJourneyOutcomeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteJourneyOutcomeUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteJourneyOutcomeUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteJourneyOutcomeForbidden() *DeleteJourneyOutcomeForbidden {
 	return &DeleteJourneyOutcomeForbidden{}
 }
 
-/*DeleteJourneyOutcomeForbidden handles this case with default header values.
+/*
+DeleteJourneyOutcomeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteJourneyOutcomeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey outcome forbidden response has a 2xx status code
+func (o *DeleteJourneyOutcomeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey outcome forbidden response has a 3xx status code
+func (o *DeleteJourneyOutcomeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey outcome forbidden response has a 4xx status code
+func (o *DeleteJourneyOutcomeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey outcome forbidden response has a 5xx status code
+func (o *DeleteJourneyOutcomeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey outcome forbidden response a status code equal to that given
+func (o *DeleteJourneyOutcomeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteJourneyOutcomeForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteJourneyOutcomeForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteJourneyOutcomeNotFound() *DeleteJourneyOutcomeNotFound {
 	return &DeleteJourneyOutcomeNotFound{}
 }
 
-/*DeleteJourneyOutcomeNotFound handles this case with default header values.
+/*
+DeleteJourneyOutcomeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteJourneyOutcomeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey outcome not found response has a 2xx status code
+func (o *DeleteJourneyOutcomeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey outcome not found response has a 3xx status code
+func (o *DeleteJourneyOutcomeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey outcome not found response has a 4xx status code
+func (o *DeleteJourneyOutcomeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey outcome not found response has a 5xx status code
+func (o *DeleteJourneyOutcomeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey outcome not found response a status code equal to that given
+func (o *DeleteJourneyOutcomeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteJourneyOutcomeNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteJourneyOutcomeNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteJourneyOutcomeRequestTimeout() *DeleteJourneyOutcomeRequestTimeout
 	return &DeleteJourneyOutcomeRequestTimeout{}
 }
 
-/*DeleteJourneyOutcomeRequestTimeout handles this case with default header values.
+/*
+DeleteJourneyOutcomeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteJourneyOutcomeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey outcome request timeout response has a 2xx status code
+func (o *DeleteJourneyOutcomeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey outcome request timeout response has a 3xx status code
+func (o *DeleteJourneyOutcomeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey outcome request timeout response has a 4xx status code
+func (o *DeleteJourneyOutcomeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey outcome request timeout response has a 5xx status code
+func (o *DeleteJourneyOutcomeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey outcome request timeout response a status code equal to that given
+func (o *DeleteJourneyOutcomeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteJourneyOutcomeRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteJourneyOutcomeRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteJourneyOutcomeRequestEntityTooLarge() *DeleteJourneyOutcomeRequest
 	return &DeleteJourneyOutcomeRequestEntityTooLarge{}
 }
 
-/*DeleteJourneyOutcomeRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteJourneyOutcomeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteJourneyOutcomeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey outcome request entity too large response has a 2xx status code
+func (o *DeleteJourneyOutcomeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey outcome request entity too large response has a 3xx status code
+func (o *DeleteJourneyOutcomeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey outcome request entity too large response has a 4xx status code
+func (o *DeleteJourneyOutcomeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey outcome request entity too large response has a 5xx status code
+func (o *DeleteJourneyOutcomeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey outcome request entity too large response a status code equal to that given
+func (o *DeleteJourneyOutcomeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteJourneyOutcomeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteJourneyOutcomeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteJourneyOutcomeUnsupportedMediaType() *DeleteJourneyOutcomeUnsuppor
 	return &DeleteJourneyOutcomeUnsupportedMediaType{}
 }
 
-/*DeleteJourneyOutcomeUnsupportedMediaType handles this case with default header values.
+/*
+DeleteJourneyOutcomeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteJourneyOutcomeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey outcome unsupported media type response has a 2xx status code
+func (o *DeleteJourneyOutcomeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey outcome unsupported media type response has a 3xx status code
+func (o *DeleteJourneyOutcomeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey outcome unsupported media type response has a 4xx status code
+func (o *DeleteJourneyOutcomeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey outcome unsupported media type response has a 5xx status code
+func (o *DeleteJourneyOutcomeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey outcome unsupported media type response a status code equal to that given
+func (o *DeleteJourneyOutcomeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteJourneyOutcomeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteJourneyOutcomeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteJourneyOutcomeTooManyRequests() *DeleteJourneyOutcomeTooManyReques
 	return &DeleteJourneyOutcomeTooManyRequests{}
 }
 
-/*DeleteJourneyOutcomeTooManyRequests handles this case with default header values.
+/*
+DeleteJourneyOutcomeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteJourneyOutcomeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey outcome too many requests response has a 2xx status code
+func (o *DeleteJourneyOutcomeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey outcome too many requests response has a 3xx status code
+func (o *DeleteJourneyOutcomeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey outcome too many requests response has a 4xx status code
+func (o *DeleteJourneyOutcomeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete journey outcome too many requests response has a 5xx status code
+func (o *DeleteJourneyOutcomeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete journey outcome too many requests response a status code equal to that given
+func (o *DeleteJourneyOutcomeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteJourneyOutcomeTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteJourneyOutcomeTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteJourneyOutcomeInternalServerError() *DeleteJourneyOutcomeInternalS
 	return &DeleteJourneyOutcomeInternalServerError{}
 }
 
-/*DeleteJourneyOutcomeInternalServerError handles this case with default header values.
+/*
+DeleteJourneyOutcomeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteJourneyOutcomeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey outcome internal server error response has a 2xx status code
+func (o *DeleteJourneyOutcomeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey outcome internal server error response has a 3xx status code
+func (o *DeleteJourneyOutcomeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey outcome internal server error response has a 4xx status code
+func (o *DeleteJourneyOutcomeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete journey outcome internal server error response has a 5xx status code
+func (o *DeleteJourneyOutcomeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete journey outcome internal server error response a status code equal to that given
+func (o *DeleteJourneyOutcomeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteJourneyOutcomeInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteJourneyOutcomeInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteJourneyOutcomeServiceUnavailable() *DeleteJourneyOutcomeServiceUna
 	return &DeleteJourneyOutcomeServiceUnavailable{}
 }
 
-/*DeleteJourneyOutcomeServiceUnavailable handles this case with default header values.
+/*
+DeleteJourneyOutcomeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteJourneyOutcomeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey outcome service unavailable response has a 2xx status code
+func (o *DeleteJourneyOutcomeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey outcome service unavailable response has a 3xx status code
+func (o *DeleteJourneyOutcomeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey outcome service unavailable response has a 4xx status code
+func (o *DeleteJourneyOutcomeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete journey outcome service unavailable response has a 5xx status code
+func (o *DeleteJourneyOutcomeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete journey outcome service unavailable response a status code equal to that given
+func (o *DeleteJourneyOutcomeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteJourneyOutcomeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteJourneyOutcomeServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteJourneyOutcomeGatewayTimeout() *DeleteJourneyOutcomeGatewayTimeout
 	return &DeleteJourneyOutcomeGatewayTimeout{}
 }
 
-/*DeleteJourneyOutcomeGatewayTimeout handles this case with default header values.
+/*
+DeleteJourneyOutcomeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteJourneyOutcomeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete journey outcome gateway timeout response has a 2xx status code
+func (o *DeleteJourneyOutcomeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete journey outcome gateway timeout response has a 3xx status code
+func (o *DeleteJourneyOutcomeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete journey outcome gateway timeout response has a 4xx status code
+func (o *DeleteJourneyOutcomeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete journey outcome gateway timeout response has a 5xx status code
+func (o *DeleteJourneyOutcomeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete journey outcome gateway timeout response a status code equal to that given
+func (o *DeleteJourneyOutcomeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteJourneyOutcomeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteJourneyOutcomeGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/journey/outcomes/{outcomeId}][%d] deleteJourneyOutcomeGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *PatchRoutingSettingsContactcenterReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPatchRoutingSettingsContactcenterAccepted() *PatchRoutingSettingsContact
 	return &PatchRoutingSettingsContactcenterAccepted{}
 }
 
-/*PatchRoutingSettingsContactcenterAccepted handles this case with default header values.
+/*
+PatchRoutingSettingsContactcenterAccepted describes a response with status code 202, with default header values.
 
 Accepted
 */
 type PatchRoutingSettingsContactcenterAccepted struct {
 }
 
+// IsSuccess returns true when this patch routing settings contactcenter accepted response has a 2xx status code
+func (o *PatchRoutingSettingsContactcenterAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch routing settings contactcenter accepted response has a 3xx status code
+func (o *PatchRoutingSettingsContactcenterAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing settings contactcenter accepted response has a 4xx status code
+func (o *PatchRoutingSettingsContactcenterAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing settings contactcenter accepted response has a 5xx status code
+func (o *PatchRoutingSettingsContactcenterAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing settings contactcenter accepted response a status code equal to that given
+func (o *PatchRoutingSettingsContactcenterAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PatchRoutingSettingsContactcenterAccepted) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterAccepted ", 202)
+}
+
+func (o *PatchRoutingSettingsContactcenterAccepted) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterAccepted ", 202)
 }
 
@@ -127,7 +156,8 @@ func NewPatchRoutingSettingsContactcenterBadRequest() *PatchRoutingSettingsConta
 	return &PatchRoutingSettingsContactcenterBadRequest{}
 }
 
-/*PatchRoutingSettingsContactcenterBadRequest handles this case with default header values.
+/*
+PatchRoutingSettingsContactcenterBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PatchRoutingSettingsContactcenterBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing settings contactcenter bad request response has a 2xx status code
+func (o *PatchRoutingSettingsContactcenterBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing settings contactcenter bad request response has a 3xx status code
+func (o *PatchRoutingSettingsContactcenterBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing settings contactcenter bad request response has a 4xx status code
+func (o *PatchRoutingSettingsContactcenterBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing settings contactcenter bad request response has a 5xx status code
+func (o *PatchRoutingSettingsContactcenterBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing settings contactcenter bad request response a status code equal to that given
+func (o *PatchRoutingSettingsContactcenterBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchRoutingSettingsContactcenterBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchRoutingSettingsContactcenterBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPatchRoutingSettingsContactcenterUnauthorized() *PatchRoutingSettingsCon
 	return &PatchRoutingSettingsContactcenterUnauthorized{}
 }
 
-/*PatchRoutingSettingsContactcenterUnauthorized handles this case with default header values.
+/*
+PatchRoutingSettingsContactcenterUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PatchRoutingSettingsContactcenterUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing settings contactcenter unauthorized response has a 2xx status code
+func (o *PatchRoutingSettingsContactcenterUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing settings contactcenter unauthorized response has a 3xx status code
+func (o *PatchRoutingSettingsContactcenterUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing settings contactcenter unauthorized response has a 4xx status code
+func (o *PatchRoutingSettingsContactcenterUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing settings contactcenter unauthorized response has a 5xx status code
+func (o *PatchRoutingSettingsContactcenterUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing settings contactcenter unauthorized response a status code equal to that given
+func (o *PatchRoutingSettingsContactcenterUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchRoutingSettingsContactcenterUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchRoutingSettingsContactcenterUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPatchRoutingSettingsContactcenterForbidden() *PatchRoutingSettingsContac
 	return &PatchRoutingSettingsContactcenterForbidden{}
 }
 
-/*PatchRoutingSettingsContactcenterForbidden handles this case with default header values.
+/*
+PatchRoutingSettingsContactcenterForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PatchRoutingSettingsContactcenterForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing settings contactcenter forbidden response has a 2xx status code
+func (o *PatchRoutingSettingsContactcenterForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing settings contactcenter forbidden response has a 3xx status code
+func (o *PatchRoutingSettingsContactcenterForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing settings contactcenter forbidden response has a 4xx status code
+func (o *PatchRoutingSettingsContactcenterForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing settings contactcenter forbidden response has a 5xx status code
+func (o *PatchRoutingSettingsContactcenterForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing settings contactcenter forbidden response a status code equal to that given
+func (o *PatchRoutingSettingsContactcenterForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchRoutingSettingsContactcenterForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchRoutingSettingsContactcenterForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPatchRoutingSettingsContactcenterNotFound() *PatchRoutingSettingsContact
 	return &PatchRoutingSettingsContactcenterNotFound{}
 }
 
-/*PatchRoutingSettingsContactcenterNotFound handles this case with default header values.
+/*
+PatchRoutingSettingsContactcenterNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PatchRoutingSettingsContactcenterNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing settings contactcenter not found response has a 2xx status code
+func (o *PatchRoutingSettingsContactcenterNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing settings contactcenter not found response has a 3xx status code
+func (o *PatchRoutingSettingsContactcenterNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing settings contactcenter not found response has a 4xx status code
+func (o *PatchRoutingSettingsContactcenterNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing settings contactcenter not found response has a 5xx status code
+func (o *PatchRoutingSettingsContactcenterNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing settings contactcenter not found response a status code equal to that given
+func (o *PatchRoutingSettingsContactcenterNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchRoutingSettingsContactcenterNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchRoutingSettingsContactcenterNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPatchRoutingSettingsContactcenterRequestTimeout() *PatchRoutingSettingsC
 	return &PatchRoutingSettingsContactcenterRequestTimeout{}
 }
 
-/*PatchRoutingSettingsContactcenterRequestTimeout handles this case with default header values.
+/*
+PatchRoutingSettingsContactcenterRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PatchRoutingSettingsContactcenterRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing settings contactcenter request timeout response has a 2xx status code
+func (o *PatchRoutingSettingsContactcenterRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing settings contactcenter request timeout response has a 3xx status code
+func (o *PatchRoutingSettingsContactcenterRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing settings contactcenter request timeout response has a 4xx status code
+func (o *PatchRoutingSettingsContactcenterRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing settings contactcenter request timeout response has a 5xx status code
+func (o *PatchRoutingSettingsContactcenterRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing settings contactcenter request timeout response a status code equal to that given
+func (o *PatchRoutingSettingsContactcenterRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchRoutingSettingsContactcenterRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchRoutingSettingsContactcenterRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPatchRoutingSettingsContactcenterRequestEntityTooLarge() *PatchRoutingSe
 	return &PatchRoutingSettingsContactcenterRequestEntityTooLarge{}
 }
 
-/*PatchRoutingSettingsContactcenterRequestEntityTooLarge handles this case with default header values.
+/*
+PatchRoutingSettingsContactcenterRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PatchRoutingSettingsContactcenterRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing settings contactcenter request entity too large response has a 2xx status code
+func (o *PatchRoutingSettingsContactcenterRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing settings contactcenter request entity too large response has a 3xx status code
+func (o *PatchRoutingSettingsContactcenterRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing settings contactcenter request entity too large response has a 4xx status code
+func (o *PatchRoutingSettingsContactcenterRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing settings contactcenter request entity too large response has a 5xx status code
+func (o *PatchRoutingSettingsContactcenterRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing settings contactcenter request entity too large response a status code equal to that given
+func (o *PatchRoutingSettingsContactcenterRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchRoutingSettingsContactcenterRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchRoutingSettingsContactcenterRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPatchRoutingSettingsContactcenterUnsupportedMediaType() *PatchRoutingSet
 	return &PatchRoutingSettingsContactcenterUnsupportedMediaType{}
 }
 
-/*PatchRoutingSettingsContactcenterUnsupportedMediaType handles this case with default header values.
+/*
+PatchRoutingSettingsContactcenterUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PatchRoutingSettingsContactcenterUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing settings contactcenter unsupported media type response has a 2xx status code
+func (o *PatchRoutingSettingsContactcenterUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing settings contactcenter unsupported media type response has a 3xx status code
+func (o *PatchRoutingSettingsContactcenterUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing settings contactcenter unsupported media type response has a 4xx status code
+func (o *PatchRoutingSettingsContactcenterUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing settings contactcenter unsupported media type response has a 5xx status code
+func (o *PatchRoutingSettingsContactcenterUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing settings contactcenter unsupported media type response a status code equal to that given
+func (o *PatchRoutingSettingsContactcenterUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchRoutingSettingsContactcenterUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchRoutingSettingsContactcenterUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPatchRoutingSettingsContactcenterTooManyRequests() *PatchRoutingSettings
 	return &PatchRoutingSettingsContactcenterTooManyRequests{}
 }
 
-/*PatchRoutingSettingsContactcenterTooManyRequests handles this case with default header values.
+/*
+PatchRoutingSettingsContactcenterTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PatchRoutingSettingsContactcenterTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing settings contactcenter too many requests response has a 2xx status code
+func (o *PatchRoutingSettingsContactcenterTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing settings contactcenter too many requests response has a 3xx status code
+func (o *PatchRoutingSettingsContactcenterTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing settings contactcenter too many requests response has a 4xx status code
+func (o *PatchRoutingSettingsContactcenterTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing settings contactcenter too many requests response has a 5xx status code
+func (o *PatchRoutingSettingsContactcenterTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing settings contactcenter too many requests response a status code equal to that given
+func (o *PatchRoutingSettingsContactcenterTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchRoutingSettingsContactcenterTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchRoutingSettingsContactcenterTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPatchRoutingSettingsContactcenterInternalServerError() *PatchRoutingSett
 	return &PatchRoutingSettingsContactcenterInternalServerError{}
 }
 
-/*PatchRoutingSettingsContactcenterInternalServerError handles this case with default header values.
+/*
+PatchRoutingSettingsContactcenterInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PatchRoutingSettingsContactcenterInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing settings contactcenter internal server error response has a 2xx status code
+func (o *PatchRoutingSettingsContactcenterInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing settings contactcenter internal server error response has a 3xx status code
+func (o *PatchRoutingSettingsContactcenterInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing settings contactcenter internal server error response has a 4xx status code
+func (o *PatchRoutingSettingsContactcenterInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing settings contactcenter internal server error response has a 5xx status code
+func (o *PatchRoutingSettingsContactcenterInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing settings contactcenter internal server error response a status code equal to that given
+func (o *PatchRoutingSettingsContactcenterInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchRoutingSettingsContactcenterInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchRoutingSettingsContactcenterInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPatchRoutingSettingsContactcenterServiceUnavailable() *PatchRoutingSetti
 	return &PatchRoutingSettingsContactcenterServiceUnavailable{}
 }
 
-/*PatchRoutingSettingsContactcenterServiceUnavailable handles this case with default header values.
+/*
+PatchRoutingSettingsContactcenterServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PatchRoutingSettingsContactcenterServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing settings contactcenter service unavailable response has a 2xx status code
+func (o *PatchRoutingSettingsContactcenterServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing settings contactcenter service unavailable response has a 3xx status code
+func (o *PatchRoutingSettingsContactcenterServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing settings contactcenter service unavailable response has a 4xx status code
+func (o *PatchRoutingSettingsContactcenterServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing settings contactcenter service unavailable response has a 5xx status code
+func (o *PatchRoutingSettingsContactcenterServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing settings contactcenter service unavailable response a status code equal to that given
+func (o *PatchRoutingSettingsContactcenterServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchRoutingSettingsContactcenterServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchRoutingSettingsContactcenterServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPatchRoutingSettingsContactcenterGatewayTimeout() *PatchRoutingSettingsC
 	return &PatchRoutingSettingsContactcenterGatewayTimeout{}
 }
 
-/*PatchRoutingSettingsContactcenterGatewayTimeout handles this case with default header values.
+/*
+PatchRoutingSettingsContactcenterGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PatchRoutingSettingsContactcenterGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing settings contactcenter gateway timeout response has a 2xx status code
+func (o *PatchRoutingSettingsContactcenterGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing settings contactcenter gateway timeout response has a 3xx status code
+func (o *PatchRoutingSettingsContactcenterGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing settings contactcenter gateway timeout response has a 4xx status code
+func (o *PatchRoutingSettingsContactcenterGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing settings contactcenter gateway timeout response has a 5xx status code
+func (o *PatchRoutingSettingsContactcenterGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing settings contactcenter gateway timeout response a status code equal to that given
+func (o *PatchRoutingSettingsContactcenterGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchRoutingSettingsContactcenterGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchRoutingSettingsContactcenterGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/settings/contactcenter][%d] patchRoutingSettingsContactcenterGatewayTimeout  %+v", 504, o.Payload)
 }
 

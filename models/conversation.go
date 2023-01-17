@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -108,7 +109,6 @@ func (m *Conversation) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Conversation) validateDivisions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Divisions) { // not required
 		return nil
 	}
@@ -122,6 +122,8 @@ func (m *Conversation) validateDivisions(formats strfmt.Registry) error {
 			if err := m.Divisions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("divisions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("divisions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -133,7 +135,6 @@ func (m *Conversation) validateDivisions(formats strfmt.Registry) error {
 }
 
 func (m *Conversation) validateEndTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndTime) { // not required
 		return nil
 	}
@@ -160,6 +161,8 @@ func (m *Conversation) validateParticipants(formats strfmt.Registry) error {
 			if err := m.Participants[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("participants" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("participants" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -203,7 +206,6 @@ func (m *Conversation) validateRecordingStateEnum(path, location string, value s
 }
 
 func (m *Conversation) validateRecordingState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RecordingState) { // not required
 		return nil
 	}
@@ -217,7 +219,6 @@ func (m *Conversation) validateRecordingState(formats strfmt.Registry) error {
 }
 
 func (m *Conversation) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -299,13 +300,96 @@ func (m *Conversation) validateStateEnum(path, location string, value string) er
 }
 
 func (m *Conversation) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation based on the context it is used
+func (m *Conversation) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDivisions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateParticipants(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Conversation) contextValidateDivisions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Divisions); i++ {
+
+		if m.Divisions[i] != nil {
+			if err := m.Divisions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("divisions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("divisions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Conversation) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Conversation) contextValidateParticipants(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Participants); i++ {
+
+		if m.Participants[i] != nil {
+			if err := m.Participants[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("participants" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("participants" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Conversation) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

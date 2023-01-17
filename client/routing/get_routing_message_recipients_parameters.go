@@ -17,89 +17,107 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRoutingMessageRecipientsParams creates a new GetRoutingMessageRecipientsParams object
-// with the default values initialized.
+// NewGetRoutingMessageRecipientsParams creates a new GetRoutingMessageRecipientsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingMessageRecipientsParams() *GetRoutingMessageRecipientsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetRoutingMessageRecipientsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingMessageRecipientsParamsWithTimeout creates a new GetRoutingMessageRecipientsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingMessageRecipientsParamsWithTimeout(timeout time.Duration) *GetRoutingMessageRecipientsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetRoutingMessageRecipientsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingMessageRecipientsParamsWithContext creates a new GetRoutingMessageRecipientsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingMessageRecipientsParamsWithContext(ctx context.Context) *GetRoutingMessageRecipientsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetRoutingMessageRecipientsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingMessageRecipientsParamsWithHTTPClient creates a new GetRoutingMessageRecipientsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingMessageRecipientsParamsWithHTTPClient(client *http.Client) *GetRoutingMessageRecipientsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetRoutingMessageRecipientsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingMessageRecipientsParams contains all the parameters to send to the API endpoint
-for the get routing message recipients operation typically these are written to a http.Request
+/*
+GetRoutingMessageRecipientsParams contains all the parameters to send to the API endpoint
+
+	for the get routing message recipients operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingMessageRecipientsParams struct {
 
-	/*MessengerType
-	  Messenger Type
+	/* MessengerType.
 
+	   Messenger Type
 	*/
 	MessengerType *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing message recipients params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingMessageRecipientsParams) WithDefaults() *GetRoutingMessageRecipientsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing message recipients params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingMessageRecipientsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetRoutingMessageRecipientsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get routing message recipients params
@@ -180,48 +198,51 @@ func (o *GetRoutingMessageRecipientsParams) WriteToRequest(r runtime.ClientReque
 
 		// query param messengerType
 		var qrMessengerType string
+
 		if o.MessengerType != nil {
 			qrMessengerType = *o.MessengerType
 		}
 		qMessengerType := qrMessengerType
 		if qMessengerType != "" {
+
 			if err := r.SetQueryParam("messengerType", qMessengerType); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

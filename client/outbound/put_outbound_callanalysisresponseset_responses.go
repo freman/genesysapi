@@ -101,7 +101,6 @@ func (o *PutOutboundCallanalysisresponsesetReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutOutboundCallanalysisresponsesetOK() *PutOutboundCallanalysisresponses
 	return &PutOutboundCallanalysisresponsesetOK{}
 }
 
-/*PutOutboundCallanalysisresponsesetOK handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutOutboundCallanalysisresponsesetOK struct {
 	Payload *models.ResponseSet
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset o k response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset o k response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset o k response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset o k response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset o k response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOutboundCallanalysisresponsesetOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPutOutboundCallanalysisresponsesetBadRequest() *PutOutboundCallanalysisr
 	return &PutOutboundCallanalysisresponsesetBadRequest{}
 }
 
-/*PutOutboundCallanalysisresponsesetBadRequest handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PutOutboundCallanalysisresponsesetBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset bad request response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset bad request response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset bad request response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset bad request response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset bad request response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOutboundCallanalysisresponsesetBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPutOutboundCallanalysisresponsesetUnauthorized() *PutOutboundCallanalysi
 	return &PutOutboundCallanalysisresponsesetUnauthorized{}
 }
 
-/*PutOutboundCallanalysisresponsesetUnauthorized handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PutOutboundCallanalysisresponsesetUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset unauthorized response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset unauthorized response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset unauthorized response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset unauthorized response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset unauthorized response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOutboundCallanalysisresponsesetUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPutOutboundCallanalysisresponsesetForbidden() *PutOutboundCallanalysisre
 	return &PutOutboundCallanalysisresponsesetForbidden{}
 }
 
-/*PutOutboundCallanalysisresponsesetForbidden handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PutOutboundCallanalysisresponsesetForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset forbidden response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset forbidden response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset forbidden response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset forbidden response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset forbidden response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOutboundCallanalysisresponsesetForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPutOutboundCallanalysisresponsesetNotFound() *PutOutboundCallanalysisres
 	return &PutOutboundCallanalysisresponsesetNotFound{}
 }
 
-/*PutOutboundCallanalysisresponsesetNotFound handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PutOutboundCallanalysisresponsesetNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset not found response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset not found response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset not found response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset not found response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset not found response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOutboundCallanalysisresponsesetNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPutOutboundCallanalysisresponsesetRequestTimeout() *PutOutboundCallanaly
 	return &PutOutboundCallanalysisresponsesetRequestTimeout{}
 }
 
-/*PutOutboundCallanalysisresponsesetRequestTimeout handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PutOutboundCallanalysisresponsesetRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset request timeout response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset request timeout response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset request timeout response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset request timeout response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset request timeout response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOutboundCallanalysisresponsesetRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPutOutboundCallanalysisresponsesetConflict() *PutOutboundCallanalysisres
 	return &PutOutboundCallanalysisresponsesetConflict{}
 }
 
-/*PutOutboundCallanalysisresponsesetConflict handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PutOutboundCallanalysisresponsesetConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset conflict response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset conflict response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset conflict response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset conflict response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset conflict response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutOutboundCallanalysisresponsesetConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPutOutboundCallanalysisresponsesetRequestEntityTooLarge() *PutOutboundCa
 	return &PutOutboundCallanalysisresponsesetRequestEntityTooLarge{}
 }
 
-/*PutOutboundCallanalysisresponsesetRequestEntityTooLarge handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PutOutboundCallanalysisresponsesetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset request entity too large response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset request entity too large response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset request entity too large response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset request entity too large response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset request entity too large response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOutboundCallanalysisresponsesetRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPutOutboundCallanalysisresponsesetUnsupportedMediaType() *PutOutboundCal
 	return &PutOutboundCallanalysisresponsesetUnsupportedMediaType{}
 }
 
-/*PutOutboundCallanalysisresponsesetUnsupportedMediaType handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PutOutboundCallanalysisresponsesetUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset unsupported media type response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset unsupported media type response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset unsupported media type response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset unsupported media type response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset unsupported media type response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOutboundCallanalysisresponsesetUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPutOutboundCallanalysisresponsesetTooManyRequests() *PutOutboundCallanal
 	return &PutOutboundCallanalysisresponsesetTooManyRequests{}
 }
 
-/*PutOutboundCallanalysisresponsesetTooManyRequests handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PutOutboundCallanalysisresponsesetTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset too many requests response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset too many requests response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset too many requests response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset too many requests response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset too many requests response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOutboundCallanalysisresponsesetTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPutOutboundCallanalysisresponsesetInternalServerError() *PutOutboundCall
 	return &PutOutboundCallanalysisresponsesetInternalServerError{}
 }
 
-/*PutOutboundCallanalysisresponsesetInternalServerError handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PutOutboundCallanalysisresponsesetInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset internal server error response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset internal server error response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset internal server error response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset internal server error response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset internal server error response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOutboundCallanalysisresponsesetInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPutOutboundCallanalysisresponsesetServiceUnavailable() *PutOutboundCalla
 	return &PutOutboundCallanalysisresponsesetServiceUnavailable{}
 }
 
-/*PutOutboundCallanalysisresponsesetServiceUnavailable handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PutOutboundCallanalysisresponsesetServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset service unavailable response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset service unavailable response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset service unavailable response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset service unavailable response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset service unavailable response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOutboundCallanalysisresponsesetServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPutOutboundCallanalysisresponsesetGatewayTimeout() *PutOutboundCallanaly
 	return &PutOutboundCallanalysisresponsesetGatewayTimeout{}
 }
 
-/*PutOutboundCallanalysisresponsesetGatewayTimeout handles this case with default header values.
+/*
+PutOutboundCallanalysisresponsesetGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PutOutboundCallanalysisresponsesetGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound callanalysisresponseset gateway timeout response has a 2xx status code
+func (o *PutOutboundCallanalysisresponsesetGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound callanalysisresponseset gateway timeout response has a 3xx status code
+func (o *PutOutboundCallanalysisresponsesetGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound callanalysisresponseset gateway timeout response has a 4xx status code
+func (o *PutOutboundCallanalysisresponsesetGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound callanalysisresponseset gateway timeout response has a 5xx status code
+func (o *PutOutboundCallanalysisresponsesetGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound callanalysisresponseset gateway timeout response a status code equal to that given
+func (o *PutOutboundCallanalysisresponsesetGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOutboundCallanalysisresponsesetGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOutboundCallanalysisresponsesetGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/callanalysisresponsesets/{callAnalysisSetId}][%d] putOutboundCallanalysisresponsesetGatewayTimeout  %+v", 504, o.Payload)
 }
 

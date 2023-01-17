@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetExternalcontactsRelationshipParams creates a new GetExternalcontactsRelationshipParams object
-// with the default values initialized.
+// NewGetExternalcontactsRelationshipParams creates a new GetExternalcontactsRelationshipParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetExternalcontactsRelationshipParams() *GetExternalcontactsRelationshipParams {
-	var ()
 	return &GetExternalcontactsRelationshipParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetExternalcontactsRelationshipParamsWithTimeout creates a new GetExternalcontactsRelationshipParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetExternalcontactsRelationshipParamsWithTimeout(timeout time.Duration) *GetExternalcontactsRelationshipParams {
-	var ()
 	return &GetExternalcontactsRelationshipParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetExternalcontactsRelationshipParamsWithContext creates a new GetExternalcontactsRelationshipParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetExternalcontactsRelationshipParamsWithContext(ctx context.Context) *GetExternalcontactsRelationshipParams {
-	var ()
 	return &GetExternalcontactsRelationshipParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetExternalcontactsRelationshipParamsWithHTTPClient creates a new GetExternalcontactsRelationshipParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetExternalcontactsRelationshipParamsWithHTTPClient(client *http.Client) *GetExternalcontactsRelationshipParams {
-	var ()
 	return &GetExternalcontactsRelationshipParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetExternalcontactsRelationshipParams contains all the parameters to send to the API endpoint
-for the get externalcontacts relationship operation typically these are written to a http.Request
+/*
+GetExternalcontactsRelationshipParams contains all the parameters to send to the API endpoint
+
+	for the get externalcontacts relationship operation.
+
+	Typically these are written to a http.Request.
 */
 type GetExternalcontactsRelationshipParams struct {
 
-	/*Expand
-	  which fields, if any, to expand
+	/* Expand.
 
+	   which fields, if any, to expand
 	*/
 	Expand *string
-	/*RelationshipID
-	  Relationship Id
 
+	/* RelationshipID.
+
+	   Relationship Id
 	*/
 	RelationshipID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get externalcontacts relationship params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsRelationshipParams) WithDefaults() *GetExternalcontactsRelationshipParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get externalcontacts relationship params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsRelationshipParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get externalcontacts relationship params
@@ -143,16 +160,17 @@ func (o *GetExternalcontactsRelationshipParams) WriteToRequest(r runtime.ClientR
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param relationshipId

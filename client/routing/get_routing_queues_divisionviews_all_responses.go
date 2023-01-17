@@ -95,7 +95,6 @@ func (o *GetRoutingQueuesDivisionviewsAllReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingQueuesDivisionviewsAllOK() *GetRoutingQueuesDivisionviewsAllOK
 	return &GetRoutingQueuesDivisionviewsAllOK{}
 }
 
-/*GetRoutingQueuesDivisionviewsAllOK handles this case with default header values.
+/*
+GetRoutingQueuesDivisionviewsAllOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingQueuesDivisionviewsAllOK struct {
 	Payload *models.QueueEntityListing
 }
 
+// IsSuccess returns true when this get routing queues divisionviews all o k response has a 2xx status code
+func (o *GetRoutingQueuesDivisionviewsAllOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing queues divisionviews all o k response has a 3xx status code
+func (o *GetRoutingQueuesDivisionviewsAllOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queues divisionviews all o k response has a 4xx status code
+func (o *GetRoutingQueuesDivisionviewsAllOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing queues divisionviews all o k response has a 5xx status code
+func (o *GetRoutingQueuesDivisionviewsAllOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queues divisionviews all o k response a status code equal to that given
+func (o *GetRoutingQueuesDivisionviewsAllOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingQueuesDivisionviewsAllOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingQueuesDivisionviewsAllOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingQueuesDivisionviewsAllBadRequest() *GetRoutingQueuesDivisionvi
 	return &GetRoutingQueuesDivisionviewsAllBadRequest{}
 }
 
-/*GetRoutingQueuesDivisionviewsAllBadRequest handles this case with default header values.
+/*
+GetRoutingQueuesDivisionviewsAllBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingQueuesDivisionviewsAllBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queues divisionviews all bad request response has a 2xx status code
+func (o *GetRoutingQueuesDivisionviewsAllBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queues divisionviews all bad request response has a 3xx status code
+func (o *GetRoutingQueuesDivisionviewsAllBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queues divisionviews all bad request response has a 4xx status code
+func (o *GetRoutingQueuesDivisionviewsAllBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queues divisionviews all bad request response has a 5xx status code
+func (o *GetRoutingQueuesDivisionviewsAllBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queues divisionviews all bad request response a status code equal to that given
+func (o *GetRoutingQueuesDivisionviewsAllBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingQueuesDivisionviewsAllBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingQueuesDivisionviewsAllBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingQueuesDivisionviewsAllUnauthorized() *GetRoutingQueuesDivision
 	return &GetRoutingQueuesDivisionviewsAllUnauthorized{}
 }
 
-/*GetRoutingQueuesDivisionviewsAllUnauthorized handles this case with default header values.
+/*
+GetRoutingQueuesDivisionviewsAllUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingQueuesDivisionviewsAllUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queues divisionviews all unauthorized response has a 2xx status code
+func (o *GetRoutingQueuesDivisionviewsAllUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queues divisionviews all unauthorized response has a 3xx status code
+func (o *GetRoutingQueuesDivisionviewsAllUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queues divisionviews all unauthorized response has a 4xx status code
+func (o *GetRoutingQueuesDivisionviewsAllUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queues divisionviews all unauthorized response has a 5xx status code
+func (o *GetRoutingQueuesDivisionviewsAllUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queues divisionviews all unauthorized response a status code equal to that given
+func (o *GetRoutingQueuesDivisionviewsAllUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingQueuesDivisionviewsAllUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingQueuesDivisionviewsAllUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingQueuesDivisionviewsAllForbidden() *GetRoutingQueuesDivisionvie
 	return &GetRoutingQueuesDivisionviewsAllForbidden{}
 }
 
-/*GetRoutingQueuesDivisionviewsAllForbidden handles this case with default header values.
+/*
+GetRoutingQueuesDivisionviewsAllForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingQueuesDivisionviewsAllForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queues divisionviews all forbidden response has a 2xx status code
+func (o *GetRoutingQueuesDivisionviewsAllForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queues divisionviews all forbidden response has a 3xx status code
+func (o *GetRoutingQueuesDivisionviewsAllForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queues divisionviews all forbidden response has a 4xx status code
+func (o *GetRoutingQueuesDivisionviewsAllForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queues divisionviews all forbidden response has a 5xx status code
+func (o *GetRoutingQueuesDivisionviewsAllForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queues divisionviews all forbidden response a status code equal to that given
+func (o *GetRoutingQueuesDivisionviewsAllForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingQueuesDivisionviewsAllForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingQueuesDivisionviewsAllForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingQueuesDivisionviewsAllNotFound() *GetRoutingQueuesDivisionview
 	return &GetRoutingQueuesDivisionviewsAllNotFound{}
 }
 
-/*GetRoutingQueuesDivisionviewsAllNotFound handles this case with default header values.
+/*
+GetRoutingQueuesDivisionviewsAllNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingQueuesDivisionviewsAllNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queues divisionviews all not found response has a 2xx status code
+func (o *GetRoutingQueuesDivisionviewsAllNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queues divisionviews all not found response has a 3xx status code
+func (o *GetRoutingQueuesDivisionviewsAllNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queues divisionviews all not found response has a 4xx status code
+func (o *GetRoutingQueuesDivisionviewsAllNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queues divisionviews all not found response has a 5xx status code
+func (o *GetRoutingQueuesDivisionviewsAllNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queues divisionviews all not found response a status code equal to that given
+func (o *GetRoutingQueuesDivisionviewsAllNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingQueuesDivisionviewsAllNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingQueuesDivisionviewsAllNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingQueuesDivisionviewsAllRequestTimeout() *GetRoutingQueuesDivisi
 	return &GetRoutingQueuesDivisionviewsAllRequestTimeout{}
 }
 
-/*GetRoutingQueuesDivisionviewsAllRequestTimeout handles this case with default header values.
+/*
+GetRoutingQueuesDivisionviewsAllRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingQueuesDivisionviewsAllRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queues divisionviews all request timeout response has a 2xx status code
+func (o *GetRoutingQueuesDivisionviewsAllRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queues divisionviews all request timeout response has a 3xx status code
+func (o *GetRoutingQueuesDivisionviewsAllRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queues divisionviews all request timeout response has a 4xx status code
+func (o *GetRoutingQueuesDivisionviewsAllRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queues divisionviews all request timeout response has a 5xx status code
+func (o *GetRoutingQueuesDivisionviewsAllRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queues divisionviews all request timeout response a status code equal to that given
+func (o *GetRoutingQueuesDivisionviewsAllRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingQueuesDivisionviewsAllRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingQueuesDivisionviewsAllRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingQueuesDivisionviewsAllRequestEntityTooLarge() *GetRoutingQueue
 	return &GetRoutingQueuesDivisionviewsAllRequestEntityTooLarge{}
 }
 
-/*GetRoutingQueuesDivisionviewsAllRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingQueuesDivisionviewsAllRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingQueuesDivisionviewsAllRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queues divisionviews all request entity too large response has a 2xx status code
+func (o *GetRoutingQueuesDivisionviewsAllRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queues divisionviews all request entity too large response has a 3xx status code
+func (o *GetRoutingQueuesDivisionviewsAllRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queues divisionviews all request entity too large response has a 4xx status code
+func (o *GetRoutingQueuesDivisionviewsAllRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queues divisionviews all request entity too large response has a 5xx status code
+func (o *GetRoutingQueuesDivisionviewsAllRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queues divisionviews all request entity too large response a status code equal to that given
+func (o *GetRoutingQueuesDivisionviewsAllRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingQueuesDivisionviewsAllRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingQueuesDivisionviewsAllRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingQueuesDivisionviewsAllUnsupportedMediaType() *GetRoutingQueues
 	return &GetRoutingQueuesDivisionviewsAllUnsupportedMediaType{}
 }
 
-/*GetRoutingQueuesDivisionviewsAllUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingQueuesDivisionviewsAllUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingQueuesDivisionviewsAllUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queues divisionviews all unsupported media type response has a 2xx status code
+func (o *GetRoutingQueuesDivisionviewsAllUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queues divisionviews all unsupported media type response has a 3xx status code
+func (o *GetRoutingQueuesDivisionviewsAllUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queues divisionviews all unsupported media type response has a 4xx status code
+func (o *GetRoutingQueuesDivisionviewsAllUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queues divisionviews all unsupported media type response has a 5xx status code
+func (o *GetRoutingQueuesDivisionviewsAllUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queues divisionviews all unsupported media type response a status code equal to that given
+func (o *GetRoutingQueuesDivisionviewsAllUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingQueuesDivisionviewsAllUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingQueuesDivisionviewsAllUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingQueuesDivisionviewsAllTooManyRequests() *GetRoutingQueuesDivis
 	return &GetRoutingQueuesDivisionviewsAllTooManyRequests{}
 }
 
-/*GetRoutingQueuesDivisionviewsAllTooManyRequests handles this case with default header values.
+/*
+GetRoutingQueuesDivisionviewsAllTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingQueuesDivisionviewsAllTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queues divisionviews all too many requests response has a 2xx status code
+func (o *GetRoutingQueuesDivisionviewsAllTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queues divisionviews all too many requests response has a 3xx status code
+func (o *GetRoutingQueuesDivisionviewsAllTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queues divisionviews all too many requests response has a 4xx status code
+func (o *GetRoutingQueuesDivisionviewsAllTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queues divisionviews all too many requests response has a 5xx status code
+func (o *GetRoutingQueuesDivisionviewsAllTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queues divisionviews all too many requests response a status code equal to that given
+func (o *GetRoutingQueuesDivisionviewsAllTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingQueuesDivisionviewsAllTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingQueuesDivisionviewsAllTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingQueuesDivisionviewsAllInternalServerError() *GetRoutingQueuesD
 	return &GetRoutingQueuesDivisionviewsAllInternalServerError{}
 }
 
-/*GetRoutingQueuesDivisionviewsAllInternalServerError handles this case with default header values.
+/*
+GetRoutingQueuesDivisionviewsAllInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingQueuesDivisionviewsAllInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queues divisionviews all internal server error response has a 2xx status code
+func (o *GetRoutingQueuesDivisionviewsAllInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queues divisionviews all internal server error response has a 3xx status code
+func (o *GetRoutingQueuesDivisionviewsAllInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queues divisionviews all internal server error response has a 4xx status code
+func (o *GetRoutingQueuesDivisionviewsAllInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing queues divisionviews all internal server error response has a 5xx status code
+func (o *GetRoutingQueuesDivisionviewsAllInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing queues divisionviews all internal server error response a status code equal to that given
+func (o *GetRoutingQueuesDivisionviewsAllInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingQueuesDivisionviewsAllInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingQueuesDivisionviewsAllInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingQueuesDivisionviewsAllServiceUnavailable() *GetRoutingQueuesDi
 	return &GetRoutingQueuesDivisionviewsAllServiceUnavailable{}
 }
 
-/*GetRoutingQueuesDivisionviewsAllServiceUnavailable handles this case with default header values.
+/*
+GetRoutingQueuesDivisionviewsAllServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingQueuesDivisionviewsAllServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queues divisionviews all service unavailable response has a 2xx status code
+func (o *GetRoutingQueuesDivisionviewsAllServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queues divisionviews all service unavailable response has a 3xx status code
+func (o *GetRoutingQueuesDivisionviewsAllServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queues divisionviews all service unavailable response has a 4xx status code
+func (o *GetRoutingQueuesDivisionviewsAllServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing queues divisionviews all service unavailable response has a 5xx status code
+func (o *GetRoutingQueuesDivisionviewsAllServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing queues divisionviews all service unavailable response a status code equal to that given
+func (o *GetRoutingQueuesDivisionviewsAllServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingQueuesDivisionviewsAllServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingQueuesDivisionviewsAllServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingQueuesDivisionviewsAllGatewayTimeout() *GetRoutingQueuesDivisi
 	return &GetRoutingQueuesDivisionviewsAllGatewayTimeout{}
 }
 
-/*GetRoutingQueuesDivisionviewsAllGatewayTimeout handles this case with default header values.
+/*
+GetRoutingQueuesDivisionviewsAllGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingQueuesDivisionviewsAllGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queues divisionviews all gateway timeout response has a 2xx status code
+func (o *GetRoutingQueuesDivisionviewsAllGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queues divisionviews all gateway timeout response has a 3xx status code
+func (o *GetRoutingQueuesDivisionviewsAllGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queues divisionviews all gateway timeout response has a 4xx status code
+func (o *GetRoutingQueuesDivisionviewsAllGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing queues divisionviews all gateway timeout response has a 5xx status code
+func (o *GetRoutingQueuesDivisionviewsAllGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing queues divisionviews all gateway timeout response a status code equal to that given
+func (o *GetRoutingQueuesDivisionviewsAllGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingQueuesDivisionviewsAllGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingQueuesDivisionviewsAllGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/divisionviews/all][%d] getRoutingQueuesDivisionviewsAllGatewayTimeout  %+v", 504, o.Payload)
 }
 

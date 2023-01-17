@@ -119,7 +119,6 @@ func (o *PostFlowsActionsPublishReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -130,7 +129,8 @@ func NewPostFlowsActionsPublishOK() *PostFlowsActionsPublishOK {
 	return &PostFlowsActionsPublishOK{}
 }
 
-/*PostFlowsActionsPublishOK handles this case with default header values.
+/*
+PostFlowsActionsPublishOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -138,7 +138,36 @@ type PostFlowsActionsPublishOK struct {
 	Payload *models.Operation
 }
 
+// IsSuccess returns true when this post flows actions publish o k response has a 2xx status code
+func (o *PostFlowsActionsPublishOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post flows actions publish o k response has a 3xx status code
+func (o *PostFlowsActionsPublishOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish o k response has a 4xx status code
+func (o *PostFlowsActionsPublishOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions publish o k response has a 5xx status code
+func (o *PostFlowsActionsPublishOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish o k response a status code equal to that given
+func (o *PostFlowsActionsPublishOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostFlowsActionsPublishOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishOK  %+v", 200, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishOK  %+v", 200, o.Payload)
 }
 
@@ -163,14 +192,44 @@ func NewPostFlowsActionsPublishAccepted() *PostFlowsActionsPublishAccepted {
 	return &PostFlowsActionsPublishAccepted{}
 }
 
-/*PostFlowsActionsPublishAccepted handles this case with default header values.
+/*
+PostFlowsActionsPublishAccepted describes a response with status code 202, with default header values.
 
 Accepted - the publish has begun
 */
 type PostFlowsActionsPublishAccepted struct {
 }
 
+// IsSuccess returns true when this post flows actions publish accepted response has a 2xx status code
+func (o *PostFlowsActionsPublishAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post flows actions publish accepted response has a 3xx status code
+func (o *PostFlowsActionsPublishAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish accepted response has a 4xx status code
+func (o *PostFlowsActionsPublishAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions publish accepted response has a 5xx status code
+func (o *PostFlowsActionsPublishAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish accepted response a status code equal to that given
+func (o *PostFlowsActionsPublishAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostFlowsActionsPublishAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishAccepted ", 202)
+}
+
+func (o *PostFlowsActionsPublishAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishAccepted ", 202)
 }
 
@@ -184,7 +243,8 @@ func NewPostFlowsActionsPublishBadRequest() *PostFlowsActionsPublishBadRequest {
 	return &PostFlowsActionsPublishBadRequest{}
 }
 
-/*PostFlowsActionsPublishBadRequest handles this case with default header values.
+/*
+PostFlowsActionsPublishBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -192,7 +252,36 @@ type PostFlowsActionsPublishBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish bad request response has a 2xx status code
+func (o *PostFlowsActionsPublishBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish bad request response has a 3xx status code
+func (o *PostFlowsActionsPublishBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish bad request response has a 4xx status code
+func (o *PostFlowsActionsPublishBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions publish bad request response has a 5xx status code
+func (o *PostFlowsActionsPublishBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish bad request response a status code equal to that given
+func (o *PostFlowsActionsPublishBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostFlowsActionsPublishBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishBadRequest  %+v", 400, o.Payload)
 }
 
@@ -217,7 +306,8 @@ func NewPostFlowsActionsPublishUnauthorized() *PostFlowsActionsPublishUnauthoriz
 	return &PostFlowsActionsPublishUnauthorized{}
 }
 
-/*PostFlowsActionsPublishUnauthorized handles this case with default header values.
+/*
+PostFlowsActionsPublishUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -225,7 +315,36 @@ type PostFlowsActionsPublishUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish unauthorized response has a 2xx status code
+func (o *PostFlowsActionsPublishUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish unauthorized response has a 3xx status code
+func (o *PostFlowsActionsPublishUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish unauthorized response has a 4xx status code
+func (o *PostFlowsActionsPublishUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions publish unauthorized response has a 5xx status code
+func (o *PostFlowsActionsPublishUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish unauthorized response a status code equal to that given
+func (o *PostFlowsActionsPublishUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostFlowsActionsPublishUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -250,7 +369,8 @@ func NewPostFlowsActionsPublishForbidden() *PostFlowsActionsPublishForbidden {
 	return &PostFlowsActionsPublishForbidden{}
 }
 
-/*PostFlowsActionsPublishForbidden handles this case with default header values.
+/*
+PostFlowsActionsPublishForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -258,7 +378,36 @@ type PostFlowsActionsPublishForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish forbidden response has a 2xx status code
+func (o *PostFlowsActionsPublishForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish forbidden response has a 3xx status code
+func (o *PostFlowsActionsPublishForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish forbidden response has a 4xx status code
+func (o *PostFlowsActionsPublishForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions publish forbidden response has a 5xx status code
+func (o *PostFlowsActionsPublishForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish forbidden response a status code equal to that given
+func (o *PostFlowsActionsPublishForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostFlowsActionsPublishForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishForbidden  %+v", 403, o.Payload)
 }
 
@@ -283,7 +432,8 @@ func NewPostFlowsActionsPublishNotFound() *PostFlowsActionsPublishNotFound {
 	return &PostFlowsActionsPublishNotFound{}
 }
 
-/*PostFlowsActionsPublishNotFound handles this case with default header values.
+/*
+PostFlowsActionsPublishNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -291,7 +441,36 @@ type PostFlowsActionsPublishNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish not found response has a 2xx status code
+func (o *PostFlowsActionsPublishNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish not found response has a 3xx status code
+func (o *PostFlowsActionsPublishNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish not found response has a 4xx status code
+func (o *PostFlowsActionsPublishNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions publish not found response has a 5xx status code
+func (o *PostFlowsActionsPublishNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish not found response a status code equal to that given
+func (o *PostFlowsActionsPublishNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostFlowsActionsPublishNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishNotFound  %+v", 404, o.Payload)
 }
 
@@ -316,7 +495,8 @@ func NewPostFlowsActionsPublishMethodNotAllowed() *PostFlowsActionsPublishMethod
 	return &PostFlowsActionsPublishMethodNotAllowed{}
 }
 
-/*PostFlowsActionsPublishMethodNotAllowed handles this case with default header values.
+/*
+PostFlowsActionsPublishMethodNotAllowed describes a response with status code 405, with default header values.
 
 Method Not Allowed
 */
@@ -324,7 +504,36 @@ type PostFlowsActionsPublishMethodNotAllowed struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish method not allowed response has a 2xx status code
+func (o *PostFlowsActionsPublishMethodNotAllowed) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish method not allowed response has a 3xx status code
+func (o *PostFlowsActionsPublishMethodNotAllowed) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish method not allowed response has a 4xx status code
+func (o *PostFlowsActionsPublishMethodNotAllowed) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions publish method not allowed response has a 5xx status code
+func (o *PostFlowsActionsPublishMethodNotAllowed) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish method not allowed response a status code equal to that given
+func (o *PostFlowsActionsPublishMethodNotAllowed) IsCode(code int) bool {
+	return code == 405
+}
+
 func (o *PostFlowsActionsPublishMethodNotAllowed) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishMethodNotAllowed  %+v", 405, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishMethodNotAllowed) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishMethodNotAllowed  %+v", 405, o.Payload)
 }
 
@@ -349,7 +558,8 @@ func NewPostFlowsActionsPublishRequestTimeout() *PostFlowsActionsPublishRequestT
 	return &PostFlowsActionsPublishRequestTimeout{}
 }
 
-/*PostFlowsActionsPublishRequestTimeout handles this case with default header values.
+/*
+PostFlowsActionsPublishRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -357,7 +567,36 @@ type PostFlowsActionsPublishRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish request timeout response has a 2xx status code
+func (o *PostFlowsActionsPublishRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish request timeout response has a 3xx status code
+func (o *PostFlowsActionsPublishRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish request timeout response has a 4xx status code
+func (o *PostFlowsActionsPublishRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions publish request timeout response has a 5xx status code
+func (o *PostFlowsActionsPublishRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish request timeout response a status code equal to that given
+func (o *PostFlowsActionsPublishRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostFlowsActionsPublishRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -382,7 +621,8 @@ func NewPostFlowsActionsPublishConflict() *PostFlowsActionsPublishConflict {
 	return &PostFlowsActionsPublishConflict{}
 }
 
-/*PostFlowsActionsPublishConflict handles this case with default header values.
+/*
+PostFlowsActionsPublishConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -390,7 +630,36 @@ type PostFlowsActionsPublishConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish conflict response has a 2xx status code
+func (o *PostFlowsActionsPublishConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish conflict response has a 3xx status code
+func (o *PostFlowsActionsPublishConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish conflict response has a 4xx status code
+func (o *PostFlowsActionsPublishConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions publish conflict response has a 5xx status code
+func (o *PostFlowsActionsPublishConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish conflict response a status code equal to that given
+func (o *PostFlowsActionsPublishConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostFlowsActionsPublishConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishConflict  %+v", 409, o.Payload)
 }
 
@@ -415,7 +684,8 @@ func NewPostFlowsActionsPublishGone() *PostFlowsActionsPublishGone {
 	return &PostFlowsActionsPublishGone{}
 }
 
-/*PostFlowsActionsPublishGone handles this case with default header values.
+/*
+PostFlowsActionsPublishGone describes a response with status code 410, with default header values.
 
 Gone
 */
@@ -423,7 +693,36 @@ type PostFlowsActionsPublishGone struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish gone response has a 2xx status code
+func (o *PostFlowsActionsPublishGone) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish gone response has a 3xx status code
+func (o *PostFlowsActionsPublishGone) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish gone response has a 4xx status code
+func (o *PostFlowsActionsPublishGone) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions publish gone response has a 5xx status code
+func (o *PostFlowsActionsPublishGone) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish gone response a status code equal to that given
+func (o *PostFlowsActionsPublishGone) IsCode(code int) bool {
+	return code == 410
+}
+
 func (o *PostFlowsActionsPublishGone) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishGone  %+v", 410, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishGone) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishGone  %+v", 410, o.Payload)
 }
 
@@ -448,7 +747,8 @@ func NewPostFlowsActionsPublishRequestEntityTooLarge() *PostFlowsActionsPublishR
 	return &PostFlowsActionsPublishRequestEntityTooLarge{}
 }
 
-/*PostFlowsActionsPublishRequestEntityTooLarge handles this case with default header values.
+/*
+PostFlowsActionsPublishRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -456,7 +756,36 @@ type PostFlowsActionsPublishRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish request entity too large response has a 2xx status code
+func (o *PostFlowsActionsPublishRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish request entity too large response has a 3xx status code
+func (o *PostFlowsActionsPublishRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish request entity too large response has a 4xx status code
+func (o *PostFlowsActionsPublishRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions publish request entity too large response has a 5xx status code
+func (o *PostFlowsActionsPublishRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish request entity too large response a status code equal to that given
+func (o *PostFlowsActionsPublishRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostFlowsActionsPublishRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -481,7 +810,8 @@ func NewPostFlowsActionsPublishUnsupportedMediaType() *PostFlowsActionsPublishUn
 	return &PostFlowsActionsPublishUnsupportedMediaType{}
 }
 
-/*PostFlowsActionsPublishUnsupportedMediaType handles this case with default header values.
+/*
+PostFlowsActionsPublishUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -489,7 +819,36 @@ type PostFlowsActionsPublishUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish unsupported media type response has a 2xx status code
+func (o *PostFlowsActionsPublishUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish unsupported media type response has a 3xx status code
+func (o *PostFlowsActionsPublishUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish unsupported media type response has a 4xx status code
+func (o *PostFlowsActionsPublishUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions publish unsupported media type response has a 5xx status code
+func (o *PostFlowsActionsPublishUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish unsupported media type response a status code equal to that given
+func (o *PostFlowsActionsPublishUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostFlowsActionsPublishUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -514,7 +873,8 @@ func NewPostFlowsActionsPublishTooManyRequests() *PostFlowsActionsPublishTooMany
 	return &PostFlowsActionsPublishTooManyRequests{}
 }
 
-/*PostFlowsActionsPublishTooManyRequests handles this case with default header values.
+/*
+PostFlowsActionsPublishTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -522,7 +882,36 @@ type PostFlowsActionsPublishTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish too many requests response has a 2xx status code
+func (o *PostFlowsActionsPublishTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish too many requests response has a 3xx status code
+func (o *PostFlowsActionsPublishTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish too many requests response has a 4xx status code
+func (o *PostFlowsActionsPublishTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions publish too many requests response has a 5xx status code
+func (o *PostFlowsActionsPublishTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions publish too many requests response a status code equal to that given
+func (o *PostFlowsActionsPublishTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostFlowsActionsPublishTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -547,7 +936,8 @@ func NewPostFlowsActionsPublishInternalServerError() *PostFlowsActionsPublishInt
 	return &PostFlowsActionsPublishInternalServerError{}
 }
 
-/*PostFlowsActionsPublishInternalServerError handles this case with default header values.
+/*
+PostFlowsActionsPublishInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -555,7 +945,36 @@ type PostFlowsActionsPublishInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish internal server error response has a 2xx status code
+func (o *PostFlowsActionsPublishInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish internal server error response has a 3xx status code
+func (o *PostFlowsActionsPublishInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish internal server error response has a 4xx status code
+func (o *PostFlowsActionsPublishInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions publish internal server error response has a 5xx status code
+func (o *PostFlowsActionsPublishInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions publish internal server error response a status code equal to that given
+func (o *PostFlowsActionsPublishInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostFlowsActionsPublishInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -580,7 +999,8 @@ func NewPostFlowsActionsPublishServiceUnavailable() *PostFlowsActionsPublishServ
 	return &PostFlowsActionsPublishServiceUnavailable{}
 }
 
-/*PostFlowsActionsPublishServiceUnavailable handles this case with default header values.
+/*
+PostFlowsActionsPublishServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -588,7 +1008,36 @@ type PostFlowsActionsPublishServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish service unavailable response has a 2xx status code
+func (o *PostFlowsActionsPublishServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish service unavailable response has a 3xx status code
+func (o *PostFlowsActionsPublishServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish service unavailable response has a 4xx status code
+func (o *PostFlowsActionsPublishServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions publish service unavailable response has a 5xx status code
+func (o *PostFlowsActionsPublishServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions publish service unavailable response a status code equal to that given
+func (o *PostFlowsActionsPublishServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostFlowsActionsPublishServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -613,7 +1062,8 @@ func NewPostFlowsActionsPublishGatewayTimeout() *PostFlowsActionsPublishGatewayT
 	return &PostFlowsActionsPublishGatewayTimeout{}
 }
 
-/*PostFlowsActionsPublishGatewayTimeout handles this case with default header values.
+/*
+PostFlowsActionsPublishGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -621,7 +1071,36 @@ type PostFlowsActionsPublishGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions publish gateway timeout response has a 2xx status code
+func (o *PostFlowsActionsPublishGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions publish gateway timeout response has a 3xx status code
+func (o *PostFlowsActionsPublishGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions publish gateway timeout response has a 4xx status code
+func (o *PostFlowsActionsPublishGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions publish gateway timeout response has a 5xx status code
+func (o *PostFlowsActionsPublishGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions publish gateway timeout response a status code equal to that given
+func (o *PostFlowsActionsPublishGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostFlowsActionsPublishGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostFlowsActionsPublishGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/publish][%d] postFlowsActionsPublishGatewayTimeout  %+v", 504, o.Payload)
 }
 

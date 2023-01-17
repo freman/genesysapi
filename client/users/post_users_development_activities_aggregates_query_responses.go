@@ -101,7 +101,6 @@ func (o *PostUsersDevelopmentActivitiesAggregatesQueryReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryOK() *PostUsersDevelopmentA
 	return &PostUsersDevelopmentActivitiesAggregatesQueryOK{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryOK handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryOK describes a response with status code 200, with default header values.
 
 Query completed successfully
 */
@@ -120,7 +120,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryOK struct {
 	Payload *models.DevelopmentActivityAggregateResponse
 }
 
+// IsSuccess returns true when this post users development activities aggregates query o k response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post users development activities aggregates query o k response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query o k response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post users development activities aggregates query o k response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users development activities aggregates query o k response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryBadRequest() *PostUsersDeve
 	return &PostUsersDevelopmentActivitiesAggregatesQueryBadRequest{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryBadRequest handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users development activities aggregates query bad request response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users development activities aggregates query bad request response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query bad request response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users development activities aggregates query bad request response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users development activities aggregates query bad request response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryUnauthorized() *PostUsersDe
 	return &PostUsersDevelopmentActivitiesAggregatesQueryUnauthorized{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryUnauthorized handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users development activities aggregates query unauthorized response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users development activities aggregates query unauthorized response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query unauthorized response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users development activities aggregates query unauthorized response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users development activities aggregates query unauthorized response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryForbidden() *PostUsersDevel
 	return &PostUsersDevelopmentActivitiesAggregatesQueryForbidden{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryForbidden handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users development activities aggregates query forbidden response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users development activities aggregates query forbidden response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query forbidden response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users development activities aggregates query forbidden response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users development activities aggregates query forbidden response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryNotFound() *PostUsersDevelo
 	return &PostUsersDevelopmentActivitiesAggregatesQueryNotFound{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryNotFound handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users development activities aggregates query not found response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users development activities aggregates query not found response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query not found response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users development activities aggregates query not found response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users development activities aggregates query not found response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryRequestTimeout() *PostUsers
 	return &PostUsersDevelopmentActivitiesAggregatesQueryRequestTimeout{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryRequestTimeout handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users development activities aggregates query request timeout response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users development activities aggregates query request timeout response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query request timeout response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users development activities aggregates query request timeout response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users development activities aggregates query request timeout response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge() *Po
 	return &PostUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -318,7 +498,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users development activities aggregates query request entity too large response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users development activities aggregates query request entity too large response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query request entity too large response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users development activities aggregates query request entity too large response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users development activities aggregates query request entity too large response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType() *Pos
 	return &PostUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -351,7 +561,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users development activities aggregates query unsupported media type response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users development activities aggregates query unsupported media type response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query unsupported media type response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users development activities aggregates query unsupported media type response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users development activities aggregates query unsupported media type response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryTooManyRequests() *PostUser
 	return &PostUsersDevelopmentActivitiesAggregatesQueryTooManyRequests{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryTooManyRequests handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -384,7 +624,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users development activities aggregates query too many requests response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users development activities aggregates query too many requests response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query too many requests response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users development activities aggregates query too many requests response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users development activities aggregates query too many requests response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryInternalServerError() *Post
 	return &PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -417,7 +687,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users development activities aggregates query internal server error response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users development activities aggregates query internal server error response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query internal server error response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post users development activities aggregates query internal server error response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post users development activities aggregates query internal server error response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryNotImplemented() *PostUsers
 	return &PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented describes a response with status code 501, with default header values.
 
 Not Implemented
 */
@@ -450,7 +750,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users development activities aggregates query not implemented response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users development activities aggregates query not implemented response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query not implemented response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post users development activities aggregates query not implemented response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post users development activities aggregates query not implemented response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented) IsCode(code int) bool {
+	return code == 501
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryNotImplemented  %+v", 501, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryNotImplemented) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryNotImplemented  %+v", 501, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable() *PostU
 	return &PostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users development activities aggregates query service unavailable response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users development activities aggregates query service unavailable response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query service unavailable response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post users development activities aggregates query service unavailable response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post users development activities aggregates query service unavailable response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout() *PostUsers
 	return &PostUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout{}
 }
 
-/*PostUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout handles this case with default header values.
+/*
+PostUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users development activities aggregates query gateway timeout response has a 2xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users development activities aggregates query gateway timeout response has a 3xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users development activities aggregates query gateway timeout response has a 4xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post users development activities aggregates query gateway timeout response has a 5xx status code
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post users development activities aggregates query gateway timeout response a status code equal to that given
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/development/activities/aggregates/query][%d] postUsersDevelopmentActivitiesAggregatesQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

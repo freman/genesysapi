@@ -101,7 +101,6 @@ func (o *PatchConversationsCallbacksReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchConversationsCallbacksOK() *PatchConversationsCallbacksOK {
 	return &PatchConversationsCallbacksOK{}
 }
 
-/*PatchConversationsCallbacksOK handles this case with default header values.
+/*
+PatchConversationsCallbacksOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchConversationsCallbacksOK struct {
 	Payload *models.PatchCallbackResponse
 }
 
+// IsSuccess returns true when this patch conversations callbacks o k response has a 2xx status code
+func (o *PatchConversationsCallbacksOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch conversations callbacks o k response has a 3xx status code
+func (o *PatchConversationsCallbacksOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks o k response has a 4xx status code
+func (o *PatchConversationsCallbacksOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations callbacks o k response has a 5xx status code
+func (o *PatchConversationsCallbacksOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations callbacks o k response a status code equal to that given
+func (o *PatchConversationsCallbacksOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchConversationsCallbacksOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchConversationsCallbacksBadRequest() *PatchConversationsCallbacksBadR
 	return &PatchConversationsCallbacksBadRequest{}
 }
 
-/*PatchConversationsCallbacksBadRequest handles this case with default header values.
+/*
+PatchConversationsCallbacksBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchConversationsCallbacksBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations callbacks bad request response has a 2xx status code
+func (o *PatchConversationsCallbacksBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations callbacks bad request response has a 3xx status code
+func (o *PatchConversationsCallbacksBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks bad request response has a 4xx status code
+func (o *PatchConversationsCallbacksBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations callbacks bad request response has a 5xx status code
+func (o *PatchConversationsCallbacksBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations callbacks bad request response a status code equal to that given
+func (o *PatchConversationsCallbacksBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchConversationsCallbacksBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchConversationsCallbacksUnauthorized() *PatchConversationsCallbacksUn
 	return &PatchConversationsCallbacksUnauthorized{}
 }
 
-/*PatchConversationsCallbacksUnauthorized handles this case with default header values.
+/*
+PatchConversationsCallbacksUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchConversationsCallbacksUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations callbacks unauthorized response has a 2xx status code
+func (o *PatchConversationsCallbacksUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations callbacks unauthorized response has a 3xx status code
+func (o *PatchConversationsCallbacksUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks unauthorized response has a 4xx status code
+func (o *PatchConversationsCallbacksUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations callbacks unauthorized response has a 5xx status code
+func (o *PatchConversationsCallbacksUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations callbacks unauthorized response a status code equal to that given
+func (o *PatchConversationsCallbacksUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchConversationsCallbacksUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchConversationsCallbacksForbidden() *PatchConversationsCallbacksForbi
 	return &PatchConversationsCallbacksForbidden{}
 }
 
-/*PatchConversationsCallbacksForbidden handles this case with default header values.
+/*
+PatchConversationsCallbacksForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchConversationsCallbacksForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations callbacks forbidden response has a 2xx status code
+func (o *PatchConversationsCallbacksForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations callbacks forbidden response has a 3xx status code
+func (o *PatchConversationsCallbacksForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks forbidden response has a 4xx status code
+func (o *PatchConversationsCallbacksForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations callbacks forbidden response has a 5xx status code
+func (o *PatchConversationsCallbacksForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations callbacks forbidden response a status code equal to that given
+func (o *PatchConversationsCallbacksForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchConversationsCallbacksForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchConversationsCallbacksNotFound() *PatchConversationsCallbacksNotFou
 	return &PatchConversationsCallbacksNotFound{}
 }
 
-/*PatchConversationsCallbacksNotFound handles this case with default header values.
+/*
+PatchConversationsCallbacksNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchConversationsCallbacksNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations callbacks not found response has a 2xx status code
+func (o *PatchConversationsCallbacksNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations callbacks not found response has a 3xx status code
+func (o *PatchConversationsCallbacksNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks not found response has a 4xx status code
+func (o *PatchConversationsCallbacksNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations callbacks not found response has a 5xx status code
+func (o *PatchConversationsCallbacksNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations callbacks not found response a status code equal to that given
+func (o *PatchConversationsCallbacksNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchConversationsCallbacksNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchConversationsCallbacksRequestTimeout() *PatchConversationsCallbacks
 	return &PatchConversationsCallbacksRequestTimeout{}
 }
 
-/*PatchConversationsCallbacksRequestTimeout handles this case with default header values.
+/*
+PatchConversationsCallbacksRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchConversationsCallbacksRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations callbacks request timeout response has a 2xx status code
+func (o *PatchConversationsCallbacksRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations callbacks request timeout response has a 3xx status code
+func (o *PatchConversationsCallbacksRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks request timeout response has a 4xx status code
+func (o *PatchConversationsCallbacksRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations callbacks request timeout response has a 5xx status code
+func (o *PatchConversationsCallbacksRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations callbacks request timeout response a status code equal to that given
+func (o *PatchConversationsCallbacksRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchConversationsCallbacksRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchConversationsCallbacksPreconditionFailed() *PatchConversationsCallb
 	return &PatchConversationsCallbacksPreconditionFailed{}
 }
 
-/*PatchConversationsCallbacksPreconditionFailed handles this case with default header values.
+/*
+PatchConversationsCallbacksPreconditionFailed describes a response with status code 412, with default header values.
 
 Precondition Failed
 */
@@ -318,7 +498,36 @@ type PatchConversationsCallbacksPreconditionFailed struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations callbacks precondition failed response has a 2xx status code
+func (o *PatchConversationsCallbacksPreconditionFailed) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations callbacks precondition failed response has a 3xx status code
+func (o *PatchConversationsCallbacksPreconditionFailed) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks precondition failed response has a 4xx status code
+func (o *PatchConversationsCallbacksPreconditionFailed) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations callbacks precondition failed response has a 5xx status code
+func (o *PatchConversationsCallbacksPreconditionFailed) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations callbacks precondition failed response a status code equal to that given
+func (o *PatchConversationsCallbacksPreconditionFailed) IsCode(code int) bool {
+	return code == 412
+}
+
 func (o *PatchConversationsCallbacksPreconditionFailed) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksPreconditionFailed  %+v", 412, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksPreconditionFailed) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksPreconditionFailed  %+v", 412, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchConversationsCallbacksRequestEntityTooLarge() *PatchConversationsCa
 	return &PatchConversationsCallbacksRequestEntityTooLarge{}
 }
 
-/*PatchConversationsCallbacksRequestEntityTooLarge handles this case with default header values.
+/*
+PatchConversationsCallbacksRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchConversationsCallbacksRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations callbacks request entity too large response has a 2xx status code
+func (o *PatchConversationsCallbacksRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations callbacks request entity too large response has a 3xx status code
+func (o *PatchConversationsCallbacksRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks request entity too large response has a 4xx status code
+func (o *PatchConversationsCallbacksRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations callbacks request entity too large response has a 5xx status code
+func (o *PatchConversationsCallbacksRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations callbacks request entity too large response a status code equal to that given
+func (o *PatchConversationsCallbacksRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchConversationsCallbacksRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchConversationsCallbacksUnsupportedMediaType() *PatchConversationsCal
 	return &PatchConversationsCallbacksUnsupportedMediaType{}
 }
 
-/*PatchConversationsCallbacksUnsupportedMediaType handles this case with default header values.
+/*
+PatchConversationsCallbacksUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchConversationsCallbacksUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations callbacks unsupported media type response has a 2xx status code
+func (o *PatchConversationsCallbacksUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations callbacks unsupported media type response has a 3xx status code
+func (o *PatchConversationsCallbacksUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks unsupported media type response has a 4xx status code
+func (o *PatchConversationsCallbacksUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations callbacks unsupported media type response has a 5xx status code
+func (o *PatchConversationsCallbacksUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations callbacks unsupported media type response a status code equal to that given
+func (o *PatchConversationsCallbacksUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchConversationsCallbacksUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchConversationsCallbacksTooManyRequests() *PatchConversationsCallback
 	return &PatchConversationsCallbacksTooManyRequests{}
 }
 
-/*PatchConversationsCallbacksTooManyRequests handles this case with default header values.
+/*
+PatchConversationsCallbacksTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchConversationsCallbacksTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations callbacks too many requests response has a 2xx status code
+func (o *PatchConversationsCallbacksTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations callbacks too many requests response has a 3xx status code
+func (o *PatchConversationsCallbacksTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks too many requests response has a 4xx status code
+func (o *PatchConversationsCallbacksTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations callbacks too many requests response has a 5xx status code
+func (o *PatchConversationsCallbacksTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations callbacks too many requests response a status code equal to that given
+func (o *PatchConversationsCallbacksTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchConversationsCallbacksTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchConversationsCallbacksInternalServerError() *PatchConversationsCall
 	return &PatchConversationsCallbacksInternalServerError{}
 }
 
-/*PatchConversationsCallbacksInternalServerError handles this case with default header values.
+/*
+PatchConversationsCallbacksInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchConversationsCallbacksInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations callbacks internal server error response has a 2xx status code
+func (o *PatchConversationsCallbacksInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations callbacks internal server error response has a 3xx status code
+func (o *PatchConversationsCallbacksInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks internal server error response has a 4xx status code
+func (o *PatchConversationsCallbacksInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations callbacks internal server error response has a 5xx status code
+func (o *PatchConversationsCallbacksInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations callbacks internal server error response a status code equal to that given
+func (o *PatchConversationsCallbacksInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchConversationsCallbacksInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchConversationsCallbacksServiceUnavailable() *PatchConversationsCallb
 	return &PatchConversationsCallbacksServiceUnavailable{}
 }
 
-/*PatchConversationsCallbacksServiceUnavailable handles this case with default header values.
+/*
+PatchConversationsCallbacksServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchConversationsCallbacksServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations callbacks service unavailable response has a 2xx status code
+func (o *PatchConversationsCallbacksServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations callbacks service unavailable response has a 3xx status code
+func (o *PatchConversationsCallbacksServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks service unavailable response has a 4xx status code
+func (o *PatchConversationsCallbacksServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations callbacks service unavailable response has a 5xx status code
+func (o *PatchConversationsCallbacksServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations callbacks service unavailable response a status code equal to that given
+func (o *PatchConversationsCallbacksServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchConversationsCallbacksServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchConversationsCallbacksGatewayTimeout() *PatchConversationsCallbacks
 	return &PatchConversationsCallbacksGatewayTimeout{}
 }
 
-/*PatchConversationsCallbacksGatewayTimeout handles this case with default header values.
+/*
+PatchConversationsCallbacksGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchConversationsCallbacksGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations callbacks gateway timeout response has a 2xx status code
+func (o *PatchConversationsCallbacksGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations callbacks gateway timeout response has a 3xx status code
+func (o *PatchConversationsCallbacksGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations callbacks gateway timeout response has a 4xx status code
+func (o *PatchConversationsCallbacksGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations callbacks gateway timeout response has a 5xx status code
+func (o *PatchConversationsCallbacksGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations callbacks gateway timeout response a status code equal to that given
+func (o *PatchConversationsCallbacksGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchConversationsCallbacksGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchConversationsCallbacksGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/callbacks][%d] patchConversationsCallbacksGatewayTimeout  %+v", 504, o.Payload)
 }
 

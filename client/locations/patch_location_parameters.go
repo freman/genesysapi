@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchLocationParams creates a new PatchLocationParams object
-// with the default values initialized.
+// NewPatchLocationParams creates a new PatchLocationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchLocationParams() *PatchLocationParams {
-	var ()
 	return &PatchLocationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchLocationParamsWithTimeout creates a new PatchLocationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchLocationParamsWithTimeout(timeout time.Duration) *PatchLocationParams {
-	var ()
 	return &PatchLocationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchLocationParamsWithContext creates a new PatchLocationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchLocationParamsWithContext(ctx context.Context) *PatchLocationParams {
-	var ()
 	return &PatchLocationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchLocationParamsWithHTTPClient creates a new PatchLocationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchLocationParamsWithHTTPClient(client *http.Client) *PatchLocationParams {
-	var ()
 	return &PatchLocationParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchLocationParams contains all the parameters to send to the API endpoint
-for the patch location operation typically these are written to a http.Request
+/*
+PatchLocationParams contains all the parameters to send to the API endpoint
+
+	for the patch location operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchLocationParams struct {
 
-	/*Body
-	  Location
+	/* Body.
 
+	   Location
 	*/
 	Body *models.LocationUpdateDefinition
-	/*LocationID
-	  Location ID
 
+	/* LocationID.
+
+	   Location ID
 	*/
 	LocationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch location params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchLocationParams) WithDefaults() *PatchLocationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch location params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchLocationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch location params
@@ -140,7 +157,6 @@ func (o *PatchLocationParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

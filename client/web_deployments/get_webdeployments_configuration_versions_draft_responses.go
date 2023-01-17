@@ -95,7 +95,6 @@ func (o *GetWebdeploymentsConfigurationVersionsDraftReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWebdeploymentsConfigurationVersionsDraftOK() *GetWebdeploymentsConfig
 	return &GetWebdeploymentsConfigurationVersionsDraftOK{}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftOK handles this case with default header values.
+/*
+GetWebdeploymentsConfigurationVersionsDraftOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWebdeploymentsConfigurationVersionsDraftOK struct {
 	Payload *models.WebDeploymentConfigurationVersion
 }
 
+// IsSuccess returns true when this get webdeployments configuration versions draft o k response has a 2xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get webdeployments configuration versions draft o k response has a 3xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments configuration versions draft o k response has a 4xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webdeployments configuration versions draft o k response has a 5xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments configuration versions draft o k response a status code equal to that given
+func (o *GetWebdeploymentsConfigurationVersionsDraftOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWebdeploymentsConfigurationVersionsDraftOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWebdeploymentsConfigurationVersionsDraftOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWebdeploymentsConfigurationVersionsDraftBadRequest() *GetWebdeploymen
 	return &GetWebdeploymentsConfigurationVersionsDraftBadRequest{}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftBadRequest handles this case with default header values.
+/*
+GetWebdeploymentsConfigurationVersionsDraftBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWebdeploymentsConfigurationVersionsDraftBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments configuration versions draft bad request response has a 2xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments configuration versions draft bad request response has a 3xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments configuration versions draft bad request response has a 4xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments configuration versions draft bad request response has a 5xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments configuration versions draft bad request response a status code equal to that given
+func (o *GetWebdeploymentsConfigurationVersionsDraftBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWebdeploymentsConfigurationVersionsDraftBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWebdeploymentsConfigurationVersionsDraftBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWebdeploymentsConfigurationVersionsDraftUnauthorized() *GetWebdeploym
 	return &GetWebdeploymentsConfigurationVersionsDraftUnauthorized{}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftUnauthorized handles this case with default header values.
+/*
+GetWebdeploymentsConfigurationVersionsDraftUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWebdeploymentsConfigurationVersionsDraftUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments configuration versions draft unauthorized response has a 2xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments configuration versions draft unauthorized response has a 3xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments configuration versions draft unauthorized response has a 4xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments configuration versions draft unauthorized response has a 5xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments configuration versions draft unauthorized response a status code equal to that given
+func (o *GetWebdeploymentsConfigurationVersionsDraftUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWebdeploymentsConfigurationVersionsDraftUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWebdeploymentsConfigurationVersionsDraftUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWebdeploymentsConfigurationVersionsDraftForbidden() *GetWebdeployment
 	return &GetWebdeploymentsConfigurationVersionsDraftForbidden{}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftForbidden handles this case with default header values.
+/*
+GetWebdeploymentsConfigurationVersionsDraftForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWebdeploymentsConfigurationVersionsDraftForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments configuration versions draft forbidden response has a 2xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments configuration versions draft forbidden response has a 3xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments configuration versions draft forbidden response has a 4xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments configuration versions draft forbidden response has a 5xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments configuration versions draft forbidden response a status code equal to that given
+func (o *GetWebdeploymentsConfigurationVersionsDraftForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWebdeploymentsConfigurationVersionsDraftForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWebdeploymentsConfigurationVersionsDraftForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWebdeploymentsConfigurationVersionsDraftNotFound() *GetWebdeployments
 	return &GetWebdeploymentsConfigurationVersionsDraftNotFound{}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftNotFound handles this case with default header values.
+/*
+GetWebdeploymentsConfigurationVersionsDraftNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWebdeploymentsConfigurationVersionsDraftNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments configuration versions draft not found response has a 2xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments configuration versions draft not found response has a 3xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments configuration versions draft not found response has a 4xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments configuration versions draft not found response has a 5xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments configuration versions draft not found response a status code equal to that given
+func (o *GetWebdeploymentsConfigurationVersionsDraftNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWebdeploymentsConfigurationVersionsDraftNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWebdeploymentsConfigurationVersionsDraftNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWebdeploymentsConfigurationVersionsDraftRequestTimeout() *GetWebdeplo
 	return &GetWebdeploymentsConfigurationVersionsDraftRequestTimeout{}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftRequestTimeout handles this case with default header values.
+/*
+GetWebdeploymentsConfigurationVersionsDraftRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWebdeploymentsConfigurationVersionsDraftRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments configuration versions draft request timeout response has a 2xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments configuration versions draft request timeout response has a 3xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments configuration versions draft request timeout response has a 4xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments configuration versions draft request timeout response has a 5xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments configuration versions draft request timeout response a status code equal to that given
+func (o *GetWebdeploymentsConfigurationVersionsDraftRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWebdeploymentsConfigurationVersionsDraftRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWebdeploymentsConfigurationVersionsDraftRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge() *GetW
 	return &GetWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge{}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge handles this case with default header values.
+/*
+GetWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments configuration versions draft request entity too large response has a 2xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments configuration versions draft request entity too large response has a 3xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments configuration versions draft request entity too large response has a 4xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments configuration versions draft request entity too large response has a 5xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments configuration versions draft request entity too large response a status code equal to that given
+func (o *GetWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType() *GetWe
 	return &GetWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType{}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType handles this case with default header values.
+/*
+GetWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments configuration versions draft unsupported media type response has a 2xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments configuration versions draft unsupported media type response has a 3xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments configuration versions draft unsupported media type response has a 4xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments configuration versions draft unsupported media type response has a 5xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments configuration versions draft unsupported media type response a status code equal to that given
+func (o *GetWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWebdeploymentsConfigurationVersionsDraftTooManyRequests() *GetWebdepl
 	return &GetWebdeploymentsConfigurationVersionsDraftTooManyRequests{}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftTooManyRequests handles this case with default header values.
+/*
+GetWebdeploymentsConfigurationVersionsDraftTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWebdeploymentsConfigurationVersionsDraftTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments configuration versions draft too many requests response has a 2xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments configuration versions draft too many requests response has a 3xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments configuration versions draft too many requests response has a 4xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get webdeployments configuration versions draft too many requests response has a 5xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get webdeployments configuration versions draft too many requests response a status code equal to that given
+func (o *GetWebdeploymentsConfigurationVersionsDraftTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWebdeploymentsConfigurationVersionsDraftTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWebdeploymentsConfigurationVersionsDraftTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWebdeploymentsConfigurationVersionsDraftInternalServerError() *GetWeb
 	return &GetWebdeploymentsConfigurationVersionsDraftInternalServerError{}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftInternalServerError handles this case with default header values.
+/*
+GetWebdeploymentsConfigurationVersionsDraftInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWebdeploymentsConfigurationVersionsDraftInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments configuration versions draft internal server error response has a 2xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments configuration versions draft internal server error response has a 3xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments configuration versions draft internal server error response has a 4xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webdeployments configuration versions draft internal server error response has a 5xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webdeployments configuration versions draft internal server error response a status code equal to that given
+func (o *GetWebdeploymentsConfigurationVersionsDraftInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWebdeploymentsConfigurationVersionsDraftInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWebdeploymentsConfigurationVersionsDraftInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWebdeploymentsConfigurationVersionsDraftServiceUnavailable() *GetWebd
 	return &GetWebdeploymentsConfigurationVersionsDraftServiceUnavailable{}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftServiceUnavailable handles this case with default header values.
+/*
+GetWebdeploymentsConfigurationVersionsDraftServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWebdeploymentsConfigurationVersionsDraftServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments configuration versions draft service unavailable response has a 2xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments configuration versions draft service unavailable response has a 3xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments configuration versions draft service unavailable response has a 4xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webdeployments configuration versions draft service unavailable response has a 5xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webdeployments configuration versions draft service unavailable response a status code equal to that given
+func (o *GetWebdeploymentsConfigurationVersionsDraftServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWebdeploymentsConfigurationVersionsDraftServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWebdeploymentsConfigurationVersionsDraftServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWebdeploymentsConfigurationVersionsDraftGatewayTimeout() *GetWebdeplo
 	return &GetWebdeploymentsConfigurationVersionsDraftGatewayTimeout{}
 }
 
-/*GetWebdeploymentsConfigurationVersionsDraftGatewayTimeout handles this case with default header values.
+/*
+GetWebdeploymentsConfigurationVersionsDraftGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWebdeploymentsConfigurationVersionsDraftGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get webdeployments configuration versions draft gateway timeout response has a 2xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get webdeployments configuration versions draft gateway timeout response has a 3xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get webdeployments configuration versions draft gateway timeout response has a 4xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get webdeployments configuration versions draft gateway timeout response has a 5xx status code
+func (o *GetWebdeploymentsConfigurationVersionsDraftGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get webdeployments configuration versions draft gateway timeout response a status code equal to that given
+func (o *GetWebdeploymentsConfigurationVersionsDraftGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWebdeploymentsConfigurationVersionsDraftGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWebdeploymentsConfigurationVersionsDraftGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] getWebdeploymentsConfigurationVersionsDraftGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWebchatGuestConversationMediarequestParams creates a new GetWebchatGuestConversationMediarequestParams object
-// with the default values initialized.
+// NewGetWebchatGuestConversationMediarequestParams creates a new GetWebchatGuestConversationMediarequestParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWebchatGuestConversationMediarequestParams() *GetWebchatGuestConversationMediarequestParams {
-	var ()
 	return &GetWebchatGuestConversationMediarequestParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWebchatGuestConversationMediarequestParamsWithTimeout creates a new GetWebchatGuestConversationMediarequestParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWebchatGuestConversationMediarequestParamsWithTimeout(timeout time.Duration) *GetWebchatGuestConversationMediarequestParams {
-	var ()
 	return &GetWebchatGuestConversationMediarequestParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWebchatGuestConversationMediarequestParamsWithContext creates a new GetWebchatGuestConversationMediarequestParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWebchatGuestConversationMediarequestParamsWithContext(ctx context.Context) *GetWebchatGuestConversationMediarequestParams {
-	var ()
 	return &GetWebchatGuestConversationMediarequestParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWebchatGuestConversationMediarequestParamsWithHTTPClient creates a new GetWebchatGuestConversationMediarequestParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWebchatGuestConversationMediarequestParamsWithHTTPClient(client *http.Client) *GetWebchatGuestConversationMediarequestParams {
-	var ()
 	return &GetWebchatGuestConversationMediarequestParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWebchatGuestConversationMediarequestParams contains all the parameters to send to the API endpoint
-for the get webchat guest conversation mediarequest operation typically these are written to a http.Request
+/*
+GetWebchatGuestConversationMediarequestParams contains all the parameters to send to the API endpoint
+
+	for the get webchat guest conversation mediarequest operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWebchatGuestConversationMediarequestParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*MediaRequestID
-	  mediaRequestId
 
+	/* MediaRequestID.
+
+	   mediaRequestId
 	*/
 	MediaRequestID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get webchat guest conversation mediarequest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebchatGuestConversationMediarequestParams) WithDefaults() *GetWebchatGuestConversationMediarequestParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get webchat guest conversation mediarequest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebchatGuestConversationMediarequestParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get webchat guest conversation mediarequest params

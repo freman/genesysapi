@@ -16,74 +16,95 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementBusinessunitWeekScheduleParams creates a new GetWorkforcemanagementBusinessunitWeekScheduleParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementBusinessunitWeekScheduleParams creates a new GetWorkforcemanagementBusinessunitWeekScheduleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementBusinessunitWeekScheduleParams() *GetWorkforcemanagementBusinessunitWeekScheduleParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitWeekScheduleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitWeekScheduleParamsWithTimeout creates a new GetWorkforcemanagementBusinessunitWeekScheduleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementBusinessunitWeekScheduleParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementBusinessunitWeekScheduleParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitWeekScheduleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitWeekScheduleParamsWithContext creates a new GetWorkforcemanagementBusinessunitWeekScheduleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementBusinessunitWeekScheduleParamsWithContext(ctx context.Context) *GetWorkforcemanagementBusinessunitWeekScheduleParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitWeekScheduleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitWeekScheduleParamsWithHTTPClient creates a new GetWorkforcemanagementBusinessunitWeekScheduleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementBusinessunitWeekScheduleParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementBusinessunitWeekScheduleParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitWeekScheduleParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement businessunit week schedule operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement businessunit week schedule operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementBusinessunitWeekScheduleParams struct {
 
-	/*BusinessUnitID
-	  The ID of the business unit
+	/* BusinessUnitID.
 
+	   The ID of the business unit
 	*/
 	BusinessUnitID string
-	/*Expand
-	  expand
 
+	/* Expand.
+
+	   expand
 	*/
 	Expand *string
-	/*ScheduleID
-	  The ID of the schedule
 
+	/* ScheduleID.
+
+	   The ID of the schedule
 	*/
 	ScheduleID string
-	/*WeekID
-	  First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekID.
+
+	   First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekID strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement businessunit week schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleParams) WithDefaults() *GetWorkforcemanagementBusinessunitWeekScheduleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement businessunit week schedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement businessunit week schedule params
@@ -180,16 +201,17 @@ func (o *GetWorkforcemanagementBusinessunitWeekScheduleParams) WriteToRequest(r 
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param scheduleId

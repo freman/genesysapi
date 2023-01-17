@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -61,7 +63,6 @@ func (m *BuCreateBlankScheduleRequest) validateDescription(formats strfmt.Regist
 }
 
 func (m *BuCreateBlankScheduleRequest) validateShortTermForecast(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShortTermForecast) { // not required
 		return nil
 	}
@@ -70,6 +71,8 @@ func (m *BuCreateBlankScheduleRequest) validateShortTermForecast(formats strfmt.
 		if err := m.ShortTermForecast.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("shortTermForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecast")
 			}
 			return err
 		}
@@ -82,6 +85,36 @@ func (m *BuCreateBlankScheduleRequest) validateWeekCount(formats strfmt.Registry
 
 	if err := validate.Required("weekCount", "body", m.WeekCount); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu create blank schedule request based on the context it is used
+func (m *BuCreateBlankScheduleRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateShortTermForecast(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuCreateBlankScheduleRequest) contextValidateShortTermForecast(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ShortTermForecast != nil {
+		if err := m.ShortTermForecast.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("shortTermForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shortTermForecast")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -6,11 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // KnowledgeSearchResponse knowledge search response
@@ -58,7 +60,6 @@ func (m *KnowledgeSearchResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeSearchResponse) validateResults(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Results) { // not required
 		return nil
 	}
@@ -72,11 +73,116 @@ func (m *KnowledgeSearchResponse) validateResults(formats strfmt.Registry) error
 			if err := m.Results[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("results" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("results" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge search response based on the context it is used
+func (m *KnowledgeSearchResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePageCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePageNumber(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePageSize(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResults(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSearchID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotal(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeSearchResponse) contextValidatePageCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "pageCount", "body", int32(m.PageCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeSearchResponse) contextValidatePageNumber(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "pageNumber", "body", int32(m.PageNumber)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeSearchResponse) contextValidatePageSize(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "pageSize", "body", int32(m.PageSize)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeSearchResponse) contextValidateResults(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "results", "body", []*KnowledgeSearchDocument(m.Results)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Results); i++ {
+
+		if m.Results[i] != nil {
+			if err := m.Results[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("results" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("results" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *KnowledgeSearchResponse) contextValidateSearchID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "searchId", "body", string(m.SearchID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeSearchResponse) contextValidateTotal(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "total", "body", int32(m.Total)); err != nil {
+		return err
 	}
 
 	return nil

@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIdentityprovidersParams creates a new GetIdentityprovidersParams object
-// with the default values initialized.
+// NewGetIdentityprovidersParams creates a new GetIdentityprovidersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIdentityprovidersParams() *GetIdentityprovidersParams {
-
 	return &GetIdentityprovidersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIdentityprovidersParamsWithTimeout creates a new GetIdentityprovidersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIdentityprovidersParamsWithTimeout(timeout time.Duration) *GetIdentityprovidersParams {
-
 	return &GetIdentityprovidersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIdentityprovidersParamsWithContext creates a new GetIdentityprovidersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIdentityprovidersParamsWithContext(ctx context.Context) *GetIdentityprovidersParams {
-
 	return &GetIdentityprovidersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIdentityprovidersParamsWithHTTPClient creates a new GetIdentityprovidersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIdentityprovidersParamsWithHTTPClient(client *http.Client) *GetIdentityprovidersParams {
-
 	return &GetIdentityprovidersParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIdentityprovidersParams contains all the parameters to send to the API endpoint
-for the get identityproviders operation typically these are written to a http.Request
+/*
+GetIdentityprovidersParams contains all the parameters to send to the API endpoint
+
+	for the get identityproviders operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIdentityprovidersParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get identityproviders params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIdentityprovidersParams) WithDefaults() *GetIdentityprovidersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get identityproviders params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIdentityprovidersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get identityproviders params

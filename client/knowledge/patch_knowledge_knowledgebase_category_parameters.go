@@ -18,66 +18,84 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchKnowledgeKnowledgebaseCategoryParams creates a new PatchKnowledgeKnowledgebaseCategoryParams object
-// with the default values initialized.
+// NewPatchKnowledgeKnowledgebaseCategoryParams creates a new PatchKnowledgeKnowledgebaseCategoryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchKnowledgeKnowledgebaseCategoryParams() *PatchKnowledgeKnowledgebaseCategoryParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseCategoryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseCategoryParamsWithTimeout creates a new PatchKnowledgeKnowledgebaseCategoryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchKnowledgeKnowledgebaseCategoryParamsWithTimeout(timeout time.Duration) *PatchKnowledgeKnowledgebaseCategoryParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseCategoryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseCategoryParamsWithContext creates a new PatchKnowledgeKnowledgebaseCategoryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchKnowledgeKnowledgebaseCategoryParamsWithContext(ctx context.Context) *PatchKnowledgeKnowledgebaseCategoryParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseCategoryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchKnowledgeKnowledgebaseCategoryParamsWithHTTPClient creates a new PatchKnowledgeKnowledgebaseCategoryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchKnowledgeKnowledgebaseCategoryParamsWithHTTPClient(client *http.Client) *PatchKnowledgeKnowledgebaseCategoryParams {
-	var ()
 	return &PatchKnowledgeKnowledgebaseCategoryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchKnowledgeKnowledgebaseCategoryParams contains all the parameters to send to the API endpoint
-for the patch knowledge knowledgebase category operation typically these are written to a http.Request
+/*
+PatchKnowledgeKnowledgebaseCategoryParams contains all the parameters to send to the API endpoint
+
+	for the patch knowledge knowledgebase category operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchKnowledgeKnowledgebaseCategoryParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.CategoryRequest
-	/*CategoryID
-	  Category ID
 
+	/* CategoryID.
+
+	   Category ID
 	*/
 	CategoryID string
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch knowledge knowledgebase category params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchKnowledgeKnowledgebaseCategoryParams) WithDefaults() *PatchKnowledgeKnowledgebaseCategoryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch knowledge knowledgebase category params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchKnowledgeKnowledgebaseCategoryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch knowledge knowledgebase category params
@@ -153,7 +171,6 @@ func (o *PatchKnowledgeKnowledgebaseCategoryParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

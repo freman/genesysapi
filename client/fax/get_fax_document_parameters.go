@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetFaxDocumentParams creates a new GetFaxDocumentParams object
-// with the default values initialized.
+// NewGetFaxDocumentParams creates a new GetFaxDocumentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFaxDocumentParams() *GetFaxDocumentParams {
-	var ()
 	return &GetFaxDocumentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFaxDocumentParamsWithTimeout creates a new GetFaxDocumentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFaxDocumentParamsWithTimeout(timeout time.Duration) *GetFaxDocumentParams {
-	var ()
 	return &GetFaxDocumentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFaxDocumentParamsWithContext creates a new GetFaxDocumentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFaxDocumentParamsWithContext(ctx context.Context) *GetFaxDocumentParams {
-	var ()
 	return &GetFaxDocumentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetFaxDocumentParamsWithHTTPClient creates a new GetFaxDocumentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFaxDocumentParamsWithHTTPClient(client *http.Client) *GetFaxDocumentParams {
-	var ()
 	return &GetFaxDocumentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetFaxDocumentParams contains all the parameters to send to the API endpoint
-for the get fax document operation typically these are written to a http.Request
+/*
+GetFaxDocumentParams contains all the parameters to send to the API endpoint
+
+	for the get fax document operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFaxDocumentParams struct {
 
-	/*DocumentID
-	  Document ID
+	/* DocumentID.
 
+	   Document ID
 	*/
 	DocumentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get fax document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFaxDocumentParams) WithDefaults() *GetFaxDocumentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get fax document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFaxDocumentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get fax document params

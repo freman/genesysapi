@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutRoutingSmsPhonenumberParams creates a new PutRoutingSmsPhonenumberParams object
-// with the default values initialized.
+// NewPutRoutingSmsPhonenumberParams creates a new PutRoutingSmsPhonenumberParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutRoutingSmsPhonenumberParams() *PutRoutingSmsPhonenumberParams {
-	var ()
 	return &PutRoutingSmsPhonenumberParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutRoutingSmsPhonenumberParamsWithTimeout creates a new PutRoutingSmsPhonenumberParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutRoutingSmsPhonenumberParamsWithTimeout(timeout time.Duration) *PutRoutingSmsPhonenumberParams {
-	var ()
 	return &PutRoutingSmsPhonenumberParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutRoutingSmsPhonenumberParamsWithContext creates a new PutRoutingSmsPhonenumberParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutRoutingSmsPhonenumberParamsWithContext(ctx context.Context) *PutRoutingSmsPhonenumberParams {
-	var ()
 	return &PutRoutingSmsPhonenumberParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutRoutingSmsPhonenumberParamsWithHTTPClient creates a new PutRoutingSmsPhonenumberParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutRoutingSmsPhonenumberParamsWithHTTPClient(client *http.Client) *PutRoutingSmsPhonenumberParams {
-	var ()
 	return &PutRoutingSmsPhonenumberParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutRoutingSmsPhonenumberParams contains all the parameters to send to the API endpoint
-for the put routing sms phonenumber operation typically these are written to a http.Request
+/*
+PutRoutingSmsPhonenumberParams contains all the parameters to send to the API endpoint
+
+	for the put routing sms phonenumber operation.
+
+	Typically these are written to a http.Request.
 */
 type PutRoutingSmsPhonenumberParams struct {
 
-	/*AddressID
-	  Address ID
+	/* AddressID.
 
+	   Address ID
 	*/
 	AddressID string
-	/*Body
-	  SmsPhoneNumber
 
+	/* Body.
+
+	   SmsPhoneNumber
 	*/
 	Body *models.SmsPhoneNumber
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put routing sms phonenumber params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRoutingSmsPhonenumberParams) WithDefaults() *PutRoutingSmsPhonenumberParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put routing sms phonenumber params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRoutingSmsPhonenumberParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put routing sms phonenumber params
@@ -145,7 +162,6 @@ func (o *PutRoutingSmsPhonenumberParams) WriteToRequest(r runtime.ClientRequest,
 	if err := r.SetPathParam("addressId", o.AddressID); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

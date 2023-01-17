@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -91,7 +92,6 @@ func (m *DomainEdgeSoftwareUpdateDto) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DomainEdgeSoftwareUpdateDto) validateDownloadStartTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DownloadStartTime) { // not required
 		return nil
 	}
@@ -104,7 +104,6 @@ func (m *DomainEdgeSoftwareUpdateDto) validateDownloadStartTime(formats strfmt.R
 }
 
 func (m *DomainEdgeSoftwareUpdateDto) validateEdgeURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EdgeURI) { // not required
 		return nil
 	}
@@ -117,7 +116,6 @@ func (m *DomainEdgeSoftwareUpdateDto) validateEdgeURI(formats strfmt.Registry) e
 }
 
 func (m *DomainEdgeSoftwareUpdateDto) validateExecuteStartTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExecuteStartTime) { // not required
 		return nil
 	}
@@ -130,7 +128,6 @@ func (m *DomainEdgeSoftwareUpdateDto) validateExecuteStartTime(formats strfmt.Re
 }
 
 func (m *DomainEdgeSoftwareUpdateDto) validateExecuteStopTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExecuteStopTime) { // not required
 		return nil
 	}
@@ -193,7 +190,6 @@ func (m *DomainEdgeSoftwareUpdateDto) validateStatusEnum(path, location string, 
 }
 
 func (m *DomainEdgeSoftwareUpdateDto) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -216,6 +212,38 @@ func (m *DomainEdgeSoftwareUpdateDto) validateVersion(formats strfmt.Registry) e
 		if err := m.Version.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("version")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain edge software update dto based on the context it is used
+func (m *DomainEdgeSoftwareUpdateDto) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainEdgeSoftwareUpdateDto) contextValidateVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Version != nil {
+		if err := m.Version.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("version")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("version")
 			}
 			return err
 		}

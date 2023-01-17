@@ -95,7 +95,6 @@ func (o *GetConfigurationSchemasEdgesVnextReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConfigurationSchemasEdgesVnextOK() *GetConfigurationSchemasEdgesVnext
 	return &GetConfigurationSchemasEdgesVnextOK{}
 }
 
-/*GetConfigurationSchemasEdgesVnextOK handles this case with default header values.
+/*
+GetConfigurationSchemasEdgesVnextOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetConfigurationSchemasEdgesVnextOK struct {
 	Payload *models.SchemaCategoryEntityListing
 }
 
+// IsSuccess returns true when this get configuration schemas edges vnext o k response has a 2xx status code
+func (o *GetConfigurationSchemasEdgesVnextOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get configuration schemas edges vnext o k response has a 3xx status code
+func (o *GetConfigurationSchemasEdgesVnextOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration schemas edges vnext o k response has a 4xx status code
+func (o *GetConfigurationSchemasEdgesVnextOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get configuration schemas edges vnext o k response has a 5xx status code
+func (o *GetConfigurationSchemasEdgesVnextOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration schemas edges vnext o k response a status code equal to that given
+func (o *GetConfigurationSchemasEdgesVnextOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConfigurationSchemasEdgesVnextOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConfigurationSchemasEdgesVnextOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetConfigurationSchemasEdgesVnextBadRequest() *GetConfigurationSchemasEd
 	return &GetConfigurationSchemasEdgesVnextBadRequest{}
 }
 
-/*GetConfigurationSchemasEdgesVnextBadRequest handles this case with default header values.
+/*
+GetConfigurationSchemasEdgesVnextBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetConfigurationSchemasEdgesVnextBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get configuration schemas edges vnext bad request response has a 2xx status code
+func (o *GetConfigurationSchemasEdgesVnextBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration schemas edges vnext bad request response has a 3xx status code
+func (o *GetConfigurationSchemasEdgesVnextBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration schemas edges vnext bad request response has a 4xx status code
+func (o *GetConfigurationSchemasEdgesVnextBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get configuration schemas edges vnext bad request response has a 5xx status code
+func (o *GetConfigurationSchemasEdgesVnextBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration schemas edges vnext bad request response a status code equal to that given
+func (o *GetConfigurationSchemasEdgesVnextBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConfigurationSchemasEdgesVnextBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConfigurationSchemasEdgesVnextBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetConfigurationSchemasEdgesVnextUnauthorized() *GetConfigurationSchemas
 	return &GetConfigurationSchemasEdgesVnextUnauthorized{}
 }
 
-/*GetConfigurationSchemasEdgesVnextUnauthorized handles this case with default header values.
+/*
+GetConfigurationSchemasEdgesVnextUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetConfigurationSchemasEdgesVnextUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get configuration schemas edges vnext unauthorized response has a 2xx status code
+func (o *GetConfigurationSchemasEdgesVnextUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration schemas edges vnext unauthorized response has a 3xx status code
+func (o *GetConfigurationSchemasEdgesVnextUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration schemas edges vnext unauthorized response has a 4xx status code
+func (o *GetConfigurationSchemasEdgesVnextUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get configuration schemas edges vnext unauthorized response has a 5xx status code
+func (o *GetConfigurationSchemasEdgesVnextUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration schemas edges vnext unauthorized response a status code equal to that given
+func (o *GetConfigurationSchemasEdgesVnextUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConfigurationSchemasEdgesVnextUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConfigurationSchemasEdgesVnextUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetConfigurationSchemasEdgesVnextForbidden() *GetConfigurationSchemasEdg
 	return &GetConfigurationSchemasEdgesVnextForbidden{}
 }
 
-/*GetConfigurationSchemasEdgesVnextForbidden handles this case with default header values.
+/*
+GetConfigurationSchemasEdgesVnextForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetConfigurationSchemasEdgesVnextForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get configuration schemas edges vnext forbidden response has a 2xx status code
+func (o *GetConfigurationSchemasEdgesVnextForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration schemas edges vnext forbidden response has a 3xx status code
+func (o *GetConfigurationSchemasEdgesVnextForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration schemas edges vnext forbidden response has a 4xx status code
+func (o *GetConfigurationSchemasEdgesVnextForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get configuration schemas edges vnext forbidden response has a 5xx status code
+func (o *GetConfigurationSchemasEdgesVnextForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration schemas edges vnext forbidden response a status code equal to that given
+func (o *GetConfigurationSchemasEdgesVnextForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConfigurationSchemasEdgesVnextForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConfigurationSchemasEdgesVnextForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetConfigurationSchemasEdgesVnextNotFound() *GetConfigurationSchemasEdge
 	return &GetConfigurationSchemasEdgesVnextNotFound{}
 }
 
-/*GetConfigurationSchemasEdgesVnextNotFound handles this case with default header values.
+/*
+GetConfigurationSchemasEdgesVnextNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetConfigurationSchemasEdgesVnextNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get configuration schemas edges vnext not found response has a 2xx status code
+func (o *GetConfigurationSchemasEdgesVnextNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration schemas edges vnext not found response has a 3xx status code
+func (o *GetConfigurationSchemasEdgesVnextNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration schemas edges vnext not found response has a 4xx status code
+func (o *GetConfigurationSchemasEdgesVnextNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get configuration schemas edges vnext not found response has a 5xx status code
+func (o *GetConfigurationSchemasEdgesVnextNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration schemas edges vnext not found response a status code equal to that given
+func (o *GetConfigurationSchemasEdgesVnextNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConfigurationSchemasEdgesVnextNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConfigurationSchemasEdgesVnextNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetConfigurationSchemasEdgesVnextRequestTimeout() *GetConfigurationSchem
 	return &GetConfigurationSchemasEdgesVnextRequestTimeout{}
 }
 
-/*GetConfigurationSchemasEdgesVnextRequestTimeout handles this case with default header values.
+/*
+GetConfigurationSchemasEdgesVnextRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetConfigurationSchemasEdgesVnextRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get configuration schemas edges vnext request timeout response has a 2xx status code
+func (o *GetConfigurationSchemasEdgesVnextRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration schemas edges vnext request timeout response has a 3xx status code
+func (o *GetConfigurationSchemasEdgesVnextRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration schemas edges vnext request timeout response has a 4xx status code
+func (o *GetConfigurationSchemasEdgesVnextRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get configuration schemas edges vnext request timeout response has a 5xx status code
+func (o *GetConfigurationSchemasEdgesVnextRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration schemas edges vnext request timeout response a status code equal to that given
+func (o *GetConfigurationSchemasEdgesVnextRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConfigurationSchemasEdgesVnextRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConfigurationSchemasEdgesVnextRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetConfigurationSchemasEdgesVnextRequestEntityTooLarge() *GetConfigurati
 	return &GetConfigurationSchemasEdgesVnextRequestEntityTooLarge{}
 }
 
-/*GetConfigurationSchemasEdgesVnextRequestEntityTooLarge handles this case with default header values.
+/*
+GetConfigurationSchemasEdgesVnextRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetConfigurationSchemasEdgesVnextRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get configuration schemas edges vnext request entity too large response has a 2xx status code
+func (o *GetConfigurationSchemasEdgesVnextRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration schemas edges vnext request entity too large response has a 3xx status code
+func (o *GetConfigurationSchemasEdgesVnextRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration schemas edges vnext request entity too large response has a 4xx status code
+func (o *GetConfigurationSchemasEdgesVnextRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get configuration schemas edges vnext request entity too large response has a 5xx status code
+func (o *GetConfigurationSchemasEdgesVnextRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration schemas edges vnext request entity too large response a status code equal to that given
+func (o *GetConfigurationSchemasEdgesVnextRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConfigurationSchemasEdgesVnextRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConfigurationSchemasEdgesVnextRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetConfigurationSchemasEdgesVnextUnsupportedMediaType() *GetConfiguratio
 	return &GetConfigurationSchemasEdgesVnextUnsupportedMediaType{}
 }
 
-/*GetConfigurationSchemasEdgesVnextUnsupportedMediaType handles this case with default header values.
+/*
+GetConfigurationSchemasEdgesVnextUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetConfigurationSchemasEdgesVnextUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get configuration schemas edges vnext unsupported media type response has a 2xx status code
+func (o *GetConfigurationSchemasEdgesVnextUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration schemas edges vnext unsupported media type response has a 3xx status code
+func (o *GetConfigurationSchemasEdgesVnextUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration schemas edges vnext unsupported media type response has a 4xx status code
+func (o *GetConfigurationSchemasEdgesVnextUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get configuration schemas edges vnext unsupported media type response has a 5xx status code
+func (o *GetConfigurationSchemasEdgesVnextUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration schemas edges vnext unsupported media type response a status code equal to that given
+func (o *GetConfigurationSchemasEdgesVnextUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConfigurationSchemasEdgesVnextUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConfigurationSchemasEdgesVnextUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetConfigurationSchemasEdgesVnextTooManyRequests() *GetConfigurationSche
 	return &GetConfigurationSchemasEdgesVnextTooManyRequests{}
 }
 
-/*GetConfigurationSchemasEdgesVnextTooManyRequests handles this case with default header values.
+/*
+GetConfigurationSchemasEdgesVnextTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetConfigurationSchemasEdgesVnextTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get configuration schemas edges vnext too many requests response has a 2xx status code
+func (o *GetConfigurationSchemasEdgesVnextTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration schemas edges vnext too many requests response has a 3xx status code
+func (o *GetConfigurationSchemasEdgesVnextTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration schemas edges vnext too many requests response has a 4xx status code
+func (o *GetConfigurationSchemasEdgesVnextTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get configuration schemas edges vnext too many requests response has a 5xx status code
+func (o *GetConfigurationSchemasEdgesVnextTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get configuration schemas edges vnext too many requests response a status code equal to that given
+func (o *GetConfigurationSchemasEdgesVnextTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConfigurationSchemasEdgesVnextTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConfigurationSchemasEdgesVnextTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetConfigurationSchemasEdgesVnextInternalServerError() *GetConfiguration
 	return &GetConfigurationSchemasEdgesVnextInternalServerError{}
 }
 
-/*GetConfigurationSchemasEdgesVnextInternalServerError handles this case with default header values.
+/*
+GetConfigurationSchemasEdgesVnextInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetConfigurationSchemasEdgesVnextInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get configuration schemas edges vnext internal server error response has a 2xx status code
+func (o *GetConfigurationSchemasEdgesVnextInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration schemas edges vnext internal server error response has a 3xx status code
+func (o *GetConfigurationSchemasEdgesVnextInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration schemas edges vnext internal server error response has a 4xx status code
+func (o *GetConfigurationSchemasEdgesVnextInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get configuration schemas edges vnext internal server error response has a 5xx status code
+func (o *GetConfigurationSchemasEdgesVnextInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get configuration schemas edges vnext internal server error response a status code equal to that given
+func (o *GetConfigurationSchemasEdgesVnextInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConfigurationSchemasEdgesVnextInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConfigurationSchemasEdgesVnextInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetConfigurationSchemasEdgesVnextServiceUnavailable() *GetConfigurationS
 	return &GetConfigurationSchemasEdgesVnextServiceUnavailable{}
 }
 
-/*GetConfigurationSchemasEdgesVnextServiceUnavailable handles this case with default header values.
+/*
+GetConfigurationSchemasEdgesVnextServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetConfigurationSchemasEdgesVnextServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get configuration schemas edges vnext service unavailable response has a 2xx status code
+func (o *GetConfigurationSchemasEdgesVnextServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration schemas edges vnext service unavailable response has a 3xx status code
+func (o *GetConfigurationSchemasEdgesVnextServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration schemas edges vnext service unavailable response has a 4xx status code
+func (o *GetConfigurationSchemasEdgesVnextServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get configuration schemas edges vnext service unavailable response has a 5xx status code
+func (o *GetConfigurationSchemasEdgesVnextServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get configuration schemas edges vnext service unavailable response a status code equal to that given
+func (o *GetConfigurationSchemasEdgesVnextServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConfigurationSchemasEdgesVnextServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConfigurationSchemasEdgesVnextServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetConfigurationSchemasEdgesVnextGatewayTimeout() *GetConfigurationSchem
 	return &GetConfigurationSchemasEdgesVnextGatewayTimeout{}
 }
 
-/*GetConfigurationSchemasEdgesVnextGatewayTimeout handles this case with default header values.
+/*
+GetConfigurationSchemasEdgesVnextGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetConfigurationSchemasEdgesVnextGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get configuration schemas edges vnext gateway timeout response has a 2xx status code
+func (o *GetConfigurationSchemasEdgesVnextGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get configuration schemas edges vnext gateway timeout response has a 3xx status code
+func (o *GetConfigurationSchemasEdgesVnextGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get configuration schemas edges vnext gateway timeout response has a 4xx status code
+func (o *GetConfigurationSchemasEdgesVnextGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get configuration schemas edges vnext gateway timeout response has a 5xx status code
+func (o *GetConfigurationSchemasEdgesVnextGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get configuration schemas edges vnext gateway timeout response a status code equal to that given
+func (o *GetConfigurationSchemasEdgesVnextGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConfigurationSchemasEdgesVnextGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConfigurationSchemasEdgesVnextGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/configuration/schemas/edges/vnext][%d] getConfigurationSchemasEdgesVnextGatewayTimeout  %+v", 504, o.Payload)
 }
 

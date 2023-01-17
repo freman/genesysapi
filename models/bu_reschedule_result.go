@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -57,7 +58,6 @@ func (m *BuRescheduleResult) Validate(formats strfmt.Registry) error {
 }
 
 func (m *BuRescheduleResult) validateAgentSchedules(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AgentSchedules) { // not required
 		return nil
 	}
@@ -71,6 +71,8 @@ func (m *BuRescheduleResult) validateAgentSchedules(formats strfmt.Registry) err
 			if err := m.AgentSchedules[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("agentSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agentSchedules" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -82,7 +84,6 @@ func (m *BuRescheduleResult) validateAgentSchedules(formats strfmt.Registry) err
 }
 
 func (m *BuRescheduleResult) validateGenerationResults(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GenerationResults) { // not required
 		return nil
 	}
@@ -91,6 +92,8 @@ func (m *BuRescheduleResult) validateGenerationResults(formats strfmt.Registry) 
 		if err := m.GenerationResults.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("generationResults")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("generationResults")
 			}
 			return err
 		}
@@ -100,7 +103,6 @@ func (m *BuRescheduleResult) validateGenerationResults(formats strfmt.Registry) 
 }
 
 func (m *BuRescheduleResult) validateHeadcountForecast(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HeadcountForecast) { // not required
 		return nil
 	}
@@ -109,6 +111,82 @@ func (m *BuRescheduleResult) validateHeadcountForecast(formats strfmt.Registry) 
 		if err := m.HeadcountForecast.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("headcountForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("headcountForecast")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu reschedule result based on the context it is used
+func (m *BuRescheduleResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgentSchedules(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGenerationResults(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHeadcountForecast(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuRescheduleResult) contextValidateAgentSchedules(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AgentSchedules); i++ {
+
+		if m.AgentSchedules[i] != nil {
+			if err := m.AgentSchedules[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("agentSchedules" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agentSchedules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuRescheduleResult) contextValidateGenerationResults(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.GenerationResults != nil {
+		if err := m.GenerationResults.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("generationResults")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("generationResults")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuRescheduleResult) contextValidateHeadcountForecast(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.HeadcountForecast != nil {
+		if err := m.HeadcountForecast.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("headcountForecast")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("headcountForecast")
 			}
 			return err
 		}

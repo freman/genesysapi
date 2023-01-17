@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -16,11 +18,17 @@ import (
 type MessengerStyles struct {
 
 	// The primary color of messenger in hexadecimal
+	// Example: #a7017c
 	PrimaryColor string `json:"primaryColor,omitempty"`
 }
 
 // Validate validates this messenger styles
 func (m *MessengerStyles) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this messenger styles based on context it is used
+func (m *MessengerStyles) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

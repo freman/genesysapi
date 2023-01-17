@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -59,7 +60,6 @@ func (m *ConversationMetrics) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ConversationMetrics) validateConversation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversation) { // not required
 		return nil
 	}
@@ -68,6 +68,8 @@ func (m *ConversationMetrics) validateConversation(formats strfmt.Registry) erro
 		if err := m.Conversation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
 			}
 			return err
 		}
@@ -77,7 +79,6 @@ func (m *ConversationMetrics) validateConversation(formats strfmt.Registry) erro
 }
 
 func (m *ConversationMetrics) validateParticipantMetrics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ParticipantMetrics) { // not required
 		return nil
 	}
@@ -86,6 +87,8 @@ func (m *ConversationMetrics) validateParticipantMetrics(formats strfmt.Registry
 		if err := m.ParticipantMetrics.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("participantMetrics")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("participantMetrics")
 			}
 			return err
 		}
@@ -136,7 +139,6 @@ func (m *ConversationMetrics) validateSentimentTrendClassEnum(path, location str
 }
 
 func (m *ConversationMetrics) validateSentimentTrendClass(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SentimentTrendClass) { // not required
 		return nil
 	}
@@ -144,6 +146,56 @@ func (m *ConversationMetrics) validateSentimentTrendClass(formats strfmt.Registr
 	// value enum
 	if err := m.validateSentimentTrendClassEnum("sentimentTrendClass", "body", m.SentimentTrendClass); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation metrics based on the context it is used
+func (m *ConversationMetrics) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConversation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateParticipantMetrics(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConversationMetrics) contextValidateConversation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Conversation != nil {
+		if err := m.Conversation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ConversationMetrics) contextValidateParticipantMetrics(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ParticipantMetrics != nil {
+		if err := m.ParticipantMetrics.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("participantMetrics")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("participantMetrics")
+			}
+			return err
+		}
 	}
 
 	return nil

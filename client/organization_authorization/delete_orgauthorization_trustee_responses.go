@@ -95,7 +95,6 @@ func (o *DeleteOrgauthorizationTrusteeReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteOrgauthorizationTrusteeNoContent() *DeleteOrgauthorizationTrusteeN
 	return &DeleteOrgauthorizationTrusteeNoContent{}
 }
 
-/*DeleteOrgauthorizationTrusteeNoContent handles this case with default header values.
+/*
+DeleteOrgauthorizationTrusteeNoContent describes a response with status code 204, with default header values.
 
 Trust deleted
 */
 type DeleteOrgauthorizationTrusteeNoContent struct {
 }
 
+// IsSuccess returns true when this delete orgauthorization trustee no content response has a 2xx status code
+func (o *DeleteOrgauthorizationTrusteeNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete orgauthorization trustee no content response has a 3xx status code
+func (o *DeleteOrgauthorizationTrusteeNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orgauthorization trustee no content response has a 4xx status code
+func (o *DeleteOrgauthorizationTrusteeNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete orgauthorization trustee no content response has a 5xx status code
+func (o *DeleteOrgauthorizationTrusteeNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orgauthorization trustee no content response a status code equal to that given
+func (o *DeleteOrgauthorizationTrusteeNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteOrgauthorizationTrusteeNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeNoContent ", 204)
+}
+
+func (o *DeleteOrgauthorizationTrusteeNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteOrgauthorizationTrusteeBadRequest() *DeleteOrgauthorizationTrustee
 	return &DeleteOrgauthorizationTrusteeBadRequest{}
 }
 
-/*DeleteOrgauthorizationTrusteeBadRequest handles this case with default header values.
+/*
+DeleteOrgauthorizationTrusteeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteOrgauthorizationTrusteeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orgauthorization trustee bad request response has a 2xx status code
+func (o *DeleteOrgauthorizationTrusteeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orgauthorization trustee bad request response has a 3xx status code
+func (o *DeleteOrgauthorizationTrusteeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orgauthorization trustee bad request response has a 4xx status code
+func (o *DeleteOrgauthorizationTrusteeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orgauthorization trustee bad request response has a 5xx status code
+func (o *DeleteOrgauthorizationTrusteeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orgauthorization trustee bad request response a status code equal to that given
+func (o *DeleteOrgauthorizationTrusteeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOrgauthorizationTrusteeBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOrgauthorizationTrusteeBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteOrgauthorizationTrusteeUnauthorized() *DeleteOrgauthorizationTrust
 	return &DeleteOrgauthorizationTrusteeUnauthorized{}
 }
 
-/*DeleteOrgauthorizationTrusteeUnauthorized handles this case with default header values.
+/*
+DeleteOrgauthorizationTrusteeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteOrgauthorizationTrusteeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orgauthorization trustee unauthorized response has a 2xx status code
+func (o *DeleteOrgauthorizationTrusteeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orgauthorization trustee unauthorized response has a 3xx status code
+func (o *DeleteOrgauthorizationTrusteeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orgauthorization trustee unauthorized response has a 4xx status code
+func (o *DeleteOrgauthorizationTrusteeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orgauthorization trustee unauthorized response has a 5xx status code
+func (o *DeleteOrgauthorizationTrusteeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orgauthorization trustee unauthorized response a status code equal to that given
+func (o *DeleteOrgauthorizationTrusteeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOrgauthorizationTrusteeUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOrgauthorizationTrusteeUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteOrgauthorizationTrusteeForbidden() *DeleteOrgauthorizationTrusteeF
 	return &DeleteOrgauthorizationTrusteeForbidden{}
 }
 
-/*DeleteOrgauthorizationTrusteeForbidden handles this case with default header values.
+/*
+DeleteOrgauthorizationTrusteeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteOrgauthorizationTrusteeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orgauthorization trustee forbidden response has a 2xx status code
+func (o *DeleteOrgauthorizationTrusteeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orgauthorization trustee forbidden response has a 3xx status code
+func (o *DeleteOrgauthorizationTrusteeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orgauthorization trustee forbidden response has a 4xx status code
+func (o *DeleteOrgauthorizationTrusteeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orgauthorization trustee forbidden response has a 5xx status code
+func (o *DeleteOrgauthorizationTrusteeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orgauthorization trustee forbidden response a status code equal to that given
+func (o *DeleteOrgauthorizationTrusteeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOrgauthorizationTrusteeForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOrgauthorizationTrusteeForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteOrgauthorizationTrusteeNotFound() *DeleteOrgauthorizationTrusteeNo
 	return &DeleteOrgauthorizationTrusteeNotFound{}
 }
 
-/*DeleteOrgauthorizationTrusteeNotFound handles this case with default header values.
+/*
+DeleteOrgauthorizationTrusteeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteOrgauthorizationTrusteeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orgauthorization trustee not found response has a 2xx status code
+func (o *DeleteOrgauthorizationTrusteeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orgauthorization trustee not found response has a 3xx status code
+func (o *DeleteOrgauthorizationTrusteeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orgauthorization trustee not found response has a 4xx status code
+func (o *DeleteOrgauthorizationTrusteeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orgauthorization trustee not found response has a 5xx status code
+func (o *DeleteOrgauthorizationTrusteeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orgauthorization trustee not found response a status code equal to that given
+func (o *DeleteOrgauthorizationTrusteeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOrgauthorizationTrusteeNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOrgauthorizationTrusteeNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteOrgauthorizationTrusteeRequestTimeout() *DeleteOrgauthorizationTru
 	return &DeleteOrgauthorizationTrusteeRequestTimeout{}
 }
 
-/*DeleteOrgauthorizationTrusteeRequestTimeout handles this case with default header values.
+/*
+DeleteOrgauthorizationTrusteeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteOrgauthorizationTrusteeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orgauthorization trustee request timeout response has a 2xx status code
+func (o *DeleteOrgauthorizationTrusteeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orgauthorization trustee request timeout response has a 3xx status code
+func (o *DeleteOrgauthorizationTrusteeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orgauthorization trustee request timeout response has a 4xx status code
+func (o *DeleteOrgauthorizationTrusteeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orgauthorization trustee request timeout response has a 5xx status code
+func (o *DeleteOrgauthorizationTrusteeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orgauthorization trustee request timeout response a status code equal to that given
+func (o *DeleteOrgauthorizationTrusteeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOrgauthorizationTrusteeRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOrgauthorizationTrusteeRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteOrgauthorizationTrusteeRequestEntityTooLarge() *DeleteOrgauthoriza
 	return &DeleteOrgauthorizationTrusteeRequestEntityTooLarge{}
 }
 
-/*DeleteOrgauthorizationTrusteeRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOrgauthorizationTrusteeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteOrgauthorizationTrusteeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orgauthorization trustee request entity too large response has a 2xx status code
+func (o *DeleteOrgauthorizationTrusteeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orgauthorization trustee request entity too large response has a 3xx status code
+func (o *DeleteOrgauthorizationTrusteeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orgauthorization trustee request entity too large response has a 4xx status code
+func (o *DeleteOrgauthorizationTrusteeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orgauthorization trustee request entity too large response has a 5xx status code
+func (o *DeleteOrgauthorizationTrusteeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orgauthorization trustee request entity too large response a status code equal to that given
+func (o *DeleteOrgauthorizationTrusteeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOrgauthorizationTrusteeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOrgauthorizationTrusteeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteOrgauthorizationTrusteeUnsupportedMediaType() *DeleteOrgauthorizat
 	return &DeleteOrgauthorizationTrusteeUnsupportedMediaType{}
 }
 
-/*DeleteOrgauthorizationTrusteeUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOrgauthorizationTrusteeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteOrgauthorizationTrusteeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orgauthorization trustee unsupported media type response has a 2xx status code
+func (o *DeleteOrgauthorizationTrusteeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orgauthorization trustee unsupported media type response has a 3xx status code
+func (o *DeleteOrgauthorizationTrusteeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orgauthorization trustee unsupported media type response has a 4xx status code
+func (o *DeleteOrgauthorizationTrusteeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orgauthorization trustee unsupported media type response has a 5xx status code
+func (o *DeleteOrgauthorizationTrusteeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orgauthorization trustee unsupported media type response a status code equal to that given
+func (o *DeleteOrgauthorizationTrusteeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOrgauthorizationTrusteeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOrgauthorizationTrusteeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteOrgauthorizationTrusteeTooManyRequests() *DeleteOrgauthorizationTr
 	return &DeleteOrgauthorizationTrusteeTooManyRequests{}
 }
 
-/*DeleteOrgauthorizationTrusteeTooManyRequests handles this case with default header values.
+/*
+DeleteOrgauthorizationTrusteeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteOrgauthorizationTrusteeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orgauthorization trustee too many requests response has a 2xx status code
+func (o *DeleteOrgauthorizationTrusteeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orgauthorization trustee too many requests response has a 3xx status code
+func (o *DeleteOrgauthorizationTrusteeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orgauthorization trustee too many requests response has a 4xx status code
+func (o *DeleteOrgauthorizationTrusteeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete orgauthorization trustee too many requests response has a 5xx status code
+func (o *DeleteOrgauthorizationTrusteeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete orgauthorization trustee too many requests response a status code equal to that given
+func (o *DeleteOrgauthorizationTrusteeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOrgauthorizationTrusteeTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOrgauthorizationTrusteeTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteOrgauthorizationTrusteeInternalServerError() *DeleteOrgauthorizati
 	return &DeleteOrgauthorizationTrusteeInternalServerError{}
 }
 
-/*DeleteOrgauthorizationTrusteeInternalServerError handles this case with default header values.
+/*
+DeleteOrgauthorizationTrusteeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteOrgauthorizationTrusteeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orgauthorization trustee internal server error response has a 2xx status code
+func (o *DeleteOrgauthorizationTrusteeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orgauthorization trustee internal server error response has a 3xx status code
+func (o *DeleteOrgauthorizationTrusteeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orgauthorization trustee internal server error response has a 4xx status code
+func (o *DeleteOrgauthorizationTrusteeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete orgauthorization trustee internal server error response has a 5xx status code
+func (o *DeleteOrgauthorizationTrusteeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete orgauthorization trustee internal server error response a status code equal to that given
+func (o *DeleteOrgauthorizationTrusteeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOrgauthorizationTrusteeInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOrgauthorizationTrusteeInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteOrgauthorizationTrusteeServiceUnavailable() *DeleteOrgauthorizatio
 	return &DeleteOrgauthorizationTrusteeServiceUnavailable{}
 }
 
-/*DeleteOrgauthorizationTrusteeServiceUnavailable handles this case with default header values.
+/*
+DeleteOrgauthorizationTrusteeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteOrgauthorizationTrusteeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orgauthorization trustee service unavailable response has a 2xx status code
+func (o *DeleteOrgauthorizationTrusteeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orgauthorization trustee service unavailable response has a 3xx status code
+func (o *DeleteOrgauthorizationTrusteeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orgauthorization trustee service unavailable response has a 4xx status code
+func (o *DeleteOrgauthorizationTrusteeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete orgauthorization trustee service unavailable response has a 5xx status code
+func (o *DeleteOrgauthorizationTrusteeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete orgauthorization trustee service unavailable response a status code equal to that given
+func (o *DeleteOrgauthorizationTrusteeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOrgauthorizationTrusteeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOrgauthorizationTrusteeServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteOrgauthorizationTrusteeGatewayTimeout() *DeleteOrgauthorizationTru
 	return &DeleteOrgauthorizationTrusteeGatewayTimeout{}
 }
 
-/*DeleteOrgauthorizationTrusteeGatewayTimeout handles this case with default header values.
+/*
+DeleteOrgauthorizationTrusteeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteOrgauthorizationTrusteeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete orgauthorization trustee gateway timeout response has a 2xx status code
+func (o *DeleteOrgauthorizationTrusteeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete orgauthorization trustee gateway timeout response has a 3xx status code
+func (o *DeleteOrgauthorizationTrusteeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete orgauthorization trustee gateway timeout response has a 4xx status code
+func (o *DeleteOrgauthorizationTrusteeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete orgauthorization trustee gateway timeout response has a 5xx status code
+func (o *DeleteOrgauthorizationTrusteeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete orgauthorization trustee gateway timeout response a status code equal to that given
+func (o *DeleteOrgauthorizationTrusteeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOrgauthorizationTrusteeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOrgauthorizationTrusteeGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/orgauthorization/trustees/{trusteeOrgId}][%d] deleteOrgauthorizationTrusteeGatewayTimeout  %+v", 504, o.Payload)
 }
 

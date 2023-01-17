@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetLicenseDefinitionParams creates a new GetLicenseDefinitionParams object
-// with the default values initialized.
+// NewGetLicenseDefinitionParams creates a new GetLicenseDefinitionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLicenseDefinitionParams() *GetLicenseDefinitionParams {
-	var ()
 	return &GetLicenseDefinitionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLicenseDefinitionParamsWithTimeout creates a new GetLicenseDefinitionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLicenseDefinitionParamsWithTimeout(timeout time.Duration) *GetLicenseDefinitionParams {
-	var ()
 	return &GetLicenseDefinitionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLicenseDefinitionParamsWithContext creates a new GetLicenseDefinitionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLicenseDefinitionParamsWithContext(ctx context.Context) *GetLicenseDefinitionParams {
-	var ()
 	return &GetLicenseDefinitionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLicenseDefinitionParamsWithHTTPClient creates a new GetLicenseDefinitionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLicenseDefinitionParamsWithHTTPClient(client *http.Client) *GetLicenseDefinitionParams {
-	var ()
 	return &GetLicenseDefinitionParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLicenseDefinitionParams contains all the parameters to send to the API endpoint
-for the get license definition operation typically these are written to a http.Request
+/*
+GetLicenseDefinitionParams contains all the parameters to send to the API endpoint
+
+	for the get license definition operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLicenseDefinitionParams struct {
 
-	/*LicenseID
-	  ID
+	/* LicenseID.
 
+	   ID
 	*/
 	LicenseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get license definition params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLicenseDefinitionParams) WithDefaults() *GetLicenseDefinitionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get license definition params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLicenseDefinitionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get license definition params

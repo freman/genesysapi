@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteWidgetsDeploymentParams creates a new DeleteWidgetsDeploymentParams object
-// with the default values initialized.
+// NewDeleteWidgetsDeploymentParams creates a new DeleteWidgetsDeploymentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteWidgetsDeploymentParams() *DeleteWidgetsDeploymentParams {
-	var ()
 	return &DeleteWidgetsDeploymentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteWidgetsDeploymentParamsWithTimeout creates a new DeleteWidgetsDeploymentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteWidgetsDeploymentParamsWithTimeout(timeout time.Duration) *DeleteWidgetsDeploymentParams {
-	var ()
 	return &DeleteWidgetsDeploymentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteWidgetsDeploymentParamsWithContext creates a new DeleteWidgetsDeploymentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteWidgetsDeploymentParamsWithContext(ctx context.Context) *DeleteWidgetsDeploymentParams {
-	var ()
 	return &DeleteWidgetsDeploymentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteWidgetsDeploymentParamsWithHTTPClient creates a new DeleteWidgetsDeploymentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteWidgetsDeploymentParamsWithHTTPClient(client *http.Client) *DeleteWidgetsDeploymentParams {
-	var ()
 	return &DeleteWidgetsDeploymentParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteWidgetsDeploymentParams contains all the parameters to send to the API endpoint
-for the delete widgets deployment operation typically these are written to a http.Request
+/*
+DeleteWidgetsDeploymentParams contains all the parameters to send to the API endpoint
+
+	for the delete widgets deployment operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteWidgetsDeploymentParams struct {
 
-	/*DeploymentID
-	  Widget Config Id
+	/* DeploymentID.
 
+	   Widget Config Id
 	*/
 	DeploymentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete widgets deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWidgetsDeploymentParams) WithDefaults() *DeleteWidgetsDeploymentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete widgets deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWidgetsDeploymentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete widgets deployment params

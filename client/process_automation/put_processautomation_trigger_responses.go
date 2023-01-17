@@ -95,7 +95,6 @@ func (o *PutProcessautomationTriggerReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutProcessautomationTriggerOK() *PutProcessautomationTriggerOK {
 	return &PutProcessautomationTriggerOK{}
 }
 
-/*PutProcessautomationTriggerOK handles this case with default header values.
+/*
+PutProcessautomationTriggerOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutProcessautomationTriggerOK struct {
 	Payload *models.Trigger
 }
 
+// IsSuccess returns true when this put processautomation trigger o k response has a 2xx status code
+func (o *PutProcessautomationTriggerOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put processautomation trigger o k response has a 3xx status code
+func (o *PutProcessautomationTriggerOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put processautomation trigger o k response has a 4xx status code
+func (o *PutProcessautomationTriggerOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put processautomation trigger o k response has a 5xx status code
+func (o *PutProcessautomationTriggerOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put processautomation trigger o k response a status code equal to that given
+func (o *PutProcessautomationTriggerOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutProcessautomationTriggerOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerOK  %+v", 200, o.Payload)
+}
+
+func (o *PutProcessautomationTriggerOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutProcessautomationTriggerBadRequest() *PutProcessautomationTriggerBadR
 	return &PutProcessautomationTriggerBadRequest{}
 }
 
-/*PutProcessautomationTriggerBadRequest handles this case with default header values.
+/*
+PutProcessautomationTriggerBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutProcessautomationTriggerBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put processautomation trigger bad request response has a 2xx status code
+func (o *PutProcessautomationTriggerBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put processautomation trigger bad request response has a 3xx status code
+func (o *PutProcessautomationTriggerBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put processautomation trigger bad request response has a 4xx status code
+func (o *PutProcessautomationTriggerBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put processautomation trigger bad request response has a 5xx status code
+func (o *PutProcessautomationTriggerBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put processautomation trigger bad request response a status code equal to that given
+func (o *PutProcessautomationTriggerBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutProcessautomationTriggerBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutProcessautomationTriggerBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutProcessautomationTriggerUnauthorized() *PutProcessautomationTriggerUn
 	return &PutProcessautomationTriggerUnauthorized{}
 }
 
-/*PutProcessautomationTriggerUnauthorized handles this case with default header values.
+/*
+PutProcessautomationTriggerUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutProcessautomationTriggerUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put processautomation trigger unauthorized response has a 2xx status code
+func (o *PutProcessautomationTriggerUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put processautomation trigger unauthorized response has a 3xx status code
+func (o *PutProcessautomationTriggerUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put processautomation trigger unauthorized response has a 4xx status code
+func (o *PutProcessautomationTriggerUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put processautomation trigger unauthorized response has a 5xx status code
+func (o *PutProcessautomationTriggerUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put processautomation trigger unauthorized response a status code equal to that given
+func (o *PutProcessautomationTriggerUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutProcessautomationTriggerUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutProcessautomationTriggerUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutProcessautomationTriggerForbidden() *PutProcessautomationTriggerForbi
 	return &PutProcessautomationTriggerForbidden{}
 }
 
-/*PutProcessautomationTriggerForbidden handles this case with default header values.
+/*
+PutProcessautomationTriggerForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutProcessautomationTriggerForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put processautomation trigger forbidden response has a 2xx status code
+func (o *PutProcessautomationTriggerForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put processautomation trigger forbidden response has a 3xx status code
+func (o *PutProcessautomationTriggerForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put processautomation trigger forbidden response has a 4xx status code
+func (o *PutProcessautomationTriggerForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put processautomation trigger forbidden response has a 5xx status code
+func (o *PutProcessautomationTriggerForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put processautomation trigger forbidden response a status code equal to that given
+func (o *PutProcessautomationTriggerForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutProcessautomationTriggerForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutProcessautomationTriggerForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutProcessautomationTriggerNotFound() *PutProcessautomationTriggerNotFou
 	return &PutProcessautomationTriggerNotFound{}
 }
 
-/*PutProcessautomationTriggerNotFound handles this case with default header values.
+/*
+PutProcessautomationTriggerNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutProcessautomationTriggerNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put processautomation trigger not found response has a 2xx status code
+func (o *PutProcessautomationTriggerNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put processautomation trigger not found response has a 3xx status code
+func (o *PutProcessautomationTriggerNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put processautomation trigger not found response has a 4xx status code
+func (o *PutProcessautomationTriggerNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put processautomation trigger not found response has a 5xx status code
+func (o *PutProcessautomationTriggerNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put processautomation trigger not found response a status code equal to that given
+func (o *PutProcessautomationTriggerNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutProcessautomationTriggerNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutProcessautomationTriggerNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutProcessautomationTriggerRequestTimeout() *PutProcessautomationTrigger
 	return &PutProcessautomationTriggerRequestTimeout{}
 }
 
-/*PutProcessautomationTriggerRequestTimeout handles this case with default header values.
+/*
+PutProcessautomationTriggerRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutProcessautomationTriggerRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put processautomation trigger request timeout response has a 2xx status code
+func (o *PutProcessautomationTriggerRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put processautomation trigger request timeout response has a 3xx status code
+func (o *PutProcessautomationTriggerRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put processautomation trigger request timeout response has a 4xx status code
+func (o *PutProcessautomationTriggerRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put processautomation trigger request timeout response has a 5xx status code
+func (o *PutProcessautomationTriggerRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put processautomation trigger request timeout response a status code equal to that given
+func (o *PutProcessautomationTriggerRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutProcessautomationTriggerRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutProcessautomationTriggerRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutProcessautomationTriggerRequestEntityTooLarge() *PutProcessautomation
 	return &PutProcessautomationTriggerRequestEntityTooLarge{}
 }
 
-/*PutProcessautomationTriggerRequestEntityTooLarge handles this case with default header values.
+/*
+PutProcessautomationTriggerRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutProcessautomationTriggerRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put processautomation trigger request entity too large response has a 2xx status code
+func (o *PutProcessautomationTriggerRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put processautomation trigger request entity too large response has a 3xx status code
+func (o *PutProcessautomationTriggerRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put processautomation trigger request entity too large response has a 4xx status code
+func (o *PutProcessautomationTriggerRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put processautomation trigger request entity too large response has a 5xx status code
+func (o *PutProcessautomationTriggerRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put processautomation trigger request entity too large response a status code equal to that given
+func (o *PutProcessautomationTriggerRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutProcessautomationTriggerRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutProcessautomationTriggerRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutProcessautomationTriggerUnsupportedMediaType() *PutProcessautomationT
 	return &PutProcessautomationTriggerUnsupportedMediaType{}
 }
 
-/*PutProcessautomationTriggerUnsupportedMediaType handles this case with default header values.
+/*
+PutProcessautomationTriggerUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutProcessautomationTriggerUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put processautomation trigger unsupported media type response has a 2xx status code
+func (o *PutProcessautomationTriggerUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put processautomation trigger unsupported media type response has a 3xx status code
+func (o *PutProcessautomationTriggerUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put processautomation trigger unsupported media type response has a 4xx status code
+func (o *PutProcessautomationTriggerUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put processautomation trigger unsupported media type response has a 5xx status code
+func (o *PutProcessautomationTriggerUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put processautomation trigger unsupported media type response a status code equal to that given
+func (o *PutProcessautomationTriggerUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutProcessautomationTriggerUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutProcessautomationTriggerUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutProcessautomationTriggerTooManyRequests() *PutProcessautomationTrigge
 	return &PutProcessautomationTriggerTooManyRequests{}
 }
 
-/*PutProcessautomationTriggerTooManyRequests handles this case with default header values.
+/*
+PutProcessautomationTriggerTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutProcessautomationTriggerTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put processautomation trigger too many requests response has a 2xx status code
+func (o *PutProcessautomationTriggerTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put processautomation trigger too many requests response has a 3xx status code
+func (o *PutProcessautomationTriggerTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put processautomation trigger too many requests response has a 4xx status code
+func (o *PutProcessautomationTriggerTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put processautomation trigger too many requests response has a 5xx status code
+func (o *PutProcessautomationTriggerTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put processautomation trigger too many requests response a status code equal to that given
+func (o *PutProcessautomationTriggerTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutProcessautomationTriggerTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutProcessautomationTriggerTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutProcessautomationTriggerInternalServerError() *PutProcessautomationTr
 	return &PutProcessautomationTriggerInternalServerError{}
 }
 
-/*PutProcessautomationTriggerInternalServerError handles this case with default header values.
+/*
+PutProcessautomationTriggerInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutProcessautomationTriggerInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put processautomation trigger internal server error response has a 2xx status code
+func (o *PutProcessautomationTriggerInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put processautomation trigger internal server error response has a 3xx status code
+func (o *PutProcessautomationTriggerInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put processautomation trigger internal server error response has a 4xx status code
+func (o *PutProcessautomationTriggerInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put processautomation trigger internal server error response has a 5xx status code
+func (o *PutProcessautomationTriggerInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put processautomation trigger internal server error response a status code equal to that given
+func (o *PutProcessautomationTriggerInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutProcessautomationTriggerInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutProcessautomationTriggerInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutProcessautomationTriggerServiceUnavailable() *PutProcessautomationTri
 	return &PutProcessautomationTriggerServiceUnavailable{}
 }
 
-/*PutProcessautomationTriggerServiceUnavailable handles this case with default header values.
+/*
+PutProcessautomationTriggerServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutProcessautomationTriggerServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put processautomation trigger service unavailable response has a 2xx status code
+func (o *PutProcessautomationTriggerServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put processautomation trigger service unavailable response has a 3xx status code
+func (o *PutProcessautomationTriggerServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put processautomation trigger service unavailable response has a 4xx status code
+func (o *PutProcessautomationTriggerServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put processautomation trigger service unavailable response has a 5xx status code
+func (o *PutProcessautomationTriggerServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put processautomation trigger service unavailable response a status code equal to that given
+func (o *PutProcessautomationTriggerServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutProcessautomationTriggerServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutProcessautomationTriggerServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutProcessautomationTriggerGatewayTimeout() *PutProcessautomationTrigger
 	return &PutProcessautomationTriggerGatewayTimeout{}
 }
 
-/*PutProcessautomationTriggerGatewayTimeout handles this case with default header values.
+/*
+PutProcessautomationTriggerGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutProcessautomationTriggerGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put processautomation trigger gateway timeout response has a 2xx status code
+func (o *PutProcessautomationTriggerGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put processautomation trigger gateway timeout response has a 3xx status code
+func (o *PutProcessautomationTriggerGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put processautomation trigger gateway timeout response has a 4xx status code
+func (o *PutProcessautomationTriggerGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put processautomation trigger gateway timeout response has a 5xx status code
+func (o *PutProcessautomationTriggerGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put processautomation trigger gateway timeout response a status code equal to that given
+func (o *PutProcessautomationTriggerGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutProcessautomationTriggerGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutProcessautomationTriggerGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/processautomation/triggers/{triggerId}][%d] putProcessautomationTriggerGatewayTimeout  %+v", 504, o.Payload)
 }
 

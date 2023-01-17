@@ -6,9 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // QueueUtilizationDiagnostic queue utilization diagnostic
@@ -68,7 +71,6 @@ func (m *QueueUtilizationDiagnostic) Validate(formats strfmt.Registry) error {
 }
 
 func (m *QueueUtilizationDiagnostic) validateQueue(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Queue) { // not required
 		return nil
 	}
@@ -77,9 +79,145 @@ func (m *QueueUtilizationDiagnostic) validateQueue(formats strfmt.Registry) erro
 		if err := m.Queue.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this queue utilization diagnostic based on the context it is used
+func (m *QueueUtilizationDiagnostic) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActiveUsersInQueue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUsersInQueue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUsersNotUtilized(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUsersOnACampaignCall(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUsersOnANonCampaignCall(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUsersOnDifferentEdgeGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUsersOnQueue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUsersOnQueueWithStation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *QueueUtilizationDiagnostic) contextValidateActiveUsersInQueue(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "activeUsersInQueue", "body", int32(m.ActiveUsersInQueue)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *QueueUtilizationDiagnostic) contextValidateQueue(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Queue != nil {
+		if err := m.Queue.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("queue")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("queue")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *QueueUtilizationDiagnostic) contextValidateUsersInQueue(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "usersInQueue", "body", int32(m.UsersInQueue)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *QueueUtilizationDiagnostic) contextValidateUsersNotUtilized(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "usersNotUtilized", "body", int32(m.UsersNotUtilized)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *QueueUtilizationDiagnostic) contextValidateUsersOnACampaignCall(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "usersOnACampaignCall", "body", int32(m.UsersOnACampaignCall)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *QueueUtilizationDiagnostic) contextValidateUsersOnANonCampaignCall(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "usersOnANonCampaignCall", "body", int32(m.UsersOnANonCampaignCall)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *QueueUtilizationDiagnostic) contextValidateUsersOnDifferentEdgeGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "usersOnDifferentEdgeGroup", "body", int32(m.UsersOnDifferentEdgeGroup)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *QueueUtilizationDiagnostic) contextValidateUsersOnQueue(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "usersOnQueue", "body", int32(m.UsersOnQueue)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *QueueUtilizationDiagnostic) contextValidateUsersOnQueueWithStation(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "usersOnQueueWithStation", "body", int32(m.UsersOnQueueWithStation)); err != nil {
+		return err
 	}
 
 	return nil

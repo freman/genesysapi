@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -62,7 +63,6 @@ func (m *ScimMetadata) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ScimMetadata) validateLastModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastModified) { // not required
 		return nil
 	}
@@ -75,7 +75,6 @@ func (m *ScimMetadata) validateLastModified(formats strfmt.Registry) error {
 }
 
 func (m *ScimMetadata) validateLocation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Location) { // not required
 		return nil
 	}
@@ -126,13 +125,74 @@ func (m *ScimMetadata) validateResourceTypeEnum(path, location string, value str
 }
 
 func (m *ScimMetadata) validateResourceType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ResourceType) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateResourceTypeEnum("resourceType", "body", m.ResourceType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scim metadata based on the context it is used
+func (m *ScimMetadata) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateLastModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLocation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResourceType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimMetadata) contextValidateLastModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "lastModified", "body", strfmt.DateTime(m.LastModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimMetadata) contextValidateLocation(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "location", "body", strfmt.URI(m.Location)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimMetadata) contextValidateResourceType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "resourceType", "body", string(m.ResourceType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimMetadata) contextValidateVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "version", "body", string(m.Version)); err != nil {
 		return err
 	}
 

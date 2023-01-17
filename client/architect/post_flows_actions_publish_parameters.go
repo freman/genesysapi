@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostFlowsActionsPublishParams creates a new PostFlowsActionsPublishParams object
-// with the default values initialized.
+// NewPostFlowsActionsPublishParams creates a new PostFlowsActionsPublishParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostFlowsActionsPublishParams() *PostFlowsActionsPublishParams {
-	var ()
 	return &PostFlowsActionsPublishParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostFlowsActionsPublishParamsWithTimeout creates a new PostFlowsActionsPublishParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostFlowsActionsPublishParamsWithTimeout(timeout time.Duration) *PostFlowsActionsPublishParams {
-	var ()
 	return &PostFlowsActionsPublishParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostFlowsActionsPublishParamsWithContext creates a new PostFlowsActionsPublishParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostFlowsActionsPublishParamsWithContext(ctx context.Context) *PostFlowsActionsPublishParams {
-	var ()
 	return &PostFlowsActionsPublishParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostFlowsActionsPublishParamsWithHTTPClient creates a new PostFlowsActionsPublishParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostFlowsActionsPublishParamsWithHTTPClient(client *http.Client) *PostFlowsActionsPublishParams {
-	var ()
 	return &PostFlowsActionsPublishParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostFlowsActionsPublishParams contains all the parameters to send to the API endpoint
-for the post flows actions publish operation typically these are written to a http.Request
+/*
+PostFlowsActionsPublishParams contains all the parameters to send to the API endpoint
+
+	for the post flows actions publish operation.
+
+	Typically these are written to a http.Request.
 */
 type PostFlowsActionsPublishParams struct {
 
-	/*Flow
-	  Flow ID
+	/* Flow.
 
+	   Flow ID
 	*/
 	Flow string
-	/*Version
-	  version
 
+	/* Version.
+
+	   version
 	*/
 	Version *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post flows actions publish params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsActionsPublishParams) WithDefaults() *PostFlowsActionsPublishParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post flows actions publish params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsActionsPublishParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post flows actions publish params
@@ -143,6 +160,7 @@ func (o *PostFlowsActionsPublishParams) WriteToRequest(r runtime.ClientRequest, 
 	qrFlow := o.Flow
 	qFlow := qrFlow
 	if qFlow != "" {
+
 		if err := r.SetQueryParam("flow", qFlow); err != nil {
 			return err
 		}
@@ -152,16 +170,17 @@ func (o *PostFlowsActionsPublishParams) WriteToRequest(r runtime.ClientRequest, 
 
 		// query param version
 		var qrVersion string
+
 		if o.Version != nil {
 			qrVersion = *o.Version
 		}
 		qVersion := qrVersion
 		if qVersion != "" {
+
 			if err := r.SetQueryParam("version", qVersion); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

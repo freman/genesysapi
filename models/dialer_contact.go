@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -46,6 +48,10 @@ type DialerContact struct {
 	// The globally unique identifier for the object.
 	// Read Only: true
 	ID string `json:"id,omitempty"`
+
+	// A map of email records for the contact email columns.
+	// Read Only: true
+	LatestEmailEvaluations map[string]MessageEvaluation `json:"latestEmailEvaluations,omitempty"`
 
 	// A map of SMS records for the contact phone columns.
 	// Read Only: true
@@ -91,6 +97,10 @@ func (m *DialerContact) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateLatestEmailEvaluations(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateLatestSmsEvaluations(formats); err != nil {
 		res = append(res, err)
 	}
@@ -110,7 +120,6 @@ func (m *DialerContact) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DialerContact) validateCallRecords(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallRecords) { // not required
 		return nil
 	}
@@ -122,6 +131,11 @@ func (m *DialerContact) validateCallRecords(formats strfmt.Registry) error {
 		}
 		if val, ok := m.CallRecords[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("callRecords" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("callRecords" + "." + k)
+				}
 				return err
 			}
 		}
@@ -132,7 +146,6 @@ func (m *DialerContact) validateCallRecords(formats strfmt.Registry) error {
 }
 
 func (m *DialerContact) validateConfigurationOverrides(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConfigurationOverrides) { // not required
 		return nil
 	}
@@ -141,6 +154,8 @@ func (m *DialerContact) validateConfigurationOverrides(formats strfmt.Registry) 
 		if err := m.ConfigurationOverrides.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("configurationOverrides")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("configurationOverrides")
 			}
 			return err
 		}
@@ -150,7 +165,6 @@ func (m *DialerContact) validateConfigurationOverrides(formats strfmt.Registry) 
 }
 
 func (m *DialerContact) validateContactColumnTimeZones(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactColumnTimeZones) { // not required
 		return nil
 	}
@@ -162,6 +176,11 @@ func (m *DialerContact) validateContactColumnTimeZones(formats strfmt.Registry) 
 		}
 		if val, ok := m.ContactColumnTimeZones[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("contactColumnTimeZones" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contactColumnTimeZones" + "." + k)
+				}
 				return err
 			}
 		}
@@ -181,7 +200,6 @@ func (m *DialerContact) validateContactListID(formats strfmt.Registry) error {
 }
 
 func (m *DialerContact) validateContactableStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactableStatus) { // not required
 		return nil
 	}
@@ -193,6 +211,11 @@ func (m *DialerContact) validateContactableStatus(formats strfmt.Registry) error
 		}
 		if val, ok := m.ContactableStatus[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("contactableStatus" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("contactableStatus" + "." + k)
+				}
 				return err
 			}
 		}
@@ -204,11 +227,11 @@ func (m *DialerContact) validateContactableStatus(formats strfmt.Registry) error
 
 func (m *DialerContact) validateData(formats strfmt.Registry) error {
 
-	for k := range m.Data {
+	if err := validate.Required("data", "body", m.Data); err != nil {
+		return err
+	}
 
-		if err := validate.Required("data"+"."+k, "body", m.Data[k]); err != nil {
-			return err
-		}
+	for k := range m.Data {
 
 		if err := validate.Required("data"+"."+k, "body", m.Data[k]); err != nil {
 			return err
@@ -219,8 +242,33 @@ func (m *DialerContact) validateData(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *DialerContact) validateLatestSmsEvaluations(formats strfmt.Registry) error {
+func (m *DialerContact) validateLatestEmailEvaluations(formats strfmt.Registry) error {
+	if swag.IsZero(m.LatestEmailEvaluations) { // not required
+		return nil
+	}
 
+	for k := range m.LatestEmailEvaluations {
+
+		if err := validate.Required("latestEmailEvaluations"+"."+k, "body", m.LatestEmailEvaluations[k]); err != nil {
+			return err
+		}
+		if val, ok := m.LatestEmailEvaluations[k]; ok {
+			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("latestEmailEvaluations" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("latestEmailEvaluations" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DialerContact) validateLatestSmsEvaluations(formats strfmt.Registry) error {
 	if swag.IsZero(m.LatestSmsEvaluations) { // not required
 		return nil
 	}
@@ -232,6 +280,11 @@ func (m *DialerContact) validateLatestSmsEvaluations(formats strfmt.Registry) er
 		}
 		if val, ok := m.LatestSmsEvaluations[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("latestSmsEvaluations" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("latestSmsEvaluations" + "." + k)
+				}
 				return err
 			}
 		}
@@ -242,7 +295,6 @@ func (m *DialerContact) validateLatestSmsEvaluations(formats strfmt.Registry) er
 }
 
 func (m *DialerContact) validatePhoneNumberStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PhoneNumberStatus) { // not required
 		return nil
 	}
@@ -254,6 +306,11 @@ func (m *DialerContact) validatePhoneNumberStatus(formats strfmt.Registry) error
 		}
 		if val, ok := m.PhoneNumberStatus[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("phoneNumberStatus" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("phoneNumberStatus" + "." + k)
+				}
 				return err
 			}
 		}
@@ -264,12 +321,181 @@ func (m *DialerContact) validatePhoneNumberStatus(formats strfmt.Registry) error
 }
 
 func (m *DialerContact) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this dialer contact based on the context it is used
+func (m *DialerContact) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCallRecords(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConfigurationOverrides(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContactColumnTimeZones(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContactableStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLatestEmailEvaluations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLatestSmsEvaluations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhoneNumberStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DialerContact) contextValidateCallRecords(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.CallRecords {
+
+		if val, ok := m.CallRecords[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DialerContact) contextValidateConfigurationOverrides(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConfigurationOverrides != nil {
+		if err := m.ConfigurationOverrides.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("configurationOverrides")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("configurationOverrides")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DialerContact) contextValidateContactColumnTimeZones(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.ContactColumnTimeZones {
+
+		if val, ok := m.ContactColumnTimeZones[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DialerContact) contextValidateContactableStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.ContactableStatus {
+
+		if val, ok := m.ContactableStatus[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DialerContact) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DialerContact) contextValidateLatestEmailEvaluations(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.LatestEmailEvaluations {
+
+		if val, ok := m.LatestEmailEvaluations[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DialerContact) contextValidateLatestSmsEvaluations(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.LatestSmsEvaluations {
+
+		if val, ok := m.LatestSmsEvaluations[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DialerContact) contextValidatePhoneNumberStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.PhoneNumberStatus {
+
+		if val, ok := m.PhoneNumberStatus[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DialerContact) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

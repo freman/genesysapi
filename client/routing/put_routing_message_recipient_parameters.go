@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutRoutingMessageRecipientParams creates a new PutRoutingMessageRecipientParams object
-// with the default values initialized.
+// NewPutRoutingMessageRecipientParams creates a new PutRoutingMessageRecipientParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutRoutingMessageRecipientParams() *PutRoutingMessageRecipientParams {
-	var ()
 	return &PutRoutingMessageRecipientParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutRoutingMessageRecipientParamsWithTimeout creates a new PutRoutingMessageRecipientParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutRoutingMessageRecipientParamsWithTimeout(timeout time.Duration) *PutRoutingMessageRecipientParams {
-	var ()
 	return &PutRoutingMessageRecipientParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutRoutingMessageRecipientParamsWithContext creates a new PutRoutingMessageRecipientParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutRoutingMessageRecipientParamsWithContext(ctx context.Context) *PutRoutingMessageRecipientParams {
-	var ()
 	return &PutRoutingMessageRecipientParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutRoutingMessageRecipientParamsWithHTTPClient creates a new PutRoutingMessageRecipientParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutRoutingMessageRecipientParamsWithHTTPClient(client *http.Client) *PutRoutingMessageRecipientParams {
-	var ()
 	return &PutRoutingMessageRecipientParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutRoutingMessageRecipientParams contains all the parameters to send to the API endpoint
-for the put routing message recipient operation typically these are written to a http.Request
+/*
+PutRoutingMessageRecipientParams contains all the parameters to send to the API endpoint
+
+	for the put routing message recipient operation.
+
+	Typically these are written to a http.Request.
 */
 type PutRoutingMessageRecipientParams struct {
 
-	/*Body
-	  Recipient
+	/* Body.
 
+	   Recipient
 	*/
 	Body *models.Recipient
-	/*RecipientID
-	  Recipient ID
 
+	/* RecipientID.
+
+	   Recipient ID
 	*/
 	RecipientID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put routing message recipient params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRoutingMessageRecipientParams) WithDefaults() *PutRoutingMessageRecipientParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put routing message recipient params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutRoutingMessageRecipientParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put routing message recipient params
@@ -140,7 +157,6 @@ func (o *PutRoutingMessageRecipientParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

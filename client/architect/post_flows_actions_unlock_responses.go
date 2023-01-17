@@ -101,7 +101,6 @@ func (o *PostFlowsActionsUnlockReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostFlowsActionsUnlockOK() *PostFlowsActionsUnlockOK {
 	return &PostFlowsActionsUnlockOK{}
 }
 
-/*PostFlowsActionsUnlockOK handles this case with default header values.
+/*
+PostFlowsActionsUnlockOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostFlowsActionsUnlockOK struct {
 	Payload *models.Flow
 }
 
+// IsSuccess returns true when this post flows actions unlock o k response has a 2xx status code
+func (o *PostFlowsActionsUnlockOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post flows actions unlock o k response has a 3xx status code
+func (o *PostFlowsActionsUnlockOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock o k response has a 4xx status code
+func (o *PostFlowsActionsUnlockOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions unlock o k response has a 5xx status code
+func (o *PostFlowsActionsUnlockOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions unlock o k response a status code equal to that given
+func (o *PostFlowsActionsUnlockOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostFlowsActionsUnlockOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockOK  %+v", 200, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostFlowsActionsUnlockBadRequest() *PostFlowsActionsUnlockBadRequest {
 	return &PostFlowsActionsUnlockBadRequest{}
 }
 
-/*PostFlowsActionsUnlockBadRequest handles this case with default header values.
+/*
+PostFlowsActionsUnlockBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostFlowsActionsUnlockBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions unlock bad request response has a 2xx status code
+func (o *PostFlowsActionsUnlockBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions unlock bad request response has a 3xx status code
+func (o *PostFlowsActionsUnlockBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock bad request response has a 4xx status code
+func (o *PostFlowsActionsUnlockBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions unlock bad request response has a 5xx status code
+func (o *PostFlowsActionsUnlockBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions unlock bad request response a status code equal to that given
+func (o *PostFlowsActionsUnlockBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostFlowsActionsUnlockBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostFlowsActionsUnlockUnauthorized() *PostFlowsActionsUnlockUnauthorized
 	return &PostFlowsActionsUnlockUnauthorized{}
 }
 
-/*PostFlowsActionsUnlockUnauthorized handles this case with default header values.
+/*
+PostFlowsActionsUnlockUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostFlowsActionsUnlockUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions unlock unauthorized response has a 2xx status code
+func (o *PostFlowsActionsUnlockUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions unlock unauthorized response has a 3xx status code
+func (o *PostFlowsActionsUnlockUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock unauthorized response has a 4xx status code
+func (o *PostFlowsActionsUnlockUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions unlock unauthorized response has a 5xx status code
+func (o *PostFlowsActionsUnlockUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions unlock unauthorized response a status code equal to that given
+func (o *PostFlowsActionsUnlockUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostFlowsActionsUnlockUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostFlowsActionsUnlockForbidden() *PostFlowsActionsUnlockForbidden {
 	return &PostFlowsActionsUnlockForbidden{}
 }
 
-/*PostFlowsActionsUnlockForbidden handles this case with default header values.
+/*
+PostFlowsActionsUnlockForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostFlowsActionsUnlockForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions unlock forbidden response has a 2xx status code
+func (o *PostFlowsActionsUnlockForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions unlock forbidden response has a 3xx status code
+func (o *PostFlowsActionsUnlockForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock forbidden response has a 4xx status code
+func (o *PostFlowsActionsUnlockForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions unlock forbidden response has a 5xx status code
+func (o *PostFlowsActionsUnlockForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions unlock forbidden response a status code equal to that given
+func (o *PostFlowsActionsUnlockForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostFlowsActionsUnlockForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostFlowsActionsUnlockNotFound() *PostFlowsActionsUnlockNotFound {
 	return &PostFlowsActionsUnlockNotFound{}
 }
 
-/*PostFlowsActionsUnlockNotFound handles this case with default header values.
+/*
+PostFlowsActionsUnlockNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostFlowsActionsUnlockNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions unlock not found response has a 2xx status code
+func (o *PostFlowsActionsUnlockNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions unlock not found response has a 3xx status code
+func (o *PostFlowsActionsUnlockNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock not found response has a 4xx status code
+func (o *PostFlowsActionsUnlockNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions unlock not found response has a 5xx status code
+func (o *PostFlowsActionsUnlockNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions unlock not found response a status code equal to that given
+func (o *PostFlowsActionsUnlockNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostFlowsActionsUnlockNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostFlowsActionsUnlockMethodNotAllowed() *PostFlowsActionsUnlockMethodNo
 	return &PostFlowsActionsUnlockMethodNotAllowed{}
 }
 
-/*PostFlowsActionsUnlockMethodNotAllowed handles this case with default header values.
+/*
+PostFlowsActionsUnlockMethodNotAllowed describes a response with status code 405, with default header values.
 
 Method Not Allowed
 */
@@ -285,7 +435,36 @@ type PostFlowsActionsUnlockMethodNotAllowed struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions unlock method not allowed response has a 2xx status code
+func (o *PostFlowsActionsUnlockMethodNotAllowed) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions unlock method not allowed response has a 3xx status code
+func (o *PostFlowsActionsUnlockMethodNotAllowed) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock method not allowed response has a 4xx status code
+func (o *PostFlowsActionsUnlockMethodNotAllowed) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions unlock method not allowed response has a 5xx status code
+func (o *PostFlowsActionsUnlockMethodNotAllowed) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions unlock method not allowed response a status code equal to that given
+func (o *PostFlowsActionsUnlockMethodNotAllowed) IsCode(code int) bool {
+	return code == 405
+}
+
 func (o *PostFlowsActionsUnlockMethodNotAllowed) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockMethodNotAllowed  %+v", 405, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockMethodNotAllowed) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockMethodNotAllowed  %+v", 405, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostFlowsActionsUnlockRequestTimeout() *PostFlowsActionsUnlockRequestTim
 	return &PostFlowsActionsUnlockRequestTimeout{}
 }
 
-/*PostFlowsActionsUnlockRequestTimeout handles this case with default header values.
+/*
+PostFlowsActionsUnlockRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostFlowsActionsUnlockRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions unlock request timeout response has a 2xx status code
+func (o *PostFlowsActionsUnlockRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions unlock request timeout response has a 3xx status code
+func (o *PostFlowsActionsUnlockRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock request timeout response has a 4xx status code
+func (o *PostFlowsActionsUnlockRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions unlock request timeout response has a 5xx status code
+func (o *PostFlowsActionsUnlockRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions unlock request timeout response a status code equal to that given
+func (o *PostFlowsActionsUnlockRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostFlowsActionsUnlockRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostFlowsActionsUnlockRequestEntityTooLarge() *PostFlowsActionsUnlockReq
 	return &PostFlowsActionsUnlockRequestEntityTooLarge{}
 }
 
-/*PostFlowsActionsUnlockRequestEntityTooLarge handles this case with default header values.
+/*
+PostFlowsActionsUnlockRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostFlowsActionsUnlockRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions unlock request entity too large response has a 2xx status code
+func (o *PostFlowsActionsUnlockRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions unlock request entity too large response has a 3xx status code
+func (o *PostFlowsActionsUnlockRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock request entity too large response has a 4xx status code
+func (o *PostFlowsActionsUnlockRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions unlock request entity too large response has a 5xx status code
+func (o *PostFlowsActionsUnlockRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions unlock request entity too large response a status code equal to that given
+func (o *PostFlowsActionsUnlockRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostFlowsActionsUnlockRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostFlowsActionsUnlockUnsupportedMediaType() *PostFlowsActionsUnlockUnsu
 	return &PostFlowsActionsUnlockUnsupportedMediaType{}
 }
 
-/*PostFlowsActionsUnlockUnsupportedMediaType handles this case with default header values.
+/*
+PostFlowsActionsUnlockUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostFlowsActionsUnlockUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions unlock unsupported media type response has a 2xx status code
+func (o *PostFlowsActionsUnlockUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions unlock unsupported media type response has a 3xx status code
+func (o *PostFlowsActionsUnlockUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock unsupported media type response has a 4xx status code
+func (o *PostFlowsActionsUnlockUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions unlock unsupported media type response has a 5xx status code
+func (o *PostFlowsActionsUnlockUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions unlock unsupported media type response a status code equal to that given
+func (o *PostFlowsActionsUnlockUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostFlowsActionsUnlockUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostFlowsActionsUnlockTooManyRequests() *PostFlowsActionsUnlockTooManyRe
 	return &PostFlowsActionsUnlockTooManyRequests{}
 }
 
-/*PostFlowsActionsUnlockTooManyRequests handles this case with default header values.
+/*
+PostFlowsActionsUnlockTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostFlowsActionsUnlockTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions unlock too many requests response has a 2xx status code
+func (o *PostFlowsActionsUnlockTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions unlock too many requests response has a 3xx status code
+func (o *PostFlowsActionsUnlockTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock too many requests response has a 4xx status code
+func (o *PostFlowsActionsUnlockTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post flows actions unlock too many requests response has a 5xx status code
+func (o *PostFlowsActionsUnlockTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post flows actions unlock too many requests response a status code equal to that given
+func (o *PostFlowsActionsUnlockTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostFlowsActionsUnlockTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostFlowsActionsUnlockInternalServerError() *PostFlowsActionsUnlockInter
 	return &PostFlowsActionsUnlockInternalServerError{}
 }
 
-/*PostFlowsActionsUnlockInternalServerError handles this case with default header values.
+/*
+PostFlowsActionsUnlockInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostFlowsActionsUnlockInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions unlock internal server error response has a 2xx status code
+func (o *PostFlowsActionsUnlockInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions unlock internal server error response has a 3xx status code
+func (o *PostFlowsActionsUnlockInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock internal server error response has a 4xx status code
+func (o *PostFlowsActionsUnlockInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions unlock internal server error response has a 5xx status code
+func (o *PostFlowsActionsUnlockInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions unlock internal server error response a status code equal to that given
+func (o *PostFlowsActionsUnlockInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostFlowsActionsUnlockInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostFlowsActionsUnlockServiceUnavailable() *PostFlowsActionsUnlockServic
 	return &PostFlowsActionsUnlockServiceUnavailable{}
 }
 
-/*PostFlowsActionsUnlockServiceUnavailable handles this case with default header values.
+/*
+PostFlowsActionsUnlockServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostFlowsActionsUnlockServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions unlock service unavailable response has a 2xx status code
+func (o *PostFlowsActionsUnlockServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions unlock service unavailable response has a 3xx status code
+func (o *PostFlowsActionsUnlockServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock service unavailable response has a 4xx status code
+func (o *PostFlowsActionsUnlockServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions unlock service unavailable response has a 5xx status code
+func (o *PostFlowsActionsUnlockServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions unlock service unavailable response a status code equal to that given
+func (o *PostFlowsActionsUnlockServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostFlowsActionsUnlockServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostFlowsActionsUnlockGatewayTimeout() *PostFlowsActionsUnlockGatewayTim
 	return &PostFlowsActionsUnlockGatewayTimeout{}
 }
 
-/*PostFlowsActionsUnlockGatewayTimeout handles this case with default header values.
+/*
+PostFlowsActionsUnlockGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostFlowsActionsUnlockGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post flows actions unlock gateway timeout response has a 2xx status code
+func (o *PostFlowsActionsUnlockGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post flows actions unlock gateway timeout response has a 3xx status code
+func (o *PostFlowsActionsUnlockGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post flows actions unlock gateway timeout response has a 4xx status code
+func (o *PostFlowsActionsUnlockGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post flows actions unlock gateway timeout response has a 5xx status code
+func (o *PostFlowsActionsUnlockGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post flows actions unlock gateway timeout response a status code equal to that given
+func (o *PostFlowsActionsUnlockGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostFlowsActionsUnlockGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostFlowsActionsUnlockGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/flows/actions/unlock][%d] postFlowsActionsUnlockGatewayTimeout  %+v", 504, o.Payload)
 }
 

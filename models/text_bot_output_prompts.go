@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -53,7 +55,6 @@ func (m *TextBotOutputPrompts) validateOutputLanguage(formats strfmt.Registry) e
 }
 
 func (m *TextBotOutputPrompts) validateTextPrompts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TextPrompts) { // not required
 		return nil
 	}
@@ -62,6 +63,38 @@ func (m *TextBotOutputPrompts) validateTextPrompts(formats strfmt.Registry) erro
 		if err := m.TextPrompts.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("textPrompts")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("textPrompts")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this text bot output prompts based on the context it is used
+func (m *TextBotOutputPrompts) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateTextPrompts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TextBotOutputPrompts) contextValidateTextPrompts(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TextPrompts != nil {
+		if err := m.TextPrompts.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("textPrompts")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("textPrompts")
 			}
 			return err
 		}

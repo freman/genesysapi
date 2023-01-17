@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteRecordingJobParams creates a new DeleteRecordingJobParams object
-// with the default values initialized.
+// NewDeleteRecordingJobParams creates a new DeleteRecordingJobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRecordingJobParams() *DeleteRecordingJobParams {
-	var ()
 	return &DeleteRecordingJobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRecordingJobParamsWithTimeout creates a new DeleteRecordingJobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRecordingJobParamsWithTimeout(timeout time.Duration) *DeleteRecordingJobParams {
-	var ()
 	return &DeleteRecordingJobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRecordingJobParamsWithContext creates a new DeleteRecordingJobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRecordingJobParamsWithContext(ctx context.Context) *DeleteRecordingJobParams {
-	var ()
 	return &DeleteRecordingJobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRecordingJobParamsWithHTTPClient creates a new DeleteRecordingJobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRecordingJobParamsWithHTTPClient(client *http.Client) *DeleteRecordingJobParams {
-	var ()
 	return &DeleteRecordingJobParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRecordingJobParams contains all the parameters to send to the API endpoint
-for the delete recording job operation typically these are written to a http.Request
+/*
+DeleteRecordingJobParams contains all the parameters to send to the API endpoint
+
+	for the delete recording job operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteRecordingJobParams struct {
 
-	/*JobID
-	  jobId
+	/* JobID.
 
+	   jobId
 	*/
 	JobID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete recording job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRecordingJobParams) WithDefaults() *DeleteRecordingJobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete recording job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRecordingJobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete recording job params

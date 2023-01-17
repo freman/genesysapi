@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutConversationTagsParams creates a new PutConversationTagsParams object
-// with the default values initialized.
+// NewPutConversationTagsParams creates a new PutConversationTagsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutConversationTagsParams() *PutConversationTagsParams {
-	var ()
 	return &PutConversationTagsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutConversationTagsParamsWithTimeout creates a new PutConversationTagsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutConversationTagsParamsWithTimeout(timeout time.Duration) *PutConversationTagsParams {
-	var ()
 	return &PutConversationTagsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutConversationTagsParamsWithContext creates a new PutConversationTagsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutConversationTagsParamsWithContext(ctx context.Context) *PutConversationTagsParams {
-	var ()
 	return &PutConversationTagsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutConversationTagsParamsWithHTTPClient creates a new PutConversationTagsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutConversationTagsParamsWithHTTPClient(client *http.Client) *PutConversationTagsParams {
-	var ()
 	return &PutConversationTagsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutConversationTagsParams contains all the parameters to send to the API endpoint
-for the put conversation tags operation typically these are written to a http.Request
+/*
+PutConversationTagsParams contains all the parameters to send to the API endpoint
+
+	for the put conversation tags operation.
+
+	Typically these are written to a http.Request.
 */
 type PutConversationTagsParams struct {
 
-	/*Body
-	  Conversation Tags
+	/* Body.
 
+	   Conversation Tags
 	*/
 	Body *models.ConversationTagsUpdate
-	/*ConversationID
-	  conversation ID
 
+	/* ConversationID.
+
+	   conversation ID
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put conversation tags params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationTagsParams) WithDefaults() *PutConversationTagsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put conversation tags params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutConversationTagsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put conversation tags params
@@ -140,7 +157,6 @@ func (o *PutConversationTagsParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

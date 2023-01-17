@@ -17,81 +17,100 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetUserrecordingMediaParams creates a new GetUserrecordingMediaParams object
-// with the default values initialized.
+// NewGetUserrecordingMediaParams creates a new GetUserrecordingMediaParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUserrecordingMediaParams() *GetUserrecordingMediaParams {
-	var (
-		formatIDDefault = string("WEBM")
-	)
 	return &GetUserrecordingMediaParams{
-		FormatID: &formatIDDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUserrecordingMediaParamsWithTimeout creates a new GetUserrecordingMediaParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUserrecordingMediaParamsWithTimeout(timeout time.Duration) *GetUserrecordingMediaParams {
-	var (
-		formatIDDefault = string("WEBM")
-	)
 	return &GetUserrecordingMediaParams{
-		FormatID: &formatIDDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUserrecordingMediaParamsWithContext creates a new GetUserrecordingMediaParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUserrecordingMediaParamsWithContext(ctx context.Context) *GetUserrecordingMediaParams {
-	var (
-		formatIdDefault = string("WEBM")
-	)
 	return &GetUserrecordingMediaParams{
-		FormatID: &formatIdDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetUserrecordingMediaParamsWithHTTPClient creates a new GetUserrecordingMediaParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUserrecordingMediaParamsWithHTTPClient(client *http.Client) *GetUserrecordingMediaParams {
-	var (
-		formatIdDefault = string("WEBM")
-	)
 	return &GetUserrecordingMediaParams{
-		FormatID:   &formatIdDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetUserrecordingMediaParams contains all the parameters to send to the API endpoint
-for the get userrecording media operation typically these are written to a http.Request
+/*
+GetUserrecordingMediaParams contains all the parameters to send to the API endpoint
+
+	for the get userrecording media operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUserrecordingMediaParams struct {
 
-	/*Async
-	  When set to true, api will return 202 response until the recording is ready for download
+	/* Async.
 
+	   When set to true, api will return 202 response until the recording is ready for download
 	*/
 	Async *bool
-	/*FormatID
-	  The desired media format.
 
+	/* FormatID.
+
+	   The desired media format.
+
+	   Default: "WEBM"
 	*/
 	FormatID *string
-	/*RecordingID
-	  User Recording ID
 
+	/* RecordingID.
+
+	   User Recording ID
 	*/
 	RecordingID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get userrecording media params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserrecordingMediaParams) WithDefaults() *GetUserrecordingMediaParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get userrecording media params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserrecordingMediaParams) SetDefaults() {
+	var (
+		formatIDDefault = string("WEBM")
+	)
+
+	val := GetUserrecordingMediaParams{
+		FormatID: &formatIDDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get userrecording media params
@@ -172,32 +191,34 @@ func (o *GetUserrecordingMediaParams) WriteToRequest(r runtime.ClientRequest, re
 
 		// query param async
 		var qrAsync bool
+
 		if o.Async != nil {
 			qrAsync = *o.Async
 		}
 		qAsync := swag.FormatBool(qrAsync)
 		if qAsync != "" {
+
 			if err := r.SetQueryParam("async", qAsync); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.FormatID != nil {
 
 		// query param formatId
 		var qrFormatID string
+
 		if o.FormatID != nil {
 			qrFormatID = *o.FormatID
 		}
 		qFormatID := qrFormatID
 		if qFormatID != "" {
+
 			if err := r.SetQueryParam("formatId", qFormatID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param recordingId

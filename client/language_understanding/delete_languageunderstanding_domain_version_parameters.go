@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteLanguageunderstandingDomainVersionParams creates a new DeleteLanguageunderstandingDomainVersionParams object
-// with the default values initialized.
+// NewDeleteLanguageunderstandingDomainVersionParams creates a new DeleteLanguageunderstandingDomainVersionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteLanguageunderstandingDomainVersionParams() *DeleteLanguageunderstandingDomainVersionParams {
-	var ()
 	return &DeleteLanguageunderstandingDomainVersionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteLanguageunderstandingDomainVersionParamsWithTimeout creates a new DeleteLanguageunderstandingDomainVersionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteLanguageunderstandingDomainVersionParamsWithTimeout(timeout time.Duration) *DeleteLanguageunderstandingDomainVersionParams {
-	var ()
 	return &DeleteLanguageunderstandingDomainVersionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteLanguageunderstandingDomainVersionParamsWithContext creates a new DeleteLanguageunderstandingDomainVersionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteLanguageunderstandingDomainVersionParamsWithContext(ctx context.Context) *DeleteLanguageunderstandingDomainVersionParams {
-	var ()
 	return &DeleteLanguageunderstandingDomainVersionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteLanguageunderstandingDomainVersionParamsWithHTTPClient creates a new DeleteLanguageunderstandingDomainVersionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteLanguageunderstandingDomainVersionParamsWithHTTPClient(client *http.Client) *DeleteLanguageunderstandingDomainVersionParams {
-	var ()
 	return &DeleteLanguageunderstandingDomainVersionParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteLanguageunderstandingDomainVersionParams contains all the parameters to send to the API endpoint
-for the delete languageunderstanding domain version operation typically these are written to a http.Request
+/*
+DeleteLanguageunderstandingDomainVersionParams contains all the parameters to send to the API endpoint
+
+	for the delete languageunderstanding domain version operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteLanguageunderstandingDomainVersionParams struct {
 
-	/*DomainID
-	  ID of the NLU domain.
+	/* DomainID.
 
+	   ID of the NLU domain.
 	*/
 	DomainID string
-	/*DomainVersionID
-	  ID of the NLU domain version.
 
+	/* DomainVersionID.
+
+	   ID of the NLU domain version.
 	*/
 	DomainVersionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete languageunderstanding domain version params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteLanguageunderstandingDomainVersionParams) WithDefaults() *DeleteLanguageunderstandingDomainVersionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete languageunderstanding domain version params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteLanguageunderstandingDomainVersionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete languageunderstanding domain version params

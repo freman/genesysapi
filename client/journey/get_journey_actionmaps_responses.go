@@ -95,7 +95,6 @@ func (o *GetJourneyActionmapsReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetJourneyActionmapsOK() *GetJourneyActionmapsOK {
 	return &GetJourneyActionmapsOK{}
 }
 
-/*GetJourneyActionmapsOK handles this case with default header values.
+/*
+GetJourneyActionmapsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetJourneyActionmapsOK struct {
 	Payload *models.ActionMapListing
 }
 
+// IsSuccess returns true when this get journey actionmaps o k response has a 2xx status code
+func (o *GetJourneyActionmapsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get journey actionmaps o k response has a 3xx status code
+func (o *GetJourneyActionmapsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actionmaps o k response has a 4xx status code
+func (o *GetJourneyActionmapsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get journey actionmaps o k response has a 5xx status code
+func (o *GetJourneyActionmapsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actionmaps o k response a status code equal to that given
+func (o *GetJourneyActionmapsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetJourneyActionmapsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetJourneyActionmapsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetJourneyActionmapsBadRequest() *GetJourneyActionmapsBadRequest {
 	return &GetJourneyActionmapsBadRequest{}
 }
 
-/*GetJourneyActionmapsBadRequest handles this case with default header values.
+/*
+GetJourneyActionmapsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetJourneyActionmapsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actionmaps bad request response has a 2xx status code
+func (o *GetJourneyActionmapsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actionmaps bad request response has a 3xx status code
+func (o *GetJourneyActionmapsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actionmaps bad request response has a 4xx status code
+func (o *GetJourneyActionmapsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actionmaps bad request response has a 5xx status code
+func (o *GetJourneyActionmapsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actionmaps bad request response a status code equal to that given
+func (o *GetJourneyActionmapsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetJourneyActionmapsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetJourneyActionmapsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetJourneyActionmapsUnauthorized() *GetJourneyActionmapsUnauthorized {
 	return &GetJourneyActionmapsUnauthorized{}
 }
 
-/*GetJourneyActionmapsUnauthorized handles this case with default header values.
+/*
+GetJourneyActionmapsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetJourneyActionmapsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actionmaps unauthorized response has a 2xx status code
+func (o *GetJourneyActionmapsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actionmaps unauthorized response has a 3xx status code
+func (o *GetJourneyActionmapsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actionmaps unauthorized response has a 4xx status code
+func (o *GetJourneyActionmapsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actionmaps unauthorized response has a 5xx status code
+func (o *GetJourneyActionmapsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actionmaps unauthorized response a status code equal to that given
+func (o *GetJourneyActionmapsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetJourneyActionmapsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetJourneyActionmapsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetJourneyActionmapsForbidden() *GetJourneyActionmapsForbidden {
 	return &GetJourneyActionmapsForbidden{}
 }
 
-/*GetJourneyActionmapsForbidden handles this case with default header values.
+/*
+GetJourneyActionmapsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetJourneyActionmapsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actionmaps forbidden response has a 2xx status code
+func (o *GetJourneyActionmapsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actionmaps forbidden response has a 3xx status code
+func (o *GetJourneyActionmapsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actionmaps forbidden response has a 4xx status code
+func (o *GetJourneyActionmapsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actionmaps forbidden response has a 5xx status code
+func (o *GetJourneyActionmapsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actionmaps forbidden response a status code equal to that given
+func (o *GetJourneyActionmapsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetJourneyActionmapsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetJourneyActionmapsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetJourneyActionmapsNotFound() *GetJourneyActionmapsNotFound {
 	return &GetJourneyActionmapsNotFound{}
 }
 
-/*GetJourneyActionmapsNotFound handles this case with default header values.
+/*
+GetJourneyActionmapsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetJourneyActionmapsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actionmaps not found response has a 2xx status code
+func (o *GetJourneyActionmapsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actionmaps not found response has a 3xx status code
+func (o *GetJourneyActionmapsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actionmaps not found response has a 4xx status code
+func (o *GetJourneyActionmapsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actionmaps not found response has a 5xx status code
+func (o *GetJourneyActionmapsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actionmaps not found response a status code equal to that given
+func (o *GetJourneyActionmapsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetJourneyActionmapsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetJourneyActionmapsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetJourneyActionmapsRequestTimeout() *GetJourneyActionmapsRequestTimeout
 	return &GetJourneyActionmapsRequestTimeout{}
 }
 
-/*GetJourneyActionmapsRequestTimeout handles this case with default header values.
+/*
+GetJourneyActionmapsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetJourneyActionmapsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actionmaps request timeout response has a 2xx status code
+func (o *GetJourneyActionmapsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actionmaps request timeout response has a 3xx status code
+func (o *GetJourneyActionmapsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actionmaps request timeout response has a 4xx status code
+func (o *GetJourneyActionmapsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actionmaps request timeout response has a 5xx status code
+func (o *GetJourneyActionmapsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actionmaps request timeout response a status code equal to that given
+func (o *GetJourneyActionmapsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetJourneyActionmapsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetJourneyActionmapsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetJourneyActionmapsRequestEntityTooLarge() *GetJourneyActionmapsRequest
 	return &GetJourneyActionmapsRequestEntityTooLarge{}
 }
 
-/*GetJourneyActionmapsRequestEntityTooLarge handles this case with default header values.
+/*
+GetJourneyActionmapsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetJourneyActionmapsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actionmaps request entity too large response has a 2xx status code
+func (o *GetJourneyActionmapsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actionmaps request entity too large response has a 3xx status code
+func (o *GetJourneyActionmapsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actionmaps request entity too large response has a 4xx status code
+func (o *GetJourneyActionmapsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actionmaps request entity too large response has a 5xx status code
+func (o *GetJourneyActionmapsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actionmaps request entity too large response a status code equal to that given
+func (o *GetJourneyActionmapsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetJourneyActionmapsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetJourneyActionmapsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetJourneyActionmapsUnsupportedMediaType() *GetJourneyActionmapsUnsuppor
 	return &GetJourneyActionmapsUnsupportedMediaType{}
 }
 
-/*GetJourneyActionmapsUnsupportedMediaType handles this case with default header values.
+/*
+GetJourneyActionmapsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetJourneyActionmapsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actionmaps unsupported media type response has a 2xx status code
+func (o *GetJourneyActionmapsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actionmaps unsupported media type response has a 3xx status code
+func (o *GetJourneyActionmapsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actionmaps unsupported media type response has a 4xx status code
+func (o *GetJourneyActionmapsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actionmaps unsupported media type response has a 5xx status code
+func (o *GetJourneyActionmapsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actionmaps unsupported media type response a status code equal to that given
+func (o *GetJourneyActionmapsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetJourneyActionmapsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetJourneyActionmapsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetJourneyActionmapsTooManyRequests() *GetJourneyActionmapsTooManyReques
 	return &GetJourneyActionmapsTooManyRequests{}
 }
 
-/*GetJourneyActionmapsTooManyRequests handles this case with default header values.
+/*
+GetJourneyActionmapsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetJourneyActionmapsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actionmaps too many requests response has a 2xx status code
+func (o *GetJourneyActionmapsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actionmaps too many requests response has a 3xx status code
+func (o *GetJourneyActionmapsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actionmaps too many requests response has a 4xx status code
+func (o *GetJourneyActionmapsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get journey actionmaps too many requests response has a 5xx status code
+func (o *GetJourneyActionmapsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get journey actionmaps too many requests response a status code equal to that given
+func (o *GetJourneyActionmapsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetJourneyActionmapsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetJourneyActionmapsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetJourneyActionmapsInternalServerError() *GetJourneyActionmapsInternalS
 	return &GetJourneyActionmapsInternalServerError{}
 }
 
-/*GetJourneyActionmapsInternalServerError handles this case with default header values.
+/*
+GetJourneyActionmapsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetJourneyActionmapsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actionmaps internal server error response has a 2xx status code
+func (o *GetJourneyActionmapsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actionmaps internal server error response has a 3xx status code
+func (o *GetJourneyActionmapsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actionmaps internal server error response has a 4xx status code
+func (o *GetJourneyActionmapsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get journey actionmaps internal server error response has a 5xx status code
+func (o *GetJourneyActionmapsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get journey actionmaps internal server error response a status code equal to that given
+func (o *GetJourneyActionmapsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetJourneyActionmapsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetJourneyActionmapsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetJourneyActionmapsServiceUnavailable() *GetJourneyActionmapsServiceUna
 	return &GetJourneyActionmapsServiceUnavailable{}
 }
 
-/*GetJourneyActionmapsServiceUnavailable handles this case with default header values.
+/*
+GetJourneyActionmapsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetJourneyActionmapsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actionmaps service unavailable response has a 2xx status code
+func (o *GetJourneyActionmapsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actionmaps service unavailable response has a 3xx status code
+func (o *GetJourneyActionmapsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actionmaps service unavailable response has a 4xx status code
+func (o *GetJourneyActionmapsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get journey actionmaps service unavailable response has a 5xx status code
+func (o *GetJourneyActionmapsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get journey actionmaps service unavailable response a status code equal to that given
+func (o *GetJourneyActionmapsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetJourneyActionmapsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetJourneyActionmapsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetJourneyActionmapsGatewayTimeout() *GetJourneyActionmapsGatewayTimeout
 	return &GetJourneyActionmapsGatewayTimeout{}
 }
 
-/*GetJourneyActionmapsGatewayTimeout handles this case with default header values.
+/*
+GetJourneyActionmapsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetJourneyActionmapsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get journey actionmaps gateway timeout response has a 2xx status code
+func (o *GetJourneyActionmapsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get journey actionmaps gateway timeout response has a 3xx status code
+func (o *GetJourneyActionmapsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get journey actionmaps gateway timeout response has a 4xx status code
+func (o *GetJourneyActionmapsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get journey actionmaps gateway timeout response has a 5xx status code
+func (o *GetJourneyActionmapsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get journey actionmaps gateway timeout response a status code equal to that given
+func (o *GetJourneyActionmapsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetJourneyActionmapsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetJourneyActionmapsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/journey/actionmaps][%d] getJourneyActionmapsGatewayTimeout  %+v", 504, o.Payload)
 }
 

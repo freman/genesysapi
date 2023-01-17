@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -163,7 +164,6 @@ func (m *LineIntegration) validateChannelID(formats strfmt.Registry) error {
 }
 
 func (m *LineIntegration) validateCreateError(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreateError) { // not required
 		return nil
 	}
@@ -172,6 +172,8 @@ func (m *LineIntegration) validateCreateError(formats strfmt.Registry) error {
 		if err := m.CreateError.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createError")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createError")
 			}
 			return err
 		}
@@ -213,7 +215,6 @@ func (m *LineIntegration) validateCreateStatusEnum(path, location string, value 
 }
 
 func (m *LineIntegration) validateCreateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreateStatus) { // not required
 		return nil
 	}
@@ -227,7 +228,6 @@ func (m *LineIntegration) validateCreateStatus(formats strfmt.Registry) error {
 }
 
 func (m *LineIntegration) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -236,6 +236,8 @@ func (m *LineIntegration) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -245,7 +247,6 @@ func (m *LineIntegration) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *LineIntegration) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -258,7 +259,6 @@ func (m *LineIntegration) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *LineIntegration) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -272,7 +272,7 @@ func (m *LineIntegration) validateDateModified(formats strfmt.Registry) error {
 
 func (m *LineIntegration) validateID(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("id", "body", string(m.ID)); err != nil {
+	if err := validate.RequiredString("id", "body", m.ID); err != nil {
 		return err
 	}
 
@@ -280,7 +280,6 @@ func (m *LineIntegration) validateID(formats strfmt.Registry) error {
 }
 
 func (m *LineIntegration) validateMessagingSetting(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessagingSetting) { // not required
 		return nil
 	}
@@ -289,6 +288,8 @@ func (m *LineIntegration) validateMessagingSetting(formats strfmt.Registry) erro
 		if err := m.MessagingSetting.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messagingSetting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingSetting")
 			}
 			return err
 		}
@@ -298,7 +299,6 @@ func (m *LineIntegration) validateMessagingSetting(formats strfmt.Registry) erro
 }
 
 func (m *LineIntegration) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -307,6 +307,8 @@ func (m *LineIntegration) validateModifiedBy(formats strfmt.Registry) error {
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -325,7 +327,6 @@ func (m *LineIntegration) validateName(formats strfmt.Registry) error {
 }
 
 func (m *LineIntegration) validateRecipient(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Recipient) { // not required
 		return nil
 	}
@@ -334,6 +335,8 @@ func (m *LineIntegration) validateRecipient(formats strfmt.Registry) error {
 		if err := m.Recipient.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("recipient")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recipient")
 			}
 			return err
 		}
@@ -343,7 +346,6 @@ func (m *LineIntegration) validateRecipient(formats strfmt.Registry) error {
 }
 
 func (m *LineIntegration) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -356,7 +358,6 @@ func (m *LineIntegration) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *LineIntegration) validateSupportedContent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SupportedContent) { // not required
 		return nil
 	}
@@ -365,6 +366,8 @@ func (m *LineIntegration) validateSupportedContent(formats strfmt.Registry) erro
 		if err := m.SupportedContent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("supportedContent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportedContent")
 			}
 			return err
 		}
@@ -390,6 +393,175 @@ func (m *LineIntegration) validateWebhookURI(formats strfmt.Registry) error {
 
 	if err := validate.FormatOf("webhookUri", "body", "uri", m.WebhookURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this line integration based on the context it is used
+func (m *LineIntegration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCreateError(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessagingSetting(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRecipient(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupportedContent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *LineIntegration) contextValidateCreateError(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreateError != nil {
+		if err := m.CreateError.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createError")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createError")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LineIntegration) contextValidateCreateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createStatus", "body", string(m.CreateStatus)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LineIntegration) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LineIntegration) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LineIntegration) contextValidateMessagingSetting(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessagingSetting != nil {
+		if err := m.MessagingSetting.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingSetting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingSetting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LineIntegration) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LineIntegration) contextValidateRecipient(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Recipient != nil {
+		if err := m.Recipient.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("recipient")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recipient")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LineIntegration) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LineIntegration) contextValidateSupportedContent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SupportedContent != nil {
+		if err := m.SupportedContent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportedContent")
+			}
+			return err
+		}
 	}
 
 	return nil

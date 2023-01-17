@@ -95,7 +95,6 @@ func (o *PostIntegrationsCredentialsReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostIntegrationsCredentialsOK() *PostIntegrationsCredentialsOK {
 	return &PostIntegrationsCredentialsOK{}
 }
 
-/*PostIntegrationsCredentialsOK handles this case with default header values.
+/*
+PostIntegrationsCredentialsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostIntegrationsCredentialsOK struct {
 	Payload *models.CredentialInfo
 }
 
+// IsSuccess returns true when this post integrations credentials o k response has a 2xx status code
+func (o *PostIntegrationsCredentialsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post integrations credentials o k response has a 3xx status code
+func (o *PostIntegrationsCredentialsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations credentials o k response has a 4xx status code
+func (o *PostIntegrationsCredentialsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post integrations credentials o k response has a 5xx status code
+func (o *PostIntegrationsCredentialsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations credentials o k response a status code equal to that given
+func (o *PostIntegrationsCredentialsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostIntegrationsCredentialsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostIntegrationsCredentialsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostIntegrationsCredentialsBadRequest() *PostIntegrationsCredentialsBadR
 	return &PostIntegrationsCredentialsBadRequest{}
 }
 
-/*PostIntegrationsCredentialsBadRequest handles this case with default header values.
+/*
+PostIntegrationsCredentialsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostIntegrationsCredentialsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations credentials bad request response has a 2xx status code
+func (o *PostIntegrationsCredentialsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations credentials bad request response has a 3xx status code
+func (o *PostIntegrationsCredentialsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations credentials bad request response has a 4xx status code
+func (o *PostIntegrationsCredentialsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations credentials bad request response has a 5xx status code
+func (o *PostIntegrationsCredentialsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations credentials bad request response a status code equal to that given
+func (o *PostIntegrationsCredentialsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostIntegrationsCredentialsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostIntegrationsCredentialsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostIntegrationsCredentialsUnauthorized() *PostIntegrationsCredentialsUn
 	return &PostIntegrationsCredentialsUnauthorized{}
 }
 
-/*PostIntegrationsCredentialsUnauthorized handles this case with default header values.
+/*
+PostIntegrationsCredentialsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostIntegrationsCredentialsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations credentials unauthorized response has a 2xx status code
+func (o *PostIntegrationsCredentialsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations credentials unauthorized response has a 3xx status code
+func (o *PostIntegrationsCredentialsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations credentials unauthorized response has a 4xx status code
+func (o *PostIntegrationsCredentialsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations credentials unauthorized response has a 5xx status code
+func (o *PostIntegrationsCredentialsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations credentials unauthorized response a status code equal to that given
+func (o *PostIntegrationsCredentialsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostIntegrationsCredentialsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostIntegrationsCredentialsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostIntegrationsCredentialsForbidden() *PostIntegrationsCredentialsForbi
 	return &PostIntegrationsCredentialsForbidden{}
 }
 
-/*PostIntegrationsCredentialsForbidden handles this case with default header values.
+/*
+PostIntegrationsCredentialsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostIntegrationsCredentialsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations credentials forbidden response has a 2xx status code
+func (o *PostIntegrationsCredentialsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations credentials forbidden response has a 3xx status code
+func (o *PostIntegrationsCredentialsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations credentials forbidden response has a 4xx status code
+func (o *PostIntegrationsCredentialsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations credentials forbidden response has a 5xx status code
+func (o *PostIntegrationsCredentialsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations credentials forbidden response a status code equal to that given
+func (o *PostIntegrationsCredentialsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostIntegrationsCredentialsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostIntegrationsCredentialsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostIntegrationsCredentialsNotFound() *PostIntegrationsCredentialsNotFou
 	return &PostIntegrationsCredentialsNotFound{}
 }
 
-/*PostIntegrationsCredentialsNotFound handles this case with default header values.
+/*
+PostIntegrationsCredentialsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostIntegrationsCredentialsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations credentials not found response has a 2xx status code
+func (o *PostIntegrationsCredentialsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations credentials not found response has a 3xx status code
+func (o *PostIntegrationsCredentialsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations credentials not found response has a 4xx status code
+func (o *PostIntegrationsCredentialsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations credentials not found response has a 5xx status code
+func (o *PostIntegrationsCredentialsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations credentials not found response a status code equal to that given
+func (o *PostIntegrationsCredentialsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostIntegrationsCredentialsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostIntegrationsCredentialsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostIntegrationsCredentialsRequestTimeout() *PostIntegrationsCredentials
 	return &PostIntegrationsCredentialsRequestTimeout{}
 }
 
-/*PostIntegrationsCredentialsRequestTimeout handles this case with default header values.
+/*
+PostIntegrationsCredentialsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostIntegrationsCredentialsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations credentials request timeout response has a 2xx status code
+func (o *PostIntegrationsCredentialsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations credentials request timeout response has a 3xx status code
+func (o *PostIntegrationsCredentialsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations credentials request timeout response has a 4xx status code
+func (o *PostIntegrationsCredentialsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations credentials request timeout response has a 5xx status code
+func (o *PostIntegrationsCredentialsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations credentials request timeout response a status code equal to that given
+func (o *PostIntegrationsCredentialsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostIntegrationsCredentialsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostIntegrationsCredentialsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostIntegrationsCredentialsRequestEntityTooLarge() *PostIntegrationsCred
 	return &PostIntegrationsCredentialsRequestEntityTooLarge{}
 }
 
-/*PostIntegrationsCredentialsRequestEntityTooLarge handles this case with default header values.
+/*
+PostIntegrationsCredentialsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostIntegrationsCredentialsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations credentials request entity too large response has a 2xx status code
+func (o *PostIntegrationsCredentialsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations credentials request entity too large response has a 3xx status code
+func (o *PostIntegrationsCredentialsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations credentials request entity too large response has a 4xx status code
+func (o *PostIntegrationsCredentialsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations credentials request entity too large response has a 5xx status code
+func (o *PostIntegrationsCredentialsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations credentials request entity too large response a status code equal to that given
+func (o *PostIntegrationsCredentialsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostIntegrationsCredentialsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostIntegrationsCredentialsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostIntegrationsCredentialsUnsupportedMediaType() *PostIntegrationsCrede
 	return &PostIntegrationsCredentialsUnsupportedMediaType{}
 }
 
-/*PostIntegrationsCredentialsUnsupportedMediaType handles this case with default header values.
+/*
+PostIntegrationsCredentialsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostIntegrationsCredentialsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations credentials unsupported media type response has a 2xx status code
+func (o *PostIntegrationsCredentialsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations credentials unsupported media type response has a 3xx status code
+func (o *PostIntegrationsCredentialsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations credentials unsupported media type response has a 4xx status code
+func (o *PostIntegrationsCredentialsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations credentials unsupported media type response has a 5xx status code
+func (o *PostIntegrationsCredentialsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations credentials unsupported media type response a status code equal to that given
+func (o *PostIntegrationsCredentialsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostIntegrationsCredentialsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostIntegrationsCredentialsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostIntegrationsCredentialsTooManyRequests() *PostIntegrationsCredential
 	return &PostIntegrationsCredentialsTooManyRequests{}
 }
 
-/*PostIntegrationsCredentialsTooManyRequests handles this case with default header values.
+/*
+PostIntegrationsCredentialsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostIntegrationsCredentialsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations credentials too many requests response has a 2xx status code
+func (o *PostIntegrationsCredentialsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations credentials too many requests response has a 3xx status code
+func (o *PostIntegrationsCredentialsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations credentials too many requests response has a 4xx status code
+func (o *PostIntegrationsCredentialsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations credentials too many requests response has a 5xx status code
+func (o *PostIntegrationsCredentialsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations credentials too many requests response a status code equal to that given
+func (o *PostIntegrationsCredentialsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostIntegrationsCredentialsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostIntegrationsCredentialsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostIntegrationsCredentialsInternalServerError() *PostIntegrationsCreden
 	return &PostIntegrationsCredentialsInternalServerError{}
 }
 
-/*PostIntegrationsCredentialsInternalServerError handles this case with default header values.
+/*
+PostIntegrationsCredentialsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostIntegrationsCredentialsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations credentials internal server error response has a 2xx status code
+func (o *PostIntegrationsCredentialsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations credentials internal server error response has a 3xx status code
+func (o *PostIntegrationsCredentialsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations credentials internal server error response has a 4xx status code
+func (o *PostIntegrationsCredentialsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post integrations credentials internal server error response has a 5xx status code
+func (o *PostIntegrationsCredentialsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post integrations credentials internal server error response a status code equal to that given
+func (o *PostIntegrationsCredentialsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostIntegrationsCredentialsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostIntegrationsCredentialsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostIntegrationsCredentialsServiceUnavailable() *PostIntegrationsCredent
 	return &PostIntegrationsCredentialsServiceUnavailable{}
 }
 
-/*PostIntegrationsCredentialsServiceUnavailable handles this case with default header values.
+/*
+PostIntegrationsCredentialsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostIntegrationsCredentialsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations credentials service unavailable response has a 2xx status code
+func (o *PostIntegrationsCredentialsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations credentials service unavailable response has a 3xx status code
+func (o *PostIntegrationsCredentialsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations credentials service unavailable response has a 4xx status code
+func (o *PostIntegrationsCredentialsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post integrations credentials service unavailable response has a 5xx status code
+func (o *PostIntegrationsCredentialsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post integrations credentials service unavailable response a status code equal to that given
+func (o *PostIntegrationsCredentialsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostIntegrationsCredentialsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostIntegrationsCredentialsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostIntegrationsCredentialsGatewayTimeout() *PostIntegrationsCredentials
 	return &PostIntegrationsCredentialsGatewayTimeout{}
 }
 
-/*PostIntegrationsCredentialsGatewayTimeout handles this case with default header values.
+/*
+PostIntegrationsCredentialsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostIntegrationsCredentialsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations credentials gateway timeout response has a 2xx status code
+func (o *PostIntegrationsCredentialsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations credentials gateway timeout response has a 3xx status code
+func (o *PostIntegrationsCredentialsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations credentials gateway timeout response has a 4xx status code
+func (o *PostIntegrationsCredentialsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post integrations credentials gateway timeout response has a 5xx status code
+func (o *PostIntegrationsCredentialsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post integrations credentials gateway timeout response a status code equal to that given
+func (o *PostIntegrationsCredentialsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostIntegrationsCredentialsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostIntegrationsCredentialsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations/credentials][%d] postIntegrationsCredentialsGatewayTimeout  %+v", 504, o.Payload)
 }
 

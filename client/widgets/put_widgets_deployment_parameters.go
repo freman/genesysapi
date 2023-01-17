@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutWidgetsDeploymentParams creates a new PutWidgetsDeploymentParams object
-// with the default values initialized.
+// NewPutWidgetsDeploymentParams creates a new PutWidgetsDeploymentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutWidgetsDeploymentParams() *PutWidgetsDeploymentParams {
-	var ()
 	return &PutWidgetsDeploymentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutWidgetsDeploymentParamsWithTimeout creates a new PutWidgetsDeploymentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutWidgetsDeploymentParamsWithTimeout(timeout time.Duration) *PutWidgetsDeploymentParams {
-	var ()
 	return &PutWidgetsDeploymentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutWidgetsDeploymentParamsWithContext creates a new PutWidgetsDeploymentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutWidgetsDeploymentParamsWithContext(ctx context.Context) *PutWidgetsDeploymentParams {
-	var ()
 	return &PutWidgetsDeploymentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutWidgetsDeploymentParamsWithHTTPClient creates a new PutWidgetsDeploymentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutWidgetsDeploymentParamsWithHTTPClient(client *http.Client) *PutWidgetsDeploymentParams {
-	var ()
 	return &PutWidgetsDeploymentParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutWidgetsDeploymentParams contains all the parameters to send to the API endpoint
-for the put widgets deployment operation typically these are written to a http.Request
+/*
+PutWidgetsDeploymentParams contains all the parameters to send to the API endpoint
+
+	for the put widgets deployment operation.
+
+	Typically these are written to a http.Request.
 */
 type PutWidgetsDeploymentParams struct {
 
-	/*Body
-	  Deployment
+	/* Body.
 
+	   Deployment
 	*/
 	Body *models.WidgetDeployment
-	/*DeploymentID
-	  Widget Config Id
 
+	/* DeploymentID.
+
+	   Widget Config Id
 	*/
 	DeploymentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put widgets deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutWidgetsDeploymentParams) WithDefaults() *PutWidgetsDeploymentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put widgets deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutWidgetsDeploymentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put widgets deployment params
@@ -140,7 +157,6 @@ func (o *PutWidgetsDeploymentParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

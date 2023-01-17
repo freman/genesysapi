@@ -107,7 +107,6 @@ func (o *PostJourneyActiontemplatesReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -118,7 +117,8 @@ func NewPostJourneyActiontemplatesOK() *PostJourneyActiontemplatesOK {
 	return &PostJourneyActiontemplatesOK{}
 }
 
-/*PostJourneyActiontemplatesOK handles this case with default header values.
+/*
+PostJourneyActiontemplatesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -126,7 +126,36 @@ type PostJourneyActiontemplatesOK struct {
 	Payload *models.ActionTemplate
 }
 
+// IsSuccess returns true when this post journey actiontemplates o k response has a 2xx status code
+func (o *PostJourneyActiontemplatesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post journey actiontemplates o k response has a 3xx status code
+func (o *PostJourneyActiontemplatesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates o k response has a 4xx status code
+func (o *PostJourneyActiontemplatesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey actiontemplates o k response has a 5xx status code
+func (o *PostJourneyActiontemplatesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actiontemplates o k response a status code equal to that given
+func (o *PostJourneyActiontemplatesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostJourneyActiontemplatesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesOK  %+v", 200, o.Payload)
 }
 
@@ -151,7 +180,8 @@ func NewPostJourneyActiontemplatesCreated() *PostJourneyActiontemplatesCreated {
 	return &PostJourneyActiontemplatesCreated{}
 }
 
-/*PostJourneyActiontemplatesCreated handles this case with default header values.
+/*
+PostJourneyActiontemplatesCreated describes a response with status code 201, with default header values.
 
 Action template created.
 */
@@ -159,7 +189,36 @@ type PostJourneyActiontemplatesCreated struct {
 	Payload *models.ActionTemplate
 }
 
+// IsSuccess returns true when this post journey actiontemplates created response has a 2xx status code
+func (o *PostJourneyActiontemplatesCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post journey actiontemplates created response has a 3xx status code
+func (o *PostJourneyActiontemplatesCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates created response has a 4xx status code
+func (o *PostJourneyActiontemplatesCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey actiontemplates created response has a 5xx status code
+func (o *PostJourneyActiontemplatesCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actiontemplates created response a status code equal to that given
+func (o *PostJourneyActiontemplatesCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostJourneyActiontemplatesCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesCreated  %+v", 201, o.Payload)
 }
 
@@ -184,7 +243,8 @@ func NewPostJourneyActiontemplatesBadRequest() *PostJourneyActiontemplatesBadReq
 	return &PostJourneyActiontemplatesBadRequest{}
 }
 
-/*PostJourneyActiontemplatesBadRequest handles this case with default header values.
+/*
+PostJourneyActiontemplatesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -192,7 +252,36 @@ type PostJourneyActiontemplatesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actiontemplates bad request response has a 2xx status code
+func (o *PostJourneyActiontemplatesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actiontemplates bad request response has a 3xx status code
+func (o *PostJourneyActiontemplatesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates bad request response has a 4xx status code
+func (o *PostJourneyActiontemplatesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actiontemplates bad request response has a 5xx status code
+func (o *PostJourneyActiontemplatesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actiontemplates bad request response a status code equal to that given
+func (o *PostJourneyActiontemplatesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostJourneyActiontemplatesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -217,7 +306,8 @@ func NewPostJourneyActiontemplatesUnauthorized() *PostJourneyActiontemplatesUnau
 	return &PostJourneyActiontemplatesUnauthorized{}
 }
 
-/*PostJourneyActiontemplatesUnauthorized handles this case with default header values.
+/*
+PostJourneyActiontemplatesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -225,7 +315,36 @@ type PostJourneyActiontemplatesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actiontemplates unauthorized response has a 2xx status code
+func (o *PostJourneyActiontemplatesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actiontemplates unauthorized response has a 3xx status code
+func (o *PostJourneyActiontemplatesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates unauthorized response has a 4xx status code
+func (o *PostJourneyActiontemplatesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actiontemplates unauthorized response has a 5xx status code
+func (o *PostJourneyActiontemplatesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actiontemplates unauthorized response a status code equal to that given
+func (o *PostJourneyActiontemplatesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostJourneyActiontemplatesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -250,7 +369,8 @@ func NewPostJourneyActiontemplatesForbidden() *PostJourneyActiontemplatesForbidd
 	return &PostJourneyActiontemplatesForbidden{}
 }
 
-/*PostJourneyActiontemplatesForbidden handles this case with default header values.
+/*
+PostJourneyActiontemplatesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -258,7 +378,36 @@ type PostJourneyActiontemplatesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actiontemplates forbidden response has a 2xx status code
+func (o *PostJourneyActiontemplatesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actiontemplates forbidden response has a 3xx status code
+func (o *PostJourneyActiontemplatesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates forbidden response has a 4xx status code
+func (o *PostJourneyActiontemplatesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actiontemplates forbidden response has a 5xx status code
+func (o *PostJourneyActiontemplatesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actiontemplates forbidden response a status code equal to that given
+func (o *PostJourneyActiontemplatesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostJourneyActiontemplatesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesForbidden  %+v", 403, o.Payload)
 }
 
@@ -283,7 +432,8 @@ func NewPostJourneyActiontemplatesNotFound() *PostJourneyActiontemplatesNotFound
 	return &PostJourneyActiontemplatesNotFound{}
 }
 
-/*PostJourneyActiontemplatesNotFound handles this case with default header values.
+/*
+PostJourneyActiontemplatesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -291,7 +441,36 @@ type PostJourneyActiontemplatesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actiontemplates not found response has a 2xx status code
+func (o *PostJourneyActiontemplatesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actiontemplates not found response has a 3xx status code
+func (o *PostJourneyActiontemplatesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates not found response has a 4xx status code
+func (o *PostJourneyActiontemplatesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actiontemplates not found response has a 5xx status code
+func (o *PostJourneyActiontemplatesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actiontemplates not found response a status code equal to that given
+func (o *PostJourneyActiontemplatesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostJourneyActiontemplatesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesNotFound  %+v", 404, o.Payload)
 }
 
@@ -316,7 +495,8 @@ func NewPostJourneyActiontemplatesRequestTimeout() *PostJourneyActiontemplatesRe
 	return &PostJourneyActiontemplatesRequestTimeout{}
 }
 
-/*PostJourneyActiontemplatesRequestTimeout handles this case with default header values.
+/*
+PostJourneyActiontemplatesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -324,7 +504,36 @@ type PostJourneyActiontemplatesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actiontemplates request timeout response has a 2xx status code
+func (o *PostJourneyActiontemplatesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actiontemplates request timeout response has a 3xx status code
+func (o *PostJourneyActiontemplatesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates request timeout response has a 4xx status code
+func (o *PostJourneyActiontemplatesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actiontemplates request timeout response has a 5xx status code
+func (o *PostJourneyActiontemplatesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actiontemplates request timeout response a status code equal to that given
+func (o *PostJourneyActiontemplatesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostJourneyActiontemplatesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -349,7 +558,8 @@ func NewPostJourneyActiontemplatesConflict() *PostJourneyActiontemplatesConflict
 	return &PostJourneyActiontemplatesConflict{}
 }
 
-/*PostJourneyActiontemplatesConflict handles this case with default header values.
+/*
+PostJourneyActiontemplatesConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -357,7 +567,36 @@ type PostJourneyActiontemplatesConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actiontemplates conflict response has a 2xx status code
+func (o *PostJourneyActiontemplatesConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actiontemplates conflict response has a 3xx status code
+func (o *PostJourneyActiontemplatesConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates conflict response has a 4xx status code
+func (o *PostJourneyActiontemplatesConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actiontemplates conflict response has a 5xx status code
+func (o *PostJourneyActiontemplatesConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actiontemplates conflict response a status code equal to that given
+func (o *PostJourneyActiontemplatesConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostJourneyActiontemplatesConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesConflict  %+v", 409, o.Payload)
 }
 
@@ -382,7 +621,8 @@ func NewPostJourneyActiontemplatesRequestEntityTooLarge() *PostJourneyActiontemp
 	return &PostJourneyActiontemplatesRequestEntityTooLarge{}
 }
 
-/*PostJourneyActiontemplatesRequestEntityTooLarge handles this case with default header values.
+/*
+PostJourneyActiontemplatesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -390,7 +630,36 @@ type PostJourneyActiontemplatesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actiontemplates request entity too large response has a 2xx status code
+func (o *PostJourneyActiontemplatesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actiontemplates request entity too large response has a 3xx status code
+func (o *PostJourneyActiontemplatesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates request entity too large response has a 4xx status code
+func (o *PostJourneyActiontemplatesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actiontemplates request entity too large response has a 5xx status code
+func (o *PostJourneyActiontemplatesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actiontemplates request entity too large response a status code equal to that given
+func (o *PostJourneyActiontemplatesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostJourneyActiontemplatesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -415,7 +684,8 @@ func NewPostJourneyActiontemplatesUnsupportedMediaType() *PostJourneyActiontempl
 	return &PostJourneyActiontemplatesUnsupportedMediaType{}
 }
 
-/*PostJourneyActiontemplatesUnsupportedMediaType handles this case with default header values.
+/*
+PostJourneyActiontemplatesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -423,7 +693,36 @@ type PostJourneyActiontemplatesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actiontemplates unsupported media type response has a 2xx status code
+func (o *PostJourneyActiontemplatesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actiontemplates unsupported media type response has a 3xx status code
+func (o *PostJourneyActiontemplatesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates unsupported media type response has a 4xx status code
+func (o *PostJourneyActiontemplatesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actiontemplates unsupported media type response has a 5xx status code
+func (o *PostJourneyActiontemplatesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actiontemplates unsupported media type response a status code equal to that given
+func (o *PostJourneyActiontemplatesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostJourneyActiontemplatesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -448,7 +747,8 @@ func NewPostJourneyActiontemplatesTooManyRequests() *PostJourneyActiontemplatesT
 	return &PostJourneyActiontemplatesTooManyRequests{}
 }
 
-/*PostJourneyActiontemplatesTooManyRequests handles this case with default header values.
+/*
+PostJourneyActiontemplatesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -456,7 +756,36 @@ type PostJourneyActiontemplatesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actiontemplates too many requests response has a 2xx status code
+func (o *PostJourneyActiontemplatesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actiontemplates too many requests response has a 3xx status code
+func (o *PostJourneyActiontemplatesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates too many requests response has a 4xx status code
+func (o *PostJourneyActiontemplatesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post journey actiontemplates too many requests response has a 5xx status code
+func (o *PostJourneyActiontemplatesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post journey actiontemplates too many requests response a status code equal to that given
+func (o *PostJourneyActiontemplatesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostJourneyActiontemplatesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -481,7 +810,8 @@ func NewPostJourneyActiontemplatesInternalServerError() *PostJourneyActiontempla
 	return &PostJourneyActiontemplatesInternalServerError{}
 }
 
-/*PostJourneyActiontemplatesInternalServerError handles this case with default header values.
+/*
+PostJourneyActiontemplatesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -489,7 +819,36 @@ type PostJourneyActiontemplatesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actiontemplates internal server error response has a 2xx status code
+func (o *PostJourneyActiontemplatesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actiontemplates internal server error response has a 3xx status code
+func (o *PostJourneyActiontemplatesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates internal server error response has a 4xx status code
+func (o *PostJourneyActiontemplatesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey actiontemplates internal server error response has a 5xx status code
+func (o *PostJourneyActiontemplatesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post journey actiontemplates internal server error response a status code equal to that given
+func (o *PostJourneyActiontemplatesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostJourneyActiontemplatesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -514,7 +873,8 @@ func NewPostJourneyActiontemplatesServiceUnavailable() *PostJourneyActiontemplat
 	return &PostJourneyActiontemplatesServiceUnavailable{}
 }
 
-/*PostJourneyActiontemplatesServiceUnavailable handles this case with default header values.
+/*
+PostJourneyActiontemplatesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -522,7 +882,36 @@ type PostJourneyActiontemplatesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actiontemplates service unavailable response has a 2xx status code
+func (o *PostJourneyActiontemplatesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actiontemplates service unavailable response has a 3xx status code
+func (o *PostJourneyActiontemplatesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates service unavailable response has a 4xx status code
+func (o *PostJourneyActiontemplatesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey actiontemplates service unavailable response has a 5xx status code
+func (o *PostJourneyActiontemplatesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post journey actiontemplates service unavailable response a status code equal to that given
+func (o *PostJourneyActiontemplatesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostJourneyActiontemplatesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -547,7 +936,8 @@ func NewPostJourneyActiontemplatesGatewayTimeout() *PostJourneyActiontemplatesGa
 	return &PostJourneyActiontemplatesGatewayTimeout{}
 }
 
-/*PostJourneyActiontemplatesGatewayTimeout handles this case with default header values.
+/*
+PostJourneyActiontemplatesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -555,7 +945,36 @@ type PostJourneyActiontemplatesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post journey actiontemplates gateway timeout response has a 2xx status code
+func (o *PostJourneyActiontemplatesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post journey actiontemplates gateway timeout response has a 3xx status code
+func (o *PostJourneyActiontemplatesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post journey actiontemplates gateway timeout response has a 4xx status code
+func (o *PostJourneyActiontemplatesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post journey actiontemplates gateway timeout response has a 5xx status code
+func (o *PostJourneyActiontemplatesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post journey actiontemplates gateway timeout response a status code equal to that given
+func (o *PostJourneyActiontemplatesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostJourneyActiontemplatesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostJourneyActiontemplatesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/journey/actiontemplates][%d] postJourneyActiontemplatesGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -95,7 +95,6 @@ func (o *GetMessagingSupportedcontentReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetMessagingSupportedcontentOK() *GetMessagingSupportedcontentOK {
 	return &GetMessagingSupportedcontentOK{}
 }
 
-/*GetMessagingSupportedcontentOK handles this case with default header values.
+/*
+GetMessagingSupportedcontentOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetMessagingSupportedcontentOK struct {
 	Payload *models.SupportedContentListing
 }
 
+// IsSuccess returns true when this get messaging supportedcontent o k response has a 2xx status code
+func (o *GetMessagingSupportedcontentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get messaging supportedcontent o k response has a 3xx status code
+func (o *GetMessagingSupportedcontentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get messaging supportedcontent o k response has a 4xx status code
+func (o *GetMessagingSupportedcontentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get messaging supportedcontent o k response has a 5xx status code
+func (o *GetMessagingSupportedcontentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get messaging supportedcontent o k response a status code equal to that given
+func (o *GetMessagingSupportedcontentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetMessagingSupportedcontentOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentOK  %+v", 200, o.Payload)
+}
+
+func (o *GetMessagingSupportedcontentOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetMessagingSupportedcontentBadRequest() *GetMessagingSupportedcontentBa
 	return &GetMessagingSupportedcontentBadRequest{}
 }
 
-/*GetMessagingSupportedcontentBadRequest handles this case with default header values.
+/*
+GetMessagingSupportedcontentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetMessagingSupportedcontentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get messaging supportedcontent bad request response has a 2xx status code
+func (o *GetMessagingSupportedcontentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get messaging supportedcontent bad request response has a 3xx status code
+func (o *GetMessagingSupportedcontentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get messaging supportedcontent bad request response has a 4xx status code
+func (o *GetMessagingSupportedcontentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get messaging supportedcontent bad request response has a 5xx status code
+func (o *GetMessagingSupportedcontentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get messaging supportedcontent bad request response a status code equal to that given
+func (o *GetMessagingSupportedcontentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetMessagingSupportedcontentBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetMessagingSupportedcontentBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetMessagingSupportedcontentUnauthorized() *GetMessagingSupportedcontent
 	return &GetMessagingSupportedcontentUnauthorized{}
 }
 
-/*GetMessagingSupportedcontentUnauthorized handles this case with default header values.
+/*
+GetMessagingSupportedcontentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetMessagingSupportedcontentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get messaging supportedcontent unauthorized response has a 2xx status code
+func (o *GetMessagingSupportedcontentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get messaging supportedcontent unauthorized response has a 3xx status code
+func (o *GetMessagingSupportedcontentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get messaging supportedcontent unauthorized response has a 4xx status code
+func (o *GetMessagingSupportedcontentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get messaging supportedcontent unauthorized response has a 5xx status code
+func (o *GetMessagingSupportedcontentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get messaging supportedcontent unauthorized response a status code equal to that given
+func (o *GetMessagingSupportedcontentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetMessagingSupportedcontentUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetMessagingSupportedcontentUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetMessagingSupportedcontentForbidden() *GetMessagingSupportedcontentFor
 	return &GetMessagingSupportedcontentForbidden{}
 }
 
-/*GetMessagingSupportedcontentForbidden handles this case with default header values.
+/*
+GetMessagingSupportedcontentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetMessagingSupportedcontentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get messaging supportedcontent forbidden response has a 2xx status code
+func (o *GetMessagingSupportedcontentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get messaging supportedcontent forbidden response has a 3xx status code
+func (o *GetMessagingSupportedcontentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get messaging supportedcontent forbidden response has a 4xx status code
+func (o *GetMessagingSupportedcontentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get messaging supportedcontent forbidden response has a 5xx status code
+func (o *GetMessagingSupportedcontentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get messaging supportedcontent forbidden response a status code equal to that given
+func (o *GetMessagingSupportedcontentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetMessagingSupportedcontentForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetMessagingSupportedcontentForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetMessagingSupportedcontentNotFound() *GetMessagingSupportedcontentNotF
 	return &GetMessagingSupportedcontentNotFound{}
 }
 
-/*GetMessagingSupportedcontentNotFound handles this case with default header values.
+/*
+GetMessagingSupportedcontentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetMessagingSupportedcontentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get messaging supportedcontent not found response has a 2xx status code
+func (o *GetMessagingSupportedcontentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get messaging supportedcontent not found response has a 3xx status code
+func (o *GetMessagingSupportedcontentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get messaging supportedcontent not found response has a 4xx status code
+func (o *GetMessagingSupportedcontentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get messaging supportedcontent not found response has a 5xx status code
+func (o *GetMessagingSupportedcontentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get messaging supportedcontent not found response a status code equal to that given
+func (o *GetMessagingSupportedcontentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetMessagingSupportedcontentNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetMessagingSupportedcontentNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetMessagingSupportedcontentRequestTimeout() *GetMessagingSupportedconte
 	return &GetMessagingSupportedcontentRequestTimeout{}
 }
 
-/*GetMessagingSupportedcontentRequestTimeout handles this case with default header values.
+/*
+GetMessagingSupportedcontentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetMessagingSupportedcontentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get messaging supportedcontent request timeout response has a 2xx status code
+func (o *GetMessagingSupportedcontentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get messaging supportedcontent request timeout response has a 3xx status code
+func (o *GetMessagingSupportedcontentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get messaging supportedcontent request timeout response has a 4xx status code
+func (o *GetMessagingSupportedcontentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get messaging supportedcontent request timeout response has a 5xx status code
+func (o *GetMessagingSupportedcontentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get messaging supportedcontent request timeout response a status code equal to that given
+func (o *GetMessagingSupportedcontentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetMessagingSupportedcontentRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetMessagingSupportedcontentRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetMessagingSupportedcontentRequestEntityTooLarge() *GetMessagingSupport
 	return &GetMessagingSupportedcontentRequestEntityTooLarge{}
 }
 
-/*GetMessagingSupportedcontentRequestEntityTooLarge handles this case with default header values.
+/*
+GetMessagingSupportedcontentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetMessagingSupportedcontentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get messaging supportedcontent request entity too large response has a 2xx status code
+func (o *GetMessagingSupportedcontentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get messaging supportedcontent request entity too large response has a 3xx status code
+func (o *GetMessagingSupportedcontentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get messaging supportedcontent request entity too large response has a 4xx status code
+func (o *GetMessagingSupportedcontentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get messaging supportedcontent request entity too large response has a 5xx status code
+func (o *GetMessagingSupportedcontentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get messaging supportedcontent request entity too large response a status code equal to that given
+func (o *GetMessagingSupportedcontentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetMessagingSupportedcontentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetMessagingSupportedcontentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetMessagingSupportedcontentUnsupportedMediaType() *GetMessagingSupporte
 	return &GetMessagingSupportedcontentUnsupportedMediaType{}
 }
 
-/*GetMessagingSupportedcontentUnsupportedMediaType handles this case with default header values.
+/*
+GetMessagingSupportedcontentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetMessagingSupportedcontentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get messaging supportedcontent unsupported media type response has a 2xx status code
+func (o *GetMessagingSupportedcontentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get messaging supportedcontent unsupported media type response has a 3xx status code
+func (o *GetMessagingSupportedcontentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get messaging supportedcontent unsupported media type response has a 4xx status code
+func (o *GetMessagingSupportedcontentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get messaging supportedcontent unsupported media type response has a 5xx status code
+func (o *GetMessagingSupportedcontentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get messaging supportedcontent unsupported media type response a status code equal to that given
+func (o *GetMessagingSupportedcontentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetMessagingSupportedcontentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetMessagingSupportedcontentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetMessagingSupportedcontentTooManyRequests() *GetMessagingSupportedcont
 	return &GetMessagingSupportedcontentTooManyRequests{}
 }
 
-/*GetMessagingSupportedcontentTooManyRequests handles this case with default header values.
+/*
+GetMessagingSupportedcontentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetMessagingSupportedcontentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get messaging supportedcontent too many requests response has a 2xx status code
+func (o *GetMessagingSupportedcontentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get messaging supportedcontent too many requests response has a 3xx status code
+func (o *GetMessagingSupportedcontentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get messaging supportedcontent too many requests response has a 4xx status code
+func (o *GetMessagingSupportedcontentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get messaging supportedcontent too many requests response has a 5xx status code
+func (o *GetMessagingSupportedcontentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get messaging supportedcontent too many requests response a status code equal to that given
+func (o *GetMessagingSupportedcontentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetMessagingSupportedcontentTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetMessagingSupportedcontentTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetMessagingSupportedcontentInternalServerError() *GetMessagingSupported
 	return &GetMessagingSupportedcontentInternalServerError{}
 }
 
-/*GetMessagingSupportedcontentInternalServerError handles this case with default header values.
+/*
+GetMessagingSupportedcontentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetMessagingSupportedcontentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get messaging supportedcontent internal server error response has a 2xx status code
+func (o *GetMessagingSupportedcontentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get messaging supportedcontent internal server error response has a 3xx status code
+func (o *GetMessagingSupportedcontentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get messaging supportedcontent internal server error response has a 4xx status code
+func (o *GetMessagingSupportedcontentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get messaging supportedcontent internal server error response has a 5xx status code
+func (o *GetMessagingSupportedcontentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get messaging supportedcontent internal server error response a status code equal to that given
+func (o *GetMessagingSupportedcontentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetMessagingSupportedcontentInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetMessagingSupportedcontentInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetMessagingSupportedcontentServiceUnavailable() *GetMessagingSupportedc
 	return &GetMessagingSupportedcontentServiceUnavailable{}
 }
 
-/*GetMessagingSupportedcontentServiceUnavailable handles this case with default header values.
+/*
+GetMessagingSupportedcontentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetMessagingSupportedcontentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get messaging supportedcontent service unavailable response has a 2xx status code
+func (o *GetMessagingSupportedcontentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get messaging supportedcontent service unavailable response has a 3xx status code
+func (o *GetMessagingSupportedcontentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get messaging supportedcontent service unavailable response has a 4xx status code
+func (o *GetMessagingSupportedcontentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get messaging supportedcontent service unavailable response has a 5xx status code
+func (o *GetMessagingSupportedcontentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get messaging supportedcontent service unavailable response a status code equal to that given
+func (o *GetMessagingSupportedcontentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetMessagingSupportedcontentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetMessagingSupportedcontentServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetMessagingSupportedcontentGatewayTimeout() *GetMessagingSupportedconte
 	return &GetMessagingSupportedcontentGatewayTimeout{}
 }
 
-/*GetMessagingSupportedcontentGatewayTimeout handles this case with default header values.
+/*
+GetMessagingSupportedcontentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetMessagingSupportedcontentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get messaging supportedcontent gateway timeout response has a 2xx status code
+func (o *GetMessagingSupportedcontentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get messaging supportedcontent gateway timeout response has a 3xx status code
+func (o *GetMessagingSupportedcontentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get messaging supportedcontent gateway timeout response has a 4xx status code
+func (o *GetMessagingSupportedcontentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get messaging supportedcontent gateway timeout response has a 5xx status code
+func (o *GetMessagingSupportedcontentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get messaging supportedcontent gateway timeout response a status code equal to that given
+func (o *GetMessagingSupportedcontentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetMessagingSupportedcontentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetMessagingSupportedcontentGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/messaging/supportedcontent][%d] getMessagingSupportedcontentGatewayTimeout  %+v", 504, o.Payload)
 }
 

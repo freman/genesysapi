@@ -95,7 +95,6 @@ func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDReader) ReadRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchConversationsMessagingIntegrationsOpenIntegrationIDOK() *PatchConve
 	return &PatchConversationsMessagingIntegrationsOpenIntegrationIDOK{}
 }
 
-/*PatchConversationsMessagingIntegrationsOpenIntegrationIDOK handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchConversationsMessagingIntegrationsOpenIntegrationIDOK struct {
 	Payload *models.OpenIntegration
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations open integration Id o k response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations open integration Id o k response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations open integration Id o k response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations messaging integrations open integration Id o k response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations open integration Id o k response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchConversationsMessagingIntegrationsOpenIntegrationIDBadRequest() *Pa
 	return &PatchConversationsMessagingIntegrationsOpenIntegrationIDBadRequest{}
 }
 
-/*PatchConversationsMessagingIntegrationsOpenIntegrationIDBadRequest handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchConversationsMessagingIntegrationsOpenIntegrationIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations open integration Id bad request response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations open integration Id bad request response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations open integration Id bad request response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations open integration Id bad request response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations open integration Id bad request response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized() *
 	return &PatchConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized{}
 }
 
-/*PatchConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations open integration Id unauthorized response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations open integration Id unauthorized response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations open integration Id unauthorized response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations open integration Id unauthorized response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations open integration Id unauthorized response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchConversationsMessagingIntegrationsOpenIntegrationIDForbidden() *Pat
 	return &PatchConversationsMessagingIntegrationsOpenIntegrationIDForbidden{}
 }
 
-/*PatchConversationsMessagingIntegrationsOpenIntegrationIDForbidden handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchConversationsMessagingIntegrationsOpenIntegrationIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations open integration Id forbidden response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations open integration Id forbidden response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations open integration Id forbidden response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations open integration Id forbidden response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations open integration Id forbidden response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchConversationsMessagingIntegrationsOpenIntegrationIDNotFound() *Patc
 	return &PatchConversationsMessagingIntegrationsOpenIntegrationIDNotFound{}
 }
 
-/*PatchConversationsMessagingIntegrationsOpenIntegrationIDNotFound handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchConversationsMessagingIntegrationsOpenIntegrationIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations open integration Id not found response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations open integration Id not found response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations open integration Id not found response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations open integration Id not found response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations open integration Id not found response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout()
 	return &PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout{}
 }
 
-/*PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations open integration Id request timeout response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations open integration Id request timeout response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations open integration Id request timeout response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations open integration Id request timeout response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations open integration Id request timeout response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityToo
 	return &PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge{}
 }
 
-/*PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLar
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations open integration Id request entity too large response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations open integration Id request entity too large response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations open integration Id request entity too large response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations open integration Id request entity too large response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations open integration Id request entity too large response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMedia
 	return &PatchConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType{}
 }
 
-/*PatchConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaTyp
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations open integration Id unsupported media type response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations open integration Id unsupported media type response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations open integration Id unsupported media type response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations open integration Id unsupported media type response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations open integration Id unsupported media type response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests(
 	return &PatchConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests{}
 }
 
-/*PatchConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations open integration Id too many requests response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations open integration Id too many requests response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations open integration Id too many requests response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations messaging integrations open integration Id too many requests response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations messaging integrations open integration Id too many requests response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchConversationsMessagingIntegrationsOpenIntegrationIDInternalServerEr
 	return &PatchConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError{}
 }
 
-/*PatchConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations open integration Id internal server error response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations open integration Id internal server error response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations open integration Id internal server error response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations messaging integrations open integration Id internal server error response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations messaging integrations open integration Id internal server error response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailab
 	return &PatchConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable{}
 }
 
-/*PatchConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations open integration Id service unavailable response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations open integration Id service unavailable response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations open integration Id service unavailable response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations messaging integrations open integration Id service unavailable response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations messaging integrations open integration Id service unavailable response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout()
 	return &PatchConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout{}
 }
 
-/*PatchConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout handles this case with default header values.
+/*
+PatchConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations messaging integrations open integration Id gateway timeout response has a 2xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations messaging integrations open integration Id gateway timeout response has a 3xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations messaging integrations open integration Id gateway timeout response has a 4xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations messaging integrations open integration Id gateway timeout response has a 5xx status code
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations messaging integrations open integration Id gateway timeout response a status code equal to that given
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchConversationsMessagingIntegrationsOpenIntegrationIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/messaging/integrations/open/{integrationId}][%d] patchConversationsMessagingIntegrationsOpenIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

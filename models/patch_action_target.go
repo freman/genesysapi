@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -55,7 +57,6 @@ func (m *PatchActionTarget) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PatchActionTarget) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -68,7 +69,6 @@ func (m *PatchActionTarget) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *PatchActionTarget) validateServiceLevel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ServiceLevel) { // not required
 		return nil
 	}
@@ -77,6 +77,64 @@ func (m *PatchActionTarget) validateServiceLevel(formats strfmt.Registry) error 
 		if err := m.ServiceLevel.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("serviceLevel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("serviceLevel")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this patch action target based on the context it is used
+func (m *PatchActionTarget) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateServiceLevel(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PatchActionTarget) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PatchActionTarget) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *PatchActionTarget) contextValidateServiceLevel(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ServiceLevel != nil {
+		if err := m.ServiceLevel.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("serviceLevel")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("serviceLevel")
 			}
 			return err
 		}

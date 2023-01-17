@@ -95,7 +95,6 @@ func (o *PostAnalyticsReportingExportsReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostAnalyticsReportingExportsOK() *PostAnalyticsReportingExportsOK {
 	return &PostAnalyticsReportingExportsOK{}
 }
 
-/*PostAnalyticsReportingExportsOK handles this case with default header values.
+/*
+PostAnalyticsReportingExportsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostAnalyticsReportingExportsOK struct {
 	Payload *models.ReportingExportJobResponse
 }
 
+// IsSuccess returns true when this post analytics reporting exports o k response has a 2xx status code
+func (o *PostAnalyticsReportingExportsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post analytics reporting exports o k response has a 3xx status code
+func (o *PostAnalyticsReportingExportsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics reporting exports o k response has a 4xx status code
+func (o *PostAnalyticsReportingExportsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics reporting exports o k response has a 5xx status code
+func (o *PostAnalyticsReportingExportsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics reporting exports o k response a status code equal to that given
+func (o *PostAnalyticsReportingExportsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostAnalyticsReportingExportsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostAnalyticsReportingExportsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostAnalyticsReportingExportsBadRequest() *PostAnalyticsReportingExports
 	return &PostAnalyticsReportingExportsBadRequest{}
 }
 
-/*PostAnalyticsReportingExportsBadRequest handles this case with default header values.
+/*
+PostAnalyticsReportingExportsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostAnalyticsReportingExportsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics reporting exports bad request response has a 2xx status code
+func (o *PostAnalyticsReportingExportsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics reporting exports bad request response has a 3xx status code
+func (o *PostAnalyticsReportingExportsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics reporting exports bad request response has a 4xx status code
+func (o *PostAnalyticsReportingExportsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics reporting exports bad request response has a 5xx status code
+func (o *PostAnalyticsReportingExportsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics reporting exports bad request response a status code equal to that given
+func (o *PostAnalyticsReportingExportsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAnalyticsReportingExportsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAnalyticsReportingExportsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostAnalyticsReportingExportsUnauthorized() *PostAnalyticsReportingExpor
 	return &PostAnalyticsReportingExportsUnauthorized{}
 }
 
-/*PostAnalyticsReportingExportsUnauthorized handles this case with default header values.
+/*
+PostAnalyticsReportingExportsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostAnalyticsReportingExportsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics reporting exports unauthorized response has a 2xx status code
+func (o *PostAnalyticsReportingExportsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics reporting exports unauthorized response has a 3xx status code
+func (o *PostAnalyticsReportingExportsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics reporting exports unauthorized response has a 4xx status code
+func (o *PostAnalyticsReportingExportsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics reporting exports unauthorized response has a 5xx status code
+func (o *PostAnalyticsReportingExportsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics reporting exports unauthorized response a status code equal to that given
+func (o *PostAnalyticsReportingExportsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAnalyticsReportingExportsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAnalyticsReportingExportsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostAnalyticsReportingExportsForbidden() *PostAnalyticsReportingExportsF
 	return &PostAnalyticsReportingExportsForbidden{}
 }
 
-/*PostAnalyticsReportingExportsForbidden handles this case with default header values.
+/*
+PostAnalyticsReportingExportsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostAnalyticsReportingExportsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics reporting exports forbidden response has a 2xx status code
+func (o *PostAnalyticsReportingExportsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics reporting exports forbidden response has a 3xx status code
+func (o *PostAnalyticsReportingExportsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics reporting exports forbidden response has a 4xx status code
+func (o *PostAnalyticsReportingExportsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics reporting exports forbidden response has a 5xx status code
+func (o *PostAnalyticsReportingExportsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics reporting exports forbidden response a status code equal to that given
+func (o *PostAnalyticsReportingExportsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAnalyticsReportingExportsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAnalyticsReportingExportsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostAnalyticsReportingExportsNotFound() *PostAnalyticsReportingExportsNo
 	return &PostAnalyticsReportingExportsNotFound{}
 }
 
-/*PostAnalyticsReportingExportsNotFound handles this case with default header values.
+/*
+PostAnalyticsReportingExportsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostAnalyticsReportingExportsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics reporting exports not found response has a 2xx status code
+func (o *PostAnalyticsReportingExportsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics reporting exports not found response has a 3xx status code
+func (o *PostAnalyticsReportingExportsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics reporting exports not found response has a 4xx status code
+func (o *PostAnalyticsReportingExportsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics reporting exports not found response has a 5xx status code
+func (o *PostAnalyticsReportingExportsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics reporting exports not found response a status code equal to that given
+func (o *PostAnalyticsReportingExportsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAnalyticsReportingExportsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAnalyticsReportingExportsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostAnalyticsReportingExportsRequestTimeout() *PostAnalyticsReportingExp
 	return &PostAnalyticsReportingExportsRequestTimeout{}
 }
 
-/*PostAnalyticsReportingExportsRequestTimeout handles this case with default header values.
+/*
+PostAnalyticsReportingExportsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostAnalyticsReportingExportsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics reporting exports request timeout response has a 2xx status code
+func (o *PostAnalyticsReportingExportsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics reporting exports request timeout response has a 3xx status code
+func (o *PostAnalyticsReportingExportsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics reporting exports request timeout response has a 4xx status code
+func (o *PostAnalyticsReportingExportsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics reporting exports request timeout response has a 5xx status code
+func (o *PostAnalyticsReportingExportsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics reporting exports request timeout response a status code equal to that given
+func (o *PostAnalyticsReportingExportsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAnalyticsReportingExportsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAnalyticsReportingExportsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostAnalyticsReportingExportsRequestEntityTooLarge() *PostAnalyticsRepor
 	return &PostAnalyticsReportingExportsRequestEntityTooLarge{}
 }
 
-/*PostAnalyticsReportingExportsRequestEntityTooLarge handles this case with default header values.
+/*
+PostAnalyticsReportingExportsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostAnalyticsReportingExportsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics reporting exports request entity too large response has a 2xx status code
+func (o *PostAnalyticsReportingExportsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics reporting exports request entity too large response has a 3xx status code
+func (o *PostAnalyticsReportingExportsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics reporting exports request entity too large response has a 4xx status code
+func (o *PostAnalyticsReportingExportsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics reporting exports request entity too large response has a 5xx status code
+func (o *PostAnalyticsReportingExportsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics reporting exports request entity too large response a status code equal to that given
+func (o *PostAnalyticsReportingExportsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAnalyticsReportingExportsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAnalyticsReportingExportsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostAnalyticsReportingExportsUnsupportedMediaType() *PostAnalyticsReport
 	return &PostAnalyticsReportingExportsUnsupportedMediaType{}
 }
 
-/*PostAnalyticsReportingExportsUnsupportedMediaType handles this case with default header values.
+/*
+PostAnalyticsReportingExportsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostAnalyticsReportingExportsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics reporting exports unsupported media type response has a 2xx status code
+func (o *PostAnalyticsReportingExportsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics reporting exports unsupported media type response has a 3xx status code
+func (o *PostAnalyticsReportingExportsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics reporting exports unsupported media type response has a 4xx status code
+func (o *PostAnalyticsReportingExportsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics reporting exports unsupported media type response has a 5xx status code
+func (o *PostAnalyticsReportingExportsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics reporting exports unsupported media type response a status code equal to that given
+func (o *PostAnalyticsReportingExportsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAnalyticsReportingExportsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAnalyticsReportingExportsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostAnalyticsReportingExportsTooManyRequests() *PostAnalyticsReportingEx
 	return &PostAnalyticsReportingExportsTooManyRequests{}
 }
 
-/*PostAnalyticsReportingExportsTooManyRequests handles this case with default header values.
+/*
+PostAnalyticsReportingExportsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostAnalyticsReportingExportsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics reporting exports too many requests response has a 2xx status code
+func (o *PostAnalyticsReportingExportsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics reporting exports too many requests response has a 3xx status code
+func (o *PostAnalyticsReportingExportsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics reporting exports too many requests response has a 4xx status code
+func (o *PostAnalyticsReportingExportsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics reporting exports too many requests response has a 5xx status code
+func (o *PostAnalyticsReportingExportsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics reporting exports too many requests response a status code equal to that given
+func (o *PostAnalyticsReportingExportsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAnalyticsReportingExportsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAnalyticsReportingExportsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostAnalyticsReportingExportsInternalServerError() *PostAnalyticsReporti
 	return &PostAnalyticsReportingExportsInternalServerError{}
 }
 
-/*PostAnalyticsReportingExportsInternalServerError handles this case with default header values.
+/*
+PostAnalyticsReportingExportsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostAnalyticsReportingExportsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics reporting exports internal server error response has a 2xx status code
+func (o *PostAnalyticsReportingExportsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics reporting exports internal server error response has a 3xx status code
+func (o *PostAnalyticsReportingExportsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics reporting exports internal server error response has a 4xx status code
+func (o *PostAnalyticsReportingExportsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics reporting exports internal server error response has a 5xx status code
+func (o *PostAnalyticsReportingExportsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics reporting exports internal server error response a status code equal to that given
+func (o *PostAnalyticsReportingExportsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAnalyticsReportingExportsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAnalyticsReportingExportsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostAnalyticsReportingExportsServiceUnavailable() *PostAnalyticsReportin
 	return &PostAnalyticsReportingExportsServiceUnavailable{}
 }
 
-/*PostAnalyticsReportingExportsServiceUnavailable handles this case with default header values.
+/*
+PostAnalyticsReportingExportsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostAnalyticsReportingExportsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics reporting exports service unavailable response has a 2xx status code
+func (o *PostAnalyticsReportingExportsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics reporting exports service unavailable response has a 3xx status code
+func (o *PostAnalyticsReportingExportsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics reporting exports service unavailable response has a 4xx status code
+func (o *PostAnalyticsReportingExportsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics reporting exports service unavailable response has a 5xx status code
+func (o *PostAnalyticsReportingExportsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics reporting exports service unavailable response a status code equal to that given
+func (o *PostAnalyticsReportingExportsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAnalyticsReportingExportsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAnalyticsReportingExportsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostAnalyticsReportingExportsGatewayTimeout() *PostAnalyticsReportingExp
 	return &PostAnalyticsReportingExportsGatewayTimeout{}
 }
 
-/*PostAnalyticsReportingExportsGatewayTimeout handles this case with default header values.
+/*
+PostAnalyticsReportingExportsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostAnalyticsReportingExportsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics reporting exports gateway timeout response has a 2xx status code
+func (o *PostAnalyticsReportingExportsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics reporting exports gateway timeout response has a 3xx status code
+func (o *PostAnalyticsReportingExportsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics reporting exports gateway timeout response has a 4xx status code
+func (o *PostAnalyticsReportingExportsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics reporting exports gateway timeout response has a 5xx status code
+func (o *PostAnalyticsReportingExportsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics reporting exports gateway timeout response a status code equal to that given
+func (o *PostAnalyticsReportingExportsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAnalyticsReportingExportsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAnalyticsReportingExportsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/reporting/exports][%d] postAnalyticsReportingExportsGatewayTimeout  %+v", 504, o.Payload)
 }
 

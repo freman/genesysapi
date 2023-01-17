@@ -95,7 +95,6 @@ func (o *GetSpeechandtextanalyticsProgramsUnpublishedReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetSpeechandtextanalyticsProgramsUnpublishedOK() *GetSpeechandtextanalyt
 	return &GetSpeechandtextanalyticsProgramsUnpublishedOK{}
 }
 
-/*GetSpeechandtextanalyticsProgramsUnpublishedOK handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsUnpublishedOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetSpeechandtextanalyticsProgramsUnpublishedOK struct {
 	Payload *models.UnpublishedProgramsEntityListing
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs unpublished o k response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs unpublished o k response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs unpublished o k response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs unpublished o k response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs unpublished o k response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSpeechandtextanalyticsProgramsUnpublishedOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedOK  %+v", 200, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetSpeechandtextanalyticsProgramsUnpublishedBadRequest() *GetSpeechandte
 	return &GetSpeechandtextanalyticsProgramsUnpublishedBadRequest{}
 }
 
-/*GetSpeechandtextanalyticsProgramsUnpublishedBadRequest handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsUnpublishedBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetSpeechandtextanalyticsProgramsUnpublishedBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs unpublished bad request response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs unpublished bad request response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs unpublished bad request response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs unpublished bad request response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs unpublished bad request response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetSpeechandtextanalyticsProgramsUnpublishedBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetSpeechandtextanalyticsProgramsUnpublishedUnauthorized() *GetSpeechand
 	return &GetSpeechandtextanalyticsProgramsUnpublishedUnauthorized{}
 }
 
-/*GetSpeechandtextanalyticsProgramsUnpublishedUnauthorized handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsUnpublishedUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetSpeechandtextanalyticsProgramsUnpublishedUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs unpublished unauthorized response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs unpublished unauthorized response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs unpublished unauthorized response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs unpublished unauthorized response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs unpublished unauthorized response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetSpeechandtextanalyticsProgramsUnpublishedForbidden() *GetSpeechandtex
 	return &GetSpeechandtextanalyticsProgramsUnpublishedForbidden{}
 }
 
-/*GetSpeechandtextanalyticsProgramsUnpublishedForbidden handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsUnpublishedForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetSpeechandtextanalyticsProgramsUnpublishedForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs unpublished forbidden response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs unpublished forbidden response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs unpublished forbidden response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs unpublished forbidden response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs unpublished forbidden response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSpeechandtextanalyticsProgramsUnpublishedForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetSpeechandtextanalyticsProgramsUnpublishedNotFound() *GetSpeechandtext
 	return &GetSpeechandtextanalyticsProgramsUnpublishedNotFound{}
 }
 
-/*GetSpeechandtextanalyticsProgramsUnpublishedNotFound handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsUnpublishedNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetSpeechandtextanalyticsProgramsUnpublishedNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs unpublished not found response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs unpublished not found response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs unpublished not found response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs unpublished not found response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs unpublished not found response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetSpeechandtextanalyticsProgramsUnpublishedNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetSpeechandtextanalyticsProgramsUnpublishedRequestTimeout() *GetSpeecha
 	return &GetSpeechandtextanalyticsProgramsUnpublishedRequestTimeout{}
 }
 
-/*GetSpeechandtextanalyticsProgramsUnpublishedRequestTimeout handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsUnpublishedRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetSpeechandtextanalyticsProgramsUnpublishedRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs unpublished request timeout response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs unpublished request timeout response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs unpublished request timeout response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs unpublished request timeout response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs unpublished request timeout response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge() *Get
 	return &GetSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge{}
 }
 
-/*GetSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs unpublished request entity too large response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs unpublished request entity too large response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs unpublished request entity too large response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs unpublished request entity too large response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs unpublished request entity too large response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType() *GetS
 	return &GetSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType{}
 }
 
-/*GetSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs unpublished unsupported media type response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs unpublished unsupported media type response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs unpublished unsupported media type response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs unpublished unsupported media type response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs unpublished unsupported media type response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetSpeechandtextanalyticsProgramsUnpublishedTooManyRequests() *GetSpeech
 	return &GetSpeechandtextanalyticsProgramsUnpublishedTooManyRequests{}
 }
 
-/*GetSpeechandtextanalyticsProgramsUnpublishedTooManyRequests handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsUnpublishedTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetSpeechandtextanalyticsProgramsUnpublishedTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs unpublished too many requests response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs unpublished too many requests response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs unpublished too many requests response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs unpublished too many requests response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics programs unpublished too many requests response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetSpeechandtextanalyticsProgramsUnpublishedTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetSpeechandtextanalyticsProgramsUnpublishedInternalServerError() *GetSp
 	return &GetSpeechandtextanalyticsProgramsUnpublishedInternalServerError{}
 }
 
-/*GetSpeechandtextanalyticsProgramsUnpublishedInternalServerError handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsUnpublishedInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetSpeechandtextanalyticsProgramsUnpublishedInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs unpublished internal server error response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs unpublished internal server error response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs unpublished internal server error response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs unpublished internal server error response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get speechandtextanalytics programs unpublished internal server error response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetSpeechandtextanalyticsProgramsUnpublishedInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable() *GetSpe
 	return &GetSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable{}
 }
 
-/*GetSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs unpublished service unavailable response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs unpublished service unavailable response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs unpublished service unavailable response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs unpublished service unavailable response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get speechandtextanalytics programs unpublished service unavailable response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout() *GetSpeecha
 	return &GetSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout{}
 }
 
-/*GetSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics programs unpublished gateway timeout response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics programs unpublished gateway timeout response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics programs unpublished gateway timeout response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics programs unpublished gateway timeout response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get speechandtextanalytics programs unpublished gateway timeout response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/unpublished][%d] getSpeechandtextanalyticsProgramsUnpublishedGatewayTimeout  %+v", 504, o.Payload)
 }
 

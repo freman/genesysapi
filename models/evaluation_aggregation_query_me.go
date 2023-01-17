@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -104,7 +105,6 @@ func (m *EvaluationAggregationQueryMe) validateAlternateTimeDimensionEnum(path, 
 }
 
 func (m *EvaluationAggregationQueryMe) validateAlternateTimeDimension(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AlternateTimeDimension) { // not required
 		return nil
 	}
@@ -137,7 +137,6 @@ func (m *EvaluationAggregationQueryMe) validateGroupByItemsEnum(path, location s
 }
 
 func (m *EvaluationAggregationQueryMe) validateGroupBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GroupBy) { // not required
 		return nil
 	}
@@ -197,6 +196,11 @@ func (m *EvaluationAggregationQueryMe) validateMetrics(formats strfmt.Registry) 
 
 	}
 
+	return nil
+}
+
+// ContextValidate validates this evaluation aggregation query me based on context it is used
+func (m *EvaluationAggregationQueryMe) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

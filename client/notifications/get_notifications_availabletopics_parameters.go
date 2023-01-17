@@ -17,76 +17,94 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetNotificationsAvailabletopicsParams creates a new GetNotificationsAvailabletopicsParams object
-// with the default values initialized.
+// NewGetNotificationsAvailabletopicsParams creates a new GetNotificationsAvailabletopicsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetNotificationsAvailabletopicsParams() *GetNotificationsAvailabletopicsParams {
-	var (
-		includePreviewDefault = bool(true)
-	)
 	return &GetNotificationsAvailabletopicsParams{
-		IncludePreview: &includePreviewDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetNotificationsAvailabletopicsParamsWithTimeout creates a new GetNotificationsAvailabletopicsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetNotificationsAvailabletopicsParamsWithTimeout(timeout time.Duration) *GetNotificationsAvailabletopicsParams {
-	var (
-		includePreviewDefault = bool(true)
-	)
 	return &GetNotificationsAvailabletopicsParams{
-		IncludePreview: &includePreviewDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetNotificationsAvailabletopicsParamsWithContext creates a new GetNotificationsAvailabletopicsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetNotificationsAvailabletopicsParamsWithContext(ctx context.Context) *GetNotificationsAvailabletopicsParams {
-	var (
-		includePreviewDefault = bool(true)
-	)
 	return &GetNotificationsAvailabletopicsParams{
-		IncludePreview: &includePreviewDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetNotificationsAvailabletopicsParamsWithHTTPClient creates a new GetNotificationsAvailabletopicsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetNotificationsAvailabletopicsParamsWithHTTPClient(client *http.Client) *GetNotificationsAvailabletopicsParams {
-	var (
-		includePreviewDefault = bool(true)
-	)
 	return &GetNotificationsAvailabletopicsParams{
-		IncludePreview: &includePreviewDefault,
-		HTTPClient:     client,
+		HTTPClient: client,
 	}
 }
 
-/*GetNotificationsAvailabletopicsParams contains all the parameters to send to the API endpoint
-for the get notifications availabletopics operation typically these are written to a http.Request
+/*
+GetNotificationsAvailabletopicsParams contains all the parameters to send to the API endpoint
+
+	for the get notifications availabletopics operation.
+
+	Typically these are written to a http.Request.
 */
 type GetNotificationsAvailabletopicsParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand
+	/* Expand.
 
+	   Which fields, if any, to expand
 	*/
 	Expand []string
-	/*IncludePreview
-	  Whether or not to include Preview topics
 
+	/* IncludePreview.
+
+	   Whether or not to include Preview topics
+
+	   Default: true
 	*/
 	IncludePreview *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get notifications availabletopics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetNotificationsAvailabletopicsParams) WithDefaults() *GetNotificationsAvailabletopicsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get notifications availabletopics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetNotificationsAvailabletopicsParams) SetDefaults() {
+	var (
+		includePreviewDefault = bool(true)
+	)
+
+	val := GetNotificationsAvailabletopicsParams{
+		IncludePreview: &includePreviewDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get notifications availabletopics params
@@ -152,32 +170,53 @@ func (o *GetNotificationsAvailabletopicsParams) WriteToRequest(r runtime.ClientR
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.IncludePreview != nil {
 
 		// query param includePreview
 		var qrIncludePreview bool
+
 		if o.IncludePreview != nil {
 			qrIncludePreview = *o.IncludePreview
 		}
 		qIncludePreview := swag.FormatBool(qrIncludePreview)
 		if qIncludePreview != "" {
+
 			if err := r.SetQueryParam("includePreview", qIncludePreview); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetNotificationsAvailabletopics binds the parameter expand
+func (o *GetNotificationsAvailabletopicsParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

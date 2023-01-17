@@ -95,7 +95,6 @@ func (o *GetOauthScopeReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOauthScopeOK() *GetOauthScopeOK {
 	return &GetOauthScopeOK{}
 }
 
-/*GetOauthScopeOK handles this case with default header values.
+/*
+GetOauthScopeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOauthScopeOK struct {
 	Payload *models.OAuthScope
 }
 
+// IsSuccess returns true when this get oauth scope o k response has a 2xx status code
+func (o *GetOauthScopeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get oauth scope o k response has a 3xx status code
+func (o *GetOauthScopeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth scope o k response has a 4xx status code
+func (o *GetOauthScopeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth scope o k response has a 5xx status code
+func (o *GetOauthScopeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth scope o k response a status code equal to that given
+func (o *GetOauthScopeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOauthScopeOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOauthScopeOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOauthScopeBadRequest() *GetOauthScopeBadRequest {
 	return &GetOauthScopeBadRequest{}
 }
 
-/*GetOauthScopeBadRequest handles this case with default header values.
+/*
+GetOauthScopeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOauthScopeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth scope bad request response has a 2xx status code
+func (o *GetOauthScopeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth scope bad request response has a 3xx status code
+func (o *GetOauthScopeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth scope bad request response has a 4xx status code
+func (o *GetOauthScopeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth scope bad request response has a 5xx status code
+func (o *GetOauthScopeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth scope bad request response a status code equal to that given
+func (o *GetOauthScopeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOauthScopeBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOauthScopeBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOauthScopeUnauthorized() *GetOauthScopeUnauthorized {
 	return &GetOauthScopeUnauthorized{}
 }
 
-/*GetOauthScopeUnauthorized handles this case with default header values.
+/*
+GetOauthScopeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOauthScopeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth scope unauthorized response has a 2xx status code
+func (o *GetOauthScopeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth scope unauthorized response has a 3xx status code
+func (o *GetOauthScopeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth scope unauthorized response has a 4xx status code
+func (o *GetOauthScopeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth scope unauthorized response has a 5xx status code
+func (o *GetOauthScopeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth scope unauthorized response a status code equal to that given
+func (o *GetOauthScopeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOauthScopeUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOauthScopeUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOauthScopeForbidden() *GetOauthScopeForbidden {
 	return &GetOauthScopeForbidden{}
 }
 
-/*GetOauthScopeForbidden handles this case with default header values.
+/*
+GetOauthScopeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOauthScopeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth scope forbidden response has a 2xx status code
+func (o *GetOauthScopeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth scope forbidden response has a 3xx status code
+func (o *GetOauthScopeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth scope forbidden response has a 4xx status code
+func (o *GetOauthScopeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth scope forbidden response has a 5xx status code
+func (o *GetOauthScopeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth scope forbidden response a status code equal to that given
+func (o *GetOauthScopeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOauthScopeForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOauthScopeForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOauthScopeNotFound() *GetOauthScopeNotFound {
 	return &GetOauthScopeNotFound{}
 }
 
-/*GetOauthScopeNotFound handles this case with default header values.
+/*
+GetOauthScopeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOauthScopeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth scope not found response has a 2xx status code
+func (o *GetOauthScopeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth scope not found response has a 3xx status code
+func (o *GetOauthScopeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth scope not found response has a 4xx status code
+func (o *GetOauthScopeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth scope not found response has a 5xx status code
+func (o *GetOauthScopeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth scope not found response a status code equal to that given
+func (o *GetOauthScopeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOauthScopeNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOauthScopeNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOauthScopeRequestTimeout() *GetOauthScopeRequestTimeout {
 	return &GetOauthScopeRequestTimeout{}
 }
 
-/*GetOauthScopeRequestTimeout handles this case with default header values.
+/*
+GetOauthScopeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOauthScopeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth scope request timeout response has a 2xx status code
+func (o *GetOauthScopeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth scope request timeout response has a 3xx status code
+func (o *GetOauthScopeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth scope request timeout response has a 4xx status code
+func (o *GetOauthScopeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth scope request timeout response has a 5xx status code
+func (o *GetOauthScopeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth scope request timeout response a status code equal to that given
+func (o *GetOauthScopeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOauthScopeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOauthScopeRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOauthScopeRequestEntityTooLarge() *GetOauthScopeRequestEntityTooLarge
 	return &GetOauthScopeRequestEntityTooLarge{}
 }
 
-/*GetOauthScopeRequestEntityTooLarge handles this case with default header values.
+/*
+GetOauthScopeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOauthScopeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth scope request entity too large response has a 2xx status code
+func (o *GetOauthScopeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth scope request entity too large response has a 3xx status code
+func (o *GetOauthScopeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth scope request entity too large response has a 4xx status code
+func (o *GetOauthScopeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth scope request entity too large response has a 5xx status code
+func (o *GetOauthScopeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth scope request entity too large response a status code equal to that given
+func (o *GetOauthScopeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOauthScopeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOauthScopeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOauthScopeUnsupportedMediaType() *GetOauthScopeUnsupportedMediaType {
 	return &GetOauthScopeUnsupportedMediaType{}
 }
 
-/*GetOauthScopeUnsupportedMediaType handles this case with default header values.
+/*
+GetOauthScopeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOauthScopeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth scope unsupported media type response has a 2xx status code
+func (o *GetOauthScopeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth scope unsupported media type response has a 3xx status code
+func (o *GetOauthScopeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth scope unsupported media type response has a 4xx status code
+func (o *GetOauthScopeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth scope unsupported media type response has a 5xx status code
+func (o *GetOauthScopeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth scope unsupported media type response a status code equal to that given
+func (o *GetOauthScopeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOauthScopeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOauthScopeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOauthScopeTooManyRequests() *GetOauthScopeTooManyRequests {
 	return &GetOauthScopeTooManyRequests{}
 }
 
-/*GetOauthScopeTooManyRequests handles this case with default header values.
+/*
+GetOauthScopeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOauthScopeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth scope too many requests response has a 2xx status code
+func (o *GetOauthScopeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth scope too many requests response has a 3xx status code
+func (o *GetOauthScopeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth scope too many requests response has a 4xx status code
+func (o *GetOauthScopeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get oauth scope too many requests response has a 5xx status code
+func (o *GetOauthScopeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get oauth scope too many requests response a status code equal to that given
+func (o *GetOauthScopeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOauthScopeTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOauthScopeTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOauthScopeInternalServerError() *GetOauthScopeInternalServerError {
 	return &GetOauthScopeInternalServerError{}
 }
 
-/*GetOauthScopeInternalServerError handles this case with default header values.
+/*
+GetOauthScopeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOauthScopeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth scope internal server error response has a 2xx status code
+func (o *GetOauthScopeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth scope internal server error response has a 3xx status code
+func (o *GetOauthScopeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth scope internal server error response has a 4xx status code
+func (o *GetOauthScopeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth scope internal server error response has a 5xx status code
+func (o *GetOauthScopeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get oauth scope internal server error response a status code equal to that given
+func (o *GetOauthScopeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOauthScopeInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOauthScopeInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOauthScopeServiceUnavailable() *GetOauthScopeServiceUnavailable {
 	return &GetOauthScopeServiceUnavailable{}
 }
 
-/*GetOauthScopeServiceUnavailable handles this case with default header values.
+/*
+GetOauthScopeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOauthScopeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth scope service unavailable response has a 2xx status code
+func (o *GetOauthScopeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth scope service unavailable response has a 3xx status code
+func (o *GetOauthScopeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth scope service unavailable response has a 4xx status code
+func (o *GetOauthScopeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth scope service unavailable response has a 5xx status code
+func (o *GetOauthScopeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get oauth scope service unavailable response a status code equal to that given
+func (o *GetOauthScopeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOauthScopeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOauthScopeServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOauthScopeGatewayTimeout() *GetOauthScopeGatewayTimeout {
 	return &GetOauthScopeGatewayTimeout{}
 }
 
-/*GetOauthScopeGatewayTimeout handles this case with default header values.
+/*
+GetOauthScopeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOauthScopeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get oauth scope gateway timeout response has a 2xx status code
+func (o *GetOauthScopeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get oauth scope gateway timeout response has a 3xx status code
+func (o *GetOauthScopeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get oauth scope gateway timeout response has a 4xx status code
+func (o *GetOauthScopeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get oauth scope gateway timeout response has a 5xx status code
+func (o *GetOauthScopeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get oauth scope gateway timeout response a status code equal to that given
+func (o *GetOauthScopeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOauthScopeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOauthScopeGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/oauth/scopes/{scopeId}][%d] getOauthScopeGatewayTimeout  %+v", 504, o.Payload)
 }
 

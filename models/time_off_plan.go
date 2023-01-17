@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -85,7 +86,6 @@ func (m *TimeOffPlan) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TimeOffPlan) validateActivityCodeIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActivityCodeIds) { // not required
 		return nil
 	}
@@ -130,7 +130,6 @@ func (m *TimeOffPlan) validateAutoApprovalRuleEnum(path, location string, value 
 }
 
 func (m *TimeOffPlan) validateAutoApprovalRule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AutoApprovalRule) { // not required
 		return nil
 	}
@@ -144,7 +143,6 @@ func (m *TimeOffPlan) validateAutoApprovalRule(formats strfmt.Registry) error {
 }
 
 func (m *TimeOffPlan) validateMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metadata) { // not required
 		return nil
 	}
@@ -153,6 +151,8 @@ func (m *TimeOffPlan) validateMetadata(formats strfmt.Registry) error {
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -162,7 +162,6 @@ func (m *TimeOffPlan) validateMetadata(formats strfmt.Registry) error {
 }
 
 func (m *TimeOffPlan) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -175,7 +174,6 @@ func (m *TimeOffPlan) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *TimeOffPlan) validateTimeOffLimits(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TimeOffLimits) { // not required
 		return nil
 	}
@@ -193,6 +191,88 @@ func (m *TimeOffPlan) validateTimeOffLimits(formats strfmt.Registry) error {
 			if err := m.TimeOffLimits[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("timeOffLimits" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("timeOffLimits" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this time off plan based on the context it is used
+func (m *TimeOffPlan) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTimeOffLimits(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TimeOffPlan) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TimeOffPlan) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TimeOffPlan) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TimeOffPlan) contextValidateTimeOffLimits(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.TimeOffLimits); i++ {
+
+		if m.TimeOffLimits[i] != nil {
+			if err := m.TimeOffLimits[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("timeOffLimits" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("timeOffLimits" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

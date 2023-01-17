@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -139,7 +140,6 @@ func (m *TranscriptAggregateQueryPredicate) validateDimensionEnum(path, location
 }
 
 func (m *TranscriptAggregateQueryPredicate) validateDimension(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Dimension) { // not required
 		return nil
 	}
@@ -185,7 +185,6 @@ func (m *TranscriptAggregateQueryPredicate) validateOperatorEnum(path, location 
 }
 
 func (m *TranscriptAggregateQueryPredicate) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -199,7 +198,6 @@ func (m *TranscriptAggregateQueryPredicate) validateOperator(formats strfmt.Regi
 }
 
 func (m *TranscriptAggregateQueryPredicate) validateRange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Range) { // not required
 		return nil
 	}
@@ -208,6 +206,8 @@ func (m *TranscriptAggregateQueryPredicate) validateRange(formats strfmt.Registr
 		if err := m.Range.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
 			}
 			return err
 		}
@@ -249,7 +249,6 @@ func (m *TranscriptAggregateQueryPredicate) validateTypeEnum(path, location stri
 }
 
 func (m *TranscriptAggregateQueryPredicate) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -257,6 +256,36 @@ func (m *TranscriptAggregateQueryPredicate) validateType(formats strfmt.Registry
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this transcript aggregate query predicate based on the context it is used
+func (m *TranscriptAggregateQueryPredicate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TranscriptAggregateQueryPredicate) contextValidateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Range != nil {
+		if err := m.Range.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
+			}
+			return err
+		}
 	}
 
 	return nil

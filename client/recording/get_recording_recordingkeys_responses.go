@@ -95,7 +95,6 @@ func (o *GetRecordingRecordingkeysReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRecordingRecordingkeysOK() *GetRecordingRecordingkeysOK {
 	return &GetRecordingRecordingkeysOK{}
 }
 
-/*GetRecordingRecordingkeysOK handles this case with default header values.
+/*
+GetRecordingRecordingkeysOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRecordingRecordingkeysOK struct {
 	Payload *models.EncryptionKeyEntityListing
 }
 
+// IsSuccess returns true when this get recording recordingkeys o k response has a 2xx status code
+func (o *GetRecordingRecordingkeysOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get recording recordingkeys o k response has a 3xx status code
+func (o *GetRecordingRecordingkeysOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording recordingkeys o k response has a 4xx status code
+func (o *GetRecordingRecordingkeysOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording recordingkeys o k response has a 5xx status code
+func (o *GetRecordingRecordingkeysOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording recordingkeys o k response a status code equal to that given
+func (o *GetRecordingRecordingkeysOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRecordingRecordingkeysOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRecordingRecordingkeysBadRequest() *GetRecordingRecordingkeysBadReque
 	return &GetRecordingRecordingkeysBadRequest{}
 }
 
-/*GetRecordingRecordingkeysBadRequest handles this case with default header values.
+/*
+GetRecordingRecordingkeysBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRecordingRecordingkeysBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording recordingkeys bad request response has a 2xx status code
+func (o *GetRecordingRecordingkeysBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording recordingkeys bad request response has a 3xx status code
+func (o *GetRecordingRecordingkeysBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording recordingkeys bad request response has a 4xx status code
+func (o *GetRecordingRecordingkeysBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording recordingkeys bad request response has a 5xx status code
+func (o *GetRecordingRecordingkeysBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording recordingkeys bad request response a status code equal to that given
+func (o *GetRecordingRecordingkeysBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRecordingRecordingkeysBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRecordingRecordingkeysUnauthorized() *GetRecordingRecordingkeysUnauth
 	return &GetRecordingRecordingkeysUnauthorized{}
 }
 
-/*GetRecordingRecordingkeysUnauthorized handles this case with default header values.
+/*
+GetRecordingRecordingkeysUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRecordingRecordingkeysUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording recordingkeys unauthorized response has a 2xx status code
+func (o *GetRecordingRecordingkeysUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording recordingkeys unauthorized response has a 3xx status code
+func (o *GetRecordingRecordingkeysUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording recordingkeys unauthorized response has a 4xx status code
+func (o *GetRecordingRecordingkeysUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording recordingkeys unauthorized response has a 5xx status code
+func (o *GetRecordingRecordingkeysUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording recordingkeys unauthorized response a status code equal to that given
+func (o *GetRecordingRecordingkeysUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRecordingRecordingkeysUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRecordingRecordingkeysForbidden() *GetRecordingRecordingkeysForbidden
 	return &GetRecordingRecordingkeysForbidden{}
 }
 
-/*GetRecordingRecordingkeysForbidden handles this case with default header values.
+/*
+GetRecordingRecordingkeysForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRecordingRecordingkeysForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording recordingkeys forbidden response has a 2xx status code
+func (o *GetRecordingRecordingkeysForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording recordingkeys forbidden response has a 3xx status code
+func (o *GetRecordingRecordingkeysForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording recordingkeys forbidden response has a 4xx status code
+func (o *GetRecordingRecordingkeysForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording recordingkeys forbidden response has a 5xx status code
+func (o *GetRecordingRecordingkeysForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording recordingkeys forbidden response a status code equal to that given
+func (o *GetRecordingRecordingkeysForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRecordingRecordingkeysForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRecordingRecordingkeysNotFound() *GetRecordingRecordingkeysNotFound {
 	return &GetRecordingRecordingkeysNotFound{}
 }
 
-/*GetRecordingRecordingkeysNotFound handles this case with default header values.
+/*
+GetRecordingRecordingkeysNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRecordingRecordingkeysNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording recordingkeys not found response has a 2xx status code
+func (o *GetRecordingRecordingkeysNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording recordingkeys not found response has a 3xx status code
+func (o *GetRecordingRecordingkeysNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording recordingkeys not found response has a 4xx status code
+func (o *GetRecordingRecordingkeysNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording recordingkeys not found response has a 5xx status code
+func (o *GetRecordingRecordingkeysNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording recordingkeys not found response a status code equal to that given
+func (o *GetRecordingRecordingkeysNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRecordingRecordingkeysNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRecordingRecordingkeysRequestTimeout() *GetRecordingRecordingkeysRequ
 	return &GetRecordingRecordingkeysRequestTimeout{}
 }
 
-/*GetRecordingRecordingkeysRequestTimeout handles this case with default header values.
+/*
+GetRecordingRecordingkeysRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRecordingRecordingkeysRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording recordingkeys request timeout response has a 2xx status code
+func (o *GetRecordingRecordingkeysRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording recordingkeys request timeout response has a 3xx status code
+func (o *GetRecordingRecordingkeysRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording recordingkeys request timeout response has a 4xx status code
+func (o *GetRecordingRecordingkeysRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording recordingkeys request timeout response has a 5xx status code
+func (o *GetRecordingRecordingkeysRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording recordingkeys request timeout response a status code equal to that given
+func (o *GetRecordingRecordingkeysRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRecordingRecordingkeysRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRecordingRecordingkeysRequestEntityTooLarge() *GetRecordingRecordingk
 	return &GetRecordingRecordingkeysRequestEntityTooLarge{}
 }
 
-/*GetRecordingRecordingkeysRequestEntityTooLarge handles this case with default header values.
+/*
+GetRecordingRecordingkeysRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRecordingRecordingkeysRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording recordingkeys request entity too large response has a 2xx status code
+func (o *GetRecordingRecordingkeysRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording recordingkeys request entity too large response has a 3xx status code
+func (o *GetRecordingRecordingkeysRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording recordingkeys request entity too large response has a 4xx status code
+func (o *GetRecordingRecordingkeysRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording recordingkeys request entity too large response has a 5xx status code
+func (o *GetRecordingRecordingkeysRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording recordingkeys request entity too large response a status code equal to that given
+func (o *GetRecordingRecordingkeysRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRecordingRecordingkeysRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRecordingRecordingkeysUnsupportedMediaType() *GetRecordingRecordingke
 	return &GetRecordingRecordingkeysUnsupportedMediaType{}
 }
 
-/*GetRecordingRecordingkeysUnsupportedMediaType handles this case with default header values.
+/*
+GetRecordingRecordingkeysUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRecordingRecordingkeysUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording recordingkeys unsupported media type response has a 2xx status code
+func (o *GetRecordingRecordingkeysUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording recordingkeys unsupported media type response has a 3xx status code
+func (o *GetRecordingRecordingkeysUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording recordingkeys unsupported media type response has a 4xx status code
+func (o *GetRecordingRecordingkeysUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording recordingkeys unsupported media type response has a 5xx status code
+func (o *GetRecordingRecordingkeysUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording recordingkeys unsupported media type response a status code equal to that given
+func (o *GetRecordingRecordingkeysUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRecordingRecordingkeysUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRecordingRecordingkeysTooManyRequests() *GetRecordingRecordingkeysToo
 	return &GetRecordingRecordingkeysTooManyRequests{}
 }
 
-/*GetRecordingRecordingkeysTooManyRequests handles this case with default header values.
+/*
+GetRecordingRecordingkeysTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRecordingRecordingkeysTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording recordingkeys too many requests response has a 2xx status code
+func (o *GetRecordingRecordingkeysTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording recordingkeys too many requests response has a 3xx status code
+func (o *GetRecordingRecordingkeysTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording recordingkeys too many requests response has a 4xx status code
+func (o *GetRecordingRecordingkeysTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording recordingkeys too many requests response has a 5xx status code
+func (o *GetRecordingRecordingkeysTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording recordingkeys too many requests response a status code equal to that given
+func (o *GetRecordingRecordingkeysTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRecordingRecordingkeysTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRecordingRecordingkeysInternalServerError() *GetRecordingRecordingkey
 	return &GetRecordingRecordingkeysInternalServerError{}
 }
 
-/*GetRecordingRecordingkeysInternalServerError handles this case with default header values.
+/*
+GetRecordingRecordingkeysInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRecordingRecordingkeysInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording recordingkeys internal server error response has a 2xx status code
+func (o *GetRecordingRecordingkeysInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording recordingkeys internal server error response has a 3xx status code
+func (o *GetRecordingRecordingkeysInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording recordingkeys internal server error response has a 4xx status code
+func (o *GetRecordingRecordingkeysInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording recordingkeys internal server error response has a 5xx status code
+func (o *GetRecordingRecordingkeysInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording recordingkeys internal server error response a status code equal to that given
+func (o *GetRecordingRecordingkeysInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRecordingRecordingkeysInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRecordingRecordingkeysServiceUnavailable() *GetRecordingRecordingkeys
 	return &GetRecordingRecordingkeysServiceUnavailable{}
 }
 
-/*GetRecordingRecordingkeysServiceUnavailable handles this case with default header values.
+/*
+GetRecordingRecordingkeysServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRecordingRecordingkeysServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording recordingkeys service unavailable response has a 2xx status code
+func (o *GetRecordingRecordingkeysServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording recordingkeys service unavailable response has a 3xx status code
+func (o *GetRecordingRecordingkeysServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording recordingkeys service unavailable response has a 4xx status code
+func (o *GetRecordingRecordingkeysServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording recordingkeys service unavailable response has a 5xx status code
+func (o *GetRecordingRecordingkeysServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording recordingkeys service unavailable response a status code equal to that given
+func (o *GetRecordingRecordingkeysServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRecordingRecordingkeysServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRecordingRecordingkeysGatewayTimeout() *GetRecordingRecordingkeysGate
 	return &GetRecordingRecordingkeysGatewayTimeout{}
 }
 
-/*GetRecordingRecordingkeysGatewayTimeout handles this case with default header values.
+/*
+GetRecordingRecordingkeysGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRecordingRecordingkeysGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording recordingkeys gateway timeout response has a 2xx status code
+func (o *GetRecordingRecordingkeysGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording recordingkeys gateway timeout response has a 3xx status code
+func (o *GetRecordingRecordingkeysGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording recordingkeys gateway timeout response has a 4xx status code
+func (o *GetRecordingRecordingkeysGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording recordingkeys gateway timeout response has a 5xx status code
+func (o *GetRecordingRecordingkeysGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording recordingkeys gateway timeout response a status code equal to that given
+func (o *GetRecordingRecordingkeysGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRecordingRecordingkeysGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRecordingRecordingkeysGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/recordingkeys][%d] getRecordingRecordingkeysGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -17,64 +17,83 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetExternalcontactsScanNotesParams creates a new GetExternalcontactsScanNotesParams object
-// with the default values initialized.
+// NewGetExternalcontactsScanNotesParams creates a new GetExternalcontactsScanNotesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetExternalcontactsScanNotesParams() *GetExternalcontactsScanNotesParams {
-	var ()
 	return &GetExternalcontactsScanNotesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetExternalcontactsScanNotesParamsWithTimeout creates a new GetExternalcontactsScanNotesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetExternalcontactsScanNotesParamsWithTimeout(timeout time.Duration) *GetExternalcontactsScanNotesParams {
-	var ()
 	return &GetExternalcontactsScanNotesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetExternalcontactsScanNotesParamsWithContext creates a new GetExternalcontactsScanNotesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetExternalcontactsScanNotesParamsWithContext(ctx context.Context) *GetExternalcontactsScanNotesParams {
-	var ()
 	return &GetExternalcontactsScanNotesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetExternalcontactsScanNotesParamsWithHTTPClient creates a new GetExternalcontactsScanNotesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetExternalcontactsScanNotesParamsWithHTTPClient(client *http.Client) *GetExternalcontactsScanNotesParams {
-	var ()
 	return &GetExternalcontactsScanNotesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetExternalcontactsScanNotesParams contains all the parameters to send to the API endpoint
-for the get externalcontacts scan notes operation typically these are written to a http.Request
+/*
+GetExternalcontactsScanNotesParams contains all the parameters to send to the API endpoint
+
+	for the get externalcontacts scan notes operation.
+
+	Typically these are written to a http.Request.
 */
 type GetExternalcontactsScanNotesParams struct {
 
-	/*Cursor
-	  Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL
+	/* Cursor.
 
+	   Indicates where to resume query results (not required for first page), each page returns a new cursor with a 24h TTL
 	*/
 	Cursor *string
-	/*Limit
-	  The number of notes per page; must be between 10 and 200, default is 100)
 
+	/* Limit.
+
+	   The number of notes per page; must be between 10 and 200, default is 100)
+
+	   Format: int32
 	*/
 	Limit *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get externalcontacts scan notes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsScanNotesParams) WithDefaults() *GetExternalcontactsScanNotesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get externalcontacts scan notes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsScanNotesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get externalcontacts scan notes params
@@ -144,32 +163,34 @@ func (o *GetExternalcontactsScanNotesParams) WriteToRequest(r runtime.ClientRequ
 
 		// query param cursor
 		var qrCursor string
+
 		if o.Cursor != nil {
 			qrCursor = *o.Cursor
 		}
 		qCursor := qrCursor
 		if qCursor != "" {
+
 			if err := r.SetQueryParam("cursor", qCursor); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Limit != nil {
 
 		// query param limit
 		var qrLimit int32
+
 		if o.Limit != nil {
 			qrLimit = *o.Limit
 		}
 		qLimit := swag.FormatInt32(qrLimit)
 		if qLimit != "" {
+
 			if err := r.SetQueryParam("limit", qLimit); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

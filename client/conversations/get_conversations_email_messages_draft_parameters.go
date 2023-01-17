@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetConversationsEmailMessagesDraftParams creates a new GetConversationsEmailMessagesDraftParams object
-// with the default values initialized.
+// NewGetConversationsEmailMessagesDraftParams creates a new GetConversationsEmailMessagesDraftParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationsEmailMessagesDraftParams() *GetConversationsEmailMessagesDraftParams {
-	var ()
 	return &GetConversationsEmailMessagesDraftParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationsEmailMessagesDraftParamsWithTimeout creates a new GetConversationsEmailMessagesDraftParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationsEmailMessagesDraftParamsWithTimeout(timeout time.Duration) *GetConversationsEmailMessagesDraftParams {
-	var ()
 	return &GetConversationsEmailMessagesDraftParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationsEmailMessagesDraftParamsWithContext creates a new GetConversationsEmailMessagesDraftParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationsEmailMessagesDraftParamsWithContext(ctx context.Context) *GetConversationsEmailMessagesDraftParams {
-	var ()
 	return &GetConversationsEmailMessagesDraftParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationsEmailMessagesDraftParamsWithHTTPClient creates a new GetConversationsEmailMessagesDraftParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationsEmailMessagesDraftParamsWithHTTPClient(client *http.Client) *GetConversationsEmailMessagesDraftParams {
-	var ()
 	return &GetConversationsEmailMessagesDraftParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetConversationsEmailMessagesDraftParams contains all the parameters to send to the API endpoint
-for the get conversations email messages draft operation typically these are written to a http.Request
+/*
+GetConversationsEmailMessagesDraftParams contains all the parameters to send to the API endpoint
+
+	for the get conversations email messages draft operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationsEmailMessagesDraftParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversations email messages draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsEmailMessagesDraftParams) WithDefaults() *GetConversationsEmailMessagesDraftParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversations email messages draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsEmailMessagesDraftParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get conversations email messages draft params

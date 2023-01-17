@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *WeekShiftTradeResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WeekShiftTradeResponse) validateMatchReview(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MatchReview) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *WeekShiftTradeResponse) validateMatchReview(formats strfmt.Registry) er
 		if err := m.MatchReview.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("matchReview")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("matchReview")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *WeekShiftTradeResponse) validateMatchReview(formats strfmt.Registry) er
 }
 
 func (m *WeekShiftTradeResponse) validateTrade(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Trade) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *WeekShiftTradeResponse) validateTrade(formats strfmt.Registry) error {
 		if err := m.Trade.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("trade")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trade")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this week shift trade response based on the context it is used
+func (m *WeekShiftTradeResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMatchReview(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrade(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WeekShiftTradeResponse) contextValidateMatchReview(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MatchReview != nil {
+		if err := m.MatchReview.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("matchReview")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("matchReview")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WeekShiftTradeResponse) contextValidateTrade(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Trade != nil {
+		if err := m.Trade.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trade")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trade")
 			}
 			return err
 		}

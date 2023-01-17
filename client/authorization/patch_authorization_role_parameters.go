@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchAuthorizationRoleParams creates a new PatchAuthorizationRoleParams object
-// with the default values initialized.
+// NewPatchAuthorizationRoleParams creates a new PatchAuthorizationRoleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchAuthorizationRoleParams() *PatchAuthorizationRoleParams {
-	var ()
 	return &PatchAuthorizationRoleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchAuthorizationRoleParamsWithTimeout creates a new PatchAuthorizationRoleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchAuthorizationRoleParamsWithTimeout(timeout time.Duration) *PatchAuthorizationRoleParams {
-	var ()
 	return &PatchAuthorizationRoleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchAuthorizationRoleParamsWithContext creates a new PatchAuthorizationRoleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchAuthorizationRoleParamsWithContext(ctx context.Context) *PatchAuthorizationRoleParams {
-	var ()
 	return &PatchAuthorizationRoleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchAuthorizationRoleParamsWithHTTPClient creates a new PatchAuthorizationRoleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchAuthorizationRoleParamsWithHTTPClient(client *http.Client) *PatchAuthorizationRoleParams {
-	var ()
 	return &PatchAuthorizationRoleParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchAuthorizationRoleParams contains all the parameters to send to the API endpoint
-for the patch authorization role operation typically these are written to a http.Request
+/*
+PatchAuthorizationRoleParams contains all the parameters to send to the API endpoint
+
+	for the patch authorization role operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchAuthorizationRoleParams struct {
 
-	/*Body
-	  Organization role
+	/* Body.
 
+	   Organization role
 	*/
 	Body *models.DomainOrganizationRole
-	/*RoleID
-	  Role ID
 
+	/* RoleID.
+
+	   Role ID
 	*/
 	RoleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch authorization role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchAuthorizationRoleParams) WithDefaults() *PatchAuthorizationRoleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch authorization role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchAuthorizationRoleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch authorization role params
@@ -140,7 +157,6 @@ func (o *PatchAuthorizationRoleParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

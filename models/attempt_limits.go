@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -92,7 +93,6 @@ func (m *AttemptLimits) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AttemptLimits) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -105,7 +105,6 @@ func (m *AttemptLimits) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *AttemptLimits) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -118,7 +117,6 @@ func (m *AttemptLimits) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *AttemptLimits) validateRecallEntries(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RecallEntries) { // not required
 		return nil
 	}
@@ -130,6 +128,11 @@ func (m *AttemptLimits) validateRecallEntries(formats strfmt.Registry) error {
 		}
 		if val, ok := m.RecallEntries[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("recallEntries" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("recallEntries" + "." + k)
+				}
 				return err
 			}
 		}
@@ -169,7 +172,6 @@ func (m *AttemptLimits) validateResetPeriodEnum(path, location string, value str
 }
 
 func (m *AttemptLimits) validateResetPeriod(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ResetPeriod) { // not required
 		return nil
 	}
@@ -183,12 +185,92 @@ func (m *AttemptLimits) validateResetPeriod(formats strfmt.Registry) error {
 }
 
 func (m *AttemptLimits) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this attempt limits based on the context it is used
+func (m *AttemptLimits) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRecallEntries(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AttemptLimits) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AttemptLimits) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AttemptLimits) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AttemptLimits) contextValidateRecallEntries(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.RecallEntries {
+
+		if val, ok := m.RecallEntries[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AttemptLimits) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

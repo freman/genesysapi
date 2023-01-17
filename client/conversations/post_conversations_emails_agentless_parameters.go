@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsEmailsAgentlessParams creates a new PostConversationsEmailsAgentlessParams object
-// with the default values initialized.
+// NewPostConversationsEmailsAgentlessParams creates a new PostConversationsEmailsAgentlessParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsEmailsAgentlessParams() *PostConversationsEmailsAgentlessParams {
-	var ()
 	return &PostConversationsEmailsAgentlessParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsEmailsAgentlessParamsWithTimeout creates a new PostConversationsEmailsAgentlessParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsEmailsAgentlessParamsWithTimeout(timeout time.Duration) *PostConversationsEmailsAgentlessParams {
-	var ()
 	return &PostConversationsEmailsAgentlessParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsEmailsAgentlessParamsWithContext creates a new PostConversationsEmailsAgentlessParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsEmailsAgentlessParamsWithContext(ctx context.Context) *PostConversationsEmailsAgentlessParams {
-	var ()
 	return &PostConversationsEmailsAgentlessParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsEmailsAgentlessParamsWithHTTPClient creates a new PostConversationsEmailsAgentlessParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsEmailsAgentlessParamsWithHTTPClient(client *http.Client) *PostConversationsEmailsAgentlessParams {
-	var ()
 	return &PostConversationsEmailsAgentlessParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsEmailsAgentlessParams contains all the parameters to send to the API endpoint
-for the post conversations emails agentless operation typically these are written to a http.Request
+/*
+PostConversationsEmailsAgentlessParams contains all the parameters to send to the API endpoint
+
+	for the post conversations emails agentless operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsEmailsAgentlessParams struct {
 
-	/*Body
-	  Create agentless email request
+	/* Body.
 
+	   Create agentless email request
 	*/
 	Body *models.AgentlessEmailSendRequestDto
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations emails agentless params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsEmailsAgentlessParams) WithDefaults() *PostConversationsEmailsAgentlessParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations emails agentless params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsEmailsAgentlessParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations emails agentless params
@@ -124,7 +140,6 @@ func (o *PostConversationsEmailsAgentlessParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

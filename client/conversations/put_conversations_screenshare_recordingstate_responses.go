@@ -101,7 +101,6 @@ func (o *PutConversationsScreenshareRecordingstateReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPutConversationsScreenshareRecordingstateOK() *PutConversationsScreensha
 	return &PutConversationsScreenshareRecordingstateOK{}
 }
 
-/*PutConversationsScreenshareRecordingstateOK handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PutConversationsScreenshareRecordingstateOK struct {
 	Payload string
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate o k response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate o k response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate o k response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate o k response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate o k response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutConversationsScreenshareRecordingstateOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateOK  %+v", 200, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateOK  %+v", 200, o.Payload)
 }
 
@@ -143,7 +172,8 @@ func NewPutConversationsScreenshareRecordingstateAccepted() *PutConversationsScr
 	return &PutConversationsScreenshareRecordingstateAccepted{}
 }
 
-/*PutConversationsScreenshareRecordingstateAccepted handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateAccepted describes a response with status code 202, with default header values.
 
 Accepted - when pausing or resuming recordings (Secure Pause)
 */
@@ -151,7 +181,36 @@ type PutConversationsScreenshareRecordingstateAccepted struct {
 	Payload string
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate accepted response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate accepted response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate accepted response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate accepted response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate accepted response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PutConversationsScreenshareRecordingstateAccepted) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateAccepted) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateAccepted  %+v", 202, o.Payload)
 }
 
@@ -174,7 +233,8 @@ func NewPutConversationsScreenshareRecordingstateBadRequest() *PutConversationsS
 	return &PutConversationsScreenshareRecordingstateBadRequest{}
 }
 
-/*PutConversationsScreenshareRecordingstateBadRequest handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -182,7 +242,36 @@ type PutConversationsScreenshareRecordingstateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate bad request response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate bad request response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate bad request response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate bad request response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate bad request response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutConversationsScreenshareRecordingstateBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -207,7 +296,8 @@ func NewPutConversationsScreenshareRecordingstateUnauthorized() *PutConversation
 	return &PutConversationsScreenshareRecordingstateUnauthorized{}
 }
 
-/*PutConversationsScreenshareRecordingstateUnauthorized handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -215,7 +305,36 @@ type PutConversationsScreenshareRecordingstateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate unauthorized response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate unauthorized response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate unauthorized response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate unauthorized response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate unauthorized response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutConversationsScreenshareRecordingstateUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -240,7 +359,8 @@ func NewPutConversationsScreenshareRecordingstateForbidden() *PutConversationsSc
 	return &PutConversationsScreenshareRecordingstateForbidden{}
 }
 
-/*PutConversationsScreenshareRecordingstateForbidden handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -248,7 +368,36 @@ type PutConversationsScreenshareRecordingstateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate forbidden response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate forbidden response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate forbidden response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate forbidden response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate forbidden response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutConversationsScreenshareRecordingstateForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateForbidden  %+v", 403, o.Payload)
 }
 
@@ -273,7 +422,8 @@ func NewPutConversationsScreenshareRecordingstateNotFound() *PutConversationsScr
 	return &PutConversationsScreenshareRecordingstateNotFound{}
 }
 
-/*PutConversationsScreenshareRecordingstateNotFound handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -281,7 +431,36 @@ type PutConversationsScreenshareRecordingstateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate not found response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate not found response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate not found response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate not found response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate not found response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutConversationsScreenshareRecordingstateNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateNotFound  %+v", 404, o.Payload)
 }
 
@@ -306,7 +485,8 @@ func NewPutConversationsScreenshareRecordingstateRequestTimeout() *PutConversati
 	return &PutConversationsScreenshareRecordingstateRequestTimeout{}
 }
 
-/*PutConversationsScreenshareRecordingstateRequestTimeout handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -314,7 +494,36 @@ type PutConversationsScreenshareRecordingstateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate request timeout response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate request timeout response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate request timeout response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate request timeout response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate request timeout response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutConversationsScreenshareRecordingstateRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -339,7 +548,8 @@ func NewPutConversationsScreenshareRecordingstateRequestEntityTooLarge() *PutCon
 	return &PutConversationsScreenshareRecordingstateRequestEntityTooLarge{}
 }
 
-/*PutConversationsScreenshareRecordingstateRequestEntityTooLarge handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -347,7 +557,36 @@ type PutConversationsScreenshareRecordingstateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate request entity too large response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate request entity too large response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate request entity too large response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate request entity too large response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate request entity too large response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutConversationsScreenshareRecordingstateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -372,7 +611,8 @@ func NewPutConversationsScreenshareRecordingstateUnsupportedMediaType() *PutConv
 	return &PutConversationsScreenshareRecordingstateUnsupportedMediaType{}
 }
 
-/*PutConversationsScreenshareRecordingstateUnsupportedMediaType handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -380,7 +620,36 @@ type PutConversationsScreenshareRecordingstateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate unsupported media type response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate unsupported media type response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate unsupported media type response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate unsupported media type response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate unsupported media type response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutConversationsScreenshareRecordingstateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -405,7 +674,8 @@ func NewPutConversationsScreenshareRecordingstateTooManyRequests() *PutConversat
 	return &PutConversationsScreenshareRecordingstateTooManyRequests{}
 }
 
-/*PutConversationsScreenshareRecordingstateTooManyRequests handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -413,7 +683,36 @@ type PutConversationsScreenshareRecordingstateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate too many requests response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate too many requests response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate too many requests response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate too many requests response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate too many requests response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutConversationsScreenshareRecordingstateTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -438,7 +737,8 @@ func NewPutConversationsScreenshareRecordingstateInternalServerError() *PutConve
 	return &PutConversationsScreenshareRecordingstateInternalServerError{}
 }
 
-/*PutConversationsScreenshareRecordingstateInternalServerError handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -446,7 +746,36 @@ type PutConversationsScreenshareRecordingstateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate internal server error response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate internal server error response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate internal server error response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate internal server error response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate internal server error response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutConversationsScreenshareRecordingstateInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -471,7 +800,8 @@ func NewPutConversationsScreenshareRecordingstateServiceUnavailable() *PutConver
 	return &PutConversationsScreenshareRecordingstateServiceUnavailable{}
 }
 
-/*PutConversationsScreenshareRecordingstateServiceUnavailable handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -479,7 +809,36 @@ type PutConversationsScreenshareRecordingstateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate service unavailable response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate service unavailable response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate service unavailable response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate service unavailable response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate service unavailable response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutConversationsScreenshareRecordingstateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -504,7 +863,8 @@ func NewPutConversationsScreenshareRecordingstateGatewayTimeout() *PutConversati
 	return &PutConversationsScreenshareRecordingstateGatewayTimeout{}
 }
 
-/*PutConversationsScreenshareRecordingstateGatewayTimeout handles this case with default header values.
+/*
+PutConversationsScreenshareRecordingstateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -512,7 +872,36 @@ type PutConversationsScreenshareRecordingstateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations screenshare recordingstate gateway timeout response has a 2xx status code
+func (o *PutConversationsScreenshareRecordingstateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations screenshare recordingstate gateway timeout response has a 3xx status code
+func (o *PutConversationsScreenshareRecordingstateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations screenshare recordingstate gateway timeout response has a 4xx status code
+func (o *PutConversationsScreenshareRecordingstateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations screenshare recordingstate gateway timeout response has a 5xx status code
+func (o *PutConversationsScreenshareRecordingstateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations screenshare recordingstate gateway timeout response a status code equal to that given
+func (o *PutConversationsScreenshareRecordingstateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutConversationsScreenshareRecordingstateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutConversationsScreenshareRecordingstateGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/screenshares/{conversationId}/recordingstate][%d] putConversationsScreenshareRecordingstateGatewayTimeout  %+v", 504, o.Payload)
 }
 

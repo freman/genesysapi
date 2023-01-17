@@ -95,7 +95,6 @@ func (o *PostKnowledgeKnowledgebaseDocumentVersionsReader) ReadResponse(response
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostKnowledgeKnowledgebaseDocumentVersionsOK() *PostKnowledgeKnowledgeba
 	return &PostKnowledgeKnowledgebaseDocumentVersionsOK{}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVersionsOK handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseDocumentVersionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostKnowledgeKnowledgebaseDocumentVersionsOK struct {
 	Payload *models.KnowledgeDocumentVersion
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase document versions o k response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase document versions o k response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase document versions o k response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge knowledgebase document versions o k response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase document versions o k response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostKnowledgeKnowledgebaseDocumentVersionsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostKnowledgeKnowledgebaseDocumentVersionsBadRequest() *PostKnowledgeKno
 	return &PostKnowledgeKnowledgebaseDocumentVersionsBadRequest{}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVersionsBadRequest handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseDocumentVersionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostKnowledgeKnowledgebaseDocumentVersionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase document versions bad request response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase document versions bad request response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase document versions bad request response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase document versions bad request response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase document versions bad request response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostKnowledgeKnowledgebaseDocumentVersionsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostKnowledgeKnowledgebaseDocumentVersionsUnauthorized() *PostKnowledgeK
 	return &PostKnowledgeKnowledgebaseDocumentVersionsUnauthorized{}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVersionsUnauthorized handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseDocumentVersionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostKnowledgeKnowledgebaseDocumentVersionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase document versions unauthorized response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase document versions unauthorized response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase document versions unauthorized response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase document versions unauthorized response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase document versions unauthorized response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostKnowledgeKnowledgebaseDocumentVersionsForbidden() *PostKnowledgeKnow
 	return &PostKnowledgeKnowledgebaseDocumentVersionsForbidden{}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVersionsForbidden handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseDocumentVersionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostKnowledgeKnowledgebaseDocumentVersionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase document versions forbidden response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase document versions forbidden response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase document versions forbidden response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase document versions forbidden response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase document versions forbidden response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostKnowledgeKnowledgebaseDocumentVersionsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostKnowledgeKnowledgebaseDocumentVersionsNotFound() *PostKnowledgeKnowl
 	return &PostKnowledgeKnowledgebaseDocumentVersionsNotFound{}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVersionsNotFound handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseDocumentVersionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostKnowledgeKnowledgebaseDocumentVersionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase document versions not found response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase document versions not found response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase document versions not found response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase document versions not found response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase document versions not found response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostKnowledgeKnowledgebaseDocumentVersionsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostKnowledgeKnowledgebaseDocumentVersionsRequestTimeout() *PostKnowledg
 	return &PostKnowledgeKnowledgebaseDocumentVersionsRequestTimeout{}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVersionsRequestTimeout handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseDocumentVersionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostKnowledgeKnowledgebaseDocumentVersionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase document versions request timeout response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase document versions request timeout response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase document versions request timeout response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase document versions request timeout response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase document versions request timeout response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge() *PostK
 	return &PostKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge{}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase document versions request entity too large response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase document versions request entity too large response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase document versions request entity too large response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase document versions request entity too large response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase document versions request entity too large response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType() *PostKn
 	return &PostKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType{}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase document versions unsupported media type response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase document versions unsupported media type response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase document versions unsupported media type response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase document versions unsupported media type response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase document versions unsupported media type response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostKnowledgeKnowledgebaseDocumentVersionsTooManyRequests() *PostKnowled
 	return &PostKnowledgeKnowledgebaseDocumentVersionsTooManyRequests{}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVersionsTooManyRequests handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseDocumentVersionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostKnowledgeKnowledgebaseDocumentVersionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase document versions too many requests response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase document versions too many requests response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase document versions too many requests response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase document versions too many requests response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase document versions too many requests response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostKnowledgeKnowledgebaseDocumentVersionsInternalServerError() *PostKno
 	return &PostKnowledgeKnowledgebaseDocumentVersionsInternalServerError{}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVersionsInternalServerError handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseDocumentVersionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostKnowledgeKnowledgebaseDocumentVersionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase document versions internal server error response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase document versions internal server error response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase document versions internal server error response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge knowledgebase document versions internal server error response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge knowledgebase document versions internal server error response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostKnowledgeKnowledgebaseDocumentVersionsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable() *PostKnow
 	return &PostKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable{}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase document versions service unavailable response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase document versions service unavailable response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase document versions service unavailable response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge knowledgebase document versions service unavailable response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge knowledgebase document versions service unavailable response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout() *PostKnowledg
 	return &PostKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout{}
 }
 
-/*PostKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase document versions gateway timeout response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase document versions gateway timeout response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase document versions gateway timeout response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge knowledgebase document versions gateway timeout response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge knowledgebase document versions gateway timeout response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/versions][%d] postKnowledgeKnowledgebaseDocumentVersionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

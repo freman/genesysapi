@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -62,7 +64,6 @@ func (m *ErrorDetails) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ErrorDetails) validateDetails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Details) { // not required
 		return nil
 	}
@@ -75,7 +76,6 @@ func (m *ErrorDetails) validateDetails(formats strfmt.Registry) error {
 }
 
 func (m *ErrorDetails) validateNested(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Nested) { // not required
 		return nil
 	}
@@ -84,6 +84,38 @@ func (m *ErrorDetails) validateNested(formats strfmt.Registry) error {
 		if err := m.Nested.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("nested")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nested")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this error details based on the context it is used
+func (m *ErrorDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateNested(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ErrorDetails) contextValidateNested(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Nested != nil {
+		if err := m.Nested.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("nested")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("nested")
 			}
 			return err
 		}

@@ -17,112 +17,130 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetTelephonyProvidersEdgesDidpoolsDidsParams creates a new GetTelephonyProvidersEdgesDidpoolsDidsParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesDidpoolsDidsParams creates a new GetTelephonyProvidersEdgesDidpoolsDidsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesDidpoolsDidsParams() *GetTelephonyProvidersEdgesDidpoolsDidsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetTelephonyProvidersEdgesDidpoolsDidsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesDidpoolsDidsParamsWithTimeout creates a new GetTelephonyProvidersEdgesDidpoolsDidsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesDidpoolsDidsParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesDidpoolsDidsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetTelephonyProvidersEdgesDidpoolsDidsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesDidpoolsDidsParamsWithContext creates a new GetTelephonyProvidersEdgesDidpoolsDidsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesDidpoolsDidsParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesDidpoolsDidsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetTelephonyProvidersEdgesDidpoolsDidsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesDidpoolsDidsParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesDidpoolsDidsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesDidpoolsDidsParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesDidpoolsDidsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetTelephonyProvidersEdgesDidpoolsDidsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolsDidsParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges didpools dids operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesDidpoolsDidsParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges didpools dids operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesDidpoolsDidsParams struct {
 
-	/*ID
-	  Filter by a specific list of DID Pools.  If this is not provided, numbers from all DID Pools will be returned.
+	/* ID.
 
+	   Filter by a specific list of DID Pools.  If this is not provided, numbers from all DID Pools will be returned.
 	*/
 	ID []string
-	/*NumberMatch
-	  A number to filter the results by.
 
+	/* NumberMatch.
+
+	   A number to filter the results by.
 	*/
 	NumberMatch *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "ascending"
 	*/
 	SortOrder *string
-	/*Type
-	  The type of numbers to return.
 
+	/* Type.
+
+	   The type of numbers to return.
 	*/
 	Type string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges didpools dids params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesDidpoolsDidsParams) WithDefaults() *GetTelephonyProvidersEdgesDidpoolsDidsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges didpools dids params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesDidpoolsDidsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortOrderDefault = string("ascending")
+	)
+
+	val := GetTelephonyProvidersEdgesDidpoolsDidsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges didpools dids params
@@ -232,82 +250,90 @@ func (o *GetTelephonyProvidersEdgesDidpoolsDidsParams) WriteToRequest(r runtime.
 	}
 	var res []error
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if o.NumberMatch != nil {
 
 		// query param numberMatch
 		var qrNumberMatch string
+
 		if o.NumberMatch != nil {
 			qrNumberMatch = *o.NumberMatch
 		}
 		qNumberMatch := qrNumberMatch
 		if qNumberMatch != "" {
+
 			if err := r.SetQueryParam("numberMatch", qNumberMatch); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param type
 	qrType := o.Type
 	qType := qrType
 	if qType != "" {
+
 		if err := r.SetQueryParam("type", qType); err != nil {
 			return err
 		}
@@ -317,4 +343,21 @@ func (o *GetTelephonyProvidersEdgesDidpoolsDidsParams) WriteToRequest(r runtime.
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetTelephonyProvidersEdgesDidpoolsDids binds the parameter id
+func (o *GetTelephonyProvidersEdgesDidpoolsDidsParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
 }

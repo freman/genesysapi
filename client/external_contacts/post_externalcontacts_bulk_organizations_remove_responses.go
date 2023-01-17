@@ -101,7 +101,6 @@ func (o *PostExternalcontactsBulkOrganizationsRemoveReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveOK() *PostExternalcontactsBul
 	return &PostExternalcontactsBulkOrganizationsRemoveOK{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveOK handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostExternalcontactsBulkOrganizationsRemoveOK struct {
 	Payload *models.BulkDeleteResponse
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove o k response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove o k response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove o k response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove o k response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove o k response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveOK  %+v", 200, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveBadRequest() *PostExternalcon
 	return &PostExternalcontactsBulkOrganizationsRemoveBadRequest{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveBadRequest handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostExternalcontactsBulkOrganizationsRemoveBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove bad request response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove bad request response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove bad request response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove bad request response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove bad request response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveUnauthorized() *PostExternalc
 	return &PostExternalcontactsBulkOrganizationsRemoveUnauthorized{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveUnauthorized handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostExternalcontactsBulkOrganizationsRemoveUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove unauthorized response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove unauthorized response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove unauthorized response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove unauthorized response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove unauthorized response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveForbidden() *PostExternalcont
 	return &PostExternalcontactsBulkOrganizationsRemoveForbidden{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveForbidden handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostExternalcontactsBulkOrganizationsRemoveForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove forbidden response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove forbidden response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove forbidden response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove forbidden response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove forbidden response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveNotFound() *PostExternalconta
 	return &PostExternalcontactsBulkOrganizationsRemoveNotFound{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveNotFound handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostExternalcontactsBulkOrganizationsRemoveNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove not found response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove not found response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove not found response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove not found response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove not found response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveRequestTimeout() *PostExterna
 	return &PostExternalcontactsBulkOrganizationsRemoveRequestTimeout{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveRequestTimeout handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostExternalcontactsBulkOrganizationsRemoveRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove request timeout response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove request timeout response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove request timeout response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove request timeout response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove request timeout response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge() *Post
 	return &PostExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -318,7 +498,36 @@ type PostExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove request entity too large response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove request entity too large response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove request entity too large response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove request entity too large response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove request entity too large response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType() *PostE
 	return &PostExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -351,7 +561,36 @@ type PostExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove unsupported media type response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove unsupported media type response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove unsupported media type response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove unsupported media type response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove unsupported media type response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity() *PostEx
 	return &PostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity describes a response with status code 422, with default header values.
 
 PostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity post externalcontacts bulk organizations remove unprocessable entity
 */
@@ -384,7 +624,36 @@ type PostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove unprocessable entity response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove unprocessable entity response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove unprocessable entity response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove unprocessable entity response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove unprocessable entity response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity) IsCode(code int) bool {
+	return code == 422
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveUnprocessableEntity  %+v", 422, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveUnprocessableEntity) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveUnprocessableEntity  %+v", 422, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveTooManyRequests() *PostExtern
 	return &PostExternalcontactsBulkOrganizationsRemoveTooManyRequests{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveTooManyRequests handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostExternalcontactsBulkOrganizationsRemoveTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove too many requests response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove too many requests response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove too many requests response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove too many requests response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove too many requests response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveInternalServerError() *PostEx
 	return &PostExternalcontactsBulkOrganizationsRemoveInternalServerError{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveInternalServerError handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostExternalcontactsBulkOrganizationsRemoveInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove internal server error response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove internal server error response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove internal server error response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove internal server error response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove internal server error response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveServiceUnavailable() *PostExt
 	return &PostExternalcontactsBulkOrganizationsRemoveServiceUnavailable{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveServiceUnavailable handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostExternalcontactsBulkOrganizationsRemoveServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove service unavailable response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove service unavailable response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove service unavailable response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove service unavailable response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove service unavailable response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostExternalcontactsBulkOrganizationsRemoveGatewayTimeout() *PostExterna
 	return &PostExternalcontactsBulkOrganizationsRemoveGatewayTimeout{}
 }
 
-/*PostExternalcontactsBulkOrganizationsRemoveGatewayTimeout handles this case with default header values.
+/*
+PostExternalcontactsBulkOrganizationsRemoveGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostExternalcontactsBulkOrganizationsRemoveGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post externalcontacts bulk organizations remove gateway timeout response has a 2xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post externalcontacts bulk organizations remove gateway timeout response has a 3xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post externalcontacts bulk organizations remove gateway timeout response has a 4xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post externalcontacts bulk organizations remove gateway timeout response has a 5xx status code
+func (o *PostExternalcontactsBulkOrganizationsRemoveGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post externalcontacts bulk organizations remove gateway timeout response a status code equal to that given
+func (o *PostExternalcontactsBulkOrganizationsRemoveGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostExternalcontactsBulkOrganizationsRemoveGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostExternalcontactsBulkOrganizationsRemoveGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/externalcontacts/bulk/organizations/remove][%d] postExternalcontactsBulkOrganizationsRemoveGatewayTimeout  %+v", 504, o.Payload)
 }
 

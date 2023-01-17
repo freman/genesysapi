@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchJourneySegmentParams creates a new PatchJourneySegmentParams object
-// with the default values initialized.
+// NewPatchJourneySegmentParams creates a new PatchJourneySegmentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchJourneySegmentParams() *PatchJourneySegmentParams {
-	var ()
 	return &PatchJourneySegmentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchJourneySegmentParamsWithTimeout creates a new PatchJourneySegmentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchJourneySegmentParamsWithTimeout(timeout time.Duration) *PatchJourneySegmentParams {
-	var ()
 	return &PatchJourneySegmentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchJourneySegmentParamsWithContext creates a new PatchJourneySegmentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchJourneySegmentParamsWithContext(ctx context.Context) *PatchJourneySegmentParams {
-	var ()
 	return &PatchJourneySegmentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchJourneySegmentParamsWithHTTPClient creates a new PatchJourneySegmentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchJourneySegmentParamsWithHTTPClient(client *http.Client) *PatchJourneySegmentParams {
-	var ()
 	return &PatchJourneySegmentParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchJourneySegmentParams contains all the parameters to send to the API endpoint
-for the patch journey segment operation typically these are written to a http.Request
+/*
+PatchJourneySegmentParams contains all the parameters to send to the API endpoint
+
+	for the patch journey segment operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchJourneySegmentParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.PatchSegment
-	/*SegmentID
-	  ID of the segment.
 
+	/* SegmentID.
+
+	   ID of the segment.
 	*/
 	SegmentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch journey segment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchJourneySegmentParams) WithDefaults() *PatchJourneySegmentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch journey segment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchJourneySegmentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch journey segment params
@@ -137,7 +154,6 @@ func (o *PatchJourneySegmentParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

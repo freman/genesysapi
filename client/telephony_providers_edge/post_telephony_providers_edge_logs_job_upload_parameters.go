@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTelephonyProvidersEdgeLogsJobUploadParams creates a new PostTelephonyProvidersEdgeLogsJobUploadParams object
-// with the default values initialized.
+// NewPostTelephonyProvidersEdgeLogsJobUploadParams creates a new PostTelephonyProvidersEdgeLogsJobUploadParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTelephonyProvidersEdgeLogsJobUploadParams() *PostTelephonyProvidersEdgeLogsJobUploadParams {
-	var ()
 	return &PostTelephonyProvidersEdgeLogsJobUploadParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeLogsJobUploadParamsWithTimeout creates a new PostTelephonyProvidersEdgeLogsJobUploadParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTelephonyProvidersEdgeLogsJobUploadParamsWithTimeout(timeout time.Duration) *PostTelephonyProvidersEdgeLogsJobUploadParams {
-	var ()
 	return &PostTelephonyProvidersEdgeLogsJobUploadParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeLogsJobUploadParamsWithContext creates a new PostTelephonyProvidersEdgeLogsJobUploadParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTelephonyProvidersEdgeLogsJobUploadParamsWithContext(ctx context.Context) *PostTelephonyProvidersEdgeLogsJobUploadParams {
-	var ()
 	return &PostTelephonyProvidersEdgeLogsJobUploadParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeLogsJobUploadParamsWithHTTPClient creates a new PostTelephonyProvidersEdgeLogsJobUploadParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTelephonyProvidersEdgeLogsJobUploadParamsWithHTTPClient(client *http.Client) *PostTelephonyProvidersEdgeLogsJobUploadParams {
-	var ()
 	return &PostTelephonyProvidersEdgeLogsJobUploadParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobUploadParams contains all the parameters to send to the API endpoint
-for the post telephony providers edge logs job upload operation typically these are written to a http.Request
+/*
+PostTelephonyProvidersEdgeLogsJobUploadParams contains all the parameters to send to the API endpoint
+
+	for the post telephony providers edge logs job upload operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTelephonyProvidersEdgeLogsJobUploadParams struct {
 
-	/*Body
-	  Log upload request
+	/* Body.
 
+	   Log upload request
 	*/
 	Body *models.EdgeLogsJobUploadRequest
-	/*EdgeID
-	  Edge ID
 
+	/* EdgeID.
+
+	   Edge ID
 	*/
 	EdgeID string
-	/*JobID
-	  Job ID
 
+	/* JobID.
+
+	   Job ID
 	*/
 	JobID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post telephony providers edge logs job upload params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeLogsJobUploadParams) WithDefaults() *PostTelephonyProvidersEdgeLogsJobUploadParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post telephony providers edge logs job upload params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeLogsJobUploadParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post telephony providers edge logs job upload params
@@ -156,7 +174,6 @@ func (o *PostTelephonyProvidersEdgeLogsJobUploadParams) WriteToRequest(r runtime
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

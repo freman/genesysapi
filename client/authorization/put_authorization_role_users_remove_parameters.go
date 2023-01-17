@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPutAuthorizationRoleUsersRemoveParams creates a new PutAuthorizationRoleUsersRemoveParams object
-// with the default values initialized.
+// NewPutAuthorizationRoleUsersRemoveParams creates a new PutAuthorizationRoleUsersRemoveParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutAuthorizationRoleUsersRemoveParams() *PutAuthorizationRoleUsersRemoveParams {
-	var ()
 	return &PutAuthorizationRoleUsersRemoveParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutAuthorizationRoleUsersRemoveParamsWithTimeout creates a new PutAuthorizationRoleUsersRemoveParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutAuthorizationRoleUsersRemoveParamsWithTimeout(timeout time.Duration) *PutAuthorizationRoleUsersRemoveParams {
-	var ()
 	return &PutAuthorizationRoleUsersRemoveParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutAuthorizationRoleUsersRemoveParamsWithContext creates a new PutAuthorizationRoleUsersRemoveParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutAuthorizationRoleUsersRemoveParamsWithContext(ctx context.Context) *PutAuthorizationRoleUsersRemoveParams {
-	var ()
 	return &PutAuthorizationRoleUsersRemoveParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutAuthorizationRoleUsersRemoveParamsWithHTTPClient creates a new PutAuthorizationRoleUsersRemoveParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutAuthorizationRoleUsersRemoveParamsWithHTTPClient(client *http.Client) *PutAuthorizationRoleUsersRemoveParams {
-	var ()
 	return &PutAuthorizationRoleUsersRemoveParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutAuthorizationRoleUsersRemoveParams contains all the parameters to send to the API endpoint
-for the put authorization role users remove operation typically these are written to a http.Request
+/*
+PutAuthorizationRoleUsersRemoveParams contains all the parameters to send to the API endpoint
+
+	for the put authorization role users remove operation.
+
+	Typically these are written to a http.Request.
 */
 type PutAuthorizationRoleUsersRemoveParams struct {
 
-	/*Body
-	  List of user IDs
+	/* Body.
 
+	   List of user IDs
 	*/
 	Body []string
-	/*RoleID
-	  Role ID
 
+	/* RoleID.
+
+	   Role ID
 	*/
 	RoleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put authorization role users remove params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutAuthorizationRoleUsersRemoveParams) WithDefaults() *PutAuthorizationRoleUsersRemoveParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put authorization role users remove params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutAuthorizationRoleUsersRemoveParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put authorization role users remove params
@@ -138,7 +155,6 @@ func (o *PutAuthorizationRoleUsersRemoveParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementManagementunitUserTimeoffrequestParams creates a new GetWorkforcemanagementManagementunitUserTimeoffrequestParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementManagementunitUserTimeoffrequestParams creates a new GetWorkforcemanagementManagementunitUserTimeoffrequestParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementManagementunitUserTimeoffrequestParams() *GetWorkforcemanagementManagementunitUserTimeoffrequestParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitUserTimeoffrequestParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitUserTimeoffrequestParamsWithTimeout creates a new GetWorkforcemanagementManagementunitUserTimeoffrequestParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementManagementunitUserTimeoffrequestParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementManagementunitUserTimeoffrequestParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitUserTimeoffrequestParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitUserTimeoffrequestParamsWithContext creates a new GetWorkforcemanagementManagementunitUserTimeoffrequestParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementManagementunitUserTimeoffrequestParamsWithContext(ctx context.Context) *GetWorkforcemanagementManagementunitUserTimeoffrequestParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitUserTimeoffrequestParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitUserTimeoffrequestParamsWithHTTPClient creates a new GetWorkforcemanagementManagementunitUserTimeoffrequestParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementManagementunitUserTimeoffrequestParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementManagementunitUserTimeoffrequestParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitUserTimeoffrequestParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementManagementunitUserTimeoffrequestParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement managementunit user timeoffrequest operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementManagementunitUserTimeoffrequestParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement managementunit user timeoffrequest operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementManagementunitUserTimeoffrequestParams struct {
 
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
+	/* ManagementUnitID.
 
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
-	/*TimeOffRequestID
-	  Time Off Request Id
 
+	/* TimeOffRequestID.
+
+	   Time Off Request Id
 	*/
 	TimeOffRequestID string
-	/*UserID
-	  The userId to whom the Time Off Request applies.
 
+	/* UserID.
+
+	   The userId to whom the Time Off Request applies.
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement managementunit user timeoffrequest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestParams) WithDefaults() *GetWorkforcemanagementManagementunitUserTimeoffrequestParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement managementunit user timeoffrequest params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitUserTimeoffrequestParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement managementunit user timeoffrequest params

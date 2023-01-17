@@ -95,7 +95,6 @@ func (o *GetOrgauthorizationTrustorCloneduserReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOrgauthorizationTrustorCloneduserOK() *GetOrgauthorizationTrustorClon
 	return &GetOrgauthorizationTrustorCloneduserOK{}
 }
 
-/*GetOrgauthorizationTrustorCloneduserOK handles this case with default header values.
+/*
+GetOrgauthorizationTrustorCloneduserOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOrgauthorizationTrustorCloneduserOK struct {
 	Payload *models.ClonedUser
 }
 
+// IsSuccess returns true when this get orgauthorization trustor cloneduser o k response has a 2xx status code
+func (o *GetOrgauthorizationTrustorCloneduserOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get orgauthorization trustor cloneduser o k response has a 3xx status code
+func (o *GetOrgauthorizationTrustorCloneduserOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor cloneduser o k response has a 4xx status code
+func (o *GetOrgauthorizationTrustorCloneduserOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orgauthorization trustor cloneduser o k response has a 5xx status code
+func (o *GetOrgauthorizationTrustorCloneduserOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor cloneduser o k response a status code equal to that given
+func (o *GetOrgauthorizationTrustorCloneduserOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrgauthorizationTrustorCloneduserOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorCloneduserOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOrgauthorizationTrustorCloneduserBadRequest() *GetOrgauthorizationTru
 	return &GetOrgauthorizationTrustorCloneduserBadRequest{}
 }
 
-/*GetOrgauthorizationTrustorCloneduserBadRequest handles this case with default header values.
+/*
+GetOrgauthorizationTrustorCloneduserBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOrgauthorizationTrustorCloneduserBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor cloneduser bad request response has a 2xx status code
+func (o *GetOrgauthorizationTrustorCloneduserBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor cloneduser bad request response has a 3xx status code
+func (o *GetOrgauthorizationTrustorCloneduserBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor cloneduser bad request response has a 4xx status code
+func (o *GetOrgauthorizationTrustorCloneduserBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor cloneduser bad request response has a 5xx status code
+func (o *GetOrgauthorizationTrustorCloneduserBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor cloneduser bad request response a status code equal to that given
+func (o *GetOrgauthorizationTrustorCloneduserBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOrgauthorizationTrustorCloneduserBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorCloneduserBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOrgauthorizationTrustorCloneduserUnauthorized() *GetOrgauthorizationT
 	return &GetOrgauthorizationTrustorCloneduserUnauthorized{}
 }
 
-/*GetOrgauthorizationTrustorCloneduserUnauthorized handles this case with default header values.
+/*
+GetOrgauthorizationTrustorCloneduserUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOrgauthorizationTrustorCloneduserUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor cloneduser unauthorized response has a 2xx status code
+func (o *GetOrgauthorizationTrustorCloneduserUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor cloneduser unauthorized response has a 3xx status code
+func (o *GetOrgauthorizationTrustorCloneduserUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor cloneduser unauthorized response has a 4xx status code
+func (o *GetOrgauthorizationTrustorCloneduserUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor cloneduser unauthorized response has a 5xx status code
+func (o *GetOrgauthorizationTrustorCloneduserUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor cloneduser unauthorized response a status code equal to that given
+func (o *GetOrgauthorizationTrustorCloneduserUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOrgauthorizationTrustorCloneduserUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorCloneduserUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOrgauthorizationTrustorCloneduserForbidden() *GetOrgauthorizationTrus
 	return &GetOrgauthorizationTrustorCloneduserForbidden{}
 }
 
-/*GetOrgauthorizationTrustorCloneduserForbidden handles this case with default header values.
+/*
+GetOrgauthorizationTrustorCloneduserForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOrgauthorizationTrustorCloneduserForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor cloneduser forbidden response has a 2xx status code
+func (o *GetOrgauthorizationTrustorCloneduserForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor cloneduser forbidden response has a 3xx status code
+func (o *GetOrgauthorizationTrustorCloneduserForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor cloneduser forbidden response has a 4xx status code
+func (o *GetOrgauthorizationTrustorCloneduserForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor cloneduser forbidden response has a 5xx status code
+func (o *GetOrgauthorizationTrustorCloneduserForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor cloneduser forbidden response a status code equal to that given
+func (o *GetOrgauthorizationTrustorCloneduserForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrgauthorizationTrustorCloneduserForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorCloneduserForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOrgauthorizationTrustorCloneduserNotFound() *GetOrgauthorizationTrust
 	return &GetOrgauthorizationTrustorCloneduserNotFound{}
 }
 
-/*GetOrgauthorizationTrustorCloneduserNotFound handles this case with default header values.
+/*
+GetOrgauthorizationTrustorCloneduserNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOrgauthorizationTrustorCloneduserNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor cloneduser not found response has a 2xx status code
+func (o *GetOrgauthorizationTrustorCloneduserNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor cloneduser not found response has a 3xx status code
+func (o *GetOrgauthorizationTrustorCloneduserNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor cloneduser not found response has a 4xx status code
+func (o *GetOrgauthorizationTrustorCloneduserNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor cloneduser not found response has a 5xx status code
+func (o *GetOrgauthorizationTrustorCloneduserNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor cloneduser not found response a status code equal to that given
+func (o *GetOrgauthorizationTrustorCloneduserNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrgauthorizationTrustorCloneduserNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorCloneduserNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOrgauthorizationTrustorCloneduserRequestTimeout() *GetOrgauthorizatio
 	return &GetOrgauthorizationTrustorCloneduserRequestTimeout{}
 }
 
-/*GetOrgauthorizationTrustorCloneduserRequestTimeout handles this case with default header values.
+/*
+GetOrgauthorizationTrustorCloneduserRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOrgauthorizationTrustorCloneduserRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor cloneduser request timeout response has a 2xx status code
+func (o *GetOrgauthorizationTrustorCloneduserRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor cloneduser request timeout response has a 3xx status code
+func (o *GetOrgauthorizationTrustorCloneduserRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor cloneduser request timeout response has a 4xx status code
+func (o *GetOrgauthorizationTrustorCloneduserRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor cloneduser request timeout response has a 5xx status code
+func (o *GetOrgauthorizationTrustorCloneduserRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor cloneduser request timeout response a status code equal to that given
+func (o *GetOrgauthorizationTrustorCloneduserRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOrgauthorizationTrustorCloneduserRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorCloneduserRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOrgauthorizationTrustorCloneduserRequestEntityTooLarge() *GetOrgautho
 	return &GetOrgauthorizationTrustorCloneduserRequestEntityTooLarge{}
 }
 
-/*GetOrgauthorizationTrustorCloneduserRequestEntityTooLarge handles this case with default header values.
+/*
+GetOrgauthorizationTrustorCloneduserRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOrgauthorizationTrustorCloneduserRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor cloneduser request entity too large response has a 2xx status code
+func (o *GetOrgauthorizationTrustorCloneduserRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor cloneduser request entity too large response has a 3xx status code
+func (o *GetOrgauthorizationTrustorCloneduserRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor cloneduser request entity too large response has a 4xx status code
+func (o *GetOrgauthorizationTrustorCloneduserRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor cloneduser request entity too large response has a 5xx status code
+func (o *GetOrgauthorizationTrustorCloneduserRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor cloneduser request entity too large response a status code equal to that given
+func (o *GetOrgauthorizationTrustorCloneduserRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOrgauthorizationTrustorCloneduserRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorCloneduserRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOrgauthorizationTrustorCloneduserUnsupportedMediaType() *GetOrgauthor
 	return &GetOrgauthorizationTrustorCloneduserUnsupportedMediaType{}
 }
 
-/*GetOrgauthorizationTrustorCloneduserUnsupportedMediaType handles this case with default header values.
+/*
+GetOrgauthorizationTrustorCloneduserUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOrgauthorizationTrustorCloneduserUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor cloneduser unsupported media type response has a 2xx status code
+func (o *GetOrgauthorizationTrustorCloneduserUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor cloneduser unsupported media type response has a 3xx status code
+func (o *GetOrgauthorizationTrustorCloneduserUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor cloneduser unsupported media type response has a 4xx status code
+func (o *GetOrgauthorizationTrustorCloneduserUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor cloneduser unsupported media type response has a 5xx status code
+func (o *GetOrgauthorizationTrustorCloneduserUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor cloneduser unsupported media type response a status code equal to that given
+func (o *GetOrgauthorizationTrustorCloneduserUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOrgauthorizationTrustorCloneduserUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorCloneduserUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOrgauthorizationTrustorCloneduserTooManyRequests() *GetOrgauthorizati
 	return &GetOrgauthorizationTrustorCloneduserTooManyRequests{}
 }
 
-/*GetOrgauthorizationTrustorCloneduserTooManyRequests handles this case with default header values.
+/*
+GetOrgauthorizationTrustorCloneduserTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOrgauthorizationTrustorCloneduserTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor cloneduser too many requests response has a 2xx status code
+func (o *GetOrgauthorizationTrustorCloneduserTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor cloneduser too many requests response has a 3xx status code
+func (o *GetOrgauthorizationTrustorCloneduserTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor cloneduser too many requests response has a 4xx status code
+func (o *GetOrgauthorizationTrustorCloneduserTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization trustor cloneduser too many requests response has a 5xx status code
+func (o *GetOrgauthorizationTrustorCloneduserTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization trustor cloneduser too many requests response a status code equal to that given
+func (o *GetOrgauthorizationTrustorCloneduserTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOrgauthorizationTrustorCloneduserTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorCloneduserTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOrgauthorizationTrustorCloneduserInternalServerError() *GetOrgauthori
 	return &GetOrgauthorizationTrustorCloneduserInternalServerError{}
 }
 
-/*GetOrgauthorizationTrustorCloneduserInternalServerError handles this case with default header values.
+/*
+GetOrgauthorizationTrustorCloneduserInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOrgauthorizationTrustorCloneduserInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor cloneduser internal server error response has a 2xx status code
+func (o *GetOrgauthorizationTrustorCloneduserInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor cloneduser internal server error response has a 3xx status code
+func (o *GetOrgauthorizationTrustorCloneduserInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor cloneduser internal server error response has a 4xx status code
+func (o *GetOrgauthorizationTrustorCloneduserInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orgauthorization trustor cloneduser internal server error response has a 5xx status code
+func (o *GetOrgauthorizationTrustorCloneduserInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get orgauthorization trustor cloneduser internal server error response a status code equal to that given
+func (o *GetOrgauthorizationTrustorCloneduserInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOrgauthorizationTrustorCloneduserInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorCloneduserInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOrgauthorizationTrustorCloneduserServiceUnavailable() *GetOrgauthoriz
 	return &GetOrgauthorizationTrustorCloneduserServiceUnavailable{}
 }
 
-/*GetOrgauthorizationTrustorCloneduserServiceUnavailable handles this case with default header values.
+/*
+GetOrgauthorizationTrustorCloneduserServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOrgauthorizationTrustorCloneduserServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor cloneduser service unavailable response has a 2xx status code
+func (o *GetOrgauthorizationTrustorCloneduserServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor cloneduser service unavailable response has a 3xx status code
+func (o *GetOrgauthorizationTrustorCloneduserServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor cloneduser service unavailable response has a 4xx status code
+func (o *GetOrgauthorizationTrustorCloneduserServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orgauthorization trustor cloneduser service unavailable response has a 5xx status code
+func (o *GetOrgauthorizationTrustorCloneduserServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get orgauthorization trustor cloneduser service unavailable response a status code equal to that given
+func (o *GetOrgauthorizationTrustorCloneduserServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOrgauthorizationTrustorCloneduserServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorCloneduserServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOrgauthorizationTrustorCloneduserGatewayTimeout() *GetOrgauthorizatio
 	return &GetOrgauthorizationTrustorCloneduserGatewayTimeout{}
 }
 
-/*GetOrgauthorizationTrustorCloneduserGatewayTimeout handles this case with default header values.
+/*
+GetOrgauthorizationTrustorCloneduserGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOrgauthorizationTrustorCloneduserGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization trustor cloneduser gateway timeout response has a 2xx status code
+func (o *GetOrgauthorizationTrustorCloneduserGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization trustor cloneduser gateway timeout response has a 3xx status code
+func (o *GetOrgauthorizationTrustorCloneduserGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization trustor cloneduser gateway timeout response has a 4xx status code
+func (o *GetOrgauthorizationTrustorCloneduserGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orgauthorization trustor cloneduser gateway timeout response has a 5xx status code
+func (o *GetOrgauthorizationTrustorCloneduserGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get orgauthorization trustor cloneduser gateway timeout response a status code equal to that given
+func (o *GetOrgauthorizationTrustorCloneduserGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOrgauthorizationTrustorCloneduserGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOrgauthorizationTrustorCloneduserGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/trustors/{trustorOrgId}/clonedusers/{trusteeUserId}][%d] getOrgauthorizationTrustorCloneduserGatewayTimeout  %+v", 504, o.Payload)
 }
 

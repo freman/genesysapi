@@ -95,7 +95,6 @@ func (o *GetOutboundCampaignsAllDivisionviewsReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOutboundCampaignsAllDivisionviewsOK() *GetOutboundCampaignsAllDivisio
 	return &GetOutboundCampaignsAllDivisionviewsOK{}
 }
 
-/*GetOutboundCampaignsAllDivisionviewsOK handles this case with default header values.
+/*
+GetOutboundCampaignsAllDivisionviewsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOutboundCampaignsAllDivisionviewsOK struct {
 	Payload *models.CommonCampaignDivisionViewEntityListing
 }
 
+// IsSuccess returns true when this get outbound campaigns all divisionviews o k response has a 2xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get outbound campaigns all divisionviews o k response has a 3xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns all divisionviews o k response has a 4xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaigns all divisionviews o k response has a 5xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns all divisionviews o k response a status code equal to that given
+func (o *GetOutboundCampaignsAllDivisionviewsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOutboundCampaignsAllDivisionviewsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOutboundCampaignsAllDivisionviewsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOutboundCampaignsAllDivisionviewsBadRequest() *GetOutboundCampaignsAl
 	return &GetOutboundCampaignsAllDivisionviewsBadRequest{}
 }
 
-/*GetOutboundCampaignsAllDivisionviewsBadRequest handles this case with default header values.
+/*
+GetOutboundCampaignsAllDivisionviewsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOutboundCampaignsAllDivisionviewsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns all divisionviews bad request response has a 2xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns all divisionviews bad request response has a 3xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns all divisionviews bad request response has a 4xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns all divisionviews bad request response has a 5xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns all divisionviews bad request response a status code equal to that given
+func (o *GetOutboundCampaignsAllDivisionviewsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOutboundCampaignsAllDivisionviewsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOutboundCampaignsAllDivisionviewsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOutboundCampaignsAllDivisionviewsUnauthorized() *GetOutboundCampaigns
 	return &GetOutboundCampaignsAllDivisionviewsUnauthorized{}
 }
 
-/*GetOutboundCampaignsAllDivisionviewsUnauthorized handles this case with default header values.
+/*
+GetOutboundCampaignsAllDivisionviewsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOutboundCampaignsAllDivisionviewsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns all divisionviews unauthorized response has a 2xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns all divisionviews unauthorized response has a 3xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns all divisionviews unauthorized response has a 4xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns all divisionviews unauthorized response has a 5xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns all divisionviews unauthorized response a status code equal to that given
+func (o *GetOutboundCampaignsAllDivisionviewsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOutboundCampaignsAllDivisionviewsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOutboundCampaignsAllDivisionviewsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOutboundCampaignsAllDivisionviewsForbidden() *GetOutboundCampaignsAll
 	return &GetOutboundCampaignsAllDivisionviewsForbidden{}
 }
 
-/*GetOutboundCampaignsAllDivisionviewsForbidden handles this case with default header values.
+/*
+GetOutboundCampaignsAllDivisionviewsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOutboundCampaignsAllDivisionviewsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns all divisionviews forbidden response has a 2xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns all divisionviews forbidden response has a 3xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns all divisionviews forbidden response has a 4xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns all divisionviews forbidden response has a 5xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns all divisionviews forbidden response a status code equal to that given
+func (o *GetOutboundCampaignsAllDivisionviewsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOutboundCampaignsAllDivisionviewsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOutboundCampaignsAllDivisionviewsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOutboundCampaignsAllDivisionviewsNotFound() *GetOutboundCampaignsAllD
 	return &GetOutboundCampaignsAllDivisionviewsNotFound{}
 }
 
-/*GetOutboundCampaignsAllDivisionviewsNotFound handles this case with default header values.
+/*
+GetOutboundCampaignsAllDivisionviewsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOutboundCampaignsAllDivisionviewsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns all divisionviews not found response has a 2xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns all divisionviews not found response has a 3xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns all divisionviews not found response has a 4xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns all divisionviews not found response has a 5xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns all divisionviews not found response a status code equal to that given
+func (o *GetOutboundCampaignsAllDivisionviewsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOutboundCampaignsAllDivisionviewsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOutboundCampaignsAllDivisionviewsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOutboundCampaignsAllDivisionviewsRequestTimeout() *GetOutboundCampaig
 	return &GetOutboundCampaignsAllDivisionviewsRequestTimeout{}
 }
 
-/*GetOutboundCampaignsAllDivisionviewsRequestTimeout handles this case with default header values.
+/*
+GetOutboundCampaignsAllDivisionviewsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOutboundCampaignsAllDivisionviewsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns all divisionviews request timeout response has a 2xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns all divisionviews request timeout response has a 3xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns all divisionviews request timeout response has a 4xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns all divisionviews request timeout response has a 5xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns all divisionviews request timeout response a status code equal to that given
+func (o *GetOutboundCampaignsAllDivisionviewsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOutboundCampaignsAllDivisionviewsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundCampaignsAllDivisionviewsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOutboundCampaignsAllDivisionviewsRequestEntityTooLarge() *GetOutbound
 	return &GetOutboundCampaignsAllDivisionviewsRequestEntityTooLarge{}
 }
 
-/*GetOutboundCampaignsAllDivisionviewsRequestEntityTooLarge handles this case with default header values.
+/*
+GetOutboundCampaignsAllDivisionviewsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOutboundCampaignsAllDivisionviewsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns all divisionviews request entity too large response has a 2xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns all divisionviews request entity too large response has a 3xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns all divisionviews request entity too large response has a 4xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns all divisionviews request entity too large response has a 5xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns all divisionviews request entity too large response a status code equal to that given
+func (o *GetOutboundCampaignsAllDivisionviewsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOutboundCampaignsAllDivisionviewsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOutboundCampaignsAllDivisionviewsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOutboundCampaignsAllDivisionviewsUnsupportedMediaType() *GetOutboundC
 	return &GetOutboundCampaignsAllDivisionviewsUnsupportedMediaType{}
 }
 
-/*GetOutboundCampaignsAllDivisionviewsUnsupportedMediaType handles this case with default header values.
+/*
+GetOutboundCampaignsAllDivisionviewsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOutboundCampaignsAllDivisionviewsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns all divisionviews unsupported media type response has a 2xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns all divisionviews unsupported media type response has a 3xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns all divisionviews unsupported media type response has a 4xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns all divisionviews unsupported media type response has a 5xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns all divisionviews unsupported media type response a status code equal to that given
+func (o *GetOutboundCampaignsAllDivisionviewsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOutboundCampaignsAllDivisionviewsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOutboundCampaignsAllDivisionviewsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOutboundCampaignsAllDivisionviewsTooManyRequests() *GetOutboundCampai
 	return &GetOutboundCampaignsAllDivisionviewsTooManyRequests{}
 }
 
-/*GetOutboundCampaignsAllDivisionviewsTooManyRequests handles this case with default header values.
+/*
+GetOutboundCampaignsAllDivisionviewsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOutboundCampaignsAllDivisionviewsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns all divisionviews too many requests response has a 2xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns all divisionviews too many requests response has a 3xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns all divisionviews too many requests response has a 4xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound campaigns all divisionviews too many requests response has a 5xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound campaigns all divisionviews too many requests response a status code equal to that given
+func (o *GetOutboundCampaignsAllDivisionviewsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOutboundCampaignsAllDivisionviewsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOutboundCampaignsAllDivisionviewsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOutboundCampaignsAllDivisionviewsInternalServerError() *GetOutboundCa
 	return &GetOutboundCampaignsAllDivisionviewsInternalServerError{}
 }
 
-/*GetOutboundCampaignsAllDivisionviewsInternalServerError handles this case with default header values.
+/*
+GetOutboundCampaignsAllDivisionviewsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOutboundCampaignsAllDivisionviewsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns all divisionviews internal server error response has a 2xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns all divisionviews internal server error response has a 3xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns all divisionviews internal server error response has a 4xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaigns all divisionviews internal server error response has a 5xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound campaigns all divisionviews internal server error response a status code equal to that given
+func (o *GetOutboundCampaignsAllDivisionviewsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOutboundCampaignsAllDivisionviewsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOutboundCampaignsAllDivisionviewsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOutboundCampaignsAllDivisionviewsServiceUnavailable() *GetOutboundCam
 	return &GetOutboundCampaignsAllDivisionviewsServiceUnavailable{}
 }
 
-/*GetOutboundCampaignsAllDivisionviewsServiceUnavailable handles this case with default header values.
+/*
+GetOutboundCampaignsAllDivisionviewsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOutboundCampaignsAllDivisionviewsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns all divisionviews service unavailable response has a 2xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns all divisionviews service unavailable response has a 3xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns all divisionviews service unavailable response has a 4xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaigns all divisionviews service unavailable response has a 5xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound campaigns all divisionviews service unavailable response a status code equal to that given
+func (o *GetOutboundCampaignsAllDivisionviewsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOutboundCampaignsAllDivisionviewsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOutboundCampaignsAllDivisionviewsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOutboundCampaignsAllDivisionviewsGatewayTimeout() *GetOutboundCampaig
 	return &GetOutboundCampaignsAllDivisionviewsGatewayTimeout{}
 }
 
-/*GetOutboundCampaignsAllDivisionviewsGatewayTimeout handles this case with default header values.
+/*
+GetOutboundCampaignsAllDivisionviewsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOutboundCampaignsAllDivisionviewsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound campaigns all divisionviews gateway timeout response has a 2xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound campaigns all divisionviews gateway timeout response has a 3xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound campaigns all divisionviews gateway timeout response has a 4xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound campaigns all divisionviews gateway timeout response has a 5xx status code
+func (o *GetOutboundCampaignsAllDivisionviewsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound campaigns all divisionviews gateway timeout response a status code equal to that given
+func (o *GetOutboundCampaignsAllDivisionviewsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOutboundCampaignsAllDivisionviewsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOutboundCampaignsAllDivisionviewsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/campaigns/all/divisionviews][%d] getOutboundCampaignsAllDivisionviewsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchUserPresenceParams creates a new PatchUserPresenceParams object
-// with the default values initialized.
+// NewPatchUserPresenceParams creates a new PatchUserPresenceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchUserPresenceParams() *PatchUserPresenceParams {
-	var ()
 	return &PatchUserPresenceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchUserPresenceParamsWithTimeout creates a new PatchUserPresenceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchUserPresenceParamsWithTimeout(timeout time.Duration) *PatchUserPresenceParams {
-	var ()
 	return &PatchUserPresenceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchUserPresenceParamsWithContext creates a new PatchUserPresenceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchUserPresenceParamsWithContext(ctx context.Context) *PatchUserPresenceParams {
-	var ()
 	return &PatchUserPresenceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchUserPresenceParamsWithHTTPClient creates a new PatchUserPresenceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchUserPresenceParamsWithHTTPClient(client *http.Client) *PatchUserPresenceParams {
-	var ()
 	return &PatchUserPresenceParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchUserPresenceParams contains all the parameters to send to the API endpoint
-for the patch user presence operation typically these are written to a http.Request
+/*
+PatchUserPresenceParams contains all the parameters to send to the API endpoint
+
+	for the patch user presence operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchUserPresenceParams struct {
 
-	/*Body
-	  User presence
+	/* Body.
 
+	   User presence
 	*/
 	Body *models.UserPresence
-	/*SourceID
-	  Presence source ID
 
+	/* SourceID.
+
+	   Presence source ID
 	*/
 	SourceID string
-	/*UserID
-	  user Id
 
+	/* UserID.
+
+	   user Id
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch user presence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchUserPresenceParams) WithDefaults() *PatchUserPresenceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch user presence params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchUserPresenceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch user presence params
@@ -156,7 +174,6 @@ func (o *PatchUserPresenceParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

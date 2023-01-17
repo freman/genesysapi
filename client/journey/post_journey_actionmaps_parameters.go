@@ -18,56 +18,72 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostJourneyActionmapsParams creates a new PostJourneyActionmapsParams object
-// with the default values initialized.
+// NewPostJourneyActionmapsParams creates a new PostJourneyActionmapsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostJourneyActionmapsParams() *PostJourneyActionmapsParams {
-	var ()
 	return &PostJourneyActionmapsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostJourneyActionmapsParamsWithTimeout creates a new PostJourneyActionmapsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostJourneyActionmapsParamsWithTimeout(timeout time.Duration) *PostJourneyActionmapsParams {
-	var ()
 	return &PostJourneyActionmapsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostJourneyActionmapsParamsWithContext creates a new PostJourneyActionmapsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostJourneyActionmapsParamsWithContext(ctx context.Context) *PostJourneyActionmapsParams {
-	var ()
 	return &PostJourneyActionmapsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostJourneyActionmapsParamsWithHTTPClient creates a new PostJourneyActionmapsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostJourneyActionmapsParamsWithHTTPClient(client *http.Client) *PostJourneyActionmapsParams {
-	var ()
 	return &PostJourneyActionmapsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostJourneyActionmapsParams contains all the parameters to send to the API endpoint
-for the post journey actionmaps operation typically these are written to a http.Request
+/*
+PostJourneyActionmapsParams contains all the parameters to send to the API endpoint
+
+	for the post journey actionmaps operation.
+
+	Typically these are written to a http.Request.
 */
 type PostJourneyActionmapsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.ActionMap
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post journey actionmaps params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostJourneyActionmapsParams) WithDefaults() *PostJourneyActionmapsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post journey actionmaps params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostJourneyActionmapsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post journey actionmaps params
@@ -121,7 +137,6 @@ func (o *PostJourneyActionmapsParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

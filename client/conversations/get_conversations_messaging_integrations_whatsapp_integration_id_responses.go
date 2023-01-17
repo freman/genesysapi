@@ -95,7 +95,6 @@ func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDReader) ReadR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConversationsMessagingIntegrationsWhatsappIntegrationIDOK() *GetConve
 	return &GetConversationsMessagingIntegrationsWhatsappIntegrationIDOK{}
 }
 
-/*GetConversationsMessagingIntegrationsWhatsappIntegrationIDOK handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsWhatsappIntegrationIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetConversationsMessagingIntegrationsWhatsappIntegrationIDOK struct {
 	Payload *models.WhatsAppIntegration
 }
 
+// IsSuccess returns true when this get conversations messaging integrations whatsapp integration Id o k response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversations messaging integrations whatsapp integration Id o k response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations whatsapp integration Id o k response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations whatsapp integration Id o k response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations whatsapp integration Id o k response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest() *
 	return &GetConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest{}
 }
 
-/*GetConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations whatsapp integration Id bad request response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations whatsapp integration Id bad request response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations whatsapp integration Id bad request response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations whatsapp integration Id bad request response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations whatsapp integration Id bad request response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized()
 	return &GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized{}
 }
 
-/*GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations whatsapp integration Id unauthorized response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations whatsapp integration Id unauthorized response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations whatsapp integration Id unauthorized response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations whatsapp integration Id unauthorized response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations whatsapp integration Id unauthorized response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden() *G
 	return &GetConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden{}
 }
 
-/*GetConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations whatsapp integration Id forbidden response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations whatsapp integration Id forbidden response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations whatsapp integration Id forbidden response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations whatsapp integration Id forbidden response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations whatsapp integration Id forbidden response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound() *Ge
 	return &GetConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound{}
 }
 
-/*GetConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations whatsapp integration Id not found response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations whatsapp integration Id not found response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations whatsapp integration Id not found response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations whatsapp integration Id not found response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations whatsapp integration Id not found response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout
 	return &GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout{}
 }
 
-/*GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations whatsapp integration Id request timeout response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations whatsapp integration Id request timeout response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations whatsapp integration Id request timeout response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations whatsapp integration Id request timeout response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations whatsapp integration Id request timeout response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityT
 	return &GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge{}
 }
 
-/*GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooL
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations whatsapp integration Id request entity too large response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations whatsapp integration Id request entity too large response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations whatsapp integration Id request entity too large response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations whatsapp integration Id request entity too large response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations whatsapp integration Id request entity too large response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMed
 	return &GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType{}
 }
 
-/*GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaT
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations whatsapp integration Id unsupported media type response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations whatsapp integration Id unsupported media type response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations whatsapp integration Id unsupported media type response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations whatsapp integration Id unsupported media type response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations whatsapp integration Id unsupported media type response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequest
 	return &GetConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests{}
 }
 
-/*GetConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations whatsapp integration Id too many requests response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations whatsapp integration Id too many requests response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations whatsapp integration Id too many requests response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations whatsapp integration Id too many requests response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations whatsapp integration Id too many requests response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServer
 	return &GetConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError{}
 }
 
-/*GetConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerErr
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations whatsapp integration Id internal server error response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations whatsapp integration Id internal server error response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations whatsapp integration Id internal server error response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations whatsapp integration Id internal server error response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging integrations whatsapp integration Id internal server error response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavail
 	return &GetConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable{}
 }
 
-/*GetConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailabl
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations whatsapp integration Id service unavailable response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations whatsapp integration Id service unavailable response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations whatsapp integration Id service unavailable response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations whatsapp integration Id service unavailable response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging integrations whatsapp integration Id service unavailable response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout
 	return &GetConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout{}
 }
 
-/*GetConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations whatsapp integration Id gateway timeout response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations whatsapp integration Id gateway timeout response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations whatsapp integration Id gateway timeout response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations whatsapp integration Id gateway timeout response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging integrations whatsapp integration Id gateway timeout response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsWhatsappIntegrationIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/whatsapp/{integrationId}][%d] getConversationsMessagingIntegrationsWhatsappIntegrationIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

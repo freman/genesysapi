@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -79,7 +80,6 @@ func (m *WorkdayPointsTrend) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WorkdayPointsTrend) validateDateEndWorkday(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateEndWorkday) { // not required
 		return nil
 	}
@@ -92,7 +92,6 @@ func (m *WorkdayPointsTrend) validateDateEndWorkday(formats strfmt.Registry) err
 }
 
 func (m *WorkdayPointsTrend) validateDateStartWorkday(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStartWorkday) { // not required
 		return nil
 	}
@@ -149,7 +148,6 @@ func (m *WorkdayPointsTrend) validateDayOfWeekEnum(path, location string, value 
 }
 
 func (m *WorkdayPointsTrend) validateDayOfWeek(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DayOfWeek) { // not required
 		return nil
 	}
@@ -163,7 +161,6 @@ func (m *WorkdayPointsTrend) validateDayOfWeek(formats strfmt.Registry) error {
 }
 
 func (m *WorkdayPointsTrend) validateTrend(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Trend) { // not required
 		return nil
 	}
@@ -177,6 +174,8 @@ func (m *WorkdayPointsTrend) validateTrend(formats strfmt.Registry) error {
 			if err := m.Trend[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("trend" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("trend" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -188,7 +187,6 @@ func (m *WorkdayPointsTrend) validateTrend(formats strfmt.Registry) error {
 }
 
 func (m *WorkdayPointsTrend) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -197,6 +195,118 @@ func (m *WorkdayPointsTrend) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this workday points trend based on the context it is used
+func (m *WorkdayPointsTrend) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAveragePoints(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateEndWorkday(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateStartWorkday(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDayOfWeek(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrend(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WorkdayPointsTrend) contextValidateAveragePoints(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "averagePoints", "body", float64(m.AveragePoints)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WorkdayPointsTrend) contextValidateDateEndWorkday(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateEndWorkday", "body", strfmt.Date(m.DateEndWorkday)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WorkdayPointsTrend) contextValidateDateStartWorkday(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateStartWorkday", "body", strfmt.Date(m.DateStartWorkday)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WorkdayPointsTrend) contextValidateDayOfWeek(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dayOfWeek", "body", string(m.DayOfWeek)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WorkdayPointsTrend) contextValidateTrend(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "trend", "body", []*WorkdayPointsTrendItem(m.Trend)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Trend); i++ {
+
+		if m.Trend[i] != nil {
+			if err := m.Trend[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("trend" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("trend" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WorkdayPointsTrend) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

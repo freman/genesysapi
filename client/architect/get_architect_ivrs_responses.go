@@ -95,7 +95,6 @@ func (o *GetArchitectIvrsReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetArchitectIvrsOK() *GetArchitectIvrsOK {
 	return &GetArchitectIvrsOK{}
 }
 
-/*GetArchitectIvrsOK handles this case with default header values.
+/*
+GetArchitectIvrsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetArchitectIvrsOK struct {
 	Payload *models.IVREntityListing
 }
 
+// IsSuccess returns true when this get architect ivrs o k response has a 2xx status code
+func (o *GetArchitectIvrsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get architect ivrs o k response has a 3xx status code
+func (o *GetArchitectIvrsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect ivrs o k response has a 4xx status code
+func (o *GetArchitectIvrsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect ivrs o k response has a 5xx status code
+func (o *GetArchitectIvrsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect ivrs o k response a status code equal to that given
+func (o *GetArchitectIvrsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetArchitectIvrsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetArchitectIvrsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetArchitectIvrsBadRequest() *GetArchitectIvrsBadRequest {
 	return &GetArchitectIvrsBadRequest{}
 }
 
-/*GetArchitectIvrsBadRequest handles this case with default header values.
+/*
+GetArchitectIvrsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetArchitectIvrsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect ivrs bad request response has a 2xx status code
+func (o *GetArchitectIvrsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect ivrs bad request response has a 3xx status code
+func (o *GetArchitectIvrsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect ivrs bad request response has a 4xx status code
+func (o *GetArchitectIvrsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect ivrs bad request response has a 5xx status code
+func (o *GetArchitectIvrsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect ivrs bad request response a status code equal to that given
+func (o *GetArchitectIvrsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetArchitectIvrsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetArchitectIvrsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetArchitectIvrsUnauthorized() *GetArchitectIvrsUnauthorized {
 	return &GetArchitectIvrsUnauthorized{}
 }
 
-/*GetArchitectIvrsUnauthorized handles this case with default header values.
+/*
+GetArchitectIvrsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetArchitectIvrsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect ivrs unauthorized response has a 2xx status code
+func (o *GetArchitectIvrsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect ivrs unauthorized response has a 3xx status code
+func (o *GetArchitectIvrsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect ivrs unauthorized response has a 4xx status code
+func (o *GetArchitectIvrsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect ivrs unauthorized response has a 5xx status code
+func (o *GetArchitectIvrsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect ivrs unauthorized response a status code equal to that given
+func (o *GetArchitectIvrsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetArchitectIvrsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetArchitectIvrsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetArchitectIvrsForbidden() *GetArchitectIvrsForbidden {
 	return &GetArchitectIvrsForbidden{}
 }
 
-/*GetArchitectIvrsForbidden handles this case with default header values.
+/*
+GetArchitectIvrsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetArchitectIvrsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect ivrs forbidden response has a 2xx status code
+func (o *GetArchitectIvrsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect ivrs forbidden response has a 3xx status code
+func (o *GetArchitectIvrsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect ivrs forbidden response has a 4xx status code
+func (o *GetArchitectIvrsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect ivrs forbidden response has a 5xx status code
+func (o *GetArchitectIvrsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect ivrs forbidden response a status code equal to that given
+func (o *GetArchitectIvrsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetArchitectIvrsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetArchitectIvrsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetArchitectIvrsNotFound() *GetArchitectIvrsNotFound {
 	return &GetArchitectIvrsNotFound{}
 }
 
-/*GetArchitectIvrsNotFound handles this case with default header values.
+/*
+GetArchitectIvrsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetArchitectIvrsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect ivrs not found response has a 2xx status code
+func (o *GetArchitectIvrsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect ivrs not found response has a 3xx status code
+func (o *GetArchitectIvrsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect ivrs not found response has a 4xx status code
+func (o *GetArchitectIvrsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect ivrs not found response has a 5xx status code
+func (o *GetArchitectIvrsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect ivrs not found response a status code equal to that given
+func (o *GetArchitectIvrsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetArchitectIvrsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetArchitectIvrsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetArchitectIvrsRequestTimeout() *GetArchitectIvrsRequestTimeout {
 	return &GetArchitectIvrsRequestTimeout{}
 }
 
-/*GetArchitectIvrsRequestTimeout handles this case with default header values.
+/*
+GetArchitectIvrsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetArchitectIvrsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect ivrs request timeout response has a 2xx status code
+func (o *GetArchitectIvrsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect ivrs request timeout response has a 3xx status code
+func (o *GetArchitectIvrsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect ivrs request timeout response has a 4xx status code
+func (o *GetArchitectIvrsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect ivrs request timeout response has a 5xx status code
+func (o *GetArchitectIvrsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect ivrs request timeout response a status code equal to that given
+func (o *GetArchitectIvrsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetArchitectIvrsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectIvrsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetArchitectIvrsRequestEntityTooLarge() *GetArchitectIvrsRequestEntityTo
 	return &GetArchitectIvrsRequestEntityTooLarge{}
 }
 
-/*GetArchitectIvrsRequestEntityTooLarge handles this case with default header values.
+/*
+GetArchitectIvrsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetArchitectIvrsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect ivrs request entity too large response has a 2xx status code
+func (o *GetArchitectIvrsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect ivrs request entity too large response has a 3xx status code
+func (o *GetArchitectIvrsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect ivrs request entity too large response has a 4xx status code
+func (o *GetArchitectIvrsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect ivrs request entity too large response has a 5xx status code
+func (o *GetArchitectIvrsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect ivrs request entity too large response a status code equal to that given
+func (o *GetArchitectIvrsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetArchitectIvrsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetArchitectIvrsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetArchitectIvrsUnsupportedMediaType() *GetArchitectIvrsUnsupportedMedia
 	return &GetArchitectIvrsUnsupportedMediaType{}
 }
 
-/*GetArchitectIvrsUnsupportedMediaType handles this case with default header values.
+/*
+GetArchitectIvrsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetArchitectIvrsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect ivrs unsupported media type response has a 2xx status code
+func (o *GetArchitectIvrsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect ivrs unsupported media type response has a 3xx status code
+func (o *GetArchitectIvrsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect ivrs unsupported media type response has a 4xx status code
+func (o *GetArchitectIvrsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect ivrs unsupported media type response has a 5xx status code
+func (o *GetArchitectIvrsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect ivrs unsupported media type response a status code equal to that given
+func (o *GetArchitectIvrsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetArchitectIvrsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetArchitectIvrsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetArchitectIvrsTooManyRequests() *GetArchitectIvrsTooManyRequests {
 	return &GetArchitectIvrsTooManyRequests{}
 }
 
-/*GetArchitectIvrsTooManyRequests handles this case with default header values.
+/*
+GetArchitectIvrsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetArchitectIvrsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect ivrs too many requests response has a 2xx status code
+func (o *GetArchitectIvrsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect ivrs too many requests response has a 3xx status code
+func (o *GetArchitectIvrsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect ivrs too many requests response has a 4xx status code
+func (o *GetArchitectIvrsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect ivrs too many requests response has a 5xx status code
+func (o *GetArchitectIvrsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect ivrs too many requests response a status code equal to that given
+func (o *GetArchitectIvrsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetArchitectIvrsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetArchitectIvrsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetArchitectIvrsInternalServerError() *GetArchitectIvrsInternalServerErr
 	return &GetArchitectIvrsInternalServerError{}
 }
 
-/*GetArchitectIvrsInternalServerError handles this case with default header values.
+/*
+GetArchitectIvrsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetArchitectIvrsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect ivrs internal server error response has a 2xx status code
+func (o *GetArchitectIvrsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect ivrs internal server error response has a 3xx status code
+func (o *GetArchitectIvrsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect ivrs internal server error response has a 4xx status code
+func (o *GetArchitectIvrsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect ivrs internal server error response has a 5xx status code
+func (o *GetArchitectIvrsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect ivrs internal server error response a status code equal to that given
+func (o *GetArchitectIvrsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetArchitectIvrsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetArchitectIvrsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetArchitectIvrsServiceUnavailable() *GetArchitectIvrsServiceUnavailable
 	return &GetArchitectIvrsServiceUnavailable{}
 }
 
-/*GetArchitectIvrsServiceUnavailable handles this case with default header values.
+/*
+GetArchitectIvrsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetArchitectIvrsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect ivrs service unavailable response has a 2xx status code
+func (o *GetArchitectIvrsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect ivrs service unavailable response has a 3xx status code
+func (o *GetArchitectIvrsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect ivrs service unavailable response has a 4xx status code
+func (o *GetArchitectIvrsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect ivrs service unavailable response has a 5xx status code
+func (o *GetArchitectIvrsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect ivrs service unavailable response a status code equal to that given
+func (o *GetArchitectIvrsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetArchitectIvrsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetArchitectIvrsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetArchitectIvrsGatewayTimeout() *GetArchitectIvrsGatewayTimeout {
 	return &GetArchitectIvrsGatewayTimeout{}
 }
 
-/*GetArchitectIvrsGatewayTimeout handles this case with default header values.
+/*
+GetArchitectIvrsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetArchitectIvrsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect ivrs gateway timeout response has a 2xx status code
+func (o *GetArchitectIvrsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect ivrs gateway timeout response has a 3xx status code
+func (o *GetArchitectIvrsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect ivrs gateway timeout response has a 4xx status code
+func (o *GetArchitectIvrsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect ivrs gateway timeout response has a 5xx status code
+func (o *GetArchitectIvrsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect ivrs gateway timeout response a status code equal to that given
+func (o *GetArchitectIvrsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetArchitectIvrsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetArchitectIvrsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/ivrs][%d] getArchitectIvrsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -17,125 +17,141 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetContentmanagementDocumentAuditsParams creates a new GetContentmanagementDocumentAuditsParams object
-// with the default values initialized.
+// NewGetContentmanagementDocumentAuditsParams creates a new GetContentmanagementDocumentAuditsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetContentmanagementDocumentAuditsParams() *GetContentmanagementDocumentAuditsParams {
-	var (
-		levelDefault      = string("USER")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetContentmanagementDocumentAuditsParams{
-		Level:      &levelDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetContentmanagementDocumentAuditsParamsWithTimeout creates a new GetContentmanagementDocumentAuditsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetContentmanagementDocumentAuditsParamsWithTimeout(timeout time.Duration) *GetContentmanagementDocumentAuditsParams {
-	var (
-		levelDefault      = string("USER")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetContentmanagementDocumentAuditsParams{
-		Level:      &levelDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetContentmanagementDocumentAuditsParamsWithContext creates a new GetContentmanagementDocumentAuditsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetContentmanagementDocumentAuditsParamsWithContext(ctx context.Context) *GetContentmanagementDocumentAuditsParams {
-	var (
-		levelDefault      = string("USER")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetContentmanagementDocumentAuditsParams{
-		Level:      &levelDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetContentmanagementDocumentAuditsParamsWithHTTPClient creates a new GetContentmanagementDocumentAuditsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetContentmanagementDocumentAuditsParamsWithHTTPClient(client *http.Client) *GetContentmanagementDocumentAuditsParams {
-	var (
-		levelDefault      = string("USER")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("ascending")
-	)
 	return &GetContentmanagementDocumentAuditsParams{
-		Level:      &levelDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetContentmanagementDocumentAuditsParams contains all the parameters to send to the API endpoint
-for the get contentmanagement document audits operation typically these are written to a http.Request
+/*
+GetContentmanagementDocumentAuditsParams contains all the parameters to send to the API endpoint
+
+	for the get contentmanagement document audits operation.
+
+	Typically these are written to a http.Request.
 */
 type GetContentmanagementDocumentAuditsParams struct {
 
-	/*DocumentID
-	  Document ID
+	/* DocumentID.
 
+	   Document ID
 	*/
 	DocumentID string
-	/*Level
-	  level
 
+	/* Level.
+
+	   level
+
+	   Default: "USER"
 	*/
 	Level *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
 	*/
 	SortBy *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
+
+	   Default: "ascending"
 	*/
 	SortOrder *string
-	/*TransactionFilter
-	  Transaction filter
 
+	/* TransactionFilter.
+
+	   Transaction filter
 	*/
 	TransactionFilter *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get contentmanagement document audits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementDocumentAuditsParams) WithDefaults() *GetContentmanagementDocumentAuditsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get contentmanagement document audits params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetContentmanagementDocumentAuditsParams) SetDefaults() {
+	var (
+		levelDefault = string("USER")
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortOrderDefault = string("ascending")
+	)
+
+	val := GetContentmanagementDocumentAuditsParams{
+		Level:      &levelDefault,
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get contentmanagement document audits params
@@ -265,96 +281,102 @@ func (o *GetContentmanagementDocumentAuditsParams) WriteToRequest(r runtime.Clie
 
 		// query param level
 		var qrLevel string
+
 		if o.Level != nil {
 			qrLevel = *o.Level
 		}
 		qLevel := qrLevel
 		if qLevel != "" {
+
 			if err := r.SetQueryParam("level", qLevel); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortBy != nil {
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.TransactionFilter != nil {
 
 		// query param transactionFilter
 		var qrTransactionFilter string
+
 		if o.TransactionFilter != nil {
 			qrTransactionFilter = *o.TransactionFilter
 		}
 		qTransactionFilter := qrTransactionFilter
 		if qTransactionFilter != "" {
+
 			if err := r.SetQueryParam("transactionFilter", qTransactionFilter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -32,7 +33,7 @@ type CommunicationEndedEvent struct {
 
 	// Indicates how this communication was ended.
 	// Required: true
-	// Enum: [Self Peer System Error Transfer TransferConsult TransferConference]
+	// Enum: [Error Peer Self System Transfer TransferACD TransferConference TransferConsult TransferUser]
 	DisconnectType *string `json:"disconnectType"`
 
 	// A Date Time representing the time this event occurred. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
@@ -97,7 +98,7 @@ var communicationEndedEventTypeDisconnectTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Self","Peer","System","Error","Transfer","TransferConsult","TransferConference"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Error","Peer","Self","System","Transfer","TransferACD","TransferConference","TransferConsult","TransferUser"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -107,26 +108,32 @@ func init() {
 
 const (
 
-	// CommunicationEndedEventDisconnectTypeSelf captures enum value "Self"
-	CommunicationEndedEventDisconnectTypeSelf string = "Self"
+	// CommunicationEndedEventDisconnectTypeError captures enum value "Error"
+	CommunicationEndedEventDisconnectTypeError string = "Error"
 
 	// CommunicationEndedEventDisconnectTypePeer captures enum value "Peer"
 	CommunicationEndedEventDisconnectTypePeer string = "Peer"
 
+	// CommunicationEndedEventDisconnectTypeSelf captures enum value "Self"
+	CommunicationEndedEventDisconnectTypeSelf string = "Self"
+
 	// CommunicationEndedEventDisconnectTypeSystem captures enum value "System"
 	CommunicationEndedEventDisconnectTypeSystem string = "System"
-
-	// CommunicationEndedEventDisconnectTypeError captures enum value "Error"
-	CommunicationEndedEventDisconnectTypeError string = "Error"
 
 	// CommunicationEndedEventDisconnectTypeTransfer captures enum value "Transfer"
 	CommunicationEndedEventDisconnectTypeTransfer string = "Transfer"
 
-	// CommunicationEndedEventDisconnectTypeTransferConsult captures enum value "TransferConsult"
-	CommunicationEndedEventDisconnectTypeTransferConsult string = "TransferConsult"
+	// CommunicationEndedEventDisconnectTypeTransferACD captures enum value "TransferACD"
+	CommunicationEndedEventDisconnectTypeTransferACD string = "TransferACD"
 
 	// CommunicationEndedEventDisconnectTypeTransferConference captures enum value "TransferConference"
 	CommunicationEndedEventDisconnectTypeTransferConference string = "TransferConference"
+
+	// CommunicationEndedEventDisconnectTypeTransferConsult captures enum value "TransferConsult"
+	CommunicationEndedEventDisconnectTypeTransferConsult string = "TransferConsult"
+
+	// CommunicationEndedEventDisconnectTypeTransferUser captures enum value "TransferUser"
+	CommunicationEndedEventDisconnectTypeTransferUser string = "TransferUser"
 )
 
 // prop value enum
@@ -170,6 +177,11 @@ func (m *CommunicationEndedEvent) validateEventID(formats strfmt.Registry) error
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this communication ended event based on context it is used
+func (m *CommunicationEndedEvent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

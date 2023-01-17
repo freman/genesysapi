@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOrganizationsEmbeddedintegrationParams creates a new PutOrganizationsEmbeddedintegrationParams object
-// with the default values initialized.
+// NewPutOrganizationsEmbeddedintegrationParams creates a new PutOrganizationsEmbeddedintegrationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOrganizationsEmbeddedintegrationParams() *PutOrganizationsEmbeddedintegrationParams {
-	var ()
 	return &PutOrganizationsEmbeddedintegrationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOrganizationsEmbeddedintegrationParamsWithTimeout creates a new PutOrganizationsEmbeddedintegrationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOrganizationsEmbeddedintegrationParamsWithTimeout(timeout time.Duration) *PutOrganizationsEmbeddedintegrationParams {
-	var ()
 	return &PutOrganizationsEmbeddedintegrationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOrganizationsEmbeddedintegrationParamsWithContext creates a new PutOrganizationsEmbeddedintegrationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOrganizationsEmbeddedintegrationParamsWithContext(ctx context.Context) *PutOrganizationsEmbeddedintegrationParams {
-	var ()
 	return &PutOrganizationsEmbeddedintegrationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOrganizationsEmbeddedintegrationParamsWithHTTPClient creates a new PutOrganizationsEmbeddedintegrationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOrganizationsEmbeddedintegrationParamsWithHTTPClient(client *http.Client) *PutOrganizationsEmbeddedintegrationParams {
-	var ()
 	return &PutOrganizationsEmbeddedintegrationParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOrganizationsEmbeddedintegrationParams contains all the parameters to send to the API endpoint
-for the put organizations embeddedintegration operation typically these are written to a http.Request
+/*
+PutOrganizationsEmbeddedintegrationParams contains all the parameters to send to the API endpoint
+
+	for the put organizations embeddedintegration operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOrganizationsEmbeddedintegrationParams struct {
 
-	/*Body
-	  Whitelist settings
+	/* Body.
 
+	   Whitelist settings
 	*/
 	Body *models.EmbeddedIntegration
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put organizations embeddedintegration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOrganizationsEmbeddedintegrationParams) WithDefaults() *PutOrganizationsEmbeddedintegrationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put organizations embeddedintegration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOrganizationsEmbeddedintegrationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put organizations embeddedintegration params
@@ -124,7 +140,6 @@ func (o *PutOrganizationsEmbeddedintegrationParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

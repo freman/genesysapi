@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostUploadsLearningCoverartParams creates a new PostUploadsLearningCoverartParams object
-// with the default values initialized.
+// NewPostUploadsLearningCoverartParams creates a new PostUploadsLearningCoverartParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostUploadsLearningCoverartParams() *PostUploadsLearningCoverartParams {
-	var ()
 	return &PostUploadsLearningCoverartParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostUploadsLearningCoverartParamsWithTimeout creates a new PostUploadsLearningCoverartParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostUploadsLearningCoverartParamsWithTimeout(timeout time.Duration) *PostUploadsLearningCoverartParams {
-	var ()
 	return &PostUploadsLearningCoverartParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostUploadsLearningCoverartParamsWithContext creates a new PostUploadsLearningCoverartParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostUploadsLearningCoverartParamsWithContext(ctx context.Context) *PostUploadsLearningCoverartParams {
-	var ()
 	return &PostUploadsLearningCoverartParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostUploadsLearningCoverartParamsWithHTTPClient creates a new PostUploadsLearningCoverartParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostUploadsLearningCoverartParamsWithHTTPClient(client *http.Client) *PostUploadsLearningCoverartParams {
-	var ()
 	return &PostUploadsLearningCoverartParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostUploadsLearningCoverartParams contains all the parameters to send to the API endpoint
-for the post uploads learning coverart operation typically these are written to a http.Request
+/*
+PostUploadsLearningCoverartParams contains all the parameters to send to the API endpoint
+
+	for the post uploads learning coverart operation.
+
+	Typically these are written to a http.Request.
 */
 type PostUploadsLearningCoverartParams struct {
 
-	/*Body
-	  query
+	/* Body.
 
+	   query
 	*/
 	Body *models.LearningCoverArtUploadURLRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post uploads learning coverart params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUploadsLearningCoverartParams) WithDefaults() *PostUploadsLearningCoverartParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post uploads learning coverart params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUploadsLearningCoverartParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post uploads learning coverart params
@@ -124,7 +140,6 @@ func (o *PostUploadsLearningCoverartParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

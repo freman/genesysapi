@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -32,6 +34,9 @@ type VoicemailOrganizationPolicy struct {
 
 	// Whether user should be prompted with a confirmation prompt when connecting to a Group Ring call
 	InteractiveResponseRequired bool `json:"interactiveResponseRequired"`
+
+	// Default value for the maximum length of time in seconds of a recorded voicemail
+	MaximumRecordingTimeSeconds int32 `json:"maximumRecordingTimeSeconds,omitempty"`
 
 	// The date the policy was last modified. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 	// Read Only: true
@@ -70,7 +75,6 @@ func (m *VoicemailOrganizationPolicy) Validate(formats strfmt.Registry) error {
 }
 
 func (m *VoicemailOrganizationPolicy) validateModifiedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedDate) { // not required
 		return nil
 	}
@@ -83,7 +87,6 @@ func (m *VoicemailOrganizationPolicy) validateModifiedDate(formats strfmt.Regist
 }
 
 func (m *VoicemailOrganizationPolicy) validatePinConfiguration(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PinConfiguration) { // not required
 		return nil
 	}
@@ -92,6 +95,64 @@ func (m *VoicemailOrganizationPolicy) validatePinConfiguration(formats strfmt.Re
 		if err := m.PinConfiguration.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("pinConfiguration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pinConfiguration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this voicemail organization policy based on the context it is used
+func (m *VoicemailOrganizationPolicy) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEnabled(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePinConfiguration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *VoicemailOrganizationPolicy) contextValidateEnabled(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "enabled", "body", m.Enabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailOrganizationPolicy) contextValidateModifiedDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedDate", "body", strfmt.DateTime(m.ModifiedDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *VoicemailOrganizationPolicy) contextValidatePinConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PinConfiguration != nil {
+		if err := m.PinConfiguration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("pinConfiguration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("pinConfiguration")
 			}
 			return err
 		}

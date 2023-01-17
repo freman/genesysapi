@@ -95,7 +95,6 @@ func (o *PutIdentityprovidersCicReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutIdentityprovidersCicOK() *PutIdentityprovidersCicOK {
 	return &PutIdentityprovidersCicOK{}
 }
 
-/*PutIdentityprovidersCicOK handles this case with default header values.
+/*
+PutIdentityprovidersCicOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutIdentityprovidersCicOK struct {
 	Payload *models.OAuthProvider
 }
 
+// IsSuccess returns true when this put identityproviders cic o k response has a 2xx status code
+func (o *PutIdentityprovidersCicOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put identityproviders cic o k response has a 3xx status code
+func (o *PutIdentityprovidersCicOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders cic o k response has a 4xx status code
+func (o *PutIdentityprovidersCicOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders cic o k response has a 5xx status code
+func (o *PutIdentityprovidersCicOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders cic o k response a status code equal to that given
+func (o *PutIdentityprovidersCicOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutIdentityprovidersCicOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicOK  %+v", 200, o.Payload)
+}
+
+func (o *PutIdentityprovidersCicOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutIdentityprovidersCicBadRequest() *PutIdentityprovidersCicBadRequest {
 	return &PutIdentityprovidersCicBadRequest{}
 }
 
-/*PutIdentityprovidersCicBadRequest handles this case with default header values.
+/*
+PutIdentityprovidersCicBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutIdentityprovidersCicBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders cic bad request response has a 2xx status code
+func (o *PutIdentityprovidersCicBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders cic bad request response has a 3xx status code
+func (o *PutIdentityprovidersCicBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders cic bad request response has a 4xx status code
+func (o *PutIdentityprovidersCicBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders cic bad request response has a 5xx status code
+func (o *PutIdentityprovidersCicBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders cic bad request response a status code equal to that given
+func (o *PutIdentityprovidersCicBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutIdentityprovidersCicBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutIdentityprovidersCicBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutIdentityprovidersCicUnauthorized() *PutIdentityprovidersCicUnauthoriz
 	return &PutIdentityprovidersCicUnauthorized{}
 }
 
-/*PutIdentityprovidersCicUnauthorized handles this case with default header values.
+/*
+PutIdentityprovidersCicUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutIdentityprovidersCicUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders cic unauthorized response has a 2xx status code
+func (o *PutIdentityprovidersCicUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders cic unauthorized response has a 3xx status code
+func (o *PutIdentityprovidersCicUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders cic unauthorized response has a 4xx status code
+func (o *PutIdentityprovidersCicUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders cic unauthorized response has a 5xx status code
+func (o *PutIdentityprovidersCicUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders cic unauthorized response a status code equal to that given
+func (o *PutIdentityprovidersCicUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutIdentityprovidersCicUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutIdentityprovidersCicUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutIdentityprovidersCicForbidden() *PutIdentityprovidersCicForbidden {
 	return &PutIdentityprovidersCicForbidden{}
 }
 
-/*PutIdentityprovidersCicForbidden handles this case with default header values.
+/*
+PutIdentityprovidersCicForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutIdentityprovidersCicForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders cic forbidden response has a 2xx status code
+func (o *PutIdentityprovidersCicForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders cic forbidden response has a 3xx status code
+func (o *PutIdentityprovidersCicForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders cic forbidden response has a 4xx status code
+func (o *PutIdentityprovidersCicForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders cic forbidden response has a 5xx status code
+func (o *PutIdentityprovidersCicForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders cic forbidden response a status code equal to that given
+func (o *PutIdentityprovidersCicForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutIdentityprovidersCicForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutIdentityprovidersCicForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutIdentityprovidersCicNotFound() *PutIdentityprovidersCicNotFound {
 	return &PutIdentityprovidersCicNotFound{}
 }
 
-/*PutIdentityprovidersCicNotFound handles this case with default header values.
+/*
+PutIdentityprovidersCicNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutIdentityprovidersCicNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders cic not found response has a 2xx status code
+func (o *PutIdentityprovidersCicNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders cic not found response has a 3xx status code
+func (o *PutIdentityprovidersCicNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders cic not found response has a 4xx status code
+func (o *PutIdentityprovidersCicNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders cic not found response has a 5xx status code
+func (o *PutIdentityprovidersCicNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders cic not found response a status code equal to that given
+func (o *PutIdentityprovidersCicNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutIdentityprovidersCicNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutIdentityprovidersCicNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutIdentityprovidersCicRequestTimeout() *PutIdentityprovidersCicRequestT
 	return &PutIdentityprovidersCicRequestTimeout{}
 }
 
-/*PutIdentityprovidersCicRequestTimeout handles this case with default header values.
+/*
+PutIdentityprovidersCicRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutIdentityprovidersCicRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders cic request timeout response has a 2xx status code
+func (o *PutIdentityprovidersCicRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders cic request timeout response has a 3xx status code
+func (o *PutIdentityprovidersCicRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders cic request timeout response has a 4xx status code
+func (o *PutIdentityprovidersCicRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders cic request timeout response has a 5xx status code
+func (o *PutIdentityprovidersCicRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders cic request timeout response a status code equal to that given
+func (o *PutIdentityprovidersCicRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutIdentityprovidersCicRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIdentityprovidersCicRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutIdentityprovidersCicRequestEntityTooLarge() *PutIdentityprovidersCicR
 	return &PutIdentityprovidersCicRequestEntityTooLarge{}
 }
 
-/*PutIdentityprovidersCicRequestEntityTooLarge handles this case with default header values.
+/*
+PutIdentityprovidersCicRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutIdentityprovidersCicRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders cic request entity too large response has a 2xx status code
+func (o *PutIdentityprovidersCicRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders cic request entity too large response has a 3xx status code
+func (o *PutIdentityprovidersCicRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders cic request entity too large response has a 4xx status code
+func (o *PutIdentityprovidersCicRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders cic request entity too large response has a 5xx status code
+func (o *PutIdentityprovidersCicRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders cic request entity too large response a status code equal to that given
+func (o *PutIdentityprovidersCicRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutIdentityprovidersCicRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutIdentityprovidersCicRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutIdentityprovidersCicUnsupportedMediaType() *PutIdentityprovidersCicUn
 	return &PutIdentityprovidersCicUnsupportedMediaType{}
 }
 
-/*PutIdentityprovidersCicUnsupportedMediaType handles this case with default header values.
+/*
+PutIdentityprovidersCicUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutIdentityprovidersCicUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders cic unsupported media type response has a 2xx status code
+func (o *PutIdentityprovidersCicUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders cic unsupported media type response has a 3xx status code
+func (o *PutIdentityprovidersCicUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders cic unsupported media type response has a 4xx status code
+func (o *PutIdentityprovidersCicUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders cic unsupported media type response has a 5xx status code
+func (o *PutIdentityprovidersCicUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders cic unsupported media type response a status code equal to that given
+func (o *PutIdentityprovidersCicUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutIdentityprovidersCicUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutIdentityprovidersCicUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutIdentityprovidersCicTooManyRequests() *PutIdentityprovidersCicTooMany
 	return &PutIdentityprovidersCicTooManyRequests{}
 }
 
-/*PutIdentityprovidersCicTooManyRequests handles this case with default header values.
+/*
+PutIdentityprovidersCicTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutIdentityprovidersCicTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders cic too many requests response has a 2xx status code
+func (o *PutIdentityprovidersCicTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders cic too many requests response has a 3xx status code
+func (o *PutIdentityprovidersCicTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders cic too many requests response has a 4xx status code
+func (o *PutIdentityprovidersCicTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put identityproviders cic too many requests response has a 5xx status code
+func (o *PutIdentityprovidersCicTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put identityproviders cic too many requests response a status code equal to that given
+func (o *PutIdentityprovidersCicTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutIdentityprovidersCicTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutIdentityprovidersCicTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutIdentityprovidersCicInternalServerError() *PutIdentityprovidersCicInt
 	return &PutIdentityprovidersCicInternalServerError{}
 }
 
-/*PutIdentityprovidersCicInternalServerError handles this case with default header values.
+/*
+PutIdentityprovidersCicInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutIdentityprovidersCicInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders cic internal server error response has a 2xx status code
+func (o *PutIdentityprovidersCicInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders cic internal server error response has a 3xx status code
+func (o *PutIdentityprovidersCicInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders cic internal server error response has a 4xx status code
+func (o *PutIdentityprovidersCicInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders cic internal server error response has a 5xx status code
+func (o *PutIdentityprovidersCicInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders cic internal server error response a status code equal to that given
+func (o *PutIdentityprovidersCicInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutIdentityprovidersCicInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutIdentityprovidersCicInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutIdentityprovidersCicServiceUnavailable() *PutIdentityprovidersCicServ
 	return &PutIdentityprovidersCicServiceUnavailable{}
 }
 
-/*PutIdentityprovidersCicServiceUnavailable handles this case with default header values.
+/*
+PutIdentityprovidersCicServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutIdentityprovidersCicServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders cic service unavailable response has a 2xx status code
+func (o *PutIdentityprovidersCicServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders cic service unavailable response has a 3xx status code
+func (o *PutIdentityprovidersCicServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders cic service unavailable response has a 4xx status code
+func (o *PutIdentityprovidersCicServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders cic service unavailable response has a 5xx status code
+func (o *PutIdentityprovidersCicServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders cic service unavailable response a status code equal to that given
+func (o *PutIdentityprovidersCicServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutIdentityprovidersCicServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutIdentityprovidersCicServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutIdentityprovidersCicGatewayTimeout() *PutIdentityprovidersCicGatewayT
 	return &PutIdentityprovidersCicGatewayTimeout{}
 }
 
-/*PutIdentityprovidersCicGatewayTimeout handles this case with default header values.
+/*
+PutIdentityprovidersCicGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutIdentityprovidersCicGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put identityproviders cic gateway timeout response has a 2xx status code
+func (o *PutIdentityprovidersCicGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put identityproviders cic gateway timeout response has a 3xx status code
+func (o *PutIdentityprovidersCicGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put identityproviders cic gateway timeout response has a 4xx status code
+func (o *PutIdentityprovidersCicGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put identityproviders cic gateway timeout response has a 5xx status code
+func (o *PutIdentityprovidersCicGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put identityproviders cic gateway timeout response a status code equal to that given
+func (o *PutIdentityprovidersCicGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutIdentityprovidersCicGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutIdentityprovidersCicGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/identityproviders/cic][%d] putIdentityprovidersCicGatewayTimeout  %+v", 504, o.Payload)
 }
 

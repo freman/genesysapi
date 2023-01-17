@@ -106,7 +106,8 @@ func NewDeleteGreetingBadRequest() *DeleteGreetingBadRequest {
 	return &DeleteGreetingBadRequest{}
 }
 
-/*DeleteGreetingBadRequest handles this case with default header values.
+/*
+DeleteGreetingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type DeleteGreetingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete greeting bad request response has a 2xx status code
+func (o *DeleteGreetingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete greeting bad request response has a 3xx status code
+func (o *DeleteGreetingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete greeting bad request response has a 4xx status code
+func (o *DeleteGreetingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete greeting bad request response has a 5xx status code
+func (o *DeleteGreetingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete greeting bad request response a status code equal to that given
+func (o *DeleteGreetingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteGreetingBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteGreetingBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewDeleteGreetingUnauthorized() *DeleteGreetingUnauthorized {
 	return &DeleteGreetingUnauthorized{}
 }
 
-/*DeleteGreetingUnauthorized handles this case with default header values.
+/*
+DeleteGreetingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type DeleteGreetingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete greeting unauthorized response has a 2xx status code
+func (o *DeleteGreetingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete greeting unauthorized response has a 3xx status code
+func (o *DeleteGreetingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete greeting unauthorized response has a 4xx status code
+func (o *DeleteGreetingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete greeting unauthorized response has a 5xx status code
+func (o *DeleteGreetingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete greeting unauthorized response a status code equal to that given
+func (o *DeleteGreetingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteGreetingUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteGreetingUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewDeleteGreetingForbidden() *DeleteGreetingForbidden {
 	return &DeleteGreetingForbidden{}
 }
 
-/*DeleteGreetingForbidden handles this case with default header values.
+/*
+DeleteGreetingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type DeleteGreetingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete greeting forbidden response has a 2xx status code
+func (o *DeleteGreetingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete greeting forbidden response has a 3xx status code
+func (o *DeleteGreetingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete greeting forbidden response has a 4xx status code
+func (o *DeleteGreetingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete greeting forbidden response has a 5xx status code
+func (o *DeleteGreetingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete greeting forbidden response a status code equal to that given
+func (o *DeleteGreetingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteGreetingForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteGreetingForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewDeleteGreetingNotFound() *DeleteGreetingNotFound {
 	return &DeleteGreetingNotFound{}
 }
 
-/*DeleteGreetingNotFound handles this case with default header values.
+/*
+DeleteGreetingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type DeleteGreetingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete greeting not found response has a 2xx status code
+func (o *DeleteGreetingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete greeting not found response has a 3xx status code
+func (o *DeleteGreetingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete greeting not found response has a 4xx status code
+func (o *DeleteGreetingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete greeting not found response has a 5xx status code
+func (o *DeleteGreetingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete greeting not found response a status code equal to that given
+func (o *DeleteGreetingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteGreetingNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteGreetingNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewDeleteGreetingRequestTimeout() *DeleteGreetingRequestTimeout {
 	return &DeleteGreetingRequestTimeout{}
 }
 
-/*DeleteGreetingRequestTimeout handles this case with default header values.
+/*
+DeleteGreetingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type DeleteGreetingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete greeting request timeout response has a 2xx status code
+func (o *DeleteGreetingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete greeting request timeout response has a 3xx status code
+func (o *DeleteGreetingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete greeting request timeout response has a 4xx status code
+func (o *DeleteGreetingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete greeting request timeout response has a 5xx status code
+func (o *DeleteGreetingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete greeting request timeout response a status code equal to that given
+func (o *DeleteGreetingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteGreetingRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteGreetingRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewDeleteGreetingRequestEntityTooLarge() *DeleteGreetingRequestEntityTooLar
 	return &DeleteGreetingRequestEntityTooLarge{}
 }
 
-/*DeleteGreetingRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteGreetingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type DeleteGreetingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete greeting request entity too large response has a 2xx status code
+func (o *DeleteGreetingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete greeting request entity too large response has a 3xx status code
+func (o *DeleteGreetingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete greeting request entity too large response has a 4xx status code
+func (o *DeleteGreetingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete greeting request entity too large response has a 5xx status code
+func (o *DeleteGreetingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete greeting request entity too large response a status code equal to that given
+func (o *DeleteGreetingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteGreetingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteGreetingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewDeleteGreetingUnsupportedMediaType() *DeleteGreetingUnsupportedMediaType
 	return &DeleteGreetingUnsupportedMediaType{}
 }
 
-/*DeleteGreetingUnsupportedMediaType handles this case with default header values.
+/*
+DeleteGreetingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type DeleteGreetingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete greeting unsupported media type response has a 2xx status code
+func (o *DeleteGreetingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete greeting unsupported media type response has a 3xx status code
+func (o *DeleteGreetingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete greeting unsupported media type response has a 4xx status code
+func (o *DeleteGreetingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete greeting unsupported media type response has a 5xx status code
+func (o *DeleteGreetingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete greeting unsupported media type response a status code equal to that given
+func (o *DeleteGreetingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteGreetingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteGreetingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewDeleteGreetingTooManyRequests() *DeleteGreetingTooManyRequests {
 	return &DeleteGreetingTooManyRequests{}
 }
 
-/*DeleteGreetingTooManyRequests handles this case with default header values.
+/*
+DeleteGreetingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type DeleteGreetingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete greeting too many requests response has a 2xx status code
+func (o *DeleteGreetingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete greeting too many requests response has a 3xx status code
+func (o *DeleteGreetingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete greeting too many requests response has a 4xx status code
+func (o *DeleteGreetingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete greeting too many requests response has a 5xx status code
+func (o *DeleteGreetingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete greeting too many requests response a status code equal to that given
+func (o *DeleteGreetingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteGreetingTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteGreetingTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewDeleteGreetingInternalServerError() *DeleteGreetingInternalServerError {
 	return &DeleteGreetingInternalServerError{}
 }
 
-/*DeleteGreetingInternalServerError handles this case with default header values.
+/*
+DeleteGreetingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type DeleteGreetingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete greeting internal server error response has a 2xx status code
+func (o *DeleteGreetingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete greeting internal server error response has a 3xx status code
+func (o *DeleteGreetingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete greeting internal server error response has a 4xx status code
+func (o *DeleteGreetingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete greeting internal server error response has a 5xx status code
+func (o *DeleteGreetingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete greeting internal server error response a status code equal to that given
+func (o *DeleteGreetingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteGreetingInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteGreetingInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewDeleteGreetingServiceUnavailable() *DeleteGreetingServiceUnavailable {
 	return &DeleteGreetingServiceUnavailable{}
 }
 
-/*DeleteGreetingServiceUnavailable handles this case with default header values.
+/*
+DeleteGreetingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type DeleteGreetingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete greeting service unavailable response has a 2xx status code
+func (o *DeleteGreetingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete greeting service unavailable response has a 3xx status code
+func (o *DeleteGreetingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete greeting service unavailable response has a 4xx status code
+func (o *DeleteGreetingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete greeting service unavailable response has a 5xx status code
+func (o *DeleteGreetingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete greeting service unavailable response a status code equal to that given
+func (o *DeleteGreetingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteGreetingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteGreetingServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewDeleteGreetingGatewayTimeout() *DeleteGreetingGatewayTimeout {
 	return &DeleteGreetingGatewayTimeout{}
 }
 
-/*DeleteGreetingGatewayTimeout handles this case with default header values.
+/*
+DeleteGreetingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type DeleteGreetingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete greeting gateway timeout response has a 2xx status code
+func (o *DeleteGreetingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete greeting gateway timeout response has a 3xx status code
+func (o *DeleteGreetingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete greeting gateway timeout response has a 4xx status code
+func (o *DeleteGreetingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete greeting gateway timeout response has a 5xx status code
+func (o *DeleteGreetingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete greeting gateway timeout response a status code equal to that given
+func (o *DeleteGreetingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteGreetingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteGreetingGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreetingGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewDeleteGreetingDefault(code int) *DeleteGreetingDefault {
 	}
 }
 
-/*DeleteGreetingDefault handles this case with default header values.
+/*
+DeleteGreetingDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *DeleteGreetingDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete greeting default response has a 2xx status code
+func (o *DeleteGreetingDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete greeting default response has a 3xx status code
+func (o *DeleteGreetingDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete greeting default response has a 4xx status code
+func (o *DeleteGreetingDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete greeting default response has a 5xx status code
+func (o *DeleteGreetingDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete greeting default response a status code equal to that given
+func (o *DeleteGreetingDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteGreetingDefault) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreeting default ", o._statusCode)
+}
+
+func (o *DeleteGreetingDefault) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/greetings/{greetingId}][%d] deleteGreeting default ", o._statusCode)
 }
 

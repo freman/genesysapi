@@ -95,7 +95,6 @@ func (o *PostConversationsMessageMessagesBulkReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostConversationsMessageMessagesBulkOK() *PostConversationsMessageMessag
 	return &PostConversationsMessageMessagesBulkOK{}
 }
 
-/*PostConversationsMessageMessagesBulkOK handles this case with default header values.
+/*
+PostConversationsMessageMessagesBulkOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostConversationsMessageMessagesBulkOK struct {
 	Payload *models.TextMessageListing
 }
 
+// IsSuccess returns true when this post conversations message messages bulk o k response has a 2xx status code
+func (o *PostConversationsMessageMessagesBulkOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations message messages bulk o k response has a 3xx status code
+func (o *PostConversationsMessageMessagesBulkOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message messages bulk o k response has a 4xx status code
+func (o *PostConversationsMessageMessagesBulkOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message messages bulk o k response has a 5xx status code
+func (o *PostConversationsMessageMessagesBulkOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message messages bulk o k response a status code equal to that given
+func (o *PostConversationsMessageMessagesBulkOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostConversationsMessageMessagesBulkOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkOK  %+v", 200, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostConversationsMessageMessagesBulkBadRequest() *PostConversationsMessa
 	return &PostConversationsMessageMessagesBulkBadRequest{}
 }
 
-/*PostConversationsMessageMessagesBulkBadRequest handles this case with default header values.
+/*
+PostConversationsMessageMessagesBulkBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostConversationsMessageMessagesBulkBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message messages bulk bad request response has a 2xx status code
+func (o *PostConversationsMessageMessagesBulkBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message messages bulk bad request response has a 3xx status code
+func (o *PostConversationsMessageMessagesBulkBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message messages bulk bad request response has a 4xx status code
+func (o *PostConversationsMessageMessagesBulkBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message messages bulk bad request response has a 5xx status code
+func (o *PostConversationsMessageMessagesBulkBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message messages bulk bad request response a status code equal to that given
+func (o *PostConversationsMessageMessagesBulkBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsMessageMessagesBulkBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostConversationsMessageMessagesBulkUnauthorized() *PostConversationsMes
 	return &PostConversationsMessageMessagesBulkUnauthorized{}
 }
 
-/*PostConversationsMessageMessagesBulkUnauthorized handles this case with default header values.
+/*
+PostConversationsMessageMessagesBulkUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostConversationsMessageMessagesBulkUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message messages bulk unauthorized response has a 2xx status code
+func (o *PostConversationsMessageMessagesBulkUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message messages bulk unauthorized response has a 3xx status code
+func (o *PostConversationsMessageMessagesBulkUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message messages bulk unauthorized response has a 4xx status code
+func (o *PostConversationsMessageMessagesBulkUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message messages bulk unauthorized response has a 5xx status code
+func (o *PostConversationsMessageMessagesBulkUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message messages bulk unauthorized response a status code equal to that given
+func (o *PostConversationsMessageMessagesBulkUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsMessageMessagesBulkUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostConversationsMessageMessagesBulkForbidden() *PostConversationsMessag
 	return &PostConversationsMessageMessagesBulkForbidden{}
 }
 
-/*PostConversationsMessageMessagesBulkForbidden handles this case with default header values.
+/*
+PostConversationsMessageMessagesBulkForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostConversationsMessageMessagesBulkForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message messages bulk forbidden response has a 2xx status code
+func (o *PostConversationsMessageMessagesBulkForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message messages bulk forbidden response has a 3xx status code
+func (o *PostConversationsMessageMessagesBulkForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message messages bulk forbidden response has a 4xx status code
+func (o *PostConversationsMessageMessagesBulkForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message messages bulk forbidden response has a 5xx status code
+func (o *PostConversationsMessageMessagesBulkForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message messages bulk forbidden response a status code equal to that given
+func (o *PostConversationsMessageMessagesBulkForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsMessageMessagesBulkForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostConversationsMessageMessagesBulkNotFound() *PostConversationsMessage
 	return &PostConversationsMessageMessagesBulkNotFound{}
 }
 
-/*PostConversationsMessageMessagesBulkNotFound handles this case with default header values.
+/*
+PostConversationsMessageMessagesBulkNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostConversationsMessageMessagesBulkNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message messages bulk not found response has a 2xx status code
+func (o *PostConversationsMessageMessagesBulkNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message messages bulk not found response has a 3xx status code
+func (o *PostConversationsMessageMessagesBulkNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message messages bulk not found response has a 4xx status code
+func (o *PostConversationsMessageMessagesBulkNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message messages bulk not found response has a 5xx status code
+func (o *PostConversationsMessageMessagesBulkNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message messages bulk not found response a status code equal to that given
+func (o *PostConversationsMessageMessagesBulkNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsMessageMessagesBulkNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostConversationsMessageMessagesBulkRequestTimeout() *PostConversationsM
 	return &PostConversationsMessageMessagesBulkRequestTimeout{}
 }
 
-/*PostConversationsMessageMessagesBulkRequestTimeout handles this case with default header values.
+/*
+PostConversationsMessageMessagesBulkRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostConversationsMessageMessagesBulkRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message messages bulk request timeout response has a 2xx status code
+func (o *PostConversationsMessageMessagesBulkRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message messages bulk request timeout response has a 3xx status code
+func (o *PostConversationsMessageMessagesBulkRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message messages bulk request timeout response has a 4xx status code
+func (o *PostConversationsMessageMessagesBulkRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message messages bulk request timeout response has a 5xx status code
+func (o *PostConversationsMessageMessagesBulkRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message messages bulk request timeout response a status code equal to that given
+func (o *PostConversationsMessageMessagesBulkRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsMessageMessagesBulkRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostConversationsMessageMessagesBulkRequestEntityTooLarge() *PostConvers
 	return &PostConversationsMessageMessagesBulkRequestEntityTooLarge{}
 }
 
-/*PostConversationsMessageMessagesBulkRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsMessageMessagesBulkRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostConversationsMessageMessagesBulkRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message messages bulk request entity too large response has a 2xx status code
+func (o *PostConversationsMessageMessagesBulkRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message messages bulk request entity too large response has a 3xx status code
+func (o *PostConversationsMessageMessagesBulkRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message messages bulk request entity too large response has a 4xx status code
+func (o *PostConversationsMessageMessagesBulkRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message messages bulk request entity too large response has a 5xx status code
+func (o *PostConversationsMessageMessagesBulkRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message messages bulk request entity too large response a status code equal to that given
+func (o *PostConversationsMessageMessagesBulkRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsMessageMessagesBulkRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostConversationsMessageMessagesBulkUnsupportedMediaType() *PostConversa
 	return &PostConversationsMessageMessagesBulkUnsupportedMediaType{}
 }
 
-/*PostConversationsMessageMessagesBulkUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsMessageMessagesBulkUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostConversationsMessageMessagesBulkUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message messages bulk unsupported media type response has a 2xx status code
+func (o *PostConversationsMessageMessagesBulkUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message messages bulk unsupported media type response has a 3xx status code
+func (o *PostConversationsMessageMessagesBulkUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message messages bulk unsupported media type response has a 4xx status code
+func (o *PostConversationsMessageMessagesBulkUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message messages bulk unsupported media type response has a 5xx status code
+func (o *PostConversationsMessageMessagesBulkUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message messages bulk unsupported media type response a status code equal to that given
+func (o *PostConversationsMessageMessagesBulkUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsMessageMessagesBulkUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostConversationsMessageMessagesBulkTooManyRequests() *PostConversations
 	return &PostConversationsMessageMessagesBulkTooManyRequests{}
 }
 
-/*PostConversationsMessageMessagesBulkTooManyRequests handles this case with default header values.
+/*
+PostConversationsMessageMessagesBulkTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostConversationsMessageMessagesBulkTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message messages bulk too many requests response has a 2xx status code
+func (o *PostConversationsMessageMessagesBulkTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message messages bulk too many requests response has a 3xx status code
+func (o *PostConversationsMessageMessagesBulkTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message messages bulk too many requests response has a 4xx status code
+func (o *PostConversationsMessageMessagesBulkTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message messages bulk too many requests response has a 5xx status code
+func (o *PostConversationsMessageMessagesBulkTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message messages bulk too many requests response a status code equal to that given
+func (o *PostConversationsMessageMessagesBulkTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsMessageMessagesBulkTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostConversationsMessageMessagesBulkInternalServerError() *PostConversat
 	return &PostConversationsMessageMessagesBulkInternalServerError{}
 }
 
-/*PostConversationsMessageMessagesBulkInternalServerError handles this case with default header values.
+/*
+PostConversationsMessageMessagesBulkInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostConversationsMessageMessagesBulkInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message messages bulk internal server error response has a 2xx status code
+func (o *PostConversationsMessageMessagesBulkInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message messages bulk internal server error response has a 3xx status code
+func (o *PostConversationsMessageMessagesBulkInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message messages bulk internal server error response has a 4xx status code
+func (o *PostConversationsMessageMessagesBulkInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message messages bulk internal server error response has a 5xx status code
+func (o *PostConversationsMessageMessagesBulkInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations message messages bulk internal server error response a status code equal to that given
+func (o *PostConversationsMessageMessagesBulkInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsMessageMessagesBulkInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostConversationsMessageMessagesBulkServiceUnavailable() *PostConversati
 	return &PostConversationsMessageMessagesBulkServiceUnavailable{}
 }
 
-/*PostConversationsMessageMessagesBulkServiceUnavailable handles this case with default header values.
+/*
+PostConversationsMessageMessagesBulkServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostConversationsMessageMessagesBulkServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message messages bulk service unavailable response has a 2xx status code
+func (o *PostConversationsMessageMessagesBulkServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message messages bulk service unavailable response has a 3xx status code
+func (o *PostConversationsMessageMessagesBulkServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message messages bulk service unavailable response has a 4xx status code
+func (o *PostConversationsMessageMessagesBulkServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message messages bulk service unavailable response has a 5xx status code
+func (o *PostConversationsMessageMessagesBulkServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations message messages bulk service unavailable response a status code equal to that given
+func (o *PostConversationsMessageMessagesBulkServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsMessageMessagesBulkServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostConversationsMessageMessagesBulkGatewayTimeout() *PostConversationsM
 	return &PostConversationsMessageMessagesBulkGatewayTimeout{}
 }
 
-/*PostConversationsMessageMessagesBulkGatewayTimeout handles this case with default header values.
+/*
+PostConversationsMessageMessagesBulkGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostConversationsMessageMessagesBulkGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message messages bulk gateway timeout response has a 2xx status code
+func (o *PostConversationsMessageMessagesBulkGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message messages bulk gateway timeout response has a 3xx status code
+func (o *PostConversationsMessageMessagesBulkGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message messages bulk gateway timeout response has a 4xx status code
+func (o *PostConversationsMessageMessagesBulkGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message messages bulk gateway timeout response has a 5xx status code
+func (o *PostConversationsMessageMessagesBulkGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations message messages bulk gateway timeout response a status code equal to that given
+func (o *PostConversationsMessageMessagesBulkGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsMessageMessagesBulkGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsMessageMessagesBulkGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/messages/bulk][%d] postConversationsMessageMessagesBulkGatewayTimeout  %+v", 504, o.Payload)
 }
 

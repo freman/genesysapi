@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -21,6 +23,11 @@ type UnreadStatus struct {
 
 // Validate validates this unread status
 func (m *UnreadStatus) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this unread status based on context it is used
+func (m *UnreadStatus) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

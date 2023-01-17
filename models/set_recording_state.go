@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -71,7 +72,6 @@ func (m *SetRecordingState) validateRecordingStateEnum(path, location string, va
 }
 
 func (m *SetRecordingState) validateRecordingState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RecordingState) { // not required
 		return nil
 	}
@@ -81,6 +81,11 @@ func (m *SetRecordingState) validateRecordingState(formats strfmt.Registry) erro
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this set recording state based on context it is used
+func (m *SetRecordingState) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -95,7 +95,6 @@ func (o *GetQualityFormsEvaluationsBulkContextsReader) ReadResponse(response run
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetQualityFormsEvaluationsBulkContextsOK() *GetQualityFormsEvaluationsBu
 	return &GetQualityFormsEvaluationsBulkContextsOK{}
 }
 
-/*GetQualityFormsEvaluationsBulkContextsOK handles this case with default header values.
+/*
+GetQualityFormsEvaluationsBulkContextsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetQualityFormsEvaluationsBulkContextsOK struct {
 	Payload []*models.EvaluationForm
 }
 
+// IsSuccess returns true when this get quality forms evaluations bulk contexts o k response has a 2xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get quality forms evaluations bulk contexts o k response has a 3xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms evaluations bulk contexts o k response has a 4xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality forms evaluations bulk contexts o k response has a 5xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms evaluations bulk contexts o k response a status code equal to that given
+func (o *GetQualityFormsEvaluationsBulkContextsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetQualityFormsEvaluationsBulkContextsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetQualityFormsEvaluationsBulkContextsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetQualityFormsEvaluationsBulkContextsBadRequest() *GetQualityFormsEvalu
 	return &GetQualityFormsEvaluationsBulkContextsBadRequest{}
 }
 
-/*GetQualityFormsEvaluationsBulkContextsBadRequest handles this case with default header values.
+/*
+GetQualityFormsEvaluationsBulkContextsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetQualityFormsEvaluationsBulkContextsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms evaluations bulk contexts bad request response has a 2xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms evaluations bulk contexts bad request response has a 3xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms evaluations bulk contexts bad request response has a 4xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms evaluations bulk contexts bad request response has a 5xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms evaluations bulk contexts bad request response a status code equal to that given
+func (o *GetQualityFormsEvaluationsBulkContextsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetQualityFormsEvaluationsBulkContextsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetQualityFormsEvaluationsBulkContextsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetQualityFormsEvaluationsBulkContextsUnauthorized() *GetQualityFormsEva
 	return &GetQualityFormsEvaluationsBulkContextsUnauthorized{}
 }
 
-/*GetQualityFormsEvaluationsBulkContextsUnauthorized handles this case with default header values.
+/*
+GetQualityFormsEvaluationsBulkContextsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetQualityFormsEvaluationsBulkContextsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms evaluations bulk contexts unauthorized response has a 2xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms evaluations bulk contexts unauthorized response has a 3xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms evaluations bulk contexts unauthorized response has a 4xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms evaluations bulk contexts unauthorized response has a 5xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms evaluations bulk contexts unauthorized response a status code equal to that given
+func (o *GetQualityFormsEvaluationsBulkContextsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetQualityFormsEvaluationsBulkContextsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetQualityFormsEvaluationsBulkContextsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetQualityFormsEvaluationsBulkContextsForbidden() *GetQualityFormsEvalua
 	return &GetQualityFormsEvaluationsBulkContextsForbidden{}
 }
 
-/*GetQualityFormsEvaluationsBulkContextsForbidden handles this case with default header values.
+/*
+GetQualityFormsEvaluationsBulkContextsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetQualityFormsEvaluationsBulkContextsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms evaluations bulk contexts forbidden response has a 2xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms evaluations bulk contexts forbidden response has a 3xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms evaluations bulk contexts forbidden response has a 4xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms evaluations bulk contexts forbidden response has a 5xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms evaluations bulk contexts forbidden response a status code equal to that given
+func (o *GetQualityFormsEvaluationsBulkContextsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetQualityFormsEvaluationsBulkContextsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetQualityFormsEvaluationsBulkContextsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetQualityFormsEvaluationsBulkContextsNotFound() *GetQualityFormsEvaluat
 	return &GetQualityFormsEvaluationsBulkContextsNotFound{}
 }
 
-/*GetQualityFormsEvaluationsBulkContextsNotFound handles this case with default header values.
+/*
+GetQualityFormsEvaluationsBulkContextsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetQualityFormsEvaluationsBulkContextsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms evaluations bulk contexts not found response has a 2xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms evaluations bulk contexts not found response has a 3xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms evaluations bulk contexts not found response has a 4xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms evaluations bulk contexts not found response has a 5xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms evaluations bulk contexts not found response a status code equal to that given
+func (o *GetQualityFormsEvaluationsBulkContextsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetQualityFormsEvaluationsBulkContextsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetQualityFormsEvaluationsBulkContextsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetQualityFormsEvaluationsBulkContextsRequestTimeout() *GetQualityFormsE
 	return &GetQualityFormsEvaluationsBulkContextsRequestTimeout{}
 }
 
-/*GetQualityFormsEvaluationsBulkContextsRequestTimeout handles this case with default header values.
+/*
+GetQualityFormsEvaluationsBulkContextsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetQualityFormsEvaluationsBulkContextsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms evaluations bulk contexts request timeout response has a 2xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms evaluations bulk contexts request timeout response has a 3xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms evaluations bulk contexts request timeout response has a 4xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms evaluations bulk contexts request timeout response has a 5xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms evaluations bulk contexts request timeout response a status code equal to that given
+func (o *GetQualityFormsEvaluationsBulkContextsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetQualityFormsEvaluationsBulkContextsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetQualityFormsEvaluationsBulkContextsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetQualityFormsEvaluationsBulkContextsRequestEntityTooLarge() *GetQualit
 	return &GetQualityFormsEvaluationsBulkContextsRequestEntityTooLarge{}
 }
 
-/*GetQualityFormsEvaluationsBulkContextsRequestEntityTooLarge handles this case with default header values.
+/*
+GetQualityFormsEvaluationsBulkContextsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetQualityFormsEvaluationsBulkContextsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms evaluations bulk contexts request entity too large response has a 2xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms evaluations bulk contexts request entity too large response has a 3xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms evaluations bulk contexts request entity too large response has a 4xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms evaluations bulk contexts request entity too large response has a 5xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms evaluations bulk contexts request entity too large response a status code equal to that given
+func (o *GetQualityFormsEvaluationsBulkContextsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetQualityFormsEvaluationsBulkContextsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetQualityFormsEvaluationsBulkContextsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetQualityFormsEvaluationsBulkContextsUnsupportedMediaType() *GetQuality
 	return &GetQualityFormsEvaluationsBulkContextsUnsupportedMediaType{}
 }
 
-/*GetQualityFormsEvaluationsBulkContextsUnsupportedMediaType handles this case with default header values.
+/*
+GetQualityFormsEvaluationsBulkContextsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetQualityFormsEvaluationsBulkContextsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms evaluations bulk contexts unsupported media type response has a 2xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms evaluations bulk contexts unsupported media type response has a 3xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms evaluations bulk contexts unsupported media type response has a 4xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms evaluations bulk contexts unsupported media type response has a 5xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms evaluations bulk contexts unsupported media type response a status code equal to that given
+func (o *GetQualityFormsEvaluationsBulkContextsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetQualityFormsEvaluationsBulkContextsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetQualityFormsEvaluationsBulkContextsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetQualityFormsEvaluationsBulkContextsTooManyRequests() *GetQualityForms
 	return &GetQualityFormsEvaluationsBulkContextsTooManyRequests{}
 }
 
-/*GetQualityFormsEvaluationsBulkContextsTooManyRequests handles this case with default header values.
+/*
+GetQualityFormsEvaluationsBulkContextsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetQualityFormsEvaluationsBulkContextsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms evaluations bulk contexts too many requests response has a 2xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms evaluations bulk contexts too many requests response has a 3xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms evaluations bulk contexts too many requests response has a 4xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality forms evaluations bulk contexts too many requests response has a 5xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality forms evaluations bulk contexts too many requests response a status code equal to that given
+func (o *GetQualityFormsEvaluationsBulkContextsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetQualityFormsEvaluationsBulkContextsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetQualityFormsEvaluationsBulkContextsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetQualityFormsEvaluationsBulkContextsInternalServerError() *GetQualityF
 	return &GetQualityFormsEvaluationsBulkContextsInternalServerError{}
 }
 
-/*GetQualityFormsEvaluationsBulkContextsInternalServerError handles this case with default header values.
+/*
+GetQualityFormsEvaluationsBulkContextsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetQualityFormsEvaluationsBulkContextsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms evaluations bulk contexts internal server error response has a 2xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms evaluations bulk contexts internal server error response has a 3xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms evaluations bulk contexts internal server error response has a 4xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality forms evaluations bulk contexts internal server error response has a 5xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality forms evaluations bulk contexts internal server error response a status code equal to that given
+func (o *GetQualityFormsEvaluationsBulkContextsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetQualityFormsEvaluationsBulkContextsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetQualityFormsEvaluationsBulkContextsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetQualityFormsEvaluationsBulkContextsServiceUnavailable() *GetQualityFo
 	return &GetQualityFormsEvaluationsBulkContextsServiceUnavailable{}
 }
 
-/*GetQualityFormsEvaluationsBulkContextsServiceUnavailable handles this case with default header values.
+/*
+GetQualityFormsEvaluationsBulkContextsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetQualityFormsEvaluationsBulkContextsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms evaluations bulk contexts service unavailable response has a 2xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms evaluations bulk contexts service unavailable response has a 3xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms evaluations bulk contexts service unavailable response has a 4xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality forms evaluations bulk contexts service unavailable response has a 5xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality forms evaluations bulk contexts service unavailable response a status code equal to that given
+func (o *GetQualityFormsEvaluationsBulkContextsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetQualityFormsEvaluationsBulkContextsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetQualityFormsEvaluationsBulkContextsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetQualityFormsEvaluationsBulkContextsGatewayTimeout() *GetQualityFormsE
 	return &GetQualityFormsEvaluationsBulkContextsGatewayTimeout{}
 }
 
-/*GetQualityFormsEvaluationsBulkContextsGatewayTimeout handles this case with default header values.
+/*
+GetQualityFormsEvaluationsBulkContextsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetQualityFormsEvaluationsBulkContextsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality forms evaluations bulk contexts gateway timeout response has a 2xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality forms evaluations bulk contexts gateway timeout response has a 3xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality forms evaluations bulk contexts gateway timeout response has a 4xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality forms evaluations bulk contexts gateway timeout response has a 5xx status code
+func (o *GetQualityFormsEvaluationsBulkContextsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality forms evaluations bulk contexts gateway timeout response a status code equal to that given
+func (o *GetQualityFormsEvaluationsBulkContextsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetQualityFormsEvaluationsBulkContextsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetQualityFormsEvaluationsBulkContextsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/forms/evaluations/bulk/contexts][%d] getQualityFormsEvaluationsBulkContextsGatewayTimeout  %+v", 504, o.Payload)
 }
 

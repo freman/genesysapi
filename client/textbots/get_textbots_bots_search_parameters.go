@@ -17,86 +17,107 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetTextbotsBotsSearchParams creates a new GetTextbotsBotsSearchParams object
-// with the default values initialized.
+// NewGetTextbotsBotsSearchParams creates a new GetTextbotsBotsSearchParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTextbotsBotsSearchParams() *GetTextbotsBotsSearchParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetTextbotsBotsSearchParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTextbotsBotsSearchParamsWithTimeout creates a new GetTextbotsBotsSearchParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTextbotsBotsSearchParamsWithTimeout(timeout time.Duration) *GetTextbotsBotsSearchParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetTextbotsBotsSearchParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTextbotsBotsSearchParamsWithContext creates a new GetTextbotsBotsSearchParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTextbotsBotsSearchParamsWithContext(ctx context.Context) *GetTextbotsBotsSearchParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetTextbotsBotsSearchParams{
-		PageSize: &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetTextbotsBotsSearchParamsWithHTTPClient creates a new GetTextbotsBotsSearchParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTextbotsBotsSearchParamsWithHTTPClient(client *http.Client) *GetTextbotsBotsSearchParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetTextbotsBotsSearchParams{
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetTextbotsBotsSearchParams contains all the parameters to send to the API endpoint
-for the get textbots bots search operation typically these are written to a http.Request
+/*
+GetTextbotsBotsSearchParams contains all the parameters to send to the API endpoint
+
+	for the get textbots bots search operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTextbotsBotsSearchParams struct {
 
-	/*BotID
-	  Bot IDs
+	/* BotID.
 
+	   Bot IDs
 	*/
 	BotID []string
-	/*BotName
-	  Bot name
 
+	/* BotName.
+
+	   Bot name
 	*/
 	BotName *string
-	/*BotType
-	  Bot types
 
+	/* BotType.
+
+	   Bot types
 	*/
 	BotType []string
-	/*PageSize
-	  The maximum results to return
 
+	/* PageSize.
+
+	   The maximum results to return
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get textbots bots search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTextbotsBotsSearchParams) WithDefaults() *GetTextbotsBotsSearchParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get textbots bots search params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTextbotsBotsSearchParams) SetDefaults() {
+	var (
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetTextbotsBotsSearchParams{
+		PageSize: &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get textbots bots search params
@@ -184,56 +205,98 @@ func (o *GetTextbotsBotsSearchParams) WriteToRequest(r runtime.ClientRequest, re
 	}
 	var res []error
 
-	valuesBotID := o.BotID
+	if o.BotID != nil {
 
-	joinedBotID := swag.JoinByFormat(valuesBotID, "multi")
-	// query array param botId
-	if err := r.SetQueryParam("botId", joinedBotID...); err != nil {
-		return err
+		// binding items for botId
+		joinedBotID := o.bindParamBotID(reg)
+
+		// query array param botId
+		if err := r.SetQueryParam("botId", joinedBotID...); err != nil {
+			return err
+		}
 	}
 
 	if o.BotName != nil {
 
 		// query param botName
 		var qrBotName string
+
 		if o.BotName != nil {
 			qrBotName = *o.BotName
 		}
 		qBotName := qrBotName
 		if qBotName != "" {
+
 			if err := r.SetQueryParam("botName", qBotName); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesBotType := o.BotType
+	if o.BotType != nil {
 
-	joinedBotType := swag.JoinByFormat(valuesBotType, "multi")
-	// query array param botType
-	if err := r.SetQueryParam("botType", joinedBotType...); err != nil {
-		return err
+		// binding items for botType
+		joinedBotType := o.bindParamBotType(reg)
+
+		// query array param botType
+		if err := r.SetQueryParam("botType", joinedBotType...); err != nil {
+			return err
+		}
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetTextbotsBotsSearch binds the parameter botId
+func (o *GetTextbotsBotsSearchParams) bindParamBotID(formats strfmt.Registry) []string {
+	botIDIR := o.BotID
+
+	var botIDIC []string
+	for _, botIDIIR := range botIDIR { // explode []string
+
+		botIDIIV := botIDIIR // string as string
+		botIDIC = append(botIDIC, botIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	botIDIS := swag.JoinByFormat(botIDIC, "multi")
+
+	return botIDIS
+}
+
+// bindParamGetTextbotsBotsSearch binds the parameter botType
+func (o *GetTextbotsBotsSearchParams) bindParamBotType(formats strfmt.Registry) []string {
+	botTypeIR := o.BotType
+
+	var botTypeIC []string
+	for _, botTypeIIR := range botTypeIR { // explode []string
+
+		botTypeIIV := botTypeIIR // string as string
+		botTypeIC = append(botTypeIC, botTypeIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	botTypeIS := swag.JoinByFormat(botTypeIC, "multi")
+
+	return botTypeIS
 }

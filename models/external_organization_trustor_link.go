@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -52,7 +54,6 @@ func (m *ExternalOrganizationTrustorLink) Validate(formats strfmt.Registry) erro
 }
 
 func (m *ExternalOrganizationTrustorLink) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -65,12 +66,34 @@ func (m *ExternalOrganizationTrustorLink) validateDateCreated(formats strfmt.Reg
 }
 
 func (m *ExternalOrganizationTrustorLink) validateExternalOrganizationURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalOrganizationURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("externalOrganizationUri", "body", "uri", m.ExternalOrganizationURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this external organization trustor link based on the context it is used
+func (m *ExternalOrganizationTrustorLink) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateExternalOrganizationURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ExternalOrganizationTrustorLink) contextValidateExternalOrganizationURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "externalOrganizationUri", "body", strfmt.URI(m.ExternalOrganizationURI)); err != nil {
 		return err
 	}
 

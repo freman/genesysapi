@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -37,7 +38,6 @@ func (m *BatchUserPresenceEventRequest) Validate(formats strfmt.Registry) error 
 }
 
 func (m *BatchUserPresenceEventRequest) validateUserPresenceEvents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserPresenceEvents) { // not required
 		return nil
 	}
@@ -51,6 +51,42 @@ func (m *BatchUserPresenceEventRequest) validateUserPresenceEvents(formats strfm
 			if err := m.UserPresenceEvents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("userPresenceEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userPresenceEvents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this batch user presence event request based on the context it is used
+func (m *BatchUserPresenceEventRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateUserPresenceEvents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BatchUserPresenceEventRequest) contextValidateUserPresenceEvents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.UserPresenceEvents); i++ {
+
+		if m.UserPresenceEvents[i] != nil {
+			if err := m.UserPresenceEvents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("userPresenceEvents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("userPresenceEvents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutExternalcontactsRelationshipParams creates a new PutExternalcontactsRelationshipParams object
-// with the default values initialized.
+// NewPutExternalcontactsRelationshipParams creates a new PutExternalcontactsRelationshipParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutExternalcontactsRelationshipParams() *PutExternalcontactsRelationshipParams {
-	var ()
 	return &PutExternalcontactsRelationshipParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutExternalcontactsRelationshipParamsWithTimeout creates a new PutExternalcontactsRelationshipParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutExternalcontactsRelationshipParamsWithTimeout(timeout time.Duration) *PutExternalcontactsRelationshipParams {
-	var ()
 	return &PutExternalcontactsRelationshipParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutExternalcontactsRelationshipParamsWithContext creates a new PutExternalcontactsRelationshipParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutExternalcontactsRelationshipParamsWithContext(ctx context.Context) *PutExternalcontactsRelationshipParams {
-	var ()
 	return &PutExternalcontactsRelationshipParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutExternalcontactsRelationshipParamsWithHTTPClient creates a new PutExternalcontactsRelationshipParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutExternalcontactsRelationshipParamsWithHTTPClient(client *http.Client) *PutExternalcontactsRelationshipParams {
-	var ()
 	return &PutExternalcontactsRelationshipParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutExternalcontactsRelationshipParams contains all the parameters to send to the API endpoint
-for the put externalcontacts relationship operation typically these are written to a http.Request
+/*
+PutExternalcontactsRelationshipParams contains all the parameters to send to the API endpoint
+
+	for the put externalcontacts relationship operation.
+
+	Typically these are written to a http.Request.
 */
 type PutExternalcontactsRelationshipParams struct {
 
-	/*Body
-	  Relationship
+	/* Body.
 
+	   Relationship
 	*/
 	Body *models.Relationship
-	/*RelationshipID
-	  Relationship Id
 
+	/* RelationshipID.
+
+	   Relationship Id
 	*/
 	RelationshipID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put externalcontacts relationship params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutExternalcontactsRelationshipParams) WithDefaults() *PutExternalcontactsRelationshipParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put externalcontacts relationship params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutExternalcontactsRelationshipParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put externalcontacts relationship params
@@ -140,7 +157,6 @@ func (o *PutExternalcontactsRelationshipParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

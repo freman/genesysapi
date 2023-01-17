@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -69,7 +70,6 @@ func (m *ScorableSurvey) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ScorableSurvey) validateAnswers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Answers) { // not required
 		return nil
 	}
@@ -78,6 +78,8 @@ func (m *ScorableSurvey) validateAnswers(formats strfmt.Registry) error {
 		if err := m.Answers.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("answers")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("answers")
 			}
 			return err
 		}
@@ -87,7 +89,6 @@ func (m *ScorableSurvey) validateAnswers(formats strfmt.Registry) error {
 }
 
 func (m *ScorableSurvey) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -144,7 +145,6 @@ func (m *ScorableSurvey) validateStatusEnum(path, location string, value string)
 }
 
 func (m *ScorableSurvey) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -158,7 +158,6 @@ func (m *ScorableSurvey) validateStatus(formats strfmt.Registry) error {
 }
 
 func (m *ScorableSurvey) validateSurveyForm(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SurveyForm) { // not required
 		return nil
 	}
@@ -167,6 +166,84 @@ func (m *ScorableSurvey) validateSurveyForm(formats strfmt.Registry) error {
 		if err := m.SurveyForm.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("surveyForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyForm")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scorable survey based on the context it is used
+func (m *ScorableSurvey) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAnswers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSurveyForm(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScorableSurvey) contextValidateAnswers(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Answers != nil {
+		if err := m.Answers.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("answers")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("answers")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ScorableSurvey) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScorableSurvey) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScorableSurvey) contextValidateSurveyForm(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SurveyForm != nil {
+		if err := m.SurveyForm.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("surveyForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("surveyForm")
 			}
 			return err
 		}

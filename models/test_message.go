@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -82,6 +83,8 @@ func (m *TestMessage) validateFrom(formats strfmt.Registry) error {
 		if err := m.From.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("from")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("from")
 			}
 			return err
 		}
@@ -100,7 +103,6 @@ func (m *TestMessage) validateTextBody(formats strfmt.Registry) error {
 }
 
 func (m *TestMessage) validateTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Time) { // not required
 		return nil
 	}
@@ -127,6 +129,75 @@ func (m *TestMessage) validateTo(formats strfmt.Registry) error {
 			if err := m.To[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("to" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("to" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this test message based on the context it is used
+func (m *TestMessage) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFrom(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TestMessage) contextValidateFrom(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.From != nil {
+		if err := m.From.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("from")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("from")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TestMessage) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *TestMessage) contextValidateTo(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.To); i++ {
+
+		if m.To[i] != nil {
+			if err := m.To[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("to" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("to" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

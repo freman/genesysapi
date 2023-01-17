@@ -101,7 +101,6 @@ func (o *PostUsersReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostUsersOK() *PostUsersOK {
 	return &PostUsersOK{}
 }
 
-/*PostUsersOK handles this case with default header values.
+/*
+PostUsersOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostUsersOK struct {
 	Payload *models.User
 }
 
+// IsSuccess returns true when this post users o k response has a 2xx status code
+func (o *PostUsersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post users o k response has a 3xx status code
+func (o *PostUsersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users o k response has a 4xx status code
+func (o *PostUsersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post users o k response has a 5xx status code
+func (o *PostUsersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users o k response a status code equal to that given
+func (o *PostUsersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostUsersOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersOK  %+v", 200, o.Payload)
+}
+
+func (o *PostUsersOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostUsersBadRequest() *PostUsersBadRequest {
 	return &PostUsersBadRequest{}
 }
 
-/*PostUsersBadRequest handles this case with default header values.
+/*
+PostUsersBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostUsersBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users bad request response has a 2xx status code
+func (o *PostUsersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users bad request response has a 3xx status code
+func (o *PostUsersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users bad request response has a 4xx status code
+func (o *PostUsersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users bad request response has a 5xx status code
+func (o *PostUsersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users bad request response a status code equal to that given
+func (o *PostUsersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostUsersBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostUsersBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostUsersUnauthorized() *PostUsersUnauthorized {
 	return &PostUsersUnauthorized{}
 }
 
-/*PostUsersUnauthorized handles this case with default header values.
+/*
+PostUsersUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostUsersUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users unauthorized response has a 2xx status code
+func (o *PostUsersUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users unauthorized response has a 3xx status code
+func (o *PostUsersUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users unauthorized response has a 4xx status code
+func (o *PostUsersUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users unauthorized response has a 5xx status code
+func (o *PostUsersUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users unauthorized response a status code equal to that given
+func (o *PostUsersUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostUsersUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostUsersUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostUsersForbidden() *PostUsersForbidden {
 	return &PostUsersForbidden{}
 }
 
-/*PostUsersForbidden handles this case with default header values.
+/*
+PostUsersForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostUsersForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users forbidden response has a 2xx status code
+func (o *PostUsersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users forbidden response has a 3xx status code
+func (o *PostUsersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users forbidden response has a 4xx status code
+func (o *PostUsersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users forbidden response has a 5xx status code
+func (o *PostUsersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users forbidden response a status code equal to that given
+func (o *PostUsersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostUsersForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostUsersForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostUsersNotFound() *PostUsersNotFound {
 	return &PostUsersNotFound{}
 }
 
-/*PostUsersNotFound handles this case with default header values.
+/*
+PostUsersNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostUsersNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users not found response has a 2xx status code
+func (o *PostUsersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users not found response has a 3xx status code
+func (o *PostUsersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users not found response has a 4xx status code
+func (o *PostUsersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users not found response has a 5xx status code
+func (o *PostUsersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users not found response a status code equal to that given
+func (o *PostUsersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostUsersNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostUsersNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostUsersRequestTimeout() *PostUsersRequestTimeout {
 	return &PostUsersRequestTimeout{}
 }
 
-/*PostUsersRequestTimeout handles this case with default header values.
+/*
+PostUsersRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostUsersRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users request timeout response has a 2xx status code
+func (o *PostUsersRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users request timeout response has a 3xx status code
+func (o *PostUsersRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users request timeout response has a 4xx status code
+func (o *PostUsersRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users request timeout response has a 5xx status code
+func (o *PostUsersRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users request timeout response a status code equal to that given
+func (o *PostUsersRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostUsersRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUsersRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostUsersConflict() *PostUsersConflict {
 	return &PostUsersConflict{}
 }
 
-/*PostUsersConflict handles this case with default header values.
+/*
+PostUsersConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PostUsersConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users conflict response has a 2xx status code
+func (o *PostUsersConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users conflict response has a 3xx status code
+func (o *PostUsersConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users conflict response has a 4xx status code
+func (o *PostUsersConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users conflict response has a 5xx status code
+func (o *PostUsersConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users conflict response a status code equal to that given
+func (o *PostUsersConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostUsersConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostUsersConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostUsersRequestEntityTooLarge() *PostUsersRequestEntityTooLarge {
 	return &PostUsersRequestEntityTooLarge{}
 }
 
-/*PostUsersRequestEntityTooLarge handles this case with default header values.
+/*
+PostUsersRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostUsersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users request entity too large response has a 2xx status code
+func (o *PostUsersRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users request entity too large response has a 3xx status code
+func (o *PostUsersRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users request entity too large response has a 4xx status code
+func (o *PostUsersRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users request entity too large response has a 5xx status code
+func (o *PostUsersRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users request entity too large response a status code equal to that given
+func (o *PostUsersRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostUsersRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostUsersRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostUsersUnsupportedMediaType() *PostUsersUnsupportedMediaType {
 	return &PostUsersUnsupportedMediaType{}
 }
 
-/*PostUsersUnsupportedMediaType handles this case with default header values.
+/*
+PostUsersUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostUsersUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users unsupported media type response has a 2xx status code
+func (o *PostUsersUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users unsupported media type response has a 3xx status code
+func (o *PostUsersUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users unsupported media type response has a 4xx status code
+func (o *PostUsersUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users unsupported media type response has a 5xx status code
+func (o *PostUsersUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users unsupported media type response a status code equal to that given
+func (o *PostUsersUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostUsersUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostUsersUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostUsersTooManyRequests() *PostUsersTooManyRequests {
 	return &PostUsersTooManyRequests{}
 }
 
-/*PostUsersTooManyRequests handles this case with default header values.
+/*
+PostUsersTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostUsersTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users too many requests response has a 2xx status code
+func (o *PostUsersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users too many requests response has a 3xx status code
+func (o *PostUsersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users too many requests response has a 4xx status code
+func (o *PostUsersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post users too many requests response has a 5xx status code
+func (o *PostUsersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post users too many requests response a status code equal to that given
+func (o *PostUsersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostUsersTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostUsersTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostUsersInternalServerError() *PostUsersInternalServerError {
 	return &PostUsersInternalServerError{}
 }
 
-/*PostUsersInternalServerError handles this case with default header values.
+/*
+PostUsersInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostUsersInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users internal server error response has a 2xx status code
+func (o *PostUsersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users internal server error response has a 3xx status code
+func (o *PostUsersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users internal server error response has a 4xx status code
+func (o *PostUsersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post users internal server error response has a 5xx status code
+func (o *PostUsersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post users internal server error response a status code equal to that given
+func (o *PostUsersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostUsersInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostUsersInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostUsersServiceUnavailable() *PostUsersServiceUnavailable {
 	return &PostUsersServiceUnavailable{}
 }
 
-/*PostUsersServiceUnavailable handles this case with default header values.
+/*
+PostUsersServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostUsersServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users service unavailable response has a 2xx status code
+func (o *PostUsersServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users service unavailable response has a 3xx status code
+func (o *PostUsersServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users service unavailable response has a 4xx status code
+func (o *PostUsersServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post users service unavailable response has a 5xx status code
+func (o *PostUsersServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post users service unavailable response a status code equal to that given
+func (o *PostUsersServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostUsersServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostUsersServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostUsersGatewayTimeout() *PostUsersGatewayTimeout {
 	return &PostUsersGatewayTimeout{}
 }
 
-/*PostUsersGatewayTimeout handles this case with default header values.
+/*
+PostUsersGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostUsersGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post users gateway timeout response has a 2xx status code
+func (o *PostUsersGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post users gateway timeout response has a 3xx status code
+func (o *PostUsersGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post users gateway timeout response has a 4xx status code
+func (o *PostUsersGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post users gateway timeout response has a 5xx status code
+func (o *PostUsersGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post users gateway timeout response a status code equal to that given
+func (o *PostUsersGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostUsersGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostUsersGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/users][%d] postUsersGatewayTimeout  %+v", 504, o.Payload)
 }
 

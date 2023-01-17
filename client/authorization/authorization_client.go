@@ -102,6 +102,10 @@ type API interface {
 	*/
 	GetAuthorizationRoles(ctx context.Context, params *GetAuthorizationRolesParams) (*GetAuthorizationRolesOK, error)
 	/*
+	   GetAuthorizationSettings gets authorization settings
+	*/
+	GetAuthorizationSettings(ctx context.Context, params *GetAuthorizationSettingsParams) (*GetAuthorizationSettingsOK, error)
+	/*
 	   GetAuthorizationSubject returns a listing of roles and permissions for a user
 	*/
 	GetAuthorizationSubject(ctx context.Context, params *GetAuthorizationSubjectParams) (*GetAuthorizationSubjectOK, error)
@@ -122,6 +126,11 @@ type API interface {
 	   Patch Organization Role for needsUpdate Field
 	*/
 	PatchAuthorizationRole(ctx context.Context, params *PatchAuthorizationRoleParams) (*PatchAuthorizationRoleOK, error)
+	/*
+	   PatchAuthorizationSettings changes authorization settings
+	   Change authorization settings
+	*/
+	PatchAuthorizationSettings(ctx context.Context, params *PatchAuthorizationSettingsParams) (*PatchAuthorizationSettingsOK, error)
 	/*
 	   PostAuthorizationDivisionObject assigns a list of objects to a division
 	   Set the division of a specified list of objects. The objects must all be of the same type, one of:
@@ -692,6 +701,31 @@ func (a *Client) GetAuthorizationRoles(ctx context.Context, params *GetAuthoriza
 }
 
 /*
+GetAuthorizationSettings gets authorization settings
+*/
+func (a *Client) GetAuthorizationSettings(ctx context.Context, params *GetAuthorizationSettingsParams) (*GetAuthorizationSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "getAuthorizationSettings",
+		Method:             "GET",
+		PathPattern:        "/api/v2/authorization/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetAuthorizationSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*GetAuthorizationSettingsOK), nil
+
+}
+
+/*
 GetAuthorizationSubject returns a listing of roles and permissions for a user
 */
 func (a *Client) GetAuthorizationSubject(ctx context.Context, params *GetAuthorizationSubjectParams) (*GetAuthorizationSubjectOK, error) {
@@ -815,6 +849,33 @@ func (a *Client) PatchAuthorizationRole(ctx context.Context, params *PatchAuthor
 		return nil, err
 	}
 	return result.(*PatchAuthorizationRoleOK), nil
+
+}
+
+/*
+PatchAuthorizationSettings changes authorization settings
+
+Change authorization settings
+*/
+func (a *Client) PatchAuthorizationSettings(ctx context.Context, params *PatchAuthorizationSettingsParams) (*PatchAuthorizationSettingsOK, error) {
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "patchAuthorizationSettings",
+		Method:             "PATCH",
+		PathPattern:        "/api/v2/authorization/settings",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &PatchAuthorizationSettingsReader{formats: a.formats},
+		AuthInfo:           a.authInfo,
+		Context:            ctx,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	return result.(*PatchAuthorizationSettingsOK), nil
 
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -65,7 +66,6 @@ func (m *DomainOrgRoleDifference) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DomainOrgRoleDifference) validateAddedPermissionPolicies(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AddedPermissionPolicies) { // not required
 		return nil
 	}
@@ -79,6 +79,8 @@ func (m *DomainOrgRoleDifference) validateAddedPermissionPolicies(formats strfmt
 			if err := m.AddedPermissionPolicies[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("addedPermissionPolicies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("addedPermissionPolicies" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -90,7 +92,6 @@ func (m *DomainOrgRoleDifference) validateAddedPermissionPolicies(formats strfmt
 }
 
 func (m *DomainOrgRoleDifference) validateRemovedPermissionPolicies(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RemovedPermissionPolicies) { // not required
 		return nil
 	}
@@ -104,6 +105,8 @@ func (m *DomainOrgRoleDifference) validateRemovedPermissionPolicies(formats strf
 			if err := m.RemovedPermissionPolicies[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("removedPermissionPolicies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("removedPermissionPolicies" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -115,7 +118,6 @@ func (m *DomainOrgRoleDifference) validateRemovedPermissionPolicies(formats strf
 }
 
 func (m *DomainOrgRoleDifference) validateRoleFromDefault(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoleFromDefault) { // not required
 		return nil
 	}
@@ -124,6 +126,8 @@ func (m *DomainOrgRoleDifference) validateRoleFromDefault(formats strfmt.Registr
 		if err := m.RoleFromDefault.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("roleFromDefault")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("roleFromDefault")
 			}
 			return err
 		}
@@ -133,7 +137,6 @@ func (m *DomainOrgRoleDifference) validateRoleFromDefault(formats strfmt.Registr
 }
 
 func (m *DomainOrgRoleDifference) validateSamePermissionPolicies(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SamePermissionPolicies) { // not required
 		return nil
 	}
@@ -147,6 +150,8 @@ func (m *DomainOrgRoleDifference) validateSamePermissionPolicies(formats strfmt.
 			if err := m.SamePermissionPolicies[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("samePermissionPolicies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("samePermissionPolicies" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -158,7 +163,6 @@ func (m *DomainOrgRoleDifference) validateSamePermissionPolicies(formats strfmt.
 }
 
 func (m *DomainOrgRoleDifference) validateUserOrgRole(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserOrgRole) { // not required
 		return nil
 	}
@@ -167,6 +171,130 @@ func (m *DomainOrgRoleDifference) validateUserOrgRole(formats strfmt.Registry) e
 		if err := m.UserOrgRole.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("userOrgRole")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("userOrgRole")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain org role difference based on the context it is used
+func (m *DomainOrgRoleDifference) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAddedPermissionPolicies(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRemovedPermissionPolicies(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoleFromDefault(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSamePermissionPolicies(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserOrgRole(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainOrgRoleDifference) contextValidateAddedPermissionPolicies(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AddedPermissionPolicies); i++ {
+
+		if m.AddedPermissionPolicies[i] != nil {
+			if err := m.AddedPermissionPolicies[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("addedPermissionPolicies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("addedPermissionPolicies" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainOrgRoleDifference) contextValidateRemovedPermissionPolicies(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RemovedPermissionPolicies); i++ {
+
+		if m.RemovedPermissionPolicies[i] != nil {
+			if err := m.RemovedPermissionPolicies[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("removedPermissionPolicies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("removedPermissionPolicies" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainOrgRoleDifference) contextValidateRoleFromDefault(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RoleFromDefault != nil {
+		if err := m.RoleFromDefault.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("roleFromDefault")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("roleFromDefault")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DomainOrgRoleDifference) contextValidateSamePermissionPolicies(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SamePermissionPolicies); i++ {
+
+		if m.SamePermissionPolicies[i] != nil {
+			if err := m.SamePermissionPolicies[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("samePermissionPolicies" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("samePermissionPolicies" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainOrgRoleDifference) contextValidateUserOrgRole(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UserOrgRole != nil {
+		if err := m.UserOrgRole.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("userOrgRole")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("userOrgRole")
 			}
 			return err
 		}

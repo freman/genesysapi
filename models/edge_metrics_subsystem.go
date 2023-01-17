@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -41,7 +43,6 @@ func (m *EdgeMetricsSubsystem) Validate(formats strfmt.Registry) error {
 }
 
 func (m *EdgeMetricsSubsystem) validateMediaSubsystem(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaSubsystem) { // not required
 		return nil
 	}
@@ -50,6 +51,38 @@ func (m *EdgeMetricsSubsystem) validateMediaSubsystem(formats strfmt.Registry) e
 		if err := m.MediaSubsystem.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mediaSubsystem")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mediaSubsystem")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this edge metrics subsystem based on the context it is used
+func (m *EdgeMetricsSubsystem) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMediaSubsystem(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EdgeMetricsSubsystem) contextValidateMediaSubsystem(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MediaSubsystem != nil {
+		if err := m.MediaSubsystem.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mediaSubsystem")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mediaSubsystem")
 			}
 			return err
 		}

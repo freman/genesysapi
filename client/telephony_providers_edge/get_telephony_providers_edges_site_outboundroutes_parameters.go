@@ -17,112 +17,130 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetTelephonyProvidersEdgesSiteOutboundroutesParams creates a new GetTelephonyProvidersEdgesSiteOutboundroutesParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesSiteOutboundroutesParams creates a new GetTelephonyProvidersEdgesSiteOutboundroutesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesSiteOutboundroutesParams() *GetTelephonyProvidersEdgesSiteOutboundroutesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-	)
 	return &GetTelephonyProvidersEdgesSiteOutboundroutesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesSiteOutboundroutesParamsWithTimeout creates a new GetTelephonyProvidersEdgesSiteOutboundroutesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesSiteOutboundroutesParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesSiteOutboundroutesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-	)
 	return &GetTelephonyProvidersEdgesSiteOutboundroutesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesSiteOutboundroutesParamsWithContext creates a new GetTelephonyProvidersEdgesSiteOutboundroutesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesSiteOutboundroutesParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesSiteOutboundroutesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-	)
 	return &GetTelephonyProvidersEdgesSiteOutboundroutesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesSiteOutboundroutesParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesSiteOutboundroutesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesSiteOutboundroutesParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesSiteOutboundroutesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortByDefault     = string("name")
-	)
 	return &GetTelephonyProvidersEdgesSiteOutboundroutesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortBy:     &sortByDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesSiteOutboundroutesParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges site outboundroutes operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesSiteOutboundroutesParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges site outboundroutes operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesSiteOutboundroutesParams struct {
 
-	/*ExternalTrunkBasesIds
-	  externalTrunkBases.ids
+	/* ExternalTrunkBasesIds.
 
+	   externalTrunkBases.ids
 	*/
 	ExternalTrunkBasesIds *string
-	/*Name
-	  Name
 
+	/* Name.
+
+	   Name
 	*/
 	Name *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*SiteID
-	  Site ID
 
+	/* SiteID.
+
+	   Site ID
 	*/
 	SiteID string
-	/*SortBy
-	  Sort by
 
+	/* SortBy.
+
+	   Sort by
+
+	   Default: "name"
 	*/
 	SortBy *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges site outboundroutes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesSiteOutboundroutesParams) WithDefaults() *GetTelephonyProvidersEdgesSiteOutboundroutesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges site outboundroutes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesSiteOutboundroutesParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortByDefault = string("name")
+	)
+
+	val := GetTelephonyProvidersEdgesSiteOutboundroutesParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortBy:     &sortByDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges site outboundroutes params
@@ -236,64 +254,68 @@ func (o *GetTelephonyProvidersEdgesSiteOutboundroutesParams) WriteToRequest(r ru
 
 		// query param externalTrunkBases.ids
 		var qrExternalTrunkBasesIds string
+
 		if o.ExternalTrunkBasesIds != nil {
 			qrExternalTrunkBasesIds = *o.ExternalTrunkBasesIds
 		}
 		qExternalTrunkBasesIds := qrExternalTrunkBasesIds
 		if qExternalTrunkBasesIds != "" {
+
 			if err := r.SetQueryParam("externalTrunkBases.ids", qExternalTrunkBasesIds); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param siteId
@@ -305,16 +327,17 @@ func (o *GetTelephonyProvidersEdgesSiteOutboundroutesParams) WriteToRequest(r ru
 
 		// query param sortBy
 		var qrSortBy string
+
 		if o.SortBy != nil {
 			qrSortBy = *o.SortBy
 		}
 		qSortBy := qrSortBy
 		if qSortBy != "" {
+
 			if err := r.SetQueryParam("sortBy", qSortBy); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

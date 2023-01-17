@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTelephonyProvidersEdgeLogsJobsParams creates a new PostTelephonyProvidersEdgeLogsJobsParams object
-// with the default values initialized.
+// NewPostTelephonyProvidersEdgeLogsJobsParams creates a new PostTelephonyProvidersEdgeLogsJobsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTelephonyProvidersEdgeLogsJobsParams() *PostTelephonyProvidersEdgeLogsJobsParams {
-	var ()
 	return &PostTelephonyProvidersEdgeLogsJobsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeLogsJobsParamsWithTimeout creates a new PostTelephonyProvidersEdgeLogsJobsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTelephonyProvidersEdgeLogsJobsParamsWithTimeout(timeout time.Duration) *PostTelephonyProvidersEdgeLogsJobsParams {
-	var ()
 	return &PostTelephonyProvidersEdgeLogsJobsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeLogsJobsParamsWithContext creates a new PostTelephonyProvidersEdgeLogsJobsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTelephonyProvidersEdgeLogsJobsParamsWithContext(ctx context.Context) *PostTelephonyProvidersEdgeLogsJobsParams {
-	var ()
 	return &PostTelephonyProvidersEdgeLogsJobsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeLogsJobsParamsWithHTTPClient creates a new PostTelephonyProvidersEdgeLogsJobsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTelephonyProvidersEdgeLogsJobsParamsWithHTTPClient(client *http.Client) *PostTelephonyProvidersEdgeLogsJobsParams {
-	var ()
 	return &PostTelephonyProvidersEdgeLogsJobsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTelephonyProvidersEdgeLogsJobsParams contains all the parameters to send to the API endpoint
-for the post telephony providers edge logs jobs operation typically these are written to a http.Request
+/*
+PostTelephonyProvidersEdgeLogsJobsParams contains all the parameters to send to the API endpoint
+
+	for the post telephony providers edge logs jobs operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTelephonyProvidersEdgeLogsJobsParams struct {
 
-	/*Body
-	  EdgeLogsJobRequest
+	/* Body.
 
+	   EdgeLogsJobRequest
 	*/
 	Body *models.EdgeLogsJobRequest
-	/*EdgeID
-	  Edge ID
 
+	/* EdgeID.
+
+	   Edge ID
 	*/
 	EdgeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post telephony providers edge logs jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeLogsJobsParams) WithDefaults() *PostTelephonyProvidersEdgeLogsJobsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post telephony providers edge logs jobs params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeLogsJobsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post telephony providers edge logs jobs params
@@ -140,7 +157,6 @@ func (o *PostTelephonyProvidersEdgeLogsJobsParams) WriteToRequest(r runtime.Clie
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

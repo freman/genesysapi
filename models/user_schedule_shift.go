@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -68,7 +69,6 @@ func (m *UserScheduleShift) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserScheduleShift) validateActivities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Activities) { // not required
 		return nil
 	}
@@ -82,6 +82,8 @@ func (m *UserScheduleShift) validateActivities(formats strfmt.Registry) error {
 			if err := m.Activities[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("activities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activities" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -93,7 +95,6 @@ func (m *UserScheduleShift) validateActivities(formats strfmt.Registry) error {
 }
 
 func (m *UserScheduleShift) validateStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDate) { // not required
 		return nil
 	}
@@ -106,7 +107,6 @@ func (m *UserScheduleShift) validateStartDate(formats strfmt.Registry) error {
 }
 
 func (m *UserScheduleShift) validateWeekSchedule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WeekSchedule) { // not required
 		return nil
 	}
@@ -115,6 +115,88 @@ func (m *UserScheduleShift) validateWeekSchedule(formats strfmt.Registry) error 
 		if err := m.WeekSchedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("weekSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("weekSchedule")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user schedule shift based on the context it is used
+func (m *UserScheduleShift) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActivities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLengthInMinutes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStartDate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWeekSchedule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserScheduleShift) contextValidateActivities(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Activities); i++ {
+
+		if m.Activities[i] != nil {
+			if err := m.Activities[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("activities" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("activities" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *UserScheduleShift) contextValidateLengthInMinutes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "lengthInMinutes", "body", int32(m.LengthInMinutes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleShift) contextValidateStartDate(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "startDate", "body", strfmt.DateTime(m.StartDate)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *UserScheduleShift) contextValidateWeekSchedule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WeekSchedule != nil {
+		if err := m.WeekSchedule.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("weekSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("weekSchedule")
 			}
 			return err
 		}

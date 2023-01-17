@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostQualityPublishedformsParams creates a new PostQualityPublishedformsParams object
-// with the default values initialized.
+// NewPostQualityPublishedformsParams creates a new PostQualityPublishedformsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostQualityPublishedformsParams() *PostQualityPublishedformsParams {
-	var ()
 	return &PostQualityPublishedformsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostQualityPublishedformsParamsWithTimeout creates a new PostQualityPublishedformsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostQualityPublishedformsParamsWithTimeout(timeout time.Duration) *PostQualityPublishedformsParams {
-	var ()
 	return &PostQualityPublishedformsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostQualityPublishedformsParamsWithContext creates a new PostQualityPublishedformsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostQualityPublishedformsParamsWithContext(ctx context.Context) *PostQualityPublishedformsParams {
-	var ()
 	return &PostQualityPublishedformsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostQualityPublishedformsParamsWithHTTPClient creates a new PostQualityPublishedformsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostQualityPublishedformsParamsWithHTTPClient(client *http.Client) *PostQualityPublishedformsParams {
-	var ()
 	return &PostQualityPublishedformsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostQualityPublishedformsParams contains all the parameters to send to the API endpoint
-for the post quality publishedforms operation typically these are written to a http.Request
+/*
+PostQualityPublishedformsParams contains all the parameters to send to the API endpoint
+
+	for the post quality publishedforms operation.
+
+	Typically these are written to a http.Request.
 */
 type PostQualityPublishedformsParams struct {
 
-	/*Body
-	  Publish request containing id of form to publish
+	/* Body.
 
+	   Publish request containing id of form to publish
 	*/
 	Body *models.PublishForm
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post quality publishedforms params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostQualityPublishedformsParams) WithDefaults() *PostQualityPublishedformsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post quality publishedforms params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostQualityPublishedformsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post quality publishedforms params
@@ -124,7 +140,6 @@ func (o *PostQualityPublishedformsParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

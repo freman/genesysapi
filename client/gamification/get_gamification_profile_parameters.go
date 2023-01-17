@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationProfileParams creates a new GetGamificationProfileParams object
-// with the default values initialized.
+// NewGetGamificationProfileParams creates a new GetGamificationProfileParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationProfileParams() *GetGamificationProfileParams {
-	var ()
 	return &GetGamificationProfileParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationProfileParamsWithTimeout creates a new GetGamificationProfileParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationProfileParamsWithTimeout(timeout time.Duration) *GetGamificationProfileParams {
-	var ()
 	return &GetGamificationProfileParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationProfileParamsWithContext creates a new GetGamificationProfileParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationProfileParamsWithContext(ctx context.Context) *GetGamificationProfileParams {
-	var ()
 	return &GetGamificationProfileParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationProfileParamsWithHTTPClient creates a new GetGamificationProfileParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationProfileParamsWithHTTPClient(client *http.Client) *GetGamificationProfileParams {
-	var ()
 	return &GetGamificationProfileParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationProfileParams contains all the parameters to send to the API endpoint
-for the get gamification profile operation typically these are written to a http.Request
+/*
+GetGamificationProfileParams contains all the parameters to send to the API endpoint
+
+	for the get gamification profile operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationProfileParams struct {
 
-	/*ProfileID
-	  performanceProfileId
+	/* ProfileID.
 
+	   performanceProfileId
 	*/
 	ProfileID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification profile params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationProfileParams) WithDefaults() *GetGamificationProfileParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification profile params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationProfileParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification profile params

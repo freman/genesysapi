@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -24,6 +26,11 @@ type SelectedColumns struct {
 
 // Validate validates this selected columns
 func (m *SelectedColumns) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this selected columns based on context it is used
+func (m *SelectedColumns) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

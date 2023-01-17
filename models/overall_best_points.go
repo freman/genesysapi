@@ -6,11 +6,13 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // OverallBestPoints overall best points
@@ -54,7 +56,6 @@ func (m *OverallBestPoints) Validate(formats strfmt.Registry) error {
 }
 
 func (m *OverallBestPoints) validateBestPoints(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BestPoints) { // not required
 		return nil
 	}
@@ -68,6 +69,8 @@ func (m *OverallBestPoints) validateBestPoints(formats strfmt.Registry) error {
 			if err := m.BestPoints[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("bestPoints" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bestPoints" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -79,7 +82,6 @@ func (m *OverallBestPoints) validateBestPoints(formats strfmt.Registry) error {
 }
 
 func (m *OverallBestPoints) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -88,6 +90,8 @@ func (m *OverallBestPoints) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -97,7 +101,6 @@ func (m *OverallBestPoints) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *OverallBestPoints) validatePerformanceProfile(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PerformanceProfile) { // not required
 		return nil
 	}
@@ -106,6 +109,86 @@ func (m *OverallBestPoints) validatePerformanceProfile(formats strfmt.Registry) 
 		if err := m.PerformanceProfile.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("performanceProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("performanceProfile")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this overall best points based on the context it is used
+func (m *OverallBestPoints) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBestPoints(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePerformanceProfile(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OverallBestPoints) contextValidateBestPoints(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "bestPoints", "body", []*OverallBestPointsItem(m.BestPoints)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.BestPoints); i++ {
+
+		if m.BestPoints[i] != nil {
+			if err := m.BestPoints[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("bestPoints" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("bestPoints" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *OverallBestPoints) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OverallBestPoints) contextValidatePerformanceProfile(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PerformanceProfile != nil {
+		if err := m.PerformanceProfile.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("performanceProfile")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("performanceProfile")
 			}
 			return err
 		}

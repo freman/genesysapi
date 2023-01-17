@@ -16,61 +16,78 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostFlowsDatatableRowsParams creates a new PostFlowsDatatableRowsParams object
-// with the default values initialized.
+// NewPostFlowsDatatableRowsParams creates a new PostFlowsDatatableRowsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostFlowsDatatableRowsParams() *PostFlowsDatatableRowsParams {
-	var ()
 	return &PostFlowsDatatableRowsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostFlowsDatatableRowsParamsWithTimeout creates a new PostFlowsDatatableRowsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostFlowsDatatableRowsParamsWithTimeout(timeout time.Duration) *PostFlowsDatatableRowsParams {
-	var ()
 	return &PostFlowsDatatableRowsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostFlowsDatatableRowsParamsWithContext creates a new PostFlowsDatatableRowsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostFlowsDatatableRowsParamsWithContext(ctx context.Context) *PostFlowsDatatableRowsParams {
-	var ()
 	return &PostFlowsDatatableRowsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostFlowsDatatableRowsParamsWithHTTPClient creates a new PostFlowsDatatableRowsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostFlowsDatatableRowsParamsWithHTTPClient(client *http.Client) *PostFlowsDatatableRowsParams {
-	var ()
 	return &PostFlowsDatatableRowsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostFlowsDatatableRowsParams contains all the parameters to send to the API endpoint
-for the post flows datatable rows operation typically these are written to a http.Request
+/*
+PostFlowsDatatableRowsParams contains all the parameters to send to the API endpoint
+
+	for the post flows datatable rows operation.
+
+	Typically these are written to a http.Request.
 */
 type PostFlowsDatatableRowsParams struct {
 
-	/*DataTableRow*/
+	// DataTableRow.
 	DataTableRow map[string]interface{}
-	/*DatatableID
-	  id of datatable
 
+	/* DatatableID.
+
+	   id of datatable
 	*/
 	DatatableID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post flows datatable rows params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsDatatableRowsParams) WithDefaults() *PostFlowsDatatableRowsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post flows datatable rows params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowsDatatableRowsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post flows datatable rows params
@@ -135,7 +152,6 @@ func (o *PostFlowsDatatableRowsParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.DataTableRow != nil {
 		if err := r.SetBodyParam(o.DataTableRow); err != nil {
 			return err

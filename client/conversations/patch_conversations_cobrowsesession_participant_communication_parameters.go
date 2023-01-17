@@ -18,74 +18,93 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchConversationsCobrowsesessionParticipantCommunicationParams creates a new PatchConversationsCobrowsesessionParticipantCommunicationParams object
-// with the default values initialized.
+// NewPatchConversationsCobrowsesessionParticipantCommunicationParams creates a new PatchConversationsCobrowsesessionParticipantCommunicationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchConversationsCobrowsesessionParticipantCommunicationParams() *PatchConversationsCobrowsesessionParticipantCommunicationParams {
-	var ()
 	return &PatchConversationsCobrowsesessionParticipantCommunicationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchConversationsCobrowsesessionParticipantCommunicationParamsWithTimeout creates a new PatchConversationsCobrowsesessionParticipantCommunicationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchConversationsCobrowsesessionParticipantCommunicationParamsWithTimeout(timeout time.Duration) *PatchConversationsCobrowsesessionParticipantCommunicationParams {
-	var ()
 	return &PatchConversationsCobrowsesessionParticipantCommunicationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchConversationsCobrowsesessionParticipantCommunicationParamsWithContext creates a new PatchConversationsCobrowsesessionParticipantCommunicationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchConversationsCobrowsesessionParticipantCommunicationParamsWithContext(ctx context.Context) *PatchConversationsCobrowsesessionParticipantCommunicationParams {
-	var ()
 	return &PatchConversationsCobrowsesessionParticipantCommunicationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchConversationsCobrowsesessionParticipantCommunicationParamsWithHTTPClient creates a new PatchConversationsCobrowsesessionParticipantCommunicationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchConversationsCobrowsesessionParticipantCommunicationParamsWithHTTPClient(client *http.Client) *PatchConversationsCobrowsesessionParticipantCommunicationParams {
-	var ()
 	return &PatchConversationsCobrowsesessionParticipantCommunicationParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchConversationsCobrowsesessionParticipantCommunicationParams contains all the parameters to send to the API endpoint
-for the patch conversations cobrowsesession participant communication operation typically these are written to a http.Request
+/*
+PatchConversationsCobrowsesessionParticipantCommunicationParams contains all the parameters to send to the API endpoint
+
+	for the patch conversations cobrowsesession participant communication operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchConversationsCobrowsesessionParticipantCommunicationParams struct {
 
-	/*Body
-	  Participant
+	/* Body.
 
+	   Participant
 	*/
 	Body *models.MediaParticipantRequest
-	/*CommunicationID
-	  communicationId
 
+	/* CommunicationID.
+
+	   communicationId
 	*/
 	CommunicationID string
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch conversations cobrowsesession participant communication params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsCobrowsesessionParticipantCommunicationParams) WithDefaults() *PatchConversationsCobrowsesessionParticipantCommunicationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch conversations cobrowsesession participant communication params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsCobrowsesessionParticipantCommunicationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch conversations cobrowsesession participant communication params
@@ -172,7 +191,6 @@ func (o *PatchConversationsCobrowsesessionParticipantCommunicationParams) WriteT
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

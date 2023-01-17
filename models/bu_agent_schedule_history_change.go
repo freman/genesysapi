@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -58,7 +59,6 @@ func (m *BuAgentScheduleHistoryChange) Validate(formats strfmt.Registry) error {
 }
 
 func (m *BuAgentScheduleHistoryChange) validateDeletes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Deletes) { // not required
 		return nil
 	}
@@ -67,6 +67,8 @@ func (m *BuAgentScheduleHistoryChange) validateDeletes(formats strfmt.Registry) 
 		if err := m.Deletes.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("deletes")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deletes")
 			}
 			return err
 		}
@@ -76,7 +78,6 @@ func (m *BuAgentScheduleHistoryChange) validateDeletes(formats strfmt.Registry) 
 }
 
 func (m *BuAgentScheduleHistoryChange) validateFullDayTimeOffMarkers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FullDayTimeOffMarkers) { // not required
 		return nil
 	}
@@ -90,6 +91,8 @@ func (m *BuAgentScheduleHistoryChange) validateFullDayTimeOffMarkers(formats str
 			if err := m.FullDayTimeOffMarkers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -101,7 +104,6 @@ func (m *BuAgentScheduleHistoryChange) validateFullDayTimeOffMarkers(formats str
 }
 
 func (m *BuAgentScheduleHistoryChange) validateMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metadata) { // not required
 		return nil
 	}
@@ -110,6 +112,8 @@ func (m *BuAgentScheduleHistoryChange) validateMetadata(formats strfmt.Registry)
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -119,7 +123,6 @@ func (m *BuAgentScheduleHistoryChange) validateMetadata(formats strfmt.Registry)
 }
 
 func (m *BuAgentScheduleHistoryChange) validateShifts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Shifts) { // not required
 		return nil
 	}
@@ -133,6 +136,106 @@ func (m *BuAgentScheduleHistoryChange) validateShifts(formats strfmt.Registry) e
 			if err := m.Shifts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("shifts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("shifts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu agent schedule history change based on the context it is used
+func (m *BuAgentScheduleHistoryChange) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDeletes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFullDayTimeOffMarkers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShifts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuAgentScheduleHistoryChange) contextValidateDeletes(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Deletes != nil {
+		if err := m.Deletes.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("deletes")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("deletes")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuAgentScheduleHistoryChange) contextValidateFullDayTimeOffMarkers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.FullDayTimeOffMarkers); i++ {
+
+		if m.FullDayTimeOffMarkers[i] != nil {
+			if err := m.FullDayTimeOffMarkers[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("fullDayTimeOffMarkers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuAgentScheduleHistoryChange) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuAgentScheduleHistoryChange) contextValidateShifts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Shifts); i++ {
+
+		if m.Shifts[i] != nil {
+			if err := m.Shifts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("shifts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("shifts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

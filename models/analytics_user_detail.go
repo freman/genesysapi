@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -47,7 +48,6 @@ func (m *AnalyticsUserDetail) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AnalyticsUserDetail) validatePrimaryPresence(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PrimaryPresence) { // not required
 		return nil
 	}
@@ -61,6 +61,8 @@ func (m *AnalyticsUserDetail) validatePrimaryPresence(formats strfmt.Registry) e
 			if err := m.PrimaryPresence[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("primaryPresence" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("primaryPresence" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -72,7 +74,6 @@ func (m *AnalyticsUserDetail) validatePrimaryPresence(formats strfmt.Registry) e
 }
 
 func (m *AnalyticsUserDetail) validateRoutingStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingStatus) { // not required
 		return nil
 	}
@@ -86,6 +87,66 @@ func (m *AnalyticsUserDetail) validateRoutingStatus(formats strfmt.Registry) err
 			if err := m.RoutingStatus[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("routingStatus" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingStatus" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this analytics user detail based on the context it is used
+func (m *AnalyticsUserDetail) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePrimaryPresence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutingStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AnalyticsUserDetail) contextValidatePrimaryPresence(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PrimaryPresence); i++ {
+
+		if m.PrimaryPresence[i] != nil {
+			if err := m.PrimaryPresence[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("primaryPresence" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("primaryPresence" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AnalyticsUserDetail) contextValidateRoutingStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.RoutingStatus); i++ {
+
+		if m.RoutingStatus[i] != nil {
+			if err := m.RoutingStatus[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("routingStatus" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("routingStatus" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

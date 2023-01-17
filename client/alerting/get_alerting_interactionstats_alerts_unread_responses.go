@@ -95,7 +95,6 @@ func (o *GetAlertingInteractionstatsAlertsUnreadReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetAlertingInteractionstatsAlertsUnreadOK() *GetAlertingInteractionstats
 	return &GetAlertingInteractionstatsAlertsUnreadOK{}
 }
 
-/*GetAlertingInteractionstatsAlertsUnreadOK handles this case with default header values.
+/*
+GetAlertingInteractionstatsAlertsUnreadOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetAlertingInteractionstatsAlertsUnreadOK struct {
 	Payload *models.UnreadMetric
 }
 
+// IsSuccess returns true when this get alerting interactionstats alerts unread o k response has a 2xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get alerting interactionstats alerts unread o k response has a 3xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get alerting interactionstats alerts unread o k response has a 4xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get alerting interactionstats alerts unread o k response has a 5xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get alerting interactionstats alerts unread o k response a status code equal to that given
+func (o *GetAlertingInteractionstatsAlertsUnreadOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAlertingInteractionstatsAlertsUnreadOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadOK  %+v", 200, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsUnreadOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetAlertingInteractionstatsAlertsUnreadBadRequest() *GetAlertingInteract
 	return &GetAlertingInteractionstatsAlertsUnreadBadRequest{}
 }
 
-/*GetAlertingInteractionstatsAlertsUnreadBadRequest handles this case with default header values.
+/*
+GetAlertingInteractionstatsAlertsUnreadBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetAlertingInteractionstatsAlertsUnreadBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get alerting interactionstats alerts unread bad request response has a 2xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get alerting interactionstats alerts unread bad request response has a 3xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get alerting interactionstats alerts unread bad request response has a 4xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get alerting interactionstats alerts unread bad request response has a 5xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get alerting interactionstats alerts unread bad request response a status code equal to that given
+func (o *GetAlertingInteractionstatsAlertsUnreadBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAlertingInteractionstatsAlertsUnreadBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsUnreadBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetAlertingInteractionstatsAlertsUnreadUnauthorized() *GetAlertingIntera
 	return &GetAlertingInteractionstatsAlertsUnreadUnauthorized{}
 }
 
-/*GetAlertingInteractionstatsAlertsUnreadUnauthorized handles this case with default header values.
+/*
+GetAlertingInteractionstatsAlertsUnreadUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetAlertingInteractionstatsAlertsUnreadUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get alerting interactionstats alerts unread unauthorized response has a 2xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get alerting interactionstats alerts unread unauthorized response has a 3xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get alerting interactionstats alerts unread unauthorized response has a 4xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get alerting interactionstats alerts unread unauthorized response has a 5xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get alerting interactionstats alerts unread unauthorized response a status code equal to that given
+func (o *GetAlertingInteractionstatsAlertsUnreadUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetAlertingInteractionstatsAlertsUnreadUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsUnreadUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetAlertingInteractionstatsAlertsUnreadForbidden() *GetAlertingInteracti
 	return &GetAlertingInteractionstatsAlertsUnreadForbidden{}
 }
 
-/*GetAlertingInteractionstatsAlertsUnreadForbidden handles this case with default header values.
+/*
+GetAlertingInteractionstatsAlertsUnreadForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetAlertingInteractionstatsAlertsUnreadForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get alerting interactionstats alerts unread forbidden response has a 2xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get alerting interactionstats alerts unread forbidden response has a 3xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get alerting interactionstats alerts unread forbidden response has a 4xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get alerting interactionstats alerts unread forbidden response has a 5xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get alerting interactionstats alerts unread forbidden response a status code equal to that given
+func (o *GetAlertingInteractionstatsAlertsUnreadForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAlertingInteractionstatsAlertsUnreadForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsUnreadForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetAlertingInteractionstatsAlertsUnreadNotFound() *GetAlertingInteractio
 	return &GetAlertingInteractionstatsAlertsUnreadNotFound{}
 }
 
-/*GetAlertingInteractionstatsAlertsUnreadNotFound handles this case with default header values.
+/*
+GetAlertingInteractionstatsAlertsUnreadNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetAlertingInteractionstatsAlertsUnreadNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get alerting interactionstats alerts unread not found response has a 2xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get alerting interactionstats alerts unread not found response has a 3xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get alerting interactionstats alerts unread not found response has a 4xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get alerting interactionstats alerts unread not found response has a 5xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get alerting interactionstats alerts unread not found response a status code equal to that given
+func (o *GetAlertingInteractionstatsAlertsUnreadNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAlertingInteractionstatsAlertsUnreadNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsUnreadNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetAlertingInteractionstatsAlertsUnreadRequestTimeout() *GetAlertingInte
 	return &GetAlertingInteractionstatsAlertsUnreadRequestTimeout{}
 }
 
-/*GetAlertingInteractionstatsAlertsUnreadRequestTimeout handles this case with default header values.
+/*
+GetAlertingInteractionstatsAlertsUnreadRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetAlertingInteractionstatsAlertsUnreadRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get alerting interactionstats alerts unread request timeout response has a 2xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get alerting interactionstats alerts unread request timeout response has a 3xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get alerting interactionstats alerts unread request timeout response has a 4xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get alerting interactionstats alerts unread request timeout response has a 5xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get alerting interactionstats alerts unread request timeout response a status code equal to that given
+func (o *GetAlertingInteractionstatsAlertsUnreadRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetAlertingInteractionstatsAlertsUnreadRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsUnreadRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge() *GetAlert
 	return &GetAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge{}
 }
 
-/*GetAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge handles this case with default header values.
+/*
+GetAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get alerting interactionstats alerts unread request entity too large response has a 2xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get alerting interactionstats alerts unread request entity too large response has a 3xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get alerting interactionstats alerts unread request entity too large response has a 4xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get alerting interactionstats alerts unread request entity too large response has a 5xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get alerting interactionstats alerts unread request entity too large response a status code equal to that given
+func (o *GetAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetAlertingInteractionstatsAlertsUnreadUnsupportedMediaType() *GetAlerti
 	return &GetAlertingInteractionstatsAlertsUnreadUnsupportedMediaType{}
 }
 
-/*GetAlertingInteractionstatsAlertsUnreadUnsupportedMediaType handles this case with default header values.
+/*
+GetAlertingInteractionstatsAlertsUnreadUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetAlertingInteractionstatsAlertsUnreadUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get alerting interactionstats alerts unread unsupported media type response has a 2xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get alerting interactionstats alerts unread unsupported media type response has a 3xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get alerting interactionstats alerts unread unsupported media type response has a 4xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get alerting interactionstats alerts unread unsupported media type response has a 5xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get alerting interactionstats alerts unread unsupported media type response a status code equal to that given
+func (o *GetAlertingInteractionstatsAlertsUnreadUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetAlertingInteractionstatsAlertsUnreadUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsUnreadUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetAlertingInteractionstatsAlertsUnreadTooManyRequests() *GetAlertingInt
 	return &GetAlertingInteractionstatsAlertsUnreadTooManyRequests{}
 }
 
-/*GetAlertingInteractionstatsAlertsUnreadTooManyRequests handles this case with default header values.
+/*
+GetAlertingInteractionstatsAlertsUnreadTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetAlertingInteractionstatsAlertsUnreadTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get alerting interactionstats alerts unread too many requests response has a 2xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get alerting interactionstats alerts unread too many requests response has a 3xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get alerting interactionstats alerts unread too many requests response has a 4xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get alerting interactionstats alerts unread too many requests response has a 5xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get alerting interactionstats alerts unread too many requests response a status code equal to that given
+func (o *GetAlertingInteractionstatsAlertsUnreadTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAlertingInteractionstatsAlertsUnreadTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsUnreadTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetAlertingInteractionstatsAlertsUnreadInternalServerError() *GetAlertin
 	return &GetAlertingInteractionstatsAlertsUnreadInternalServerError{}
 }
 
-/*GetAlertingInteractionstatsAlertsUnreadInternalServerError handles this case with default header values.
+/*
+GetAlertingInteractionstatsAlertsUnreadInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetAlertingInteractionstatsAlertsUnreadInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get alerting interactionstats alerts unread internal server error response has a 2xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get alerting interactionstats alerts unread internal server error response has a 3xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get alerting interactionstats alerts unread internal server error response has a 4xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get alerting interactionstats alerts unread internal server error response has a 5xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get alerting interactionstats alerts unread internal server error response a status code equal to that given
+func (o *GetAlertingInteractionstatsAlertsUnreadInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAlertingInteractionstatsAlertsUnreadInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsUnreadInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetAlertingInteractionstatsAlertsUnreadServiceUnavailable() *GetAlerting
 	return &GetAlertingInteractionstatsAlertsUnreadServiceUnavailable{}
 }
 
-/*GetAlertingInteractionstatsAlertsUnreadServiceUnavailable handles this case with default header values.
+/*
+GetAlertingInteractionstatsAlertsUnreadServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetAlertingInteractionstatsAlertsUnreadServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get alerting interactionstats alerts unread service unavailable response has a 2xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get alerting interactionstats alerts unread service unavailable response has a 3xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get alerting interactionstats alerts unread service unavailable response has a 4xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get alerting interactionstats alerts unread service unavailable response has a 5xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get alerting interactionstats alerts unread service unavailable response a status code equal to that given
+func (o *GetAlertingInteractionstatsAlertsUnreadServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetAlertingInteractionstatsAlertsUnreadServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsUnreadServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetAlertingInteractionstatsAlertsUnreadGatewayTimeout() *GetAlertingInte
 	return &GetAlertingInteractionstatsAlertsUnreadGatewayTimeout{}
 }
 
-/*GetAlertingInteractionstatsAlertsUnreadGatewayTimeout handles this case with default header values.
+/*
+GetAlertingInteractionstatsAlertsUnreadGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetAlertingInteractionstatsAlertsUnreadGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get alerting interactionstats alerts unread gateway timeout response has a 2xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get alerting interactionstats alerts unread gateway timeout response has a 3xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get alerting interactionstats alerts unread gateway timeout response has a 4xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get alerting interactionstats alerts unread gateway timeout response has a 5xx status code
+func (o *GetAlertingInteractionstatsAlertsUnreadGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get alerting interactionstats alerts unread gateway timeout response a status code equal to that given
+func (o *GetAlertingInteractionstatsAlertsUnreadGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetAlertingInteractionstatsAlertsUnreadGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetAlertingInteractionstatsAlertsUnreadGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/alerting/interactionstats/alerts/unread][%d] getAlertingInteractionstatsAlertsUnreadGatewayTimeout  %+v", 504, o.Payload)
 }
 

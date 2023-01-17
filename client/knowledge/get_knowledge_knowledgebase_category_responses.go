@@ -95,7 +95,6 @@ func (o *GetKnowledgeKnowledgebaseCategoryReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetKnowledgeKnowledgebaseCategoryOK() *GetKnowledgeKnowledgebaseCategory
 	return &GetKnowledgeKnowledgebaseCategoryOK{}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryOK handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseCategoryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetKnowledgeKnowledgebaseCategoryOK struct {
 	Payload *models.CategoryResponse
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase category o k response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase category o k response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase category o k response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase category o k response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase category o k response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseCategoryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetKnowledgeKnowledgebaseCategoryOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryOK  %+v", 200, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseCategoryOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetKnowledgeKnowledgebaseCategoryBadRequest() *GetKnowledgeKnowledgebase
 	return &GetKnowledgeKnowledgebaseCategoryBadRequest{}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryBadRequest handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseCategoryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetKnowledgeKnowledgebaseCategoryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase category bad request response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase category bad request response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase category bad request response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase category bad request response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase category bad request response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseCategoryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetKnowledgeKnowledgebaseCategoryBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseCategoryBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetKnowledgeKnowledgebaseCategoryUnauthorized() *GetKnowledgeKnowledgeba
 	return &GetKnowledgeKnowledgebaseCategoryUnauthorized{}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryUnauthorized handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseCategoryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetKnowledgeKnowledgebaseCategoryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase category unauthorized response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase category unauthorized response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase category unauthorized response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase category unauthorized response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase category unauthorized response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseCategoryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetKnowledgeKnowledgebaseCategoryUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseCategoryUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetKnowledgeKnowledgebaseCategoryForbidden() *GetKnowledgeKnowledgebaseC
 	return &GetKnowledgeKnowledgebaseCategoryForbidden{}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryForbidden handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseCategoryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetKnowledgeKnowledgebaseCategoryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase category forbidden response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase category forbidden response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase category forbidden response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase category forbidden response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase category forbidden response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseCategoryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetKnowledgeKnowledgebaseCategoryForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseCategoryForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetKnowledgeKnowledgebaseCategoryNotFound() *GetKnowledgeKnowledgebaseCa
 	return &GetKnowledgeKnowledgebaseCategoryNotFound{}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryNotFound handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseCategoryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetKnowledgeKnowledgebaseCategoryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase category not found response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase category not found response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase category not found response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase category not found response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase category not found response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseCategoryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetKnowledgeKnowledgebaseCategoryNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseCategoryNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetKnowledgeKnowledgebaseCategoryRequestTimeout() *GetKnowledgeKnowledge
 	return &GetKnowledgeKnowledgebaseCategoryRequestTimeout{}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryRequestTimeout handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseCategoryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetKnowledgeKnowledgebaseCategoryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase category request timeout response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase category request timeout response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase category request timeout response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase category request timeout response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase category request timeout response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseCategoryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetKnowledgeKnowledgebaseCategoryRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseCategoryRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetKnowledgeKnowledgebaseCategoryRequestEntityTooLarge() *GetKnowledgeKn
 	return &GetKnowledgeKnowledgebaseCategoryRequestEntityTooLarge{}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryRequestEntityTooLarge handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseCategoryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetKnowledgeKnowledgebaseCategoryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase category request entity too large response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase category request entity too large response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase category request entity too large response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase category request entity too large response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase category request entity too large response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseCategoryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetKnowledgeKnowledgebaseCategoryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseCategoryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetKnowledgeKnowledgebaseCategoryUnsupportedMediaType() *GetKnowledgeKno
 	return &GetKnowledgeKnowledgebaseCategoryUnsupportedMediaType{}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryUnsupportedMediaType handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseCategoryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetKnowledgeKnowledgebaseCategoryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase category unsupported media type response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase category unsupported media type response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase category unsupported media type response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase category unsupported media type response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase category unsupported media type response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseCategoryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetKnowledgeKnowledgebaseCategoryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseCategoryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetKnowledgeKnowledgebaseCategoryTooManyRequests() *GetKnowledgeKnowledg
 	return &GetKnowledgeKnowledgebaseCategoryTooManyRequests{}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryTooManyRequests handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseCategoryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetKnowledgeKnowledgebaseCategoryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase category too many requests response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase category too many requests response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase category too many requests response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge knowledgebase category too many requests response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge knowledgebase category too many requests response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseCategoryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetKnowledgeKnowledgebaseCategoryTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseCategoryTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetKnowledgeKnowledgebaseCategoryInternalServerError() *GetKnowledgeKnow
 	return &GetKnowledgeKnowledgebaseCategoryInternalServerError{}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryInternalServerError handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseCategoryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetKnowledgeKnowledgebaseCategoryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase category internal server error response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase category internal server error response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase category internal server error response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase category internal server error response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase category internal server error response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseCategoryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetKnowledgeKnowledgebaseCategoryInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseCategoryInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetKnowledgeKnowledgebaseCategoryServiceUnavailable() *GetKnowledgeKnowl
 	return &GetKnowledgeKnowledgebaseCategoryServiceUnavailable{}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryServiceUnavailable handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseCategoryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetKnowledgeKnowledgebaseCategoryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase category service unavailable response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase category service unavailable response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase category service unavailable response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase category service unavailable response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase category service unavailable response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseCategoryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetKnowledgeKnowledgebaseCategoryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseCategoryServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetKnowledgeKnowledgebaseCategoryGatewayTimeout() *GetKnowledgeKnowledge
 	return &GetKnowledgeKnowledgebaseCategoryGatewayTimeout{}
 }
 
-/*GetKnowledgeKnowledgebaseCategoryGatewayTimeout handles this case with default header values.
+/*
+GetKnowledgeKnowledgebaseCategoryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetKnowledgeKnowledgebaseCategoryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge knowledgebase category gateway timeout response has a 2xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge knowledgebase category gateway timeout response has a 3xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge knowledgebase category gateway timeout response has a 4xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge knowledgebase category gateway timeout response has a 5xx status code
+func (o *GetKnowledgeKnowledgebaseCategoryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge knowledgebase category gateway timeout response a status code equal to that given
+func (o *GetKnowledgeKnowledgebaseCategoryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetKnowledgeKnowledgebaseCategoryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetKnowledgeKnowledgebaseCategoryGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/categories/{categoryId}][%d] getKnowledgeKnowledgebaseCategoryGatewayTimeout  %+v", 504, o.Payload)
 }
 

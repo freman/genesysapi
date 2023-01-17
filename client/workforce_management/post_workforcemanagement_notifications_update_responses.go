@@ -95,7 +95,6 @@ func (o *PostWorkforcemanagementNotificationsUpdateReader) ReadResponse(response
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostWorkforcemanagementNotificationsUpdateOK() *PostWorkforcemanagementN
 	return &PostWorkforcemanagementNotificationsUpdateOK{}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateOK handles this case with default header values.
+/*
+PostWorkforcemanagementNotificationsUpdateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostWorkforcemanagementNotificationsUpdateOK struct {
 	Payload *models.UpdateNotificationsResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement notifications update o k response has a 2xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement notifications update o k response has a 3xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement notifications update o k response has a 4xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement notifications update o k response has a 5xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement notifications update o k response a status code equal to that given
+func (o *PostWorkforcemanagementNotificationsUpdateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWorkforcemanagementNotificationsUpdateOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostWorkforcemanagementNotificationsUpdateBadRequest() *PostWorkforceman
 	return &PostWorkforcemanagementNotificationsUpdateBadRequest{}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementNotificationsUpdateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostWorkforcemanagementNotificationsUpdateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement notifications update bad request response has a 2xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement notifications update bad request response has a 3xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement notifications update bad request response has a 4xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement notifications update bad request response has a 5xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement notifications update bad request response a status code equal to that given
+func (o *PostWorkforcemanagementNotificationsUpdateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementNotificationsUpdateBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostWorkforcemanagementNotificationsUpdateUnauthorized() *PostWorkforcem
 	return &PostWorkforcemanagementNotificationsUpdateUnauthorized{}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementNotificationsUpdateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostWorkforcemanagementNotificationsUpdateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement notifications update unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement notifications update unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement notifications update unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement notifications update unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement notifications update unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementNotificationsUpdateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementNotificationsUpdateUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostWorkforcemanagementNotificationsUpdateForbidden() *PostWorkforcemana
 	return &PostWorkforcemanagementNotificationsUpdateForbidden{}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementNotificationsUpdateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostWorkforcemanagementNotificationsUpdateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement notifications update forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement notifications update forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement notifications update forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement notifications update forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement notifications update forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementNotificationsUpdateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementNotificationsUpdateForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostWorkforcemanagementNotificationsUpdateNotFound() *PostWorkforcemanag
 	return &PostWorkforcemanagementNotificationsUpdateNotFound{}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementNotificationsUpdateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostWorkforcemanagementNotificationsUpdateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement notifications update not found response has a 2xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement notifications update not found response has a 3xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement notifications update not found response has a 4xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement notifications update not found response has a 5xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement notifications update not found response a status code equal to that given
+func (o *PostWorkforcemanagementNotificationsUpdateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementNotificationsUpdateNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostWorkforcemanagementNotificationsUpdateRequestTimeout() *PostWorkforc
 	return &PostWorkforcemanagementNotificationsUpdateRequestTimeout{}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementNotificationsUpdateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostWorkforcemanagementNotificationsUpdateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement notifications update request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement notifications update request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement notifications update request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement notifications update request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement notifications update request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementNotificationsUpdateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementNotificationsUpdateRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge() *PostW
 	return &PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement notifications update request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement notifications update request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement notifications update request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement notifications update request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement notifications update request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostWorkforcemanagementNotificationsUpdateUnsupportedMediaType() *PostWo
 	return &PostWorkforcemanagementNotificationsUpdateUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementNotificationsUpdateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostWorkforcemanagementNotificationsUpdateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement notifications update unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement notifications update unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement notifications update unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement notifications update unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement notifications update unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementNotificationsUpdateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementNotificationsUpdateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostWorkforcemanagementNotificationsUpdateTooManyRequests() *PostWorkfor
 	return &PostWorkforcemanagementNotificationsUpdateTooManyRequests{}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementNotificationsUpdateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostWorkforcemanagementNotificationsUpdateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement notifications update too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement notifications update too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement notifications update too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement notifications update too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement notifications update too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementNotificationsUpdateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementNotificationsUpdateTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostWorkforcemanagementNotificationsUpdateInternalServerError() *PostWor
 	return &PostWorkforcemanagementNotificationsUpdateInternalServerError{}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementNotificationsUpdateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostWorkforcemanagementNotificationsUpdateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement notifications update internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement notifications update internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement notifications update internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement notifications update internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement notifications update internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementNotificationsUpdateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementNotificationsUpdateInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostWorkforcemanagementNotificationsUpdateServiceUnavailable() *PostWork
 	return &PostWorkforcemanagementNotificationsUpdateServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementNotificationsUpdateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostWorkforcemanagementNotificationsUpdateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement notifications update service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement notifications update service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement notifications update service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement notifications update service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement notifications update service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementNotificationsUpdateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementNotificationsUpdateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostWorkforcemanagementNotificationsUpdateGatewayTimeout() *PostWorkforc
 	return &PostWorkforcemanagementNotificationsUpdateGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementNotificationsUpdateGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementNotificationsUpdateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostWorkforcemanagementNotificationsUpdateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement notifications update gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement notifications update gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement notifications update gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement notifications update gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementNotificationsUpdateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement notifications update gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementNotificationsUpdateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementNotificationsUpdateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementNotificationsUpdateGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/notifications/update][%d] postWorkforcemanagementNotificationsUpdateGatewayTimeout  %+v", 504, o.Payload)
 }
 

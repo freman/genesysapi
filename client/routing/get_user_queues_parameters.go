@@ -17,107 +17,124 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetUserQueuesParams creates a new GetUserQueuesParams object
-// with the default values initialized.
+// NewGetUserQueuesParams creates a new GetUserQueuesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUserQueuesParams() *GetUserQueuesParams {
-	var (
-		joinedDefault     = bool(true)
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetUserQueuesParams{
-		Joined:     &joinedDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUserQueuesParamsWithTimeout creates a new GetUserQueuesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUserQueuesParamsWithTimeout(timeout time.Duration) *GetUserQueuesParams {
-	var (
-		joinedDefault     = bool(true)
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetUserQueuesParams{
-		Joined:     &joinedDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUserQueuesParamsWithContext creates a new GetUserQueuesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUserQueuesParamsWithContext(ctx context.Context) *GetUserQueuesParams {
-	var (
-		joinedDefault     = bool(true)
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetUserQueuesParams{
-		Joined:     &joinedDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetUserQueuesParamsWithHTTPClient creates a new GetUserQueuesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUserQueuesParamsWithHTTPClient(client *http.Client) *GetUserQueuesParams {
-	var (
-		joinedDefault     = bool(true)
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetUserQueuesParams{
-		Joined:     &joinedDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetUserQueuesParams contains all the parameters to send to the API endpoint
-for the get user queues operation typically these are written to a http.Request
+/*
+GetUserQueuesParams contains all the parameters to send to the API endpoint
+
+	for the get user queues operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUserQueuesParams struct {
 
-	/*DivisionID
-	  Division ID(s)
+	/* DivisionID.
 
+	   Division ID(s)
 	*/
 	DivisionID []string
-	/*Joined
-	  Is joined to the queue
 
+	/* Joined.
+
+	   Is joined to the queue
+
+	   Default: true
 	*/
 	Joined *bool
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get user queues params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserQueuesParams) WithDefaults() *GetUserQueuesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get user queues params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserQueuesParams) SetDefaults() {
+	var (
+		joinedDefault = bool(true)
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetUserQueuesParams{
+		Joined:     &joinedDefault,
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get user queues params
@@ -216,60 +233,66 @@ func (o *GetUserQueuesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 	}
 	var res []error
 
-	valuesDivisionID := o.DivisionID
+	if o.DivisionID != nil {
 
-	joinedDivisionID := swag.JoinByFormat(valuesDivisionID, "multi")
-	// query array param divisionId
-	if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
-		return err
+		// binding items for divisionId
+		joinedDivisionID := o.bindParamDivisionID(reg)
+
+		// query array param divisionId
+		if err := r.SetQueryParam("divisionId", joinedDivisionID...); err != nil {
+			return err
+		}
 	}
 
 	if o.Joined != nil {
 
 		// query param joined
 		var qrJoined bool
+
 		if o.Joined != nil {
 			qrJoined = *o.Joined
 		}
 		qJoined := swag.FormatBool(qrJoined)
 		if qJoined != "" {
+
 			if err := r.SetQueryParam("joined", qJoined); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param userId
@@ -281,4 +304,21 @@ func (o *GetUserQueuesParams) WriteToRequest(r runtime.ClientRequest, reg strfmt
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetUserQueues binds the parameter divisionId
+func (o *GetUserQueuesParams) bindParamDivisionID(formats strfmt.Registry) []string {
+	divisionIDIR := o.DivisionID
+
+	var divisionIDIC []string
+	for _, divisionIDIIR := range divisionIDIR { // explode []string
+
+		divisionIDIIV := divisionIDIIR // string as string
+		divisionIDIC = append(divisionIDIC, divisionIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	divisionIDIS := swag.JoinByFormat(divisionIDIC, "multi")
+
+	return divisionIDIS
 }

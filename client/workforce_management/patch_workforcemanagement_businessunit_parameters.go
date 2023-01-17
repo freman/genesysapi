@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchWorkforcemanagementBusinessunitParams creates a new PatchWorkforcemanagementBusinessunitParams object
-// with the default values initialized.
+// NewPatchWorkforcemanagementBusinessunitParams creates a new PatchWorkforcemanagementBusinessunitParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchWorkforcemanagementBusinessunitParams() *PatchWorkforcemanagementBusinessunitParams {
-	var ()
 	return &PatchWorkforcemanagementBusinessunitParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchWorkforcemanagementBusinessunitParamsWithTimeout creates a new PatchWorkforcemanagementBusinessunitParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchWorkforcemanagementBusinessunitParamsWithTimeout(timeout time.Duration) *PatchWorkforcemanagementBusinessunitParams {
-	var ()
 	return &PatchWorkforcemanagementBusinessunitParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchWorkforcemanagementBusinessunitParamsWithContext creates a new PatchWorkforcemanagementBusinessunitParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchWorkforcemanagementBusinessunitParamsWithContext(ctx context.Context) *PatchWorkforcemanagementBusinessunitParams {
-	var ()
 	return &PatchWorkforcemanagementBusinessunitParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchWorkforcemanagementBusinessunitParamsWithHTTPClient creates a new PatchWorkforcemanagementBusinessunitParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchWorkforcemanagementBusinessunitParamsWithHTTPClient(client *http.Client) *PatchWorkforcemanagementBusinessunitParams {
-	var ()
 	return &PatchWorkforcemanagementBusinessunitParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchWorkforcemanagementBusinessunitParams contains all the parameters to send to the API endpoint
-for the patch workforcemanagement businessunit operation typically these are written to a http.Request
+/*
+PatchWorkforcemanagementBusinessunitParams contains all the parameters to send to the API endpoint
+
+	for the patch workforcemanagement businessunit operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchWorkforcemanagementBusinessunitParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.UpdateBusinessUnitRequest
-	/*BusinessUnitID
-	  The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit, or 'mine' for the business unit of the logged-in user.
 	*/
 	BusinessUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch workforcemanagement businessunit params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWorkforcemanagementBusinessunitParams) WithDefaults() *PatchWorkforcemanagementBusinessunitParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch workforcemanagement businessunit params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWorkforcemanagementBusinessunitParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch workforcemanagement businessunit params
@@ -140,7 +157,6 @@ func (o *PatchWorkforcemanagementBusinessunitParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

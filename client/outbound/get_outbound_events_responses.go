@@ -95,7 +95,6 @@ func (o *GetOutboundEventsReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOutboundEventsOK() *GetOutboundEventsOK {
 	return &GetOutboundEventsOK{}
 }
 
-/*GetOutboundEventsOK handles this case with default header values.
+/*
+GetOutboundEventsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOutboundEventsOK struct {
 	Payload *models.DialerEventEntityListing
 }
 
+// IsSuccess returns true when this get outbound events o k response has a 2xx status code
+func (o *GetOutboundEventsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get outbound events o k response has a 3xx status code
+func (o *GetOutboundEventsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound events o k response has a 4xx status code
+func (o *GetOutboundEventsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound events o k response has a 5xx status code
+func (o *GetOutboundEventsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound events o k response a status code equal to that given
+func (o *GetOutboundEventsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOutboundEventsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOutboundEventsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOutboundEventsBadRequest() *GetOutboundEventsBadRequest {
 	return &GetOutboundEventsBadRequest{}
 }
 
-/*GetOutboundEventsBadRequest handles this case with default header values.
+/*
+GetOutboundEventsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOutboundEventsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound events bad request response has a 2xx status code
+func (o *GetOutboundEventsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound events bad request response has a 3xx status code
+func (o *GetOutboundEventsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound events bad request response has a 4xx status code
+func (o *GetOutboundEventsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound events bad request response has a 5xx status code
+func (o *GetOutboundEventsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound events bad request response a status code equal to that given
+func (o *GetOutboundEventsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOutboundEventsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOutboundEventsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOutboundEventsUnauthorized() *GetOutboundEventsUnauthorized {
 	return &GetOutboundEventsUnauthorized{}
 }
 
-/*GetOutboundEventsUnauthorized handles this case with default header values.
+/*
+GetOutboundEventsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOutboundEventsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound events unauthorized response has a 2xx status code
+func (o *GetOutboundEventsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound events unauthorized response has a 3xx status code
+func (o *GetOutboundEventsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound events unauthorized response has a 4xx status code
+func (o *GetOutboundEventsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound events unauthorized response has a 5xx status code
+func (o *GetOutboundEventsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound events unauthorized response a status code equal to that given
+func (o *GetOutboundEventsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOutboundEventsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOutboundEventsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOutboundEventsForbidden() *GetOutboundEventsForbidden {
 	return &GetOutboundEventsForbidden{}
 }
 
-/*GetOutboundEventsForbidden handles this case with default header values.
+/*
+GetOutboundEventsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOutboundEventsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound events forbidden response has a 2xx status code
+func (o *GetOutboundEventsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound events forbidden response has a 3xx status code
+func (o *GetOutboundEventsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound events forbidden response has a 4xx status code
+func (o *GetOutboundEventsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound events forbidden response has a 5xx status code
+func (o *GetOutboundEventsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound events forbidden response a status code equal to that given
+func (o *GetOutboundEventsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOutboundEventsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOutboundEventsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOutboundEventsNotFound() *GetOutboundEventsNotFound {
 	return &GetOutboundEventsNotFound{}
 }
 
-/*GetOutboundEventsNotFound handles this case with default header values.
+/*
+GetOutboundEventsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOutboundEventsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound events not found response has a 2xx status code
+func (o *GetOutboundEventsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound events not found response has a 3xx status code
+func (o *GetOutboundEventsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound events not found response has a 4xx status code
+func (o *GetOutboundEventsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound events not found response has a 5xx status code
+func (o *GetOutboundEventsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound events not found response a status code equal to that given
+func (o *GetOutboundEventsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOutboundEventsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOutboundEventsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOutboundEventsRequestTimeout() *GetOutboundEventsRequestTimeout {
 	return &GetOutboundEventsRequestTimeout{}
 }
 
-/*GetOutboundEventsRequestTimeout handles this case with default header values.
+/*
+GetOutboundEventsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOutboundEventsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound events request timeout response has a 2xx status code
+func (o *GetOutboundEventsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound events request timeout response has a 3xx status code
+func (o *GetOutboundEventsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound events request timeout response has a 4xx status code
+func (o *GetOutboundEventsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound events request timeout response has a 5xx status code
+func (o *GetOutboundEventsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound events request timeout response a status code equal to that given
+func (o *GetOutboundEventsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOutboundEventsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundEventsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOutboundEventsRequestEntityTooLarge() *GetOutboundEventsRequestEntity
 	return &GetOutboundEventsRequestEntityTooLarge{}
 }
 
-/*GetOutboundEventsRequestEntityTooLarge handles this case with default header values.
+/*
+GetOutboundEventsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOutboundEventsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound events request entity too large response has a 2xx status code
+func (o *GetOutboundEventsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound events request entity too large response has a 3xx status code
+func (o *GetOutboundEventsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound events request entity too large response has a 4xx status code
+func (o *GetOutboundEventsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound events request entity too large response has a 5xx status code
+func (o *GetOutboundEventsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound events request entity too large response a status code equal to that given
+func (o *GetOutboundEventsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOutboundEventsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOutboundEventsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOutboundEventsUnsupportedMediaType() *GetOutboundEventsUnsupportedMed
 	return &GetOutboundEventsUnsupportedMediaType{}
 }
 
-/*GetOutboundEventsUnsupportedMediaType handles this case with default header values.
+/*
+GetOutboundEventsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOutboundEventsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound events unsupported media type response has a 2xx status code
+func (o *GetOutboundEventsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound events unsupported media type response has a 3xx status code
+func (o *GetOutboundEventsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound events unsupported media type response has a 4xx status code
+func (o *GetOutboundEventsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound events unsupported media type response has a 5xx status code
+func (o *GetOutboundEventsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound events unsupported media type response a status code equal to that given
+func (o *GetOutboundEventsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOutboundEventsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOutboundEventsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOutboundEventsTooManyRequests() *GetOutboundEventsTooManyRequests {
 	return &GetOutboundEventsTooManyRequests{}
 }
 
-/*GetOutboundEventsTooManyRequests handles this case with default header values.
+/*
+GetOutboundEventsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOutboundEventsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound events too many requests response has a 2xx status code
+func (o *GetOutboundEventsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound events too many requests response has a 3xx status code
+func (o *GetOutboundEventsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound events too many requests response has a 4xx status code
+func (o *GetOutboundEventsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound events too many requests response has a 5xx status code
+func (o *GetOutboundEventsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound events too many requests response a status code equal to that given
+func (o *GetOutboundEventsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOutboundEventsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOutboundEventsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOutboundEventsInternalServerError() *GetOutboundEventsInternalServerE
 	return &GetOutboundEventsInternalServerError{}
 }
 
-/*GetOutboundEventsInternalServerError handles this case with default header values.
+/*
+GetOutboundEventsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOutboundEventsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound events internal server error response has a 2xx status code
+func (o *GetOutboundEventsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound events internal server error response has a 3xx status code
+func (o *GetOutboundEventsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound events internal server error response has a 4xx status code
+func (o *GetOutboundEventsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound events internal server error response has a 5xx status code
+func (o *GetOutboundEventsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound events internal server error response a status code equal to that given
+func (o *GetOutboundEventsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOutboundEventsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOutboundEventsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOutboundEventsServiceUnavailable() *GetOutboundEventsServiceUnavailab
 	return &GetOutboundEventsServiceUnavailable{}
 }
 
-/*GetOutboundEventsServiceUnavailable handles this case with default header values.
+/*
+GetOutboundEventsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOutboundEventsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound events service unavailable response has a 2xx status code
+func (o *GetOutboundEventsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound events service unavailable response has a 3xx status code
+func (o *GetOutboundEventsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound events service unavailable response has a 4xx status code
+func (o *GetOutboundEventsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound events service unavailable response has a 5xx status code
+func (o *GetOutboundEventsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound events service unavailable response a status code equal to that given
+func (o *GetOutboundEventsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOutboundEventsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOutboundEventsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOutboundEventsGatewayTimeout() *GetOutboundEventsGatewayTimeout {
 	return &GetOutboundEventsGatewayTimeout{}
 }
 
-/*GetOutboundEventsGatewayTimeout handles this case with default header values.
+/*
+GetOutboundEventsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOutboundEventsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound events gateway timeout response has a 2xx status code
+func (o *GetOutboundEventsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound events gateway timeout response has a 3xx status code
+func (o *GetOutboundEventsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound events gateway timeout response has a 4xx status code
+func (o *GetOutboundEventsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound events gateway timeout response has a 5xx status code
+func (o *GetOutboundEventsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound events gateway timeout response a status code equal to that given
+func (o *GetOutboundEventsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOutboundEventsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOutboundEventsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/events][%d] getOutboundEventsGatewayTimeout  %+v", 504, o.Payload)
 }
 

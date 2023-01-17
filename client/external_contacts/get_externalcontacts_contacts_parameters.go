@@ -17,99 +17,119 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetExternalcontactsContactsParams creates a new GetExternalcontactsContactsParams object
-// with the default values initialized.
+// NewGetExternalcontactsContactsParams creates a new GetExternalcontactsContactsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetExternalcontactsContactsParams() *GetExternalcontactsContactsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(20)
-	)
 	return &GetExternalcontactsContactsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetExternalcontactsContactsParamsWithTimeout creates a new GetExternalcontactsContactsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetExternalcontactsContactsParamsWithTimeout(timeout time.Duration) *GetExternalcontactsContactsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(20)
-	)
 	return &GetExternalcontactsContactsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetExternalcontactsContactsParamsWithContext creates a new GetExternalcontactsContactsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetExternalcontactsContactsParamsWithContext(ctx context.Context) *GetExternalcontactsContactsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(20)
-	)
 	return &GetExternalcontactsContactsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetExternalcontactsContactsParamsWithHTTPClient creates a new GetExternalcontactsContactsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetExternalcontactsContactsParamsWithHTTPClient(client *http.Client) *GetExternalcontactsContactsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(20)
-	)
 	return &GetExternalcontactsContactsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetExternalcontactsContactsParams contains all the parameters to send to the API endpoint
-for the get externalcontacts contacts operation typically these are written to a http.Request
+/*
+GetExternalcontactsContactsParams contains all the parameters to send to the API endpoint
+
+	for the get externalcontacts contacts operation.
+
+	Typically these are written to a http.Request.
 */
 type GetExternalcontactsContactsParams struct {
 
-	/*Expand
-	  which fields, if any, to expand
+	/* Expand.
 
+	   which fields, if any, to expand
 	*/
 	Expand []string
-	/*PageNumber
-	  Page number (limited to fetching first 1,000 records; pageNumber * pageSize must be <= 1,000)
 
+	/* PageNumber.
+
+	   Page number (limited to fetching first 1,000 records; pageNumber * pageSize must be <= 1,000)
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size (limited to fetching first 1,000 records; pageNumber * pageSize must be <= 1,000)
 
+	/* PageSize.
+
+	   Page size (limited to fetching first 1,000 records; pageNumber * pageSize must be <= 1,000)
+
+	   Format: int32
+	   Default: 20
 	*/
 	PageSize *int32
-	/*Q
-	  User supplied search keywords (no special syntax is currently supported)
 
+	/* Q.
+
+	   User supplied search keywords (no special syntax is currently supported)
 	*/
 	Q *string
-	/*SortOrder
-	  Sort order
 
+	/* SortOrder.
+
+	   Sort order
 	*/
 	SortOrder *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get externalcontacts contacts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsContactsParams) WithDefaults() *GetExternalcontactsContactsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get externalcontacts contacts params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsContactsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(20)
+	)
+
+	val := GetExternalcontactsContactsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get externalcontacts contacts params
@@ -208,80 +228,104 @@ func (o *GetExternalcontactsContactsParams) WriteToRequest(r runtime.ClientReque
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Q != nil {
 
 		// query param q
 		var qrQ string
+
 		if o.Q != nil {
 			qrQ = *o.Q
 		}
 		qQ := qrQ
 		if qQ != "" {
+
 			if err := r.SetQueryParam("q", qQ); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetExternalcontactsContacts binds the parameter expand
+func (o *GetExternalcontactsContactsParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

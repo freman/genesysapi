@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -71,6 +72,8 @@ func (m *ResponseAssetSearchRequest) validateQuery(formats strfmt.Registry) erro
 			if err := m.Query[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("query" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("query" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -111,7 +114,6 @@ func (m *ResponseAssetSearchRequest) validateSortOrderEnum(path, location string
 }
 
 func (m *ResponseAssetSearchRequest) validateSortOrder(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SortOrder) { // not required
 		return nil
 	}
@@ -119,6 +121,40 @@ func (m *ResponseAssetSearchRequest) validateSortOrder(formats strfmt.Registry) 
 	// value enum
 	if err := m.validateSortOrderEnum("sortOrder", "body", m.SortOrder); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this response asset search request based on the context it is used
+func (m *ResponseAssetSearchRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateQuery(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ResponseAssetSearchRequest) contextValidateQuery(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Query); i++ {
+
+		if m.Query[i] != nil {
+			if err := m.Query[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("query" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("query" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

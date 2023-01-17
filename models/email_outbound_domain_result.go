@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -64,7 +65,6 @@ func (m *EmailOutboundDomainResult) Validate(formats strfmt.Registry) error {
 }
 
 func (m *EmailOutboundDomainResult) validateDNSCnameBounceRecord(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DNSCnameBounceRecord) { // not required
 		return nil
 	}
@@ -73,6 +73,8 @@ func (m *EmailOutboundDomainResult) validateDNSCnameBounceRecord(formats strfmt.
 		if err := m.DNSCnameBounceRecord.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dnsCnameBounceRecord")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dnsCnameBounceRecord")
 			}
 			return err
 		}
@@ -82,7 +84,6 @@ func (m *EmailOutboundDomainResult) validateDNSCnameBounceRecord(formats strfmt.
 }
 
 func (m *EmailOutboundDomainResult) validateDNSTxtSendingRecord(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DNSTxtSendingRecord) { // not required
 		return nil
 	}
@@ -91,6 +92,8 @@ func (m *EmailOutboundDomainResult) validateDNSTxtSendingRecord(formats strfmt.R
 		if err := m.DNSTxtSendingRecord.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dnsTxtSendingRecord")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dnsTxtSendingRecord")
 			}
 			return err
 		}
@@ -138,7 +141,6 @@ func (m *EmailOutboundDomainResult) validateSenderStatusEnum(path, location stri
 }
 
 func (m *EmailOutboundDomainResult) validateSenderStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SenderStatus) { // not required
 		return nil
 	}
@@ -184,7 +186,6 @@ func (m *EmailOutboundDomainResult) validateSenderTypeEnum(path, location string
 }
 
 func (m *EmailOutboundDomainResult) validateSenderType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SenderType) { // not required
 		return nil
 	}
@@ -192,6 +193,56 @@ func (m *EmailOutboundDomainResult) validateSenderType(formats strfmt.Registry) 
 	// value enum
 	if err := m.validateSenderTypeEnum("senderType", "body", m.SenderType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this email outbound domain result based on the context it is used
+func (m *EmailOutboundDomainResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDNSCnameBounceRecord(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDNSTxtSendingRecord(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EmailOutboundDomainResult) contextValidateDNSCnameBounceRecord(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DNSCnameBounceRecord != nil {
+		if err := m.DNSCnameBounceRecord.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dnsCnameBounceRecord")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dnsCnameBounceRecord")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EmailOutboundDomainResult) contextValidateDNSTxtSendingRecord(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DNSTxtSendingRecord != nil {
+		if err := m.DNSTxtSendingRecord.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dnsTxtSendingRecord")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dnsTxtSendingRecord")
+			}
+			return err
+		}
 	}
 
 	return nil

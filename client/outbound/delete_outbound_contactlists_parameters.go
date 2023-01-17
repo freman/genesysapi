@@ -17,59 +17,75 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteOutboundContactlistsParams creates a new DeleteOutboundContactlistsParams object
-// with the default values initialized.
+// NewDeleteOutboundContactlistsParams creates a new DeleteOutboundContactlistsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteOutboundContactlistsParams() *DeleteOutboundContactlistsParams {
-	var ()
 	return &DeleteOutboundContactlistsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteOutboundContactlistsParamsWithTimeout creates a new DeleteOutboundContactlistsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteOutboundContactlistsParamsWithTimeout(timeout time.Duration) *DeleteOutboundContactlistsParams {
-	var ()
 	return &DeleteOutboundContactlistsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteOutboundContactlistsParamsWithContext creates a new DeleteOutboundContactlistsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteOutboundContactlistsParamsWithContext(ctx context.Context) *DeleteOutboundContactlistsParams {
-	var ()
 	return &DeleteOutboundContactlistsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteOutboundContactlistsParamsWithHTTPClient creates a new DeleteOutboundContactlistsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteOutboundContactlistsParamsWithHTTPClient(client *http.Client) *DeleteOutboundContactlistsParams {
-	var ()
 	return &DeleteOutboundContactlistsParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteOutboundContactlistsParams contains all the parameters to send to the API endpoint
-for the delete outbound contactlists operation typically these are written to a http.Request
+/*
+DeleteOutboundContactlistsParams contains all the parameters to send to the API endpoint
+
+	for the delete outbound contactlists operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteOutboundContactlistsParams struct {
 
-	/*ID
-	  contact list id(s) to delete
+	/* ID.
 
+	   contact list id(s) to delete
 	*/
 	ID []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete outbound contactlists params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundContactlistsParams) WithDefaults() *DeleteOutboundContactlistsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete outbound contactlists params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteOutboundContactlistsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete outbound contactlists params
@@ -124,16 +140,36 @@ func (o *DeleteOutboundContactlistsParams) WriteToRequest(r runtime.ClientReques
 	}
 	var res []error
 
-	valuesID := o.ID
+	if o.ID != nil {
 
-	joinedID := swag.JoinByFormat(valuesID, "multi")
-	// query array param id
-	if err := r.SetQueryParam("id", joinedID...); err != nil {
-		return err
+		// binding items for id
+		joinedID := o.bindParamID(reg)
+
+		// query array param id
+		if err := r.SetQueryParam("id", joinedID...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamDeleteOutboundContactlists binds the parameter id
+func (o *DeleteOutboundContactlistsParams) bindParamID(formats strfmt.Registry) []string {
+	iDIR := o.ID
+
+	var iDIC []string
+	for _, iDIIR := range iDIR { // explode []string
+
+		iDIIV := iDIIR // string as string
+		iDIC = append(iDIC, iDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	iDIS := swag.JoinByFormat(iDIC, "multi")
+
+	return iDIS
 }

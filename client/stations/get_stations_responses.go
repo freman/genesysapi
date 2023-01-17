@@ -95,7 +95,6 @@ func (o *GetStationsReader) ReadResponse(response runtime.ClientResponse, consum
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetStationsOK() *GetStationsOK {
 	return &GetStationsOK{}
 }
 
-/*GetStationsOK handles this case with default header values.
+/*
+GetStationsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetStationsOK struct {
 	Payload *models.StationEntityListing
 }
 
+// IsSuccess returns true when this get stations o k response has a 2xx status code
+func (o *GetStationsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get stations o k response has a 3xx status code
+func (o *GetStationsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get stations o k response has a 4xx status code
+func (o *GetStationsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get stations o k response has a 5xx status code
+func (o *GetStationsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get stations o k response a status code equal to that given
+func (o *GetStationsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetStationsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetStationsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetStationsBadRequest() *GetStationsBadRequest {
 	return &GetStationsBadRequest{}
 }
 
-/*GetStationsBadRequest handles this case with default header values.
+/*
+GetStationsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetStationsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get stations bad request response has a 2xx status code
+func (o *GetStationsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get stations bad request response has a 3xx status code
+func (o *GetStationsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get stations bad request response has a 4xx status code
+func (o *GetStationsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get stations bad request response has a 5xx status code
+func (o *GetStationsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get stations bad request response a status code equal to that given
+func (o *GetStationsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetStationsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetStationsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetStationsUnauthorized() *GetStationsUnauthorized {
 	return &GetStationsUnauthorized{}
 }
 
-/*GetStationsUnauthorized handles this case with default header values.
+/*
+GetStationsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetStationsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get stations unauthorized response has a 2xx status code
+func (o *GetStationsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get stations unauthorized response has a 3xx status code
+func (o *GetStationsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get stations unauthorized response has a 4xx status code
+func (o *GetStationsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get stations unauthorized response has a 5xx status code
+func (o *GetStationsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get stations unauthorized response a status code equal to that given
+func (o *GetStationsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetStationsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetStationsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetStationsForbidden() *GetStationsForbidden {
 	return &GetStationsForbidden{}
 }
 
-/*GetStationsForbidden handles this case with default header values.
+/*
+GetStationsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetStationsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get stations forbidden response has a 2xx status code
+func (o *GetStationsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get stations forbidden response has a 3xx status code
+func (o *GetStationsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get stations forbidden response has a 4xx status code
+func (o *GetStationsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get stations forbidden response has a 5xx status code
+func (o *GetStationsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get stations forbidden response a status code equal to that given
+func (o *GetStationsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetStationsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetStationsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetStationsNotFound() *GetStationsNotFound {
 	return &GetStationsNotFound{}
 }
 
-/*GetStationsNotFound handles this case with default header values.
+/*
+GetStationsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetStationsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get stations not found response has a 2xx status code
+func (o *GetStationsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get stations not found response has a 3xx status code
+func (o *GetStationsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get stations not found response has a 4xx status code
+func (o *GetStationsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get stations not found response has a 5xx status code
+func (o *GetStationsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get stations not found response a status code equal to that given
+func (o *GetStationsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetStationsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetStationsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetStationsRequestTimeout() *GetStationsRequestTimeout {
 	return &GetStationsRequestTimeout{}
 }
 
-/*GetStationsRequestTimeout handles this case with default header values.
+/*
+GetStationsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetStationsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get stations request timeout response has a 2xx status code
+func (o *GetStationsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get stations request timeout response has a 3xx status code
+func (o *GetStationsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get stations request timeout response has a 4xx status code
+func (o *GetStationsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get stations request timeout response has a 5xx status code
+func (o *GetStationsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get stations request timeout response a status code equal to that given
+func (o *GetStationsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetStationsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetStationsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetStationsRequestEntityTooLarge() *GetStationsRequestEntityTooLarge {
 	return &GetStationsRequestEntityTooLarge{}
 }
 
-/*GetStationsRequestEntityTooLarge handles this case with default header values.
+/*
+GetStationsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetStationsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get stations request entity too large response has a 2xx status code
+func (o *GetStationsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get stations request entity too large response has a 3xx status code
+func (o *GetStationsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get stations request entity too large response has a 4xx status code
+func (o *GetStationsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get stations request entity too large response has a 5xx status code
+func (o *GetStationsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get stations request entity too large response a status code equal to that given
+func (o *GetStationsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetStationsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetStationsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetStationsUnsupportedMediaType() *GetStationsUnsupportedMediaType {
 	return &GetStationsUnsupportedMediaType{}
 }
 
-/*GetStationsUnsupportedMediaType handles this case with default header values.
+/*
+GetStationsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetStationsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get stations unsupported media type response has a 2xx status code
+func (o *GetStationsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get stations unsupported media type response has a 3xx status code
+func (o *GetStationsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get stations unsupported media type response has a 4xx status code
+func (o *GetStationsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get stations unsupported media type response has a 5xx status code
+func (o *GetStationsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get stations unsupported media type response a status code equal to that given
+func (o *GetStationsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetStationsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetStationsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetStationsTooManyRequests() *GetStationsTooManyRequests {
 	return &GetStationsTooManyRequests{}
 }
 
-/*GetStationsTooManyRequests handles this case with default header values.
+/*
+GetStationsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetStationsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get stations too many requests response has a 2xx status code
+func (o *GetStationsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get stations too many requests response has a 3xx status code
+func (o *GetStationsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get stations too many requests response has a 4xx status code
+func (o *GetStationsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get stations too many requests response has a 5xx status code
+func (o *GetStationsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get stations too many requests response a status code equal to that given
+func (o *GetStationsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetStationsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetStationsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetStationsInternalServerError() *GetStationsInternalServerError {
 	return &GetStationsInternalServerError{}
 }
 
-/*GetStationsInternalServerError handles this case with default header values.
+/*
+GetStationsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetStationsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get stations internal server error response has a 2xx status code
+func (o *GetStationsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get stations internal server error response has a 3xx status code
+func (o *GetStationsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get stations internal server error response has a 4xx status code
+func (o *GetStationsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get stations internal server error response has a 5xx status code
+func (o *GetStationsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get stations internal server error response a status code equal to that given
+func (o *GetStationsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetStationsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetStationsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetStationsServiceUnavailable() *GetStationsServiceUnavailable {
 	return &GetStationsServiceUnavailable{}
 }
 
-/*GetStationsServiceUnavailable handles this case with default header values.
+/*
+GetStationsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetStationsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get stations service unavailable response has a 2xx status code
+func (o *GetStationsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get stations service unavailable response has a 3xx status code
+func (o *GetStationsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get stations service unavailable response has a 4xx status code
+func (o *GetStationsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get stations service unavailable response has a 5xx status code
+func (o *GetStationsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get stations service unavailable response a status code equal to that given
+func (o *GetStationsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetStationsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetStationsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetStationsGatewayTimeout() *GetStationsGatewayTimeout {
 	return &GetStationsGatewayTimeout{}
 }
 
-/*GetStationsGatewayTimeout handles this case with default header values.
+/*
+GetStationsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetStationsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get stations gateway timeout response has a 2xx status code
+func (o *GetStationsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get stations gateway timeout response has a 3xx status code
+func (o *GetStationsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get stations gateway timeout response has a 4xx status code
+func (o *GetStationsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get stations gateway timeout response has a 5xx status code
+func (o *GetStationsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get stations gateway timeout response a status code equal to that given
+func (o *GetStationsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetStationsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetStationsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/stations][%d] getStationsGatewayTimeout  %+v", 504, o.Payload)
 }
 

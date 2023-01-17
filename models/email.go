@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -167,7 +168,6 @@ func (m *Email) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Email) validateAfterCallWork(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AfterCallWork) { // not required
 		return nil
 	}
@@ -176,6 +176,8 @@ func (m *Email) validateAfterCallWork(formats strfmt.Registry) error {
 		if err := m.AfterCallWork.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
 			}
 			return err
 		}
@@ -185,7 +187,6 @@ func (m *Email) validateAfterCallWork(formats strfmt.Registry) error {
 }
 
 func (m *Email) validateConnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectedTime) { // not required
 		return nil
 	}
@@ -227,7 +228,6 @@ func (m *Email) validateDirectionEnum(path, location string, value string) error
 }
 
 func (m *Email) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -269,23 +269,23 @@ const (
 	// EmailDisconnectTypeTransfer captures enum value "transfer"
 	EmailDisconnectTypeTransfer string = "transfer"
 
-	// EmailDisconnectTypeTransferConference captures enum value "transfer.conference"
-	EmailDisconnectTypeTransferConference string = "transfer.conference"
+	// EmailDisconnectTypeTransferDotConference captures enum value "transfer.conference"
+	EmailDisconnectTypeTransferDotConference string = "transfer.conference"
 
-	// EmailDisconnectTypeTransferConsult captures enum value "transfer.consult"
-	EmailDisconnectTypeTransferConsult string = "transfer.consult"
+	// EmailDisconnectTypeTransferDotConsult captures enum value "transfer.consult"
+	EmailDisconnectTypeTransferDotConsult string = "transfer.consult"
 
-	// EmailDisconnectTypeTransferForward captures enum value "transfer.forward"
-	EmailDisconnectTypeTransferForward string = "transfer.forward"
+	// EmailDisconnectTypeTransferDotForward captures enum value "transfer.forward"
+	EmailDisconnectTypeTransferDotForward string = "transfer.forward"
 
-	// EmailDisconnectTypeTransferNoanswer captures enum value "transfer.noanswer"
-	EmailDisconnectTypeTransferNoanswer string = "transfer.noanswer"
+	// EmailDisconnectTypeTransferDotNoanswer captures enum value "transfer.noanswer"
+	EmailDisconnectTypeTransferDotNoanswer string = "transfer.noanswer"
 
-	// EmailDisconnectTypeTransferNotavailable captures enum value "transfer.notavailable"
-	EmailDisconnectTypeTransferNotavailable string = "transfer.notavailable"
+	// EmailDisconnectTypeTransferDotNotavailable captures enum value "transfer.notavailable"
+	EmailDisconnectTypeTransferDotNotavailable string = "transfer.notavailable"
 
-	// EmailDisconnectTypeTransportFailure captures enum value "transport.failure"
-	EmailDisconnectTypeTransportFailure string = "transport.failure"
+	// EmailDisconnectTypeTransportDotFailure captures enum value "transport.failure"
+	EmailDisconnectTypeTransportDotFailure string = "transport.failure"
 
 	// EmailDisconnectTypeError captures enum value "error"
 	EmailDisconnectTypeError string = "error"
@@ -312,7 +312,6 @@ func (m *Email) validateDisconnectTypeEnum(path, location string, value string) 
 }
 
 func (m *Email) validateDisconnectType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectType) { // not required
 		return nil
 	}
@@ -326,7 +325,6 @@ func (m *Email) validateDisconnectType(formats strfmt.Registry) error {
 }
 
 func (m *Email) validateDisconnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DisconnectedTime) { // not required
 		return nil
 	}
@@ -339,7 +337,6 @@ func (m *Email) validateDisconnectedTime(formats strfmt.Registry) error {
 }
 
 func (m *Email) validateDraftAttachments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DraftAttachments) { // not required
 		return nil
 	}
@@ -353,6 +350,8 @@ func (m *Email) validateDraftAttachments(formats strfmt.Registry) error {
 			if err := m.DraftAttachments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("draftAttachments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("draftAttachments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -364,7 +363,6 @@ func (m *Email) validateDraftAttachments(formats strfmt.Registry) error {
 }
 
 func (m *Email) validateErrorInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorInfo) { // not required
 		return nil
 	}
@@ -373,6 +371,8 @@ func (m *Email) validateErrorInfo(formats strfmt.Registry) error {
 		if err := m.ErrorInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInfo")
 			}
 			return err
 		}
@@ -420,7 +420,6 @@ func (m *Email) validateInitialStateEnum(path, location string, value string) er
 }
 
 func (m *Email) validateInitialState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InitialState) { // not required
 		return nil
 	}
@@ -434,7 +433,6 @@ func (m *Email) validateInitialState(formats strfmt.Registry) error {
 }
 
 func (m *Email) validateSegments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Segments) { // not required
 		return nil
 	}
@@ -448,6 +446,8 @@ func (m *Email) validateSegments(formats strfmt.Registry) error {
 			if err := m.Segments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -459,7 +459,6 @@ func (m *Email) validateSegments(formats strfmt.Registry) error {
 }
 
 func (m *Email) validateStartAlertingTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartAlertingTime) { // not required
 		return nil
 	}
@@ -472,7 +471,6 @@ func (m *Email) validateStartAlertingTime(formats strfmt.Registry) error {
 }
 
 func (m *Email) validateStartHoldTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartHoldTime) { // not required
 		return nil
 	}
@@ -523,7 +521,6 @@ func (m *Email) validateStateEnum(path, location string, value string) error {
 }
 
 func (m *Email) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -537,7 +534,6 @@ func (m *Email) validateState(formats strfmt.Registry) error {
 }
 
 func (m *Email) validateWrapup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Wrapup) { // not required
 		return nil
 	}
@@ -546,6 +542,126 @@ func (m *Email) validateWrapup(formats strfmt.Registry) error {
 		if err := m.Wrapup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this email based on the context it is used
+func (m *Email) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAfterCallWork(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDraftAttachments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateErrorInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSegments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Email) contextValidateAfterCallWork(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AfterCallWork != nil {
+		if err := m.AfterCallWork.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("afterCallWork")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("afterCallWork")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Email) contextValidateDraftAttachments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.DraftAttachments); i++ {
+
+		if m.DraftAttachments[i] != nil {
+			if err := m.DraftAttachments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("draftAttachments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("draftAttachments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Email) contextValidateErrorInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ErrorInfo != nil {
+		if err := m.ErrorInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Email) contextValidateSegments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Segments); i++ {
+
+		if m.Segments[i] != nil {
+			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Email) contextValidateWrapup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Wrapup != nil {
+		if err := m.Wrapup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
 			}
 			return err
 		}

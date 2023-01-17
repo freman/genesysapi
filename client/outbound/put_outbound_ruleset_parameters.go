@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOutboundRulesetParams creates a new PutOutboundRulesetParams object
-// with the default values initialized.
+// NewPutOutboundRulesetParams creates a new PutOutboundRulesetParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOutboundRulesetParams() *PutOutboundRulesetParams {
-	var ()
 	return &PutOutboundRulesetParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOutboundRulesetParamsWithTimeout creates a new PutOutboundRulesetParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOutboundRulesetParamsWithTimeout(timeout time.Duration) *PutOutboundRulesetParams {
-	var ()
 	return &PutOutboundRulesetParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOutboundRulesetParamsWithContext creates a new PutOutboundRulesetParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOutboundRulesetParamsWithContext(ctx context.Context) *PutOutboundRulesetParams {
-	var ()
 	return &PutOutboundRulesetParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOutboundRulesetParamsWithHTTPClient creates a new PutOutboundRulesetParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOutboundRulesetParamsWithHTTPClient(client *http.Client) *PutOutboundRulesetParams {
-	var ()
 	return &PutOutboundRulesetParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOutboundRulesetParams contains all the parameters to send to the API endpoint
-for the put outbound ruleset operation typically these are written to a http.Request
+/*
+PutOutboundRulesetParams contains all the parameters to send to the API endpoint
+
+	for the put outbound ruleset operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOutboundRulesetParams struct {
 
-	/*Body
-	  RuleSet
+	/* Body.
 
+	   RuleSet
 	*/
 	Body *models.RuleSet
-	/*RuleSetID
-	  Rule Set ID
 
+	/* RuleSetID.
+
+	   Rule Set ID
 	*/
 	RuleSetID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put outbound ruleset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundRulesetParams) WithDefaults() *PutOutboundRulesetParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put outbound ruleset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundRulesetParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put outbound ruleset params
@@ -140,7 +157,6 @@ func (o *PutOutboundRulesetParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -59,7 +60,6 @@ func (m *SchedulingSettingsResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SchedulingSettingsResponse) validatePlanningPeriod(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PlanningPeriod) { // not required
 		return nil
 	}
@@ -68,6 +68,8 @@ func (m *SchedulingSettingsResponse) validatePlanningPeriod(formats strfmt.Regis
 		if err := m.PlanningPeriod.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("planningPeriod")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("planningPeriod")
 			}
 			return err
 		}
@@ -77,7 +79,6 @@ func (m *SchedulingSettingsResponse) validatePlanningPeriod(formats strfmt.Regis
 }
 
 func (m *SchedulingSettingsResponse) validateShrinkageOverrides(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShrinkageOverrides) { // not required
 		return nil
 	}
@@ -86,6 +87,8 @@ func (m *SchedulingSettingsResponse) validateShrinkageOverrides(formats strfmt.R
 		if err := m.ShrinkageOverrides.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("shrinkageOverrides")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shrinkageOverrides")
 			}
 			return err
 		}
@@ -139,7 +142,6 @@ func (m *SchedulingSettingsResponse) validateStartDayOfWeekendEnum(path, locatio
 }
 
 func (m *SchedulingSettingsResponse) validateStartDayOfWeekend(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartDayOfWeekend) { // not required
 		return nil
 	}
@@ -147,6 +149,56 @@ func (m *SchedulingSettingsResponse) validateStartDayOfWeekend(formats strfmt.Re
 	// value enum
 	if err := m.validateStartDayOfWeekendEnum("startDayOfWeekend", "body", m.StartDayOfWeekend); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scheduling settings response based on the context it is used
+func (m *SchedulingSettingsResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePlanningPeriod(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShrinkageOverrides(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SchedulingSettingsResponse) contextValidatePlanningPeriod(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PlanningPeriod != nil {
+		if err := m.PlanningPeriod.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("planningPeriod")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("planningPeriod")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SchedulingSettingsResponse) contextValidateShrinkageOverrides(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ShrinkageOverrides != nil {
+		if err := m.ShrinkageOverrides.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("shrinkageOverrides")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shrinkageOverrides")
+			}
+			return err
+		}
 	}
 
 	return nil

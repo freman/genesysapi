@@ -95,7 +95,6 @@ func (o *PostScriptExportReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostScriptExportOK() *PostScriptExportOK {
 	return &PostScriptExportOK{}
 }
 
-/*PostScriptExportOK handles this case with default header values.
+/*
+PostScriptExportOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostScriptExportOK struct {
 	Payload *models.ExportScriptResponse
 }
 
+// IsSuccess returns true when this post script export o k response has a 2xx status code
+func (o *PostScriptExportOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post script export o k response has a 3xx status code
+func (o *PostScriptExportOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post script export o k response has a 4xx status code
+func (o *PostScriptExportOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post script export o k response has a 5xx status code
+func (o *PostScriptExportOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post script export o k response a status code equal to that given
+func (o *PostScriptExportOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostScriptExportOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportOK  %+v", 200, o.Payload)
+}
+
+func (o *PostScriptExportOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostScriptExportBadRequest() *PostScriptExportBadRequest {
 	return &PostScriptExportBadRequest{}
 }
 
-/*PostScriptExportBadRequest handles this case with default header values.
+/*
+PostScriptExportBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostScriptExportBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post script export bad request response has a 2xx status code
+func (o *PostScriptExportBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post script export bad request response has a 3xx status code
+func (o *PostScriptExportBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post script export bad request response has a 4xx status code
+func (o *PostScriptExportBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post script export bad request response has a 5xx status code
+func (o *PostScriptExportBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post script export bad request response a status code equal to that given
+func (o *PostScriptExportBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostScriptExportBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostScriptExportBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostScriptExportUnauthorized() *PostScriptExportUnauthorized {
 	return &PostScriptExportUnauthorized{}
 }
 
-/*PostScriptExportUnauthorized handles this case with default header values.
+/*
+PostScriptExportUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostScriptExportUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post script export unauthorized response has a 2xx status code
+func (o *PostScriptExportUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post script export unauthorized response has a 3xx status code
+func (o *PostScriptExportUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post script export unauthorized response has a 4xx status code
+func (o *PostScriptExportUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post script export unauthorized response has a 5xx status code
+func (o *PostScriptExportUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post script export unauthorized response a status code equal to that given
+func (o *PostScriptExportUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostScriptExportUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostScriptExportUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostScriptExportForbidden() *PostScriptExportForbidden {
 	return &PostScriptExportForbidden{}
 }
 
-/*PostScriptExportForbidden handles this case with default header values.
+/*
+PostScriptExportForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostScriptExportForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post script export forbidden response has a 2xx status code
+func (o *PostScriptExportForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post script export forbidden response has a 3xx status code
+func (o *PostScriptExportForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post script export forbidden response has a 4xx status code
+func (o *PostScriptExportForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post script export forbidden response has a 5xx status code
+func (o *PostScriptExportForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post script export forbidden response a status code equal to that given
+func (o *PostScriptExportForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostScriptExportForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostScriptExportForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostScriptExportNotFound() *PostScriptExportNotFound {
 	return &PostScriptExportNotFound{}
 }
 
-/*PostScriptExportNotFound handles this case with default header values.
+/*
+PostScriptExportNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostScriptExportNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post script export not found response has a 2xx status code
+func (o *PostScriptExportNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post script export not found response has a 3xx status code
+func (o *PostScriptExportNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post script export not found response has a 4xx status code
+func (o *PostScriptExportNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post script export not found response has a 5xx status code
+func (o *PostScriptExportNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post script export not found response a status code equal to that given
+func (o *PostScriptExportNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostScriptExportNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostScriptExportNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostScriptExportRequestTimeout() *PostScriptExportRequestTimeout {
 	return &PostScriptExportRequestTimeout{}
 }
 
-/*PostScriptExportRequestTimeout handles this case with default header values.
+/*
+PostScriptExportRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostScriptExportRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post script export request timeout response has a 2xx status code
+func (o *PostScriptExportRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post script export request timeout response has a 3xx status code
+func (o *PostScriptExportRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post script export request timeout response has a 4xx status code
+func (o *PostScriptExportRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post script export request timeout response has a 5xx status code
+func (o *PostScriptExportRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post script export request timeout response a status code equal to that given
+func (o *PostScriptExportRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostScriptExportRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostScriptExportRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostScriptExportRequestEntityTooLarge() *PostScriptExportRequestEntityTo
 	return &PostScriptExportRequestEntityTooLarge{}
 }
 
-/*PostScriptExportRequestEntityTooLarge handles this case with default header values.
+/*
+PostScriptExportRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostScriptExportRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post script export request entity too large response has a 2xx status code
+func (o *PostScriptExportRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post script export request entity too large response has a 3xx status code
+func (o *PostScriptExportRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post script export request entity too large response has a 4xx status code
+func (o *PostScriptExportRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post script export request entity too large response has a 5xx status code
+func (o *PostScriptExportRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post script export request entity too large response a status code equal to that given
+func (o *PostScriptExportRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostScriptExportRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostScriptExportRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostScriptExportUnsupportedMediaType() *PostScriptExportUnsupportedMedia
 	return &PostScriptExportUnsupportedMediaType{}
 }
 
-/*PostScriptExportUnsupportedMediaType handles this case with default header values.
+/*
+PostScriptExportUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostScriptExportUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post script export unsupported media type response has a 2xx status code
+func (o *PostScriptExportUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post script export unsupported media type response has a 3xx status code
+func (o *PostScriptExportUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post script export unsupported media type response has a 4xx status code
+func (o *PostScriptExportUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post script export unsupported media type response has a 5xx status code
+func (o *PostScriptExportUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post script export unsupported media type response a status code equal to that given
+func (o *PostScriptExportUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostScriptExportUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostScriptExportUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostScriptExportTooManyRequests() *PostScriptExportTooManyRequests {
 	return &PostScriptExportTooManyRequests{}
 }
 
-/*PostScriptExportTooManyRequests handles this case with default header values.
+/*
+PostScriptExportTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostScriptExportTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post script export too many requests response has a 2xx status code
+func (o *PostScriptExportTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post script export too many requests response has a 3xx status code
+func (o *PostScriptExportTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post script export too many requests response has a 4xx status code
+func (o *PostScriptExportTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post script export too many requests response has a 5xx status code
+func (o *PostScriptExportTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post script export too many requests response a status code equal to that given
+func (o *PostScriptExportTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostScriptExportTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostScriptExportTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostScriptExportInternalServerError() *PostScriptExportInternalServerErr
 	return &PostScriptExportInternalServerError{}
 }
 
-/*PostScriptExportInternalServerError handles this case with default header values.
+/*
+PostScriptExportInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostScriptExportInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post script export internal server error response has a 2xx status code
+func (o *PostScriptExportInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post script export internal server error response has a 3xx status code
+func (o *PostScriptExportInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post script export internal server error response has a 4xx status code
+func (o *PostScriptExportInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post script export internal server error response has a 5xx status code
+func (o *PostScriptExportInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post script export internal server error response a status code equal to that given
+func (o *PostScriptExportInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostScriptExportInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostScriptExportInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostScriptExportServiceUnavailable() *PostScriptExportServiceUnavailable
 	return &PostScriptExportServiceUnavailable{}
 }
 
-/*PostScriptExportServiceUnavailable handles this case with default header values.
+/*
+PostScriptExportServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostScriptExportServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post script export service unavailable response has a 2xx status code
+func (o *PostScriptExportServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post script export service unavailable response has a 3xx status code
+func (o *PostScriptExportServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post script export service unavailable response has a 4xx status code
+func (o *PostScriptExportServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post script export service unavailable response has a 5xx status code
+func (o *PostScriptExportServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post script export service unavailable response a status code equal to that given
+func (o *PostScriptExportServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostScriptExportServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostScriptExportServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostScriptExportGatewayTimeout() *PostScriptExportGatewayTimeout {
 	return &PostScriptExportGatewayTimeout{}
 }
 
-/*PostScriptExportGatewayTimeout handles this case with default header values.
+/*
+PostScriptExportGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostScriptExportGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post script export gateway timeout response has a 2xx status code
+func (o *PostScriptExportGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post script export gateway timeout response has a 3xx status code
+func (o *PostScriptExportGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post script export gateway timeout response has a 4xx status code
+func (o *PostScriptExportGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post script export gateway timeout response has a 5xx status code
+func (o *PostScriptExportGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post script export gateway timeout response a status code equal to that given
+func (o *PostScriptExportGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostScriptExportGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostScriptExportGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/scripts/{scriptId}/export][%d] postScriptExportGatewayTimeout  %+v", 504, o.Payload)
 }
 

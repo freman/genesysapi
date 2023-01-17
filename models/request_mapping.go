@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -88,7 +89,6 @@ func (m *RequestMapping) validateAttributeTypeEnum(path, location string, value 
 }
 
 func (m *RequestMapping) validateAttributeType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AttributeType) { // not required
 		return nil
 	}
@@ -131,7 +131,6 @@ func (m *RequestMapping) validateMappingTypeEnum(path, location string, value st
 }
 
 func (m *RequestMapping) validateMappingType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MappingType) { // not required
 		return nil
 	}
@@ -141,6 +140,11 @@ func (m *RequestMapping) validateMappingType(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this request mapping based on context it is used
+func (m *RequestMapping) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

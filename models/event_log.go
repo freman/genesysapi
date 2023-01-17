@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -169,7 +170,6 @@ func (m *EventLog) validateCategoryEnum(path, location string, value string) err
 }
 
 func (m *EventLog) validateCategory(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Category) { // not required
 		return nil
 	}
@@ -183,7 +183,6 @@ func (m *EventLog) validateCategory(formats strfmt.Registry) error {
 }
 
 func (m *EventLog) validateErrorEntity(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ErrorEntity) { // not required
 		return nil
 	}
@@ -192,6 +191,8 @@ func (m *EventLog) validateErrorEntity(formats strfmt.Registry) error {
 		if err := m.ErrorEntity.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("errorEntity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorEntity")
 			}
 			return err
 		}
@@ -201,7 +202,6 @@ func (m *EventLog) validateErrorEntity(formats strfmt.Registry) error {
 }
 
 func (m *EventLog) validateEventMessage(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EventMessage) { // not required
 		return nil
 	}
@@ -210,6 +210,8 @@ func (m *EventLog) validateEventMessage(formats strfmt.Registry) error {
 		if err := m.EventMessage.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("eventMessage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("eventMessage")
 			}
 			return err
 		}
@@ -251,7 +253,6 @@ func (m *EventLog) validateLevelEnum(path, location string, value string) error 
 }
 
 func (m *EventLog) validateLevel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Level) { // not required
 		return nil
 	}
@@ -265,7 +266,6 @@ func (m *EventLog) validateLevel(formats strfmt.Registry) error {
 }
 
 func (m *EventLog) validateRelatedEntity(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RelatedEntity) { // not required
 		return nil
 	}
@@ -274,6 +274,8 @@ func (m *EventLog) validateRelatedEntity(formats strfmt.Registry) error {
 		if err := m.RelatedEntity.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("relatedEntity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("relatedEntity")
 			}
 			return err
 		}
@@ -283,7 +285,6 @@ func (m *EventLog) validateRelatedEntity(formats strfmt.Registry) error {
 }
 
 func (m *EventLog) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -296,12 +297,107 @@ func (m *EventLog) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *EventLog) validateTimestamp(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Timestamp) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("timestamp", "body", "date-time", m.Timestamp.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this event log based on the context it is used
+func (m *EventLog) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateErrorEntity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEventMessage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRelatedEntity(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EventLog) contextValidateErrorEntity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ErrorEntity != nil {
+		if err := m.ErrorEntity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("errorEntity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("errorEntity")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EventLog) contextValidateEventMessage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EventMessage != nil {
+		if err := m.EventMessage.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("eventMessage")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("eventMessage")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EventLog) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *EventLog) contextValidateRelatedEntity(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RelatedEntity != nil {
+		if err := m.RelatedEntity.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("relatedEntity")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("relatedEntity")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EventLog) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

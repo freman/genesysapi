@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetDataextensionsCoretypesParams creates a new GetDataextensionsCoretypesParams object
-// with the default values initialized.
+// NewGetDataextensionsCoretypesParams creates a new GetDataextensionsCoretypesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetDataextensionsCoretypesParams() *GetDataextensionsCoretypesParams {
-
 	return &GetDataextensionsCoretypesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetDataextensionsCoretypesParamsWithTimeout creates a new GetDataextensionsCoretypesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetDataextensionsCoretypesParamsWithTimeout(timeout time.Duration) *GetDataextensionsCoretypesParams {
-
 	return &GetDataextensionsCoretypesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetDataextensionsCoretypesParamsWithContext creates a new GetDataextensionsCoretypesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetDataextensionsCoretypesParamsWithContext(ctx context.Context) *GetDataextensionsCoretypesParams {
-
 	return &GetDataextensionsCoretypesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetDataextensionsCoretypesParamsWithHTTPClient creates a new GetDataextensionsCoretypesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetDataextensionsCoretypesParamsWithHTTPClient(client *http.Client) *GetDataextensionsCoretypesParams {
-
 	return &GetDataextensionsCoretypesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetDataextensionsCoretypesParams contains all the parameters to send to the API endpoint
-for the get dataextensions coretypes operation typically these are written to a http.Request
+/*
+GetDataextensionsCoretypesParams contains all the parameters to send to the API endpoint
+
+	for the get dataextensions coretypes operation.
+
+	Typically these are written to a http.Request.
 */
 type GetDataextensionsCoretypesParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get dataextensions coretypes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDataextensionsCoretypesParams) WithDefaults() *GetDataextensionsCoretypesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get dataextensions coretypes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDataextensionsCoretypesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get dataextensions coretypes params

@@ -101,7 +101,6 @@ func (o *PutUserStationDefaultstationStationIDReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewPutUserStationDefaultstationStationIDAccepted() *PutUserStationDefaultst
 	return &PutUserStationDefaultstationStationIDAccepted{}
 }
 
-/*PutUserStationDefaultstationStationIDAccepted handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDAccepted describes a response with status code 202, with default header values.
 
 Success
 */
 type PutUserStationDefaultstationStationIDAccepted struct {
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id accepted response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id accepted response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id accepted response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user station defaultstation station Id accepted response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user station defaultstation station Id accepted response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PutUserStationDefaultstationStationIDAccepted) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdAccepted ", 202)
+}
+
+func (o *PutUserStationDefaultstationStationIDAccepted) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdAccepted ", 202)
 }
 
@@ -133,7 +162,8 @@ func NewPutUserStationDefaultstationStationIDBadRequest() *PutUserStationDefault
 	return &PutUserStationDefaultstationStationIDBadRequest{}
 }
 
-/*PutUserStationDefaultstationStationIDBadRequest handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type PutUserStationDefaultstationStationIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id bad request response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id bad request response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id bad request response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user station defaultstation station Id bad request response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user station defaultstation station Id bad request response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutUserStationDefaultstationStationIDBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutUserStationDefaultstationStationIDBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewPutUserStationDefaultstationStationIDUnauthorized() *PutUserStationDefau
 	return &PutUserStationDefaultstationStationIDUnauthorized{}
 }
 
-/*PutUserStationDefaultstationStationIDUnauthorized handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type PutUserStationDefaultstationStationIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id unauthorized response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id unauthorized response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id unauthorized response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user station defaultstation station Id unauthorized response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user station defaultstation station Id unauthorized response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutUserStationDefaultstationStationIDUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutUserStationDefaultstationStationIDUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewPutUserStationDefaultstationStationIDForbidden() *PutUserStationDefaults
 	return &PutUserStationDefaultstationStationIDForbidden{}
 }
 
-/*PutUserStationDefaultstationStationIDForbidden handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type PutUserStationDefaultstationStationIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id forbidden response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id forbidden response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id forbidden response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user station defaultstation station Id forbidden response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user station defaultstation station Id forbidden response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutUserStationDefaultstationStationIDForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutUserStationDefaultstationStationIDForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewPutUserStationDefaultstationStationIDNotFound() *PutUserStationDefaultst
 	return &PutUserStationDefaultstationStationIDNotFound{}
 }
 
-/*PutUserStationDefaultstationStationIDNotFound handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type PutUserStationDefaultstationStationIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id not found response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id not found response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id not found response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user station defaultstation station Id not found response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user station defaultstation station Id not found response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutUserStationDefaultstationStationIDNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutUserStationDefaultstationStationIDNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewPutUserStationDefaultstationStationIDRequestTimeout() *PutUserStationDef
 	return &PutUserStationDefaultstationStationIDRequestTimeout{}
 }
 
-/*PutUserStationDefaultstationStationIDRequestTimeout handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type PutUserStationDefaultstationStationIDRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id request timeout response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id request timeout response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id request timeout response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user station defaultstation station Id request timeout response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user station defaultstation station Id request timeout response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutUserStationDefaultstationStationIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutUserStationDefaultstationStationIDRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewPutUserStationDefaultstationStationIDConflict() *PutUserStationDefaultst
 	return &PutUserStationDefaultstationStationIDConflict{}
 }
 
-/*PutUserStationDefaultstationStationIDConflict handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type PutUserStationDefaultstationStationIDConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id conflict response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id conflict response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id conflict response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user station defaultstation station Id conflict response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user station defaultstation station Id conflict response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PutUserStationDefaultstationStationIDConflict) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdConflict  %+v", 409, o.Payload)
+}
+
+func (o *PutUserStationDefaultstationStationIDConflict) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewPutUserStationDefaultstationStationIDRequestEntityTooLarge() *PutUserSta
 	return &PutUserStationDefaultstationStationIDRequestEntityTooLarge{}
 }
 
-/*PutUserStationDefaultstationStationIDRequestEntityTooLarge handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type PutUserStationDefaultstationStationIDRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id request entity too large response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id request entity too large response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id request entity too large response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user station defaultstation station Id request entity too large response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user station defaultstation station Id request entity too large response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutUserStationDefaultstationStationIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutUserStationDefaultstationStationIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewPutUserStationDefaultstationStationIDUnsupportedMediaType() *PutUserStat
 	return &PutUserStationDefaultstationStationIDUnsupportedMediaType{}
 }
 
-/*PutUserStationDefaultstationStationIDUnsupportedMediaType handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type PutUserStationDefaultstationStationIDUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id unsupported media type response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id unsupported media type response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id unsupported media type response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user station defaultstation station Id unsupported media type response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user station defaultstation station Id unsupported media type response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutUserStationDefaultstationStationIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutUserStationDefaultstationStationIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewPutUserStationDefaultstationStationIDTooManyRequests() *PutUserStationDe
 	return &PutUserStationDefaultstationStationIDTooManyRequests{}
 }
 
-/*PutUserStationDefaultstationStationIDTooManyRequests handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type PutUserStationDefaultstationStationIDTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id too many requests response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id too many requests response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id too many requests response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put user station defaultstation station Id too many requests response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put user station defaultstation station Id too many requests response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutUserStationDefaultstationStationIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutUserStationDefaultstationStationIDTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewPutUserStationDefaultstationStationIDInternalServerError() *PutUserStati
 	return &PutUserStationDefaultstationStationIDInternalServerError{}
 }
 
-/*PutUserStationDefaultstationStationIDInternalServerError handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type PutUserStationDefaultstationStationIDInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id internal server error response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id internal server error response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id internal server error response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user station defaultstation station Id internal server error response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user station defaultstation station Id internal server error response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutUserStationDefaultstationStationIDInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutUserStationDefaultstationStationIDInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewPutUserStationDefaultstationStationIDServiceUnavailable() *PutUserStatio
 	return &PutUserStationDefaultstationStationIDServiceUnavailable{}
 }
 
-/*PutUserStationDefaultstationStationIDServiceUnavailable handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type PutUserStationDefaultstationStationIDServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id service unavailable response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id service unavailable response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id service unavailable response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user station defaultstation station Id service unavailable response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user station defaultstation station Id service unavailable response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutUserStationDefaultstationStationIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutUserStationDefaultstationStationIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewPutUserStationDefaultstationStationIDGatewayTimeout() *PutUserStationDef
 	return &PutUserStationDefaultstationStationIDGatewayTimeout{}
 }
 
-/*PutUserStationDefaultstationStationIDGatewayTimeout handles this case with default header values.
+/*
+PutUserStationDefaultstationStationIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type PutUserStationDefaultstationStationIDGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put user station defaultstation station Id gateway timeout response has a 2xx status code
+func (o *PutUserStationDefaultstationStationIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put user station defaultstation station Id gateway timeout response has a 3xx status code
+func (o *PutUserStationDefaultstationStationIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put user station defaultstation station Id gateway timeout response has a 4xx status code
+func (o *PutUserStationDefaultstationStationIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put user station defaultstation station Id gateway timeout response has a 5xx status code
+func (o *PutUserStationDefaultstationStationIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put user station defaultstation station Id gateway timeout response a status code equal to that given
+func (o *PutUserStationDefaultstationStationIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutUserStationDefaultstationStationIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutUserStationDefaultstationStationIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/users/{userId}/station/defaultstation/{stationId}][%d] putUserStationDefaultstationStationIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

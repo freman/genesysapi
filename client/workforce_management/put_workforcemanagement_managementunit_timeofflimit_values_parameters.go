@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutWorkforcemanagementManagementunitTimeofflimitValuesParams creates a new PutWorkforcemanagementManagementunitTimeofflimitValuesParams object
-// with the default values initialized.
+// NewPutWorkforcemanagementManagementunitTimeofflimitValuesParams creates a new PutWorkforcemanagementManagementunitTimeofflimitValuesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutWorkforcemanagementManagementunitTimeofflimitValuesParams() *PutWorkforcemanagementManagementunitTimeofflimitValuesParams {
-	var ()
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutWorkforcemanagementManagementunitTimeofflimitValuesParamsWithTimeout creates a new PutWorkforcemanagementManagementunitTimeofflimitValuesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutWorkforcemanagementManagementunitTimeofflimitValuesParamsWithTimeout(timeout time.Duration) *PutWorkforcemanagementManagementunitTimeofflimitValuesParams {
-	var ()
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutWorkforcemanagementManagementunitTimeofflimitValuesParamsWithContext creates a new PutWorkforcemanagementManagementunitTimeofflimitValuesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutWorkforcemanagementManagementunitTimeofflimitValuesParamsWithContext(ctx context.Context) *PutWorkforcemanagementManagementunitTimeofflimitValuesParams {
-	var ()
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutWorkforcemanagementManagementunitTimeofflimitValuesParamsWithHTTPClient creates a new PutWorkforcemanagementManagementunitTimeofflimitValuesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutWorkforcemanagementManagementunitTimeofflimitValuesParamsWithHTTPClient(client *http.Client) *PutWorkforcemanagementManagementunitTimeofflimitValuesParams {
-	var ()
 	return &PutWorkforcemanagementManagementunitTimeofflimitValuesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutWorkforcemanagementManagementunitTimeofflimitValuesParams contains all the parameters to send to the API endpoint
-for the put workforcemanagement managementunit timeofflimit values operation typically these are written to a http.Request
+/*
+PutWorkforcemanagementManagementunitTimeofflimitValuesParams contains all the parameters to send to the API endpoint
+
+	for the put workforcemanagement managementunit timeofflimit values operation.
+
+	Typically these are written to a http.Request.
 */
 type PutWorkforcemanagementManagementunitTimeofflimitValuesParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.SetTimeOffLimitValuesRequest
-	/*ManagementUnitID
-	  The ID of the management unit.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit.
 	*/
 	ManagementUnitID string
-	/*TimeOffLimitID
-	  The ID of the time off limit object to set values for
 
+	/* TimeOffLimitID.
+
+	   The ID of the time off limit object to set values for
 	*/
 	TimeOffLimitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put workforcemanagement managementunit timeofflimit values params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesParams) WithDefaults() *PutWorkforcemanagementManagementunitTimeofflimitValuesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put workforcemanagement managementunit timeofflimit values params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put workforcemanagement managementunit timeofflimit values params
@@ -156,7 +174,6 @@ func (o *PutWorkforcemanagementManagementunitTimeofflimitValuesParams) WriteToRe
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

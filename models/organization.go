@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -150,7 +151,6 @@ func (m *Organization) validateProductPlatformEnum(path, location string, value 
 }
 
 func (m *Organization) validateProductPlatform(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProductPlatform) { // not required
 		return nil
 	}
@@ -164,7 +164,6 @@ func (m *Organization) validateProductPlatform(formats strfmt.Registry) error {
 }
 
 func (m *Organization) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -209,7 +208,6 @@ func (m *Organization) validateStateEnum(path, location string, value string) er
 }
 
 func (m *Organization) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -223,7 +221,6 @@ func (m *Organization) validateState(formats strfmt.Registry) error {
 }
 
 func (m *Organization) validateThirdPartyURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ThirdPartyURI) { // not required
 		return nil
 	}
@@ -238,6 +235,77 @@ func (m *Organization) validateThirdPartyURI(formats strfmt.Registry) error {
 func (m *Organization) validateVersion(formats strfmt.Registry) error {
 
 	if err := validate.Required("version", "body", m.Version); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this organization based on the context it is used
+func (m *Organization) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFeatures(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProductPlatform(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateThirdPartyOrgName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Organization) contextValidateFeatures(ctx context.Context, formats strfmt.Registry) error {
+
+	return nil
+}
+
+func (m *Organization) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Organization) contextValidateProductPlatform(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "productPlatform", "body", string(m.ProductPlatform)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Organization) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Organization) contextValidateThirdPartyOrgName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "thirdPartyOrgName", "body", string(m.ThirdPartyOrgName)); err != nil {
 		return err
 	}
 

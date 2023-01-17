@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostExternalcontactsOrganizationsParams creates a new PostExternalcontactsOrganizationsParams object
-// with the default values initialized.
+// NewPostExternalcontactsOrganizationsParams creates a new PostExternalcontactsOrganizationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostExternalcontactsOrganizationsParams() *PostExternalcontactsOrganizationsParams {
-	var ()
 	return &PostExternalcontactsOrganizationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostExternalcontactsOrganizationsParamsWithTimeout creates a new PostExternalcontactsOrganizationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostExternalcontactsOrganizationsParamsWithTimeout(timeout time.Duration) *PostExternalcontactsOrganizationsParams {
-	var ()
 	return &PostExternalcontactsOrganizationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostExternalcontactsOrganizationsParamsWithContext creates a new PostExternalcontactsOrganizationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostExternalcontactsOrganizationsParamsWithContext(ctx context.Context) *PostExternalcontactsOrganizationsParams {
-	var ()
 	return &PostExternalcontactsOrganizationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostExternalcontactsOrganizationsParamsWithHTTPClient creates a new PostExternalcontactsOrganizationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostExternalcontactsOrganizationsParamsWithHTTPClient(client *http.Client) *PostExternalcontactsOrganizationsParams {
-	var ()
 	return &PostExternalcontactsOrganizationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostExternalcontactsOrganizationsParams contains all the parameters to send to the API endpoint
-for the post externalcontacts organizations operation typically these are written to a http.Request
+/*
+PostExternalcontactsOrganizationsParams contains all the parameters to send to the API endpoint
+
+	for the post externalcontacts organizations operation.
+
+	Typically these are written to a http.Request.
 */
 type PostExternalcontactsOrganizationsParams struct {
 
-	/*Body
-	  ExternalOrganization
+	/* Body.
 
+	   ExternalOrganization
 	*/
 	Body *models.ExternalOrganization
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post externalcontacts organizations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsOrganizationsParams) WithDefaults() *PostExternalcontactsOrganizationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post externalcontacts organizations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostExternalcontactsOrganizationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post externalcontacts organizations params
@@ -124,7 +140,6 @@ func (o *PostExternalcontactsOrganizationsParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

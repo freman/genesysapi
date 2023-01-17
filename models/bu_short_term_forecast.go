@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -158,7 +159,6 @@ func (m *BuShortTermForecast) validateCreationMethodEnum(path, location string, 
 }
 
 func (m *BuShortTermForecast) validateCreationMethod(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreationMethod) { // not required
 		return nil
 	}
@@ -172,7 +172,6 @@ func (m *BuShortTermForecast) validateCreationMethod(formats strfmt.Registry) er
 }
 
 func (m *BuShortTermForecast) validateGenerationResults(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GenerationResults) { // not required
 		return nil
 	}
@@ -181,6 +180,8 @@ func (m *BuShortTermForecast) validateGenerationResults(formats strfmt.Registry)
 		if err := m.GenerationResults.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("generationResults")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("generationResults")
 			}
 			return err
 		}
@@ -190,7 +191,6 @@ func (m *BuShortTermForecast) validateGenerationResults(formats strfmt.Registry)
 }
 
 func (m *BuShortTermForecast) validateMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metadata) { // not required
 		return nil
 	}
@@ -199,6 +199,8 @@ func (m *BuShortTermForecast) validateMetadata(formats strfmt.Registry) error {
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -208,7 +210,6 @@ func (m *BuShortTermForecast) validateMetadata(formats strfmt.Registry) error {
 }
 
 func (m *BuShortTermForecast) validateModifications(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Modifications) { // not required
 		return nil
 	}
@@ -222,6 +223,8 @@ func (m *BuShortTermForecast) validateModifications(formats strfmt.Registry) err
 			if err := m.Modifications[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("modifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("modifications" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -233,7 +236,6 @@ func (m *BuShortTermForecast) validateModifications(formats strfmt.Registry) err
 }
 
 func (m *BuShortTermForecast) validatePlanningGroups(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PlanningGroups) { // not required
 		return nil
 	}
@@ -242,6 +244,8 @@ func (m *BuShortTermForecast) validatePlanningGroups(formats strfmt.Registry) er
 		if err := m.PlanningGroups.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("planningGroups")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("planningGroups")
 			}
 			return err
 		}
@@ -251,7 +255,6 @@ func (m *BuShortTermForecast) validatePlanningGroups(formats strfmt.Registry) er
 }
 
 func (m *BuShortTermForecast) validateReferenceStartDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReferenceStartDate) { // not required
 		return nil
 	}
@@ -264,7 +267,6 @@ func (m *BuShortTermForecast) validateReferenceStartDate(formats strfmt.Registry
 }
 
 func (m *BuShortTermForecast) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -277,7 +279,6 @@ func (m *BuShortTermForecast) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *BuShortTermForecast) validateSourceDays(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SourceDays) { // not required
 		return nil
 	}
@@ -291,6 +292,8 @@ func (m *BuShortTermForecast) validateSourceDays(formats strfmt.Registry) error 
 			if err := m.SourceDays[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sourceDays" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sourceDays" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -302,13 +305,169 @@ func (m *BuShortTermForecast) validateSourceDays(formats strfmt.Registry) error 
 }
 
 func (m *BuShortTermForecast) validateWeekDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WeekDate) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("weekDate", "body", "date", m.WeekDate.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu short term forecast based on the context it is used
+func (m *BuShortTermForecast) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateGenerationResults(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLegacy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifications(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePlanningGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSourceDays(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuShortTermForecast) contextValidateGenerationResults(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.GenerationResults != nil {
+		if err := m.GenerationResults.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("generationResults")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("generationResults")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuShortTermForecast) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BuShortTermForecast) contextValidateLegacy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "legacy", "body", m.Legacy); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BuShortTermForecast) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuShortTermForecast) contextValidateModifications(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Modifications); i++ {
+
+		if m.Modifications[i] != nil {
+			if err := m.Modifications[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("modifications" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("modifications" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuShortTermForecast) contextValidatePlanningGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PlanningGroups != nil {
+		if err := m.PlanningGroups.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("planningGroups")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("planningGroups")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuShortTermForecast) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BuShortTermForecast) contextValidateSourceDays(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SourceDays); i++ {
+
+		if m.SourceDays[i] != nil {
+			if err := m.SourceDays[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sourceDays" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sourceDays" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

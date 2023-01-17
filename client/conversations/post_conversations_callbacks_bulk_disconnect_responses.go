@@ -95,7 +95,6 @@ func (o *PostConversationsCallbacksBulkDisconnectReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostConversationsCallbacksBulkDisconnectAccepted() *PostConversationsCal
 	return &PostConversationsCallbacksBulkDisconnectAccepted{}
 }
 
-/*PostConversationsCallbacksBulkDisconnectAccepted handles this case with default header values.
+/*
+PostConversationsCallbacksBulkDisconnectAccepted describes a response with status code 202, with default header values.
 
 Accepted
 */
 type PostConversationsCallbacksBulkDisconnectAccepted struct {
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk disconnect accepted response has a 2xx status code
+func (o *PostConversationsCallbacksBulkDisconnectAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk disconnect accepted response has a 3xx status code
+func (o *PostConversationsCallbacksBulkDisconnectAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk disconnect accepted response has a 4xx status code
+func (o *PostConversationsCallbacksBulkDisconnectAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations callbacks bulk disconnect accepted response has a 5xx status code
+func (o *PostConversationsCallbacksBulkDisconnectAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk disconnect accepted response a status code equal to that given
+func (o *PostConversationsCallbacksBulkDisconnectAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostConversationsCallbacksBulkDisconnectAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectAccepted ", 202)
+}
+
+func (o *PostConversationsCallbacksBulkDisconnectAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectAccepted ", 202)
 }
 
@@ -127,7 +156,8 @@ func NewPostConversationsCallbacksBulkDisconnectBadRequest() *PostConversationsC
 	return &PostConversationsCallbacksBulkDisconnectBadRequest{}
 }
 
-/*PostConversationsCallbacksBulkDisconnectBadRequest handles this case with default header values.
+/*
+PostConversationsCallbacksBulkDisconnectBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostConversationsCallbacksBulkDisconnectBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk disconnect bad request response has a 2xx status code
+func (o *PostConversationsCallbacksBulkDisconnectBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk disconnect bad request response has a 3xx status code
+func (o *PostConversationsCallbacksBulkDisconnectBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk disconnect bad request response has a 4xx status code
+func (o *PostConversationsCallbacksBulkDisconnectBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk disconnect bad request response has a 5xx status code
+func (o *PostConversationsCallbacksBulkDisconnectBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk disconnect bad request response a status code equal to that given
+func (o *PostConversationsCallbacksBulkDisconnectBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsCallbacksBulkDisconnectBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkDisconnectBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostConversationsCallbacksBulkDisconnectUnauthorized() *PostConversation
 	return &PostConversationsCallbacksBulkDisconnectUnauthorized{}
 }
 
-/*PostConversationsCallbacksBulkDisconnectUnauthorized handles this case with default header values.
+/*
+PostConversationsCallbacksBulkDisconnectUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostConversationsCallbacksBulkDisconnectUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk disconnect unauthorized response has a 2xx status code
+func (o *PostConversationsCallbacksBulkDisconnectUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk disconnect unauthorized response has a 3xx status code
+func (o *PostConversationsCallbacksBulkDisconnectUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk disconnect unauthorized response has a 4xx status code
+func (o *PostConversationsCallbacksBulkDisconnectUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk disconnect unauthorized response has a 5xx status code
+func (o *PostConversationsCallbacksBulkDisconnectUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk disconnect unauthorized response a status code equal to that given
+func (o *PostConversationsCallbacksBulkDisconnectUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsCallbacksBulkDisconnectUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkDisconnectUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostConversationsCallbacksBulkDisconnectForbidden() *PostConversationsCa
 	return &PostConversationsCallbacksBulkDisconnectForbidden{}
 }
 
-/*PostConversationsCallbacksBulkDisconnectForbidden handles this case with default header values.
+/*
+PostConversationsCallbacksBulkDisconnectForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostConversationsCallbacksBulkDisconnectForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk disconnect forbidden response has a 2xx status code
+func (o *PostConversationsCallbacksBulkDisconnectForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk disconnect forbidden response has a 3xx status code
+func (o *PostConversationsCallbacksBulkDisconnectForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk disconnect forbidden response has a 4xx status code
+func (o *PostConversationsCallbacksBulkDisconnectForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk disconnect forbidden response has a 5xx status code
+func (o *PostConversationsCallbacksBulkDisconnectForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk disconnect forbidden response a status code equal to that given
+func (o *PostConversationsCallbacksBulkDisconnectForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsCallbacksBulkDisconnectForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkDisconnectForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostConversationsCallbacksBulkDisconnectNotFound() *PostConversationsCal
 	return &PostConversationsCallbacksBulkDisconnectNotFound{}
 }
 
-/*PostConversationsCallbacksBulkDisconnectNotFound handles this case with default header values.
+/*
+PostConversationsCallbacksBulkDisconnectNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostConversationsCallbacksBulkDisconnectNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk disconnect not found response has a 2xx status code
+func (o *PostConversationsCallbacksBulkDisconnectNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk disconnect not found response has a 3xx status code
+func (o *PostConversationsCallbacksBulkDisconnectNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk disconnect not found response has a 4xx status code
+func (o *PostConversationsCallbacksBulkDisconnectNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk disconnect not found response has a 5xx status code
+func (o *PostConversationsCallbacksBulkDisconnectNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk disconnect not found response a status code equal to that given
+func (o *PostConversationsCallbacksBulkDisconnectNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsCallbacksBulkDisconnectNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkDisconnectNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostConversationsCallbacksBulkDisconnectRequestTimeout() *PostConversati
 	return &PostConversationsCallbacksBulkDisconnectRequestTimeout{}
 }
 
-/*PostConversationsCallbacksBulkDisconnectRequestTimeout handles this case with default header values.
+/*
+PostConversationsCallbacksBulkDisconnectRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostConversationsCallbacksBulkDisconnectRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk disconnect request timeout response has a 2xx status code
+func (o *PostConversationsCallbacksBulkDisconnectRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk disconnect request timeout response has a 3xx status code
+func (o *PostConversationsCallbacksBulkDisconnectRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk disconnect request timeout response has a 4xx status code
+func (o *PostConversationsCallbacksBulkDisconnectRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk disconnect request timeout response has a 5xx status code
+func (o *PostConversationsCallbacksBulkDisconnectRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk disconnect request timeout response a status code equal to that given
+func (o *PostConversationsCallbacksBulkDisconnectRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsCallbacksBulkDisconnectRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkDisconnectRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostConversationsCallbacksBulkDisconnectRequestEntityTooLarge() *PostCon
 	return &PostConversationsCallbacksBulkDisconnectRequestEntityTooLarge{}
 }
 
-/*PostConversationsCallbacksBulkDisconnectRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsCallbacksBulkDisconnectRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostConversationsCallbacksBulkDisconnectRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk disconnect request entity too large response has a 2xx status code
+func (o *PostConversationsCallbacksBulkDisconnectRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk disconnect request entity too large response has a 3xx status code
+func (o *PostConversationsCallbacksBulkDisconnectRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk disconnect request entity too large response has a 4xx status code
+func (o *PostConversationsCallbacksBulkDisconnectRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk disconnect request entity too large response has a 5xx status code
+func (o *PostConversationsCallbacksBulkDisconnectRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk disconnect request entity too large response a status code equal to that given
+func (o *PostConversationsCallbacksBulkDisconnectRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsCallbacksBulkDisconnectRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkDisconnectRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostConversationsCallbacksBulkDisconnectUnsupportedMediaType() *PostConv
 	return &PostConversationsCallbacksBulkDisconnectUnsupportedMediaType{}
 }
 
-/*PostConversationsCallbacksBulkDisconnectUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsCallbacksBulkDisconnectUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostConversationsCallbacksBulkDisconnectUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk disconnect unsupported media type response has a 2xx status code
+func (o *PostConversationsCallbacksBulkDisconnectUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk disconnect unsupported media type response has a 3xx status code
+func (o *PostConversationsCallbacksBulkDisconnectUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk disconnect unsupported media type response has a 4xx status code
+func (o *PostConversationsCallbacksBulkDisconnectUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk disconnect unsupported media type response has a 5xx status code
+func (o *PostConversationsCallbacksBulkDisconnectUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk disconnect unsupported media type response a status code equal to that given
+func (o *PostConversationsCallbacksBulkDisconnectUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsCallbacksBulkDisconnectUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkDisconnectUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostConversationsCallbacksBulkDisconnectTooManyRequests() *PostConversat
 	return &PostConversationsCallbacksBulkDisconnectTooManyRequests{}
 }
 
-/*PostConversationsCallbacksBulkDisconnectTooManyRequests handles this case with default header values.
+/*
+PostConversationsCallbacksBulkDisconnectTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostConversationsCallbacksBulkDisconnectTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk disconnect too many requests response has a 2xx status code
+func (o *PostConversationsCallbacksBulkDisconnectTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk disconnect too many requests response has a 3xx status code
+func (o *PostConversationsCallbacksBulkDisconnectTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk disconnect too many requests response has a 4xx status code
+func (o *PostConversationsCallbacksBulkDisconnectTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations callbacks bulk disconnect too many requests response has a 5xx status code
+func (o *PostConversationsCallbacksBulkDisconnectTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations callbacks bulk disconnect too many requests response a status code equal to that given
+func (o *PostConversationsCallbacksBulkDisconnectTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsCallbacksBulkDisconnectTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkDisconnectTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostConversationsCallbacksBulkDisconnectInternalServerError() *PostConve
 	return &PostConversationsCallbacksBulkDisconnectInternalServerError{}
 }
 
-/*PostConversationsCallbacksBulkDisconnectInternalServerError handles this case with default header values.
+/*
+PostConversationsCallbacksBulkDisconnectInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostConversationsCallbacksBulkDisconnectInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk disconnect internal server error response has a 2xx status code
+func (o *PostConversationsCallbacksBulkDisconnectInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk disconnect internal server error response has a 3xx status code
+func (o *PostConversationsCallbacksBulkDisconnectInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk disconnect internal server error response has a 4xx status code
+func (o *PostConversationsCallbacksBulkDisconnectInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations callbacks bulk disconnect internal server error response has a 5xx status code
+func (o *PostConversationsCallbacksBulkDisconnectInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations callbacks bulk disconnect internal server error response a status code equal to that given
+func (o *PostConversationsCallbacksBulkDisconnectInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsCallbacksBulkDisconnectInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkDisconnectInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostConversationsCallbacksBulkDisconnectServiceUnavailable() *PostConver
 	return &PostConversationsCallbacksBulkDisconnectServiceUnavailable{}
 }
 
-/*PostConversationsCallbacksBulkDisconnectServiceUnavailable handles this case with default header values.
+/*
+PostConversationsCallbacksBulkDisconnectServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostConversationsCallbacksBulkDisconnectServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk disconnect service unavailable response has a 2xx status code
+func (o *PostConversationsCallbacksBulkDisconnectServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk disconnect service unavailable response has a 3xx status code
+func (o *PostConversationsCallbacksBulkDisconnectServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk disconnect service unavailable response has a 4xx status code
+func (o *PostConversationsCallbacksBulkDisconnectServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations callbacks bulk disconnect service unavailable response has a 5xx status code
+func (o *PostConversationsCallbacksBulkDisconnectServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations callbacks bulk disconnect service unavailable response a status code equal to that given
+func (o *PostConversationsCallbacksBulkDisconnectServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsCallbacksBulkDisconnectServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkDisconnectServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostConversationsCallbacksBulkDisconnectGatewayTimeout() *PostConversati
 	return &PostConversationsCallbacksBulkDisconnectGatewayTimeout{}
 }
 
-/*PostConversationsCallbacksBulkDisconnectGatewayTimeout handles this case with default header values.
+/*
+PostConversationsCallbacksBulkDisconnectGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostConversationsCallbacksBulkDisconnectGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations callbacks bulk disconnect gateway timeout response has a 2xx status code
+func (o *PostConversationsCallbacksBulkDisconnectGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations callbacks bulk disconnect gateway timeout response has a 3xx status code
+func (o *PostConversationsCallbacksBulkDisconnectGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations callbacks bulk disconnect gateway timeout response has a 4xx status code
+func (o *PostConversationsCallbacksBulkDisconnectGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations callbacks bulk disconnect gateway timeout response has a 5xx status code
+func (o *PostConversationsCallbacksBulkDisconnectGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations callbacks bulk disconnect gateway timeout response a status code equal to that given
+func (o *PostConversationsCallbacksBulkDisconnectGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsCallbacksBulkDisconnectGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsCallbacksBulkDisconnectGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/callbacks/bulk/disconnect][%d] postConversationsCallbacksBulkDisconnectGatewayTimeout  %+v", 504, o.Payload)
 }
 

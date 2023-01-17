@@ -95,7 +95,6 @@ func (o *PostLicenseOrganizationReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostLicenseOrganizationOK() *PostLicenseOrganizationOK {
 	return &PostLicenseOrganizationOK{}
 }
 
-/*PostLicenseOrganizationOK handles this case with default header values.
+/*
+PostLicenseOrganizationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostLicenseOrganizationOK struct {
 	Payload []*models.LicenseUpdateStatus
 }
 
+// IsSuccess returns true when this post license organization o k response has a 2xx status code
+func (o *PostLicenseOrganizationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post license organization o k response has a 3xx status code
+func (o *PostLicenseOrganizationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post license organization o k response has a 4xx status code
+func (o *PostLicenseOrganizationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post license organization o k response has a 5xx status code
+func (o *PostLicenseOrganizationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post license organization o k response a status code equal to that given
+func (o *PostLicenseOrganizationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLicenseOrganizationOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLicenseOrganizationOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewPostLicenseOrganizationBadRequest() *PostLicenseOrganizationBadRequest {
 	return &PostLicenseOrganizationBadRequest{}
 }
 
-/*PostLicenseOrganizationBadRequest handles this case with default header values.
+/*
+PostLicenseOrganizationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type PostLicenseOrganizationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post license organization bad request response has a 2xx status code
+func (o *PostLicenseOrganizationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post license organization bad request response has a 3xx status code
+func (o *PostLicenseOrganizationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post license organization bad request response has a 4xx status code
+func (o *PostLicenseOrganizationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post license organization bad request response has a 5xx status code
+func (o *PostLicenseOrganizationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post license organization bad request response a status code equal to that given
+func (o *PostLicenseOrganizationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLicenseOrganizationBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLicenseOrganizationBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewPostLicenseOrganizationUnauthorized() *PostLicenseOrganizationUnauthoriz
 	return &PostLicenseOrganizationUnauthorized{}
 }
 
-/*PostLicenseOrganizationUnauthorized handles this case with default header values.
+/*
+PostLicenseOrganizationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type PostLicenseOrganizationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post license organization unauthorized response has a 2xx status code
+func (o *PostLicenseOrganizationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post license organization unauthorized response has a 3xx status code
+func (o *PostLicenseOrganizationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post license organization unauthorized response has a 4xx status code
+func (o *PostLicenseOrganizationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post license organization unauthorized response has a 5xx status code
+func (o *PostLicenseOrganizationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post license organization unauthorized response a status code equal to that given
+func (o *PostLicenseOrganizationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLicenseOrganizationUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLicenseOrganizationUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewPostLicenseOrganizationForbidden() *PostLicenseOrganizationForbidden {
 	return &PostLicenseOrganizationForbidden{}
 }
 
-/*PostLicenseOrganizationForbidden handles this case with default header values.
+/*
+PostLicenseOrganizationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type PostLicenseOrganizationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post license organization forbidden response has a 2xx status code
+func (o *PostLicenseOrganizationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post license organization forbidden response has a 3xx status code
+func (o *PostLicenseOrganizationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post license organization forbidden response has a 4xx status code
+func (o *PostLicenseOrganizationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post license organization forbidden response has a 5xx status code
+func (o *PostLicenseOrganizationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post license organization forbidden response a status code equal to that given
+func (o *PostLicenseOrganizationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLicenseOrganizationForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLicenseOrganizationForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewPostLicenseOrganizationNotFound() *PostLicenseOrganizationNotFound {
 	return &PostLicenseOrganizationNotFound{}
 }
 
-/*PostLicenseOrganizationNotFound handles this case with default header values.
+/*
+PostLicenseOrganizationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type PostLicenseOrganizationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post license organization not found response has a 2xx status code
+func (o *PostLicenseOrganizationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post license organization not found response has a 3xx status code
+func (o *PostLicenseOrganizationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post license organization not found response has a 4xx status code
+func (o *PostLicenseOrganizationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post license organization not found response has a 5xx status code
+func (o *PostLicenseOrganizationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post license organization not found response a status code equal to that given
+func (o *PostLicenseOrganizationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLicenseOrganizationNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLicenseOrganizationNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewPostLicenseOrganizationRequestTimeout() *PostLicenseOrganizationRequestT
 	return &PostLicenseOrganizationRequestTimeout{}
 }
 
-/*PostLicenseOrganizationRequestTimeout handles this case with default header values.
+/*
+PostLicenseOrganizationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type PostLicenseOrganizationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post license organization request timeout response has a 2xx status code
+func (o *PostLicenseOrganizationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post license organization request timeout response has a 3xx status code
+func (o *PostLicenseOrganizationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post license organization request timeout response has a 4xx status code
+func (o *PostLicenseOrganizationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post license organization request timeout response has a 5xx status code
+func (o *PostLicenseOrganizationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post license organization request timeout response a status code equal to that given
+func (o *PostLicenseOrganizationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLicenseOrganizationRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLicenseOrganizationRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewPostLicenseOrganizationRequestEntityTooLarge() *PostLicenseOrganizationR
 	return &PostLicenseOrganizationRequestEntityTooLarge{}
 }
 
-/*PostLicenseOrganizationRequestEntityTooLarge handles this case with default header values.
+/*
+PostLicenseOrganizationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type PostLicenseOrganizationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post license organization request entity too large response has a 2xx status code
+func (o *PostLicenseOrganizationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post license organization request entity too large response has a 3xx status code
+func (o *PostLicenseOrganizationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post license organization request entity too large response has a 4xx status code
+func (o *PostLicenseOrganizationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post license organization request entity too large response has a 5xx status code
+func (o *PostLicenseOrganizationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post license organization request entity too large response a status code equal to that given
+func (o *PostLicenseOrganizationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLicenseOrganizationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLicenseOrganizationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewPostLicenseOrganizationUnsupportedMediaType() *PostLicenseOrganizationUn
 	return &PostLicenseOrganizationUnsupportedMediaType{}
 }
 
-/*PostLicenseOrganizationUnsupportedMediaType handles this case with default header values.
+/*
+PostLicenseOrganizationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type PostLicenseOrganizationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post license organization unsupported media type response has a 2xx status code
+func (o *PostLicenseOrganizationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post license organization unsupported media type response has a 3xx status code
+func (o *PostLicenseOrganizationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post license organization unsupported media type response has a 4xx status code
+func (o *PostLicenseOrganizationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post license organization unsupported media type response has a 5xx status code
+func (o *PostLicenseOrganizationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post license organization unsupported media type response a status code equal to that given
+func (o *PostLicenseOrganizationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLicenseOrganizationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLicenseOrganizationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewPostLicenseOrganizationTooManyRequests() *PostLicenseOrganizationTooMany
 	return &PostLicenseOrganizationTooManyRequests{}
 }
 
-/*PostLicenseOrganizationTooManyRequests handles this case with default header values.
+/*
+PostLicenseOrganizationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type PostLicenseOrganizationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post license organization too many requests response has a 2xx status code
+func (o *PostLicenseOrganizationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post license organization too many requests response has a 3xx status code
+func (o *PostLicenseOrganizationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post license organization too many requests response has a 4xx status code
+func (o *PostLicenseOrganizationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post license organization too many requests response has a 5xx status code
+func (o *PostLicenseOrganizationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post license organization too many requests response a status code equal to that given
+func (o *PostLicenseOrganizationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLicenseOrganizationTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLicenseOrganizationTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewPostLicenseOrganizationInternalServerError() *PostLicenseOrganizationInt
 	return &PostLicenseOrganizationInternalServerError{}
 }
 
-/*PostLicenseOrganizationInternalServerError handles this case with default header values.
+/*
+PostLicenseOrganizationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type PostLicenseOrganizationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post license organization internal server error response has a 2xx status code
+func (o *PostLicenseOrganizationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post license organization internal server error response has a 3xx status code
+func (o *PostLicenseOrganizationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post license organization internal server error response has a 4xx status code
+func (o *PostLicenseOrganizationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post license organization internal server error response has a 5xx status code
+func (o *PostLicenseOrganizationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post license organization internal server error response a status code equal to that given
+func (o *PostLicenseOrganizationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLicenseOrganizationInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLicenseOrganizationInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewPostLicenseOrganizationServiceUnavailable() *PostLicenseOrganizationServ
 	return &PostLicenseOrganizationServiceUnavailable{}
 }
 
-/*PostLicenseOrganizationServiceUnavailable handles this case with default header values.
+/*
+PostLicenseOrganizationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type PostLicenseOrganizationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post license organization service unavailable response has a 2xx status code
+func (o *PostLicenseOrganizationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post license organization service unavailable response has a 3xx status code
+func (o *PostLicenseOrganizationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post license organization service unavailable response has a 4xx status code
+func (o *PostLicenseOrganizationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post license organization service unavailable response has a 5xx status code
+func (o *PostLicenseOrganizationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post license organization service unavailable response a status code equal to that given
+func (o *PostLicenseOrganizationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLicenseOrganizationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLicenseOrganizationServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewPostLicenseOrganizationGatewayTimeout() *PostLicenseOrganizationGatewayT
 	return &PostLicenseOrganizationGatewayTimeout{}
 }
 
-/*PostLicenseOrganizationGatewayTimeout handles this case with default header values.
+/*
+PostLicenseOrganizationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type PostLicenseOrganizationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post license organization gateway timeout response has a 2xx status code
+func (o *PostLicenseOrganizationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post license organization gateway timeout response has a 3xx status code
+func (o *PostLicenseOrganizationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post license organization gateway timeout response has a 4xx status code
+func (o *PostLicenseOrganizationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post license organization gateway timeout response has a 5xx status code
+func (o *PostLicenseOrganizationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post license organization gateway timeout response a status code equal to that given
+func (o *PostLicenseOrganizationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLicenseOrganizationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLicenseOrganizationGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/license/organization][%d] postLicenseOrganizationGatewayTimeout  %+v", 504, o.Payload)
 }
 

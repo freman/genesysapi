@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsMessagesParams creates a new PostConversationsMessagesParams object
-// with the default values initialized.
+// NewPostConversationsMessagesParams creates a new PostConversationsMessagesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsMessagesParams() *PostConversationsMessagesParams {
-	var ()
 	return &PostConversationsMessagesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsMessagesParamsWithTimeout creates a new PostConversationsMessagesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsMessagesParamsWithTimeout(timeout time.Duration) *PostConversationsMessagesParams {
-	var ()
 	return &PostConversationsMessagesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsMessagesParamsWithContext creates a new PostConversationsMessagesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsMessagesParamsWithContext(ctx context.Context) *PostConversationsMessagesParams {
-	var ()
 	return &PostConversationsMessagesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsMessagesParamsWithHTTPClient creates a new PostConversationsMessagesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsMessagesParamsWithHTTPClient(client *http.Client) *PostConversationsMessagesParams {
-	var ()
 	return &PostConversationsMessagesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsMessagesParams contains all the parameters to send to the API endpoint
-for the post conversations messages operation typically these are written to a http.Request
+/*
+PostConversationsMessagesParams contains all the parameters to send to the API endpoint
+
+	for the post conversations messages operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsMessagesParams struct {
 
-	/*Body
-	  Create outbound messaging conversation
+	/* Body.
 
+	   Create outbound messaging conversation
 	*/
 	Body *models.CreateOutboundMessagingConversationRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations messages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessagesParams) WithDefaults() *PostConversationsMessagesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations messages params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsMessagesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations messages params
@@ -124,7 +140,6 @@ func (o *PostConversationsMessagesParams) WriteToRequest(r runtime.ClientRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -17,102 +17,116 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetQualityPublishedformsSurveysParams creates a new GetQualityPublishedformsSurveysParams object
-// with the default values initialized.
+// NewGetQualityPublishedformsSurveysParams creates a new GetQualityPublishedformsSurveysParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetQualityPublishedformsSurveysParams() *GetQualityPublishedformsSurveysParams {
-	var (
-		onlyLatestEnabledPerContextDefault = bool(false)
-		pageNumberDefault                  = int32(1)
-		pageSizeDefault                    = int32(25)
-	)
 	return &GetQualityPublishedformsSurveysParams{
-		OnlyLatestEnabledPerContext: &onlyLatestEnabledPerContextDefault,
-		PageNumber:                  &pageNumberDefault,
-		PageSize:                    &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetQualityPublishedformsSurveysParamsWithTimeout creates a new GetQualityPublishedformsSurveysParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetQualityPublishedformsSurveysParamsWithTimeout(timeout time.Duration) *GetQualityPublishedformsSurveysParams {
-	var (
-		onlyLatestEnabledPerContextDefault = bool(false)
-		pageNumberDefault                  = int32(1)
-		pageSizeDefault                    = int32(25)
-	)
 	return &GetQualityPublishedformsSurveysParams{
-		OnlyLatestEnabledPerContext: &onlyLatestEnabledPerContextDefault,
-		PageNumber:                  &pageNumberDefault,
-		PageSize:                    &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetQualityPublishedformsSurveysParamsWithContext creates a new GetQualityPublishedformsSurveysParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetQualityPublishedformsSurveysParamsWithContext(ctx context.Context) *GetQualityPublishedformsSurveysParams {
-	var (
-		onlyLatestEnabledPerContextDefault = bool(false)
-		pageNumberDefault                  = int32(1)
-		pageSizeDefault                    = int32(25)
-	)
 	return &GetQualityPublishedformsSurveysParams{
-		OnlyLatestEnabledPerContext: &onlyLatestEnabledPerContextDefault,
-		PageNumber:                  &pageNumberDefault,
-		PageSize:                    &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetQualityPublishedformsSurveysParamsWithHTTPClient creates a new GetQualityPublishedformsSurveysParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetQualityPublishedformsSurveysParamsWithHTTPClient(client *http.Client) *GetQualityPublishedformsSurveysParams {
-	var (
-		onlyLatestEnabledPerContextDefault = bool(false)
-		pageNumberDefault                  = int32(1)
-		pageSizeDefault                    = int32(25)
-	)
 	return &GetQualityPublishedformsSurveysParams{
-		OnlyLatestEnabledPerContext: &onlyLatestEnabledPerContextDefault,
-		PageNumber:                  &pageNumberDefault,
-		PageSize:                    &pageSizeDefault,
-		HTTPClient:                  client,
+		HTTPClient: client,
 	}
 }
 
-/*GetQualityPublishedformsSurveysParams contains all the parameters to send to the API endpoint
-for the get quality publishedforms surveys operation typically these are written to a http.Request
+/*
+GetQualityPublishedformsSurveysParams contains all the parameters to send to the API endpoint
+
+	for the get quality publishedforms surveys operation.
+
+	Typically these are written to a http.Request.
 */
 type GetQualityPublishedformsSurveysParams struct {
 
-	/*Name
-	  Name
+	/* Name.
 
+	   Name
 	*/
 	Name *string
-	/*OnlyLatestEnabledPerContext
-	  onlyLatestEnabledPerContext
 
+	/* OnlyLatestEnabledPerContext.
+
+	   onlyLatestEnabledPerContext
 	*/
 	OnlyLatestEnabledPerContext *bool
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get quality publishedforms surveys params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityPublishedformsSurveysParams) WithDefaults() *GetQualityPublishedformsSurveysParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get quality publishedforms surveys params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityPublishedformsSurveysParams) SetDefaults() {
+	var (
+		onlyLatestEnabledPerContextDefault = bool(false)
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetQualityPublishedformsSurveysParams{
+		OnlyLatestEnabledPerContext: &onlyLatestEnabledPerContextDefault,
+		PageNumber:                  &pageNumberDefault,
+		PageSize:                    &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get quality publishedforms surveys params
@@ -204,64 +218,68 @@ func (o *GetQualityPublishedformsSurveysParams) WriteToRequest(r runtime.ClientR
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.OnlyLatestEnabledPerContext != nil {
 
 		// query param onlyLatestEnabledPerContext
 		var qrOnlyLatestEnabledPerContext bool
+
 		if o.OnlyLatestEnabledPerContext != nil {
 			qrOnlyLatestEnabledPerContext = *o.OnlyLatestEnabledPerContext
 		}
 		qOnlyLatestEnabledPerContext := swag.FormatBool(qrOnlyLatestEnabledPerContext)
 		if qOnlyLatestEnabledPerContext != "" {
+
 			if err := r.SetQueryParam("onlyLatestEnabledPerContext", qOnlyLatestEnabledPerContext); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

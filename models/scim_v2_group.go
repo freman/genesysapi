@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -67,7 +68,7 @@ func (m *ScimV2Group) Validate(formats strfmt.Registry) error {
 
 func (m *ScimV2Group) validateDisplayName(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("displayName", "body", string(m.DisplayName)); err != nil {
+	if err := validate.RequiredString("displayName", "body", m.DisplayName); err != nil {
 		return err
 	}
 
@@ -75,7 +76,6 @@ func (m *ScimV2Group) validateDisplayName(formats strfmt.Registry) error {
 }
 
 func (m *ScimV2Group) validateMembers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Members) { // not required
 		return nil
 	}
@@ -89,6 +89,8 @@ func (m *ScimV2Group) validateMembers(formats strfmt.Registry) error {
 			if err := m.Members[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("members" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("members" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -100,7 +102,6 @@ func (m *ScimV2Group) validateMembers(formats strfmt.Registry) error {
 }
 
 func (m *ScimV2Group) validateMeta(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Meta) { // not required
 		return nil
 	}
@@ -109,9 +110,104 @@ func (m *ScimV2Group) validateMeta(formats strfmt.Registry) error {
 		if err := m.Meta.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this scim v2 group based on the context it is used
+func (m *ScimV2Group) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDisplayName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMembers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMeta(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchemas(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimV2Group) contextValidateDisplayName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "displayName", "body", string(m.DisplayName)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2Group) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimV2Group) contextValidateMembers(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Members); i++ {
+
+		if m.Members[i] != nil {
+			if err := m.Members[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("members" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("members" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ScimV2Group) contextValidateMeta(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Meta != nil {
+		if err := m.Meta.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("meta")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("meta")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ScimV2Group) contextValidateSchemas(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "schemas", "body", []string(m.Schemas)); err != nil {
+		return err
 	}
 
 	return nil

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -44,7 +45,7 @@ type DependencyObject struct {
 	StateUnknown bool `json:"stateUnknown"`
 
 	// type
-	// Enum: [ACDLANGUAGE ACDSKILL ACDWRAPUPCODE BOTCONNECTORBOT BOTCONNECTORINTEGRATION BOTFLOW BRIDGEACTION COMMONMODULEFLOW COMPOSERSCRIPT CONTACTLIST DATAACTION DATATABLE DIALOGENGINEBOT DIALOGENGINEBOTVERSION DIALOGFLOWAGENT DIALOGFLOWCXAGENT DIGITALBOTFLOW EMAILROUTE EMERGENCYGROUP FLOWACTION FLOWDATATYPE FLOWMILESTONE FLOWOUTCOME GROUP IMAGE INBOUNDCALLFLOW INBOUNDCHATFLOW INBOUNDEMAILFLOW INBOUNDSHORTMESSAGEFLOW INQUEUECALLFLOW INQUEUEEMAILFLOW INQUEUESHORTMESSAGEFLOW IVRCONFIGURATION KNOWLEDGEBASE KNOWLEDGEBASEDOCUMENT LANGUAGE LEXBOT LEXBOTALIAS LEXV2BOT LEXV2BOTALIAS NLUDOMAIN NUANCEMIXBOT NUANCEMIXINTEGRATION OAUTHCLIENT OUTBOUNDCALLFLOW QUEUE RECORDINGPOLICY RESPONSE SCHEDULE SCHEDULEGROUP SECUREACTION SECURECALLFLOW STTENGINE SURVEYINVITEFLOW SYSTEMPROMPT TTSENGINE TTSVOICE USER USERPROMPT VOICEFLOW VOICEMAILFLOW WIDGET WORKFLOW WORKITEMFLOW]
+	// Enum: [ACDLANGUAGE ACDSKILL ACDWRAPUPCODE BOTCONNECTORBOT BOTCONNECTORINTEGRATION BOTFLOW BRIDGEACTION COMMONMODULEFLOW COMPOSERSCRIPT CONTACTLIST DATAACTION DATATABLE DIALOGENGINEBOT DIALOGENGINEBOTVERSION DIALOGFLOWAGENT DIALOGFLOWCXAGENT DIGITALBOTFLOW EMAILROUTE EMERGENCYGROUP FLOWACTION FLOWDATATYPE FLOWMILESTONE FLOWOUTCOME GRAMMAR GROUP IMAGE INBOUNDCALLFLOW INBOUNDCHATFLOW INBOUNDEMAILFLOW INBOUNDSHORTMESSAGEFLOW INQUEUECALLFLOW INQUEUEEMAILFLOW INQUEUESHORTMESSAGEFLOW IVRCONFIGURATION KNOWLEDGEBASE KNOWLEDGEBASEDOCUMENT LANGUAGE LEXBOT LEXBOTALIAS LEXV2BOT LEXV2BOTALIAS NLUDOMAIN NUANCEMIXBOT NUANCEMIXINTEGRATION OAUTHCLIENT OUTBOUNDCALLFLOW QUEUE RECORDINGPOLICY RESPONSE SCHEDULE SCHEDULEGROUP SECUREACTION SECURECALLFLOW STTENGINE SURVEYINVITEFLOW SYSTEMPROMPT TTSENGINE TTSVOICE USER USERPROMPT VOICEFLOW VOICEMAILFLOW WIDGET WORKFLOW WORKITEMFLOW]
 	Type string `json:"type,omitempty"`
 
 	// updated
@@ -81,7 +82,6 @@ func (m *DependencyObject) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DependencyObject) validateConsumedResources(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConsumedResources) { // not required
 		return nil
 	}
@@ -95,6 +95,8 @@ func (m *DependencyObject) validateConsumedResources(formats strfmt.Registry) er
 			if err := m.ConsumedResources[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("consumedResources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("consumedResources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -106,7 +108,6 @@ func (m *DependencyObject) validateConsumedResources(formats strfmt.Registry) er
 }
 
 func (m *DependencyObject) validateConsumingResources(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConsumingResources) { // not required
 		return nil
 	}
@@ -120,6 +121,8 @@ func (m *DependencyObject) validateConsumingResources(formats strfmt.Registry) e
 			if err := m.ConsumingResources[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("consumingResources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("consumingResources" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -131,7 +134,6 @@ func (m *DependencyObject) validateConsumingResources(formats strfmt.Registry) e
 }
 
 func (m *DependencyObject) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -147,7 +149,7 @@ var dependencyObjectTypeTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["ACDLANGUAGE","ACDSKILL","ACDWRAPUPCODE","BOTCONNECTORBOT","BOTCONNECTORINTEGRATION","BOTFLOW","BRIDGEACTION","COMMONMODULEFLOW","COMPOSERSCRIPT","CONTACTLIST","DATAACTION","DATATABLE","DIALOGENGINEBOT","DIALOGENGINEBOTVERSION","DIALOGFLOWAGENT","DIALOGFLOWCXAGENT","DIGITALBOTFLOW","EMAILROUTE","EMERGENCYGROUP","FLOWACTION","FLOWDATATYPE","FLOWMILESTONE","FLOWOUTCOME","GROUP","IMAGE","INBOUNDCALLFLOW","INBOUNDCHATFLOW","INBOUNDEMAILFLOW","INBOUNDSHORTMESSAGEFLOW","INQUEUECALLFLOW","INQUEUEEMAILFLOW","INQUEUESHORTMESSAGEFLOW","IVRCONFIGURATION","KNOWLEDGEBASE","KNOWLEDGEBASEDOCUMENT","LANGUAGE","LEXBOT","LEXBOTALIAS","LEXV2BOT","LEXV2BOTALIAS","NLUDOMAIN","NUANCEMIXBOT","NUANCEMIXINTEGRATION","OAUTHCLIENT","OUTBOUNDCALLFLOW","QUEUE","RECORDINGPOLICY","RESPONSE","SCHEDULE","SCHEDULEGROUP","SECUREACTION","SECURECALLFLOW","STTENGINE","SURVEYINVITEFLOW","SYSTEMPROMPT","TTSENGINE","TTSVOICE","USER","USERPROMPT","VOICEFLOW","VOICEMAILFLOW","WIDGET","WORKFLOW","WORKITEMFLOW"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["ACDLANGUAGE","ACDSKILL","ACDWRAPUPCODE","BOTCONNECTORBOT","BOTCONNECTORINTEGRATION","BOTFLOW","BRIDGEACTION","COMMONMODULEFLOW","COMPOSERSCRIPT","CONTACTLIST","DATAACTION","DATATABLE","DIALOGENGINEBOT","DIALOGENGINEBOTVERSION","DIALOGFLOWAGENT","DIALOGFLOWCXAGENT","DIGITALBOTFLOW","EMAILROUTE","EMERGENCYGROUP","FLOWACTION","FLOWDATATYPE","FLOWMILESTONE","FLOWOUTCOME","GRAMMAR","GROUP","IMAGE","INBOUNDCALLFLOW","INBOUNDCHATFLOW","INBOUNDEMAILFLOW","INBOUNDSHORTMESSAGEFLOW","INQUEUECALLFLOW","INQUEUEEMAILFLOW","INQUEUESHORTMESSAGEFLOW","IVRCONFIGURATION","KNOWLEDGEBASE","KNOWLEDGEBASEDOCUMENT","LANGUAGE","LEXBOT","LEXBOTALIAS","LEXV2BOT","LEXV2BOTALIAS","NLUDOMAIN","NUANCEMIXBOT","NUANCEMIXINTEGRATION","OAUTHCLIENT","OUTBOUNDCALLFLOW","QUEUE","RECORDINGPOLICY","RESPONSE","SCHEDULE","SCHEDULEGROUP","SECUREACTION","SECURECALLFLOW","STTENGINE","SURVEYINVITEFLOW","SYSTEMPROMPT","TTSENGINE","TTSVOICE","USER","USERPROMPT","VOICEFLOW","VOICEMAILFLOW","WIDGET","WORKFLOW","WORKITEMFLOW"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -225,6 +227,9 @@ const (
 
 	// DependencyObjectTypeFLOWOUTCOME captures enum value "FLOWOUTCOME"
 	DependencyObjectTypeFLOWOUTCOME string = "FLOWOUTCOME"
+
+	// DependencyObjectTypeGRAMMAR captures enum value "GRAMMAR"
+	DependencyObjectTypeGRAMMAR string = "GRAMMAR"
 
 	// DependencyObjectTypeGROUP captures enum value "GROUP"
 	DependencyObjectTypeGROUP string = "GROUP"
@@ -359,13 +364,83 @@ func (m *DependencyObject) validateTypeEnum(path, location string, value string)
 }
 
 func (m *DependencyObject) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this dependency object based on the context it is used
+func (m *DependencyObject) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConsumedResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConsumingResources(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DependencyObject) contextValidateConsumedResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ConsumedResources); i++ {
+
+		if m.ConsumedResources[i] != nil {
+			if err := m.ConsumedResources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("consumedResources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("consumedResources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DependencyObject) contextValidateConsumingResources(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ConsumingResources); i++ {
+
+		if m.ConsumingResources[i] != nil {
+			if err := m.ConsumingResources[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("consumingResources" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("consumingResources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DependencyObject) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

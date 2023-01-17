@@ -95,7 +95,6 @@ func (o *PutConversationsMessagingSupportedcontentDefaultReader) ReadResponse(re
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutConversationsMessagingSupportedcontentDefaultOK() *PutConversationsMe
 	return &PutConversationsMessagingSupportedcontentDefaultOK{}
 }
 
-/*PutConversationsMessagingSupportedcontentDefaultOK handles this case with default header values.
+/*
+PutConversationsMessagingSupportedcontentDefaultOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutConversationsMessagingSupportedcontentDefaultOK struct {
 	Payload *models.SupportedContent
 }
 
+// IsSuccess returns true when this put conversations messaging supportedcontent default o k response has a 2xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put conversations messaging supportedcontent default o k response has a 3xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging supportedcontent default o k response has a 4xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations messaging supportedcontent default o k response has a 5xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging supportedcontent default o k response a status code equal to that given
+func (o *PutConversationsMessagingSupportedcontentDefaultOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutConversationsMessagingSupportedcontentDefaultOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultOK  %+v", 200, o.Payload)
+}
+
+func (o *PutConversationsMessagingSupportedcontentDefaultOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutConversationsMessagingSupportedcontentDefaultBadRequest() *PutConvers
 	return &PutConversationsMessagingSupportedcontentDefaultBadRequest{}
 }
 
-/*PutConversationsMessagingSupportedcontentDefaultBadRequest handles this case with default header values.
+/*
+PutConversationsMessagingSupportedcontentDefaultBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutConversationsMessagingSupportedcontentDefaultBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging supportedcontent default bad request response has a 2xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging supportedcontent default bad request response has a 3xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging supportedcontent default bad request response has a 4xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging supportedcontent default bad request response has a 5xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging supportedcontent default bad request response a status code equal to that given
+func (o *PutConversationsMessagingSupportedcontentDefaultBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutConversationsMessagingSupportedcontentDefaultBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutConversationsMessagingSupportedcontentDefaultBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutConversationsMessagingSupportedcontentDefaultUnauthorized() *PutConve
 	return &PutConversationsMessagingSupportedcontentDefaultUnauthorized{}
 }
 
-/*PutConversationsMessagingSupportedcontentDefaultUnauthorized handles this case with default header values.
+/*
+PutConversationsMessagingSupportedcontentDefaultUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutConversationsMessagingSupportedcontentDefaultUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging supportedcontent default unauthorized response has a 2xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging supportedcontent default unauthorized response has a 3xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging supportedcontent default unauthorized response has a 4xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging supportedcontent default unauthorized response has a 5xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging supportedcontent default unauthorized response a status code equal to that given
+func (o *PutConversationsMessagingSupportedcontentDefaultUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutConversationsMessagingSupportedcontentDefaultUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutConversationsMessagingSupportedcontentDefaultUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutConversationsMessagingSupportedcontentDefaultForbidden() *PutConversa
 	return &PutConversationsMessagingSupportedcontentDefaultForbidden{}
 }
 
-/*PutConversationsMessagingSupportedcontentDefaultForbidden handles this case with default header values.
+/*
+PutConversationsMessagingSupportedcontentDefaultForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutConversationsMessagingSupportedcontentDefaultForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging supportedcontent default forbidden response has a 2xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging supportedcontent default forbidden response has a 3xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging supportedcontent default forbidden response has a 4xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging supportedcontent default forbidden response has a 5xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging supportedcontent default forbidden response a status code equal to that given
+func (o *PutConversationsMessagingSupportedcontentDefaultForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutConversationsMessagingSupportedcontentDefaultForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutConversationsMessagingSupportedcontentDefaultForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutConversationsMessagingSupportedcontentDefaultNotFound() *PutConversat
 	return &PutConversationsMessagingSupportedcontentDefaultNotFound{}
 }
 
-/*PutConversationsMessagingSupportedcontentDefaultNotFound handles this case with default header values.
+/*
+PutConversationsMessagingSupportedcontentDefaultNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutConversationsMessagingSupportedcontentDefaultNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging supportedcontent default not found response has a 2xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging supportedcontent default not found response has a 3xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging supportedcontent default not found response has a 4xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging supportedcontent default not found response has a 5xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging supportedcontent default not found response a status code equal to that given
+func (o *PutConversationsMessagingSupportedcontentDefaultNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutConversationsMessagingSupportedcontentDefaultNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutConversationsMessagingSupportedcontentDefaultNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutConversationsMessagingSupportedcontentDefaultRequestTimeout() *PutCon
 	return &PutConversationsMessagingSupportedcontentDefaultRequestTimeout{}
 }
 
-/*PutConversationsMessagingSupportedcontentDefaultRequestTimeout handles this case with default header values.
+/*
+PutConversationsMessagingSupportedcontentDefaultRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutConversationsMessagingSupportedcontentDefaultRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging supportedcontent default request timeout response has a 2xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging supportedcontent default request timeout response has a 3xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging supportedcontent default request timeout response has a 4xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging supportedcontent default request timeout response has a 5xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging supportedcontent default request timeout response a status code equal to that given
+func (o *PutConversationsMessagingSupportedcontentDefaultRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutConversationsMessagingSupportedcontentDefaultRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutConversationsMessagingSupportedcontentDefaultRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge() 
 	return &PutConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge{}
 }
 
-/*PutConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge handles this case with default header values.
+/*
+PutConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging supportedcontent default request entity too large response has a 2xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging supportedcontent default request entity too large response has a 3xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging supportedcontent default request entity too large response has a 4xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging supportedcontent default request entity too large response has a 5xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging supportedcontent default request entity too large response a status code equal to that given
+func (o *PutConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutConversationsMessagingSupportedcontentDefaultUnsupportedMediaType() *
 	return &PutConversationsMessagingSupportedcontentDefaultUnsupportedMediaType{}
 }
 
-/*PutConversationsMessagingSupportedcontentDefaultUnsupportedMediaType handles this case with default header values.
+/*
+PutConversationsMessagingSupportedcontentDefaultUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutConversationsMessagingSupportedcontentDefaultUnsupportedMediaType struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging supportedcontent default unsupported media type response has a 2xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging supportedcontent default unsupported media type response has a 3xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging supportedcontent default unsupported media type response has a 4xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging supportedcontent default unsupported media type response has a 5xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging supportedcontent default unsupported media type response a status code equal to that given
+func (o *PutConversationsMessagingSupportedcontentDefaultUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutConversationsMessagingSupportedcontentDefaultUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutConversationsMessagingSupportedcontentDefaultUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutConversationsMessagingSupportedcontentDefaultTooManyRequests() *PutCo
 	return &PutConversationsMessagingSupportedcontentDefaultTooManyRequests{}
 }
 
-/*PutConversationsMessagingSupportedcontentDefaultTooManyRequests handles this case with default header values.
+/*
+PutConversationsMessagingSupportedcontentDefaultTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutConversationsMessagingSupportedcontentDefaultTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging supportedcontent default too many requests response has a 2xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging supportedcontent default too many requests response has a 3xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging supportedcontent default too many requests response has a 4xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put conversations messaging supportedcontent default too many requests response has a 5xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put conversations messaging supportedcontent default too many requests response a status code equal to that given
+func (o *PutConversationsMessagingSupportedcontentDefaultTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutConversationsMessagingSupportedcontentDefaultTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutConversationsMessagingSupportedcontentDefaultTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutConversationsMessagingSupportedcontentDefaultInternalServerError() *P
 	return &PutConversationsMessagingSupportedcontentDefaultInternalServerError{}
 }
 
-/*PutConversationsMessagingSupportedcontentDefaultInternalServerError handles this case with default header values.
+/*
+PutConversationsMessagingSupportedcontentDefaultInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutConversationsMessagingSupportedcontentDefaultInternalServerError struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging supportedcontent default internal server error response has a 2xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging supportedcontent default internal server error response has a 3xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging supportedcontent default internal server error response has a 4xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations messaging supportedcontent default internal server error response has a 5xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations messaging supportedcontent default internal server error response a status code equal to that given
+func (o *PutConversationsMessagingSupportedcontentDefaultInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutConversationsMessagingSupportedcontentDefaultInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutConversationsMessagingSupportedcontentDefaultInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutConversationsMessagingSupportedcontentDefaultServiceUnavailable() *Pu
 	return &PutConversationsMessagingSupportedcontentDefaultServiceUnavailable{}
 }
 
-/*PutConversationsMessagingSupportedcontentDefaultServiceUnavailable handles this case with default header values.
+/*
+PutConversationsMessagingSupportedcontentDefaultServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutConversationsMessagingSupportedcontentDefaultServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging supportedcontent default service unavailable response has a 2xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging supportedcontent default service unavailable response has a 3xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging supportedcontent default service unavailable response has a 4xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations messaging supportedcontent default service unavailable response has a 5xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations messaging supportedcontent default service unavailable response a status code equal to that given
+func (o *PutConversationsMessagingSupportedcontentDefaultServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutConversationsMessagingSupportedcontentDefaultServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutConversationsMessagingSupportedcontentDefaultServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutConversationsMessagingSupportedcontentDefaultGatewayTimeout() *PutCon
 	return &PutConversationsMessagingSupportedcontentDefaultGatewayTimeout{}
 }
 
-/*PutConversationsMessagingSupportedcontentDefaultGatewayTimeout handles this case with default header values.
+/*
+PutConversationsMessagingSupportedcontentDefaultGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutConversationsMessagingSupportedcontentDefaultGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put conversations messaging supportedcontent default gateway timeout response has a 2xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put conversations messaging supportedcontent default gateway timeout response has a 3xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put conversations messaging supportedcontent default gateway timeout response has a 4xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put conversations messaging supportedcontent default gateway timeout response has a 5xx status code
+func (o *PutConversationsMessagingSupportedcontentDefaultGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put conversations messaging supportedcontent default gateway timeout response a status code equal to that given
+func (o *PutConversationsMessagingSupportedcontentDefaultGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutConversationsMessagingSupportedcontentDefaultGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutConversationsMessagingSupportedcontentDefaultGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/conversations/messaging/supportedcontent/default][%d] putConversationsMessagingSupportedcontentDefaultGatewayTimeout  %+v", 504, o.Payload)
 }
 

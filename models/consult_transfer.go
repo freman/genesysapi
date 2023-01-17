@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -56,6 +57,8 @@ func (m *ConsultTransfer) validateDestination(formats strfmt.Registry) error {
 		if err := m.Destination.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("destination")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("destination")
 			}
 			return err
 		}
@@ -97,7 +100,6 @@ func (m *ConsultTransfer) validateSpeakToEnum(path, location string, value strin
 }
 
 func (m *ConsultTransfer) validateSpeakTo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SpeakTo) { // not required
 		return nil
 	}
@@ -105,6 +107,36 @@ func (m *ConsultTransfer) validateSpeakTo(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateSpeakToEnum("speakTo", "body", m.SpeakTo); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this consult transfer based on the context it is used
+func (m *ConsultTransfer) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDestination(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConsultTransfer) contextValidateDestination(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Destination != nil {
+		if err := m.Destination.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("destination")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("destination")
+			}
+			return err
+		}
 	}
 
 	return nil

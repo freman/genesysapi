@@ -95,7 +95,6 @@ func (o *GetIntegrationsSpeechLexBotsReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIntegrationsSpeechLexBotsOK() *GetIntegrationsSpeechLexBotsOK {
 	return &GetIntegrationsSpeechLexBotsOK{}
 }
 
-/*GetIntegrationsSpeechLexBotsOK handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIntegrationsSpeechLexBotsOK struct {
 	Payload *models.LexBotEntityListing
 }
 
+// IsSuccess returns true when this get integrations speech lex bots o k response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get integrations speech lex bots o k response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bots o k response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech lex bots o k response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bots o k response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntegrationsSpeechLexBotsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIntegrationsSpeechLexBotsBadRequest() *GetIntegrationsSpeechLexBotsBa
 	return &GetIntegrationsSpeechLexBotsBadRequest{}
 }
 
-/*GetIntegrationsSpeechLexBotsBadRequest handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIntegrationsSpeechLexBotsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bots bad request response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bots bad request response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bots bad request response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bots bad request response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bots bad request response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntegrationsSpeechLexBotsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIntegrationsSpeechLexBotsUnauthorized() *GetIntegrationsSpeechLexBots
 	return &GetIntegrationsSpeechLexBotsUnauthorized{}
 }
 
-/*GetIntegrationsSpeechLexBotsUnauthorized handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIntegrationsSpeechLexBotsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bots unauthorized response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bots unauthorized response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bots unauthorized response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bots unauthorized response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bots unauthorized response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIntegrationsSpeechLexBotsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIntegrationsSpeechLexBotsForbidden() *GetIntegrationsSpeechLexBotsFor
 	return &GetIntegrationsSpeechLexBotsForbidden{}
 }
 
-/*GetIntegrationsSpeechLexBotsForbidden handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIntegrationsSpeechLexBotsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bots forbidden response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bots forbidden response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bots forbidden response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bots forbidden response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bots forbidden response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntegrationsSpeechLexBotsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIntegrationsSpeechLexBotsNotFound() *GetIntegrationsSpeechLexBotsNotF
 	return &GetIntegrationsSpeechLexBotsNotFound{}
 }
 
-/*GetIntegrationsSpeechLexBotsNotFound handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIntegrationsSpeechLexBotsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bots not found response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bots not found response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bots not found response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bots not found response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bots not found response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntegrationsSpeechLexBotsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIntegrationsSpeechLexBotsRequestTimeout() *GetIntegrationsSpeechLexBo
 	return &GetIntegrationsSpeechLexBotsRequestTimeout{}
 }
 
-/*GetIntegrationsSpeechLexBotsRequestTimeout handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIntegrationsSpeechLexBotsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bots request timeout response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bots request timeout response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bots request timeout response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bots request timeout response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bots request timeout response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIntegrationsSpeechLexBotsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIntegrationsSpeechLexBotsRequestEntityTooLarge() *GetIntegrationsSpee
 	return &GetIntegrationsSpeechLexBotsRequestEntityTooLarge{}
 }
 
-/*GetIntegrationsSpeechLexBotsRequestEntityTooLarge handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIntegrationsSpeechLexBotsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bots request entity too large response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bots request entity too large response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bots request entity too large response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bots request entity too large response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bots request entity too large response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIntegrationsSpeechLexBotsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIntegrationsSpeechLexBotsUnsupportedMediaType() *GetIntegrationsSpeec
 	return &GetIntegrationsSpeechLexBotsUnsupportedMediaType{}
 }
 
-/*GetIntegrationsSpeechLexBotsUnsupportedMediaType handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIntegrationsSpeechLexBotsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bots unsupported media type response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bots unsupported media type response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bots unsupported media type response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bots unsupported media type response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bots unsupported media type response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIntegrationsSpeechLexBotsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIntegrationsSpeechLexBotsTooManyRequests() *GetIntegrationsSpeechLexB
 	return &GetIntegrationsSpeechLexBotsTooManyRequests{}
 }
 
-/*GetIntegrationsSpeechLexBotsTooManyRequests handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIntegrationsSpeechLexBotsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bots too many requests response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bots too many requests response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bots too many requests response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bots too many requests response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bots too many requests response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntegrationsSpeechLexBotsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIntegrationsSpeechLexBotsInternalServerError() *GetIntegrationsSpeech
 	return &GetIntegrationsSpeechLexBotsInternalServerError{}
 }
 
-/*GetIntegrationsSpeechLexBotsInternalServerError handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIntegrationsSpeechLexBotsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bots internal server error response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bots internal server error response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bots internal server error response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech lex bots internal server error response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations speech lex bots internal server error response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntegrationsSpeechLexBotsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIntegrationsSpeechLexBotsServiceUnavailable() *GetIntegrationsSpeechL
 	return &GetIntegrationsSpeechLexBotsServiceUnavailable{}
 }
 
-/*GetIntegrationsSpeechLexBotsServiceUnavailable handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIntegrationsSpeechLexBotsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bots service unavailable response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bots service unavailable response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bots service unavailable response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech lex bots service unavailable response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations speech lex bots service unavailable response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIntegrationsSpeechLexBotsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIntegrationsSpeechLexBotsGatewayTimeout() *GetIntegrationsSpeechLexBo
 	return &GetIntegrationsSpeechLexBotsGatewayTimeout{}
 }
 
-/*GetIntegrationsSpeechLexBotsGatewayTimeout handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIntegrationsSpeechLexBotsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bots gateway timeout response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bots gateway timeout response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bots gateway timeout response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech lex bots gateway timeout response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations speech lex bots gateway timeout response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIntegrationsSpeechLexBotsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bots][%d] getIntegrationsSpeechLexBotsGatewayTimeout  %+v", 504, o.Payload)
 }
 

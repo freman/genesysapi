@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTelephonyProvidersEdgesCertificateauthoritiesParams creates a new PostTelephonyProvidersEdgesCertificateauthoritiesParams object
-// with the default values initialized.
+// NewPostTelephonyProvidersEdgesCertificateauthoritiesParams creates a new PostTelephonyProvidersEdgesCertificateauthoritiesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTelephonyProvidersEdgesCertificateauthoritiesParams() *PostTelephonyProvidersEdgesCertificateauthoritiesParams {
-	var ()
 	return &PostTelephonyProvidersEdgesCertificateauthoritiesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgesCertificateauthoritiesParamsWithTimeout creates a new PostTelephonyProvidersEdgesCertificateauthoritiesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTelephonyProvidersEdgesCertificateauthoritiesParamsWithTimeout(timeout time.Duration) *PostTelephonyProvidersEdgesCertificateauthoritiesParams {
-	var ()
 	return &PostTelephonyProvidersEdgesCertificateauthoritiesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgesCertificateauthoritiesParamsWithContext creates a new PostTelephonyProvidersEdgesCertificateauthoritiesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTelephonyProvidersEdgesCertificateauthoritiesParamsWithContext(ctx context.Context) *PostTelephonyProvidersEdgesCertificateauthoritiesParams {
-	var ()
 	return &PostTelephonyProvidersEdgesCertificateauthoritiesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTelephonyProvidersEdgesCertificateauthoritiesParamsWithHTTPClient creates a new PostTelephonyProvidersEdgesCertificateauthoritiesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTelephonyProvidersEdgesCertificateauthoritiesParamsWithHTTPClient(client *http.Client) *PostTelephonyProvidersEdgesCertificateauthoritiesParams {
-	var ()
 	return &PostTelephonyProvidersEdgesCertificateauthoritiesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTelephonyProvidersEdgesCertificateauthoritiesParams contains all the parameters to send to the API endpoint
-for the post telephony providers edges certificateauthorities operation typically these are written to a http.Request
+/*
+PostTelephonyProvidersEdgesCertificateauthoritiesParams contains all the parameters to send to the API endpoint
+
+	for the post telephony providers edges certificateauthorities operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTelephonyProvidersEdgesCertificateauthoritiesParams struct {
 
-	/*Body
-	  CertificateAuthority
+	/* Body.
 
+	   CertificateAuthority
 	*/
 	Body *models.DomainCertificateAuthority
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post telephony providers edges certificateauthorities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgesCertificateauthoritiesParams) WithDefaults() *PostTelephonyProvidersEdgesCertificateauthoritiesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post telephony providers edges certificateauthorities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgesCertificateauthoritiesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post telephony providers edges certificateauthorities params
@@ -124,7 +140,6 @@ func (o *PostTelephonyProvidersEdgesCertificateauthoritiesParams) WriteToRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

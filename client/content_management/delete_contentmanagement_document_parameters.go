@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteContentmanagementDocumentParams creates a new DeleteContentmanagementDocumentParams object
-// with the default values initialized.
+// NewDeleteContentmanagementDocumentParams creates a new DeleteContentmanagementDocumentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteContentmanagementDocumentParams() *DeleteContentmanagementDocumentParams {
-	var ()
 	return &DeleteContentmanagementDocumentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteContentmanagementDocumentParamsWithTimeout creates a new DeleteContentmanagementDocumentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteContentmanagementDocumentParamsWithTimeout(timeout time.Duration) *DeleteContentmanagementDocumentParams {
-	var ()
 	return &DeleteContentmanagementDocumentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteContentmanagementDocumentParamsWithContext creates a new DeleteContentmanagementDocumentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteContentmanagementDocumentParamsWithContext(ctx context.Context) *DeleteContentmanagementDocumentParams {
-	var ()
 	return &DeleteContentmanagementDocumentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteContentmanagementDocumentParamsWithHTTPClient creates a new DeleteContentmanagementDocumentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteContentmanagementDocumentParamsWithHTTPClient(client *http.Client) *DeleteContentmanagementDocumentParams {
-	var ()
 	return &DeleteContentmanagementDocumentParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteContentmanagementDocumentParams contains all the parameters to send to the API endpoint
-for the delete contentmanagement document operation typically these are written to a http.Request
+/*
+DeleteContentmanagementDocumentParams contains all the parameters to send to the API endpoint
+
+	for the delete contentmanagement document operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteContentmanagementDocumentParams struct {
 
-	/*DocumentID
-	  Document ID
+	/* DocumentID.
 
+	   Document ID
 	*/
 	DocumentID string
-	/*Override
-	  Override any lock on the document
 
+	/* Override.
+
+	   Override any lock on the document
 	*/
 	Override *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete contentmanagement document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteContentmanagementDocumentParams) WithDefaults() *DeleteContentmanagementDocumentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete contentmanagement document params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteContentmanagementDocumentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete contentmanagement document params
@@ -149,16 +166,17 @@ func (o *DeleteContentmanagementDocumentParams) WriteToRequest(r runtime.ClientR
 
 		// query param override
 		var qrOverride bool
+
 		if o.Override != nil {
 			qrOverride = *o.Override
 		}
 		qOverride := swag.FormatBool(qrOverride)
 		if qOverride != "" {
+
 			if err := r.SetQueryParam("override", qOverride); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

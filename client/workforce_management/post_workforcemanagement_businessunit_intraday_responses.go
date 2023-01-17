@@ -95,7 +95,6 @@ func (o *PostWorkforcemanagementBusinessunitIntradayReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostWorkforcemanagementBusinessunitIntradayOK() *PostWorkforcemanagement
 	return &PostWorkforcemanagementBusinessunitIntradayOK{}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayOK handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitIntradayOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostWorkforcemanagementBusinessunitIntradayOK struct {
 	Payload *models.AsyncIntradayResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit intraday o k response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit intraday o k response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit intraday o k response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit intraday o k response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit intraday o k response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitIntradayOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWorkforcemanagementBusinessunitIntradayOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitIntradayOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostWorkforcemanagementBusinessunitIntradayBadRequest() *PostWorkforcema
 	return &PostWorkforcemanagementBusinessunitIntradayBadRequest{}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitIntradayBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostWorkforcemanagementBusinessunitIntradayBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit intraday bad request response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit intraday bad request response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit intraday bad request response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit intraday bad request response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit intraday bad request response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitIntradayBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementBusinessunitIntradayBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitIntradayBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostWorkforcemanagementBusinessunitIntradayUnauthorized() *PostWorkforce
 	return &PostWorkforcemanagementBusinessunitIntradayUnauthorized{}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitIntradayUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostWorkforcemanagementBusinessunitIntradayUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit intraday unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit intraday unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit intraday unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit intraday unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit intraday unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitIntradayUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementBusinessunitIntradayUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitIntradayUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostWorkforcemanagementBusinessunitIntradayForbidden() *PostWorkforceman
 	return &PostWorkforcemanagementBusinessunitIntradayForbidden{}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitIntradayForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostWorkforcemanagementBusinessunitIntradayForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit intraday forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit intraday forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit intraday forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit intraday forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit intraday forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitIntradayForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementBusinessunitIntradayForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitIntradayForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostWorkforcemanagementBusinessunitIntradayNotFound() *PostWorkforcemana
 	return &PostWorkforcemanagementBusinessunitIntradayNotFound{}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitIntradayNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostWorkforcemanagementBusinessunitIntradayNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit intraday not found response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit intraday not found response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit intraday not found response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit intraday not found response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit intraday not found response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitIntradayNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementBusinessunitIntradayNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitIntradayNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostWorkforcemanagementBusinessunitIntradayRequestTimeout() *PostWorkfor
 	return &PostWorkforcemanagementBusinessunitIntradayRequestTimeout{}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitIntradayRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostWorkforcemanagementBusinessunitIntradayRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit intraday request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit intraday request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit intraday request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit intraday request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit intraday request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitIntradayRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementBusinessunitIntradayRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitIntradayRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge() *Post
 	return &PostWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit intraday request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit intraday request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit intraday request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit intraday request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit intraday request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostWorkforcemanagementBusinessunitIntradayUnsupportedMediaType() *PostW
 	return &PostWorkforcemanagementBusinessunitIntradayUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitIntradayUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostWorkforcemanagementBusinessunitIntradayUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit intraday unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit intraday unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit intraday unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit intraday unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit intraday unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitIntradayUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementBusinessunitIntradayUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitIntradayUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostWorkforcemanagementBusinessunitIntradayTooManyRequests() *PostWorkfo
 	return &PostWorkforcemanagementBusinessunitIntradayTooManyRequests{}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitIntradayTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostWorkforcemanagementBusinessunitIntradayTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit intraday too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit intraday too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit intraday too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit intraday too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit intraday too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitIntradayTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementBusinessunitIntradayTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitIntradayTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostWorkforcemanagementBusinessunitIntradayInternalServerError() *PostWo
 	return &PostWorkforcemanagementBusinessunitIntradayInternalServerError{}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitIntradayInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostWorkforcemanagementBusinessunitIntradayInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit intraday internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit intraday internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit intraday internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit intraday internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit intraday internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitIntradayInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementBusinessunitIntradayInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitIntradayInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostWorkforcemanagementBusinessunitIntradayServiceUnavailable() *PostWor
 	return &PostWorkforcemanagementBusinessunitIntradayServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitIntradayServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostWorkforcemanagementBusinessunitIntradayServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit intraday service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit intraday service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit intraday service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit intraday service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit intraday service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitIntradayServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementBusinessunitIntradayServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitIntradayServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostWorkforcemanagementBusinessunitIntradayGatewayTimeout() *PostWorkfor
 	return &PostWorkforcemanagementBusinessunitIntradayGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementBusinessunitIntradayGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitIntradayGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostWorkforcemanagementBusinessunitIntradayGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit intraday gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit intraday gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit intraday gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit intraday gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitIntradayGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit intraday gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitIntradayGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementBusinessunitIntradayGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitIntradayGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday][%d] postWorkforcemanagementBusinessunitIntradayGatewayTimeout  %+v", 504, o.Payload)
 }
 

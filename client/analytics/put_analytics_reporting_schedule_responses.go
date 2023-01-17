@@ -95,7 +95,6 @@ func (o *PutAnalyticsReportingScheduleReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutAnalyticsReportingScheduleOK() *PutAnalyticsReportingScheduleOK {
 	return &PutAnalyticsReportingScheduleOK{}
 }
 
-/*PutAnalyticsReportingScheduleOK handles this case with default header values.
+/*
+PutAnalyticsReportingScheduleOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutAnalyticsReportingScheduleOK struct {
 	Payload *models.ReportSchedule
 }
 
+// IsSuccess returns true when this put analytics reporting schedule o k response has a 2xx status code
+func (o *PutAnalyticsReportingScheduleOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put analytics reporting schedule o k response has a 3xx status code
+func (o *PutAnalyticsReportingScheduleOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put analytics reporting schedule o k response has a 4xx status code
+func (o *PutAnalyticsReportingScheduleOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put analytics reporting schedule o k response has a 5xx status code
+func (o *PutAnalyticsReportingScheduleOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put analytics reporting schedule o k response a status code equal to that given
+func (o *PutAnalyticsReportingScheduleOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutAnalyticsReportingScheduleOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleOK  %+v", 200, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutAnalyticsReportingScheduleBadRequest() *PutAnalyticsReportingSchedule
 	return &PutAnalyticsReportingScheduleBadRequest{}
 }
 
-/*PutAnalyticsReportingScheduleBadRequest handles this case with default header values.
+/*
+PutAnalyticsReportingScheduleBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutAnalyticsReportingScheduleBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put analytics reporting schedule bad request response has a 2xx status code
+func (o *PutAnalyticsReportingScheduleBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put analytics reporting schedule bad request response has a 3xx status code
+func (o *PutAnalyticsReportingScheduleBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put analytics reporting schedule bad request response has a 4xx status code
+func (o *PutAnalyticsReportingScheduleBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put analytics reporting schedule bad request response has a 5xx status code
+func (o *PutAnalyticsReportingScheduleBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put analytics reporting schedule bad request response a status code equal to that given
+func (o *PutAnalyticsReportingScheduleBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutAnalyticsReportingScheduleBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutAnalyticsReportingScheduleUnauthorized() *PutAnalyticsReportingSchedu
 	return &PutAnalyticsReportingScheduleUnauthorized{}
 }
 
-/*PutAnalyticsReportingScheduleUnauthorized handles this case with default header values.
+/*
+PutAnalyticsReportingScheduleUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutAnalyticsReportingScheduleUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put analytics reporting schedule unauthorized response has a 2xx status code
+func (o *PutAnalyticsReportingScheduleUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put analytics reporting schedule unauthorized response has a 3xx status code
+func (o *PutAnalyticsReportingScheduleUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put analytics reporting schedule unauthorized response has a 4xx status code
+func (o *PutAnalyticsReportingScheduleUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put analytics reporting schedule unauthorized response has a 5xx status code
+func (o *PutAnalyticsReportingScheduleUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put analytics reporting schedule unauthorized response a status code equal to that given
+func (o *PutAnalyticsReportingScheduleUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutAnalyticsReportingScheduleUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutAnalyticsReportingScheduleForbidden() *PutAnalyticsReportingScheduleF
 	return &PutAnalyticsReportingScheduleForbidden{}
 }
 
-/*PutAnalyticsReportingScheduleForbidden handles this case with default header values.
+/*
+PutAnalyticsReportingScheduleForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutAnalyticsReportingScheduleForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put analytics reporting schedule forbidden response has a 2xx status code
+func (o *PutAnalyticsReportingScheduleForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put analytics reporting schedule forbidden response has a 3xx status code
+func (o *PutAnalyticsReportingScheduleForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put analytics reporting schedule forbidden response has a 4xx status code
+func (o *PutAnalyticsReportingScheduleForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put analytics reporting schedule forbidden response has a 5xx status code
+func (o *PutAnalyticsReportingScheduleForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put analytics reporting schedule forbidden response a status code equal to that given
+func (o *PutAnalyticsReportingScheduleForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutAnalyticsReportingScheduleForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutAnalyticsReportingScheduleNotFound() *PutAnalyticsReportingScheduleNo
 	return &PutAnalyticsReportingScheduleNotFound{}
 }
 
-/*PutAnalyticsReportingScheduleNotFound handles this case with default header values.
+/*
+PutAnalyticsReportingScheduleNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutAnalyticsReportingScheduleNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put analytics reporting schedule not found response has a 2xx status code
+func (o *PutAnalyticsReportingScheduleNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put analytics reporting schedule not found response has a 3xx status code
+func (o *PutAnalyticsReportingScheduleNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put analytics reporting schedule not found response has a 4xx status code
+func (o *PutAnalyticsReportingScheduleNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put analytics reporting schedule not found response has a 5xx status code
+func (o *PutAnalyticsReportingScheduleNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put analytics reporting schedule not found response a status code equal to that given
+func (o *PutAnalyticsReportingScheduleNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutAnalyticsReportingScheduleNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutAnalyticsReportingScheduleRequestTimeout() *PutAnalyticsReportingSche
 	return &PutAnalyticsReportingScheduleRequestTimeout{}
 }
 
-/*PutAnalyticsReportingScheduleRequestTimeout handles this case with default header values.
+/*
+PutAnalyticsReportingScheduleRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutAnalyticsReportingScheduleRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put analytics reporting schedule request timeout response has a 2xx status code
+func (o *PutAnalyticsReportingScheduleRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put analytics reporting schedule request timeout response has a 3xx status code
+func (o *PutAnalyticsReportingScheduleRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put analytics reporting schedule request timeout response has a 4xx status code
+func (o *PutAnalyticsReportingScheduleRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put analytics reporting schedule request timeout response has a 5xx status code
+func (o *PutAnalyticsReportingScheduleRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put analytics reporting schedule request timeout response a status code equal to that given
+func (o *PutAnalyticsReportingScheduleRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutAnalyticsReportingScheduleRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutAnalyticsReportingScheduleRequestEntityTooLarge() *PutAnalyticsReport
 	return &PutAnalyticsReportingScheduleRequestEntityTooLarge{}
 }
 
-/*PutAnalyticsReportingScheduleRequestEntityTooLarge handles this case with default header values.
+/*
+PutAnalyticsReportingScheduleRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutAnalyticsReportingScheduleRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put analytics reporting schedule request entity too large response has a 2xx status code
+func (o *PutAnalyticsReportingScheduleRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put analytics reporting schedule request entity too large response has a 3xx status code
+func (o *PutAnalyticsReportingScheduleRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put analytics reporting schedule request entity too large response has a 4xx status code
+func (o *PutAnalyticsReportingScheduleRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put analytics reporting schedule request entity too large response has a 5xx status code
+func (o *PutAnalyticsReportingScheduleRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put analytics reporting schedule request entity too large response a status code equal to that given
+func (o *PutAnalyticsReportingScheduleRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutAnalyticsReportingScheduleRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutAnalyticsReportingScheduleUnsupportedMediaType() *PutAnalyticsReporti
 	return &PutAnalyticsReportingScheduleUnsupportedMediaType{}
 }
 
-/*PutAnalyticsReportingScheduleUnsupportedMediaType handles this case with default header values.
+/*
+PutAnalyticsReportingScheduleUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutAnalyticsReportingScheduleUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put analytics reporting schedule unsupported media type response has a 2xx status code
+func (o *PutAnalyticsReportingScheduleUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put analytics reporting schedule unsupported media type response has a 3xx status code
+func (o *PutAnalyticsReportingScheduleUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put analytics reporting schedule unsupported media type response has a 4xx status code
+func (o *PutAnalyticsReportingScheduleUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put analytics reporting schedule unsupported media type response has a 5xx status code
+func (o *PutAnalyticsReportingScheduleUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put analytics reporting schedule unsupported media type response a status code equal to that given
+func (o *PutAnalyticsReportingScheduleUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutAnalyticsReportingScheduleUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutAnalyticsReportingScheduleTooManyRequests() *PutAnalyticsReportingSch
 	return &PutAnalyticsReportingScheduleTooManyRequests{}
 }
 
-/*PutAnalyticsReportingScheduleTooManyRequests handles this case with default header values.
+/*
+PutAnalyticsReportingScheduleTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutAnalyticsReportingScheduleTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put analytics reporting schedule too many requests response has a 2xx status code
+func (o *PutAnalyticsReportingScheduleTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put analytics reporting schedule too many requests response has a 3xx status code
+func (o *PutAnalyticsReportingScheduleTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put analytics reporting schedule too many requests response has a 4xx status code
+func (o *PutAnalyticsReportingScheduleTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put analytics reporting schedule too many requests response has a 5xx status code
+func (o *PutAnalyticsReportingScheduleTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put analytics reporting schedule too many requests response a status code equal to that given
+func (o *PutAnalyticsReportingScheduleTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutAnalyticsReportingScheduleTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutAnalyticsReportingScheduleInternalServerError() *PutAnalyticsReportin
 	return &PutAnalyticsReportingScheduleInternalServerError{}
 }
 
-/*PutAnalyticsReportingScheduleInternalServerError handles this case with default header values.
+/*
+PutAnalyticsReportingScheduleInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutAnalyticsReportingScheduleInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put analytics reporting schedule internal server error response has a 2xx status code
+func (o *PutAnalyticsReportingScheduleInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put analytics reporting schedule internal server error response has a 3xx status code
+func (o *PutAnalyticsReportingScheduleInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put analytics reporting schedule internal server error response has a 4xx status code
+func (o *PutAnalyticsReportingScheduleInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put analytics reporting schedule internal server error response has a 5xx status code
+func (o *PutAnalyticsReportingScheduleInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put analytics reporting schedule internal server error response a status code equal to that given
+func (o *PutAnalyticsReportingScheduleInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutAnalyticsReportingScheduleInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutAnalyticsReportingScheduleServiceUnavailable() *PutAnalyticsReporting
 	return &PutAnalyticsReportingScheduleServiceUnavailable{}
 }
 
-/*PutAnalyticsReportingScheduleServiceUnavailable handles this case with default header values.
+/*
+PutAnalyticsReportingScheduleServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutAnalyticsReportingScheduleServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put analytics reporting schedule service unavailable response has a 2xx status code
+func (o *PutAnalyticsReportingScheduleServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put analytics reporting schedule service unavailable response has a 3xx status code
+func (o *PutAnalyticsReportingScheduleServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put analytics reporting schedule service unavailable response has a 4xx status code
+func (o *PutAnalyticsReportingScheduleServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put analytics reporting schedule service unavailable response has a 5xx status code
+func (o *PutAnalyticsReportingScheduleServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put analytics reporting schedule service unavailable response a status code equal to that given
+func (o *PutAnalyticsReportingScheduleServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutAnalyticsReportingScheduleServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutAnalyticsReportingScheduleGatewayTimeout() *PutAnalyticsReportingSche
 	return &PutAnalyticsReportingScheduleGatewayTimeout{}
 }
 
-/*PutAnalyticsReportingScheduleGatewayTimeout handles this case with default header values.
+/*
+PutAnalyticsReportingScheduleGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutAnalyticsReportingScheduleGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put analytics reporting schedule gateway timeout response has a 2xx status code
+func (o *PutAnalyticsReportingScheduleGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put analytics reporting schedule gateway timeout response has a 3xx status code
+func (o *PutAnalyticsReportingScheduleGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put analytics reporting schedule gateway timeout response has a 4xx status code
+func (o *PutAnalyticsReportingScheduleGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put analytics reporting schedule gateway timeout response has a 5xx status code
+func (o *PutAnalyticsReportingScheduleGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put analytics reporting schedule gateway timeout response a status code equal to that given
+func (o *PutAnalyticsReportingScheduleGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutAnalyticsReportingScheduleGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutAnalyticsReportingScheduleGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/analytics/reporting/schedules/{scheduleId}][%d] putAnalyticsReportingScheduleGatewayTimeout  %+v", 504, o.Payload)
 }
 

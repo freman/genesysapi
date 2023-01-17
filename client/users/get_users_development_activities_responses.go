@@ -95,7 +95,6 @@ func (o *GetUsersDevelopmentActivitiesReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetUsersDevelopmentActivitiesOK() *GetUsersDevelopmentActivitiesOK {
 	return &GetUsersDevelopmentActivitiesOK{}
 }
 
-/*GetUsersDevelopmentActivitiesOK handles this case with default header values.
+/*
+GetUsersDevelopmentActivitiesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetUsersDevelopmentActivitiesOK struct {
 	Payload *models.DevelopmentActivityListing
 }
 
+// IsSuccess returns true when this get users development activities o k response has a 2xx status code
+func (o *GetUsersDevelopmentActivitiesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get users development activities o k response has a 3xx status code
+func (o *GetUsersDevelopmentActivitiesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get users development activities o k response has a 4xx status code
+func (o *GetUsersDevelopmentActivitiesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get users development activities o k response has a 5xx status code
+func (o *GetUsersDevelopmentActivitiesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get users development activities o k response a status code equal to that given
+func (o *GetUsersDevelopmentActivitiesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUsersDevelopmentActivitiesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivitiesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetUsersDevelopmentActivitiesBadRequest() *GetUsersDevelopmentActivities
 	return &GetUsersDevelopmentActivitiesBadRequest{}
 }
 
-/*GetUsersDevelopmentActivitiesBadRequest handles this case with default header values.
+/*
+GetUsersDevelopmentActivitiesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetUsersDevelopmentActivitiesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get users development activities bad request response has a 2xx status code
+func (o *GetUsersDevelopmentActivitiesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get users development activities bad request response has a 3xx status code
+func (o *GetUsersDevelopmentActivitiesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get users development activities bad request response has a 4xx status code
+func (o *GetUsersDevelopmentActivitiesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get users development activities bad request response has a 5xx status code
+func (o *GetUsersDevelopmentActivitiesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get users development activities bad request response a status code equal to that given
+func (o *GetUsersDevelopmentActivitiesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUsersDevelopmentActivitiesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivitiesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetUsersDevelopmentActivitiesUnauthorized() *GetUsersDevelopmentActiviti
 	return &GetUsersDevelopmentActivitiesUnauthorized{}
 }
 
-/*GetUsersDevelopmentActivitiesUnauthorized handles this case with default header values.
+/*
+GetUsersDevelopmentActivitiesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetUsersDevelopmentActivitiesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get users development activities unauthorized response has a 2xx status code
+func (o *GetUsersDevelopmentActivitiesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get users development activities unauthorized response has a 3xx status code
+func (o *GetUsersDevelopmentActivitiesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get users development activities unauthorized response has a 4xx status code
+func (o *GetUsersDevelopmentActivitiesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get users development activities unauthorized response has a 5xx status code
+func (o *GetUsersDevelopmentActivitiesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get users development activities unauthorized response a status code equal to that given
+func (o *GetUsersDevelopmentActivitiesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetUsersDevelopmentActivitiesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivitiesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetUsersDevelopmentActivitiesForbidden() *GetUsersDevelopmentActivitiesF
 	return &GetUsersDevelopmentActivitiesForbidden{}
 }
 
-/*GetUsersDevelopmentActivitiesForbidden handles this case with default header values.
+/*
+GetUsersDevelopmentActivitiesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetUsersDevelopmentActivitiesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get users development activities forbidden response has a 2xx status code
+func (o *GetUsersDevelopmentActivitiesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get users development activities forbidden response has a 3xx status code
+func (o *GetUsersDevelopmentActivitiesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get users development activities forbidden response has a 4xx status code
+func (o *GetUsersDevelopmentActivitiesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get users development activities forbidden response has a 5xx status code
+func (o *GetUsersDevelopmentActivitiesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get users development activities forbidden response a status code equal to that given
+func (o *GetUsersDevelopmentActivitiesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUsersDevelopmentActivitiesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivitiesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetUsersDevelopmentActivitiesNotFound() *GetUsersDevelopmentActivitiesNo
 	return &GetUsersDevelopmentActivitiesNotFound{}
 }
 
-/*GetUsersDevelopmentActivitiesNotFound handles this case with default header values.
+/*
+GetUsersDevelopmentActivitiesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetUsersDevelopmentActivitiesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get users development activities not found response has a 2xx status code
+func (o *GetUsersDevelopmentActivitiesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get users development activities not found response has a 3xx status code
+func (o *GetUsersDevelopmentActivitiesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get users development activities not found response has a 4xx status code
+func (o *GetUsersDevelopmentActivitiesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get users development activities not found response has a 5xx status code
+func (o *GetUsersDevelopmentActivitiesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get users development activities not found response a status code equal to that given
+func (o *GetUsersDevelopmentActivitiesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetUsersDevelopmentActivitiesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivitiesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetUsersDevelopmentActivitiesRequestTimeout() *GetUsersDevelopmentActivi
 	return &GetUsersDevelopmentActivitiesRequestTimeout{}
 }
 
-/*GetUsersDevelopmentActivitiesRequestTimeout handles this case with default header values.
+/*
+GetUsersDevelopmentActivitiesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetUsersDevelopmentActivitiesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get users development activities request timeout response has a 2xx status code
+func (o *GetUsersDevelopmentActivitiesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get users development activities request timeout response has a 3xx status code
+func (o *GetUsersDevelopmentActivitiesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get users development activities request timeout response has a 4xx status code
+func (o *GetUsersDevelopmentActivitiesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get users development activities request timeout response has a 5xx status code
+func (o *GetUsersDevelopmentActivitiesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get users development activities request timeout response a status code equal to that given
+func (o *GetUsersDevelopmentActivitiesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetUsersDevelopmentActivitiesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivitiesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetUsersDevelopmentActivitiesRequestEntityTooLarge() *GetUsersDevelopmen
 	return &GetUsersDevelopmentActivitiesRequestEntityTooLarge{}
 }
 
-/*GetUsersDevelopmentActivitiesRequestEntityTooLarge handles this case with default header values.
+/*
+GetUsersDevelopmentActivitiesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetUsersDevelopmentActivitiesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get users development activities request entity too large response has a 2xx status code
+func (o *GetUsersDevelopmentActivitiesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get users development activities request entity too large response has a 3xx status code
+func (o *GetUsersDevelopmentActivitiesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get users development activities request entity too large response has a 4xx status code
+func (o *GetUsersDevelopmentActivitiesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get users development activities request entity too large response has a 5xx status code
+func (o *GetUsersDevelopmentActivitiesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get users development activities request entity too large response a status code equal to that given
+func (o *GetUsersDevelopmentActivitiesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetUsersDevelopmentActivitiesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivitiesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetUsersDevelopmentActivitiesUnsupportedMediaType() *GetUsersDevelopment
 	return &GetUsersDevelopmentActivitiesUnsupportedMediaType{}
 }
 
-/*GetUsersDevelopmentActivitiesUnsupportedMediaType handles this case with default header values.
+/*
+GetUsersDevelopmentActivitiesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetUsersDevelopmentActivitiesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get users development activities unsupported media type response has a 2xx status code
+func (o *GetUsersDevelopmentActivitiesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get users development activities unsupported media type response has a 3xx status code
+func (o *GetUsersDevelopmentActivitiesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get users development activities unsupported media type response has a 4xx status code
+func (o *GetUsersDevelopmentActivitiesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get users development activities unsupported media type response has a 5xx status code
+func (o *GetUsersDevelopmentActivitiesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get users development activities unsupported media type response a status code equal to that given
+func (o *GetUsersDevelopmentActivitiesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetUsersDevelopmentActivitiesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivitiesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetUsersDevelopmentActivitiesTooManyRequests() *GetUsersDevelopmentActiv
 	return &GetUsersDevelopmentActivitiesTooManyRequests{}
 }
 
-/*GetUsersDevelopmentActivitiesTooManyRequests handles this case with default header values.
+/*
+GetUsersDevelopmentActivitiesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetUsersDevelopmentActivitiesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get users development activities too many requests response has a 2xx status code
+func (o *GetUsersDevelopmentActivitiesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get users development activities too many requests response has a 3xx status code
+func (o *GetUsersDevelopmentActivitiesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get users development activities too many requests response has a 4xx status code
+func (o *GetUsersDevelopmentActivitiesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get users development activities too many requests response has a 5xx status code
+func (o *GetUsersDevelopmentActivitiesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get users development activities too many requests response a status code equal to that given
+func (o *GetUsersDevelopmentActivitiesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUsersDevelopmentActivitiesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivitiesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetUsersDevelopmentActivitiesInternalServerError() *GetUsersDevelopmentA
 	return &GetUsersDevelopmentActivitiesInternalServerError{}
 }
 
-/*GetUsersDevelopmentActivitiesInternalServerError handles this case with default header values.
+/*
+GetUsersDevelopmentActivitiesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetUsersDevelopmentActivitiesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get users development activities internal server error response has a 2xx status code
+func (o *GetUsersDevelopmentActivitiesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get users development activities internal server error response has a 3xx status code
+func (o *GetUsersDevelopmentActivitiesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get users development activities internal server error response has a 4xx status code
+func (o *GetUsersDevelopmentActivitiesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get users development activities internal server error response has a 5xx status code
+func (o *GetUsersDevelopmentActivitiesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get users development activities internal server error response a status code equal to that given
+func (o *GetUsersDevelopmentActivitiesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUsersDevelopmentActivitiesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivitiesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetUsersDevelopmentActivitiesServiceUnavailable() *GetUsersDevelopmentAc
 	return &GetUsersDevelopmentActivitiesServiceUnavailable{}
 }
 
-/*GetUsersDevelopmentActivitiesServiceUnavailable handles this case with default header values.
+/*
+GetUsersDevelopmentActivitiesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetUsersDevelopmentActivitiesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get users development activities service unavailable response has a 2xx status code
+func (o *GetUsersDevelopmentActivitiesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get users development activities service unavailable response has a 3xx status code
+func (o *GetUsersDevelopmentActivitiesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get users development activities service unavailable response has a 4xx status code
+func (o *GetUsersDevelopmentActivitiesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get users development activities service unavailable response has a 5xx status code
+func (o *GetUsersDevelopmentActivitiesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get users development activities service unavailable response a status code equal to that given
+func (o *GetUsersDevelopmentActivitiesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetUsersDevelopmentActivitiesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivitiesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetUsersDevelopmentActivitiesGatewayTimeout() *GetUsersDevelopmentActivi
 	return &GetUsersDevelopmentActivitiesGatewayTimeout{}
 }
 
-/*GetUsersDevelopmentActivitiesGatewayTimeout handles this case with default header values.
+/*
+GetUsersDevelopmentActivitiesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetUsersDevelopmentActivitiesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get users development activities gateway timeout response has a 2xx status code
+func (o *GetUsersDevelopmentActivitiesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get users development activities gateway timeout response has a 3xx status code
+func (o *GetUsersDevelopmentActivitiesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get users development activities gateway timeout response has a 4xx status code
+func (o *GetUsersDevelopmentActivitiesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get users development activities gateway timeout response has a 5xx status code
+func (o *GetUsersDevelopmentActivitiesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get users development activities gateway timeout response a status code equal to that given
+func (o *GetUsersDevelopmentActivitiesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetUsersDevelopmentActivitiesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetUsersDevelopmentActivitiesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/development/activities][%d] getUsersDevelopmentActivitiesGatewayTimeout  %+v", 504, o.Payload)
 }
 

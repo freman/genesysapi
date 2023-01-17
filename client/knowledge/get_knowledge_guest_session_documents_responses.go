@@ -95,7 +95,6 @@ func (o *GetKnowledgeGuestSessionDocumentsReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetKnowledgeGuestSessionDocumentsOK() *GetKnowledgeGuestSessionDocuments
 	return &GetKnowledgeGuestSessionDocumentsOK{}
 }
 
-/*GetKnowledgeGuestSessionDocumentsOK handles this case with default header values.
+/*
+GetKnowledgeGuestSessionDocumentsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetKnowledgeGuestSessionDocumentsOK struct {
 	Payload *models.KnowledgeGuestDocumentResponseListing
 }
 
+// IsSuccess returns true when this get knowledge guest session documents o k response has a 2xx status code
+func (o *GetKnowledgeGuestSessionDocumentsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get knowledge guest session documents o k response has a 3xx status code
+func (o *GetKnowledgeGuestSessionDocumentsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge guest session documents o k response has a 4xx status code
+func (o *GetKnowledgeGuestSessionDocumentsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge guest session documents o k response has a 5xx status code
+func (o *GetKnowledgeGuestSessionDocumentsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge guest session documents o k response a status code equal to that given
+func (o *GetKnowledgeGuestSessionDocumentsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetKnowledgeGuestSessionDocumentsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetKnowledgeGuestSessionDocumentsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetKnowledgeGuestSessionDocumentsBadRequest() *GetKnowledgeGuestSessionD
 	return &GetKnowledgeGuestSessionDocumentsBadRequest{}
 }
 
-/*GetKnowledgeGuestSessionDocumentsBadRequest handles this case with default header values.
+/*
+GetKnowledgeGuestSessionDocumentsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetKnowledgeGuestSessionDocumentsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge guest session documents bad request response has a 2xx status code
+func (o *GetKnowledgeGuestSessionDocumentsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge guest session documents bad request response has a 3xx status code
+func (o *GetKnowledgeGuestSessionDocumentsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge guest session documents bad request response has a 4xx status code
+func (o *GetKnowledgeGuestSessionDocumentsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge guest session documents bad request response has a 5xx status code
+func (o *GetKnowledgeGuestSessionDocumentsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge guest session documents bad request response a status code equal to that given
+func (o *GetKnowledgeGuestSessionDocumentsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetKnowledgeGuestSessionDocumentsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetKnowledgeGuestSessionDocumentsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetKnowledgeGuestSessionDocumentsUnauthorized() *GetKnowledgeGuestSessio
 	return &GetKnowledgeGuestSessionDocumentsUnauthorized{}
 }
 
-/*GetKnowledgeGuestSessionDocumentsUnauthorized handles this case with default header values.
+/*
+GetKnowledgeGuestSessionDocumentsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetKnowledgeGuestSessionDocumentsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge guest session documents unauthorized response has a 2xx status code
+func (o *GetKnowledgeGuestSessionDocumentsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge guest session documents unauthorized response has a 3xx status code
+func (o *GetKnowledgeGuestSessionDocumentsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge guest session documents unauthorized response has a 4xx status code
+func (o *GetKnowledgeGuestSessionDocumentsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge guest session documents unauthorized response has a 5xx status code
+func (o *GetKnowledgeGuestSessionDocumentsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge guest session documents unauthorized response a status code equal to that given
+func (o *GetKnowledgeGuestSessionDocumentsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetKnowledgeGuestSessionDocumentsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetKnowledgeGuestSessionDocumentsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetKnowledgeGuestSessionDocumentsForbidden() *GetKnowledgeGuestSessionDo
 	return &GetKnowledgeGuestSessionDocumentsForbidden{}
 }
 
-/*GetKnowledgeGuestSessionDocumentsForbidden handles this case with default header values.
+/*
+GetKnowledgeGuestSessionDocumentsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetKnowledgeGuestSessionDocumentsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge guest session documents forbidden response has a 2xx status code
+func (o *GetKnowledgeGuestSessionDocumentsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge guest session documents forbidden response has a 3xx status code
+func (o *GetKnowledgeGuestSessionDocumentsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge guest session documents forbidden response has a 4xx status code
+func (o *GetKnowledgeGuestSessionDocumentsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge guest session documents forbidden response has a 5xx status code
+func (o *GetKnowledgeGuestSessionDocumentsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge guest session documents forbidden response a status code equal to that given
+func (o *GetKnowledgeGuestSessionDocumentsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetKnowledgeGuestSessionDocumentsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetKnowledgeGuestSessionDocumentsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetKnowledgeGuestSessionDocumentsNotFound() *GetKnowledgeGuestSessionDoc
 	return &GetKnowledgeGuestSessionDocumentsNotFound{}
 }
 
-/*GetKnowledgeGuestSessionDocumentsNotFound handles this case with default header values.
+/*
+GetKnowledgeGuestSessionDocumentsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetKnowledgeGuestSessionDocumentsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge guest session documents not found response has a 2xx status code
+func (o *GetKnowledgeGuestSessionDocumentsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge guest session documents not found response has a 3xx status code
+func (o *GetKnowledgeGuestSessionDocumentsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge guest session documents not found response has a 4xx status code
+func (o *GetKnowledgeGuestSessionDocumentsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge guest session documents not found response has a 5xx status code
+func (o *GetKnowledgeGuestSessionDocumentsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge guest session documents not found response a status code equal to that given
+func (o *GetKnowledgeGuestSessionDocumentsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetKnowledgeGuestSessionDocumentsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetKnowledgeGuestSessionDocumentsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetKnowledgeGuestSessionDocumentsRequestTimeout() *GetKnowledgeGuestSess
 	return &GetKnowledgeGuestSessionDocumentsRequestTimeout{}
 }
 
-/*GetKnowledgeGuestSessionDocumentsRequestTimeout handles this case with default header values.
+/*
+GetKnowledgeGuestSessionDocumentsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetKnowledgeGuestSessionDocumentsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge guest session documents request timeout response has a 2xx status code
+func (o *GetKnowledgeGuestSessionDocumentsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge guest session documents request timeout response has a 3xx status code
+func (o *GetKnowledgeGuestSessionDocumentsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge guest session documents request timeout response has a 4xx status code
+func (o *GetKnowledgeGuestSessionDocumentsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge guest session documents request timeout response has a 5xx status code
+func (o *GetKnowledgeGuestSessionDocumentsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge guest session documents request timeout response a status code equal to that given
+func (o *GetKnowledgeGuestSessionDocumentsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetKnowledgeGuestSessionDocumentsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetKnowledgeGuestSessionDocumentsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetKnowledgeGuestSessionDocumentsRequestEntityTooLarge() *GetKnowledgeGu
 	return &GetKnowledgeGuestSessionDocumentsRequestEntityTooLarge{}
 }
 
-/*GetKnowledgeGuestSessionDocumentsRequestEntityTooLarge handles this case with default header values.
+/*
+GetKnowledgeGuestSessionDocumentsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetKnowledgeGuestSessionDocumentsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge guest session documents request entity too large response has a 2xx status code
+func (o *GetKnowledgeGuestSessionDocumentsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge guest session documents request entity too large response has a 3xx status code
+func (o *GetKnowledgeGuestSessionDocumentsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge guest session documents request entity too large response has a 4xx status code
+func (o *GetKnowledgeGuestSessionDocumentsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge guest session documents request entity too large response has a 5xx status code
+func (o *GetKnowledgeGuestSessionDocumentsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge guest session documents request entity too large response a status code equal to that given
+func (o *GetKnowledgeGuestSessionDocumentsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetKnowledgeGuestSessionDocumentsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetKnowledgeGuestSessionDocumentsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetKnowledgeGuestSessionDocumentsUnsupportedMediaType() *GetKnowledgeGue
 	return &GetKnowledgeGuestSessionDocumentsUnsupportedMediaType{}
 }
 
-/*GetKnowledgeGuestSessionDocumentsUnsupportedMediaType handles this case with default header values.
+/*
+GetKnowledgeGuestSessionDocumentsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetKnowledgeGuestSessionDocumentsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge guest session documents unsupported media type response has a 2xx status code
+func (o *GetKnowledgeGuestSessionDocumentsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge guest session documents unsupported media type response has a 3xx status code
+func (o *GetKnowledgeGuestSessionDocumentsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge guest session documents unsupported media type response has a 4xx status code
+func (o *GetKnowledgeGuestSessionDocumentsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge guest session documents unsupported media type response has a 5xx status code
+func (o *GetKnowledgeGuestSessionDocumentsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge guest session documents unsupported media type response a status code equal to that given
+func (o *GetKnowledgeGuestSessionDocumentsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetKnowledgeGuestSessionDocumentsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetKnowledgeGuestSessionDocumentsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetKnowledgeGuestSessionDocumentsTooManyRequests() *GetKnowledgeGuestSes
 	return &GetKnowledgeGuestSessionDocumentsTooManyRequests{}
 }
 
-/*GetKnowledgeGuestSessionDocumentsTooManyRequests handles this case with default header values.
+/*
+GetKnowledgeGuestSessionDocumentsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetKnowledgeGuestSessionDocumentsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge guest session documents too many requests response has a 2xx status code
+func (o *GetKnowledgeGuestSessionDocumentsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge guest session documents too many requests response has a 3xx status code
+func (o *GetKnowledgeGuestSessionDocumentsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge guest session documents too many requests response has a 4xx status code
+func (o *GetKnowledgeGuestSessionDocumentsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get knowledge guest session documents too many requests response has a 5xx status code
+func (o *GetKnowledgeGuestSessionDocumentsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get knowledge guest session documents too many requests response a status code equal to that given
+func (o *GetKnowledgeGuestSessionDocumentsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetKnowledgeGuestSessionDocumentsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetKnowledgeGuestSessionDocumentsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetKnowledgeGuestSessionDocumentsInternalServerError() *GetKnowledgeGues
 	return &GetKnowledgeGuestSessionDocumentsInternalServerError{}
 }
 
-/*GetKnowledgeGuestSessionDocumentsInternalServerError handles this case with default header values.
+/*
+GetKnowledgeGuestSessionDocumentsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetKnowledgeGuestSessionDocumentsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge guest session documents internal server error response has a 2xx status code
+func (o *GetKnowledgeGuestSessionDocumentsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge guest session documents internal server error response has a 3xx status code
+func (o *GetKnowledgeGuestSessionDocumentsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge guest session documents internal server error response has a 4xx status code
+func (o *GetKnowledgeGuestSessionDocumentsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge guest session documents internal server error response has a 5xx status code
+func (o *GetKnowledgeGuestSessionDocumentsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge guest session documents internal server error response a status code equal to that given
+func (o *GetKnowledgeGuestSessionDocumentsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetKnowledgeGuestSessionDocumentsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetKnowledgeGuestSessionDocumentsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetKnowledgeGuestSessionDocumentsServiceUnavailable() *GetKnowledgeGuest
 	return &GetKnowledgeGuestSessionDocumentsServiceUnavailable{}
 }
 
-/*GetKnowledgeGuestSessionDocumentsServiceUnavailable handles this case with default header values.
+/*
+GetKnowledgeGuestSessionDocumentsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetKnowledgeGuestSessionDocumentsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge guest session documents service unavailable response has a 2xx status code
+func (o *GetKnowledgeGuestSessionDocumentsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge guest session documents service unavailable response has a 3xx status code
+func (o *GetKnowledgeGuestSessionDocumentsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge guest session documents service unavailable response has a 4xx status code
+func (o *GetKnowledgeGuestSessionDocumentsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge guest session documents service unavailable response has a 5xx status code
+func (o *GetKnowledgeGuestSessionDocumentsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge guest session documents service unavailable response a status code equal to that given
+func (o *GetKnowledgeGuestSessionDocumentsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetKnowledgeGuestSessionDocumentsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetKnowledgeGuestSessionDocumentsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetKnowledgeGuestSessionDocumentsGatewayTimeout() *GetKnowledgeGuestSess
 	return &GetKnowledgeGuestSessionDocumentsGatewayTimeout{}
 }
 
-/*GetKnowledgeGuestSessionDocumentsGatewayTimeout handles this case with default header values.
+/*
+GetKnowledgeGuestSessionDocumentsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetKnowledgeGuestSessionDocumentsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get knowledge guest session documents gateway timeout response has a 2xx status code
+func (o *GetKnowledgeGuestSessionDocumentsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get knowledge guest session documents gateway timeout response has a 3xx status code
+func (o *GetKnowledgeGuestSessionDocumentsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get knowledge guest session documents gateway timeout response has a 4xx status code
+func (o *GetKnowledgeGuestSessionDocumentsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get knowledge guest session documents gateway timeout response has a 5xx status code
+func (o *GetKnowledgeGuestSessionDocumentsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get knowledge guest session documents gateway timeout response a status code equal to that given
+func (o *GetKnowledgeGuestSessionDocumentsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetKnowledgeGuestSessionDocumentsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetKnowledgeGuestSessionDocumentsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/knowledge/guest/sessions/{sessionId}/documents][%d] getKnowledgeGuestSessionDocumentsGatewayTimeout  %+v", 504, o.Payload)
 }
 

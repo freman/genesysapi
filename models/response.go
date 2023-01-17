@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -135,7 +136,6 @@ func (m *Response) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Response) validateAssets(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Assets) { // not required
 		return nil
 	}
@@ -149,6 +149,8 @@ func (m *Response) validateAssets(formats strfmt.Registry) error {
 			if err := m.Assets[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("assets" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assets" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -160,7 +162,6 @@ func (m *Response) validateAssets(formats strfmt.Registry) error {
 }
 
 func (m *Response) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -169,6 +170,8 @@ func (m *Response) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -178,7 +181,6 @@ func (m *Response) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *Response) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -191,7 +193,6 @@ func (m *Response) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Response) validateFooter(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Footer) { // not required
 		return nil
 	}
@@ -200,6 +201,8 @@ func (m *Response) validateFooter(formats strfmt.Registry) error {
 		if err := m.Footer.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("footer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("footer")
 			}
 			return err
 		}
@@ -241,7 +244,6 @@ func (m *Response) validateInteractionTypeEnum(path, location string, value stri
 }
 
 func (m *Response) validateInteractionType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InteractionType) { // not required
 		return nil
 	}
@@ -269,6 +271,8 @@ func (m *Response) validateLibraries(formats strfmt.Registry) error {
 			if err := m.Libraries[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("libraries" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("libraries" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -280,7 +284,6 @@ func (m *Response) validateLibraries(formats strfmt.Registry) error {
 }
 
 func (m *Response) validateMessagingTemplate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessagingTemplate) { // not required
 		return nil
 	}
@@ -289,6 +292,8 @@ func (m *Response) validateMessagingTemplate(formats strfmt.Registry) error {
 		if err := m.MessagingTemplate.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messagingTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingTemplate")
 			}
 			return err
 		}
@@ -333,7 +338,6 @@ func (m *Response) validateResponseTypeEnum(path, location string, value string)
 }
 
 func (m *Response) validateResponseType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ResponseType) { // not required
 		return nil
 	}
@@ -347,7 +351,6 @@ func (m *Response) validateResponseType(formats strfmt.Registry) error {
 }
 
 func (m *Response) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -360,7 +363,6 @@ func (m *Response) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *Response) validateSubstitutions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Substitutions) { // not required
 		return nil
 	}
@@ -374,6 +376,8 @@ func (m *Response) validateSubstitutions(formats strfmt.Registry) error {
 			if err := m.Substitutions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("substitutions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("substitutions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -385,7 +389,6 @@ func (m *Response) validateSubstitutions(formats strfmt.Registry) error {
 }
 
 func (m *Response) validateSubstitutionsSchema(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SubstitutionsSchema) { // not required
 		return nil
 	}
@@ -394,6 +397,8 @@ func (m *Response) validateSubstitutionsSchema(formats strfmt.Registry) error {
 		if err := m.SubstitutionsSchema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("substitutionsSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("substitutionsSchema")
 			}
 			return err
 		}
@@ -417,6 +422,233 @@ func (m *Response) validateTexts(formats strfmt.Registry) error {
 			if err := m.Texts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("texts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("texts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this response based on the context it is used
+func (m *Response) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAssets(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFooter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLibraries(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessagingTemplate(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSubstitutions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSubstitutionsSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTexts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Response) contextValidateAssets(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Assets); i++ {
+
+		if m.Assets[i] != nil {
+			if err := m.Assets[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("assets" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("assets" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Response) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Response) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Response) contextValidateFooter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Footer != nil {
+		if err := m.Footer.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("footer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("footer")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Response) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Response) contextValidateLibraries(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Libraries); i++ {
+
+		if m.Libraries[i] != nil {
+			if err := m.Libraries[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("libraries" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("libraries" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Response) contextValidateMessagingTemplate(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessagingTemplate != nil {
+		if err := m.MessagingTemplate.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingTemplate")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingTemplate")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Response) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Response) contextValidateSubstitutions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Substitutions); i++ {
+
+		if m.Substitutions[i] != nil {
+			if err := m.Substitutions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("substitutions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("substitutions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Response) contextValidateSubstitutionsSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SubstitutionsSchema != nil {
+		if err := m.SubstitutionsSchema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("substitutionsSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("substitutionsSchema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Response) contextValidateTexts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Texts); i++ {
+
+		if m.Texts[i] != nil {
+			if err := m.Texts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("texts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("texts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

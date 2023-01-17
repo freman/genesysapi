@@ -17,76 +17,92 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteAuthorizationDivisionParams creates a new DeleteAuthorizationDivisionParams object
-// with the default values initialized.
+// NewDeleteAuthorizationDivisionParams creates a new DeleteAuthorizationDivisionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteAuthorizationDivisionParams() *DeleteAuthorizationDivisionParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &DeleteAuthorizationDivisionParams{
-		Force: &forceDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteAuthorizationDivisionParamsWithTimeout creates a new DeleteAuthorizationDivisionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteAuthorizationDivisionParamsWithTimeout(timeout time.Duration) *DeleteAuthorizationDivisionParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &DeleteAuthorizationDivisionParams{
-		Force: &forceDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteAuthorizationDivisionParamsWithContext creates a new DeleteAuthorizationDivisionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteAuthorizationDivisionParamsWithContext(ctx context.Context) *DeleteAuthorizationDivisionParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &DeleteAuthorizationDivisionParams{
-		Force: &forceDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteAuthorizationDivisionParamsWithHTTPClient creates a new DeleteAuthorizationDivisionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteAuthorizationDivisionParamsWithHTTPClient(client *http.Client) *DeleteAuthorizationDivisionParams {
-	var (
-		forceDefault = bool(false)
-	)
 	return &DeleteAuthorizationDivisionParams{
-		Force:      &forceDefault,
 		HTTPClient: client,
 	}
 }
 
-/*DeleteAuthorizationDivisionParams contains all the parameters to send to the API endpoint
-for the delete authorization division operation typically these are written to a http.Request
+/*
+DeleteAuthorizationDivisionParams contains all the parameters to send to the API endpoint
+
+	for the delete authorization division operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteAuthorizationDivisionParams struct {
 
-	/*DivisionID
-	  Division ID
+	/* DivisionID.
 
+	   Division ID
 	*/
 	DivisionID string
-	/*Force
-	  Force delete this division as well as the grants and objects associated with it
 
+	/* Force.
+
+	   Force delete this division as well as the grants and objects associated with it
 	*/
 	Force *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete authorization division params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteAuthorizationDivisionParams) WithDefaults() *DeleteAuthorizationDivisionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete authorization division params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteAuthorizationDivisionParams) SetDefaults() {
+	var (
+		forceDefault = bool(false)
+	)
+
+	val := DeleteAuthorizationDivisionParams{
+		Force: &forceDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the delete authorization division params
@@ -161,16 +177,17 @@ func (o *DeleteAuthorizationDivisionParams) WriteToRequest(r runtime.ClientReque
 
 		// query param force
 		var qrForce bool
+
 		if o.Force != nil {
 			qrForce = *o.Force
 		}
 		qForce := swag.FormatBool(qrForce)
 		if qForce != "" {
+
 			if err := r.SetQueryParam("force", qForce); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

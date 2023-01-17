@@ -101,7 +101,6 @@ func (o *DeleteRoutingEmailDomainRouteReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteRoutingEmailDomainRouteOK() *DeleteRoutingEmailDomainRouteOK {
 	return &DeleteRoutingEmailDomainRouteOK{}
 }
 
-/*DeleteRoutingEmailDomainRouteOK handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteRoutingEmailDomainRouteOK struct {
 }
 
+// IsSuccess returns true when this delete routing email domain route o k response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete routing email domain route o k response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route o k response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing email domain route o k response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing email domain route o k response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteRoutingEmailDomainRouteOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteOK ", 200)
+}
+
+func (o *DeleteRoutingEmailDomainRouteOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteOK ", 200)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteRoutingEmailDomainRouteBadRequest() *DeleteRoutingEmailDomainRoute
 	return &DeleteRoutingEmailDomainRouteBadRequest{}
 }
 
-/*DeleteRoutingEmailDomainRouteBadRequest handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteRoutingEmailDomainRouteBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing email domain route bad request response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing email domain route bad request response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route bad request response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing email domain route bad request response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing email domain route bad request response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteRoutingEmailDomainRouteBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteRoutingEmailDomainRouteUnauthorized() *DeleteRoutingEmailDomainRou
 	return &DeleteRoutingEmailDomainRouteUnauthorized{}
 }
 
-/*DeleteRoutingEmailDomainRouteUnauthorized handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteRoutingEmailDomainRouteUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing email domain route unauthorized response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing email domain route unauthorized response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route unauthorized response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing email domain route unauthorized response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing email domain route unauthorized response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteRoutingEmailDomainRouteUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteRoutingEmailDomainRouteForbidden() *DeleteRoutingEmailDomainRouteF
 	return &DeleteRoutingEmailDomainRouteForbidden{}
 }
 
-/*DeleteRoutingEmailDomainRouteForbidden handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteRoutingEmailDomainRouteForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing email domain route forbidden response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing email domain route forbidden response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route forbidden response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing email domain route forbidden response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing email domain route forbidden response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRoutingEmailDomainRouteForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteRoutingEmailDomainRouteNotFound() *DeleteRoutingEmailDomainRouteNo
 	return &DeleteRoutingEmailDomainRouteNotFound{}
 }
 
-/*DeleteRoutingEmailDomainRouteNotFound handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteRoutingEmailDomainRouteNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing email domain route not found response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing email domain route not found response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route not found response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing email domain route not found response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing email domain route not found response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteRoutingEmailDomainRouteNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteRoutingEmailDomainRouteRequestTimeout() *DeleteRoutingEmailDomainR
 	return &DeleteRoutingEmailDomainRouteRequestTimeout{}
 }
 
-/*DeleteRoutingEmailDomainRouteRequestTimeout handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteRoutingEmailDomainRouteRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing email domain route request timeout response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing email domain route request timeout response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route request timeout response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing email domain route request timeout response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing email domain route request timeout response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteRoutingEmailDomainRouteRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteRoutingEmailDomainRouteConflict() *DeleteRoutingEmailDomainRouteCo
 	return &DeleteRoutingEmailDomainRouteConflict{}
 }
 
-/*DeleteRoutingEmailDomainRouteConflict handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeleteRoutingEmailDomainRouteConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing email domain route conflict response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing email domain route conflict response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route conflict response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing email domain route conflict response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing email domain route conflict response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteRoutingEmailDomainRouteConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteRoutingEmailDomainRouteRequestEntityTooLarge() *DeleteRoutingEmail
 	return &DeleteRoutingEmailDomainRouteRequestEntityTooLarge{}
 }
 
-/*DeleteRoutingEmailDomainRouteRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteRoutingEmailDomainRouteRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing email domain route request entity too large response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing email domain route request entity too large response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route request entity too large response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing email domain route request entity too large response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing email domain route request entity too large response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteRoutingEmailDomainRouteRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteRoutingEmailDomainRouteUnsupportedMediaType() *DeleteRoutingEmailD
 	return &DeleteRoutingEmailDomainRouteUnsupportedMediaType{}
 }
 
-/*DeleteRoutingEmailDomainRouteUnsupportedMediaType handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteRoutingEmailDomainRouteUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing email domain route unsupported media type response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing email domain route unsupported media type response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route unsupported media type response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing email domain route unsupported media type response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing email domain route unsupported media type response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteRoutingEmailDomainRouteUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteRoutingEmailDomainRouteTooManyRequests() *DeleteRoutingEmailDomain
 	return &DeleteRoutingEmailDomainRouteTooManyRequests{}
 }
 
-/*DeleteRoutingEmailDomainRouteTooManyRequests handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteRoutingEmailDomainRouteTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing email domain route too many requests response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing email domain route too many requests response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route too many requests response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing email domain route too many requests response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing email domain route too many requests response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteRoutingEmailDomainRouteTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteRoutingEmailDomainRouteInternalServerError() *DeleteRoutingEmailDo
 	return &DeleteRoutingEmailDomainRouteInternalServerError{}
 }
 
-/*DeleteRoutingEmailDomainRouteInternalServerError handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteRoutingEmailDomainRouteInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing email domain route internal server error response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing email domain route internal server error response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route internal server error response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing email domain route internal server error response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing email domain route internal server error response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteRoutingEmailDomainRouteInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteRoutingEmailDomainRouteServiceUnavailable() *DeleteRoutingEmailDom
 	return &DeleteRoutingEmailDomainRouteServiceUnavailable{}
 }
 
-/*DeleteRoutingEmailDomainRouteServiceUnavailable handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteRoutingEmailDomainRouteServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing email domain route service unavailable response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing email domain route service unavailable response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route service unavailable response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing email domain route service unavailable response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing email domain route service unavailable response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteRoutingEmailDomainRouteServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteRoutingEmailDomainRouteGatewayTimeout() *DeleteRoutingEmailDomainR
 	return &DeleteRoutingEmailDomainRouteGatewayTimeout{}
 }
 
-/*DeleteRoutingEmailDomainRouteGatewayTimeout handles this case with default header values.
+/*
+DeleteRoutingEmailDomainRouteGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteRoutingEmailDomainRouteGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing email domain route gateway timeout response has a 2xx status code
+func (o *DeleteRoutingEmailDomainRouteGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing email domain route gateway timeout response has a 3xx status code
+func (o *DeleteRoutingEmailDomainRouteGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing email domain route gateway timeout response has a 4xx status code
+func (o *DeleteRoutingEmailDomainRouteGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing email domain route gateway timeout response has a 5xx status code
+func (o *DeleteRoutingEmailDomainRouteGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing email domain route gateway timeout response a status code equal to that given
+func (o *DeleteRoutingEmailDomainRouteGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteRoutingEmailDomainRouteGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteRoutingEmailDomainRouteGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/email/domains/{domainName}/routes/{routeId}][%d] deleteRoutingEmailDomainRouteGatewayTimeout  %+v", 504, o.Payload)
 }
 

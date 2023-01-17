@@ -101,7 +101,6 @@ func (o *PostLanguageunderstandingDomainFeedbackReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostLanguageunderstandingDomainFeedbackOK() *PostLanguageunderstandingDo
 	return &PostLanguageunderstandingDomainFeedbackOK{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackOK handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostLanguageunderstandingDomainFeedbackOK struct {
 	Payload *models.NluFeedbackResponse
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback o k response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback o k response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback o k response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback o k response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback o k response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostLanguageunderstandingDomainFeedbackCreated() *PostLanguageunderstand
 	return &PostLanguageunderstandingDomainFeedbackCreated{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackCreated handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackCreated describes a response with status code 201, with default header values.
 
 Feedback created successfully
 */
@@ -153,7 +183,36 @@ type PostLanguageunderstandingDomainFeedbackCreated struct {
 	Payload *models.NluFeedbackResponse
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback created response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback created response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback created response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback created response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback created response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackCreated  %+v", 201, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostLanguageunderstandingDomainFeedbackBadRequest() *PostLanguageunderst
 	return &PostLanguageunderstandingDomainFeedbackBadRequest{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackBadRequest handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostLanguageunderstandingDomainFeedbackBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback bad request response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback bad request response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback bad request response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback bad request response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback bad request response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostLanguageunderstandingDomainFeedbackUnauthorized() *PostLanguageunder
 	return &PostLanguageunderstandingDomainFeedbackUnauthorized{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackUnauthorized handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostLanguageunderstandingDomainFeedbackUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback unauthorized response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback unauthorized response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback unauthorized response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback unauthorized response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback unauthorized response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostLanguageunderstandingDomainFeedbackForbidden() *PostLanguageundersta
 	return &PostLanguageunderstandingDomainFeedbackForbidden{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackForbidden handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostLanguageunderstandingDomainFeedbackForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback forbidden response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback forbidden response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback forbidden response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback forbidden response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback forbidden response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostLanguageunderstandingDomainFeedbackNotFound() *PostLanguageunderstan
 	return &PostLanguageunderstandingDomainFeedbackNotFound{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackNotFound handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostLanguageunderstandingDomainFeedbackNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback not found response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback not found response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback not found response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback not found response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback not found response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostLanguageunderstandingDomainFeedbackRequestTimeout() *PostLanguageund
 	return &PostLanguageunderstandingDomainFeedbackRequestTimeout{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackRequestTimeout handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostLanguageunderstandingDomainFeedbackRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback request timeout response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback request timeout response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback request timeout response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback request timeout response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback request timeout response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostLanguageunderstandingDomainFeedbackRequestEntityTooLarge() *PostLang
 	return &PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback request entity too large response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback request entity too large response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback request entity too large response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback request entity too large response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback request entity too large response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostLanguageunderstandingDomainFeedbackUnsupportedMediaType() *PostLangu
 	return &PostLanguageunderstandingDomainFeedbackUnsupportedMediaType{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackUnsupportedMediaType handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostLanguageunderstandingDomainFeedbackUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback unsupported media type response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback unsupported media type response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback unsupported media type response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback unsupported media type response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback unsupported media type response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostLanguageunderstandingDomainFeedbackTooManyRequests() *PostLanguageun
 	return &PostLanguageunderstandingDomainFeedbackTooManyRequests{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackTooManyRequests handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostLanguageunderstandingDomainFeedbackTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback too many requests response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback too many requests response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback too many requests response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback too many requests response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback too many requests response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostLanguageunderstandingDomainFeedbackInternalServerError() *PostLangua
 	return &PostLanguageunderstandingDomainFeedbackInternalServerError{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackInternalServerError handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostLanguageunderstandingDomainFeedbackInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback internal server error response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback internal server error response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback internal server error response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback internal server error response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback internal server error response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostLanguageunderstandingDomainFeedbackServiceUnavailable() *PostLanguag
 	return &PostLanguageunderstandingDomainFeedbackServiceUnavailable{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackServiceUnavailable handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostLanguageunderstandingDomainFeedbackServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback service unavailable response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback service unavailable response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback service unavailable response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback service unavailable response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback service unavailable response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostLanguageunderstandingDomainFeedbackGatewayTimeout() *PostLanguageund
 	return &PostLanguageunderstandingDomainFeedbackGatewayTimeout{}
 }
 
-/*PostLanguageunderstandingDomainFeedbackGatewayTimeout handles this case with default header values.
+/*
+PostLanguageunderstandingDomainFeedbackGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostLanguageunderstandingDomainFeedbackGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post languageunderstanding domain feedback gateway timeout response has a 2xx status code
+func (o *PostLanguageunderstandingDomainFeedbackGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post languageunderstanding domain feedback gateway timeout response has a 3xx status code
+func (o *PostLanguageunderstandingDomainFeedbackGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post languageunderstanding domain feedback gateway timeout response has a 4xx status code
+func (o *PostLanguageunderstandingDomainFeedbackGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post languageunderstanding domain feedback gateway timeout response has a 5xx status code
+func (o *PostLanguageunderstandingDomainFeedbackGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post languageunderstanding domain feedback gateway timeout response a status code equal to that given
+func (o *PostLanguageunderstandingDomainFeedbackGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLanguageunderstandingDomainFeedbackGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLanguageunderstandingDomainFeedbackGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/languageunderstanding/domains/{domainId}/feedback][%d] postLanguageunderstandingDomainFeedbackGatewayTimeout  %+v", 504, o.Payload)
 }
 

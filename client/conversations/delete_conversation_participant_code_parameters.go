@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteConversationParticipantCodeParams creates a new DeleteConversationParticipantCodeParams object
-// with the default values initialized.
+// NewDeleteConversationParticipantCodeParams creates a new DeleteConversationParticipantCodeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteConversationParticipantCodeParams() *DeleteConversationParticipantCodeParams {
-	var ()
 	return &DeleteConversationParticipantCodeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteConversationParticipantCodeParamsWithTimeout creates a new DeleteConversationParticipantCodeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteConversationParticipantCodeParamsWithTimeout(timeout time.Duration) *DeleteConversationParticipantCodeParams {
-	var ()
 	return &DeleteConversationParticipantCodeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteConversationParticipantCodeParamsWithContext creates a new DeleteConversationParticipantCodeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteConversationParticipantCodeParamsWithContext(ctx context.Context) *DeleteConversationParticipantCodeParams {
-	var ()
 	return &DeleteConversationParticipantCodeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteConversationParticipantCodeParamsWithHTTPClient creates a new DeleteConversationParticipantCodeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteConversationParticipantCodeParamsWithHTTPClient(client *http.Client) *DeleteConversationParticipantCodeParams {
-	var ()
 	return &DeleteConversationParticipantCodeParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteConversationParticipantCodeParams contains all the parameters to send to the API endpoint
-for the delete conversation participant code operation typically these are written to a http.Request
+/*
+DeleteConversationParticipantCodeParams contains all the parameters to send to the API endpoint
+
+	for the delete conversation participant code operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteConversationParticipantCodeParams struct {
 
-	/*AddCommunicationCode
-	  addCommunicationCode
+	/* AddCommunicationCode.
 
+	   addCommunicationCode
 	*/
 	AddCommunicationCode string
-	/*ConversationID
-	  conversation ID
 
+	/* ConversationID.
+
+	   conversation ID
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participant ID
 
+	/* ParticipantID.
+
+	   participant ID
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete conversation participant code params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteConversationParticipantCodeParams) WithDefaults() *DeleteConversationParticipantCodeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete conversation participant code params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteConversationParticipantCodeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete conversation participant code params

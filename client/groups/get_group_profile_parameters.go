@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGroupProfileParams creates a new GetGroupProfileParams object
-// with the default values initialized.
+// NewGetGroupProfileParams creates a new GetGroupProfileParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGroupProfileParams() *GetGroupProfileParams {
-	var ()
 	return &GetGroupProfileParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGroupProfileParamsWithTimeout creates a new GetGroupProfileParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGroupProfileParamsWithTimeout(timeout time.Duration) *GetGroupProfileParams {
-	var ()
 	return &GetGroupProfileParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGroupProfileParamsWithContext creates a new GetGroupProfileParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGroupProfileParamsWithContext(ctx context.Context) *GetGroupProfileParams {
-	var ()
 	return &GetGroupProfileParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGroupProfileParamsWithHTTPClient creates a new GetGroupProfileParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGroupProfileParamsWithHTTPClient(client *http.Client) *GetGroupProfileParams {
-	var ()
 	return &GetGroupProfileParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGroupProfileParams contains all the parameters to send to the API endpoint
-for the get group profile operation typically these are written to a http.Request
+/*
+GetGroupProfileParams contains all the parameters to send to the API endpoint
+
+	for the get group profile operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGroupProfileParams struct {
 
-	/*Fields
-	  Comma separated fields to return.  Allowable values can be found by querying /api/v2/fieldconfig?type=group and using the key for the elements returned by the fieldList
+	/* Fields.
 
+	   Comma separated fields to return.  Allowable values can be found by querying /api/v2/fieldconfig?type=group and using the key for the elements returned by the fieldList
 	*/
 	Fields *string
-	/*GroupID
-	  groupId
 
+	/* GroupID.
+
+	   groupId
 	*/
 	GroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get group profile params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGroupProfileParams) WithDefaults() *GetGroupProfileParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get group profile params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGroupProfileParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get group profile params
@@ -143,16 +160,17 @@ func (o *GetGroupProfileParams) WriteToRequest(r runtime.ClientRequest, reg strf
 
 		// query param fields
 		var qrFields string
+
 		if o.Fields != nil {
 			qrFields = *o.Fields
 		}
 		qFields := qrFields
 		if qFields != "" {
+
 			if err := r.SetQueryParam("fields", qFields); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param groupId

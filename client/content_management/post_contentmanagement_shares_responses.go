@@ -95,7 +95,6 @@ func (o *PostContentmanagementSharesReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostContentmanagementSharesOK() *PostContentmanagementSharesOK {
 	return &PostContentmanagementSharesOK{}
 }
 
-/*PostContentmanagementSharesOK handles this case with default header values.
+/*
+PostContentmanagementSharesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostContentmanagementSharesOK struct {
 	Payload *models.CreateShareResponse
 }
 
+// IsSuccess returns true when this post contentmanagement shares o k response has a 2xx status code
+func (o *PostContentmanagementSharesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post contentmanagement shares o k response has a 3xx status code
+func (o *PostContentmanagementSharesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement shares o k response has a 4xx status code
+func (o *PostContentmanagementSharesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement shares o k response has a 5xx status code
+func (o *PostContentmanagementSharesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement shares o k response a status code equal to that given
+func (o *PostContentmanagementSharesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostContentmanagementSharesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostContentmanagementSharesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostContentmanagementSharesBadRequest() *PostContentmanagementSharesBadR
 	return &PostContentmanagementSharesBadRequest{}
 }
 
-/*PostContentmanagementSharesBadRequest handles this case with default header values.
+/*
+PostContentmanagementSharesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostContentmanagementSharesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement shares bad request response has a 2xx status code
+func (o *PostContentmanagementSharesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement shares bad request response has a 3xx status code
+func (o *PostContentmanagementSharesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement shares bad request response has a 4xx status code
+func (o *PostContentmanagementSharesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement shares bad request response has a 5xx status code
+func (o *PostContentmanagementSharesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement shares bad request response a status code equal to that given
+func (o *PostContentmanagementSharesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostContentmanagementSharesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostContentmanagementSharesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostContentmanagementSharesUnauthorized() *PostContentmanagementSharesUn
 	return &PostContentmanagementSharesUnauthorized{}
 }
 
-/*PostContentmanagementSharesUnauthorized handles this case with default header values.
+/*
+PostContentmanagementSharesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostContentmanagementSharesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement shares unauthorized response has a 2xx status code
+func (o *PostContentmanagementSharesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement shares unauthorized response has a 3xx status code
+func (o *PostContentmanagementSharesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement shares unauthorized response has a 4xx status code
+func (o *PostContentmanagementSharesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement shares unauthorized response has a 5xx status code
+func (o *PostContentmanagementSharesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement shares unauthorized response a status code equal to that given
+func (o *PostContentmanagementSharesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostContentmanagementSharesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostContentmanagementSharesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostContentmanagementSharesForbidden() *PostContentmanagementSharesForbi
 	return &PostContentmanagementSharesForbidden{}
 }
 
-/*PostContentmanagementSharesForbidden handles this case with default header values.
+/*
+PostContentmanagementSharesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostContentmanagementSharesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement shares forbidden response has a 2xx status code
+func (o *PostContentmanagementSharesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement shares forbidden response has a 3xx status code
+func (o *PostContentmanagementSharesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement shares forbidden response has a 4xx status code
+func (o *PostContentmanagementSharesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement shares forbidden response has a 5xx status code
+func (o *PostContentmanagementSharesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement shares forbidden response a status code equal to that given
+func (o *PostContentmanagementSharesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostContentmanagementSharesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostContentmanagementSharesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostContentmanagementSharesNotFound() *PostContentmanagementSharesNotFou
 	return &PostContentmanagementSharesNotFound{}
 }
 
-/*PostContentmanagementSharesNotFound handles this case with default header values.
+/*
+PostContentmanagementSharesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostContentmanagementSharesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement shares not found response has a 2xx status code
+func (o *PostContentmanagementSharesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement shares not found response has a 3xx status code
+func (o *PostContentmanagementSharesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement shares not found response has a 4xx status code
+func (o *PostContentmanagementSharesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement shares not found response has a 5xx status code
+func (o *PostContentmanagementSharesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement shares not found response a status code equal to that given
+func (o *PostContentmanagementSharesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostContentmanagementSharesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostContentmanagementSharesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostContentmanagementSharesRequestTimeout() *PostContentmanagementShares
 	return &PostContentmanagementSharesRequestTimeout{}
 }
 
-/*PostContentmanagementSharesRequestTimeout handles this case with default header values.
+/*
+PostContentmanagementSharesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostContentmanagementSharesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement shares request timeout response has a 2xx status code
+func (o *PostContentmanagementSharesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement shares request timeout response has a 3xx status code
+func (o *PostContentmanagementSharesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement shares request timeout response has a 4xx status code
+func (o *PostContentmanagementSharesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement shares request timeout response has a 5xx status code
+func (o *PostContentmanagementSharesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement shares request timeout response a status code equal to that given
+func (o *PostContentmanagementSharesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostContentmanagementSharesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostContentmanagementSharesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostContentmanagementSharesRequestEntityTooLarge() *PostContentmanagemen
 	return &PostContentmanagementSharesRequestEntityTooLarge{}
 }
 
-/*PostContentmanagementSharesRequestEntityTooLarge handles this case with default header values.
+/*
+PostContentmanagementSharesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostContentmanagementSharesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement shares request entity too large response has a 2xx status code
+func (o *PostContentmanagementSharesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement shares request entity too large response has a 3xx status code
+func (o *PostContentmanagementSharesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement shares request entity too large response has a 4xx status code
+func (o *PostContentmanagementSharesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement shares request entity too large response has a 5xx status code
+func (o *PostContentmanagementSharesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement shares request entity too large response a status code equal to that given
+func (o *PostContentmanagementSharesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostContentmanagementSharesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostContentmanagementSharesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostContentmanagementSharesUnsupportedMediaType() *PostContentmanagement
 	return &PostContentmanagementSharesUnsupportedMediaType{}
 }
 
-/*PostContentmanagementSharesUnsupportedMediaType handles this case with default header values.
+/*
+PostContentmanagementSharesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostContentmanagementSharesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement shares unsupported media type response has a 2xx status code
+func (o *PostContentmanagementSharesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement shares unsupported media type response has a 3xx status code
+func (o *PostContentmanagementSharesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement shares unsupported media type response has a 4xx status code
+func (o *PostContentmanagementSharesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement shares unsupported media type response has a 5xx status code
+func (o *PostContentmanagementSharesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement shares unsupported media type response a status code equal to that given
+func (o *PostContentmanagementSharesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostContentmanagementSharesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostContentmanagementSharesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostContentmanagementSharesTooManyRequests() *PostContentmanagementShare
 	return &PostContentmanagementSharesTooManyRequests{}
 }
 
-/*PostContentmanagementSharesTooManyRequests handles this case with default header values.
+/*
+PostContentmanagementSharesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostContentmanagementSharesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement shares too many requests response has a 2xx status code
+func (o *PostContentmanagementSharesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement shares too many requests response has a 3xx status code
+func (o *PostContentmanagementSharesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement shares too many requests response has a 4xx status code
+func (o *PostContentmanagementSharesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement shares too many requests response has a 5xx status code
+func (o *PostContentmanagementSharesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement shares too many requests response a status code equal to that given
+func (o *PostContentmanagementSharesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostContentmanagementSharesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostContentmanagementSharesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostContentmanagementSharesInternalServerError() *PostContentmanagementS
 	return &PostContentmanagementSharesInternalServerError{}
 }
 
-/*PostContentmanagementSharesInternalServerError handles this case with default header values.
+/*
+PostContentmanagementSharesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostContentmanagementSharesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement shares internal server error response has a 2xx status code
+func (o *PostContentmanagementSharesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement shares internal server error response has a 3xx status code
+func (o *PostContentmanagementSharesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement shares internal server error response has a 4xx status code
+func (o *PostContentmanagementSharesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement shares internal server error response has a 5xx status code
+func (o *PostContentmanagementSharesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement shares internal server error response a status code equal to that given
+func (o *PostContentmanagementSharesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostContentmanagementSharesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostContentmanagementSharesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostContentmanagementSharesServiceUnavailable() *PostContentmanagementSh
 	return &PostContentmanagementSharesServiceUnavailable{}
 }
 
-/*PostContentmanagementSharesServiceUnavailable handles this case with default header values.
+/*
+PostContentmanagementSharesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostContentmanagementSharesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement shares service unavailable response has a 2xx status code
+func (o *PostContentmanagementSharesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement shares service unavailable response has a 3xx status code
+func (o *PostContentmanagementSharesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement shares service unavailable response has a 4xx status code
+func (o *PostContentmanagementSharesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement shares service unavailable response has a 5xx status code
+func (o *PostContentmanagementSharesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement shares service unavailable response a status code equal to that given
+func (o *PostContentmanagementSharesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostContentmanagementSharesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostContentmanagementSharesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostContentmanagementSharesGatewayTimeout() *PostContentmanagementShares
 	return &PostContentmanagementSharesGatewayTimeout{}
 }
 
-/*PostContentmanagementSharesGatewayTimeout handles this case with default header values.
+/*
+PostContentmanagementSharesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostContentmanagementSharesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement shares gateway timeout response has a 2xx status code
+func (o *PostContentmanagementSharesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement shares gateway timeout response has a 3xx status code
+func (o *PostContentmanagementSharesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement shares gateway timeout response has a 4xx status code
+func (o *PostContentmanagementSharesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement shares gateway timeout response has a 5xx status code
+func (o *PostContentmanagementSharesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement shares gateway timeout response a status code equal to that given
+func (o *PostContentmanagementSharesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostContentmanagementSharesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostContentmanagementSharesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/shares][%d] postContentmanagementSharesGatewayTimeout  %+v", 504, o.Payload)
 }
 

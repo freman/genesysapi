@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -53,7 +55,6 @@ func (m *BotIntent) validateName(formats strfmt.Registry) error {
 }
 
 func (m *BotIntent) validateSlots(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Slots) { // not required
 		return nil
 	}
@@ -65,6 +66,40 @@ func (m *BotIntent) validateSlots(formats strfmt.Registry) error {
 		}
 		if val, ok := m.Slots[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("slots" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("slots" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bot intent based on the context it is used
+func (m *BotIntent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSlots(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BotIntent) contextValidateSlots(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.Slots {
+
+		if val, ok := m.Slots[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
 				return err
 			}
 		}

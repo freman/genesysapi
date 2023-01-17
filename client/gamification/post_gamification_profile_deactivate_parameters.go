@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostGamificationProfileDeactivateParams creates a new PostGamificationProfileDeactivateParams object
-// with the default values initialized.
+// NewPostGamificationProfileDeactivateParams creates a new PostGamificationProfileDeactivateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostGamificationProfileDeactivateParams() *PostGamificationProfileDeactivateParams {
-	var ()
 	return &PostGamificationProfileDeactivateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostGamificationProfileDeactivateParamsWithTimeout creates a new PostGamificationProfileDeactivateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostGamificationProfileDeactivateParamsWithTimeout(timeout time.Duration) *PostGamificationProfileDeactivateParams {
-	var ()
 	return &PostGamificationProfileDeactivateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostGamificationProfileDeactivateParamsWithContext creates a new PostGamificationProfileDeactivateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostGamificationProfileDeactivateParamsWithContext(ctx context.Context) *PostGamificationProfileDeactivateParams {
-	var ()
 	return &PostGamificationProfileDeactivateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostGamificationProfileDeactivateParamsWithHTTPClient creates a new PostGamificationProfileDeactivateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostGamificationProfileDeactivateParamsWithHTTPClient(client *http.Client) *PostGamificationProfileDeactivateParams {
-	var ()
 	return &PostGamificationProfileDeactivateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostGamificationProfileDeactivateParams contains all the parameters to send to the API endpoint
-for the post gamification profile deactivate operation typically these are written to a http.Request
+/*
+PostGamificationProfileDeactivateParams contains all the parameters to send to the API endpoint
+
+	for the post gamification profile deactivate operation.
+
+	Typically these are written to a http.Request.
 */
 type PostGamificationProfileDeactivateParams struct {
 
-	/*ProfileID
-	  performanceProfileId
+	/* ProfileID.
 
+	   performanceProfileId
 	*/
 	ProfileID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post gamification profile deactivate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGamificationProfileDeactivateParams) WithDefaults() *PostGamificationProfileDeactivateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post gamification profile deactivate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGamificationProfileDeactivateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post gamification profile deactivate params

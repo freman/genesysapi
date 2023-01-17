@@ -95,7 +95,6 @@ func (o *DeleteRecordingCrossplatformMediaretentionpolicyReader) ReadResponse(re
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteRecordingCrossplatformMediaretentionpolicyOK() *DeleteRecordingCro
 	return &DeleteRecordingCrossplatformMediaretentionpolicyOK{}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpolicyOK handles this case with default header values.
+/*
+DeleteRecordingCrossplatformMediaretentionpolicyOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteRecordingCrossplatformMediaretentionpolicyOK struct {
 }
 
+// IsSuccess returns true when this delete recording crossplatform mediaretentionpolicy o k response has a 2xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete recording crossplatform mediaretentionpolicy o k response has a 3xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording crossplatform mediaretentionpolicy o k response has a 4xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete recording crossplatform mediaretentionpolicy o k response has a 5xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording crossplatform mediaretentionpolicy o k response a status code equal to that given
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteRecordingCrossplatformMediaretentionpolicyOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyOK ", 200)
+}
+
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteRecordingCrossplatformMediaretentionpolicyBadRequest() *DeleteReco
 	return &DeleteRecordingCrossplatformMediaretentionpolicyBadRequest{}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpolicyBadRequest handles this case with default header values.
+/*
+DeleteRecordingCrossplatformMediaretentionpolicyBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteRecordingCrossplatformMediaretentionpolicyBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording crossplatform mediaretentionpolicy bad request response has a 2xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording crossplatform mediaretentionpolicy bad request response has a 3xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording crossplatform mediaretentionpolicy bad request response has a 4xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording crossplatform mediaretentionpolicy bad request response has a 5xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording crossplatform mediaretentionpolicy bad request response a status code equal to that given
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteRecordingCrossplatformMediaretentionpolicyBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteRecordingCrossplatformMediaretentionpolicyUnauthorized() *DeleteRe
 	return &DeleteRecordingCrossplatformMediaretentionpolicyUnauthorized{}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpolicyUnauthorized handles this case with default header values.
+/*
+DeleteRecordingCrossplatformMediaretentionpolicyUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteRecordingCrossplatformMediaretentionpolicyUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording crossplatform mediaretentionpolicy unauthorized response has a 2xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording crossplatform mediaretentionpolicy unauthorized response has a 3xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording crossplatform mediaretentionpolicy unauthorized response has a 4xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording crossplatform mediaretentionpolicy unauthorized response has a 5xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording crossplatform mediaretentionpolicy unauthorized response a status code equal to that given
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteRecordingCrossplatformMediaretentionpolicyForbidden() *DeleteRecor
 	return &DeleteRecordingCrossplatformMediaretentionpolicyForbidden{}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpolicyForbidden handles this case with default header values.
+/*
+DeleteRecordingCrossplatformMediaretentionpolicyForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteRecordingCrossplatformMediaretentionpolicyForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording crossplatform mediaretentionpolicy forbidden response has a 2xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording crossplatform mediaretentionpolicy forbidden response has a 3xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording crossplatform mediaretentionpolicy forbidden response has a 4xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording crossplatform mediaretentionpolicy forbidden response has a 5xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording crossplatform mediaretentionpolicy forbidden response a status code equal to that given
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRecordingCrossplatformMediaretentionpolicyForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteRecordingCrossplatformMediaretentionpolicyNotFound() *DeleteRecord
 	return &DeleteRecordingCrossplatformMediaretentionpolicyNotFound{}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpolicyNotFound handles this case with default header values.
+/*
+DeleteRecordingCrossplatformMediaretentionpolicyNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteRecordingCrossplatformMediaretentionpolicyNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording crossplatform mediaretentionpolicy not found response has a 2xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording crossplatform mediaretentionpolicy not found response has a 3xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording crossplatform mediaretentionpolicy not found response has a 4xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording crossplatform mediaretentionpolicy not found response has a 5xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording crossplatform mediaretentionpolicy not found response a status code equal to that given
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteRecordingCrossplatformMediaretentionpolicyNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteRecordingCrossplatformMediaretentionpolicyRequestTimeout() *Delete
 	return &DeleteRecordingCrossplatformMediaretentionpolicyRequestTimeout{}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpolicyRequestTimeout handles this case with default header values.
+/*
+DeleteRecordingCrossplatformMediaretentionpolicyRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteRecordingCrossplatformMediaretentionpolicyRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording crossplatform mediaretentionpolicy request timeout response has a 2xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording crossplatform mediaretentionpolicy request timeout response has a 3xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording crossplatform mediaretentionpolicy request timeout response has a 4xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording crossplatform mediaretentionpolicy request timeout response has a 5xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording crossplatform mediaretentionpolicy request timeout response a status code equal to that given
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge() 
 	return &DeleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge{}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording crossplatform mediaretentionpolicy request entity too large response has a 2xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording crossplatform mediaretentionpolicy request entity too large response has a 3xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording crossplatform mediaretentionpolicy request entity too large response has a 4xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording crossplatform mediaretentionpolicy request entity too large response has a 5xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording crossplatform mediaretentionpolicy request entity too large response a status code equal to that given
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType() *
 	return &DeleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType{}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType handles this case with default header values.
+/*
+DeleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording crossplatform mediaretentionpolicy unsupported media type response has a 2xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording crossplatform mediaretentionpolicy unsupported media type response has a 3xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording crossplatform mediaretentionpolicy unsupported media type response has a 4xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording crossplatform mediaretentionpolicy unsupported media type response has a 5xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording crossplatform mediaretentionpolicy unsupported media type response a status code equal to that given
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteRecordingCrossplatformMediaretentionpolicyTooManyRequests() *Delet
 	return &DeleteRecordingCrossplatformMediaretentionpolicyTooManyRequests{}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpolicyTooManyRequests handles this case with default header values.
+/*
+DeleteRecordingCrossplatformMediaretentionpolicyTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteRecordingCrossplatformMediaretentionpolicyTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording crossplatform mediaretentionpolicy too many requests response has a 2xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording crossplatform mediaretentionpolicy too many requests response has a 3xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording crossplatform mediaretentionpolicy too many requests response has a 4xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete recording crossplatform mediaretentionpolicy too many requests response has a 5xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete recording crossplatform mediaretentionpolicy too many requests response a status code equal to that given
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteRecordingCrossplatformMediaretentionpolicyTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteRecordingCrossplatformMediaretentionpolicyInternalServerError() *D
 	return &DeleteRecordingCrossplatformMediaretentionpolicyInternalServerError{}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpolicyInternalServerError handles this case with default header values.
+/*
+DeleteRecordingCrossplatformMediaretentionpolicyInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteRecordingCrossplatformMediaretentionpolicyInternalServerError struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording crossplatform mediaretentionpolicy internal server error response has a 2xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording crossplatform mediaretentionpolicy internal server error response has a 3xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording crossplatform mediaretentionpolicy internal server error response has a 4xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete recording crossplatform mediaretentionpolicy internal server error response has a 5xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete recording crossplatform mediaretentionpolicy internal server error response a status code equal to that given
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteRecordingCrossplatformMediaretentionpolicyInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable() *De
 	return &DeleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable{}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable handles this case with default header values.
+/*
+DeleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording crossplatform mediaretentionpolicy service unavailable response has a 2xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording crossplatform mediaretentionpolicy service unavailable response has a 3xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording crossplatform mediaretentionpolicy service unavailable response has a 4xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete recording crossplatform mediaretentionpolicy service unavailable response has a 5xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete recording crossplatform mediaretentionpolicy service unavailable response a status code equal to that given
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout() *Delete
 	return &DeleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout{}
 }
 
-/*DeleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout handles this case with default header values.
+/*
+DeleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete recording crossplatform mediaretentionpolicy gateway timeout response has a 2xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete recording crossplatform mediaretentionpolicy gateway timeout response has a 3xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete recording crossplatform mediaretentionpolicy gateway timeout response has a 4xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete recording crossplatform mediaretentionpolicy gateway timeout response has a 5xx status code
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete recording crossplatform mediaretentionpolicy gateway timeout response a status code equal to that given
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/recording/crossplatform/mediaretentionpolicies/{policyId}][%d] deleteRecordingCrossplatformMediaretentionpolicyGatewayTimeout  %+v", 504, o.Payload)
 }
 

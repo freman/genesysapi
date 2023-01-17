@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -20,11 +21,13 @@ import (
 type Draft struct {
 
 	// Date when the draft was created. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Example: 2020-05-20T23:56:07.268
 	// Read Only: true
 	// Format: date-time
 	DateCreated strfmt.DateTime `json:"dateCreated,omitempty"`
 
 	// Date when the draft was updated. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+	// Example: 2020-05-20T23:56:07.268
 	// Read Only: true
 	// Format: date-time
 	DateModified strfmt.DateTime `json:"dateModified,omitempty"`
@@ -49,6 +52,10 @@ type Draft struct {
 	// Read Only: true
 	// Format: uri
 	SelfURI strfmt.URI `json:"selfUri,omitempty"`
+
+	// Draft topic object.
+	// Read Only: true
+	Topics []*DraftTopics `json:"topics"`
 }
 
 // Validate validates this draft
@@ -79,6 +86,10 @@ func (m *Draft) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateTopics(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
@@ -86,7 +97,6 @@ func (m *Draft) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Draft) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -99,7 +109,6 @@ func (m *Draft) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Draft) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -112,7 +121,6 @@ func (m *Draft) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *Draft) validateIntents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Intents) { // not required
 		return nil
 	}
@@ -126,6 +134,8 @@ func (m *Draft) validateIntents(formats strfmt.Registry) error {
 			if err := m.Intents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -137,7 +147,6 @@ func (m *Draft) validateIntents(formats strfmt.Registry) error {
 }
 
 func (m *Draft) validateMiner(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Miner) { // not required
 		return nil
 	}
@@ -146,6 +155,8 @@ func (m *Draft) validateMiner(formats strfmt.Registry) error {
 		if err := m.Miner.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("miner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("miner")
 			}
 			return err
 		}
@@ -164,13 +175,176 @@ func (m *Draft) validateName(formats strfmt.Registry) error {
 }
 
 func (m *Draft) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Draft) validateTopics(formats strfmt.Registry) error {
+	if swag.IsZero(m.Topics) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Topics); i++ {
+		if swag.IsZero(m.Topics[i]) { // not required
+			continue
+		}
+
+		if m.Topics[i] != nil {
+			if err := m.Topics[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("topics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("topics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this draft based on the context it is used
+func (m *Draft) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMiner(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTopics(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Draft) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Draft) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Draft) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Draft) contextValidateIntents(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "intents", "body", []*DraftIntents(m.Intents)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Intents); i++ {
+
+		if m.Intents[i] != nil {
+			if err := m.Intents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Draft) contextValidateMiner(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Miner != nil {
+		if err := m.Miner.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("miner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("miner")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Draft) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Draft) contextValidateTopics(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "topics", "body", []*DraftTopics(m.Topics)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Topics); i++ {
+
+		if m.Topics[i] != nil {
+			if err := m.Topics[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("topics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("topics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

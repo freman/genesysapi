@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostIntegrationsCredentialsParams creates a new PostIntegrationsCredentialsParams object
-// with the default values initialized.
+// NewPostIntegrationsCredentialsParams creates a new PostIntegrationsCredentialsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostIntegrationsCredentialsParams() *PostIntegrationsCredentialsParams {
-	var ()
 	return &PostIntegrationsCredentialsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostIntegrationsCredentialsParamsWithTimeout creates a new PostIntegrationsCredentialsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostIntegrationsCredentialsParamsWithTimeout(timeout time.Duration) *PostIntegrationsCredentialsParams {
-	var ()
 	return &PostIntegrationsCredentialsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostIntegrationsCredentialsParamsWithContext creates a new PostIntegrationsCredentialsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostIntegrationsCredentialsParamsWithContext(ctx context.Context) *PostIntegrationsCredentialsParams {
-	var ()
 	return &PostIntegrationsCredentialsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostIntegrationsCredentialsParamsWithHTTPClient creates a new PostIntegrationsCredentialsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostIntegrationsCredentialsParamsWithHTTPClient(client *http.Client) *PostIntegrationsCredentialsParams {
-	var ()
 	return &PostIntegrationsCredentialsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostIntegrationsCredentialsParams contains all the parameters to send to the API endpoint
-for the post integrations credentials operation typically these are written to a http.Request
+/*
+PostIntegrationsCredentialsParams contains all the parameters to send to the API endpoint
+
+	for the post integrations credentials operation.
+
+	Typically these are written to a http.Request.
 */
 type PostIntegrationsCredentialsParams struct {
 
-	/*Body
-	  Credential
+	/* Body.
 
+	   Credential
 	*/
 	Body *models.Credential
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post integrations credentials params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostIntegrationsCredentialsParams) WithDefaults() *PostIntegrationsCredentialsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post integrations credentials params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostIntegrationsCredentialsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post integrations credentials params
@@ -124,7 +140,6 @@ func (o *PostIntegrationsCredentialsParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

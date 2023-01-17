@@ -95,7 +95,6 @@ func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastReader) ReadR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent() *D
 	return &DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent{}
 }
 
-/*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent handles this case with default header values.
+/*
+DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent describes a response with status code 204, with default header values.
 
 The forecast was successfully deleted
 */
 type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent struct {
 }
 
+// IsSuccess returns true when this delete workforcemanagement businessunit week shorttermforecast no content response has a 2xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete workforcemanagement businessunit week shorttermforecast no content response has a 3xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement businessunit week shorttermforecast no content response has a 4xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete workforcemanagement businessunit week shorttermforecast no content response has a 5xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement businessunit week shorttermforecast no content response a status code equal to that given
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent ", 204)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest() *
 	return &DeleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest{}
 }
 
-/*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest handles this case with default header values.
+/*
+DeleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement businessunit week shorttermforecast bad request response has a 2xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement businessunit week shorttermforecast bad request response has a 3xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement businessunit week shorttermforecast bad request response has a 4xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement businessunit week shorttermforecast bad request response has a 5xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement businessunit week shorttermforecast bad request response a status code equal to that given
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized()
 	return &DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized{}
 }
 
-/*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized handles this case with default header values.
+/*
+DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement businessunit week shorttermforecast unauthorized response has a 2xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement businessunit week shorttermforecast unauthorized response has a 3xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement businessunit week shorttermforecast unauthorized response has a 4xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement businessunit week shorttermforecast unauthorized response has a 5xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement businessunit week shorttermforecast unauthorized response a status code equal to that given
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden() *D
 	return &DeleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden{}
 }
 
-/*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden handles this case with default header values.
+/*
+DeleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement businessunit week shorttermforecast forbidden response has a 2xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement businessunit week shorttermforecast forbidden response has a 3xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement businessunit week shorttermforecast forbidden response has a 4xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement businessunit week shorttermforecast forbidden response has a 5xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement businessunit week shorttermforecast forbidden response a status code equal to that given
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound() *De
 	return &DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound{}
 }
 
-/*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound handles this case with default header values.
+/*
+DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement businessunit week shorttermforecast not found response has a 2xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement businessunit week shorttermforecast not found response has a 3xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement businessunit week shorttermforecast not found response has a 4xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement businessunit week shorttermforecast not found response has a 5xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement businessunit week shorttermforecast not found response a status code equal to that given
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout
 	return &DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout{}
 }
 
-/*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout handles this case with default header values.
+/*
+DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement businessunit week shorttermforecast request timeout response has a 2xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement businessunit week shorttermforecast request timeout response has a 3xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement businessunit week shorttermforecast request timeout response has a 4xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement businessunit week shorttermforecast request timeout response has a 5xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement businessunit week shorttermforecast request timeout response a status code equal to that given
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityT
 	return &DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooLarge{}
 }
 
-/*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooL
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement businessunit week shorttermforecast request entity too large response has a 2xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement businessunit week shorttermforecast request entity too large response has a 3xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement businessunit week shorttermforecast request entity too large response has a 4xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement businessunit week shorttermforecast request entity too large response has a 5xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement businessunit week shorttermforecast request entity too large response a status code equal to that given
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMed
 	return &DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaType{}
 }
 
-/*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaType handles this case with default header values.
+/*
+DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaT
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement businessunit week shorttermforecast unsupported media type response has a 2xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement businessunit week shorttermforecast unsupported media type response has a 3xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement businessunit week shorttermforecast unsupported media type response has a 4xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement businessunit week shorttermforecast unsupported media type response has a 5xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement businessunit week shorttermforecast unsupported media type response a status code equal to that given
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequest
 	return &DeleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests{}
 }
 
-/*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests handles this case with default header values.
+/*
+DeleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement businessunit week shorttermforecast too many requests response has a 2xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement businessunit week shorttermforecast too many requests response has a 3xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement businessunit week shorttermforecast too many requests response has a 4xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete workforcemanagement businessunit week shorttermforecast too many requests response has a 5xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete workforcemanagement businessunit week shorttermforecast too many requests response a status code equal to that given
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServer
 	return &DeleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerError{}
 }
 
-/*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerError handles this case with default header values.
+/*
+DeleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerErr
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement businessunit week shorttermforecast internal server error response has a 2xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement businessunit week shorttermforecast internal server error response has a 3xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement businessunit week shorttermforecast internal server error response has a 4xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete workforcemanagement businessunit week shorttermforecast internal server error response has a 5xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete workforcemanagement businessunit week shorttermforecast internal server error response a status code equal to that given
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavail
 	return &DeleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailable{}
 }
 
-/*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailable handles this case with default header values.
+/*
+DeleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailabl
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement businessunit week shorttermforecast service unavailable response has a 2xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement businessunit week shorttermforecast service unavailable response has a 3xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement businessunit week shorttermforecast service unavailable response has a 4xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete workforcemanagement businessunit week shorttermforecast service unavailable response has a 5xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete workforcemanagement businessunit week shorttermforecast service unavailable response a status code equal to that given
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout
 	return &DeleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout{}
 }
 
-/*DeleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout handles this case with default header values.
+/*
+DeleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete workforcemanagement businessunit week shorttermforecast gateway timeout response has a 2xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete workforcemanagement businessunit week shorttermforecast gateway timeout response has a 3xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete workforcemanagement businessunit week shorttermforecast gateway timeout response has a 4xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete workforcemanagement businessunit week shorttermforecast gateway timeout response has a 5xx status code
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete workforcemanagement businessunit week shorttermforecast gateway timeout response a status code equal to that given
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts/{forecastId}][%d] deleteWorkforcemanagementBusinessunitWeekShorttermforecastGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,84 +16,109 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonySiptracesParams creates a new GetTelephonySiptracesParams object
-// with the default values initialized.
+// NewGetTelephonySiptracesParams creates a new GetTelephonySiptracesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonySiptracesParams() *GetTelephonySiptracesParams {
-	var ()
 	return &GetTelephonySiptracesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonySiptracesParamsWithTimeout creates a new GetTelephonySiptracesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonySiptracesParamsWithTimeout(timeout time.Duration) *GetTelephonySiptracesParams {
-	var ()
 	return &GetTelephonySiptracesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonySiptracesParamsWithContext creates a new GetTelephonySiptracesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonySiptracesParamsWithContext(ctx context.Context) *GetTelephonySiptracesParams {
-	var ()
 	return &GetTelephonySiptracesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonySiptracesParamsWithHTTPClient creates a new GetTelephonySiptracesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonySiptracesParamsWithHTTPClient(client *http.Client) *GetTelephonySiptracesParams {
-	var ()
 	return &GetTelephonySiptracesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonySiptracesParams contains all the parameters to send to the API endpoint
-for the get telephony siptraces operation typically these are written to a http.Request
+/*
+GetTelephonySiptracesParams contains all the parameters to send to the API endpoint
+
+	for the get telephony siptraces operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonySiptracesParams struct {
 
-	/*CallID
-	  unique identification of the placed call
+	/* CallID.
 
+	   unique identification of the placed call
 	*/
 	CallID *string
-	/*ConversationID
-	  Unique identification of the conversation
 
+	/* ConversationID.
+
+	   Unique identification of the conversation
 	*/
 	ConversationID *string
-	/*DateEnd
-	  End date of the search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
+	/* DateEnd.
+
+	   End date of the search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+
+	   Format: date-time
 	*/
 	DateEnd strfmt.DateTime
-	/*DateStart
-	  Start date of the search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
 
+	/* DateStart.
+
+	   Start date of the search. Date time is represented as an ISO-8601 string. For example: yyyy-MM-ddTHH:mm:ss[.mmm]Z
+
+	   Format: date-time
 	*/
 	DateStart strfmt.DateTime
-	/*FromUser
-	  user who placed the call
 
+	/* FromUser.
+
+	   user who placed the call
 	*/
 	FromUser *string
-	/*ToUser
-	  User to who the call was placed
 
+	/* ToUser.
+
+	   User to who the call was placed
 	*/
 	ToUser *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony siptraces params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonySiptracesParams) WithDefaults() *GetTelephonySiptracesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony siptraces params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonySiptracesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony siptraces params
@@ -207,38 +232,41 @@ func (o *GetTelephonySiptracesParams) WriteToRequest(r runtime.ClientRequest, re
 
 		// query param callId
 		var qrCallID string
+
 		if o.CallID != nil {
 			qrCallID = *o.CallID
 		}
 		qCallID := qrCallID
 		if qCallID != "" {
+
 			if err := r.SetQueryParam("callId", qCallID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ConversationID != nil {
 
 		// query param conversationId
 		var qrConversationID string
+
 		if o.ConversationID != nil {
 			qrConversationID = *o.ConversationID
 		}
 		qConversationID := qrConversationID
 		if qConversationID != "" {
+
 			if err := r.SetQueryParam("conversationId", qConversationID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// query param dateEnd
 	qrDateEnd := o.DateEnd
 	qDateEnd := qrDateEnd.String()
 	if qDateEnd != "" {
+
 		if err := r.SetQueryParam("dateEnd", qDateEnd); err != nil {
 			return err
 		}
@@ -248,6 +276,7 @@ func (o *GetTelephonySiptracesParams) WriteToRequest(r runtime.ClientRequest, re
 	qrDateStart := o.DateStart
 	qDateStart := qrDateStart.String()
 	if qDateStart != "" {
+
 		if err := r.SetQueryParam("dateStart", qDateStart); err != nil {
 			return err
 		}
@@ -257,32 +286,34 @@ func (o *GetTelephonySiptracesParams) WriteToRequest(r runtime.ClientRequest, re
 
 		// query param fromUser
 		var qrFromUser string
+
 		if o.FromUser != nil {
 			qrFromUser = *o.FromUser
 		}
 		qFromUser := qrFromUser
 		if qFromUser != "" {
+
 			if err := r.SetQueryParam("fromUser", qFromUser); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ToUser != nil {
 
 		// query param toUser
 		var qrToUser string
+
 		if o.ToUser != nil {
 			qrToUser = *o.ToUser
 		}
 		qToUser := qrToUser
 		if qToUser != "" {
+
 			if err := r.SetQueryParam("toUser", qToUser); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

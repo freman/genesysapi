@@ -95,7 +95,6 @@ func (o *GetSearchReader) ReadResponse(response runtime.ClientResponse, consumer
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetSearchOK() *GetSearchOK {
 	return &GetSearchOK{}
 }
 
-/*GetSearchOK handles this case with default header values.
+/*
+GetSearchOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetSearchOK struct {
 	Payload *models.JSONNodeSearchResponse
 }
 
+// IsSuccess returns true when this get search o k response has a 2xx status code
+func (o *GetSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get search o k response has a 3xx status code
+func (o *GetSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search o k response has a 4xx status code
+func (o *GetSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get search o k response has a 5xx status code
+func (o *GetSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search o k response a status code equal to that given
+func (o *GetSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSearchOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchOK  %+v", 200, o.Payload)
+}
+
+func (o *GetSearchOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetSearchBadRequest() *GetSearchBadRequest {
 	return &GetSearchBadRequest{}
 }
 
-/*GetSearchBadRequest handles this case with default header values.
+/*
+GetSearchBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetSearchBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get search bad request response has a 2xx status code
+func (o *GetSearchBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search bad request response has a 3xx status code
+func (o *GetSearchBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search bad request response has a 4xx status code
+func (o *GetSearchBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get search bad request response has a 5xx status code
+func (o *GetSearchBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search bad request response a status code equal to that given
+func (o *GetSearchBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetSearchBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetSearchBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetSearchUnauthorized() *GetSearchUnauthorized {
 	return &GetSearchUnauthorized{}
 }
 
-/*GetSearchUnauthorized handles this case with default header values.
+/*
+GetSearchUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetSearchUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get search unauthorized response has a 2xx status code
+func (o *GetSearchUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search unauthorized response has a 3xx status code
+func (o *GetSearchUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search unauthorized response has a 4xx status code
+func (o *GetSearchUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get search unauthorized response has a 5xx status code
+func (o *GetSearchUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search unauthorized response a status code equal to that given
+func (o *GetSearchUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetSearchUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetSearchUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetSearchForbidden() *GetSearchForbidden {
 	return &GetSearchForbidden{}
 }
 
-/*GetSearchForbidden handles this case with default header values.
+/*
+GetSearchForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetSearchForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get search forbidden response has a 2xx status code
+func (o *GetSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search forbidden response has a 3xx status code
+func (o *GetSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search forbidden response has a 4xx status code
+func (o *GetSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get search forbidden response has a 5xx status code
+func (o *GetSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search forbidden response a status code equal to that given
+func (o *GetSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSearchForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetSearchForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetSearchNotFound() *GetSearchNotFound {
 	return &GetSearchNotFound{}
 }
 
-/*GetSearchNotFound handles this case with default header values.
+/*
+GetSearchNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetSearchNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get search not found response has a 2xx status code
+func (o *GetSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search not found response has a 3xx status code
+func (o *GetSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search not found response has a 4xx status code
+func (o *GetSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get search not found response has a 5xx status code
+func (o *GetSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search not found response a status code equal to that given
+func (o *GetSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetSearchNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetSearchNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetSearchRequestTimeout() *GetSearchRequestTimeout {
 	return &GetSearchRequestTimeout{}
 }
 
-/*GetSearchRequestTimeout handles this case with default header values.
+/*
+GetSearchRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetSearchRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get search request timeout response has a 2xx status code
+func (o *GetSearchRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search request timeout response has a 3xx status code
+func (o *GetSearchRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search request timeout response has a 4xx status code
+func (o *GetSearchRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get search request timeout response has a 5xx status code
+func (o *GetSearchRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search request timeout response a status code equal to that given
+func (o *GetSearchRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetSearchRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetSearchRequestEntityTooLarge() *GetSearchRequestEntityTooLarge {
 	return &GetSearchRequestEntityTooLarge{}
 }
 
-/*GetSearchRequestEntityTooLarge handles this case with default header values.
+/*
+GetSearchRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetSearchRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get search request entity too large response has a 2xx status code
+func (o *GetSearchRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search request entity too large response has a 3xx status code
+func (o *GetSearchRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search request entity too large response has a 4xx status code
+func (o *GetSearchRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get search request entity too large response has a 5xx status code
+func (o *GetSearchRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search request entity too large response a status code equal to that given
+func (o *GetSearchRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetSearchRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetSearchRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetSearchUnsupportedMediaType() *GetSearchUnsupportedMediaType {
 	return &GetSearchUnsupportedMediaType{}
 }
 
-/*GetSearchUnsupportedMediaType handles this case with default header values.
+/*
+GetSearchUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetSearchUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get search unsupported media type response has a 2xx status code
+func (o *GetSearchUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search unsupported media type response has a 3xx status code
+func (o *GetSearchUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search unsupported media type response has a 4xx status code
+func (o *GetSearchUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get search unsupported media type response has a 5xx status code
+func (o *GetSearchUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search unsupported media type response a status code equal to that given
+func (o *GetSearchUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetSearchUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetSearchUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetSearchTooManyRequests() *GetSearchTooManyRequests {
 	return &GetSearchTooManyRequests{}
 }
 
-/*GetSearchTooManyRequests handles this case with default header values.
+/*
+GetSearchTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetSearchTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get search too many requests response has a 2xx status code
+func (o *GetSearchTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search too many requests response has a 3xx status code
+func (o *GetSearchTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search too many requests response has a 4xx status code
+func (o *GetSearchTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get search too many requests response has a 5xx status code
+func (o *GetSearchTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get search too many requests response a status code equal to that given
+func (o *GetSearchTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetSearchTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetSearchTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetSearchInternalServerError() *GetSearchInternalServerError {
 	return &GetSearchInternalServerError{}
 }
 
-/*GetSearchInternalServerError handles this case with default header values.
+/*
+GetSearchInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetSearchInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get search internal server error response has a 2xx status code
+func (o *GetSearchInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search internal server error response has a 3xx status code
+func (o *GetSearchInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search internal server error response has a 4xx status code
+func (o *GetSearchInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get search internal server error response has a 5xx status code
+func (o *GetSearchInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get search internal server error response a status code equal to that given
+func (o *GetSearchInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetSearchInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetSearchInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetSearchServiceUnavailable() *GetSearchServiceUnavailable {
 	return &GetSearchServiceUnavailable{}
 }
 
-/*GetSearchServiceUnavailable handles this case with default header values.
+/*
+GetSearchServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetSearchServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get search service unavailable response has a 2xx status code
+func (o *GetSearchServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search service unavailable response has a 3xx status code
+func (o *GetSearchServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search service unavailable response has a 4xx status code
+func (o *GetSearchServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get search service unavailable response has a 5xx status code
+func (o *GetSearchServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get search service unavailable response a status code equal to that given
+func (o *GetSearchServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetSearchServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetSearchServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetSearchGatewayTimeout() *GetSearchGatewayTimeout {
 	return &GetSearchGatewayTimeout{}
 }
 
-/*GetSearchGatewayTimeout handles this case with default header values.
+/*
+GetSearchGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetSearchGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get search gateway timeout response has a 2xx status code
+func (o *GetSearchGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get search gateway timeout response has a 3xx status code
+func (o *GetSearchGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get search gateway timeout response has a 4xx status code
+func (o *GetSearchGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get search gateway timeout response has a 5xx status code
+func (o *GetSearchGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get search gateway timeout response a status code equal to that given
+func (o *GetSearchGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetSearchGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetSearchGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/search][%d] getSearchGatewayTimeout  %+v", 504, o.Payload)
 }
 

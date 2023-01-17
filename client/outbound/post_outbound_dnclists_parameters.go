@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOutboundDnclistsParams creates a new PostOutboundDnclistsParams object
-// with the default values initialized.
+// NewPostOutboundDnclistsParams creates a new PostOutboundDnclistsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundDnclistsParams() *PostOutboundDnclistsParams {
-	var ()
 	return &PostOutboundDnclistsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundDnclistsParamsWithTimeout creates a new PostOutboundDnclistsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundDnclistsParamsWithTimeout(timeout time.Duration) *PostOutboundDnclistsParams {
-	var ()
 	return &PostOutboundDnclistsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundDnclistsParamsWithContext creates a new PostOutboundDnclistsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundDnclistsParamsWithContext(ctx context.Context) *PostOutboundDnclistsParams {
-	var ()
 	return &PostOutboundDnclistsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundDnclistsParamsWithHTTPClient creates a new PostOutboundDnclistsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundDnclistsParamsWithHTTPClient(client *http.Client) *PostOutboundDnclistsParams {
-	var ()
 	return &PostOutboundDnclistsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundDnclistsParams contains all the parameters to send to the API endpoint
-for the post outbound dnclists operation typically these are written to a http.Request
+/*
+PostOutboundDnclistsParams contains all the parameters to send to the API endpoint
+
+	for the post outbound dnclists operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundDnclistsParams struct {
 
-	/*Body
-	  DncList
+	/* Body.
 
+	   DncList
 	*/
 	Body *models.DncListCreate
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound dnclists params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundDnclistsParams) WithDefaults() *PostOutboundDnclistsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound dnclists params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundDnclistsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound dnclists params
@@ -124,7 +140,6 @@ func (o *PostOutboundDnclistsParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -95,7 +95,6 @@ func (o *PostAlertingInteractionstatsRulesReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostAlertingInteractionstatsRulesOK() *PostAlertingInteractionstatsRules
 	return &PostAlertingInteractionstatsRulesOK{}
 }
 
-/*PostAlertingInteractionstatsRulesOK handles this case with default header values.
+/*
+PostAlertingInteractionstatsRulesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostAlertingInteractionstatsRulesOK struct {
 	Payload *models.InteractionStatsRule
 }
 
+// IsSuccess returns true when this post alerting interactionstats rules o k response has a 2xx status code
+func (o *PostAlertingInteractionstatsRulesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post alerting interactionstats rules o k response has a 3xx status code
+func (o *PostAlertingInteractionstatsRulesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post alerting interactionstats rules o k response has a 4xx status code
+func (o *PostAlertingInteractionstatsRulesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post alerting interactionstats rules o k response has a 5xx status code
+func (o *PostAlertingInteractionstatsRulesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post alerting interactionstats rules o k response a status code equal to that given
+func (o *PostAlertingInteractionstatsRulesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostAlertingInteractionstatsRulesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostAlertingInteractionstatsRulesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostAlertingInteractionstatsRulesBadRequest() *PostAlertingInteractionst
 	return &PostAlertingInteractionstatsRulesBadRequest{}
 }
 
-/*PostAlertingInteractionstatsRulesBadRequest handles this case with default header values.
+/*
+PostAlertingInteractionstatsRulesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostAlertingInteractionstatsRulesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post alerting interactionstats rules bad request response has a 2xx status code
+func (o *PostAlertingInteractionstatsRulesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post alerting interactionstats rules bad request response has a 3xx status code
+func (o *PostAlertingInteractionstatsRulesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post alerting interactionstats rules bad request response has a 4xx status code
+func (o *PostAlertingInteractionstatsRulesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post alerting interactionstats rules bad request response has a 5xx status code
+func (o *PostAlertingInteractionstatsRulesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post alerting interactionstats rules bad request response a status code equal to that given
+func (o *PostAlertingInteractionstatsRulesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAlertingInteractionstatsRulesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAlertingInteractionstatsRulesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostAlertingInteractionstatsRulesUnauthorized() *PostAlertingInteraction
 	return &PostAlertingInteractionstatsRulesUnauthorized{}
 }
 
-/*PostAlertingInteractionstatsRulesUnauthorized handles this case with default header values.
+/*
+PostAlertingInteractionstatsRulesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostAlertingInteractionstatsRulesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post alerting interactionstats rules unauthorized response has a 2xx status code
+func (o *PostAlertingInteractionstatsRulesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post alerting interactionstats rules unauthorized response has a 3xx status code
+func (o *PostAlertingInteractionstatsRulesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post alerting interactionstats rules unauthorized response has a 4xx status code
+func (o *PostAlertingInteractionstatsRulesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post alerting interactionstats rules unauthorized response has a 5xx status code
+func (o *PostAlertingInteractionstatsRulesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post alerting interactionstats rules unauthorized response a status code equal to that given
+func (o *PostAlertingInteractionstatsRulesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAlertingInteractionstatsRulesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAlertingInteractionstatsRulesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostAlertingInteractionstatsRulesForbidden() *PostAlertingInteractionsta
 	return &PostAlertingInteractionstatsRulesForbidden{}
 }
 
-/*PostAlertingInteractionstatsRulesForbidden handles this case with default header values.
+/*
+PostAlertingInteractionstatsRulesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostAlertingInteractionstatsRulesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post alerting interactionstats rules forbidden response has a 2xx status code
+func (o *PostAlertingInteractionstatsRulesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post alerting interactionstats rules forbidden response has a 3xx status code
+func (o *PostAlertingInteractionstatsRulesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post alerting interactionstats rules forbidden response has a 4xx status code
+func (o *PostAlertingInteractionstatsRulesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post alerting interactionstats rules forbidden response has a 5xx status code
+func (o *PostAlertingInteractionstatsRulesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post alerting interactionstats rules forbidden response a status code equal to that given
+func (o *PostAlertingInteractionstatsRulesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAlertingInteractionstatsRulesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAlertingInteractionstatsRulesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostAlertingInteractionstatsRulesNotFound() *PostAlertingInteractionstat
 	return &PostAlertingInteractionstatsRulesNotFound{}
 }
 
-/*PostAlertingInteractionstatsRulesNotFound handles this case with default header values.
+/*
+PostAlertingInteractionstatsRulesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostAlertingInteractionstatsRulesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post alerting interactionstats rules not found response has a 2xx status code
+func (o *PostAlertingInteractionstatsRulesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post alerting interactionstats rules not found response has a 3xx status code
+func (o *PostAlertingInteractionstatsRulesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post alerting interactionstats rules not found response has a 4xx status code
+func (o *PostAlertingInteractionstatsRulesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post alerting interactionstats rules not found response has a 5xx status code
+func (o *PostAlertingInteractionstatsRulesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post alerting interactionstats rules not found response a status code equal to that given
+func (o *PostAlertingInteractionstatsRulesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAlertingInteractionstatsRulesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAlertingInteractionstatsRulesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostAlertingInteractionstatsRulesRequestTimeout() *PostAlertingInteracti
 	return &PostAlertingInteractionstatsRulesRequestTimeout{}
 }
 
-/*PostAlertingInteractionstatsRulesRequestTimeout handles this case with default header values.
+/*
+PostAlertingInteractionstatsRulesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostAlertingInteractionstatsRulesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post alerting interactionstats rules request timeout response has a 2xx status code
+func (o *PostAlertingInteractionstatsRulesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post alerting interactionstats rules request timeout response has a 3xx status code
+func (o *PostAlertingInteractionstatsRulesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post alerting interactionstats rules request timeout response has a 4xx status code
+func (o *PostAlertingInteractionstatsRulesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post alerting interactionstats rules request timeout response has a 5xx status code
+func (o *PostAlertingInteractionstatsRulesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post alerting interactionstats rules request timeout response a status code equal to that given
+func (o *PostAlertingInteractionstatsRulesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAlertingInteractionstatsRulesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAlertingInteractionstatsRulesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostAlertingInteractionstatsRulesRequestEntityTooLarge() *PostAlertingIn
 	return &PostAlertingInteractionstatsRulesRequestEntityTooLarge{}
 }
 
-/*PostAlertingInteractionstatsRulesRequestEntityTooLarge handles this case with default header values.
+/*
+PostAlertingInteractionstatsRulesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostAlertingInteractionstatsRulesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post alerting interactionstats rules request entity too large response has a 2xx status code
+func (o *PostAlertingInteractionstatsRulesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post alerting interactionstats rules request entity too large response has a 3xx status code
+func (o *PostAlertingInteractionstatsRulesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post alerting interactionstats rules request entity too large response has a 4xx status code
+func (o *PostAlertingInteractionstatsRulesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post alerting interactionstats rules request entity too large response has a 5xx status code
+func (o *PostAlertingInteractionstatsRulesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post alerting interactionstats rules request entity too large response a status code equal to that given
+func (o *PostAlertingInteractionstatsRulesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAlertingInteractionstatsRulesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAlertingInteractionstatsRulesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostAlertingInteractionstatsRulesUnsupportedMediaType() *PostAlertingInt
 	return &PostAlertingInteractionstatsRulesUnsupportedMediaType{}
 }
 
-/*PostAlertingInteractionstatsRulesUnsupportedMediaType handles this case with default header values.
+/*
+PostAlertingInteractionstatsRulesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostAlertingInteractionstatsRulesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post alerting interactionstats rules unsupported media type response has a 2xx status code
+func (o *PostAlertingInteractionstatsRulesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post alerting interactionstats rules unsupported media type response has a 3xx status code
+func (o *PostAlertingInteractionstatsRulesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post alerting interactionstats rules unsupported media type response has a 4xx status code
+func (o *PostAlertingInteractionstatsRulesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post alerting interactionstats rules unsupported media type response has a 5xx status code
+func (o *PostAlertingInteractionstatsRulesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post alerting interactionstats rules unsupported media type response a status code equal to that given
+func (o *PostAlertingInteractionstatsRulesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAlertingInteractionstatsRulesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAlertingInteractionstatsRulesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostAlertingInteractionstatsRulesTooManyRequests() *PostAlertingInteract
 	return &PostAlertingInteractionstatsRulesTooManyRequests{}
 }
 
-/*PostAlertingInteractionstatsRulesTooManyRequests handles this case with default header values.
+/*
+PostAlertingInteractionstatsRulesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostAlertingInteractionstatsRulesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post alerting interactionstats rules too many requests response has a 2xx status code
+func (o *PostAlertingInteractionstatsRulesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post alerting interactionstats rules too many requests response has a 3xx status code
+func (o *PostAlertingInteractionstatsRulesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post alerting interactionstats rules too many requests response has a 4xx status code
+func (o *PostAlertingInteractionstatsRulesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post alerting interactionstats rules too many requests response has a 5xx status code
+func (o *PostAlertingInteractionstatsRulesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post alerting interactionstats rules too many requests response a status code equal to that given
+func (o *PostAlertingInteractionstatsRulesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAlertingInteractionstatsRulesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAlertingInteractionstatsRulesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostAlertingInteractionstatsRulesInternalServerError() *PostAlertingInte
 	return &PostAlertingInteractionstatsRulesInternalServerError{}
 }
 
-/*PostAlertingInteractionstatsRulesInternalServerError handles this case with default header values.
+/*
+PostAlertingInteractionstatsRulesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostAlertingInteractionstatsRulesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post alerting interactionstats rules internal server error response has a 2xx status code
+func (o *PostAlertingInteractionstatsRulesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post alerting interactionstats rules internal server error response has a 3xx status code
+func (o *PostAlertingInteractionstatsRulesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post alerting interactionstats rules internal server error response has a 4xx status code
+func (o *PostAlertingInteractionstatsRulesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post alerting interactionstats rules internal server error response has a 5xx status code
+func (o *PostAlertingInteractionstatsRulesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post alerting interactionstats rules internal server error response a status code equal to that given
+func (o *PostAlertingInteractionstatsRulesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAlertingInteractionstatsRulesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAlertingInteractionstatsRulesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostAlertingInteractionstatsRulesServiceUnavailable() *PostAlertingInter
 	return &PostAlertingInteractionstatsRulesServiceUnavailable{}
 }
 
-/*PostAlertingInteractionstatsRulesServiceUnavailable handles this case with default header values.
+/*
+PostAlertingInteractionstatsRulesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostAlertingInteractionstatsRulesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post alerting interactionstats rules service unavailable response has a 2xx status code
+func (o *PostAlertingInteractionstatsRulesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post alerting interactionstats rules service unavailable response has a 3xx status code
+func (o *PostAlertingInteractionstatsRulesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post alerting interactionstats rules service unavailable response has a 4xx status code
+func (o *PostAlertingInteractionstatsRulesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post alerting interactionstats rules service unavailable response has a 5xx status code
+func (o *PostAlertingInteractionstatsRulesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post alerting interactionstats rules service unavailable response a status code equal to that given
+func (o *PostAlertingInteractionstatsRulesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAlertingInteractionstatsRulesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAlertingInteractionstatsRulesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostAlertingInteractionstatsRulesGatewayTimeout() *PostAlertingInteracti
 	return &PostAlertingInteractionstatsRulesGatewayTimeout{}
 }
 
-/*PostAlertingInteractionstatsRulesGatewayTimeout handles this case with default header values.
+/*
+PostAlertingInteractionstatsRulesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostAlertingInteractionstatsRulesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post alerting interactionstats rules gateway timeout response has a 2xx status code
+func (o *PostAlertingInteractionstatsRulesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post alerting interactionstats rules gateway timeout response has a 3xx status code
+func (o *PostAlertingInteractionstatsRulesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post alerting interactionstats rules gateway timeout response has a 4xx status code
+func (o *PostAlertingInteractionstatsRulesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post alerting interactionstats rules gateway timeout response has a 5xx status code
+func (o *PostAlertingInteractionstatsRulesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post alerting interactionstats rules gateway timeout response a status code equal to that given
+func (o *PostAlertingInteractionstatsRulesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAlertingInteractionstatsRulesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAlertingInteractionstatsRulesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/alerting/interactionstats/rules][%d] postAlertingInteractionstatsRulesGatewayTimeout  %+v", 504, o.Payload)
 }
 

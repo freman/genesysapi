@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWidgetsDeploymentParams creates a new GetWidgetsDeploymentParams object
-// with the default values initialized.
+// NewGetWidgetsDeploymentParams creates a new GetWidgetsDeploymentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWidgetsDeploymentParams() *GetWidgetsDeploymentParams {
-	var ()
 	return &GetWidgetsDeploymentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWidgetsDeploymentParamsWithTimeout creates a new GetWidgetsDeploymentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWidgetsDeploymentParamsWithTimeout(timeout time.Duration) *GetWidgetsDeploymentParams {
-	var ()
 	return &GetWidgetsDeploymentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWidgetsDeploymentParamsWithContext creates a new GetWidgetsDeploymentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWidgetsDeploymentParamsWithContext(ctx context.Context) *GetWidgetsDeploymentParams {
-	var ()
 	return &GetWidgetsDeploymentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWidgetsDeploymentParamsWithHTTPClient creates a new GetWidgetsDeploymentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWidgetsDeploymentParamsWithHTTPClient(client *http.Client) *GetWidgetsDeploymentParams {
-	var ()
 	return &GetWidgetsDeploymentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWidgetsDeploymentParams contains all the parameters to send to the API endpoint
-for the get widgets deployment operation typically these are written to a http.Request
+/*
+GetWidgetsDeploymentParams contains all the parameters to send to the API endpoint
+
+	for the get widgets deployment operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWidgetsDeploymentParams struct {
 
-	/*DeploymentID
-	  Widget Config Id
+	/* DeploymentID.
 
+	   Widget Config Id
 	*/
 	DeploymentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get widgets deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWidgetsDeploymentParams) WithDefaults() *GetWidgetsDeploymentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get widgets deployment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWidgetsDeploymentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get widgets deployment params

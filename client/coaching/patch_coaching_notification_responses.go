@@ -95,7 +95,6 @@ func (o *PatchCoachingNotificationReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchCoachingNotificationOK() *PatchCoachingNotificationOK {
 	return &PatchCoachingNotificationOK{}
 }
 
-/*PatchCoachingNotificationOK handles this case with default header values.
+/*
+PatchCoachingNotificationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchCoachingNotificationOK struct {
 	Payload *models.CoachingNotification
 }
 
+// IsSuccess returns true when this patch coaching notification o k response has a 2xx status code
+func (o *PatchCoachingNotificationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch coaching notification o k response has a 3xx status code
+func (o *PatchCoachingNotificationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching notification o k response has a 4xx status code
+func (o *PatchCoachingNotificationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch coaching notification o k response has a 5xx status code
+func (o *PatchCoachingNotificationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching notification o k response a status code equal to that given
+func (o *PatchCoachingNotificationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchCoachingNotificationOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchCoachingNotificationOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchCoachingNotificationBadRequest() *PatchCoachingNotificationBadReque
 	return &PatchCoachingNotificationBadRequest{}
 }
 
-/*PatchCoachingNotificationBadRequest handles this case with default header values.
+/*
+PatchCoachingNotificationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchCoachingNotificationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching notification bad request response has a 2xx status code
+func (o *PatchCoachingNotificationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching notification bad request response has a 3xx status code
+func (o *PatchCoachingNotificationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching notification bad request response has a 4xx status code
+func (o *PatchCoachingNotificationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching notification bad request response has a 5xx status code
+func (o *PatchCoachingNotificationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching notification bad request response a status code equal to that given
+func (o *PatchCoachingNotificationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchCoachingNotificationBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchCoachingNotificationBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchCoachingNotificationUnauthorized() *PatchCoachingNotificationUnauth
 	return &PatchCoachingNotificationUnauthorized{}
 }
 
-/*PatchCoachingNotificationUnauthorized handles this case with default header values.
+/*
+PatchCoachingNotificationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchCoachingNotificationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching notification unauthorized response has a 2xx status code
+func (o *PatchCoachingNotificationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching notification unauthorized response has a 3xx status code
+func (o *PatchCoachingNotificationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching notification unauthorized response has a 4xx status code
+func (o *PatchCoachingNotificationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching notification unauthorized response has a 5xx status code
+func (o *PatchCoachingNotificationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching notification unauthorized response a status code equal to that given
+func (o *PatchCoachingNotificationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchCoachingNotificationUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchCoachingNotificationUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchCoachingNotificationForbidden() *PatchCoachingNotificationForbidden
 	return &PatchCoachingNotificationForbidden{}
 }
 
-/*PatchCoachingNotificationForbidden handles this case with default header values.
+/*
+PatchCoachingNotificationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchCoachingNotificationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching notification forbidden response has a 2xx status code
+func (o *PatchCoachingNotificationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching notification forbidden response has a 3xx status code
+func (o *PatchCoachingNotificationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching notification forbidden response has a 4xx status code
+func (o *PatchCoachingNotificationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching notification forbidden response has a 5xx status code
+func (o *PatchCoachingNotificationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching notification forbidden response a status code equal to that given
+func (o *PatchCoachingNotificationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchCoachingNotificationForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchCoachingNotificationForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchCoachingNotificationNotFound() *PatchCoachingNotificationNotFound {
 	return &PatchCoachingNotificationNotFound{}
 }
 
-/*PatchCoachingNotificationNotFound handles this case with default header values.
+/*
+PatchCoachingNotificationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchCoachingNotificationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching notification not found response has a 2xx status code
+func (o *PatchCoachingNotificationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching notification not found response has a 3xx status code
+func (o *PatchCoachingNotificationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching notification not found response has a 4xx status code
+func (o *PatchCoachingNotificationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching notification not found response has a 5xx status code
+func (o *PatchCoachingNotificationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching notification not found response a status code equal to that given
+func (o *PatchCoachingNotificationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchCoachingNotificationNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchCoachingNotificationNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchCoachingNotificationRequestTimeout() *PatchCoachingNotificationRequ
 	return &PatchCoachingNotificationRequestTimeout{}
 }
 
-/*PatchCoachingNotificationRequestTimeout handles this case with default header values.
+/*
+PatchCoachingNotificationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchCoachingNotificationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching notification request timeout response has a 2xx status code
+func (o *PatchCoachingNotificationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching notification request timeout response has a 3xx status code
+func (o *PatchCoachingNotificationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching notification request timeout response has a 4xx status code
+func (o *PatchCoachingNotificationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching notification request timeout response has a 5xx status code
+func (o *PatchCoachingNotificationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching notification request timeout response a status code equal to that given
+func (o *PatchCoachingNotificationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchCoachingNotificationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchCoachingNotificationRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchCoachingNotificationRequestEntityTooLarge() *PatchCoachingNotificat
 	return &PatchCoachingNotificationRequestEntityTooLarge{}
 }
 
-/*PatchCoachingNotificationRequestEntityTooLarge handles this case with default header values.
+/*
+PatchCoachingNotificationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchCoachingNotificationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching notification request entity too large response has a 2xx status code
+func (o *PatchCoachingNotificationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching notification request entity too large response has a 3xx status code
+func (o *PatchCoachingNotificationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching notification request entity too large response has a 4xx status code
+func (o *PatchCoachingNotificationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching notification request entity too large response has a 5xx status code
+func (o *PatchCoachingNotificationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching notification request entity too large response a status code equal to that given
+func (o *PatchCoachingNotificationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchCoachingNotificationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchCoachingNotificationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchCoachingNotificationUnsupportedMediaType() *PatchCoachingNotificati
 	return &PatchCoachingNotificationUnsupportedMediaType{}
 }
 
-/*PatchCoachingNotificationUnsupportedMediaType handles this case with default header values.
+/*
+PatchCoachingNotificationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchCoachingNotificationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching notification unsupported media type response has a 2xx status code
+func (o *PatchCoachingNotificationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching notification unsupported media type response has a 3xx status code
+func (o *PatchCoachingNotificationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching notification unsupported media type response has a 4xx status code
+func (o *PatchCoachingNotificationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching notification unsupported media type response has a 5xx status code
+func (o *PatchCoachingNotificationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching notification unsupported media type response a status code equal to that given
+func (o *PatchCoachingNotificationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchCoachingNotificationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchCoachingNotificationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchCoachingNotificationTooManyRequests() *PatchCoachingNotificationToo
 	return &PatchCoachingNotificationTooManyRequests{}
 }
 
-/*PatchCoachingNotificationTooManyRequests handles this case with default header values.
+/*
+PatchCoachingNotificationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchCoachingNotificationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching notification too many requests response has a 2xx status code
+func (o *PatchCoachingNotificationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching notification too many requests response has a 3xx status code
+func (o *PatchCoachingNotificationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching notification too many requests response has a 4xx status code
+func (o *PatchCoachingNotificationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch coaching notification too many requests response has a 5xx status code
+func (o *PatchCoachingNotificationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch coaching notification too many requests response a status code equal to that given
+func (o *PatchCoachingNotificationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchCoachingNotificationTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchCoachingNotificationTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchCoachingNotificationInternalServerError() *PatchCoachingNotificatio
 	return &PatchCoachingNotificationInternalServerError{}
 }
 
-/*PatchCoachingNotificationInternalServerError handles this case with default header values.
+/*
+PatchCoachingNotificationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchCoachingNotificationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching notification internal server error response has a 2xx status code
+func (o *PatchCoachingNotificationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching notification internal server error response has a 3xx status code
+func (o *PatchCoachingNotificationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching notification internal server error response has a 4xx status code
+func (o *PatchCoachingNotificationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch coaching notification internal server error response has a 5xx status code
+func (o *PatchCoachingNotificationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch coaching notification internal server error response a status code equal to that given
+func (o *PatchCoachingNotificationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchCoachingNotificationInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchCoachingNotificationInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchCoachingNotificationServiceUnavailable() *PatchCoachingNotification
 	return &PatchCoachingNotificationServiceUnavailable{}
 }
 
-/*PatchCoachingNotificationServiceUnavailable handles this case with default header values.
+/*
+PatchCoachingNotificationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchCoachingNotificationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching notification service unavailable response has a 2xx status code
+func (o *PatchCoachingNotificationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching notification service unavailable response has a 3xx status code
+func (o *PatchCoachingNotificationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching notification service unavailable response has a 4xx status code
+func (o *PatchCoachingNotificationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch coaching notification service unavailable response has a 5xx status code
+func (o *PatchCoachingNotificationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch coaching notification service unavailable response a status code equal to that given
+func (o *PatchCoachingNotificationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchCoachingNotificationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchCoachingNotificationServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchCoachingNotificationGatewayTimeout() *PatchCoachingNotificationGate
 	return &PatchCoachingNotificationGatewayTimeout{}
 }
 
-/*PatchCoachingNotificationGatewayTimeout handles this case with default header values.
+/*
+PatchCoachingNotificationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchCoachingNotificationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch coaching notification gateway timeout response has a 2xx status code
+func (o *PatchCoachingNotificationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch coaching notification gateway timeout response has a 3xx status code
+func (o *PatchCoachingNotificationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch coaching notification gateway timeout response has a 4xx status code
+func (o *PatchCoachingNotificationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch coaching notification gateway timeout response has a 5xx status code
+func (o *PatchCoachingNotificationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch coaching notification gateway timeout response a status code equal to that given
+func (o *PatchCoachingNotificationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchCoachingNotificationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchCoachingNotificationGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/coaching/notifications/{notificationId}][%d] patchCoachingNotificationGatewayTimeout  %+v", 504, o.Payload)
 }
 

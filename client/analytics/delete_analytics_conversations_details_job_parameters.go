@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteAnalyticsConversationsDetailsJobParams creates a new DeleteAnalyticsConversationsDetailsJobParams object
-// with the default values initialized.
+// NewDeleteAnalyticsConversationsDetailsJobParams creates a new DeleteAnalyticsConversationsDetailsJobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteAnalyticsConversationsDetailsJobParams() *DeleteAnalyticsConversationsDetailsJobParams {
-	var ()
 	return &DeleteAnalyticsConversationsDetailsJobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteAnalyticsConversationsDetailsJobParamsWithTimeout creates a new DeleteAnalyticsConversationsDetailsJobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteAnalyticsConversationsDetailsJobParamsWithTimeout(timeout time.Duration) *DeleteAnalyticsConversationsDetailsJobParams {
-	var ()
 	return &DeleteAnalyticsConversationsDetailsJobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteAnalyticsConversationsDetailsJobParamsWithContext creates a new DeleteAnalyticsConversationsDetailsJobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteAnalyticsConversationsDetailsJobParamsWithContext(ctx context.Context) *DeleteAnalyticsConversationsDetailsJobParams {
-	var ()
 	return &DeleteAnalyticsConversationsDetailsJobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteAnalyticsConversationsDetailsJobParamsWithHTTPClient creates a new DeleteAnalyticsConversationsDetailsJobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteAnalyticsConversationsDetailsJobParamsWithHTTPClient(client *http.Client) *DeleteAnalyticsConversationsDetailsJobParams {
-	var ()
 	return &DeleteAnalyticsConversationsDetailsJobParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteAnalyticsConversationsDetailsJobParams contains all the parameters to send to the API endpoint
-for the delete analytics conversations details job operation typically these are written to a http.Request
+/*
+DeleteAnalyticsConversationsDetailsJobParams contains all the parameters to send to the API endpoint
+
+	for the delete analytics conversations details job operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteAnalyticsConversationsDetailsJobParams struct {
 
-	/*JobID
-	  jobId
+	/* JobID.
 
+	   jobId
 	*/
 	JobID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete analytics conversations details job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteAnalyticsConversationsDetailsJobParams) WithDefaults() *DeleteAnalyticsConversationsDetailsJobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete analytics conversations details job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteAnalyticsConversationsDetailsJobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete analytics conversations details job params

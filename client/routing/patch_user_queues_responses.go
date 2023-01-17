@@ -95,7 +95,6 @@ func (o *PatchUserQueuesReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchUserQueuesOK() *PatchUserQueuesOK {
 	return &PatchUserQueuesOK{}
 }
 
-/*PatchUserQueuesOK handles this case with default header values.
+/*
+PatchUserQueuesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchUserQueuesOK struct {
 	Payload *models.UserQueueEntityListing
 }
 
+// IsSuccess returns true when this patch user queues o k response has a 2xx status code
+func (o *PatchUserQueuesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch user queues o k response has a 3xx status code
+func (o *PatchUserQueuesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user queues o k response has a 4xx status code
+func (o *PatchUserQueuesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user queues o k response has a 5xx status code
+func (o *PatchUserQueuesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user queues o k response a status code equal to that given
+func (o *PatchUserQueuesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchUserQueuesOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchUserQueuesOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchUserQueuesBadRequest() *PatchUserQueuesBadRequest {
 	return &PatchUserQueuesBadRequest{}
 }
 
-/*PatchUserQueuesBadRequest handles this case with default header values.
+/*
+PatchUserQueuesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchUserQueuesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user queues bad request response has a 2xx status code
+func (o *PatchUserQueuesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user queues bad request response has a 3xx status code
+func (o *PatchUserQueuesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user queues bad request response has a 4xx status code
+func (o *PatchUserQueuesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user queues bad request response has a 5xx status code
+func (o *PatchUserQueuesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user queues bad request response a status code equal to that given
+func (o *PatchUserQueuesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchUserQueuesBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchUserQueuesBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchUserQueuesUnauthorized() *PatchUserQueuesUnauthorized {
 	return &PatchUserQueuesUnauthorized{}
 }
 
-/*PatchUserQueuesUnauthorized handles this case with default header values.
+/*
+PatchUserQueuesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchUserQueuesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user queues unauthorized response has a 2xx status code
+func (o *PatchUserQueuesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user queues unauthorized response has a 3xx status code
+func (o *PatchUserQueuesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user queues unauthorized response has a 4xx status code
+func (o *PatchUserQueuesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user queues unauthorized response has a 5xx status code
+func (o *PatchUserQueuesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user queues unauthorized response a status code equal to that given
+func (o *PatchUserQueuesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchUserQueuesUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchUserQueuesUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchUserQueuesForbidden() *PatchUserQueuesForbidden {
 	return &PatchUserQueuesForbidden{}
 }
 
-/*PatchUserQueuesForbidden handles this case with default header values.
+/*
+PatchUserQueuesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchUserQueuesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user queues forbidden response has a 2xx status code
+func (o *PatchUserQueuesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user queues forbidden response has a 3xx status code
+func (o *PatchUserQueuesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user queues forbidden response has a 4xx status code
+func (o *PatchUserQueuesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user queues forbidden response has a 5xx status code
+func (o *PatchUserQueuesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user queues forbidden response a status code equal to that given
+func (o *PatchUserQueuesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchUserQueuesForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchUserQueuesForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchUserQueuesNotFound() *PatchUserQueuesNotFound {
 	return &PatchUserQueuesNotFound{}
 }
 
-/*PatchUserQueuesNotFound handles this case with default header values.
+/*
+PatchUserQueuesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchUserQueuesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user queues not found response has a 2xx status code
+func (o *PatchUserQueuesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user queues not found response has a 3xx status code
+func (o *PatchUserQueuesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user queues not found response has a 4xx status code
+func (o *PatchUserQueuesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user queues not found response has a 5xx status code
+func (o *PatchUserQueuesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user queues not found response a status code equal to that given
+func (o *PatchUserQueuesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchUserQueuesNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchUserQueuesNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchUserQueuesRequestTimeout() *PatchUserQueuesRequestTimeout {
 	return &PatchUserQueuesRequestTimeout{}
 }
 
-/*PatchUserQueuesRequestTimeout handles this case with default header values.
+/*
+PatchUserQueuesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchUserQueuesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user queues request timeout response has a 2xx status code
+func (o *PatchUserQueuesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user queues request timeout response has a 3xx status code
+func (o *PatchUserQueuesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user queues request timeout response has a 4xx status code
+func (o *PatchUserQueuesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user queues request timeout response has a 5xx status code
+func (o *PatchUserQueuesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user queues request timeout response a status code equal to that given
+func (o *PatchUserQueuesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchUserQueuesRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchUserQueuesRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchUserQueuesRequestEntityTooLarge() *PatchUserQueuesRequestEntityTooL
 	return &PatchUserQueuesRequestEntityTooLarge{}
 }
 
-/*PatchUserQueuesRequestEntityTooLarge handles this case with default header values.
+/*
+PatchUserQueuesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchUserQueuesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user queues request entity too large response has a 2xx status code
+func (o *PatchUserQueuesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user queues request entity too large response has a 3xx status code
+func (o *PatchUserQueuesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user queues request entity too large response has a 4xx status code
+func (o *PatchUserQueuesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user queues request entity too large response has a 5xx status code
+func (o *PatchUserQueuesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user queues request entity too large response a status code equal to that given
+func (o *PatchUserQueuesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchUserQueuesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchUserQueuesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchUserQueuesUnsupportedMediaType() *PatchUserQueuesUnsupportedMediaTy
 	return &PatchUserQueuesUnsupportedMediaType{}
 }
 
-/*PatchUserQueuesUnsupportedMediaType handles this case with default header values.
+/*
+PatchUserQueuesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchUserQueuesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user queues unsupported media type response has a 2xx status code
+func (o *PatchUserQueuesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user queues unsupported media type response has a 3xx status code
+func (o *PatchUserQueuesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user queues unsupported media type response has a 4xx status code
+func (o *PatchUserQueuesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user queues unsupported media type response has a 5xx status code
+func (o *PatchUserQueuesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user queues unsupported media type response a status code equal to that given
+func (o *PatchUserQueuesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchUserQueuesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchUserQueuesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchUserQueuesTooManyRequests() *PatchUserQueuesTooManyRequests {
 	return &PatchUserQueuesTooManyRequests{}
 }
 
-/*PatchUserQueuesTooManyRequests handles this case with default header values.
+/*
+PatchUserQueuesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchUserQueuesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user queues too many requests response has a 2xx status code
+func (o *PatchUserQueuesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user queues too many requests response has a 3xx status code
+func (o *PatchUserQueuesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user queues too many requests response has a 4xx status code
+func (o *PatchUserQueuesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user queues too many requests response has a 5xx status code
+func (o *PatchUserQueuesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user queues too many requests response a status code equal to that given
+func (o *PatchUserQueuesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchUserQueuesTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchUserQueuesTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchUserQueuesInternalServerError() *PatchUserQueuesInternalServerError
 	return &PatchUserQueuesInternalServerError{}
 }
 
-/*PatchUserQueuesInternalServerError handles this case with default header values.
+/*
+PatchUserQueuesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchUserQueuesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user queues internal server error response has a 2xx status code
+func (o *PatchUserQueuesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user queues internal server error response has a 3xx status code
+func (o *PatchUserQueuesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user queues internal server error response has a 4xx status code
+func (o *PatchUserQueuesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user queues internal server error response has a 5xx status code
+func (o *PatchUserQueuesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user queues internal server error response a status code equal to that given
+func (o *PatchUserQueuesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchUserQueuesInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchUserQueuesInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchUserQueuesServiceUnavailable() *PatchUserQueuesServiceUnavailable {
 	return &PatchUserQueuesServiceUnavailable{}
 }
 
-/*PatchUserQueuesServiceUnavailable handles this case with default header values.
+/*
+PatchUserQueuesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchUserQueuesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user queues service unavailable response has a 2xx status code
+func (o *PatchUserQueuesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user queues service unavailable response has a 3xx status code
+func (o *PatchUserQueuesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user queues service unavailable response has a 4xx status code
+func (o *PatchUserQueuesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user queues service unavailable response has a 5xx status code
+func (o *PatchUserQueuesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user queues service unavailable response a status code equal to that given
+func (o *PatchUserQueuesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchUserQueuesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchUserQueuesServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchUserQueuesGatewayTimeout() *PatchUserQueuesGatewayTimeout {
 	return &PatchUserQueuesGatewayTimeout{}
 }
 
-/*PatchUserQueuesGatewayTimeout handles this case with default header values.
+/*
+PatchUserQueuesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchUserQueuesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user queues gateway timeout response has a 2xx status code
+func (o *PatchUserQueuesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user queues gateway timeout response has a 3xx status code
+func (o *PatchUserQueuesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user queues gateway timeout response has a 4xx status code
+func (o *PatchUserQueuesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user queues gateway timeout response has a 5xx status code
+func (o *PatchUserQueuesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user queues gateway timeout response a status code equal to that given
+func (o *PatchUserQueuesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchUserQueuesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchUserQueuesGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/queues][%d] patchUserQueuesGatewayTimeout  %+v", 504, o.Payload)
 }
 

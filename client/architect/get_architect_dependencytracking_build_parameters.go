@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetArchitectDependencytrackingBuildParams creates a new GetArchitectDependencytrackingBuildParams object
-// with the default values initialized.
+// NewGetArchitectDependencytrackingBuildParams creates a new GetArchitectDependencytrackingBuildParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetArchitectDependencytrackingBuildParams() *GetArchitectDependencytrackingBuildParams {
-
 	return &GetArchitectDependencytrackingBuildParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetArchitectDependencytrackingBuildParamsWithTimeout creates a new GetArchitectDependencytrackingBuildParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetArchitectDependencytrackingBuildParamsWithTimeout(timeout time.Duration) *GetArchitectDependencytrackingBuildParams {
-
 	return &GetArchitectDependencytrackingBuildParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetArchitectDependencytrackingBuildParamsWithContext creates a new GetArchitectDependencytrackingBuildParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetArchitectDependencytrackingBuildParamsWithContext(ctx context.Context) *GetArchitectDependencytrackingBuildParams {
-
 	return &GetArchitectDependencytrackingBuildParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetArchitectDependencytrackingBuildParamsWithHTTPClient creates a new GetArchitectDependencytrackingBuildParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetArchitectDependencytrackingBuildParamsWithHTTPClient(client *http.Client) *GetArchitectDependencytrackingBuildParams {
-
 	return &GetArchitectDependencytrackingBuildParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetArchitectDependencytrackingBuildParams contains all the parameters to send to the API endpoint
-for the get architect dependencytracking build operation typically these are written to a http.Request
+/*
+GetArchitectDependencytrackingBuildParams contains all the parameters to send to the API endpoint
+
+	for the get architect dependencytracking build operation.
+
+	Typically these are written to a http.Request.
 */
 type GetArchitectDependencytrackingBuildParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get architect dependencytracking build params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectDependencytrackingBuildParams) WithDefaults() *GetArchitectDependencytrackingBuildParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get architect dependencytracking build params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetArchitectDependencytrackingBuildParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get architect dependencytracking build params

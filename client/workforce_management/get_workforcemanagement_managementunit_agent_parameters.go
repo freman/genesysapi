@@ -17,69 +17,87 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWorkforcemanagementManagementunitAgentParams creates a new GetWorkforcemanagementManagementunitAgentParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementManagementunitAgentParams creates a new GetWorkforcemanagementManagementunitAgentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementManagementunitAgentParams() *GetWorkforcemanagementManagementunitAgentParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitAgentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitAgentParamsWithTimeout creates a new GetWorkforcemanagementManagementunitAgentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementManagementunitAgentParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementManagementunitAgentParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitAgentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitAgentParamsWithContext creates a new GetWorkforcemanagementManagementunitAgentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementManagementunitAgentParamsWithContext(ctx context.Context) *GetWorkforcemanagementManagementunitAgentParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitAgentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitAgentParamsWithHTTPClient creates a new GetWorkforcemanagementManagementunitAgentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementManagementunitAgentParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementManagementunitAgentParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitAgentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementManagementunitAgentParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement managementunit agent operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementManagementunitAgentParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement managementunit agent operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementManagementunitAgentParams struct {
 
-	/*AgentID
-	  The agent id
+	/* AgentID.
 
+	   The agent id
 	*/
 	AgentID string
-	/*ExcludeCapabilities
-	  Excludes all capabilities of the agent such as queues, languages, and skills
 
+	/* ExcludeCapabilities.
+
+	   Excludes all capabilities of the agent such as queues, languages, and skills
 	*/
 	ExcludeCapabilities *bool
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement managementunit agent params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitAgentParams) WithDefaults() *GetWorkforcemanagementManagementunitAgentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement managementunit agent params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitAgentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement managementunit agent params
@@ -165,16 +183,17 @@ func (o *GetWorkforcemanagementManagementunitAgentParams) WriteToRequest(r runti
 
 		// query param excludeCapabilities
 		var qrExcludeCapabilities bool
+
 		if o.ExcludeCapabilities != nil {
 			qrExcludeCapabilities = *o.ExcludeCapabilities
 		}
 		qExcludeCapabilities := swag.FormatBool(qrExcludeCapabilities)
 		if qExcludeCapabilities != "" {
+
 			if err := r.SetQueryParam("excludeCapabilities", qExcludeCapabilities); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param managementUnitId

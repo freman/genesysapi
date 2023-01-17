@@ -95,7 +95,6 @@ func (o *PostKnowledgeDocumentuploadsReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostKnowledgeDocumentuploadsOK() *PostKnowledgeDocumentuploadsOK {
 	return &PostKnowledgeDocumentuploadsOK{}
 }
 
-/*PostKnowledgeDocumentuploadsOK handles this case with default header values.
+/*
+PostKnowledgeDocumentuploadsOK describes a response with status code 200, with default header values.
 
 Presigned URL successfully created.
 */
@@ -114,7 +114,36 @@ type PostKnowledgeDocumentuploadsOK struct {
 	Payload *models.UploadURLResponse
 }
 
+// IsSuccess returns true when this post knowledge documentuploads o k response has a 2xx status code
+func (o *PostKnowledgeDocumentuploadsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post knowledge documentuploads o k response has a 3xx status code
+func (o *PostKnowledgeDocumentuploadsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge documentuploads o k response has a 4xx status code
+func (o *PostKnowledgeDocumentuploadsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge documentuploads o k response has a 5xx status code
+func (o *PostKnowledgeDocumentuploadsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge documentuploads o k response a status code equal to that given
+func (o *PostKnowledgeDocumentuploadsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostKnowledgeDocumentuploadsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostKnowledgeDocumentuploadsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostKnowledgeDocumentuploadsBadRequest() *PostKnowledgeDocumentuploadsBa
 	return &PostKnowledgeDocumentuploadsBadRequest{}
 }
 
-/*PostKnowledgeDocumentuploadsBadRequest handles this case with default header values.
+/*
+PostKnowledgeDocumentuploadsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostKnowledgeDocumentuploadsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge documentuploads bad request response has a 2xx status code
+func (o *PostKnowledgeDocumentuploadsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge documentuploads bad request response has a 3xx status code
+func (o *PostKnowledgeDocumentuploadsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge documentuploads bad request response has a 4xx status code
+func (o *PostKnowledgeDocumentuploadsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge documentuploads bad request response has a 5xx status code
+func (o *PostKnowledgeDocumentuploadsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge documentuploads bad request response a status code equal to that given
+func (o *PostKnowledgeDocumentuploadsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostKnowledgeDocumentuploadsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostKnowledgeDocumentuploadsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostKnowledgeDocumentuploadsUnauthorized() *PostKnowledgeDocumentuploads
 	return &PostKnowledgeDocumentuploadsUnauthorized{}
 }
 
-/*PostKnowledgeDocumentuploadsUnauthorized handles this case with default header values.
+/*
+PostKnowledgeDocumentuploadsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostKnowledgeDocumentuploadsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge documentuploads unauthorized response has a 2xx status code
+func (o *PostKnowledgeDocumentuploadsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge documentuploads unauthorized response has a 3xx status code
+func (o *PostKnowledgeDocumentuploadsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge documentuploads unauthorized response has a 4xx status code
+func (o *PostKnowledgeDocumentuploadsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge documentuploads unauthorized response has a 5xx status code
+func (o *PostKnowledgeDocumentuploadsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge documentuploads unauthorized response a status code equal to that given
+func (o *PostKnowledgeDocumentuploadsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostKnowledgeDocumentuploadsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostKnowledgeDocumentuploadsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostKnowledgeDocumentuploadsForbidden() *PostKnowledgeDocumentuploadsFor
 	return &PostKnowledgeDocumentuploadsForbidden{}
 }
 
-/*PostKnowledgeDocumentuploadsForbidden handles this case with default header values.
+/*
+PostKnowledgeDocumentuploadsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostKnowledgeDocumentuploadsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge documentuploads forbidden response has a 2xx status code
+func (o *PostKnowledgeDocumentuploadsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge documentuploads forbidden response has a 3xx status code
+func (o *PostKnowledgeDocumentuploadsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge documentuploads forbidden response has a 4xx status code
+func (o *PostKnowledgeDocumentuploadsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge documentuploads forbidden response has a 5xx status code
+func (o *PostKnowledgeDocumentuploadsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge documentuploads forbidden response a status code equal to that given
+func (o *PostKnowledgeDocumentuploadsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostKnowledgeDocumentuploadsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostKnowledgeDocumentuploadsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostKnowledgeDocumentuploadsNotFound() *PostKnowledgeDocumentuploadsNotF
 	return &PostKnowledgeDocumentuploadsNotFound{}
 }
 
-/*PostKnowledgeDocumentuploadsNotFound handles this case with default header values.
+/*
+PostKnowledgeDocumentuploadsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostKnowledgeDocumentuploadsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge documentuploads not found response has a 2xx status code
+func (o *PostKnowledgeDocumentuploadsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge documentuploads not found response has a 3xx status code
+func (o *PostKnowledgeDocumentuploadsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge documentuploads not found response has a 4xx status code
+func (o *PostKnowledgeDocumentuploadsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge documentuploads not found response has a 5xx status code
+func (o *PostKnowledgeDocumentuploadsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge documentuploads not found response a status code equal to that given
+func (o *PostKnowledgeDocumentuploadsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostKnowledgeDocumentuploadsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostKnowledgeDocumentuploadsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostKnowledgeDocumentuploadsRequestTimeout() *PostKnowledgeDocumentuploa
 	return &PostKnowledgeDocumentuploadsRequestTimeout{}
 }
 
-/*PostKnowledgeDocumentuploadsRequestTimeout handles this case with default header values.
+/*
+PostKnowledgeDocumentuploadsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostKnowledgeDocumentuploadsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge documentuploads request timeout response has a 2xx status code
+func (o *PostKnowledgeDocumentuploadsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge documentuploads request timeout response has a 3xx status code
+func (o *PostKnowledgeDocumentuploadsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge documentuploads request timeout response has a 4xx status code
+func (o *PostKnowledgeDocumentuploadsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge documentuploads request timeout response has a 5xx status code
+func (o *PostKnowledgeDocumentuploadsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge documentuploads request timeout response a status code equal to that given
+func (o *PostKnowledgeDocumentuploadsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostKnowledgeDocumentuploadsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostKnowledgeDocumentuploadsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostKnowledgeDocumentuploadsRequestEntityTooLarge() *PostKnowledgeDocume
 	return &PostKnowledgeDocumentuploadsRequestEntityTooLarge{}
 }
 
-/*PostKnowledgeDocumentuploadsRequestEntityTooLarge handles this case with default header values.
+/*
+PostKnowledgeDocumentuploadsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostKnowledgeDocumentuploadsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge documentuploads request entity too large response has a 2xx status code
+func (o *PostKnowledgeDocumentuploadsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge documentuploads request entity too large response has a 3xx status code
+func (o *PostKnowledgeDocumentuploadsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge documentuploads request entity too large response has a 4xx status code
+func (o *PostKnowledgeDocumentuploadsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge documentuploads request entity too large response has a 5xx status code
+func (o *PostKnowledgeDocumentuploadsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge documentuploads request entity too large response a status code equal to that given
+func (o *PostKnowledgeDocumentuploadsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostKnowledgeDocumentuploadsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostKnowledgeDocumentuploadsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostKnowledgeDocumentuploadsUnsupportedMediaType() *PostKnowledgeDocumen
 	return &PostKnowledgeDocumentuploadsUnsupportedMediaType{}
 }
 
-/*PostKnowledgeDocumentuploadsUnsupportedMediaType handles this case with default header values.
+/*
+PostKnowledgeDocumentuploadsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostKnowledgeDocumentuploadsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge documentuploads unsupported media type response has a 2xx status code
+func (o *PostKnowledgeDocumentuploadsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge documentuploads unsupported media type response has a 3xx status code
+func (o *PostKnowledgeDocumentuploadsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge documentuploads unsupported media type response has a 4xx status code
+func (o *PostKnowledgeDocumentuploadsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge documentuploads unsupported media type response has a 5xx status code
+func (o *PostKnowledgeDocumentuploadsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge documentuploads unsupported media type response a status code equal to that given
+func (o *PostKnowledgeDocumentuploadsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostKnowledgeDocumentuploadsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostKnowledgeDocumentuploadsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostKnowledgeDocumentuploadsTooManyRequests() *PostKnowledgeDocumentuplo
 	return &PostKnowledgeDocumentuploadsTooManyRequests{}
 }
 
-/*PostKnowledgeDocumentuploadsTooManyRequests handles this case with default header values.
+/*
+PostKnowledgeDocumentuploadsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostKnowledgeDocumentuploadsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge documentuploads too many requests response has a 2xx status code
+func (o *PostKnowledgeDocumentuploadsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge documentuploads too many requests response has a 3xx status code
+func (o *PostKnowledgeDocumentuploadsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge documentuploads too many requests response has a 4xx status code
+func (o *PostKnowledgeDocumentuploadsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge documentuploads too many requests response has a 5xx status code
+func (o *PostKnowledgeDocumentuploadsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge documentuploads too many requests response a status code equal to that given
+func (o *PostKnowledgeDocumentuploadsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostKnowledgeDocumentuploadsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostKnowledgeDocumentuploadsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostKnowledgeDocumentuploadsInternalServerError() *PostKnowledgeDocument
 	return &PostKnowledgeDocumentuploadsInternalServerError{}
 }
 
-/*PostKnowledgeDocumentuploadsInternalServerError handles this case with default header values.
+/*
+PostKnowledgeDocumentuploadsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostKnowledgeDocumentuploadsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge documentuploads internal server error response has a 2xx status code
+func (o *PostKnowledgeDocumentuploadsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge documentuploads internal server error response has a 3xx status code
+func (o *PostKnowledgeDocumentuploadsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge documentuploads internal server error response has a 4xx status code
+func (o *PostKnowledgeDocumentuploadsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge documentuploads internal server error response has a 5xx status code
+func (o *PostKnowledgeDocumentuploadsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge documentuploads internal server error response a status code equal to that given
+func (o *PostKnowledgeDocumentuploadsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostKnowledgeDocumentuploadsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostKnowledgeDocumentuploadsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostKnowledgeDocumentuploadsServiceUnavailable() *PostKnowledgeDocumentu
 	return &PostKnowledgeDocumentuploadsServiceUnavailable{}
 }
 
-/*PostKnowledgeDocumentuploadsServiceUnavailable handles this case with default header values.
+/*
+PostKnowledgeDocumentuploadsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostKnowledgeDocumentuploadsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge documentuploads service unavailable response has a 2xx status code
+func (o *PostKnowledgeDocumentuploadsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge documentuploads service unavailable response has a 3xx status code
+func (o *PostKnowledgeDocumentuploadsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge documentuploads service unavailable response has a 4xx status code
+func (o *PostKnowledgeDocumentuploadsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge documentuploads service unavailable response has a 5xx status code
+func (o *PostKnowledgeDocumentuploadsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge documentuploads service unavailable response a status code equal to that given
+func (o *PostKnowledgeDocumentuploadsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostKnowledgeDocumentuploadsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostKnowledgeDocumentuploadsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostKnowledgeDocumentuploadsGatewayTimeout() *PostKnowledgeDocumentuploa
 	return &PostKnowledgeDocumentuploadsGatewayTimeout{}
 }
 
-/*PostKnowledgeDocumentuploadsGatewayTimeout handles this case with default header values.
+/*
+PostKnowledgeDocumentuploadsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostKnowledgeDocumentuploadsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge documentuploads gateway timeout response has a 2xx status code
+func (o *PostKnowledgeDocumentuploadsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge documentuploads gateway timeout response has a 3xx status code
+func (o *PostKnowledgeDocumentuploadsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge documentuploads gateway timeout response has a 4xx status code
+func (o *PostKnowledgeDocumentuploadsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge documentuploads gateway timeout response has a 5xx status code
+func (o *PostKnowledgeDocumentuploadsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge documentuploads gateway timeout response a status code equal to that given
+func (o *PostKnowledgeDocumentuploadsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostKnowledgeDocumentuploadsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostKnowledgeDocumentuploadsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/documentuploads][%d] postKnowledgeDocumentuploadsGatewayTimeout  %+v", 504, o.Payload)
 }
 

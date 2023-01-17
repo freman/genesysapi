@@ -101,7 +101,6 @@ func (o *PatchUserPresenceReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchUserPresenceOK() *PatchUserPresenceOK {
 	return &PatchUserPresenceOK{}
 }
 
-/*PatchUserPresenceOK handles this case with default header values.
+/*
+PatchUserPresenceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchUserPresenceOK struct {
 	Payload *models.UserPresence
 }
 
+// IsSuccess returns true when this patch user presence o k response has a 2xx status code
+func (o *PatchUserPresenceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch user presence o k response has a 3xx status code
+func (o *PatchUserPresenceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence o k response has a 4xx status code
+func (o *PatchUserPresenceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user presence o k response has a 5xx status code
+func (o *PatchUserPresenceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presence o k response a status code equal to that given
+func (o *PatchUserPresenceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchUserPresenceOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchUserPresenceOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchUserPresenceBadRequest() *PatchUserPresenceBadRequest {
 	return &PatchUserPresenceBadRequest{}
 }
 
-/*PatchUserPresenceBadRequest handles this case with default header values.
+/*
+PatchUserPresenceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchUserPresenceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presence bad request response has a 2xx status code
+func (o *PatchUserPresenceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presence bad request response has a 3xx status code
+func (o *PatchUserPresenceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence bad request response has a 4xx status code
+func (o *PatchUserPresenceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presence bad request response has a 5xx status code
+func (o *PatchUserPresenceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presence bad request response a status code equal to that given
+func (o *PatchUserPresenceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchUserPresenceBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchUserPresenceBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchUserPresenceUnauthorized() *PatchUserPresenceUnauthorized {
 	return &PatchUserPresenceUnauthorized{}
 }
 
-/*PatchUserPresenceUnauthorized handles this case with default header values.
+/*
+PatchUserPresenceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchUserPresenceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presence unauthorized response has a 2xx status code
+func (o *PatchUserPresenceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presence unauthorized response has a 3xx status code
+func (o *PatchUserPresenceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence unauthorized response has a 4xx status code
+func (o *PatchUserPresenceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presence unauthorized response has a 5xx status code
+func (o *PatchUserPresenceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presence unauthorized response a status code equal to that given
+func (o *PatchUserPresenceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchUserPresenceUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchUserPresenceUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchUserPresenceForbidden() *PatchUserPresenceForbidden {
 	return &PatchUserPresenceForbidden{}
 }
 
-/*PatchUserPresenceForbidden handles this case with default header values.
+/*
+PatchUserPresenceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchUserPresenceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presence forbidden response has a 2xx status code
+func (o *PatchUserPresenceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presence forbidden response has a 3xx status code
+func (o *PatchUserPresenceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence forbidden response has a 4xx status code
+func (o *PatchUserPresenceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presence forbidden response has a 5xx status code
+func (o *PatchUserPresenceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presence forbidden response a status code equal to that given
+func (o *PatchUserPresenceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchUserPresenceForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchUserPresenceForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchUserPresenceNotFound() *PatchUserPresenceNotFound {
 	return &PatchUserPresenceNotFound{}
 }
 
-/*PatchUserPresenceNotFound handles this case with default header values.
+/*
+PatchUserPresenceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchUserPresenceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presence not found response has a 2xx status code
+func (o *PatchUserPresenceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presence not found response has a 3xx status code
+func (o *PatchUserPresenceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence not found response has a 4xx status code
+func (o *PatchUserPresenceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presence not found response has a 5xx status code
+func (o *PatchUserPresenceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presence not found response a status code equal to that given
+func (o *PatchUserPresenceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchUserPresenceNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchUserPresenceNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchUserPresenceRequestTimeout() *PatchUserPresenceRequestTimeout {
 	return &PatchUserPresenceRequestTimeout{}
 }
 
-/*PatchUserPresenceRequestTimeout handles this case with default header values.
+/*
+PatchUserPresenceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchUserPresenceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presence request timeout response has a 2xx status code
+func (o *PatchUserPresenceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presence request timeout response has a 3xx status code
+func (o *PatchUserPresenceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence request timeout response has a 4xx status code
+func (o *PatchUserPresenceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presence request timeout response has a 5xx status code
+func (o *PatchUserPresenceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presence request timeout response a status code equal to that given
+func (o *PatchUserPresenceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchUserPresenceRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchUserPresenceRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchUserPresenceConflict() *PatchUserPresenceConflict {
 	return &PatchUserPresenceConflict{}
 }
 
-/*PatchUserPresenceConflict handles this case with default header values.
+/*
+PatchUserPresenceConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PatchUserPresenceConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presence conflict response has a 2xx status code
+func (o *PatchUserPresenceConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presence conflict response has a 3xx status code
+func (o *PatchUserPresenceConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence conflict response has a 4xx status code
+func (o *PatchUserPresenceConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presence conflict response has a 5xx status code
+func (o *PatchUserPresenceConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presence conflict response a status code equal to that given
+func (o *PatchUserPresenceConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchUserPresenceConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchUserPresenceConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchUserPresenceRequestEntityTooLarge() *PatchUserPresenceRequestEntity
 	return &PatchUserPresenceRequestEntityTooLarge{}
 }
 
-/*PatchUserPresenceRequestEntityTooLarge handles this case with default header values.
+/*
+PatchUserPresenceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchUserPresenceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presence request entity too large response has a 2xx status code
+func (o *PatchUserPresenceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presence request entity too large response has a 3xx status code
+func (o *PatchUserPresenceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence request entity too large response has a 4xx status code
+func (o *PatchUserPresenceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presence request entity too large response has a 5xx status code
+func (o *PatchUserPresenceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presence request entity too large response a status code equal to that given
+func (o *PatchUserPresenceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchUserPresenceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchUserPresenceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchUserPresenceUnsupportedMediaType() *PatchUserPresenceUnsupportedMed
 	return &PatchUserPresenceUnsupportedMediaType{}
 }
 
-/*PatchUserPresenceUnsupportedMediaType handles this case with default header values.
+/*
+PatchUserPresenceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchUserPresenceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presence unsupported media type response has a 2xx status code
+func (o *PatchUserPresenceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presence unsupported media type response has a 3xx status code
+func (o *PatchUserPresenceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence unsupported media type response has a 4xx status code
+func (o *PatchUserPresenceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presence unsupported media type response has a 5xx status code
+func (o *PatchUserPresenceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presence unsupported media type response a status code equal to that given
+func (o *PatchUserPresenceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchUserPresenceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchUserPresenceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchUserPresenceTooManyRequests() *PatchUserPresenceTooManyRequests {
 	return &PatchUserPresenceTooManyRequests{}
 }
 
-/*PatchUserPresenceTooManyRequests handles this case with default header values.
+/*
+PatchUserPresenceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchUserPresenceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presence too many requests response has a 2xx status code
+func (o *PatchUserPresenceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presence too many requests response has a 3xx status code
+func (o *PatchUserPresenceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence too many requests response has a 4xx status code
+func (o *PatchUserPresenceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user presence too many requests response has a 5xx status code
+func (o *PatchUserPresenceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user presence too many requests response a status code equal to that given
+func (o *PatchUserPresenceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchUserPresenceTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchUserPresenceTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchUserPresenceInternalServerError() *PatchUserPresenceInternalServerE
 	return &PatchUserPresenceInternalServerError{}
 }
 
-/*PatchUserPresenceInternalServerError handles this case with default header values.
+/*
+PatchUserPresenceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchUserPresenceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presence internal server error response has a 2xx status code
+func (o *PatchUserPresenceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presence internal server error response has a 3xx status code
+func (o *PatchUserPresenceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence internal server error response has a 4xx status code
+func (o *PatchUserPresenceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user presence internal server error response has a 5xx status code
+func (o *PatchUserPresenceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user presence internal server error response a status code equal to that given
+func (o *PatchUserPresenceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchUserPresenceInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchUserPresenceInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchUserPresenceServiceUnavailable() *PatchUserPresenceServiceUnavailab
 	return &PatchUserPresenceServiceUnavailable{}
 }
 
-/*PatchUserPresenceServiceUnavailable handles this case with default header values.
+/*
+PatchUserPresenceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchUserPresenceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presence service unavailable response has a 2xx status code
+func (o *PatchUserPresenceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presence service unavailable response has a 3xx status code
+func (o *PatchUserPresenceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence service unavailable response has a 4xx status code
+func (o *PatchUserPresenceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user presence service unavailable response has a 5xx status code
+func (o *PatchUserPresenceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user presence service unavailable response a status code equal to that given
+func (o *PatchUserPresenceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchUserPresenceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchUserPresenceServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchUserPresenceGatewayTimeout() *PatchUserPresenceGatewayTimeout {
 	return &PatchUserPresenceGatewayTimeout{}
 }
 
-/*PatchUserPresenceGatewayTimeout handles this case with default header values.
+/*
+PatchUserPresenceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchUserPresenceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user presence gateway timeout response has a 2xx status code
+func (o *PatchUserPresenceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user presence gateway timeout response has a 3xx status code
+func (o *PatchUserPresenceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user presence gateway timeout response has a 4xx status code
+func (o *PatchUserPresenceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user presence gateway timeout response has a 5xx status code
+func (o *PatchUserPresenceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user presence gateway timeout response a status code equal to that given
+func (o *PatchUserPresenceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchUserPresenceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchUserPresenceGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/presences/{sourceId}][%d] patchUserPresenceGatewayTimeout  %+v", 504, o.Payload)
 }
 

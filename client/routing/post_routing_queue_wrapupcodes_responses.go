@@ -95,7 +95,6 @@ func (o *PostRoutingQueueWrapupcodesReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostRoutingQueueWrapupcodesOK() *PostRoutingQueueWrapupcodesOK {
 	return &PostRoutingQueueWrapupcodesOK{}
 }
 
-/*PostRoutingQueueWrapupcodesOK handles this case with default header values.
+/*
+PostRoutingQueueWrapupcodesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostRoutingQueueWrapupcodesOK struct {
 	Payload []*models.WrapupCode
 }
 
+// IsSuccess returns true when this post routing queue wrapupcodes o k response has a 2xx status code
+func (o *PostRoutingQueueWrapupcodesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post routing queue wrapupcodes o k response has a 3xx status code
+func (o *PostRoutingQueueWrapupcodesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue wrapupcodes o k response has a 4xx status code
+func (o *PostRoutingQueueWrapupcodesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing queue wrapupcodes o k response has a 5xx status code
+func (o *PostRoutingQueueWrapupcodesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue wrapupcodes o k response a status code equal to that given
+func (o *PostRoutingQueueWrapupcodesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostRoutingQueueWrapupcodesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostRoutingQueueWrapupcodesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewPostRoutingQueueWrapupcodesBadRequest() *PostRoutingQueueWrapupcodesBadR
 	return &PostRoutingQueueWrapupcodesBadRequest{}
 }
 
-/*PostRoutingQueueWrapupcodesBadRequest handles this case with default header values.
+/*
+PostRoutingQueueWrapupcodesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type PostRoutingQueueWrapupcodesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue wrapupcodes bad request response has a 2xx status code
+func (o *PostRoutingQueueWrapupcodesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue wrapupcodes bad request response has a 3xx status code
+func (o *PostRoutingQueueWrapupcodesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue wrapupcodes bad request response has a 4xx status code
+func (o *PostRoutingQueueWrapupcodesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue wrapupcodes bad request response has a 5xx status code
+func (o *PostRoutingQueueWrapupcodesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue wrapupcodes bad request response a status code equal to that given
+func (o *PostRoutingQueueWrapupcodesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostRoutingQueueWrapupcodesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostRoutingQueueWrapupcodesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewPostRoutingQueueWrapupcodesUnauthorized() *PostRoutingQueueWrapupcodesUn
 	return &PostRoutingQueueWrapupcodesUnauthorized{}
 }
 
-/*PostRoutingQueueWrapupcodesUnauthorized handles this case with default header values.
+/*
+PostRoutingQueueWrapupcodesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type PostRoutingQueueWrapupcodesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue wrapupcodes unauthorized response has a 2xx status code
+func (o *PostRoutingQueueWrapupcodesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue wrapupcodes unauthorized response has a 3xx status code
+func (o *PostRoutingQueueWrapupcodesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue wrapupcodes unauthorized response has a 4xx status code
+func (o *PostRoutingQueueWrapupcodesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue wrapupcodes unauthorized response has a 5xx status code
+func (o *PostRoutingQueueWrapupcodesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue wrapupcodes unauthorized response a status code equal to that given
+func (o *PostRoutingQueueWrapupcodesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostRoutingQueueWrapupcodesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostRoutingQueueWrapupcodesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewPostRoutingQueueWrapupcodesForbidden() *PostRoutingQueueWrapupcodesForbi
 	return &PostRoutingQueueWrapupcodesForbidden{}
 }
 
-/*PostRoutingQueueWrapupcodesForbidden handles this case with default header values.
+/*
+PostRoutingQueueWrapupcodesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type PostRoutingQueueWrapupcodesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue wrapupcodes forbidden response has a 2xx status code
+func (o *PostRoutingQueueWrapupcodesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue wrapupcodes forbidden response has a 3xx status code
+func (o *PostRoutingQueueWrapupcodesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue wrapupcodes forbidden response has a 4xx status code
+func (o *PostRoutingQueueWrapupcodesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue wrapupcodes forbidden response has a 5xx status code
+func (o *PostRoutingQueueWrapupcodesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue wrapupcodes forbidden response a status code equal to that given
+func (o *PostRoutingQueueWrapupcodesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostRoutingQueueWrapupcodesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostRoutingQueueWrapupcodesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewPostRoutingQueueWrapupcodesNotFound() *PostRoutingQueueWrapupcodesNotFou
 	return &PostRoutingQueueWrapupcodesNotFound{}
 }
 
-/*PostRoutingQueueWrapupcodesNotFound handles this case with default header values.
+/*
+PostRoutingQueueWrapupcodesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type PostRoutingQueueWrapupcodesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue wrapupcodes not found response has a 2xx status code
+func (o *PostRoutingQueueWrapupcodesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue wrapupcodes not found response has a 3xx status code
+func (o *PostRoutingQueueWrapupcodesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue wrapupcodes not found response has a 4xx status code
+func (o *PostRoutingQueueWrapupcodesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue wrapupcodes not found response has a 5xx status code
+func (o *PostRoutingQueueWrapupcodesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue wrapupcodes not found response a status code equal to that given
+func (o *PostRoutingQueueWrapupcodesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostRoutingQueueWrapupcodesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostRoutingQueueWrapupcodesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewPostRoutingQueueWrapupcodesRequestTimeout() *PostRoutingQueueWrapupcodes
 	return &PostRoutingQueueWrapupcodesRequestTimeout{}
 }
 
-/*PostRoutingQueueWrapupcodesRequestTimeout handles this case with default header values.
+/*
+PostRoutingQueueWrapupcodesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type PostRoutingQueueWrapupcodesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue wrapupcodes request timeout response has a 2xx status code
+func (o *PostRoutingQueueWrapupcodesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue wrapupcodes request timeout response has a 3xx status code
+func (o *PostRoutingQueueWrapupcodesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue wrapupcodes request timeout response has a 4xx status code
+func (o *PostRoutingQueueWrapupcodesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue wrapupcodes request timeout response has a 5xx status code
+func (o *PostRoutingQueueWrapupcodesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue wrapupcodes request timeout response a status code equal to that given
+func (o *PostRoutingQueueWrapupcodesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostRoutingQueueWrapupcodesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRoutingQueueWrapupcodesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewPostRoutingQueueWrapupcodesRequestEntityTooLarge() *PostRoutingQueueWrap
 	return &PostRoutingQueueWrapupcodesRequestEntityTooLarge{}
 }
 
-/*PostRoutingQueueWrapupcodesRequestEntityTooLarge handles this case with default header values.
+/*
+PostRoutingQueueWrapupcodesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type PostRoutingQueueWrapupcodesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue wrapupcodes request entity too large response has a 2xx status code
+func (o *PostRoutingQueueWrapupcodesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue wrapupcodes request entity too large response has a 3xx status code
+func (o *PostRoutingQueueWrapupcodesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue wrapupcodes request entity too large response has a 4xx status code
+func (o *PostRoutingQueueWrapupcodesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue wrapupcodes request entity too large response has a 5xx status code
+func (o *PostRoutingQueueWrapupcodesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue wrapupcodes request entity too large response a status code equal to that given
+func (o *PostRoutingQueueWrapupcodesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostRoutingQueueWrapupcodesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostRoutingQueueWrapupcodesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewPostRoutingQueueWrapupcodesUnsupportedMediaType() *PostRoutingQueueWrapu
 	return &PostRoutingQueueWrapupcodesUnsupportedMediaType{}
 }
 
-/*PostRoutingQueueWrapupcodesUnsupportedMediaType handles this case with default header values.
+/*
+PostRoutingQueueWrapupcodesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type PostRoutingQueueWrapupcodesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue wrapupcodes unsupported media type response has a 2xx status code
+func (o *PostRoutingQueueWrapupcodesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue wrapupcodes unsupported media type response has a 3xx status code
+func (o *PostRoutingQueueWrapupcodesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue wrapupcodes unsupported media type response has a 4xx status code
+func (o *PostRoutingQueueWrapupcodesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue wrapupcodes unsupported media type response has a 5xx status code
+func (o *PostRoutingQueueWrapupcodesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue wrapupcodes unsupported media type response a status code equal to that given
+func (o *PostRoutingQueueWrapupcodesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostRoutingQueueWrapupcodesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostRoutingQueueWrapupcodesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewPostRoutingQueueWrapupcodesTooManyRequests() *PostRoutingQueueWrapupcode
 	return &PostRoutingQueueWrapupcodesTooManyRequests{}
 }
 
-/*PostRoutingQueueWrapupcodesTooManyRequests handles this case with default header values.
+/*
+PostRoutingQueueWrapupcodesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type PostRoutingQueueWrapupcodesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue wrapupcodes too many requests response has a 2xx status code
+func (o *PostRoutingQueueWrapupcodesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue wrapupcodes too many requests response has a 3xx status code
+func (o *PostRoutingQueueWrapupcodesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue wrapupcodes too many requests response has a 4xx status code
+func (o *PostRoutingQueueWrapupcodesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue wrapupcodes too many requests response has a 5xx status code
+func (o *PostRoutingQueueWrapupcodesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue wrapupcodes too many requests response a status code equal to that given
+func (o *PostRoutingQueueWrapupcodesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostRoutingQueueWrapupcodesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostRoutingQueueWrapupcodesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewPostRoutingQueueWrapupcodesInternalServerError() *PostRoutingQueueWrapup
 	return &PostRoutingQueueWrapupcodesInternalServerError{}
 }
 
-/*PostRoutingQueueWrapupcodesInternalServerError handles this case with default header values.
+/*
+PostRoutingQueueWrapupcodesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type PostRoutingQueueWrapupcodesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue wrapupcodes internal server error response has a 2xx status code
+func (o *PostRoutingQueueWrapupcodesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue wrapupcodes internal server error response has a 3xx status code
+func (o *PostRoutingQueueWrapupcodesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue wrapupcodes internal server error response has a 4xx status code
+func (o *PostRoutingQueueWrapupcodesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing queue wrapupcodes internal server error response has a 5xx status code
+func (o *PostRoutingQueueWrapupcodesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing queue wrapupcodes internal server error response a status code equal to that given
+func (o *PostRoutingQueueWrapupcodesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostRoutingQueueWrapupcodesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostRoutingQueueWrapupcodesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewPostRoutingQueueWrapupcodesServiceUnavailable() *PostRoutingQueueWrapupc
 	return &PostRoutingQueueWrapupcodesServiceUnavailable{}
 }
 
-/*PostRoutingQueueWrapupcodesServiceUnavailable handles this case with default header values.
+/*
+PostRoutingQueueWrapupcodesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type PostRoutingQueueWrapupcodesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue wrapupcodes service unavailable response has a 2xx status code
+func (o *PostRoutingQueueWrapupcodesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue wrapupcodes service unavailable response has a 3xx status code
+func (o *PostRoutingQueueWrapupcodesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue wrapupcodes service unavailable response has a 4xx status code
+func (o *PostRoutingQueueWrapupcodesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing queue wrapupcodes service unavailable response has a 5xx status code
+func (o *PostRoutingQueueWrapupcodesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing queue wrapupcodes service unavailable response a status code equal to that given
+func (o *PostRoutingQueueWrapupcodesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostRoutingQueueWrapupcodesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostRoutingQueueWrapupcodesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewPostRoutingQueueWrapupcodesGatewayTimeout() *PostRoutingQueueWrapupcodes
 	return &PostRoutingQueueWrapupcodesGatewayTimeout{}
 }
 
-/*PostRoutingQueueWrapupcodesGatewayTimeout handles this case with default header values.
+/*
+PostRoutingQueueWrapupcodesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type PostRoutingQueueWrapupcodesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue wrapupcodes gateway timeout response has a 2xx status code
+func (o *PostRoutingQueueWrapupcodesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue wrapupcodes gateway timeout response has a 3xx status code
+func (o *PostRoutingQueueWrapupcodesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue wrapupcodes gateway timeout response has a 4xx status code
+func (o *PostRoutingQueueWrapupcodesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing queue wrapupcodes gateway timeout response has a 5xx status code
+func (o *PostRoutingQueueWrapupcodesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing queue wrapupcodes gateway timeout response a status code equal to that given
+func (o *PostRoutingQueueWrapupcodesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostRoutingQueueWrapupcodesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostRoutingQueueWrapupcodesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/wrapupcodes][%d] postRoutingQueueWrapupcodesGatewayTimeout  %+v", 504, o.Payload)
 }
 

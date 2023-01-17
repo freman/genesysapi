@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -84,7 +85,6 @@ func (m *WrapUpCodeMapping) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WrapUpCodeMapping) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -97,7 +97,6 @@ func (m *WrapUpCodeMapping) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *WrapUpCodeMapping) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -129,7 +128,6 @@ func (m *WrapUpCodeMapping) validateDefaultSetItemsEnum(path, location string, v
 }
 
 func (m *WrapUpCodeMapping) validateDefaultSet(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DefaultSet) { // not required
 		return nil
 	}
@@ -151,7 +149,6 @@ func (m *WrapUpCodeMapping) validateDefaultSet(formats strfmt.Registry) error {
 }
 
 func (m *WrapUpCodeMapping) validateMapping(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Mapping) { // not required
 		return nil
 	}
@@ -177,12 +174,73 @@ func (m *WrapUpCodeMapping) validateMapping(formats strfmt.Registry) error {
 }
 
 func (m *WrapUpCodeMapping) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this wrap up code mapping based on the context it is used
+func (m *WrapUpCodeMapping) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WrapUpCodeMapping) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WrapUpCodeMapping) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WrapUpCodeMapping) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WrapUpCodeMapping) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

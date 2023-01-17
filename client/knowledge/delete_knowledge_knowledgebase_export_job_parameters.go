@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteKnowledgeKnowledgebaseExportJobParams creates a new DeleteKnowledgeKnowledgebaseExportJobParams object
-// with the default values initialized.
+// NewDeleteKnowledgeKnowledgebaseExportJobParams creates a new DeleteKnowledgeKnowledgebaseExportJobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteKnowledgeKnowledgebaseExportJobParams() *DeleteKnowledgeKnowledgebaseExportJobParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseExportJobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteKnowledgeKnowledgebaseExportJobParamsWithTimeout creates a new DeleteKnowledgeKnowledgebaseExportJobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteKnowledgeKnowledgebaseExportJobParamsWithTimeout(timeout time.Duration) *DeleteKnowledgeKnowledgebaseExportJobParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseExportJobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteKnowledgeKnowledgebaseExportJobParamsWithContext creates a new DeleteKnowledgeKnowledgebaseExportJobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteKnowledgeKnowledgebaseExportJobParamsWithContext(ctx context.Context) *DeleteKnowledgeKnowledgebaseExportJobParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseExportJobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteKnowledgeKnowledgebaseExportJobParamsWithHTTPClient creates a new DeleteKnowledgeKnowledgebaseExportJobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteKnowledgeKnowledgebaseExportJobParamsWithHTTPClient(client *http.Client) *DeleteKnowledgeKnowledgebaseExportJobParams {
-	var ()
 	return &DeleteKnowledgeKnowledgebaseExportJobParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteKnowledgeKnowledgebaseExportJobParams contains all the parameters to send to the API endpoint
-for the delete knowledge knowledgebase export job operation typically these are written to a http.Request
+/*
+DeleteKnowledgeKnowledgebaseExportJobParams contains all the parameters to send to the API endpoint
+
+	for the delete knowledge knowledgebase export job operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteKnowledgeKnowledgebaseExportJobParams struct {
 
-	/*ExportJobID
-	  Export job ID
+	/* ExportJobID.
 
+	   Export job ID
 	*/
 	ExportJobID string
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete knowledge knowledgebase export job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteKnowledgeKnowledgebaseExportJobParams) WithDefaults() *DeleteKnowledgeKnowledgebaseExportJobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete knowledge knowledgebase export job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteKnowledgeKnowledgebaseExportJobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete knowledge knowledgebase export job params

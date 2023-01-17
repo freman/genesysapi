@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteLanguageunderstandingMinerDraftParams creates a new DeleteLanguageunderstandingMinerDraftParams object
-// with the default values initialized.
+// NewDeleteLanguageunderstandingMinerDraftParams creates a new DeleteLanguageunderstandingMinerDraftParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteLanguageunderstandingMinerDraftParams() *DeleteLanguageunderstandingMinerDraftParams {
-	var ()
 	return &DeleteLanguageunderstandingMinerDraftParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteLanguageunderstandingMinerDraftParamsWithTimeout creates a new DeleteLanguageunderstandingMinerDraftParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteLanguageunderstandingMinerDraftParamsWithTimeout(timeout time.Duration) *DeleteLanguageunderstandingMinerDraftParams {
-	var ()
 	return &DeleteLanguageunderstandingMinerDraftParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteLanguageunderstandingMinerDraftParamsWithContext creates a new DeleteLanguageunderstandingMinerDraftParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteLanguageunderstandingMinerDraftParamsWithContext(ctx context.Context) *DeleteLanguageunderstandingMinerDraftParams {
-	var ()
 	return &DeleteLanguageunderstandingMinerDraftParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteLanguageunderstandingMinerDraftParamsWithHTTPClient creates a new DeleteLanguageunderstandingMinerDraftParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteLanguageunderstandingMinerDraftParamsWithHTTPClient(client *http.Client) *DeleteLanguageunderstandingMinerDraftParams {
-	var ()
 	return &DeleteLanguageunderstandingMinerDraftParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteLanguageunderstandingMinerDraftParams contains all the parameters to send to the API endpoint
-for the delete languageunderstanding miner draft operation typically these are written to a http.Request
+/*
+DeleteLanguageunderstandingMinerDraftParams contains all the parameters to send to the API endpoint
+
+	for the delete languageunderstanding miner draft operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteLanguageunderstandingMinerDraftParams struct {
 
-	/*DraftID
-	  Draft ID
+	/* DraftID.
 
+	   Draft ID
 	*/
 	DraftID string
-	/*MinerID
-	  Miner ID
 
+	/* MinerID.
+
+	   Miner ID
 	*/
 	MinerID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete languageunderstanding miner draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteLanguageunderstandingMinerDraftParams) WithDefaults() *DeleteLanguageunderstandingMinerDraftParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete languageunderstanding miner draft params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteLanguageunderstandingMinerDraftParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete languageunderstanding miner draft params

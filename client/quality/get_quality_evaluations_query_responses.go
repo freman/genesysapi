@@ -95,7 +95,6 @@ func (o *GetQualityEvaluationsQueryReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetQualityEvaluationsQueryOK() *GetQualityEvaluationsQueryOK {
 	return &GetQualityEvaluationsQueryOK{}
 }
 
-/*GetQualityEvaluationsQueryOK handles this case with default header values.
+/*
+GetQualityEvaluationsQueryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetQualityEvaluationsQueryOK struct {
 	Payload *models.EvaluationEntityListing
 }
 
+// IsSuccess returns true when this get quality evaluations query o k response has a 2xx status code
+func (o *GetQualityEvaluationsQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get quality evaluations query o k response has a 3xx status code
+func (o *GetQualityEvaluationsQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluations query o k response has a 4xx status code
+func (o *GetQualityEvaluationsQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality evaluations query o k response has a 5xx status code
+func (o *GetQualityEvaluationsQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluations query o k response a status code equal to that given
+func (o *GetQualityEvaluationsQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetQualityEvaluationsQueryOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetQualityEvaluationsQueryBadRequest() *GetQualityEvaluationsQueryBadReq
 	return &GetQualityEvaluationsQueryBadRequest{}
 }
 
-/*GetQualityEvaluationsQueryBadRequest handles this case with default header values.
+/*
+GetQualityEvaluationsQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetQualityEvaluationsQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluations query bad request response has a 2xx status code
+func (o *GetQualityEvaluationsQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluations query bad request response has a 3xx status code
+func (o *GetQualityEvaluationsQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluations query bad request response has a 4xx status code
+func (o *GetQualityEvaluationsQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluations query bad request response has a 5xx status code
+func (o *GetQualityEvaluationsQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluations query bad request response a status code equal to that given
+func (o *GetQualityEvaluationsQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetQualityEvaluationsQueryBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetQualityEvaluationsQueryUnauthorized() *GetQualityEvaluationsQueryUnau
 	return &GetQualityEvaluationsQueryUnauthorized{}
 }
 
-/*GetQualityEvaluationsQueryUnauthorized handles this case with default header values.
+/*
+GetQualityEvaluationsQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetQualityEvaluationsQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluations query unauthorized response has a 2xx status code
+func (o *GetQualityEvaluationsQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluations query unauthorized response has a 3xx status code
+func (o *GetQualityEvaluationsQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluations query unauthorized response has a 4xx status code
+func (o *GetQualityEvaluationsQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluations query unauthorized response has a 5xx status code
+func (o *GetQualityEvaluationsQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluations query unauthorized response a status code equal to that given
+func (o *GetQualityEvaluationsQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetQualityEvaluationsQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetQualityEvaluationsQueryForbidden() *GetQualityEvaluationsQueryForbidd
 	return &GetQualityEvaluationsQueryForbidden{}
 }
 
-/*GetQualityEvaluationsQueryForbidden handles this case with default header values.
+/*
+GetQualityEvaluationsQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetQualityEvaluationsQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluations query forbidden response has a 2xx status code
+func (o *GetQualityEvaluationsQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluations query forbidden response has a 3xx status code
+func (o *GetQualityEvaluationsQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluations query forbidden response has a 4xx status code
+func (o *GetQualityEvaluationsQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluations query forbidden response has a 5xx status code
+func (o *GetQualityEvaluationsQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluations query forbidden response a status code equal to that given
+func (o *GetQualityEvaluationsQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetQualityEvaluationsQueryForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetQualityEvaluationsQueryNotFound() *GetQualityEvaluationsQueryNotFound
 	return &GetQualityEvaluationsQueryNotFound{}
 }
 
-/*GetQualityEvaluationsQueryNotFound handles this case with default header values.
+/*
+GetQualityEvaluationsQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetQualityEvaluationsQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluations query not found response has a 2xx status code
+func (o *GetQualityEvaluationsQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluations query not found response has a 3xx status code
+func (o *GetQualityEvaluationsQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluations query not found response has a 4xx status code
+func (o *GetQualityEvaluationsQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluations query not found response has a 5xx status code
+func (o *GetQualityEvaluationsQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluations query not found response a status code equal to that given
+func (o *GetQualityEvaluationsQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetQualityEvaluationsQueryNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetQualityEvaluationsQueryRequestTimeout() *GetQualityEvaluationsQueryRe
 	return &GetQualityEvaluationsQueryRequestTimeout{}
 }
 
-/*GetQualityEvaluationsQueryRequestTimeout handles this case with default header values.
+/*
+GetQualityEvaluationsQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetQualityEvaluationsQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluations query request timeout response has a 2xx status code
+func (o *GetQualityEvaluationsQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluations query request timeout response has a 3xx status code
+func (o *GetQualityEvaluationsQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluations query request timeout response has a 4xx status code
+func (o *GetQualityEvaluationsQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluations query request timeout response has a 5xx status code
+func (o *GetQualityEvaluationsQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluations query request timeout response a status code equal to that given
+func (o *GetQualityEvaluationsQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetQualityEvaluationsQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetQualityEvaluationsQueryRequestEntityTooLarge() *GetQualityEvaluations
 	return &GetQualityEvaluationsQueryRequestEntityTooLarge{}
 }
 
-/*GetQualityEvaluationsQueryRequestEntityTooLarge handles this case with default header values.
+/*
+GetQualityEvaluationsQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetQualityEvaluationsQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluations query request entity too large response has a 2xx status code
+func (o *GetQualityEvaluationsQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluations query request entity too large response has a 3xx status code
+func (o *GetQualityEvaluationsQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluations query request entity too large response has a 4xx status code
+func (o *GetQualityEvaluationsQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluations query request entity too large response has a 5xx status code
+func (o *GetQualityEvaluationsQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluations query request entity too large response a status code equal to that given
+func (o *GetQualityEvaluationsQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetQualityEvaluationsQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetQualityEvaluationsQueryUnsupportedMediaType() *GetQualityEvaluationsQ
 	return &GetQualityEvaluationsQueryUnsupportedMediaType{}
 }
 
-/*GetQualityEvaluationsQueryUnsupportedMediaType handles this case with default header values.
+/*
+GetQualityEvaluationsQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetQualityEvaluationsQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluations query unsupported media type response has a 2xx status code
+func (o *GetQualityEvaluationsQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluations query unsupported media type response has a 3xx status code
+func (o *GetQualityEvaluationsQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluations query unsupported media type response has a 4xx status code
+func (o *GetQualityEvaluationsQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluations query unsupported media type response has a 5xx status code
+func (o *GetQualityEvaluationsQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluations query unsupported media type response a status code equal to that given
+func (o *GetQualityEvaluationsQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetQualityEvaluationsQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetQualityEvaluationsQueryTooManyRequests() *GetQualityEvaluationsQueryT
 	return &GetQualityEvaluationsQueryTooManyRequests{}
 }
 
-/*GetQualityEvaluationsQueryTooManyRequests handles this case with default header values.
+/*
+GetQualityEvaluationsQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetQualityEvaluationsQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluations query too many requests response has a 2xx status code
+func (o *GetQualityEvaluationsQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluations query too many requests response has a 3xx status code
+func (o *GetQualityEvaluationsQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluations query too many requests response has a 4xx status code
+func (o *GetQualityEvaluationsQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality evaluations query too many requests response has a 5xx status code
+func (o *GetQualityEvaluationsQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality evaluations query too many requests response a status code equal to that given
+func (o *GetQualityEvaluationsQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetQualityEvaluationsQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetQualityEvaluationsQueryInternalServerError() *GetQualityEvaluationsQu
 	return &GetQualityEvaluationsQueryInternalServerError{}
 }
 
-/*GetQualityEvaluationsQueryInternalServerError handles this case with default header values.
+/*
+GetQualityEvaluationsQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetQualityEvaluationsQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluations query internal server error response has a 2xx status code
+func (o *GetQualityEvaluationsQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluations query internal server error response has a 3xx status code
+func (o *GetQualityEvaluationsQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluations query internal server error response has a 4xx status code
+func (o *GetQualityEvaluationsQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality evaluations query internal server error response has a 5xx status code
+func (o *GetQualityEvaluationsQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality evaluations query internal server error response a status code equal to that given
+func (o *GetQualityEvaluationsQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetQualityEvaluationsQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetQualityEvaluationsQueryServiceUnavailable() *GetQualityEvaluationsQue
 	return &GetQualityEvaluationsQueryServiceUnavailable{}
 }
 
-/*GetQualityEvaluationsQueryServiceUnavailable handles this case with default header values.
+/*
+GetQualityEvaluationsQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetQualityEvaluationsQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluations query service unavailable response has a 2xx status code
+func (o *GetQualityEvaluationsQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluations query service unavailable response has a 3xx status code
+func (o *GetQualityEvaluationsQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluations query service unavailable response has a 4xx status code
+func (o *GetQualityEvaluationsQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality evaluations query service unavailable response has a 5xx status code
+func (o *GetQualityEvaluationsQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality evaluations query service unavailable response a status code equal to that given
+func (o *GetQualityEvaluationsQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetQualityEvaluationsQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetQualityEvaluationsQueryGatewayTimeout() *GetQualityEvaluationsQueryGa
 	return &GetQualityEvaluationsQueryGatewayTimeout{}
 }
 
-/*GetQualityEvaluationsQueryGatewayTimeout handles this case with default header values.
+/*
+GetQualityEvaluationsQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetQualityEvaluationsQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality evaluations query gateway timeout response has a 2xx status code
+func (o *GetQualityEvaluationsQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality evaluations query gateway timeout response has a 3xx status code
+func (o *GetQualityEvaluationsQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality evaluations query gateway timeout response has a 4xx status code
+func (o *GetQualityEvaluationsQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality evaluations query gateway timeout response has a 5xx status code
+func (o *GetQualityEvaluationsQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality evaluations query gateway timeout response a status code equal to that given
+func (o *GetQualityEvaluationsQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetQualityEvaluationsQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetQualityEvaluationsQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/evaluations/query][%d] getQualityEvaluationsQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

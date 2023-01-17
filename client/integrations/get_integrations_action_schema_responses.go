@@ -95,7 +95,6 @@ func (o *GetIntegrationsActionSchemaReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIntegrationsActionSchemaOK() *GetIntegrationsActionSchemaOK {
 	return &GetIntegrationsActionSchemaOK{}
 }
 
-/*GetIntegrationsActionSchemaOK handles this case with default header values.
+/*
+GetIntegrationsActionSchemaOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIntegrationsActionSchemaOK struct {
 	Payload *models.JSONSchemaDocument
 }
 
+// IsSuccess returns true when this get integrations action schema o k response has a 2xx status code
+func (o *GetIntegrationsActionSchemaOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get integrations action schema o k response has a 3xx status code
+func (o *GetIntegrationsActionSchemaOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action schema o k response has a 4xx status code
+func (o *GetIntegrationsActionSchemaOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations action schema o k response has a 5xx status code
+func (o *GetIntegrationsActionSchemaOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action schema o k response a status code equal to that given
+func (o *GetIntegrationsActionSchemaOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntegrationsActionSchemaOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIntegrationsActionSchemaOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIntegrationsActionSchemaBadRequest() *GetIntegrationsActionSchemaBadR
 	return &GetIntegrationsActionSchemaBadRequest{}
 }
 
-/*GetIntegrationsActionSchemaBadRequest handles this case with default header values.
+/*
+GetIntegrationsActionSchemaBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIntegrationsActionSchemaBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action schema bad request response has a 2xx status code
+func (o *GetIntegrationsActionSchemaBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action schema bad request response has a 3xx status code
+func (o *GetIntegrationsActionSchemaBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action schema bad request response has a 4xx status code
+func (o *GetIntegrationsActionSchemaBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action schema bad request response has a 5xx status code
+func (o *GetIntegrationsActionSchemaBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action schema bad request response a status code equal to that given
+func (o *GetIntegrationsActionSchemaBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntegrationsActionSchemaBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIntegrationsActionSchemaBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIntegrationsActionSchemaUnauthorized() *GetIntegrationsActionSchemaUn
 	return &GetIntegrationsActionSchemaUnauthorized{}
 }
 
-/*GetIntegrationsActionSchemaUnauthorized handles this case with default header values.
+/*
+GetIntegrationsActionSchemaUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIntegrationsActionSchemaUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action schema unauthorized response has a 2xx status code
+func (o *GetIntegrationsActionSchemaUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action schema unauthorized response has a 3xx status code
+func (o *GetIntegrationsActionSchemaUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action schema unauthorized response has a 4xx status code
+func (o *GetIntegrationsActionSchemaUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action schema unauthorized response has a 5xx status code
+func (o *GetIntegrationsActionSchemaUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action schema unauthorized response a status code equal to that given
+func (o *GetIntegrationsActionSchemaUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIntegrationsActionSchemaUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIntegrationsActionSchemaUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIntegrationsActionSchemaForbidden() *GetIntegrationsActionSchemaForbi
 	return &GetIntegrationsActionSchemaForbidden{}
 }
 
-/*GetIntegrationsActionSchemaForbidden handles this case with default header values.
+/*
+GetIntegrationsActionSchemaForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIntegrationsActionSchemaForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action schema forbidden response has a 2xx status code
+func (o *GetIntegrationsActionSchemaForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action schema forbidden response has a 3xx status code
+func (o *GetIntegrationsActionSchemaForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action schema forbidden response has a 4xx status code
+func (o *GetIntegrationsActionSchemaForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action schema forbidden response has a 5xx status code
+func (o *GetIntegrationsActionSchemaForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action schema forbidden response a status code equal to that given
+func (o *GetIntegrationsActionSchemaForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntegrationsActionSchemaForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIntegrationsActionSchemaForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIntegrationsActionSchemaNotFound() *GetIntegrationsActionSchemaNotFou
 	return &GetIntegrationsActionSchemaNotFound{}
 }
 
-/*GetIntegrationsActionSchemaNotFound handles this case with default header values.
+/*
+GetIntegrationsActionSchemaNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIntegrationsActionSchemaNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action schema not found response has a 2xx status code
+func (o *GetIntegrationsActionSchemaNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action schema not found response has a 3xx status code
+func (o *GetIntegrationsActionSchemaNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action schema not found response has a 4xx status code
+func (o *GetIntegrationsActionSchemaNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action schema not found response has a 5xx status code
+func (o *GetIntegrationsActionSchemaNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action schema not found response a status code equal to that given
+func (o *GetIntegrationsActionSchemaNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntegrationsActionSchemaNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIntegrationsActionSchemaNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIntegrationsActionSchemaRequestTimeout() *GetIntegrationsActionSchema
 	return &GetIntegrationsActionSchemaRequestTimeout{}
 }
 
-/*GetIntegrationsActionSchemaRequestTimeout handles this case with default header values.
+/*
+GetIntegrationsActionSchemaRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIntegrationsActionSchemaRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action schema request timeout response has a 2xx status code
+func (o *GetIntegrationsActionSchemaRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action schema request timeout response has a 3xx status code
+func (o *GetIntegrationsActionSchemaRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action schema request timeout response has a 4xx status code
+func (o *GetIntegrationsActionSchemaRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action schema request timeout response has a 5xx status code
+func (o *GetIntegrationsActionSchemaRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action schema request timeout response a status code equal to that given
+func (o *GetIntegrationsActionSchemaRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIntegrationsActionSchemaRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsActionSchemaRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIntegrationsActionSchemaRequestEntityTooLarge() *GetIntegrationsActio
 	return &GetIntegrationsActionSchemaRequestEntityTooLarge{}
 }
 
-/*GetIntegrationsActionSchemaRequestEntityTooLarge handles this case with default header values.
+/*
+GetIntegrationsActionSchemaRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIntegrationsActionSchemaRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action schema request entity too large response has a 2xx status code
+func (o *GetIntegrationsActionSchemaRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action schema request entity too large response has a 3xx status code
+func (o *GetIntegrationsActionSchemaRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action schema request entity too large response has a 4xx status code
+func (o *GetIntegrationsActionSchemaRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action schema request entity too large response has a 5xx status code
+func (o *GetIntegrationsActionSchemaRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action schema request entity too large response a status code equal to that given
+func (o *GetIntegrationsActionSchemaRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIntegrationsActionSchemaRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIntegrationsActionSchemaRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIntegrationsActionSchemaUnsupportedMediaType() *GetIntegrationsAction
 	return &GetIntegrationsActionSchemaUnsupportedMediaType{}
 }
 
-/*GetIntegrationsActionSchemaUnsupportedMediaType handles this case with default header values.
+/*
+GetIntegrationsActionSchemaUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIntegrationsActionSchemaUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action schema unsupported media type response has a 2xx status code
+func (o *GetIntegrationsActionSchemaUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action schema unsupported media type response has a 3xx status code
+func (o *GetIntegrationsActionSchemaUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action schema unsupported media type response has a 4xx status code
+func (o *GetIntegrationsActionSchemaUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action schema unsupported media type response has a 5xx status code
+func (o *GetIntegrationsActionSchemaUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action schema unsupported media type response a status code equal to that given
+func (o *GetIntegrationsActionSchemaUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIntegrationsActionSchemaUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIntegrationsActionSchemaUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIntegrationsActionSchemaTooManyRequests() *GetIntegrationsActionSchem
 	return &GetIntegrationsActionSchemaTooManyRequests{}
 }
 
-/*GetIntegrationsActionSchemaTooManyRequests handles this case with default header values.
+/*
+GetIntegrationsActionSchemaTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIntegrationsActionSchemaTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action schema too many requests response has a 2xx status code
+func (o *GetIntegrationsActionSchemaTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action schema too many requests response has a 3xx status code
+func (o *GetIntegrationsActionSchemaTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action schema too many requests response has a 4xx status code
+func (o *GetIntegrationsActionSchemaTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations action schema too many requests response has a 5xx status code
+func (o *GetIntegrationsActionSchemaTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations action schema too many requests response a status code equal to that given
+func (o *GetIntegrationsActionSchemaTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntegrationsActionSchemaTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIntegrationsActionSchemaTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIntegrationsActionSchemaInternalServerError() *GetIntegrationsActionS
 	return &GetIntegrationsActionSchemaInternalServerError{}
 }
 
-/*GetIntegrationsActionSchemaInternalServerError handles this case with default header values.
+/*
+GetIntegrationsActionSchemaInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIntegrationsActionSchemaInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action schema internal server error response has a 2xx status code
+func (o *GetIntegrationsActionSchemaInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action schema internal server error response has a 3xx status code
+func (o *GetIntegrationsActionSchemaInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action schema internal server error response has a 4xx status code
+func (o *GetIntegrationsActionSchemaInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations action schema internal server error response has a 5xx status code
+func (o *GetIntegrationsActionSchemaInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations action schema internal server error response a status code equal to that given
+func (o *GetIntegrationsActionSchemaInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntegrationsActionSchemaInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIntegrationsActionSchemaInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIntegrationsActionSchemaServiceUnavailable() *GetIntegrationsActionSc
 	return &GetIntegrationsActionSchemaServiceUnavailable{}
 }
 
-/*GetIntegrationsActionSchemaServiceUnavailable handles this case with default header values.
+/*
+GetIntegrationsActionSchemaServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIntegrationsActionSchemaServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action schema service unavailable response has a 2xx status code
+func (o *GetIntegrationsActionSchemaServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action schema service unavailable response has a 3xx status code
+func (o *GetIntegrationsActionSchemaServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action schema service unavailable response has a 4xx status code
+func (o *GetIntegrationsActionSchemaServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations action schema service unavailable response has a 5xx status code
+func (o *GetIntegrationsActionSchemaServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations action schema service unavailable response a status code equal to that given
+func (o *GetIntegrationsActionSchemaServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIntegrationsActionSchemaServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIntegrationsActionSchemaServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIntegrationsActionSchemaGatewayTimeout() *GetIntegrationsActionSchema
 	return &GetIntegrationsActionSchemaGatewayTimeout{}
 }
 
-/*GetIntegrationsActionSchemaGatewayTimeout handles this case with default header values.
+/*
+GetIntegrationsActionSchemaGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIntegrationsActionSchemaGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations action schema gateway timeout response has a 2xx status code
+func (o *GetIntegrationsActionSchemaGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations action schema gateway timeout response has a 3xx status code
+func (o *GetIntegrationsActionSchemaGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations action schema gateway timeout response has a 4xx status code
+func (o *GetIntegrationsActionSchemaGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations action schema gateway timeout response has a 5xx status code
+func (o *GetIntegrationsActionSchemaGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations action schema gateway timeout response a status code equal to that given
+func (o *GetIntegrationsActionSchemaGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIntegrationsActionSchemaGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIntegrationsActionSchemaGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/actions/{actionId}/schemas/{fileName}][%d] getIntegrationsActionSchemaGatewayTimeout  %+v", 504, o.Payload)
 }
 

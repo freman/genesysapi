@@ -95,7 +95,6 @@ func (o *GetRecordingMediaretentionpoliciesReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRecordingMediaretentionpoliciesOK() *GetRecordingMediaretentionpolici
 	return &GetRecordingMediaretentionpoliciesOK{}
 }
 
-/*GetRecordingMediaretentionpoliciesOK handles this case with default header values.
+/*
+GetRecordingMediaretentionpoliciesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRecordingMediaretentionpoliciesOK struct {
 	Payload *models.PolicyEntityListing
 }
 
+// IsSuccess returns true when this get recording mediaretentionpolicies o k response has a 2xx status code
+func (o *GetRecordingMediaretentionpoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get recording mediaretentionpolicies o k response has a 3xx status code
+func (o *GetRecordingMediaretentionpoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording mediaretentionpolicies o k response has a 4xx status code
+func (o *GetRecordingMediaretentionpoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording mediaretentionpolicies o k response has a 5xx status code
+func (o *GetRecordingMediaretentionpoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording mediaretentionpolicies o k response a status code equal to that given
+func (o *GetRecordingMediaretentionpoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRecordingMediaretentionpoliciesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpoliciesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRecordingMediaretentionpoliciesBadRequest() *GetRecordingMediaretenti
 	return &GetRecordingMediaretentionpoliciesBadRequest{}
 }
 
-/*GetRecordingMediaretentionpoliciesBadRequest handles this case with default header values.
+/*
+GetRecordingMediaretentionpoliciesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRecordingMediaretentionpoliciesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording mediaretentionpolicies bad request response has a 2xx status code
+func (o *GetRecordingMediaretentionpoliciesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording mediaretentionpolicies bad request response has a 3xx status code
+func (o *GetRecordingMediaretentionpoliciesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording mediaretentionpolicies bad request response has a 4xx status code
+func (o *GetRecordingMediaretentionpoliciesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording mediaretentionpolicies bad request response has a 5xx status code
+func (o *GetRecordingMediaretentionpoliciesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording mediaretentionpolicies bad request response a status code equal to that given
+func (o *GetRecordingMediaretentionpoliciesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRecordingMediaretentionpoliciesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpoliciesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRecordingMediaretentionpoliciesUnauthorized() *GetRecordingMediareten
 	return &GetRecordingMediaretentionpoliciesUnauthorized{}
 }
 
-/*GetRecordingMediaretentionpoliciesUnauthorized handles this case with default header values.
+/*
+GetRecordingMediaretentionpoliciesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRecordingMediaretentionpoliciesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording mediaretentionpolicies unauthorized response has a 2xx status code
+func (o *GetRecordingMediaretentionpoliciesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording mediaretentionpolicies unauthorized response has a 3xx status code
+func (o *GetRecordingMediaretentionpoliciesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording mediaretentionpolicies unauthorized response has a 4xx status code
+func (o *GetRecordingMediaretentionpoliciesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording mediaretentionpolicies unauthorized response has a 5xx status code
+func (o *GetRecordingMediaretentionpoliciesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording mediaretentionpolicies unauthorized response a status code equal to that given
+func (o *GetRecordingMediaretentionpoliciesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRecordingMediaretentionpoliciesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpoliciesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRecordingMediaretentionpoliciesForbidden() *GetRecordingMediaretentio
 	return &GetRecordingMediaretentionpoliciesForbidden{}
 }
 
-/*GetRecordingMediaretentionpoliciesForbidden handles this case with default header values.
+/*
+GetRecordingMediaretentionpoliciesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRecordingMediaretentionpoliciesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording mediaretentionpolicies forbidden response has a 2xx status code
+func (o *GetRecordingMediaretentionpoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording mediaretentionpolicies forbidden response has a 3xx status code
+func (o *GetRecordingMediaretentionpoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording mediaretentionpolicies forbidden response has a 4xx status code
+func (o *GetRecordingMediaretentionpoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording mediaretentionpolicies forbidden response has a 5xx status code
+func (o *GetRecordingMediaretentionpoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording mediaretentionpolicies forbidden response a status code equal to that given
+func (o *GetRecordingMediaretentionpoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRecordingMediaretentionpoliciesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpoliciesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRecordingMediaretentionpoliciesNotFound() *GetRecordingMediaretention
 	return &GetRecordingMediaretentionpoliciesNotFound{}
 }
 
-/*GetRecordingMediaretentionpoliciesNotFound handles this case with default header values.
+/*
+GetRecordingMediaretentionpoliciesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRecordingMediaretentionpoliciesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording mediaretentionpolicies not found response has a 2xx status code
+func (o *GetRecordingMediaretentionpoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording mediaretentionpolicies not found response has a 3xx status code
+func (o *GetRecordingMediaretentionpoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording mediaretentionpolicies not found response has a 4xx status code
+func (o *GetRecordingMediaretentionpoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording mediaretentionpolicies not found response has a 5xx status code
+func (o *GetRecordingMediaretentionpoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording mediaretentionpolicies not found response a status code equal to that given
+func (o *GetRecordingMediaretentionpoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRecordingMediaretentionpoliciesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpoliciesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRecordingMediaretentionpoliciesRequestTimeout() *GetRecordingMediaret
 	return &GetRecordingMediaretentionpoliciesRequestTimeout{}
 }
 
-/*GetRecordingMediaretentionpoliciesRequestTimeout handles this case with default header values.
+/*
+GetRecordingMediaretentionpoliciesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRecordingMediaretentionpoliciesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording mediaretentionpolicies request timeout response has a 2xx status code
+func (o *GetRecordingMediaretentionpoliciesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording mediaretentionpolicies request timeout response has a 3xx status code
+func (o *GetRecordingMediaretentionpoliciesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording mediaretentionpolicies request timeout response has a 4xx status code
+func (o *GetRecordingMediaretentionpoliciesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording mediaretentionpolicies request timeout response has a 5xx status code
+func (o *GetRecordingMediaretentionpoliciesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording mediaretentionpolicies request timeout response a status code equal to that given
+func (o *GetRecordingMediaretentionpoliciesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRecordingMediaretentionpoliciesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpoliciesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRecordingMediaretentionpoliciesRequestEntityTooLarge() *GetRecordingM
 	return &GetRecordingMediaretentionpoliciesRequestEntityTooLarge{}
 }
 
-/*GetRecordingMediaretentionpoliciesRequestEntityTooLarge handles this case with default header values.
+/*
+GetRecordingMediaretentionpoliciesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRecordingMediaretentionpoliciesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording mediaretentionpolicies request entity too large response has a 2xx status code
+func (o *GetRecordingMediaretentionpoliciesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording mediaretentionpolicies request entity too large response has a 3xx status code
+func (o *GetRecordingMediaretentionpoliciesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording mediaretentionpolicies request entity too large response has a 4xx status code
+func (o *GetRecordingMediaretentionpoliciesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording mediaretentionpolicies request entity too large response has a 5xx status code
+func (o *GetRecordingMediaretentionpoliciesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording mediaretentionpolicies request entity too large response a status code equal to that given
+func (o *GetRecordingMediaretentionpoliciesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRecordingMediaretentionpoliciesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpoliciesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRecordingMediaretentionpoliciesUnsupportedMediaType() *GetRecordingMe
 	return &GetRecordingMediaretentionpoliciesUnsupportedMediaType{}
 }
 
-/*GetRecordingMediaretentionpoliciesUnsupportedMediaType handles this case with default header values.
+/*
+GetRecordingMediaretentionpoliciesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRecordingMediaretentionpoliciesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording mediaretentionpolicies unsupported media type response has a 2xx status code
+func (o *GetRecordingMediaretentionpoliciesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording mediaretentionpolicies unsupported media type response has a 3xx status code
+func (o *GetRecordingMediaretentionpoliciesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording mediaretentionpolicies unsupported media type response has a 4xx status code
+func (o *GetRecordingMediaretentionpoliciesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording mediaretentionpolicies unsupported media type response has a 5xx status code
+func (o *GetRecordingMediaretentionpoliciesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording mediaretentionpolicies unsupported media type response a status code equal to that given
+func (o *GetRecordingMediaretentionpoliciesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRecordingMediaretentionpoliciesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpoliciesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRecordingMediaretentionpoliciesTooManyRequests() *GetRecordingMediare
 	return &GetRecordingMediaretentionpoliciesTooManyRequests{}
 }
 
-/*GetRecordingMediaretentionpoliciesTooManyRequests handles this case with default header values.
+/*
+GetRecordingMediaretentionpoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRecordingMediaretentionpoliciesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording mediaretentionpolicies too many requests response has a 2xx status code
+func (o *GetRecordingMediaretentionpoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording mediaretentionpolicies too many requests response has a 3xx status code
+func (o *GetRecordingMediaretentionpoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording mediaretentionpolicies too many requests response has a 4xx status code
+func (o *GetRecordingMediaretentionpoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recording mediaretentionpolicies too many requests response has a 5xx status code
+func (o *GetRecordingMediaretentionpoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recording mediaretentionpolicies too many requests response a status code equal to that given
+func (o *GetRecordingMediaretentionpoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRecordingMediaretentionpoliciesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpoliciesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRecordingMediaretentionpoliciesInternalServerError() *GetRecordingMed
 	return &GetRecordingMediaretentionpoliciesInternalServerError{}
 }
 
-/*GetRecordingMediaretentionpoliciesInternalServerError handles this case with default header values.
+/*
+GetRecordingMediaretentionpoliciesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRecordingMediaretentionpoliciesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording mediaretentionpolicies internal server error response has a 2xx status code
+func (o *GetRecordingMediaretentionpoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording mediaretentionpolicies internal server error response has a 3xx status code
+func (o *GetRecordingMediaretentionpoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording mediaretentionpolicies internal server error response has a 4xx status code
+func (o *GetRecordingMediaretentionpoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording mediaretentionpolicies internal server error response has a 5xx status code
+func (o *GetRecordingMediaretentionpoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording mediaretentionpolicies internal server error response a status code equal to that given
+func (o *GetRecordingMediaretentionpoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRecordingMediaretentionpoliciesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRecordingMediaretentionpoliciesServiceUnavailable() *GetRecordingMedi
 	return &GetRecordingMediaretentionpoliciesServiceUnavailable{}
 }
 
-/*GetRecordingMediaretentionpoliciesServiceUnavailable handles this case with default header values.
+/*
+GetRecordingMediaretentionpoliciesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRecordingMediaretentionpoliciesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording mediaretentionpolicies service unavailable response has a 2xx status code
+func (o *GetRecordingMediaretentionpoliciesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording mediaretentionpolicies service unavailable response has a 3xx status code
+func (o *GetRecordingMediaretentionpoliciesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording mediaretentionpolicies service unavailable response has a 4xx status code
+func (o *GetRecordingMediaretentionpoliciesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording mediaretentionpolicies service unavailable response has a 5xx status code
+func (o *GetRecordingMediaretentionpoliciesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording mediaretentionpolicies service unavailable response a status code equal to that given
+func (o *GetRecordingMediaretentionpoliciesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRecordingMediaretentionpoliciesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpoliciesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRecordingMediaretentionpoliciesGatewayTimeout() *GetRecordingMediaret
 	return &GetRecordingMediaretentionpoliciesGatewayTimeout{}
 }
 
-/*GetRecordingMediaretentionpoliciesGatewayTimeout handles this case with default header values.
+/*
+GetRecordingMediaretentionpoliciesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRecordingMediaretentionpoliciesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recording mediaretentionpolicies gateway timeout response has a 2xx status code
+func (o *GetRecordingMediaretentionpoliciesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recording mediaretentionpolicies gateway timeout response has a 3xx status code
+func (o *GetRecordingMediaretentionpoliciesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recording mediaretentionpolicies gateway timeout response has a 4xx status code
+func (o *GetRecordingMediaretentionpoliciesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recording mediaretentionpolicies gateway timeout response has a 5xx status code
+func (o *GetRecordingMediaretentionpoliciesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recording mediaretentionpolicies gateway timeout response a status code equal to that given
+func (o *GetRecordingMediaretentionpoliciesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRecordingMediaretentionpoliciesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRecordingMediaretentionpoliciesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recording/mediaretentionpolicies][%d] getRecordingMediaretentionpoliciesGatewayTimeout  %+v", 504, o.Payload)
 }
 

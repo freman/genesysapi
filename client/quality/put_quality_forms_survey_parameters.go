@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutQualityFormsSurveyParams creates a new PutQualityFormsSurveyParams object
-// with the default values initialized.
+// NewPutQualityFormsSurveyParams creates a new PutQualityFormsSurveyParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutQualityFormsSurveyParams() *PutQualityFormsSurveyParams {
-	var ()
 	return &PutQualityFormsSurveyParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutQualityFormsSurveyParamsWithTimeout creates a new PutQualityFormsSurveyParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutQualityFormsSurveyParamsWithTimeout(timeout time.Duration) *PutQualityFormsSurveyParams {
-	var ()
 	return &PutQualityFormsSurveyParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutQualityFormsSurveyParamsWithContext creates a new PutQualityFormsSurveyParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutQualityFormsSurveyParamsWithContext(ctx context.Context) *PutQualityFormsSurveyParams {
-	var ()
 	return &PutQualityFormsSurveyParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutQualityFormsSurveyParamsWithHTTPClient creates a new PutQualityFormsSurveyParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutQualityFormsSurveyParamsWithHTTPClient(client *http.Client) *PutQualityFormsSurveyParams {
-	var ()
 	return &PutQualityFormsSurveyParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutQualityFormsSurveyParams contains all the parameters to send to the API endpoint
-for the put quality forms survey operation typically these are written to a http.Request
+/*
+PutQualityFormsSurveyParams contains all the parameters to send to the API endpoint
+
+	for the put quality forms survey operation.
+
+	Typically these are written to a http.Request.
 */
 type PutQualityFormsSurveyParams struct {
 
-	/*Body
-	  Survey form
+	/* Body.
 
+	   Survey form
 	*/
 	Body *models.SurveyForm
-	/*FormID
-	  Form ID
 
+	/* FormID.
+
+	   Form ID
 	*/
 	FormID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put quality forms survey params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutQualityFormsSurveyParams) WithDefaults() *PutQualityFormsSurveyParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put quality forms survey params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutQualityFormsSurveyParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put quality forms survey params
@@ -140,7 +157,6 @@ func (o *PutQualityFormsSurveyParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

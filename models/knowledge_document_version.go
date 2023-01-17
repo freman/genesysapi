@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -80,7 +82,6 @@ func (m *KnowledgeDocumentVersion) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeDocumentVersion) validateDateExpires(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateExpires) { // not required
 		return nil
 	}
@@ -93,7 +94,6 @@ func (m *KnowledgeDocumentVersion) validateDateExpires(formats strfmt.Registry) 
 }
 
 func (m *KnowledgeDocumentVersion) validateDatePublished(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DatePublished) { // not required
 		return nil
 	}
@@ -106,7 +106,6 @@ func (m *KnowledgeDocumentVersion) validateDatePublished(formats strfmt.Registry
 }
 
 func (m *KnowledgeDocumentVersion) validateDocument(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Document) { // not required
 		return nil
 	}
@@ -115,6 +114,8 @@ func (m *KnowledgeDocumentVersion) validateDocument(formats strfmt.Registry) err
 		if err := m.Document.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("document")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("document")
 			}
 			return err
 		}
@@ -133,12 +134,106 @@ func (m *KnowledgeDocumentVersion) validateRestoreFromVersionID(formats strfmt.R
 }
 
 func (m *KnowledgeDocumentVersion) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge document version based on the context it is used
+func (m *KnowledgeDocumentVersion) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateExpires(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDatePublished(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDocument(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVersionNumber(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeDocumentVersion) contextValidateDateExpires(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateExpires", "body", strfmt.DateTime(m.DateExpires)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentVersion) contextValidateDatePublished(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "datePublished", "body", strfmt.DateTime(m.DatePublished)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentVersion) contextValidateDocument(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Document != nil {
+		if err := m.Document.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("document")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("document")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentVersion) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentVersion) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentVersion) contextValidateVersionNumber(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "versionNumber", "body", int32(m.VersionNumber)); err != nil {
 		return err
 	}
 

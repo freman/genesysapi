@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAuthorizationRoleComparedefaultRightRoleIDParams creates a new GetAuthorizationRoleComparedefaultRightRoleIDParams object
-// with the default values initialized.
+// NewGetAuthorizationRoleComparedefaultRightRoleIDParams creates a new GetAuthorizationRoleComparedefaultRightRoleIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAuthorizationRoleComparedefaultRightRoleIDParams() *GetAuthorizationRoleComparedefaultRightRoleIDParams {
-	var ()
 	return &GetAuthorizationRoleComparedefaultRightRoleIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAuthorizationRoleComparedefaultRightRoleIDParamsWithTimeout creates a new GetAuthorizationRoleComparedefaultRightRoleIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAuthorizationRoleComparedefaultRightRoleIDParamsWithTimeout(timeout time.Duration) *GetAuthorizationRoleComparedefaultRightRoleIDParams {
-	var ()
 	return &GetAuthorizationRoleComparedefaultRightRoleIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAuthorizationRoleComparedefaultRightRoleIDParamsWithContext creates a new GetAuthorizationRoleComparedefaultRightRoleIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAuthorizationRoleComparedefaultRightRoleIDParamsWithContext(ctx context.Context) *GetAuthorizationRoleComparedefaultRightRoleIDParams {
-	var ()
 	return &GetAuthorizationRoleComparedefaultRightRoleIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAuthorizationRoleComparedefaultRightRoleIDParamsWithHTTPClient creates a new GetAuthorizationRoleComparedefaultRightRoleIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAuthorizationRoleComparedefaultRightRoleIDParamsWithHTTPClient(client *http.Client) *GetAuthorizationRoleComparedefaultRightRoleIDParams {
-	var ()
 	return &GetAuthorizationRoleComparedefaultRightRoleIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAuthorizationRoleComparedefaultRightRoleIDParams contains all the parameters to send to the API endpoint
-for the get authorization role comparedefault right role Id operation typically these are written to a http.Request
+/*
+GetAuthorizationRoleComparedefaultRightRoleIDParams contains all the parameters to send to the API endpoint
+
+	for the get authorization role comparedefault right role Id operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAuthorizationRoleComparedefaultRightRoleIDParams struct {
 
-	/*LeftRoleID
-	  Left Role ID
+	/* LeftRoleID.
 
+	   Left Role ID
 	*/
 	LeftRoleID string
-	/*RightRoleID
-	  Right Role id
 
+	/* RightRoleID.
+
+	   Right Role id
 	*/
 	RightRoleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get authorization role comparedefault right role Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationRoleComparedefaultRightRoleIDParams) WithDefaults() *GetAuthorizationRoleComparedefaultRightRoleIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get authorization role comparedefault right role Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAuthorizationRoleComparedefaultRightRoleIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get authorization role comparedefault right role Id params

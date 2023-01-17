@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutAuthorizationRoleParams creates a new PutAuthorizationRoleParams object
-// with the default values initialized.
+// NewPutAuthorizationRoleParams creates a new PutAuthorizationRoleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutAuthorizationRoleParams() *PutAuthorizationRoleParams {
-	var ()
 	return &PutAuthorizationRoleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutAuthorizationRoleParamsWithTimeout creates a new PutAuthorizationRoleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutAuthorizationRoleParamsWithTimeout(timeout time.Duration) *PutAuthorizationRoleParams {
-	var ()
 	return &PutAuthorizationRoleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutAuthorizationRoleParamsWithContext creates a new PutAuthorizationRoleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutAuthorizationRoleParamsWithContext(ctx context.Context) *PutAuthorizationRoleParams {
-	var ()
 	return &PutAuthorizationRoleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutAuthorizationRoleParamsWithHTTPClient creates a new PutAuthorizationRoleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutAuthorizationRoleParamsWithHTTPClient(client *http.Client) *PutAuthorizationRoleParams {
-	var ()
 	return &PutAuthorizationRoleParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutAuthorizationRoleParams contains all the parameters to send to the API endpoint
-for the put authorization role operation typically these are written to a http.Request
+/*
+PutAuthorizationRoleParams contains all the parameters to send to the API endpoint
+
+	for the put authorization role operation.
+
+	Typically these are written to a http.Request.
 */
 type PutAuthorizationRoleParams struct {
 
-	/*Body
-	  Organization role
+	/* Body.
 
+	   Organization role
 	*/
 	Body *models.DomainOrganizationRoleUpdate
-	/*RoleID
-	  Role ID
 
+	/* RoleID.
+
+	   Role ID
 	*/
 	RoleID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put authorization role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutAuthorizationRoleParams) WithDefaults() *PutAuthorizationRoleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put authorization role params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutAuthorizationRoleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put authorization role params
@@ -140,7 +157,6 @@ func (o *PutAuthorizationRoleParams) WriteToRequest(r runtime.ClientRequest, reg
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -95,7 +95,6 @@ func (o *PostUploadsWorkforcemanagementHistoricaldataCsvReader) ReadResponse(res
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostUploadsWorkforcemanagementHistoricaldataCsvOK() *PostUploadsWorkforc
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvOK{}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvOK handles this case with default header values.
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvOK describes a response with status code 200, with default header values.
 
 Presigned url successfully created.
 */
@@ -114,7 +114,36 @@ type PostUploadsWorkforcemanagementHistoricaldataCsvOK struct {
 	Payload *models.UploadURLResponse
 }
 
+// IsSuccess returns true when this post uploads workforcemanagement historicaldata csv o k response has a 2xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post uploads workforcemanagement historicaldata csv o k response has a 3xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads workforcemanagement historicaldata csv o k response has a 4xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post uploads workforcemanagement historicaldata csv o k response has a 5xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads workforcemanagement historicaldata csv o k response a status code equal to that given
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostUploadsWorkforcemanagementHistoricaldataCsvOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvOK  %+v", 200, o.Payload)
+}
+
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostUploadsWorkforcemanagementHistoricaldataCsvBadRequest() *PostUploads
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvBadRequest{}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvBadRequest handles this case with default header values.
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostUploadsWorkforcemanagementHistoricaldataCsvBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads workforcemanagement historicaldata csv bad request response has a 2xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads workforcemanagement historicaldata csv bad request response has a 3xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads workforcemanagement historicaldata csv bad request response has a 4xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads workforcemanagement historicaldata csv bad request response has a 5xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads workforcemanagement historicaldata csv bad request response a status code equal to that given
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostUploadsWorkforcemanagementHistoricaldataCsvBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostUploadsWorkforcemanagementHistoricaldataCsvUnauthorized() *PostUploa
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvUnauthorized{}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvUnauthorized handles this case with default header values.
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostUploadsWorkforcemanagementHistoricaldataCsvUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads workforcemanagement historicaldata csv unauthorized response has a 2xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads workforcemanagement historicaldata csv unauthorized response has a 3xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads workforcemanagement historicaldata csv unauthorized response has a 4xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads workforcemanagement historicaldata csv unauthorized response has a 5xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads workforcemanagement historicaldata csv unauthorized response a status code equal to that given
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostUploadsWorkforcemanagementHistoricaldataCsvForbidden() *PostUploadsW
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvForbidden{}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvForbidden handles this case with default header values.
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostUploadsWorkforcemanagementHistoricaldataCsvForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads workforcemanagement historicaldata csv forbidden response has a 2xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads workforcemanagement historicaldata csv forbidden response has a 3xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads workforcemanagement historicaldata csv forbidden response has a 4xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads workforcemanagement historicaldata csv forbidden response has a 5xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads workforcemanagement historicaldata csv forbidden response a status code equal to that given
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostUploadsWorkforcemanagementHistoricaldataCsvForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostUploadsWorkforcemanagementHistoricaldataCsvNotFound() *PostUploadsWo
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvNotFound{}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvNotFound handles this case with default header values.
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostUploadsWorkforcemanagementHistoricaldataCsvNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads workforcemanagement historicaldata csv not found response has a 2xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads workforcemanagement historicaldata csv not found response has a 3xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads workforcemanagement historicaldata csv not found response has a 4xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads workforcemanagement historicaldata csv not found response has a 5xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads workforcemanagement historicaldata csv not found response a status code equal to that given
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostUploadsWorkforcemanagementHistoricaldataCsvNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout() *PostUpl
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout{}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout handles this case with default header values.
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads workforcemanagement historicaldata csv request timeout response has a 2xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads workforcemanagement historicaldata csv request timeout response has a 3xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads workforcemanagement historicaldata csv request timeout response has a 4xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads workforcemanagement historicaldata csv request timeout response has a 5xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads workforcemanagement historicaldata csv request timeout response a status code equal to that given
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge() *
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge{}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge handles this case with default header values.
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads workforcemanagement historicaldata csv request entity too large response has a 2xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads workforcemanagement historicaldata csv request entity too large response has a 3xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads workforcemanagement historicaldata csv request entity too large response has a 4xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads workforcemanagement historicaldata csv request entity too large response has a 5xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads workforcemanagement historicaldata csv request entity too large response a status code equal to that given
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType() *P
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType{}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType handles this case with default header values.
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads workforcemanagement historicaldata csv unsupported media type response has a 2xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads workforcemanagement historicaldata csv unsupported media type response has a 3xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads workforcemanagement historicaldata csv unsupported media type response has a 4xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads workforcemanagement historicaldata csv unsupported media type response has a 5xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads workforcemanagement historicaldata csv unsupported media type response a status code equal to that given
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests() *PostUp
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests{}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests handles this case with default header values.
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads workforcemanagement historicaldata csv too many requests response has a 2xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads workforcemanagement historicaldata csv too many requests response has a 3xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads workforcemanagement historicaldata csv too many requests response has a 4xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post uploads workforcemanagement historicaldata csv too many requests response has a 5xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post uploads workforcemanagement historicaldata csv too many requests response a status code equal to that given
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostUploadsWorkforcemanagementHistoricaldataCsvInternalServerError() *Po
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvInternalServerError{}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvInternalServerError handles this case with default header values.
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostUploadsWorkforcemanagementHistoricaldataCsvInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads workforcemanagement historicaldata csv internal server error response has a 2xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads workforcemanagement historicaldata csv internal server error response has a 3xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads workforcemanagement historicaldata csv internal server error response has a 4xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post uploads workforcemanagement historicaldata csv internal server error response has a 5xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post uploads workforcemanagement historicaldata csv internal server error response a status code equal to that given
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostUploadsWorkforcemanagementHistoricaldataCsvInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable() *Pos
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable{}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable handles this case with default header values.
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads workforcemanagement historicaldata csv service unavailable response has a 2xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads workforcemanagement historicaldata csv service unavailable response has a 3xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads workforcemanagement historicaldata csv service unavailable response has a 4xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post uploads workforcemanagement historicaldata csv service unavailable response has a 5xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post uploads workforcemanagement historicaldata csv service unavailable response a status code equal to that given
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout() *PostUpl
 	return &PostUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout{}
 }
 
-/*PostUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout handles this case with default header values.
+/*
+PostUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post uploads workforcemanagement historicaldata csv gateway timeout response has a 2xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post uploads workforcemanagement historicaldata csv gateway timeout response has a 3xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post uploads workforcemanagement historicaldata csv gateway timeout response has a 4xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post uploads workforcemanagement historicaldata csv gateway timeout response has a 5xx status code
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post uploads workforcemanagement historicaldata csv gateway timeout response a status code equal to that given
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/uploads/workforcemanagement/historicaldata/csv][%d] postUploadsWorkforcemanagementHistoricaldataCsvGatewayTimeout  %+v", 504, o.Payload)
 }
 

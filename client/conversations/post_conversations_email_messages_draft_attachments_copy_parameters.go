@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsEmailMessagesDraftAttachmentsCopyParams creates a new PostConversationsEmailMessagesDraftAttachmentsCopyParams object
-// with the default values initialized.
+// NewPostConversationsEmailMessagesDraftAttachmentsCopyParams creates a new PostConversationsEmailMessagesDraftAttachmentsCopyParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsEmailMessagesDraftAttachmentsCopyParams() *PostConversationsEmailMessagesDraftAttachmentsCopyParams {
-	var ()
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsEmailMessagesDraftAttachmentsCopyParamsWithTimeout creates a new PostConversationsEmailMessagesDraftAttachmentsCopyParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsEmailMessagesDraftAttachmentsCopyParamsWithTimeout(timeout time.Duration) *PostConversationsEmailMessagesDraftAttachmentsCopyParams {
-	var ()
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsEmailMessagesDraftAttachmentsCopyParamsWithContext creates a new PostConversationsEmailMessagesDraftAttachmentsCopyParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsEmailMessagesDraftAttachmentsCopyParamsWithContext(ctx context.Context) *PostConversationsEmailMessagesDraftAttachmentsCopyParams {
-	var ()
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsEmailMessagesDraftAttachmentsCopyParamsWithHTTPClient creates a new PostConversationsEmailMessagesDraftAttachmentsCopyParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsEmailMessagesDraftAttachmentsCopyParamsWithHTTPClient(client *http.Client) *PostConversationsEmailMessagesDraftAttachmentsCopyParams {
-	var ()
 	return &PostConversationsEmailMessagesDraftAttachmentsCopyParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsEmailMessagesDraftAttachmentsCopyParams contains all the parameters to send to the API endpoint
-for the post conversations email messages draft attachments copy operation typically these are written to a http.Request
+/*
+PostConversationsEmailMessagesDraftAttachmentsCopyParams contains all the parameters to send to the API endpoint
+
+	for the post conversations email messages draft attachments copy operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsEmailMessagesDraftAttachmentsCopyParams struct {
 
-	/*Body
-	  Copy Attachment Request
+	/* Body.
 
+	   Copy Attachment Request
 	*/
 	Body *models.CopyAttachmentsRequest
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations email messages draft attachments copy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyParams) WithDefaults() *PostConversationsEmailMessagesDraftAttachmentsCopyParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations email messages draft attachments copy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsEmailMessagesDraftAttachmentsCopyParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations email messages draft attachments copy params
@@ -140,7 +157,6 @@ func (o *PostConversationsEmailMessagesDraftAttachmentsCopyParams) WriteToReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

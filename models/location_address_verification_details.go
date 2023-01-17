@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -28,6 +29,7 @@ type LocationAddressVerificationDetails struct {
 	DateStarted strfmt.DateTime `json:"dateStarted,omitempty"`
 
 	// Third party service used for address verification
+	// Example: smartystreets-us
 	Service string `json:"service,omitempty"`
 
 	// Status of address verification process
@@ -58,7 +60,6 @@ func (m *LocationAddressVerificationDetails) Validate(formats strfmt.Registry) e
 }
 
 func (m *LocationAddressVerificationDetails) validateDateFinished(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateFinished) { // not required
 		return nil
 	}
@@ -71,7 +72,6 @@ func (m *LocationAddressVerificationDetails) validateDateFinished(formats strfmt
 }
 
 func (m *LocationAddressVerificationDetails) validateDateStarted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStarted) { // not required
 		return nil
 	}
@@ -122,7 +122,6 @@ func (m *LocationAddressVerificationDetails) validateStatusEnum(path, location s
 }
 
 func (m *LocationAddressVerificationDetails) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -132,6 +131,11 @@ func (m *LocationAddressVerificationDetails) validateStatus(formats strfmt.Regis
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this location address verification details based on context it is used
+func (m *LocationAddressVerificationDetails) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

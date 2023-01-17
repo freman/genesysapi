@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -96,7 +97,6 @@ func (m *DependencyStatus) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DependencyStatus) validateClient(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Client) { // not required
 		return nil
 	}
@@ -105,6 +105,8 @@ func (m *DependencyStatus) validateClient(formats strfmt.Registry) error {
 		if err := m.Client.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("client")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("client")
 			}
 			return err
 		}
@@ -114,7 +116,6 @@ func (m *DependencyStatus) validateClient(formats strfmt.Registry) error {
 }
 
 func (m *DependencyStatus) validateDateCompleted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCompleted) { // not required
 		return nil
 	}
@@ -127,7 +128,6 @@ func (m *DependencyStatus) validateDateCompleted(formats strfmt.Registry) error 
 }
 
 func (m *DependencyStatus) validateDateStarted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStarted) { // not required
 		return nil
 	}
@@ -140,7 +140,6 @@ func (m *DependencyStatus) validateDateStarted(formats strfmt.Registry) error {
 }
 
 func (m *DependencyStatus) validateFailedObjects(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FailedObjects) { // not required
 		return nil
 	}
@@ -154,6 +153,8 @@ func (m *DependencyStatus) validateFailedObjects(formats strfmt.Registry) error 
 			if err := m.FailedObjects[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("failedObjects" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("failedObjects" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -165,7 +166,6 @@ func (m *DependencyStatus) validateFailedObjects(formats strfmt.Registry) error 
 }
 
 func (m *DependencyStatus) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -216,7 +216,6 @@ func (m *DependencyStatus) validateStatusEnum(path, location string, value strin
 }
 
 func (m *DependencyStatus) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -230,7 +229,6 @@ func (m *DependencyStatus) validateStatus(formats strfmt.Registry) error {
 }
 
 func (m *DependencyStatus) validateUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.User) { // not required
 		return nil
 	}
@@ -239,6 +237,108 @@ func (m *DependencyStatus) validateUser(formats strfmt.Registry) error {
 		if err := m.User.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this dependency status based on the context it is used
+func (m *DependencyStatus) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateClient(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFailedObjects(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DependencyStatus) contextValidateClient(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Client != nil {
+		if err := m.Client.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("client")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("client")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DependencyStatus) contextValidateFailedObjects(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.FailedObjects); i++ {
+
+		if m.FailedObjects[i] != nil {
+			if err := m.FailedObjects[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("failedObjects" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("failedObjects" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DependencyStatus) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DependencyStatus) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DependencyStatus) contextValidateUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.User != nil {
+		if err := m.User.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("user")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("user")
 			}
 			return err
 		}

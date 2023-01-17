@@ -17,76 +17,92 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetIntegrationsSpeechTtsEngineParams creates a new GetIntegrationsSpeechTtsEngineParams object
-// with the default values initialized.
+// NewGetIntegrationsSpeechTtsEngineParams creates a new GetIntegrationsSpeechTtsEngineParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntegrationsSpeechTtsEngineParams() *GetIntegrationsSpeechTtsEngineParams {
-	var (
-		includeVoicesDefault = bool(false)
-	)
 	return &GetIntegrationsSpeechTtsEngineParams{
-		IncludeVoices: &includeVoicesDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntegrationsSpeechTtsEngineParamsWithTimeout creates a new GetIntegrationsSpeechTtsEngineParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntegrationsSpeechTtsEngineParamsWithTimeout(timeout time.Duration) *GetIntegrationsSpeechTtsEngineParams {
-	var (
-		includeVoicesDefault = bool(false)
-	)
 	return &GetIntegrationsSpeechTtsEngineParams{
-		IncludeVoices: &includeVoicesDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntegrationsSpeechTtsEngineParamsWithContext creates a new GetIntegrationsSpeechTtsEngineParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntegrationsSpeechTtsEngineParamsWithContext(ctx context.Context) *GetIntegrationsSpeechTtsEngineParams {
-	var (
-		includeVoicesDefault = bool(false)
-	)
 	return &GetIntegrationsSpeechTtsEngineParams{
-		IncludeVoices: &includeVoicesDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntegrationsSpeechTtsEngineParamsWithHTTPClient creates a new GetIntegrationsSpeechTtsEngineParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntegrationsSpeechTtsEngineParamsWithHTTPClient(client *http.Client) *GetIntegrationsSpeechTtsEngineParams {
-	var (
-		includeVoicesDefault = bool(false)
-	)
 	return &GetIntegrationsSpeechTtsEngineParams{
-		IncludeVoices: &includeVoicesDefault,
-		HTTPClient:    client,
+		HTTPClient: client,
 	}
 }
 
-/*GetIntegrationsSpeechTtsEngineParams contains all the parameters to send to the API endpoint
-for the get integrations speech tts engine operation typically these are written to a http.Request
+/*
+GetIntegrationsSpeechTtsEngineParams contains all the parameters to send to the API endpoint
+
+	for the get integrations speech tts engine operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntegrationsSpeechTtsEngineParams struct {
 
-	/*EngineID
-	  The engine ID
+	/* EngineID.
 
+	   The engine ID
 	*/
 	EngineID string
-	/*IncludeVoices
-	  Include voices for the engine
 
+	/* IncludeVoices.
+
+	   Include voices for the engine
 	*/
 	IncludeVoices *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get integrations speech tts engine params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsSpeechTtsEngineParams) WithDefaults() *GetIntegrationsSpeechTtsEngineParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get integrations speech tts engine params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsSpeechTtsEngineParams) SetDefaults() {
+	var (
+		includeVoicesDefault = bool(false)
+	)
+
+	val := GetIntegrationsSpeechTtsEngineParams{
+		IncludeVoices: &includeVoicesDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get integrations speech tts engine params
@@ -161,16 +177,17 @@ func (o *GetIntegrationsSpeechTtsEngineParams) WriteToRequest(r runtime.ClientRe
 
 		// query param includeVoices
 		var qrIncludeVoices bool
+
 		if o.IncludeVoices != nil {
 			qrIncludeVoices = *o.IncludeVoices
 		}
 		qIncludeVoices := swag.FormatBool(qrIncludeVoices)
 		if qIncludeVoices != "" {
+
 			if err := r.SetQueryParam("includeVoices", qIncludeVoices); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

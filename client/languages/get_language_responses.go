@@ -95,7 +95,6 @@ func (o *GetLanguageReader) ReadResponse(response runtime.ClientResponse, consum
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetLanguageOK() *GetLanguageOK {
 	return &GetLanguageOK{}
 }
 
-/*GetLanguageOK handles this case with default header values.
+/*
+GetLanguageOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetLanguageOK struct {
 	Payload *models.Language
 }
 
+// IsSuccess returns true when this get language o k response has a 2xx status code
+func (o *GetLanguageOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get language o k response has a 3xx status code
+func (o *GetLanguageOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get language o k response has a 4xx status code
+func (o *GetLanguageOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get language o k response has a 5xx status code
+func (o *GetLanguageOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get language o k response a status code equal to that given
+func (o *GetLanguageOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLanguageOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageOK  %+v", 200, o.Payload)
+}
+
+func (o *GetLanguageOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetLanguageBadRequest() *GetLanguageBadRequest {
 	return &GetLanguageBadRequest{}
 }
 
-/*GetLanguageBadRequest handles this case with default header values.
+/*
+GetLanguageBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetLanguageBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get language bad request response has a 2xx status code
+func (o *GetLanguageBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get language bad request response has a 3xx status code
+func (o *GetLanguageBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get language bad request response has a 4xx status code
+func (o *GetLanguageBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get language bad request response has a 5xx status code
+func (o *GetLanguageBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get language bad request response a status code equal to that given
+func (o *GetLanguageBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLanguageBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetLanguageBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetLanguageUnauthorized() *GetLanguageUnauthorized {
 	return &GetLanguageUnauthorized{}
 }
 
-/*GetLanguageUnauthorized handles this case with default header values.
+/*
+GetLanguageUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetLanguageUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get language unauthorized response has a 2xx status code
+func (o *GetLanguageUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get language unauthorized response has a 3xx status code
+func (o *GetLanguageUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get language unauthorized response has a 4xx status code
+func (o *GetLanguageUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get language unauthorized response has a 5xx status code
+func (o *GetLanguageUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get language unauthorized response a status code equal to that given
+func (o *GetLanguageUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetLanguageUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetLanguageUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetLanguageForbidden() *GetLanguageForbidden {
 	return &GetLanguageForbidden{}
 }
 
-/*GetLanguageForbidden handles this case with default header values.
+/*
+GetLanguageForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetLanguageForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get language forbidden response has a 2xx status code
+func (o *GetLanguageForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get language forbidden response has a 3xx status code
+func (o *GetLanguageForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get language forbidden response has a 4xx status code
+func (o *GetLanguageForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get language forbidden response has a 5xx status code
+func (o *GetLanguageForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get language forbidden response a status code equal to that given
+func (o *GetLanguageForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLanguageForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetLanguageForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetLanguageNotFound() *GetLanguageNotFound {
 	return &GetLanguageNotFound{}
 }
 
-/*GetLanguageNotFound handles this case with default header values.
+/*
+GetLanguageNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetLanguageNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get language not found response has a 2xx status code
+func (o *GetLanguageNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get language not found response has a 3xx status code
+func (o *GetLanguageNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get language not found response has a 4xx status code
+func (o *GetLanguageNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get language not found response has a 5xx status code
+func (o *GetLanguageNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get language not found response a status code equal to that given
+func (o *GetLanguageNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLanguageNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetLanguageNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetLanguageRequestTimeout() *GetLanguageRequestTimeout {
 	return &GetLanguageRequestTimeout{}
 }
 
-/*GetLanguageRequestTimeout handles this case with default header values.
+/*
+GetLanguageRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetLanguageRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get language request timeout response has a 2xx status code
+func (o *GetLanguageRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get language request timeout response has a 3xx status code
+func (o *GetLanguageRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get language request timeout response has a 4xx status code
+func (o *GetLanguageRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get language request timeout response has a 5xx status code
+func (o *GetLanguageRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get language request timeout response a status code equal to that given
+func (o *GetLanguageRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetLanguageRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLanguageRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetLanguageRequestEntityTooLarge() *GetLanguageRequestEntityTooLarge {
 	return &GetLanguageRequestEntityTooLarge{}
 }
 
-/*GetLanguageRequestEntityTooLarge handles this case with default header values.
+/*
+GetLanguageRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetLanguageRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get language request entity too large response has a 2xx status code
+func (o *GetLanguageRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get language request entity too large response has a 3xx status code
+func (o *GetLanguageRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get language request entity too large response has a 4xx status code
+func (o *GetLanguageRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get language request entity too large response has a 5xx status code
+func (o *GetLanguageRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get language request entity too large response a status code equal to that given
+func (o *GetLanguageRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetLanguageRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetLanguageRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetLanguageUnsupportedMediaType() *GetLanguageUnsupportedMediaType {
 	return &GetLanguageUnsupportedMediaType{}
 }
 
-/*GetLanguageUnsupportedMediaType handles this case with default header values.
+/*
+GetLanguageUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetLanguageUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get language unsupported media type response has a 2xx status code
+func (o *GetLanguageUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get language unsupported media type response has a 3xx status code
+func (o *GetLanguageUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get language unsupported media type response has a 4xx status code
+func (o *GetLanguageUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get language unsupported media type response has a 5xx status code
+func (o *GetLanguageUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get language unsupported media type response a status code equal to that given
+func (o *GetLanguageUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetLanguageUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetLanguageUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetLanguageTooManyRequests() *GetLanguageTooManyRequests {
 	return &GetLanguageTooManyRequests{}
 }
 
-/*GetLanguageTooManyRequests handles this case with default header values.
+/*
+GetLanguageTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetLanguageTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get language too many requests response has a 2xx status code
+func (o *GetLanguageTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get language too many requests response has a 3xx status code
+func (o *GetLanguageTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get language too many requests response has a 4xx status code
+func (o *GetLanguageTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get language too many requests response has a 5xx status code
+func (o *GetLanguageTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get language too many requests response a status code equal to that given
+func (o *GetLanguageTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLanguageTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetLanguageTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetLanguageInternalServerError() *GetLanguageInternalServerError {
 	return &GetLanguageInternalServerError{}
 }
 
-/*GetLanguageInternalServerError handles this case with default header values.
+/*
+GetLanguageInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetLanguageInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get language internal server error response has a 2xx status code
+func (o *GetLanguageInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get language internal server error response has a 3xx status code
+func (o *GetLanguageInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get language internal server error response has a 4xx status code
+func (o *GetLanguageInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get language internal server error response has a 5xx status code
+func (o *GetLanguageInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get language internal server error response a status code equal to that given
+func (o *GetLanguageInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLanguageInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetLanguageInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetLanguageServiceUnavailable() *GetLanguageServiceUnavailable {
 	return &GetLanguageServiceUnavailable{}
 }
 
-/*GetLanguageServiceUnavailable handles this case with default header values.
+/*
+GetLanguageServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetLanguageServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get language service unavailable response has a 2xx status code
+func (o *GetLanguageServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get language service unavailable response has a 3xx status code
+func (o *GetLanguageServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get language service unavailable response has a 4xx status code
+func (o *GetLanguageServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get language service unavailable response has a 5xx status code
+func (o *GetLanguageServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get language service unavailable response a status code equal to that given
+func (o *GetLanguageServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetLanguageServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetLanguageServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetLanguageGatewayTimeout() *GetLanguageGatewayTimeout {
 	return &GetLanguageGatewayTimeout{}
 }
 
-/*GetLanguageGatewayTimeout handles this case with default header values.
+/*
+GetLanguageGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetLanguageGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get language gateway timeout response has a 2xx status code
+func (o *GetLanguageGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get language gateway timeout response has a 3xx status code
+func (o *GetLanguageGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get language gateway timeout response has a 4xx status code
+func (o *GetLanguageGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get language gateway timeout response has a 5xx status code
+func (o *GetLanguageGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get language gateway timeout response a status code equal to that given
+func (o *GetLanguageGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetLanguageGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetLanguageGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/{languageId}][%d] getLanguageGatewayTimeout  %+v", 504, o.Payload)
 }
 

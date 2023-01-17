@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -99,7 +100,6 @@ func (m *AnalyticsParticipantWithoutAttributes) validateFlaggedReasonEnum(path, 
 }
 
 func (m *AnalyticsParticipantWithoutAttributes) validateFlaggedReason(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlaggedReason) { // not required
 		return nil
 	}
@@ -190,7 +190,6 @@ func (m *AnalyticsParticipantWithoutAttributes) validatePurposeEnum(path, locati
 }
 
 func (m *AnalyticsParticipantWithoutAttributes) validatePurpose(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Purpose) { // not required
 		return nil
 	}
@@ -204,7 +203,6 @@ func (m *AnalyticsParticipantWithoutAttributes) validatePurpose(formats strfmt.R
 }
 
 func (m *AnalyticsParticipantWithoutAttributes) validateSessions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Sessions) { // not required
 		return nil
 	}
@@ -218,6 +216,42 @@ func (m *AnalyticsParticipantWithoutAttributes) validateSessions(formats strfmt.
 			if err := m.Sessions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sessions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sessions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this analytics participant without attributes based on the context it is used
+func (m *AnalyticsParticipantWithoutAttributes) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSessions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AnalyticsParticipantWithoutAttributes) contextValidateSessions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Sessions); i++ {
+
+		if m.Sessions[i] != nil {
+			if err := m.Sessions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sessions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sessions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

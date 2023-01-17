@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIntegrationsSpeechDialogflowAgentParams creates a new GetIntegrationsSpeechDialogflowAgentParams object
-// with the default values initialized.
+// NewGetIntegrationsSpeechDialogflowAgentParams creates a new GetIntegrationsSpeechDialogflowAgentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntegrationsSpeechDialogflowAgentParams() *GetIntegrationsSpeechDialogflowAgentParams {
-	var ()
 	return &GetIntegrationsSpeechDialogflowAgentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntegrationsSpeechDialogflowAgentParamsWithTimeout creates a new GetIntegrationsSpeechDialogflowAgentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntegrationsSpeechDialogflowAgentParamsWithTimeout(timeout time.Duration) *GetIntegrationsSpeechDialogflowAgentParams {
-	var ()
 	return &GetIntegrationsSpeechDialogflowAgentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntegrationsSpeechDialogflowAgentParamsWithContext creates a new GetIntegrationsSpeechDialogflowAgentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntegrationsSpeechDialogflowAgentParamsWithContext(ctx context.Context) *GetIntegrationsSpeechDialogflowAgentParams {
-	var ()
 	return &GetIntegrationsSpeechDialogflowAgentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntegrationsSpeechDialogflowAgentParamsWithHTTPClient creates a new GetIntegrationsSpeechDialogflowAgentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntegrationsSpeechDialogflowAgentParamsWithHTTPClient(client *http.Client) *GetIntegrationsSpeechDialogflowAgentParams {
-	var ()
 	return &GetIntegrationsSpeechDialogflowAgentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIntegrationsSpeechDialogflowAgentParams contains all the parameters to send to the API endpoint
-for the get integrations speech dialogflow agent operation typically these are written to a http.Request
+/*
+GetIntegrationsSpeechDialogflowAgentParams contains all the parameters to send to the API endpoint
+
+	for the get integrations speech dialogflow agent operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntegrationsSpeechDialogflowAgentParams struct {
 
-	/*AgentID
-	  The agent ID
+	/* AgentID.
 
+	   The agent ID
 	*/
 	AgentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get integrations speech dialogflow agent params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsSpeechDialogflowAgentParams) WithDefaults() *GetIntegrationsSpeechDialogflowAgentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get integrations speech dialogflow agent params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsSpeechDialogflowAgentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get integrations speech dialogflow agent params

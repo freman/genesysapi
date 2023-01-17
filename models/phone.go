@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -72,7 +73,7 @@ type Phone struct {
 
 	// Phone Base Settings
 	// Required: true
-	PhoneBaseSettings *DomainEntityRef `json:"phoneBaseSettings"`
+	PhoneBaseSettings *PhoneBaseSettings `json:"phoneBaseSettings"`
 
 	// phone meta base
 	PhoneMetaBase *DomainEntityRef `json:"phoneMetaBase,omitempty"`
@@ -200,7 +201,6 @@ func (m *Phone) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validateCapabilities(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Capabilities) { // not required
 		return nil
 	}
@@ -209,6 +209,8 @@ func (m *Phone) validateCapabilities(formats strfmt.Registry) error {
 		if err := m.Capabilities.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("capabilities")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("capabilities")
 			}
 			return err
 		}
@@ -218,7 +220,6 @@ func (m *Phone) validateCapabilities(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -231,7 +232,6 @@ func (m *Phone) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -244,7 +244,6 @@ func (m *Phone) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -253,6 +252,8 @@ func (m *Phone) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -262,7 +263,6 @@ func (m *Phone) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validateLineBaseSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LineBaseSettings) { // not required
 		return nil
 	}
@@ -271,6 +271,8 @@ func (m *Phone) validateLineBaseSettings(formats strfmt.Registry) error {
 		if err := m.LineBaseSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lineBaseSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lineBaseSettings")
 			}
 			return err
 		}
@@ -294,6 +296,8 @@ func (m *Phone) validateLines(formats strfmt.Registry) error {
 			if err := m.Lines[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("lines" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("lines" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -323,6 +327,8 @@ func (m *Phone) validatePhoneBaseSettings(formats strfmt.Registry) error {
 		if err := m.PhoneBaseSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("phoneBaseSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("phoneBaseSettings")
 			}
 			return err
 		}
@@ -332,7 +338,6 @@ func (m *Phone) validatePhoneBaseSettings(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validatePhoneMetaBase(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PhoneMetaBase) { // not required
 		return nil
 	}
@@ -341,6 +346,8 @@ func (m *Phone) validatePhoneMetaBase(formats strfmt.Registry) error {
 		if err := m.PhoneMetaBase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("phoneMetaBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("phoneMetaBase")
 			}
 			return err
 		}
@@ -350,7 +357,6 @@ func (m *Phone) validatePhoneMetaBase(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validatePrimaryEdge(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PrimaryEdge) { // not required
 		return nil
 	}
@@ -359,6 +365,8 @@ func (m *Phone) validatePrimaryEdge(formats strfmt.Registry) error {
 		if err := m.PrimaryEdge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("primaryEdge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("primaryEdge")
 			}
 			return err
 		}
@@ -368,7 +376,6 @@ func (m *Phone) validatePrimaryEdge(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validateSecondaryEdge(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SecondaryEdge) { // not required
 		return nil
 	}
@@ -377,6 +384,8 @@ func (m *Phone) validateSecondaryEdge(formats strfmt.Registry) error {
 		if err := m.SecondaryEdge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("secondaryEdge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secondaryEdge")
 			}
 			return err
 		}
@@ -386,7 +395,6 @@ func (m *Phone) validateSecondaryEdge(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validateSecondaryStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SecondaryStatus) { // not required
 		return nil
 	}
@@ -395,6 +403,8 @@ func (m *Phone) validateSecondaryStatus(formats strfmt.Registry) error {
 		if err := m.SecondaryStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("secondaryStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secondaryStatus")
 			}
 			return err
 		}
@@ -404,7 +414,6 @@ func (m *Phone) validateSecondaryStatus(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -426,6 +435,8 @@ func (m *Phone) validateSite(formats strfmt.Registry) error {
 		if err := m.Site.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("site")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("site")
 			}
 			return err
 		}
@@ -467,7 +478,6 @@ func (m *Phone) validateStateEnum(path, location string, value string) error {
 }
 
 func (m *Phone) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -481,7 +491,6 @@ func (m *Phone) validateState(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -490,6 +499,8 @@ func (m *Phone) validateStatus(formats strfmt.Registry) error {
 		if err := m.Status.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
 			}
 			return err
 		}
@@ -499,7 +510,6 @@ func (m *Phone) validateStatus(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validateUserAgentInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserAgentInfo) { // not required
 		return nil
 	}
@@ -508,6 +518,8 @@ func (m *Phone) validateUserAgentInfo(formats strfmt.Registry) error {
 		if err := m.UserAgentInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("userAgentInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("userAgentInfo")
 			}
 			return err
 		}
@@ -517,7 +529,6 @@ func (m *Phone) validateUserAgentInfo(formats strfmt.Registry) error {
 }
 
 func (m *Phone) validateWebRtcUser(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WebRtcUser) { // not required
 		return nil
 	}
@@ -526,6 +537,399 @@ func (m *Phone) validateWebRtcUser(formats strfmt.Registry) error {
 		if err := m.WebRtcUser.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("webRtcUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("webRtcUser")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this phone based on the context it is used
+func (m *Phone) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCapabilities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLineBaseSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLines(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhoneBaseSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePhoneMetaBase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrimaryEdge(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSecondaryEdge(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSecondaryStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSite(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserAgentInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWebRtcUser(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Phone) contextValidateCapabilities(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Capabilities != nil {
+		if err := m.Capabilities.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("capabilities")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("capabilities")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdBy", "body", string(m.CreatedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateCreatedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdByApp", "body", string(m.CreatedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateLineBaseSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LineBaseSettings != nil {
+		if err := m.LineBaseSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lineBaseSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lineBaseSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateLines(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Lines); i++ {
+
+		if m.Lines[i] != nil {
+			if err := m.Lines[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("lines" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("lines" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedBy", "body", string(m.ModifiedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateModifiedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedByApp", "body", string(m.ModifiedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidatePhoneBaseSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PhoneBaseSettings != nil {
+		if err := m.PhoneBaseSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("phoneBaseSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("phoneBaseSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidatePhoneMetaBase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PhoneMetaBase != nil {
+		if err := m.PhoneMetaBase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("phoneMetaBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("phoneMetaBase")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidatePrimaryEdge(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PrimaryEdge != nil {
+		if err := m.PrimaryEdge.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("primaryEdge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("primaryEdge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateSecondaryEdge(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SecondaryEdge != nil {
+		if err := m.SecondaryEdge.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("secondaryEdge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secondaryEdge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateSecondaryStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SecondaryStatus != nil {
+		if err := m.SecondaryStatus.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("secondaryStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("secondaryStatus")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateSite(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Site != nil {
+		if err := m.Site.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("site")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("site")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Status != nil {
+		if err := m.Status.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("status")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("status")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateUserAgentInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UserAgentInfo != nil {
+		if err := m.UserAgentInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("userAgentInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("userAgentInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Phone) contextValidateWebRtcUser(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WebRtcUser != nil {
+		if err := m.WebRtcUser.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("webRtcUser")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("webRtcUser")
 			}
 			return err
 		}

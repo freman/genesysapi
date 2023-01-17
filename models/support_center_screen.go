@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -47,7 +48,6 @@ func (m *SupportCenterScreen) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SupportCenterScreen) validateModuleSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModuleSettings) { // not required
 		return nil
 	}
@@ -61,6 +61,8 @@ func (m *SupportCenterScreen) validateModuleSettings(formats strfmt.Registry) er
 			if err := m.ModuleSettings[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("moduleSettings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("moduleSettings" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -107,7 +109,6 @@ func (m *SupportCenterScreen) validateTypeEnum(path, location string, value stri
 }
 
 func (m *SupportCenterScreen) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -115,6 +116,40 @@ func (m *SupportCenterScreen) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this support center screen based on the context it is used
+func (m *SupportCenterScreen) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateModuleSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SupportCenterScreen) contextValidateModuleSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ModuleSettings); i++ {
+
+		if m.ModuleSettings[i] != nil {
+			if err := m.ModuleSettings[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("moduleSettings" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("moduleSettings" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

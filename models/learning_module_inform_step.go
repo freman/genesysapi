@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -128,6 +129,11 @@ func (m *LearningModuleInformStep) validateValue(formats strfmt.Registry) error 
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this learning module inform step based on context it is used
+func (m *LearningModuleInformStep) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetFlowsDatatableExportJobParams creates a new GetFlowsDatatableExportJobParams object
-// with the default values initialized.
+// NewGetFlowsDatatableExportJobParams creates a new GetFlowsDatatableExportJobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFlowsDatatableExportJobParams() *GetFlowsDatatableExportJobParams {
-	var ()
 	return &GetFlowsDatatableExportJobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFlowsDatatableExportJobParamsWithTimeout creates a new GetFlowsDatatableExportJobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFlowsDatatableExportJobParamsWithTimeout(timeout time.Duration) *GetFlowsDatatableExportJobParams {
-	var ()
 	return &GetFlowsDatatableExportJobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFlowsDatatableExportJobParamsWithContext creates a new GetFlowsDatatableExportJobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFlowsDatatableExportJobParamsWithContext(ctx context.Context) *GetFlowsDatatableExportJobParams {
-	var ()
 	return &GetFlowsDatatableExportJobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetFlowsDatatableExportJobParamsWithHTTPClient creates a new GetFlowsDatatableExportJobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFlowsDatatableExportJobParamsWithHTTPClient(client *http.Client) *GetFlowsDatatableExportJobParams {
-	var ()
 	return &GetFlowsDatatableExportJobParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetFlowsDatatableExportJobParams contains all the parameters to send to the API endpoint
-for the get flows datatable export job operation typically these are written to a http.Request
+/*
+GetFlowsDatatableExportJobParams contains all the parameters to send to the API endpoint
+
+	for the get flows datatable export job operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFlowsDatatableExportJobParams struct {
 
-	/*DatatableID
-	  id of datatable
+	/* DatatableID.
 
+	   id of datatable
 	*/
 	DatatableID string
-	/*ExportJobID
-	  id of export job
 
+	/* ExportJobID.
+
+	   id of export job
 	*/
 	ExportJobID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get flows datatable export job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowsDatatableExportJobParams) WithDefaults() *GetFlowsDatatableExportJobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get flows datatable export job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowsDatatableExportJobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get flows datatable export job params

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -62,6 +64,8 @@ func (m *AddWorkPlanRotationAgentRequest) validateDateRange(formats strfmt.Regis
 		if err := m.DateRange.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dateRange")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dateRange")
 			}
 			return err
 		}
@@ -83,6 +87,36 @@ func (m *AddWorkPlanRotationAgentRequest) validateUserID(formats strfmt.Registry
 
 	if err := validate.Required("userId", "body", m.UserID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this add work plan rotation agent request based on the context it is used
+func (m *AddWorkPlanRotationAgentRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AddWorkPlanRotationAgentRequest) contextValidateDateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DateRange != nil {
+		if err := m.DateRange.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dateRange")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dateRange")
+			}
+			return err
+		}
 	}
 
 	return nil

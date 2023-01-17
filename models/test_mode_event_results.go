@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -42,7 +44,6 @@ func (m *TestModeEventResults) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TestModeEventResults) validateSchemaValidation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SchemaValidation) { // not required
 		return nil
 	}
@@ -51,6 +52,8 @@ func (m *TestModeEventResults) validateSchemaValidation(formats strfmt.Registry)
 		if err := m.SchemaValidation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schemaValidation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schemaValidation")
 			}
 			return err
 		}
@@ -60,7 +63,6 @@ func (m *TestModeEventResults) validateSchemaValidation(formats strfmt.Registry)
 }
 
 func (m *TestModeEventResults) validateTriggerMatchValidation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TriggerMatchValidation) { // not required
 		return nil
 	}
@@ -69,6 +71,58 @@ func (m *TestModeEventResults) validateTriggerMatchValidation(formats strfmt.Reg
 		if err := m.TriggerMatchValidation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("triggerMatchValidation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("triggerMatchValidation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this test mode event results based on the context it is used
+func (m *TestModeEventResults) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSchemaValidation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTriggerMatchValidation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TestModeEventResults) contextValidateSchemaValidation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SchemaValidation != nil {
+		if err := m.SchemaValidation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schemaValidation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schemaValidation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *TestModeEventResults) contextValidateTriggerMatchValidation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TriggerMatchValidation != nil {
+		if err := m.TriggerMatchValidation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("triggerMatchValidation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("triggerMatchValidation")
 			}
 			return err
 		}

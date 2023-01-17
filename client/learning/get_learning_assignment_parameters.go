@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetLearningAssignmentParams creates a new GetLearningAssignmentParams object
-// with the default values initialized.
+// NewGetLearningAssignmentParams creates a new GetLearningAssignmentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLearningAssignmentParams() *GetLearningAssignmentParams {
-	var ()
 	return &GetLearningAssignmentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLearningAssignmentParamsWithTimeout creates a new GetLearningAssignmentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLearningAssignmentParamsWithTimeout(timeout time.Duration) *GetLearningAssignmentParams {
-	var ()
 	return &GetLearningAssignmentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLearningAssignmentParamsWithContext creates a new GetLearningAssignmentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLearningAssignmentParamsWithContext(ctx context.Context) *GetLearningAssignmentParams {
-	var ()
 	return &GetLearningAssignmentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLearningAssignmentParamsWithHTTPClient creates a new GetLearningAssignmentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLearningAssignmentParamsWithHTTPClient(client *http.Client) *GetLearningAssignmentParams {
-	var ()
 	return &GetLearningAssignmentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLearningAssignmentParams contains all the parameters to send to the API endpoint
-for the get learning assignment operation typically these are written to a http.Request
+/*
+GetLearningAssignmentParams contains all the parameters to send to the API endpoint
+
+	for the get learning assignment operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLearningAssignmentParams struct {
 
-	/*AssignmentID
-	  The ID of Learning Assignment
+	/* AssignmentID.
 
+	   The ID of Learning Assignment
 	*/
 	AssignmentID string
-	/*Expand
-	  Fields to expand in response
 
+	/* Expand.
+
+	   Fields to expand in response
 	*/
 	Expand []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get learning assignment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLearningAssignmentParams) WithDefaults() *GetLearningAssignmentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get learning assignment params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLearningAssignmentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get learning assignment params
@@ -145,16 +162,36 @@ func (o *GetLearningAssignmentParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetLearningAssignment binds the parameter expand
+func (o *GetLearningAssignmentParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

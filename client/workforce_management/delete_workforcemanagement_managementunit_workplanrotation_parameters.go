@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteWorkforcemanagementManagementunitWorkplanrotationParams creates a new DeleteWorkforcemanagementManagementunitWorkplanrotationParams object
-// with the default values initialized.
+// NewDeleteWorkforcemanagementManagementunitWorkplanrotationParams creates a new DeleteWorkforcemanagementManagementunitWorkplanrotationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteWorkforcemanagementManagementunitWorkplanrotationParams() *DeleteWorkforcemanagementManagementunitWorkplanrotationParams {
-	var ()
 	return &DeleteWorkforcemanagementManagementunitWorkplanrotationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementManagementunitWorkplanrotationParamsWithTimeout creates a new DeleteWorkforcemanagementManagementunitWorkplanrotationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteWorkforcemanagementManagementunitWorkplanrotationParamsWithTimeout(timeout time.Duration) *DeleteWorkforcemanagementManagementunitWorkplanrotationParams {
-	var ()
 	return &DeleteWorkforcemanagementManagementunitWorkplanrotationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementManagementunitWorkplanrotationParamsWithContext creates a new DeleteWorkforcemanagementManagementunitWorkplanrotationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteWorkforcemanagementManagementunitWorkplanrotationParamsWithContext(ctx context.Context) *DeleteWorkforcemanagementManagementunitWorkplanrotationParams {
-	var ()
 	return &DeleteWorkforcemanagementManagementunitWorkplanrotationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteWorkforcemanagementManagementunitWorkplanrotationParamsWithHTTPClient creates a new DeleteWorkforcemanagementManagementunitWorkplanrotationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteWorkforcemanagementManagementunitWorkplanrotationParamsWithHTTPClient(client *http.Client) *DeleteWorkforcemanagementManagementunitWorkplanrotationParams {
-	var ()
 	return &DeleteWorkforcemanagementManagementunitWorkplanrotationParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteWorkforcemanagementManagementunitWorkplanrotationParams contains all the parameters to send to the API endpoint
-for the delete workforcemanagement managementunit workplanrotation operation typically these are written to a http.Request
+/*
+DeleteWorkforcemanagementManagementunitWorkplanrotationParams contains all the parameters to send to the API endpoint
+
+	for the delete workforcemanagement managementunit workplanrotation operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteWorkforcemanagementManagementunitWorkplanrotationParams struct {
 
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
+	/* ManagementUnitID.
 
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
-	/*WorkPlanRotationID
-	  The ID of the work plan rotation to be deleted
 
+	/* WorkPlanRotationID.
+
+	   The ID of the work plan rotation to be deleted
 	*/
 	WorkPlanRotationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete workforcemanagement managementunit workplanrotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementManagementunitWorkplanrotationParams) WithDefaults() *DeleteWorkforcemanagementManagementunitWorkplanrotationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete workforcemanagement managementunit workplanrotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementManagementunitWorkplanrotationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete workforcemanagement managementunit workplanrotation params

@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetExternalcontactsContactUnresolvedParams creates a new GetExternalcontactsContactUnresolvedParams object
-// with the default values initialized.
+// NewGetExternalcontactsContactUnresolvedParams creates a new GetExternalcontactsContactUnresolvedParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetExternalcontactsContactUnresolvedParams() *GetExternalcontactsContactUnresolvedParams {
-	var ()
 	return &GetExternalcontactsContactUnresolvedParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetExternalcontactsContactUnresolvedParamsWithTimeout creates a new GetExternalcontactsContactUnresolvedParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetExternalcontactsContactUnresolvedParamsWithTimeout(timeout time.Duration) *GetExternalcontactsContactUnresolvedParams {
-	var ()
 	return &GetExternalcontactsContactUnresolvedParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetExternalcontactsContactUnresolvedParamsWithContext creates a new GetExternalcontactsContactUnresolvedParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetExternalcontactsContactUnresolvedParamsWithContext(ctx context.Context) *GetExternalcontactsContactUnresolvedParams {
-	var ()
 	return &GetExternalcontactsContactUnresolvedParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetExternalcontactsContactUnresolvedParamsWithHTTPClient creates a new GetExternalcontactsContactUnresolvedParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetExternalcontactsContactUnresolvedParamsWithHTTPClient(client *http.Client) *GetExternalcontactsContactUnresolvedParams {
-	var ()
 	return &GetExternalcontactsContactUnresolvedParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetExternalcontactsContactUnresolvedParams contains all the parameters to send to the API endpoint
-for the get externalcontacts contact unresolved operation typically these are written to a http.Request
+/*
+GetExternalcontactsContactUnresolvedParams contains all the parameters to send to the API endpoint
+
+	for the get externalcontacts contact unresolved operation.
+
+	Typically these are written to a http.Request.
 */
 type GetExternalcontactsContactUnresolvedParams struct {
 
-	/*ContactID
-	  ExternalContact ID
+	/* ContactID.
 
+	   ExternalContact ID
 	*/
 	ContactID string
-	/*Expand
-	  which fields, if any, to expand (externalOrganization,externalDataSources)
 
+	/* Expand.
+
+	   which fields, if any, to expand (externalOrganization,externalDataSources)
 	*/
 	Expand []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get externalcontacts contact unresolved params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsContactUnresolvedParams) WithDefaults() *GetExternalcontactsContactUnresolvedParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get externalcontacts contact unresolved params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetExternalcontactsContactUnresolvedParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get externalcontacts contact unresolved params
@@ -145,16 +162,36 @@ func (o *GetExternalcontactsContactUnresolvedParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetExternalcontactsContactUnresolved binds the parameter expand
+func (o *GetExternalcontactsContactUnresolvedParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

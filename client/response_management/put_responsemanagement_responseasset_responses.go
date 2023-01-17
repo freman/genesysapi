@@ -95,7 +95,6 @@ func (o *PutResponsemanagementResponseassetReader) ReadResponse(response runtime
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutResponsemanagementResponseassetOK() *PutResponsemanagementResponseass
 	return &PutResponsemanagementResponseassetOK{}
 }
 
-/*PutResponsemanagementResponseassetOK handles this case with default header values.
+/*
+PutResponsemanagementResponseassetOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutResponsemanagementResponseassetOK struct {
 	Payload *models.ResponseAsset
 }
 
+// IsSuccess returns true when this put responsemanagement responseasset o k response has a 2xx status code
+func (o *PutResponsemanagementResponseassetOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put responsemanagement responseasset o k response has a 3xx status code
+func (o *PutResponsemanagementResponseassetOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put responsemanagement responseasset o k response has a 4xx status code
+func (o *PutResponsemanagementResponseassetOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put responsemanagement responseasset o k response has a 5xx status code
+func (o *PutResponsemanagementResponseassetOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put responsemanagement responseasset o k response a status code equal to that given
+func (o *PutResponsemanagementResponseassetOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutResponsemanagementResponseassetOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetOK  %+v", 200, o.Payload)
+}
+
+func (o *PutResponsemanagementResponseassetOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutResponsemanagementResponseassetBadRequest() *PutResponsemanagementRes
 	return &PutResponsemanagementResponseassetBadRequest{}
 }
 
-/*PutResponsemanagementResponseassetBadRequest handles this case with default header values.
+/*
+PutResponsemanagementResponseassetBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutResponsemanagementResponseassetBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put responsemanagement responseasset bad request response has a 2xx status code
+func (o *PutResponsemanagementResponseassetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put responsemanagement responseasset bad request response has a 3xx status code
+func (o *PutResponsemanagementResponseassetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put responsemanagement responseasset bad request response has a 4xx status code
+func (o *PutResponsemanagementResponseassetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put responsemanagement responseasset bad request response has a 5xx status code
+func (o *PutResponsemanagementResponseassetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put responsemanagement responseasset bad request response a status code equal to that given
+func (o *PutResponsemanagementResponseassetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutResponsemanagementResponseassetBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutResponsemanagementResponseassetBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutResponsemanagementResponseassetUnauthorized() *PutResponsemanagementR
 	return &PutResponsemanagementResponseassetUnauthorized{}
 }
 
-/*PutResponsemanagementResponseassetUnauthorized handles this case with default header values.
+/*
+PutResponsemanagementResponseassetUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutResponsemanagementResponseassetUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put responsemanagement responseasset unauthorized response has a 2xx status code
+func (o *PutResponsemanagementResponseassetUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put responsemanagement responseasset unauthorized response has a 3xx status code
+func (o *PutResponsemanagementResponseassetUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put responsemanagement responseasset unauthorized response has a 4xx status code
+func (o *PutResponsemanagementResponseassetUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put responsemanagement responseasset unauthorized response has a 5xx status code
+func (o *PutResponsemanagementResponseassetUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put responsemanagement responseasset unauthorized response a status code equal to that given
+func (o *PutResponsemanagementResponseassetUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutResponsemanagementResponseassetUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutResponsemanagementResponseassetUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutResponsemanagementResponseassetForbidden() *PutResponsemanagementResp
 	return &PutResponsemanagementResponseassetForbidden{}
 }
 
-/*PutResponsemanagementResponseassetForbidden handles this case with default header values.
+/*
+PutResponsemanagementResponseassetForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutResponsemanagementResponseassetForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put responsemanagement responseasset forbidden response has a 2xx status code
+func (o *PutResponsemanagementResponseassetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put responsemanagement responseasset forbidden response has a 3xx status code
+func (o *PutResponsemanagementResponseassetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put responsemanagement responseasset forbidden response has a 4xx status code
+func (o *PutResponsemanagementResponseassetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put responsemanagement responseasset forbidden response has a 5xx status code
+func (o *PutResponsemanagementResponseassetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put responsemanagement responseasset forbidden response a status code equal to that given
+func (o *PutResponsemanagementResponseassetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutResponsemanagementResponseassetForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutResponsemanagementResponseassetForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutResponsemanagementResponseassetNotFound() *PutResponsemanagementRespo
 	return &PutResponsemanagementResponseassetNotFound{}
 }
 
-/*PutResponsemanagementResponseassetNotFound handles this case with default header values.
+/*
+PutResponsemanagementResponseassetNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutResponsemanagementResponseassetNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put responsemanagement responseasset not found response has a 2xx status code
+func (o *PutResponsemanagementResponseassetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put responsemanagement responseasset not found response has a 3xx status code
+func (o *PutResponsemanagementResponseassetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put responsemanagement responseasset not found response has a 4xx status code
+func (o *PutResponsemanagementResponseassetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put responsemanagement responseasset not found response has a 5xx status code
+func (o *PutResponsemanagementResponseassetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put responsemanagement responseasset not found response a status code equal to that given
+func (o *PutResponsemanagementResponseassetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutResponsemanagementResponseassetNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutResponsemanagementResponseassetNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutResponsemanagementResponseassetRequestTimeout() *PutResponsemanagemen
 	return &PutResponsemanagementResponseassetRequestTimeout{}
 }
 
-/*PutResponsemanagementResponseassetRequestTimeout handles this case with default header values.
+/*
+PutResponsemanagementResponseassetRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutResponsemanagementResponseassetRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put responsemanagement responseasset request timeout response has a 2xx status code
+func (o *PutResponsemanagementResponseassetRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put responsemanagement responseasset request timeout response has a 3xx status code
+func (o *PutResponsemanagementResponseassetRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put responsemanagement responseasset request timeout response has a 4xx status code
+func (o *PutResponsemanagementResponseassetRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put responsemanagement responseasset request timeout response has a 5xx status code
+func (o *PutResponsemanagementResponseassetRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put responsemanagement responseasset request timeout response a status code equal to that given
+func (o *PutResponsemanagementResponseassetRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutResponsemanagementResponseassetRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutResponsemanagementResponseassetRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutResponsemanagementResponseassetRequestEntityTooLarge() *PutResponsema
 	return &PutResponsemanagementResponseassetRequestEntityTooLarge{}
 }
 
-/*PutResponsemanagementResponseassetRequestEntityTooLarge handles this case with default header values.
+/*
+PutResponsemanagementResponseassetRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutResponsemanagementResponseassetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put responsemanagement responseasset request entity too large response has a 2xx status code
+func (o *PutResponsemanagementResponseassetRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put responsemanagement responseasset request entity too large response has a 3xx status code
+func (o *PutResponsemanagementResponseassetRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put responsemanagement responseasset request entity too large response has a 4xx status code
+func (o *PutResponsemanagementResponseassetRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put responsemanagement responseasset request entity too large response has a 5xx status code
+func (o *PutResponsemanagementResponseassetRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put responsemanagement responseasset request entity too large response a status code equal to that given
+func (o *PutResponsemanagementResponseassetRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutResponsemanagementResponseassetRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutResponsemanagementResponseassetRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutResponsemanagementResponseassetUnsupportedMediaType() *PutResponseman
 	return &PutResponsemanagementResponseassetUnsupportedMediaType{}
 }
 
-/*PutResponsemanagementResponseassetUnsupportedMediaType handles this case with default header values.
+/*
+PutResponsemanagementResponseassetUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutResponsemanagementResponseassetUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put responsemanagement responseasset unsupported media type response has a 2xx status code
+func (o *PutResponsemanagementResponseassetUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put responsemanagement responseasset unsupported media type response has a 3xx status code
+func (o *PutResponsemanagementResponseassetUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put responsemanagement responseasset unsupported media type response has a 4xx status code
+func (o *PutResponsemanagementResponseassetUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put responsemanagement responseasset unsupported media type response has a 5xx status code
+func (o *PutResponsemanagementResponseassetUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put responsemanagement responseasset unsupported media type response a status code equal to that given
+func (o *PutResponsemanagementResponseassetUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutResponsemanagementResponseassetUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutResponsemanagementResponseassetUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutResponsemanagementResponseassetTooManyRequests() *PutResponsemanageme
 	return &PutResponsemanagementResponseassetTooManyRequests{}
 }
 
-/*PutResponsemanagementResponseassetTooManyRequests handles this case with default header values.
+/*
+PutResponsemanagementResponseassetTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutResponsemanagementResponseassetTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put responsemanagement responseasset too many requests response has a 2xx status code
+func (o *PutResponsemanagementResponseassetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put responsemanagement responseasset too many requests response has a 3xx status code
+func (o *PutResponsemanagementResponseassetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put responsemanagement responseasset too many requests response has a 4xx status code
+func (o *PutResponsemanagementResponseassetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put responsemanagement responseasset too many requests response has a 5xx status code
+func (o *PutResponsemanagementResponseassetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put responsemanagement responseasset too many requests response a status code equal to that given
+func (o *PutResponsemanagementResponseassetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutResponsemanagementResponseassetTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutResponsemanagementResponseassetTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutResponsemanagementResponseassetInternalServerError() *PutResponsemana
 	return &PutResponsemanagementResponseassetInternalServerError{}
 }
 
-/*PutResponsemanagementResponseassetInternalServerError handles this case with default header values.
+/*
+PutResponsemanagementResponseassetInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutResponsemanagementResponseassetInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put responsemanagement responseasset internal server error response has a 2xx status code
+func (o *PutResponsemanagementResponseassetInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put responsemanagement responseasset internal server error response has a 3xx status code
+func (o *PutResponsemanagementResponseassetInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put responsemanagement responseasset internal server error response has a 4xx status code
+func (o *PutResponsemanagementResponseassetInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put responsemanagement responseasset internal server error response has a 5xx status code
+func (o *PutResponsemanagementResponseassetInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put responsemanagement responseasset internal server error response a status code equal to that given
+func (o *PutResponsemanagementResponseassetInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutResponsemanagementResponseassetInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutResponsemanagementResponseassetInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutResponsemanagementResponseassetServiceUnavailable() *PutResponsemanag
 	return &PutResponsemanagementResponseassetServiceUnavailable{}
 }
 
-/*PutResponsemanagementResponseassetServiceUnavailable handles this case with default header values.
+/*
+PutResponsemanagementResponseassetServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutResponsemanagementResponseassetServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put responsemanagement responseasset service unavailable response has a 2xx status code
+func (o *PutResponsemanagementResponseassetServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put responsemanagement responseasset service unavailable response has a 3xx status code
+func (o *PutResponsemanagementResponseassetServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put responsemanagement responseasset service unavailable response has a 4xx status code
+func (o *PutResponsemanagementResponseassetServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put responsemanagement responseasset service unavailable response has a 5xx status code
+func (o *PutResponsemanagementResponseassetServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put responsemanagement responseasset service unavailable response a status code equal to that given
+func (o *PutResponsemanagementResponseassetServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutResponsemanagementResponseassetServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutResponsemanagementResponseassetServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutResponsemanagementResponseassetGatewayTimeout() *PutResponsemanagemen
 	return &PutResponsemanagementResponseassetGatewayTimeout{}
 }
 
-/*PutResponsemanagementResponseassetGatewayTimeout handles this case with default header values.
+/*
+PutResponsemanagementResponseassetGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutResponsemanagementResponseassetGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put responsemanagement responseasset gateway timeout response has a 2xx status code
+func (o *PutResponsemanagementResponseassetGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put responsemanagement responseasset gateway timeout response has a 3xx status code
+func (o *PutResponsemanagementResponseassetGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put responsemanagement responseasset gateway timeout response has a 4xx status code
+func (o *PutResponsemanagementResponseassetGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put responsemanagement responseasset gateway timeout response has a 5xx status code
+func (o *PutResponsemanagementResponseassetGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put responsemanagement responseasset gateway timeout response a status code equal to that given
+func (o *PutResponsemanagementResponseassetGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutResponsemanagementResponseassetGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutResponsemanagementResponseassetGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] putResponsemanagementResponseassetGatewayTimeout  %+v", 504, o.Payload)
 }
 

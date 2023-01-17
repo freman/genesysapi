@@ -95,7 +95,6 @@ func (o *GetRoutingSettingsTranscriptionReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingSettingsTranscriptionOK() *GetRoutingSettingsTranscriptionOK {
 	return &GetRoutingSettingsTranscriptionOK{}
 }
 
-/*GetRoutingSettingsTranscriptionOK handles this case with default header values.
+/*
+GetRoutingSettingsTranscriptionOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingSettingsTranscriptionOK struct {
 	Payload *models.TranscriptionSettings
 }
 
+// IsSuccess returns true when this get routing settings transcription o k response has a 2xx status code
+func (o *GetRoutingSettingsTranscriptionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing settings transcription o k response has a 3xx status code
+func (o *GetRoutingSettingsTranscriptionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing settings transcription o k response has a 4xx status code
+func (o *GetRoutingSettingsTranscriptionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing settings transcription o k response has a 5xx status code
+func (o *GetRoutingSettingsTranscriptionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing settings transcription o k response a status code equal to that given
+func (o *GetRoutingSettingsTranscriptionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingSettingsTranscriptionOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingSettingsTranscriptionOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingSettingsTranscriptionBadRequest() *GetRoutingSettingsTranscrip
 	return &GetRoutingSettingsTranscriptionBadRequest{}
 }
 
-/*GetRoutingSettingsTranscriptionBadRequest handles this case with default header values.
+/*
+GetRoutingSettingsTranscriptionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingSettingsTranscriptionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing settings transcription bad request response has a 2xx status code
+func (o *GetRoutingSettingsTranscriptionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing settings transcription bad request response has a 3xx status code
+func (o *GetRoutingSettingsTranscriptionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing settings transcription bad request response has a 4xx status code
+func (o *GetRoutingSettingsTranscriptionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing settings transcription bad request response has a 5xx status code
+func (o *GetRoutingSettingsTranscriptionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing settings transcription bad request response a status code equal to that given
+func (o *GetRoutingSettingsTranscriptionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingSettingsTranscriptionBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingSettingsTranscriptionBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingSettingsTranscriptionUnauthorized() *GetRoutingSettingsTranscr
 	return &GetRoutingSettingsTranscriptionUnauthorized{}
 }
 
-/*GetRoutingSettingsTranscriptionUnauthorized handles this case with default header values.
+/*
+GetRoutingSettingsTranscriptionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingSettingsTranscriptionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing settings transcription unauthorized response has a 2xx status code
+func (o *GetRoutingSettingsTranscriptionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing settings transcription unauthorized response has a 3xx status code
+func (o *GetRoutingSettingsTranscriptionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing settings transcription unauthorized response has a 4xx status code
+func (o *GetRoutingSettingsTranscriptionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing settings transcription unauthorized response has a 5xx status code
+func (o *GetRoutingSettingsTranscriptionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing settings transcription unauthorized response a status code equal to that given
+func (o *GetRoutingSettingsTranscriptionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingSettingsTranscriptionUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingSettingsTranscriptionUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingSettingsTranscriptionForbidden() *GetRoutingSettingsTranscript
 	return &GetRoutingSettingsTranscriptionForbidden{}
 }
 
-/*GetRoutingSettingsTranscriptionForbidden handles this case with default header values.
+/*
+GetRoutingSettingsTranscriptionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingSettingsTranscriptionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing settings transcription forbidden response has a 2xx status code
+func (o *GetRoutingSettingsTranscriptionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing settings transcription forbidden response has a 3xx status code
+func (o *GetRoutingSettingsTranscriptionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing settings transcription forbidden response has a 4xx status code
+func (o *GetRoutingSettingsTranscriptionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing settings transcription forbidden response has a 5xx status code
+func (o *GetRoutingSettingsTranscriptionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing settings transcription forbidden response a status code equal to that given
+func (o *GetRoutingSettingsTranscriptionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingSettingsTranscriptionForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingSettingsTranscriptionForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingSettingsTranscriptionNotFound() *GetRoutingSettingsTranscripti
 	return &GetRoutingSettingsTranscriptionNotFound{}
 }
 
-/*GetRoutingSettingsTranscriptionNotFound handles this case with default header values.
+/*
+GetRoutingSettingsTranscriptionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingSettingsTranscriptionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing settings transcription not found response has a 2xx status code
+func (o *GetRoutingSettingsTranscriptionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing settings transcription not found response has a 3xx status code
+func (o *GetRoutingSettingsTranscriptionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing settings transcription not found response has a 4xx status code
+func (o *GetRoutingSettingsTranscriptionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing settings transcription not found response has a 5xx status code
+func (o *GetRoutingSettingsTranscriptionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing settings transcription not found response a status code equal to that given
+func (o *GetRoutingSettingsTranscriptionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingSettingsTranscriptionNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingSettingsTranscriptionNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingSettingsTranscriptionRequestTimeout() *GetRoutingSettingsTrans
 	return &GetRoutingSettingsTranscriptionRequestTimeout{}
 }
 
-/*GetRoutingSettingsTranscriptionRequestTimeout handles this case with default header values.
+/*
+GetRoutingSettingsTranscriptionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingSettingsTranscriptionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing settings transcription request timeout response has a 2xx status code
+func (o *GetRoutingSettingsTranscriptionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing settings transcription request timeout response has a 3xx status code
+func (o *GetRoutingSettingsTranscriptionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing settings transcription request timeout response has a 4xx status code
+func (o *GetRoutingSettingsTranscriptionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing settings transcription request timeout response has a 5xx status code
+func (o *GetRoutingSettingsTranscriptionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing settings transcription request timeout response a status code equal to that given
+func (o *GetRoutingSettingsTranscriptionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingSettingsTranscriptionRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingSettingsTranscriptionRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingSettingsTranscriptionRequestEntityTooLarge() *GetRoutingSettin
 	return &GetRoutingSettingsTranscriptionRequestEntityTooLarge{}
 }
 
-/*GetRoutingSettingsTranscriptionRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingSettingsTranscriptionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingSettingsTranscriptionRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing settings transcription request entity too large response has a 2xx status code
+func (o *GetRoutingSettingsTranscriptionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing settings transcription request entity too large response has a 3xx status code
+func (o *GetRoutingSettingsTranscriptionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing settings transcription request entity too large response has a 4xx status code
+func (o *GetRoutingSettingsTranscriptionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing settings transcription request entity too large response has a 5xx status code
+func (o *GetRoutingSettingsTranscriptionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing settings transcription request entity too large response a status code equal to that given
+func (o *GetRoutingSettingsTranscriptionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingSettingsTranscriptionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingSettingsTranscriptionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingSettingsTranscriptionUnsupportedMediaType() *GetRoutingSetting
 	return &GetRoutingSettingsTranscriptionUnsupportedMediaType{}
 }
 
-/*GetRoutingSettingsTranscriptionUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingSettingsTranscriptionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingSettingsTranscriptionUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing settings transcription unsupported media type response has a 2xx status code
+func (o *GetRoutingSettingsTranscriptionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing settings transcription unsupported media type response has a 3xx status code
+func (o *GetRoutingSettingsTranscriptionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing settings transcription unsupported media type response has a 4xx status code
+func (o *GetRoutingSettingsTranscriptionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing settings transcription unsupported media type response has a 5xx status code
+func (o *GetRoutingSettingsTranscriptionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing settings transcription unsupported media type response a status code equal to that given
+func (o *GetRoutingSettingsTranscriptionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingSettingsTranscriptionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingSettingsTranscriptionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingSettingsTranscriptionTooManyRequests() *GetRoutingSettingsTran
 	return &GetRoutingSettingsTranscriptionTooManyRequests{}
 }
 
-/*GetRoutingSettingsTranscriptionTooManyRequests handles this case with default header values.
+/*
+GetRoutingSettingsTranscriptionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingSettingsTranscriptionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing settings transcription too many requests response has a 2xx status code
+func (o *GetRoutingSettingsTranscriptionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing settings transcription too many requests response has a 3xx status code
+func (o *GetRoutingSettingsTranscriptionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing settings transcription too many requests response has a 4xx status code
+func (o *GetRoutingSettingsTranscriptionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing settings transcription too many requests response has a 5xx status code
+func (o *GetRoutingSettingsTranscriptionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing settings transcription too many requests response a status code equal to that given
+func (o *GetRoutingSettingsTranscriptionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingSettingsTranscriptionTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingSettingsTranscriptionTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingSettingsTranscriptionInternalServerError() *GetRoutingSettings
 	return &GetRoutingSettingsTranscriptionInternalServerError{}
 }
 
-/*GetRoutingSettingsTranscriptionInternalServerError handles this case with default header values.
+/*
+GetRoutingSettingsTranscriptionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingSettingsTranscriptionInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing settings transcription internal server error response has a 2xx status code
+func (o *GetRoutingSettingsTranscriptionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing settings transcription internal server error response has a 3xx status code
+func (o *GetRoutingSettingsTranscriptionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing settings transcription internal server error response has a 4xx status code
+func (o *GetRoutingSettingsTranscriptionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing settings transcription internal server error response has a 5xx status code
+func (o *GetRoutingSettingsTranscriptionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing settings transcription internal server error response a status code equal to that given
+func (o *GetRoutingSettingsTranscriptionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingSettingsTranscriptionInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingSettingsTranscriptionInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingSettingsTranscriptionServiceUnavailable() *GetRoutingSettingsT
 	return &GetRoutingSettingsTranscriptionServiceUnavailable{}
 }
 
-/*GetRoutingSettingsTranscriptionServiceUnavailable handles this case with default header values.
+/*
+GetRoutingSettingsTranscriptionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingSettingsTranscriptionServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing settings transcription service unavailable response has a 2xx status code
+func (o *GetRoutingSettingsTranscriptionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing settings transcription service unavailable response has a 3xx status code
+func (o *GetRoutingSettingsTranscriptionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing settings transcription service unavailable response has a 4xx status code
+func (o *GetRoutingSettingsTranscriptionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing settings transcription service unavailable response has a 5xx status code
+func (o *GetRoutingSettingsTranscriptionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing settings transcription service unavailable response a status code equal to that given
+func (o *GetRoutingSettingsTranscriptionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingSettingsTranscriptionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingSettingsTranscriptionServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingSettingsTranscriptionGatewayTimeout() *GetRoutingSettingsTrans
 	return &GetRoutingSettingsTranscriptionGatewayTimeout{}
 }
 
-/*GetRoutingSettingsTranscriptionGatewayTimeout handles this case with default header values.
+/*
+GetRoutingSettingsTranscriptionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingSettingsTranscriptionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing settings transcription gateway timeout response has a 2xx status code
+func (o *GetRoutingSettingsTranscriptionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing settings transcription gateway timeout response has a 3xx status code
+func (o *GetRoutingSettingsTranscriptionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing settings transcription gateway timeout response has a 4xx status code
+func (o *GetRoutingSettingsTranscriptionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing settings transcription gateway timeout response has a 5xx status code
+func (o *GetRoutingSettingsTranscriptionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing settings transcription gateway timeout response a status code equal to that given
+func (o *GetRoutingSettingsTranscriptionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingSettingsTranscriptionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingSettingsTranscriptionGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/settings/transcription][%d] getRoutingSettingsTranscriptionGatewayTimeout  %+v", 504, o.Payload)
 }
 

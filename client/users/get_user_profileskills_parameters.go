@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetUserProfileskillsParams creates a new GetUserProfileskillsParams object
-// with the default values initialized.
+// NewGetUserProfileskillsParams creates a new GetUserProfileskillsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUserProfileskillsParams() *GetUserProfileskillsParams {
-	var ()
 	return &GetUserProfileskillsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUserProfileskillsParamsWithTimeout creates a new GetUserProfileskillsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUserProfileskillsParamsWithTimeout(timeout time.Duration) *GetUserProfileskillsParams {
-	var ()
 	return &GetUserProfileskillsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUserProfileskillsParamsWithContext creates a new GetUserProfileskillsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUserProfileskillsParamsWithContext(ctx context.Context) *GetUserProfileskillsParams {
-	var ()
 	return &GetUserProfileskillsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetUserProfileskillsParamsWithHTTPClient creates a new GetUserProfileskillsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUserProfileskillsParamsWithHTTPClient(client *http.Client) *GetUserProfileskillsParams {
-	var ()
 	return &GetUserProfileskillsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetUserProfileskillsParams contains all the parameters to send to the API endpoint
-for the get user profileskills operation typically these are written to a http.Request
+/*
+GetUserProfileskillsParams contains all the parameters to send to the API endpoint
+
+	for the get user profileskills operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUserProfileskillsParams struct {
 
-	/*UserID
-	  User ID
+	/* UserID.
 
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get user profileskills params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserProfileskillsParams) WithDefaults() *GetUserProfileskillsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get user profileskills params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserProfileskillsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get user profileskills params

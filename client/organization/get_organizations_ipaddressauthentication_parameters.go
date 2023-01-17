@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOrganizationsIpaddressauthenticationParams creates a new GetOrganizationsIpaddressauthenticationParams object
-// with the default values initialized.
+// NewGetOrganizationsIpaddressauthenticationParams creates a new GetOrganizationsIpaddressauthenticationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOrganizationsIpaddressauthenticationParams() *GetOrganizationsIpaddressauthenticationParams {
-
 	return &GetOrganizationsIpaddressauthenticationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOrganizationsIpaddressauthenticationParamsWithTimeout creates a new GetOrganizationsIpaddressauthenticationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOrganizationsIpaddressauthenticationParamsWithTimeout(timeout time.Duration) *GetOrganizationsIpaddressauthenticationParams {
-
 	return &GetOrganizationsIpaddressauthenticationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOrganizationsIpaddressauthenticationParamsWithContext creates a new GetOrganizationsIpaddressauthenticationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOrganizationsIpaddressauthenticationParamsWithContext(ctx context.Context) *GetOrganizationsIpaddressauthenticationParams {
-
 	return &GetOrganizationsIpaddressauthenticationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOrganizationsIpaddressauthenticationParamsWithHTTPClient creates a new GetOrganizationsIpaddressauthenticationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOrganizationsIpaddressauthenticationParamsWithHTTPClient(client *http.Client) *GetOrganizationsIpaddressauthenticationParams {
-
 	return &GetOrganizationsIpaddressauthenticationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOrganizationsIpaddressauthenticationParams contains all the parameters to send to the API endpoint
-for the get organizations ipaddressauthentication operation typically these are written to a http.Request
+/*
+GetOrganizationsIpaddressauthenticationParams contains all the parameters to send to the API endpoint
+
+	for the get organizations ipaddressauthentication operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOrganizationsIpaddressauthenticationParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get organizations ipaddressauthentication params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrganizationsIpaddressauthenticationParams) WithDefaults() *GetOrganizationsIpaddressauthenticationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get organizations ipaddressauthentication params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrganizationsIpaddressauthenticationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get organizations ipaddressauthentication params

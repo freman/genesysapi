@@ -95,7 +95,6 @@ func (o *GetGamificationTemplateReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGamificationTemplateOK() *GetGamificationTemplateOK {
 	return &GetGamificationTemplateOK{}
 }
 
-/*GetGamificationTemplateOK handles this case with default header values.
+/*
+GetGamificationTemplateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGamificationTemplateOK struct {
 	Payload *models.ObjectiveTemplate
 }
 
+// IsSuccess returns true when this get gamification template o k response has a 2xx status code
+func (o *GetGamificationTemplateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get gamification template o k response has a 3xx status code
+func (o *GetGamificationTemplateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification template o k response has a 4xx status code
+func (o *GetGamificationTemplateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification template o k response has a 5xx status code
+func (o *GetGamificationTemplateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification template o k response a status code equal to that given
+func (o *GetGamificationTemplateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGamificationTemplateOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGamificationTemplateOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGamificationTemplateBadRequest() *GetGamificationTemplateBadRequest {
 	return &GetGamificationTemplateBadRequest{}
 }
 
-/*GetGamificationTemplateBadRequest handles this case with default header values.
+/*
+GetGamificationTemplateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGamificationTemplateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification template bad request response has a 2xx status code
+func (o *GetGamificationTemplateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification template bad request response has a 3xx status code
+func (o *GetGamificationTemplateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification template bad request response has a 4xx status code
+func (o *GetGamificationTemplateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification template bad request response has a 5xx status code
+func (o *GetGamificationTemplateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification template bad request response a status code equal to that given
+func (o *GetGamificationTemplateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGamificationTemplateBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGamificationTemplateBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGamificationTemplateUnauthorized() *GetGamificationTemplateUnauthoriz
 	return &GetGamificationTemplateUnauthorized{}
 }
 
-/*GetGamificationTemplateUnauthorized handles this case with default header values.
+/*
+GetGamificationTemplateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGamificationTemplateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification template unauthorized response has a 2xx status code
+func (o *GetGamificationTemplateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification template unauthorized response has a 3xx status code
+func (o *GetGamificationTemplateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification template unauthorized response has a 4xx status code
+func (o *GetGamificationTemplateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification template unauthorized response has a 5xx status code
+func (o *GetGamificationTemplateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification template unauthorized response a status code equal to that given
+func (o *GetGamificationTemplateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGamificationTemplateUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGamificationTemplateUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGamificationTemplateForbidden() *GetGamificationTemplateForbidden {
 	return &GetGamificationTemplateForbidden{}
 }
 
-/*GetGamificationTemplateForbidden handles this case with default header values.
+/*
+GetGamificationTemplateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGamificationTemplateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification template forbidden response has a 2xx status code
+func (o *GetGamificationTemplateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification template forbidden response has a 3xx status code
+func (o *GetGamificationTemplateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification template forbidden response has a 4xx status code
+func (o *GetGamificationTemplateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification template forbidden response has a 5xx status code
+func (o *GetGamificationTemplateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification template forbidden response a status code equal to that given
+func (o *GetGamificationTemplateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGamificationTemplateForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGamificationTemplateForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGamificationTemplateNotFound() *GetGamificationTemplateNotFound {
 	return &GetGamificationTemplateNotFound{}
 }
 
-/*GetGamificationTemplateNotFound handles this case with default header values.
+/*
+GetGamificationTemplateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGamificationTemplateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification template not found response has a 2xx status code
+func (o *GetGamificationTemplateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification template not found response has a 3xx status code
+func (o *GetGamificationTemplateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification template not found response has a 4xx status code
+func (o *GetGamificationTemplateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification template not found response has a 5xx status code
+func (o *GetGamificationTemplateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification template not found response a status code equal to that given
+func (o *GetGamificationTemplateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGamificationTemplateNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGamificationTemplateNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGamificationTemplateRequestTimeout() *GetGamificationTemplateRequestT
 	return &GetGamificationTemplateRequestTimeout{}
 }
 
-/*GetGamificationTemplateRequestTimeout handles this case with default header values.
+/*
+GetGamificationTemplateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGamificationTemplateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification template request timeout response has a 2xx status code
+func (o *GetGamificationTemplateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification template request timeout response has a 3xx status code
+func (o *GetGamificationTemplateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification template request timeout response has a 4xx status code
+func (o *GetGamificationTemplateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification template request timeout response has a 5xx status code
+func (o *GetGamificationTemplateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification template request timeout response a status code equal to that given
+func (o *GetGamificationTemplateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGamificationTemplateRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGamificationTemplateRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGamificationTemplateRequestEntityTooLarge() *GetGamificationTemplateR
 	return &GetGamificationTemplateRequestEntityTooLarge{}
 }
 
-/*GetGamificationTemplateRequestEntityTooLarge handles this case with default header values.
+/*
+GetGamificationTemplateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGamificationTemplateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification template request entity too large response has a 2xx status code
+func (o *GetGamificationTemplateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification template request entity too large response has a 3xx status code
+func (o *GetGamificationTemplateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification template request entity too large response has a 4xx status code
+func (o *GetGamificationTemplateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification template request entity too large response has a 5xx status code
+func (o *GetGamificationTemplateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification template request entity too large response a status code equal to that given
+func (o *GetGamificationTemplateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGamificationTemplateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGamificationTemplateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGamificationTemplateUnsupportedMediaType() *GetGamificationTemplateUn
 	return &GetGamificationTemplateUnsupportedMediaType{}
 }
 
-/*GetGamificationTemplateUnsupportedMediaType handles this case with default header values.
+/*
+GetGamificationTemplateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGamificationTemplateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification template unsupported media type response has a 2xx status code
+func (o *GetGamificationTemplateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification template unsupported media type response has a 3xx status code
+func (o *GetGamificationTemplateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification template unsupported media type response has a 4xx status code
+func (o *GetGamificationTemplateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification template unsupported media type response has a 5xx status code
+func (o *GetGamificationTemplateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification template unsupported media type response a status code equal to that given
+func (o *GetGamificationTemplateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGamificationTemplateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGamificationTemplateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGamificationTemplateTooManyRequests() *GetGamificationTemplateTooMany
 	return &GetGamificationTemplateTooManyRequests{}
 }
 
-/*GetGamificationTemplateTooManyRequests handles this case with default header values.
+/*
+GetGamificationTemplateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGamificationTemplateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification template too many requests response has a 2xx status code
+func (o *GetGamificationTemplateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification template too many requests response has a 3xx status code
+func (o *GetGamificationTemplateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification template too many requests response has a 4xx status code
+func (o *GetGamificationTemplateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification template too many requests response has a 5xx status code
+func (o *GetGamificationTemplateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification template too many requests response a status code equal to that given
+func (o *GetGamificationTemplateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGamificationTemplateTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGamificationTemplateTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGamificationTemplateInternalServerError() *GetGamificationTemplateInt
 	return &GetGamificationTemplateInternalServerError{}
 }
 
-/*GetGamificationTemplateInternalServerError handles this case with default header values.
+/*
+GetGamificationTemplateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGamificationTemplateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification template internal server error response has a 2xx status code
+func (o *GetGamificationTemplateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification template internal server error response has a 3xx status code
+func (o *GetGamificationTemplateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification template internal server error response has a 4xx status code
+func (o *GetGamificationTemplateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification template internal server error response has a 5xx status code
+func (o *GetGamificationTemplateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification template internal server error response a status code equal to that given
+func (o *GetGamificationTemplateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGamificationTemplateInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGamificationTemplateInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGamificationTemplateServiceUnavailable() *GetGamificationTemplateServ
 	return &GetGamificationTemplateServiceUnavailable{}
 }
 
-/*GetGamificationTemplateServiceUnavailable handles this case with default header values.
+/*
+GetGamificationTemplateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGamificationTemplateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification template service unavailable response has a 2xx status code
+func (o *GetGamificationTemplateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification template service unavailable response has a 3xx status code
+func (o *GetGamificationTemplateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification template service unavailable response has a 4xx status code
+func (o *GetGamificationTemplateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification template service unavailable response has a 5xx status code
+func (o *GetGamificationTemplateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification template service unavailable response a status code equal to that given
+func (o *GetGamificationTemplateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGamificationTemplateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGamificationTemplateServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGamificationTemplateGatewayTimeout() *GetGamificationTemplateGatewayT
 	return &GetGamificationTemplateGatewayTimeout{}
 }
 
-/*GetGamificationTemplateGatewayTimeout handles this case with default header values.
+/*
+GetGamificationTemplateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGamificationTemplateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification template gateway timeout response has a 2xx status code
+func (o *GetGamificationTemplateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification template gateway timeout response has a 3xx status code
+func (o *GetGamificationTemplateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification template gateway timeout response has a 4xx status code
+func (o *GetGamificationTemplateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification template gateway timeout response has a 5xx status code
+func (o *GetGamificationTemplateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification template gateway timeout response a status code equal to that given
+func (o *GetGamificationTemplateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGamificationTemplateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGamificationTemplateGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/templates/{templateId}][%d] getGamificationTemplateGatewayTimeout  %+v", 504, o.Payload)
 }
 

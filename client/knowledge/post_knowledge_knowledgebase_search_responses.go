@@ -95,7 +95,6 @@ func (o *PostKnowledgeKnowledgebaseSearchReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostKnowledgeKnowledgebaseSearchOK() *PostKnowledgeKnowledgebaseSearchOK
 	return &PostKnowledgeKnowledgebaseSearchOK{}
 }
 
-/*PostKnowledgeKnowledgebaseSearchOK handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseSearchOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostKnowledgeKnowledgebaseSearchOK struct {
 	Payload *models.KnowledgeSearchResponse
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase search o k response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase search o k response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase search o k response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge knowledgebase search o k response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase search o k response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostKnowledgeKnowledgebaseSearchOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchOK  %+v", 200, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseSearchOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostKnowledgeKnowledgebaseSearchBadRequest() *PostKnowledgeKnowledgebase
 	return &PostKnowledgeKnowledgebaseSearchBadRequest{}
 }
 
-/*PostKnowledgeKnowledgebaseSearchBadRequest handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseSearchBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostKnowledgeKnowledgebaseSearchBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase search bad request response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseSearchBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase search bad request response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseSearchBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase search bad request response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseSearchBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase search bad request response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseSearchBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase search bad request response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseSearchBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostKnowledgeKnowledgebaseSearchBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseSearchBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostKnowledgeKnowledgebaseSearchUnauthorized() *PostKnowledgeKnowledgeba
 	return &PostKnowledgeKnowledgebaseSearchUnauthorized{}
 }
 
-/*PostKnowledgeKnowledgebaseSearchUnauthorized handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseSearchUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostKnowledgeKnowledgebaseSearchUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase search unauthorized response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseSearchUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase search unauthorized response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseSearchUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase search unauthorized response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseSearchUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase search unauthorized response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseSearchUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase search unauthorized response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseSearchUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostKnowledgeKnowledgebaseSearchUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseSearchUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostKnowledgeKnowledgebaseSearchForbidden() *PostKnowledgeKnowledgebaseS
 	return &PostKnowledgeKnowledgebaseSearchForbidden{}
 }
 
-/*PostKnowledgeKnowledgebaseSearchForbidden handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseSearchForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostKnowledgeKnowledgebaseSearchForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase search forbidden response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase search forbidden response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase search forbidden response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase search forbidden response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase search forbidden response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostKnowledgeKnowledgebaseSearchForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseSearchForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostKnowledgeKnowledgebaseSearchNotFound() *PostKnowledgeKnowledgebaseSe
 	return &PostKnowledgeKnowledgebaseSearchNotFound{}
 }
 
-/*PostKnowledgeKnowledgebaseSearchNotFound handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseSearchNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostKnowledgeKnowledgebaseSearchNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase search not found response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase search not found response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase search not found response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase search not found response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase search not found response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostKnowledgeKnowledgebaseSearchNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseSearchNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostKnowledgeKnowledgebaseSearchRequestTimeout() *PostKnowledgeKnowledge
 	return &PostKnowledgeKnowledgebaseSearchRequestTimeout{}
 }
 
-/*PostKnowledgeKnowledgebaseSearchRequestTimeout handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseSearchRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostKnowledgeKnowledgebaseSearchRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase search request timeout response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseSearchRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase search request timeout response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseSearchRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase search request timeout response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseSearchRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase search request timeout response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseSearchRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase search request timeout response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseSearchRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostKnowledgeKnowledgebaseSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseSearchRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostKnowledgeKnowledgebaseSearchRequestEntityTooLarge() *PostKnowledgeKn
 	return &PostKnowledgeKnowledgebaseSearchRequestEntityTooLarge{}
 }
 
-/*PostKnowledgeKnowledgebaseSearchRequestEntityTooLarge handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseSearchRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostKnowledgeKnowledgebaseSearchRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase search request entity too large response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseSearchRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase search request entity too large response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseSearchRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase search request entity too large response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseSearchRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase search request entity too large response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseSearchRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase search request entity too large response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseSearchRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostKnowledgeKnowledgebaseSearchRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseSearchRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostKnowledgeKnowledgebaseSearchUnsupportedMediaType() *PostKnowledgeKno
 	return &PostKnowledgeKnowledgebaseSearchUnsupportedMediaType{}
 }
 
-/*PostKnowledgeKnowledgebaseSearchUnsupportedMediaType handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseSearchUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostKnowledgeKnowledgebaseSearchUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase search unsupported media type response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseSearchUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase search unsupported media type response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseSearchUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase search unsupported media type response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseSearchUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase search unsupported media type response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseSearchUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase search unsupported media type response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseSearchUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostKnowledgeKnowledgebaseSearchUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseSearchUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostKnowledgeKnowledgebaseSearchTooManyRequests() *PostKnowledgeKnowledg
 	return &PostKnowledgeKnowledgebaseSearchTooManyRequests{}
 }
 
-/*PostKnowledgeKnowledgebaseSearchTooManyRequests handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseSearchTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostKnowledgeKnowledgebaseSearchTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase search too many requests response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseSearchTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase search too many requests response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseSearchTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase search too many requests response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseSearchTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post knowledge knowledgebase search too many requests response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseSearchTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post knowledge knowledgebase search too many requests response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseSearchTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostKnowledgeKnowledgebaseSearchTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseSearchTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostKnowledgeKnowledgebaseSearchInternalServerError() *PostKnowledgeKnow
 	return &PostKnowledgeKnowledgebaseSearchInternalServerError{}
 }
 
-/*PostKnowledgeKnowledgebaseSearchInternalServerError handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseSearchInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostKnowledgeKnowledgebaseSearchInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase search internal server error response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseSearchInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase search internal server error response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseSearchInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase search internal server error response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseSearchInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge knowledgebase search internal server error response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseSearchInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge knowledgebase search internal server error response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseSearchInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostKnowledgeKnowledgebaseSearchInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseSearchInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostKnowledgeKnowledgebaseSearchServiceUnavailable() *PostKnowledgeKnowl
 	return &PostKnowledgeKnowledgebaseSearchServiceUnavailable{}
 }
 
-/*PostKnowledgeKnowledgebaseSearchServiceUnavailable handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseSearchServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostKnowledgeKnowledgebaseSearchServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase search service unavailable response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseSearchServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase search service unavailable response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseSearchServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase search service unavailable response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseSearchServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge knowledgebase search service unavailable response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseSearchServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge knowledgebase search service unavailable response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseSearchServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostKnowledgeKnowledgebaseSearchServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseSearchServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostKnowledgeKnowledgebaseSearchGatewayTimeout() *PostKnowledgeKnowledge
 	return &PostKnowledgeKnowledgebaseSearchGatewayTimeout{}
 }
 
-/*PostKnowledgeKnowledgebaseSearchGatewayTimeout handles this case with default header values.
+/*
+PostKnowledgeKnowledgebaseSearchGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostKnowledgeKnowledgebaseSearchGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post knowledge knowledgebase search gateway timeout response has a 2xx status code
+func (o *PostKnowledgeKnowledgebaseSearchGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post knowledge knowledgebase search gateway timeout response has a 3xx status code
+func (o *PostKnowledgeKnowledgebaseSearchGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post knowledge knowledgebase search gateway timeout response has a 4xx status code
+func (o *PostKnowledgeKnowledgebaseSearchGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post knowledge knowledgebase search gateway timeout response has a 5xx status code
+func (o *PostKnowledgeKnowledgebaseSearchGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post knowledge knowledgebase search gateway timeout response a status code equal to that given
+func (o *PostKnowledgeKnowledgebaseSearchGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostKnowledgeKnowledgebaseSearchGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostKnowledgeKnowledgebaseSearchGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/search][%d] postKnowledgeKnowledgebaseSearchGatewayTimeout  %+v", 504, o.Payload)
 }
 

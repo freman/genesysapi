@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -57,7 +58,6 @@ func (m *DomainPermissionCollection) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DomainPermissionCollection) validatePermissionMap(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PermissionMap) { // not required
 		return nil
 	}
@@ -73,6 +73,8 @@ func (m *DomainPermissionCollection) validatePermissionMap(formats strfmt.Regist
 			if err := m.PermissionMap[k][i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("permissionMap" + "." + k + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("permissionMap" + "." + k + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -85,12 +87,73 @@ func (m *DomainPermissionCollection) validatePermissionMap(formats strfmt.Regist
 }
 
 func (m *DomainPermissionCollection) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this domain permission collection based on the context it is used
+func (m *DomainPermissionCollection) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePermissionMap(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DomainPermissionCollection) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DomainPermissionCollection) contextValidatePermissionMap(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.PermissionMap {
+
+		for i := 0; i < len(m.PermissionMap[k]); i++ {
+
+			if err := m.PermissionMap[k][i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("permissionMap" + "." + k + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("permissionMap" + "." + k + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+
+		}
+
+	}
+
+	return nil
+}
+
+func (m *DomainPermissionCollection) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

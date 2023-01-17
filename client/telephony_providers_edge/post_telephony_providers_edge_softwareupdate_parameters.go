@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTelephonyProvidersEdgeSoftwareupdateParams creates a new PostTelephonyProvidersEdgeSoftwareupdateParams object
-// with the default values initialized.
+// NewPostTelephonyProvidersEdgeSoftwareupdateParams creates a new PostTelephonyProvidersEdgeSoftwareupdateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTelephonyProvidersEdgeSoftwareupdateParams() *PostTelephonyProvidersEdgeSoftwareupdateParams {
-	var ()
 	return &PostTelephonyProvidersEdgeSoftwareupdateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeSoftwareupdateParamsWithTimeout creates a new PostTelephonyProvidersEdgeSoftwareupdateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTelephonyProvidersEdgeSoftwareupdateParamsWithTimeout(timeout time.Duration) *PostTelephonyProvidersEdgeSoftwareupdateParams {
-	var ()
 	return &PostTelephonyProvidersEdgeSoftwareupdateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeSoftwareupdateParamsWithContext creates a new PostTelephonyProvidersEdgeSoftwareupdateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTelephonyProvidersEdgeSoftwareupdateParamsWithContext(ctx context.Context) *PostTelephonyProvidersEdgeSoftwareupdateParams {
-	var ()
 	return &PostTelephonyProvidersEdgeSoftwareupdateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeSoftwareupdateParamsWithHTTPClient creates a new PostTelephonyProvidersEdgeSoftwareupdateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTelephonyProvidersEdgeSoftwareupdateParamsWithHTTPClient(client *http.Client) *PostTelephonyProvidersEdgeSoftwareupdateParams {
-	var ()
 	return &PostTelephonyProvidersEdgeSoftwareupdateParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTelephonyProvidersEdgeSoftwareupdateParams contains all the parameters to send to the API endpoint
-for the post telephony providers edge softwareupdate operation typically these are written to a http.Request
+/*
+PostTelephonyProvidersEdgeSoftwareupdateParams contains all the parameters to send to the API endpoint
+
+	for the post telephony providers edge softwareupdate operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTelephonyProvidersEdgeSoftwareupdateParams struct {
 
-	/*Body
-	  Software update request
+	/* Body.
 
+	   Software update request
 	*/
 	Body *models.DomainEdgeSoftwareUpdateDto
-	/*EdgeID
-	  Edge ID
 
+	/* EdgeID.
+
+	   Edge ID
 	*/
 	EdgeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post telephony providers edge softwareupdate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeSoftwareupdateParams) WithDefaults() *PostTelephonyProvidersEdgeSoftwareupdateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post telephony providers edge softwareupdate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeSoftwareupdateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post telephony providers edge softwareupdate params
@@ -140,7 +157,6 @@ func (o *PostTelephonyProvidersEdgeSoftwareupdateParams) WriteToRequest(r runtim
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

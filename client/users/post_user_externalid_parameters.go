@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostUserExternalidParams creates a new PostUserExternalidParams object
-// with the default values initialized.
+// NewPostUserExternalidParams creates a new PostUserExternalidParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostUserExternalidParams() *PostUserExternalidParams {
-	var ()
 	return &PostUserExternalidParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostUserExternalidParamsWithTimeout creates a new PostUserExternalidParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostUserExternalidParamsWithTimeout(timeout time.Duration) *PostUserExternalidParams {
-	var ()
 	return &PostUserExternalidParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostUserExternalidParamsWithContext creates a new PostUserExternalidParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostUserExternalidParamsWithContext(ctx context.Context) *PostUserExternalidParams {
-	var ()
 	return &PostUserExternalidParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostUserExternalidParamsWithHTTPClient creates a new PostUserExternalidParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostUserExternalidParamsWithHTTPClient(client *http.Client) *PostUserExternalidParams {
-	var ()
 	return &PostUserExternalidParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostUserExternalidParams contains all the parameters to send to the API endpoint
-for the post user externalid operation typically these are written to a http.Request
+/*
+PostUserExternalidParams contains all the parameters to send to the API endpoint
+
+	for the post user externalid operation.
+
+	Typically these are written to a http.Request.
 */
 type PostUserExternalidParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.UserExternalIdentifier
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post user externalid params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUserExternalidParams) WithDefaults() *PostUserExternalidParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post user externalid params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUserExternalidParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post user externalid params
@@ -137,7 +154,6 @@ func (o *PostUserExternalidParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

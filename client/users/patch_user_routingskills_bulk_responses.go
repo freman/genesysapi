@@ -95,7 +95,6 @@ func (o *PatchUserRoutingskillsBulkReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchUserRoutingskillsBulkOK() *PatchUserRoutingskillsBulkOK {
 	return &PatchUserRoutingskillsBulkOK{}
 }
 
-/*PatchUserRoutingskillsBulkOK handles this case with default header values.
+/*
+PatchUserRoutingskillsBulkOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchUserRoutingskillsBulkOK struct {
 	Payload *models.UserSkillEntityListing
 }
 
+// IsSuccess returns true when this patch user routingskills bulk o k response has a 2xx status code
+func (o *PatchUserRoutingskillsBulkOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch user routingskills bulk o k response has a 3xx status code
+func (o *PatchUserRoutingskillsBulkOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routingskills bulk o k response has a 4xx status code
+func (o *PatchUserRoutingskillsBulkOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user routingskills bulk o k response has a 5xx status code
+func (o *PatchUserRoutingskillsBulkOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routingskills bulk o k response a status code equal to that given
+func (o *PatchUserRoutingskillsBulkOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchUserRoutingskillsBulkOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchUserRoutingskillsBulkOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchUserRoutingskillsBulkBadRequest() *PatchUserRoutingskillsBulkBadReq
 	return &PatchUserRoutingskillsBulkBadRequest{}
 }
 
-/*PatchUserRoutingskillsBulkBadRequest handles this case with default header values.
+/*
+PatchUserRoutingskillsBulkBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchUserRoutingskillsBulkBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routingskills bulk bad request response has a 2xx status code
+func (o *PatchUserRoutingskillsBulkBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routingskills bulk bad request response has a 3xx status code
+func (o *PatchUserRoutingskillsBulkBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routingskills bulk bad request response has a 4xx status code
+func (o *PatchUserRoutingskillsBulkBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routingskills bulk bad request response has a 5xx status code
+func (o *PatchUserRoutingskillsBulkBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routingskills bulk bad request response a status code equal to that given
+func (o *PatchUserRoutingskillsBulkBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchUserRoutingskillsBulkBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchUserRoutingskillsBulkBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchUserRoutingskillsBulkUnauthorized() *PatchUserRoutingskillsBulkUnau
 	return &PatchUserRoutingskillsBulkUnauthorized{}
 }
 
-/*PatchUserRoutingskillsBulkUnauthorized handles this case with default header values.
+/*
+PatchUserRoutingskillsBulkUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchUserRoutingskillsBulkUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routingskills bulk unauthorized response has a 2xx status code
+func (o *PatchUserRoutingskillsBulkUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routingskills bulk unauthorized response has a 3xx status code
+func (o *PatchUserRoutingskillsBulkUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routingskills bulk unauthorized response has a 4xx status code
+func (o *PatchUserRoutingskillsBulkUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routingskills bulk unauthorized response has a 5xx status code
+func (o *PatchUserRoutingskillsBulkUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routingskills bulk unauthorized response a status code equal to that given
+func (o *PatchUserRoutingskillsBulkUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchUserRoutingskillsBulkUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchUserRoutingskillsBulkUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchUserRoutingskillsBulkForbidden() *PatchUserRoutingskillsBulkForbidd
 	return &PatchUserRoutingskillsBulkForbidden{}
 }
 
-/*PatchUserRoutingskillsBulkForbidden handles this case with default header values.
+/*
+PatchUserRoutingskillsBulkForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchUserRoutingskillsBulkForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routingskills bulk forbidden response has a 2xx status code
+func (o *PatchUserRoutingskillsBulkForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routingskills bulk forbidden response has a 3xx status code
+func (o *PatchUserRoutingskillsBulkForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routingskills bulk forbidden response has a 4xx status code
+func (o *PatchUserRoutingskillsBulkForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routingskills bulk forbidden response has a 5xx status code
+func (o *PatchUserRoutingskillsBulkForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routingskills bulk forbidden response a status code equal to that given
+func (o *PatchUserRoutingskillsBulkForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchUserRoutingskillsBulkForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchUserRoutingskillsBulkForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchUserRoutingskillsBulkNotFound() *PatchUserRoutingskillsBulkNotFound
 	return &PatchUserRoutingskillsBulkNotFound{}
 }
 
-/*PatchUserRoutingskillsBulkNotFound handles this case with default header values.
+/*
+PatchUserRoutingskillsBulkNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchUserRoutingskillsBulkNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routingskills bulk not found response has a 2xx status code
+func (o *PatchUserRoutingskillsBulkNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routingskills bulk not found response has a 3xx status code
+func (o *PatchUserRoutingskillsBulkNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routingskills bulk not found response has a 4xx status code
+func (o *PatchUserRoutingskillsBulkNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routingskills bulk not found response has a 5xx status code
+func (o *PatchUserRoutingskillsBulkNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routingskills bulk not found response a status code equal to that given
+func (o *PatchUserRoutingskillsBulkNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchUserRoutingskillsBulkNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchUserRoutingskillsBulkNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchUserRoutingskillsBulkRequestTimeout() *PatchUserRoutingskillsBulkRe
 	return &PatchUserRoutingskillsBulkRequestTimeout{}
 }
 
-/*PatchUserRoutingskillsBulkRequestTimeout handles this case with default header values.
+/*
+PatchUserRoutingskillsBulkRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchUserRoutingskillsBulkRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routingskills bulk request timeout response has a 2xx status code
+func (o *PatchUserRoutingskillsBulkRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routingskills bulk request timeout response has a 3xx status code
+func (o *PatchUserRoutingskillsBulkRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routingskills bulk request timeout response has a 4xx status code
+func (o *PatchUserRoutingskillsBulkRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routingskills bulk request timeout response has a 5xx status code
+func (o *PatchUserRoutingskillsBulkRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routingskills bulk request timeout response a status code equal to that given
+func (o *PatchUserRoutingskillsBulkRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchUserRoutingskillsBulkRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchUserRoutingskillsBulkRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchUserRoutingskillsBulkRequestEntityTooLarge() *PatchUserRoutingskill
 	return &PatchUserRoutingskillsBulkRequestEntityTooLarge{}
 }
 
-/*PatchUserRoutingskillsBulkRequestEntityTooLarge handles this case with default header values.
+/*
+PatchUserRoutingskillsBulkRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchUserRoutingskillsBulkRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routingskills bulk request entity too large response has a 2xx status code
+func (o *PatchUserRoutingskillsBulkRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routingskills bulk request entity too large response has a 3xx status code
+func (o *PatchUserRoutingskillsBulkRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routingskills bulk request entity too large response has a 4xx status code
+func (o *PatchUserRoutingskillsBulkRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routingskills bulk request entity too large response has a 5xx status code
+func (o *PatchUserRoutingskillsBulkRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routingskills bulk request entity too large response a status code equal to that given
+func (o *PatchUserRoutingskillsBulkRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchUserRoutingskillsBulkRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchUserRoutingskillsBulkRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchUserRoutingskillsBulkUnsupportedMediaType() *PatchUserRoutingskills
 	return &PatchUserRoutingskillsBulkUnsupportedMediaType{}
 }
 
-/*PatchUserRoutingskillsBulkUnsupportedMediaType handles this case with default header values.
+/*
+PatchUserRoutingskillsBulkUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchUserRoutingskillsBulkUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routingskills bulk unsupported media type response has a 2xx status code
+func (o *PatchUserRoutingskillsBulkUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routingskills bulk unsupported media type response has a 3xx status code
+func (o *PatchUserRoutingskillsBulkUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routingskills bulk unsupported media type response has a 4xx status code
+func (o *PatchUserRoutingskillsBulkUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routingskills bulk unsupported media type response has a 5xx status code
+func (o *PatchUserRoutingskillsBulkUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routingskills bulk unsupported media type response a status code equal to that given
+func (o *PatchUserRoutingskillsBulkUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchUserRoutingskillsBulkUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchUserRoutingskillsBulkUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchUserRoutingskillsBulkTooManyRequests() *PatchUserRoutingskillsBulkT
 	return &PatchUserRoutingskillsBulkTooManyRequests{}
 }
 
-/*PatchUserRoutingskillsBulkTooManyRequests handles this case with default header values.
+/*
+PatchUserRoutingskillsBulkTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchUserRoutingskillsBulkTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routingskills bulk too many requests response has a 2xx status code
+func (o *PatchUserRoutingskillsBulkTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routingskills bulk too many requests response has a 3xx status code
+func (o *PatchUserRoutingskillsBulkTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routingskills bulk too many requests response has a 4xx status code
+func (o *PatchUserRoutingskillsBulkTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch user routingskills bulk too many requests response has a 5xx status code
+func (o *PatchUserRoutingskillsBulkTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch user routingskills bulk too many requests response a status code equal to that given
+func (o *PatchUserRoutingskillsBulkTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchUserRoutingskillsBulkTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchUserRoutingskillsBulkTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchUserRoutingskillsBulkInternalServerError() *PatchUserRoutingskillsB
 	return &PatchUserRoutingskillsBulkInternalServerError{}
 }
 
-/*PatchUserRoutingskillsBulkInternalServerError handles this case with default header values.
+/*
+PatchUserRoutingskillsBulkInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchUserRoutingskillsBulkInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routingskills bulk internal server error response has a 2xx status code
+func (o *PatchUserRoutingskillsBulkInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routingskills bulk internal server error response has a 3xx status code
+func (o *PatchUserRoutingskillsBulkInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routingskills bulk internal server error response has a 4xx status code
+func (o *PatchUserRoutingskillsBulkInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user routingskills bulk internal server error response has a 5xx status code
+func (o *PatchUserRoutingskillsBulkInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user routingskills bulk internal server error response a status code equal to that given
+func (o *PatchUserRoutingskillsBulkInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchUserRoutingskillsBulkInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchUserRoutingskillsBulkInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchUserRoutingskillsBulkServiceUnavailable() *PatchUserRoutingskillsBu
 	return &PatchUserRoutingskillsBulkServiceUnavailable{}
 }
 
-/*PatchUserRoutingskillsBulkServiceUnavailable handles this case with default header values.
+/*
+PatchUserRoutingskillsBulkServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchUserRoutingskillsBulkServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routingskills bulk service unavailable response has a 2xx status code
+func (o *PatchUserRoutingskillsBulkServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routingskills bulk service unavailable response has a 3xx status code
+func (o *PatchUserRoutingskillsBulkServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routingskills bulk service unavailable response has a 4xx status code
+func (o *PatchUserRoutingskillsBulkServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user routingskills bulk service unavailable response has a 5xx status code
+func (o *PatchUserRoutingskillsBulkServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user routingskills bulk service unavailable response a status code equal to that given
+func (o *PatchUserRoutingskillsBulkServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchUserRoutingskillsBulkServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchUserRoutingskillsBulkServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchUserRoutingskillsBulkGatewayTimeout() *PatchUserRoutingskillsBulkGa
 	return &PatchUserRoutingskillsBulkGatewayTimeout{}
 }
 
-/*PatchUserRoutingskillsBulkGatewayTimeout handles this case with default header values.
+/*
+PatchUserRoutingskillsBulkGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchUserRoutingskillsBulkGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch user routingskills bulk gateway timeout response has a 2xx status code
+func (o *PatchUserRoutingskillsBulkGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch user routingskills bulk gateway timeout response has a 3xx status code
+func (o *PatchUserRoutingskillsBulkGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch user routingskills bulk gateway timeout response has a 4xx status code
+func (o *PatchUserRoutingskillsBulkGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch user routingskills bulk gateway timeout response has a 5xx status code
+func (o *PatchUserRoutingskillsBulkGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch user routingskills bulk gateway timeout response a status code equal to that given
+func (o *PatchUserRoutingskillsBulkGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchUserRoutingskillsBulkGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchUserRoutingskillsBulkGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/users/{userId}/routingskills/bulk][%d] patchUserRoutingskillsBulkGatewayTimeout  %+v", 504, o.Payload)
 }
 

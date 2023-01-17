@@ -101,7 +101,6 @@ func (o *DeleteContentmanagementDocumentReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteContentmanagementDocumentAccepted() *DeleteContentmanagementDocume
 	return &DeleteContentmanagementDocumentAccepted{}
 }
 
-/*DeleteContentmanagementDocumentAccepted handles this case with default header values.
+/*
+DeleteContentmanagementDocumentAccepted describes a response with status code 202, with default header values.
 
 Accepted - Processing Delete
 */
 type DeleteContentmanagementDocumentAccepted struct {
 }
 
+// IsSuccess returns true when this delete contentmanagement document accepted response has a 2xx status code
+func (o *DeleteContentmanagementDocumentAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete contentmanagement document accepted response has a 3xx status code
+func (o *DeleteContentmanagementDocumentAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document accepted response has a 4xx status code
+func (o *DeleteContentmanagementDocumentAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete contentmanagement document accepted response has a 5xx status code
+func (o *DeleteContentmanagementDocumentAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement document accepted response a status code equal to that given
+func (o *DeleteContentmanagementDocumentAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *DeleteContentmanagementDocumentAccepted) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentAccepted ", 202)
+}
+
+func (o *DeleteContentmanagementDocumentAccepted) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentAccepted ", 202)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteContentmanagementDocumentBadRequest() *DeleteContentmanagementDocu
 	return &DeleteContentmanagementDocumentBadRequest{}
 }
 
-/*DeleteContentmanagementDocumentBadRequest handles this case with default header values.
+/*
+DeleteContentmanagementDocumentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteContentmanagementDocumentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement document bad request response has a 2xx status code
+func (o *DeleteContentmanagementDocumentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement document bad request response has a 3xx status code
+func (o *DeleteContentmanagementDocumentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document bad request response has a 4xx status code
+func (o *DeleteContentmanagementDocumentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement document bad request response has a 5xx status code
+func (o *DeleteContentmanagementDocumentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement document bad request response a status code equal to that given
+func (o *DeleteContentmanagementDocumentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteContentmanagementDocumentBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteContentmanagementDocumentBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteContentmanagementDocumentUnauthorized() *DeleteContentmanagementDo
 	return &DeleteContentmanagementDocumentUnauthorized{}
 }
 
-/*DeleteContentmanagementDocumentUnauthorized handles this case with default header values.
+/*
+DeleteContentmanagementDocumentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteContentmanagementDocumentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement document unauthorized response has a 2xx status code
+func (o *DeleteContentmanagementDocumentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement document unauthorized response has a 3xx status code
+func (o *DeleteContentmanagementDocumentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document unauthorized response has a 4xx status code
+func (o *DeleteContentmanagementDocumentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement document unauthorized response has a 5xx status code
+func (o *DeleteContentmanagementDocumentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement document unauthorized response a status code equal to that given
+func (o *DeleteContentmanagementDocumentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteContentmanagementDocumentUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteContentmanagementDocumentUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteContentmanagementDocumentForbidden() *DeleteContentmanagementDocum
 	return &DeleteContentmanagementDocumentForbidden{}
 }
 
-/*DeleteContentmanagementDocumentForbidden handles this case with default header values.
+/*
+DeleteContentmanagementDocumentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteContentmanagementDocumentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement document forbidden response has a 2xx status code
+func (o *DeleteContentmanagementDocumentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement document forbidden response has a 3xx status code
+func (o *DeleteContentmanagementDocumentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document forbidden response has a 4xx status code
+func (o *DeleteContentmanagementDocumentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement document forbidden response has a 5xx status code
+func (o *DeleteContentmanagementDocumentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement document forbidden response a status code equal to that given
+func (o *DeleteContentmanagementDocumentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteContentmanagementDocumentForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteContentmanagementDocumentForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteContentmanagementDocumentNotFound() *DeleteContentmanagementDocume
 	return &DeleteContentmanagementDocumentNotFound{}
 }
 
-/*DeleteContentmanagementDocumentNotFound handles this case with default header values.
+/*
+DeleteContentmanagementDocumentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteContentmanagementDocumentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement document not found response has a 2xx status code
+func (o *DeleteContentmanagementDocumentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement document not found response has a 3xx status code
+func (o *DeleteContentmanagementDocumentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document not found response has a 4xx status code
+func (o *DeleteContentmanagementDocumentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement document not found response has a 5xx status code
+func (o *DeleteContentmanagementDocumentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement document not found response a status code equal to that given
+func (o *DeleteContentmanagementDocumentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteContentmanagementDocumentNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteContentmanagementDocumentNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteContentmanagementDocumentRequestTimeout() *DeleteContentmanagement
 	return &DeleteContentmanagementDocumentRequestTimeout{}
 }
 
-/*DeleteContentmanagementDocumentRequestTimeout handles this case with default header values.
+/*
+DeleteContentmanagementDocumentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteContentmanagementDocumentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement document request timeout response has a 2xx status code
+func (o *DeleteContentmanagementDocumentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement document request timeout response has a 3xx status code
+func (o *DeleteContentmanagementDocumentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document request timeout response has a 4xx status code
+func (o *DeleteContentmanagementDocumentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement document request timeout response has a 5xx status code
+func (o *DeleteContentmanagementDocumentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement document request timeout response a status code equal to that given
+func (o *DeleteContentmanagementDocumentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteContentmanagementDocumentRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteContentmanagementDocumentRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteContentmanagementDocumentRequestEntityTooLarge() *DeleteContentman
 	return &DeleteContentmanagementDocumentRequestEntityTooLarge{}
 }
 
-/*DeleteContentmanagementDocumentRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteContentmanagementDocumentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -306,7 +486,36 @@ type DeleteContentmanagementDocumentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement document request entity too large response has a 2xx status code
+func (o *DeleteContentmanagementDocumentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement document request entity too large response has a 3xx status code
+func (o *DeleteContentmanagementDocumentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document request entity too large response has a 4xx status code
+func (o *DeleteContentmanagementDocumentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement document request entity too large response has a 5xx status code
+func (o *DeleteContentmanagementDocumentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement document request entity too large response a status code equal to that given
+func (o *DeleteContentmanagementDocumentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteContentmanagementDocumentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteContentmanagementDocumentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteContentmanagementDocumentUnsupportedMediaType() *DeleteContentmana
 	return &DeleteContentmanagementDocumentUnsupportedMediaType{}
 }
 
-/*DeleteContentmanagementDocumentUnsupportedMediaType handles this case with default header values.
+/*
+DeleteContentmanagementDocumentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -339,7 +549,36 @@ type DeleteContentmanagementDocumentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement document unsupported media type response has a 2xx status code
+func (o *DeleteContentmanagementDocumentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement document unsupported media type response has a 3xx status code
+func (o *DeleteContentmanagementDocumentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document unsupported media type response has a 4xx status code
+func (o *DeleteContentmanagementDocumentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement document unsupported media type response has a 5xx status code
+func (o *DeleteContentmanagementDocumentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement document unsupported media type response a status code equal to that given
+func (o *DeleteContentmanagementDocumentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteContentmanagementDocumentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteContentmanagementDocumentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -364,14 +603,44 @@ func NewDeleteContentmanagementDocumentLocked() *DeleteContentmanagementDocument
 	return &DeleteContentmanagementDocumentLocked{}
 }
 
-/*DeleteContentmanagementDocumentLocked handles this case with default header values.
+/*
+DeleteContentmanagementDocumentLocked describes a response with status code 423, with default header values.
 
 Locked - The document is locked by another operation
 */
 type DeleteContentmanagementDocumentLocked struct {
 }
 
+// IsSuccess returns true when this delete contentmanagement document locked response has a 2xx status code
+func (o *DeleteContentmanagementDocumentLocked) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement document locked response has a 3xx status code
+func (o *DeleteContentmanagementDocumentLocked) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document locked response has a 4xx status code
+func (o *DeleteContentmanagementDocumentLocked) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement document locked response has a 5xx status code
+func (o *DeleteContentmanagementDocumentLocked) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement document locked response a status code equal to that given
+func (o *DeleteContentmanagementDocumentLocked) IsCode(code int) bool {
+	return code == 423
+}
+
 func (o *DeleteContentmanagementDocumentLocked) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentLocked ", 423)
+}
+
+func (o *DeleteContentmanagementDocumentLocked) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentLocked ", 423)
 }
 
@@ -385,7 +654,8 @@ func NewDeleteContentmanagementDocumentTooManyRequests() *DeleteContentmanagemen
 	return &DeleteContentmanagementDocumentTooManyRequests{}
 }
 
-/*DeleteContentmanagementDocumentTooManyRequests handles this case with default header values.
+/*
+DeleteContentmanagementDocumentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -393,7 +663,36 @@ type DeleteContentmanagementDocumentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement document too many requests response has a 2xx status code
+func (o *DeleteContentmanagementDocumentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement document too many requests response has a 3xx status code
+func (o *DeleteContentmanagementDocumentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document too many requests response has a 4xx status code
+func (o *DeleteContentmanagementDocumentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete contentmanagement document too many requests response has a 5xx status code
+func (o *DeleteContentmanagementDocumentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete contentmanagement document too many requests response a status code equal to that given
+func (o *DeleteContentmanagementDocumentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteContentmanagementDocumentTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteContentmanagementDocumentTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -418,7 +717,8 @@ func NewDeleteContentmanagementDocumentInternalServerError() *DeleteContentmanag
 	return &DeleteContentmanagementDocumentInternalServerError{}
 }
 
-/*DeleteContentmanagementDocumentInternalServerError handles this case with default header values.
+/*
+DeleteContentmanagementDocumentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -426,7 +726,36 @@ type DeleteContentmanagementDocumentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement document internal server error response has a 2xx status code
+func (o *DeleteContentmanagementDocumentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement document internal server error response has a 3xx status code
+func (o *DeleteContentmanagementDocumentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document internal server error response has a 4xx status code
+func (o *DeleteContentmanagementDocumentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete contentmanagement document internal server error response has a 5xx status code
+func (o *DeleteContentmanagementDocumentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete contentmanagement document internal server error response a status code equal to that given
+func (o *DeleteContentmanagementDocumentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteContentmanagementDocumentInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteContentmanagementDocumentInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -451,7 +780,8 @@ func NewDeleteContentmanagementDocumentServiceUnavailable() *DeleteContentmanage
 	return &DeleteContentmanagementDocumentServiceUnavailable{}
 }
 
-/*DeleteContentmanagementDocumentServiceUnavailable handles this case with default header values.
+/*
+DeleteContentmanagementDocumentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -459,7 +789,36 @@ type DeleteContentmanagementDocumentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement document service unavailable response has a 2xx status code
+func (o *DeleteContentmanagementDocumentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement document service unavailable response has a 3xx status code
+func (o *DeleteContentmanagementDocumentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document service unavailable response has a 4xx status code
+func (o *DeleteContentmanagementDocumentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete contentmanagement document service unavailable response has a 5xx status code
+func (o *DeleteContentmanagementDocumentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete contentmanagement document service unavailable response a status code equal to that given
+func (o *DeleteContentmanagementDocumentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteContentmanagementDocumentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteContentmanagementDocumentServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -484,7 +843,8 @@ func NewDeleteContentmanagementDocumentGatewayTimeout() *DeleteContentmanagement
 	return &DeleteContentmanagementDocumentGatewayTimeout{}
 }
 
-/*DeleteContentmanagementDocumentGatewayTimeout handles this case with default header values.
+/*
+DeleteContentmanagementDocumentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -492,7 +852,36 @@ type DeleteContentmanagementDocumentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete contentmanagement document gateway timeout response has a 2xx status code
+func (o *DeleteContentmanagementDocumentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete contentmanagement document gateway timeout response has a 3xx status code
+func (o *DeleteContentmanagementDocumentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete contentmanagement document gateway timeout response has a 4xx status code
+func (o *DeleteContentmanagementDocumentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete contentmanagement document gateway timeout response has a 5xx status code
+func (o *DeleteContentmanagementDocumentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete contentmanagement document gateway timeout response a status code equal to that given
+func (o *DeleteContentmanagementDocumentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteContentmanagementDocumentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteContentmanagementDocumentGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/contentmanagement/documents/{documentId}][%d] deleteContentmanagementDocumentGatewayTimeout  %+v", 504, o.Payload)
 }
 

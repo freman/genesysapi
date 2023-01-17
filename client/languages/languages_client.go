@@ -19,21 +19,17 @@ import (
 type API interface {
 	/*
 	   DeleteLanguage deletes language deprecated
-	   This endpoint is deprecated. It has been moved to /routing/languages/{languageId}
+	   This endpoint is deprecated. Please see the Routing API (DELETE /api/v2/routing/languages/{languageId})
 	*/
 	DeleteLanguage(ctx context.Context, params *DeleteLanguageParams) error
 	/*
-	   DeleteRoutingLanguage deletes language
-	*/
-	DeleteRoutingLanguage(ctx context.Context, params *DeleteRoutingLanguageParams) error
-	/*
 	   GetLanguage gets language deprecated
-	   This endpoint is deprecated. It has been moved to /routing/languages/{languageId}
+	   This endpoint is deprecated. Please see the Routing API (GET /api/v2/routing/languages/{languageId})
 	*/
 	GetLanguage(ctx context.Context, params *GetLanguageParams) (*GetLanguageOK, error)
 	/*
 	   GetLanguages gets the list of supported languages deprecated
-	   This endpoint is deprecated. It has been moved to /routing/languages
+	   This endpoint is deprecated. Please see the Routing API (GET /api/v2/routing/languages)
 	*/
 	GetLanguages(ctx context.Context, params *GetLanguagesParams) (*GetLanguagesOK, error)
 	/*
@@ -53,12 +49,8 @@ type API interface {
 	*/
 	GetLanguagesTranslationsUser(ctx context.Context, params *GetLanguagesTranslationsUserParams) (*GetLanguagesTranslationsUserOK, error)
 	/*
-	   GetRoutingLanguage gets language
-	*/
-	GetRoutingLanguage(ctx context.Context, params *GetRoutingLanguageParams) (*GetRoutingLanguageOK, error)
-	/*
 	   PostLanguages creates language deprecated
-	   This endpoint is deprecated. It has been moved to /routing/languages
+	   This endpoint is deprecated. Please see the Routing API. (POST /api/v2/routing/languages
 	*/
 	PostLanguages(ctx context.Context, params *PostLanguagesParams) (*PostLanguagesOK, error)
 }
@@ -84,7 +76,7 @@ type Client struct {
 /*
 DeleteLanguage deletes language deprecated
 
-This endpoint is deprecated. It has been moved to /routing/languages/{languageId}
+This endpoint is deprecated. Please see the Routing API (DELETE /api/v2/routing/languages/{languageId})
 */
 func (a *Client) DeleteLanguage(ctx context.Context, params *DeleteLanguageParams) error {
 
@@ -109,34 +101,9 @@ func (a *Client) DeleteLanguage(ctx context.Context, params *DeleteLanguageParam
 }
 
 /*
-DeleteRoutingLanguage deletes language
-*/
-func (a *Client) DeleteRoutingLanguage(ctx context.Context, params *DeleteRoutingLanguageParams) error {
-
-	_, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "deleteRoutingLanguage",
-		Method:             "DELETE",
-		PathPattern:        "/api/v2/routing/languages/{languageId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &DeleteRoutingLanguageReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return err
-	}
-	return nil
-
-}
-
-/*
 GetLanguage gets language deprecated
 
-This endpoint is deprecated. It has been moved to /routing/languages/{languageId}
+This endpoint is deprecated. Please see the Routing API (GET /api/v2/routing/languages/{languageId})
 */
 func (a *Client) GetLanguage(ctx context.Context, params *GetLanguageParams) (*GetLanguageOK, error) {
 
@@ -163,7 +130,7 @@ func (a *Client) GetLanguage(ctx context.Context, params *GetLanguageParams) (*G
 /*
 GetLanguages gets the list of supported languages deprecated
 
-This endpoint is deprecated. It has been moved to /routing/languages
+This endpoint is deprecated. Please see the Routing API (GET /api/v2/routing/languages)
 */
 func (a *Client) GetLanguages(ctx context.Context, params *GetLanguagesParams) (*GetLanguagesOK, error) {
 
@@ -288,34 +255,9 @@ func (a *Client) GetLanguagesTranslationsUser(ctx context.Context, params *GetLa
 }
 
 /*
-GetRoutingLanguage gets language
-*/
-func (a *Client) GetRoutingLanguage(ctx context.Context, params *GetRoutingLanguageParams) (*GetRoutingLanguageOK, error) {
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "getRoutingLanguage",
-		Method:             "GET",
-		PathPattern:        "/api/v2/routing/languages/{languageId}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &GetRoutingLanguageReader{formats: a.formats},
-		AuthInfo:           a.authInfo,
-		Context:            ctx,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	return result.(*GetRoutingLanguageOK), nil
-
-}
-
-/*
 PostLanguages creates language deprecated
 
-This endpoint is deprecated. It has been moved to /routing/languages
+This endpoint is deprecated. Please see the Routing API. (POST /api/v2/routing/languages
 */
 func (a *Client) PostLanguages(ctx context.Context, params *PostLanguagesParams) (*PostLanguagesOK, error) {
 

@@ -16,71 +16,88 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOauthAuthorizationsParams creates a new GetOauthAuthorizationsParams object
-// with the default values initialized.
+// NewGetOauthAuthorizationsParams creates a new GetOauthAuthorizationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOauthAuthorizationsParams() *GetOauthAuthorizationsParams {
-	var (
-		acceptLanguageDefault = string("en-us")
-	)
 	return &GetOauthAuthorizationsParams{
-		AcceptLanguage: &acceptLanguageDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOauthAuthorizationsParamsWithTimeout creates a new GetOauthAuthorizationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOauthAuthorizationsParamsWithTimeout(timeout time.Duration) *GetOauthAuthorizationsParams {
-	var (
-		acceptLanguageDefault = string("en-us")
-	)
 	return &GetOauthAuthorizationsParams{
-		AcceptLanguage: &acceptLanguageDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOauthAuthorizationsParamsWithContext creates a new GetOauthAuthorizationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOauthAuthorizationsParamsWithContext(ctx context.Context) *GetOauthAuthorizationsParams {
-	var (
-		acceptLanguageDefault = string("en-us")
-	)
 	return &GetOauthAuthorizationsParams{
-		AcceptLanguage: &acceptLanguageDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOauthAuthorizationsParamsWithHTTPClient creates a new GetOauthAuthorizationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOauthAuthorizationsParamsWithHTTPClient(client *http.Client) *GetOauthAuthorizationsParams {
-	var (
-		acceptLanguageDefault = string("en-us")
-	)
 	return &GetOauthAuthorizationsParams{
-		AcceptLanguage: &acceptLanguageDefault,
-		HTTPClient:     client,
+		HTTPClient: client,
 	}
 }
 
-/*GetOauthAuthorizationsParams contains all the parameters to send to the API endpoint
-for the get oauth authorizations operation typically these are written to a http.Request
+/*
+GetOauthAuthorizationsParams contains all the parameters to send to the API endpoint
+
+	for the get oauth authorizations operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOauthAuthorizationsParams struct {
 
-	/*AcceptLanguage
-	  The language in which to display the client descriptions.
+	/* AcceptLanguage.
 
+	   The language in which to display the client descriptions.
+
+	   Default: "en-us"
 	*/
 	AcceptLanguage *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get oauth authorizations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOauthAuthorizationsParams) WithDefaults() *GetOauthAuthorizationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get oauth authorizations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOauthAuthorizationsParams) SetDefaults() {
+	var (
+		acceptLanguageDefault = string("en-us")
+	)
+
+	val := GetOauthAuthorizationsParams{
+		AcceptLanguage: &acceptLanguageDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get oauth authorizations params
@@ -141,7 +158,6 @@ func (o *GetOauthAuthorizationsParams) WriteToRequest(r runtime.ClientRequest, r
 		if err := r.SetHeaderParam("Accept-Language", *o.AcceptLanguage); err != nil {
 			return err
 		}
-
 	}
 
 	if len(res) > 0 {

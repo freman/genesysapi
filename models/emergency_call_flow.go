@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -44,7 +45,6 @@ func (m *EmergencyCallFlow) Validate(formats strfmt.Registry) error {
 }
 
 func (m *EmergencyCallFlow) validateEmergencyFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EmergencyFlow) { // not required
 		return nil
 	}
@@ -53,6 +53,8 @@ func (m *EmergencyCallFlow) validateEmergencyFlow(formats strfmt.Registry) error
 		if err := m.EmergencyFlow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("emergencyFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emergencyFlow")
 			}
 			return err
 		}
@@ -62,7 +64,6 @@ func (m *EmergencyCallFlow) validateEmergencyFlow(formats strfmt.Registry) error
 }
 
 func (m *EmergencyCallFlow) validateIvrs(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Ivrs) { // not required
 		return nil
 	}
@@ -76,6 +77,62 @@ func (m *EmergencyCallFlow) validateIvrs(formats strfmt.Registry) error {
 			if err := m.Ivrs[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("ivrs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ivrs" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this emergency call flow based on the context it is used
+func (m *EmergencyCallFlow) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEmergencyFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIvrs(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EmergencyCallFlow) contextValidateEmergencyFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EmergencyFlow != nil {
+		if err := m.EmergencyFlow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("emergencyFlow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("emergencyFlow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *EmergencyCallFlow) contextValidateIvrs(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Ivrs); i++ {
+
+		if m.Ivrs[i] != nil {
+			if err := m.Ivrs[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("ivrs" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("ivrs" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

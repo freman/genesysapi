@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsCallbacksParams creates a new PostConversationsCallbacksParams object
-// with the default values initialized.
+// NewPostConversationsCallbacksParams creates a new PostConversationsCallbacksParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsCallbacksParams() *PostConversationsCallbacksParams {
-	var ()
 	return &PostConversationsCallbacksParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsCallbacksParamsWithTimeout creates a new PostConversationsCallbacksParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsCallbacksParamsWithTimeout(timeout time.Duration) *PostConversationsCallbacksParams {
-	var ()
 	return &PostConversationsCallbacksParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsCallbacksParamsWithContext creates a new PostConversationsCallbacksParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsCallbacksParamsWithContext(ctx context.Context) *PostConversationsCallbacksParams {
-	var ()
 	return &PostConversationsCallbacksParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsCallbacksParamsWithHTTPClient creates a new PostConversationsCallbacksParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsCallbacksParamsWithHTTPClient(client *http.Client) *PostConversationsCallbacksParams {
-	var ()
 	return &PostConversationsCallbacksParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsCallbacksParams contains all the parameters to send to the API endpoint
-for the post conversations callbacks operation typically these are written to a http.Request
+/*
+PostConversationsCallbacksParams contains all the parameters to send to the API endpoint
+
+	for the post conversations callbacks operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsCallbacksParams struct {
 
-	/*Body
-	  Callback
+	/* Body.
 
+	   Callback
 	*/
 	Body *models.CreateCallbackCommand
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations callbacks params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCallbacksParams) WithDefaults() *PostConversationsCallbacksParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations callbacks params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCallbacksParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations callbacks params
@@ -124,7 +140,6 @@ func (o *PostConversationsCallbacksParams) WriteToRequest(r runtime.ClientReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

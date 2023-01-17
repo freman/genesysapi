@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -113,7 +114,6 @@ func (m *ConversationAggregationView) validateName(formats strfmt.Registry) erro
 }
 
 func (m *ConversationAggregationView) validateRange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Range) { // not required
 		return nil
 	}
@@ -122,6 +122,8 @@ func (m *ConversationAggregationView) validateRange(formats strfmt.Registry) err
 		if err := m.Range.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
 			}
 			return err
 		}
@@ -309,6 +311,36 @@ func (m *ConversationAggregationView) validateTarget(formats strfmt.Registry) er
 	// value enum
 	if err := m.validateTargetEnum("target", "body", *m.Target); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this conversation aggregation view based on the context it is used
+func (m *ConversationAggregationView) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConversationAggregationView) contextValidateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Range != nil {
+		if err := m.Range.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("range")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("range")
+			}
+			return err
+		}
 	}
 
 	return nil

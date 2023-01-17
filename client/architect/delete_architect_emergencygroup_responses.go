@@ -95,7 +95,6 @@ func (o *DeleteArchitectEmergencygroupReader) ReadResponse(response runtime.Clie
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteArchitectEmergencygroupOK() *DeleteArchitectEmergencygroupOK {
 	return &DeleteArchitectEmergencygroupOK{}
 }
 
-/*DeleteArchitectEmergencygroupOK handles this case with default header values.
+/*
+DeleteArchitectEmergencygroupOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteArchitectEmergencygroupOK struct {
 }
 
+// IsSuccess returns true when this delete architect emergencygroup o k response has a 2xx status code
+func (o *DeleteArchitectEmergencygroupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete architect emergencygroup o k response has a 3xx status code
+func (o *DeleteArchitectEmergencygroupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect emergencygroup o k response has a 4xx status code
+func (o *DeleteArchitectEmergencygroupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect emergencygroup o k response has a 5xx status code
+func (o *DeleteArchitectEmergencygroupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect emergencygroup o k response a status code equal to that given
+func (o *DeleteArchitectEmergencygroupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteArchitectEmergencygroupOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupOK ", 200)
+}
+
+func (o *DeleteArchitectEmergencygroupOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteArchitectEmergencygroupBadRequest() *DeleteArchitectEmergencygroup
 	return &DeleteArchitectEmergencygroupBadRequest{}
 }
 
-/*DeleteArchitectEmergencygroupBadRequest handles this case with default header values.
+/*
+DeleteArchitectEmergencygroupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteArchitectEmergencygroupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect emergencygroup bad request response has a 2xx status code
+func (o *DeleteArchitectEmergencygroupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect emergencygroup bad request response has a 3xx status code
+func (o *DeleteArchitectEmergencygroupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect emergencygroup bad request response has a 4xx status code
+func (o *DeleteArchitectEmergencygroupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect emergencygroup bad request response has a 5xx status code
+func (o *DeleteArchitectEmergencygroupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect emergencygroup bad request response a status code equal to that given
+func (o *DeleteArchitectEmergencygroupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteArchitectEmergencygroupBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteArchitectEmergencygroupBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteArchitectEmergencygroupUnauthorized() *DeleteArchitectEmergencygro
 	return &DeleteArchitectEmergencygroupUnauthorized{}
 }
 
-/*DeleteArchitectEmergencygroupUnauthorized handles this case with default header values.
+/*
+DeleteArchitectEmergencygroupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteArchitectEmergencygroupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect emergencygroup unauthorized response has a 2xx status code
+func (o *DeleteArchitectEmergencygroupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect emergencygroup unauthorized response has a 3xx status code
+func (o *DeleteArchitectEmergencygroupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect emergencygroup unauthorized response has a 4xx status code
+func (o *DeleteArchitectEmergencygroupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect emergencygroup unauthorized response has a 5xx status code
+func (o *DeleteArchitectEmergencygroupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect emergencygroup unauthorized response a status code equal to that given
+func (o *DeleteArchitectEmergencygroupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteArchitectEmergencygroupUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteArchitectEmergencygroupUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteArchitectEmergencygroupForbidden() *DeleteArchitectEmergencygroupF
 	return &DeleteArchitectEmergencygroupForbidden{}
 }
 
-/*DeleteArchitectEmergencygroupForbidden handles this case with default header values.
+/*
+DeleteArchitectEmergencygroupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteArchitectEmergencygroupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect emergencygroup forbidden response has a 2xx status code
+func (o *DeleteArchitectEmergencygroupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect emergencygroup forbidden response has a 3xx status code
+func (o *DeleteArchitectEmergencygroupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect emergencygroup forbidden response has a 4xx status code
+func (o *DeleteArchitectEmergencygroupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect emergencygroup forbidden response has a 5xx status code
+func (o *DeleteArchitectEmergencygroupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect emergencygroup forbidden response a status code equal to that given
+func (o *DeleteArchitectEmergencygroupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteArchitectEmergencygroupForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteArchitectEmergencygroupForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteArchitectEmergencygroupNotFound() *DeleteArchitectEmergencygroupNo
 	return &DeleteArchitectEmergencygroupNotFound{}
 }
 
-/*DeleteArchitectEmergencygroupNotFound handles this case with default header values.
+/*
+DeleteArchitectEmergencygroupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteArchitectEmergencygroupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect emergencygroup not found response has a 2xx status code
+func (o *DeleteArchitectEmergencygroupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect emergencygroup not found response has a 3xx status code
+func (o *DeleteArchitectEmergencygroupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect emergencygroup not found response has a 4xx status code
+func (o *DeleteArchitectEmergencygroupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect emergencygroup not found response has a 5xx status code
+func (o *DeleteArchitectEmergencygroupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect emergencygroup not found response a status code equal to that given
+func (o *DeleteArchitectEmergencygroupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteArchitectEmergencygroupNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteArchitectEmergencygroupNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteArchitectEmergencygroupRequestTimeout() *DeleteArchitectEmergencyg
 	return &DeleteArchitectEmergencygroupRequestTimeout{}
 }
 
-/*DeleteArchitectEmergencygroupRequestTimeout handles this case with default header values.
+/*
+DeleteArchitectEmergencygroupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteArchitectEmergencygroupRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect emergencygroup request timeout response has a 2xx status code
+func (o *DeleteArchitectEmergencygroupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect emergencygroup request timeout response has a 3xx status code
+func (o *DeleteArchitectEmergencygroupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect emergencygroup request timeout response has a 4xx status code
+func (o *DeleteArchitectEmergencygroupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect emergencygroup request timeout response has a 5xx status code
+func (o *DeleteArchitectEmergencygroupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect emergencygroup request timeout response a status code equal to that given
+func (o *DeleteArchitectEmergencygroupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteArchitectEmergencygroupRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteArchitectEmergencygroupRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteArchitectEmergencygroupRequestEntityTooLarge() *DeleteArchitectEme
 	return &DeleteArchitectEmergencygroupRequestEntityTooLarge{}
 }
 
-/*DeleteArchitectEmergencygroupRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteArchitectEmergencygroupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteArchitectEmergencygroupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect emergencygroup request entity too large response has a 2xx status code
+func (o *DeleteArchitectEmergencygroupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect emergencygroup request entity too large response has a 3xx status code
+func (o *DeleteArchitectEmergencygroupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect emergencygroup request entity too large response has a 4xx status code
+func (o *DeleteArchitectEmergencygroupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect emergencygroup request entity too large response has a 5xx status code
+func (o *DeleteArchitectEmergencygroupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect emergencygroup request entity too large response a status code equal to that given
+func (o *DeleteArchitectEmergencygroupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteArchitectEmergencygroupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteArchitectEmergencygroupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteArchitectEmergencygroupUnsupportedMediaType() *DeleteArchitectEmer
 	return &DeleteArchitectEmergencygroupUnsupportedMediaType{}
 }
 
-/*DeleteArchitectEmergencygroupUnsupportedMediaType handles this case with default header values.
+/*
+DeleteArchitectEmergencygroupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteArchitectEmergencygroupUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect emergencygroup unsupported media type response has a 2xx status code
+func (o *DeleteArchitectEmergencygroupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect emergencygroup unsupported media type response has a 3xx status code
+func (o *DeleteArchitectEmergencygroupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect emergencygroup unsupported media type response has a 4xx status code
+func (o *DeleteArchitectEmergencygroupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect emergencygroup unsupported media type response has a 5xx status code
+func (o *DeleteArchitectEmergencygroupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect emergencygroup unsupported media type response a status code equal to that given
+func (o *DeleteArchitectEmergencygroupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteArchitectEmergencygroupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteArchitectEmergencygroupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteArchitectEmergencygroupTooManyRequests() *DeleteArchitectEmergency
 	return &DeleteArchitectEmergencygroupTooManyRequests{}
 }
 
-/*DeleteArchitectEmergencygroupTooManyRequests handles this case with default header values.
+/*
+DeleteArchitectEmergencygroupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteArchitectEmergencygroupTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect emergencygroup too many requests response has a 2xx status code
+func (o *DeleteArchitectEmergencygroupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect emergencygroup too many requests response has a 3xx status code
+func (o *DeleteArchitectEmergencygroupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect emergencygroup too many requests response has a 4xx status code
+func (o *DeleteArchitectEmergencygroupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect emergencygroup too many requests response has a 5xx status code
+func (o *DeleteArchitectEmergencygroupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect emergencygroup too many requests response a status code equal to that given
+func (o *DeleteArchitectEmergencygroupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteArchitectEmergencygroupTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteArchitectEmergencygroupTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteArchitectEmergencygroupInternalServerError() *DeleteArchitectEmerg
 	return &DeleteArchitectEmergencygroupInternalServerError{}
 }
 
-/*DeleteArchitectEmergencygroupInternalServerError handles this case with default header values.
+/*
+DeleteArchitectEmergencygroupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteArchitectEmergencygroupInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect emergencygroup internal server error response has a 2xx status code
+func (o *DeleteArchitectEmergencygroupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect emergencygroup internal server error response has a 3xx status code
+func (o *DeleteArchitectEmergencygroupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect emergencygroup internal server error response has a 4xx status code
+func (o *DeleteArchitectEmergencygroupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect emergencygroup internal server error response has a 5xx status code
+func (o *DeleteArchitectEmergencygroupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect emergencygroup internal server error response a status code equal to that given
+func (o *DeleteArchitectEmergencygroupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteArchitectEmergencygroupInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteArchitectEmergencygroupInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteArchitectEmergencygroupServiceUnavailable() *DeleteArchitectEmerge
 	return &DeleteArchitectEmergencygroupServiceUnavailable{}
 }
 
-/*DeleteArchitectEmergencygroupServiceUnavailable handles this case with default header values.
+/*
+DeleteArchitectEmergencygroupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteArchitectEmergencygroupServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect emergencygroup service unavailable response has a 2xx status code
+func (o *DeleteArchitectEmergencygroupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect emergencygroup service unavailable response has a 3xx status code
+func (o *DeleteArchitectEmergencygroupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect emergencygroup service unavailable response has a 4xx status code
+func (o *DeleteArchitectEmergencygroupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect emergencygroup service unavailable response has a 5xx status code
+func (o *DeleteArchitectEmergencygroupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect emergencygroup service unavailable response a status code equal to that given
+func (o *DeleteArchitectEmergencygroupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteArchitectEmergencygroupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteArchitectEmergencygroupServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteArchitectEmergencygroupGatewayTimeout() *DeleteArchitectEmergencyg
 	return &DeleteArchitectEmergencygroupGatewayTimeout{}
 }
 
-/*DeleteArchitectEmergencygroupGatewayTimeout handles this case with default header values.
+/*
+DeleteArchitectEmergencygroupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteArchitectEmergencygroupGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect emergencygroup gateway timeout response has a 2xx status code
+func (o *DeleteArchitectEmergencygroupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect emergencygroup gateway timeout response has a 3xx status code
+func (o *DeleteArchitectEmergencygroupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect emergencygroup gateway timeout response has a 4xx status code
+func (o *DeleteArchitectEmergencygroupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect emergencygroup gateway timeout response has a 5xx status code
+func (o *DeleteArchitectEmergencygroupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect emergencygroup gateway timeout response a status code equal to that given
+func (o *DeleteArchitectEmergencygroupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteArchitectEmergencygroupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteArchitectEmergencygroupGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/emergencygroups/{emergencyGroupId}][%d] deleteArchitectEmergencygroupGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetKnowledgeKnowledgebaseParams creates a new GetKnowledgeKnowledgebaseParams object
-// with the default values initialized.
+// NewGetKnowledgeKnowledgebaseParams creates a new GetKnowledgeKnowledgebaseParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetKnowledgeKnowledgebaseParams() *GetKnowledgeKnowledgebaseParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseParamsWithTimeout creates a new GetKnowledgeKnowledgebaseParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetKnowledgeKnowledgebaseParamsWithTimeout(timeout time.Duration) *GetKnowledgeKnowledgebaseParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseParamsWithContext creates a new GetKnowledgeKnowledgebaseParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetKnowledgeKnowledgebaseParamsWithContext(ctx context.Context) *GetKnowledgeKnowledgebaseParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetKnowledgeKnowledgebaseParamsWithHTTPClient creates a new GetKnowledgeKnowledgebaseParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetKnowledgeKnowledgebaseParamsWithHTTPClient(client *http.Client) *GetKnowledgeKnowledgebaseParams {
-	var ()
 	return &GetKnowledgeKnowledgebaseParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetKnowledgeKnowledgebaseParams contains all the parameters to send to the API endpoint
-for the get knowledge knowledgebase operation typically these are written to a http.Request
+/*
+GetKnowledgeKnowledgebaseParams contains all the parameters to send to the API endpoint
+
+	for the get knowledge knowledgebase operation.
+
+	Typically these are written to a http.Request.
 */
 type GetKnowledgeKnowledgebaseParams struct {
 
-	/*KnowledgeBaseID
-	  Knowledge base ID
+	/* KnowledgeBaseID.
 
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get knowledge knowledgebase params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseParams) WithDefaults() *GetKnowledgeKnowledgebaseParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get knowledge knowledgebase params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetKnowledgeKnowledgebaseParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get knowledge knowledgebase params

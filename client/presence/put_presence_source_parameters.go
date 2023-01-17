@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutPresenceSourceParams creates a new PutPresenceSourceParams object
-// with the default values initialized.
+// NewPutPresenceSourceParams creates a new PutPresenceSourceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutPresenceSourceParams() *PutPresenceSourceParams {
-	var ()
 	return &PutPresenceSourceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutPresenceSourceParamsWithTimeout creates a new PutPresenceSourceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutPresenceSourceParamsWithTimeout(timeout time.Duration) *PutPresenceSourceParams {
-	var ()
 	return &PutPresenceSourceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutPresenceSourceParamsWithContext creates a new PutPresenceSourceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutPresenceSourceParamsWithContext(ctx context.Context) *PutPresenceSourceParams {
-	var ()
 	return &PutPresenceSourceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutPresenceSourceParamsWithHTTPClient creates a new PutPresenceSourceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutPresenceSourceParamsWithHTTPClient(client *http.Client) *PutPresenceSourceParams {
-	var ()
 	return &PutPresenceSourceParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutPresenceSourceParams contains all the parameters to send to the API endpoint
-for the put presence source operation typically these are written to a http.Request
+/*
+PutPresenceSourceParams contains all the parameters to send to the API endpoint
+
+	for the put presence source operation.
+
+	Typically these are written to a http.Request.
 */
 type PutPresenceSourceParams struct {
 
-	/*Body
-	  The updated Presence Source
+	/* Body.
 
+	   The updated Presence Source
 	*/
 	Body *models.Source
-	/*SourceID
-	  Presence Source ID
 
+	/* SourceID.
+
+	   Presence Source ID
 	*/
 	SourceID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put presence source params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutPresenceSourceParams) WithDefaults() *PutPresenceSourceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put presence source params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutPresenceSourceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put presence source params
@@ -140,7 +157,6 @@ func (o *PutPresenceSourceParams) WriteToRequest(r runtime.ClientRequest, reg st
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -95,7 +95,6 @@ func (o *PostRecordingCrossplatformMediaretentionpoliciesReader) ReadResponse(re
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostRecordingCrossplatformMediaretentionpoliciesOK() *PostRecordingCross
 	return &PostRecordingCrossplatformMediaretentionpoliciesOK{}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesOK handles this case with default header values.
+/*
+PostRecordingCrossplatformMediaretentionpoliciesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostRecordingCrossplatformMediaretentionpoliciesOK struct {
 	Payload *models.CrossPlatformPolicy
 }
 
+// IsSuccess returns true when this post recording crossplatform mediaretentionpolicies o k response has a 2xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post recording crossplatform mediaretentionpolicies o k response has a 3xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording crossplatform mediaretentionpolicies o k response has a 4xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recording crossplatform mediaretentionpolicies o k response has a 5xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording crossplatform mediaretentionpolicies o k response a status code equal to that given
+func (o *PostRecordingCrossplatformMediaretentionpoliciesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostRecordingCrossplatformMediaretentionpoliciesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostRecordingCrossplatformMediaretentionpoliciesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostRecordingCrossplatformMediaretentionpoliciesBadRequest() *PostRecord
 	return &PostRecordingCrossplatformMediaretentionpoliciesBadRequest{}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesBadRequest handles this case with default header values.
+/*
+PostRecordingCrossplatformMediaretentionpoliciesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostRecordingCrossplatformMediaretentionpoliciesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording crossplatform mediaretentionpolicies bad request response has a 2xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording crossplatform mediaretentionpolicies bad request response has a 3xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording crossplatform mediaretentionpolicies bad request response has a 4xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording crossplatform mediaretentionpolicies bad request response has a 5xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording crossplatform mediaretentionpolicies bad request response a status code equal to that given
+func (o *PostRecordingCrossplatformMediaretentionpoliciesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostRecordingCrossplatformMediaretentionpoliciesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostRecordingCrossplatformMediaretentionpoliciesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostRecordingCrossplatformMediaretentionpoliciesUnauthorized() *PostReco
 	return &PostRecordingCrossplatformMediaretentionpoliciesUnauthorized{}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesUnauthorized handles this case with default header values.
+/*
+PostRecordingCrossplatformMediaretentionpoliciesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostRecordingCrossplatformMediaretentionpoliciesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording crossplatform mediaretentionpolicies unauthorized response has a 2xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording crossplatform mediaretentionpolicies unauthorized response has a 3xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording crossplatform mediaretentionpolicies unauthorized response has a 4xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording crossplatform mediaretentionpolicies unauthorized response has a 5xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording crossplatform mediaretentionpolicies unauthorized response a status code equal to that given
+func (o *PostRecordingCrossplatformMediaretentionpoliciesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostRecordingCrossplatformMediaretentionpoliciesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostRecordingCrossplatformMediaretentionpoliciesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostRecordingCrossplatformMediaretentionpoliciesForbidden() *PostRecordi
 	return &PostRecordingCrossplatformMediaretentionpoliciesForbidden{}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesForbidden handles this case with default header values.
+/*
+PostRecordingCrossplatformMediaretentionpoliciesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostRecordingCrossplatformMediaretentionpoliciesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording crossplatform mediaretentionpolicies forbidden response has a 2xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording crossplatform mediaretentionpolicies forbidden response has a 3xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording crossplatform mediaretentionpolicies forbidden response has a 4xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording crossplatform mediaretentionpolicies forbidden response has a 5xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording crossplatform mediaretentionpolicies forbidden response a status code equal to that given
+func (o *PostRecordingCrossplatformMediaretentionpoliciesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostRecordingCrossplatformMediaretentionpoliciesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostRecordingCrossplatformMediaretentionpoliciesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostRecordingCrossplatformMediaretentionpoliciesNotFound() *PostRecordin
 	return &PostRecordingCrossplatformMediaretentionpoliciesNotFound{}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesNotFound handles this case with default header values.
+/*
+PostRecordingCrossplatformMediaretentionpoliciesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostRecordingCrossplatformMediaretentionpoliciesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording crossplatform mediaretentionpolicies not found response has a 2xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording crossplatform mediaretentionpolicies not found response has a 3xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording crossplatform mediaretentionpolicies not found response has a 4xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording crossplatform mediaretentionpolicies not found response has a 5xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording crossplatform mediaretentionpolicies not found response a status code equal to that given
+func (o *PostRecordingCrossplatformMediaretentionpoliciesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostRecordingCrossplatformMediaretentionpoliciesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostRecordingCrossplatformMediaretentionpoliciesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostRecordingCrossplatformMediaretentionpoliciesRequestTimeout() *PostRe
 	return &PostRecordingCrossplatformMediaretentionpoliciesRequestTimeout{}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesRequestTimeout handles this case with default header values.
+/*
+PostRecordingCrossplatformMediaretentionpoliciesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostRecordingCrossplatformMediaretentionpoliciesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording crossplatform mediaretentionpolicies request timeout response has a 2xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording crossplatform mediaretentionpolicies request timeout response has a 3xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording crossplatform mediaretentionpolicies request timeout response has a 4xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording crossplatform mediaretentionpolicies request timeout response has a 5xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording crossplatform mediaretentionpolicies request timeout response a status code equal to that given
+func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge() 
 	return &PostRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge{}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge handles this case with default header values.
+/*
+PostRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording crossplatform mediaretentionpolicies request entity too large response has a 2xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording crossplatform mediaretentionpolicies request entity too large response has a 3xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording crossplatform mediaretentionpolicies request entity too large response has a 4xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording crossplatform mediaretentionpolicies request entity too large response has a 5xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording crossplatform mediaretentionpolicies request entity too large response a status code equal to that given
+func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType() *
 	return &PostRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType{}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType handles this case with default header values.
+/*
+PostRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording crossplatform mediaretentionpolicies unsupported media type response has a 2xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording crossplatform mediaretentionpolicies unsupported media type response has a 3xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording crossplatform mediaretentionpolicies unsupported media type response has a 4xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording crossplatform mediaretentionpolicies unsupported media type response has a 5xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording crossplatform mediaretentionpolicies unsupported media type response a status code equal to that given
+func (o *PostRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostRecordingCrossplatformMediaretentionpoliciesTooManyRequests() *PostR
 	return &PostRecordingCrossplatformMediaretentionpoliciesTooManyRequests{}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesTooManyRequests handles this case with default header values.
+/*
+PostRecordingCrossplatformMediaretentionpoliciesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostRecordingCrossplatformMediaretentionpoliciesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording crossplatform mediaretentionpolicies too many requests response has a 2xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording crossplatform mediaretentionpolicies too many requests response has a 3xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording crossplatform mediaretentionpolicies too many requests response has a 4xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post recording crossplatform mediaretentionpolicies too many requests response has a 5xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post recording crossplatform mediaretentionpolicies too many requests response a status code equal to that given
+func (o *PostRecordingCrossplatformMediaretentionpoliciesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostRecordingCrossplatformMediaretentionpoliciesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostRecordingCrossplatformMediaretentionpoliciesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostRecordingCrossplatformMediaretentionpoliciesInternalServerError() *P
 	return &PostRecordingCrossplatformMediaretentionpoliciesInternalServerError{}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesInternalServerError handles this case with default header values.
+/*
+PostRecordingCrossplatformMediaretentionpoliciesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostRecordingCrossplatformMediaretentionpoliciesInternalServerError struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording crossplatform mediaretentionpolicies internal server error response has a 2xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording crossplatform mediaretentionpolicies internal server error response has a 3xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording crossplatform mediaretentionpolicies internal server error response has a 4xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recording crossplatform mediaretentionpolicies internal server error response has a 5xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post recording crossplatform mediaretentionpolicies internal server error response a status code equal to that given
+func (o *PostRecordingCrossplatformMediaretentionpoliciesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostRecordingCrossplatformMediaretentionpoliciesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostRecordingCrossplatformMediaretentionpoliciesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostRecordingCrossplatformMediaretentionpoliciesServiceUnavailable() *Po
 	return &PostRecordingCrossplatformMediaretentionpoliciesServiceUnavailable{}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesServiceUnavailable handles this case with default header values.
+/*
+PostRecordingCrossplatformMediaretentionpoliciesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostRecordingCrossplatformMediaretentionpoliciesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording crossplatform mediaretentionpolicies service unavailable response has a 2xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording crossplatform mediaretentionpolicies service unavailable response has a 3xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording crossplatform mediaretentionpolicies service unavailable response has a 4xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recording crossplatform mediaretentionpolicies service unavailable response has a 5xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post recording crossplatform mediaretentionpolicies service unavailable response a status code equal to that given
+func (o *PostRecordingCrossplatformMediaretentionpoliciesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostRecordingCrossplatformMediaretentionpoliciesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostRecordingCrossplatformMediaretentionpoliciesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostRecordingCrossplatformMediaretentionpoliciesGatewayTimeout() *PostRe
 	return &PostRecordingCrossplatformMediaretentionpoliciesGatewayTimeout{}
 }
 
-/*PostRecordingCrossplatformMediaretentionpoliciesGatewayTimeout handles this case with default header values.
+/*
+PostRecordingCrossplatformMediaretentionpoliciesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostRecordingCrossplatformMediaretentionpoliciesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post recording crossplatform mediaretentionpolicies gateway timeout response has a 2xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post recording crossplatform mediaretentionpolicies gateway timeout response has a 3xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post recording crossplatform mediaretentionpolicies gateway timeout response has a 4xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post recording crossplatform mediaretentionpolicies gateway timeout response has a 5xx status code
+func (o *PostRecordingCrossplatformMediaretentionpoliciesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post recording crossplatform mediaretentionpolicies gateway timeout response a status code equal to that given
+func (o *PostRecordingCrossplatformMediaretentionpoliciesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostRecordingCrossplatformMediaretentionpoliciesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostRecordingCrossplatformMediaretentionpoliciesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/recording/crossplatform/mediaretentionpolicies][%d] postRecordingCrossplatformMediaretentionpoliciesGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -16,56 +16,72 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteRecordingMediaretentionpoliciesParams creates a new DeleteRecordingMediaretentionpoliciesParams object
-// with the default values initialized.
+// NewDeleteRecordingMediaretentionpoliciesParams creates a new DeleteRecordingMediaretentionpoliciesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteRecordingMediaretentionpoliciesParams() *DeleteRecordingMediaretentionpoliciesParams {
-	var ()
 	return &DeleteRecordingMediaretentionpoliciesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteRecordingMediaretentionpoliciesParamsWithTimeout creates a new DeleteRecordingMediaretentionpoliciesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteRecordingMediaretentionpoliciesParamsWithTimeout(timeout time.Duration) *DeleteRecordingMediaretentionpoliciesParams {
-	var ()
 	return &DeleteRecordingMediaretentionpoliciesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteRecordingMediaretentionpoliciesParamsWithContext creates a new DeleteRecordingMediaretentionpoliciesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteRecordingMediaretentionpoliciesParamsWithContext(ctx context.Context) *DeleteRecordingMediaretentionpoliciesParams {
-	var ()
 	return &DeleteRecordingMediaretentionpoliciesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteRecordingMediaretentionpoliciesParamsWithHTTPClient creates a new DeleteRecordingMediaretentionpoliciesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteRecordingMediaretentionpoliciesParamsWithHTTPClient(client *http.Client) *DeleteRecordingMediaretentionpoliciesParams {
-	var ()
 	return &DeleteRecordingMediaretentionpoliciesParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteRecordingMediaretentionpoliciesParams contains all the parameters to send to the API endpoint
-for the delete recording mediaretentionpolicies operation typically these are written to a http.Request
+/*
+DeleteRecordingMediaretentionpoliciesParams contains all the parameters to send to the API endpoint
+
+	for the delete recording mediaretentionpolicies operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteRecordingMediaretentionpoliciesParams struct {
 
-	/*Ids*/
+	// Ids.
 	Ids string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete recording mediaretentionpolicies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRecordingMediaretentionpoliciesParams) WithDefaults() *DeleteRecordingMediaretentionpoliciesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete recording mediaretentionpolicies params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteRecordingMediaretentionpoliciesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete recording mediaretentionpolicies params
@@ -124,6 +140,7 @@ func (o *DeleteRecordingMediaretentionpoliciesParams) WriteToRequest(r runtime.C
 	qrIds := o.Ids
 	qIds := qrIds
 	if qIds != "" {
+
 		if err := r.SetQueryParam("ids", qIds); err != nil {
 			return err
 		}

@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostUsageQueryParams creates a new PostUsageQueryParams object
-// with the default values initialized.
+// NewPostUsageQueryParams creates a new PostUsageQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostUsageQueryParams() *PostUsageQueryParams {
-	var ()
 	return &PostUsageQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostUsageQueryParamsWithTimeout creates a new PostUsageQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostUsageQueryParamsWithTimeout(timeout time.Duration) *PostUsageQueryParams {
-	var ()
 	return &PostUsageQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostUsageQueryParamsWithContext creates a new PostUsageQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostUsageQueryParamsWithContext(ctx context.Context) *PostUsageQueryParams {
-	var ()
 	return &PostUsageQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostUsageQueryParamsWithHTTPClient creates a new PostUsageQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostUsageQueryParamsWithHTTPClient(client *http.Client) *PostUsageQueryParams {
-	var ()
 	return &PostUsageQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostUsageQueryParams contains all the parameters to send to the API endpoint
-for the post usage query operation typically these are written to a http.Request
+/*
+PostUsageQueryParams contains all the parameters to send to the API endpoint
+
+	for the post usage query operation.
+
+	Typically these are written to a http.Request.
 */
 type PostUsageQueryParams struct {
 
-	/*Body
-	  Query
+	/* Body.
 
+	   Query
 	*/
 	Body *models.APIUsageQuery
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post usage query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUsageQueryParams) WithDefaults() *PostUsageQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post usage query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostUsageQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post usage query params
@@ -124,7 +140,6 @@ func (o *PostUsageQueryParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

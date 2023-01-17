@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -62,7 +64,6 @@ func (m *BuQueryAgentSchedulesRequest) validateManagementUnitID(formats strfmt.R
 }
 
 func (m *BuQueryAgentSchedulesRequest) validateTeamIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TeamIds) { // not required
 		return nil
 	}
@@ -75,7 +76,6 @@ func (m *BuQueryAgentSchedulesRequest) validateTeamIds(formats strfmt.Registry) 
 }
 
 func (m *BuQueryAgentSchedulesRequest) validateUserIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserIds) { // not required
 		return nil
 	}
@@ -84,6 +84,11 @@ func (m *BuQueryAgentSchedulesRequest) validateUserIds(formats strfmt.Registry) 
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this bu query agent schedules request based on context it is used
+func (m *BuQueryAgentSchedulesRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

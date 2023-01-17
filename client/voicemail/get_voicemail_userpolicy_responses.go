@@ -95,7 +95,6 @@ func (o *GetVoicemailUserpolicyReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetVoicemailUserpolicyOK() *GetVoicemailUserpolicyOK {
 	return &GetVoicemailUserpolicyOK{}
 }
 
-/*GetVoicemailUserpolicyOK handles this case with default header values.
+/*
+GetVoicemailUserpolicyOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetVoicemailUserpolicyOK struct {
 	Payload *models.VoicemailUserPolicy
 }
 
+// IsSuccess returns true when this get voicemail userpolicy o k response has a 2xx status code
+func (o *GetVoicemailUserpolicyOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get voicemail userpolicy o k response has a 3xx status code
+func (o *GetVoicemailUserpolicyOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail userpolicy o k response has a 4xx status code
+func (o *GetVoicemailUserpolicyOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get voicemail userpolicy o k response has a 5xx status code
+func (o *GetVoicemailUserpolicyOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail userpolicy o k response a status code equal to that given
+func (o *GetVoicemailUserpolicyOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetVoicemailUserpolicyOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyOK  %+v", 200, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetVoicemailUserpolicyBadRequest() *GetVoicemailUserpolicyBadRequest {
 	return &GetVoicemailUserpolicyBadRequest{}
 }
 
-/*GetVoicemailUserpolicyBadRequest handles this case with default header values.
+/*
+GetVoicemailUserpolicyBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetVoicemailUserpolicyBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail userpolicy bad request response has a 2xx status code
+func (o *GetVoicemailUserpolicyBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail userpolicy bad request response has a 3xx status code
+func (o *GetVoicemailUserpolicyBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail userpolicy bad request response has a 4xx status code
+func (o *GetVoicemailUserpolicyBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail userpolicy bad request response has a 5xx status code
+func (o *GetVoicemailUserpolicyBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail userpolicy bad request response a status code equal to that given
+func (o *GetVoicemailUserpolicyBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetVoicemailUserpolicyBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetVoicemailUserpolicyUnauthorized() *GetVoicemailUserpolicyUnauthorized
 	return &GetVoicemailUserpolicyUnauthorized{}
 }
 
-/*GetVoicemailUserpolicyUnauthorized handles this case with default header values.
+/*
+GetVoicemailUserpolicyUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetVoicemailUserpolicyUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail userpolicy unauthorized response has a 2xx status code
+func (o *GetVoicemailUserpolicyUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail userpolicy unauthorized response has a 3xx status code
+func (o *GetVoicemailUserpolicyUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail userpolicy unauthorized response has a 4xx status code
+func (o *GetVoicemailUserpolicyUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail userpolicy unauthorized response has a 5xx status code
+func (o *GetVoicemailUserpolicyUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail userpolicy unauthorized response a status code equal to that given
+func (o *GetVoicemailUserpolicyUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetVoicemailUserpolicyUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetVoicemailUserpolicyForbidden() *GetVoicemailUserpolicyForbidden {
 	return &GetVoicemailUserpolicyForbidden{}
 }
 
-/*GetVoicemailUserpolicyForbidden handles this case with default header values.
+/*
+GetVoicemailUserpolicyForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetVoicemailUserpolicyForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail userpolicy forbidden response has a 2xx status code
+func (o *GetVoicemailUserpolicyForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail userpolicy forbidden response has a 3xx status code
+func (o *GetVoicemailUserpolicyForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail userpolicy forbidden response has a 4xx status code
+func (o *GetVoicemailUserpolicyForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail userpolicy forbidden response has a 5xx status code
+func (o *GetVoicemailUserpolicyForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail userpolicy forbidden response a status code equal to that given
+func (o *GetVoicemailUserpolicyForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetVoicemailUserpolicyForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetVoicemailUserpolicyNotFound() *GetVoicemailUserpolicyNotFound {
 	return &GetVoicemailUserpolicyNotFound{}
 }
 
-/*GetVoicemailUserpolicyNotFound handles this case with default header values.
+/*
+GetVoicemailUserpolicyNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetVoicemailUserpolicyNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail userpolicy not found response has a 2xx status code
+func (o *GetVoicemailUserpolicyNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail userpolicy not found response has a 3xx status code
+func (o *GetVoicemailUserpolicyNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail userpolicy not found response has a 4xx status code
+func (o *GetVoicemailUserpolicyNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail userpolicy not found response has a 5xx status code
+func (o *GetVoicemailUserpolicyNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail userpolicy not found response a status code equal to that given
+func (o *GetVoicemailUserpolicyNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetVoicemailUserpolicyNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetVoicemailUserpolicyRequestTimeout() *GetVoicemailUserpolicyRequestTim
 	return &GetVoicemailUserpolicyRequestTimeout{}
 }
 
-/*GetVoicemailUserpolicyRequestTimeout handles this case with default header values.
+/*
+GetVoicemailUserpolicyRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetVoicemailUserpolicyRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail userpolicy request timeout response has a 2xx status code
+func (o *GetVoicemailUserpolicyRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail userpolicy request timeout response has a 3xx status code
+func (o *GetVoicemailUserpolicyRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail userpolicy request timeout response has a 4xx status code
+func (o *GetVoicemailUserpolicyRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail userpolicy request timeout response has a 5xx status code
+func (o *GetVoicemailUserpolicyRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail userpolicy request timeout response a status code equal to that given
+func (o *GetVoicemailUserpolicyRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetVoicemailUserpolicyRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetVoicemailUserpolicyRequestEntityTooLarge() *GetVoicemailUserpolicyReq
 	return &GetVoicemailUserpolicyRequestEntityTooLarge{}
 }
 
-/*GetVoicemailUserpolicyRequestEntityTooLarge handles this case with default header values.
+/*
+GetVoicemailUserpolicyRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetVoicemailUserpolicyRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail userpolicy request entity too large response has a 2xx status code
+func (o *GetVoicemailUserpolicyRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail userpolicy request entity too large response has a 3xx status code
+func (o *GetVoicemailUserpolicyRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail userpolicy request entity too large response has a 4xx status code
+func (o *GetVoicemailUserpolicyRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail userpolicy request entity too large response has a 5xx status code
+func (o *GetVoicemailUserpolicyRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail userpolicy request entity too large response a status code equal to that given
+func (o *GetVoicemailUserpolicyRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetVoicemailUserpolicyRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetVoicemailUserpolicyUnsupportedMediaType() *GetVoicemailUserpolicyUnsu
 	return &GetVoicemailUserpolicyUnsupportedMediaType{}
 }
 
-/*GetVoicemailUserpolicyUnsupportedMediaType handles this case with default header values.
+/*
+GetVoicemailUserpolicyUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetVoicemailUserpolicyUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail userpolicy unsupported media type response has a 2xx status code
+func (o *GetVoicemailUserpolicyUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail userpolicy unsupported media type response has a 3xx status code
+func (o *GetVoicemailUserpolicyUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail userpolicy unsupported media type response has a 4xx status code
+func (o *GetVoicemailUserpolicyUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail userpolicy unsupported media type response has a 5xx status code
+func (o *GetVoicemailUserpolicyUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail userpolicy unsupported media type response a status code equal to that given
+func (o *GetVoicemailUserpolicyUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetVoicemailUserpolicyUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetVoicemailUserpolicyTooManyRequests() *GetVoicemailUserpolicyTooManyRe
 	return &GetVoicemailUserpolicyTooManyRequests{}
 }
 
-/*GetVoicemailUserpolicyTooManyRequests handles this case with default header values.
+/*
+GetVoicemailUserpolicyTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetVoicemailUserpolicyTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail userpolicy too many requests response has a 2xx status code
+func (o *GetVoicemailUserpolicyTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail userpolicy too many requests response has a 3xx status code
+func (o *GetVoicemailUserpolicyTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail userpolicy too many requests response has a 4xx status code
+func (o *GetVoicemailUserpolicyTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get voicemail userpolicy too many requests response has a 5xx status code
+func (o *GetVoicemailUserpolicyTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get voicemail userpolicy too many requests response a status code equal to that given
+func (o *GetVoicemailUserpolicyTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetVoicemailUserpolicyTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetVoicemailUserpolicyInternalServerError() *GetVoicemailUserpolicyInter
 	return &GetVoicemailUserpolicyInternalServerError{}
 }
 
-/*GetVoicemailUserpolicyInternalServerError handles this case with default header values.
+/*
+GetVoicemailUserpolicyInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetVoicemailUserpolicyInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail userpolicy internal server error response has a 2xx status code
+func (o *GetVoicemailUserpolicyInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail userpolicy internal server error response has a 3xx status code
+func (o *GetVoicemailUserpolicyInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail userpolicy internal server error response has a 4xx status code
+func (o *GetVoicemailUserpolicyInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get voicemail userpolicy internal server error response has a 5xx status code
+func (o *GetVoicemailUserpolicyInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get voicemail userpolicy internal server error response a status code equal to that given
+func (o *GetVoicemailUserpolicyInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetVoicemailUserpolicyInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetVoicemailUserpolicyServiceUnavailable() *GetVoicemailUserpolicyServic
 	return &GetVoicemailUserpolicyServiceUnavailable{}
 }
 
-/*GetVoicemailUserpolicyServiceUnavailable handles this case with default header values.
+/*
+GetVoicemailUserpolicyServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetVoicemailUserpolicyServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail userpolicy service unavailable response has a 2xx status code
+func (o *GetVoicemailUserpolicyServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail userpolicy service unavailable response has a 3xx status code
+func (o *GetVoicemailUserpolicyServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail userpolicy service unavailable response has a 4xx status code
+func (o *GetVoicemailUserpolicyServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get voicemail userpolicy service unavailable response has a 5xx status code
+func (o *GetVoicemailUserpolicyServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get voicemail userpolicy service unavailable response a status code equal to that given
+func (o *GetVoicemailUserpolicyServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetVoicemailUserpolicyServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetVoicemailUserpolicyGatewayTimeout() *GetVoicemailUserpolicyGatewayTim
 	return &GetVoicemailUserpolicyGatewayTimeout{}
 }
 
-/*GetVoicemailUserpolicyGatewayTimeout handles this case with default header values.
+/*
+GetVoicemailUserpolicyGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetVoicemailUserpolicyGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get voicemail userpolicy gateway timeout response has a 2xx status code
+func (o *GetVoicemailUserpolicyGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get voicemail userpolicy gateway timeout response has a 3xx status code
+func (o *GetVoicemailUserpolicyGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get voicemail userpolicy gateway timeout response has a 4xx status code
+func (o *GetVoicemailUserpolicyGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get voicemail userpolicy gateway timeout response has a 5xx status code
+func (o *GetVoicemailUserpolicyGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get voicemail userpolicy gateway timeout response a status code equal to that given
+func (o *GetVoicemailUserpolicyGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetVoicemailUserpolicyGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetVoicemailUserpolicyGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/voicemail/userpolicies/{userId}][%d] getVoicemailUserpolicyGatewayTimeout  %+v", 504, o.Payload)
 }
 

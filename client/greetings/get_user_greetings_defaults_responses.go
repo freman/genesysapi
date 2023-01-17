@@ -95,7 +95,6 @@ func (o *GetUserGreetingsDefaultsReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetUserGreetingsDefaultsOK() *GetUserGreetingsDefaultsOK {
 	return &GetUserGreetingsDefaultsOK{}
 }
 
-/*GetUserGreetingsDefaultsOK handles this case with default header values.
+/*
+GetUserGreetingsDefaultsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetUserGreetingsDefaultsOK struct {
 	Payload *models.DefaultGreetingList
 }
 
+// IsSuccess returns true when this get user greetings defaults o k response has a 2xx status code
+func (o *GetUserGreetingsDefaultsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get user greetings defaults o k response has a 3xx status code
+func (o *GetUserGreetingsDefaultsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user greetings defaults o k response has a 4xx status code
+func (o *GetUserGreetingsDefaultsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user greetings defaults o k response has a 5xx status code
+func (o *GetUserGreetingsDefaultsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user greetings defaults o k response a status code equal to that given
+func (o *GetUserGreetingsDefaultsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetUserGreetingsDefaultsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetUserGreetingsDefaultsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetUserGreetingsDefaultsBadRequest() *GetUserGreetingsDefaultsBadRequest
 	return &GetUserGreetingsDefaultsBadRequest{}
 }
 
-/*GetUserGreetingsDefaultsBadRequest handles this case with default header values.
+/*
+GetUserGreetingsDefaultsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetUserGreetingsDefaultsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user greetings defaults bad request response has a 2xx status code
+func (o *GetUserGreetingsDefaultsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user greetings defaults bad request response has a 3xx status code
+func (o *GetUserGreetingsDefaultsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user greetings defaults bad request response has a 4xx status code
+func (o *GetUserGreetingsDefaultsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user greetings defaults bad request response has a 5xx status code
+func (o *GetUserGreetingsDefaultsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user greetings defaults bad request response a status code equal to that given
+func (o *GetUserGreetingsDefaultsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetUserGreetingsDefaultsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetUserGreetingsDefaultsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetUserGreetingsDefaultsUnauthorized() *GetUserGreetingsDefaultsUnauthor
 	return &GetUserGreetingsDefaultsUnauthorized{}
 }
 
-/*GetUserGreetingsDefaultsUnauthorized handles this case with default header values.
+/*
+GetUserGreetingsDefaultsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetUserGreetingsDefaultsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user greetings defaults unauthorized response has a 2xx status code
+func (o *GetUserGreetingsDefaultsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user greetings defaults unauthorized response has a 3xx status code
+func (o *GetUserGreetingsDefaultsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user greetings defaults unauthorized response has a 4xx status code
+func (o *GetUserGreetingsDefaultsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user greetings defaults unauthorized response has a 5xx status code
+func (o *GetUserGreetingsDefaultsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user greetings defaults unauthorized response a status code equal to that given
+func (o *GetUserGreetingsDefaultsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetUserGreetingsDefaultsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetUserGreetingsDefaultsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetUserGreetingsDefaultsForbidden() *GetUserGreetingsDefaultsForbidden {
 	return &GetUserGreetingsDefaultsForbidden{}
 }
 
-/*GetUserGreetingsDefaultsForbidden handles this case with default header values.
+/*
+GetUserGreetingsDefaultsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetUserGreetingsDefaultsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user greetings defaults forbidden response has a 2xx status code
+func (o *GetUserGreetingsDefaultsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user greetings defaults forbidden response has a 3xx status code
+func (o *GetUserGreetingsDefaultsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user greetings defaults forbidden response has a 4xx status code
+func (o *GetUserGreetingsDefaultsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user greetings defaults forbidden response has a 5xx status code
+func (o *GetUserGreetingsDefaultsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user greetings defaults forbidden response a status code equal to that given
+func (o *GetUserGreetingsDefaultsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetUserGreetingsDefaultsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetUserGreetingsDefaultsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetUserGreetingsDefaultsNotFound() *GetUserGreetingsDefaultsNotFound {
 	return &GetUserGreetingsDefaultsNotFound{}
 }
 
-/*GetUserGreetingsDefaultsNotFound handles this case with default header values.
+/*
+GetUserGreetingsDefaultsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetUserGreetingsDefaultsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user greetings defaults not found response has a 2xx status code
+func (o *GetUserGreetingsDefaultsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user greetings defaults not found response has a 3xx status code
+func (o *GetUserGreetingsDefaultsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user greetings defaults not found response has a 4xx status code
+func (o *GetUserGreetingsDefaultsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user greetings defaults not found response has a 5xx status code
+func (o *GetUserGreetingsDefaultsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user greetings defaults not found response a status code equal to that given
+func (o *GetUserGreetingsDefaultsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetUserGreetingsDefaultsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetUserGreetingsDefaultsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetUserGreetingsDefaultsRequestTimeout() *GetUserGreetingsDefaultsReques
 	return &GetUserGreetingsDefaultsRequestTimeout{}
 }
 
-/*GetUserGreetingsDefaultsRequestTimeout handles this case with default header values.
+/*
+GetUserGreetingsDefaultsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetUserGreetingsDefaultsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user greetings defaults request timeout response has a 2xx status code
+func (o *GetUserGreetingsDefaultsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user greetings defaults request timeout response has a 3xx status code
+func (o *GetUserGreetingsDefaultsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user greetings defaults request timeout response has a 4xx status code
+func (o *GetUserGreetingsDefaultsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user greetings defaults request timeout response has a 5xx status code
+func (o *GetUserGreetingsDefaultsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user greetings defaults request timeout response a status code equal to that given
+func (o *GetUserGreetingsDefaultsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetUserGreetingsDefaultsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetUserGreetingsDefaultsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetUserGreetingsDefaultsRequestEntityTooLarge() *GetUserGreetingsDefault
 	return &GetUserGreetingsDefaultsRequestEntityTooLarge{}
 }
 
-/*GetUserGreetingsDefaultsRequestEntityTooLarge handles this case with default header values.
+/*
+GetUserGreetingsDefaultsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetUserGreetingsDefaultsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user greetings defaults request entity too large response has a 2xx status code
+func (o *GetUserGreetingsDefaultsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user greetings defaults request entity too large response has a 3xx status code
+func (o *GetUserGreetingsDefaultsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user greetings defaults request entity too large response has a 4xx status code
+func (o *GetUserGreetingsDefaultsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user greetings defaults request entity too large response has a 5xx status code
+func (o *GetUserGreetingsDefaultsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user greetings defaults request entity too large response a status code equal to that given
+func (o *GetUserGreetingsDefaultsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetUserGreetingsDefaultsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetUserGreetingsDefaultsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetUserGreetingsDefaultsUnsupportedMediaType() *GetUserGreetingsDefaults
 	return &GetUserGreetingsDefaultsUnsupportedMediaType{}
 }
 
-/*GetUserGreetingsDefaultsUnsupportedMediaType handles this case with default header values.
+/*
+GetUserGreetingsDefaultsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetUserGreetingsDefaultsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user greetings defaults unsupported media type response has a 2xx status code
+func (o *GetUserGreetingsDefaultsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user greetings defaults unsupported media type response has a 3xx status code
+func (o *GetUserGreetingsDefaultsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user greetings defaults unsupported media type response has a 4xx status code
+func (o *GetUserGreetingsDefaultsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user greetings defaults unsupported media type response has a 5xx status code
+func (o *GetUserGreetingsDefaultsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user greetings defaults unsupported media type response a status code equal to that given
+func (o *GetUserGreetingsDefaultsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetUserGreetingsDefaultsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetUserGreetingsDefaultsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetUserGreetingsDefaultsTooManyRequests() *GetUserGreetingsDefaultsTooMa
 	return &GetUserGreetingsDefaultsTooManyRequests{}
 }
 
-/*GetUserGreetingsDefaultsTooManyRequests handles this case with default header values.
+/*
+GetUserGreetingsDefaultsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetUserGreetingsDefaultsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user greetings defaults too many requests response has a 2xx status code
+func (o *GetUserGreetingsDefaultsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user greetings defaults too many requests response has a 3xx status code
+func (o *GetUserGreetingsDefaultsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user greetings defaults too many requests response has a 4xx status code
+func (o *GetUserGreetingsDefaultsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get user greetings defaults too many requests response has a 5xx status code
+func (o *GetUserGreetingsDefaultsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get user greetings defaults too many requests response a status code equal to that given
+func (o *GetUserGreetingsDefaultsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetUserGreetingsDefaultsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetUserGreetingsDefaultsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetUserGreetingsDefaultsInternalServerError() *GetUserGreetingsDefaultsI
 	return &GetUserGreetingsDefaultsInternalServerError{}
 }
 
-/*GetUserGreetingsDefaultsInternalServerError handles this case with default header values.
+/*
+GetUserGreetingsDefaultsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetUserGreetingsDefaultsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user greetings defaults internal server error response has a 2xx status code
+func (o *GetUserGreetingsDefaultsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user greetings defaults internal server error response has a 3xx status code
+func (o *GetUserGreetingsDefaultsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user greetings defaults internal server error response has a 4xx status code
+func (o *GetUserGreetingsDefaultsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user greetings defaults internal server error response has a 5xx status code
+func (o *GetUserGreetingsDefaultsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user greetings defaults internal server error response a status code equal to that given
+func (o *GetUserGreetingsDefaultsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetUserGreetingsDefaultsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetUserGreetingsDefaultsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetUserGreetingsDefaultsServiceUnavailable() *GetUserGreetingsDefaultsSe
 	return &GetUserGreetingsDefaultsServiceUnavailable{}
 }
 
-/*GetUserGreetingsDefaultsServiceUnavailable handles this case with default header values.
+/*
+GetUserGreetingsDefaultsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetUserGreetingsDefaultsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user greetings defaults service unavailable response has a 2xx status code
+func (o *GetUserGreetingsDefaultsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user greetings defaults service unavailable response has a 3xx status code
+func (o *GetUserGreetingsDefaultsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user greetings defaults service unavailable response has a 4xx status code
+func (o *GetUserGreetingsDefaultsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user greetings defaults service unavailable response has a 5xx status code
+func (o *GetUserGreetingsDefaultsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user greetings defaults service unavailable response a status code equal to that given
+func (o *GetUserGreetingsDefaultsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetUserGreetingsDefaultsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetUserGreetingsDefaultsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetUserGreetingsDefaultsGatewayTimeout() *GetUserGreetingsDefaultsGatewa
 	return &GetUserGreetingsDefaultsGatewayTimeout{}
 }
 
-/*GetUserGreetingsDefaultsGatewayTimeout handles this case with default header values.
+/*
+GetUserGreetingsDefaultsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetUserGreetingsDefaultsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get user greetings defaults gateway timeout response has a 2xx status code
+func (o *GetUserGreetingsDefaultsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get user greetings defaults gateway timeout response has a 3xx status code
+func (o *GetUserGreetingsDefaultsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get user greetings defaults gateway timeout response has a 4xx status code
+func (o *GetUserGreetingsDefaultsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get user greetings defaults gateway timeout response has a 5xx status code
+func (o *GetUserGreetingsDefaultsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get user greetings defaults gateway timeout response a status code equal to that given
+func (o *GetUserGreetingsDefaultsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetUserGreetingsDefaultsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetUserGreetingsDefaultsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/users/{userId}/greetings/defaults][%d] getUserGreetingsDefaultsGatewayTimeout  %+v", 504, o.Payload)
 }
 

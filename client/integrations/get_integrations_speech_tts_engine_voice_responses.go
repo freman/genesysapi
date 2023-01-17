@@ -95,7 +95,6 @@ func (o *GetIntegrationsSpeechTtsEngineVoiceReader) ReadResponse(response runtim
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIntegrationsSpeechTtsEngineVoiceOK() *GetIntegrationsSpeechTtsEngineV
 	return &GetIntegrationsSpeechTtsEngineVoiceOK{}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceOK handles this case with default header values.
+/*
+GetIntegrationsSpeechTtsEngineVoiceOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIntegrationsSpeechTtsEngineVoiceOK struct {
 	Payload *models.TtsVoiceEntity
 }
 
+// IsSuccess returns true when this get integrations speech tts engine voice o k response has a 2xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get integrations speech tts engine voice o k response has a 3xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech tts engine voice o k response has a 4xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech tts engine voice o k response has a 5xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech tts engine voice o k response a status code equal to that given
+func (o *GetIntegrationsSpeechTtsEngineVoiceOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntegrationsSpeechTtsEngineVoiceOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEngineVoiceOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIntegrationsSpeechTtsEngineVoiceBadRequest() *GetIntegrationsSpeechTt
 	return &GetIntegrationsSpeechTtsEngineVoiceBadRequest{}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceBadRequest handles this case with default header values.
+/*
+GetIntegrationsSpeechTtsEngineVoiceBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIntegrationsSpeechTtsEngineVoiceBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech tts engine voice bad request response has a 2xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech tts engine voice bad request response has a 3xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech tts engine voice bad request response has a 4xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech tts engine voice bad request response has a 5xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech tts engine voice bad request response a status code equal to that given
+func (o *GetIntegrationsSpeechTtsEngineVoiceBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntegrationsSpeechTtsEngineVoiceBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEngineVoiceBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIntegrationsSpeechTtsEngineVoiceUnauthorized() *GetIntegrationsSpeech
 	return &GetIntegrationsSpeechTtsEngineVoiceUnauthorized{}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceUnauthorized handles this case with default header values.
+/*
+GetIntegrationsSpeechTtsEngineVoiceUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIntegrationsSpeechTtsEngineVoiceUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech tts engine voice unauthorized response has a 2xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech tts engine voice unauthorized response has a 3xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech tts engine voice unauthorized response has a 4xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech tts engine voice unauthorized response has a 5xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech tts engine voice unauthorized response a status code equal to that given
+func (o *GetIntegrationsSpeechTtsEngineVoiceUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIntegrationsSpeechTtsEngineVoiceUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEngineVoiceUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIntegrationsSpeechTtsEngineVoiceForbidden() *GetIntegrationsSpeechTts
 	return &GetIntegrationsSpeechTtsEngineVoiceForbidden{}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceForbidden handles this case with default header values.
+/*
+GetIntegrationsSpeechTtsEngineVoiceForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIntegrationsSpeechTtsEngineVoiceForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech tts engine voice forbidden response has a 2xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech tts engine voice forbidden response has a 3xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech tts engine voice forbidden response has a 4xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech tts engine voice forbidden response has a 5xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech tts engine voice forbidden response a status code equal to that given
+func (o *GetIntegrationsSpeechTtsEngineVoiceForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntegrationsSpeechTtsEngineVoiceForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEngineVoiceForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIntegrationsSpeechTtsEngineVoiceNotFound() *GetIntegrationsSpeechTtsE
 	return &GetIntegrationsSpeechTtsEngineVoiceNotFound{}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceNotFound handles this case with default header values.
+/*
+GetIntegrationsSpeechTtsEngineVoiceNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIntegrationsSpeechTtsEngineVoiceNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech tts engine voice not found response has a 2xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech tts engine voice not found response has a 3xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech tts engine voice not found response has a 4xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech tts engine voice not found response has a 5xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech tts engine voice not found response a status code equal to that given
+func (o *GetIntegrationsSpeechTtsEngineVoiceNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntegrationsSpeechTtsEngineVoiceNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEngineVoiceNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIntegrationsSpeechTtsEngineVoiceRequestTimeout() *GetIntegrationsSpee
 	return &GetIntegrationsSpeechTtsEngineVoiceRequestTimeout{}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceRequestTimeout handles this case with default header values.
+/*
+GetIntegrationsSpeechTtsEngineVoiceRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIntegrationsSpeechTtsEngineVoiceRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech tts engine voice request timeout response has a 2xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech tts engine voice request timeout response has a 3xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech tts engine voice request timeout response has a 4xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech tts engine voice request timeout response has a 5xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech tts engine voice request timeout response a status code equal to that given
+func (o *GetIntegrationsSpeechTtsEngineVoiceRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIntegrationsSpeechTtsEngineVoiceRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEngineVoiceRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge() *GetIntegrati
 	return &GetIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge{}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge handles this case with default header values.
+/*
+GetIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech tts engine voice request entity too large response has a 2xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech tts engine voice request entity too large response has a 3xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech tts engine voice request entity too large response has a 4xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech tts engine voice request entity too large response has a 5xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech tts engine voice request entity too large response a status code equal to that given
+func (o *GetIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType() *GetIntegratio
 	return &GetIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType{}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType handles this case with default header values.
+/*
+GetIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech tts engine voice unsupported media type response has a 2xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech tts engine voice unsupported media type response has a 3xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech tts engine voice unsupported media type response has a 4xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech tts engine voice unsupported media type response has a 5xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech tts engine voice unsupported media type response a status code equal to that given
+func (o *GetIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIntegrationsSpeechTtsEngineVoiceTooManyRequests() *GetIntegrationsSpe
 	return &GetIntegrationsSpeechTtsEngineVoiceTooManyRequests{}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceTooManyRequests handles this case with default header values.
+/*
+GetIntegrationsSpeechTtsEngineVoiceTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIntegrationsSpeechTtsEngineVoiceTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech tts engine voice too many requests response has a 2xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech tts engine voice too many requests response has a 3xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech tts engine voice too many requests response has a 4xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech tts engine voice too many requests response has a 5xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech tts engine voice too many requests response a status code equal to that given
+func (o *GetIntegrationsSpeechTtsEngineVoiceTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntegrationsSpeechTtsEngineVoiceTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEngineVoiceTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIntegrationsSpeechTtsEngineVoiceInternalServerError() *GetIntegration
 	return &GetIntegrationsSpeechTtsEngineVoiceInternalServerError{}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceInternalServerError handles this case with default header values.
+/*
+GetIntegrationsSpeechTtsEngineVoiceInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIntegrationsSpeechTtsEngineVoiceInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech tts engine voice internal server error response has a 2xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech tts engine voice internal server error response has a 3xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech tts engine voice internal server error response has a 4xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech tts engine voice internal server error response has a 5xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations speech tts engine voice internal server error response a status code equal to that given
+func (o *GetIntegrationsSpeechTtsEngineVoiceInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntegrationsSpeechTtsEngineVoiceInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEngineVoiceInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIntegrationsSpeechTtsEngineVoiceServiceUnavailable() *GetIntegrations
 	return &GetIntegrationsSpeechTtsEngineVoiceServiceUnavailable{}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceServiceUnavailable handles this case with default header values.
+/*
+GetIntegrationsSpeechTtsEngineVoiceServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIntegrationsSpeechTtsEngineVoiceServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech tts engine voice service unavailable response has a 2xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech tts engine voice service unavailable response has a 3xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech tts engine voice service unavailable response has a 4xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech tts engine voice service unavailable response has a 5xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations speech tts engine voice service unavailable response a status code equal to that given
+func (o *GetIntegrationsSpeechTtsEngineVoiceServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIntegrationsSpeechTtsEngineVoiceServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEngineVoiceServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIntegrationsSpeechTtsEngineVoiceGatewayTimeout() *GetIntegrationsSpee
 	return &GetIntegrationsSpeechTtsEngineVoiceGatewayTimeout{}
 }
 
-/*GetIntegrationsSpeechTtsEngineVoiceGatewayTimeout handles this case with default header values.
+/*
+GetIntegrationsSpeechTtsEngineVoiceGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIntegrationsSpeechTtsEngineVoiceGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech tts engine voice gateway timeout response has a 2xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech tts engine voice gateway timeout response has a 3xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech tts engine voice gateway timeout response has a 4xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech tts engine voice gateway timeout response has a 5xx status code
+func (o *GetIntegrationsSpeechTtsEngineVoiceGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations speech tts engine voice gateway timeout response a status code equal to that given
+func (o *GetIntegrationsSpeechTtsEngineVoiceGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIntegrationsSpeechTtsEngineVoiceGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechTtsEngineVoiceGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/tts/engines/{engineId}/voices/{voiceId}][%d] getIntegrationsSpeechTtsEngineVoiceGatewayTimeout  %+v", 504, o.Payload)
 }
 

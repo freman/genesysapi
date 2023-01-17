@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -73,7 +74,6 @@ func (m *SearchCriteria) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SearchCriteria) validateGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Group) { // not required
 		return nil
 	}
@@ -87,6 +87,8 @@ func (m *SearchCriteria) validateGroup(formats strfmt.Registry) error {
 			if err := m.Group[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("group" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("group" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -130,7 +132,6 @@ func (m *SearchCriteria) validateOperatorEnum(path, location string, value strin
 }
 
 func (m *SearchCriteria) validateOperator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Operator) { // not required
 		return nil
 	}
@@ -215,7 +216,6 @@ func (m *SearchCriteria) validateTypeEnum(path, location string, value string) e
 }
 
 func (m *SearchCriteria) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -223,6 +223,40 @@ func (m *SearchCriteria) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this search criteria based on the context it is used
+func (m *SearchCriteria) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SearchCriteria) contextValidateGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Group); i++ {
+
+		if m.Group[i] != nil {
+			if err := m.Group[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("group" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("group" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWebchatGuestConversationsParams creates a new PostWebchatGuestConversationsParams object
-// with the default values initialized.
+// NewPostWebchatGuestConversationsParams creates a new PostWebchatGuestConversationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWebchatGuestConversationsParams() *PostWebchatGuestConversationsParams {
-	var ()
 	return &PostWebchatGuestConversationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWebchatGuestConversationsParamsWithTimeout creates a new PostWebchatGuestConversationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWebchatGuestConversationsParamsWithTimeout(timeout time.Duration) *PostWebchatGuestConversationsParams {
-	var ()
 	return &PostWebchatGuestConversationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWebchatGuestConversationsParamsWithContext creates a new PostWebchatGuestConversationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWebchatGuestConversationsParamsWithContext(ctx context.Context) *PostWebchatGuestConversationsParams {
-	var ()
 	return &PostWebchatGuestConversationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWebchatGuestConversationsParamsWithHTTPClient creates a new PostWebchatGuestConversationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWebchatGuestConversationsParamsWithHTTPClient(client *http.Client) *PostWebchatGuestConversationsParams {
-	var ()
 	return &PostWebchatGuestConversationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWebchatGuestConversationsParams contains all the parameters to send to the API endpoint
-for the post webchat guest conversations operation typically these are written to a http.Request
+/*
+PostWebchatGuestConversationsParams contains all the parameters to send to the API endpoint
+
+	for the post webchat guest conversations operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWebchatGuestConversationsParams struct {
 
-	/*Body
-	  CreateConversationRequest
+	/* Body.
 
+	   CreateConversationRequest
 	*/
 	Body *models.CreateWebChatConversationRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post webchat guest conversations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWebchatGuestConversationsParams) WithDefaults() *PostWebchatGuestConversationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post webchat guest conversations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWebchatGuestConversationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post webchat guest conversations params
@@ -124,7 +140,6 @@ func (o *PostWebchatGuestConversationsParams) WriteToRequest(r runtime.ClientReq
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

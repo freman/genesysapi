@@ -95,7 +95,6 @@ func (o *GetContentmanagementUsageReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetContentmanagementUsageOK() *GetContentmanagementUsageOK {
 	return &GetContentmanagementUsageOK{}
 }
 
-/*GetContentmanagementUsageOK handles this case with default header values.
+/*
+GetContentmanagementUsageOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetContentmanagementUsageOK struct {
 	Payload *models.Usage
 }
 
+// IsSuccess returns true when this get contentmanagement usage o k response has a 2xx status code
+func (o *GetContentmanagementUsageOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get contentmanagement usage o k response has a 3xx status code
+func (o *GetContentmanagementUsageOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement usage o k response has a 4xx status code
+func (o *GetContentmanagementUsageOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement usage o k response has a 5xx status code
+func (o *GetContentmanagementUsageOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement usage o k response a status code equal to that given
+func (o *GetContentmanagementUsageOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetContentmanagementUsageOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageOK  %+v", 200, o.Payload)
+}
+
+func (o *GetContentmanagementUsageOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetContentmanagementUsageBadRequest() *GetContentmanagementUsageBadReque
 	return &GetContentmanagementUsageBadRequest{}
 }
 
-/*GetContentmanagementUsageBadRequest handles this case with default header values.
+/*
+GetContentmanagementUsageBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetContentmanagementUsageBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement usage bad request response has a 2xx status code
+func (o *GetContentmanagementUsageBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement usage bad request response has a 3xx status code
+func (o *GetContentmanagementUsageBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement usage bad request response has a 4xx status code
+func (o *GetContentmanagementUsageBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement usage bad request response has a 5xx status code
+func (o *GetContentmanagementUsageBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement usage bad request response a status code equal to that given
+func (o *GetContentmanagementUsageBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetContentmanagementUsageBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetContentmanagementUsageBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetContentmanagementUsageUnauthorized() *GetContentmanagementUsageUnauth
 	return &GetContentmanagementUsageUnauthorized{}
 }
 
-/*GetContentmanagementUsageUnauthorized handles this case with default header values.
+/*
+GetContentmanagementUsageUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetContentmanagementUsageUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement usage unauthorized response has a 2xx status code
+func (o *GetContentmanagementUsageUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement usage unauthorized response has a 3xx status code
+func (o *GetContentmanagementUsageUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement usage unauthorized response has a 4xx status code
+func (o *GetContentmanagementUsageUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement usage unauthorized response has a 5xx status code
+func (o *GetContentmanagementUsageUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement usage unauthorized response a status code equal to that given
+func (o *GetContentmanagementUsageUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetContentmanagementUsageUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetContentmanagementUsageUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetContentmanagementUsageForbidden() *GetContentmanagementUsageForbidden
 	return &GetContentmanagementUsageForbidden{}
 }
 
-/*GetContentmanagementUsageForbidden handles this case with default header values.
+/*
+GetContentmanagementUsageForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetContentmanagementUsageForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement usage forbidden response has a 2xx status code
+func (o *GetContentmanagementUsageForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement usage forbidden response has a 3xx status code
+func (o *GetContentmanagementUsageForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement usage forbidden response has a 4xx status code
+func (o *GetContentmanagementUsageForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement usage forbidden response has a 5xx status code
+func (o *GetContentmanagementUsageForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement usage forbidden response a status code equal to that given
+func (o *GetContentmanagementUsageForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetContentmanagementUsageForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetContentmanagementUsageForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetContentmanagementUsageNotFound() *GetContentmanagementUsageNotFound {
 	return &GetContentmanagementUsageNotFound{}
 }
 
-/*GetContentmanagementUsageNotFound handles this case with default header values.
+/*
+GetContentmanagementUsageNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetContentmanagementUsageNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement usage not found response has a 2xx status code
+func (o *GetContentmanagementUsageNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement usage not found response has a 3xx status code
+func (o *GetContentmanagementUsageNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement usage not found response has a 4xx status code
+func (o *GetContentmanagementUsageNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement usage not found response has a 5xx status code
+func (o *GetContentmanagementUsageNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement usage not found response a status code equal to that given
+func (o *GetContentmanagementUsageNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetContentmanagementUsageNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetContentmanagementUsageNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetContentmanagementUsageRequestTimeout() *GetContentmanagementUsageRequ
 	return &GetContentmanagementUsageRequestTimeout{}
 }
 
-/*GetContentmanagementUsageRequestTimeout handles this case with default header values.
+/*
+GetContentmanagementUsageRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetContentmanagementUsageRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement usage request timeout response has a 2xx status code
+func (o *GetContentmanagementUsageRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement usage request timeout response has a 3xx status code
+func (o *GetContentmanagementUsageRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement usage request timeout response has a 4xx status code
+func (o *GetContentmanagementUsageRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement usage request timeout response has a 5xx status code
+func (o *GetContentmanagementUsageRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement usage request timeout response a status code equal to that given
+func (o *GetContentmanagementUsageRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetContentmanagementUsageRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetContentmanagementUsageRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetContentmanagementUsageRequestEntityTooLarge() *GetContentmanagementUs
 	return &GetContentmanagementUsageRequestEntityTooLarge{}
 }
 
-/*GetContentmanagementUsageRequestEntityTooLarge handles this case with default header values.
+/*
+GetContentmanagementUsageRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetContentmanagementUsageRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement usage request entity too large response has a 2xx status code
+func (o *GetContentmanagementUsageRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement usage request entity too large response has a 3xx status code
+func (o *GetContentmanagementUsageRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement usage request entity too large response has a 4xx status code
+func (o *GetContentmanagementUsageRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement usage request entity too large response has a 5xx status code
+func (o *GetContentmanagementUsageRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement usage request entity too large response a status code equal to that given
+func (o *GetContentmanagementUsageRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetContentmanagementUsageRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetContentmanagementUsageRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetContentmanagementUsageUnsupportedMediaType() *GetContentmanagementUsa
 	return &GetContentmanagementUsageUnsupportedMediaType{}
 }
 
-/*GetContentmanagementUsageUnsupportedMediaType handles this case with default header values.
+/*
+GetContentmanagementUsageUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetContentmanagementUsageUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement usage unsupported media type response has a 2xx status code
+func (o *GetContentmanagementUsageUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement usage unsupported media type response has a 3xx status code
+func (o *GetContentmanagementUsageUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement usage unsupported media type response has a 4xx status code
+func (o *GetContentmanagementUsageUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement usage unsupported media type response has a 5xx status code
+func (o *GetContentmanagementUsageUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement usage unsupported media type response a status code equal to that given
+func (o *GetContentmanagementUsageUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetContentmanagementUsageUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetContentmanagementUsageUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetContentmanagementUsageTooManyRequests() *GetContentmanagementUsageToo
 	return &GetContentmanagementUsageTooManyRequests{}
 }
 
-/*GetContentmanagementUsageTooManyRequests handles this case with default header values.
+/*
+GetContentmanagementUsageTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetContentmanagementUsageTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement usage too many requests response has a 2xx status code
+func (o *GetContentmanagementUsageTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement usage too many requests response has a 3xx status code
+func (o *GetContentmanagementUsageTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement usage too many requests response has a 4xx status code
+func (o *GetContentmanagementUsageTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get contentmanagement usage too many requests response has a 5xx status code
+func (o *GetContentmanagementUsageTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get contentmanagement usage too many requests response a status code equal to that given
+func (o *GetContentmanagementUsageTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetContentmanagementUsageTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetContentmanagementUsageTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetContentmanagementUsageInternalServerError() *GetContentmanagementUsag
 	return &GetContentmanagementUsageInternalServerError{}
 }
 
-/*GetContentmanagementUsageInternalServerError handles this case with default header values.
+/*
+GetContentmanagementUsageInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetContentmanagementUsageInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement usage internal server error response has a 2xx status code
+func (o *GetContentmanagementUsageInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement usage internal server error response has a 3xx status code
+func (o *GetContentmanagementUsageInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement usage internal server error response has a 4xx status code
+func (o *GetContentmanagementUsageInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement usage internal server error response has a 5xx status code
+func (o *GetContentmanagementUsageInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement usage internal server error response a status code equal to that given
+func (o *GetContentmanagementUsageInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetContentmanagementUsageInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetContentmanagementUsageInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetContentmanagementUsageServiceUnavailable() *GetContentmanagementUsage
 	return &GetContentmanagementUsageServiceUnavailable{}
 }
 
-/*GetContentmanagementUsageServiceUnavailable handles this case with default header values.
+/*
+GetContentmanagementUsageServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetContentmanagementUsageServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement usage service unavailable response has a 2xx status code
+func (o *GetContentmanagementUsageServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement usage service unavailable response has a 3xx status code
+func (o *GetContentmanagementUsageServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement usage service unavailable response has a 4xx status code
+func (o *GetContentmanagementUsageServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement usage service unavailable response has a 5xx status code
+func (o *GetContentmanagementUsageServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement usage service unavailable response a status code equal to that given
+func (o *GetContentmanagementUsageServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetContentmanagementUsageServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetContentmanagementUsageServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetContentmanagementUsageGatewayTimeout() *GetContentmanagementUsageGate
 	return &GetContentmanagementUsageGatewayTimeout{}
 }
 
-/*GetContentmanagementUsageGatewayTimeout handles this case with default header values.
+/*
+GetContentmanagementUsageGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetContentmanagementUsageGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get contentmanagement usage gateway timeout response has a 2xx status code
+func (o *GetContentmanagementUsageGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get contentmanagement usage gateway timeout response has a 3xx status code
+func (o *GetContentmanagementUsageGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get contentmanagement usage gateway timeout response has a 4xx status code
+func (o *GetContentmanagementUsageGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get contentmanagement usage gateway timeout response has a 5xx status code
+func (o *GetContentmanagementUsageGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get contentmanagement usage gateway timeout response a status code equal to that given
+func (o *GetContentmanagementUsageGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetContentmanagementUsageGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetContentmanagementUsageGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/contentmanagement/usage][%d] getContentmanagementUsageGatewayTimeout  %+v", 504, o.Payload)
 }
 

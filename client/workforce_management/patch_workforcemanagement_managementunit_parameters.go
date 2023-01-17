@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchWorkforcemanagementManagementunitParams creates a new PatchWorkforcemanagementManagementunitParams object
-// with the default values initialized.
+// NewPatchWorkforcemanagementManagementunitParams creates a new PatchWorkforcemanagementManagementunitParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchWorkforcemanagementManagementunitParams() *PatchWorkforcemanagementManagementunitParams {
-	var ()
 	return &PatchWorkforcemanagementManagementunitParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchWorkforcemanagementManagementunitParamsWithTimeout creates a new PatchWorkforcemanagementManagementunitParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchWorkforcemanagementManagementunitParamsWithTimeout(timeout time.Duration) *PatchWorkforcemanagementManagementunitParams {
-	var ()
 	return &PatchWorkforcemanagementManagementunitParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchWorkforcemanagementManagementunitParamsWithContext creates a new PatchWorkforcemanagementManagementunitParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchWorkforcemanagementManagementunitParamsWithContext(ctx context.Context) *PatchWorkforcemanagementManagementunitParams {
-	var ()
 	return &PatchWorkforcemanagementManagementunitParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchWorkforcemanagementManagementunitParamsWithHTTPClient creates a new PatchWorkforcemanagementManagementunitParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchWorkforcemanagementManagementunitParamsWithHTTPClient(client *http.Client) *PatchWorkforcemanagementManagementunitParams {
-	var ()
 	return &PatchWorkforcemanagementManagementunitParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchWorkforcemanagementManagementunitParams contains all the parameters to send to the API endpoint
-for the patch workforcemanagement managementunit operation typically these are written to a http.Request
+/*
+PatchWorkforcemanagementManagementunitParams contains all the parameters to send to the API endpoint
+
+	for the patch workforcemanagement managementunit operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchWorkforcemanagementManagementunitParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.UpdateManagementUnitRequest
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch workforcemanagement managementunit params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWorkforcemanagementManagementunitParams) WithDefaults() *PatchWorkforcemanagementManagementunitParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch workforcemanagement managementunit params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWorkforcemanagementManagementunitParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch workforcemanagement managementunit params
@@ -140,7 +157,6 @@ func (o *PatchWorkforcemanagementManagementunitParams) WriteToRequest(r runtime.
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

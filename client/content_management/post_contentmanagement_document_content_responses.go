@@ -107,7 +107,6 @@ func (o *PostContentmanagementDocumentContentReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -118,7 +117,8 @@ func NewPostContentmanagementDocumentContentAccepted() *PostContentmanagementDoc
 	return &PostContentmanagementDocumentContentAccepted{}
 }
 
-/*PostContentmanagementDocumentContentAccepted handles this case with default header values.
+/*
+PostContentmanagementDocumentContentAccepted describes a response with status code 202, with default header values.
 
 Accepted - Ready for upload
 */
@@ -126,7 +126,36 @@ type PostContentmanagementDocumentContentAccepted struct {
 	Payload *models.ReplaceResponse
 }
 
+// IsSuccess returns true when this post contentmanagement document content accepted response has a 2xx status code
+func (o *PostContentmanagementDocumentContentAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post contentmanagement document content accepted response has a 3xx status code
+func (o *PostContentmanagementDocumentContentAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content accepted response has a 4xx status code
+func (o *PostContentmanagementDocumentContentAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement document content accepted response has a 5xx status code
+func (o *PostContentmanagementDocumentContentAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement document content accepted response a status code equal to that given
+func (o *PostContentmanagementDocumentContentAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostContentmanagementDocumentContentAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentAccepted  %+v", 202, o.Payload)
 }
 
@@ -151,7 +180,8 @@ func NewPostContentmanagementDocumentContentBadRequest() *PostContentmanagementD
 	return &PostContentmanagementDocumentContentBadRequest{}
 }
 
-/*PostContentmanagementDocumentContentBadRequest handles this case with default header values.
+/*
+PostContentmanagementDocumentContentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -159,7 +189,36 @@ type PostContentmanagementDocumentContentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement document content bad request response has a 2xx status code
+func (o *PostContentmanagementDocumentContentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content bad request response has a 3xx status code
+func (o *PostContentmanagementDocumentContentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content bad request response has a 4xx status code
+func (o *PostContentmanagementDocumentContentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement document content bad request response has a 5xx status code
+func (o *PostContentmanagementDocumentContentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement document content bad request response a status code equal to that given
+func (o *PostContentmanagementDocumentContentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostContentmanagementDocumentContentBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -184,7 +243,8 @@ func NewPostContentmanagementDocumentContentUnauthorized() *PostContentmanagemen
 	return &PostContentmanagementDocumentContentUnauthorized{}
 }
 
-/*PostContentmanagementDocumentContentUnauthorized handles this case with default header values.
+/*
+PostContentmanagementDocumentContentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -192,7 +252,36 @@ type PostContentmanagementDocumentContentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement document content unauthorized response has a 2xx status code
+func (o *PostContentmanagementDocumentContentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content unauthorized response has a 3xx status code
+func (o *PostContentmanagementDocumentContentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content unauthorized response has a 4xx status code
+func (o *PostContentmanagementDocumentContentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement document content unauthorized response has a 5xx status code
+func (o *PostContentmanagementDocumentContentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement document content unauthorized response a status code equal to that given
+func (o *PostContentmanagementDocumentContentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostContentmanagementDocumentContentUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -217,7 +306,8 @@ func NewPostContentmanagementDocumentContentForbidden() *PostContentmanagementDo
 	return &PostContentmanagementDocumentContentForbidden{}
 }
 
-/*PostContentmanagementDocumentContentForbidden handles this case with default header values.
+/*
+PostContentmanagementDocumentContentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -225,7 +315,36 @@ type PostContentmanagementDocumentContentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement document content forbidden response has a 2xx status code
+func (o *PostContentmanagementDocumentContentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content forbidden response has a 3xx status code
+func (o *PostContentmanagementDocumentContentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content forbidden response has a 4xx status code
+func (o *PostContentmanagementDocumentContentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement document content forbidden response has a 5xx status code
+func (o *PostContentmanagementDocumentContentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement document content forbidden response a status code equal to that given
+func (o *PostContentmanagementDocumentContentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostContentmanagementDocumentContentForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentForbidden  %+v", 403, o.Payload)
 }
 
@@ -250,7 +369,8 @@ func NewPostContentmanagementDocumentContentNotFound() *PostContentmanagementDoc
 	return &PostContentmanagementDocumentContentNotFound{}
 }
 
-/*PostContentmanagementDocumentContentNotFound handles this case with default header values.
+/*
+PostContentmanagementDocumentContentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -258,7 +378,36 @@ type PostContentmanagementDocumentContentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement document content not found response has a 2xx status code
+func (o *PostContentmanagementDocumentContentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content not found response has a 3xx status code
+func (o *PostContentmanagementDocumentContentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content not found response has a 4xx status code
+func (o *PostContentmanagementDocumentContentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement document content not found response has a 5xx status code
+func (o *PostContentmanagementDocumentContentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement document content not found response a status code equal to that given
+func (o *PostContentmanagementDocumentContentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostContentmanagementDocumentContentNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentNotFound  %+v", 404, o.Payload)
 }
 
@@ -283,7 +432,8 @@ func NewPostContentmanagementDocumentContentRequestTimeout() *PostContentmanagem
 	return &PostContentmanagementDocumentContentRequestTimeout{}
 }
 
-/*PostContentmanagementDocumentContentRequestTimeout handles this case with default header values.
+/*
+PostContentmanagementDocumentContentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -291,7 +441,36 @@ type PostContentmanagementDocumentContentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement document content request timeout response has a 2xx status code
+func (o *PostContentmanagementDocumentContentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content request timeout response has a 3xx status code
+func (o *PostContentmanagementDocumentContentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content request timeout response has a 4xx status code
+func (o *PostContentmanagementDocumentContentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement document content request timeout response has a 5xx status code
+func (o *PostContentmanagementDocumentContentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement document content request timeout response a status code equal to that given
+func (o *PostContentmanagementDocumentContentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostContentmanagementDocumentContentRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -316,14 +495,44 @@ func NewPostContentmanagementDocumentContentConflict() *PostContentmanagementDoc
 	return &PostContentmanagementDocumentContentConflict{}
 }
 
-/*PostContentmanagementDocumentContentConflict handles this case with default header values.
+/*
+PostContentmanagementDocumentContentConflict describes a response with status code 409, with default header values.
 
 Resource conflict - Unexpected changeNumber was provided
 */
 type PostContentmanagementDocumentContentConflict struct {
 }
 
+// IsSuccess returns true when this post contentmanagement document content conflict response has a 2xx status code
+func (o *PostContentmanagementDocumentContentConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content conflict response has a 3xx status code
+func (o *PostContentmanagementDocumentContentConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content conflict response has a 4xx status code
+func (o *PostContentmanagementDocumentContentConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement document content conflict response has a 5xx status code
+func (o *PostContentmanagementDocumentContentConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement document content conflict response a status code equal to that given
+func (o *PostContentmanagementDocumentContentConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostContentmanagementDocumentContentConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentConflict ", 409)
+}
+
+func (o *PostContentmanagementDocumentContentConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentConflict ", 409)
 }
 
@@ -337,7 +546,8 @@ func NewPostContentmanagementDocumentContentRequestEntityTooLarge() *PostContent
 	return &PostContentmanagementDocumentContentRequestEntityTooLarge{}
 }
 
-/*PostContentmanagementDocumentContentRequestEntityTooLarge handles this case with default header values.
+/*
+PostContentmanagementDocumentContentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -345,7 +555,36 @@ type PostContentmanagementDocumentContentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement document content request entity too large response has a 2xx status code
+func (o *PostContentmanagementDocumentContentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content request entity too large response has a 3xx status code
+func (o *PostContentmanagementDocumentContentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content request entity too large response has a 4xx status code
+func (o *PostContentmanagementDocumentContentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement document content request entity too large response has a 5xx status code
+func (o *PostContentmanagementDocumentContentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement document content request entity too large response a status code equal to that given
+func (o *PostContentmanagementDocumentContentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostContentmanagementDocumentContentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostContentmanagementDocumentContentUnsupportedMediaType() *PostContentm
 	return &PostContentmanagementDocumentContentUnsupportedMediaType{}
 }
 
-/*PostContentmanagementDocumentContentUnsupportedMediaType handles this case with default header values.
+/*
+PostContentmanagementDocumentContentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -378,7 +618,36 @@ type PostContentmanagementDocumentContentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement document content unsupported media type response has a 2xx status code
+func (o *PostContentmanagementDocumentContentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content unsupported media type response has a 3xx status code
+func (o *PostContentmanagementDocumentContentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content unsupported media type response has a 4xx status code
+func (o *PostContentmanagementDocumentContentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement document content unsupported media type response has a 5xx status code
+func (o *PostContentmanagementDocumentContentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement document content unsupported media type response a status code equal to that given
+func (o *PostContentmanagementDocumentContentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostContentmanagementDocumentContentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -403,14 +672,44 @@ func NewPostContentmanagementDocumentContentLocked() *PostContentmanagementDocum
 	return &PostContentmanagementDocumentContentLocked{}
 }
 
-/*PostContentmanagementDocumentContentLocked handles this case with default header values.
+/*
+PostContentmanagementDocumentContentLocked describes a response with status code 423, with default header values.
 
 Locked - The document is locked by another operation
 */
 type PostContentmanagementDocumentContentLocked struct {
 }
 
+// IsSuccess returns true when this post contentmanagement document content locked response has a 2xx status code
+func (o *PostContentmanagementDocumentContentLocked) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content locked response has a 3xx status code
+func (o *PostContentmanagementDocumentContentLocked) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content locked response has a 4xx status code
+func (o *PostContentmanagementDocumentContentLocked) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement document content locked response has a 5xx status code
+func (o *PostContentmanagementDocumentContentLocked) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement document content locked response a status code equal to that given
+func (o *PostContentmanagementDocumentContentLocked) IsCode(code int) bool {
+	return code == 423
+}
+
 func (o *PostContentmanagementDocumentContentLocked) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentLocked ", 423)
+}
+
+func (o *PostContentmanagementDocumentContentLocked) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentLocked ", 423)
 }
 
@@ -424,7 +723,8 @@ func NewPostContentmanagementDocumentContentTooManyRequests() *PostContentmanage
 	return &PostContentmanagementDocumentContentTooManyRequests{}
 }
 
-/*PostContentmanagementDocumentContentTooManyRequests handles this case with default header values.
+/*
+PostContentmanagementDocumentContentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -432,7 +732,36 @@ type PostContentmanagementDocumentContentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement document content too many requests response has a 2xx status code
+func (o *PostContentmanagementDocumentContentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content too many requests response has a 3xx status code
+func (o *PostContentmanagementDocumentContentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content too many requests response has a 4xx status code
+func (o *PostContentmanagementDocumentContentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post contentmanagement document content too many requests response has a 5xx status code
+func (o *PostContentmanagementDocumentContentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post contentmanagement document content too many requests response a status code equal to that given
+func (o *PostContentmanagementDocumentContentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostContentmanagementDocumentContentTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostContentmanagementDocumentContentInternalServerError() *PostContentma
 	return &PostContentmanagementDocumentContentInternalServerError{}
 }
 
-/*PostContentmanagementDocumentContentInternalServerError handles this case with default header values.
+/*
+PostContentmanagementDocumentContentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -465,7 +795,36 @@ type PostContentmanagementDocumentContentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement document content internal server error response has a 2xx status code
+func (o *PostContentmanagementDocumentContentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content internal server error response has a 3xx status code
+func (o *PostContentmanagementDocumentContentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content internal server error response has a 4xx status code
+func (o *PostContentmanagementDocumentContentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement document content internal server error response has a 5xx status code
+func (o *PostContentmanagementDocumentContentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement document content internal server error response a status code equal to that given
+func (o *PostContentmanagementDocumentContentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostContentmanagementDocumentContentInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -490,7 +849,8 @@ func NewPostContentmanagementDocumentContentServiceUnavailable() *PostContentman
 	return &PostContentmanagementDocumentContentServiceUnavailable{}
 }
 
-/*PostContentmanagementDocumentContentServiceUnavailable handles this case with default header values.
+/*
+PostContentmanagementDocumentContentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -498,7 +858,36 @@ type PostContentmanagementDocumentContentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement document content service unavailable response has a 2xx status code
+func (o *PostContentmanagementDocumentContentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content service unavailable response has a 3xx status code
+func (o *PostContentmanagementDocumentContentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content service unavailable response has a 4xx status code
+func (o *PostContentmanagementDocumentContentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement document content service unavailable response has a 5xx status code
+func (o *PostContentmanagementDocumentContentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement document content service unavailable response a status code equal to that given
+func (o *PostContentmanagementDocumentContentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostContentmanagementDocumentContentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -523,7 +912,8 @@ func NewPostContentmanagementDocumentContentGatewayTimeout() *PostContentmanagem
 	return &PostContentmanagementDocumentContentGatewayTimeout{}
 }
 
-/*PostContentmanagementDocumentContentGatewayTimeout handles this case with default header values.
+/*
+PostContentmanagementDocumentContentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -531,7 +921,36 @@ type PostContentmanagementDocumentContentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post contentmanagement document content gateway timeout response has a 2xx status code
+func (o *PostContentmanagementDocumentContentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post contentmanagement document content gateway timeout response has a 3xx status code
+func (o *PostContentmanagementDocumentContentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post contentmanagement document content gateway timeout response has a 4xx status code
+func (o *PostContentmanagementDocumentContentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post contentmanagement document content gateway timeout response has a 5xx status code
+func (o *PostContentmanagementDocumentContentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post contentmanagement document content gateway timeout response a status code equal to that given
+func (o *PostContentmanagementDocumentContentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostContentmanagementDocumentContentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostContentmanagementDocumentContentGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/contentmanagement/documents/{documentId}/content][%d] postContentmanagementDocumentContentGatewayTimeout  %+v", 504, o.Payload)
 }
 

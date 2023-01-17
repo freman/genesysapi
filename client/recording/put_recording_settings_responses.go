@@ -95,7 +95,6 @@ func (o *PutRecordingSettingsReader) ReadResponse(response runtime.ClientRespons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutRecordingSettingsOK() *PutRecordingSettingsOK {
 	return &PutRecordingSettingsOK{}
 }
 
-/*PutRecordingSettingsOK handles this case with default header values.
+/*
+PutRecordingSettingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutRecordingSettingsOK struct {
 	Payload *models.RecordingSettings
 }
 
+// IsSuccess returns true when this put recording settings o k response has a 2xx status code
+func (o *PutRecordingSettingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put recording settings o k response has a 3xx status code
+func (o *PutRecordingSettingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording settings o k response has a 4xx status code
+func (o *PutRecordingSettingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording settings o k response has a 5xx status code
+func (o *PutRecordingSettingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording settings o k response a status code equal to that given
+func (o *PutRecordingSettingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutRecordingSettingsOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsOK  %+v", 200, o.Payload)
+}
+
+func (o *PutRecordingSettingsOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutRecordingSettingsBadRequest() *PutRecordingSettingsBadRequest {
 	return &PutRecordingSettingsBadRequest{}
 }
 
-/*PutRecordingSettingsBadRequest handles this case with default header values.
+/*
+PutRecordingSettingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutRecordingSettingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording settings bad request response has a 2xx status code
+func (o *PutRecordingSettingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording settings bad request response has a 3xx status code
+func (o *PutRecordingSettingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording settings bad request response has a 4xx status code
+func (o *PutRecordingSettingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording settings bad request response has a 5xx status code
+func (o *PutRecordingSettingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording settings bad request response a status code equal to that given
+func (o *PutRecordingSettingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutRecordingSettingsBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutRecordingSettingsBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutRecordingSettingsUnauthorized() *PutRecordingSettingsUnauthorized {
 	return &PutRecordingSettingsUnauthorized{}
 }
 
-/*PutRecordingSettingsUnauthorized handles this case with default header values.
+/*
+PutRecordingSettingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutRecordingSettingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording settings unauthorized response has a 2xx status code
+func (o *PutRecordingSettingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording settings unauthorized response has a 3xx status code
+func (o *PutRecordingSettingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording settings unauthorized response has a 4xx status code
+func (o *PutRecordingSettingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording settings unauthorized response has a 5xx status code
+func (o *PutRecordingSettingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording settings unauthorized response a status code equal to that given
+func (o *PutRecordingSettingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutRecordingSettingsUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutRecordingSettingsUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutRecordingSettingsForbidden() *PutRecordingSettingsForbidden {
 	return &PutRecordingSettingsForbidden{}
 }
 
-/*PutRecordingSettingsForbidden handles this case with default header values.
+/*
+PutRecordingSettingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutRecordingSettingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording settings forbidden response has a 2xx status code
+func (o *PutRecordingSettingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording settings forbidden response has a 3xx status code
+func (o *PutRecordingSettingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording settings forbidden response has a 4xx status code
+func (o *PutRecordingSettingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording settings forbidden response has a 5xx status code
+func (o *PutRecordingSettingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording settings forbidden response a status code equal to that given
+func (o *PutRecordingSettingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutRecordingSettingsForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutRecordingSettingsForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutRecordingSettingsNotFound() *PutRecordingSettingsNotFound {
 	return &PutRecordingSettingsNotFound{}
 }
 
-/*PutRecordingSettingsNotFound handles this case with default header values.
+/*
+PutRecordingSettingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutRecordingSettingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording settings not found response has a 2xx status code
+func (o *PutRecordingSettingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording settings not found response has a 3xx status code
+func (o *PutRecordingSettingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording settings not found response has a 4xx status code
+func (o *PutRecordingSettingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording settings not found response has a 5xx status code
+func (o *PutRecordingSettingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording settings not found response a status code equal to that given
+func (o *PutRecordingSettingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutRecordingSettingsNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutRecordingSettingsNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutRecordingSettingsRequestTimeout() *PutRecordingSettingsRequestTimeout
 	return &PutRecordingSettingsRequestTimeout{}
 }
 
-/*PutRecordingSettingsRequestTimeout handles this case with default header values.
+/*
+PutRecordingSettingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutRecordingSettingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording settings request timeout response has a 2xx status code
+func (o *PutRecordingSettingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording settings request timeout response has a 3xx status code
+func (o *PutRecordingSettingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording settings request timeout response has a 4xx status code
+func (o *PutRecordingSettingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording settings request timeout response has a 5xx status code
+func (o *PutRecordingSettingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording settings request timeout response a status code equal to that given
+func (o *PutRecordingSettingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutRecordingSettingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutRecordingSettingsRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutRecordingSettingsRequestEntityTooLarge() *PutRecordingSettingsRequest
 	return &PutRecordingSettingsRequestEntityTooLarge{}
 }
 
-/*PutRecordingSettingsRequestEntityTooLarge handles this case with default header values.
+/*
+PutRecordingSettingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutRecordingSettingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording settings request entity too large response has a 2xx status code
+func (o *PutRecordingSettingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording settings request entity too large response has a 3xx status code
+func (o *PutRecordingSettingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording settings request entity too large response has a 4xx status code
+func (o *PutRecordingSettingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording settings request entity too large response has a 5xx status code
+func (o *PutRecordingSettingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording settings request entity too large response a status code equal to that given
+func (o *PutRecordingSettingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutRecordingSettingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutRecordingSettingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutRecordingSettingsUnsupportedMediaType() *PutRecordingSettingsUnsuppor
 	return &PutRecordingSettingsUnsupportedMediaType{}
 }
 
-/*PutRecordingSettingsUnsupportedMediaType handles this case with default header values.
+/*
+PutRecordingSettingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutRecordingSettingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording settings unsupported media type response has a 2xx status code
+func (o *PutRecordingSettingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording settings unsupported media type response has a 3xx status code
+func (o *PutRecordingSettingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording settings unsupported media type response has a 4xx status code
+func (o *PutRecordingSettingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording settings unsupported media type response has a 5xx status code
+func (o *PutRecordingSettingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording settings unsupported media type response a status code equal to that given
+func (o *PutRecordingSettingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutRecordingSettingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutRecordingSettingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutRecordingSettingsTooManyRequests() *PutRecordingSettingsTooManyReques
 	return &PutRecordingSettingsTooManyRequests{}
 }
 
-/*PutRecordingSettingsTooManyRequests handles this case with default header values.
+/*
+PutRecordingSettingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutRecordingSettingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording settings too many requests response has a 2xx status code
+func (o *PutRecordingSettingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording settings too many requests response has a 3xx status code
+func (o *PutRecordingSettingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording settings too many requests response has a 4xx status code
+func (o *PutRecordingSettingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording settings too many requests response has a 5xx status code
+func (o *PutRecordingSettingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording settings too many requests response a status code equal to that given
+func (o *PutRecordingSettingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutRecordingSettingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutRecordingSettingsTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutRecordingSettingsInternalServerError() *PutRecordingSettingsInternalS
 	return &PutRecordingSettingsInternalServerError{}
 }
 
-/*PutRecordingSettingsInternalServerError handles this case with default header values.
+/*
+PutRecordingSettingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutRecordingSettingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording settings internal server error response has a 2xx status code
+func (o *PutRecordingSettingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording settings internal server error response has a 3xx status code
+func (o *PutRecordingSettingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording settings internal server error response has a 4xx status code
+func (o *PutRecordingSettingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording settings internal server error response has a 5xx status code
+func (o *PutRecordingSettingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording settings internal server error response a status code equal to that given
+func (o *PutRecordingSettingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutRecordingSettingsInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutRecordingSettingsInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutRecordingSettingsServiceUnavailable() *PutRecordingSettingsServiceUna
 	return &PutRecordingSettingsServiceUnavailable{}
 }
 
-/*PutRecordingSettingsServiceUnavailable handles this case with default header values.
+/*
+PutRecordingSettingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutRecordingSettingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording settings service unavailable response has a 2xx status code
+func (o *PutRecordingSettingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording settings service unavailable response has a 3xx status code
+func (o *PutRecordingSettingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording settings service unavailable response has a 4xx status code
+func (o *PutRecordingSettingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording settings service unavailable response has a 5xx status code
+func (o *PutRecordingSettingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording settings service unavailable response a status code equal to that given
+func (o *PutRecordingSettingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutRecordingSettingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutRecordingSettingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutRecordingSettingsGatewayTimeout() *PutRecordingSettingsGatewayTimeout
 	return &PutRecordingSettingsGatewayTimeout{}
 }
 
-/*PutRecordingSettingsGatewayTimeout handles this case with default header values.
+/*
+PutRecordingSettingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutRecordingSettingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording settings gateway timeout response has a 2xx status code
+func (o *PutRecordingSettingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording settings gateway timeout response has a 3xx status code
+func (o *PutRecordingSettingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording settings gateway timeout response has a 4xx status code
+func (o *PutRecordingSettingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording settings gateway timeout response has a 5xx status code
+func (o *PutRecordingSettingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording settings gateway timeout response a status code equal to that given
+func (o *PutRecordingSettingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutRecordingSettingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutRecordingSettingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/settings][%d] putRecordingSettingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -65,7 +66,6 @@ func (m *CoachingAppointmentStatusResponse) Validate(formats strfmt.Registry) er
 }
 
 func (m *CoachingAppointmentStatusResponse) validateAppointment(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Appointment) { // not required
 		return nil
 	}
@@ -74,6 +74,8 @@ func (m *CoachingAppointmentStatusResponse) validateAppointment(formats strfmt.R
 		if err := m.Appointment.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("appointment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appointment")
 			}
 			return err
 		}
@@ -83,7 +85,6 @@ func (m *CoachingAppointmentStatusResponse) validateAppointment(formats strfmt.R
 }
 
 func (m *CoachingAppointmentStatusResponse) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -92,6 +93,8 @@ func (m *CoachingAppointmentStatusResponse) validateCreatedBy(formats strfmt.Reg
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -101,7 +104,6 @@ func (m *CoachingAppointmentStatusResponse) validateCreatedBy(formats strfmt.Reg
 }
 
 func (m *CoachingAppointmentStatusResponse) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -149,13 +151,88 @@ func (m *CoachingAppointmentStatusResponse) validateStatusEnum(path, location st
 }
 
 func (m *CoachingAppointmentStatusResponse) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this coaching appointment status response based on the context it is used
+func (m *CoachingAppointmentStatusResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAppointment(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CoachingAppointmentStatusResponse) contextValidateAppointment(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Appointment != nil {
+		if err := m.Appointment.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("appointment")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("appointment")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentStatusResponse) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentStatusResponse) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentStatusResponse) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
 		return err
 	}
 

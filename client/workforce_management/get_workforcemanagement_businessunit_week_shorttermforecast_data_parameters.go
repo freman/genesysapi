@@ -17,79 +17,103 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams creates a new GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams creates a new GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams() *GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitWeekShorttermforecastDataParamsWithTimeout creates a new GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastDataParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitWeekShorttermforecastDataParamsWithContext creates a new GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastDataParamsWithContext(ctx context.Context) *GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitWeekShorttermforecastDataParamsWithHTTPClient creates a new GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastDataParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement businessunit week shorttermforecast data operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement businessunit week shorttermforecast data operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams struct {
 
-	/*BusinessUnitID
-	  The ID of the business unit to which the forecast belongs
+	/* BusinessUnitID.
 
+	   The ID of the business unit to which the forecast belongs
 	*/
 	BusinessUnitID string
-	/*ForceDownloadService
-	  Force the result of this operation to be sent via download service.  For testing/app development purposes
 
+	/* ForceDownloadService.
+
+	   Force the result of this operation to be sent via download service.  For testing/app development purposes
 	*/
 	ForceDownloadService *bool
-	/*ForecastID
-	  The ID of the forecast
 
+	/* ForecastID.
+
+	   The ID of the forecast
 	*/
 	ForecastID string
-	/*WeekDateID
-	  The week start date of the forecast in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekDateID.
+
+	   The week start date of the forecast in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekDateID strfmt.Date
-	/*WeekNumber
-	  The week number to fetch (for multi-week forecasts)
 
+	/* WeekNumber.
+
+	   The week number to fetch (for multi-week forecasts)
+
+	   Format: int32
 	*/
 	WeekNumber *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement businessunit week shorttermforecast data params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams) WithDefaults() *GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement businessunit week shorttermforecast data params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement businessunit week shorttermforecast data params
@@ -197,16 +221,17 @@ func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams) Writ
 
 		// query param forceDownloadService
 		var qrForceDownloadService bool
+
 		if o.ForceDownloadService != nil {
 			qrForceDownloadService = *o.ForceDownloadService
 		}
 		qForceDownloadService := swag.FormatBool(qrForceDownloadService)
 		if qForceDownloadService != "" {
+
 			if err := r.SetQueryParam("forceDownloadService", qForceDownloadService); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param forecastId
@@ -223,16 +248,17 @@ func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastDataParams) Writ
 
 		// query param weekNumber
 		var qrWeekNumber int32
+
 		if o.WeekNumber != nil {
 			qrWeekNumber = *o.WeekNumber
 		}
 		qWeekNumber := swag.FormatInt32(qrWeekNumber)
 		if qWeekNumber != "" {
+
 			if err := r.SetQueryParam("weekNumber", qWeekNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

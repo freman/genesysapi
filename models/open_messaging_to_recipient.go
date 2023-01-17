@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -108,13 +109,87 @@ func (m *OpenMessagingToRecipient) validateIDTypeEnum(path, location string, val
 }
 
 func (m *OpenMessagingToRecipient) validateIDType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IDType) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateIDTypeEnum("idType", "body", m.IDType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this open messaging to recipient based on the context it is used
+func (m *OpenMessagingToRecipient) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFirstName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIDType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateImage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNickname(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OpenMessagingToRecipient) contextValidateFirstName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "firstName", "body", string(m.FirstName)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OpenMessagingToRecipient) contextValidateIDType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "idType", "body", string(m.IDType)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OpenMessagingToRecipient) contextValidateImage(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "image", "body", string(m.Image)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OpenMessagingToRecipient) contextValidateLastName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "lastName", "body", string(m.LastName)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OpenMessagingToRecipient) contextValidateNickname(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "nickname", "body", string(m.Nickname)); err != nil {
 		return err
 	}
 

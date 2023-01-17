@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRoutingWrapupcodesParams creates a new PostRoutingWrapupcodesParams object
-// with the default values initialized.
+// NewPostRoutingWrapupcodesParams creates a new PostRoutingWrapupcodesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRoutingWrapupcodesParams() *PostRoutingWrapupcodesParams {
-	var ()
 	return &PostRoutingWrapupcodesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRoutingWrapupcodesParamsWithTimeout creates a new PostRoutingWrapupcodesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRoutingWrapupcodesParamsWithTimeout(timeout time.Duration) *PostRoutingWrapupcodesParams {
-	var ()
 	return &PostRoutingWrapupcodesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRoutingWrapupcodesParamsWithContext creates a new PostRoutingWrapupcodesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRoutingWrapupcodesParamsWithContext(ctx context.Context) *PostRoutingWrapupcodesParams {
-	var ()
 	return &PostRoutingWrapupcodesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRoutingWrapupcodesParamsWithHTTPClient creates a new PostRoutingWrapupcodesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRoutingWrapupcodesParamsWithHTTPClient(client *http.Client) *PostRoutingWrapupcodesParams {
-	var ()
 	return &PostRoutingWrapupcodesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRoutingWrapupcodesParams contains all the parameters to send to the API endpoint
-for the post routing wrapupcodes operation typically these are written to a http.Request
+/*
+PostRoutingWrapupcodesParams contains all the parameters to send to the API endpoint
+
+	for the post routing wrapupcodes operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRoutingWrapupcodesParams struct {
 
-	/*Body
-	  WrapupCode
+	/* Body.
 
+	   WrapupCode
 	*/
 	Body *models.WrapupCode
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post routing wrapupcodes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingWrapupcodesParams) WithDefaults() *PostRoutingWrapupcodesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post routing wrapupcodes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRoutingWrapupcodesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post routing wrapupcodes params
@@ -124,7 +140,6 @@ func (o *PostRoutingWrapupcodesParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

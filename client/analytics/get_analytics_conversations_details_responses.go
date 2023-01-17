@@ -95,7 +95,6 @@ func (o *GetAnalyticsConversationsDetailsReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetAnalyticsConversationsDetailsOK() *GetAnalyticsConversationsDetailsOK
 	return &GetAnalyticsConversationsDetailsOK{}
 }
 
-/*GetAnalyticsConversationsDetailsOK handles this case with default header values.
+/*
+GetAnalyticsConversationsDetailsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetAnalyticsConversationsDetailsOK struct {
 	Payload *models.AnalyticsConversationWithoutAttributesMultiGetResponse
 }
 
+// IsSuccess returns true when this get analytics conversations details o k response has a 2xx status code
+func (o *GetAnalyticsConversationsDetailsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get analytics conversations details o k response has a 3xx status code
+func (o *GetAnalyticsConversationsDetailsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics conversations details o k response has a 4xx status code
+func (o *GetAnalyticsConversationsDetailsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics conversations details o k response has a 5xx status code
+func (o *GetAnalyticsConversationsDetailsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics conversations details o k response a status code equal to that given
+func (o *GetAnalyticsConversationsDetailsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAnalyticsConversationsDetailsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetAnalyticsConversationsDetailsBadRequest() *GetAnalyticsConversationsD
 	return &GetAnalyticsConversationsDetailsBadRequest{}
 }
 
-/*GetAnalyticsConversationsDetailsBadRequest handles this case with default header values.
+/*
+GetAnalyticsConversationsDetailsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetAnalyticsConversationsDetailsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics conversations details bad request response has a 2xx status code
+func (o *GetAnalyticsConversationsDetailsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics conversations details bad request response has a 3xx status code
+func (o *GetAnalyticsConversationsDetailsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics conversations details bad request response has a 4xx status code
+func (o *GetAnalyticsConversationsDetailsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics conversations details bad request response has a 5xx status code
+func (o *GetAnalyticsConversationsDetailsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics conversations details bad request response a status code equal to that given
+func (o *GetAnalyticsConversationsDetailsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAnalyticsConversationsDetailsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetAnalyticsConversationsDetailsUnauthorized() *GetAnalyticsConversation
 	return &GetAnalyticsConversationsDetailsUnauthorized{}
 }
 
-/*GetAnalyticsConversationsDetailsUnauthorized handles this case with default header values.
+/*
+GetAnalyticsConversationsDetailsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetAnalyticsConversationsDetailsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics conversations details unauthorized response has a 2xx status code
+func (o *GetAnalyticsConversationsDetailsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics conversations details unauthorized response has a 3xx status code
+func (o *GetAnalyticsConversationsDetailsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics conversations details unauthorized response has a 4xx status code
+func (o *GetAnalyticsConversationsDetailsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics conversations details unauthorized response has a 5xx status code
+func (o *GetAnalyticsConversationsDetailsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics conversations details unauthorized response a status code equal to that given
+func (o *GetAnalyticsConversationsDetailsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetAnalyticsConversationsDetailsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetAnalyticsConversationsDetailsForbidden() *GetAnalyticsConversationsDe
 	return &GetAnalyticsConversationsDetailsForbidden{}
 }
 
-/*GetAnalyticsConversationsDetailsForbidden handles this case with default header values.
+/*
+GetAnalyticsConversationsDetailsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetAnalyticsConversationsDetailsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics conversations details forbidden response has a 2xx status code
+func (o *GetAnalyticsConversationsDetailsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics conversations details forbidden response has a 3xx status code
+func (o *GetAnalyticsConversationsDetailsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics conversations details forbidden response has a 4xx status code
+func (o *GetAnalyticsConversationsDetailsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics conversations details forbidden response has a 5xx status code
+func (o *GetAnalyticsConversationsDetailsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics conversations details forbidden response a status code equal to that given
+func (o *GetAnalyticsConversationsDetailsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAnalyticsConversationsDetailsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetAnalyticsConversationsDetailsNotFound() *GetAnalyticsConversationsDet
 	return &GetAnalyticsConversationsDetailsNotFound{}
 }
 
-/*GetAnalyticsConversationsDetailsNotFound handles this case with default header values.
+/*
+GetAnalyticsConversationsDetailsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetAnalyticsConversationsDetailsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics conversations details not found response has a 2xx status code
+func (o *GetAnalyticsConversationsDetailsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics conversations details not found response has a 3xx status code
+func (o *GetAnalyticsConversationsDetailsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics conversations details not found response has a 4xx status code
+func (o *GetAnalyticsConversationsDetailsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics conversations details not found response has a 5xx status code
+func (o *GetAnalyticsConversationsDetailsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics conversations details not found response a status code equal to that given
+func (o *GetAnalyticsConversationsDetailsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAnalyticsConversationsDetailsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetAnalyticsConversationsDetailsRequestTimeout() *GetAnalyticsConversati
 	return &GetAnalyticsConversationsDetailsRequestTimeout{}
 }
 
-/*GetAnalyticsConversationsDetailsRequestTimeout handles this case with default header values.
+/*
+GetAnalyticsConversationsDetailsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetAnalyticsConversationsDetailsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics conversations details request timeout response has a 2xx status code
+func (o *GetAnalyticsConversationsDetailsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics conversations details request timeout response has a 3xx status code
+func (o *GetAnalyticsConversationsDetailsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics conversations details request timeout response has a 4xx status code
+func (o *GetAnalyticsConversationsDetailsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics conversations details request timeout response has a 5xx status code
+func (o *GetAnalyticsConversationsDetailsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics conversations details request timeout response a status code equal to that given
+func (o *GetAnalyticsConversationsDetailsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetAnalyticsConversationsDetailsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetAnalyticsConversationsDetailsRequestEntityTooLarge() *GetAnalyticsCon
 	return &GetAnalyticsConversationsDetailsRequestEntityTooLarge{}
 }
 
-/*GetAnalyticsConversationsDetailsRequestEntityTooLarge handles this case with default header values.
+/*
+GetAnalyticsConversationsDetailsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetAnalyticsConversationsDetailsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics conversations details request entity too large response has a 2xx status code
+func (o *GetAnalyticsConversationsDetailsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics conversations details request entity too large response has a 3xx status code
+func (o *GetAnalyticsConversationsDetailsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics conversations details request entity too large response has a 4xx status code
+func (o *GetAnalyticsConversationsDetailsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics conversations details request entity too large response has a 5xx status code
+func (o *GetAnalyticsConversationsDetailsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics conversations details request entity too large response a status code equal to that given
+func (o *GetAnalyticsConversationsDetailsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetAnalyticsConversationsDetailsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetAnalyticsConversationsDetailsUnsupportedMediaType() *GetAnalyticsConv
 	return &GetAnalyticsConversationsDetailsUnsupportedMediaType{}
 }
 
-/*GetAnalyticsConversationsDetailsUnsupportedMediaType handles this case with default header values.
+/*
+GetAnalyticsConversationsDetailsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetAnalyticsConversationsDetailsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics conversations details unsupported media type response has a 2xx status code
+func (o *GetAnalyticsConversationsDetailsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics conversations details unsupported media type response has a 3xx status code
+func (o *GetAnalyticsConversationsDetailsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics conversations details unsupported media type response has a 4xx status code
+func (o *GetAnalyticsConversationsDetailsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics conversations details unsupported media type response has a 5xx status code
+func (o *GetAnalyticsConversationsDetailsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics conversations details unsupported media type response a status code equal to that given
+func (o *GetAnalyticsConversationsDetailsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetAnalyticsConversationsDetailsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetAnalyticsConversationsDetailsTooManyRequests() *GetAnalyticsConversat
 	return &GetAnalyticsConversationsDetailsTooManyRequests{}
 }
 
-/*GetAnalyticsConversationsDetailsTooManyRequests handles this case with default header values.
+/*
+GetAnalyticsConversationsDetailsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetAnalyticsConversationsDetailsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics conversations details too many requests response has a 2xx status code
+func (o *GetAnalyticsConversationsDetailsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics conversations details too many requests response has a 3xx status code
+func (o *GetAnalyticsConversationsDetailsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics conversations details too many requests response has a 4xx status code
+func (o *GetAnalyticsConversationsDetailsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics conversations details too many requests response has a 5xx status code
+func (o *GetAnalyticsConversationsDetailsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics conversations details too many requests response a status code equal to that given
+func (o *GetAnalyticsConversationsDetailsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAnalyticsConversationsDetailsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetAnalyticsConversationsDetailsInternalServerError() *GetAnalyticsConve
 	return &GetAnalyticsConversationsDetailsInternalServerError{}
 }
 
-/*GetAnalyticsConversationsDetailsInternalServerError handles this case with default header values.
+/*
+GetAnalyticsConversationsDetailsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetAnalyticsConversationsDetailsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics conversations details internal server error response has a 2xx status code
+func (o *GetAnalyticsConversationsDetailsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics conversations details internal server error response has a 3xx status code
+func (o *GetAnalyticsConversationsDetailsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics conversations details internal server error response has a 4xx status code
+func (o *GetAnalyticsConversationsDetailsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics conversations details internal server error response has a 5xx status code
+func (o *GetAnalyticsConversationsDetailsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics conversations details internal server error response a status code equal to that given
+func (o *GetAnalyticsConversationsDetailsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAnalyticsConversationsDetailsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetAnalyticsConversationsDetailsServiceUnavailable() *GetAnalyticsConver
 	return &GetAnalyticsConversationsDetailsServiceUnavailable{}
 }
 
-/*GetAnalyticsConversationsDetailsServiceUnavailable handles this case with default header values.
+/*
+GetAnalyticsConversationsDetailsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetAnalyticsConversationsDetailsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics conversations details service unavailable response has a 2xx status code
+func (o *GetAnalyticsConversationsDetailsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics conversations details service unavailable response has a 3xx status code
+func (o *GetAnalyticsConversationsDetailsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics conversations details service unavailable response has a 4xx status code
+func (o *GetAnalyticsConversationsDetailsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics conversations details service unavailable response has a 5xx status code
+func (o *GetAnalyticsConversationsDetailsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics conversations details service unavailable response a status code equal to that given
+func (o *GetAnalyticsConversationsDetailsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetAnalyticsConversationsDetailsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetAnalyticsConversationsDetailsGatewayTimeout() *GetAnalyticsConversati
 	return &GetAnalyticsConversationsDetailsGatewayTimeout{}
 }
 
-/*GetAnalyticsConversationsDetailsGatewayTimeout handles this case with default header values.
+/*
+GetAnalyticsConversationsDetailsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetAnalyticsConversationsDetailsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics conversations details gateway timeout response has a 2xx status code
+func (o *GetAnalyticsConversationsDetailsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics conversations details gateway timeout response has a 3xx status code
+func (o *GetAnalyticsConversationsDetailsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics conversations details gateway timeout response has a 4xx status code
+func (o *GetAnalyticsConversationsDetailsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics conversations details gateway timeout response has a 5xx status code
+func (o *GetAnalyticsConversationsDetailsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics conversations details gateway timeout response a status code equal to that given
+func (o *GetAnalyticsConversationsDetailsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetAnalyticsConversationsDetailsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetAnalyticsConversationsDetailsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/conversations/details][%d] getAnalyticsConversationsDetailsGatewayTimeout  %+v", 504, o.Payload)
 }
 

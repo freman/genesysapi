@@ -101,7 +101,6 @@ func (o *PostConversationsMessageCommunicationMessagesReader) ReadResponse(respo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostConversationsMessageCommunicationMessagesOK() *PostConversationsMess
 	return &PostConversationsMessageCommunicationMessagesOK{}
 }
 
-/*PostConversationsMessageCommunicationMessagesOK handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostConversationsMessageCommunicationMessagesOK struct {
 	Payload *models.MessageData
 }
 
+// IsSuccess returns true when this post conversations message communication messages o k response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations message communication messages o k response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages o k response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message communication messages o k response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages o k response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostConversationsMessageCommunicationMessagesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesOK  %+v", 200, o.Payload)
 }
 
@@ -145,14 +174,44 @@ func NewPostConversationsMessageCommunicationMessagesAccepted() *PostConversatio
 	return &PostConversationsMessageCommunicationMessagesAccepted{}
 }
 
-/*PostConversationsMessageCommunicationMessagesAccepted handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesAccepted describes a response with status code 202, with default header values.
 
 Accepted
 */
 type PostConversationsMessageCommunicationMessagesAccepted struct {
 }
 
+// IsSuccess returns true when this post conversations message communication messages accepted response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations message communication messages accepted response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages accepted response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message communication messages accepted response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages accepted response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostConversationsMessageCommunicationMessagesAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesAccepted ", 202)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesAccepted ", 202)
 }
 
@@ -166,7 +225,8 @@ func NewPostConversationsMessageCommunicationMessagesBadRequest() *PostConversat
 	return &PostConversationsMessageCommunicationMessagesBadRequest{}
 }
 
-/*PostConversationsMessageCommunicationMessagesBadRequest handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -174,7 +234,36 @@ type PostConversationsMessageCommunicationMessagesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages bad request response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages bad request response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages bad request response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages bad request response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages bad request response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsMessageCommunicationMessagesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewPostConversationsMessageCommunicationMessagesUnauthorized() *PostConvers
 	return &PostConversationsMessageCommunicationMessagesUnauthorized{}
 }
 
-/*PostConversationsMessageCommunicationMessagesUnauthorized handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -207,7 +297,36 @@ type PostConversationsMessageCommunicationMessagesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages unauthorized response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages unauthorized response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages unauthorized response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages unauthorized response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages unauthorized response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsMessageCommunicationMessagesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewPostConversationsMessageCommunicationMessagesForbidden() *PostConversati
 	return &PostConversationsMessageCommunicationMessagesForbidden{}
 }
 
-/*PostConversationsMessageCommunicationMessagesForbidden handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -240,7 +360,36 @@ type PostConversationsMessageCommunicationMessagesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages forbidden response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages forbidden response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages forbidden response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages forbidden response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages forbidden response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsMessageCommunicationMessagesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesForbidden  %+v", 403, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewPostConversationsMessageCommunicationMessagesNotFound() *PostConversatio
 	return &PostConversationsMessageCommunicationMessagesNotFound{}
 }
 
-/*PostConversationsMessageCommunicationMessagesNotFound handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -273,7 +423,36 @@ type PostConversationsMessageCommunicationMessagesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages not found response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages not found response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages not found response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages not found response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages not found response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsMessageCommunicationMessagesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesNotFound  %+v", 404, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewPostConversationsMessageCommunicationMessagesRequestTimeout() *PostConve
 	return &PostConversationsMessageCommunicationMessagesRequestTimeout{}
 }
 
-/*PostConversationsMessageCommunicationMessagesRequestTimeout handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -306,7 +486,36 @@ type PostConversationsMessageCommunicationMessagesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages request timeout response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages request timeout response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages request timeout response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages request timeout response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages request timeout response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsMessageCommunicationMessagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewPostConversationsMessageCommunicationMessagesRequestEntityTooLarge() *Po
 	return &PostConversationsMessageCommunicationMessagesRequestEntityTooLarge{}
 }
 
-/*PostConversationsMessageCommunicationMessagesRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type PostConversationsMessageCommunicationMessagesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages request entity too large response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages request entity too large response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages request entity too large response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages request entity too large response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages request entity too large response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsMessageCommunicationMessagesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewPostConversationsMessageCommunicationMessagesUnsupportedMediaType() *Pos
 	return &PostConversationsMessageCommunicationMessagesUnsupportedMediaType{}
 }
 
-/*PostConversationsMessageCommunicationMessagesUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type PostConversationsMessageCommunicationMessagesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages unsupported media type response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages unsupported media type response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages unsupported media type response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages unsupported media type response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages unsupported media type response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsMessageCommunicationMessagesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewPostConversationsMessageCommunicationMessagesTooManyRequests() *PostConv
 	return &PostConversationsMessageCommunicationMessagesTooManyRequests{}
 }
 
-/*PostConversationsMessageCommunicationMessagesTooManyRequests handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type PostConversationsMessageCommunicationMessagesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages too many requests response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages too many requests response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages too many requests response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations message communication messages too many requests response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations message communication messages too many requests response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsMessageCommunicationMessagesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewPostConversationsMessageCommunicationMessagesInternalServerError() *Post
 	return &PostConversationsMessageCommunicationMessagesInternalServerError{}
 }
 
-/*PostConversationsMessageCommunicationMessagesInternalServerError handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type PostConversationsMessageCommunicationMessagesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages internal server error response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages internal server error response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages internal server error response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message communication messages internal server error response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations message communication messages internal server error response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsMessageCommunicationMessagesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewPostConversationsMessageCommunicationMessagesServiceUnavailable() *PostC
 	return &PostConversationsMessageCommunicationMessagesServiceUnavailable{}
 }
 
-/*PostConversationsMessageCommunicationMessagesServiceUnavailable handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type PostConversationsMessageCommunicationMessagesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages service unavailable response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages service unavailable response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages service unavailable response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message communication messages service unavailable response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations message communication messages service unavailable response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsMessageCommunicationMessagesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewPostConversationsMessageCommunicationMessagesGatewayTimeout() *PostConve
 	return &PostConversationsMessageCommunicationMessagesGatewayTimeout{}
 }
 
-/*PostConversationsMessageCommunicationMessagesGatewayTimeout handles this case with default header values.
+/*
+PostConversationsMessageCommunicationMessagesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type PostConversationsMessageCommunicationMessagesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations message communication messages gateway timeout response has a 2xx status code
+func (o *PostConversationsMessageCommunicationMessagesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations message communication messages gateway timeout response has a 3xx status code
+func (o *PostConversationsMessageCommunicationMessagesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations message communication messages gateway timeout response has a 4xx status code
+func (o *PostConversationsMessageCommunicationMessagesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations message communication messages gateway timeout response has a 5xx status code
+func (o *PostConversationsMessageCommunicationMessagesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations message communication messages gateway timeout response a status code equal to that given
+func (o *PostConversationsMessageCommunicationMessagesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsMessageCommunicationMessagesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsMessageCommunicationMessagesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/messages/{conversationId}/communications/{communicationId}/messages][%d] postConversationsMessageCommunicationMessagesGatewayTimeout  %+v", 504, o.Payload)
 }
 

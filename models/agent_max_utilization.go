@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -75,7 +76,6 @@ func (m *AgentMaxUtilization) validateLevelEnum(path, location string, value str
 }
 
 func (m *AgentMaxUtilization) validateLevel(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Level) { // not required
 		return nil
 	}
@@ -89,7 +89,6 @@ func (m *AgentMaxUtilization) validateLevel(formats strfmt.Registry) error {
 }
 
 func (m *AgentMaxUtilization) validateUtilization(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Utilization) { // not required
 		return nil
 	}
@@ -101,6 +100,40 @@ func (m *AgentMaxUtilization) validateUtilization(formats strfmt.Registry) error
 		}
 		if val, ok := m.Utilization[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("utilization" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("utilization" + "." + k)
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this agent max utilization based on the context it is used
+func (m *AgentMaxUtilization) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateUtilization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AgentMaxUtilization) contextValidateUtilization(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.Utilization {
+
+		if val, ok := m.Utilization[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
 				return err
 			}
 		}

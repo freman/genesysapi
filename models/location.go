@@ -6,9 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // Location location
@@ -48,7 +51,6 @@ func (m *Location) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Location) validateLocationDefinition(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LocationDefinition) { // not required
 		return nil
 	}
@@ -57,6 +59,51 @@ func (m *Location) validateLocationDefinition(formats strfmt.Registry) error {
 		if err := m.LocationDefinition.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("locationDefinition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("locationDefinition")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this location based on the context it is used
+func (m *Location) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFloorplanID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLocationDefinition(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Location) contextValidateFloorplanID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "floorplanId", "body", string(m.FloorplanID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Location) contextValidateLocationDefinition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LocationDefinition != nil {
+		if err := m.LocationDefinition.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("locationDefinition")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("locationDefinition")
 			}
 			return err
 		}

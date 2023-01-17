@@ -95,7 +95,6 @@ func (o *PutIntegrationsBotconnectorIntegrationIDBotsReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPutIntegrationsBotconnectorIntegrationIDBotsNoContent() *PutIntegrations
 	return &PutIntegrationsBotconnectorIntegrationIDBotsNoContent{}
 }
 
-/*PutIntegrationsBotconnectorIntegrationIDBotsNoContent handles this case with default header values.
+/*
+PutIntegrationsBotconnectorIntegrationIDBotsNoContent describes a response with status code 204, with default header values.
 
 Operation was successful.
 */
 type PutIntegrationsBotconnectorIntegrationIDBotsNoContent struct {
 }
 
+// IsSuccess returns true when this put integrations botconnector integration Id bots no content response has a 2xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put integrations botconnector integration Id bots no content response has a 3xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations botconnector integration Id bots no content response has a 4xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integrations botconnector integration Id bots no content response has a 5xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations botconnector integration Id bots no content response a status code equal to that given
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *PutIntegrationsBotconnectorIntegrationIDBotsNoContent) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsNoContent ", 204)
+}
+
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsNoContent) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewPutIntegrationsBotconnectorIntegrationIDBotsBadRequest() *PutIntegration
 	return &PutIntegrationsBotconnectorIntegrationIDBotsBadRequest{}
 }
 
-/*PutIntegrationsBotconnectorIntegrationIDBotsBadRequest handles this case with default header values.
+/*
+PutIntegrationsBotconnectorIntegrationIDBotsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PutIntegrationsBotconnectorIntegrationIDBotsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations botconnector integration Id bots bad request response has a 2xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations botconnector integration Id bots bad request response has a 3xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations botconnector integration Id bots bad request response has a 4xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations botconnector integration Id bots bad request response has a 5xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations botconnector integration Id bots bad request response a status code equal to that given
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutIntegrationsBotconnectorIntegrationIDBotsBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPutIntegrationsBotconnectorIntegrationIDBotsUnauthorized() *PutIntegrati
 	return &PutIntegrationsBotconnectorIntegrationIDBotsUnauthorized{}
 }
 
-/*PutIntegrationsBotconnectorIntegrationIDBotsUnauthorized handles this case with default header values.
+/*
+PutIntegrationsBotconnectorIntegrationIDBotsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PutIntegrationsBotconnectorIntegrationIDBotsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations botconnector integration Id bots unauthorized response has a 2xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations botconnector integration Id bots unauthorized response has a 3xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations botconnector integration Id bots unauthorized response has a 4xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations botconnector integration Id bots unauthorized response has a 5xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations botconnector integration Id bots unauthorized response a status code equal to that given
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPutIntegrationsBotconnectorIntegrationIDBotsForbidden() *PutIntegrations
 	return &PutIntegrationsBotconnectorIntegrationIDBotsForbidden{}
 }
 
-/*PutIntegrationsBotconnectorIntegrationIDBotsForbidden handles this case with default header values.
+/*
+PutIntegrationsBotconnectorIntegrationIDBotsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PutIntegrationsBotconnectorIntegrationIDBotsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations botconnector integration Id bots forbidden response has a 2xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations botconnector integration Id bots forbidden response has a 3xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations botconnector integration Id bots forbidden response has a 4xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations botconnector integration Id bots forbidden response has a 5xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations botconnector integration Id bots forbidden response a status code equal to that given
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutIntegrationsBotconnectorIntegrationIDBotsForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPutIntegrationsBotconnectorIntegrationIDBotsNotFound() *PutIntegrationsB
 	return &PutIntegrationsBotconnectorIntegrationIDBotsNotFound{}
 }
 
-/*PutIntegrationsBotconnectorIntegrationIDBotsNotFound handles this case with default header values.
+/*
+PutIntegrationsBotconnectorIntegrationIDBotsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PutIntegrationsBotconnectorIntegrationIDBotsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations botconnector integration Id bots not found response has a 2xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations botconnector integration Id bots not found response has a 3xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations botconnector integration Id bots not found response has a 4xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations botconnector integration Id bots not found response has a 5xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations botconnector integration Id bots not found response a status code equal to that given
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutIntegrationsBotconnectorIntegrationIDBotsNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPutIntegrationsBotconnectorIntegrationIDBotsRequestTimeout() *PutIntegra
 	return &PutIntegrationsBotconnectorIntegrationIDBotsRequestTimeout{}
 }
 
-/*PutIntegrationsBotconnectorIntegrationIDBotsRequestTimeout handles this case with default header values.
+/*
+PutIntegrationsBotconnectorIntegrationIDBotsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PutIntegrationsBotconnectorIntegrationIDBotsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations botconnector integration Id bots request timeout response has a 2xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations botconnector integration Id bots request timeout response has a 3xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations botconnector integration Id bots request timeout response has a 4xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations botconnector integration Id bots request timeout response has a 5xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations botconnector integration Id bots request timeout response a status code equal to that given
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPutIntegrationsBotconnectorIntegrationIDBotsRequestEntityTooLarge() *Put
 	return &PutIntegrationsBotconnectorIntegrationIDBotsRequestEntityTooLarge{}
 }
 
-/*PutIntegrationsBotconnectorIntegrationIDBotsRequestEntityTooLarge handles this case with default header values.
+/*
+PutIntegrationsBotconnectorIntegrationIDBotsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PutIntegrationsBotconnectorIntegrationIDBotsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations botconnector integration Id bots request entity too large response has a 2xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations botconnector integration Id bots request entity too large response has a 3xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations botconnector integration Id bots request entity too large response has a 4xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations botconnector integration Id bots request entity too large response has a 5xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations botconnector integration Id bots request entity too large response a status code equal to that given
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPutIntegrationsBotconnectorIntegrationIDBotsUnsupportedMediaType() *PutI
 	return &PutIntegrationsBotconnectorIntegrationIDBotsUnsupportedMediaType{}
 }
 
-/*PutIntegrationsBotconnectorIntegrationIDBotsUnsupportedMediaType handles this case with default header values.
+/*
+PutIntegrationsBotconnectorIntegrationIDBotsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PutIntegrationsBotconnectorIntegrationIDBotsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations botconnector integration Id bots unsupported media type response has a 2xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations botconnector integration Id bots unsupported media type response has a 3xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations botconnector integration Id bots unsupported media type response has a 4xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations botconnector integration Id bots unsupported media type response has a 5xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations botconnector integration Id bots unsupported media type response a status code equal to that given
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPutIntegrationsBotconnectorIntegrationIDBotsTooManyRequests() *PutIntegr
 	return &PutIntegrationsBotconnectorIntegrationIDBotsTooManyRequests{}
 }
 
-/*PutIntegrationsBotconnectorIntegrationIDBotsTooManyRequests handles this case with default header values.
+/*
+PutIntegrationsBotconnectorIntegrationIDBotsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PutIntegrationsBotconnectorIntegrationIDBotsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations botconnector integration Id bots too many requests response has a 2xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations botconnector integration Id bots too many requests response has a 3xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations botconnector integration Id bots too many requests response has a 4xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put integrations botconnector integration Id bots too many requests response has a 5xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put integrations botconnector integration Id bots too many requests response a status code equal to that given
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutIntegrationsBotconnectorIntegrationIDBotsTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPutIntegrationsBotconnectorIntegrationIDBotsInternalServerError() *PutIn
 	return &PutIntegrationsBotconnectorIntegrationIDBotsInternalServerError{}
 }
 
-/*PutIntegrationsBotconnectorIntegrationIDBotsInternalServerError handles this case with default header values.
+/*
+PutIntegrationsBotconnectorIntegrationIDBotsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PutIntegrationsBotconnectorIntegrationIDBotsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations botconnector integration Id bots internal server error response has a 2xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations botconnector integration Id bots internal server error response has a 3xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations botconnector integration Id bots internal server error response has a 4xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integrations botconnector integration Id bots internal server error response has a 5xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put integrations botconnector integration Id bots internal server error response a status code equal to that given
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutIntegrationsBotconnectorIntegrationIDBotsInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPutIntegrationsBotconnectorIntegrationIDBotsServiceUnavailable() *PutInt
 	return &PutIntegrationsBotconnectorIntegrationIDBotsServiceUnavailable{}
 }
 
-/*PutIntegrationsBotconnectorIntegrationIDBotsServiceUnavailable handles this case with default header values.
+/*
+PutIntegrationsBotconnectorIntegrationIDBotsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PutIntegrationsBotconnectorIntegrationIDBotsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations botconnector integration Id bots service unavailable response has a 2xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations botconnector integration Id bots service unavailable response has a 3xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations botconnector integration Id bots service unavailable response has a 4xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integrations botconnector integration Id bots service unavailable response has a 5xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put integrations botconnector integration Id bots service unavailable response a status code equal to that given
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutIntegrationsBotconnectorIntegrationIDBotsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPutIntegrationsBotconnectorIntegrationIDBotsGatewayTimeout() *PutIntegra
 	return &PutIntegrationsBotconnectorIntegrationIDBotsGatewayTimeout{}
 }
 
-/*PutIntegrationsBotconnectorIntegrationIDBotsGatewayTimeout handles this case with default header values.
+/*
+PutIntegrationsBotconnectorIntegrationIDBotsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PutIntegrationsBotconnectorIntegrationIDBotsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put integrations botconnector integration Id bots gateway timeout response has a 2xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put integrations botconnector integration Id bots gateway timeout response has a 3xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put integrations botconnector integration Id bots gateway timeout response has a 4xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put integrations botconnector integration Id bots gateway timeout response has a 5xx status code
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put integrations botconnector integration Id bots gateway timeout response a status code equal to that given
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutIntegrationsBotconnectorIntegrationIDBotsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutIntegrationsBotconnectorIntegrationIDBotsGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/integrations/botconnector/{integrationId}/bots][%d] putIntegrationsBotconnectorIntegrationIdBotsGatewayTimeout  %+v", 504, o.Payload)
 }
 

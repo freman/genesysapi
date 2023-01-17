@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutNotificationsChannelSubscriptionsParams creates a new PutNotificationsChannelSubscriptionsParams object
-// with the default values initialized.
+// NewPutNotificationsChannelSubscriptionsParams creates a new PutNotificationsChannelSubscriptionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutNotificationsChannelSubscriptionsParams() *PutNotificationsChannelSubscriptionsParams {
-	var ()
 	return &PutNotificationsChannelSubscriptionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutNotificationsChannelSubscriptionsParamsWithTimeout creates a new PutNotificationsChannelSubscriptionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutNotificationsChannelSubscriptionsParamsWithTimeout(timeout time.Duration) *PutNotificationsChannelSubscriptionsParams {
-	var ()
 	return &PutNotificationsChannelSubscriptionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutNotificationsChannelSubscriptionsParamsWithContext creates a new PutNotificationsChannelSubscriptionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutNotificationsChannelSubscriptionsParamsWithContext(ctx context.Context) *PutNotificationsChannelSubscriptionsParams {
-	var ()
 	return &PutNotificationsChannelSubscriptionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutNotificationsChannelSubscriptionsParamsWithHTTPClient creates a new PutNotificationsChannelSubscriptionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutNotificationsChannelSubscriptionsParamsWithHTTPClient(client *http.Client) *PutNotificationsChannelSubscriptionsParams {
-	var ()
 	return &PutNotificationsChannelSubscriptionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutNotificationsChannelSubscriptionsParams contains all the parameters to send to the API endpoint
-for the put notifications channel subscriptions operation typically these are written to a http.Request
+/*
+PutNotificationsChannelSubscriptionsParams contains all the parameters to send to the API endpoint
+
+	for the put notifications channel subscriptions operation.
+
+	Typically these are written to a http.Request.
 */
 type PutNotificationsChannelSubscriptionsParams struct {
 
-	/*Body
-	  Body
+	/* Body.
 
+	   Body
 	*/
 	Body []*models.ChannelTopic
-	/*ChannelID
-	  Channel ID
 
+	/* ChannelID.
+
+	   Channel ID
 	*/
 	ChannelID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put notifications channel subscriptions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutNotificationsChannelSubscriptionsParams) WithDefaults() *PutNotificationsChannelSubscriptionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put notifications channel subscriptions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutNotificationsChannelSubscriptionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put notifications channel subscriptions params
@@ -140,7 +157,6 @@ func (o *PutNotificationsChannelSubscriptionsParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

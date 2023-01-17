@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -29,8 +31,9 @@ type WfmHistoricalAdherenceQueryForUsers struct {
 	// Format: date-time
 	StartDate *strfmt.DateTime `json:"startDate"`
 
-	// The time zone, in olson format, to use in defining days when computing adherence. If it is not set, the business unit time zone will be used. The results will be returned as UTC timestamps regardless of the time zone input.
-	TimeZone string `json:"timeZone,omitempty"`
+	// The time zone, in olson format, to use in defining days when computing adherence. The results will be returned as UTC timestamps regardless of the time zone input.
+	// Required: true
+	TimeZone *string `json:"timeZone"`
 
 	// The userIds to report on
 	// Required: true
@@ -50,6 +53,10 @@ func (m *WfmHistoricalAdherenceQueryForUsers) Validate(formats strfmt.Registry) 
 		res = append(res, err)
 	}
 
+	if err := m.validateTimeZone(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateUserIds(formats); err != nil {
 		res = append(res, err)
 	}
@@ -61,7 +68,6 @@ func (m *WfmHistoricalAdherenceQueryForUsers) Validate(formats strfmt.Registry) 
 }
 
 func (m *WfmHistoricalAdherenceQueryForUsers) validateEndDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndDate) { // not required
 		return nil
 	}
@@ -86,6 +92,15 @@ func (m *WfmHistoricalAdherenceQueryForUsers) validateStartDate(formats strfmt.R
 	return nil
 }
 
+func (m *WfmHistoricalAdherenceQueryForUsers) validateTimeZone(formats strfmt.Registry) error {
+
+	if err := validate.Required("timeZone", "body", m.TimeZone); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *WfmHistoricalAdherenceQueryForUsers) validateUserIds(formats strfmt.Registry) error {
 
 	if err := validate.Required("userIds", "body", m.UserIds); err != nil {
@@ -96,6 +111,11 @@ func (m *WfmHistoricalAdherenceQueryForUsers) validateUserIds(formats strfmt.Reg
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this wfm historical adherence query for users based on context it is used
+func (m *WfmHistoricalAdherenceQueryForUsers) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

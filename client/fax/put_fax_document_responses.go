@@ -95,7 +95,6 @@ func (o *PutFaxDocumentReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutFaxDocumentOK() *PutFaxDocumentOK {
 	return &PutFaxDocumentOK{}
 }
 
-/*PutFaxDocumentOK handles this case with default header values.
+/*
+PutFaxDocumentOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutFaxDocumentOK struct {
 	Payload *models.FaxDocument
 }
 
+// IsSuccess returns true when this put fax document o k response has a 2xx status code
+func (o *PutFaxDocumentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put fax document o k response has a 3xx status code
+func (o *PutFaxDocumentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put fax document o k response has a 4xx status code
+func (o *PutFaxDocumentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put fax document o k response has a 5xx status code
+func (o *PutFaxDocumentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put fax document o k response a status code equal to that given
+func (o *PutFaxDocumentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutFaxDocumentOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentOK  %+v", 200, o.Payload)
+}
+
+func (o *PutFaxDocumentOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutFaxDocumentBadRequest() *PutFaxDocumentBadRequest {
 	return &PutFaxDocumentBadRequest{}
 }
 
-/*PutFaxDocumentBadRequest handles this case with default header values.
+/*
+PutFaxDocumentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutFaxDocumentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put fax document bad request response has a 2xx status code
+func (o *PutFaxDocumentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put fax document bad request response has a 3xx status code
+func (o *PutFaxDocumentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put fax document bad request response has a 4xx status code
+func (o *PutFaxDocumentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put fax document bad request response has a 5xx status code
+func (o *PutFaxDocumentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put fax document bad request response a status code equal to that given
+func (o *PutFaxDocumentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutFaxDocumentBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutFaxDocumentBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutFaxDocumentUnauthorized() *PutFaxDocumentUnauthorized {
 	return &PutFaxDocumentUnauthorized{}
 }
 
-/*PutFaxDocumentUnauthorized handles this case with default header values.
+/*
+PutFaxDocumentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutFaxDocumentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put fax document unauthorized response has a 2xx status code
+func (o *PutFaxDocumentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put fax document unauthorized response has a 3xx status code
+func (o *PutFaxDocumentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put fax document unauthorized response has a 4xx status code
+func (o *PutFaxDocumentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put fax document unauthorized response has a 5xx status code
+func (o *PutFaxDocumentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put fax document unauthorized response a status code equal to that given
+func (o *PutFaxDocumentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutFaxDocumentUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutFaxDocumentUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutFaxDocumentForbidden() *PutFaxDocumentForbidden {
 	return &PutFaxDocumentForbidden{}
 }
 
-/*PutFaxDocumentForbidden handles this case with default header values.
+/*
+PutFaxDocumentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutFaxDocumentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put fax document forbidden response has a 2xx status code
+func (o *PutFaxDocumentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put fax document forbidden response has a 3xx status code
+func (o *PutFaxDocumentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put fax document forbidden response has a 4xx status code
+func (o *PutFaxDocumentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put fax document forbidden response has a 5xx status code
+func (o *PutFaxDocumentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put fax document forbidden response a status code equal to that given
+func (o *PutFaxDocumentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutFaxDocumentForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutFaxDocumentForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutFaxDocumentNotFound() *PutFaxDocumentNotFound {
 	return &PutFaxDocumentNotFound{}
 }
 
-/*PutFaxDocumentNotFound handles this case with default header values.
+/*
+PutFaxDocumentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutFaxDocumentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put fax document not found response has a 2xx status code
+func (o *PutFaxDocumentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put fax document not found response has a 3xx status code
+func (o *PutFaxDocumentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put fax document not found response has a 4xx status code
+func (o *PutFaxDocumentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put fax document not found response has a 5xx status code
+func (o *PutFaxDocumentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put fax document not found response a status code equal to that given
+func (o *PutFaxDocumentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutFaxDocumentNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutFaxDocumentNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutFaxDocumentRequestTimeout() *PutFaxDocumentRequestTimeout {
 	return &PutFaxDocumentRequestTimeout{}
 }
 
-/*PutFaxDocumentRequestTimeout handles this case with default header values.
+/*
+PutFaxDocumentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutFaxDocumentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put fax document request timeout response has a 2xx status code
+func (o *PutFaxDocumentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put fax document request timeout response has a 3xx status code
+func (o *PutFaxDocumentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put fax document request timeout response has a 4xx status code
+func (o *PutFaxDocumentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put fax document request timeout response has a 5xx status code
+func (o *PutFaxDocumentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put fax document request timeout response a status code equal to that given
+func (o *PutFaxDocumentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutFaxDocumentRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutFaxDocumentRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutFaxDocumentRequestEntityTooLarge() *PutFaxDocumentRequestEntityTooLar
 	return &PutFaxDocumentRequestEntityTooLarge{}
 }
 
-/*PutFaxDocumentRequestEntityTooLarge handles this case with default header values.
+/*
+PutFaxDocumentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutFaxDocumentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put fax document request entity too large response has a 2xx status code
+func (o *PutFaxDocumentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put fax document request entity too large response has a 3xx status code
+func (o *PutFaxDocumentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put fax document request entity too large response has a 4xx status code
+func (o *PutFaxDocumentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put fax document request entity too large response has a 5xx status code
+func (o *PutFaxDocumentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put fax document request entity too large response a status code equal to that given
+func (o *PutFaxDocumentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutFaxDocumentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutFaxDocumentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutFaxDocumentUnsupportedMediaType() *PutFaxDocumentUnsupportedMediaType
 	return &PutFaxDocumentUnsupportedMediaType{}
 }
 
-/*PutFaxDocumentUnsupportedMediaType handles this case with default header values.
+/*
+PutFaxDocumentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutFaxDocumentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put fax document unsupported media type response has a 2xx status code
+func (o *PutFaxDocumentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put fax document unsupported media type response has a 3xx status code
+func (o *PutFaxDocumentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put fax document unsupported media type response has a 4xx status code
+func (o *PutFaxDocumentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put fax document unsupported media type response has a 5xx status code
+func (o *PutFaxDocumentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put fax document unsupported media type response a status code equal to that given
+func (o *PutFaxDocumentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutFaxDocumentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutFaxDocumentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutFaxDocumentTooManyRequests() *PutFaxDocumentTooManyRequests {
 	return &PutFaxDocumentTooManyRequests{}
 }
 
-/*PutFaxDocumentTooManyRequests handles this case with default header values.
+/*
+PutFaxDocumentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutFaxDocumentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put fax document too many requests response has a 2xx status code
+func (o *PutFaxDocumentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put fax document too many requests response has a 3xx status code
+func (o *PutFaxDocumentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put fax document too many requests response has a 4xx status code
+func (o *PutFaxDocumentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put fax document too many requests response has a 5xx status code
+func (o *PutFaxDocumentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put fax document too many requests response a status code equal to that given
+func (o *PutFaxDocumentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutFaxDocumentTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutFaxDocumentTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutFaxDocumentInternalServerError() *PutFaxDocumentInternalServerError {
 	return &PutFaxDocumentInternalServerError{}
 }
 
-/*PutFaxDocumentInternalServerError handles this case with default header values.
+/*
+PutFaxDocumentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutFaxDocumentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put fax document internal server error response has a 2xx status code
+func (o *PutFaxDocumentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put fax document internal server error response has a 3xx status code
+func (o *PutFaxDocumentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put fax document internal server error response has a 4xx status code
+func (o *PutFaxDocumentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put fax document internal server error response has a 5xx status code
+func (o *PutFaxDocumentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put fax document internal server error response a status code equal to that given
+func (o *PutFaxDocumentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutFaxDocumentInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutFaxDocumentInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutFaxDocumentServiceUnavailable() *PutFaxDocumentServiceUnavailable {
 	return &PutFaxDocumentServiceUnavailable{}
 }
 
-/*PutFaxDocumentServiceUnavailable handles this case with default header values.
+/*
+PutFaxDocumentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutFaxDocumentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put fax document service unavailable response has a 2xx status code
+func (o *PutFaxDocumentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put fax document service unavailable response has a 3xx status code
+func (o *PutFaxDocumentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put fax document service unavailable response has a 4xx status code
+func (o *PutFaxDocumentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put fax document service unavailable response has a 5xx status code
+func (o *PutFaxDocumentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put fax document service unavailable response a status code equal to that given
+func (o *PutFaxDocumentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutFaxDocumentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutFaxDocumentServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutFaxDocumentGatewayTimeout() *PutFaxDocumentGatewayTimeout {
 	return &PutFaxDocumentGatewayTimeout{}
 }
 
-/*PutFaxDocumentGatewayTimeout handles this case with default header values.
+/*
+PutFaxDocumentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutFaxDocumentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put fax document gateway timeout response has a 2xx status code
+func (o *PutFaxDocumentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put fax document gateway timeout response has a 3xx status code
+func (o *PutFaxDocumentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put fax document gateway timeout response has a 4xx status code
+func (o *PutFaxDocumentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put fax document gateway timeout response has a 5xx status code
+func (o *PutFaxDocumentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put fax document gateway timeout response a status code equal to that given
+func (o *PutFaxDocumentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutFaxDocumentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutFaxDocumentGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/fax/documents/{documentId}][%d] putFaxDocumentGatewayTimeout  %+v", 504, o.Payload)
 }
 

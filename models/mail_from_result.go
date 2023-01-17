@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -64,7 +65,6 @@ func (m *MailFromResult) validateMailFromDomain(formats strfmt.Registry) error {
 }
 
 func (m *MailFromResult) validateRecords(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Records) { // not required
 		return nil
 	}
@@ -78,6 +78,8 @@ func (m *MailFromResult) validateRecords(formats strfmt.Registry) error {
 			if err := m.Records[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("records" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("records" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -124,7 +126,6 @@ func (m *MailFromResult) validateStatusEnum(path, location string, value string)
 }
 
 func (m *MailFromResult) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -132,6 +133,40 @@ func (m *MailFromResult) validateStatus(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this mail from result based on the context it is used
+func (m *MailFromResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRecords(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MailFromResult) contextValidateRecords(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Records); i++ {
+
+		if m.Records[i] != nil {
+			if err := m.Records[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("records" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("records" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

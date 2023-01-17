@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -105,7 +106,6 @@ func (m *KnowledgeTraining) Validate(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeTraining) validateDateCompleted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCompleted) { // not required
 		return nil
 	}
@@ -118,7 +118,6 @@ func (m *KnowledgeTraining) validateDateCompleted(formats strfmt.Registry) error
 }
 
 func (m *KnowledgeTraining) validateDatePromoted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DatePromoted) { // not required
 		return nil
 	}
@@ -131,7 +130,6 @@ func (m *KnowledgeTraining) validateDatePromoted(formats strfmt.Registry) error 
 }
 
 func (m *KnowledgeTraining) validateDateTriggered(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateTriggered) { // not required
 		return nil
 	}
@@ -144,7 +142,6 @@ func (m *KnowledgeTraining) validateDateTriggered(formats strfmt.Registry) error
 }
 
 func (m *KnowledgeTraining) validateKnowledgeBase(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KnowledgeBase) { // not required
 		return nil
 	}
@@ -153,6 +150,8 @@ func (m *KnowledgeTraining) validateKnowledgeBase(formats strfmt.Registry) error
 		if err := m.KnowledgeBase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
 			}
 			return err
 		}
@@ -197,7 +196,6 @@ func (m *KnowledgeTraining) validateKnowledgeDocumentsStateEnum(path, location s
 }
 
 func (m *KnowledgeTraining) validateKnowledgeDocumentsState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.KnowledgeDocumentsState) { // not required
 		return nil
 	}
@@ -211,7 +209,6 @@ func (m *KnowledgeTraining) validateKnowledgeDocumentsState(formats strfmt.Regis
 }
 
 func (m *KnowledgeTraining) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -259,13 +256,159 @@ func (m *KnowledgeTraining) validateStatusEnum(path, location string, value stri
 }
 
 func (m *KnowledgeTraining) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge training based on the context it is used
+func (m *KnowledgeTraining) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCompleted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDatePromoted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateTriggered(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateErrorMessage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKnowledgeBase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKnowledgeDocumentsState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLanguageCode(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeTraining) contextValidateDateCompleted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCompleted", "body", strfmt.DateTime(m.DateCompleted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeTraining) contextValidateDatePromoted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "datePromoted", "body", strfmt.DateTime(m.DatePromoted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeTraining) contextValidateDateTriggered(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateTriggered", "body", strfmt.DateTime(m.DateTriggered)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeTraining) contextValidateErrorMessage(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "errorMessage", "body", string(m.ErrorMessage)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeTraining) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeTraining) contextValidateKnowledgeBase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.KnowledgeBase != nil {
+		if err := m.KnowledgeBase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("knowledgeBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("knowledgeBase")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeTraining) contextValidateKnowledgeDocumentsState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "knowledgeDocumentsState", "body", string(m.KnowledgeDocumentsState)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeTraining) contextValidateLanguageCode(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "languageCode", "body", string(m.LanguageCode)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeTraining) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeTraining) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
 		return err
 	}
 

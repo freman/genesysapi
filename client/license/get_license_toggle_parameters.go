@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetLicenseToggleParams creates a new GetLicenseToggleParams object
-// with the default values initialized.
+// NewGetLicenseToggleParams creates a new GetLicenseToggleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLicenseToggleParams() *GetLicenseToggleParams {
-	var ()
 	return &GetLicenseToggleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLicenseToggleParamsWithTimeout creates a new GetLicenseToggleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLicenseToggleParamsWithTimeout(timeout time.Duration) *GetLicenseToggleParams {
-	var ()
 	return &GetLicenseToggleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLicenseToggleParamsWithContext creates a new GetLicenseToggleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLicenseToggleParamsWithContext(ctx context.Context) *GetLicenseToggleParams {
-	var ()
 	return &GetLicenseToggleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLicenseToggleParamsWithHTTPClient creates a new GetLicenseToggleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLicenseToggleParamsWithHTTPClient(client *http.Client) *GetLicenseToggleParams {
-	var ()
 	return &GetLicenseToggleParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLicenseToggleParams contains all the parameters to send to the API endpoint
-for the get license toggle operation typically these are written to a http.Request
+/*
+GetLicenseToggleParams contains all the parameters to send to the API endpoint
+
+	for the get license toggle operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLicenseToggleParams struct {
 
-	/*FeatureName
-	  featureName
+	/* FeatureName.
 
+	   featureName
 	*/
 	FeatureName string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get license toggle params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLicenseToggleParams) WithDefaults() *GetLicenseToggleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get license toggle params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLicenseToggleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get license toggle params

@@ -101,7 +101,6 @@ func (o *DeleteArchitectSchedulegroupReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteArchitectSchedulegroupOK() *DeleteArchitectSchedulegroupOK {
 	return &DeleteArchitectSchedulegroupOK{}
 }
 
-/*DeleteArchitectSchedulegroupOK handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteArchitectSchedulegroupOK struct {
 }
 
+// IsSuccess returns true when this delete architect schedulegroup o k response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete architect schedulegroup o k response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup o k response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect schedulegroup o k response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect schedulegroup o k response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteArchitectSchedulegroupOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupOK ", 200)
+}
+
+func (o *DeleteArchitectSchedulegroupOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupOK ", 200)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteArchitectSchedulegroupBadRequest() *DeleteArchitectSchedulegroupBa
 	return &DeleteArchitectSchedulegroupBadRequest{}
 }
 
-/*DeleteArchitectSchedulegroupBadRequest handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteArchitectSchedulegroupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect schedulegroup bad request response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect schedulegroup bad request response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup bad request response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect schedulegroup bad request response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect schedulegroup bad request response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteArchitectSchedulegroupBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteArchitectSchedulegroupBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteArchitectSchedulegroupUnauthorized() *DeleteArchitectSchedulegroup
 	return &DeleteArchitectSchedulegroupUnauthorized{}
 }
 
-/*DeleteArchitectSchedulegroupUnauthorized handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteArchitectSchedulegroupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect schedulegroup unauthorized response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect schedulegroup unauthorized response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup unauthorized response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect schedulegroup unauthorized response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect schedulegroup unauthorized response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteArchitectSchedulegroupUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteArchitectSchedulegroupUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteArchitectSchedulegroupForbidden() *DeleteArchitectSchedulegroupFor
 	return &DeleteArchitectSchedulegroupForbidden{}
 }
 
-/*DeleteArchitectSchedulegroupForbidden handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteArchitectSchedulegroupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect schedulegroup forbidden response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect schedulegroup forbidden response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup forbidden response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect schedulegroup forbidden response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect schedulegroup forbidden response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteArchitectSchedulegroupForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteArchitectSchedulegroupForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteArchitectSchedulegroupNotFound() *DeleteArchitectSchedulegroupNotF
 	return &DeleteArchitectSchedulegroupNotFound{}
 }
 
-/*DeleteArchitectSchedulegroupNotFound handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteArchitectSchedulegroupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect schedulegroup not found response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect schedulegroup not found response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup not found response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect schedulegroup not found response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect schedulegroup not found response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteArchitectSchedulegroupNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteArchitectSchedulegroupNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteArchitectSchedulegroupRequestTimeout() *DeleteArchitectSchedulegro
 	return &DeleteArchitectSchedulegroupRequestTimeout{}
 }
 
-/*DeleteArchitectSchedulegroupRequestTimeout handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteArchitectSchedulegroupRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect schedulegroup request timeout response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect schedulegroup request timeout response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup request timeout response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect schedulegroup request timeout response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect schedulegroup request timeout response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteArchitectSchedulegroupRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteArchitectSchedulegroupRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteArchitectSchedulegroupConflict() *DeleteArchitectSchedulegroupConf
 	return &DeleteArchitectSchedulegroupConflict{}
 }
 
-/*DeleteArchitectSchedulegroupConflict handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeleteArchitectSchedulegroupConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect schedulegroup conflict response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect schedulegroup conflict response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup conflict response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect schedulegroup conflict response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect schedulegroup conflict response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteArchitectSchedulegroupConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteArchitectSchedulegroupConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteArchitectSchedulegroupRequestEntityTooLarge() *DeleteArchitectSche
 	return &DeleteArchitectSchedulegroupRequestEntityTooLarge{}
 }
 
-/*DeleteArchitectSchedulegroupRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteArchitectSchedulegroupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect schedulegroup request entity too large response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect schedulegroup request entity too large response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup request entity too large response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect schedulegroup request entity too large response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect schedulegroup request entity too large response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteArchitectSchedulegroupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteArchitectSchedulegroupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteArchitectSchedulegroupUnsupportedMediaType() *DeleteArchitectSched
 	return &DeleteArchitectSchedulegroupUnsupportedMediaType{}
 }
 
-/*DeleteArchitectSchedulegroupUnsupportedMediaType handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteArchitectSchedulegroupUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect schedulegroup unsupported media type response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect schedulegroup unsupported media type response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup unsupported media type response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect schedulegroup unsupported media type response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect schedulegroup unsupported media type response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteArchitectSchedulegroupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteArchitectSchedulegroupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteArchitectSchedulegroupTooManyRequests() *DeleteArchitectSchedulegr
 	return &DeleteArchitectSchedulegroupTooManyRequests{}
 }
 
-/*DeleteArchitectSchedulegroupTooManyRequests handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteArchitectSchedulegroupTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect schedulegroup too many requests response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect schedulegroup too many requests response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup too many requests response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete architect schedulegroup too many requests response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete architect schedulegroup too many requests response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteArchitectSchedulegroupTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteArchitectSchedulegroupTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteArchitectSchedulegroupInternalServerError() *DeleteArchitectSchedu
 	return &DeleteArchitectSchedulegroupInternalServerError{}
 }
 
-/*DeleteArchitectSchedulegroupInternalServerError handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteArchitectSchedulegroupInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect schedulegroup internal server error response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect schedulegroup internal server error response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup internal server error response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect schedulegroup internal server error response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect schedulegroup internal server error response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteArchitectSchedulegroupInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteArchitectSchedulegroupInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteArchitectSchedulegroupServiceUnavailable() *DeleteArchitectSchedul
 	return &DeleteArchitectSchedulegroupServiceUnavailable{}
 }
 
-/*DeleteArchitectSchedulegroupServiceUnavailable handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteArchitectSchedulegroupServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect schedulegroup service unavailable response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect schedulegroup service unavailable response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup service unavailable response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect schedulegroup service unavailable response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect schedulegroup service unavailable response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteArchitectSchedulegroupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteArchitectSchedulegroupServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteArchitectSchedulegroupGatewayTimeout() *DeleteArchitectSchedulegro
 	return &DeleteArchitectSchedulegroupGatewayTimeout{}
 }
 
-/*DeleteArchitectSchedulegroupGatewayTimeout handles this case with default header values.
+/*
+DeleteArchitectSchedulegroupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteArchitectSchedulegroupGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete architect schedulegroup gateway timeout response has a 2xx status code
+func (o *DeleteArchitectSchedulegroupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete architect schedulegroup gateway timeout response has a 3xx status code
+func (o *DeleteArchitectSchedulegroupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete architect schedulegroup gateway timeout response has a 4xx status code
+func (o *DeleteArchitectSchedulegroupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete architect schedulegroup gateway timeout response has a 5xx status code
+func (o *DeleteArchitectSchedulegroupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete architect schedulegroup gateway timeout response a status code equal to that given
+func (o *DeleteArchitectSchedulegroupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteArchitectSchedulegroupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteArchitectSchedulegroupGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/architect/schedulegroups/{scheduleGroupId}][%d] deleteArchitectSchedulegroupGatewayTimeout  %+v", 504, o.Payload)
 }
 

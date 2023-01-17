@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -37,7 +39,6 @@ func (m *DataAvailabilityResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DataAvailabilityResponse) validateDataAvailabilityDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DataAvailabilityDate) { // not required
 		return nil
 	}
@@ -46,6 +47,11 @@ func (m *DataAvailabilityResponse) validateDataAvailabilityDate(formats strfmt.R
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this data availability response based on context it is used
+func (m *DataAvailabilityResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

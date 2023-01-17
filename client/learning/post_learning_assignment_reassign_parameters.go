@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostLearningAssignmentReassignParams creates a new PostLearningAssignmentReassignParams object
-// with the default values initialized.
+// NewPostLearningAssignmentReassignParams creates a new PostLearningAssignmentReassignParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostLearningAssignmentReassignParams() *PostLearningAssignmentReassignParams {
-	var ()
 	return &PostLearningAssignmentReassignParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostLearningAssignmentReassignParamsWithTimeout creates a new PostLearningAssignmentReassignParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostLearningAssignmentReassignParamsWithTimeout(timeout time.Duration) *PostLearningAssignmentReassignParams {
-	var ()
 	return &PostLearningAssignmentReassignParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostLearningAssignmentReassignParamsWithContext creates a new PostLearningAssignmentReassignParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostLearningAssignmentReassignParamsWithContext(ctx context.Context) *PostLearningAssignmentReassignParams {
-	var ()
 	return &PostLearningAssignmentReassignParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostLearningAssignmentReassignParamsWithHTTPClient creates a new PostLearningAssignmentReassignParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostLearningAssignmentReassignParamsWithHTTPClient(client *http.Client) *PostLearningAssignmentReassignParams {
-	var ()
 	return &PostLearningAssignmentReassignParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostLearningAssignmentReassignParams contains all the parameters to send to the API endpoint
-for the post learning assignment reassign operation typically these are written to a http.Request
+/*
+PostLearningAssignmentReassignParams contains all the parameters to send to the API endpoint
+
+	for the post learning assignment reassign operation.
+
+	Typically these are written to a http.Request.
 */
 type PostLearningAssignmentReassignParams struct {
 
-	/*AssignmentID
-	  The Learning Assignment ID
+	/* AssignmentID.
 
+	   The Learning Assignment ID
 	*/
 	AssignmentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post learning assignment reassign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLearningAssignmentReassignParams) WithDefaults() *PostLearningAssignmentReassignParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post learning assignment reassign params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLearningAssignmentReassignParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post learning assignment reassign params

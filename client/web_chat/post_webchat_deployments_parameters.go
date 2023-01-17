@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWebchatDeploymentsParams creates a new PostWebchatDeploymentsParams object
-// with the default values initialized.
+// NewPostWebchatDeploymentsParams creates a new PostWebchatDeploymentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWebchatDeploymentsParams() *PostWebchatDeploymentsParams {
-	var ()
 	return &PostWebchatDeploymentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWebchatDeploymentsParamsWithTimeout creates a new PostWebchatDeploymentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWebchatDeploymentsParamsWithTimeout(timeout time.Duration) *PostWebchatDeploymentsParams {
-	var ()
 	return &PostWebchatDeploymentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWebchatDeploymentsParamsWithContext creates a new PostWebchatDeploymentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWebchatDeploymentsParamsWithContext(ctx context.Context) *PostWebchatDeploymentsParams {
-	var ()
 	return &PostWebchatDeploymentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWebchatDeploymentsParamsWithHTTPClient creates a new PostWebchatDeploymentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWebchatDeploymentsParamsWithHTTPClient(client *http.Client) *PostWebchatDeploymentsParams {
-	var ()
 	return &PostWebchatDeploymentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWebchatDeploymentsParams contains all the parameters to send to the API endpoint
-for the post webchat deployments operation typically these are written to a http.Request
+/*
+PostWebchatDeploymentsParams contains all the parameters to send to the API endpoint
+
+	for the post webchat deployments operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWebchatDeploymentsParams struct {
 
-	/*Body
-	  Deployment
+	/* Body.
 
+	   Deployment
 	*/
 	Body *models.WebChatDeployment
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post webchat deployments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWebchatDeploymentsParams) WithDefaults() *PostWebchatDeploymentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post webchat deployments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWebchatDeploymentsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post webchat deployments params
@@ -124,7 +140,6 @@ func (o *PostWebchatDeploymentsParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

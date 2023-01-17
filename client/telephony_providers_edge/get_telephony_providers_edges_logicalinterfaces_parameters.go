@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetTelephonyProvidersEdgesLogicalinterfacesParams creates a new GetTelephonyProvidersEdgesLogicalinterfacesParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesLogicalinterfacesParams creates a new GetTelephonyProvidersEdgesLogicalinterfacesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesLogicalinterfacesParams() *GetTelephonyProvidersEdgesLogicalinterfacesParams {
-	var ()
 	return &GetTelephonyProvidersEdgesLogicalinterfacesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesLogicalinterfacesParamsWithTimeout creates a new GetTelephonyProvidersEdgesLogicalinterfacesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesLogicalinterfacesParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesLogicalinterfacesParams {
-	var ()
 	return &GetTelephonyProvidersEdgesLogicalinterfacesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesLogicalinterfacesParamsWithContext creates a new GetTelephonyProvidersEdgesLogicalinterfacesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesLogicalinterfacesParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesLogicalinterfacesParams {
-	var ()
 	return &GetTelephonyProvidersEdgesLogicalinterfacesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesLogicalinterfacesParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesLogicalinterfacesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesLogicalinterfacesParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesLogicalinterfacesParams {
-	var ()
 	return &GetTelephonyProvidersEdgesLogicalinterfacesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesLogicalinterfacesParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges logicalinterfaces operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesLogicalinterfacesParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges logicalinterfaces operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesLogicalinterfacesParams struct {
 
-	/*EdgeIds
-	  Comma separated list of Edge Id's
+	/* EdgeIds.
 
+	   Comma separated list of Edge Id's
 	*/
 	EdgeIds string
-	/*Expand
-	  Field to expand in the response
 
+	/* Expand.
+
+	   Field to expand in the response
 	*/
 	Expand []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges logicalinterfaces params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesLogicalinterfacesParams) WithDefaults() *GetTelephonyProvidersEdgesLogicalinterfacesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges logicalinterfaces params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesLogicalinterfacesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges logicalinterfaces params
@@ -144,21 +161,42 @@ func (o *GetTelephonyProvidersEdgesLogicalinterfacesParams) WriteToRequest(r run
 	qrEdgeIds := o.EdgeIds
 	qEdgeIds := qrEdgeIds
 	if qEdgeIds != "" {
+
 		if err := r.SetQueryParam("edgeIds", qEdgeIds); err != nil {
 			return err
 		}
 	}
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetTelephonyProvidersEdgesLogicalinterfaces binds the parameter expand
+func (o *GetTelephonyProvidersEdgesLogicalinterfacesParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

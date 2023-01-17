@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsCallbackParticipantReplaceParams creates a new PostConversationsCallbackParticipantReplaceParams object
-// with the default values initialized.
+// NewPostConversationsCallbackParticipantReplaceParams creates a new PostConversationsCallbackParticipantReplaceParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsCallbackParticipantReplaceParams() *PostConversationsCallbackParticipantReplaceParams {
-	var ()
 	return &PostConversationsCallbackParticipantReplaceParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsCallbackParticipantReplaceParamsWithTimeout creates a new PostConversationsCallbackParticipantReplaceParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsCallbackParticipantReplaceParamsWithTimeout(timeout time.Duration) *PostConversationsCallbackParticipantReplaceParams {
-	var ()
 	return &PostConversationsCallbackParticipantReplaceParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsCallbackParticipantReplaceParamsWithContext creates a new PostConversationsCallbackParticipantReplaceParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsCallbackParticipantReplaceParamsWithContext(ctx context.Context) *PostConversationsCallbackParticipantReplaceParams {
-	var ()
 	return &PostConversationsCallbackParticipantReplaceParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsCallbackParticipantReplaceParamsWithHTTPClient creates a new PostConversationsCallbackParticipantReplaceParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsCallbackParticipantReplaceParamsWithHTTPClient(client *http.Client) *PostConversationsCallbackParticipantReplaceParams {
-	var ()
 	return &PostConversationsCallbackParticipantReplaceParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsCallbackParticipantReplaceParams contains all the parameters to send to the API endpoint
-for the post conversations callback participant replace operation typically these are written to a http.Request
+/*
+PostConversationsCallbackParticipantReplaceParams contains all the parameters to send to the API endpoint
+
+	for the post conversations callback participant replace operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsCallbackParticipantReplaceParams struct {
 
-	/*Body
-	  Transfer request
+	/* Body.
 
+	   Transfer request
 	*/
 	Body *models.TransferRequest
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations callback participant replace params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCallbackParticipantReplaceParams) WithDefaults() *PostConversationsCallbackParticipantReplaceParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations callback participant replace params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsCallbackParticipantReplaceParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations callback participant replace params
@@ -156,7 +174,6 @@ func (o *PostConversationsCallbackParticipantReplaceParams) WriteToRequest(r run
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteWorkforcemanagementBusinessunitSchedulingRunParams creates a new DeleteWorkforcemanagementBusinessunitSchedulingRunParams object
-// with the default values initialized.
+// NewDeleteWorkforcemanagementBusinessunitSchedulingRunParams creates a new DeleteWorkforcemanagementBusinessunitSchedulingRunParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteWorkforcemanagementBusinessunitSchedulingRunParams() *DeleteWorkforcemanagementBusinessunitSchedulingRunParams {
-	var ()
 	return &DeleteWorkforcemanagementBusinessunitSchedulingRunParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementBusinessunitSchedulingRunParamsWithTimeout creates a new DeleteWorkforcemanagementBusinessunitSchedulingRunParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteWorkforcemanagementBusinessunitSchedulingRunParamsWithTimeout(timeout time.Duration) *DeleteWorkforcemanagementBusinessunitSchedulingRunParams {
-	var ()
 	return &DeleteWorkforcemanagementBusinessunitSchedulingRunParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteWorkforcemanagementBusinessunitSchedulingRunParamsWithContext creates a new DeleteWorkforcemanagementBusinessunitSchedulingRunParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteWorkforcemanagementBusinessunitSchedulingRunParamsWithContext(ctx context.Context) *DeleteWorkforcemanagementBusinessunitSchedulingRunParams {
-	var ()
 	return &DeleteWorkforcemanagementBusinessunitSchedulingRunParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteWorkforcemanagementBusinessunitSchedulingRunParamsWithHTTPClient creates a new DeleteWorkforcemanagementBusinessunitSchedulingRunParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteWorkforcemanagementBusinessunitSchedulingRunParamsWithHTTPClient(client *http.Client) *DeleteWorkforcemanagementBusinessunitSchedulingRunParams {
-	var ()
 	return &DeleteWorkforcemanagementBusinessunitSchedulingRunParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteWorkforcemanagementBusinessunitSchedulingRunParams contains all the parameters to send to the API endpoint
-for the delete workforcemanagement businessunit scheduling run operation typically these are written to a http.Request
+/*
+DeleteWorkforcemanagementBusinessunitSchedulingRunParams contains all the parameters to send to the API endpoint
+
+	for the delete workforcemanagement businessunit scheduling run operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteWorkforcemanagementBusinessunitSchedulingRunParams struct {
 
-	/*BusinessUnitID
-	  The ID of the business unit
+	/* BusinessUnitID.
 
+	   The ID of the business unit
 	*/
 	BusinessUnitID string
-	/*RunID
-	  The ID of the schedule run
 
+	/* RunID.
+
+	   The ID of the schedule run
 	*/
 	RunID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete workforcemanagement businessunit scheduling run params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementBusinessunitSchedulingRunParams) WithDefaults() *DeleteWorkforcemanagementBusinessunitSchedulingRunParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete workforcemanagement businessunit scheduling run params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteWorkforcemanagementBusinessunitSchedulingRunParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete workforcemanagement businessunit scheduling run params

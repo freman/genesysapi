@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -54,7 +55,6 @@ func (m *RoutingConversationAttributesResponse) Validate(formats strfmt.Registry
 }
 
 func (m *RoutingConversationAttributesResponse) validateLanguage(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Language) { // not required
 		return nil
 	}
@@ -63,6 +63,8 @@ func (m *RoutingConversationAttributesResponse) validateLanguage(formats strfmt.
 		if err := m.Language.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("language")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("language")
 			}
 			return err
 		}
@@ -72,7 +74,6 @@ func (m *RoutingConversationAttributesResponse) validateLanguage(formats strfmt.
 }
 
 func (m *RoutingConversationAttributesResponse) validateScoredAgents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScoredAgents) { // not required
 		return nil
 	}
@@ -86,6 +87,8 @@ func (m *RoutingConversationAttributesResponse) validateScoredAgents(formats str
 			if err := m.ScoredAgents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -97,7 +100,6 @@ func (m *RoutingConversationAttributesResponse) validateScoredAgents(formats str
 }
 
 func (m *RoutingConversationAttributesResponse) validateSkills(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Skills) { // not required
 		return nil
 	}
@@ -111,6 +113,86 @@ func (m *RoutingConversationAttributesResponse) validateSkills(formats strfmt.Re
 			if err := m.Skills[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("skills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("skills" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this routing conversation attributes response based on the context it is used
+func (m *RoutingConversationAttributesResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateLanguage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScoredAgents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSkills(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RoutingConversationAttributesResponse) contextValidateLanguage(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Language != nil {
+		if err := m.Language.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("language")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("language")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *RoutingConversationAttributesResponse) contextValidateScoredAgents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ScoredAgents); i++ {
+
+		if m.ScoredAgents[i] != nil {
+			if err := m.ScoredAgents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("scoredAgents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *RoutingConversationAttributesResponse) contextValidateSkills(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Skills); i++ {
+
+		if m.Skills[i] != nil {
+			if err := m.Skills[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("skills" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("skills" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

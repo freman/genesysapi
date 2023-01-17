@@ -18,56 +18,72 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostArchitectSchedulesParams creates a new PostArchitectSchedulesParams object
-// with the default values initialized.
+// NewPostArchitectSchedulesParams creates a new PostArchitectSchedulesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostArchitectSchedulesParams() *PostArchitectSchedulesParams {
-	var ()
 	return &PostArchitectSchedulesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostArchitectSchedulesParamsWithTimeout creates a new PostArchitectSchedulesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostArchitectSchedulesParamsWithTimeout(timeout time.Duration) *PostArchitectSchedulesParams {
-	var ()
 	return &PostArchitectSchedulesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostArchitectSchedulesParamsWithContext creates a new PostArchitectSchedulesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostArchitectSchedulesParamsWithContext(ctx context.Context) *PostArchitectSchedulesParams {
-	var ()
 	return &PostArchitectSchedulesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostArchitectSchedulesParamsWithHTTPClient creates a new PostArchitectSchedulesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostArchitectSchedulesParamsWithHTTPClient(client *http.Client) *PostArchitectSchedulesParams {
-	var ()
 	return &PostArchitectSchedulesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostArchitectSchedulesParams contains all the parameters to send to the API endpoint
-for the post architect schedules operation typically these are written to a http.Request
+/*
+PostArchitectSchedulesParams contains all the parameters to send to the API endpoint
+
+	for the post architect schedules operation.
+
+	Typically these are written to a http.Request.
 */
 type PostArchitectSchedulesParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.Schedule
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post architect schedules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostArchitectSchedulesParams) WithDefaults() *PostArchitectSchedulesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post architect schedules params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostArchitectSchedulesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post architect schedules params
@@ -121,7 +137,6 @@ func (o *PostArchitectSchedulesParams) WriteToRequest(r runtime.ClientRequest, r
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

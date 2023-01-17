@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutChatSettingsParams creates a new PutChatSettingsParams object
-// with the default values initialized.
+// NewPutChatSettingsParams creates a new PutChatSettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutChatSettingsParams() *PutChatSettingsParams {
-	var ()
 	return &PutChatSettingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutChatSettingsParamsWithTimeout creates a new PutChatSettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutChatSettingsParamsWithTimeout(timeout time.Duration) *PutChatSettingsParams {
-	var ()
 	return &PutChatSettingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutChatSettingsParamsWithContext creates a new PutChatSettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutChatSettingsParamsWithContext(ctx context.Context) *PutChatSettingsParams {
-	var ()
 	return &PutChatSettingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutChatSettingsParamsWithHTTPClient creates a new PutChatSettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutChatSettingsParamsWithHTTPClient(client *http.Client) *PutChatSettingsParams {
-	var ()
 	return &PutChatSettingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutChatSettingsParams contains all the parameters to send to the API endpoint
-for the put chat settings operation typically these are written to a http.Request
+/*
+PutChatSettingsParams contains all the parameters to send to the API endpoint
+
+	for the put chat settings operation.
+
+	Typically these are written to a http.Request.
 */
 type PutChatSettingsParams struct {
 
-	/*Body
-	  Chat
+	/* Body.
 
+	   Chat
 	*/
 	Body *models.ChatSettings
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put chat settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutChatSettingsParams) WithDefaults() *PutChatSettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put chat settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutChatSettingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put chat settings params
@@ -124,7 +140,6 @@ func (o *PutChatSettingsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

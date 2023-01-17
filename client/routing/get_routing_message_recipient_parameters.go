@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingMessageRecipientParams creates a new GetRoutingMessageRecipientParams object
-// with the default values initialized.
+// NewGetRoutingMessageRecipientParams creates a new GetRoutingMessageRecipientParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingMessageRecipientParams() *GetRoutingMessageRecipientParams {
-	var ()
 	return &GetRoutingMessageRecipientParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingMessageRecipientParamsWithTimeout creates a new GetRoutingMessageRecipientParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingMessageRecipientParamsWithTimeout(timeout time.Duration) *GetRoutingMessageRecipientParams {
-	var ()
 	return &GetRoutingMessageRecipientParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingMessageRecipientParamsWithContext creates a new GetRoutingMessageRecipientParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingMessageRecipientParamsWithContext(ctx context.Context) *GetRoutingMessageRecipientParams {
-	var ()
 	return &GetRoutingMessageRecipientParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingMessageRecipientParamsWithHTTPClient creates a new GetRoutingMessageRecipientParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingMessageRecipientParamsWithHTTPClient(client *http.Client) *GetRoutingMessageRecipientParams {
-	var ()
 	return &GetRoutingMessageRecipientParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingMessageRecipientParams contains all the parameters to send to the API endpoint
-for the get routing message recipient operation typically these are written to a http.Request
+/*
+GetRoutingMessageRecipientParams contains all the parameters to send to the API endpoint
+
+	for the get routing message recipient operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingMessageRecipientParams struct {
 
-	/*RecipientID
-	  Recipient ID
+	/* RecipientID.
 
+	   Recipient ID
 	*/
 	RecipientID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing message recipient params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingMessageRecipientParams) WithDefaults() *GetRoutingMessageRecipientParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing message recipient params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingMessageRecipientParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing message recipient params

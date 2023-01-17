@@ -101,7 +101,6 @@ func (o *PostWorkforcemanagementManagementunitMoveReader) ReadResponse(response 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostWorkforcemanagementManagementunitMoveOK() *PostWorkforcemanagementMa
 	return &PostWorkforcemanagementManagementunitMoveOK{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveOK handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostWorkforcemanagementManagementunitMoveOK struct {
 	Payload *models.MoveManagementUnitResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move o k response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move o k response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move o k response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move o k response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move o k response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostWorkforcemanagementManagementunitMoveAccepted() *PostWorkforcemanage
 	return &PostWorkforcemanagementManagementunitMoveAccepted{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveAccepted handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveAccepted describes a response with status code 202, with default header values.
 
 The management unit is being moved
 */
@@ -153,7 +183,36 @@ type PostWorkforcemanagementManagementunitMoveAccepted struct {
 	Payload *models.MoveManagementUnitResponse
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move accepted response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move accepted response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move accepted response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move accepted response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move accepted response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostWorkforcemanagementManagementunitMoveBadRequest() *PostWorkforcemana
 	return &PostWorkforcemanagementManagementunitMoveBadRequest{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostWorkforcemanagementManagementunitMoveBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move bad request response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move bad request response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move bad request response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move bad request response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move bad request response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostWorkforcemanagementManagementunitMoveUnauthorized() *PostWorkforcema
 	return &PostWorkforcemanagementManagementunitMoveUnauthorized{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostWorkforcemanagementManagementunitMoveUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostWorkforcemanagementManagementunitMoveForbidden() *PostWorkforcemanag
 	return &PostWorkforcemanagementManagementunitMoveForbidden{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostWorkforcemanagementManagementunitMoveForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostWorkforcemanagementManagementunitMoveNotFound() *PostWorkforcemanage
 	return &PostWorkforcemanagementManagementunitMoveNotFound{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostWorkforcemanagementManagementunitMoveNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move not found response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move not found response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move not found response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move not found response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move not found response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostWorkforcemanagementManagementunitMoveRequestTimeout() *PostWorkforce
 	return &PostWorkforcemanagementManagementunitMoveRequestTimeout{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostWorkforcemanagementManagementunitMoveRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostWorkforcemanagementManagementunitMoveRequestEntityTooLarge() *PostWo
 	return &PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostWorkforcemanagementManagementunitMoveUnsupportedMediaType() *PostWor
 	return &PostWorkforcemanagementManagementunitMoveUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostWorkforcemanagementManagementunitMoveUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostWorkforcemanagementManagementunitMoveTooManyRequests() *PostWorkforc
 	return &PostWorkforcemanagementManagementunitMoveTooManyRequests{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostWorkforcemanagementManagementunitMoveTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostWorkforcemanagementManagementunitMoveInternalServerError() *PostWork
 	return &PostWorkforcemanagementManagementunitMoveInternalServerError{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostWorkforcemanagementManagementunitMoveInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostWorkforcemanagementManagementunitMoveServiceUnavailable() *PostWorkf
 	return &PostWorkforcemanagementManagementunitMoveServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostWorkforcemanagementManagementunitMoveServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostWorkforcemanagementManagementunitMoveGatewayTimeout() *PostWorkforce
 	return &PostWorkforcemanagementManagementunitMoveGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementManagementunitMoveGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementManagementunitMoveGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostWorkforcemanagementManagementunitMoveGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement managementunit move gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementManagementunitMoveGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement managementunit move gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementManagementunitMoveGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement managementunit move gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementManagementunitMoveGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement managementunit move gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementManagementunitMoveGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement managementunit move gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementManagementunitMoveGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementManagementunitMoveGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementManagementunitMoveGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/managementunits/{managementUnitId}/move][%d] postWorkforcemanagementManagementunitMoveGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -106,7 +106,8 @@ func NewPostRoutingQueueMembersBadRequest() *PostRoutingQueueMembersBadRequest {
 	return &PostRoutingQueueMembersBadRequest{}
 }
 
-/*PostRoutingQueueMembersBadRequest handles this case with default header values.
+/*
+PostRoutingQueueMembersBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type PostRoutingQueueMembersBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue members bad request response has a 2xx status code
+func (o *PostRoutingQueueMembersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue members bad request response has a 3xx status code
+func (o *PostRoutingQueueMembersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue members bad request response has a 4xx status code
+func (o *PostRoutingQueueMembersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue members bad request response has a 5xx status code
+func (o *PostRoutingQueueMembersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue members bad request response a status code equal to that given
+func (o *PostRoutingQueueMembersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostRoutingQueueMembersBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostRoutingQueueMembersBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewPostRoutingQueueMembersUnauthorized() *PostRoutingQueueMembersUnauthoriz
 	return &PostRoutingQueueMembersUnauthorized{}
 }
 
-/*PostRoutingQueueMembersUnauthorized handles this case with default header values.
+/*
+PostRoutingQueueMembersUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type PostRoutingQueueMembersUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue members unauthorized response has a 2xx status code
+func (o *PostRoutingQueueMembersUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue members unauthorized response has a 3xx status code
+func (o *PostRoutingQueueMembersUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue members unauthorized response has a 4xx status code
+func (o *PostRoutingQueueMembersUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue members unauthorized response has a 5xx status code
+func (o *PostRoutingQueueMembersUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue members unauthorized response a status code equal to that given
+func (o *PostRoutingQueueMembersUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostRoutingQueueMembersUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostRoutingQueueMembersUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewPostRoutingQueueMembersForbidden() *PostRoutingQueueMembersForbidden {
 	return &PostRoutingQueueMembersForbidden{}
 }
 
-/*PostRoutingQueueMembersForbidden handles this case with default header values.
+/*
+PostRoutingQueueMembersForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type PostRoutingQueueMembersForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue members forbidden response has a 2xx status code
+func (o *PostRoutingQueueMembersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue members forbidden response has a 3xx status code
+func (o *PostRoutingQueueMembersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue members forbidden response has a 4xx status code
+func (o *PostRoutingQueueMembersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue members forbidden response has a 5xx status code
+func (o *PostRoutingQueueMembersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue members forbidden response a status code equal to that given
+func (o *PostRoutingQueueMembersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostRoutingQueueMembersForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostRoutingQueueMembersForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewPostRoutingQueueMembersNotFound() *PostRoutingQueueMembersNotFound {
 	return &PostRoutingQueueMembersNotFound{}
 }
 
-/*PostRoutingQueueMembersNotFound handles this case with default header values.
+/*
+PostRoutingQueueMembersNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type PostRoutingQueueMembersNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue members not found response has a 2xx status code
+func (o *PostRoutingQueueMembersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue members not found response has a 3xx status code
+func (o *PostRoutingQueueMembersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue members not found response has a 4xx status code
+func (o *PostRoutingQueueMembersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue members not found response has a 5xx status code
+func (o *PostRoutingQueueMembersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue members not found response a status code equal to that given
+func (o *PostRoutingQueueMembersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostRoutingQueueMembersNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostRoutingQueueMembersNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewPostRoutingQueueMembersRequestTimeout() *PostRoutingQueueMembersRequestT
 	return &PostRoutingQueueMembersRequestTimeout{}
 }
 
-/*PostRoutingQueueMembersRequestTimeout handles this case with default header values.
+/*
+PostRoutingQueueMembersRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type PostRoutingQueueMembersRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue members request timeout response has a 2xx status code
+func (o *PostRoutingQueueMembersRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue members request timeout response has a 3xx status code
+func (o *PostRoutingQueueMembersRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue members request timeout response has a 4xx status code
+func (o *PostRoutingQueueMembersRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue members request timeout response has a 5xx status code
+func (o *PostRoutingQueueMembersRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue members request timeout response a status code equal to that given
+func (o *PostRoutingQueueMembersRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostRoutingQueueMembersRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRoutingQueueMembersRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewPostRoutingQueueMembersRequestEntityTooLarge() *PostRoutingQueueMembersR
 	return &PostRoutingQueueMembersRequestEntityTooLarge{}
 }
 
-/*PostRoutingQueueMembersRequestEntityTooLarge handles this case with default header values.
+/*
+PostRoutingQueueMembersRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type PostRoutingQueueMembersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue members request entity too large response has a 2xx status code
+func (o *PostRoutingQueueMembersRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue members request entity too large response has a 3xx status code
+func (o *PostRoutingQueueMembersRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue members request entity too large response has a 4xx status code
+func (o *PostRoutingQueueMembersRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue members request entity too large response has a 5xx status code
+func (o *PostRoutingQueueMembersRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue members request entity too large response a status code equal to that given
+func (o *PostRoutingQueueMembersRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostRoutingQueueMembersRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostRoutingQueueMembersRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewPostRoutingQueueMembersUnsupportedMediaType() *PostRoutingQueueMembersUn
 	return &PostRoutingQueueMembersUnsupportedMediaType{}
 }
 
-/*PostRoutingQueueMembersUnsupportedMediaType handles this case with default header values.
+/*
+PostRoutingQueueMembersUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type PostRoutingQueueMembersUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue members unsupported media type response has a 2xx status code
+func (o *PostRoutingQueueMembersUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue members unsupported media type response has a 3xx status code
+func (o *PostRoutingQueueMembersUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue members unsupported media type response has a 4xx status code
+func (o *PostRoutingQueueMembersUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue members unsupported media type response has a 5xx status code
+func (o *PostRoutingQueueMembersUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue members unsupported media type response a status code equal to that given
+func (o *PostRoutingQueueMembersUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostRoutingQueueMembersUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostRoutingQueueMembersUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewPostRoutingQueueMembersTooManyRequests() *PostRoutingQueueMembersTooMany
 	return &PostRoutingQueueMembersTooManyRequests{}
 }
 
-/*PostRoutingQueueMembersTooManyRequests handles this case with default header values.
+/*
+PostRoutingQueueMembersTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type PostRoutingQueueMembersTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue members too many requests response has a 2xx status code
+func (o *PostRoutingQueueMembersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue members too many requests response has a 3xx status code
+func (o *PostRoutingQueueMembersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue members too many requests response has a 4xx status code
+func (o *PostRoutingQueueMembersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing queue members too many requests response has a 5xx status code
+func (o *PostRoutingQueueMembersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing queue members too many requests response a status code equal to that given
+func (o *PostRoutingQueueMembersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostRoutingQueueMembersTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostRoutingQueueMembersTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewPostRoutingQueueMembersInternalServerError() *PostRoutingQueueMembersInt
 	return &PostRoutingQueueMembersInternalServerError{}
 }
 
-/*PostRoutingQueueMembersInternalServerError handles this case with default header values.
+/*
+PostRoutingQueueMembersInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type PostRoutingQueueMembersInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue members internal server error response has a 2xx status code
+func (o *PostRoutingQueueMembersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue members internal server error response has a 3xx status code
+func (o *PostRoutingQueueMembersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue members internal server error response has a 4xx status code
+func (o *PostRoutingQueueMembersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing queue members internal server error response has a 5xx status code
+func (o *PostRoutingQueueMembersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing queue members internal server error response a status code equal to that given
+func (o *PostRoutingQueueMembersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostRoutingQueueMembersInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostRoutingQueueMembersInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewPostRoutingQueueMembersServiceUnavailable() *PostRoutingQueueMembersServ
 	return &PostRoutingQueueMembersServiceUnavailable{}
 }
 
-/*PostRoutingQueueMembersServiceUnavailable handles this case with default header values.
+/*
+PostRoutingQueueMembersServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type PostRoutingQueueMembersServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue members service unavailable response has a 2xx status code
+func (o *PostRoutingQueueMembersServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue members service unavailable response has a 3xx status code
+func (o *PostRoutingQueueMembersServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue members service unavailable response has a 4xx status code
+func (o *PostRoutingQueueMembersServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing queue members service unavailable response has a 5xx status code
+func (o *PostRoutingQueueMembersServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing queue members service unavailable response a status code equal to that given
+func (o *PostRoutingQueueMembersServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostRoutingQueueMembersServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostRoutingQueueMembersServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewPostRoutingQueueMembersGatewayTimeout() *PostRoutingQueueMembersGatewayT
 	return &PostRoutingQueueMembersGatewayTimeout{}
 }
 
-/*PostRoutingQueueMembersGatewayTimeout handles this case with default header values.
+/*
+PostRoutingQueueMembersGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type PostRoutingQueueMembersGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing queue members gateway timeout response has a 2xx status code
+func (o *PostRoutingQueueMembersGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing queue members gateway timeout response has a 3xx status code
+func (o *PostRoutingQueueMembersGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing queue members gateway timeout response has a 4xx status code
+func (o *PostRoutingQueueMembersGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing queue members gateway timeout response has a 5xx status code
+func (o *PostRoutingQueueMembersGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing queue members gateway timeout response a status code equal to that given
+func (o *PostRoutingQueueMembersGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostRoutingQueueMembersGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostRoutingQueueMembersGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembersGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewPostRoutingQueueMembersDefault(code int) *PostRoutingQueueMembersDefault
 	}
 }
 
-/*PostRoutingQueueMembersDefault handles this case with default header values.
+/*
+PostRoutingQueueMembersDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *PostRoutingQueueMembersDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this post routing queue members default response has a 2xx status code
+func (o *PostRoutingQueueMembersDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this post routing queue members default response has a 3xx status code
+func (o *PostRoutingQueueMembersDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this post routing queue members default response has a 4xx status code
+func (o *PostRoutingQueueMembersDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this post routing queue members default response has a 5xx status code
+func (o *PostRoutingQueueMembersDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this post routing queue members default response a status code equal to that given
+func (o *PostRoutingQueueMembersDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *PostRoutingQueueMembersDefault) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembers default ", o._statusCode)
+}
+
+func (o *PostRoutingQueueMembersDefault) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/queues/{queueId}/members][%d] postRoutingQueueMembers default ", o._statusCode)
 }
 

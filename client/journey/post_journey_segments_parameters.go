@@ -18,56 +18,72 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostJourneySegmentsParams creates a new PostJourneySegmentsParams object
-// with the default values initialized.
+// NewPostJourneySegmentsParams creates a new PostJourneySegmentsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostJourneySegmentsParams() *PostJourneySegmentsParams {
-	var ()
 	return &PostJourneySegmentsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostJourneySegmentsParamsWithTimeout creates a new PostJourneySegmentsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostJourneySegmentsParamsWithTimeout(timeout time.Duration) *PostJourneySegmentsParams {
-	var ()
 	return &PostJourneySegmentsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostJourneySegmentsParamsWithContext creates a new PostJourneySegmentsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostJourneySegmentsParamsWithContext(ctx context.Context) *PostJourneySegmentsParams {
-	var ()
 	return &PostJourneySegmentsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostJourneySegmentsParamsWithHTTPClient creates a new PostJourneySegmentsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostJourneySegmentsParamsWithHTTPClient(client *http.Client) *PostJourneySegmentsParams {
-	var ()
 	return &PostJourneySegmentsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostJourneySegmentsParams contains all the parameters to send to the API endpoint
-for the post journey segments operation typically these are written to a http.Request
+/*
+PostJourneySegmentsParams contains all the parameters to send to the API endpoint
+
+	for the post journey segments operation.
+
+	Typically these are written to a http.Request.
 */
 type PostJourneySegmentsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.JourneySegment
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post journey segments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostJourneySegmentsParams) WithDefaults() *PostJourneySegmentsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post journey segments params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostJourneySegmentsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post journey segments params
@@ -121,7 +137,6 @@ func (o *PostJourneySegmentsParams) WriteToRequest(r runtime.ClientRequest, reg 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

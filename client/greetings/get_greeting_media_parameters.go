@@ -16,76 +16,94 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGreetingMediaParams creates a new GetGreetingMediaParams object
-// with the default values initialized.
+// NewGetGreetingMediaParams creates a new GetGreetingMediaParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGreetingMediaParams() *GetGreetingMediaParams {
-	var (
-		formatIDDefault = string("WAV")
-	)
 	return &GetGreetingMediaParams{
-		FormatID: &formatIDDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGreetingMediaParamsWithTimeout creates a new GetGreetingMediaParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGreetingMediaParamsWithTimeout(timeout time.Duration) *GetGreetingMediaParams {
-	var (
-		formatIDDefault = string("WAV")
-	)
 	return &GetGreetingMediaParams{
-		FormatID: &formatIDDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGreetingMediaParamsWithContext creates a new GetGreetingMediaParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGreetingMediaParamsWithContext(ctx context.Context) *GetGreetingMediaParams {
-	var (
-		formatIdDefault = string("WAV")
-	)
 	return &GetGreetingMediaParams{
-		FormatID: &formatIdDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetGreetingMediaParamsWithHTTPClient creates a new GetGreetingMediaParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGreetingMediaParamsWithHTTPClient(client *http.Client) *GetGreetingMediaParams {
-	var (
-		formatIdDefault = string("WAV")
-	)
 	return &GetGreetingMediaParams{
-		FormatID:   &formatIdDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetGreetingMediaParams contains all the parameters to send to the API endpoint
-for the get greeting media operation typically these are written to a http.Request
+/*
+GetGreetingMediaParams contains all the parameters to send to the API endpoint
+
+	for the get greeting media operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGreetingMediaParams struct {
 
-	/*FormatID
-	  The desired media format.
+	/* FormatID.
 
+	   The desired media format.
+
+	   Default: "WAV"
 	*/
 	FormatID *string
-	/*GreetingID
-	  Greeting ID
 
+	/* GreetingID.
+
+	   Greeting ID
 	*/
 	GreetingID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get greeting media params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGreetingMediaParams) WithDefaults() *GetGreetingMediaParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get greeting media params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGreetingMediaParams) SetDefaults() {
+	var (
+		formatIDDefault = string("WAV")
+	)
+
+	val := GetGreetingMediaParams{
+		FormatID: &formatIDDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get greeting media params
@@ -155,16 +173,17 @@ func (o *GetGreetingMediaParams) WriteToRequest(r runtime.ClientRequest, reg str
 
 		// query param formatId
 		var qrFormatID string
+
 		if o.FormatID != nil {
 			qrFormatID = *o.FormatID
 		}
 		qFormatID := qrFormatID
 		if qFormatID != "" {
+
 			if err := r.SetQueryParam("formatId", qFormatID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param greetingId

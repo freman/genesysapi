@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -84,7 +85,6 @@ func (m *SearchRequest) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SearchRequest) validateAggregations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Aggregations) { // not required
 		return nil
 	}
@@ -98,6 +98,8 @@ func (m *SearchRequest) validateAggregations(formats strfmt.Registry) error {
 			if err := m.Aggregations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("aggregations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("aggregations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -109,7 +111,6 @@ func (m *SearchRequest) validateAggregations(formats strfmt.Registry) error {
 }
 
 func (m *SearchRequest) validateQuery(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Query) { // not required
 		return nil
 	}
@@ -123,6 +124,8 @@ func (m *SearchRequest) validateQuery(formats strfmt.Registry) error {
 			if err := m.Query[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("query" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("query" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -134,7 +137,6 @@ func (m *SearchRequest) validateQuery(formats strfmt.Registry) error {
 }
 
 func (m *SearchRequest) validateSort(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Sort) { // not required
 		return nil
 	}
@@ -148,6 +150,8 @@ func (m *SearchRequest) validateSort(formats strfmt.Registry) error {
 			if err := m.Sort[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("sort" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sort" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -191,7 +195,6 @@ func (m *SearchRequest) validateSortOrderEnum(path, location string, value strin
 }
 
 func (m *SearchRequest) validateSortOrder(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SortOrder) { // not required
 		return nil
 	}
@@ -208,6 +211,88 @@ func (m *SearchRequest) validateTypes(formats strfmt.Registry) error {
 
 	if err := validate.Required("types", "body", m.Types); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this search request based on the context it is used
+func (m *SearchRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAggregations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuery(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSort(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SearchRequest) contextValidateAggregations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Aggregations); i++ {
+
+		if m.Aggregations[i] != nil {
+			if err := m.Aggregations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("aggregations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("aggregations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SearchRequest) contextValidateQuery(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Query); i++ {
+
+		if m.Query[i] != nil {
+			if err := m.Query[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("query" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("query" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *SearchRequest) contextValidateSort(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Sort); i++ {
+
+		if m.Sort[i] != nil {
+			if err := m.Sort[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sort" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("sort" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

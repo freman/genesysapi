@@ -95,7 +95,6 @@ func (o *GetRoutingQueueEstimatedwaittimeReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingQueueEstimatedwaittimeOK() *GetRoutingQueueEstimatedwaittimeOK
 	return &GetRoutingQueueEstimatedwaittimeOK{}
 }
 
-/*GetRoutingQueueEstimatedwaittimeOK handles this case with default header values.
+/*
+GetRoutingQueueEstimatedwaittimeOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingQueueEstimatedwaittimeOK struct {
 	Payload *models.EstimatedWaitTimePredictions
 }
 
+// IsSuccess returns true when this get routing queue estimatedwaittime o k response has a 2xx status code
+func (o *GetRoutingQueueEstimatedwaittimeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing queue estimatedwaittime o k response has a 3xx status code
+func (o *GetRoutingQueueEstimatedwaittimeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue estimatedwaittime o k response has a 4xx status code
+func (o *GetRoutingQueueEstimatedwaittimeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing queue estimatedwaittime o k response has a 5xx status code
+func (o *GetRoutingQueueEstimatedwaittimeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue estimatedwaittime o k response a status code equal to that given
+func (o *GetRoutingQueueEstimatedwaittimeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingQueueEstimatedwaittimeOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingQueueEstimatedwaittimeOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingQueueEstimatedwaittimeBadRequest() *GetRoutingQueueEstimatedwa
 	return &GetRoutingQueueEstimatedwaittimeBadRequest{}
 }
 
-/*GetRoutingQueueEstimatedwaittimeBadRequest handles this case with default header values.
+/*
+GetRoutingQueueEstimatedwaittimeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingQueueEstimatedwaittimeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue estimatedwaittime bad request response has a 2xx status code
+func (o *GetRoutingQueueEstimatedwaittimeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue estimatedwaittime bad request response has a 3xx status code
+func (o *GetRoutingQueueEstimatedwaittimeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue estimatedwaittime bad request response has a 4xx status code
+func (o *GetRoutingQueueEstimatedwaittimeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue estimatedwaittime bad request response has a 5xx status code
+func (o *GetRoutingQueueEstimatedwaittimeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue estimatedwaittime bad request response a status code equal to that given
+func (o *GetRoutingQueueEstimatedwaittimeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingQueueEstimatedwaittimeBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingQueueEstimatedwaittimeBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingQueueEstimatedwaittimeUnauthorized() *GetRoutingQueueEstimated
 	return &GetRoutingQueueEstimatedwaittimeUnauthorized{}
 }
 
-/*GetRoutingQueueEstimatedwaittimeUnauthorized handles this case with default header values.
+/*
+GetRoutingQueueEstimatedwaittimeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingQueueEstimatedwaittimeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue estimatedwaittime unauthorized response has a 2xx status code
+func (o *GetRoutingQueueEstimatedwaittimeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue estimatedwaittime unauthorized response has a 3xx status code
+func (o *GetRoutingQueueEstimatedwaittimeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue estimatedwaittime unauthorized response has a 4xx status code
+func (o *GetRoutingQueueEstimatedwaittimeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue estimatedwaittime unauthorized response has a 5xx status code
+func (o *GetRoutingQueueEstimatedwaittimeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue estimatedwaittime unauthorized response a status code equal to that given
+func (o *GetRoutingQueueEstimatedwaittimeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingQueueEstimatedwaittimeUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingQueueEstimatedwaittimeUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingQueueEstimatedwaittimeForbidden() *GetRoutingQueueEstimatedwai
 	return &GetRoutingQueueEstimatedwaittimeForbidden{}
 }
 
-/*GetRoutingQueueEstimatedwaittimeForbidden handles this case with default header values.
+/*
+GetRoutingQueueEstimatedwaittimeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingQueueEstimatedwaittimeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue estimatedwaittime forbidden response has a 2xx status code
+func (o *GetRoutingQueueEstimatedwaittimeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue estimatedwaittime forbidden response has a 3xx status code
+func (o *GetRoutingQueueEstimatedwaittimeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue estimatedwaittime forbidden response has a 4xx status code
+func (o *GetRoutingQueueEstimatedwaittimeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue estimatedwaittime forbidden response has a 5xx status code
+func (o *GetRoutingQueueEstimatedwaittimeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue estimatedwaittime forbidden response a status code equal to that given
+func (o *GetRoutingQueueEstimatedwaittimeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingQueueEstimatedwaittimeForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingQueueEstimatedwaittimeForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingQueueEstimatedwaittimeNotFound() *GetRoutingQueueEstimatedwait
 	return &GetRoutingQueueEstimatedwaittimeNotFound{}
 }
 
-/*GetRoutingQueueEstimatedwaittimeNotFound handles this case with default header values.
+/*
+GetRoutingQueueEstimatedwaittimeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingQueueEstimatedwaittimeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue estimatedwaittime not found response has a 2xx status code
+func (o *GetRoutingQueueEstimatedwaittimeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue estimatedwaittime not found response has a 3xx status code
+func (o *GetRoutingQueueEstimatedwaittimeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue estimatedwaittime not found response has a 4xx status code
+func (o *GetRoutingQueueEstimatedwaittimeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue estimatedwaittime not found response has a 5xx status code
+func (o *GetRoutingQueueEstimatedwaittimeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue estimatedwaittime not found response a status code equal to that given
+func (o *GetRoutingQueueEstimatedwaittimeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingQueueEstimatedwaittimeNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingQueueEstimatedwaittimeNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingQueueEstimatedwaittimeRequestTimeout() *GetRoutingQueueEstimat
 	return &GetRoutingQueueEstimatedwaittimeRequestTimeout{}
 }
 
-/*GetRoutingQueueEstimatedwaittimeRequestTimeout handles this case with default header values.
+/*
+GetRoutingQueueEstimatedwaittimeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingQueueEstimatedwaittimeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue estimatedwaittime request timeout response has a 2xx status code
+func (o *GetRoutingQueueEstimatedwaittimeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue estimatedwaittime request timeout response has a 3xx status code
+func (o *GetRoutingQueueEstimatedwaittimeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue estimatedwaittime request timeout response has a 4xx status code
+func (o *GetRoutingQueueEstimatedwaittimeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue estimatedwaittime request timeout response has a 5xx status code
+func (o *GetRoutingQueueEstimatedwaittimeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue estimatedwaittime request timeout response a status code equal to that given
+func (o *GetRoutingQueueEstimatedwaittimeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingQueueEstimatedwaittimeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingQueueEstimatedwaittimeRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingQueueEstimatedwaittimeRequestEntityTooLarge() *GetRoutingQueue
 	return &GetRoutingQueueEstimatedwaittimeRequestEntityTooLarge{}
 }
 
-/*GetRoutingQueueEstimatedwaittimeRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingQueueEstimatedwaittimeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingQueueEstimatedwaittimeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue estimatedwaittime request entity too large response has a 2xx status code
+func (o *GetRoutingQueueEstimatedwaittimeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue estimatedwaittime request entity too large response has a 3xx status code
+func (o *GetRoutingQueueEstimatedwaittimeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue estimatedwaittime request entity too large response has a 4xx status code
+func (o *GetRoutingQueueEstimatedwaittimeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue estimatedwaittime request entity too large response has a 5xx status code
+func (o *GetRoutingQueueEstimatedwaittimeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue estimatedwaittime request entity too large response a status code equal to that given
+func (o *GetRoutingQueueEstimatedwaittimeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingQueueEstimatedwaittimeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingQueueEstimatedwaittimeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingQueueEstimatedwaittimeUnsupportedMediaType() *GetRoutingQueueE
 	return &GetRoutingQueueEstimatedwaittimeUnsupportedMediaType{}
 }
 
-/*GetRoutingQueueEstimatedwaittimeUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingQueueEstimatedwaittimeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingQueueEstimatedwaittimeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue estimatedwaittime unsupported media type response has a 2xx status code
+func (o *GetRoutingQueueEstimatedwaittimeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue estimatedwaittime unsupported media type response has a 3xx status code
+func (o *GetRoutingQueueEstimatedwaittimeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue estimatedwaittime unsupported media type response has a 4xx status code
+func (o *GetRoutingQueueEstimatedwaittimeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue estimatedwaittime unsupported media type response has a 5xx status code
+func (o *GetRoutingQueueEstimatedwaittimeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue estimatedwaittime unsupported media type response a status code equal to that given
+func (o *GetRoutingQueueEstimatedwaittimeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingQueueEstimatedwaittimeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingQueueEstimatedwaittimeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingQueueEstimatedwaittimeTooManyRequests() *GetRoutingQueueEstima
 	return &GetRoutingQueueEstimatedwaittimeTooManyRequests{}
 }
 
-/*GetRoutingQueueEstimatedwaittimeTooManyRequests handles this case with default header values.
+/*
+GetRoutingQueueEstimatedwaittimeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingQueueEstimatedwaittimeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue estimatedwaittime too many requests response has a 2xx status code
+func (o *GetRoutingQueueEstimatedwaittimeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue estimatedwaittime too many requests response has a 3xx status code
+func (o *GetRoutingQueueEstimatedwaittimeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue estimatedwaittime too many requests response has a 4xx status code
+func (o *GetRoutingQueueEstimatedwaittimeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing queue estimatedwaittime too many requests response has a 5xx status code
+func (o *GetRoutingQueueEstimatedwaittimeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing queue estimatedwaittime too many requests response a status code equal to that given
+func (o *GetRoutingQueueEstimatedwaittimeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingQueueEstimatedwaittimeTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingQueueEstimatedwaittimeTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingQueueEstimatedwaittimeInternalServerError() *GetRoutingQueueEs
 	return &GetRoutingQueueEstimatedwaittimeInternalServerError{}
 }
 
-/*GetRoutingQueueEstimatedwaittimeInternalServerError handles this case with default header values.
+/*
+GetRoutingQueueEstimatedwaittimeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingQueueEstimatedwaittimeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue estimatedwaittime internal server error response has a 2xx status code
+func (o *GetRoutingQueueEstimatedwaittimeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue estimatedwaittime internal server error response has a 3xx status code
+func (o *GetRoutingQueueEstimatedwaittimeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue estimatedwaittime internal server error response has a 4xx status code
+func (o *GetRoutingQueueEstimatedwaittimeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing queue estimatedwaittime internal server error response has a 5xx status code
+func (o *GetRoutingQueueEstimatedwaittimeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing queue estimatedwaittime internal server error response a status code equal to that given
+func (o *GetRoutingQueueEstimatedwaittimeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingQueueEstimatedwaittimeInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingQueueEstimatedwaittimeInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingQueueEstimatedwaittimeServiceUnavailable() *GetRoutingQueueEst
 	return &GetRoutingQueueEstimatedwaittimeServiceUnavailable{}
 }
 
-/*GetRoutingQueueEstimatedwaittimeServiceUnavailable handles this case with default header values.
+/*
+GetRoutingQueueEstimatedwaittimeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingQueueEstimatedwaittimeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue estimatedwaittime service unavailable response has a 2xx status code
+func (o *GetRoutingQueueEstimatedwaittimeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue estimatedwaittime service unavailable response has a 3xx status code
+func (o *GetRoutingQueueEstimatedwaittimeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue estimatedwaittime service unavailable response has a 4xx status code
+func (o *GetRoutingQueueEstimatedwaittimeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing queue estimatedwaittime service unavailable response has a 5xx status code
+func (o *GetRoutingQueueEstimatedwaittimeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing queue estimatedwaittime service unavailable response a status code equal to that given
+func (o *GetRoutingQueueEstimatedwaittimeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingQueueEstimatedwaittimeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingQueueEstimatedwaittimeServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingQueueEstimatedwaittimeGatewayTimeout() *GetRoutingQueueEstimat
 	return &GetRoutingQueueEstimatedwaittimeGatewayTimeout{}
 }
 
-/*GetRoutingQueueEstimatedwaittimeGatewayTimeout handles this case with default header values.
+/*
+GetRoutingQueueEstimatedwaittimeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingQueueEstimatedwaittimeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing queue estimatedwaittime gateway timeout response has a 2xx status code
+func (o *GetRoutingQueueEstimatedwaittimeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing queue estimatedwaittime gateway timeout response has a 3xx status code
+func (o *GetRoutingQueueEstimatedwaittimeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing queue estimatedwaittime gateway timeout response has a 4xx status code
+func (o *GetRoutingQueueEstimatedwaittimeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing queue estimatedwaittime gateway timeout response has a 5xx status code
+func (o *GetRoutingQueueEstimatedwaittimeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing queue estimatedwaittime gateway timeout response a status code equal to that given
+func (o *GetRoutingQueueEstimatedwaittimeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingQueueEstimatedwaittimeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingQueueEstimatedwaittimeGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/queues/{queueId}/estimatedwaittime][%d] getRoutingQueueEstimatedwaittimeGatewayTimeout  %+v", 504, o.Payload)
 }
 

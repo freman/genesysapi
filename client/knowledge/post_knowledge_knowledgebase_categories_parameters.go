@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostKnowledgeKnowledgebaseCategoriesParams creates a new PostKnowledgeKnowledgebaseCategoriesParams object
-// with the default values initialized.
+// NewPostKnowledgeKnowledgebaseCategoriesParams creates a new PostKnowledgeKnowledgebaseCategoriesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostKnowledgeKnowledgebaseCategoriesParams() *PostKnowledgeKnowledgebaseCategoriesParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseCategoriesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseCategoriesParamsWithTimeout creates a new PostKnowledgeKnowledgebaseCategoriesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostKnowledgeKnowledgebaseCategoriesParamsWithTimeout(timeout time.Duration) *PostKnowledgeKnowledgebaseCategoriesParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseCategoriesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseCategoriesParamsWithContext creates a new PostKnowledgeKnowledgebaseCategoriesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostKnowledgeKnowledgebaseCategoriesParamsWithContext(ctx context.Context) *PostKnowledgeKnowledgebaseCategoriesParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseCategoriesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostKnowledgeKnowledgebaseCategoriesParamsWithHTTPClient creates a new PostKnowledgeKnowledgebaseCategoriesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostKnowledgeKnowledgebaseCategoriesParamsWithHTTPClient(client *http.Client) *PostKnowledgeKnowledgebaseCategoriesParams {
-	var ()
 	return &PostKnowledgeKnowledgebaseCategoriesParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostKnowledgeKnowledgebaseCategoriesParams contains all the parameters to send to the API endpoint
-for the post knowledge knowledgebase categories operation typically these are written to a http.Request
+/*
+PostKnowledgeKnowledgebaseCategoriesParams contains all the parameters to send to the API endpoint
+
+	for the post knowledge knowledgebase categories operation.
+
+	Typically these are written to a http.Request.
 */
 type PostKnowledgeKnowledgebaseCategoriesParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.CategoryRequest
-	/*KnowledgeBaseID
-	  Knowledge base ID
 
+	/* KnowledgeBaseID.
+
+	   Knowledge base ID
 	*/
 	KnowledgeBaseID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post knowledge knowledgebase categories params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseCategoriesParams) WithDefaults() *PostKnowledgeKnowledgebaseCategoriesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post knowledge knowledgebase categories params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostKnowledgeKnowledgebaseCategoriesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post knowledge knowledgebase categories params
@@ -137,7 +154,6 @@ func (o *PostKnowledgeKnowledgebaseCategoriesParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementBusinessunitPlanninggroupParams creates a new GetWorkforcemanagementBusinessunitPlanninggroupParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementBusinessunitPlanninggroupParams creates a new GetWorkforcemanagementBusinessunitPlanninggroupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementBusinessunitPlanninggroupParams() *GetWorkforcemanagementBusinessunitPlanninggroupParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitPlanninggroupParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitPlanninggroupParamsWithTimeout creates a new GetWorkforcemanagementBusinessunitPlanninggroupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementBusinessunitPlanninggroupParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementBusinessunitPlanninggroupParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitPlanninggroupParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitPlanninggroupParamsWithContext creates a new GetWorkforcemanagementBusinessunitPlanninggroupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementBusinessunitPlanninggroupParamsWithContext(ctx context.Context) *GetWorkforcemanagementBusinessunitPlanninggroupParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitPlanninggroupParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementBusinessunitPlanninggroupParamsWithHTTPClient creates a new GetWorkforcemanagementBusinessunitPlanninggroupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementBusinessunitPlanninggroupParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementBusinessunitPlanninggroupParams {
-	var ()
 	return &GetWorkforcemanagementBusinessunitPlanninggroupParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementBusinessunitPlanninggroupParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement businessunit planninggroup operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementBusinessunitPlanninggroupParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement businessunit planninggroup operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementBusinessunitPlanninggroupParams struct {
 
-	/*BusinessUnitID
-	  The ID of the business unit.
+	/* BusinessUnitID.
 
+	   The ID of the business unit.
 	*/
 	BusinessUnitID string
-	/*PlanningGroupID
-	  The ID of a planning group to fetch
 
+	/* PlanningGroupID.
+
+	   The ID of a planning group to fetch
 	*/
 	PlanningGroupID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement businessunit planninggroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitPlanninggroupParams) WithDefaults() *GetWorkforcemanagementBusinessunitPlanninggroupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement businessunit planninggroup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementBusinessunitPlanninggroupParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement businessunit planninggroup params

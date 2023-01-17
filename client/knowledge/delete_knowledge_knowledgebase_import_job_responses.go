@@ -95,7 +95,6 @@ func (o *DeleteKnowledgeKnowledgebaseImportJobReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteKnowledgeKnowledgebaseImportJobNoContent() *DeleteKnowledgeKnowled
 	return &DeleteKnowledgeKnowledgebaseImportJobNoContent{}
 }
 
-/*DeleteKnowledgeKnowledgebaseImportJobNoContent handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseImportJobNoContent describes a response with status code 204, with default header values.
 
 Import job deleted
 */
 type DeleteKnowledgeKnowledgebaseImportJobNoContent struct {
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase import job no content response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase import job no content response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase import job no content response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase import job no content response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase import job no content response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseImportJobNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteKnowledgeKnowledgebaseImportJobNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobNoContent ", 204)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseImportJobNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteKnowledgeKnowledgebaseImportJobBadRequest() *DeleteKnowledgeKnowle
 	return &DeleteKnowledgeKnowledgebaseImportJobBadRequest{}
 }
 
-/*DeleteKnowledgeKnowledgebaseImportJobBadRequest handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseImportJobBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteKnowledgeKnowledgebaseImportJobBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase import job bad request response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase import job bad request response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase import job bad request response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase import job bad request response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase import job bad request response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseImportJobBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteKnowledgeKnowledgebaseImportJobBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseImportJobBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteKnowledgeKnowledgebaseImportJobUnauthorized() *DeleteKnowledgeKnow
 	return &DeleteKnowledgeKnowledgebaseImportJobUnauthorized{}
 }
 
-/*DeleteKnowledgeKnowledgebaseImportJobUnauthorized handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseImportJobUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteKnowledgeKnowledgebaseImportJobUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase import job unauthorized response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase import job unauthorized response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase import job unauthorized response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase import job unauthorized response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase import job unauthorized response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseImportJobUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteKnowledgeKnowledgebaseImportJobUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseImportJobUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteKnowledgeKnowledgebaseImportJobForbidden() *DeleteKnowledgeKnowled
 	return &DeleteKnowledgeKnowledgebaseImportJobForbidden{}
 }
 
-/*DeleteKnowledgeKnowledgebaseImportJobForbidden handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseImportJobForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteKnowledgeKnowledgebaseImportJobForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase import job forbidden response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase import job forbidden response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase import job forbidden response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase import job forbidden response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase import job forbidden response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseImportJobForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteKnowledgeKnowledgebaseImportJobForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseImportJobForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteKnowledgeKnowledgebaseImportJobNotFound() *DeleteKnowledgeKnowledg
 	return &DeleteKnowledgeKnowledgebaseImportJobNotFound{}
 }
 
-/*DeleteKnowledgeKnowledgebaseImportJobNotFound handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseImportJobNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteKnowledgeKnowledgebaseImportJobNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase import job not found response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase import job not found response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase import job not found response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase import job not found response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase import job not found response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseImportJobNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteKnowledgeKnowledgebaseImportJobNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseImportJobNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteKnowledgeKnowledgebaseImportJobRequestTimeout() *DeleteKnowledgeKn
 	return &DeleteKnowledgeKnowledgebaseImportJobRequestTimeout{}
 }
 
-/*DeleteKnowledgeKnowledgebaseImportJobRequestTimeout handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseImportJobRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteKnowledgeKnowledgebaseImportJobRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase import job request timeout response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase import job request timeout response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase import job request timeout response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase import job request timeout response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase import job request timeout response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseImportJobRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteKnowledgeKnowledgebaseImportJobRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseImportJobRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge() *DeleteKnow
 	return &DeleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge{}
 }
 
-/*DeleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase import job request entity too large response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase import job request entity too large response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase import job request entity too large response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase import job request entity too large response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase import job request entity too large response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType() *DeleteKnowl
 	return &DeleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType{}
 }
 
-/*DeleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase import job unsupported media type response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase import job unsupported media type response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase import job unsupported media type response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase import job unsupported media type response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase import job unsupported media type response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteKnowledgeKnowledgebaseImportJobTooManyRequests() *DeleteKnowledgeK
 	return &DeleteKnowledgeKnowledgebaseImportJobTooManyRequests{}
 }
 
-/*DeleteKnowledgeKnowledgebaseImportJobTooManyRequests handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseImportJobTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteKnowledgeKnowledgebaseImportJobTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase import job too many requests response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase import job too many requests response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase import job too many requests response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase import job too many requests response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase import job too many requests response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseImportJobTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteKnowledgeKnowledgebaseImportJobTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseImportJobTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteKnowledgeKnowledgebaseImportJobInternalServerError() *DeleteKnowle
 	return &DeleteKnowledgeKnowledgebaseImportJobInternalServerError{}
 }
 
-/*DeleteKnowledgeKnowledgebaseImportJobInternalServerError handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseImportJobInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteKnowledgeKnowledgebaseImportJobInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase import job internal server error response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase import job internal server error response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase import job internal server error response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase import job internal server error response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete knowledge knowledgebase import job internal server error response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseImportJobInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteKnowledgeKnowledgebaseImportJobInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseImportJobInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteKnowledgeKnowledgebaseImportJobServiceUnavailable() *DeleteKnowled
 	return &DeleteKnowledgeKnowledgebaseImportJobServiceUnavailable{}
 }
 
-/*DeleteKnowledgeKnowledgebaseImportJobServiceUnavailable handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseImportJobServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteKnowledgeKnowledgebaseImportJobServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase import job service unavailable response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase import job service unavailable response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase import job service unavailable response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase import job service unavailable response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete knowledge knowledgebase import job service unavailable response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseImportJobServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteKnowledgeKnowledgebaseImportJobServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseImportJobServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteKnowledgeKnowledgebaseImportJobGatewayTimeout() *DeleteKnowledgeKn
 	return &DeleteKnowledgeKnowledgebaseImportJobGatewayTimeout{}
 }
 
-/*DeleteKnowledgeKnowledgebaseImportJobGatewayTimeout handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseImportJobGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteKnowledgeKnowledgebaseImportJobGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase import job gateway timeout response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase import job gateway timeout response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase import job gateway timeout response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase import job gateway timeout response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseImportJobGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete knowledge knowledgebase import job gateway timeout response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseImportJobGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteKnowledgeKnowledgebaseImportJobGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseImportJobGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/import/jobs/{importJobId}][%d] deleteKnowledgeKnowledgebaseImportJobGatewayTimeout  %+v", 504, o.Payload)
 }
 

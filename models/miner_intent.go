@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -20,6 +21,7 @@ import (
 type MinerIntent struct {
 
 	// Percentage of conversations belonging to the intent.
+	// Example: 21.5
 	AnalyticVolumePercent float64 `json:"analyticVolumePercent,omitempty"`
 
 	// The globally unique identifier for the object.
@@ -30,6 +32,7 @@ type MinerIntent struct {
 	Miner *Miner `json:"miner,omitempty"`
 
 	// Intent name.
+	// Example: pay bill.
 	Name string `json:"name,omitempty"`
 
 	// The URI for this object
@@ -64,7 +67,6 @@ func (m *MinerIntent) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MinerIntent) validateMiner(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Miner) { // not required
 		return nil
 	}
@@ -73,6 +75,8 @@ func (m *MinerIntent) validateMiner(formats strfmt.Registry) error {
 		if err := m.Miner.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("miner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("miner")
 			}
 			return err
 		}
@@ -82,7 +86,6 @@ func (m *MinerIntent) validateMiner(formats strfmt.Registry) error {
 }
 
 func (m *MinerIntent) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -95,7 +98,6 @@ func (m *MinerIntent) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *MinerIntent) validateUtterances(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Utterances) { // not required
 		return nil
 	}
@@ -109,6 +111,88 @@ func (m *MinerIntent) validateUtterances(formats strfmt.Registry) error {
 			if err := m.Utterances[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("utterances" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("utterances" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this miner intent based on the context it is used
+func (m *MinerIntent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMiner(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUtterances(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MinerIntent) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MinerIntent) contextValidateMiner(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Miner != nil {
+		if err := m.Miner.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("miner")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("miner")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MinerIntent) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MinerIntent) contextValidateUtterances(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Utterances); i++ {
+
+		if m.Utterances[i] != nil {
+			if err := m.Utterances[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("utterances" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("utterances" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

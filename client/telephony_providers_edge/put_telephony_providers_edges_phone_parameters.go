@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutTelephonyProvidersEdgesPhoneParams creates a new PutTelephonyProvidersEdgesPhoneParams object
-// with the default values initialized.
+// NewPutTelephonyProvidersEdgesPhoneParams creates a new PutTelephonyProvidersEdgesPhoneParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutTelephonyProvidersEdgesPhoneParams() *PutTelephonyProvidersEdgesPhoneParams {
-	var ()
 	return &PutTelephonyProvidersEdgesPhoneParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutTelephonyProvidersEdgesPhoneParamsWithTimeout creates a new PutTelephonyProvidersEdgesPhoneParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutTelephonyProvidersEdgesPhoneParamsWithTimeout(timeout time.Duration) *PutTelephonyProvidersEdgesPhoneParams {
-	var ()
 	return &PutTelephonyProvidersEdgesPhoneParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutTelephonyProvidersEdgesPhoneParamsWithContext creates a new PutTelephonyProvidersEdgesPhoneParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutTelephonyProvidersEdgesPhoneParamsWithContext(ctx context.Context) *PutTelephonyProvidersEdgesPhoneParams {
-	var ()
 	return &PutTelephonyProvidersEdgesPhoneParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutTelephonyProvidersEdgesPhoneParamsWithHTTPClient creates a new PutTelephonyProvidersEdgesPhoneParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutTelephonyProvidersEdgesPhoneParamsWithHTTPClient(client *http.Client) *PutTelephonyProvidersEdgesPhoneParams {
-	var ()
 	return &PutTelephonyProvidersEdgesPhoneParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutTelephonyProvidersEdgesPhoneParams contains all the parameters to send to the API endpoint
-for the put telephony providers edges phone operation typically these are written to a http.Request
+/*
+PutTelephonyProvidersEdgesPhoneParams contains all the parameters to send to the API endpoint
+
+	for the put telephony providers edges phone operation.
+
+	Typically these are written to a http.Request.
 */
 type PutTelephonyProvidersEdgesPhoneParams struct {
 
-	/*Body
-	  Phone
+	/* Body.
 
+	   Phone
 	*/
 	Body *models.Phone
-	/*PhoneID
-	  Phone ID
 
+	/* PhoneID.
+
+	   Phone ID
 	*/
 	PhoneID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put telephony providers edges phone params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutTelephonyProvidersEdgesPhoneParams) WithDefaults() *PutTelephonyProvidersEdgesPhoneParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put telephony providers edges phone params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutTelephonyProvidersEdgesPhoneParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put telephony providers edges phone params
@@ -140,7 +157,6 @@ func (o *PutTelephonyProvidersEdgesPhoneParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

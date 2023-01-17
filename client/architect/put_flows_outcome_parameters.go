@@ -18,61 +18,78 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutFlowsOutcomeParams creates a new PutFlowsOutcomeParams object
-// with the default values initialized.
+// NewPutFlowsOutcomeParams creates a new PutFlowsOutcomeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutFlowsOutcomeParams() *PutFlowsOutcomeParams {
-	var ()
 	return &PutFlowsOutcomeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutFlowsOutcomeParamsWithTimeout creates a new PutFlowsOutcomeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutFlowsOutcomeParamsWithTimeout(timeout time.Duration) *PutFlowsOutcomeParams {
-	var ()
 	return &PutFlowsOutcomeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutFlowsOutcomeParamsWithContext creates a new PutFlowsOutcomeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutFlowsOutcomeParamsWithContext(ctx context.Context) *PutFlowsOutcomeParams {
-	var ()
 	return &PutFlowsOutcomeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutFlowsOutcomeParamsWithHTTPClient creates a new PutFlowsOutcomeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutFlowsOutcomeParamsWithHTTPClient(client *http.Client) *PutFlowsOutcomeParams {
-	var ()
 	return &PutFlowsOutcomeParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutFlowsOutcomeParams contains all the parameters to send to the API endpoint
-for the put flows outcome operation typically these are written to a http.Request
+/*
+PutFlowsOutcomeParams contains all the parameters to send to the API endpoint
+
+	for the put flows outcome operation.
+
+	Typically these are written to a http.Request.
 */
 type PutFlowsOutcomeParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.FlowOutcome
-	/*FlowOutcomeID
-	  flow outcome ID
 
+	/* FlowOutcomeID.
+
+	   flow outcome ID
 	*/
 	FlowOutcomeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put flows outcome params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutFlowsOutcomeParams) WithDefaults() *PutFlowsOutcomeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put flows outcome params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutFlowsOutcomeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put flows outcome params
@@ -137,7 +154,6 @@ func (o *PutFlowsOutcomeParams) WriteToRequest(r runtime.ClientRequest, reg strf
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

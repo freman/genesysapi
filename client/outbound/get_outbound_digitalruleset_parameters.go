@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundDigitalrulesetParams creates a new GetOutboundDigitalrulesetParams object
-// with the default values initialized.
+// NewGetOutboundDigitalrulesetParams creates a new GetOutboundDigitalrulesetParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundDigitalrulesetParams() *GetOutboundDigitalrulesetParams {
-	var ()
 	return &GetOutboundDigitalrulesetParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundDigitalrulesetParamsWithTimeout creates a new GetOutboundDigitalrulesetParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundDigitalrulesetParamsWithTimeout(timeout time.Duration) *GetOutboundDigitalrulesetParams {
-	var ()
 	return &GetOutboundDigitalrulesetParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundDigitalrulesetParamsWithContext creates a new GetOutboundDigitalrulesetParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundDigitalrulesetParamsWithContext(ctx context.Context) *GetOutboundDigitalrulesetParams {
-	var ()
 	return &GetOutboundDigitalrulesetParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundDigitalrulesetParamsWithHTTPClient creates a new GetOutboundDigitalrulesetParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundDigitalrulesetParamsWithHTTPClient(client *http.Client) *GetOutboundDigitalrulesetParams {
-	var ()
 	return &GetOutboundDigitalrulesetParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundDigitalrulesetParams contains all the parameters to send to the API endpoint
-for the get outbound digitalruleset operation typically these are written to a http.Request
+/*
+GetOutboundDigitalrulesetParams contains all the parameters to send to the API endpoint
+
+	for the get outbound digitalruleset operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundDigitalrulesetParams struct {
 
-	/*DigitalRuleSetID
-	  The Digital Rule Set ID
+	/* DigitalRuleSetID.
 
+	   The Digital Rule Set ID
 	*/
 	DigitalRuleSetID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound digitalruleset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundDigitalrulesetParams) WithDefaults() *GetOutboundDigitalrulesetParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound digitalruleset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundDigitalrulesetParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get outbound digitalruleset params

@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesDidParams creates a new GetTelephonyProvidersEdgesDidParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesDidParams creates a new GetTelephonyProvidersEdgesDidParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesDidParams() *GetTelephonyProvidersEdgesDidParams {
-	var ()
 	return &GetTelephonyProvidersEdgesDidParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesDidParamsWithTimeout creates a new GetTelephonyProvidersEdgesDidParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesDidParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesDidParams {
-	var ()
 	return &GetTelephonyProvidersEdgesDidParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesDidParamsWithContext creates a new GetTelephonyProvidersEdgesDidParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesDidParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesDidParams {
-	var ()
 	return &GetTelephonyProvidersEdgesDidParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesDidParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesDidParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesDidParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesDidParams {
-	var ()
 	return &GetTelephonyProvidersEdgesDidParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesDidParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges did operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesDidParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges did operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesDidParams struct {
 
-	/*DidID
-	  DID ID
+	/* DidID.
 
+	   DID ID
 	*/
 	DidID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges did params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesDidParams) WithDefaults() *GetTelephonyProvidersEdgesDidParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges did params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesDidParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges did params

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -123,7 +124,6 @@ func (m *BulkUpdateShiftTradeStateResultItem) validateFailureReasonEnum(path, lo
 }
 
 func (m *BulkUpdateShiftTradeStateResultItem) validateFailureReason(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FailureReason) { // not required
 		return nil
 	}
@@ -137,7 +137,6 @@ func (m *BulkUpdateShiftTradeStateResultItem) validateFailureReason(formats strf
 }
 
 func (m *BulkUpdateShiftTradeStateResultItem) validateMetadata(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metadata) { // not required
 		return nil
 	}
@@ -146,6 +145,8 @@ func (m *BulkUpdateShiftTradeStateResultItem) validateMetadata(formats strfmt.Re
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -155,7 +156,6 @@ func (m *BulkUpdateShiftTradeStateResultItem) validateMetadata(formats strfmt.Re
 }
 
 func (m *BulkUpdateShiftTradeStateResultItem) validateReviewedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReviewedBy) { // not required
 		return nil
 	}
@@ -164,6 +164,8 @@ func (m *BulkUpdateShiftTradeStateResultItem) validateReviewedBy(formats strfmt.
 		if err := m.ReviewedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("reviewedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reviewedBy")
 			}
 			return err
 		}
@@ -173,7 +175,6 @@ func (m *BulkUpdateShiftTradeStateResultItem) validateReviewedBy(formats strfmt.
 }
 
 func (m *BulkUpdateShiftTradeStateResultItem) validateReviewedDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReviewedDate) { // not required
 		return nil
 	}
@@ -227,7 +228,6 @@ func (m *BulkUpdateShiftTradeStateResultItem) validateStateEnum(path, location s
 }
 
 func (m *BulkUpdateShiftTradeStateResultItem) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -235,6 +235,69 @@ func (m *BulkUpdateShiftTradeStateResultItem) validateState(formats strfmt.Regis
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bulk update shift trade state result item based on the context it is used
+func (m *BulkUpdateShiftTradeStateResultItem) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReviewedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BulkUpdateShiftTradeStateResultItem) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BulkUpdateShiftTradeStateResultItem) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BulkUpdateShiftTradeStateResultItem) contextValidateReviewedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReviewedBy != nil {
+		if err := m.ReviewedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("reviewedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reviewedBy")
+			}
+			return err
+		}
 	}
 
 	return nil

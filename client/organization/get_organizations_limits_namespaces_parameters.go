@@ -17,84 +17,101 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetOrganizationsLimitsNamespacesParams creates a new GetOrganizationsLimitsNamespacesParams object
-// with the default values initialized.
+// NewGetOrganizationsLimitsNamespacesParams creates a new GetOrganizationsLimitsNamespacesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOrganizationsLimitsNamespacesParams() *GetOrganizationsLimitsNamespacesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(100)
-	)
 	return &GetOrganizationsLimitsNamespacesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOrganizationsLimitsNamespacesParamsWithTimeout creates a new GetOrganizationsLimitsNamespacesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOrganizationsLimitsNamespacesParamsWithTimeout(timeout time.Duration) *GetOrganizationsLimitsNamespacesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(100)
-	)
 	return &GetOrganizationsLimitsNamespacesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOrganizationsLimitsNamespacesParamsWithContext creates a new GetOrganizationsLimitsNamespacesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOrganizationsLimitsNamespacesParamsWithContext(ctx context.Context) *GetOrganizationsLimitsNamespacesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(100)
-	)
 	return &GetOrganizationsLimitsNamespacesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetOrganizationsLimitsNamespacesParamsWithHTTPClient creates a new GetOrganizationsLimitsNamespacesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOrganizationsLimitsNamespacesParamsWithHTTPClient(client *http.Client) *GetOrganizationsLimitsNamespacesParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(100)
-	)
 	return &GetOrganizationsLimitsNamespacesParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetOrganizationsLimitsNamespacesParams contains all the parameters to send to the API endpoint
-for the get organizations limits namespaces operation typically these are written to a http.Request
+/*
+GetOrganizationsLimitsNamespacesParams contains all the parameters to send to the API endpoint
+
+	for the get organizations limits namespaces operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOrganizationsLimitsNamespacesParams struct {
 
-	/*PageNumber
-	  Page number
+	/* PageNumber.
 
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 100
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get organizations limits namespaces params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrganizationsLimitsNamespacesParams) WithDefaults() *GetOrganizationsLimitsNamespacesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get organizations limits namespaces params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOrganizationsLimitsNamespacesParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(100)
+	)
+
+	val := GetOrganizationsLimitsNamespacesParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get organizations limits namespaces params
@@ -164,32 +181,34 @@ func (o *GetOrganizationsLimitsNamespacesParams) WriteToRequest(r runtime.Client
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -139,6 +141,8 @@ func (m *ExternalEstablishedEvent) validateInitialConfiguration(formats strfmt.R
 		if err := m.InitialConfiguration.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("initialConfiguration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("initialConfiguration")
 			}
 			return err
 		}
@@ -157,6 +161,58 @@ func (m *ExternalEstablishedEvent) validateSourceConfiguration(formats strfmt.Re
 		if err := m.SourceConfiguration.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sourceConfiguration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sourceConfiguration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this external established event based on the context it is used
+func (m *ExternalEstablishedEvent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateInitialConfiguration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSourceConfiguration(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ExternalEstablishedEvent) contextValidateInitialConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InitialConfiguration != nil {
+		if err := m.InitialConfiguration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("initialConfiguration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("initialConfiguration")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ExternalEstablishedEvent) contextValidateSourceConfiguration(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SourceConfiguration != nil {
+		if err := m.SourceConfiguration.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sourceConfiguration")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sourceConfiguration")
 			}
 			return err
 		}

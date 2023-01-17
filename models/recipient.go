@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -92,7 +93,6 @@ func (m *Recipient) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Recipient) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -101,6 +101,8 @@ func (m *Recipient) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -110,7 +112,6 @@ func (m *Recipient) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *Recipient) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -123,7 +124,6 @@ func (m *Recipient) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Recipient) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -136,7 +136,6 @@ func (m *Recipient) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *Recipient) validateFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Flow) { // not required
 		return nil
 	}
@@ -145,6 +144,8 @@ func (m *Recipient) validateFlow(formats strfmt.Registry) error {
 		if err := m.Flow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
 			}
 			return err
 		}
@@ -201,7 +202,6 @@ func (m *Recipient) validateMessengerTypeEnum(path, location string, value strin
 }
 
 func (m *Recipient) validateMessengerType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessengerType) { // not required
 		return nil
 	}
@@ -215,7 +215,6 @@ func (m *Recipient) validateMessengerType(formats strfmt.Registry) error {
 }
 
 func (m *Recipient) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -224,6 +223,8 @@ func (m *Recipient) validateModifiedBy(formats strfmt.Registry) error {
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -233,12 +234,107 @@ func (m *Recipient) validateModifiedBy(formats strfmt.Registry) error {
 }
 
 func (m *Recipient) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this recipient based on the context it is used
+func (m *Recipient) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Recipient) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Recipient) contextValidateFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Flow != nil {
+		if err := m.Flow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Recipient) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Recipient) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Recipient) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

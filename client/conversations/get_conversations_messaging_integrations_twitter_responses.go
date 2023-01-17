@@ -95,7 +95,6 @@ func (o *GetConversationsMessagingIntegrationsTwitterReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConversationsMessagingIntegrationsTwitterOK() *GetConversationsMessag
 	return &GetConversationsMessagingIntegrationsTwitterOK{}
 }
 
-/*GetConversationsMessagingIntegrationsTwitterOK handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsTwitterOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetConversationsMessagingIntegrationsTwitterOK struct {
 	Payload *models.TwitterIntegrationEntityListing
 }
 
+// IsSuccess returns true when this get conversations messaging integrations twitter o k response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversations messaging integrations twitter o k response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations twitter o k response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations twitter o k response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations twitter o k response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsTwitterOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationsMessagingIntegrationsTwitterOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsTwitterOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetConversationsMessagingIntegrationsTwitterBadRequest() *GetConversatio
 	return &GetConversationsMessagingIntegrationsTwitterBadRequest{}
 }
 
-/*GetConversationsMessagingIntegrationsTwitterBadRequest handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsTwitterBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetConversationsMessagingIntegrationsTwitterBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations twitter bad request response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations twitter bad request response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations twitter bad request response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations twitter bad request response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations twitter bad request response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsTwitterBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationsMessagingIntegrationsTwitterBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsTwitterBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetConversationsMessagingIntegrationsTwitterUnauthorized() *GetConversat
 	return &GetConversationsMessagingIntegrationsTwitterUnauthorized{}
 }
 
-/*GetConversationsMessagingIntegrationsTwitterUnauthorized handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsTwitterUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetConversationsMessagingIntegrationsTwitterUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations twitter unauthorized response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations twitter unauthorized response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations twitter unauthorized response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations twitter unauthorized response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations twitter unauthorized response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsTwitterUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationsMessagingIntegrationsTwitterUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsTwitterUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetConversationsMessagingIntegrationsTwitterForbidden() *GetConversation
 	return &GetConversationsMessagingIntegrationsTwitterForbidden{}
 }
 
-/*GetConversationsMessagingIntegrationsTwitterForbidden handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsTwitterForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetConversationsMessagingIntegrationsTwitterForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations twitter forbidden response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations twitter forbidden response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations twitter forbidden response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations twitter forbidden response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations twitter forbidden response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsTwitterForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationsMessagingIntegrationsTwitterForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsTwitterForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetConversationsMessagingIntegrationsTwitterNotFound() *GetConversations
 	return &GetConversationsMessagingIntegrationsTwitterNotFound{}
 }
 
-/*GetConversationsMessagingIntegrationsTwitterNotFound handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsTwitterNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetConversationsMessagingIntegrationsTwitterNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations twitter not found response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations twitter not found response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations twitter not found response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations twitter not found response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations twitter not found response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsTwitterNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationsMessagingIntegrationsTwitterNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsTwitterNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetConversationsMessagingIntegrationsTwitterRequestTimeout() *GetConvers
 	return &GetConversationsMessagingIntegrationsTwitterRequestTimeout{}
 }
 
-/*GetConversationsMessagingIntegrationsTwitterRequestTimeout handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsTwitterRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetConversationsMessagingIntegrationsTwitterRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations twitter request timeout response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations twitter request timeout response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations twitter request timeout response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations twitter request timeout response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations twitter request timeout response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsTwitterRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationsMessagingIntegrationsTwitterRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsTwitterRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetConversationsMessagingIntegrationsTwitterRequestEntityTooLarge() *Get
 	return &GetConversationsMessagingIntegrationsTwitterRequestEntityTooLarge{}
 }
 
-/*GetConversationsMessagingIntegrationsTwitterRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsTwitterRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetConversationsMessagingIntegrationsTwitterRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations twitter request entity too large response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations twitter request entity too large response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations twitter request entity too large response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations twitter request entity too large response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations twitter request entity too large response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsTwitterRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationsMessagingIntegrationsTwitterRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsTwitterRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetConversationsMessagingIntegrationsTwitterUnsupportedMediaType() *GetC
 	return &GetConversationsMessagingIntegrationsTwitterUnsupportedMediaType{}
 }
 
-/*GetConversationsMessagingIntegrationsTwitterUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsTwitterUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetConversationsMessagingIntegrationsTwitterUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations twitter unsupported media type response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations twitter unsupported media type response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations twitter unsupported media type response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations twitter unsupported media type response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations twitter unsupported media type response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsTwitterUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationsMessagingIntegrationsTwitterUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsTwitterUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetConversationsMessagingIntegrationsTwitterTooManyRequests() *GetConver
 	return &GetConversationsMessagingIntegrationsTwitterTooManyRequests{}
 }
 
-/*GetConversationsMessagingIntegrationsTwitterTooManyRequests handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsTwitterTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetConversationsMessagingIntegrationsTwitterTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations twitter too many requests response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations twitter too many requests response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations twitter too many requests response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations messaging integrations twitter too many requests response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations messaging integrations twitter too many requests response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsTwitterTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationsMessagingIntegrationsTwitterTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsTwitterTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetConversationsMessagingIntegrationsTwitterInternalServerError() *GetCo
 	return &GetConversationsMessagingIntegrationsTwitterInternalServerError{}
 }
 
-/*GetConversationsMessagingIntegrationsTwitterInternalServerError handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsTwitterInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetConversationsMessagingIntegrationsTwitterInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations twitter internal server error response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations twitter internal server error response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations twitter internal server error response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations twitter internal server error response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging integrations twitter internal server error response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsTwitterInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationsMessagingIntegrationsTwitterInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsTwitterInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetConversationsMessagingIntegrationsTwitterServiceUnavailable() *GetCon
 	return &GetConversationsMessagingIntegrationsTwitterServiceUnavailable{}
 }
 
-/*GetConversationsMessagingIntegrationsTwitterServiceUnavailable handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsTwitterServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetConversationsMessagingIntegrationsTwitterServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations twitter service unavailable response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations twitter service unavailable response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations twitter service unavailable response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations twitter service unavailable response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging integrations twitter service unavailable response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsTwitterServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationsMessagingIntegrationsTwitterServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsTwitterServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetConversationsMessagingIntegrationsTwitterGatewayTimeout() *GetConvers
 	return &GetConversationsMessagingIntegrationsTwitterGatewayTimeout{}
 }
 
-/*GetConversationsMessagingIntegrationsTwitterGatewayTimeout handles this case with default header values.
+/*
+GetConversationsMessagingIntegrationsTwitterGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetConversationsMessagingIntegrationsTwitterGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations messaging integrations twitter gateway timeout response has a 2xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations messaging integrations twitter gateway timeout response has a 3xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations messaging integrations twitter gateway timeout response has a 4xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations messaging integrations twitter gateway timeout response has a 5xx status code
+func (o *GetConversationsMessagingIntegrationsTwitterGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations messaging integrations twitter gateway timeout response a status code equal to that given
+func (o *GetConversationsMessagingIntegrationsTwitterGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationsMessagingIntegrationsTwitterGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationsMessagingIntegrationsTwitterGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/messaging/integrations/twitter][%d] getConversationsMessagingIntegrationsTwitterGatewayTimeout  %+v", 504, o.Payload)
 }
 

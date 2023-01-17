@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostConversationsEmailsParams creates a new PostConversationsEmailsParams object
-// with the default values initialized.
+// NewPostConversationsEmailsParams creates a new PostConversationsEmailsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostConversationsEmailsParams() *PostConversationsEmailsParams {
-	var ()
 	return &PostConversationsEmailsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostConversationsEmailsParamsWithTimeout creates a new PostConversationsEmailsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostConversationsEmailsParamsWithTimeout(timeout time.Duration) *PostConversationsEmailsParams {
-	var ()
 	return &PostConversationsEmailsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostConversationsEmailsParamsWithContext creates a new PostConversationsEmailsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostConversationsEmailsParamsWithContext(ctx context.Context) *PostConversationsEmailsParams {
-	var ()
 	return &PostConversationsEmailsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostConversationsEmailsParamsWithHTTPClient creates a new PostConversationsEmailsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostConversationsEmailsParamsWithHTTPClient(client *http.Client) *PostConversationsEmailsParams {
-	var ()
 	return &PostConversationsEmailsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostConversationsEmailsParams contains all the parameters to send to the API endpoint
-for the post conversations emails operation typically these are written to a http.Request
+/*
+PostConversationsEmailsParams contains all the parameters to send to the API endpoint
+
+	for the post conversations emails operation.
+
+	Typically these are written to a http.Request.
 */
 type PostConversationsEmailsParams struct {
 
-	/*Body
-	  Create email request
+	/* Body.
 
+	   Create email request
 	*/
 	Body *models.CreateEmailRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post conversations emails params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsEmailsParams) WithDefaults() *PostConversationsEmailsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post conversations emails params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostConversationsEmailsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post conversations emails params
@@ -124,7 +140,6 @@ func (o *PostConversationsEmailsParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

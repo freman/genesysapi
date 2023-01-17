@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -24,6 +25,7 @@ type KnowledgeBase struct {
 	ArticleCount int32 `json:"articleCount,omitempty"`
 
 	// Core language for knowledge base in which initial content must be created, language codes [en-US, en-UK, en-AU, de-DE] are supported currently, however the new DX knowledge will support all these language codes
+	// Example: en-US
 	// Required: true
 	// Enum: [en-US en-UK en-AU en-CA en-HK en-IN en-IE en-NZ en-PH en-SG en-ZA de-DE de-AT de-CH es-AR es-CO es-MX es-US es-ES fr-FR fr-BE fr-CA fr-CH pt-BR pt-PT nl-NL nl-BE it-IT]
 	CoreLanguage *string `json:"coreLanguage"`
@@ -111,89 +113,89 @@ func init() {
 
 const (
 
-	// KnowledgeBaseCoreLanguageEnUS captures enum value "en-US"
-	KnowledgeBaseCoreLanguageEnUS string = "en-US"
+	// KnowledgeBaseCoreLanguageEnDashUS captures enum value "en-US"
+	KnowledgeBaseCoreLanguageEnDashUS string = "en-US"
 
-	// KnowledgeBaseCoreLanguageEnUK captures enum value "en-UK"
-	KnowledgeBaseCoreLanguageEnUK string = "en-UK"
+	// KnowledgeBaseCoreLanguageEnDashUK captures enum value "en-UK"
+	KnowledgeBaseCoreLanguageEnDashUK string = "en-UK"
 
-	// KnowledgeBaseCoreLanguageEnAU captures enum value "en-AU"
-	KnowledgeBaseCoreLanguageEnAU string = "en-AU"
+	// KnowledgeBaseCoreLanguageEnDashAU captures enum value "en-AU"
+	KnowledgeBaseCoreLanguageEnDashAU string = "en-AU"
 
-	// KnowledgeBaseCoreLanguageEnCA captures enum value "en-CA"
-	KnowledgeBaseCoreLanguageEnCA string = "en-CA"
+	// KnowledgeBaseCoreLanguageEnDashCA captures enum value "en-CA"
+	KnowledgeBaseCoreLanguageEnDashCA string = "en-CA"
 
-	// KnowledgeBaseCoreLanguageEnHK captures enum value "en-HK"
-	KnowledgeBaseCoreLanguageEnHK string = "en-HK"
+	// KnowledgeBaseCoreLanguageEnDashHK captures enum value "en-HK"
+	KnowledgeBaseCoreLanguageEnDashHK string = "en-HK"
 
-	// KnowledgeBaseCoreLanguageEnIN captures enum value "en-IN"
-	KnowledgeBaseCoreLanguageEnIN string = "en-IN"
+	// KnowledgeBaseCoreLanguageEnDashIN captures enum value "en-IN"
+	KnowledgeBaseCoreLanguageEnDashIN string = "en-IN"
 
-	// KnowledgeBaseCoreLanguageEnIE captures enum value "en-IE"
-	KnowledgeBaseCoreLanguageEnIE string = "en-IE"
+	// KnowledgeBaseCoreLanguageEnDashIE captures enum value "en-IE"
+	KnowledgeBaseCoreLanguageEnDashIE string = "en-IE"
 
-	// KnowledgeBaseCoreLanguageEnNZ captures enum value "en-NZ"
-	KnowledgeBaseCoreLanguageEnNZ string = "en-NZ"
+	// KnowledgeBaseCoreLanguageEnDashNZ captures enum value "en-NZ"
+	KnowledgeBaseCoreLanguageEnDashNZ string = "en-NZ"
 
-	// KnowledgeBaseCoreLanguageEnPH captures enum value "en-PH"
-	KnowledgeBaseCoreLanguageEnPH string = "en-PH"
+	// KnowledgeBaseCoreLanguageEnDashPH captures enum value "en-PH"
+	KnowledgeBaseCoreLanguageEnDashPH string = "en-PH"
 
-	// KnowledgeBaseCoreLanguageEnSG captures enum value "en-SG"
-	KnowledgeBaseCoreLanguageEnSG string = "en-SG"
+	// KnowledgeBaseCoreLanguageEnDashSG captures enum value "en-SG"
+	KnowledgeBaseCoreLanguageEnDashSG string = "en-SG"
 
-	// KnowledgeBaseCoreLanguageEnZA captures enum value "en-ZA"
-	KnowledgeBaseCoreLanguageEnZA string = "en-ZA"
+	// KnowledgeBaseCoreLanguageEnDashZA captures enum value "en-ZA"
+	KnowledgeBaseCoreLanguageEnDashZA string = "en-ZA"
 
-	// KnowledgeBaseCoreLanguageDeDE captures enum value "de-DE"
-	KnowledgeBaseCoreLanguageDeDE string = "de-DE"
+	// KnowledgeBaseCoreLanguageDeDashDE captures enum value "de-DE"
+	KnowledgeBaseCoreLanguageDeDashDE string = "de-DE"
 
-	// KnowledgeBaseCoreLanguageDeAT captures enum value "de-AT"
-	KnowledgeBaseCoreLanguageDeAT string = "de-AT"
+	// KnowledgeBaseCoreLanguageDeDashAT captures enum value "de-AT"
+	KnowledgeBaseCoreLanguageDeDashAT string = "de-AT"
 
-	// KnowledgeBaseCoreLanguageDeCH captures enum value "de-CH"
-	KnowledgeBaseCoreLanguageDeCH string = "de-CH"
+	// KnowledgeBaseCoreLanguageDeDashCH captures enum value "de-CH"
+	KnowledgeBaseCoreLanguageDeDashCH string = "de-CH"
 
-	// KnowledgeBaseCoreLanguageEsAR captures enum value "es-AR"
-	KnowledgeBaseCoreLanguageEsAR string = "es-AR"
+	// KnowledgeBaseCoreLanguageEsDashAR captures enum value "es-AR"
+	KnowledgeBaseCoreLanguageEsDashAR string = "es-AR"
 
-	// KnowledgeBaseCoreLanguageEsCO captures enum value "es-CO"
-	KnowledgeBaseCoreLanguageEsCO string = "es-CO"
+	// KnowledgeBaseCoreLanguageEsDashCO captures enum value "es-CO"
+	KnowledgeBaseCoreLanguageEsDashCO string = "es-CO"
 
-	// KnowledgeBaseCoreLanguageEsMX captures enum value "es-MX"
-	KnowledgeBaseCoreLanguageEsMX string = "es-MX"
+	// KnowledgeBaseCoreLanguageEsDashMX captures enum value "es-MX"
+	KnowledgeBaseCoreLanguageEsDashMX string = "es-MX"
 
-	// KnowledgeBaseCoreLanguageEsUS captures enum value "es-US"
-	KnowledgeBaseCoreLanguageEsUS string = "es-US"
+	// KnowledgeBaseCoreLanguageEsDashUS captures enum value "es-US"
+	KnowledgeBaseCoreLanguageEsDashUS string = "es-US"
 
-	// KnowledgeBaseCoreLanguageEsES captures enum value "es-ES"
-	KnowledgeBaseCoreLanguageEsES string = "es-ES"
+	// KnowledgeBaseCoreLanguageEsDashES captures enum value "es-ES"
+	KnowledgeBaseCoreLanguageEsDashES string = "es-ES"
 
-	// KnowledgeBaseCoreLanguageFrFR captures enum value "fr-FR"
-	KnowledgeBaseCoreLanguageFrFR string = "fr-FR"
+	// KnowledgeBaseCoreLanguageFrDashFR captures enum value "fr-FR"
+	KnowledgeBaseCoreLanguageFrDashFR string = "fr-FR"
 
-	// KnowledgeBaseCoreLanguageFrBE captures enum value "fr-BE"
-	KnowledgeBaseCoreLanguageFrBE string = "fr-BE"
+	// KnowledgeBaseCoreLanguageFrDashBE captures enum value "fr-BE"
+	KnowledgeBaseCoreLanguageFrDashBE string = "fr-BE"
 
-	// KnowledgeBaseCoreLanguageFrCA captures enum value "fr-CA"
-	KnowledgeBaseCoreLanguageFrCA string = "fr-CA"
+	// KnowledgeBaseCoreLanguageFrDashCA captures enum value "fr-CA"
+	KnowledgeBaseCoreLanguageFrDashCA string = "fr-CA"
 
-	// KnowledgeBaseCoreLanguageFrCH captures enum value "fr-CH"
-	KnowledgeBaseCoreLanguageFrCH string = "fr-CH"
+	// KnowledgeBaseCoreLanguageFrDashCH captures enum value "fr-CH"
+	KnowledgeBaseCoreLanguageFrDashCH string = "fr-CH"
 
-	// KnowledgeBaseCoreLanguagePtBR captures enum value "pt-BR"
-	KnowledgeBaseCoreLanguagePtBR string = "pt-BR"
+	// KnowledgeBaseCoreLanguagePtDashBR captures enum value "pt-BR"
+	KnowledgeBaseCoreLanguagePtDashBR string = "pt-BR"
 
-	// KnowledgeBaseCoreLanguagePtPT captures enum value "pt-PT"
-	KnowledgeBaseCoreLanguagePtPT string = "pt-PT"
+	// KnowledgeBaseCoreLanguagePtDashPT captures enum value "pt-PT"
+	KnowledgeBaseCoreLanguagePtDashPT string = "pt-PT"
 
-	// KnowledgeBaseCoreLanguageNlNL captures enum value "nl-NL"
-	KnowledgeBaseCoreLanguageNlNL string = "nl-NL"
+	// KnowledgeBaseCoreLanguageNlDashNL captures enum value "nl-NL"
+	KnowledgeBaseCoreLanguageNlDashNL string = "nl-NL"
 
-	// KnowledgeBaseCoreLanguageNlBE captures enum value "nl-BE"
-	KnowledgeBaseCoreLanguageNlBE string = "nl-BE"
+	// KnowledgeBaseCoreLanguageNlDashBE captures enum value "nl-BE"
+	KnowledgeBaseCoreLanguageNlDashBE string = "nl-BE"
 
-	// KnowledgeBaseCoreLanguageItIT captures enum value "it-IT"
-	KnowledgeBaseCoreLanguageItIT string = "it-IT"
+	// KnowledgeBaseCoreLanguageItDashIT captures enum value "it-IT"
+	KnowledgeBaseCoreLanguageItDashIT string = "it-IT"
 )
 
 // prop value enum
@@ -219,7 +221,6 @@ func (m *KnowledgeBase) validateCoreLanguage(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeBase) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -232,7 +233,6 @@ func (m *KnowledgeBase) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeBase) validateDateDocumentLastModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateDocumentLastModified) { // not required
 		return nil
 	}
@@ -245,7 +245,6 @@ func (m *KnowledgeBase) validateDateDocumentLastModified(formats strfmt.Registry
 }
 
 func (m *KnowledgeBase) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -258,12 +257,125 @@ func (m *KnowledgeBase) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *KnowledgeBase) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge base based on the context it is used
+func (m *KnowledgeBase) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateArticleCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateDocumentLastModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFaqCount(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePublished(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeBase) contextValidateArticleCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "articleCount", "body", int32(m.ArticleCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeBase) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeBase) contextValidateDateDocumentLastModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateDocumentLastModified", "body", strfmt.DateTime(m.DateDocumentLastModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeBase) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeBase) contextValidateFaqCount(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "faqCount", "body", int32(m.FaqCount)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeBase) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeBase) contextValidatePublished(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "published", "body", m.Published); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KnowledgeBase) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -106,7 +107,6 @@ func (m *FlowDivisionView) Validate(formats strfmt.Registry) error {
 }
 
 func (m *FlowDivisionView) validateDebugVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DebugVersion) { // not required
 		return nil
 	}
@@ -115,6 +115,8 @@ func (m *FlowDivisionView) validateDebugVersion(formats strfmt.Registry) error {
 		if err := m.DebugVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("debugVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("debugVersion")
 			}
 			return err
 		}
@@ -124,7 +126,6 @@ func (m *FlowDivisionView) validateDebugVersion(formats strfmt.Registry) error {
 }
 
 func (m *FlowDivisionView) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -133,6 +134,8 @@ func (m *FlowDivisionView) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -142,7 +145,6 @@ func (m *FlowDivisionView) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *FlowDivisionView) validateInputSchema(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.InputSchema) { // not required
 		return nil
 	}
@@ -151,6 +153,8 @@ func (m *FlowDivisionView) validateInputSchema(formats strfmt.Registry) error {
 		if err := m.InputSchema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("inputSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputSchema")
 			}
 			return err
 		}
@@ -169,7 +173,6 @@ func (m *FlowDivisionView) validateName(formats strfmt.Registry) error {
 }
 
 func (m *FlowDivisionView) validateOutputSchema(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OutputSchema) { // not required
 		return nil
 	}
@@ -178,6 +181,8 @@ func (m *FlowDivisionView) validateOutputSchema(formats strfmt.Registry) error {
 		if err := m.OutputSchema.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outputSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outputSchema")
 			}
 			return err
 		}
@@ -187,7 +192,6 @@ func (m *FlowDivisionView) validateOutputSchema(formats strfmt.Registry) error {
 }
 
 func (m *FlowDivisionView) validatePublishedVersion(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PublishedVersion) { // not required
 		return nil
 	}
@@ -196,6 +200,8 @@ func (m *FlowDivisionView) validatePublishedVersion(formats strfmt.Registry) err
 		if err := m.PublishedVersion.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("publishedVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedVersion")
 			}
 			return err
 		}
@@ -205,7 +211,6 @@ func (m *FlowDivisionView) validatePublishedVersion(formats strfmt.Registry) err
 }
 
 func (m *FlowDivisionView) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -218,7 +223,6 @@ func (m *FlowDivisionView) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *FlowDivisionView) validateSupportedLanguages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SupportedLanguages) { // not required
 		return nil
 	}
@@ -232,6 +236,8 @@ func (m *FlowDivisionView) validateSupportedLanguages(formats strfmt.Registry) e
 			if err := m.SupportedLanguages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -320,7 +326,6 @@ func (m *FlowDivisionView) validateTypeEnum(path, location string, value string)
 }
 
 func (m *FlowDivisionView) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -328,6 +333,157 @@ func (m *FlowDivisionView) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this flow division view based on the context it is used
+func (m *FlowDivisionView) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDebugVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInputSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutputSchema(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePublishedVersion(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupportedLanguages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *FlowDivisionView) contextValidateDebugVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DebugVersion != nil {
+		if err := m.DebugVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("debugVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("debugVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowDivisionView) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowDivisionView) contextValidateInputSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.InputSchema != nil {
+		if err := m.InputSchema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("inputSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("inputSchema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowDivisionView) contextValidateOutputSchema(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OutputSchema != nil {
+		if err := m.OutputSchema.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outputSchema")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outputSchema")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowDivisionView) contextValidatePublishedVersion(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PublishedVersion != nil {
+		if err := m.PublishedVersion.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("publishedVersion")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("publishedVersion")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *FlowDivisionView) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *FlowDivisionView) contextValidateSupportedLanguages(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "supportedLanguages", "body", []*SupportedLanguage(m.SupportedLanguages)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.SupportedLanguages); i++ {
+
+		if m.SupportedLanguages[i] != nil {
+			if err := m.SupportedLanguages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("supportedLanguages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

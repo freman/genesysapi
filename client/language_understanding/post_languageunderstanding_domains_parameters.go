@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostLanguageunderstandingDomainsParams creates a new PostLanguageunderstandingDomainsParams object
-// with the default values initialized.
+// NewPostLanguageunderstandingDomainsParams creates a new PostLanguageunderstandingDomainsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostLanguageunderstandingDomainsParams() *PostLanguageunderstandingDomainsParams {
-	var ()
 	return &PostLanguageunderstandingDomainsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostLanguageunderstandingDomainsParamsWithTimeout creates a new PostLanguageunderstandingDomainsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostLanguageunderstandingDomainsParamsWithTimeout(timeout time.Duration) *PostLanguageunderstandingDomainsParams {
-	var ()
 	return &PostLanguageunderstandingDomainsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostLanguageunderstandingDomainsParamsWithContext creates a new PostLanguageunderstandingDomainsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostLanguageunderstandingDomainsParamsWithContext(ctx context.Context) *PostLanguageunderstandingDomainsParams {
-	var ()
 	return &PostLanguageunderstandingDomainsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostLanguageunderstandingDomainsParamsWithHTTPClient creates a new PostLanguageunderstandingDomainsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostLanguageunderstandingDomainsParamsWithHTTPClient(client *http.Client) *PostLanguageunderstandingDomainsParams {
-	var ()
 	return &PostLanguageunderstandingDomainsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostLanguageunderstandingDomainsParams contains all the parameters to send to the API endpoint
-for the post languageunderstanding domains operation typically these are written to a http.Request
+/*
+PostLanguageunderstandingDomainsParams contains all the parameters to send to the API endpoint
+
+	for the post languageunderstanding domains operation.
+
+	Typically these are written to a http.Request.
 */
 type PostLanguageunderstandingDomainsParams struct {
 
-	/*Body
-	  The NLU Domain to create.
+	/* Body.
 
+	   The NLU Domain to create.
 	*/
 	Body *models.NluDomain
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post languageunderstanding domains params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLanguageunderstandingDomainsParams) WithDefaults() *PostLanguageunderstandingDomainsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post languageunderstanding domains params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostLanguageunderstandingDomainsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post languageunderstanding domains params
@@ -124,7 +140,6 @@ func (o *PostLanguageunderstandingDomainsParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

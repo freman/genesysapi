@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgesTrunksMetricsParams creates a new GetTelephonyProvidersEdgesTrunksMetricsParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgesTrunksMetricsParams creates a new GetTelephonyProvidersEdgesTrunksMetricsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgesTrunksMetricsParams() *GetTelephonyProvidersEdgesTrunksMetricsParams {
-	var ()
 	return &GetTelephonyProvidersEdgesTrunksMetricsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunksMetricsParamsWithTimeout creates a new GetTelephonyProvidersEdgesTrunksMetricsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgesTrunksMetricsParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgesTrunksMetricsParams {
-	var ()
 	return &GetTelephonyProvidersEdgesTrunksMetricsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunksMetricsParamsWithContext creates a new GetTelephonyProvidersEdgesTrunksMetricsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgesTrunksMetricsParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgesTrunksMetricsParams {
-	var ()
 	return &GetTelephonyProvidersEdgesTrunksMetricsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgesTrunksMetricsParamsWithHTTPClient creates a new GetTelephonyProvidersEdgesTrunksMetricsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgesTrunksMetricsParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgesTrunksMetricsParams {
-	var ()
 	return &GetTelephonyProvidersEdgesTrunksMetricsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgesTrunksMetricsParams contains all the parameters to send to the API endpoint
-for the get telephony providers edges trunks metrics operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgesTrunksMetricsParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edges trunks metrics operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgesTrunksMetricsParams struct {
 
-	/*TrunkIds
-	  Comma separated list of Trunk Id's
+	/* TrunkIds.
 
+	   Comma separated list of Trunk Id's
 	*/
 	TrunkIds string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edges trunks metrics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesTrunksMetricsParams) WithDefaults() *GetTelephonyProvidersEdgesTrunksMetricsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edges trunks metrics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgesTrunksMetricsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edges trunks metrics params
@@ -127,6 +143,7 @@ func (o *GetTelephonyProvidersEdgesTrunksMetricsParams) WriteToRequest(r runtime
 	qrTrunkIds := o.TrunkIds
 	qTrunkIds := qrTrunkIds
 	if qTrunkIds != "" {
+
 		if err := r.SetQueryParam("trunkIds", qTrunkIds); err != nil {
 			return err
 		}

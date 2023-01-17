@@ -17,91 +17,113 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetTeamsParams creates a new GetTeamsParams object
-// with the default values initialized.
+// NewGetTeamsParams creates a new GetTeamsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTeamsParams() *GetTeamsParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetTeamsParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTeamsParamsWithTimeout creates a new GetTeamsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTeamsParamsWithTimeout(timeout time.Duration) *GetTeamsParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetTeamsParams{
-		PageSize: &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTeamsParamsWithContext creates a new GetTeamsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTeamsParamsWithContext(ctx context.Context) *GetTeamsParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetTeamsParams{
-		PageSize: &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetTeamsParamsWithHTTPClient creates a new GetTeamsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTeamsParamsWithHTTPClient(client *http.Client) *GetTeamsParams {
-	var (
-		pageSizeDefault = int32(25)
-	)
 	return &GetTeamsParams{
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetTeamsParams contains all the parameters to send to the API endpoint
-for the get teams operation typically these are written to a http.Request
+/*
+GetTeamsParams contains all the parameters to send to the API endpoint
+
+	for the get teams operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTeamsParams struct {
 
-	/*After
-	  The cursor that points to the next item in the complete list of teams
+	/* After.
 
+	   The cursor that points to the next item in the complete list of teams
 	*/
 	After *string
-	/*Before
-	  The cursor that points to the previous item in the complete list of teams
 
+	/* Before.
+
+	   The cursor that points to the previous item in the complete list of teams
 	*/
 	Before *string
-	/*Expand
-	  Expand the name on each user
 
+	/* Expand.
+
+	   Expand the name on each user
 	*/
 	Expand *string
-	/*Name
-	  Return only teams whose names start with this value (case-insensitive matching)
 
+	/* Name.
+
+	   Return only teams whose names start with this value (case-insensitive matching)
 	*/
 	Name *string
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get teams params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTeamsParams) WithDefaults() *GetTeamsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get teams params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTeamsParams) SetDefaults() {
+	var (
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetTeamsParams{
+		PageSize: &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get teams params
@@ -204,80 +226,85 @@ func (o *GetTeamsParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.Regi
 
 		// query param after
 		var qrAfter string
+
 		if o.After != nil {
 			qrAfter = *o.After
 		}
 		qAfter := qrAfter
 		if qAfter != "" {
+
 			if err := r.SetQueryParam("after", qAfter); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Before != nil {
 
 		// query param before
 		var qrBefore string
+
 		if o.Before != nil {
 			qrBefore = *o.Before
 		}
 		qBefore := qrBefore
 		if qBefore != "" {
+
 			if err := r.SetQueryParam("before", qBefore); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Expand != nil {
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Name != nil {
 
 		// query param name
 		var qrName string
+
 		if o.Name != nil {
 			qrName = *o.Name
 		}
 		qName := qrName
 		if qName != "" {
+
 			if err := r.SetQueryParam("name", qName); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

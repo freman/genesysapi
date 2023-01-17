@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetIntegrationsActionDraftValidationParams creates a new GetIntegrationsActionDraftValidationParams object
-// with the default values initialized.
+// NewGetIntegrationsActionDraftValidationParams creates a new GetIntegrationsActionDraftValidationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetIntegrationsActionDraftValidationParams() *GetIntegrationsActionDraftValidationParams {
-	var ()
 	return &GetIntegrationsActionDraftValidationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetIntegrationsActionDraftValidationParamsWithTimeout creates a new GetIntegrationsActionDraftValidationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetIntegrationsActionDraftValidationParamsWithTimeout(timeout time.Duration) *GetIntegrationsActionDraftValidationParams {
-	var ()
 	return &GetIntegrationsActionDraftValidationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetIntegrationsActionDraftValidationParamsWithContext creates a new GetIntegrationsActionDraftValidationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetIntegrationsActionDraftValidationParamsWithContext(ctx context.Context) *GetIntegrationsActionDraftValidationParams {
-	var ()
 	return &GetIntegrationsActionDraftValidationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetIntegrationsActionDraftValidationParamsWithHTTPClient creates a new GetIntegrationsActionDraftValidationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetIntegrationsActionDraftValidationParamsWithHTTPClient(client *http.Client) *GetIntegrationsActionDraftValidationParams {
-	var ()
 	return &GetIntegrationsActionDraftValidationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetIntegrationsActionDraftValidationParams contains all the parameters to send to the API endpoint
-for the get integrations action draft validation operation typically these are written to a http.Request
+/*
+GetIntegrationsActionDraftValidationParams contains all the parameters to send to the API endpoint
+
+	for the get integrations action draft validation operation.
+
+	Typically these are written to a http.Request.
 */
 type GetIntegrationsActionDraftValidationParams struct {
 
-	/*ActionID
-	  actionId
+	/* ActionID.
 
+	   actionId
 	*/
 	ActionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get integrations action draft validation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsActionDraftValidationParams) WithDefaults() *GetIntegrationsActionDraftValidationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get integrations action draft validation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetIntegrationsActionDraftValidationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get integrations action draft validation params

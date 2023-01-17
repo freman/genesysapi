@@ -95,7 +95,6 @@ func (o *GetArchitectSchedulesReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetArchitectSchedulesOK() *GetArchitectSchedulesOK {
 	return &GetArchitectSchedulesOK{}
 }
 
-/*GetArchitectSchedulesOK handles this case with default header values.
+/*
+GetArchitectSchedulesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetArchitectSchedulesOK struct {
 	Payload *models.ScheduleEntityListing
 }
 
+// IsSuccess returns true when this get architect schedules o k response has a 2xx status code
+func (o *GetArchitectSchedulesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get architect schedules o k response has a 3xx status code
+func (o *GetArchitectSchedulesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedules o k response has a 4xx status code
+func (o *GetArchitectSchedulesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect schedules o k response has a 5xx status code
+func (o *GetArchitectSchedulesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedules o k response a status code equal to that given
+func (o *GetArchitectSchedulesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetArchitectSchedulesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetArchitectSchedulesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetArchitectSchedulesBadRequest() *GetArchitectSchedulesBadRequest {
 	return &GetArchitectSchedulesBadRequest{}
 }
 
-/*GetArchitectSchedulesBadRequest handles this case with default header values.
+/*
+GetArchitectSchedulesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetArchitectSchedulesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedules bad request response has a 2xx status code
+func (o *GetArchitectSchedulesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedules bad request response has a 3xx status code
+func (o *GetArchitectSchedulesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedules bad request response has a 4xx status code
+func (o *GetArchitectSchedulesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedules bad request response has a 5xx status code
+func (o *GetArchitectSchedulesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedules bad request response a status code equal to that given
+func (o *GetArchitectSchedulesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetArchitectSchedulesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetArchitectSchedulesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetArchitectSchedulesUnauthorized() *GetArchitectSchedulesUnauthorized {
 	return &GetArchitectSchedulesUnauthorized{}
 }
 
-/*GetArchitectSchedulesUnauthorized handles this case with default header values.
+/*
+GetArchitectSchedulesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetArchitectSchedulesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedules unauthorized response has a 2xx status code
+func (o *GetArchitectSchedulesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedules unauthorized response has a 3xx status code
+func (o *GetArchitectSchedulesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedules unauthorized response has a 4xx status code
+func (o *GetArchitectSchedulesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedules unauthorized response has a 5xx status code
+func (o *GetArchitectSchedulesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedules unauthorized response a status code equal to that given
+func (o *GetArchitectSchedulesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetArchitectSchedulesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetArchitectSchedulesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetArchitectSchedulesForbidden() *GetArchitectSchedulesForbidden {
 	return &GetArchitectSchedulesForbidden{}
 }
 
-/*GetArchitectSchedulesForbidden handles this case with default header values.
+/*
+GetArchitectSchedulesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetArchitectSchedulesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedules forbidden response has a 2xx status code
+func (o *GetArchitectSchedulesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedules forbidden response has a 3xx status code
+func (o *GetArchitectSchedulesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedules forbidden response has a 4xx status code
+func (o *GetArchitectSchedulesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedules forbidden response has a 5xx status code
+func (o *GetArchitectSchedulesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedules forbidden response a status code equal to that given
+func (o *GetArchitectSchedulesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetArchitectSchedulesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetArchitectSchedulesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetArchitectSchedulesNotFound() *GetArchitectSchedulesNotFound {
 	return &GetArchitectSchedulesNotFound{}
 }
 
-/*GetArchitectSchedulesNotFound handles this case with default header values.
+/*
+GetArchitectSchedulesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetArchitectSchedulesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedules not found response has a 2xx status code
+func (o *GetArchitectSchedulesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedules not found response has a 3xx status code
+func (o *GetArchitectSchedulesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedules not found response has a 4xx status code
+func (o *GetArchitectSchedulesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedules not found response has a 5xx status code
+func (o *GetArchitectSchedulesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedules not found response a status code equal to that given
+func (o *GetArchitectSchedulesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetArchitectSchedulesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetArchitectSchedulesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetArchitectSchedulesRequestTimeout() *GetArchitectSchedulesRequestTimeo
 	return &GetArchitectSchedulesRequestTimeout{}
 }
 
-/*GetArchitectSchedulesRequestTimeout handles this case with default header values.
+/*
+GetArchitectSchedulesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetArchitectSchedulesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedules request timeout response has a 2xx status code
+func (o *GetArchitectSchedulesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedules request timeout response has a 3xx status code
+func (o *GetArchitectSchedulesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedules request timeout response has a 4xx status code
+func (o *GetArchitectSchedulesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedules request timeout response has a 5xx status code
+func (o *GetArchitectSchedulesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedules request timeout response a status code equal to that given
+func (o *GetArchitectSchedulesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetArchitectSchedulesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetArchitectSchedulesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetArchitectSchedulesRequestEntityTooLarge() *GetArchitectSchedulesReque
 	return &GetArchitectSchedulesRequestEntityTooLarge{}
 }
 
-/*GetArchitectSchedulesRequestEntityTooLarge handles this case with default header values.
+/*
+GetArchitectSchedulesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetArchitectSchedulesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedules request entity too large response has a 2xx status code
+func (o *GetArchitectSchedulesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedules request entity too large response has a 3xx status code
+func (o *GetArchitectSchedulesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedules request entity too large response has a 4xx status code
+func (o *GetArchitectSchedulesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedules request entity too large response has a 5xx status code
+func (o *GetArchitectSchedulesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedules request entity too large response a status code equal to that given
+func (o *GetArchitectSchedulesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetArchitectSchedulesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetArchitectSchedulesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetArchitectSchedulesUnsupportedMediaType() *GetArchitectSchedulesUnsupp
 	return &GetArchitectSchedulesUnsupportedMediaType{}
 }
 
-/*GetArchitectSchedulesUnsupportedMediaType handles this case with default header values.
+/*
+GetArchitectSchedulesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetArchitectSchedulesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedules unsupported media type response has a 2xx status code
+func (o *GetArchitectSchedulesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedules unsupported media type response has a 3xx status code
+func (o *GetArchitectSchedulesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedules unsupported media type response has a 4xx status code
+func (o *GetArchitectSchedulesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedules unsupported media type response has a 5xx status code
+func (o *GetArchitectSchedulesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedules unsupported media type response a status code equal to that given
+func (o *GetArchitectSchedulesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetArchitectSchedulesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetArchitectSchedulesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetArchitectSchedulesTooManyRequests() *GetArchitectSchedulesTooManyRequ
 	return &GetArchitectSchedulesTooManyRequests{}
 }
 
-/*GetArchitectSchedulesTooManyRequests handles this case with default header values.
+/*
+GetArchitectSchedulesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetArchitectSchedulesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedules too many requests response has a 2xx status code
+func (o *GetArchitectSchedulesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedules too many requests response has a 3xx status code
+func (o *GetArchitectSchedulesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedules too many requests response has a 4xx status code
+func (o *GetArchitectSchedulesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get architect schedules too many requests response has a 5xx status code
+func (o *GetArchitectSchedulesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get architect schedules too many requests response a status code equal to that given
+func (o *GetArchitectSchedulesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetArchitectSchedulesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetArchitectSchedulesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetArchitectSchedulesInternalServerError() *GetArchitectSchedulesInterna
 	return &GetArchitectSchedulesInternalServerError{}
 }
 
-/*GetArchitectSchedulesInternalServerError handles this case with default header values.
+/*
+GetArchitectSchedulesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetArchitectSchedulesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedules internal server error response has a 2xx status code
+func (o *GetArchitectSchedulesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedules internal server error response has a 3xx status code
+func (o *GetArchitectSchedulesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedules internal server error response has a 4xx status code
+func (o *GetArchitectSchedulesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect schedules internal server error response has a 5xx status code
+func (o *GetArchitectSchedulesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect schedules internal server error response a status code equal to that given
+func (o *GetArchitectSchedulesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetArchitectSchedulesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetArchitectSchedulesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetArchitectSchedulesServiceUnavailable() *GetArchitectSchedulesServiceU
 	return &GetArchitectSchedulesServiceUnavailable{}
 }
 
-/*GetArchitectSchedulesServiceUnavailable handles this case with default header values.
+/*
+GetArchitectSchedulesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetArchitectSchedulesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedules service unavailable response has a 2xx status code
+func (o *GetArchitectSchedulesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedules service unavailable response has a 3xx status code
+func (o *GetArchitectSchedulesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedules service unavailable response has a 4xx status code
+func (o *GetArchitectSchedulesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect schedules service unavailable response has a 5xx status code
+func (o *GetArchitectSchedulesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect schedules service unavailable response a status code equal to that given
+func (o *GetArchitectSchedulesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetArchitectSchedulesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetArchitectSchedulesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetArchitectSchedulesGatewayTimeout() *GetArchitectSchedulesGatewayTimeo
 	return &GetArchitectSchedulesGatewayTimeout{}
 }
 
-/*GetArchitectSchedulesGatewayTimeout handles this case with default header values.
+/*
+GetArchitectSchedulesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetArchitectSchedulesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get architect schedules gateway timeout response has a 2xx status code
+func (o *GetArchitectSchedulesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get architect schedules gateway timeout response has a 3xx status code
+func (o *GetArchitectSchedulesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get architect schedules gateway timeout response has a 4xx status code
+func (o *GetArchitectSchedulesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get architect schedules gateway timeout response has a 5xx status code
+func (o *GetArchitectSchedulesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get architect schedules gateway timeout response a status code equal to that given
+func (o *GetArchitectSchedulesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetArchitectSchedulesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetArchitectSchedulesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/architect/schedules][%d] getArchitectSchedulesGatewayTimeout  %+v", 504, o.Payload)
 }
 

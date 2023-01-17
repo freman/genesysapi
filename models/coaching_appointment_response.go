@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -169,7 +170,6 @@ func (m *CoachingAppointmentResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *CoachingAppointmentResponse) validateAttendees(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Attendees) { // not required
 		return nil
 	}
@@ -187,6 +187,8 @@ func (m *CoachingAppointmentResponse) validateAttendees(formats strfmt.Registry)
 			if err := m.Attendees[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("attendees" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attendees" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -198,7 +200,6 @@ func (m *CoachingAppointmentResponse) validateAttendees(formats strfmt.Registry)
 }
 
 func (m *CoachingAppointmentResponse) validateConversations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Conversations) { // not required
 		return nil
 	}
@@ -216,6 +217,8 @@ func (m *CoachingAppointmentResponse) validateConversations(formats strfmt.Regis
 			if err := m.Conversations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("conversations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conversations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -227,7 +230,6 @@ func (m *CoachingAppointmentResponse) validateConversations(formats strfmt.Regis
 }
 
 func (m *CoachingAppointmentResponse) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -236,6 +238,8 @@ func (m *CoachingAppointmentResponse) validateCreatedBy(formats strfmt.Registry)
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -245,7 +249,6 @@ func (m *CoachingAppointmentResponse) validateCreatedBy(formats strfmt.Registry)
 }
 
 func (m *CoachingAppointmentResponse) validateDateCompleted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCompleted) { // not required
 		return nil
 	}
@@ -258,7 +261,6 @@ func (m *CoachingAppointmentResponse) validateDateCompleted(formats strfmt.Regis
 }
 
 func (m *CoachingAppointmentResponse) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -271,7 +273,6 @@ func (m *CoachingAppointmentResponse) validateDateCreated(formats strfmt.Registr
 }
 
 func (m *CoachingAppointmentResponse) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -284,7 +285,6 @@ func (m *CoachingAppointmentResponse) validateDateModified(formats strfmt.Regist
 }
 
 func (m *CoachingAppointmentResponse) validateDateStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStart) { // not required
 		return nil
 	}
@@ -297,7 +297,6 @@ func (m *CoachingAppointmentResponse) validateDateStart(formats strfmt.Registry)
 }
 
 func (m *CoachingAppointmentResponse) validateDocuments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Documents) { // not required
 		return nil
 	}
@@ -315,6 +314,8 @@ func (m *CoachingAppointmentResponse) validateDocuments(formats strfmt.Registry)
 			if err := m.Documents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("documents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("documents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -326,7 +327,6 @@ func (m *CoachingAppointmentResponse) validateDocuments(formats strfmt.Registry)
 }
 
 func (m *CoachingAppointmentResponse) validateFacilitator(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Facilitator) { // not required
 		return nil
 	}
@@ -335,6 +335,8 @@ func (m *CoachingAppointmentResponse) validateFacilitator(formats strfmt.Registr
 		if err := m.Facilitator.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("facilitator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("facilitator")
 			}
 			return err
 		}
@@ -344,7 +346,6 @@ func (m *CoachingAppointmentResponse) validateFacilitator(formats strfmt.Registr
 }
 
 func (m *CoachingAppointmentResponse) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -353,6 +354,8 @@ func (m *CoachingAppointmentResponse) validateModifiedBy(formats strfmt.Registry
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -362,7 +365,6 @@ func (m *CoachingAppointmentResponse) validateModifiedBy(formats strfmt.Registry
 }
 
 func (m *CoachingAppointmentResponse) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -410,7 +412,6 @@ func (m *CoachingAppointmentResponse) validateStatusEnum(path, location string, 
 }
 
 func (m *CoachingAppointmentResponse) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -424,7 +425,6 @@ func (m *CoachingAppointmentResponse) validateStatus(formats strfmt.Registry) er
 }
 
 func (m *CoachingAppointmentResponse) validateWfmSchedule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WfmSchedule) { // not required
 		return nil
 	}
@@ -433,6 +433,338 @@ func (m *CoachingAppointmentResponse) validateWfmSchedule(formats strfmt.Registr
 		if err := m.WfmSchedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wfmSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wfmSchedule")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this coaching appointment response based on the context it is used
+func (m *CoachingAppointmentResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAttendees(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCompleted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateStart(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDescription(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDocuments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateExternalLinks(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFacilitator(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIsOverdue(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLengthInMinutes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWfmSchedule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateAttendees(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "attendees", "body", []*UserReference(m.Attendees)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Attendees); i++ {
+
+		if m.Attendees[i] != nil {
+			if err := m.Attendees[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("attendees" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("attendees" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateConversations(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "conversations", "body", []*ConversationReference(m.Conversations)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Conversations); i++ {
+
+		if m.Conversations[i] != nil {
+			if err := m.Conversations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conversations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conversations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateDateCompleted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCompleted", "body", strfmt.DateTime(m.DateCompleted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateDateStart(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateStart", "body", strfmt.DateTime(m.DateStart)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateDescription(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "description", "body", string(m.Description)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateDocuments(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "documents", "body", []*DocumentReference(m.Documents)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Documents); i++ {
+
+		if m.Documents[i] != nil {
+			if err := m.Documents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("documents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("documents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateExternalLinks(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "externalLinks", "body", []string(m.ExternalLinks)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateFacilitator(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Facilitator != nil {
+		if err := m.Facilitator.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("facilitator")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("facilitator")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateIsOverdue(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "isOverdue", "body", m.IsOverdue); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateLengthInMinutes(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "lengthInMinutes", "body", int32(m.LengthInMinutes)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "name", "body", string(m.Name)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CoachingAppointmentResponse) contextValidateWfmSchedule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WfmSchedule != nil {
+		if err := m.WfmSchedule.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wfmSchedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wfmSchedule")
 			}
 			return err
 		}

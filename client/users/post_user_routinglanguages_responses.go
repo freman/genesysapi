@@ -95,7 +95,6 @@ func (o *PostUserRoutinglanguagesReader) ReadResponse(response runtime.ClientRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostUserRoutinglanguagesOK() *PostUserRoutinglanguagesOK {
 	return &PostUserRoutinglanguagesOK{}
 }
 
-/*PostUserRoutinglanguagesOK handles this case with default header values.
+/*
+PostUserRoutinglanguagesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostUserRoutinglanguagesOK struct {
 	Payload *models.UserRoutingLanguage
 }
 
+// IsSuccess returns true when this post user routinglanguages o k response has a 2xx status code
+func (o *PostUserRoutinglanguagesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post user routinglanguages o k response has a 3xx status code
+func (o *PostUserRoutinglanguagesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user routinglanguages o k response has a 4xx status code
+func (o *PostUserRoutinglanguagesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post user routinglanguages o k response has a 5xx status code
+func (o *PostUserRoutinglanguagesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user routinglanguages o k response a status code equal to that given
+func (o *PostUserRoutinglanguagesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostUserRoutinglanguagesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostUserRoutinglanguagesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostUserRoutinglanguagesBadRequest() *PostUserRoutinglanguagesBadRequest
 	return &PostUserRoutinglanguagesBadRequest{}
 }
 
-/*PostUserRoutinglanguagesBadRequest handles this case with default header values.
+/*
+PostUserRoutinglanguagesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostUserRoutinglanguagesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user routinglanguages bad request response has a 2xx status code
+func (o *PostUserRoutinglanguagesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user routinglanguages bad request response has a 3xx status code
+func (o *PostUserRoutinglanguagesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user routinglanguages bad request response has a 4xx status code
+func (o *PostUserRoutinglanguagesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user routinglanguages bad request response has a 5xx status code
+func (o *PostUserRoutinglanguagesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user routinglanguages bad request response a status code equal to that given
+func (o *PostUserRoutinglanguagesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostUserRoutinglanguagesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostUserRoutinglanguagesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostUserRoutinglanguagesUnauthorized() *PostUserRoutinglanguagesUnauthor
 	return &PostUserRoutinglanguagesUnauthorized{}
 }
 
-/*PostUserRoutinglanguagesUnauthorized handles this case with default header values.
+/*
+PostUserRoutinglanguagesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostUserRoutinglanguagesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user routinglanguages unauthorized response has a 2xx status code
+func (o *PostUserRoutinglanguagesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user routinglanguages unauthorized response has a 3xx status code
+func (o *PostUserRoutinglanguagesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user routinglanguages unauthorized response has a 4xx status code
+func (o *PostUserRoutinglanguagesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user routinglanguages unauthorized response has a 5xx status code
+func (o *PostUserRoutinglanguagesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user routinglanguages unauthorized response a status code equal to that given
+func (o *PostUserRoutinglanguagesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostUserRoutinglanguagesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostUserRoutinglanguagesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostUserRoutinglanguagesForbidden() *PostUserRoutinglanguagesForbidden {
 	return &PostUserRoutinglanguagesForbidden{}
 }
 
-/*PostUserRoutinglanguagesForbidden handles this case with default header values.
+/*
+PostUserRoutinglanguagesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostUserRoutinglanguagesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user routinglanguages forbidden response has a 2xx status code
+func (o *PostUserRoutinglanguagesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user routinglanguages forbidden response has a 3xx status code
+func (o *PostUserRoutinglanguagesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user routinglanguages forbidden response has a 4xx status code
+func (o *PostUserRoutinglanguagesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user routinglanguages forbidden response has a 5xx status code
+func (o *PostUserRoutinglanguagesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user routinglanguages forbidden response a status code equal to that given
+func (o *PostUserRoutinglanguagesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostUserRoutinglanguagesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostUserRoutinglanguagesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostUserRoutinglanguagesNotFound() *PostUserRoutinglanguagesNotFound {
 	return &PostUserRoutinglanguagesNotFound{}
 }
 
-/*PostUserRoutinglanguagesNotFound handles this case with default header values.
+/*
+PostUserRoutinglanguagesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostUserRoutinglanguagesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user routinglanguages not found response has a 2xx status code
+func (o *PostUserRoutinglanguagesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user routinglanguages not found response has a 3xx status code
+func (o *PostUserRoutinglanguagesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user routinglanguages not found response has a 4xx status code
+func (o *PostUserRoutinglanguagesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user routinglanguages not found response has a 5xx status code
+func (o *PostUserRoutinglanguagesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user routinglanguages not found response a status code equal to that given
+func (o *PostUserRoutinglanguagesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostUserRoutinglanguagesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostUserRoutinglanguagesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostUserRoutinglanguagesRequestTimeout() *PostUserRoutinglanguagesReques
 	return &PostUserRoutinglanguagesRequestTimeout{}
 }
 
-/*PostUserRoutinglanguagesRequestTimeout handles this case with default header values.
+/*
+PostUserRoutinglanguagesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostUserRoutinglanguagesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user routinglanguages request timeout response has a 2xx status code
+func (o *PostUserRoutinglanguagesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user routinglanguages request timeout response has a 3xx status code
+func (o *PostUserRoutinglanguagesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user routinglanguages request timeout response has a 4xx status code
+func (o *PostUserRoutinglanguagesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user routinglanguages request timeout response has a 5xx status code
+func (o *PostUserRoutinglanguagesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user routinglanguages request timeout response a status code equal to that given
+func (o *PostUserRoutinglanguagesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostUserRoutinglanguagesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostUserRoutinglanguagesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostUserRoutinglanguagesRequestEntityTooLarge() *PostUserRoutinglanguage
 	return &PostUserRoutinglanguagesRequestEntityTooLarge{}
 }
 
-/*PostUserRoutinglanguagesRequestEntityTooLarge handles this case with default header values.
+/*
+PostUserRoutinglanguagesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostUserRoutinglanguagesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user routinglanguages request entity too large response has a 2xx status code
+func (o *PostUserRoutinglanguagesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user routinglanguages request entity too large response has a 3xx status code
+func (o *PostUserRoutinglanguagesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user routinglanguages request entity too large response has a 4xx status code
+func (o *PostUserRoutinglanguagesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user routinglanguages request entity too large response has a 5xx status code
+func (o *PostUserRoutinglanguagesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user routinglanguages request entity too large response a status code equal to that given
+func (o *PostUserRoutinglanguagesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostUserRoutinglanguagesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostUserRoutinglanguagesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostUserRoutinglanguagesUnsupportedMediaType() *PostUserRoutinglanguages
 	return &PostUserRoutinglanguagesUnsupportedMediaType{}
 }
 
-/*PostUserRoutinglanguagesUnsupportedMediaType handles this case with default header values.
+/*
+PostUserRoutinglanguagesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostUserRoutinglanguagesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user routinglanguages unsupported media type response has a 2xx status code
+func (o *PostUserRoutinglanguagesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user routinglanguages unsupported media type response has a 3xx status code
+func (o *PostUserRoutinglanguagesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user routinglanguages unsupported media type response has a 4xx status code
+func (o *PostUserRoutinglanguagesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user routinglanguages unsupported media type response has a 5xx status code
+func (o *PostUserRoutinglanguagesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user routinglanguages unsupported media type response a status code equal to that given
+func (o *PostUserRoutinglanguagesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostUserRoutinglanguagesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostUserRoutinglanguagesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostUserRoutinglanguagesTooManyRequests() *PostUserRoutinglanguagesTooMa
 	return &PostUserRoutinglanguagesTooManyRequests{}
 }
 
-/*PostUserRoutinglanguagesTooManyRequests handles this case with default header values.
+/*
+PostUserRoutinglanguagesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostUserRoutinglanguagesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user routinglanguages too many requests response has a 2xx status code
+func (o *PostUserRoutinglanguagesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user routinglanguages too many requests response has a 3xx status code
+func (o *PostUserRoutinglanguagesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user routinglanguages too many requests response has a 4xx status code
+func (o *PostUserRoutinglanguagesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post user routinglanguages too many requests response has a 5xx status code
+func (o *PostUserRoutinglanguagesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post user routinglanguages too many requests response a status code equal to that given
+func (o *PostUserRoutinglanguagesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostUserRoutinglanguagesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostUserRoutinglanguagesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostUserRoutinglanguagesInternalServerError() *PostUserRoutinglanguagesI
 	return &PostUserRoutinglanguagesInternalServerError{}
 }
 
-/*PostUserRoutinglanguagesInternalServerError handles this case with default header values.
+/*
+PostUserRoutinglanguagesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostUserRoutinglanguagesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user routinglanguages internal server error response has a 2xx status code
+func (o *PostUserRoutinglanguagesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user routinglanguages internal server error response has a 3xx status code
+func (o *PostUserRoutinglanguagesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user routinglanguages internal server error response has a 4xx status code
+func (o *PostUserRoutinglanguagesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post user routinglanguages internal server error response has a 5xx status code
+func (o *PostUserRoutinglanguagesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post user routinglanguages internal server error response a status code equal to that given
+func (o *PostUserRoutinglanguagesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostUserRoutinglanguagesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostUserRoutinglanguagesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostUserRoutinglanguagesServiceUnavailable() *PostUserRoutinglanguagesSe
 	return &PostUserRoutinglanguagesServiceUnavailable{}
 }
 
-/*PostUserRoutinglanguagesServiceUnavailable handles this case with default header values.
+/*
+PostUserRoutinglanguagesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostUserRoutinglanguagesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user routinglanguages service unavailable response has a 2xx status code
+func (o *PostUserRoutinglanguagesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user routinglanguages service unavailable response has a 3xx status code
+func (o *PostUserRoutinglanguagesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user routinglanguages service unavailable response has a 4xx status code
+func (o *PostUserRoutinglanguagesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post user routinglanguages service unavailable response has a 5xx status code
+func (o *PostUserRoutinglanguagesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post user routinglanguages service unavailable response a status code equal to that given
+func (o *PostUserRoutinglanguagesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostUserRoutinglanguagesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostUserRoutinglanguagesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostUserRoutinglanguagesGatewayTimeout() *PostUserRoutinglanguagesGatewa
 	return &PostUserRoutinglanguagesGatewayTimeout{}
 }
 
-/*PostUserRoutinglanguagesGatewayTimeout handles this case with default header values.
+/*
+PostUserRoutinglanguagesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostUserRoutinglanguagesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post user routinglanguages gateway timeout response has a 2xx status code
+func (o *PostUserRoutinglanguagesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post user routinglanguages gateway timeout response has a 3xx status code
+func (o *PostUserRoutinglanguagesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post user routinglanguages gateway timeout response has a 4xx status code
+func (o *PostUserRoutinglanguagesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post user routinglanguages gateway timeout response has a 5xx status code
+func (o *PostUserRoutinglanguagesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post user routinglanguages gateway timeout response a status code equal to that given
+func (o *PostUserRoutinglanguagesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostUserRoutinglanguagesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostUserRoutinglanguagesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/users/{userId}/routinglanguages][%d] postUserRoutinglanguagesGatewayTimeout  %+v", 504, o.Payload)
 }
 

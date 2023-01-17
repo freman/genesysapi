@@ -95,7 +95,6 @@ func (o *PostConversationsKeyconfigurationsValidateReader) ReadResponse(response
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostConversationsKeyconfigurationsValidateOK() *PostConversationsKeyconf
 	return &PostConversationsKeyconfigurationsValidateOK{}
 }
 
-/*PostConversationsKeyconfigurationsValidateOK handles this case with default header values.
+/*
+PostConversationsKeyconfigurationsValidateOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostConversationsKeyconfigurationsValidateOK struct {
 	Payload *models.ConversationEncryptionConfiguration
 }
 
+// IsSuccess returns true when this post conversations keyconfigurations validate o k response has a 2xx status code
+func (o *PostConversationsKeyconfigurationsValidateOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversations keyconfigurations validate o k response has a 3xx status code
+func (o *PostConversationsKeyconfigurationsValidateOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations keyconfigurations validate o k response has a 4xx status code
+func (o *PostConversationsKeyconfigurationsValidateOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations keyconfigurations validate o k response has a 5xx status code
+func (o *PostConversationsKeyconfigurationsValidateOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations keyconfigurations validate o k response a status code equal to that given
+func (o *PostConversationsKeyconfigurationsValidateOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostConversationsKeyconfigurationsValidateOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateOK  %+v", 200, o.Payload)
+}
+
+func (o *PostConversationsKeyconfigurationsValidateOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostConversationsKeyconfigurationsValidateBadRequest() *PostConversation
 	return &PostConversationsKeyconfigurationsValidateBadRequest{}
 }
 
-/*PostConversationsKeyconfigurationsValidateBadRequest handles this case with default header values.
+/*
+PostConversationsKeyconfigurationsValidateBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostConversationsKeyconfigurationsValidateBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations keyconfigurations validate bad request response has a 2xx status code
+func (o *PostConversationsKeyconfigurationsValidateBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations keyconfigurations validate bad request response has a 3xx status code
+func (o *PostConversationsKeyconfigurationsValidateBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations keyconfigurations validate bad request response has a 4xx status code
+func (o *PostConversationsKeyconfigurationsValidateBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations keyconfigurations validate bad request response has a 5xx status code
+func (o *PostConversationsKeyconfigurationsValidateBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations keyconfigurations validate bad request response a status code equal to that given
+func (o *PostConversationsKeyconfigurationsValidateBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationsKeyconfigurationsValidateBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationsKeyconfigurationsValidateBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostConversationsKeyconfigurationsValidateUnauthorized() *PostConversati
 	return &PostConversationsKeyconfigurationsValidateUnauthorized{}
 }
 
-/*PostConversationsKeyconfigurationsValidateUnauthorized handles this case with default header values.
+/*
+PostConversationsKeyconfigurationsValidateUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostConversationsKeyconfigurationsValidateUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations keyconfigurations validate unauthorized response has a 2xx status code
+func (o *PostConversationsKeyconfigurationsValidateUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations keyconfigurations validate unauthorized response has a 3xx status code
+func (o *PostConversationsKeyconfigurationsValidateUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations keyconfigurations validate unauthorized response has a 4xx status code
+func (o *PostConversationsKeyconfigurationsValidateUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations keyconfigurations validate unauthorized response has a 5xx status code
+func (o *PostConversationsKeyconfigurationsValidateUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations keyconfigurations validate unauthorized response a status code equal to that given
+func (o *PostConversationsKeyconfigurationsValidateUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationsKeyconfigurationsValidateUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationsKeyconfigurationsValidateUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostConversationsKeyconfigurationsValidateForbidden() *PostConversations
 	return &PostConversationsKeyconfigurationsValidateForbidden{}
 }
 
-/*PostConversationsKeyconfigurationsValidateForbidden handles this case with default header values.
+/*
+PostConversationsKeyconfigurationsValidateForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostConversationsKeyconfigurationsValidateForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations keyconfigurations validate forbidden response has a 2xx status code
+func (o *PostConversationsKeyconfigurationsValidateForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations keyconfigurations validate forbidden response has a 3xx status code
+func (o *PostConversationsKeyconfigurationsValidateForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations keyconfigurations validate forbidden response has a 4xx status code
+func (o *PostConversationsKeyconfigurationsValidateForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations keyconfigurations validate forbidden response has a 5xx status code
+func (o *PostConversationsKeyconfigurationsValidateForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations keyconfigurations validate forbidden response a status code equal to that given
+func (o *PostConversationsKeyconfigurationsValidateForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationsKeyconfigurationsValidateForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationsKeyconfigurationsValidateForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostConversationsKeyconfigurationsValidateNotFound() *PostConversationsK
 	return &PostConversationsKeyconfigurationsValidateNotFound{}
 }
 
-/*PostConversationsKeyconfigurationsValidateNotFound handles this case with default header values.
+/*
+PostConversationsKeyconfigurationsValidateNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostConversationsKeyconfigurationsValidateNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations keyconfigurations validate not found response has a 2xx status code
+func (o *PostConversationsKeyconfigurationsValidateNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations keyconfigurations validate not found response has a 3xx status code
+func (o *PostConversationsKeyconfigurationsValidateNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations keyconfigurations validate not found response has a 4xx status code
+func (o *PostConversationsKeyconfigurationsValidateNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations keyconfigurations validate not found response has a 5xx status code
+func (o *PostConversationsKeyconfigurationsValidateNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations keyconfigurations validate not found response a status code equal to that given
+func (o *PostConversationsKeyconfigurationsValidateNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationsKeyconfigurationsValidateNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationsKeyconfigurationsValidateNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostConversationsKeyconfigurationsValidateRequestTimeout() *PostConversa
 	return &PostConversationsKeyconfigurationsValidateRequestTimeout{}
 }
 
-/*PostConversationsKeyconfigurationsValidateRequestTimeout handles this case with default header values.
+/*
+PostConversationsKeyconfigurationsValidateRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostConversationsKeyconfigurationsValidateRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations keyconfigurations validate request timeout response has a 2xx status code
+func (o *PostConversationsKeyconfigurationsValidateRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations keyconfigurations validate request timeout response has a 3xx status code
+func (o *PostConversationsKeyconfigurationsValidateRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations keyconfigurations validate request timeout response has a 4xx status code
+func (o *PostConversationsKeyconfigurationsValidateRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations keyconfigurations validate request timeout response has a 5xx status code
+func (o *PostConversationsKeyconfigurationsValidateRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations keyconfigurations validate request timeout response a status code equal to that given
+func (o *PostConversationsKeyconfigurationsValidateRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationsKeyconfigurationsValidateRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationsKeyconfigurationsValidateRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostConversationsKeyconfigurationsValidateRequestEntityTooLarge() *PostC
 	return &PostConversationsKeyconfigurationsValidateRequestEntityTooLarge{}
 }
 
-/*PostConversationsKeyconfigurationsValidateRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationsKeyconfigurationsValidateRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostConversationsKeyconfigurationsValidateRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations keyconfigurations validate request entity too large response has a 2xx status code
+func (o *PostConversationsKeyconfigurationsValidateRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations keyconfigurations validate request entity too large response has a 3xx status code
+func (o *PostConversationsKeyconfigurationsValidateRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations keyconfigurations validate request entity too large response has a 4xx status code
+func (o *PostConversationsKeyconfigurationsValidateRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations keyconfigurations validate request entity too large response has a 5xx status code
+func (o *PostConversationsKeyconfigurationsValidateRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations keyconfigurations validate request entity too large response a status code equal to that given
+func (o *PostConversationsKeyconfigurationsValidateRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationsKeyconfigurationsValidateRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationsKeyconfigurationsValidateRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostConversationsKeyconfigurationsValidateUnsupportedMediaType() *PostCo
 	return &PostConversationsKeyconfigurationsValidateUnsupportedMediaType{}
 }
 
-/*PostConversationsKeyconfigurationsValidateUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationsKeyconfigurationsValidateUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostConversationsKeyconfigurationsValidateUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations keyconfigurations validate unsupported media type response has a 2xx status code
+func (o *PostConversationsKeyconfigurationsValidateUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations keyconfigurations validate unsupported media type response has a 3xx status code
+func (o *PostConversationsKeyconfigurationsValidateUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations keyconfigurations validate unsupported media type response has a 4xx status code
+func (o *PostConversationsKeyconfigurationsValidateUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations keyconfigurations validate unsupported media type response has a 5xx status code
+func (o *PostConversationsKeyconfigurationsValidateUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations keyconfigurations validate unsupported media type response a status code equal to that given
+func (o *PostConversationsKeyconfigurationsValidateUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationsKeyconfigurationsValidateUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationsKeyconfigurationsValidateUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostConversationsKeyconfigurationsValidateTooManyRequests() *PostConvers
 	return &PostConversationsKeyconfigurationsValidateTooManyRequests{}
 }
 
-/*PostConversationsKeyconfigurationsValidateTooManyRequests handles this case with default header values.
+/*
+PostConversationsKeyconfigurationsValidateTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostConversationsKeyconfigurationsValidateTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations keyconfigurations validate too many requests response has a 2xx status code
+func (o *PostConversationsKeyconfigurationsValidateTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations keyconfigurations validate too many requests response has a 3xx status code
+func (o *PostConversationsKeyconfigurationsValidateTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations keyconfigurations validate too many requests response has a 4xx status code
+func (o *PostConversationsKeyconfigurationsValidateTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversations keyconfigurations validate too many requests response has a 5xx status code
+func (o *PostConversationsKeyconfigurationsValidateTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversations keyconfigurations validate too many requests response a status code equal to that given
+func (o *PostConversationsKeyconfigurationsValidateTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationsKeyconfigurationsValidateTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationsKeyconfigurationsValidateTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostConversationsKeyconfigurationsValidateInternalServerError() *PostCon
 	return &PostConversationsKeyconfigurationsValidateInternalServerError{}
 }
 
-/*PostConversationsKeyconfigurationsValidateInternalServerError handles this case with default header values.
+/*
+PostConversationsKeyconfigurationsValidateInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostConversationsKeyconfigurationsValidateInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations keyconfigurations validate internal server error response has a 2xx status code
+func (o *PostConversationsKeyconfigurationsValidateInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations keyconfigurations validate internal server error response has a 3xx status code
+func (o *PostConversationsKeyconfigurationsValidateInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations keyconfigurations validate internal server error response has a 4xx status code
+func (o *PostConversationsKeyconfigurationsValidateInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations keyconfigurations validate internal server error response has a 5xx status code
+func (o *PostConversationsKeyconfigurationsValidateInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations keyconfigurations validate internal server error response a status code equal to that given
+func (o *PostConversationsKeyconfigurationsValidateInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationsKeyconfigurationsValidateInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationsKeyconfigurationsValidateInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostConversationsKeyconfigurationsValidateServiceUnavailable() *PostConv
 	return &PostConversationsKeyconfigurationsValidateServiceUnavailable{}
 }
 
-/*PostConversationsKeyconfigurationsValidateServiceUnavailable handles this case with default header values.
+/*
+PostConversationsKeyconfigurationsValidateServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostConversationsKeyconfigurationsValidateServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations keyconfigurations validate service unavailable response has a 2xx status code
+func (o *PostConversationsKeyconfigurationsValidateServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations keyconfigurations validate service unavailable response has a 3xx status code
+func (o *PostConversationsKeyconfigurationsValidateServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations keyconfigurations validate service unavailable response has a 4xx status code
+func (o *PostConversationsKeyconfigurationsValidateServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations keyconfigurations validate service unavailable response has a 5xx status code
+func (o *PostConversationsKeyconfigurationsValidateServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations keyconfigurations validate service unavailable response a status code equal to that given
+func (o *PostConversationsKeyconfigurationsValidateServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationsKeyconfigurationsValidateServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationsKeyconfigurationsValidateServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostConversationsKeyconfigurationsValidateGatewayTimeout() *PostConversa
 	return &PostConversationsKeyconfigurationsValidateGatewayTimeout{}
 }
 
-/*PostConversationsKeyconfigurationsValidateGatewayTimeout handles this case with default header values.
+/*
+PostConversationsKeyconfigurationsValidateGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostConversationsKeyconfigurationsValidateGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversations keyconfigurations validate gateway timeout response has a 2xx status code
+func (o *PostConversationsKeyconfigurationsValidateGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversations keyconfigurations validate gateway timeout response has a 3xx status code
+func (o *PostConversationsKeyconfigurationsValidateGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversations keyconfigurations validate gateway timeout response has a 4xx status code
+func (o *PostConversationsKeyconfigurationsValidateGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversations keyconfigurations validate gateway timeout response has a 5xx status code
+func (o *PostConversationsKeyconfigurationsValidateGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversations keyconfigurations validate gateway timeout response a status code equal to that given
+func (o *PostConversationsKeyconfigurationsValidateGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationsKeyconfigurationsValidateGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationsKeyconfigurationsValidateGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/keyconfigurations/validate][%d] postConversationsKeyconfigurationsValidateGatewayTimeout  %+v", 504, o.Payload)
 }
 

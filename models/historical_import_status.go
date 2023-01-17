@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -97,7 +98,6 @@ func (m *HistoricalImportStatus) Validate(formats strfmt.Registry) error {
 }
 
 func (m *HistoricalImportStatus) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -110,7 +110,6 @@ func (m *HistoricalImportStatus) validateDateCreated(formats strfmt.Registry) er
 }
 
 func (m *HistoricalImportStatus) validateDateImportEnded(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateImportEnded) { // not required
 		return nil
 	}
@@ -123,7 +122,6 @@ func (m *HistoricalImportStatus) validateDateImportEnded(formats strfmt.Registry
 }
 
 func (m *HistoricalImportStatus) validateDateImportStarted(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateImportStarted) { // not required
 		return nil
 	}
@@ -136,7 +134,6 @@ func (m *HistoricalImportStatus) validateDateImportStarted(formats strfmt.Regist
 }
 
 func (m *HistoricalImportStatus) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -196,7 +193,6 @@ func (m *HistoricalImportStatus) validateStatusEnum(path, location string, value
 }
 
 func (m *HistoricalImportStatus) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -239,13 +235,139 @@ func (m *HistoricalImportStatus) validateTypeEnum(path, location string, value s
 }
 
 func (m *HistoricalImportStatus) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this historical import status based on the context it is used
+func (m *HistoricalImportStatus) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActive(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateImportEnded(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateImportStarted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateError(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRequestID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *HistoricalImportStatus) contextValidateActive(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "active", "body", m.Active); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *HistoricalImportStatus) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *HistoricalImportStatus) contextValidateDateImportEnded(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateImportEnded", "body", strfmt.DateTime(m.DateImportEnded)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *HistoricalImportStatus) contextValidateDateImportStarted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateImportStarted", "body", strfmt.DateTime(m.DateImportStarted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *HistoricalImportStatus) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *HistoricalImportStatus) contextValidateError(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "error", "body", string(m.Error)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *HistoricalImportStatus) contextValidateRequestID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "requestId", "body", string(m.RequestID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *HistoricalImportStatus) contextValidateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "status", "body", string(m.Status)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *HistoricalImportStatus) contextValidateType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "type", "body", string(m.Type)); err != nil {
 		return err
 	}
 

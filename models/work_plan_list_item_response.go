@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -165,7 +166,6 @@ func (m *WorkPlanListItemResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WorkPlanListItemResponse) validateAgents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Agents) { // not required
 		return nil
 	}
@@ -179,6 +179,8 @@ func (m *WorkPlanListItemResponse) validateAgents(formats strfmt.Registry) error
 			if err := m.Agents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("agents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -199,6 +201,8 @@ func (m *WorkPlanListItemResponse) validateMetadata(formats strfmt.Registry) err
 		if err := m.Metadata.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
 			}
 			return err
 		}
@@ -208,7 +212,6 @@ func (m *WorkPlanListItemResponse) validateMetadata(formats strfmt.Registry) err
 }
 
 func (m *WorkPlanListItemResponse) validateOptionalDays(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OptionalDays) { // not required
 		return nil
 	}
@@ -217,6 +220,8 @@ func (m *WorkPlanListItemResponse) validateOptionalDays(formats strfmt.Registry)
 		if err := m.OptionalDays.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("optionalDays")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("optionalDays")
 			}
 			return err
 		}
@@ -226,7 +231,6 @@ func (m *WorkPlanListItemResponse) validateOptionalDays(formats strfmt.Registry)
 }
 
 func (m *WorkPlanListItemResponse) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -268,7 +272,6 @@ func (m *WorkPlanListItemResponse) validateShiftStartVarianceTypeEnum(path, loca
 }
 
 func (m *WorkPlanListItemResponse) validateShiftStartVarianceType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShiftStartVarianceType) { // not required
 		return nil
 	}
@@ -282,7 +285,6 @@ func (m *WorkPlanListItemResponse) validateShiftStartVarianceType(formats strfmt
 }
 
 func (m *WorkPlanListItemResponse) validateShiftStartVariances(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ShiftStartVariances) { // not required
 		return nil
 	}
@@ -291,6 +293,8 @@ func (m *WorkPlanListItemResponse) validateShiftStartVariances(formats strfmt.Re
 		if err := m.ShiftStartVariances.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("shiftStartVariances")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shiftStartVariances")
 			}
 			return err
 		}
@@ -300,7 +304,6 @@ func (m *WorkPlanListItemResponse) validateShiftStartVariances(formats strfmt.Re
 }
 
 func (m *WorkPlanListItemResponse) validateShifts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Shifts) { // not required
 		return nil
 	}
@@ -314,11 +317,170 @@ func (m *WorkPlanListItemResponse) validateShifts(formats strfmt.Registry) error
 			if err := m.Shifts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("shifts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("shifts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this work plan list item response based on the context it is used
+func (m *WorkPlanListItemResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetadata(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOptionalDays(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShiftStartVariances(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShifts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateValid(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WorkPlanListItemResponse) contextValidateAgents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Agents); i++ {
+
+		if m.Agents[i] != nil {
+			if err := m.Agents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("agents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WorkPlanListItemResponse) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WorkPlanListItemResponse) contextValidateMetadata(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Metadata != nil {
+		if err := m.Metadata.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("metadata")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("metadata")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WorkPlanListItemResponse) contextValidateOptionalDays(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OptionalDays != nil {
+		if err := m.OptionalDays.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("optionalDays")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("optionalDays")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WorkPlanListItemResponse) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WorkPlanListItemResponse) contextValidateShiftStartVariances(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ShiftStartVariances != nil {
+		if err := m.ShiftStartVariances.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("shiftStartVariances")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("shiftStartVariances")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WorkPlanListItemResponse) contextValidateShifts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Shifts); i++ {
+
+		if m.Shifts[i] != nil {
+			if err := m.Shifts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("shifts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("shifts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *WorkPlanListItemResponse) contextValidateValid(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "valid", "body", m.Valid); err != nil {
+		return err
 	}
 
 	return nil

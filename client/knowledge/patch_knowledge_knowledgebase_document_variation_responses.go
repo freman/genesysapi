@@ -95,7 +95,6 @@ func (o *PatchKnowledgeKnowledgebaseDocumentVariationReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentVariationOK() *PatchKnowledgeKnowledg
 	return &PatchKnowledgeKnowledgebaseDocumentVariationOK{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentVariationOK handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentVariationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchKnowledgeKnowledgebaseDocumentVariationOK struct {
 	Payload *models.DocumentVariation
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase document variation o k response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase document variation o k response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase document variation o k response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase document variation o k response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase document variation o k response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentVariationOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentVariationBadRequest() *PatchKnowledge
 	return &PatchKnowledgeKnowledgebaseDocumentVariationBadRequest{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentVariationBadRequest handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentVariationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchKnowledgeKnowledgebaseDocumentVariationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase document variation bad request response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase document variation bad request response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase document variation bad request response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase document variation bad request response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase document variation bad request response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentVariationBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentVariationUnauthorized() *PatchKnowled
 	return &PatchKnowledgeKnowledgebaseDocumentVariationUnauthorized{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentVariationUnauthorized handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentVariationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchKnowledgeKnowledgebaseDocumentVariationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase document variation unauthorized response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase document variation unauthorized response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase document variation unauthorized response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase document variation unauthorized response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase document variation unauthorized response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentVariationForbidden() *PatchKnowledgeK
 	return &PatchKnowledgeKnowledgebaseDocumentVariationForbidden{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentVariationForbidden handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentVariationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchKnowledgeKnowledgebaseDocumentVariationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase document variation forbidden response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase document variation forbidden response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase document variation forbidden response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase document variation forbidden response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase document variation forbidden response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentVariationForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentVariationNotFound() *PatchKnowledgeKn
 	return &PatchKnowledgeKnowledgebaseDocumentVariationNotFound{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentVariationNotFound handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentVariationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchKnowledgeKnowledgebaseDocumentVariationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase document variation not found response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase document variation not found response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase document variation not found response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase document variation not found response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase document variation not found response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentVariationNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentVariationRequestTimeout() *PatchKnowl
 	return &PatchKnowledgeKnowledgebaseDocumentVariationRequestTimeout{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentVariationRequestTimeout handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentVariationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchKnowledgeKnowledgebaseDocumentVariationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase document variation request timeout response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase document variation request timeout response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase document variation request timeout response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase document variation request timeout response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase document variation request timeout response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge() *Pat
 	return &PatchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase document variation request entity too large response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase document variation request entity too large response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase document variation request entity too large response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase document variation request entity too large response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase document variation request entity too large response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType() *Patc
 	return &PatchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase document variation unsupported media type response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase document variation unsupported media type response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase document variation unsupported media type response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase document variation unsupported media type response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase document variation unsupported media type response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentVariationTooManyRequests() *PatchKnow
 	return &PatchKnowledgeKnowledgebaseDocumentVariationTooManyRequests{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentVariationTooManyRequests handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentVariationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchKnowledgeKnowledgebaseDocumentVariationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase document variation too many requests response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase document variation too many requests response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase document variation too many requests response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase document variation too many requests response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch knowledge knowledgebase document variation too many requests response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentVariationTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentVariationInternalServerError() *Patch
 	return &PatchKnowledgeKnowledgebaseDocumentVariationInternalServerError{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentVariationInternalServerError handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentVariationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchKnowledgeKnowledgebaseDocumentVariationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase document variation internal server error response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase document variation internal server error response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase document variation internal server error response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase document variation internal server error response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge knowledgebase document variation internal server error response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentVariationInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable() *PatchK
 	return &PatchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase document variation service unavailable response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase document variation service unavailable response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase document variation service unavailable response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase document variation service unavailable response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge knowledgebase document variation service unavailable response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout() *PatchKnowl
 	return &PatchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout{}
 }
 
-/*PatchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout handles this case with default header values.
+/*
+PatchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch knowledge knowledgebase document variation gateway timeout response has a 2xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch knowledge knowledgebase document variation gateway timeout response has a 3xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch knowledge knowledgebase document variation gateway timeout response has a 4xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch knowledge knowledgebase document variation gateway timeout response has a 5xx status code
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch knowledge knowledgebase document variation gateway timeout response a status code equal to that given
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/documents/{documentId}/variations/{documentVariationId}][%d] patchKnowledgeKnowledgebaseDocumentVariationGatewayTimeout  %+v", 504, o.Payload)
 }
 

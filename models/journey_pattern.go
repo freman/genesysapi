@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -36,7 +37,7 @@ type JourneyPattern struct {
 
 	// The stream type for which this pattern can be matched on.
 	// Required: true
-	// Enum: [Web Custom Conversation]
+	// Enum: [Web Custom Conversation App]
 	StreamType *string `json:"streamType"`
 }
 
@@ -77,6 +78,8 @@ func (m *JourneyPattern) validateCriteria(formats strfmt.Registry) error {
 			if err := m.Criteria[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("criteria" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("criteria" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -100,7 +103,7 @@ var journeyPatternTypeStreamTypePropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Web","Custom","Conversation"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Web","Custom","Conversation","App"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -118,6 +121,9 @@ const (
 
 	// JourneyPatternStreamTypeConversation captures enum value "Conversation"
 	JourneyPatternStreamTypeConversation string = "Conversation"
+
+	// JourneyPatternStreamTypeApp captures enum value "App"
+	JourneyPatternStreamTypeApp string = "App"
 )
 
 // prop value enum
@@ -137,6 +143,40 @@ func (m *JourneyPattern) validateStreamType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateStreamTypeEnum("streamType", "body", *m.StreamType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this journey pattern based on the context it is used
+func (m *JourneyPattern) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCriteria(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *JourneyPattern) contextValidateCriteria(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Criteria); i++ {
+
+		if m.Criteria[i] != nil {
+			if err := m.Criteria[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("criteria" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("criteria" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

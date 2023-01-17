@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // ScimServiceProviderConfigFilterFeature Defines a "filter" request in the SCIM service provider's configuration.
@@ -26,6 +30,42 @@ type ScimServiceProviderConfigFilterFeature struct {
 
 // Validate validates this scim service provider config filter feature
 func (m *ScimServiceProviderConfigFilterFeature) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this scim service provider config filter feature based on the context it is used
+func (m *ScimServiceProviderConfigFilterFeature) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMaxResults(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupported(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimServiceProviderConfigFilterFeature) contextValidateMaxResults(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxResults", "body", int32(m.MaxResults)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfigFilterFeature) contextValidateSupported(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "supported", "body", m.Supported); err != nil {
+		return err
+	}
+
 	return nil
 }
 

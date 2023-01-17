@@ -95,7 +95,6 @@ func (o *PatchLanguageunderstandingDomainReader) ReadResponse(response runtime.C
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchLanguageunderstandingDomainOK() *PatchLanguageunderstandingDomainOK
 	return &PatchLanguageunderstandingDomainOK{}
 }
 
-/*PatchLanguageunderstandingDomainOK handles this case with default header values.
+/*
+PatchLanguageunderstandingDomainOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchLanguageunderstandingDomainOK struct {
 	Payload *models.NluDomain
 }
 
+// IsSuccess returns true when this patch languageunderstanding domain o k response has a 2xx status code
+func (o *PatchLanguageunderstandingDomainOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch languageunderstanding domain o k response has a 3xx status code
+func (o *PatchLanguageunderstandingDomainOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch languageunderstanding domain o k response has a 4xx status code
+func (o *PatchLanguageunderstandingDomainOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch languageunderstanding domain o k response has a 5xx status code
+func (o *PatchLanguageunderstandingDomainOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch languageunderstanding domain o k response a status code equal to that given
+func (o *PatchLanguageunderstandingDomainOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchLanguageunderstandingDomainOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchLanguageunderstandingDomainBadRequest() *PatchLanguageunderstanding
 	return &PatchLanguageunderstandingDomainBadRequest{}
 }
 
-/*PatchLanguageunderstandingDomainBadRequest handles this case with default header values.
+/*
+PatchLanguageunderstandingDomainBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchLanguageunderstandingDomainBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch languageunderstanding domain bad request response has a 2xx status code
+func (o *PatchLanguageunderstandingDomainBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch languageunderstanding domain bad request response has a 3xx status code
+func (o *PatchLanguageunderstandingDomainBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch languageunderstanding domain bad request response has a 4xx status code
+func (o *PatchLanguageunderstandingDomainBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch languageunderstanding domain bad request response has a 5xx status code
+func (o *PatchLanguageunderstandingDomainBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch languageunderstanding domain bad request response a status code equal to that given
+func (o *PatchLanguageunderstandingDomainBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchLanguageunderstandingDomainBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchLanguageunderstandingDomainUnauthorized() *PatchLanguageunderstandi
 	return &PatchLanguageunderstandingDomainUnauthorized{}
 }
 
-/*PatchLanguageunderstandingDomainUnauthorized handles this case with default header values.
+/*
+PatchLanguageunderstandingDomainUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchLanguageunderstandingDomainUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch languageunderstanding domain unauthorized response has a 2xx status code
+func (o *PatchLanguageunderstandingDomainUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch languageunderstanding domain unauthorized response has a 3xx status code
+func (o *PatchLanguageunderstandingDomainUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch languageunderstanding domain unauthorized response has a 4xx status code
+func (o *PatchLanguageunderstandingDomainUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch languageunderstanding domain unauthorized response has a 5xx status code
+func (o *PatchLanguageunderstandingDomainUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch languageunderstanding domain unauthorized response a status code equal to that given
+func (o *PatchLanguageunderstandingDomainUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchLanguageunderstandingDomainUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchLanguageunderstandingDomainForbidden() *PatchLanguageunderstandingD
 	return &PatchLanguageunderstandingDomainForbidden{}
 }
 
-/*PatchLanguageunderstandingDomainForbidden handles this case with default header values.
+/*
+PatchLanguageunderstandingDomainForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchLanguageunderstandingDomainForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch languageunderstanding domain forbidden response has a 2xx status code
+func (o *PatchLanguageunderstandingDomainForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch languageunderstanding domain forbidden response has a 3xx status code
+func (o *PatchLanguageunderstandingDomainForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch languageunderstanding domain forbidden response has a 4xx status code
+func (o *PatchLanguageunderstandingDomainForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch languageunderstanding domain forbidden response has a 5xx status code
+func (o *PatchLanguageunderstandingDomainForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch languageunderstanding domain forbidden response a status code equal to that given
+func (o *PatchLanguageunderstandingDomainForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchLanguageunderstandingDomainForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchLanguageunderstandingDomainNotFound() *PatchLanguageunderstandingDo
 	return &PatchLanguageunderstandingDomainNotFound{}
 }
 
-/*PatchLanguageunderstandingDomainNotFound handles this case with default header values.
+/*
+PatchLanguageunderstandingDomainNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchLanguageunderstandingDomainNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch languageunderstanding domain not found response has a 2xx status code
+func (o *PatchLanguageunderstandingDomainNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch languageunderstanding domain not found response has a 3xx status code
+func (o *PatchLanguageunderstandingDomainNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch languageunderstanding domain not found response has a 4xx status code
+func (o *PatchLanguageunderstandingDomainNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch languageunderstanding domain not found response has a 5xx status code
+func (o *PatchLanguageunderstandingDomainNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch languageunderstanding domain not found response a status code equal to that given
+func (o *PatchLanguageunderstandingDomainNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchLanguageunderstandingDomainNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchLanguageunderstandingDomainRequestTimeout() *PatchLanguageunderstan
 	return &PatchLanguageunderstandingDomainRequestTimeout{}
 }
 
-/*PatchLanguageunderstandingDomainRequestTimeout handles this case with default header values.
+/*
+PatchLanguageunderstandingDomainRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchLanguageunderstandingDomainRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch languageunderstanding domain request timeout response has a 2xx status code
+func (o *PatchLanguageunderstandingDomainRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch languageunderstanding domain request timeout response has a 3xx status code
+func (o *PatchLanguageunderstandingDomainRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch languageunderstanding domain request timeout response has a 4xx status code
+func (o *PatchLanguageunderstandingDomainRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch languageunderstanding domain request timeout response has a 5xx status code
+func (o *PatchLanguageunderstandingDomainRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch languageunderstanding domain request timeout response a status code equal to that given
+func (o *PatchLanguageunderstandingDomainRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchLanguageunderstandingDomainRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchLanguageunderstandingDomainRequestEntityTooLarge() *PatchLanguageun
 	return &PatchLanguageunderstandingDomainRequestEntityTooLarge{}
 }
 
-/*PatchLanguageunderstandingDomainRequestEntityTooLarge handles this case with default header values.
+/*
+PatchLanguageunderstandingDomainRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchLanguageunderstandingDomainRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch languageunderstanding domain request entity too large response has a 2xx status code
+func (o *PatchLanguageunderstandingDomainRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch languageunderstanding domain request entity too large response has a 3xx status code
+func (o *PatchLanguageunderstandingDomainRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch languageunderstanding domain request entity too large response has a 4xx status code
+func (o *PatchLanguageunderstandingDomainRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch languageunderstanding domain request entity too large response has a 5xx status code
+func (o *PatchLanguageunderstandingDomainRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch languageunderstanding domain request entity too large response a status code equal to that given
+func (o *PatchLanguageunderstandingDomainRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchLanguageunderstandingDomainRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchLanguageunderstandingDomainUnsupportedMediaType() *PatchLanguageund
 	return &PatchLanguageunderstandingDomainUnsupportedMediaType{}
 }
 
-/*PatchLanguageunderstandingDomainUnsupportedMediaType handles this case with default header values.
+/*
+PatchLanguageunderstandingDomainUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchLanguageunderstandingDomainUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch languageunderstanding domain unsupported media type response has a 2xx status code
+func (o *PatchLanguageunderstandingDomainUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch languageunderstanding domain unsupported media type response has a 3xx status code
+func (o *PatchLanguageunderstandingDomainUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch languageunderstanding domain unsupported media type response has a 4xx status code
+func (o *PatchLanguageunderstandingDomainUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch languageunderstanding domain unsupported media type response has a 5xx status code
+func (o *PatchLanguageunderstandingDomainUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch languageunderstanding domain unsupported media type response a status code equal to that given
+func (o *PatchLanguageunderstandingDomainUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchLanguageunderstandingDomainUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchLanguageunderstandingDomainTooManyRequests() *PatchLanguageundersta
 	return &PatchLanguageunderstandingDomainTooManyRequests{}
 }
 
-/*PatchLanguageunderstandingDomainTooManyRequests handles this case with default header values.
+/*
+PatchLanguageunderstandingDomainTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchLanguageunderstandingDomainTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch languageunderstanding domain too many requests response has a 2xx status code
+func (o *PatchLanguageunderstandingDomainTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch languageunderstanding domain too many requests response has a 3xx status code
+func (o *PatchLanguageunderstandingDomainTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch languageunderstanding domain too many requests response has a 4xx status code
+func (o *PatchLanguageunderstandingDomainTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch languageunderstanding domain too many requests response has a 5xx status code
+func (o *PatchLanguageunderstandingDomainTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch languageunderstanding domain too many requests response a status code equal to that given
+func (o *PatchLanguageunderstandingDomainTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchLanguageunderstandingDomainTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchLanguageunderstandingDomainInternalServerError() *PatchLanguageunde
 	return &PatchLanguageunderstandingDomainInternalServerError{}
 }
 
-/*PatchLanguageunderstandingDomainInternalServerError handles this case with default header values.
+/*
+PatchLanguageunderstandingDomainInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchLanguageunderstandingDomainInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch languageunderstanding domain internal server error response has a 2xx status code
+func (o *PatchLanguageunderstandingDomainInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch languageunderstanding domain internal server error response has a 3xx status code
+func (o *PatchLanguageunderstandingDomainInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch languageunderstanding domain internal server error response has a 4xx status code
+func (o *PatchLanguageunderstandingDomainInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch languageunderstanding domain internal server error response has a 5xx status code
+func (o *PatchLanguageunderstandingDomainInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch languageunderstanding domain internal server error response a status code equal to that given
+func (o *PatchLanguageunderstandingDomainInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchLanguageunderstandingDomainInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchLanguageunderstandingDomainServiceUnavailable() *PatchLanguageunder
 	return &PatchLanguageunderstandingDomainServiceUnavailable{}
 }
 
-/*PatchLanguageunderstandingDomainServiceUnavailable handles this case with default header values.
+/*
+PatchLanguageunderstandingDomainServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchLanguageunderstandingDomainServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch languageunderstanding domain service unavailable response has a 2xx status code
+func (o *PatchLanguageunderstandingDomainServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch languageunderstanding domain service unavailable response has a 3xx status code
+func (o *PatchLanguageunderstandingDomainServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch languageunderstanding domain service unavailable response has a 4xx status code
+func (o *PatchLanguageunderstandingDomainServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch languageunderstanding domain service unavailable response has a 5xx status code
+func (o *PatchLanguageunderstandingDomainServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch languageunderstanding domain service unavailable response a status code equal to that given
+func (o *PatchLanguageunderstandingDomainServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchLanguageunderstandingDomainServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchLanguageunderstandingDomainGatewayTimeout() *PatchLanguageunderstan
 	return &PatchLanguageunderstandingDomainGatewayTimeout{}
 }
 
-/*PatchLanguageunderstandingDomainGatewayTimeout handles this case with default header values.
+/*
+PatchLanguageunderstandingDomainGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchLanguageunderstandingDomainGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch languageunderstanding domain gateway timeout response has a 2xx status code
+func (o *PatchLanguageunderstandingDomainGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch languageunderstanding domain gateway timeout response has a 3xx status code
+func (o *PatchLanguageunderstandingDomainGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch languageunderstanding domain gateway timeout response has a 4xx status code
+func (o *PatchLanguageunderstandingDomainGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch languageunderstanding domain gateway timeout response has a 5xx status code
+func (o *PatchLanguageunderstandingDomainGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch languageunderstanding domain gateway timeout response a status code equal to that given
+func (o *PatchLanguageunderstandingDomainGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchLanguageunderstandingDomainGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchLanguageunderstandingDomainGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/languageunderstanding/domains/{domainId}][%d] patchLanguageunderstandingDomainGatewayTimeout  %+v", 504, o.Payload)
 }
 

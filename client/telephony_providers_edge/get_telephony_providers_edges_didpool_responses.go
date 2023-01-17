@@ -95,7 +95,6 @@ func (o *GetTelephonyProvidersEdgesDidpoolReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetTelephonyProvidersEdgesDidpoolOK() *GetTelephonyProvidersEdgesDidpool
 	return &GetTelephonyProvidersEdgesDidpoolOK{}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolOK handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesDidpoolOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetTelephonyProvidersEdgesDidpoolOK struct {
 	Payload *models.DIDPool
 }
 
+// IsSuccess returns true when this get telephony providers edges didpool o k response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get telephony providers edges didpool o k response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges didpool o k response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edges didpool o k response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges didpool o k response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesDidpoolOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetTelephonyProvidersEdgesDidpoolOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolOK  %+v", 200, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidpoolOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetTelephonyProvidersEdgesDidpoolBadRequest() *GetTelephonyProvidersEdge
 	return &GetTelephonyProvidersEdgesDidpoolBadRequest{}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolBadRequest handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesDidpoolBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetTelephonyProvidersEdgesDidpoolBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges didpool bad request response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges didpool bad request response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges didpool bad request response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges didpool bad request response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges didpool bad request response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesDidpoolBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetTelephonyProvidersEdgesDidpoolBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidpoolBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetTelephonyProvidersEdgesDidpoolUnauthorized() *GetTelephonyProvidersEd
 	return &GetTelephonyProvidersEdgesDidpoolUnauthorized{}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolUnauthorized handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesDidpoolUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetTelephonyProvidersEdgesDidpoolUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges didpool unauthorized response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges didpool unauthorized response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges didpool unauthorized response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges didpool unauthorized response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges didpool unauthorized response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesDidpoolUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetTelephonyProvidersEdgesDidpoolUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidpoolUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetTelephonyProvidersEdgesDidpoolForbidden() *GetTelephonyProvidersEdges
 	return &GetTelephonyProvidersEdgesDidpoolForbidden{}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolForbidden handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesDidpoolForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetTelephonyProvidersEdgesDidpoolForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges didpool forbidden response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges didpool forbidden response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges didpool forbidden response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges didpool forbidden response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges didpool forbidden response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesDidpoolForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetTelephonyProvidersEdgesDidpoolForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidpoolForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetTelephonyProvidersEdgesDidpoolNotFound() *GetTelephonyProvidersEdgesD
 	return &GetTelephonyProvidersEdgesDidpoolNotFound{}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolNotFound handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesDidpoolNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetTelephonyProvidersEdgesDidpoolNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges didpool not found response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges didpool not found response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges didpool not found response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges didpool not found response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges didpool not found response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesDidpoolNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetTelephonyProvidersEdgesDidpoolNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidpoolNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetTelephonyProvidersEdgesDidpoolRequestTimeout() *GetTelephonyProviders
 	return &GetTelephonyProvidersEdgesDidpoolRequestTimeout{}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolRequestTimeout handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesDidpoolRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetTelephonyProvidersEdgesDidpoolRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges didpool request timeout response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges didpool request timeout response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges didpool request timeout response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges didpool request timeout response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges didpool request timeout response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesDidpoolRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetTelephonyProvidersEdgesDidpoolRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidpoolRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetTelephonyProvidersEdgesDidpoolRequestEntityTooLarge() *GetTelephonyPr
 	return &GetTelephonyProvidersEdgesDidpoolRequestEntityTooLarge{}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolRequestEntityTooLarge handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesDidpoolRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetTelephonyProvidersEdgesDidpoolRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges didpool request entity too large response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges didpool request entity too large response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges didpool request entity too large response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges didpool request entity too large response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges didpool request entity too large response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesDidpoolRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetTelephonyProvidersEdgesDidpoolRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidpoolRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetTelephonyProvidersEdgesDidpoolUnsupportedMediaType() *GetTelephonyPro
 	return &GetTelephonyProvidersEdgesDidpoolUnsupportedMediaType{}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolUnsupportedMediaType handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesDidpoolUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetTelephonyProvidersEdgesDidpoolUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges didpool unsupported media type response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges didpool unsupported media type response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges didpool unsupported media type response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges didpool unsupported media type response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges didpool unsupported media type response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesDidpoolUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetTelephonyProvidersEdgesDidpoolUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidpoolUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetTelephonyProvidersEdgesDidpoolTooManyRequests() *GetTelephonyProvider
 	return &GetTelephonyProvidersEdgesDidpoolTooManyRequests{}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolTooManyRequests handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesDidpoolTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetTelephonyProvidersEdgesDidpoolTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges didpool too many requests response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges didpool too many requests response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges didpool too many requests response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get telephony providers edges didpool too many requests response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get telephony providers edges didpool too many requests response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesDidpoolTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetTelephonyProvidersEdgesDidpoolTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidpoolTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetTelephonyProvidersEdgesDidpoolInternalServerError() *GetTelephonyProv
 	return &GetTelephonyProvidersEdgesDidpoolInternalServerError{}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolInternalServerError handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesDidpoolInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetTelephonyProvidersEdgesDidpoolInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges didpool internal server error response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges didpool internal server error response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges didpool internal server error response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edges didpool internal server error response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony providers edges didpool internal server error response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesDidpoolInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetTelephonyProvidersEdgesDidpoolInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidpoolInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetTelephonyProvidersEdgesDidpoolServiceUnavailable() *GetTelephonyProvi
 	return &GetTelephonyProvidersEdgesDidpoolServiceUnavailable{}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolServiceUnavailable handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesDidpoolServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetTelephonyProvidersEdgesDidpoolServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges didpool service unavailable response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges didpool service unavailable response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges didpool service unavailable response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edges didpool service unavailable response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony providers edges didpool service unavailable response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesDidpoolServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetTelephonyProvidersEdgesDidpoolServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidpoolServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetTelephonyProvidersEdgesDidpoolGatewayTimeout() *GetTelephonyProviders
 	return &GetTelephonyProvidersEdgesDidpoolGatewayTimeout{}
 }
 
-/*GetTelephonyProvidersEdgesDidpoolGatewayTimeout handles this case with default header values.
+/*
+GetTelephonyProvidersEdgesDidpoolGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetTelephonyProvidersEdgesDidpoolGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get telephony providers edges didpool gateway timeout response has a 2xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get telephony providers edges didpool gateway timeout response has a 3xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get telephony providers edges didpool gateway timeout response has a 4xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get telephony providers edges didpool gateway timeout response has a 5xx status code
+func (o *GetTelephonyProvidersEdgesDidpoolGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get telephony providers edges didpool gateway timeout response a status code equal to that given
+func (o *GetTelephonyProvidersEdgesDidpoolGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetTelephonyProvidersEdgesDidpoolGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetTelephonyProvidersEdgesDidpoolGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/telephony/providers/edges/didpools/{didPoolId}][%d] getTelephonyProvidersEdgesDidpoolGatewayTimeout  %+v", 504, o.Payload)
 }
 

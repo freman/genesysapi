@@ -17,64 +17,81 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewDeleteArchitectPromptParams creates a new DeleteArchitectPromptParams object
-// with the default values initialized.
+// NewDeleteArchitectPromptParams creates a new DeleteArchitectPromptParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteArchitectPromptParams() *DeleteArchitectPromptParams {
-	var ()
 	return &DeleteArchitectPromptParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteArchitectPromptParamsWithTimeout creates a new DeleteArchitectPromptParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteArchitectPromptParamsWithTimeout(timeout time.Duration) *DeleteArchitectPromptParams {
-	var ()
 	return &DeleteArchitectPromptParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteArchitectPromptParamsWithContext creates a new DeleteArchitectPromptParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteArchitectPromptParamsWithContext(ctx context.Context) *DeleteArchitectPromptParams {
-	var ()
 	return &DeleteArchitectPromptParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteArchitectPromptParamsWithHTTPClient creates a new DeleteArchitectPromptParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteArchitectPromptParamsWithHTTPClient(client *http.Client) *DeleteArchitectPromptParams {
-	var ()
 	return &DeleteArchitectPromptParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteArchitectPromptParams contains all the parameters to send to the API endpoint
-for the delete architect prompt operation typically these are written to a http.Request
+/*
+DeleteArchitectPromptParams contains all the parameters to send to the API endpoint
+
+	for the delete architect prompt operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteArchitectPromptParams struct {
 
-	/*AllResources
-	  Whether or not to delete all the prompt resources
+	/* AllResources.
 
+	   Whether or not to delete all the prompt resources
 	*/
 	AllResources *bool
-	/*PromptID
-	  Prompt ID
 
+	/* PromptID.
+
+	   Prompt ID
 	*/
 	PromptID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete architect prompt params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteArchitectPromptParams) WithDefaults() *DeleteArchitectPromptParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete architect prompt params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteArchitectPromptParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete architect prompt params
@@ -144,16 +161,17 @@ func (o *DeleteArchitectPromptParams) WriteToRequest(r runtime.ClientRequest, re
 
 		// query param allResources
 		var qrAllResources bool
+
 		if o.AllResources != nil {
 			qrAllResources = *o.AllResources
 		}
 		qAllResources := swag.FormatBool(qrAllResources)
 		if qAllResources != "" {
+
 			if err := r.SetQueryParam("allResources", qAllResources); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param promptId

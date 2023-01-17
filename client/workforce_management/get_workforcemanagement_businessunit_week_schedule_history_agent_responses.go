@@ -95,7 +95,6 @@ func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentReader) ReadR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK() *GetWorkf
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK struct {
 	Payload *models.BuAgentScheduleHistoryResponse
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week schedule history agent o k response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week schedule history agent o k response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week schedule history agent o k response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week schedule history agent o k response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week schedule history agent o k response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest() *
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week schedule history agent bad request response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week schedule history agent bad request response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week schedule history agent bad request response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week schedule history agent bad request response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week schedule history agent bad request response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized()
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week schedule history agent unauthorized response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week schedule history agent unauthorized response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week schedule history agent unauthorized response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week schedule history agent unauthorized response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week schedule history agent unauthorized response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden() *G
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week schedule history agent forbidden response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week schedule history agent forbidden response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week schedule history agent forbidden response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week schedule history agent forbidden response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week schedule history agent forbidden response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound() *Ge
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week schedule history agent not found response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week schedule history agent not found response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week schedule history agent not found response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week schedule history agent not found response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week schedule history agent not found response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week schedule history agent request timeout response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week schedule history agent request timeout response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week schedule history agent request timeout response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week schedule history agent request timeout response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week schedule history agent request timeout response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityT
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooLarge{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooLarge handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooL
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week schedule history agent request entity too large response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week schedule history agent request entity too large response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week schedule history agent request entity too large response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week schedule history agent request entity too large response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week schedule history agent request entity too large response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMed
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaType{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaType handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaT
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week schedule history agent unsupported media type response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week schedule history agent unsupported media type response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week schedule history agent unsupported media type response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week schedule history agent unsupported media type response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week schedule history agent unsupported media type response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequest
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests s
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week schedule history agent too many requests response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week schedule history agent too many requests response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week schedule history agent too many requests response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week schedule history agent too many requests response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week schedule history agent too many requests response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServer
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerError{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerError handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerErr
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week schedule history agent internal server error response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week schedule history agent internal server error response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week schedule history agent internal server error response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week schedule history agent internal server error response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week schedule history agent internal server error response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavail
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailable{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailable handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailabl
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week schedule history agent service unavailable response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week schedule history agent service unavailable response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week schedule history agent service unavailable response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week schedule history agent service unavailable response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week schedule history agent service unavailable response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout
 	return &GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout st
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week schedule history agent gateway timeout response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week schedule history agent gateway timeout response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week schedule history agent gateway timeout response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week schedule history agent gateway timeout response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week schedule history agent gateway timeout response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekId}/schedules/{scheduleId}/history/agents/{agentId}][%d] getWorkforcemanagementBusinessunitWeekScheduleHistoryAgentGatewayTimeout  %+v", 504, o.Payload)
 }
 

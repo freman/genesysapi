@@ -95,7 +95,6 @@ func (o *GetOrgauthorizationPairingReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOrgauthorizationPairingOK() *GetOrgauthorizationPairingOK {
 	return &GetOrgauthorizationPairingOK{}
 }
 
-/*GetOrgauthorizationPairingOK handles this case with default header values.
+/*
+GetOrgauthorizationPairingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOrgauthorizationPairingOK struct {
 	Payload *models.TrustRequest
 }
 
+// IsSuccess returns true when this get orgauthorization pairing o k response has a 2xx status code
+func (o *GetOrgauthorizationPairingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get orgauthorization pairing o k response has a 3xx status code
+func (o *GetOrgauthorizationPairingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization pairing o k response has a 4xx status code
+func (o *GetOrgauthorizationPairingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orgauthorization pairing o k response has a 5xx status code
+func (o *GetOrgauthorizationPairingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization pairing o k response a status code equal to that given
+func (o *GetOrgauthorizationPairingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOrgauthorizationPairingOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOrgauthorizationPairingOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOrgauthorizationPairingBadRequest() *GetOrgauthorizationPairingBadReq
 	return &GetOrgauthorizationPairingBadRequest{}
 }
 
-/*GetOrgauthorizationPairingBadRequest handles this case with default header values.
+/*
+GetOrgauthorizationPairingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOrgauthorizationPairingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization pairing bad request response has a 2xx status code
+func (o *GetOrgauthorizationPairingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization pairing bad request response has a 3xx status code
+func (o *GetOrgauthorizationPairingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization pairing bad request response has a 4xx status code
+func (o *GetOrgauthorizationPairingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization pairing bad request response has a 5xx status code
+func (o *GetOrgauthorizationPairingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization pairing bad request response a status code equal to that given
+func (o *GetOrgauthorizationPairingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOrgauthorizationPairingBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOrgauthorizationPairingBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOrgauthorizationPairingUnauthorized() *GetOrgauthorizationPairingUnau
 	return &GetOrgauthorizationPairingUnauthorized{}
 }
 
-/*GetOrgauthorizationPairingUnauthorized handles this case with default header values.
+/*
+GetOrgauthorizationPairingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOrgauthorizationPairingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization pairing unauthorized response has a 2xx status code
+func (o *GetOrgauthorizationPairingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization pairing unauthorized response has a 3xx status code
+func (o *GetOrgauthorizationPairingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization pairing unauthorized response has a 4xx status code
+func (o *GetOrgauthorizationPairingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization pairing unauthorized response has a 5xx status code
+func (o *GetOrgauthorizationPairingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization pairing unauthorized response a status code equal to that given
+func (o *GetOrgauthorizationPairingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOrgauthorizationPairingUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOrgauthorizationPairingUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOrgauthorizationPairingForbidden() *GetOrgauthorizationPairingForbidd
 	return &GetOrgauthorizationPairingForbidden{}
 }
 
-/*GetOrgauthorizationPairingForbidden handles this case with default header values.
+/*
+GetOrgauthorizationPairingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOrgauthorizationPairingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization pairing forbidden response has a 2xx status code
+func (o *GetOrgauthorizationPairingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization pairing forbidden response has a 3xx status code
+func (o *GetOrgauthorizationPairingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization pairing forbidden response has a 4xx status code
+func (o *GetOrgauthorizationPairingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization pairing forbidden response has a 5xx status code
+func (o *GetOrgauthorizationPairingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization pairing forbidden response a status code equal to that given
+func (o *GetOrgauthorizationPairingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOrgauthorizationPairingForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOrgauthorizationPairingForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOrgauthorizationPairingNotFound() *GetOrgauthorizationPairingNotFound
 	return &GetOrgauthorizationPairingNotFound{}
 }
 
-/*GetOrgauthorizationPairingNotFound handles this case with default header values.
+/*
+GetOrgauthorizationPairingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOrgauthorizationPairingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization pairing not found response has a 2xx status code
+func (o *GetOrgauthorizationPairingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization pairing not found response has a 3xx status code
+func (o *GetOrgauthorizationPairingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization pairing not found response has a 4xx status code
+func (o *GetOrgauthorizationPairingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization pairing not found response has a 5xx status code
+func (o *GetOrgauthorizationPairingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization pairing not found response a status code equal to that given
+func (o *GetOrgauthorizationPairingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOrgauthorizationPairingNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOrgauthorizationPairingNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOrgauthorizationPairingRequestTimeout() *GetOrgauthorizationPairingRe
 	return &GetOrgauthorizationPairingRequestTimeout{}
 }
 
-/*GetOrgauthorizationPairingRequestTimeout handles this case with default header values.
+/*
+GetOrgauthorizationPairingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOrgauthorizationPairingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization pairing request timeout response has a 2xx status code
+func (o *GetOrgauthorizationPairingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization pairing request timeout response has a 3xx status code
+func (o *GetOrgauthorizationPairingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization pairing request timeout response has a 4xx status code
+func (o *GetOrgauthorizationPairingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization pairing request timeout response has a 5xx status code
+func (o *GetOrgauthorizationPairingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization pairing request timeout response a status code equal to that given
+func (o *GetOrgauthorizationPairingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOrgauthorizationPairingRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOrgauthorizationPairingRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOrgauthorizationPairingRequestEntityTooLarge() *GetOrgauthorizationPa
 	return &GetOrgauthorizationPairingRequestEntityTooLarge{}
 }
 
-/*GetOrgauthorizationPairingRequestEntityTooLarge handles this case with default header values.
+/*
+GetOrgauthorizationPairingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOrgauthorizationPairingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization pairing request entity too large response has a 2xx status code
+func (o *GetOrgauthorizationPairingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization pairing request entity too large response has a 3xx status code
+func (o *GetOrgauthorizationPairingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization pairing request entity too large response has a 4xx status code
+func (o *GetOrgauthorizationPairingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization pairing request entity too large response has a 5xx status code
+func (o *GetOrgauthorizationPairingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization pairing request entity too large response a status code equal to that given
+func (o *GetOrgauthorizationPairingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOrgauthorizationPairingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOrgauthorizationPairingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOrgauthorizationPairingUnsupportedMediaType() *GetOrgauthorizationPai
 	return &GetOrgauthorizationPairingUnsupportedMediaType{}
 }
 
-/*GetOrgauthorizationPairingUnsupportedMediaType handles this case with default header values.
+/*
+GetOrgauthorizationPairingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOrgauthorizationPairingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization pairing unsupported media type response has a 2xx status code
+func (o *GetOrgauthorizationPairingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization pairing unsupported media type response has a 3xx status code
+func (o *GetOrgauthorizationPairingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization pairing unsupported media type response has a 4xx status code
+func (o *GetOrgauthorizationPairingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization pairing unsupported media type response has a 5xx status code
+func (o *GetOrgauthorizationPairingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization pairing unsupported media type response a status code equal to that given
+func (o *GetOrgauthorizationPairingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOrgauthorizationPairingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOrgauthorizationPairingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOrgauthorizationPairingTooManyRequests() *GetOrgauthorizationPairingT
 	return &GetOrgauthorizationPairingTooManyRequests{}
 }
 
-/*GetOrgauthorizationPairingTooManyRequests handles this case with default header values.
+/*
+GetOrgauthorizationPairingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOrgauthorizationPairingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization pairing too many requests response has a 2xx status code
+func (o *GetOrgauthorizationPairingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization pairing too many requests response has a 3xx status code
+func (o *GetOrgauthorizationPairingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization pairing too many requests response has a 4xx status code
+func (o *GetOrgauthorizationPairingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get orgauthorization pairing too many requests response has a 5xx status code
+func (o *GetOrgauthorizationPairingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get orgauthorization pairing too many requests response a status code equal to that given
+func (o *GetOrgauthorizationPairingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOrgauthorizationPairingTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOrgauthorizationPairingTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOrgauthorizationPairingInternalServerError() *GetOrgauthorizationPair
 	return &GetOrgauthorizationPairingInternalServerError{}
 }
 
-/*GetOrgauthorizationPairingInternalServerError handles this case with default header values.
+/*
+GetOrgauthorizationPairingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOrgauthorizationPairingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization pairing internal server error response has a 2xx status code
+func (o *GetOrgauthorizationPairingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization pairing internal server error response has a 3xx status code
+func (o *GetOrgauthorizationPairingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization pairing internal server error response has a 4xx status code
+func (o *GetOrgauthorizationPairingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orgauthorization pairing internal server error response has a 5xx status code
+func (o *GetOrgauthorizationPairingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get orgauthorization pairing internal server error response a status code equal to that given
+func (o *GetOrgauthorizationPairingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOrgauthorizationPairingInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOrgauthorizationPairingInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOrgauthorizationPairingServiceUnavailable() *GetOrgauthorizationPairi
 	return &GetOrgauthorizationPairingServiceUnavailable{}
 }
 
-/*GetOrgauthorizationPairingServiceUnavailable handles this case with default header values.
+/*
+GetOrgauthorizationPairingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOrgauthorizationPairingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization pairing service unavailable response has a 2xx status code
+func (o *GetOrgauthorizationPairingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization pairing service unavailable response has a 3xx status code
+func (o *GetOrgauthorizationPairingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization pairing service unavailable response has a 4xx status code
+func (o *GetOrgauthorizationPairingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orgauthorization pairing service unavailable response has a 5xx status code
+func (o *GetOrgauthorizationPairingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get orgauthorization pairing service unavailable response a status code equal to that given
+func (o *GetOrgauthorizationPairingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOrgauthorizationPairingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOrgauthorizationPairingServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOrgauthorizationPairingGatewayTimeout() *GetOrgauthorizationPairingGa
 	return &GetOrgauthorizationPairingGatewayTimeout{}
 }
 
-/*GetOrgauthorizationPairingGatewayTimeout handles this case with default header values.
+/*
+GetOrgauthorizationPairingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOrgauthorizationPairingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get orgauthorization pairing gateway timeout response has a 2xx status code
+func (o *GetOrgauthorizationPairingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get orgauthorization pairing gateway timeout response has a 3xx status code
+func (o *GetOrgauthorizationPairingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get orgauthorization pairing gateway timeout response has a 4xx status code
+func (o *GetOrgauthorizationPairingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get orgauthorization pairing gateway timeout response has a 5xx status code
+func (o *GetOrgauthorizationPairingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get orgauthorization pairing gateway timeout response a status code equal to that given
+func (o *GetOrgauthorizationPairingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOrgauthorizationPairingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOrgauthorizationPairingGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/orgauthorization/pairings/{pairingId}][%d] getOrgauthorizationPairingGatewayTimeout  %+v", 504, o.Payload)
 }
 

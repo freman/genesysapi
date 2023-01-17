@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -71,6 +72,8 @@ func (m *CoachingAppointmentAggregateRequest) validateFilter(formats strfmt.Regi
 		if err := m.Filter.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
 			}
 			return err
 		}
@@ -99,7 +102,6 @@ func (m *CoachingAppointmentAggregateRequest) validateGroupByItemsEnum(path, loc
 }
 
 func (m *CoachingAppointmentAggregateRequest) validateGroupBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.GroupBy) { // not required
 		return nil
 	}
@@ -145,7 +147,6 @@ func (m *CoachingAppointmentAggregateRequest) validateMetricsItemsEnum(path, loc
 }
 
 func (m *CoachingAppointmentAggregateRequest) validateMetrics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metrics) { // not required
 		return nil
 	}
@@ -157,6 +158,36 @@ func (m *CoachingAppointmentAggregateRequest) validateMetrics(formats strfmt.Reg
 			return err
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this coaching appointment aggregate request based on the context it is used
+func (m *CoachingAppointmentAggregateRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFilter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CoachingAppointmentAggregateRequest) contextValidateFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Filter != nil {
+		if err := m.Filter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -28,8 +29,7 @@ type OpenMessagingChannel struct {
 	ID string `json:"id,omitempty"`
 
 	// Unique provider ID of the message such as a Facebook message ID.
-	// Required: true
-	MessageID *string `json:"messageId"`
+	MessageID string `json:"messageId,omitempty"`
 
 	// Information about the channel.
 	Metadata ChannelMetadata `json:"metadata,omitempty"`
@@ -58,10 +58,6 @@ func (m *OpenMessagingChannel) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateFrom(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMessageID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -97,18 +93,11 @@ func (m *OpenMessagingChannel) validateFrom(formats strfmt.Registry) error {
 		if err := m.From.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("from")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("from")
 			}
 			return err
 		}
-	}
-
-	return nil
-}
-
-func (m *OpenMessagingChannel) validateMessageID(formats strfmt.Registry) error {
-
-	if err := validate.Required("messageId", "body", m.MessageID); err != nil {
-		return err
 	}
 
 	return nil
@@ -141,7 +130,6 @@ func (m *OpenMessagingChannel) validatePlatformEnum(path, location string, value
 }
 
 func (m *OpenMessagingChannel) validatePlatform(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Platform) { // not required
 		return nil
 	}
@@ -177,6 +165,8 @@ func (m *OpenMessagingChannel) validateTo(formats strfmt.Registry) error {
 		if err := m.To.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("to")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("to")
 			}
 			return err
 		}
@@ -212,7 +202,6 @@ func (m *OpenMessagingChannel) validateTypeEnum(path, location string, value str
 }
 
 func (m *OpenMessagingChannel) validateType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Type) { // not required
 		return nil
 	}
@@ -220,6 +209,82 @@ func (m *OpenMessagingChannel) validateType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTypeEnum("type", "body", m.Type); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this open messaging channel based on the context it is used
+func (m *OpenMessagingChannel) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFrom(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePlatform(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *OpenMessagingChannel) contextValidateFrom(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.From != nil {
+		if err := m.From.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("from")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("from")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *OpenMessagingChannel) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OpenMessagingChannel) contextValidatePlatform(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "platform", "body", string(m.Platform)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *OpenMessagingChannel) contextValidateTo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.To != nil {
+		if err := m.To.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("to")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("to")
+			}
+			return err
+		}
 	}
 
 	return nil

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -62,7 +63,6 @@ func (m *ConnectedEdge) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ConnectedEdge) validateEdgeConnectionList(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EdgeConnectionList) { // not required
 		return nil
 	}
@@ -76,6 +76,8 @@ func (m *ConnectedEdge) validateEdgeConnectionList(formats strfmt.Registry) erro
 			if err := m.EdgeConnectionList[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("edgeConnectionList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("edgeConnectionList" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -87,12 +89,97 @@ func (m *ConnectedEdge) validateEdgeConnectionList(formats strfmt.Registry) erro
 }
 
 func (m *ConnectedEdge) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this connected edge based on the context it is used
+func (m *ConnectedEdge) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateEdgeConnectionList(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInterfaceIPAddress(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInterfaceName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ConnectedEdge) contextValidateEdgeConnectionList(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.EdgeConnectionList); i++ {
+
+		if m.EdgeConnectionList[i] != nil {
+			if err := m.EdgeConnectionList[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("edgeConnectionList" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("edgeConnectionList" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ConnectedEdge) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConnectedEdge) contextValidateInterfaceIPAddress(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "interfaceIpAddress", "body", string(m.InterfaceIPAddress)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConnectedEdge) contextValidateInterfaceName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "interfaceName", "body", string(m.InterfaceName)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ConnectedEdge) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

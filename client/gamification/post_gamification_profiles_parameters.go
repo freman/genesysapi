@@ -19,76 +19,94 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostGamificationProfilesParams creates a new PostGamificationProfilesParams object
-// with the default values initialized.
+// NewPostGamificationProfilesParams creates a new PostGamificationProfilesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostGamificationProfilesParams() *PostGamificationProfilesParams {
-	var (
-		copyMetricsDefault = bool(true)
-	)
 	return &PostGamificationProfilesParams{
-		CopyMetrics: &copyMetricsDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostGamificationProfilesParamsWithTimeout creates a new PostGamificationProfilesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostGamificationProfilesParamsWithTimeout(timeout time.Duration) *PostGamificationProfilesParams {
-	var (
-		copyMetricsDefault = bool(true)
-	)
 	return &PostGamificationProfilesParams{
-		CopyMetrics: &copyMetricsDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewPostGamificationProfilesParamsWithContext creates a new PostGamificationProfilesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostGamificationProfilesParamsWithContext(ctx context.Context) *PostGamificationProfilesParams {
-	var (
-		copyMetricsDefault = bool(true)
-	)
 	return &PostGamificationProfilesParams{
-		CopyMetrics: &copyMetricsDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewPostGamificationProfilesParamsWithHTTPClient creates a new PostGamificationProfilesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostGamificationProfilesParamsWithHTTPClient(client *http.Client) *PostGamificationProfilesParams {
-	var (
-		copyMetricsDefault = bool(true)
-	)
 	return &PostGamificationProfilesParams{
-		CopyMetrics: &copyMetricsDefault,
-		HTTPClient:  client,
+		HTTPClient: client,
 	}
 }
 
-/*PostGamificationProfilesParams contains all the parameters to send to the API endpoint
-for the post gamification profiles operation typically these are written to a http.Request
+/*
+PostGamificationProfilesParams contains all the parameters to send to the API endpoint
+
+	for the post gamification profiles operation.
+
+	Typically these are written to a http.Request.
 */
 type PostGamificationProfilesParams struct {
 
-	/*Body
-	  performanceProfile
+	/* Body.
 
+	   performanceProfile
 	*/
 	Body *models.CreatePerformanceProfile
-	/*CopyMetrics
-	  Flag to copy metrics. If set to false, there will be no metrics associated with the new profile. If set to true or is absent (the default behavior), all metrics from the default profile will be copied over into the new profile.
 
+	/* CopyMetrics.
+
+	   Flag to copy metrics. If set to false, there will be no metrics associated with the new profile. If set to true or is absent (the default behavior), all metrics from the default profile will be copied over into the new profile.
+
+	   Default: true
 	*/
 	CopyMetrics *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post gamification profiles params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGamificationProfilesParams) WithDefaults() *PostGamificationProfilesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post gamification profiles params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostGamificationProfilesParams) SetDefaults() {
+	var (
+		copyMetricsDefault = bool(true)
+	)
+
+	val := PostGamificationProfilesParams{
+		CopyMetrics: &copyMetricsDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the post gamification profiles params
@@ -153,7 +171,6 @@ func (o *PostGamificationProfilesParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -164,16 +181,17 @@ func (o *PostGamificationProfilesParams) WriteToRequest(r runtime.ClientRequest,
 
 		// query param copyMetrics
 		var qrCopyMetrics bool
+
 		if o.CopyMetrics != nil {
 			qrCopyMetrics = *o.CopyMetrics
 		}
 		qCopyMetrics := swag.FormatBool(qrCopyMetrics)
 		if qCopyMetrics != "" {
+
 			if err := r.SetQueryParam("copyMetrics", qCopyMetrics); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

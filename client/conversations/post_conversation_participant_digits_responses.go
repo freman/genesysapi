@@ -95,7 +95,6 @@ func (o *PostConversationParticipantDigitsReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPostConversationParticipantDigitsAccepted() *PostConversationParticipant
 	return &PostConversationParticipantDigitsAccepted{}
 }
 
-/*PostConversationParticipantDigitsAccepted handles this case with default header values.
+/*
+PostConversationParticipantDigitsAccepted describes a response with status code 202, with default header values.
 
 Accepted
 */
 type PostConversationParticipantDigitsAccepted struct {
 }
 
+// IsSuccess returns true when this post conversation participant digits accepted response has a 2xx status code
+func (o *PostConversationParticipantDigitsAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post conversation participant digits accepted response has a 3xx status code
+func (o *PostConversationParticipantDigitsAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant digits accepted response has a 4xx status code
+func (o *PostConversationParticipantDigitsAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation participant digits accepted response has a 5xx status code
+func (o *PostConversationParticipantDigitsAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant digits accepted response a status code equal to that given
+func (o *PostConversationParticipantDigitsAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostConversationParticipantDigitsAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsAccepted ", 202)
+}
+
+func (o *PostConversationParticipantDigitsAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsAccepted ", 202)
 }
 
@@ -127,7 +156,8 @@ func NewPostConversationParticipantDigitsBadRequest() *PostConversationParticipa
 	return &PostConversationParticipantDigitsBadRequest{}
 }
 
-/*PostConversationParticipantDigitsBadRequest handles this case with default header values.
+/*
+PostConversationParticipantDigitsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PostConversationParticipantDigitsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant digits bad request response has a 2xx status code
+func (o *PostConversationParticipantDigitsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant digits bad request response has a 3xx status code
+func (o *PostConversationParticipantDigitsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant digits bad request response has a 4xx status code
+func (o *PostConversationParticipantDigitsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant digits bad request response has a 5xx status code
+func (o *PostConversationParticipantDigitsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant digits bad request response a status code equal to that given
+func (o *PostConversationParticipantDigitsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostConversationParticipantDigitsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostConversationParticipantDigitsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPostConversationParticipantDigitsUnauthorized() *PostConversationPartici
 	return &PostConversationParticipantDigitsUnauthorized{}
 }
 
-/*PostConversationParticipantDigitsUnauthorized handles this case with default header values.
+/*
+PostConversationParticipantDigitsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PostConversationParticipantDigitsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant digits unauthorized response has a 2xx status code
+func (o *PostConversationParticipantDigitsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant digits unauthorized response has a 3xx status code
+func (o *PostConversationParticipantDigitsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant digits unauthorized response has a 4xx status code
+func (o *PostConversationParticipantDigitsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant digits unauthorized response has a 5xx status code
+func (o *PostConversationParticipantDigitsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant digits unauthorized response a status code equal to that given
+func (o *PostConversationParticipantDigitsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostConversationParticipantDigitsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostConversationParticipantDigitsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPostConversationParticipantDigitsForbidden() *PostConversationParticipan
 	return &PostConversationParticipantDigitsForbidden{}
 }
 
-/*PostConversationParticipantDigitsForbidden handles this case with default header values.
+/*
+PostConversationParticipantDigitsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PostConversationParticipantDigitsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant digits forbidden response has a 2xx status code
+func (o *PostConversationParticipantDigitsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant digits forbidden response has a 3xx status code
+func (o *PostConversationParticipantDigitsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant digits forbidden response has a 4xx status code
+func (o *PostConversationParticipantDigitsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant digits forbidden response has a 5xx status code
+func (o *PostConversationParticipantDigitsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant digits forbidden response a status code equal to that given
+func (o *PostConversationParticipantDigitsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostConversationParticipantDigitsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostConversationParticipantDigitsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPostConversationParticipantDigitsNotFound() *PostConversationParticipant
 	return &PostConversationParticipantDigitsNotFound{}
 }
 
-/*PostConversationParticipantDigitsNotFound handles this case with default header values.
+/*
+PostConversationParticipantDigitsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PostConversationParticipantDigitsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant digits not found response has a 2xx status code
+func (o *PostConversationParticipantDigitsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant digits not found response has a 3xx status code
+func (o *PostConversationParticipantDigitsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant digits not found response has a 4xx status code
+func (o *PostConversationParticipantDigitsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant digits not found response has a 5xx status code
+func (o *PostConversationParticipantDigitsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant digits not found response a status code equal to that given
+func (o *PostConversationParticipantDigitsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostConversationParticipantDigitsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostConversationParticipantDigitsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPostConversationParticipantDigitsRequestTimeout() *PostConversationParti
 	return &PostConversationParticipantDigitsRequestTimeout{}
 }
 
-/*PostConversationParticipantDigitsRequestTimeout handles this case with default header values.
+/*
+PostConversationParticipantDigitsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PostConversationParticipantDigitsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant digits request timeout response has a 2xx status code
+func (o *PostConversationParticipantDigitsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant digits request timeout response has a 3xx status code
+func (o *PostConversationParticipantDigitsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant digits request timeout response has a 4xx status code
+func (o *PostConversationParticipantDigitsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant digits request timeout response has a 5xx status code
+func (o *PostConversationParticipantDigitsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant digits request timeout response a status code equal to that given
+func (o *PostConversationParticipantDigitsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostConversationParticipantDigitsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostConversationParticipantDigitsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPostConversationParticipantDigitsRequestEntityTooLarge() *PostConversati
 	return &PostConversationParticipantDigitsRequestEntityTooLarge{}
 }
 
-/*PostConversationParticipantDigitsRequestEntityTooLarge handles this case with default header values.
+/*
+PostConversationParticipantDigitsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PostConversationParticipantDigitsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant digits request entity too large response has a 2xx status code
+func (o *PostConversationParticipantDigitsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant digits request entity too large response has a 3xx status code
+func (o *PostConversationParticipantDigitsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant digits request entity too large response has a 4xx status code
+func (o *PostConversationParticipantDigitsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant digits request entity too large response has a 5xx status code
+func (o *PostConversationParticipantDigitsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant digits request entity too large response a status code equal to that given
+func (o *PostConversationParticipantDigitsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostConversationParticipantDigitsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostConversationParticipantDigitsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPostConversationParticipantDigitsUnsupportedMediaType() *PostConversatio
 	return &PostConversationParticipantDigitsUnsupportedMediaType{}
 }
 
-/*PostConversationParticipantDigitsUnsupportedMediaType handles this case with default header values.
+/*
+PostConversationParticipantDigitsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PostConversationParticipantDigitsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant digits unsupported media type response has a 2xx status code
+func (o *PostConversationParticipantDigitsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant digits unsupported media type response has a 3xx status code
+func (o *PostConversationParticipantDigitsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant digits unsupported media type response has a 4xx status code
+func (o *PostConversationParticipantDigitsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant digits unsupported media type response has a 5xx status code
+func (o *PostConversationParticipantDigitsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant digits unsupported media type response a status code equal to that given
+func (o *PostConversationParticipantDigitsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostConversationParticipantDigitsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostConversationParticipantDigitsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPostConversationParticipantDigitsTooManyRequests() *PostConversationPart
 	return &PostConversationParticipantDigitsTooManyRequests{}
 }
 
-/*PostConversationParticipantDigitsTooManyRequests handles this case with default header values.
+/*
+PostConversationParticipantDigitsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PostConversationParticipantDigitsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant digits too many requests response has a 2xx status code
+func (o *PostConversationParticipantDigitsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant digits too many requests response has a 3xx status code
+func (o *PostConversationParticipantDigitsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant digits too many requests response has a 4xx status code
+func (o *PostConversationParticipantDigitsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post conversation participant digits too many requests response has a 5xx status code
+func (o *PostConversationParticipantDigitsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post conversation participant digits too many requests response a status code equal to that given
+func (o *PostConversationParticipantDigitsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostConversationParticipantDigitsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostConversationParticipantDigitsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPostConversationParticipantDigitsInternalServerError() *PostConversation
 	return &PostConversationParticipantDigitsInternalServerError{}
 }
 
-/*PostConversationParticipantDigitsInternalServerError handles this case with default header values.
+/*
+PostConversationParticipantDigitsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PostConversationParticipantDigitsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant digits internal server error response has a 2xx status code
+func (o *PostConversationParticipantDigitsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant digits internal server error response has a 3xx status code
+func (o *PostConversationParticipantDigitsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant digits internal server error response has a 4xx status code
+func (o *PostConversationParticipantDigitsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation participant digits internal server error response has a 5xx status code
+func (o *PostConversationParticipantDigitsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversation participant digits internal server error response a status code equal to that given
+func (o *PostConversationParticipantDigitsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostConversationParticipantDigitsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostConversationParticipantDigitsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPostConversationParticipantDigitsServiceUnavailable() *PostConversationP
 	return &PostConversationParticipantDigitsServiceUnavailable{}
 }
 
-/*PostConversationParticipantDigitsServiceUnavailable handles this case with default header values.
+/*
+PostConversationParticipantDigitsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PostConversationParticipantDigitsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant digits service unavailable response has a 2xx status code
+func (o *PostConversationParticipantDigitsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant digits service unavailable response has a 3xx status code
+func (o *PostConversationParticipantDigitsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant digits service unavailable response has a 4xx status code
+func (o *PostConversationParticipantDigitsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation participant digits service unavailable response has a 5xx status code
+func (o *PostConversationParticipantDigitsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversation participant digits service unavailable response a status code equal to that given
+func (o *PostConversationParticipantDigitsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostConversationParticipantDigitsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostConversationParticipantDigitsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPostConversationParticipantDigitsGatewayTimeout() *PostConversationParti
 	return &PostConversationParticipantDigitsGatewayTimeout{}
 }
 
-/*PostConversationParticipantDigitsGatewayTimeout handles this case with default header values.
+/*
+PostConversationParticipantDigitsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PostConversationParticipantDigitsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post conversation participant digits gateway timeout response has a 2xx status code
+func (o *PostConversationParticipantDigitsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post conversation participant digits gateway timeout response has a 3xx status code
+func (o *PostConversationParticipantDigitsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post conversation participant digits gateway timeout response has a 4xx status code
+func (o *PostConversationParticipantDigitsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post conversation participant digits gateway timeout response has a 5xx status code
+func (o *PostConversationParticipantDigitsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post conversation participant digits gateway timeout response a status code equal to that given
+func (o *PostConversationParticipantDigitsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostConversationParticipantDigitsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostConversationParticipantDigitsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/conversations/{conversationId}/participants/{participantId}/digits][%d] postConversationParticipantDigitsGatewayTimeout  %+v", 504, o.Payload)
 }
 

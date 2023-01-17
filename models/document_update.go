@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -76,7 +77,6 @@ func (m *DocumentUpdate) validateName(formats strfmt.Registry) error {
 }
 
 func (m *DocumentUpdate) validateUpdateAttributes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UpdateAttributes) { // not required
 		return nil
 	}
@@ -90,6 +90,42 @@ func (m *DocumentUpdate) validateUpdateAttributes(formats strfmt.Registry) error
 			if err := m.UpdateAttributes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("updateAttributes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("updateAttributes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this document update based on the context it is used
+func (m *DocumentUpdate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateUpdateAttributes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DocumentUpdate) contextValidateUpdateAttributes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.UpdateAttributes); i++ {
+
+		if m.UpdateAttributes[i] != nil {
+			if err := m.UpdateAttributes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("updateAttributes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("updateAttributes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

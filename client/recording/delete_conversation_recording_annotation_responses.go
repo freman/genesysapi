@@ -106,7 +106,8 @@ func NewDeleteConversationRecordingAnnotationBadRequest() *DeleteConversationRec
 	return &DeleteConversationRecordingAnnotationBadRequest{}
 }
 
-/*DeleteConversationRecordingAnnotationBadRequest handles this case with default header values.
+/*
+DeleteConversationRecordingAnnotationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type DeleteConversationRecordingAnnotationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation recording annotation bad request response has a 2xx status code
+func (o *DeleteConversationRecordingAnnotationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation recording annotation bad request response has a 3xx status code
+func (o *DeleteConversationRecordingAnnotationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation recording annotation bad request response has a 4xx status code
+func (o *DeleteConversationRecordingAnnotationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation recording annotation bad request response has a 5xx status code
+func (o *DeleteConversationRecordingAnnotationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation recording annotation bad request response a status code equal to that given
+func (o *DeleteConversationRecordingAnnotationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteConversationRecordingAnnotationBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteConversationRecordingAnnotationBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewDeleteConversationRecordingAnnotationUnauthorized() *DeleteConversationR
 	return &DeleteConversationRecordingAnnotationUnauthorized{}
 }
 
-/*DeleteConversationRecordingAnnotationUnauthorized handles this case with default header values.
+/*
+DeleteConversationRecordingAnnotationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type DeleteConversationRecordingAnnotationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation recording annotation unauthorized response has a 2xx status code
+func (o *DeleteConversationRecordingAnnotationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation recording annotation unauthorized response has a 3xx status code
+func (o *DeleteConversationRecordingAnnotationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation recording annotation unauthorized response has a 4xx status code
+func (o *DeleteConversationRecordingAnnotationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation recording annotation unauthorized response has a 5xx status code
+func (o *DeleteConversationRecordingAnnotationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation recording annotation unauthorized response a status code equal to that given
+func (o *DeleteConversationRecordingAnnotationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteConversationRecordingAnnotationUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteConversationRecordingAnnotationUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewDeleteConversationRecordingAnnotationForbidden() *DeleteConversationReco
 	return &DeleteConversationRecordingAnnotationForbidden{}
 }
 
-/*DeleteConversationRecordingAnnotationForbidden handles this case with default header values.
+/*
+DeleteConversationRecordingAnnotationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type DeleteConversationRecordingAnnotationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation recording annotation forbidden response has a 2xx status code
+func (o *DeleteConversationRecordingAnnotationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation recording annotation forbidden response has a 3xx status code
+func (o *DeleteConversationRecordingAnnotationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation recording annotation forbidden response has a 4xx status code
+func (o *DeleteConversationRecordingAnnotationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation recording annotation forbidden response has a 5xx status code
+func (o *DeleteConversationRecordingAnnotationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation recording annotation forbidden response a status code equal to that given
+func (o *DeleteConversationRecordingAnnotationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteConversationRecordingAnnotationForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteConversationRecordingAnnotationForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewDeleteConversationRecordingAnnotationNotFound() *DeleteConversationRecor
 	return &DeleteConversationRecordingAnnotationNotFound{}
 }
 
-/*DeleteConversationRecordingAnnotationNotFound handles this case with default header values.
+/*
+DeleteConversationRecordingAnnotationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type DeleteConversationRecordingAnnotationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation recording annotation not found response has a 2xx status code
+func (o *DeleteConversationRecordingAnnotationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation recording annotation not found response has a 3xx status code
+func (o *DeleteConversationRecordingAnnotationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation recording annotation not found response has a 4xx status code
+func (o *DeleteConversationRecordingAnnotationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation recording annotation not found response has a 5xx status code
+func (o *DeleteConversationRecordingAnnotationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation recording annotation not found response a status code equal to that given
+func (o *DeleteConversationRecordingAnnotationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteConversationRecordingAnnotationNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteConversationRecordingAnnotationNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewDeleteConversationRecordingAnnotationRequestTimeout() *DeleteConversatio
 	return &DeleteConversationRecordingAnnotationRequestTimeout{}
 }
 
-/*DeleteConversationRecordingAnnotationRequestTimeout handles this case with default header values.
+/*
+DeleteConversationRecordingAnnotationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type DeleteConversationRecordingAnnotationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation recording annotation request timeout response has a 2xx status code
+func (o *DeleteConversationRecordingAnnotationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation recording annotation request timeout response has a 3xx status code
+func (o *DeleteConversationRecordingAnnotationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation recording annotation request timeout response has a 4xx status code
+func (o *DeleteConversationRecordingAnnotationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation recording annotation request timeout response has a 5xx status code
+func (o *DeleteConversationRecordingAnnotationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation recording annotation request timeout response a status code equal to that given
+func (o *DeleteConversationRecordingAnnotationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteConversationRecordingAnnotationRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteConversationRecordingAnnotationRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewDeleteConversationRecordingAnnotationRequestEntityTooLarge() *DeleteConv
 	return &DeleteConversationRecordingAnnotationRequestEntityTooLarge{}
 }
 
-/*DeleteConversationRecordingAnnotationRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteConversationRecordingAnnotationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type DeleteConversationRecordingAnnotationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation recording annotation request entity too large response has a 2xx status code
+func (o *DeleteConversationRecordingAnnotationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation recording annotation request entity too large response has a 3xx status code
+func (o *DeleteConversationRecordingAnnotationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation recording annotation request entity too large response has a 4xx status code
+func (o *DeleteConversationRecordingAnnotationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation recording annotation request entity too large response has a 5xx status code
+func (o *DeleteConversationRecordingAnnotationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation recording annotation request entity too large response a status code equal to that given
+func (o *DeleteConversationRecordingAnnotationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteConversationRecordingAnnotationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteConversationRecordingAnnotationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewDeleteConversationRecordingAnnotationUnsupportedMediaType() *DeleteConve
 	return &DeleteConversationRecordingAnnotationUnsupportedMediaType{}
 }
 
-/*DeleteConversationRecordingAnnotationUnsupportedMediaType handles this case with default header values.
+/*
+DeleteConversationRecordingAnnotationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type DeleteConversationRecordingAnnotationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation recording annotation unsupported media type response has a 2xx status code
+func (o *DeleteConversationRecordingAnnotationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation recording annotation unsupported media type response has a 3xx status code
+func (o *DeleteConversationRecordingAnnotationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation recording annotation unsupported media type response has a 4xx status code
+func (o *DeleteConversationRecordingAnnotationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation recording annotation unsupported media type response has a 5xx status code
+func (o *DeleteConversationRecordingAnnotationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation recording annotation unsupported media type response a status code equal to that given
+func (o *DeleteConversationRecordingAnnotationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteConversationRecordingAnnotationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteConversationRecordingAnnotationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewDeleteConversationRecordingAnnotationTooManyRequests() *DeleteConversati
 	return &DeleteConversationRecordingAnnotationTooManyRequests{}
 }
 
-/*DeleteConversationRecordingAnnotationTooManyRequests handles this case with default header values.
+/*
+DeleteConversationRecordingAnnotationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type DeleteConversationRecordingAnnotationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation recording annotation too many requests response has a 2xx status code
+func (o *DeleteConversationRecordingAnnotationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation recording annotation too many requests response has a 3xx status code
+func (o *DeleteConversationRecordingAnnotationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation recording annotation too many requests response has a 4xx status code
+func (o *DeleteConversationRecordingAnnotationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete conversation recording annotation too many requests response has a 5xx status code
+func (o *DeleteConversationRecordingAnnotationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete conversation recording annotation too many requests response a status code equal to that given
+func (o *DeleteConversationRecordingAnnotationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteConversationRecordingAnnotationTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteConversationRecordingAnnotationTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewDeleteConversationRecordingAnnotationInternalServerError() *DeleteConver
 	return &DeleteConversationRecordingAnnotationInternalServerError{}
 }
 
-/*DeleteConversationRecordingAnnotationInternalServerError handles this case with default header values.
+/*
+DeleteConversationRecordingAnnotationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type DeleteConversationRecordingAnnotationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation recording annotation internal server error response has a 2xx status code
+func (o *DeleteConversationRecordingAnnotationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation recording annotation internal server error response has a 3xx status code
+func (o *DeleteConversationRecordingAnnotationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation recording annotation internal server error response has a 4xx status code
+func (o *DeleteConversationRecordingAnnotationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversation recording annotation internal server error response has a 5xx status code
+func (o *DeleteConversationRecordingAnnotationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversation recording annotation internal server error response a status code equal to that given
+func (o *DeleteConversationRecordingAnnotationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteConversationRecordingAnnotationInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteConversationRecordingAnnotationInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewDeleteConversationRecordingAnnotationServiceUnavailable() *DeleteConvers
 	return &DeleteConversationRecordingAnnotationServiceUnavailable{}
 }
 
-/*DeleteConversationRecordingAnnotationServiceUnavailable handles this case with default header values.
+/*
+DeleteConversationRecordingAnnotationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type DeleteConversationRecordingAnnotationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation recording annotation service unavailable response has a 2xx status code
+func (o *DeleteConversationRecordingAnnotationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation recording annotation service unavailable response has a 3xx status code
+func (o *DeleteConversationRecordingAnnotationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation recording annotation service unavailable response has a 4xx status code
+func (o *DeleteConversationRecordingAnnotationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversation recording annotation service unavailable response has a 5xx status code
+func (o *DeleteConversationRecordingAnnotationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversation recording annotation service unavailable response a status code equal to that given
+func (o *DeleteConversationRecordingAnnotationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteConversationRecordingAnnotationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteConversationRecordingAnnotationServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewDeleteConversationRecordingAnnotationGatewayTimeout() *DeleteConversatio
 	return &DeleteConversationRecordingAnnotationGatewayTimeout{}
 }
 
-/*DeleteConversationRecordingAnnotationGatewayTimeout handles this case with default header values.
+/*
+DeleteConversationRecordingAnnotationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type DeleteConversationRecordingAnnotationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete conversation recording annotation gateway timeout response has a 2xx status code
+func (o *DeleteConversationRecordingAnnotationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete conversation recording annotation gateway timeout response has a 3xx status code
+func (o *DeleteConversationRecordingAnnotationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete conversation recording annotation gateway timeout response has a 4xx status code
+func (o *DeleteConversationRecordingAnnotationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete conversation recording annotation gateway timeout response has a 5xx status code
+func (o *DeleteConversationRecordingAnnotationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete conversation recording annotation gateway timeout response a status code equal to that given
+func (o *DeleteConversationRecordingAnnotationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteConversationRecordingAnnotationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteConversationRecordingAnnotationGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotationGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewDeleteConversationRecordingAnnotationDefault(code int) *DeleteConversati
 	}
 }
 
-/*DeleteConversationRecordingAnnotationDefault handles this case with default header values.
+/*
+DeleteConversationRecordingAnnotationDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *DeleteConversationRecordingAnnotationDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete conversation recording annotation default response has a 2xx status code
+func (o *DeleteConversationRecordingAnnotationDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete conversation recording annotation default response has a 3xx status code
+func (o *DeleteConversationRecordingAnnotationDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete conversation recording annotation default response has a 4xx status code
+func (o *DeleteConversationRecordingAnnotationDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete conversation recording annotation default response has a 5xx status code
+func (o *DeleteConversationRecordingAnnotationDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete conversation recording annotation default response a status code equal to that given
+func (o *DeleteConversationRecordingAnnotationDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteConversationRecordingAnnotationDefault) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotation default ", o._statusCode)
+}
+
+func (o *DeleteConversationRecordingAnnotationDefault) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/conversations/{conversationId}/recordings/{recordingId}/annotations/{annotationId}][%d] deleteConversationRecordingAnnotation default ", o._statusCode)
 }
 

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 )
@@ -16,14 +18,21 @@ import (
 type AtzmTimeSlot struct {
 
 	// The earliest time to dial a contact. Valid format is HH:mm
+	// Example: 08:00
 	EarliestCallableTime string `json:"earliestCallableTime,omitempty"`
 
 	// The latest time to dial a contact. Valid format is HH:mm
+	// Example: 21:00
 	LatestCallableTime string `json:"latestCallableTime,omitempty"`
 }
 
 // Validate validates this atzm time slot
 func (m *AtzmTimeSlot) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validates this atzm time slot based on context it is used
+func (m *AtzmTimeSlot) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

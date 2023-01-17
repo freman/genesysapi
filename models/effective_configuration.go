@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -70,11 +72,11 @@ func (m *EffectiveConfiguration) Validate(formats strfmt.Registry) error {
 
 func (m *EffectiveConfiguration) validateAdvanced(formats strfmt.Registry) error {
 
-	for k := range m.Advanced {
+	if err := validate.Required("advanced", "body", m.Advanced); err != nil {
+		return err
+	}
 
-		if err := validate.Required("advanced"+"."+k, "body", m.Advanced[k]); err != nil {
-			return err
-		}
+	for k := range m.Advanced {
 
 		if err := validate.Required("advanced"+"."+k, "body", m.Advanced[k]); err != nil {
 			return err
@@ -87,6 +89,10 @@ func (m *EffectiveConfiguration) validateAdvanced(formats strfmt.Registry) error
 
 func (m *EffectiveConfiguration) validateCredentials(formats strfmt.Registry) error {
 
+	if err := validate.Required("credentials", "body", m.Credentials); err != nil {
+		return err
+	}
+
 	for k := range m.Credentials {
 
 		if err := validate.Required("credentials"+"."+k, "body", m.Credentials[k]); err != nil {
@@ -94,6 +100,11 @@ func (m *EffectiveConfiguration) validateCredentials(formats strfmt.Registry) er
 		}
 		if val, ok := m.Credentials[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("credentials" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("credentials" + "." + k)
+				}
 				return err
 			}
 		}
@@ -123,14 +134,47 @@ func (m *EffectiveConfiguration) validateNotes(formats strfmt.Registry) error {
 
 func (m *EffectiveConfiguration) validateProperties(formats strfmt.Registry) error {
 
+	if err := validate.Required("properties", "body", m.Properties); err != nil {
+		return err
+	}
+
 	for k := range m.Properties {
 
 		if err := validate.Required("properties"+"."+k, "body", m.Properties[k]); err != nil {
 			return err
 		}
 
-		if err := validate.Required("properties"+"."+k, "body", m.Properties[k]); err != nil {
-			return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this effective configuration based on the context it is used
+func (m *EffectiveConfiguration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCredentials(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *EffectiveConfiguration) contextValidateCredentials(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.Required("credentials", "body", m.Credentials); err != nil {
+		return err
+	}
+
+	for k := range m.Credentials {
+
+		if val, ok := m.Credentials[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
 		}
 
 	}

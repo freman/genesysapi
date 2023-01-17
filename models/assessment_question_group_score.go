@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -106,7 +107,6 @@ func (m *AssessmentQuestionGroupScore) validateQuestionGroupID(formats strfmt.Re
 }
 
 func (m *AssessmentQuestionGroupScore) validateQuestionScores(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.QuestionScores) { // not required
 		return nil
 	}
@@ -120,11 +120,203 @@ func (m *AssessmentQuestionGroupScore) validateQuestionScores(formats strfmt.Reg
 			if err := m.QuestionScores[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("questionScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questionScores" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
 		}
 
+	}
+
+	return nil
+}
+
+// ContextValidate validate this assessment question group score based on the context it is used
+func (m *AssessmentQuestionGroupScore) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMaxTotalCriticalScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxTotalCriticalScoreUnweighted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxTotalNonCriticalScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxTotalNonCriticalScoreUnweighted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxTotalScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxTotalScoreUnweighted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQuestionScores(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalCriticalScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalCriticalScoreUnweighted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalNonCriticalScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalNonCriticalScoreUnweighted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalScore(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalScoreUnweighted(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateMaxTotalCriticalScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxTotalCriticalScore", "body", float32(m.MaxTotalCriticalScore)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateMaxTotalCriticalScoreUnweighted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxTotalCriticalScoreUnweighted", "body", float32(m.MaxTotalCriticalScoreUnweighted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateMaxTotalNonCriticalScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxTotalNonCriticalScore", "body", float32(m.MaxTotalNonCriticalScore)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateMaxTotalNonCriticalScoreUnweighted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxTotalNonCriticalScoreUnweighted", "body", float32(m.MaxTotalNonCriticalScoreUnweighted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateMaxTotalScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxTotalScore", "body", float32(m.MaxTotalScore)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateMaxTotalScoreUnweighted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxTotalScoreUnweighted", "body", float32(m.MaxTotalScoreUnweighted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateQuestionScores(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.QuestionScores); i++ {
+
+		if m.QuestionScores[i] != nil {
+			if err := m.QuestionScores[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("questionScores" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("questionScores" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateTotalCriticalScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalCriticalScore", "body", float32(m.TotalCriticalScore)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateTotalCriticalScoreUnweighted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalCriticalScoreUnweighted", "body", float32(m.TotalCriticalScoreUnweighted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateTotalNonCriticalScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalNonCriticalScore", "body", float32(m.TotalNonCriticalScore)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateTotalNonCriticalScoreUnweighted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalNonCriticalScoreUnweighted", "body", float32(m.TotalNonCriticalScoreUnweighted)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateTotalScore(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalScore", "body", float32(m.TotalScore)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *AssessmentQuestionGroupScore) contextValidateTotalScoreUnweighted(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalScoreUnweighted", "body", float32(m.TotalScoreUnweighted)); err != nil {
+		return err
 	}
 
 	return nil

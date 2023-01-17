@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostOutboundDnclistPhonenumbersParams creates a new PostOutboundDnclistPhonenumbersParams object
-// with the default values initialized.
+// NewPostOutboundDnclistPhonenumbersParams creates a new PostOutboundDnclistPhonenumbersParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundDnclistPhonenumbersParams() *PostOutboundDnclistPhonenumbersParams {
-	var ()
 	return &PostOutboundDnclistPhonenumbersParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundDnclistPhonenumbersParamsWithTimeout creates a new PostOutboundDnclistPhonenumbersParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundDnclistPhonenumbersParamsWithTimeout(timeout time.Duration) *PostOutboundDnclistPhonenumbersParams {
-	var ()
 	return &PostOutboundDnclistPhonenumbersParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundDnclistPhonenumbersParamsWithContext creates a new PostOutboundDnclistPhonenumbersParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundDnclistPhonenumbersParamsWithContext(ctx context.Context) *PostOutboundDnclistPhonenumbersParams {
-	var ()
 	return &PostOutboundDnclistPhonenumbersParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundDnclistPhonenumbersParamsWithHTTPClient creates a new PostOutboundDnclistPhonenumbersParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundDnclistPhonenumbersParamsWithHTTPClient(client *http.Client) *PostOutboundDnclistPhonenumbersParams {
-	var ()
 	return &PostOutboundDnclistPhonenumbersParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundDnclistPhonenumbersParams contains all the parameters to send to the API endpoint
-for the post outbound dnclist phonenumbers operation typically these are written to a http.Request
+/*
+PostOutboundDnclistPhonenumbersParams contains all the parameters to send to the API endpoint
+
+	for the post outbound dnclist phonenumbers operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundDnclistPhonenumbersParams struct {
 
-	/*Body
-	  DNC Phone Numbers
+	/* Body.
 
+	   DNC Phone Numbers
 	*/
 	Body []string
-	/*DncListID
-	  DncList ID
 
+	/* DncListID.
+
+	   DncList ID
 	*/
 	DncListID string
-	/*ExpirationDateTime
-	  Expiration date for DNC phone numbers in yyyy-MM-ddTHH:mmZ format
 
+	/* ExpirationDateTime.
+
+	   Expiration date for DNC phone numbers in yyyy-MM-ddTHH:mmZ format
 	*/
 	ExpirationDateTime *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound dnclist phonenumbers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundDnclistPhonenumbersParams) WithDefaults() *PostOutboundDnclistPhonenumbersParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound dnclist phonenumbers params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundDnclistPhonenumbersParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound dnclist phonenumbers params
@@ -154,7 +172,6 @@ func (o *PostOutboundDnclistPhonenumbersParams) WriteToRequest(r runtime.ClientR
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -170,16 +187,17 @@ func (o *PostOutboundDnclistPhonenumbersParams) WriteToRequest(r runtime.ClientR
 
 		// query param expirationDateTime
 		var qrExpirationDateTime string
+
 		if o.ExpirationDateTime != nil {
 			qrExpirationDateTime = *o.ExpirationDateTime
 		}
 		qExpirationDateTime := qrExpirationDateTime
 		if qExpirationDateTime != "" {
+
 			if err := r.SetQueryParam("expirationDateTime", qExpirationDateTime); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

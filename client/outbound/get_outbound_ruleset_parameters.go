@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundRulesetParams creates a new GetOutboundRulesetParams object
-// with the default values initialized.
+// NewGetOutboundRulesetParams creates a new GetOutboundRulesetParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundRulesetParams() *GetOutboundRulesetParams {
-	var ()
 	return &GetOutboundRulesetParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundRulesetParamsWithTimeout creates a new GetOutboundRulesetParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundRulesetParamsWithTimeout(timeout time.Duration) *GetOutboundRulesetParams {
-	var ()
 	return &GetOutboundRulesetParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundRulesetParamsWithContext creates a new GetOutboundRulesetParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundRulesetParamsWithContext(ctx context.Context) *GetOutboundRulesetParams {
-	var ()
 	return &GetOutboundRulesetParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundRulesetParamsWithHTTPClient creates a new GetOutboundRulesetParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundRulesetParamsWithHTTPClient(client *http.Client) *GetOutboundRulesetParams {
-	var ()
 	return &GetOutboundRulesetParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundRulesetParams contains all the parameters to send to the API endpoint
-for the get outbound ruleset operation typically these are written to a http.Request
+/*
+GetOutboundRulesetParams contains all the parameters to send to the API endpoint
+
+	for the get outbound ruleset operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundRulesetParams struct {
 
-	/*RuleSetID
-	  Rule Set ID
+	/* RuleSetID.
 
+	   Rule Set ID
 	*/
 	RuleSetID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound ruleset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundRulesetParams) WithDefaults() *GetOutboundRulesetParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound ruleset params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundRulesetParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get outbound ruleset params

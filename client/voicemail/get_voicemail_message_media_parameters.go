@@ -16,76 +16,94 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetVoicemailMessageMediaParams creates a new GetVoicemailMessageMediaParams object
-// with the default values initialized.
+// NewGetVoicemailMessageMediaParams creates a new GetVoicemailMessageMediaParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetVoicemailMessageMediaParams() *GetVoicemailMessageMediaParams {
-	var (
-		formatIDDefault = string("WEBM")
-	)
 	return &GetVoicemailMessageMediaParams{
-		FormatID: &formatIDDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetVoicemailMessageMediaParamsWithTimeout creates a new GetVoicemailMessageMediaParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetVoicemailMessageMediaParamsWithTimeout(timeout time.Duration) *GetVoicemailMessageMediaParams {
-	var (
-		formatIDDefault = string("WEBM")
-	)
 	return &GetVoicemailMessageMediaParams{
-		FormatID: &formatIDDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetVoicemailMessageMediaParamsWithContext creates a new GetVoicemailMessageMediaParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetVoicemailMessageMediaParamsWithContext(ctx context.Context) *GetVoicemailMessageMediaParams {
-	var (
-		formatIdDefault = string("WEBM")
-	)
 	return &GetVoicemailMessageMediaParams{
-		FormatID: &formatIdDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetVoicemailMessageMediaParamsWithHTTPClient creates a new GetVoicemailMessageMediaParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetVoicemailMessageMediaParamsWithHTTPClient(client *http.Client) *GetVoicemailMessageMediaParams {
-	var (
-		formatIdDefault = string("WEBM")
-	)
 	return &GetVoicemailMessageMediaParams{
-		FormatID:   &formatIdDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetVoicemailMessageMediaParams contains all the parameters to send to the API endpoint
-for the get voicemail message media operation typically these are written to a http.Request
+/*
+GetVoicemailMessageMediaParams contains all the parameters to send to the API endpoint
+
+	for the get voicemail message media operation.
+
+	Typically these are written to a http.Request.
 */
 type GetVoicemailMessageMediaParams struct {
 
-	/*FormatID
-	  The desired media format.
+	/* FormatID.
 
+	   The desired media format.
+
+	   Default: "WEBM"
 	*/
 	FormatID *string
-	/*MessageID
-	  Message ID
 
+	/* MessageID.
+
+	   Message ID
 	*/
 	MessageID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get voicemail message media params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetVoicemailMessageMediaParams) WithDefaults() *GetVoicemailMessageMediaParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get voicemail message media params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetVoicemailMessageMediaParams) SetDefaults() {
+	var (
+		formatIDDefault = string("WEBM")
+	)
+
+	val := GetVoicemailMessageMediaParams{
+		FormatID: &formatIDDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get voicemail message media params
@@ -155,16 +173,17 @@ func (o *GetVoicemailMessageMediaParams) WriteToRequest(r runtime.ClientRequest,
 
 		// query param formatId
 		var qrFormatID string
+
 		if o.FormatID != nil {
 			qrFormatID = *o.FormatID
 		}
 		qFormatID := qrFormatID
 		if qFormatID != "" {
+
 			if err := r.SetQueryParam("formatId", qFormatID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param messageId

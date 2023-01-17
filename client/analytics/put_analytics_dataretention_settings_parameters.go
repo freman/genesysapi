@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutAnalyticsDataretentionSettingsParams creates a new PutAnalyticsDataretentionSettingsParams object
-// with the default values initialized.
+// NewPutAnalyticsDataretentionSettingsParams creates a new PutAnalyticsDataretentionSettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutAnalyticsDataretentionSettingsParams() *PutAnalyticsDataretentionSettingsParams {
-	var ()
 	return &PutAnalyticsDataretentionSettingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutAnalyticsDataretentionSettingsParamsWithTimeout creates a new PutAnalyticsDataretentionSettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutAnalyticsDataretentionSettingsParamsWithTimeout(timeout time.Duration) *PutAnalyticsDataretentionSettingsParams {
-	var ()
 	return &PutAnalyticsDataretentionSettingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutAnalyticsDataretentionSettingsParamsWithContext creates a new PutAnalyticsDataretentionSettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutAnalyticsDataretentionSettingsParamsWithContext(ctx context.Context) *PutAnalyticsDataretentionSettingsParams {
-	var ()
 	return &PutAnalyticsDataretentionSettingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutAnalyticsDataretentionSettingsParamsWithHTTPClient creates a new PutAnalyticsDataretentionSettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutAnalyticsDataretentionSettingsParamsWithHTTPClient(client *http.Client) *PutAnalyticsDataretentionSettingsParams {
-	var ()
 	return &PutAnalyticsDataretentionSettingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutAnalyticsDataretentionSettingsParams contains all the parameters to send to the API endpoint
-for the put analytics dataretention settings operation typically these are written to a http.Request
+/*
+PutAnalyticsDataretentionSettingsParams contains all the parameters to send to the API endpoint
+
+	for the put analytics dataretention settings operation.
+
+	Typically these are written to a http.Request.
 */
 type PutAnalyticsDataretentionSettingsParams struct {
 
-	/*Body
-	  retentionDays
+	/* Body.
 
+	   retentionDays
 	*/
 	Body *models.UpdateAnalyticsDataRetentionRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put analytics dataretention settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutAnalyticsDataretentionSettingsParams) WithDefaults() *PutAnalyticsDataretentionSettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put analytics dataretention settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutAnalyticsDataretentionSettingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put analytics dataretention settings params
@@ -124,7 +140,6 @@ func (o *PutAnalyticsDataretentionSettingsParams) WriteToRequest(r runtime.Clien
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

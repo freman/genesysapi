@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementCalendarURLIcsParams creates a new GetWorkforcemanagementCalendarURLIcsParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementCalendarURLIcsParams creates a new GetWorkforcemanagementCalendarURLIcsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementCalendarURLIcsParams() *GetWorkforcemanagementCalendarURLIcsParams {
-
 	return &GetWorkforcemanagementCalendarURLIcsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementCalendarURLIcsParamsWithTimeout creates a new GetWorkforcemanagementCalendarURLIcsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementCalendarURLIcsParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementCalendarURLIcsParams {
-
 	return &GetWorkforcemanagementCalendarURLIcsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementCalendarURLIcsParamsWithContext creates a new GetWorkforcemanagementCalendarURLIcsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementCalendarURLIcsParamsWithContext(ctx context.Context) *GetWorkforcemanagementCalendarURLIcsParams {
-
 	return &GetWorkforcemanagementCalendarURLIcsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementCalendarURLIcsParamsWithHTTPClient creates a new GetWorkforcemanagementCalendarURLIcsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementCalendarURLIcsParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementCalendarURLIcsParams {
-
 	return &GetWorkforcemanagementCalendarURLIcsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementCalendarURLIcsParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement calendar Url ics operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementCalendarURLIcsParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement calendar Url ics operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementCalendarURLIcsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement calendar Url ics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementCalendarURLIcsParams) WithDefaults() *GetWorkforcemanagementCalendarURLIcsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement calendar Url ics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementCalendarURLIcsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement calendar Url ics params

@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostAnalyticsUsersObservationsQueryParams creates a new PostAnalyticsUsersObservationsQueryParams object
-// with the default values initialized.
+// NewPostAnalyticsUsersObservationsQueryParams creates a new PostAnalyticsUsersObservationsQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAnalyticsUsersObservationsQueryParams() *PostAnalyticsUsersObservationsQueryParams {
-	var ()
 	return &PostAnalyticsUsersObservationsQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAnalyticsUsersObservationsQueryParamsWithTimeout creates a new PostAnalyticsUsersObservationsQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAnalyticsUsersObservationsQueryParamsWithTimeout(timeout time.Duration) *PostAnalyticsUsersObservationsQueryParams {
-	var ()
 	return &PostAnalyticsUsersObservationsQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAnalyticsUsersObservationsQueryParamsWithContext creates a new PostAnalyticsUsersObservationsQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAnalyticsUsersObservationsQueryParamsWithContext(ctx context.Context) *PostAnalyticsUsersObservationsQueryParams {
-	var ()
 	return &PostAnalyticsUsersObservationsQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostAnalyticsUsersObservationsQueryParamsWithHTTPClient creates a new PostAnalyticsUsersObservationsQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAnalyticsUsersObservationsQueryParamsWithHTTPClient(client *http.Client) *PostAnalyticsUsersObservationsQueryParams {
-	var ()
 	return &PostAnalyticsUsersObservationsQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostAnalyticsUsersObservationsQueryParams contains all the parameters to send to the API endpoint
-for the post analytics users observations query operation typically these are written to a http.Request
+/*
+PostAnalyticsUsersObservationsQueryParams contains all the parameters to send to the API endpoint
+
+	for the post analytics users observations query operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAnalyticsUsersObservationsQueryParams struct {
 
-	/*Body
-	  query
+	/* Body.
 
+	   query
 	*/
 	Body *models.UserObservationQuery
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post analytics users observations query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsUsersObservationsQueryParams) WithDefaults() *PostAnalyticsUsersObservationsQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post analytics users observations query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsUsersObservationsQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post analytics users observations query params
@@ -124,7 +140,6 @@ func (o *PostAnalyticsUsersObservationsQueryParams) WriteToRequest(r runtime.Cli
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOutboundContactlistfilterParams creates a new PutOutboundContactlistfilterParams object
-// with the default values initialized.
+// NewPutOutboundContactlistfilterParams creates a new PutOutboundContactlistfilterParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOutboundContactlistfilterParams() *PutOutboundContactlistfilterParams {
-	var ()
 	return &PutOutboundContactlistfilterParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOutboundContactlistfilterParamsWithTimeout creates a new PutOutboundContactlistfilterParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOutboundContactlistfilterParamsWithTimeout(timeout time.Duration) *PutOutboundContactlistfilterParams {
-	var ()
 	return &PutOutboundContactlistfilterParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOutboundContactlistfilterParamsWithContext creates a new PutOutboundContactlistfilterParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOutboundContactlistfilterParamsWithContext(ctx context.Context) *PutOutboundContactlistfilterParams {
-	var ()
 	return &PutOutboundContactlistfilterParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOutboundContactlistfilterParamsWithHTTPClient creates a new PutOutboundContactlistfilterParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOutboundContactlistfilterParamsWithHTTPClient(client *http.Client) *PutOutboundContactlistfilterParams {
-	var ()
 	return &PutOutboundContactlistfilterParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOutboundContactlistfilterParams contains all the parameters to send to the API endpoint
-for the put outbound contactlistfilter operation typically these are written to a http.Request
+/*
+PutOutboundContactlistfilterParams contains all the parameters to send to the API endpoint
+
+	for the put outbound contactlistfilter operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOutboundContactlistfilterParams struct {
 
-	/*Body
-	  ContactListFilter
+	/* Body.
 
+	   ContactListFilter
 	*/
 	Body *models.ContactListFilter
-	/*ContactListFilterID
-	  Contact List Filter ID
 
+	/* ContactListFilterID.
+
+	   Contact List Filter ID
 	*/
 	ContactListFilterID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put outbound contactlistfilter params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundContactlistfilterParams) WithDefaults() *PutOutboundContactlistfilterParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put outbound contactlistfilter params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundContactlistfilterParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put outbound contactlistfilter params
@@ -140,7 +157,6 @@ func (o *PutOutboundContactlistfilterParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

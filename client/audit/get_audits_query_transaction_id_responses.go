@@ -101,7 +101,6 @@ func (o *GetAuditsQueryTransactionIDReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetAuditsQueryTransactionIDOK() *GetAuditsQueryTransactionIDOK {
 	return &GetAuditsQueryTransactionIDOK{}
 }
 
-/*GetAuditsQueryTransactionIDOK handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type GetAuditsQueryTransactionIDOK struct {
 	Payload *models.AuditQueryExecutionStatusResponse
 }
 
+// IsSuccess returns true when this get audits query transaction Id o k response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get audits query transaction Id o k response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id o k response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query transaction Id o k response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query transaction Id o k response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAuditsQueryTransactionIDOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdOK  %+v", 200, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewGetAuditsQueryTransactionIDAccepted() *GetAuditsQueryTransactionIDAccept
 	return &GetAuditsQueryTransactionIDAccepted{}
 }
 
-/*GetAuditsQueryTransactionIDAccepted handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDAccepted describes a response with status code 202, with default header values.
 
 In progress - Query execution is in progress.
 */
@@ -153,7 +183,36 @@ type GetAuditsQueryTransactionIDAccepted struct {
 	Payload *models.AuditQueryExecutionStatusResponse
 }
 
+// IsSuccess returns true when this get audits query transaction Id accepted response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get audits query transaction Id accepted response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id accepted response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query transaction Id accepted response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query transaction Id accepted response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *GetAuditsQueryTransactionIDAccepted) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdAccepted  %+v", 202, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDAccepted) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewGetAuditsQueryTransactionIDBadRequest() *GetAuditsQueryTransactionIDBadR
 	return &GetAuditsQueryTransactionIDBadRequest{}
 }
 
-/*GetAuditsQueryTransactionIDBadRequest handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type GetAuditsQueryTransactionIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query transaction Id bad request response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query transaction Id bad request response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id bad request response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query transaction Id bad request response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query transaction Id bad request response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAuditsQueryTransactionIDBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewGetAuditsQueryTransactionIDUnauthorized() *GetAuditsQueryTransactionIDUn
 	return &GetAuditsQueryTransactionIDUnauthorized{}
 }
 
-/*GetAuditsQueryTransactionIDUnauthorized handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type GetAuditsQueryTransactionIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query transaction Id unauthorized response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query transaction Id unauthorized response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id unauthorized response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query transaction Id unauthorized response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query transaction Id unauthorized response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetAuditsQueryTransactionIDUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewGetAuditsQueryTransactionIDForbidden() *GetAuditsQueryTransactionIDForbi
 	return &GetAuditsQueryTransactionIDForbidden{}
 }
 
-/*GetAuditsQueryTransactionIDForbidden handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type GetAuditsQueryTransactionIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query transaction Id forbidden response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query transaction Id forbidden response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id forbidden response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query transaction Id forbidden response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query transaction Id forbidden response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAuditsQueryTransactionIDForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewGetAuditsQueryTransactionIDNotFound() *GetAuditsQueryTransactionIDNotFou
 	return &GetAuditsQueryTransactionIDNotFound{}
 }
 
-/*GetAuditsQueryTransactionIDNotFound handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type GetAuditsQueryTransactionIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query transaction Id not found response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query transaction Id not found response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id not found response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query transaction Id not found response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query transaction Id not found response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAuditsQueryTransactionIDNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewGetAuditsQueryTransactionIDRequestTimeout() *GetAuditsQueryTransactionID
 	return &GetAuditsQueryTransactionIDRequestTimeout{}
 }
 
-/*GetAuditsQueryTransactionIDRequestTimeout handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type GetAuditsQueryTransactionIDRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query transaction Id request timeout response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query transaction Id request timeout response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id request timeout response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query transaction Id request timeout response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query transaction Id request timeout response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetAuditsQueryTransactionIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewGetAuditsQueryTransactionIDRequestEntityTooLarge() *GetAuditsQueryTransa
 	return &GetAuditsQueryTransactionIDRequestEntityTooLarge{}
 }
 
-/*GetAuditsQueryTransactionIDRequestEntityTooLarge handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type GetAuditsQueryTransactionIDRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query transaction Id request entity too large response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query transaction Id request entity too large response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id request entity too large response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query transaction Id request entity too large response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query transaction Id request entity too large response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetAuditsQueryTransactionIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewGetAuditsQueryTransactionIDUnsupportedMediaType() *GetAuditsQueryTransac
 	return &GetAuditsQueryTransactionIDUnsupportedMediaType{}
 }
 
-/*GetAuditsQueryTransactionIDUnsupportedMediaType handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type GetAuditsQueryTransactionIDUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query transaction Id unsupported media type response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query transaction Id unsupported media type response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id unsupported media type response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query transaction Id unsupported media type response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query transaction Id unsupported media type response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetAuditsQueryTransactionIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewGetAuditsQueryTransactionIDTooManyRequests() *GetAuditsQueryTransactionI
 	return &GetAuditsQueryTransactionIDTooManyRequests{}
 }
 
-/*GetAuditsQueryTransactionIDTooManyRequests handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type GetAuditsQueryTransactionIDTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query transaction Id too many requests response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query transaction Id too many requests response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id too many requests response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get audits query transaction Id too many requests response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get audits query transaction Id too many requests response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAuditsQueryTransactionIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewGetAuditsQueryTransactionIDInternalServerError() *GetAuditsQueryTransact
 	return &GetAuditsQueryTransactionIDInternalServerError{}
 }
 
-/*GetAuditsQueryTransactionIDInternalServerError handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type GetAuditsQueryTransactionIDInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query transaction Id internal server error response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query transaction Id internal server error response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id internal server error response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query transaction Id internal server error response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get audits query transaction Id internal server error response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAuditsQueryTransactionIDInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewGetAuditsQueryTransactionIDServiceUnavailable() *GetAuditsQueryTransacti
 	return &GetAuditsQueryTransactionIDServiceUnavailable{}
 }
 
-/*GetAuditsQueryTransactionIDServiceUnavailable handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type GetAuditsQueryTransactionIDServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query transaction Id service unavailable response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query transaction Id service unavailable response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id service unavailable response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query transaction Id service unavailable response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get audits query transaction Id service unavailable response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetAuditsQueryTransactionIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewGetAuditsQueryTransactionIDGatewayTimeout() *GetAuditsQueryTransactionID
 	return &GetAuditsQueryTransactionIDGatewayTimeout{}
 }
 
-/*GetAuditsQueryTransactionIDGatewayTimeout handles this case with default header values.
+/*
+GetAuditsQueryTransactionIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type GetAuditsQueryTransactionIDGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get audits query transaction Id gateway timeout response has a 2xx status code
+func (o *GetAuditsQueryTransactionIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get audits query transaction Id gateway timeout response has a 3xx status code
+func (o *GetAuditsQueryTransactionIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get audits query transaction Id gateway timeout response has a 4xx status code
+func (o *GetAuditsQueryTransactionIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get audits query transaction Id gateway timeout response has a 5xx status code
+func (o *GetAuditsQueryTransactionIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get audits query transaction Id gateway timeout response a status code equal to that given
+func (o *GetAuditsQueryTransactionIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetAuditsQueryTransactionIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetAuditsQueryTransactionIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/audits/query/{transactionId}][%d] getAuditsQueryTransactionIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

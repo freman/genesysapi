@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // HelpLink Link to a help or support resource
@@ -30,6 +34,55 @@ type HelpLink struct {
 
 // Validate validates this help link
 func (m *HelpLink) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this help link based on the context it is used
+func (m *HelpLink) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDescription(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTitle(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *HelpLink) contextValidateDescription(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "description", "body", string(m.Description)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *HelpLink) contextValidateTitle(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "title", "body", string(m.Title)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *HelpLink) contextValidateURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "uri", "body", string(m.URI)); err != nil {
+		return err
+	}
+
 	return nil
 }
 

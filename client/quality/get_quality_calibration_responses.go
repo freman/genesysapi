@@ -95,7 +95,6 @@ func (o *GetQualityCalibrationReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetQualityCalibrationOK() *GetQualityCalibrationOK {
 	return &GetQualityCalibrationOK{}
 }
 
-/*GetQualityCalibrationOK handles this case with default header values.
+/*
+GetQualityCalibrationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetQualityCalibrationOK struct {
 	Payload *models.Calibration
 }
 
+// IsSuccess returns true when this get quality calibration o k response has a 2xx status code
+func (o *GetQualityCalibrationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get quality calibration o k response has a 3xx status code
+func (o *GetQualityCalibrationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality calibration o k response has a 4xx status code
+func (o *GetQualityCalibrationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality calibration o k response has a 5xx status code
+func (o *GetQualityCalibrationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality calibration o k response a status code equal to that given
+func (o *GetQualityCalibrationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetQualityCalibrationOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationOK  %+v", 200, o.Payload)
+}
+
+func (o *GetQualityCalibrationOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetQualityCalibrationBadRequest() *GetQualityCalibrationBadRequest {
 	return &GetQualityCalibrationBadRequest{}
 }
 
-/*GetQualityCalibrationBadRequest handles this case with default header values.
+/*
+GetQualityCalibrationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetQualityCalibrationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality calibration bad request response has a 2xx status code
+func (o *GetQualityCalibrationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality calibration bad request response has a 3xx status code
+func (o *GetQualityCalibrationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality calibration bad request response has a 4xx status code
+func (o *GetQualityCalibrationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality calibration bad request response has a 5xx status code
+func (o *GetQualityCalibrationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality calibration bad request response a status code equal to that given
+func (o *GetQualityCalibrationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetQualityCalibrationBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetQualityCalibrationBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetQualityCalibrationUnauthorized() *GetQualityCalibrationUnauthorized {
 	return &GetQualityCalibrationUnauthorized{}
 }
 
-/*GetQualityCalibrationUnauthorized handles this case with default header values.
+/*
+GetQualityCalibrationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetQualityCalibrationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality calibration unauthorized response has a 2xx status code
+func (o *GetQualityCalibrationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality calibration unauthorized response has a 3xx status code
+func (o *GetQualityCalibrationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality calibration unauthorized response has a 4xx status code
+func (o *GetQualityCalibrationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality calibration unauthorized response has a 5xx status code
+func (o *GetQualityCalibrationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality calibration unauthorized response a status code equal to that given
+func (o *GetQualityCalibrationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetQualityCalibrationUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetQualityCalibrationUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetQualityCalibrationForbidden() *GetQualityCalibrationForbidden {
 	return &GetQualityCalibrationForbidden{}
 }
 
-/*GetQualityCalibrationForbidden handles this case with default header values.
+/*
+GetQualityCalibrationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetQualityCalibrationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality calibration forbidden response has a 2xx status code
+func (o *GetQualityCalibrationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality calibration forbidden response has a 3xx status code
+func (o *GetQualityCalibrationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality calibration forbidden response has a 4xx status code
+func (o *GetQualityCalibrationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality calibration forbidden response has a 5xx status code
+func (o *GetQualityCalibrationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality calibration forbidden response a status code equal to that given
+func (o *GetQualityCalibrationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetQualityCalibrationForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetQualityCalibrationForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetQualityCalibrationNotFound() *GetQualityCalibrationNotFound {
 	return &GetQualityCalibrationNotFound{}
 }
 
-/*GetQualityCalibrationNotFound handles this case with default header values.
+/*
+GetQualityCalibrationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetQualityCalibrationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality calibration not found response has a 2xx status code
+func (o *GetQualityCalibrationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality calibration not found response has a 3xx status code
+func (o *GetQualityCalibrationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality calibration not found response has a 4xx status code
+func (o *GetQualityCalibrationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality calibration not found response has a 5xx status code
+func (o *GetQualityCalibrationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality calibration not found response a status code equal to that given
+func (o *GetQualityCalibrationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetQualityCalibrationNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetQualityCalibrationNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetQualityCalibrationRequestTimeout() *GetQualityCalibrationRequestTimeo
 	return &GetQualityCalibrationRequestTimeout{}
 }
 
-/*GetQualityCalibrationRequestTimeout handles this case with default header values.
+/*
+GetQualityCalibrationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetQualityCalibrationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality calibration request timeout response has a 2xx status code
+func (o *GetQualityCalibrationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality calibration request timeout response has a 3xx status code
+func (o *GetQualityCalibrationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality calibration request timeout response has a 4xx status code
+func (o *GetQualityCalibrationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality calibration request timeout response has a 5xx status code
+func (o *GetQualityCalibrationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality calibration request timeout response a status code equal to that given
+func (o *GetQualityCalibrationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetQualityCalibrationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetQualityCalibrationRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetQualityCalibrationRequestEntityTooLarge() *GetQualityCalibrationReque
 	return &GetQualityCalibrationRequestEntityTooLarge{}
 }
 
-/*GetQualityCalibrationRequestEntityTooLarge handles this case with default header values.
+/*
+GetQualityCalibrationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetQualityCalibrationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality calibration request entity too large response has a 2xx status code
+func (o *GetQualityCalibrationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality calibration request entity too large response has a 3xx status code
+func (o *GetQualityCalibrationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality calibration request entity too large response has a 4xx status code
+func (o *GetQualityCalibrationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality calibration request entity too large response has a 5xx status code
+func (o *GetQualityCalibrationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality calibration request entity too large response a status code equal to that given
+func (o *GetQualityCalibrationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetQualityCalibrationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetQualityCalibrationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetQualityCalibrationUnsupportedMediaType() *GetQualityCalibrationUnsupp
 	return &GetQualityCalibrationUnsupportedMediaType{}
 }
 
-/*GetQualityCalibrationUnsupportedMediaType handles this case with default header values.
+/*
+GetQualityCalibrationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetQualityCalibrationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality calibration unsupported media type response has a 2xx status code
+func (o *GetQualityCalibrationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality calibration unsupported media type response has a 3xx status code
+func (o *GetQualityCalibrationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality calibration unsupported media type response has a 4xx status code
+func (o *GetQualityCalibrationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality calibration unsupported media type response has a 5xx status code
+func (o *GetQualityCalibrationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality calibration unsupported media type response a status code equal to that given
+func (o *GetQualityCalibrationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetQualityCalibrationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetQualityCalibrationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetQualityCalibrationTooManyRequests() *GetQualityCalibrationTooManyRequ
 	return &GetQualityCalibrationTooManyRequests{}
 }
 
-/*GetQualityCalibrationTooManyRequests handles this case with default header values.
+/*
+GetQualityCalibrationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetQualityCalibrationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality calibration too many requests response has a 2xx status code
+func (o *GetQualityCalibrationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality calibration too many requests response has a 3xx status code
+func (o *GetQualityCalibrationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality calibration too many requests response has a 4xx status code
+func (o *GetQualityCalibrationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality calibration too many requests response has a 5xx status code
+func (o *GetQualityCalibrationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality calibration too many requests response a status code equal to that given
+func (o *GetQualityCalibrationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetQualityCalibrationTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetQualityCalibrationTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetQualityCalibrationInternalServerError() *GetQualityCalibrationInterna
 	return &GetQualityCalibrationInternalServerError{}
 }
 
-/*GetQualityCalibrationInternalServerError handles this case with default header values.
+/*
+GetQualityCalibrationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetQualityCalibrationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality calibration internal server error response has a 2xx status code
+func (o *GetQualityCalibrationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality calibration internal server error response has a 3xx status code
+func (o *GetQualityCalibrationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality calibration internal server error response has a 4xx status code
+func (o *GetQualityCalibrationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality calibration internal server error response has a 5xx status code
+func (o *GetQualityCalibrationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality calibration internal server error response a status code equal to that given
+func (o *GetQualityCalibrationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetQualityCalibrationInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetQualityCalibrationInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetQualityCalibrationServiceUnavailable() *GetQualityCalibrationServiceU
 	return &GetQualityCalibrationServiceUnavailable{}
 }
 
-/*GetQualityCalibrationServiceUnavailable handles this case with default header values.
+/*
+GetQualityCalibrationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetQualityCalibrationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality calibration service unavailable response has a 2xx status code
+func (o *GetQualityCalibrationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality calibration service unavailable response has a 3xx status code
+func (o *GetQualityCalibrationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality calibration service unavailable response has a 4xx status code
+func (o *GetQualityCalibrationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality calibration service unavailable response has a 5xx status code
+func (o *GetQualityCalibrationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality calibration service unavailable response a status code equal to that given
+func (o *GetQualityCalibrationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetQualityCalibrationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetQualityCalibrationServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetQualityCalibrationGatewayTimeout() *GetQualityCalibrationGatewayTimeo
 	return &GetQualityCalibrationGatewayTimeout{}
 }
 
-/*GetQualityCalibrationGatewayTimeout handles this case with default header values.
+/*
+GetQualityCalibrationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetQualityCalibrationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality calibration gateway timeout response has a 2xx status code
+func (o *GetQualityCalibrationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality calibration gateway timeout response has a 3xx status code
+func (o *GetQualityCalibrationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality calibration gateway timeout response has a 4xx status code
+func (o *GetQualityCalibrationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality calibration gateway timeout response has a 5xx status code
+func (o *GetQualityCalibrationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality calibration gateway timeout response a status code equal to that given
+func (o *GetQualityCalibrationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetQualityCalibrationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetQualityCalibrationGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/calibrations/{calibrationId}][%d] getQualityCalibrationGatewayTimeout  %+v", 504, o.Payload)
 }
 

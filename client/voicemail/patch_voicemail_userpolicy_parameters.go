@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchVoicemailUserpolicyParams creates a new PatchVoicemailUserpolicyParams object
-// with the default values initialized.
+// NewPatchVoicemailUserpolicyParams creates a new PatchVoicemailUserpolicyParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchVoicemailUserpolicyParams() *PatchVoicemailUserpolicyParams {
-	var ()
 	return &PatchVoicemailUserpolicyParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchVoicemailUserpolicyParamsWithTimeout creates a new PatchVoicemailUserpolicyParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchVoicemailUserpolicyParamsWithTimeout(timeout time.Duration) *PatchVoicemailUserpolicyParams {
-	var ()
 	return &PatchVoicemailUserpolicyParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchVoicemailUserpolicyParamsWithContext creates a new PatchVoicemailUserpolicyParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchVoicemailUserpolicyParamsWithContext(ctx context.Context) *PatchVoicemailUserpolicyParams {
-	var ()
 	return &PatchVoicemailUserpolicyParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchVoicemailUserpolicyParamsWithHTTPClient creates a new PatchVoicemailUserpolicyParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchVoicemailUserpolicyParamsWithHTTPClient(client *http.Client) *PatchVoicemailUserpolicyParams {
-	var ()
 	return &PatchVoicemailUserpolicyParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchVoicemailUserpolicyParams contains all the parameters to send to the API endpoint
-for the patch voicemail userpolicy operation typically these are written to a http.Request
+/*
+PatchVoicemailUserpolicyParams contains all the parameters to send to the API endpoint
+
+	for the patch voicemail userpolicy operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchVoicemailUserpolicyParams struct {
 
-	/*Body
-	  The user's voicemail policy
+	/* Body.
 
+	   The user's voicemail policy
 	*/
 	Body *models.VoicemailUserPolicy
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch voicemail userpolicy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchVoicemailUserpolicyParams) WithDefaults() *PatchVoicemailUserpolicyParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch voicemail userpolicy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchVoicemailUserpolicyParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch voicemail userpolicy params
@@ -140,7 +157,6 @@ func (o *PatchVoicemailUserpolicyParams) WriteToRequest(r runtime.ClientRequest,
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

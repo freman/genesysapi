@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteQualityCalibrationParams creates a new DeleteQualityCalibrationParams object
-// with the default values initialized.
+// NewDeleteQualityCalibrationParams creates a new DeleteQualityCalibrationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteQualityCalibrationParams() *DeleteQualityCalibrationParams {
-	var ()
 	return &DeleteQualityCalibrationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteQualityCalibrationParamsWithTimeout creates a new DeleteQualityCalibrationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteQualityCalibrationParamsWithTimeout(timeout time.Duration) *DeleteQualityCalibrationParams {
-	var ()
 	return &DeleteQualityCalibrationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteQualityCalibrationParamsWithContext creates a new DeleteQualityCalibrationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteQualityCalibrationParamsWithContext(ctx context.Context) *DeleteQualityCalibrationParams {
-	var ()
 	return &DeleteQualityCalibrationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteQualityCalibrationParamsWithHTTPClient creates a new DeleteQualityCalibrationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteQualityCalibrationParamsWithHTTPClient(client *http.Client) *DeleteQualityCalibrationParams {
-	var ()
 	return &DeleteQualityCalibrationParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteQualityCalibrationParams contains all the parameters to send to the API endpoint
-for the delete quality calibration operation typically these are written to a http.Request
+/*
+DeleteQualityCalibrationParams contains all the parameters to send to the API endpoint
+
+	for the delete quality calibration operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteQualityCalibrationParams struct {
 
-	/*CalibrationID
-	  Calibration ID
+	/* CalibrationID.
 
+	   Calibration ID
 	*/
 	CalibrationID string
-	/*CalibratorID
-	  calibratorId
 
+	/* CalibratorID.
+
+	   calibratorId
 	*/
 	CalibratorID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete quality calibration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteQualityCalibrationParams) WithDefaults() *DeleteQualityCalibrationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete quality calibration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteQualityCalibrationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete quality calibration params
@@ -148,6 +165,7 @@ func (o *DeleteQualityCalibrationParams) WriteToRequest(r runtime.ClientRequest,
 	qrCalibratorID := o.CalibratorID
 	qCalibratorID := qrCalibratorID
 	if qCalibratorID != "" {
+
 		if err := r.SetQueryParam("calibratorId", qCalibratorID); err != nil {
 			return err
 		}

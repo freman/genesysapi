@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchWorkforcemanagementManagementunitTimeoffplanParams creates a new PatchWorkforcemanagementManagementunitTimeoffplanParams object
-// with the default values initialized.
+// NewPatchWorkforcemanagementManagementunitTimeoffplanParams creates a new PatchWorkforcemanagementManagementunitTimeoffplanParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchWorkforcemanagementManagementunitTimeoffplanParams() *PatchWorkforcemanagementManagementunitTimeoffplanParams {
-	var ()
 	return &PatchWorkforcemanagementManagementunitTimeoffplanParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchWorkforcemanagementManagementunitTimeoffplanParamsWithTimeout creates a new PatchWorkforcemanagementManagementunitTimeoffplanParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchWorkforcemanagementManagementunitTimeoffplanParamsWithTimeout(timeout time.Duration) *PatchWorkforcemanagementManagementunitTimeoffplanParams {
-	var ()
 	return &PatchWorkforcemanagementManagementunitTimeoffplanParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchWorkforcemanagementManagementunitTimeoffplanParamsWithContext creates a new PatchWorkforcemanagementManagementunitTimeoffplanParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchWorkforcemanagementManagementunitTimeoffplanParamsWithContext(ctx context.Context) *PatchWorkforcemanagementManagementunitTimeoffplanParams {
-	var ()
 	return &PatchWorkforcemanagementManagementunitTimeoffplanParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchWorkforcemanagementManagementunitTimeoffplanParamsWithHTTPClient creates a new PatchWorkforcemanagementManagementunitTimeoffplanParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchWorkforcemanagementManagementunitTimeoffplanParamsWithHTTPClient(client *http.Client) *PatchWorkforcemanagementManagementunitTimeoffplanParams {
-	var ()
 	return &PatchWorkforcemanagementManagementunitTimeoffplanParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchWorkforcemanagementManagementunitTimeoffplanParams contains all the parameters to send to the API endpoint
-for the patch workforcemanagement managementunit timeoffplan operation typically these are written to a http.Request
+/*
+PatchWorkforcemanagementManagementunitTimeoffplanParams contains all the parameters to send to the API endpoint
+
+	for the patch workforcemanagement managementunit timeoffplan operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchWorkforcemanagementManagementunitTimeoffplanParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.UpdateTimeOffPlanRequest
-	/*ManagementUnitID
-	  The ID of the management unit
 
+	/* ManagementUnitID.
+
+	   The ID of the management unit
 	*/
 	ManagementUnitID string
-	/*TimeOffPlanID
-	  The ID of the time off plan to update
 
+	/* TimeOffPlanID.
+
+	   The ID of the time off plan to update
 	*/
 	TimeOffPlanID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch workforcemanagement managementunit timeoffplan params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanParams) WithDefaults() *PatchWorkforcemanagementManagementunitTimeoffplanParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch workforcemanagement managementunit timeoffplan params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchWorkforcemanagementManagementunitTimeoffplanParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch workforcemanagement managementunit timeoffplan params
@@ -156,7 +174,6 @@ func (o *PatchWorkforcemanagementManagementunitTimeoffplanParams) WriteToRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

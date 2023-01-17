@@ -95,7 +95,6 @@ func (o *PostAnalyticsConversationsDetailsJobsReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostAnalyticsConversationsDetailsJobsAccepted() *PostAnalyticsConversati
 	return &PostAnalyticsConversationsDetailsJobsAccepted{}
 }
 
-/*PostAnalyticsConversationsDetailsJobsAccepted handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsJobsAccepted describes a response with status code 202, with default header values.
 
 Accepted - Running query asynchronously
 */
@@ -114,7 +114,36 @@ type PostAnalyticsConversationsDetailsJobsAccepted struct {
 	Payload *models.AsyncQueryResponse
 }
 
+// IsSuccess returns true when this post analytics conversations details jobs accepted response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsJobsAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post analytics conversations details jobs accepted response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsJobsAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details jobs accepted response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsJobsAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics conversations details jobs accepted response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsJobsAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details jobs accepted response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsJobsAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PostAnalyticsConversationsDetailsJobsAccepted) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsAccepted  %+v", 202, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsAccepted) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsAccepted  %+v", 202, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostAnalyticsConversationsDetailsJobsBadRequest() *PostAnalyticsConversa
 	return &PostAnalyticsConversationsDetailsJobsBadRequest{}
 }
 
-/*PostAnalyticsConversationsDetailsJobsBadRequest handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsJobsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostAnalyticsConversationsDetailsJobsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details jobs bad request response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsJobsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details jobs bad request response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsJobsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details jobs bad request response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsJobsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details jobs bad request response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsJobsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details jobs bad request response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsJobsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostAnalyticsConversationsDetailsJobsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostAnalyticsConversationsDetailsJobsUnauthorized() *PostAnalyticsConver
 	return &PostAnalyticsConversationsDetailsJobsUnauthorized{}
 }
 
-/*PostAnalyticsConversationsDetailsJobsUnauthorized handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsJobsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostAnalyticsConversationsDetailsJobsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details jobs unauthorized response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsJobsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details jobs unauthorized response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsJobsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details jobs unauthorized response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsJobsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details jobs unauthorized response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsJobsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details jobs unauthorized response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsJobsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostAnalyticsConversationsDetailsJobsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostAnalyticsConversationsDetailsJobsForbidden() *PostAnalyticsConversat
 	return &PostAnalyticsConversationsDetailsJobsForbidden{}
 }
 
-/*PostAnalyticsConversationsDetailsJobsForbidden handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsJobsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostAnalyticsConversationsDetailsJobsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details jobs forbidden response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsJobsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details jobs forbidden response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsJobsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details jobs forbidden response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsJobsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details jobs forbidden response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsJobsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details jobs forbidden response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsJobsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostAnalyticsConversationsDetailsJobsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostAnalyticsConversationsDetailsJobsNotFound() *PostAnalyticsConversati
 	return &PostAnalyticsConversationsDetailsJobsNotFound{}
 }
 
-/*PostAnalyticsConversationsDetailsJobsNotFound handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsJobsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostAnalyticsConversationsDetailsJobsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details jobs not found response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsJobsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details jobs not found response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsJobsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details jobs not found response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsJobsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details jobs not found response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsJobsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details jobs not found response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsJobsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostAnalyticsConversationsDetailsJobsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostAnalyticsConversationsDetailsJobsRequestTimeout() *PostAnalyticsConv
 	return &PostAnalyticsConversationsDetailsJobsRequestTimeout{}
 }
 
-/*PostAnalyticsConversationsDetailsJobsRequestTimeout handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsJobsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostAnalyticsConversationsDetailsJobsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details jobs request timeout response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsJobsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details jobs request timeout response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsJobsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details jobs request timeout response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsJobsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details jobs request timeout response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsJobsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details jobs request timeout response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsJobsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostAnalyticsConversationsDetailsJobsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostAnalyticsConversationsDetailsJobsRequestEntityTooLarge() *PostAnalyt
 	return &PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge{}
 }
 
-/*PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details jobs request entity too large response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details jobs request entity too large response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details jobs request entity too large response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details jobs request entity too large response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details jobs request entity too large response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostAnalyticsConversationsDetailsJobsUnsupportedMediaType() *PostAnalyti
 	return &PostAnalyticsConversationsDetailsJobsUnsupportedMediaType{}
 }
 
-/*PostAnalyticsConversationsDetailsJobsUnsupportedMediaType handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsJobsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostAnalyticsConversationsDetailsJobsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details jobs unsupported media type response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsJobsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details jobs unsupported media type response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsJobsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details jobs unsupported media type response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsJobsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details jobs unsupported media type response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsJobsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details jobs unsupported media type response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsJobsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostAnalyticsConversationsDetailsJobsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostAnalyticsConversationsDetailsJobsTooManyRequests() *PostAnalyticsCon
 	return &PostAnalyticsConversationsDetailsJobsTooManyRequests{}
 }
 
-/*PostAnalyticsConversationsDetailsJobsTooManyRequests handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsJobsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostAnalyticsConversationsDetailsJobsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details jobs too many requests response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsJobsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details jobs too many requests response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsJobsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details jobs too many requests response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsJobsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post analytics conversations details jobs too many requests response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsJobsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post analytics conversations details jobs too many requests response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsJobsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostAnalyticsConversationsDetailsJobsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostAnalyticsConversationsDetailsJobsInternalServerError() *PostAnalytic
 	return &PostAnalyticsConversationsDetailsJobsInternalServerError{}
 }
 
-/*PostAnalyticsConversationsDetailsJobsInternalServerError handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsJobsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostAnalyticsConversationsDetailsJobsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details jobs internal server error response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsJobsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details jobs internal server error response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsJobsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details jobs internal server error response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsJobsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics conversations details jobs internal server error response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsJobsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics conversations details jobs internal server error response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsJobsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostAnalyticsConversationsDetailsJobsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostAnalyticsConversationsDetailsJobsServiceUnavailable() *PostAnalytics
 	return &PostAnalyticsConversationsDetailsJobsServiceUnavailable{}
 }
 
-/*PostAnalyticsConversationsDetailsJobsServiceUnavailable handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsJobsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostAnalyticsConversationsDetailsJobsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details jobs service unavailable response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsJobsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details jobs service unavailable response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsJobsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details jobs service unavailable response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsJobsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics conversations details jobs service unavailable response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsJobsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics conversations details jobs service unavailable response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsJobsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostAnalyticsConversationsDetailsJobsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostAnalyticsConversationsDetailsJobsGatewayTimeout() *PostAnalyticsConv
 	return &PostAnalyticsConversationsDetailsJobsGatewayTimeout{}
 }
 
-/*PostAnalyticsConversationsDetailsJobsGatewayTimeout handles this case with default header values.
+/*
+PostAnalyticsConversationsDetailsJobsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostAnalyticsConversationsDetailsJobsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post analytics conversations details jobs gateway timeout response has a 2xx status code
+func (o *PostAnalyticsConversationsDetailsJobsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post analytics conversations details jobs gateway timeout response has a 3xx status code
+func (o *PostAnalyticsConversationsDetailsJobsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post analytics conversations details jobs gateway timeout response has a 4xx status code
+func (o *PostAnalyticsConversationsDetailsJobsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post analytics conversations details jobs gateway timeout response has a 5xx status code
+func (o *PostAnalyticsConversationsDetailsJobsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post analytics conversations details jobs gateway timeout response a status code equal to that given
+func (o *PostAnalyticsConversationsDetailsJobsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostAnalyticsConversationsDetailsJobsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostAnalyticsConversationsDetailsJobsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/analytics/conversations/details/jobs][%d] postAnalyticsConversationsDetailsJobsGatewayTimeout  %+v", 504, o.Payload)
 }
 

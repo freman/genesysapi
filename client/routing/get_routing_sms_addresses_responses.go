@@ -95,7 +95,6 @@ func (o *GetRoutingSmsAddressesReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRoutingSmsAddressesOK() *GetRoutingSmsAddressesOK {
 	return &GetRoutingSmsAddressesOK{}
 }
 
-/*GetRoutingSmsAddressesOK handles this case with default header values.
+/*
+GetRoutingSmsAddressesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRoutingSmsAddressesOK struct {
 	Payload *models.SmsAddressEntityListing
 }
 
+// IsSuccess returns true when this get routing sms addresses o k response has a 2xx status code
+func (o *GetRoutingSmsAddressesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get routing sms addresses o k response has a 3xx status code
+func (o *GetRoutingSmsAddressesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing sms addresses o k response has a 4xx status code
+func (o *GetRoutingSmsAddressesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing sms addresses o k response has a 5xx status code
+func (o *GetRoutingSmsAddressesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing sms addresses o k response a status code equal to that given
+func (o *GetRoutingSmsAddressesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRoutingSmsAddressesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRoutingSmsAddressesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRoutingSmsAddressesBadRequest() *GetRoutingSmsAddressesBadRequest {
 	return &GetRoutingSmsAddressesBadRequest{}
 }
 
-/*GetRoutingSmsAddressesBadRequest handles this case with default header values.
+/*
+GetRoutingSmsAddressesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRoutingSmsAddressesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing sms addresses bad request response has a 2xx status code
+func (o *GetRoutingSmsAddressesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing sms addresses bad request response has a 3xx status code
+func (o *GetRoutingSmsAddressesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing sms addresses bad request response has a 4xx status code
+func (o *GetRoutingSmsAddressesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing sms addresses bad request response has a 5xx status code
+func (o *GetRoutingSmsAddressesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing sms addresses bad request response a status code equal to that given
+func (o *GetRoutingSmsAddressesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRoutingSmsAddressesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRoutingSmsAddressesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRoutingSmsAddressesUnauthorized() *GetRoutingSmsAddressesUnauthorized
 	return &GetRoutingSmsAddressesUnauthorized{}
 }
 
-/*GetRoutingSmsAddressesUnauthorized handles this case with default header values.
+/*
+GetRoutingSmsAddressesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRoutingSmsAddressesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing sms addresses unauthorized response has a 2xx status code
+func (o *GetRoutingSmsAddressesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing sms addresses unauthorized response has a 3xx status code
+func (o *GetRoutingSmsAddressesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing sms addresses unauthorized response has a 4xx status code
+func (o *GetRoutingSmsAddressesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing sms addresses unauthorized response has a 5xx status code
+func (o *GetRoutingSmsAddressesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing sms addresses unauthorized response a status code equal to that given
+func (o *GetRoutingSmsAddressesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRoutingSmsAddressesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRoutingSmsAddressesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRoutingSmsAddressesForbidden() *GetRoutingSmsAddressesForbidden {
 	return &GetRoutingSmsAddressesForbidden{}
 }
 
-/*GetRoutingSmsAddressesForbidden handles this case with default header values.
+/*
+GetRoutingSmsAddressesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRoutingSmsAddressesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing sms addresses forbidden response has a 2xx status code
+func (o *GetRoutingSmsAddressesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing sms addresses forbidden response has a 3xx status code
+func (o *GetRoutingSmsAddressesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing sms addresses forbidden response has a 4xx status code
+func (o *GetRoutingSmsAddressesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing sms addresses forbidden response has a 5xx status code
+func (o *GetRoutingSmsAddressesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing sms addresses forbidden response a status code equal to that given
+func (o *GetRoutingSmsAddressesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRoutingSmsAddressesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRoutingSmsAddressesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRoutingSmsAddressesNotFound() *GetRoutingSmsAddressesNotFound {
 	return &GetRoutingSmsAddressesNotFound{}
 }
 
-/*GetRoutingSmsAddressesNotFound handles this case with default header values.
+/*
+GetRoutingSmsAddressesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRoutingSmsAddressesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing sms addresses not found response has a 2xx status code
+func (o *GetRoutingSmsAddressesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing sms addresses not found response has a 3xx status code
+func (o *GetRoutingSmsAddressesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing sms addresses not found response has a 4xx status code
+func (o *GetRoutingSmsAddressesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing sms addresses not found response has a 5xx status code
+func (o *GetRoutingSmsAddressesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing sms addresses not found response a status code equal to that given
+func (o *GetRoutingSmsAddressesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRoutingSmsAddressesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRoutingSmsAddressesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRoutingSmsAddressesRequestTimeout() *GetRoutingSmsAddressesRequestTim
 	return &GetRoutingSmsAddressesRequestTimeout{}
 }
 
-/*GetRoutingSmsAddressesRequestTimeout handles this case with default header values.
+/*
+GetRoutingSmsAddressesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRoutingSmsAddressesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing sms addresses request timeout response has a 2xx status code
+func (o *GetRoutingSmsAddressesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing sms addresses request timeout response has a 3xx status code
+func (o *GetRoutingSmsAddressesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing sms addresses request timeout response has a 4xx status code
+func (o *GetRoutingSmsAddressesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing sms addresses request timeout response has a 5xx status code
+func (o *GetRoutingSmsAddressesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing sms addresses request timeout response a status code equal to that given
+func (o *GetRoutingSmsAddressesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRoutingSmsAddressesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRoutingSmsAddressesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRoutingSmsAddressesRequestEntityTooLarge() *GetRoutingSmsAddressesReq
 	return &GetRoutingSmsAddressesRequestEntityTooLarge{}
 }
 
-/*GetRoutingSmsAddressesRequestEntityTooLarge handles this case with default header values.
+/*
+GetRoutingSmsAddressesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRoutingSmsAddressesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing sms addresses request entity too large response has a 2xx status code
+func (o *GetRoutingSmsAddressesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing sms addresses request entity too large response has a 3xx status code
+func (o *GetRoutingSmsAddressesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing sms addresses request entity too large response has a 4xx status code
+func (o *GetRoutingSmsAddressesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing sms addresses request entity too large response has a 5xx status code
+func (o *GetRoutingSmsAddressesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing sms addresses request entity too large response a status code equal to that given
+func (o *GetRoutingSmsAddressesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRoutingSmsAddressesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRoutingSmsAddressesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRoutingSmsAddressesUnsupportedMediaType() *GetRoutingSmsAddressesUnsu
 	return &GetRoutingSmsAddressesUnsupportedMediaType{}
 }
 
-/*GetRoutingSmsAddressesUnsupportedMediaType handles this case with default header values.
+/*
+GetRoutingSmsAddressesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRoutingSmsAddressesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing sms addresses unsupported media type response has a 2xx status code
+func (o *GetRoutingSmsAddressesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing sms addresses unsupported media type response has a 3xx status code
+func (o *GetRoutingSmsAddressesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing sms addresses unsupported media type response has a 4xx status code
+func (o *GetRoutingSmsAddressesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing sms addresses unsupported media type response has a 5xx status code
+func (o *GetRoutingSmsAddressesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing sms addresses unsupported media type response a status code equal to that given
+func (o *GetRoutingSmsAddressesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRoutingSmsAddressesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRoutingSmsAddressesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRoutingSmsAddressesTooManyRequests() *GetRoutingSmsAddressesTooManyRe
 	return &GetRoutingSmsAddressesTooManyRequests{}
 }
 
-/*GetRoutingSmsAddressesTooManyRequests handles this case with default header values.
+/*
+GetRoutingSmsAddressesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRoutingSmsAddressesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing sms addresses too many requests response has a 2xx status code
+func (o *GetRoutingSmsAddressesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing sms addresses too many requests response has a 3xx status code
+func (o *GetRoutingSmsAddressesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing sms addresses too many requests response has a 4xx status code
+func (o *GetRoutingSmsAddressesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get routing sms addresses too many requests response has a 5xx status code
+func (o *GetRoutingSmsAddressesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get routing sms addresses too many requests response a status code equal to that given
+func (o *GetRoutingSmsAddressesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRoutingSmsAddressesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRoutingSmsAddressesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRoutingSmsAddressesInternalServerError() *GetRoutingSmsAddressesInter
 	return &GetRoutingSmsAddressesInternalServerError{}
 }
 
-/*GetRoutingSmsAddressesInternalServerError handles this case with default header values.
+/*
+GetRoutingSmsAddressesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRoutingSmsAddressesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing sms addresses internal server error response has a 2xx status code
+func (o *GetRoutingSmsAddressesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing sms addresses internal server error response has a 3xx status code
+func (o *GetRoutingSmsAddressesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing sms addresses internal server error response has a 4xx status code
+func (o *GetRoutingSmsAddressesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing sms addresses internal server error response has a 5xx status code
+func (o *GetRoutingSmsAddressesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing sms addresses internal server error response a status code equal to that given
+func (o *GetRoutingSmsAddressesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRoutingSmsAddressesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRoutingSmsAddressesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRoutingSmsAddressesServiceUnavailable() *GetRoutingSmsAddressesServic
 	return &GetRoutingSmsAddressesServiceUnavailable{}
 }
 
-/*GetRoutingSmsAddressesServiceUnavailable handles this case with default header values.
+/*
+GetRoutingSmsAddressesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRoutingSmsAddressesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing sms addresses service unavailable response has a 2xx status code
+func (o *GetRoutingSmsAddressesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing sms addresses service unavailable response has a 3xx status code
+func (o *GetRoutingSmsAddressesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing sms addresses service unavailable response has a 4xx status code
+func (o *GetRoutingSmsAddressesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing sms addresses service unavailable response has a 5xx status code
+func (o *GetRoutingSmsAddressesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing sms addresses service unavailable response a status code equal to that given
+func (o *GetRoutingSmsAddressesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRoutingSmsAddressesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRoutingSmsAddressesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRoutingSmsAddressesGatewayTimeout() *GetRoutingSmsAddressesGatewayTim
 	return &GetRoutingSmsAddressesGatewayTimeout{}
 }
 
-/*GetRoutingSmsAddressesGatewayTimeout handles this case with default header values.
+/*
+GetRoutingSmsAddressesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRoutingSmsAddressesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get routing sms addresses gateway timeout response has a 2xx status code
+func (o *GetRoutingSmsAddressesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get routing sms addresses gateway timeout response has a 3xx status code
+func (o *GetRoutingSmsAddressesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get routing sms addresses gateway timeout response has a 4xx status code
+func (o *GetRoutingSmsAddressesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get routing sms addresses gateway timeout response has a 5xx status code
+func (o *GetRoutingSmsAddressesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get routing sms addresses gateway timeout response a status code equal to that given
+func (o *GetRoutingSmsAddressesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRoutingSmsAddressesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRoutingSmsAddressesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/routing/sms/addresses][%d] getRoutingSmsAddressesGatewayTimeout  %+v", 504, o.Payload)
 }
 

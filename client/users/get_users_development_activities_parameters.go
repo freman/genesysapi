@@ -17,145 +17,169 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetUsersDevelopmentActivitiesParams creates a new GetUsersDevelopmentActivitiesParams object
-// with the default values initialized.
+// NewGetUsersDevelopmentActivitiesParams creates a new GetUsersDevelopmentActivitiesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUsersDevelopmentActivitiesParams() *GetUsersDevelopmentActivitiesParams {
-	var (
-		overdueDefault    = string("Any")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("Desc")
-	)
 	return &GetUsersDevelopmentActivitiesParams{
-		Overdue:    &overdueDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUsersDevelopmentActivitiesParamsWithTimeout creates a new GetUsersDevelopmentActivitiesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUsersDevelopmentActivitiesParamsWithTimeout(timeout time.Duration) *GetUsersDevelopmentActivitiesParams {
-	var (
-		overdueDefault    = string("Any")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("Desc")
-	)
 	return &GetUsersDevelopmentActivitiesParams{
-		Overdue:    &overdueDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUsersDevelopmentActivitiesParamsWithContext creates a new GetUsersDevelopmentActivitiesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUsersDevelopmentActivitiesParamsWithContext(ctx context.Context) *GetUsersDevelopmentActivitiesParams {
-	var (
-		overdueDefault    = string("Any")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("Desc")
-	)
 	return &GetUsersDevelopmentActivitiesParams{
-		Overdue:    &overdueDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetUsersDevelopmentActivitiesParamsWithHTTPClient creates a new GetUsersDevelopmentActivitiesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUsersDevelopmentActivitiesParamsWithHTTPClient(client *http.Client) *GetUsersDevelopmentActivitiesParams {
-	var (
-		overdueDefault    = string("Any")
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-		sortOrderDefault  = string("Desc")
-	)
 	return &GetUsersDevelopmentActivitiesParams{
-		Overdue:    &overdueDefault,
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-		SortOrder:  &sortOrderDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetUsersDevelopmentActivitiesParams contains all the parameters to send to the API endpoint
-for the get users development activities operation typically these are written to a http.Request
+/*
+GetUsersDevelopmentActivitiesParams contains all the parameters to send to the API endpoint
+
+	for the get users development activities operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUsersDevelopmentActivitiesParams struct {
 
-	/*CompletionInterval
-	  Specifies the range of completion dates to be used for filtering. A maximum of 1 year can be specified in the range. End date is not inclusive. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+	/* CompletionInterval.
 
+	   Specifies the range of completion dates to be used for filtering. A maximum of 1 year can be specified in the range. End date is not inclusive. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+
+	   Format: interval
 	*/
 	CompletionInterval *string
-	/*Interval
-	  Specifies the dateDue range to be queried. Milliseconds will be truncated. A maximum of 1 year can be specified in the range. End date is not inclusive. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
 
+	/* Interval.
+
+	   Specifies the dateDue range to be queried. Milliseconds will be truncated. A maximum of 1 year can be specified in the range. End date is not inclusive. Intervals are represented as an ISO-8601 string. For example: YYYY-MM-DDThh:mm:ss/YYYY-MM-DDThh:mm:ss
+
+	   Format: interval
 	*/
 	Interval *string
-	/*ModuleID
-	  Specifies the ID of the learning module.
 
+	/* ModuleID.
+
+	   Specifies the ID of the learning module.
 	*/
 	ModuleID *string
-	/*Overdue
-	  Specifies if non-overdue, overdue, or all activities are returned. If not specified, all activities are returned
 
+	/* Overdue.
+
+	   Specifies if non-overdue, overdue, or all activities are returned. If not specified, all activities are returned
+
+	   Default: "Any"
 	*/
 	Overdue *string
-	/*PageNumber
-	  Page number
 
+	/* PageNumber.
+
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*Relationship
-	  Specifies how the current user relation should be interpreted, and filters the activities returned to only the activities that have the specified relationship. If a value besides Attendee is specified, it will only return Coaching Appointments. If not specified, no filtering is applied.
 
+	/* Relationship.
+
+	   Specifies how the current user relation should be interpreted, and filters the activities returned to only the activities that have the specified relationship. If a value besides Attendee is specified, it will only return Coaching Appointments. If not specified, no filtering is applied.
 	*/
 	Relationship []string
-	/*SortOrder
-	  Specifies result set sort order sorted by the date due; if not specified, default sort order is descending (Desc)
 
+	/* SortOrder.
+
+	   Specifies result set sort order sorted by the date due; if not specified, default sort order is descending (Desc)
+
+	   Default: "Desc"
 	*/
 	SortOrder *string
-	/*Statuses
-	  Specifies the activity statuses to filter by
 
+	/* Statuses.
+
+	   Specifies the activity statuses to filter by
 	*/
 	Statuses []string
-	/*Types
-	  Specifies the activity types.
 
+	/* Types.
+
+	   Specifies the activity types.
 	*/
 	Types []string
-	/*UserID
-	  Specifies the list of user IDs to be queried, up to 100 user IDs. It searches for any relationship for the userId.
 
+	/* UserID.
+
+	   Specifies the list of user IDs to be queried, up to 100 user IDs. It searches for any relationship for the userId.
 	*/
 	UserID []string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get users development activities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUsersDevelopmentActivitiesParams) WithDefaults() *GetUsersDevelopmentActivitiesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get users development activities params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUsersDevelopmentActivitiesParams) SetDefaults() {
+	var (
+		overdueDefault = string("Any")
+
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+
+		sortOrderDefault = string("Desc")
+	)
+
+	val := GetUsersDevelopmentActivitiesParams{
+		Overdue:    &overdueDefault,
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+		SortOrder:  &sortOrderDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get users development activities params
@@ -324,148 +348,235 @@ func (o *GetUsersDevelopmentActivitiesParams) WriteToRequest(r runtime.ClientReq
 
 		// query param completionInterval
 		var qrCompletionInterval string
+
 		if o.CompletionInterval != nil {
 			qrCompletionInterval = *o.CompletionInterval
 		}
 		qCompletionInterval := qrCompletionInterval
 		if qCompletionInterval != "" {
+
 			if err := r.SetQueryParam("completionInterval", qCompletionInterval); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Interval != nil {
 
 		// query param interval
 		var qrInterval string
+
 		if o.Interval != nil {
 			qrInterval = *o.Interval
 		}
 		qInterval := qrInterval
 		if qInterval != "" {
+
 			if err := r.SetQueryParam("interval", qInterval); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ModuleID != nil {
 
 		// query param moduleId
 		var qrModuleID string
+
 		if o.ModuleID != nil {
 			qrModuleID = *o.ModuleID
 		}
 		qModuleID := qrModuleID
 		if qModuleID != "" {
+
 			if err := r.SetQueryParam("moduleId", qModuleID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.Overdue != nil {
 
 		// query param overdue
 		var qrOverdue string
+
 		if o.Overdue != nil {
 			qrOverdue = *o.Overdue
 		}
 		qOverdue := qrOverdue
 		if qOverdue != "" {
+
 			if err := r.SetQueryParam("overdue", qOverdue); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageNumber != nil {
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesRelationship := o.Relationship
+	if o.Relationship != nil {
 
-	joinedRelationship := swag.JoinByFormat(valuesRelationship, "multi")
-	// query array param relationship
-	if err := r.SetQueryParam("relationship", joinedRelationship...); err != nil {
-		return err
+		// binding items for relationship
+		joinedRelationship := o.bindParamRelationship(reg)
+
+		// query array param relationship
+		if err := r.SetQueryParam("relationship", joinedRelationship...); err != nil {
+			return err
+		}
 	}
 
 	if o.SortOrder != nil {
 
 		// query param sortOrder
 		var qrSortOrder string
+
 		if o.SortOrder != nil {
 			qrSortOrder = *o.SortOrder
 		}
 		qSortOrder := qrSortOrder
 		if qSortOrder != "" {
+
 			if err := r.SetQueryParam("sortOrder", qSortOrder); err != nil {
 				return err
 			}
 		}
-
 	}
 
-	valuesStatuses := o.Statuses
+	if o.Statuses != nil {
 
-	joinedStatuses := swag.JoinByFormat(valuesStatuses, "multi")
-	// query array param statuses
-	if err := r.SetQueryParam("statuses", joinedStatuses...); err != nil {
-		return err
+		// binding items for statuses
+		joinedStatuses := o.bindParamStatuses(reg)
+
+		// query array param statuses
+		if err := r.SetQueryParam("statuses", joinedStatuses...); err != nil {
+			return err
+		}
 	}
 
-	valuesTypes := o.Types
+	if o.Types != nil {
 
-	joinedTypes := swag.JoinByFormat(valuesTypes, "multi")
-	// query array param types
-	if err := r.SetQueryParam("types", joinedTypes...); err != nil {
-		return err
+		// binding items for types
+		joinedTypes := o.bindParamTypes(reg)
+
+		// query array param types
+		if err := r.SetQueryParam("types", joinedTypes...); err != nil {
+			return err
+		}
 	}
 
-	valuesUserID := o.UserID
+	if o.UserID != nil {
 
-	joinedUserID := swag.JoinByFormat(valuesUserID, "multi")
-	// query array param userId
-	if err := r.SetQueryParam("userId", joinedUserID...); err != nil {
-		return err
+		// binding items for userId
+		joinedUserID := o.bindParamUserID(reg)
+
+		// query array param userId
+		if err := r.SetQueryParam("userId", joinedUserID...); err != nil {
+			return err
+		}
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetUsersDevelopmentActivities binds the parameter relationship
+func (o *GetUsersDevelopmentActivitiesParams) bindParamRelationship(formats strfmt.Registry) []string {
+	relationshipIR := o.Relationship
+
+	var relationshipIC []string
+	for _, relationshipIIR := range relationshipIR { // explode []string
+
+		relationshipIIV := relationshipIIR // string as string
+		relationshipIC = append(relationshipIC, relationshipIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	relationshipIS := swag.JoinByFormat(relationshipIC, "multi")
+
+	return relationshipIS
+}
+
+// bindParamGetUsersDevelopmentActivities binds the parameter statuses
+func (o *GetUsersDevelopmentActivitiesParams) bindParamStatuses(formats strfmt.Registry) []string {
+	statusesIR := o.Statuses
+
+	var statusesIC []string
+	for _, statusesIIR := range statusesIR { // explode []string
+
+		statusesIIV := statusesIIR // string as string
+		statusesIC = append(statusesIC, statusesIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	statusesIS := swag.JoinByFormat(statusesIC, "multi")
+
+	return statusesIS
+}
+
+// bindParamGetUsersDevelopmentActivities binds the parameter types
+func (o *GetUsersDevelopmentActivitiesParams) bindParamTypes(formats strfmt.Registry) []string {
+	typesIR := o.Types
+
+	var typesIC []string
+	for _, typesIIR := range typesIR { // explode []string
+
+		typesIIV := typesIIR // string as string
+		typesIC = append(typesIC, typesIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	typesIS := swag.JoinByFormat(typesIC, "multi")
+
+	return typesIS
+}
+
+// bindParamGetUsersDevelopmentActivities binds the parameter userId
+func (o *GetUsersDevelopmentActivitiesParams) bindParamUserID(formats strfmt.Registry) []string {
+	userIDIR := o.UserID
+
+	var userIDIC []string
+	for _, userIDIIR := range userIDIR { // explode []string
+
+		userIDIIV := userIDIIR // string as string
+		userIDIC = append(userIDIC, userIDIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	userIDIS := swag.JoinByFormat(userIDIC, "multi")
+
+	return userIDIS
 }

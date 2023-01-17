@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostRecordingsDeletionprotectionParams creates a new PostRecordingsDeletionprotectionParams object
-// with the default values initialized.
+// NewPostRecordingsDeletionprotectionParams creates a new PostRecordingsDeletionprotectionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostRecordingsDeletionprotectionParams() *PostRecordingsDeletionprotectionParams {
-	var ()
 	return &PostRecordingsDeletionprotectionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostRecordingsDeletionprotectionParamsWithTimeout creates a new PostRecordingsDeletionprotectionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostRecordingsDeletionprotectionParamsWithTimeout(timeout time.Duration) *PostRecordingsDeletionprotectionParams {
-	var ()
 	return &PostRecordingsDeletionprotectionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostRecordingsDeletionprotectionParamsWithContext creates a new PostRecordingsDeletionprotectionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostRecordingsDeletionprotectionParamsWithContext(ctx context.Context) *PostRecordingsDeletionprotectionParams {
-	var ()
 	return &PostRecordingsDeletionprotectionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostRecordingsDeletionprotectionParamsWithHTTPClient creates a new PostRecordingsDeletionprotectionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostRecordingsDeletionprotectionParamsWithHTTPClient(client *http.Client) *PostRecordingsDeletionprotectionParams {
-	var ()
 	return &PostRecordingsDeletionprotectionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostRecordingsDeletionprotectionParams contains all the parameters to send to the API endpoint
-for the post recordings deletionprotection operation typically these are written to a http.Request
+/*
+PostRecordingsDeletionprotectionParams contains all the parameters to send to the API endpoint
+
+	for the post recordings deletionprotection operation.
+
+	Typically these are written to a http.Request.
 */
 type PostRecordingsDeletionprotectionParams struct {
 
-	/*Body
-	  conversationIds
+	/* Body.
 
+	   conversationIds
 	*/
 	Body *models.ConversationDeletionProtectionQuery
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post recordings deletionprotection params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingsDeletionprotectionParams) WithDefaults() *PostRecordingsDeletionprotectionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post recordings deletionprotection params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostRecordingsDeletionprotectionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post recordings deletionprotection params
@@ -124,7 +140,6 @@ func (o *PostRecordingsDeletionprotectionParams) WriteToRequest(r runtime.Client
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

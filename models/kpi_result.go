@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -88,13 +89,87 @@ func (m *KpiResult) validateMediaTypeEnum(path, location string, value string) e
 }
 
 func (m *KpiResult) validateMediaType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaType) { // not required
 		return nil
 	}
 
 	// value enum
 	if err := m.validateMediaTypeEnum("mediaType", "body", m.MediaType); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this kpi result based on the context it is used
+func (m *KpiResult) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateInteractionCountOff(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInteractionCountOn(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKpiTotalOff(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateKpiTotalOn(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMediaType(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KpiResult) contextValidateInteractionCountOff(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "interactionCountOff", "body", int64(m.InteractionCountOff)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KpiResult) contextValidateInteractionCountOn(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "interactionCountOn", "body", int64(m.InteractionCountOn)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KpiResult) contextValidateKpiTotalOff(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "kpiTotalOff", "body", int64(m.KpiTotalOff)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KpiResult) contextValidateKpiTotalOn(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "kpiTotalOn", "body", int64(m.KpiTotalOn)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *KpiResult) contextValidateMediaType(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "mediaType", "body", string(m.MediaType)); err != nil {
 		return err
 	}
 

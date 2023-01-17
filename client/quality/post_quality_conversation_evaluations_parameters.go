@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostQualityConversationEvaluationsParams creates a new PostQualityConversationEvaluationsParams object
-// with the default values initialized.
+// NewPostQualityConversationEvaluationsParams creates a new PostQualityConversationEvaluationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostQualityConversationEvaluationsParams() *PostQualityConversationEvaluationsParams {
-	var ()
 	return &PostQualityConversationEvaluationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostQualityConversationEvaluationsParamsWithTimeout creates a new PostQualityConversationEvaluationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostQualityConversationEvaluationsParamsWithTimeout(timeout time.Duration) *PostQualityConversationEvaluationsParams {
-	var ()
 	return &PostQualityConversationEvaluationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostQualityConversationEvaluationsParamsWithContext creates a new PostQualityConversationEvaluationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostQualityConversationEvaluationsParamsWithContext(ctx context.Context) *PostQualityConversationEvaluationsParams {
-	var ()
 	return &PostQualityConversationEvaluationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostQualityConversationEvaluationsParamsWithHTTPClient creates a new PostQualityConversationEvaluationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostQualityConversationEvaluationsParamsWithHTTPClient(client *http.Client) *PostQualityConversationEvaluationsParams {
-	var ()
 	return &PostQualityConversationEvaluationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostQualityConversationEvaluationsParams contains all the parameters to send to the API endpoint
-for the post quality conversation evaluations operation typically these are written to a http.Request
+/*
+PostQualityConversationEvaluationsParams contains all the parameters to send to the API endpoint
+
+	for the post quality conversation evaluations operation.
+
+	Typically these are written to a http.Request.
 */
 type PostQualityConversationEvaluationsParams struct {
 
-	/*Body
-	  evaluation
+	/* Body.
 
+	   evaluation
 	*/
 	Body *models.Evaluation
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID string
-	/*Expand
-	  evaluatorId
 
+	/* Expand.
+
+	   evaluatorId
 	*/
 	Expand *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post quality conversation evaluations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostQualityConversationEvaluationsParams) WithDefaults() *PostQualityConversationEvaluationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post quality conversation evaluations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostQualityConversationEvaluationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post quality conversation evaluations params
@@ -156,7 +174,6 @@ func (o *PostQualityConversationEvaluationsParams) WriteToRequest(r runtime.Clie
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err
@@ -172,16 +189,17 @@ func (o *PostQualityConversationEvaluationsParams) WriteToRequest(r runtime.Clie
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

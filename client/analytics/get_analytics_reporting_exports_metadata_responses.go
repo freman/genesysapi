@@ -95,7 +95,6 @@ func (o *GetAnalyticsReportingExportsMetadataReader) ReadResponse(response runti
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetAnalyticsReportingExportsMetadataOK() *GetAnalyticsReportingExportsMe
 	return &GetAnalyticsReportingExportsMetadataOK{}
 }
 
-/*GetAnalyticsReportingExportsMetadataOK handles this case with default header values.
+/*
+GetAnalyticsReportingExportsMetadataOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetAnalyticsReportingExportsMetadataOK struct {
 	Payload *models.ReportingExportMetadataJobListing
 }
 
+// IsSuccess returns true when this get analytics reporting exports metadata o k response has a 2xx status code
+func (o *GetAnalyticsReportingExportsMetadataOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get analytics reporting exports metadata o k response has a 3xx status code
+func (o *GetAnalyticsReportingExportsMetadataOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting exports metadata o k response has a 4xx status code
+func (o *GetAnalyticsReportingExportsMetadataOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics reporting exports metadata o k response has a 5xx status code
+func (o *GetAnalyticsReportingExportsMetadataOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting exports metadata o k response a status code equal to that given
+func (o *GetAnalyticsReportingExportsMetadataOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetAnalyticsReportingExportsMetadataOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataOK  %+v", 200, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetAnalyticsReportingExportsMetadataBadRequest() *GetAnalyticsReportingE
 	return &GetAnalyticsReportingExportsMetadataBadRequest{}
 }
 
-/*GetAnalyticsReportingExportsMetadataBadRequest handles this case with default header values.
+/*
+GetAnalyticsReportingExportsMetadataBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetAnalyticsReportingExportsMetadataBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting exports metadata bad request response has a 2xx status code
+func (o *GetAnalyticsReportingExportsMetadataBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting exports metadata bad request response has a 3xx status code
+func (o *GetAnalyticsReportingExportsMetadataBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting exports metadata bad request response has a 4xx status code
+func (o *GetAnalyticsReportingExportsMetadataBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting exports metadata bad request response has a 5xx status code
+func (o *GetAnalyticsReportingExportsMetadataBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting exports metadata bad request response a status code equal to that given
+func (o *GetAnalyticsReportingExportsMetadataBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetAnalyticsReportingExportsMetadataBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetAnalyticsReportingExportsMetadataUnauthorized() *GetAnalyticsReportin
 	return &GetAnalyticsReportingExportsMetadataUnauthorized{}
 }
 
-/*GetAnalyticsReportingExportsMetadataUnauthorized handles this case with default header values.
+/*
+GetAnalyticsReportingExportsMetadataUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetAnalyticsReportingExportsMetadataUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting exports metadata unauthorized response has a 2xx status code
+func (o *GetAnalyticsReportingExportsMetadataUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting exports metadata unauthorized response has a 3xx status code
+func (o *GetAnalyticsReportingExportsMetadataUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting exports metadata unauthorized response has a 4xx status code
+func (o *GetAnalyticsReportingExportsMetadataUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting exports metadata unauthorized response has a 5xx status code
+func (o *GetAnalyticsReportingExportsMetadataUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting exports metadata unauthorized response a status code equal to that given
+func (o *GetAnalyticsReportingExportsMetadataUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetAnalyticsReportingExportsMetadataUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetAnalyticsReportingExportsMetadataForbidden() *GetAnalyticsReportingEx
 	return &GetAnalyticsReportingExportsMetadataForbidden{}
 }
 
-/*GetAnalyticsReportingExportsMetadataForbidden handles this case with default header values.
+/*
+GetAnalyticsReportingExportsMetadataForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetAnalyticsReportingExportsMetadataForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting exports metadata forbidden response has a 2xx status code
+func (o *GetAnalyticsReportingExportsMetadataForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting exports metadata forbidden response has a 3xx status code
+func (o *GetAnalyticsReportingExportsMetadataForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting exports metadata forbidden response has a 4xx status code
+func (o *GetAnalyticsReportingExportsMetadataForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting exports metadata forbidden response has a 5xx status code
+func (o *GetAnalyticsReportingExportsMetadataForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting exports metadata forbidden response a status code equal to that given
+func (o *GetAnalyticsReportingExportsMetadataForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetAnalyticsReportingExportsMetadataForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetAnalyticsReportingExportsMetadataNotFound() *GetAnalyticsReportingExp
 	return &GetAnalyticsReportingExportsMetadataNotFound{}
 }
 
-/*GetAnalyticsReportingExportsMetadataNotFound handles this case with default header values.
+/*
+GetAnalyticsReportingExportsMetadataNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetAnalyticsReportingExportsMetadataNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting exports metadata not found response has a 2xx status code
+func (o *GetAnalyticsReportingExportsMetadataNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting exports metadata not found response has a 3xx status code
+func (o *GetAnalyticsReportingExportsMetadataNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting exports metadata not found response has a 4xx status code
+func (o *GetAnalyticsReportingExportsMetadataNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting exports metadata not found response has a 5xx status code
+func (o *GetAnalyticsReportingExportsMetadataNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting exports metadata not found response a status code equal to that given
+func (o *GetAnalyticsReportingExportsMetadataNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetAnalyticsReportingExportsMetadataNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetAnalyticsReportingExportsMetadataRequestTimeout() *GetAnalyticsReport
 	return &GetAnalyticsReportingExportsMetadataRequestTimeout{}
 }
 
-/*GetAnalyticsReportingExportsMetadataRequestTimeout handles this case with default header values.
+/*
+GetAnalyticsReportingExportsMetadataRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetAnalyticsReportingExportsMetadataRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting exports metadata request timeout response has a 2xx status code
+func (o *GetAnalyticsReportingExportsMetadataRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting exports metadata request timeout response has a 3xx status code
+func (o *GetAnalyticsReportingExportsMetadataRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting exports metadata request timeout response has a 4xx status code
+func (o *GetAnalyticsReportingExportsMetadataRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting exports metadata request timeout response has a 5xx status code
+func (o *GetAnalyticsReportingExportsMetadataRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting exports metadata request timeout response a status code equal to that given
+func (o *GetAnalyticsReportingExportsMetadataRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetAnalyticsReportingExportsMetadataRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetAnalyticsReportingExportsMetadataRequestEntityTooLarge() *GetAnalytic
 	return &GetAnalyticsReportingExportsMetadataRequestEntityTooLarge{}
 }
 
-/*GetAnalyticsReportingExportsMetadataRequestEntityTooLarge handles this case with default header values.
+/*
+GetAnalyticsReportingExportsMetadataRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetAnalyticsReportingExportsMetadataRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting exports metadata request entity too large response has a 2xx status code
+func (o *GetAnalyticsReportingExportsMetadataRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting exports metadata request entity too large response has a 3xx status code
+func (o *GetAnalyticsReportingExportsMetadataRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting exports metadata request entity too large response has a 4xx status code
+func (o *GetAnalyticsReportingExportsMetadataRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting exports metadata request entity too large response has a 5xx status code
+func (o *GetAnalyticsReportingExportsMetadataRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting exports metadata request entity too large response a status code equal to that given
+func (o *GetAnalyticsReportingExportsMetadataRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetAnalyticsReportingExportsMetadataRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetAnalyticsReportingExportsMetadataUnsupportedMediaType() *GetAnalytics
 	return &GetAnalyticsReportingExportsMetadataUnsupportedMediaType{}
 }
 
-/*GetAnalyticsReportingExportsMetadataUnsupportedMediaType handles this case with default header values.
+/*
+GetAnalyticsReportingExportsMetadataUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetAnalyticsReportingExportsMetadataUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting exports metadata unsupported media type response has a 2xx status code
+func (o *GetAnalyticsReportingExportsMetadataUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting exports metadata unsupported media type response has a 3xx status code
+func (o *GetAnalyticsReportingExportsMetadataUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting exports metadata unsupported media type response has a 4xx status code
+func (o *GetAnalyticsReportingExportsMetadataUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting exports metadata unsupported media type response has a 5xx status code
+func (o *GetAnalyticsReportingExportsMetadataUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting exports metadata unsupported media type response a status code equal to that given
+func (o *GetAnalyticsReportingExportsMetadataUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetAnalyticsReportingExportsMetadataUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetAnalyticsReportingExportsMetadataTooManyRequests() *GetAnalyticsRepor
 	return &GetAnalyticsReportingExportsMetadataTooManyRequests{}
 }
 
-/*GetAnalyticsReportingExportsMetadataTooManyRequests handles this case with default header values.
+/*
+GetAnalyticsReportingExportsMetadataTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetAnalyticsReportingExportsMetadataTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting exports metadata too many requests response has a 2xx status code
+func (o *GetAnalyticsReportingExportsMetadataTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting exports metadata too many requests response has a 3xx status code
+func (o *GetAnalyticsReportingExportsMetadataTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting exports metadata too many requests response has a 4xx status code
+func (o *GetAnalyticsReportingExportsMetadataTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get analytics reporting exports metadata too many requests response has a 5xx status code
+func (o *GetAnalyticsReportingExportsMetadataTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get analytics reporting exports metadata too many requests response a status code equal to that given
+func (o *GetAnalyticsReportingExportsMetadataTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetAnalyticsReportingExportsMetadataTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetAnalyticsReportingExportsMetadataInternalServerError() *GetAnalyticsR
 	return &GetAnalyticsReportingExportsMetadataInternalServerError{}
 }
 
-/*GetAnalyticsReportingExportsMetadataInternalServerError handles this case with default header values.
+/*
+GetAnalyticsReportingExportsMetadataInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetAnalyticsReportingExportsMetadataInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting exports metadata internal server error response has a 2xx status code
+func (o *GetAnalyticsReportingExportsMetadataInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting exports metadata internal server error response has a 3xx status code
+func (o *GetAnalyticsReportingExportsMetadataInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting exports metadata internal server error response has a 4xx status code
+func (o *GetAnalyticsReportingExportsMetadataInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics reporting exports metadata internal server error response has a 5xx status code
+func (o *GetAnalyticsReportingExportsMetadataInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics reporting exports metadata internal server error response a status code equal to that given
+func (o *GetAnalyticsReportingExportsMetadataInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetAnalyticsReportingExportsMetadataInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetAnalyticsReportingExportsMetadataServiceUnavailable() *GetAnalyticsRe
 	return &GetAnalyticsReportingExportsMetadataServiceUnavailable{}
 }
 
-/*GetAnalyticsReportingExportsMetadataServiceUnavailable handles this case with default header values.
+/*
+GetAnalyticsReportingExportsMetadataServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetAnalyticsReportingExportsMetadataServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting exports metadata service unavailable response has a 2xx status code
+func (o *GetAnalyticsReportingExportsMetadataServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting exports metadata service unavailable response has a 3xx status code
+func (o *GetAnalyticsReportingExportsMetadataServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting exports metadata service unavailable response has a 4xx status code
+func (o *GetAnalyticsReportingExportsMetadataServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics reporting exports metadata service unavailable response has a 5xx status code
+func (o *GetAnalyticsReportingExportsMetadataServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics reporting exports metadata service unavailable response a status code equal to that given
+func (o *GetAnalyticsReportingExportsMetadataServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetAnalyticsReportingExportsMetadataServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetAnalyticsReportingExportsMetadataGatewayTimeout() *GetAnalyticsReport
 	return &GetAnalyticsReportingExportsMetadataGatewayTimeout{}
 }
 
-/*GetAnalyticsReportingExportsMetadataGatewayTimeout handles this case with default header values.
+/*
+GetAnalyticsReportingExportsMetadataGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetAnalyticsReportingExportsMetadataGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get analytics reporting exports metadata gateway timeout response has a 2xx status code
+func (o *GetAnalyticsReportingExportsMetadataGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get analytics reporting exports metadata gateway timeout response has a 3xx status code
+func (o *GetAnalyticsReportingExportsMetadataGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get analytics reporting exports metadata gateway timeout response has a 4xx status code
+func (o *GetAnalyticsReportingExportsMetadataGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get analytics reporting exports metadata gateway timeout response has a 5xx status code
+func (o *GetAnalyticsReportingExportsMetadataGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get analytics reporting exports metadata gateway timeout response a status code equal to that given
+func (o *GetAnalyticsReportingExportsMetadataGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetAnalyticsReportingExportsMetadataGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetAnalyticsReportingExportsMetadataGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/analytics/reporting/exports/metadata][%d] getAnalyticsReportingExportsMetadataGatewayTimeout  %+v", 504, o.Payload)
 }
 

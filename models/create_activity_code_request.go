@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -150,7 +151,6 @@ func (m *CreateActivityCodeRequest) validateName(formats strfmt.Registry) error 
 }
 
 func (m *CreateActivityCodeRequest) validateSecondaryPresences(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SecondaryPresences) { // not required
 		return nil
 	}
@@ -164,6 +164,42 @@ func (m *CreateActivityCodeRequest) validateSecondaryPresences(formats strfmt.Re
 			if err := m.SecondaryPresences[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("secondaryPresences" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("secondaryPresences" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this create activity code request based on the context it is used
+func (m *CreateActivityCodeRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSecondaryPresences(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CreateActivityCodeRequest) contextValidateSecondaryPresences(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SecondaryPresences); i++ {
+
+		if m.SecondaryPresences[i] != nil {
+			if err := m.SecondaryPresences[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("secondaryPresences" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("secondaryPresences" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

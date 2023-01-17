@@ -95,7 +95,6 @@ func (o *PatchConversationsCallParticipantAttributesReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewPatchConversationsCallParticipantAttributesAccepted() *PatchConversation
 	return &PatchConversationsCallParticipantAttributesAccepted{}
 }
 
-/*PatchConversationsCallParticipantAttributesAccepted handles this case with default header values.
+/*
+PatchConversationsCallParticipantAttributesAccepted describes a response with status code 202, with default header values.
 
 Accepted
 */
 type PatchConversationsCallParticipantAttributesAccepted struct {
 }
 
+// IsSuccess returns true when this patch conversations call participant attributes accepted response has a 2xx status code
+func (o *PatchConversationsCallParticipantAttributesAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch conversations call participant attributes accepted response has a 3xx status code
+func (o *PatchConversationsCallParticipantAttributesAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations call participant attributes accepted response has a 4xx status code
+func (o *PatchConversationsCallParticipantAttributesAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations call participant attributes accepted response has a 5xx status code
+func (o *PatchConversationsCallParticipantAttributesAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations call participant attributes accepted response a status code equal to that given
+func (o *PatchConversationsCallParticipantAttributesAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *PatchConversationsCallParticipantAttributesAccepted) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesAccepted ", 202)
+}
+
+func (o *PatchConversationsCallParticipantAttributesAccepted) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesAccepted ", 202)
 }
 
@@ -127,7 +156,8 @@ func NewPatchConversationsCallParticipantAttributesBadRequest() *PatchConversati
 	return &PatchConversationsCallParticipantAttributesBadRequest{}
 }
 
-/*PatchConversationsCallParticipantAttributesBadRequest handles this case with default header values.
+/*
+PatchConversationsCallParticipantAttributesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type PatchConversationsCallParticipantAttributesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations call participant attributes bad request response has a 2xx status code
+func (o *PatchConversationsCallParticipantAttributesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations call participant attributes bad request response has a 3xx status code
+func (o *PatchConversationsCallParticipantAttributesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations call participant attributes bad request response has a 4xx status code
+func (o *PatchConversationsCallParticipantAttributesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations call participant attributes bad request response has a 5xx status code
+func (o *PatchConversationsCallParticipantAttributesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations call participant attributes bad request response a status code equal to that given
+func (o *PatchConversationsCallParticipantAttributesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchConversationsCallParticipantAttributesBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchConversationsCallParticipantAttributesBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewPatchConversationsCallParticipantAttributesUnauthorized() *PatchConversa
 	return &PatchConversationsCallParticipantAttributesUnauthorized{}
 }
 
-/*PatchConversationsCallParticipantAttributesUnauthorized handles this case with default header values.
+/*
+PatchConversationsCallParticipantAttributesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type PatchConversationsCallParticipantAttributesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations call participant attributes unauthorized response has a 2xx status code
+func (o *PatchConversationsCallParticipantAttributesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations call participant attributes unauthorized response has a 3xx status code
+func (o *PatchConversationsCallParticipantAttributesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations call participant attributes unauthorized response has a 4xx status code
+func (o *PatchConversationsCallParticipantAttributesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations call participant attributes unauthorized response has a 5xx status code
+func (o *PatchConversationsCallParticipantAttributesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations call participant attributes unauthorized response a status code equal to that given
+func (o *PatchConversationsCallParticipantAttributesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchConversationsCallParticipantAttributesUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchConversationsCallParticipantAttributesUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewPatchConversationsCallParticipantAttributesForbidden() *PatchConversatio
 	return &PatchConversationsCallParticipantAttributesForbidden{}
 }
 
-/*PatchConversationsCallParticipantAttributesForbidden handles this case with default header values.
+/*
+PatchConversationsCallParticipantAttributesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type PatchConversationsCallParticipantAttributesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations call participant attributes forbidden response has a 2xx status code
+func (o *PatchConversationsCallParticipantAttributesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations call participant attributes forbidden response has a 3xx status code
+func (o *PatchConversationsCallParticipantAttributesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations call participant attributes forbidden response has a 4xx status code
+func (o *PatchConversationsCallParticipantAttributesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations call participant attributes forbidden response has a 5xx status code
+func (o *PatchConversationsCallParticipantAttributesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations call participant attributes forbidden response a status code equal to that given
+func (o *PatchConversationsCallParticipantAttributesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchConversationsCallParticipantAttributesForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchConversationsCallParticipantAttributesForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewPatchConversationsCallParticipantAttributesNotFound() *PatchConversation
 	return &PatchConversationsCallParticipantAttributesNotFound{}
 }
 
-/*PatchConversationsCallParticipantAttributesNotFound handles this case with default header values.
+/*
+PatchConversationsCallParticipantAttributesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type PatchConversationsCallParticipantAttributesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations call participant attributes not found response has a 2xx status code
+func (o *PatchConversationsCallParticipantAttributesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations call participant attributes not found response has a 3xx status code
+func (o *PatchConversationsCallParticipantAttributesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations call participant attributes not found response has a 4xx status code
+func (o *PatchConversationsCallParticipantAttributesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations call participant attributes not found response has a 5xx status code
+func (o *PatchConversationsCallParticipantAttributesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations call participant attributes not found response a status code equal to that given
+func (o *PatchConversationsCallParticipantAttributesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchConversationsCallParticipantAttributesNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchConversationsCallParticipantAttributesNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewPatchConversationsCallParticipantAttributesRequestTimeout() *PatchConver
 	return &PatchConversationsCallParticipantAttributesRequestTimeout{}
 }
 
-/*PatchConversationsCallParticipantAttributesRequestTimeout handles this case with default header values.
+/*
+PatchConversationsCallParticipantAttributesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type PatchConversationsCallParticipantAttributesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations call participant attributes request timeout response has a 2xx status code
+func (o *PatchConversationsCallParticipantAttributesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations call participant attributes request timeout response has a 3xx status code
+func (o *PatchConversationsCallParticipantAttributesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations call participant attributes request timeout response has a 4xx status code
+func (o *PatchConversationsCallParticipantAttributesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations call participant attributes request timeout response has a 5xx status code
+func (o *PatchConversationsCallParticipantAttributesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations call participant attributes request timeout response a status code equal to that given
+func (o *PatchConversationsCallParticipantAttributesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchConversationsCallParticipantAttributesRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchConversationsCallParticipantAttributesRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewPatchConversationsCallParticipantAttributesRequestEntityTooLarge() *Patc
 	return &PatchConversationsCallParticipantAttributesRequestEntityTooLarge{}
 }
 
-/*PatchConversationsCallParticipantAttributesRequestEntityTooLarge handles this case with default header values.
+/*
+PatchConversationsCallParticipantAttributesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type PatchConversationsCallParticipantAttributesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations call participant attributes request entity too large response has a 2xx status code
+func (o *PatchConversationsCallParticipantAttributesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations call participant attributes request entity too large response has a 3xx status code
+func (o *PatchConversationsCallParticipantAttributesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations call participant attributes request entity too large response has a 4xx status code
+func (o *PatchConversationsCallParticipantAttributesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations call participant attributes request entity too large response has a 5xx status code
+func (o *PatchConversationsCallParticipantAttributesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations call participant attributes request entity too large response a status code equal to that given
+func (o *PatchConversationsCallParticipantAttributesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchConversationsCallParticipantAttributesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchConversationsCallParticipantAttributesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewPatchConversationsCallParticipantAttributesUnsupportedMediaType() *Patch
 	return &PatchConversationsCallParticipantAttributesUnsupportedMediaType{}
 }
 
-/*PatchConversationsCallParticipantAttributesUnsupportedMediaType handles this case with default header values.
+/*
+PatchConversationsCallParticipantAttributesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type PatchConversationsCallParticipantAttributesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations call participant attributes unsupported media type response has a 2xx status code
+func (o *PatchConversationsCallParticipantAttributesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations call participant attributes unsupported media type response has a 3xx status code
+func (o *PatchConversationsCallParticipantAttributesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations call participant attributes unsupported media type response has a 4xx status code
+func (o *PatchConversationsCallParticipantAttributesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations call participant attributes unsupported media type response has a 5xx status code
+func (o *PatchConversationsCallParticipantAttributesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations call participant attributes unsupported media type response a status code equal to that given
+func (o *PatchConversationsCallParticipantAttributesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchConversationsCallParticipantAttributesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchConversationsCallParticipantAttributesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewPatchConversationsCallParticipantAttributesTooManyRequests() *PatchConve
 	return &PatchConversationsCallParticipantAttributesTooManyRequests{}
 }
 
-/*PatchConversationsCallParticipantAttributesTooManyRequests handles this case with default header values.
+/*
+PatchConversationsCallParticipantAttributesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type PatchConversationsCallParticipantAttributesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations call participant attributes too many requests response has a 2xx status code
+func (o *PatchConversationsCallParticipantAttributesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations call participant attributes too many requests response has a 3xx status code
+func (o *PatchConversationsCallParticipantAttributesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations call participant attributes too many requests response has a 4xx status code
+func (o *PatchConversationsCallParticipantAttributesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch conversations call participant attributes too many requests response has a 5xx status code
+func (o *PatchConversationsCallParticipantAttributesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch conversations call participant attributes too many requests response a status code equal to that given
+func (o *PatchConversationsCallParticipantAttributesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchConversationsCallParticipantAttributesTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchConversationsCallParticipantAttributesTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewPatchConversationsCallParticipantAttributesInternalServerError() *PatchC
 	return &PatchConversationsCallParticipantAttributesInternalServerError{}
 }
 
-/*PatchConversationsCallParticipantAttributesInternalServerError handles this case with default header values.
+/*
+PatchConversationsCallParticipantAttributesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type PatchConversationsCallParticipantAttributesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations call participant attributes internal server error response has a 2xx status code
+func (o *PatchConversationsCallParticipantAttributesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations call participant attributes internal server error response has a 3xx status code
+func (o *PatchConversationsCallParticipantAttributesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations call participant attributes internal server error response has a 4xx status code
+func (o *PatchConversationsCallParticipantAttributesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations call participant attributes internal server error response has a 5xx status code
+func (o *PatchConversationsCallParticipantAttributesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations call participant attributes internal server error response a status code equal to that given
+func (o *PatchConversationsCallParticipantAttributesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchConversationsCallParticipantAttributesInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchConversationsCallParticipantAttributesInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewPatchConversationsCallParticipantAttributesServiceUnavailable() *PatchCo
 	return &PatchConversationsCallParticipantAttributesServiceUnavailable{}
 }
 
-/*PatchConversationsCallParticipantAttributesServiceUnavailable handles this case with default header values.
+/*
+PatchConversationsCallParticipantAttributesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type PatchConversationsCallParticipantAttributesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations call participant attributes service unavailable response has a 2xx status code
+func (o *PatchConversationsCallParticipantAttributesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations call participant attributes service unavailable response has a 3xx status code
+func (o *PatchConversationsCallParticipantAttributesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations call participant attributes service unavailable response has a 4xx status code
+func (o *PatchConversationsCallParticipantAttributesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations call participant attributes service unavailable response has a 5xx status code
+func (o *PatchConversationsCallParticipantAttributesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations call participant attributes service unavailable response a status code equal to that given
+func (o *PatchConversationsCallParticipantAttributesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchConversationsCallParticipantAttributesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchConversationsCallParticipantAttributesServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewPatchConversationsCallParticipantAttributesGatewayTimeout() *PatchConver
 	return &PatchConversationsCallParticipantAttributesGatewayTimeout{}
 }
 
-/*PatchConversationsCallParticipantAttributesGatewayTimeout handles this case with default header values.
+/*
+PatchConversationsCallParticipantAttributesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type PatchConversationsCallParticipantAttributesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch conversations call participant attributes gateway timeout response has a 2xx status code
+func (o *PatchConversationsCallParticipantAttributesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch conversations call participant attributes gateway timeout response has a 3xx status code
+func (o *PatchConversationsCallParticipantAttributesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch conversations call participant attributes gateway timeout response has a 4xx status code
+func (o *PatchConversationsCallParticipantAttributesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch conversations call participant attributes gateway timeout response has a 5xx status code
+func (o *PatchConversationsCallParticipantAttributesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch conversations call participant attributes gateway timeout response a status code equal to that given
+func (o *PatchConversationsCallParticipantAttributesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchConversationsCallParticipantAttributesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchConversationsCallParticipantAttributesGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/conversations/calls/{conversationId}/participants/{participantId}/attributes][%d] patchConversationsCallParticipantAttributesGatewayTimeout  %+v", 504, o.Payload)
 }
 

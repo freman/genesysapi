@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -218,7 +219,6 @@ func (m *Trunk) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateConnectedStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectedStatus) { // not required
 		return nil
 	}
@@ -227,6 +227,8 @@ func (m *Trunk) validateConnectedStatus(formats strfmt.Registry) error {
 		if err := m.ConnectedStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("connectedStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("connectedStatus")
 			}
 			return err
 		}
@@ -236,7 +238,6 @@ func (m *Trunk) validateConnectedStatus(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -249,7 +250,6 @@ func (m *Trunk) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -262,7 +262,6 @@ func (m *Trunk) validateDateModified(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateDivision(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Division) { // not required
 		return nil
 	}
@@ -271,6 +270,8 @@ func (m *Trunk) validateDivision(formats strfmt.Registry) error {
 		if err := m.Division.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
 			}
 			return err
 		}
@@ -280,7 +281,6 @@ func (m *Trunk) validateDivision(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateEdge(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Edge) { // not required
 		return nil
 	}
@@ -289,6 +289,8 @@ func (m *Trunk) validateEdge(formats strfmt.Registry) error {
 		if err := m.Edge.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edge")
 			}
 			return err
 		}
@@ -298,7 +300,6 @@ func (m *Trunk) validateEdge(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateEdgeGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EdgeGroup) { // not required
 		return nil
 	}
@@ -307,6 +308,8 @@ func (m *Trunk) validateEdgeGroup(formats strfmt.Registry) error {
 		if err := m.EdgeGroup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("edgeGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edgeGroup")
 			}
 			return err
 		}
@@ -316,7 +319,6 @@ func (m *Trunk) validateEdgeGroup(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateIPStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IPStatus) { // not required
 		return nil
 	}
@@ -325,6 +327,8 @@ func (m *Trunk) validateIPStatus(formats strfmt.Registry) error {
 		if err := m.IPStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ipStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ipStatus")
 			}
 			return err
 		}
@@ -334,7 +338,6 @@ func (m *Trunk) validateIPStatus(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateLogicalInterface(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LogicalInterface) { // not required
 		return nil
 	}
@@ -343,6 +346,8 @@ func (m *Trunk) validateLogicalInterface(formats strfmt.Registry) error {
 		if err := m.LogicalInterface.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("logicalInterface")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logicalInterface")
 			}
 			return err
 		}
@@ -393,7 +398,6 @@ func (m *Trunk) validateOptionsEnabledStatusEnum(path, location string, value st
 }
 
 func (m *Trunk) validateOptionsEnabledStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OptionsEnabledStatus) { // not required
 		return nil
 	}
@@ -407,7 +411,6 @@ func (m *Trunk) validateOptionsEnabledStatus(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateOptionsStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OptionsStatus) { // not required
 		return nil
 	}
@@ -421,6 +424,8 @@ func (m *Trunk) validateOptionsStatus(formats strfmt.Registry) error {
 			if err := m.OptionsStatus[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("optionsStatus" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("optionsStatus" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -464,7 +469,6 @@ func (m *Trunk) validateRegistersEnabledStatusEnum(path, location string, value 
 }
 
 func (m *Trunk) validateRegistersEnabledStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RegistersEnabledStatus) { // not required
 		return nil
 	}
@@ -478,7 +482,6 @@ func (m *Trunk) validateRegistersEnabledStatus(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateRegistersStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RegistersStatus) { // not required
 		return nil
 	}
@@ -492,6 +495,8 @@ func (m *Trunk) validateRegistersStatus(formats strfmt.Registry) error {
 			if err := m.RegistersStatus[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("registersStatus" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("registersStatus" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -503,7 +508,6 @@ func (m *Trunk) validateRegistersStatus(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -548,7 +552,6 @@ func (m *Trunk) validateStateEnum(path, location string, value string) error {
 }
 
 func (m *Trunk) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -562,7 +565,6 @@ func (m *Trunk) validateState(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateTrunkBase(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TrunkBase) { // not required
 		return nil
 	}
@@ -571,6 +573,8 @@ func (m *Trunk) validateTrunkBase(formats strfmt.Registry) error {
 		if err := m.TrunkBase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("trunkBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trunkBase")
 			}
 			return err
 		}
@@ -580,7 +584,6 @@ func (m *Trunk) validateTrunkBase(formats strfmt.Registry) error {
 }
 
 func (m *Trunk) validateTrunkMetabase(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TrunkMetabase) { // not required
 		return nil
 	}
@@ -589,6 +592,8 @@ func (m *Trunk) validateTrunkMetabase(formats strfmt.Registry) error {
 		if err := m.TrunkMetabase.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("trunkMetabase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trunkMetabase")
 			}
 			return err
 		}
@@ -630,7 +635,6 @@ func (m *Trunk) validateTrunkTypeEnum(path, location string, value string) error
 }
 
 func (m *Trunk) validateTrunkType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TrunkType) { // not required
 		return nil
 	}
@@ -638,6 +642,414 @@ func (m *Trunk) validateTrunkType(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateTrunkTypeEnum("trunkType", "body", m.TrunkType); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this trunk based on the context it is used
+func (m *Trunk) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConnectedStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDivision(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEdge(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEdgeGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFamily(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInService(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIPStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLogicalInterface(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedByApp(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOptionsEnabledStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOptionsStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProxyAddressList(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRegistersEnabledStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRegistersStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrunkBase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTrunkMetabase(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Trunk) contextValidateConnectedStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConnectedStatus != nil {
+		if err := m.ConnectedStatus.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("connectedStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("connectedStatus")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdBy", "body", string(m.CreatedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateCreatedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createdByApp", "body", string(m.CreatedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateDivision(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Division != nil {
+		if err := m.Division.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("division")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("division")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateEdge(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Edge != nil {
+		if err := m.Edge.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("edge")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edge")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateEdgeGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.EdgeGroup != nil {
+		if err := m.EdgeGroup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("edgeGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("edgeGroup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateFamily(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "family", "body", int32(m.Family)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateInService(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "inService", "body", m.InService); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateIPStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IPStatus != nil {
+		if err := m.IPStatus.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ipStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ipStatus")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateLogicalInterface(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LogicalInterface != nil {
+		if err := m.LogicalInterface.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("logicalInterface")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("logicalInterface")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedBy", "body", string(m.ModifiedBy)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateModifiedByApp(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "modifiedByApp", "body", string(m.ModifiedByApp)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateOptionsEnabledStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "optionsEnabledStatus", "body", string(m.OptionsEnabledStatus)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateOptionsStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "optionsStatus", "body", []*TrunkMetricsOptions(m.OptionsStatus)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.OptionsStatus); i++ {
+
+		if m.OptionsStatus[i] != nil {
+			if err := m.OptionsStatus[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("optionsStatus" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("optionsStatus" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateProxyAddressList(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "proxyAddressList", "body", []string(m.ProxyAddressList)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateRegistersEnabledStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "registersEnabledStatus", "body", string(m.RegistersEnabledStatus)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateRegistersStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "registersStatus", "body", []*TrunkMetricsRegisters(m.RegistersStatus)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.RegistersStatus); i++ {
+
+		if m.RegistersStatus[i] != nil {
+			if err := m.RegistersStatus[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("registersStatus" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("registersStatus" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateTrunkBase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TrunkBase != nil {
+		if err := m.TrunkBase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trunkBase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trunkBase")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Trunk) contextValidateTrunkMetabase(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.TrunkMetabase != nil {
+		if err := m.TrunkMetabase.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("trunkMetabase")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("trunkMetabase")
+			}
+			return err
+		}
 	}
 
 	return nil

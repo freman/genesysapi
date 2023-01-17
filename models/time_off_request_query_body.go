@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -71,7 +72,6 @@ func (m *TimeOffRequestQueryBody) Validate(formats strfmt.Registry) error {
 }
 
 func (m *TimeOffRequestQueryBody) validateDateRange(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateRange) { // not required
 		return nil
 	}
@@ -80,6 +80,8 @@ func (m *TimeOffRequestQueryBody) validateDateRange(formats strfmt.Registry) err
 		if err := m.DateRange.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("dateRange")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dateRange")
 			}
 			return err
 		}
@@ -89,7 +91,6 @@ func (m *TimeOffRequestQueryBody) validateDateRange(formats strfmt.Registry) err
 }
 
 func (m *TimeOffRequestQueryBody) validateIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Ids) { // not required
 		return nil
 	}
@@ -121,7 +122,6 @@ func (m *TimeOffRequestQueryBody) validateStatusesItemsEnum(path, location strin
 }
 
 func (m *TimeOffRequestQueryBody) validateStatuses(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Statuses) { // not required
 		return nil
 	}
@@ -162,7 +162,6 @@ func (m *TimeOffRequestQueryBody) validateSubstatusesItemsEnum(path, location st
 }
 
 func (m *TimeOffRequestQueryBody) validateSubstatuses(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Substatuses) { // not required
 		return nil
 	}
@@ -184,13 +183,42 @@ func (m *TimeOffRequestQueryBody) validateSubstatuses(formats strfmt.Registry) e
 }
 
 func (m *TimeOffRequestQueryBody) validateUserIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UserIds) { // not required
 		return nil
 	}
 
 	if err := validate.UniqueItems("userIds", "body", m.UserIds); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this time off request query body based on the context it is used
+func (m *TimeOffRequestQueryBody) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateRange(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *TimeOffRequestQueryBody) contextValidateDateRange(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DateRange != nil {
+		if err := m.DateRange.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("dateRange")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("dateRange")
+			}
+			return err
+		}
 	}
 
 	return nil

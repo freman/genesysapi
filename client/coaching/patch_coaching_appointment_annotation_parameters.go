@@ -18,69 +18,87 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchCoachingAppointmentAnnotationParams creates a new PatchCoachingAppointmentAnnotationParams object
-// with the default values initialized.
+// NewPatchCoachingAppointmentAnnotationParams creates a new PatchCoachingAppointmentAnnotationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchCoachingAppointmentAnnotationParams() *PatchCoachingAppointmentAnnotationParams {
-	var ()
 	return &PatchCoachingAppointmentAnnotationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchCoachingAppointmentAnnotationParamsWithTimeout creates a new PatchCoachingAppointmentAnnotationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchCoachingAppointmentAnnotationParamsWithTimeout(timeout time.Duration) *PatchCoachingAppointmentAnnotationParams {
-	var ()
 	return &PatchCoachingAppointmentAnnotationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchCoachingAppointmentAnnotationParamsWithContext creates a new PatchCoachingAppointmentAnnotationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchCoachingAppointmentAnnotationParamsWithContext(ctx context.Context) *PatchCoachingAppointmentAnnotationParams {
-	var ()
 	return &PatchCoachingAppointmentAnnotationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchCoachingAppointmentAnnotationParamsWithHTTPClient creates a new PatchCoachingAppointmentAnnotationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchCoachingAppointmentAnnotationParamsWithHTTPClient(client *http.Client) *PatchCoachingAppointmentAnnotationParams {
-	var ()
 	return &PatchCoachingAppointmentAnnotationParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchCoachingAppointmentAnnotationParams contains all the parameters to send to the API endpoint
-for the patch coaching appointment annotation operation typically these are written to a http.Request
+/*
+PatchCoachingAppointmentAnnotationParams contains all the parameters to send to the API endpoint
+
+	for the patch coaching appointment annotation operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchCoachingAppointmentAnnotationParams struct {
 
-	/*AnnotationID
-	  The ID of the annotation.
+	/* AnnotationID.
 
+	   The ID of the annotation.
 	*/
 	AnnotationID string
-	/*AppointmentID
-	  The ID of the coaching appointment.
 
+	/* AppointmentID.
+
+	   The ID of the coaching appointment.
 	*/
 	AppointmentID string
-	/*Body
-	  The new version of the annotation
 
+	/* Body.
+
+	   The new version of the annotation
 	*/
 	Body *models.CoachingAnnotation
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch coaching appointment annotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchCoachingAppointmentAnnotationParams) WithDefaults() *PatchCoachingAppointmentAnnotationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch coaching appointment annotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchCoachingAppointmentAnnotationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch coaching appointment annotation params
@@ -166,7 +184,6 @@ func (o *PatchCoachingAppointmentAnnotationParams) WriteToRequest(r runtime.Clie
 	if err := r.SetPathParam("appointmentId", o.AppointmentID); err != nil {
 		return err
 	}
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

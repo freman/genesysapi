@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetFlowVersionConfigurationParams creates a new GetFlowVersionConfigurationParams object
-// with the default values initialized.
+// NewGetFlowVersionConfigurationParams creates a new GetFlowVersionConfigurationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetFlowVersionConfigurationParams() *GetFlowVersionConfigurationParams {
-	var ()
 	return &GetFlowVersionConfigurationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetFlowVersionConfigurationParamsWithTimeout creates a new GetFlowVersionConfigurationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetFlowVersionConfigurationParamsWithTimeout(timeout time.Duration) *GetFlowVersionConfigurationParams {
-	var ()
 	return &GetFlowVersionConfigurationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetFlowVersionConfigurationParamsWithContext creates a new GetFlowVersionConfigurationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetFlowVersionConfigurationParamsWithContext(ctx context.Context) *GetFlowVersionConfigurationParams {
-	var ()
 	return &GetFlowVersionConfigurationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetFlowVersionConfigurationParamsWithHTTPClient creates a new GetFlowVersionConfigurationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetFlowVersionConfigurationParamsWithHTTPClient(client *http.Client) *GetFlowVersionConfigurationParams {
-	var ()
 	return &GetFlowVersionConfigurationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetFlowVersionConfigurationParams contains all the parameters to send to the API endpoint
-for the get flow version configuration operation typically these are written to a http.Request
+/*
+GetFlowVersionConfigurationParams contains all the parameters to send to the API endpoint
+
+	for the get flow version configuration operation.
+
+	Typically these are written to a http.Request.
 */
 type GetFlowVersionConfigurationParams struct {
 
-	/*Deleted
-	  Deleted flows
+	/* Deleted.
 
+	   Deleted flows
 	*/
 	Deleted *string
-	/*FlowID
-	  Flow ID
 
+	/* FlowID.
+
+	   Flow ID
 	*/
 	FlowID string
-	/*VersionID
-	  Version ID
 
+	/* VersionID.
+
+	   Version ID
 	*/
 	VersionID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get flow version configuration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowVersionConfigurationParams) WithDefaults() *GetFlowVersionConfigurationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get flow version configuration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetFlowVersionConfigurationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get flow version configuration params
@@ -159,16 +177,17 @@ func (o *GetFlowVersionConfigurationParams) WriteToRequest(r runtime.ClientReque
 
 		// query param deleted
 		var qrDeleted string
+
 		if o.Deleted != nil {
 			qrDeleted = *o.Deleted
 		}
 		qDeleted := qrDeleted
 		if qDeleted != "" {
+
 			if err := r.SetQueryParam("deleted", qDeleted); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param flowId

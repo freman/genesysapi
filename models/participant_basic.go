@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -258,7 +259,6 @@ func (m *ParticipantBasic) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ParticipantBasic) validateCallbacks(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Callbacks) { // not required
 		return nil
 	}
@@ -272,6 +272,8 @@ func (m *ParticipantBasic) validateCallbacks(formats strfmt.Registry) error {
 			if err := m.Callbacks[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("callbacks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("callbacks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -283,7 +285,6 @@ func (m *ParticipantBasic) validateCallbacks(formats strfmt.Registry) error {
 }
 
 func (m *ParticipantBasic) validateCalls(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Calls) { // not required
 		return nil
 	}
@@ -297,6 +298,8 @@ func (m *ParticipantBasic) validateCalls(formats strfmt.Registry) error {
 			if err := m.Calls[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("calls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("calls" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -308,7 +311,6 @@ func (m *ParticipantBasic) validateCalls(formats strfmt.Registry) error {
 }
 
 func (m *ParticipantBasic) validateChats(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Chats) { // not required
 		return nil
 	}
@@ -322,6 +324,8 @@ func (m *ParticipantBasic) validateChats(formats strfmt.Registry) error {
 			if err := m.Chats[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("chats" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("chats" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -333,7 +337,6 @@ func (m *ParticipantBasic) validateChats(formats strfmt.Registry) error {
 }
 
 func (m *ParticipantBasic) validateCobrowsesessions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Cobrowsesessions) { // not required
 		return nil
 	}
@@ -347,6 +350,8 @@ func (m *ParticipantBasic) validateCobrowsesessions(formats strfmt.Registry) err
 			if err := m.Cobrowsesessions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("cobrowsesessions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cobrowsesessions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -358,7 +363,6 @@ func (m *ParticipantBasic) validateCobrowsesessions(formats strfmt.Registry) err
 }
 
 func (m *ParticipantBasic) validateConnectedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConnectedTime) { // not required
 		return nil
 	}
@@ -371,7 +375,6 @@ func (m *ParticipantBasic) validateConnectedTime(formats strfmt.Registry) error 
 }
 
 func (m *ParticipantBasic) validateConversationRoutingData(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationRoutingData) { // not required
 		return nil
 	}
@@ -380,6 +383,8 @@ func (m *ParticipantBasic) validateConversationRoutingData(formats strfmt.Regist
 		if err := m.ConversationRoutingData.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversationRoutingData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationRoutingData")
 			}
 			return err
 		}
@@ -389,7 +394,6 @@ func (m *ParticipantBasic) validateConversationRoutingData(formats strfmt.Regist
 }
 
 func (m *ParticipantBasic) validateEmails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Emails) { // not required
 		return nil
 	}
@@ -403,6 +407,8 @@ func (m *ParticipantBasic) validateEmails(formats strfmt.Registry) error {
 			if err := m.Emails[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("emails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("emails" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -414,7 +420,6 @@ func (m *ParticipantBasic) validateEmails(formats strfmt.Registry) error {
 }
 
 func (m *ParticipantBasic) validateEndAcwTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndAcwTime) { // not required
 		return nil
 	}
@@ -427,7 +432,6 @@ func (m *ParticipantBasic) validateEndAcwTime(formats strfmt.Registry) error {
 }
 
 func (m *ParticipantBasic) validateEndTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EndTime) { // not required
 		return nil
 	}
@@ -440,7 +444,6 @@ func (m *ParticipantBasic) validateEndTime(formats strfmt.Registry) error {
 }
 
 func (m *ParticipantBasic) validateEvaluations(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Evaluations) { // not required
 		return nil
 	}
@@ -454,6 +457,8 @@ func (m *ParticipantBasic) validateEvaluations(formats strfmt.Registry) error {
 			if err := m.Evaluations[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("evaluations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("evaluations" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -491,7 +496,6 @@ func (m *ParticipantBasic) validateFlaggedReasonEnum(path, location string, valu
 }
 
 func (m *ParticipantBasic) validateFlaggedReason(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlaggedReason) { // not required
 		return nil
 	}
@@ -505,7 +509,6 @@ func (m *ParticipantBasic) validateFlaggedReason(formats strfmt.Registry) error 
 }
 
 func (m *ParticipantBasic) validateMessages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Messages) { // not required
 		return nil
 	}
@@ -519,6 +522,8 @@ func (m *ParticipantBasic) validateMessages(formats strfmt.Registry) error {
 			if err := m.Messages[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("messages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messages" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -571,7 +576,6 @@ func (m *ParticipantBasic) validateScreenRecordingStateEnum(path, location strin
 }
 
 func (m *ParticipantBasic) validateScreenRecordingState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ScreenRecordingState) { // not required
 		return nil
 	}
@@ -585,7 +589,6 @@ func (m *ParticipantBasic) validateScreenRecordingState(formats strfmt.Registry)
 }
 
 func (m *ParticipantBasic) validateScreenshares(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Screenshares) { // not required
 		return nil
 	}
@@ -599,6 +602,8 @@ func (m *ParticipantBasic) validateScreenshares(formats strfmt.Registry) error {
 			if err := m.Screenshares[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("screenshares" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("screenshares" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -610,7 +615,6 @@ func (m *ParticipantBasic) validateScreenshares(formats strfmt.Registry) error {
 }
 
 func (m *ParticipantBasic) validateSocialExpressions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SocialExpressions) { // not required
 		return nil
 	}
@@ -624,6 +628,8 @@ func (m *ParticipantBasic) validateSocialExpressions(formats strfmt.Registry) er
 			if err := m.SocialExpressions[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("socialExpressions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("socialExpressions" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -635,7 +641,6 @@ func (m *ParticipantBasic) validateSocialExpressions(formats strfmt.Registry) er
 }
 
 func (m *ParticipantBasic) validateStartAcwTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartAcwTime) { // not required
 		return nil
 	}
@@ -648,7 +653,6 @@ func (m *ParticipantBasic) validateStartAcwTime(formats strfmt.Registry) error {
 }
 
 func (m *ParticipantBasic) validateStartTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.StartTime) { // not required
 		return nil
 	}
@@ -661,7 +665,6 @@ func (m *ParticipantBasic) validateStartTime(formats strfmt.Registry) error {
 }
 
 func (m *ParticipantBasic) validateVideos(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Videos) { // not required
 		return nil
 	}
@@ -675,6 +678,8 @@ func (m *ParticipantBasic) validateVideos(formats strfmt.Registry) error {
 			if err := m.Videos[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("videos" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("videos" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -686,7 +691,6 @@ func (m *ParticipantBasic) validateVideos(formats strfmt.Registry) error {
 }
 
 func (m *ParticipantBasic) validateWrapup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Wrapup) { // not required
 		return nil
 	}
@@ -695,6 +699,8 @@ func (m *ParticipantBasic) validateWrapup(formats strfmt.Registry) error {
 		if err := m.Wrapup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
 			}
 			return err
 		}
@@ -742,7 +748,6 @@ func (m *ParticipantBasic) validateWrapupPromptEnum(path, location string, value
 }
 
 func (m *ParticipantBasic) validateWrapupPrompt(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WrapupPrompt) { // not required
 		return nil
 	}
@@ -750,6 +755,296 @@ func (m *ParticipantBasic) validateWrapupPrompt(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateWrapupPromptEnum("wrapupPrompt", "body", m.WrapupPrompt); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this participant basic based on the context it is used
+func (m *ParticipantBasic) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCallbacks(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCalls(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateChats(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCobrowsesessions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationRoutingData(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEmails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvaluations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateScreenshares(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSocialExpressions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVideos(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWrapup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ParticipantBasic) contextValidateCallbacks(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Callbacks); i++ {
+
+		if m.Callbacks[i] != nil {
+			if err := m.Callbacks[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("callbacks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("callbacks" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ParticipantBasic) contextValidateCalls(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Calls); i++ {
+
+		if m.Calls[i] != nil {
+			if err := m.Calls[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("calls" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("calls" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ParticipantBasic) contextValidateChats(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Chats); i++ {
+
+		if m.Chats[i] != nil {
+			if err := m.Chats[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("chats" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("chats" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ParticipantBasic) contextValidateCobrowsesessions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Cobrowsesessions); i++ {
+
+		if m.Cobrowsesessions[i] != nil {
+			if err := m.Cobrowsesessions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("cobrowsesessions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("cobrowsesessions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ParticipantBasic) contextValidateConversationRoutingData(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConversationRoutingData != nil {
+		if err := m.ConversationRoutingData.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversationRoutingData")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationRoutingData")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *ParticipantBasic) contextValidateEmails(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Emails); i++ {
+
+		if m.Emails[i] != nil {
+			if err := m.Emails[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("emails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("emails" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ParticipantBasic) contextValidateEvaluations(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Evaluations); i++ {
+
+		if m.Evaluations[i] != nil {
+			if err := m.Evaluations[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("evaluations" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("evaluations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ParticipantBasic) contextValidateMessages(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Messages); i++ {
+
+		if m.Messages[i] != nil {
+			if err := m.Messages[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("messages" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messages" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ParticipantBasic) contextValidateScreenshares(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Screenshares); i++ {
+
+		if m.Screenshares[i] != nil {
+			if err := m.Screenshares[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("screenshares" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("screenshares" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ParticipantBasic) contextValidateSocialExpressions(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SocialExpressions); i++ {
+
+		if m.SocialExpressions[i] != nil {
+			if err := m.SocialExpressions[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("socialExpressions" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("socialExpressions" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ParticipantBasic) contextValidateVideos(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Videos); i++ {
+
+		if m.Videos[i] != nil {
+			if err := m.Videos[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("videos" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("videos" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *ParticipantBasic) contextValidateWrapup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Wrapup != nil {
+		if err := m.Wrapup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("wrapup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("wrapup")
+			}
+			return err
+		}
 	}
 
 	return nil

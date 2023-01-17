@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgeLogsJobParams creates a new GetTelephonyProvidersEdgeLogsJobParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgeLogsJobParams creates a new GetTelephonyProvidersEdgeLogsJobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgeLogsJobParams() *GetTelephonyProvidersEdgeLogsJobParams {
-	var ()
 	return &GetTelephonyProvidersEdgeLogsJobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgeLogsJobParamsWithTimeout creates a new GetTelephonyProvidersEdgeLogsJobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgeLogsJobParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgeLogsJobParams {
-	var ()
 	return &GetTelephonyProvidersEdgeLogsJobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgeLogsJobParamsWithContext creates a new GetTelephonyProvidersEdgeLogsJobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgeLogsJobParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgeLogsJobParams {
-	var ()
 	return &GetTelephonyProvidersEdgeLogsJobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgeLogsJobParamsWithHTTPClient creates a new GetTelephonyProvidersEdgeLogsJobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgeLogsJobParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgeLogsJobParams {
-	var ()
 	return &GetTelephonyProvidersEdgeLogsJobParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgeLogsJobParams contains all the parameters to send to the API endpoint
-for the get telephony providers edge logs job operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgeLogsJobParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edge logs job operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgeLogsJobParams struct {
 
-	/*EdgeID
-	  Edge ID
+	/* EdgeID.
 
+	   Edge ID
 	*/
 	EdgeID string
-	/*JobID
-	  Job ID
 
+	/* JobID.
+
+	   Job ID
 	*/
 	JobID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edge logs job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgeLogsJobParams) WithDefaults() *GetTelephonyProvidersEdgeLogsJobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edge logs job params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgeLogsJobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edge logs job params

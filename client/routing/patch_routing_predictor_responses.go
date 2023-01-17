@@ -95,7 +95,6 @@ func (o *PatchRoutingPredictorReader) ReadResponse(response runtime.ClientRespon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPatchRoutingPredictorOK() *PatchRoutingPredictorOK {
 	return &PatchRoutingPredictorOK{}
 }
 
-/*PatchRoutingPredictorOK handles this case with default header values.
+/*
+PatchRoutingPredictorOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PatchRoutingPredictorOK struct {
 	Payload *models.Predictor
 }
 
+// IsSuccess returns true when this patch routing predictor o k response has a 2xx status code
+func (o *PatchRoutingPredictorOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch routing predictor o k response has a 3xx status code
+func (o *PatchRoutingPredictorOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing predictor o k response has a 4xx status code
+func (o *PatchRoutingPredictorOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing predictor o k response has a 5xx status code
+func (o *PatchRoutingPredictorOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing predictor o k response a status code equal to that given
+func (o *PatchRoutingPredictorOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchRoutingPredictorOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchRoutingPredictorOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPatchRoutingPredictorBadRequest() *PatchRoutingPredictorBadRequest {
 	return &PatchRoutingPredictorBadRequest{}
 }
 
-/*PatchRoutingPredictorBadRequest handles this case with default header values.
+/*
+PatchRoutingPredictorBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PatchRoutingPredictorBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing predictor bad request response has a 2xx status code
+func (o *PatchRoutingPredictorBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing predictor bad request response has a 3xx status code
+func (o *PatchRoutingPredictorBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing predictor bad request response has a 4xx status code
+func (o *PatchRoutingPredictorBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing predictor bad request response has a 5xx status code
+func (o *PatchRoutingPredictorBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing predictor bad request response a status code equal to that given
+func (o *PatchRoutingPredictorBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchRoutingPredictorBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchRoutingPredictorBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPatchRoutingPredictorUnauthorized() *PatchRoutingPredictorUnauthorized {
 	return &PatchRoutingPredictorUnauthorized{}
 }
 
-/*PatchRoutingPredictorUnauthorized handles this case with default header values.
+/*
+PatchRoutingPredictorUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PatchRoutingPredictorUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing predictor unauthorized response has a 2xx status code
+func (o *PatchRoutingPredictorUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing predictor unauthorized response has a 3xx status code
+func (o *PatchRoutingPredictorUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing predictor unauthorized response has a 4xx status code
+func (o *PatchRoutingPredictorUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing predictor unauthorized response has a 5xx status code
+func (o *PatchRoutingPredictorUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing predictor unauthorized response a status code equal to that given
+func (o *PatchRoutingPredictorUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchRoutingPredictorUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchRoutingPredictorUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPatchRoutingPredictorForbidden() *PatchRoutingPredictorForbidden {
 	return &PatchRoutingPredictorForbidden{}
 }
 
-/*PatchRoutingPredictorForbidden handles this case with default header values.
+/*
+PatchRoutingPredictorForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PatchRoutingPredictorForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing predictor forbidden response has a 2xx status code
+func (o *PatchRoutingPredictorForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing predictor forbidden response has a 3xx status code
+func (o *PatchRoutingPredictorForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing predictor forbidden response has a 4xx status code
+func (o *PatchRoutingPredictorForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing predictor forbidden response has a 5xx status code
+func (o *PatchRoutingPredictorForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing predictor forbidden response a status code equal to that given
+func (o *PatchRoutingPredictorForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchRoutingPredictorForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchRoutingPredictorForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPatchRoutingPredictorNotFound() *PatchRoutingPredictorNotFound {
 	return &PatchRoutingPredictorNotFound{}
 }
 
-/*PatchRoutingPredictorNotFound handles this case with default header values.
+/*
+PatchRoutingPredictorNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PatchRoutingPredictorNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing predictor not found response has a 2xx status code
+func (o *PatchRoutingPredictorNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing predictor not found response has a 3xx status code
+func (o *PatchRoutingPredictorNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing predictor not found response has a 4xx status code
+func (o *PatchRoutingPredictorNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing predictor not found response has a 5xx status code
+func (o *PatchRoutingPredictorNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing predictor not found response a status code equal to that given
+func (o *PatchRoutingPredictorNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchRoutingPredictorNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchRoutingPredictorNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPatchRoutingPredictorRequestTimeout() *PatchRoutingPredictorRequestTimeo
 	return &PatchRoutingPredictorRequestTimeout{}
 }
 
-/*PatchRoutingPredictorRequestTimeout handles this case with default header values.
+/*
+PatchRoutingPredictorRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PatchRoutingPredictorRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing predictor request timeout response has a 2xx status code
+func (o *PatchRoutingPredictorRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing predictor request timeout response has a 3xx status code
+func (o *PatchRoutingPredictorRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing predictor request timeout response has a 4xx status code
+func (o *PatchRoutingPredictorRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing predictor request timeout response has a 5xx status code
+func (o *PatchRoutingPredictorRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing predictor request timeout response a status code equal to that given
+func (o *PatchRoutingPredictorRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchRoutingPredictorRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchRoutingPredictorRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPatchRoutingPredictorRequestEntityTooLarge() *PatchRoutingPredictorReque
 	return &PatchRoutingPredictorRequestEntityTooLarge{}
 }
 
-/*PatchRoutingPredictorRequestEntityTooLarge handles this case with default header values.
+/*
+PatchRoutingPredictorRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PatchRoutingPredictorRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing predictor request entity too large response has a 2xx status code
+func (o *PatchRoutingPredictorRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing predictor request entity too large response has a 3xx status code
+func (o *PatchRoutingPredictorRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing predictor request entity too large response has a 4xx status code
+func (o *PatchRoutingPredictorRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing predictor request entity too large response has a 5xx status code
+func (o *PatchRoutingPredictorRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing predictor request entity too large response a status code equal to that given
+func (o *PatchRoutingPredictorRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchRoutingPredictorRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchRoutingPredictorRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPatchRoutingPredictorUnsupportedMediaType() *PatchRoutingPredictorUnsupp
 	return &PatchRoutingPredictorUnsupportedMediaType{}
 }
 
-/*PatchRoutingPredictorUnsupportedMediaType handles this case with default header values.
+/*
+PatchRoutingPredictorUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PatchRoutingPredictorUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing predictor unsupported media type response has a 2xx status code
+func (o *PatchRoutingPredictorUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing predictor unsupported media type response has a 3xx status code
+func (o *PatchRoutingPredictorUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing predictor unsupported media type response has a 4xx status code
+func (o *PatchRoutingPredictorUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing predictor unsupported media type response has a 5xx status code
+func (o *PatchRoutingPredictorUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing predictor unsupported media type response a status code equal to that given
+func (o *PatchRoutingPredictorUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchRoutingPredictorUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchRoutingPredictorUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPatchRoutingPredictorTooManyRequests() *PatchRoutingPredictorTooManyRequ
 	return &PatchRoutingPredictorTooManyRequests{}
 }
 
-/*PatchRoutingPredictorTooManyRequests handles this case with default header values.
+/*
+PatchRoutingPredictorTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PatchRoutingPredictorTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing predictor too many requests response has a 2xx status code
+func (o *PatchRoutingPredictorTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing predictor too many requests response has a 3xx status code
+func (o *PatchRoutingPredictorTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing predictor too many requests response has a 4xx status code
+func (o *PatchRoutingPredictorTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch routing predictor too many requests response has a 5xx status code
+func (o *PatchRoutingPredictorTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch routing predictor too many requests response a status code equal to that given
+func (o *PatchRoutingPredictorTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchRoutingPredictorTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchRoutingPredictorTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPatchRoutingPredictorInternalServerError() *PatchRoutingPredictorInterna
 	return &PatchRoutingPredictorInternalServerError{}
 }
 
-/*PatchRoutingPredictorInternalServerError handles this case with default header values.
+/*
+PatchRoutingPredictorInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PatchRoutingPredictorInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing predictor internal server error response has a 2xx status code
+func (o *PatchRoutingPredictorInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing predictor internal server error response has a 3xx status code
+func (o *PatchRoutingPredictorInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing predictor internal server error response has a 4xx status code
+func (o *PatchRoutingPredictorInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing predictor internal server error response has a 5xx status code
+func (o *PatchRoutingPredictorInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing predictor internal server error response a status code equal to that given
+func (o *PatchRoutingPredictorInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchRoutingPredictorInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchRoutingPredictorInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPatchRoutingPredictorServiceUnavailable() *PatchRoutingPredictorServiceU
 	return &PatchRoutingPredictorServiceUnavailable{}
 }
 
-/*PatchRoutingPredictorServiceUnavailable handles this case with default header values.
+/*
+PatchRoutingPredictorServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PatchRoutingPredictorServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing predictor service unavailable response has a 2xx status code
+func (o *PatchRoutingPredictorServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing predictor service unavailable response has a 3xx status code
+func (o *PatchRoutingPredictorServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing predictor service unavailable response has a 4xx status code
+func (o *PatchRoutingPredictorServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing predictor service unavailable response has a 5xx status code
+func (o *PatchRoutingPredictorServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing predictor service unavailable response a status code equal to that given
+func (o *PatchRoutingPredictorServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchRoutingPredictorServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchRoutingPredictorServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPatchRoutingPredictorGatewayTimeout() *PatchRoutingPredictorGatewayTimeo
 	return &PatchRoutingPredictorGatewayTimeout{}
 }
 
-/*PatchRoutingPredictorGatewayTimeout handles this case with default header values.
+/*
+PatchRoutingPredictorGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PatchRoutingPredictorGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch routing predictor gateway timeout response has a 2xx status code
+func (o *PatchRoutingPredictorGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch routing predictor gateway timeout response has a 3xx status code
+func (o *PatchRoutingPredictorGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch routing predictor gateway timeout response has a 4xx status code
+func (o *PatchRoutingPredictorGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch routing predictor gateway timeout response has a 5xx status code
+func (o *PatchRoutingPredictorGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch routing predictor gateway timeout response a status code equal to that given
+func (o *PatchRoutingPredictorGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchRoutingPredictorGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchRoutingPredictorGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/routing/predictors/{predictorId}][%d] patchRoutingPredictorGatewayTimeout  %+v", 504, o.Payload)
 }
 

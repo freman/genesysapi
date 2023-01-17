@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostPresencedefinitionsParams creates a new PostPresencedefinitionsParams object
-// with the default values initialized.
+// NewPostPresencedefinitionsParams creates a new PostPresencedefinitionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostPresencedefinitionsParams() *PostPresencedefinitionsParams {
-	var ()
 	return &PostPresencedefinitionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostPresencedefinitionsParamsWithTimeout creates a new PostPresencedefinitionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostPresencedefinitionsParamsWithTimeout(timeout time.Duration) *PostPresencedefinitionsParams {
-	var ()
 	return &PostPresencedefinitionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostPresencedefinitionsParamsWithContext creates a new PostPresencedefinitionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostPresencedefinitionsParamsWithContext(ctx context.Context) *PostPresencedefinitionsParams {
-	var ()
 	return &PostPresencedefinitionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostPresencedefinitionsParamsWithHTTPClient creates a new PostPresencedefinitionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostPresencedefinitionsParamsWithHTTPClient(client *http.Client) *PostPresencedefinitionsParams {
-	var ()
 	return &PostPresencedefinitionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostPresencedefinitionsParams contains all the parameters to send to the API endpoint
-for the post presencedefinitions operation typically these are written to a http.Request
+/*
+PostPresencedefinitionsParams contains all the parameters to send to the API endpoint
+
+	for the post presencedefinitions operation.
+
+	Typically these are written to a http.Request.
 */
 type PostPresencedefinitionsParams struct {
 
-	/*Body
-	  The Presence Definition to create
+	/* Body.
 
+	   The Presence Definition to create
 	*/
 	Body *models.OrganizationPresence
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post presencedefinitions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostPresencedefinitionsParams) WithDefaults() *PostPresencedefinitionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post presencedefinitions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostPresencedefinitionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post presencedefinitions params
@@ -124,7 +140,6 @@ func (o *PostPresencedefinitionsParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

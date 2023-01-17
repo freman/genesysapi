@@ -95,7 +95,6 @@ func (o *PostProcessautomationTriggersTopicTestReader) ReadResponse(response run
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostProcessautomationTriggersTopicTestOK() *PostProcessautomationTrigger
 	return &PostProcessautomationTriggersTopicTestOK{}
 }
 
-/*PostProcessautomationTriggersTopicTestOK handles this case with default header values.
+/*
+PostProcessautomationTriggersTopicTestOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostProcessautomationTriggersTopicTestOK struct {
 	Payload *models.TestModeEventResults
 }
 
+// IsSuccess returns true when this post processautomation triggers topic test o k response has a 2xx status code
+func (o *PostProcessautomationTriggersTopicTestOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post processautomation triggers topic test o k response has a 3xx status code
+func (o *PostProcessautomationTriggersTopicTestOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post processautomation triggers topic test o k response has a 4xx status code
+func (o *PostProcessautomationTriggersTopicTestOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post processautomation triggers topic test o k response has a 5xx status code
+func (o *PostProcessautomationTriggersTopicTestOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post processautomation triggers topic test o k response a status code equal to that given
+func (o *PostProcessautomationTriggersTopicTestOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostProcessautomationTriggersTopicTestOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestOK  %+v", 200, o.Payload)
+}
+
+func (o *PostProcessautomationTriggersTopicTestOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostProcessautomationTriggersTopicTestBadRequest() *PostProcessautomatio
 	return &PostProcessautomationTriggersTopicTestBadRequest{}
 }
 
-/*PostProcessautomationTriggersTopicTestBadRequest handles this case with default header values.
+/*
+PostProcessautomationTriggersTopicTestBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostProcessautomationTriggersTopicTestBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post processautomation triggers topic test bad request response has a 2xx status code
+func (o *PostProcessautomationTriggersTopicTestBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post processautomation triggers topic test bad request response has a 3xx status code
+func (o *PostProcessautomationTriggersTopicTestBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post processautomation triggers topic test bad request response has a 4xx status code
+func (o *PostProcessautomationTriggersTopicTestBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post processautomation triggers topic test bad request response has a 5xx status code
+func (o *PostProcessautomationTriggersTopicTestBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post processautomation triggers topic test bad request response a status code equal to that given
+func (o *PostProcessautomationTriggersTopicTestBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostProcessautomationTriggersTopicTestBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostProcessautomationTriggersTopicTestBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostProcessautomationTriggersTopicTestUnauthorized() *PostProcessautomat
 	return &PostProcessautomationTriggersTopicTestUnauthorized{}
 }
 
-/*PostProcessautomationTriggersTopicTestUnauthorized handles this case with default header values.
+/*
+PostProcessautomationTriggersTopicTestUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostProcessautomationTriggersTopicTestUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post processautomation triggers topic test unauthorized response has a 2xx status code
+func (o *PostProcessautomationTriggersTopicTestUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post processautomation triggers topic test unauthorized response has a 3xx status code
+func (o *PostProcessautomationTriggersTopicTestUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post processautomation triggers topic test unauthorized response has a 4xx status code
+func (o *PostProcessautomationTriggersTopicTestUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post processautomation triggers topic test unauthorized response has a 5xx status code
+func (o *PostProcessautomationTriggersTopicTestUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post processautomation triggers topic test unauthorized response a status code equal to that given
+func (o *PostProcessautomationTriggersTopicTestUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostProcessautomationTriggersTopicTestUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostProcessautomationTriggersTopicTestUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostProcessautomationTriggersTopicTestForbidden() *PostProcessautomation
 	return &PostProcessautomationTriggersTopicTestForbidden{}
 }
 
-/*PostProcessautomationTriggersTopicTestForbidden handles this case with default header values.
+/*
+PostProcessautomationTriggersTopicTestForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostProcessautomationTriggersTopicTestForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post processautomation triggers topic test forbidden response has a 2xx status code
+func (o *PostProcessautomationTriggersTopicTestForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post processautomation triggers topic test forbidden response has a 3xx status code
+func (o *PostProcessautomationTriggersTopicTestForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post processautomation triggers topic test forbidden response has a 4xx status code
+func (o *PostProcessautomationTriggersTopicTestForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post processautomation triggers topic test forbidden response has a 5xx status code
+func (o *PostProcessautomationTriggersTopicTestForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post processautomation triggers topic test forbidden response a status code equal to that given
+func (o *PostProcessautomationTriggersTopicTestForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostProcessautomationTriggersTopicTestForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostProcessautomationTriggersTopicTestForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostProcessautomationTriggersTopicTestNotFound() *PostProcessautomationT
 	return &PostProcessautomationTriggersTopicTestNotFound{}
 }
 
-/*PostProcessautomationTriggersTopicTestNotFound handles this case with default header values.
+/*
+PostProcessautomationTriggersTopicTestNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostProcessautomationTriggersTopicTestNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post processautomation triggers topic test not found response has a 2xx status code
+func (o *PostProcessautomationTriggersTopicTestNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post processautomation triggers topic test not found response has a 3xx status code
+func (o *PostProcessautomationTriggersTopicTestNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post processautomation triggers topic test not found response has a 4xx status code
+func (o *PostProcessautomationTriggersTopicTestNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post processautomation triggers topic test not found response has a 5xx status code
+func (o *PostProcessautomationTriggersTopicTestNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post processautomation triggers topic test not found response a status code equal to that given
+func (o *PostProcessautomationTriggersTopicTestNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostProcessautomationTriggersTopicTestNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostProcessautomationTriggersTopicTestNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostProcessautomationTriggersTopicTestRequestTimeout() *PostProcessautom
 	return &PostProcessautomationTriggersTopicTestRequestTimeout{}
 }
 
-/*PostProcessautomationTriggersTopicTestRequestTimeout handles this case with default header values.
+/*
+PostProcessautomationTriggersTopicTestRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostProcessautomationTriggersTopicTestRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post processautomation triggers topic test request timeout response has a 2xx status code
+func (o *PostProcessautomationTriggersTopicTestRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post processautomation triggers topic test request timeout response has a 3xx status code
+func (o *PostProcessautomationTriggersTopicTestRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post processautomation triggers topic test request timeout response has a 4xx status code
+func (o *PostProcessautomationTriggersTopicTestRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post processautomation triggers topic test request timeout response has a 5xx status code
+func (o *PostProcessautomationTriggersTopicTestRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post processautomation triggers topic test request timeout response a status code equal to that given
+func (o *PostProcessautomationTriggersTopicTestRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostProcessautomationTriggersTopicTestRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostProcessautomationTriggersTopicTestRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostProcessautomationTriggersTopicTestRequestEntityTooLarge() *PostProce
 	return &PostProcessautomationTriggersTopicTestRequestEntityTooLarge{}
 }
 
-/*PostProcessautomationTriggersTopicTestRequestEntityTooLarge handles this case with default header values.
+/*
+PostProcessautomationTriggersTopicTestRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostProcessautomationTriggersTopicTestRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post processautomation triggers topic test request entity too large response has a 2xx status code
+func (o *PostProcessautomationTriggersTopicTestRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post processautomation triggers topic test request entity too large response has a 3xx status code
+func (o *PostProcessautomationTriggersTopicTestRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post processautomation triggers topic test request entity too large response has a 4xx status code
+func (o *PostProcessautomationTriggersTopicTestRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post processautomation triggers topic test request entity too large response has a 5xx status code
+func (o *PostProcessautomationTriggersTopicTestRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post processautomation triggers topic test request entity too large response a status code equal to that given
+func (o *PostProcessautomationTriggersTopicTestRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostProcessautomationTriggersTopicTestRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostProcessautomationTriggersTopicTestRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostProcessautomationTriggersTopicTestUnsupportedMediaType() *PostProces
 	return &PostProcessautomationTriggersTopicTestUnsupportedMediaType{}
 }
 
-/*PostProcessautomationTriggersTopicTestUnsupportedMediaType handles this case with default header values.
+/*
+PostProcessautomationTriggersTopicTestUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostProcessautomationTriggersTopicTestUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post processautomation triggers topic test unsupported media type response has a 2xx status code
+func (o *PostProcessautomationTriggersTopicTestUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post processautomation triggers topic test unsupported media type response has a 3xx status code
+func (o *PostProcessautomationTriggersTopicTestUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post processautomation triggers topic test unsupported media type response has a 4xx status code
+func (o *PostProcessautomationTriggersTopicTestUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post processautomation triggers topic test unsupported media type response has a 5xx status code
+func (o *PostProcessautomationTriggersTopicTestUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post processautomation triggers topic test unsupported media type response a status code equal to that given
+func (o *PostProcessautomationTriggersTopicTestUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostProcessautomationTriggersTopicTestUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostProcessautomationTriggersTopicTestUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostProcessautomationTriggersTopicTestTooManyRequests() *PostProcessauto
 	return &PostProcessautomationTriggersTopicTestTooManyRequests{}
 }
 
-/*PostProcessautomationTriggersTopicTestTooManyRequests handles this case with default header values.
+/*
+PostProcessautomationTriggersTopicTestTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostProcessautomationTriggersTopicTestTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post processautomation triggers topic test too many requests response has a 2xx status code
+func (o *PostProcessautomationTriggersTopicTestTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post processautomation triggers topic test too many requests response has a 3xx status code
+func (o *PostProcessautomationTriggersTopicTestTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post processautomation triggers topic test too many requests response has a 4xx status code
+func (o *PostProcessautomationTriggersTopicTestTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post processautomation triggers topic test too many requests response has a 5xx status code
+func (o *PostProcessautomationTriggersTopicTestTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post processautomation triggers topic test too many requests response a status code equal to that given
+func (o *PostProcessautomationTriggersTopicTestTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostProcessautomationTriggersTopicTestTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostProcessautomationTriggersTopicTestTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostProcessautomationTriggersTopicTestInternalServerError() *PostProcess
 	return &PostProcessautomationTriggersTopicTestInternalServerError{}
 }
 
-/*PostProcessautomationTriggersTopicTestInternalServerError handles this case with default header values.
+/*
+PostProcessautomationTriggersTopicTestInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostProcessautomationTriggersTopicTestInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post processautomation triggers topic test internal server error response has a 2xx status code
+func (o *PostProcessautomationTriggersTopicTestInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post processautomation triggers topic test internal server error response has a 3xx status code
+func (o *PostProcessautomationTriggersTopicTestInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post processautomation triggers topic test internal server error response has a 4xx status code
+func (o *PostProcessautomationTriggersTopicTestInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post processautomation triggers topic test internal server error response has a 5xx status code
+func (o *PostProcessautomationTriggersTopicTestInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post processautomation triggers topic test internal server error response a status code equal to that given
+func (o *PostProcessautomationTriggersTopicTestInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostProcessautomationTriggersTopicTestInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostProcessautomationTriggersTopicTestInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostProcessautomationTriggersTopicTestServiceUnavailable() *PostProcessa
 	return &PostProcessautomationTriggersTopicTestServiceUnavailable{}
 }
 
-/*PostProcessautomationTriggersTopicTestServiceUnavailable handles this case with default header values.
+/*
+PostProcessautomationTriggersTopicTestServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostProcessautomationTriggersTopicTestServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post processautomation triggers topic test service unavailable response has a 2xx status code
+func (o *PostProcessautomationTriggersTopicTestServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post processautomation triggers topic test service unavailable response has a 3xx status code
+func (o *PostProcessautomationTriggersTopicTestServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post processautomation triggers topic test service unavailable response has a 4xx status code
+func (o *PostProcessautomationTriggersTopicTestServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post processautomation triggers topic test service unavailable response has a 5xx status code
+func (o *PostProcessautomationTriggersTopicTestServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post processautomation triggers topic test service unavailable response a status code equal to that given
+func (o *PostProcessautomationTriggersTopicTestServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostProcessautomationTriggersTopicTestServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostProcessautomationTriggersTopicTestServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostProcessautomationTriggersTopicTestGatewayTimeout() *PostProcessautom
 	return &PostProcessautomationTriggersTopicTestGatewayTimeout{}
 }
 
-/*PostProcessautomationTriggersTopicTestGatewayTimeout handles this case with default header values.
+/*
+PostProcessautomationTriggersTopicTestGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostProcessautomationTriggersTopicTestGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post processautomation triggers topic test gateway timeout response has a 2xx status code
+func (o *PostProcessautomationTriggersTopicTestGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post processautomation triggers topic test gateway timeout response has a 3xx status code
+func (o *PostProcessautomationTriggersTopicTestGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post processautomation triggers topic test gateway timeout response has a 4xx status code
+func (o *PostProcessautomationTriggersTopicTestGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post processautomation triggers topic test gateway timeout response has a 5xx status code
+func (o *PostProcessautomationTriggersTopicTestGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post processautomation triggers topic test gateway timeout response a status code equal to that given
+func (o *PostProcessautomationTriggersTopicTestGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostProcessautomationTriggersTopicTestGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostProcessautomationTriggersTopicTestGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/processautomation/triggers/topics/{topicName}/test][%d] postProcessautomationTriggersTopicTestGatewayTimeout  %+v", 504, o.Payload)
 }
 

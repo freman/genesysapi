@@ -17,85 +17,102 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetDownloadParams creates a new GetDownloadParams object
-// with the default values initialized.
+// NewGetDownloadParams creates a new GetDownloadParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetDownloadParams() *GetDownloadParams {
-	var (
-		issueRedirectDefault  = bool(true)
-		redirectToAuthDefault = bool(true)
-	)
 	return &GetDownloadParams{
-		IssueRedirect:  &issueRedirectDefault,
-		RedirectToAuth: &redirectToAuthDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetDownloadParamsWithTimeout creates a new GetDownloadParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetDownloadParamsWithTimeout(timeout time.Duration) *GetDownloadParams {
-	var (
-		issueRedirectDefault  = bool(true)
-		redirectToAuthDefault = bool(true)
-	)
 	return &GetDownloadParams{
-		IssueRedirect:  &issueRedirectDefault,
-		RedirectToAuth: &redirectToAuthDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetDownloadParamsWithContext creates a new GetDownloadParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetDownloadParamsWithContext(ctx context.Context) *GetDownloadParams {
-	var (
-		issueRedirectDefault  = bool(true)
-		redirectToAuthDefault = bool(true)
-	)
 	return &GetDownloadParams{
-		IssueRedirect:  &issueRedirectDefault,
-		RedirectToAuth: &redirectToAuthDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetDownloadParamsWithHTTPClient creates a new GetDownloadParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetDownloadParamsWithHTTPClient(client *http.Client) *GetDownloadParams {
-	var (
-		issueRedirectDefault  = bool(true)
-		redirectToAuthDefault = bool(true)
-	)
 	return &GetDownloadParams{
-		IssueRedirect:  &issueRedirectDefault,
-		RedirectToAuth: &redirectToAuthDefault,
-		HTTPClient:     client,
+		HTTPClient: client,
 	}
 }
 
-/*GetDownloadParams contains all the parameters to send to the API endpoint
-for the get download operation typically these are written to a http.Request
+/*
+GetDownloadParams contains all the parameters to send to the API endpoint
+
+	for the get download operation.
+
+	Typically these are written to a http.Request.
 */
 type GetDownloadParams struct {
 
-	/*ContentDisposition*/
+	// ContentDisposition.
 	ContentDisposition *string
-	/*DownloadID
-	  Download ID
 
+	/* DownloadID.
+
+	   Download ID
 	*/
 	DownloadID string
-	/*IssueRedirect*/
+
+	// IssueRedirect.
+	//
+	// Default: true
 	IssueRedirect *bool
-	/*RedirectToAuth*/
+
+	// RedirectToAuth.
+	//
+	// Default: true
 	RedirectToAuth *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get download params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDownloadParams) WithDefaults() *GetDownloadParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get download params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetDownloadParams) SetDefaults() {
+	var (
+		issueRedirectDefault = bool(true)
+
+		redirectToAuthDefault = bool(true)
+	)
+
+	val := GetDownloadParams{
+		IssueRedirect:  &issueRedirectDefault,
+		RedirectToAuth: &redirectToAuthDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get download params
@@ -187,16 +204,17 @@ func (o *GetDownloadParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 
 		// query param contentDisposition
 		var qrContentDisposition string
+
 		if o.ContentDisposition != nil {
 			qrContentDisposition = *o.ContentDisposition
 		}
 		qContentDisposition := qrContentDisposition
 		if qContentDisposition != "" {
+
 			if err := r.SetQueryParam("contentDisposition", qContentDisposition); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param downloadId
@@ -208,32 +226,34 @@ func (o *GetDownloadParams) WriteToRequest(r runtime.ClientRequest, reg strfmt.R
 
 		// query param issueRedirect
 		var qrIssueRedirect bool
+
 		if o.IssueRedirect != nil {
 			qrIssueRedirect = *o.IssueRedirect
 		}
 		qIssueRedirect := swag.FormatBool(qrIssueRedirect)
 		if qIssueRedirect != "" {
+
 			if err := r.SetQueryParam("issueRedirect", qIssueRedirect); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.RedirectToAuth != nil {
 
 		// query param redirectToAuth
 		var qrRedirectToAuth bool
+
 		if o.RedirectToAuth != nil {
 			qrRedirectToAuth = *o.RedirectToAuth
 		}
 		qRedirectToAuth := swag.FormatBool(qrRedirectToAuth)
 		if qRedirectToAuth != "" {
+
 			if err := r.SetQueryParam("redirectToAuth", qRedirectToAuth); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

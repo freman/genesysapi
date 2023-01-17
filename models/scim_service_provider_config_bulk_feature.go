@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // ScimServiceProviderConfigBulkFeature Defines a "bulk" request in the SCIM service provider's configuration.
@@ -30,6 +34,55 @@ type ScimServiceProviderConfigBulkFeature struct {
 
 // Validate validates this scim service provider config bulk feature
 func (m *ScimServiceProviderConfigBulkFeature) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this scim service provider config bulk feature based on the context it is used
+func (m *ScimServiceProviderConfigBulkFeature) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateMaxOperations(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxPayloadSize(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupported(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *ScimServiceProviderConfigBulkFeature) contextValidateMaxOperations(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxOperations", "body", int32(m.MaxOperations)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfigBulkFeature) contextValidateMaxPayloadSize(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxPayloadSize", "body", int32(m.MaxPayloadSize)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ScimServiceProviderConfigBulkFeature) contextValidateSupported(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "supported", "body", m.Supported); err != nil {
+		return err
+	}
+
 	return nil
 }
 

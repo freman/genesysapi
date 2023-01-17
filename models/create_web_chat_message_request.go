@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -75,14 +76,14 @@ const (
 	// CreateWebChatMessageRequestBodyTypeNotice captures enum value "notice"
 	CreateWebChatMessageRequestBodyTypeNotice string = "notice"
 
-	// CreateWebChatMessageRequestBodyTypeMemberJoin captures enum value "member-join"
-	CreateWebChatMessageRequestBodyTypeMemberJoin string = "member-join"
+	// CreateWebChatMessageRequestBodyTypeMemberDashJoin captures enum value "member-join"
+	CreateWebChatMessageRequestBodyTypeMemberDashJoin string = "member-join"
 
-	// CreateWebChatMessageRequestBodyTypeMemberLeave captures enum value "member-leave"
-	CreateWebChatMessageRequestBodyTypeMemberLeave string = "member-leave"
+	// CreateWebChatMessageRequestBodyTypeMemberDashLeave captures enum value "member-leave"
+	CreateWebChatMessageRequestBodyTypeMemberDashLeave string = "member-leave"
 
-	// CreateWebChatMessageRequestBodyTypeMediaRequest captures enum value "media-request"
-	CreateWebChatMessageRequestBodyTypeMediaRequest string = "media-request"
+	// CreateWebChatMessageRequestBodyTypeMediaDashRequest captures enum value "media-request"
+	CreateWebChatMessageRequestBodyTypeMediaDashRequest string = "media-request"
 )
 
 // prop value enum
@@ -94,7 +95,6 @@ func (m *CreateWebChatMessageRequest) validateBodyTypeEnum(path, location string
 }
 
 func (m *CreateWebChatMessageRequest) validateBodyType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.BodyType) { // not required
 		return nil
 	}
@@ -104,6 +104,11 @@ func (m *CreateWebChatMessageRequest) validateBodyType(formats strfmt.Registry) 
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this create web chat message request based on context it is used
+func (m *CreateWebChatMessageRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

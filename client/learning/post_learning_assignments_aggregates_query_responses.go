@@ -101,7 +101,6 @@ func (o *PostLearningAssignmentsAggregatesQueryReader) ReadResponse(response run
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostLearningAssignmentsAggregatesQueryOK() *PostLearningAssignmentsAggre
 	return &PostLearningAssignmentsAggregatesQueryOK{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryOK handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryOK describes a response with status code 200, with default header values.
 
 Query completed successfully
 */
@@ -120,7 +120,36 @@ type PostLearningAssignmentsAggregatesQueryOK struct {
 	Payload *models.LearningAssignmentAggregateResponse
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query o k response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query o k response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query o k response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments aggregates query o k response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments aggregates query o k response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostLearningAssignmentsAggregatesQueryBadRequest() *PostLearningAssignme
 	return &PostLearningAssignmentsAggregatesQueryBadRequest{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryBadRequest handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostLearningAssignmentsAggregatesQueryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query bad request response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query bad request response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query bad request response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments aggregates query bad request response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments aggregates query bad request response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostLearningAssignmentsAggregatesQueryUnauthorized() *PostLearningAssign
 	return &PostLearningAssignmentsAggregatesQueryUnauthorized{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryUnauthorized handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostLearningAssignmentsAggregatesQueryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query unauthorized response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query unauthorized response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query unauthorized response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments aggregates query unauthorized response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments aggregates query unauthorized response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostLearningAssignmentsAggregatesQueryForbidden() *PostLearningAssignmen
 	return &PostLearningAssignmentsAggregatesQueryForbidden{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryForbidden handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostLearningAssignmentsAggregatesQueryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query forbidden response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query forbidden response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query forbidden response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments aggregates query forbidden response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments aggregates query forbidden response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostLearningAssignmentsAggregatesQueryNotFound() *PostLearningAssignment
 	return &PostLearningAssignmentsAggregatesQueryNotFound{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryNotFound handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostLearningAssignmentsAggregatesQueryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query not found response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query not found response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query not found response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments aggregates query not found response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments aggregates query not found response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostLearningAssignmentsAggregatesQueryRequestTimeout() *PostLearningAssi
 	return &PostLearningAssignmentsAggregatesQueryRequestTimeout{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryRequestTimeout handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostLearningAssignmentsAggregatesQueryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query request timeout response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query request timeout response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query request timeout response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments aggregates query request timeout response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments aggregates query request timeout response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostLearningAssignmentsAggregatesQueryRequestEntityTooLarge() *PostLearn
 	return &PostLearningAssignmentsAggregatesQueryRequestEntityTooLarge{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryRequestEntityTooLarge handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -318,7 +498,36 @@ type PostLearningAssignmentsAggregatesQueryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query request entity too large response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query request entity too large response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query request entity too large response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments aggregates query request entity too large response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments aggregates query request entity too large response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostLearningAssignmentsAggregatesQueryUnsupportedMediaType() *PostLearni
 	return &PostLearningAssignmentsAggregatesQueryUnsupportedMediaType{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryUnsupportedMediaType handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -351,7 +561,36 @@ type PostLearningAssignmentsAggregatesQueryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query unsupported media type response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query unsupported media type response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query unsupported media type response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments aggregates query unsupported media type response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments aggregates query unsupported media type response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostLearningAssignmentsAggregatesQueryTooManyRequests() *PostLearningAss
 	return &PostLearningAssignmentsAggregatesQueryTooManyRequests{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryTooManyRequests handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -384,7 +624,36 @@ type PostLearningAssignmentsAggregatesQueryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query too many requests response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query too many requests response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query too many requests response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments aggregates query too many requests response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments aggregates query too many requests response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostLearningAssignmentsAggregatesQueryInternalServerError() *PostLearnin
 	return &PostLearningAssignmentsAggregatesQueryInternalServerError{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryInternalServerError handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -417,7 +687,36 @@ type PostLearningAssignmentsAggregatesQueryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query internal server error response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query internal server error response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query internal server error response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments aggregates query internal server error response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignments aggregates query internal server error response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostLearningAssignmentsAggregatesQueryNotImplemented() *PostLearningAssi
 	return &PostLearningAssignmentsAggregatesQueryNotImplemented{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryNotImplemented handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryNotImplemented describes a response with status code 501, with default header values.
 
 Not Implemented
 */
@@ -450,7 +750,36 @@ type PostLearningAssignmentsAggregatesQueryNotImplemented struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query not implemented response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryNotImplemented) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query not implemented response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryNotImplemented) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query not implemented response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryNotImplemented) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments aggregates query not implemented response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryNotImplemented) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignments aggregates query not implemented response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryNotImplemented) IsCode(code int) bool {
+	return code == 501
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryNotImplemented) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryNotImplemented  %+v", 501, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryNotImplemented) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryNotImplemented  %+v", 501, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostLearningAssignmentsAggregatesQueryServiceUnavailable() *PostLearning
 	return &PostLearningAssignmentsAggregatesQueryServiceUnavailable{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryServiceUnavailable handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostLearningAssignmentsAggregatesQueryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query service unavailable response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query service unavailable response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query service unavailable response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments aggregates query service unavailable response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignments aggregates query service unavailable response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostLearningAssignmentsAggregatesQueryGatewayTimeout() *PostLearningAssi
 	return &PostLearningAssignmentsAggregatesQueryGatewayTimeout{}
 }
 
-/*PostLearningAssignmentsAggregatesQueryGatewayTimeout handles this case with default header values.
+/*
+PostLearningAssignmentsAggregatesQueryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostLearningAssignmentsAggregatesQueryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments aggregates query gateway timeout response has a 2xx status code
+func (o *PostLearningAssignmentsAggregatesQueryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments aggregates query gateway timeout response has a 3xx status code
+func (o *PostLearningAssignmentsAggregatesQueryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments aggregates query gateway timeout response has a 4xx status code
+func (o *PostLearningAssignmentsAggregatesQueryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments aggregates query gateway timeout response has a 5xx status code
+func (o *PostLearningAssignmentsAggregatesQueryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignments aggregates query gateway timeout response a status code equal to that given
+func (o *PostLearningAssignmentsAggregatesQueryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLearningAssignmentsAggregatesQueryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLearningAssignmentsAggregatesQueryGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/aggregates/query][%d] postLearningAssignmentsAggregatesQueryGatewayTimeout  %+v", 504, o.Payload)
 }
 

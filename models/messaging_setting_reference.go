@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -101,7 +103,6 @@ func (m *MessagingSettingReference) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MessagingSettingReference) validateContent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Content) { // not required
 		return nil
 	}
@@ -110,6 +111,8 @@ func (m *MessagingSettingReference) validateContent(formats strfmt.Registry) err
 		if err := m.Content.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("content")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("content")
 			}
 			return err
 		}
@@ -119,7 +122,6 @@ func (m *MessagingSettingReference) validateContent(formats strfmt.Registry) err
 }
 
 func (m *MessagingSettingReference) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -128,6 +130,8 @@ func (m *MessagingSettingReference) validateCreatedBy(formats strfmt.Registry) e
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -137,7 +141,6 @@ func (m *MessagingSettingReference) validateCreatedBy(formats strfmt.Registry) e
 }
 
 func (m *MessagingSettingReference) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -150,7 +153,6 @@ func (m *MessagingSettingReference) validateDateCreated(formats strfmt.Registry)
 }
 
 func (m *MessagingSettingReference) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -163,7 +165,6 @@ func (m *MessagingSettingReference) validateDateModified(formats strfmt.Registry
 }
 
 func (m *MessagingSettingReference) validateEvent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Event) { // not required
 		return nil
 	}
@@ -172,6 +173,8 @@ func (m *MessagingSettingReference) validateEvent(formats strfmt.Registry) error
 		if err := m.Event.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("event")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("event")
 			}
 			return err
 		}
@@ -190,7 +193,6 @@ func (m *MessagingSettingReference) validateID(formats strfmt.Registry) error {
 }
 
 func (m *MessagingSettingReference) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -203,7 +205,6 @@ func (m *MessagingSettingReference) validateSelfURI(formats strfmt.Registry) err
 }
 
 func (m *MessagingSettingReference) validateUpdatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UpdatedBy) { // not required
 		return nil
 	}
@@ -212,6 +213,150 @@ func (m *MessagingSettingReference) validateUpdatedBy(formats strfmt.Registry) e
 		if err := m.UpdatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("updatedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("updatedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this messaging setting reference based on the context it is used
+func (m *MessagingSettingReference) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUpdatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MessagingSettingReference) contextValidateContent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Content != nil {
+		if err := m.Content.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("content")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("content")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessagingSettingReference) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessagingSettingReference) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingSettingReference) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingSettingReference) contextValidateEvent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Event != nil {
+		if err := m.Event.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("event")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("event")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessagingSettingReference) contextValidateName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "name", "body", string(m.Name)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingSettingReference) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *MessagingSettingReference) contextValidateUpdatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.UpdatedBy != nil {
+		if err := m.UpdatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("updatedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("updatedBy")
 			}
 			return err
 		}

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -92,7 +94,6 @@ func (m *UserExpands) Validate(formats strfmt.Registry) error {
 }
 
 func (m *UserExpands) validateAuthorization(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Authorization) { // not required
 		return nil
 	}
@@ -101,6 +102,8 @@ func (m *UserExpands) validateAuthorization(formats strfmt.Registry) error {
 		if err := m.Authorization.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("authorization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("authorization")
 			}
 			return err
 		}
@@ -110,7 +113,6 @@ func (m *UserExpands) validateAuthorization(formats strfmt.Registry) error {
 }
 
 func (m *UserExpands) validateConversationSummary(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationSummary) { // not required
 		return nil
 	}
@@ -119,6 +121,8 @@ func (m *UserExpands) validateConversationSummary(formats strfmt.Registry) error
 		if err := m.ConversationSummary.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("conversationSummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationSummary")
 			}
 			return err
 		}
@@ -128,7 +132,6 @@ func (m *UserExpands) validateConversationSummary(formats strfmt.Registry) error
 }
 
 func (m *UserExpands) validateGeolocation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Geolocation) { // not required
 		return nil
 	}
@@ -137,6 +140,8 @@ func (m *UserExpands) validateGeolocation(formats strfmt.Registry) error {
 		if err := m.Geolocation.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("geolocation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("geolocation")
 			}
 			return err
 		}
@@ -146,7 +151,6 @@ func (m *UserExpands) validateGeolocation(formats strfmt.Registry) error {
 }
 
 func (m *UserExpands) validateIntegrationPresence(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.IntegrationPresence) { // not required
 		return nil
 	}
@@ -155,6 +159,8 @@ func (m *UserExpands) validateIntegrationPresence(formats strfmt.Registry) error
 		if err := m.IntegrationPresence.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("integrationPresence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integrationPresence")
 			}
 			return err
 		}
@@ -164,7 +170,6 @@ func (m *UserExpands) validateIntegrationPresence(formats strfmt.Registry) error
 }
 
 func (m *UserExpands) validateOutOfOffice(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OutOfOffice) { // not required
 		return nil
 	}
@@ -173,6 +178,8 @@ func (m *UserExpands) validateOutOfOffice(formats strfmt.Registry) error {
 		if err := m.OutOfOffice.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("outOfOffice")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outOfOffice")
 			}
 			return err
 		}
@@ -182,7 +189,6 @@ func (m *UserExpands) validateOutOfOffice(formats strfmt.Registry) error {
 }
 
 func (m *UserExpands) validatePresence(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Presence) { // not required
 		return nil
 	}
@@ -191,6 +197,8 @@ func (m *UserExpands) validatePresence(formats strfmt.Registry) error {
 		if err := m.Presence.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("presence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("presence")
 			}
 			return err
 		}
@@ -200,7 +208,6 @@ func (m *UserExpands) validatePresence(formats strfmt.Registry) error {
 }
 
 func (m *UserExpands) validateRoutingStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RoutingStatus) { // not required
 		return nil
 	}
@@ -209,6 +216,8 @@ func (m *UserExpands) validateRoutingStatus(formats strfmt.Registry) error {
 		if err := m.RoutingStatus.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("routingStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("routingStatus")
 			}
 			return err
 		}
@@ -218,7 +227,6 @@ func (m *UserExpands) validateRoutingStatus(formats strfmt.Registry) error {
 }
 
 func (m *UserExpands) validateStation(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Station) { // not required
 		return nil
 	}
@@ -227,6 +235,178 @@ func (m *UserExpands) validateStation(formats strfmt.Registry) error {
 		if err := m.Station.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("station")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("station")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this user expands based on the context it is used
+func (m *UserExpands) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAuthorization(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConversationSummary(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateGeolocation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntegrationPresence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOutOfOffice(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePresence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRoutingStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateStation(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *UserExpands) contextValidateAuthorization(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Authorization != nil {
+		if err := m.Authorization.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("authorization")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("authorization")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserExpands) contextValidateConversationSummary(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ConversationSummary != nil {
+		if err := m.ConversationSummary.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("conversationSummary")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("conversationSummary")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserExpands) contextValidateGeolocation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Geolocation != nil {
+		if err := m.Geolocation.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("geolocation")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("geolocation")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserExpands) contextValidateIntegrationPresence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.IntegrationPresence != nil {
+		if err := m.IntegrationPresence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("integrationPresence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("integrationPresence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserExpands) contextValidateOutOfOffice(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.OutOfOffice != nil {
+		if err := m.OutOfOffice.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("outOfOffice")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("outOfOffice")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserExpands) contextValidatePresence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Presence != nil {
+		if err := m.Presence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("presence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("presence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserExpands) contextValidateRoutingStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.RoutingStatus != nil {
+		if err := m.RoutingStatus.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("routingStatus")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("routingStatus")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *UserExpands) contextValidateStation(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Station != nil {
+		if err := m.Station.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("station")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("station")
 			}
 			return err
 		}

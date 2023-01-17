@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -54,7 +56,6 @@ func (m *Education) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Education) validateDateEnd(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateEnd) { // not required
 		return nil
 	}
@@ -67,7 +68,6 @@ func (m *Education) validateDateEnd(formats strfmt.Registry) error {
 }
 
 func (m *Education) validateDateStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStart) { // not required
 		return nil
 	}
@@ -76,6 +76,11 @@ func (m *Education) validateDateStart(formats strfmt.Registry) error {
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this education based on context it is used
+func (m *Education) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

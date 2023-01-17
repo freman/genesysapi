@@ -101,7 +101,6 @@ func (o *PatchLearningAssignmentReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchLearningAssignmentOK() *PatchLearningAssignmentOK {
 	return &PatchLearningAssignmentOK{}
 }
 
-/*PatchLearningAssignmentOK handles this case with default header values.
+/*
+PatchLearningAssignmentOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchLearningAssignmentOK struct {
 	Payload *models.LearningAssignment
 }
 
+// IsSuccess returns true when this patch learning assignment o k response has a 2xx status code
+func (o *PatchLearningAssignmentOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch learning assignment o k response has a 3xx status code
+func (o *PatchLearningAssignmentOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment o k response has a 4xx status code
+func (o *PatchLearningAssignmentOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch learning assignment o k response has a 5xx status code
+func (o *PatchLearningAssignmentOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch learning assignment o k response a status code equal to that given
+func (o *PatchLearningAssignmentOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchLearningAssignmentOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchLearningAssignmentOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchLearningAssignmentBadRequest() *PatchLearningAssignmentBadRequest {
 	return &PatchLearningAssignmentBadRequest{}
 }
 
-/*PatchLearningAssignmentBadRequest handles this case with default header values.
+/*
+PatchLearningAssignmentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchLearningAssignmentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch learning assignment bad request response has a 2xx status code
+func (o *PatchLearningAssignmentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch learning assignment bad request response has a 3xx status code
+func (o *PatchLearningAssignmentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment bad request response has a 4xx status code
+func (o *PatchLearningAssignmentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch learning assignment bad request response has a 5xx status code
+func (o *PatchLearningAssignmentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch learning assignment bad request response a status code equal to that given
+func (o *PatchLearningAssignmentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchLearningAssignmentBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchLearningAssignmentBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchLearningAssignmentUnauthorized() *PatchLearningAssignmentUnauthoriz
 	return &PatchLearningAssignmentUnauthorized{}
 }
 
-/*PatchLearningAssignmentUnauthorized handles this case with default header values.
+/*
+PatchLearningAssignmentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchLearningAssignmentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch learning assignment unauthorized response has a 2xx status code
+func (o *PatchLearningAssignmentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch learning assignment unauthorized response has a 3xx status code
+func (o *PatchLearningAssignmentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment unauthorized response has a 4xx status code
+func (o *PatchLearningAssignmentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch learning assignment unauthorized response has a 5xx status code
+func (o *PatchLearningAssignmentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch learning assignment unauthorized response a status code equal to that given
+func (o *PatchLearningAssignmentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchLearningAssignmentUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchLearningAssignmentUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchLearningAssignmentForbidden() *PatchLearningAssignmentForbidden {
 	return &PatchLearningAssignmentForbidden{}
 }
 
-/*PatchLearningAssignmentForbidden handles this case with default header values.
+/*
+PatchLearningAssignmentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchLearningAssignmentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch learning assignment forbidden response has a 2xx status code
+func (o *PatchLearningAssignmentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch learning assignment forbidden response has a 3xx status code
+func (o *PatchLearningAssignmentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment forbidden response has a 4xx status code
+func (o *PatchLearningAssignmentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch learning assignment forbidden response has a 5xx status code
+func (o *PatchLearningAssignmentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch learning assignment forbidden response a status code equal to that given
+func (o *PatchLearningAssignmentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchLearningAssignmentForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchLearningAssignmentForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchLearningAssignmentNotFound() *PatchLearningAssignmentNotFound {
 	return &PatchLearningAssignmentNotFound{}
 }
 
-/*PatchLearningAssignmentNotFound handles this case with default header values.
+/*
+PatchLearningAssignmentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchLearningAssignmentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch learning assignment not found response has a 2xx status code
+func (o *PatchLearningAssignmentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch learning assignment not found response has a 3xx status code
+func (o *PatchLearningAssignmentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment not found response has a 4xx status code
+func (o *PatchLearningAssignmentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch learning assignment not found response has a 5xx status code
+func (o *PatchLearningAssignmentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch learning assignment not found response a status code equal to that given
+func (o *PatchLearningAssignmentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchLearningAssignmentNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchLearningAssignmentNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchLearningAssignmentRequestTimeout() *PatchLearningAssignmentRequestT
 	return &PatchLearningAssignmentRequestTimeout{}
 }
 
-/*PatchLearningAssignmentRequestTimeout handles this case with default header values.
+/*
+PatchLearningAssignmentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchLearningAssignmentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch learning assignment request timeout response has a 2xx status code
+func (o *PatchLearningAssignmentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch learning assignment request timeout response has a 3xx status code
+func (o *PatchLearningAssignmentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment request timeout response has a 4xx status code
+func (o *PatchLearningAssignmentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch learning assignment request timeout response has a 5xx status code
+func (o *PatchLearningAssignmentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch learning assignment request timeout response a status code equal to that given
+func (o *PatchLearningAssignmentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchLearningAssignmentRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchLearningAssignmentRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchLearningAssignmentConflict() *PatchLearningAssignmentConflict {
 	return &PatchLearningAssignmentConflict{}
 }
 
-/*PatchLearningAssignmentConflict handles this case with default header values.
+/*
+PatchLearningAssignmentConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PatchLearningAssignmentConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch learning assignment conflict response has a 2xx status code
+func (o *PatchLearningAssignmentConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch learning assignment conflict response has a 3xx status code
+func (o *PatchLearningAssignmentConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment conflict response has a 4xx status code
+func (o *PatchLearningAssignmentConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch learning assignment conflict response has a 5xx status code
+func (o *PatchLearningAssignmentConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch learning assignment conflict response a status code equal to that given
+func (o *PatchLearningAssignmentConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchLearningAssignmentConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchLearningAssignmentConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchLearningAssignmentRequestEntityTooLarge() *PatchLearningAssignmentR
 	return &PatchLearningAssignmentRequestEntityTooLarge{}
 }
 
-/*PatchLearningAssignmentRequestEntityTooLarge handles this case with default header values.
+/*
+PatchLearningAssignmentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchLearningAssignmentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch learning assignment request entity too large response has a 2xx status code
+func (o *PatchLearningAssignmentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch learning assignment request entity too large response has a 3xx status code
+func (o *PatchLearningAssignmentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment request entity too large response has a 4xx status code
+func (o *PatchLearningAssignmentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch learning assignment request entity too large response has a 5xx status code
+func (o *PatchLearningAssignmentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch learning assignment request entity too large response a status code equal to that given
+func (o *PatchLearningAssignmentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchLearningAssignmentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchLearningAssignmentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchLearningAssignmentUnsupportedMediaType() *PatchLearningAssignmentUn
 	return &PatchLearningAssignmentUnsupportedMediaType{}
 }
 
-/*PatchLearningAssignmentUnsupportedMediaType handles this case with default header values.
+/*
+PatchLearningAssignmentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchLearningAssignmentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch learning assignment unsupported media type response has a 2xx status code
+func (o *PatchLearningAssignmentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch learning assignment unsupported media type response has a 3xx status code
+func (o *PatchLearningAssignmentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment unsupported media type response has a 4xx status code
+func (o *PatchLearningAssignmentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch learning assignment unsupported media type response has a 5xx status code
+func (o *PatchLearningAssignmentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch learning assignment unsupported media type response a status code equal to that given
+func (o *PatchLearningAssignmentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchLearningAssignmentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchLearningAssignmentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchLearningAssignmentTooManyRequests() *PatchLearningAssignmentTooMany
 	return &PatchLearningAssignmentTooManyRequests{}
 }
 
-/*PatchLearningAssignmentTooManyRequests handles this case with default header values.
+/*
+PatchLearningAssignmentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchLearningAssignmentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch learning assignment too many requests response has a 2xx status code
+func (o *PatchLearningAssignmentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch learning assignment too many requests response has a 3xx status code
+func (o *PatchLearningAssignmentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment too many requests response has a 4xx status code
+func (o *PatchLearningAssignmentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch learning assignment too many requests response has a 5xx status code
+func (o *PatchLearningAssignmentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch learning assignment too many requests response a status code equal to that given
+func (o *PatchLearningAssignmentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchLearningAssignmentTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchLearningAssignmentTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchLearningAssignmentInternalServerError() *PatchLearningAssignmentInt
 	return &PatchLearningAssignmentInternalServerError{}
 }
 
-/*PatchLearningAssignmentInternalServerError handles this case with default header values.
+/*
+PatchLearningAssignmentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchLearningAssignmentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch learning assignment internal server error response has a 2xx status code
+func (o *PatchLearningAssignmentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch learning assignment internal server error response has a 3xx status code
+func (o *PatchLearningAssignmentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment internal server error response has a 4xx status code
+func (o *PatchLearningAssignmentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch learning assignment internal server error response has a 5xx status code
+func (o *PatchLearningAssignmentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch learning assignment internal server error response a status code equal to that given
+func (o *PatchLearningAssignmentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchLearningAssignmentInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchLearningAssignmentInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchLearningAssignmentServiceUnavailable() *PatchLearningAssignmentServ
 	return &PatchLearningAssignmentServiceUnavailable{}
 }
 
-/*PatchLearningAssignmentServiceUnavailable handles this case with default header values.
+/*
+PatchLearningAssignmentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchLearningAssignmentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch learning assignment service unavailable response has a 2xx status code
+func (o *PatchLearningAssignmentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch learning assignment service unavailable response has a 3xx status code
+func (o *PatchLearningAssignmentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment service unavailable response has a 4xx status code
+func (o *PatchLearningAssignmentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch learning assignment service unavailable response has a 5xx status code
+func (o *PatchLearningAssignmentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch learning assignment service unavailable response a status code equal to that given
+func (o *PatchLearningAssignmentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchLearningAssignmentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchLearningAssignmentServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchLearningAssignmentGatewayTimeout() *PatchLearningAssignmentGatewayT
 	return &PatchLearningAssignmentGatewayTimeout{}
 }
 
-/*PatchLearningAssignmentGatewayTimeout handles this case with default header values.
+/*
+PatchLearningAssignmentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchLearningAssignmentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch learning assignment gateway timeout response has a 2xx status code
+func (o *PatchLearningAssignmentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch learning assignment gateway timeout response has a 3xx status code
+func (o *PatchLearningAssignmentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch learning assignment gateway timeout response has a 4xx status code
+func (o *PatchLearningAssignmentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch learning assignment gateway timeout response has a 5xx status code
+func (o *PatchLearningAssignmentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch learning assignment gateway timeout response a status code equal to that given
+func (o *PatchLearningAssignmentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchLearningAssignmentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchLearningAssignmentGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/learning/assignments/{assignmentId}][%d] patchLearningAssignmentGatewayTimeout  %+v", 504, o.Payload)
 }
 

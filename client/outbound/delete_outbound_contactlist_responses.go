@@ -95,7 +95,6 @@ func (o *DeleteOutboundContactlistReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteOutboundContactlistOK() *DeleteOutboundContactlistOK {
 	return &DeleteOutboundContactlistOK{}
 }
 
-/*DeleteOutboundContactlistOK handles this case with default header values.
+/*
+DeleteOutboundContactlistOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteOutboundContactlistOK struct {
 }
 
+// IsSuccess returns true when this delete outbound contactlist o k response has a 2xx status code
+func (o *DeleteOutboundContactlistOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete outbound contactlist o k response has a 3xx status code
+func (o *DeleteOutboundContactlistOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound contactlist o k response has a 4xx status code
+func (o *DeleteOutboundContactlistOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound contactlist o k response has a 5xx status code
+func (o *DeleteOutboundContactlistOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound contactlist o k response a status code equal to that given
+func (o *DeleteOutboundContactlistOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteOutboundContactlistOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistOK ", 200)
+}
+
+func (o *DeleteOutboundContactlistOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteOutboundContactlistBadRequest() *DeleteOutboundContactlistBadReque
 	return &DeleteOutboundContactlistBadRequest{}
 }
 
-/*DeleteOutboundContactlistBadRequest handles this case with default header values.
+/*
+DeleteOutboundContactlistBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteOutboundContactlistBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound contactlist bad request response has a 2xx status code
+func (o *DeleteOutboundContactlistBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound contactlist bad request response has a 3xx status code
+func (o *DeleteOutboundContactlistBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound contactlist bad request response has a 4xx status code
+func (o *DeleteOutboundContactlistBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound contactlist bad request response has a 5xx status code
+func (o *DeleteOutboundContactlistBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound contactlist bad request response a status code equal to that given
+func (o *DeleteOutboundContactlistBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOutboundContactlistBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOutboundContactlistBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteOutboundContactlistUnauthorized() *DeleteOutboundContactlistUnauth
 	return &DeleteOutboundContactlistUnauthorized{}
 }
 
-/*DeleteOutboundContactlistUnauthorized handles this case with default header values.
+/*
+DeleteOutboundContactlistUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteOutboundContactlistUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound contactlist unauthorized response has a 2xx status code
+func (o *DeleteOutboundContactlistUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound contactlist unauthorized response has a 3xx status code
+func (o *DeleteOutboundContactlistUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound contactlist unauthorized response has a 4xx status code
+func (o *DeleteOutboundContactlistUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound contactlist unauthorized response has a 5xx status code
+func (o *DeleteOutboundContactlistUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound contactlist unauthorized response a status code equal to that given
+func (o *DeleteOutboundContactlistUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOutboundContactlistUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOutboundContactlistUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteOutboundContactlistForbidden() *DeleteOutboundContactlistForbidden
 	return &DeleteOutboundContactlistForbidden{}
 }
 
-/*DeleteOutboundContactlistForbidden handles this case with default header values.
+/*
+DeleteOutboundContactlistForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteOutboundContactlistForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound contactlist forbidden response has a 2xx status code
+func (o *DeleteOutboundContactlistForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound contactlist forbidden response has a 3xx status code
+func (o *DeleteOutboundContactlistForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound contactlist forbidden response has a 4xx status code
+func (o *DeleteOutboundContactlistForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound contactlist forbidden response has a 5xx status code
+func (o *DeleteOutboundContactlistForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound contactlist forbidden response a status code equal to that given
+func (o *DeleteOutboundContactlistForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOutboundContactlistForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOutboundContactlistForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteOutboundContactlistNotFound() *DeleteOutboundContactlistNotFound {
 	return &DeleteOutboundContactlistNotFound{}
 }
 
-/*DeleteOutboundContactlistNotFound handles this case with default header values.
+/*
+DeleteOutboundContactlistNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteOutboundContactlistNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound contactlist not found response has a 2xx status code
+func (o *DeleteOutboundContactlistNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound contactlist not found response has a 3xx status code
+func (o *DeleteOutboundContactlistNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound contactlist not found response has a 4xx status code
+func (o *DeleteOutboundContactlistNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound contactlist not found response has a 5xx status code
+func (o *DeleteOutboundContactlistNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound contactlist not found response a status code equal to that given
+func (o *DeleteOutboundContactlistNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOutboundContactlistNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOutboundContactlistNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteOutboundContactlistRequestTimeout() *DeleteOutboundContactlistRequ
 	return &DeleteOutboundContactlistRequestTimeout{}
 }
 
-/*DeleteOutboundContactlistRequestTimeout handles this case with default header values.
+/*
+DeleteOutboundContactlistRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteOutboundContactlistRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound contactlist request timeout response has a 2xx status code
+func (o *DeleteOutboundContactlistRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound contactlist request timeout response has a 3xx status code
+func (o *DeleteOutboundContactlistRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound contactlist request timeout response has a 4xx status code
+func (o *DeleteOutboundContactlistRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound contactlist request timeout response has a 5xx status code
+func (o *DeleteOutboundContactlistRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound contactlist request timeout response a status code equal to that given
+func (o *DeleteOutboundContactlistRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOutboundContactlistRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundContactlistRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteOutboundContactlistRequestEntityTooLarge() *DeleteOutboundContactl
 	return &DeleteOutboundContactlistRequestEntityTooLarge{}
 }
 
-/*DeleteOutboundContactlistRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOutboundContactlistRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteOutboundContactlistRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound contactlist request entity too large response has a 2xx status code
+func (o *DeleteOutboundContactlistRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound contactlist request entity too large response has a 3xx status code
+func (o *DeleteOutboundContactlistRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound contactlist request entity too large response has a 4xx status code
+func (o *DeleteOutboundContactlistRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound contactlist request entity too large response has a 5xx status code
+func (o *DeleteOutboundContactlistRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound contactlist request entity too large response a status code equal to that given
+func (o *DeleteOutboundContactlistRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOutboundContactlistRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOutboundContactlistRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteOutboundContactlistUnsupportedMediaType() *DeleteOutboundContactli
 	return &DeleteOutboundContactlistUnsupportedMediaType{}
 }
 
-/*DeleteOutboundContactlistUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOutboundContactlistUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteOutboundContactlistUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound contactlist unsupported media type response has a 2xx status code
+func (o *DeleteOutboundContactlistUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound contactlist unsupported media type response has a 3xx status code
+func (o *DeleteOutboundContactlistUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound contactlist unsupported media type response has a 4xx status code
+func (o *DeleteOutboundContactlistUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound contactlist unsupported media type response has a 5xx status code
+func (o *DeleteOutboundContactlistUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound contactlist unsupported media type response a status code equal to that given
+func (o *DeleteOutboundContactlistUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOutboundContactlistUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOutboundContactlistUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteOutboundContactlistTooManyRequests() *DeleteOutboundContactlistToo
 	return &DeleteOutboundContactlistTooManyRequests{}
 }
 
-/*DeleteOutboundContactlistTooManyRequests handles this case with default header values.
+/*
+DeleteOutboundContactlistTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteOutboundContactlistTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound contactlist too many requests response has a 2xx status code
+func (o *DeleteOutboundContactlistTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound contactlist too many requests response has a 3xx status code
+func (o *DeleteOutboundContactlistTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound contactlist too many requests response has a 4xx status code
+func (o *DeleteOutboundContactlistTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound contactlist too many requests response has a 5xx status code
+func (o *DeleteOutboundContactlistTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound contactlist too many requests response a status code equal to that given
+func (o *DeleteOutboundContactlistTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOutboundContactlistTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOutboundContactlistTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteOutboundContactlistInternalServerError() *DeleteOutboundContactlis
 	return &DeleteOutboundContactlistInternalServerError{}
 }
 
-/*DeleteOutboundContactlistInternalServerError handles this case with default header values.
+/*
+DeleteOutboundContactlistInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteOutboundContactlistInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound contactlist internal server error response has a 2xx status code
+func (o *DeleteOutboundContactlistInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound contactlist internal server error response has a 3xx status code
+func (o *DeleteOutboundContactlistInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound contactlist internal server error response has a 4xx status code
+func (o *DeleteOutboundContactlistInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound contactlist internal server error response has a 5xx status code
+func (o *DeleteOutboundContactlistInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound contactlist internal server error response a status code equal to that given
+func (o *DeleteOutboundContactlistInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOutboundContactlistInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOutboundContactlistInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteOutboundContactlistServiceUnavailable() *DeleteOutboundContactlist
 	return &DeleteOutboundContactlistServiceUnavailable{}
 }
 
-/*DeleteOutboundContactlistServiceUnavailable handles this case with default header values.
+/*
+DeleteOutboundContactlistServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteOutboundContactlistServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound contactlist service unavailable response has a 2xx status code
+func (o *DeleteOutboundContactlistServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound contactlist service unavailable response has a 3xx status code
+func (o *DeleteOutboundContactlistServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound contactlist service unavailable response has a 4xx status code
+func (o *DeleteOutboundContactlistServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound contactlist service unavailable response has a 5xx status code
+func (o *DeleteOutboundContactlistServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound contactlist service unavailable response a status code equal to that given
+func (o *DeleteOutboundContactlistServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOutboundContactlistServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOutboundContactlistServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteOutboundContactlistGatewayTimeout() *DeleteOutboundContactlistGate
 	return &DeleteOutboundContactlistGatewayTimeout{}
 }
 
-/*DeleteOutboundContactlistGatewayTimeout handles this case with default header values.
+/*
+DeleteOutboundContactlistGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteOutboundContactlistGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound contactlist gateway timeout response has a 2xx status code
+func (o *DeleteOutboundContactlistGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound contactlist gateway timeout response has a 3xx status code
+func (o *DeleteOutboundContactlistGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound contactlist gateway timeout response has a 4xx status code
+func (o *DeleteOutboundContactlistGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound contactlist gateway timeout response has a 5xx status code
+func (o *DeleteOutboundContactlistGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound contactlist gateway timeout response a status code equal to that given
+func (o *DeleteOutboundContactlistGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOutboundContactlistGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOutboundContactlistGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/contactlists/{contactListId}][%d] deleteOutboundContactlistGatewayTimeout  %+v", 504, o.Payload)
 }
 

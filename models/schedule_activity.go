@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -65,7 +66,6 @@ func (m *ScheduleActivity) Validate(formats strfmt.Registry) error {
 }
 
 func (m *ScheduleActivity) validateDateStart(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateStart) { // not required
 		return nil
 	}
@@ -107,7 +107,6 @@ func (m *ScheduleActivity) validateExternalActivityTypeEnum(path, location strin
 }
 
 func (m *ScheduleActivity) validateExternalActivityType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ExternalActivityType) { // not required
 		return nil
 	}
@@ -117,6 +116,11 @@ func (m *ScheduleActivity) validateExternalActivityType(formats strfmt.Registry)
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this schedule activity based on context it is used
+func (m *ScheduleActivity) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

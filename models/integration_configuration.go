@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -91,14 +93,18 @@ func (m *IntegrationConfiguration) Validate(formats strfmt.Registry) error {
 
 func (m *IntegrationConfiguration) validateAdvanced(formats strfmt.Registry) error {
 
-	if err := validate.Required("advanced", "body", m.Advanced); err != nil {
-		return err
+	if m.Advanced == nil {
+		return errors.Required("advanced", "body", nil)
 	}
 
 	return nil
 }
 
 func (m *IntegrationConfiguration) validateCredentials(formats strfmt.Registry) error {
+
+	if err := validate.Required("credentials", "body", m.Credentials); err != nil {
+		return err
+	}
 
 	for k := range m.Credentials {
 
@@ -107,6 +113,11 @@ func (m *IntegrationConfiguration) validateCredentials(formats strfmt.Registry) 
 		}
 		if val, ok := m.Credentials[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("credentials" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("credentials" + "." + k)
+				}
 				return err
 			}
 		}
@@ -136,15 +147,14 @@ func (m *IntegrationConfiguration) validateNotes(formats strfmt.Registry) error 
 
 func (m *IntegrationConfiguration) validateProperties(formats strfmt.Registry) error {
 
-	if err := validate.Required("properties", "body", m.Properties); err != nil {
-		return err
+	if m.Properties == nil {
+		return errors.Required("properties", "body", nil)
 	}
 
 	return nil
 }
 
 func (m *IntegrationConfiguration) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -159,6 +169,65 @@ func (m *IntegrationConfiguration) validateSelfURI(formats strfmt.Registry) erro
 func (m *IntegrationConfiguration) validateVersion(formats strfmt.Registry) error {
 
 	if err := validate.Required("version", "body", m.Version); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this integration configuration based on the context it is used
+func (m *IntegrationConfiguration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCredentials(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *IntegrationConfiguration) contextValidateCredentials(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.Required("credentials", "body", m.Credentials); err != nil {
+		return err
+	}
+
+	for k := range m.Credentials {
+
+		if val, ok := m.Credentials[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *IntegrationConfiguration) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationConfiguration) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

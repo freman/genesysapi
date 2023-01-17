@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewHeadNotificationsChannelParams creates a new HeadNotificationsChannelParams object
-// with the default values initialized.
+// NewHeadNotificationsChannelParams creates a new HeadNotificationsChannelParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewHeadNotificationsChannelParams() *HeadNotificationsChannelParams {
-	var ()
 	return &HeadNotificationsChannelParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewHeadNotificationsChannelParamsWithTimeout creates a new HeadNotificationsChannelParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewHeadNotificationsChannelParamsWithTimeout(timeout time.Duration) *HeadNotificationsChannelParams {
-	var ()
 	return &HeadNotificationsChannelParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewHeadNotificationsChannelParamsWithContext creates a new HeadNotificationsChannelParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewHeadNotificationsChannelParamsWithContext(ctx context.Context) *HeadNotificationsChannelParams {
-	var ()
 	return &HeadNotificationsChannelParams{
-
 		Context: ctx,
 	}
 }
 
 // NewHeadNotificationsChannelParamsWithHTTPClient creates a new HeadNotificationsChannelParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewHeadNotificationsChannelParamsWithHTTPClient(client *http.Client) *HeadNotificationsChannelParams {
-	var ()
 	return &HeadNotificationsChannelParams{
 		HTTPClient: client,
 	}
 }
 
-/*HeadNotificationsChannelParams contains all the parameters to send to the API endpoint
-for the head notifications channel operation typically these are written to a http.Request
+/*
+HeadNotificationsChannelParams contains all the parameters to send to the API endpoint
+
+	for the head notifications channel operation.
+
+	Typically these are written to a http.Request.
 */
 type HeadNotificationsChannelParams struct {
 
-	/*ChannelID
-	  Channel ID
+	/* ChannelID.
 
+	   Channel ID
 	*/
 	ChannelID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the head notifications channel params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *HeadNotificationsChannelParams) WithDefaults() *HeadNotificationsChannelParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the head notifications channel params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *HeadNotificationsChannelParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the head notifications channel params

@@ -95,7 +95,6 @@ func (o *PostIntegrationsReader) ReadResponse(response runtime.ClientResponse, c
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostIntegrationsOK() *PostIntegrationsOK {
 	return &PostIntegrationsOK{}
 }
 
-/*PostIntegrationsOK handles this case with default header values.
+/*
+PostIntegrationsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostIntegrationsOK struct {
 	Payload *models.Integration
 }
 
+// IsSuccess returns true when this post integrations o k response has a 2xx status code
+func (o *PostIntegrationsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post integrations o k response has a 3xx status code
+func (o *PostIntegrationsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations o k response has a 4xx status code
+func (o *PostIntegrationsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post integrations o k response has a 5xx status code
+func (o *PostIntegrationsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations o k response a status code equal to that given
+func (o *PostIntegrationsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostIntegrationsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostIntegrationsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostIntegrationsBadRequest() *PostIntegrationsBadRequest {
 	return &PostIntegrationsBadRequest{}
 }
 
-/*PostIntegrationsBadRequest handles this case with default header values.
+/*
+PostIntegrationsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostIntegrationsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations bad request response has a 2xx status code
+func (o *PostIntegrationsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations bad request response has a 3xx status code
+func (o *PostIntegrationsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations bad request response has a 4xx status code
+func (o *PostIntegrationsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations bad request response has a 5xx status code
+func (o *PostIntegrationsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations bad request response a status code equal to that given
+func (o *PostIntegrationsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostIntegrationsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostIntegrationsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostIntegrationsUnauthorized() *PostIntegrationsUnauthorized {
 	return &PostIntegrationsUnauthorized{}
 }
 
-/*PostIntegrationsUnauthorized handles this case with default header values.
+/*
+PostIntegrationsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostIntegrationsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations unauthorized response has a 2xx status code
+func (o *PostIntegrationsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations unauthorized response has a 3xx status code
+func (o *PostIntegrationsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations unauthorized response has a 4xx status code
+func (o *PostIntegrationsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations unauthorized response has a 5xx status code
+func (o *PostIntegrationsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations unauthorized response a status code equal to that given
+func (o *PostIntegrationsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostIntegrationsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostIntegrationsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostIntegrationsForbidden() *PostIntegrationsForbidden {
 	return &PostIntegrationsForbidden{}
 }
 
-/*PostIntegrationsForbidden handles this case with default header values.
+/*
+PostIntegrationsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostIntegrationsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations forbidden response has a 2xx status code
+func (o *PostIntegrationsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations forbidden response has a 3xx status code
+func (o *PostIntegrationsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations forbidden response has a 4xx status code
+func (o *PostIntegrationsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations forbidden response has a 5xx status code
+func (o *PostIntegrationsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations forbidden response a status code equal to that given
+func (o *PostIntegrationsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostIntegrationsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostIntegrationsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostIntegrationsNotFound() *PostIntegrationsNotFound {
 	return &PostIntegrationsNotFound{}
 }
 
-/*PostIntegrationsNotFound handles this case with default header values.
+/*
+PostIntegrationsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostIntegrationsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations not found response has a 2xx status code
+func (o *PostIntegrationsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations not found response has a 3xx status code
+func (o *PostIntegrationsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations not found response has a 4xx status code
+func (o *PostIntegrationsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations not found response has a 5xx status code
+func (o *PostIntegrationsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations not found response a status code equal to that given
+func (o *PostIntegrationsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostIntegrationsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostIntegrationsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostIntegrationsRequestTimeout() *PostIntegrationsRequestTimeout {
 	return &PostIntegrationsRequestTimeout{}
 }
 
-/*PostIntegrationsRequestTimeout handles this case with default header values.
+/*
+PostIntegrationsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostIntegrationsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations request timeout response has a 2xx status code
+func (o *PostIntegrationsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations request timeout response has a 3xx status code
+func (o *PostIntegrationsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations request timeout response has a 4xx status code
+func (o *PostIntegrationsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations request timeout response has a 5xx status code
+func (o *PostIntegrationsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations request timeout response a status code equal to that given
+func (o *PostIntegrationsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostIntegrationsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostIntegrationsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostIntegrationsRequestEntityTooLarge() *PostIntegrationsRequestEntityTo
 	return &PostIntegrationsRequestEntityTooLarge{}
 }
 
-/*PostIntegrationsRequestEntityTooLarge handles this case with default header values.
+/*
+PostIntegrationsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostIntegrationsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations request entity too large response has a 2xx status code
+func (o *PostIntegrationsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations request entity too large response has a 3xx status code
+func (o *PostIntegrationsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations request entity too large response has a 4xx status code
+func (o *PostIntegrationsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations request entity too large response has a 5xx status code
+func (o *PostIntegrationsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations request entity too large response a status code equal to that given
+func (o *PostIntegrationsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostIntegrationsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostIntegrationsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostIntegrationsUnsupportedMediaType() *PostIntegrationsUnsupportedMedia
 	return &PostIntegrationsUnsupportedMediaType{}
 }
 
-/*PostIntegrationsUnsupportedMediaType handles this case with default header values.
+/*
+PostIntegrationsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostIntegrationsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations unsupported media type response has a 2xx status code
+func (o *PostIntegrationsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations unsupported media type response has a 3xx status code
+func (o *PostIntegrationsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations unsupported media type response has a 4xx status code
+func (o *PostIntegrationsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations unsupported media type response has a 5xx status code
+func (o *PostIntegrationsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations unsupported media type response a status code equal to that given
+func (o *PostIntegrationsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostIntegrationsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostIntegrationsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostIntegrationsTooManyRequests() *PostIntegrationsTooManyRequests {
 	return &PostIntegrationsTooManyRequests{}
 }
 
-/*PostIntegrationsTooManyRequests handles this case with default header values.
+/*
+PostIntegrationsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostIntegrationsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations too many requests response has a 2xx status code
+func (o *PostIntegrationsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations too many requests response has a 3xx status code
+func (o *PostIntegrationsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations too many requests response has a 4xx status code
+func (o *PostIntegrationsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post integrations too many requests response has a 5xx status code
+func (o *PostIntegrationsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post integrations too many requests response a status code equal to that given
+func (o *PostIntegrationsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostIntegrationsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostIntegrationsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostIntegrationsInternalServerError() *PostIntegrationsInternalServerErr
 	return &PostIntegrationsInternalServerError{}
 }
 
-/*PostIntegrationsInternalServerError handles this case with default header values.
+/*
+PostIntegrationsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostIntegrationsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations internal server error response has a 2xx status code
+func (o *PostIntegrationsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations internal server error response has a 3xx status code
+func (o *PostIntegrationsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations internal server error response has a 4xx status code
+func (o *PostIntegrationsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post integrations internal server error response has a 5xx status code
+func (o *PostIntegrationsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post integrations internal server error response a status code equal to that given
+func (o *PostIntegrationsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostIntegrationsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostIntegrationsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostIntegrationsServiceUnavailable() *PostIntegrationsServiceUnavailable
 	return &PostIntegrationsServiceUnavailable{}
 }
 
-/*PostIntegrationsServiceUnavailable handles this case with default header values.
+/*
+PostIntegrationsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostIntegrationsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations service unavailable response has a 2xx status code
+func (o *PostIntegrationsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations service unavailable response has a 3xx status code
+func (o *PostIntegrationsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations service unavailable response has a 4xx status code
+func (o *PostIntegrationsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post integrations service unavailable response has a 5xx status code
+func (o *PostIntegrationsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post integrations service unavailable response a status code equal to that given
+func (o *PostIntegrationsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostIntegrationsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostIntegrationsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostIntegrationsGatewayTimeout() *PostIntegrationsGatewayTimeout {
 	return &PostIntegrationsGatewayTimeout{}
 }
 
-/*PostIntegrationsGatewayTimeout handles this case with default header values.
+/*
+PostIntegrationsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostIntegrationsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post integrations gateway timeout response has a 2xx status code
+func (o *PostIntegrationsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post integrations gateway timeout response has a 3xx status code
+func (o *PostIntegrationsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post integrations gateway timeout response has a 4xx status code
+func (o *PostIntegrationsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post integrations gateway timeout response has a 5xx status code
+func (o *PostIntegrationsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post integrations gateway timeout response a status code equal to that given
+func (o *PostIntegrationsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostIntegrationsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostIntegrationsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/integrations][%d] postIntegrationsGatewayTimeout  %+v", 504, o.Payload)
 }
 

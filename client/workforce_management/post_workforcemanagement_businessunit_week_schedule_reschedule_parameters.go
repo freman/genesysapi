@@ -18,74 +18,95 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams creates a new PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams creates a new PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams() *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleParamsWithTimeout creates a new PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleParamsWithContext creates a new PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleParamsWithContext(ctx context.Context) *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleParamsWithHTTPClient creates a new PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementBusinessunitWeekScheduleRescheduleParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams {
-	var ()
 	return &PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement businessunit week schedule reschedule operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement businessunit week schedule reschedule operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.BuRescheduleRequest
-	/*BusinessUnitID
-	  The ID of the business unit
 
+	/* BusinessUnitID.
+
+	   The ID of the business unit
 	*/
 	BusinessUnitID string
-	/*ScheduleID
-	  The ID of the schedule
 
+	/* ScheduleID.
+
+	   The ID of the schedule
 	*/
 	ScheduleID string
-	/*WeekID
-	  First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* WeekID.
+
+	   First day of schedule week in yyyy-MM-dd format. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	WeekID strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement businessunit week schedule reschedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams) WithDefaults() *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement businessunit week schedule reschedule params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement businessunit week schedule reschedule params
@@ -172,7 +193,6 @@ func (o *PostWorkforcemanagementBusinessunitWeekScheduleRescheduleParams) WriteT
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

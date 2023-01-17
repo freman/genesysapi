@@ -101,7 +101,6 @@ func (o *GetQualityConversationsAuditsQueryTransactionIDReader) ReadResponse(res
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDOK() *GetQualityConversat
 	return &GetQualityConversationsAuditsQueryTransactionIDOK{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDOK handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDOK describes a response with status code 200, with default header values.
 
 Query execution completed.
 */
@@ -120,7 +120,36 @@ type GetQualityConversationsAuditsQueryTransactionIDOK struct {
 	Payload *models.QualityAuditQueryExecutionStatusResponse
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id o k response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id o k response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id o k response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id o k response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id o k response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdOK  %+v", 200, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDAccepted() *GetQualityCon
 	return &GetQualityConversationsAuditsQueryTransactionIDAccepted{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDAccepted handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDAccepted describes a response with status code 202, with default header values.
 
 In progress - Query execution is in progress.
 */
@@ -153,7 +183,36 @@ type GetQualityConversationsAuditsQueryTransactionIDAccepted struct {
 	Payload *models.QualityAuditQueryExecutionStatusResponse
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id accepted response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDAccepted) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id accepted response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDAccepted) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id accepted response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDAccepted) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id accepted response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDAccepted) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id accepted response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDAccepted) IsCode(code int) bool {
+	return code == 202
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDAccepted) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdAccepted  %+v", 202, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDAccepted) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdAccepted  %+v", 202, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDBadRequest() *GetQualityC
 	return &GetQualityConversationsAuditsQueryTransactionIDBadRequest{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDBadRequest handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type GetQualityConversationsAuditsQueryTransactionIDBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id bad request response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id bad request response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id bad request response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id bad request response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id bad request response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDUnauthorized() *GetQualit
 	return &GetQualityConversationsAuditsQueryTransactionIDUnauthorized{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDUnauthorized handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type GetQualityConversationsAuditsQueryTransactionIDUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id unauthorized response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id unauthorized response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id unauthorized response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id unauthorized response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id unauthorized response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDForbidden() *GetQualityCo
 	return &GetQualityConversationsAuditsQueryTransactionIDForbidden{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDForbidden handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type GetQualityConversationsAuditsQueryTransactionIDForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id forbidden response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id forbidden response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id forbidden response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id forbidden response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id forbidden response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDNotFound() *GetQualityCon
 	return &GetQualityConversationsAuditsQueryTransactionIDNotFound{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDNotFound handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type GetQualityConversationsAuditsQueryTransactionIDNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id not found response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id not found response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id not found response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id not found response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id not found response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDRequestTimeout() *GetQual
 	return &GetQualityConversationsAuditsQueryTransactionIDRequestTimeout{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDRequestTimeout handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type GetQualityConversationsAuditsQueryTransactionIDRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id request timeout response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id request timeout response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id request timeout response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id request timeout response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id request timeout response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDRequestEntityTooLarge() *
 	return &GetQualityConversationsAuditsQueryTransactionIDRequestEntityTooLarge{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDRequestEntityTooLarge handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type GetQualityConversationsAuditsQueryTransactionIDRequestEntityTooLarge struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id request entity too large response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id request entity too large response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id request entity too large response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id request entity too large response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id request entity too large response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDUnsupportedMediaType() *G
 	return &GetQualityConversationsAuditsQueryTransactionIDUnsupportedMediaType{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDUnsupportedMediaType handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type GetQualityConversationsAuditsQueryTransactionIDUnsupportedMediaType struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id unsupported media type response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id unsupported media type response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id unsupported media type response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id unsupported media type response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id unsupported media type response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDTooManyRequests() *GetQua
 	return &GetQualityConversationsAuditsQueryTransactionIDTooManyRequests{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDTooManyRequests handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type GetQualityConversationsAuditsQueryTransactionIDTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id too many requests response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id too many requests response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id too many requests response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id too many requests response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id too many requests response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDInternalServerError() *Ge
 	return &GetQualityConversationsAuditsQueryTransactionIDInternalServerError{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDInternalServerError handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type GetQualityConversationsAuditsQueryTransactionIDInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id internal server error response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id internal server error response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id internal server error response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id internal server error response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id internal server error response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDServiceUnavailable() *Get
 	return &GetQualityConversationsAuditsQueryTransactionIDServiceUnavailable{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDServiceUnavailable handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type GetQualityConversationsAuditsQueryTransactionIDServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id service unavailable response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id service unavailable response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id service unavailable response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id service unavailable response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id service unavailable response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewGetQualityConversationsAuditsQueryTransactionIDGatewayTimeout() *GetQual
 	return &GetQualityConversationsAuditsQueryTransactionIDGatewayTimeout{}
 }
 
-/*GetQualityConversationsAuditsQueryTransactionIDGatewayTimeout handles this case with default header values.
+/*
+GetQualityConversationsAuditsQueryTransactionIDGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type GetQualityConversationsAuditsQueryTransactionIDGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get quality conversations audits query transaction Id gateway timeout response has a 2xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get quality conversations audits query transaction Id gateway timeout response has a 3xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get quality conversations audits query transaction Id gateway timeout response has a 4xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get quality conversations audits query transaction Id gateway timeout response has a 5xx status code
+func (o *GetQualityConversationsAuditsQueryTransactionIDGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get quality conversations audits query transaction Id gateway timeout response a status code equal to that given
+func (o *GetQualityConversationsAuditsQueryTransactionIDGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetQualityConversationsAuditsQueryTransactionIDGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetQualityConversationsAuditsQueryTransactionIDGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/quality/conversations/audits/query/{transactionId}][%d] getQualityConversationsAuditsQueryTransactionIdGatewayTimeout  %+v", 504, o.Payload)
 }
 

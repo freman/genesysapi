@@ -95,7 +95,6 @@ func (o *DeleteRoutingAssessmentReader) ReadResponse(response runtime.ClientResp
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteRoutingAssessmentNoContent() *DeleteRoutingAssessmentNoContent {
 	return &DeleteRoutingAssessmentNoContent{}
 }
 
-/*DeleteRoutingAssessmentNoContent handles this case with default header values.
+/*
+DeleteRoutingAssessmentNoContent describes a response with status code 204, with default header values.
 
 Deleted successfully
 */
 type DeleteRoutingAssessmentNoContent struct {
 }
 
+// IsSuccess returns true when this delete routing assessment no content response has a 2xx status code
+func (o *DeleteRoutingAssessmentNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete routing assessment no content response has a 3xx status code
+func (o *DeleteRoutingAssessmentNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing assessment no content response has a 4xx status code
+func (o *DeleteRoutingAssessmentNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing assessment no content response has a 5xx status code
+func (o *DeleteRoutingAssessmentNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing assessment no content response a status code equal to that given
+func (o *DeleteRoutingAssessmentNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteRoutingAssessmentNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentNoContent ", 204)
+}
+
+func (o *DeleteRoutingAssessmentNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteRoutingAssessmentBadRequest() *DeleteRoutingAssessmentBadRequest {
 	return &DeleteRoutingAssessmentBadRequest{}
 }
 
-/*DeleteRoutingAssessmentBadRequest handles this case with default header values.
+/*
+DeleteRoutingAssessmentBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteRoutingAssessmentBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing assessment bad request response has a 2xx status code
+func (o *DeleteRoutingAssessmentBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing assessment bad request response has a 3xx status code
+func (o *DeleteRoutingAssessmentBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing assessment bad request response has a 4xx status code
+func (o *DeleteRoutingAssessmentBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing assessment bad request response has a 5xx status code
+func (o *DeleteRoutingAssessmentBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing assessment bad request response a status code equal to that given
+func (o *DeleteRoutingAssessmentBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteRoutingAssessmentBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteRoutingAssessmentBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteRoutingAssessmentUnauthorized() *DeleteRoutingAssessmentUnauthoriz
 	return &DeleteRoutingAssessmentUnauthorized{}
 }
 
-/*DeleteRoutingAssessmentUnauthorized handles this case with default header values.
+/*
+DeleteRoutingAssessmentUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteRoutingAssessmentUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing assessment unauthorized response has a 2xx status code
+func (o *DeleteRoutingAssessmentUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing assessment unauthorized response has a 3xx status code
+func (o *DeleteRoutingAssessmentUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing assessment unauthorized response has a 4xx status code
+func (o *DeleteRoutingAssessmentUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing assessment unauthorized response has a 5xx status code
+func (o *DeleteRoutingAssessmentUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing assessment unauthorized response a status code equal to that given
+func (o *DeleteRoutingAssessmentUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteRoutingAssessmentUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteRoutingAssessmentUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteRoutingAssessmentForbidden() *DeleteRoutingAssessmentForbidden {
 	return &DeleteRoutingAssessmentForbidden{}
 }
 
-/*DeleteRoutingAssessmentForbidden handles this case with default header values.
+/*
+DeleteRoutingAssessmentForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteRoutingAssessmentForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing assessment forbidden response has a 2xx status code
+func (o *DeleteRoutingAssessmentForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing assessment forbidden response has a 3xx status code
+func (o *DeleteRoutingAssessmentForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing assessment forbidden response has a 4xx status code
+func (o *DeleteRoutingAssessmentForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing assessment forbidden response has a 5xx status code
+func (o *DeleteRoutingAssessmentForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing assessment forbidden response a status code equal to that given
+func (o *DeleteRoutingAssessmentForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteRoutingAssessmentForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteRoutingAssessmentForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteRoutingAssessmentNotFound() *DeleteRoutingAssessmentNotFound {
 	return &DeleteRoutingAssessmentNotFound{}
 }
 
-/*DeleteRoutingAssessmentNotFound handles this case with default header values.
+/*
+DeleteRoutingAssessmentNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteRoutingAssessmentNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing assessment not found response has a 2xx status code
+func (o *DeleteRoutingAssessmentNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing assessment not found response has a 3xx status code
+func (o *DeleteRoutingAssessmentNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing assessment not found response has a 4xx status code
+func (o *DeleteRoutingAssessmentNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing assessment not found response has a 5xx status code
+func (o *DeleteRoutingAssessmentNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing assessment not found response a status code equal to that given
+func (o *DeleteRoutingAssessmentNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteRoutingAssessmentNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteRoutingAssessmentNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteRoutingAssessmentRequestTimeout() *DeleteRoutingAssessmentRequestT
 	return &DeleteRoutingAssessmentRequestTimeout{}
 }
 
-/*DeleteRoutingAssessmentRequestTimeout handles this case with default header values.
+/*
+DeleteRoutingAssessmentRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteRoutingAssessmentRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing assessment request timeout response has a 2xx status code
+func (o *DeleteRoutingAssessmentRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing assessment request timeout response has a 3xx status code
+func (o *DeleteRoutingAssessmentRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing assessment request timeout response has a 4xx status code
+func (o *DeleteRoutingAssessmentRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing assessment request timeout response has a 5xx status code
+func (o *DeleteRoutingAssessmentRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing assessment request timeout response a status code equal to that given
+func (o *DeleteRoutingAssessmentRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteRoutingAssessmentRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteRoutingAssessmentRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteRoutingAssessmentRequestEntityTooLarge() *DeleteRoutingAssessmentR
 	return &DeleteRoutingAssessmentRequestEntityTooLarge{}
 }
 
-/*DeleteRoutingAssessmentRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteRoutingAssessmentRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteRoutingAssessmentRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing assessment request entity too large response has a 2xx status code
+func (o *DeleteRoutingAssessmentRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing assessment request entity too large response has a 3xx status code
+func (o *DeleteRoutingAssessmentRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing assessment request entity too large response has a 4xx status code
+func (o *DeleteRoutingAssessmentRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing assessment request entity too large response has a 5xx status code
+func (o *DeleteRoutingAssessmentRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing assessment request entity too large response a status code equal to that given
+func (o *DeleteRoutingAssessmentRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteRoutingAssessmentRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteRoutingAssessmentRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteRoutingAssessmentUnsupportedMediaType() *DeleteRoutingAssessmentUn
 	return &DeleteRoutingAssessmentUnsupportedMediaType{}
 }
 
-/*DeleteRoutingAssessmentUnsupportedMediaType handles this case with default header values.
+/*
+DeleteRoutingAssessmentUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteRoutingAssessmentUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing assessment unsupported media type response has a 2xx status code
+func (o *DeleteRoutingAssessmentUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing assessment unsupported media type response has a 3xx status code
+func (o *DeleteRoutingAssessmentUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing assessment unsupported media type response has a 4xx status code
+func (o *DeleteRoutingAssessmentUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing assessment unsupported media type response has a 5xx status code
+func (o *DeleteRoutingAssessmentUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing assessment unsupported media type response a status code equal to that given
+func (o *DeleteRoutingAssessmentUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteRoutingAssessmentUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteRoutingAssessmentUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteRoutingAssessmentTooManyRequests() *DeleteRoutingAssessmentTooMany
 	return &DeleteRoutingAssessmentTooManyRequests{}
 }
 
-/*DeleteRoutingAssessmentTooManyRequests handles this case with default header values.
+/*
+DeleteRoutingAssessmentTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteRoutingAssessmentTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing assessment too many requests response has a 2xx status code
+func (o *DeleteRoutingAssessmentTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing assessment too many requests response has a 3xx status code
+func (o *DeleteRoutingAssessmentTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing assessment too many requests response has a 4xx status code
+func (o *DeleteRoutingAssessmentTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete routing assessment too many requests response has a 5xx status code
+func (o *DeleteRoutingAssessmentTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete routing assessment too many requests response a status code equal to that given
+func (o *DeleteRoutingAssessmentTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteRoutingAssessmentTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteRoutingAssessmentTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteRoutingAssessmentInternalServerError() *DeleteRoutingAssessmentInt
 	return &DeleteRoutingAssessmentInternalServerError{}
 }
 
-/*DeleteRoutingAssessmentInternalServerError handles this case with default header values.
+/*
+DeleteRoutingAssessmentInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteRoutingAssessmentInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing assessment internal server error response has a 2xx status code
+func (o *DeleteRoutingAssessmentInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing assessment internal server error response has a 3xx status code
+func (o *DeleteRoutingAssessmentInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing assessment internal server error response has a 4xx status code
+func (o *DeleteRoutingAssessmentInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing assessment internal server error response has a 5xx status code
+func (o *DeleteRoutingAssessmentInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing assessment internal server error response a status code equal to that given
+func (o *DeleteRoutingAssessmentInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteRoutingAssessmentInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteRoutingAssessmentInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteRoutingAssessmentServiceUnavailable() *DeleteRoutingAssessmentServ
 	return &DeleteRoutingAssessmentServiceUnavailable{}
 }
 
-/*DeleteRoutingAssessmentServiceUnavailable handles this case with default header values.
+/*
+DeleteRoutingAssessmentServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteRoutingAssessmentServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing assessment service unavailable response has a 2xx status code
+func (o *DeleteRoutingAssessmentServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing assessment service unavailable response has a 3xx status code
+func (o *DeleteRoutingAssessmentServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing assessment service unavailable response has a 4xx status code
+func (o *DeleteRoutingAssessmentServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing assessment service unavailable response has a 5xx status code
+func (o *DeleteRoutingAssessmentServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing assessment service unavailable response a status code equal to that given
+func (o *DeleteRoutingAssessmentServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteRoutingAssessmentServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteRoutingAssessmentServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteRoutingAssessmentGatewayTimeout() *DeleteRoutingAssessmentGatewayT
 	return &DeleteRoutingAssessmentGatewayTimeout{}
 }
 
-/*DeleteRoutingAssessmentGatewayTimeout handles this case with default header values.
+/*
+DeleteRoutingAssessmentGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteRoutingAssessmentGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete routing assessment gateway timeout response has a 2xx status code
+func (o *DeleteRoutingAssessmentGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete routing assessment gateway timeout response has a 3xx status code
+func (o *DeleteRoutingAssessmentGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete routing assessment gateway timeout response has a 4xx status code
+func (o *DeleteRoutingAssessmentGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete routing assessment gateway timeout response has a 5xx status code
+func (o *DeleteRoutingAssessmentGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete routing assessment gateway timeout response a status code equal to that given
+func (o *DeleteRoutingAssessmentGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteRoutingAssessmentGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteRoutingAssessmentGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/routing/assessments/{assessmentId}][%d] deleteRoutingAssessmentGatewayTimeout  %+v", 504, o.Payload)
 }
 

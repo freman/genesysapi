@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetVoicemailPolicyParams creates a new GetVoicemailPolicyParams object
-// with the default values initialized.
+// NewGetVoicemailPolicyParams creates a new GetVoicemailPolicyParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetVoicemailPolicyParams() *GetVoicemailPolicyParams {
-
 	return &GetVoicemailPolicyParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetVoicemailPolicyParamsWithTimeout creates a new GetVoicemailPolicyParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetVoicemailPolicyParamsWithTimeout(timeout time.Duration) *GetVoicemailPolicyParams {
-
 	return &GetVoicemailPolicyParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetVoicemailPolicyParamsWithContext creates a new GetVoicemailPolicyParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetVoicemailPolicyParamsWithContext(ctx context.Context) *GetVoicemailPolicyParams {
-
 	return &GetVoicemailPolicyParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetVoicemailPolicyParamsWithHTTPClient creates a new GetVoicemailPolicyParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetVoicemailPolicyParamsWithHTTPClient(client *http.Client) *GetVoicemailPolicyParams {
-
 	return &GetVoicemailPolicyParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetVoicemailPolicyParams contains all the parameters to send to the API endpoint
-for the get voicemail policy operation typically these are written to a http.Request
+/*
+GetVoicemailPolicyParams contains all the parameters to send to the API endpoint
+
+	for the get voicemail policy operation.
+
+	Typically these are written to a http.Request.
 */
 type GetVoicemailPolicyParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get voicemail policy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetVoicemailPolicyParams) WithDefaults() *GetVoicemailPolicyParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get voicemail policy params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetVoicemailPolicyParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get voicemail policy params

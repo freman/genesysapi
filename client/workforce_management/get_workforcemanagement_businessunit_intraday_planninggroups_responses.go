@@ -95,7 +95,6 @@ func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsReader) ReadRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsOK() *GetWorkfor
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsOK{}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsOK handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsOK struct {
 	Payload *models.WfmIntradayPlanningGroupListing
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit intraday planninggroups o k response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit intraday planninggroups o k response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit intraday planninggroups o k response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit intraday planninggroups o k response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit intraday planninggroups o k response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest() *Ge
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest{}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit intraday planninggroups bad request response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit intraday planninggroups bad request response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit intraday planninggroups bad request response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit intraday planninggroups bad request response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit intraday planninggroups bad request response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized() *
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized{}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit intraday planninggroups unauthorized response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit intraday planninggroups unauthorized response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit intraday planninggroups unauthorized response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit intraday planninggroups unauthorized response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit intraday planninggroups unauthorized response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden() *Get
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden{}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit intraday planninggroups forbidden response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit intraday planninggroups forbidden response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit intraday planninggroups forbidden response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit intraday planninggroups forbidden response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit intraday planninggroups forbidden response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound() *GetW
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound{}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit intraday planninggroups not found response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit intraday planninggroups not found response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit intraday planninggroups not found response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit intraday planninggroups not found response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit intraday planninggroups not found response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout()
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout{}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit intraday planninggroups request timeout response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit intraday planninggroups request timeout response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit intraday planninggroups request timeout response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit intraday planninggroups request timeout response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit intraday planninggroups request timeout response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityToo
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLarge{}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLarge handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLar
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit intraday planninggroups request entity too large response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit intraday planninggroups request entity too large response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit intraday planninggroups request entity too large response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit intraday planninggroups request entity too large response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit intraday planninggroups request entity too large response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMedia
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaType{}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaType handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaTyp
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit intraday planninggroups unsupported media type response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit intraday planninggroups unsupported media type response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit intraday planninggroups unsupported media type response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit intraday planninggroups unsupported media type response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit intraday planninggroups unsupported media type response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests(
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests{}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit intraday planninggroups too many requests response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit intraday planninggroups too many requests response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit intraday planninggroups too many requests response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit intraday planninggroups too many requests response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit intraday planninggroups too many requests response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerEr
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError{}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit intraday planninggroups internal server error response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit intraday planninggroups internal server error response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit intraday planninggroups internal server error response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit intraday planninggroups internal server error response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit intraday planninggroups internal server error response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailab
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable{}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit intraday planninggroups service unavailable response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit intraday planninggroups service unavailable response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit intraday planninggroups service unavailable response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit intraday planninggroups service unavailable response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit intraday planninggroups service unavailable response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout()
 	return &GetWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout{}
 }
 
-/*GetWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit intraday planninggroups gateway timeout response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit intraday planninggroups gateway timeout response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit intraday planninggroups gateway timeout response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit intraday planninggroups gateway timeout response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit intraday planninggroups gateway timeout response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/intraday/planninggroups][%d] getWorkforcemanagementBusinessunitIntradayPlanninggroupsGatewayTimeout  %+v", 504, o.Payload)
 }
 

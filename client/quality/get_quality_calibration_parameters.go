@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetQualityCalibrationParams creates a new GetQualityCalibrationParams object
-// with the default values initialized.
+// NewGetQualityCalibrationParams creates a new GetQualityCalibrationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetQualityCalibrationParams() *GetQualityCalibrationParams {
-	var ()
 	return &GetQualityCalibrationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetQualityCalibrationParamsWithTimeout creates a new GetQualityCalibrationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetQualityCalibrationParamsWithTimeout(timeout time.Duration) *GetQualityCalibrationParams {
-	var ()
 	return &GetQualityCalibrationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetQualityCalibrationParamsWithContext creates a new GetQualityCalibrationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetQualityCalibrationParamsWithContext(ctx context.Context) *GetQualityCalibrationParams {
-	var ()
 	return &GetQualityCalibrationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetQualityCalibrationParamsWithHTTPClient creates a new GetQualityCalibrationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetQualityCalibrationParamsWithHTTPClient(client *http.Client) *GetQualityCalibrationParams {
-	var ()
 	return &GetQualityCalibrationParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetQualityCalibrationParams contains all the parameters to send to the API endpoint
-for the get quality calibration operation typically these are written to a http.Request
+/*
+GetQualityCalibrationParams contains all the parameters to send to the API endpoint
+
+	for the get quality calibration operation.
+
+	Typically these are written to a http.Request.
 */
 type GetQualityCalibrationParams struct {
 
-	/*CalibrationID
-	  Calibration ID
+	/* CalibrationID.
 
+	   Calibration ID
 	*/
 	CalibrationID string
-	/*CalibratorID
-	  calibratorId
 
+	/* CalibratorID.
+
+	   calibratorId
 	*/
 	CalibratorID *string
-	/*ConversationID
-	  conversationId
 
+	/* ConversationID.
+
+	   conversationId
 	*/
 	ConversationID *string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get quality calibration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityCalibrationParams) WithDefaults() *GetQualityCalibrationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get quality calibration params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetQualityCalibrationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get quality calibration params
@@ -164,32 +182,34 @@ func (o *GetQualityCalibrationParams) WriteToRequest(r runtime.ClientRequest, re
 
 		// query param calibratorId
 		var qrCalibratorID string
+
 		if o.CalibratorID != nil {
 			qrCalibratorID = *o.CalibratorID
 		}
 		qCalibratorID := qrCalibratorID
 		if qCalibratorID != "" {
+
 			if err := r.SetQueryParam("calibratorId", qCalibratorID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.ConversationID != nil {
 
 		// query param conversationId
 		var qrConversationID string
+
 		if o.ConversationID != nil {
 			qrConversationID = *o.ConversationID
 		}
 		qConversationID := qrConversationID
 		if qConversationID != "" {
+
 			if err := r.SetQueryParam("conversationId", qConversationID); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

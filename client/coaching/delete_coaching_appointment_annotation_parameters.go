@@ -16,64 +16,81 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewDeleteCoachingAppointmentAnnotationParams creates a new DeleteCoachingAppointmentAnnotationParams object
-// with the default values initialized.
+// NewDeleteCoachingAppointmentAnnotationParams creates a new DeleteCoachingAppointmentAnnotationParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewDeleteCoachingAppointmentAnnotationParams() *DeleteCoachingAppointmentAnnotationParams {
-	var ()
 	return &DeleteCoachingAppointmentAnnotationParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewDeleteCoachingAppointmentAnnotationParamsWithTimeout creates a new DeleteCoachingAppointmentAnnotationParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewDeleteCoachingAppointmentAnnotationParamsWithTimeout(timeout time.Duration) *DeleteCoachingAppointmentAnnotationParams {
-	var ()
 	return &DeleteCoachingAppointmentAnnotationParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewDeleteCoachingAppointmentAnnotationParamsWithContext creates a new DeleteCoachingAppointmentAnnotationParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewDeleteCoachingAppointmentAnnotationParamsWithContext(ctx context.Context) *DeleteCoachingAppointmentAnnotationParams {
-	var ()
 	return &DeleteCoachingAppointmentAnnotationParams{
-
 		Context: ctx,
 	}
 }
 
 // NewDeleteCoachingAppointmentAnnotationParamsWithHTTPClient creates a new DeleteCoachingAppointmentAnnotationParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewDeleteCoachingAppointmentAnnotationParamsWithHTTPClient(client *http.Client) *DeleteCoachingAppointmentAnnotationParams {
-	var ()
 	return &DeleteCoachingAppointmentAnnotationParams{
 		HTTPClient: client,
 	}
 }
 
-/*DeleteCoachingAppointmentAnnotationParams contains all the parameters to send to the API endpoint
-for the delete coaching appointment annotation operation typically these are written to a http.Request
+/*
+DeleteCoachingAppointmentAnnotationParams contains all the parameters to send to the API endpoint
+
+	for the delete coaching appointment annotation operation.
+
+	Typically these are written to a http.Request.
 */
 type DeleteCoachingAppointmentAnnotationParams struct {
 
-	/*AnnotationID
-	  The ID of the annotation.
+	/* AnnotationID.
 
+	   The ID of the annotation.
 	*/
 	AnnotationID string
-	/*AppointmentID
-	  The ID of the coaching appointment.
 
+	/* AppointmentID.
+
+	   The ID of the coaching appointment.
 	*/
 	AppointmentID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the delete coaching appointment annotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteCoachingAppointmentAnnotationParams) WithDefaults() *DeleteCoachingAppointmentAnnotationParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the delete coaching appointment annotation params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *DeleteCoachingAppointmentAnnotationParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the delete coaching appointment annotation params

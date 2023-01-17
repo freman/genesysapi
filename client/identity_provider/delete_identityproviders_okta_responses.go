@@ -95,7 +95,6 @@ func (o *DeleteIdentityprovidersOktaReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewDeleteIdentityprovidersOktaOK() *DeleteIdentityprovidersOktaOK {
 	return &DeleteIdentityprovidersOktaOK{}
 }
 
-/*DeleteIdentityprovidersOktaOK handles this case with default header values.
+/*
+DeleteIdentityprovidersOktaOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type DeleteIdentityprovidersOktaOK struct {
 	Payload models.Empty
 }
 
+// IsSuccess returns true when this delete identityproviders okta o k response has a 2xx status code
+func (o *DeleteIdentityprovidersOktaOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete identityproviders okta o k response has a 3xx status code
+func (o *DeleteIdentityprovidersOktaOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders okta o k response has a 4xx status code
+func (o *DeleteIdentityprovidersOktaOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders okta o k response has a 5xx status code
+func (o *DeleteIdentityprovidersOktaOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders okta o k response a status code equal to that given
+func (o *DeleteIdentityprovidersOktaOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteIdentityprovidersOktaOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOktaOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewDeleteIdentityprovidersOktaBadRequest() *DeleteIdentityprovidersOktaBadR
 	return &DeleteIdentityprovidersOktaBadRequest{}
 }
 
-/*DeleteIdentityprovidersOktaBadRequest handles this case with default header values.
+/*
+DeleteIdentityprovidersOktaBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type DeleteIdentityprovidersOktaBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders okta bad request response has a 2xx status code
+func (o *DeleteIdentityprovidersOktaBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders okta bad request response has a 3xx status code
+func (o *DeleteIdentityprovidersOktaBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders okta bad request response has a 4xx status code
+func (o *DeleteIdentityprovidersOktaBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders okta bad request response has a 5xx status code
+func (o *DeleteIdentityprovidersOktaBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders okta bad request response a status code equal to that given
+func (o *DeleteIdentityprovidersOktaBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteIdentityprovidersOktaBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOktaBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewDeleteIdentityprovidersOktaUnauthorized() *DeleteIdentityprovidersOktaUn
 	return &DeleteIdentityprovidersOktaUnauthorized{}
 }
 
-/*DeleteIdentityprovidersOktaUnauthorized handles this case with default header values.
+/*
+DeleteIdentityprovidersOktaUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type DeleteIdentityprovidersOktaUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders okta unauthorized response has a 2xx status code
+func (o *DeleteIdentityprovidersOktaUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders okta unauthorized response has a 3xx status code
+func (o *DeleteIdentityprovidersOktaUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders okta unauthorized response has a 4xx status code
+func (o *DeleteIdentityprovidersOktaUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders okta unauthorized response has a 5xx status code
+func (o *DeleteIdentityprovidersOktaUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders okta unauthorized response a status code equal to that given
+func (o *DeleteIdentityprovidersOktaUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteIdentityprovidersOktaUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOktaUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewDeleteIdentityprovidersOktaForbidden() *DeleteIdentityprovidersOktaForbi
 	return &DeleteIdentityprovidersOktaForbidden{}
 }
 
-/*DeleteIdentityprovidersOktaForbidden handles this case with default header values.
+/*
+DeleteIdentityprovidersOktaForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type DeleteIdentityprovidersOktaForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders okta forbidden response has a 2xx status code
+func (o *DeleteIdentityprovidersOktaForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders okta forbidden response has a 3xx status code
+func (o *DeleteIdentityprovidersOktaForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders okta forbidden response has a 4xx status code
+func (o *DeleteIdentityprovidersOktaForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders okta forbidden response has a 5xx status code
+func (o *DeleteIdentityprovidersOktaForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders okta forbidden response a status code equal to that given
+func (o *DeleteIdentityprovidersOktaForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteIdentityprovidersOktaForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOktaForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewDeleteIdentityprovidersOktaNotFound() *DeleteIdentityprovidersOktaNotFou
 	return &DeleteIdentityprovidersOktaNotFound{}
 }
 
-/*DeleteIdentityprovidersOktaNotFound handles this case with default header values.
+/*
+DeleteIdentityprovidersOktaNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type DeleteIdentityprovidersOktaNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders okta not found response has a 2xx status code
+func (o *DeleteIdentityprovidersOktaNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders okta not found response has a 3xx status code
+func (o *DeleteIdentityprovidersOktaNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders okta not found response has a 4xx status code
+func (o *DeleteIdentityprovidersOktaNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders okta not found response has a 5xx status code
+func (o *DeleteIdentityprovidersOktaNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders okta not found response a status code equal to that given
+func (o *DeleteIdentityprovidersOktaNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteIdentityprovidersOktaNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOktaNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewDeleteIdentityprovidersOktaRequestTimeout() *DeleteIdentityprovidersOkta
 	return &DeleteIdentityprovidersOktaRequestTimeout{}
 }
 
-/*DeleteIdentityprovidersOktaRequestTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersOktaRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type DeleteIdentityprovidersOktaRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders okta request timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersOktaRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders okta request timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersOktaRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders okta request timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersOktaRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders okta request timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersOktaRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders okta request timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersOktaRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteIdentityprovidersOktaRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOktaRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewDeleteIdentityprovidersOktaRequestEntityTooLarge() *DeleteIdentityprovid
 	return &DeleteIdentityprovidersOktaRequestEntityTooLarge{}
 }
 
-/*DeleteIdentityprovidersOktaRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteIdentityprovidersOktaRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type DeleteIdentityprovidersOktaRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders okta request entity too large response has a 2xx status code
+func (o *DeleteIdentityprovidersOktaRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders okta request entity too large response has a 3xx status code
+func (o *DeleteIdentityprovidersOktaRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders okta request entity too large response has a 4xx status code
+func (o *DeleteIdentityprovidersOktaRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders okta request entity too large response has a 5xx status code
+func (o *DeleteIdentityprovidersOktaRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders okta request entity too large response a status code equal to that given
+func (o *DeleteIdentityprovidersOktaRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteIdentityprovidersOktaRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOktaRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewDeleteIdentityprovidersOktaUnsupportedMediaType() *DeleteIdentityprovide
 	return &DeleteIdentityprovidersOktaUnsupportedMediaType{}
 }
 
-/*DeleteIdentityprovidersOktaUnsupportedMediaType handles this case with default header values.
+/*
+DeleteIdentityprovidersOktaUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type DeleteIdentityprovidersOktaUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders okta unsupported media type response has a 2xx status code
+func (o *DeleteIdentityprovidersOktaUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders okta unsupported media type response has a 3xx status code
+func (o *DeleteIdentityprovidersOktaUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders okta unsupported media type response has a 4xx status code
+func (o *DeleteIdentityprovidersOktaUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders okta unsupported media type response has a 5xx status code
+func (o *DeleteIdentityprovidersOktaUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders okta unsupported media type response a status code equal to that given
+func (o *DeleteIdentityprovidersOktaUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteIdentityprovidersOktaUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOktaUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewDeleteIdentityprovidersOktaTooManyRequests() *DeleteIdentityprovidersOkt
 	return &DeleteIdentityprovidersOktaTooManyRequests{}
 }
 
-/*DeleteIdentityprovidersOktaTooManyRequests handles this case with default header values.
+/*
+DeleteIdentityprovidersOktaTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type DeleteIdentityprovidersOktaTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders okta too many requests response has a 2xx status code
+func (o *DeleteIdentityprovidersOktaTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders okta too many requests response has a 3xx status code
+func (o *DeleteIdentityprovidersOktaTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders okta too many requests response has a 4xx status code
+func (o *DeleteIdentityprovidersOktaTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete identityproviders okta too many requests response has a 5xx status code
+func (o *DeleteIdentityprovidersOktaTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete identityproviders okta too many requests response a status code equal to that given
+func (o *DeleteIdentityprovidersOktaTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteIdentityprovidersOktaTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOktaTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewDeleteIdentityprovidersOktaInternalServerError() *DeleteIdentityprovider
 	return &DeleteIdentityprovidersOktaInternalServerError{}
 }
 
-/*DeleteIdentityprovidersOktaInternalServerError handles this case with default header values.
+/*
+DeleteIdentityprovidersOktaInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type DeleteIdentityprovidersOktaInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders okta internal server error response has a 2xx status code
+func (o *DeleteIdentityprovidersOktaInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders okta internal server error response has a 3xx status code
+func (o *DeleteIdentityprovidersOktaInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders okta internal server error response has a 4xx status code
+func (o *DeleteIdentityprovidersOktaInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders okta internal server error response has a 5xx status code
+func (o *DeleteIdentityprovidersOktaInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders okta internal server error response a status code equal to that given
+func (o *DeleteIdentityprovidersOktaInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteIdentityprovidersOktaInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOktaInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewDeleteIdentityprovidersOktaServiceUnavailable() *DeleteIdentityproviders
 	return &DeleteIdentityprovidersOktaServiceUnavailable{}
 }
 
-/*DeleteIdentityprovidersOktaServiceUnavailable handles this case with default header values.
+/*
+DeleteIdentityprovidersOktaServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type DeleteIdentityprovidersOktaServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders okta service unavailable response has a 2xx status code
+func (o *DeleteIdentityprovidersOktaServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders okta service unavailable response has a 3xx status code
+func (o *DeleteIdentityprovidersOktaServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders okta service unavailable response has a 4xx status code
+func (o *DeleteIdentityprovidersOktaServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders okta service unavailable response has a 5xx status code
+func (o *DeleteIdentityprovidersOktaServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders okta service unavailable response a status code equal to that given
+func (o *DeleteIdentityprovidersOktaServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteIdentityprovidersOktaServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOktaServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewDeleteIdentityprovidersOktaGatewayTimeout() *DeleteIdentityprovidersOkta
 	return &DeleteIdentityprovidersOktaGatewayTimeout{}
 }
 
-/*DeleteIdentityprovidersOktaGatewayTimeout handles this case with default header values.
+/*
+DeleteIdentityprovidersOktaGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type DeleteIdentityprovidersOktaGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete identityproviders okta gateway timeout response has a 2xx status code
+func (o *DeleteIdentityprovidersOktaGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete identityproviders okta gateway timeout response has a 3xx status code
+func (o *DeleteIdentityprovidersOktaGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete identityproviders okta gateway timeout response has a 4xx status code
+func (o *DeleteIdentityprovidersOktaGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete identityproviders okta gateway timeout response has a 5xx status code
+func (o *DeleteIdentityprovidersOktaGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete identityproviders okta gateway timeout response a status code equal to that given
+func (o *DeleteIdentityprovidersOktaGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteIdentityprovidersOktaGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteIdentityprovidersOktaGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/identityproviders/okta][%d] deleteIdentityprovidersOktaGatewayTimeout  %+v", 504, o.Payload)
 }
 

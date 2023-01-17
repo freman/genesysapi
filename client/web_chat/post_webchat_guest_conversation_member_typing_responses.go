@@ -95,7 +95,6 @@ func (o *PostWebchatGuestConversationMemberTypingReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostWebchatGuestConversationMemberTypingOK() *PostWebchatGuestConversati
 	return &PostWebchatGuestConversationMemberTypingOK{}
 }
 
-/*PostWebchatGuestConversationMemberTypingOK handles this case with default header values.
+/*
+PostWebchatGuestConversationMemberTypingOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostWebchatGuestConversationMemberTypingOK struct {
 	Payload *models.WebChatTyping
 }
 
+// IsSuccess returns true when this post webchat guest conversation member typing o k response has a 2xx status code
+func (o *PostWebchatGuestConversationMemberTypingOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post webchat guest conversation member typing o k response has a 3xx status code
+func (o *PostWebchatGuestConversationMemberTypingOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat guest conversation member typing o k response has a 4xx status code
+func (o *PostWebchatGuestConversationMemberTypingOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post webchat guest conversation member typing o k response has a 5xx status code
+func (o *PostWebchatGuestConversationMemberTypingOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat guest conversation member typing o k response a status code equal to that given
+func (o *PostWebchatGuestConversationMemberTypingOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWebchatGuestConversationMemberTypingOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostWebchatGuestConversationMemberTypingBadRequest() *PostWebchatGuestCo
 	return &PostWebchatGuestConversationMemberTypingBadRequest{}
 }
 
-/*PostWebchatGuestConversationMemberTypingBadRequest handles this case with default header values.
+/*
+PostWebchatGuestConversationMemberTypingBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostWebchatGuestConversationMemberTypingBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat guest conversation member typing bad request response has a 2xx status code
+func (o *PostWebchatGuestConversationMemberTypingBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat guest conversation member typing bad request response has a 3xx status code
+func (o *PostWebchatGuestConversationMemberTypingBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat guest conversation member typing bad request response has a 4xx status code
+func (o *PostWebchatGuestConversationMemberTypingBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat guest conversation member typing bad request response has a 5xx status code
+func (o *PostWebchatGuestConversationMemberTypingBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat guest conversation member typing bad request response a status code equal to that given
+func (o *PostWebchatGuestConversationMemberTypingBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWebchatGuestConversationMemberTypingBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostWebchatGuestConversationMemberTypingUnauthorized() *PostWebchatGuest
 	return &PostWebchatGuestConversationMemberTypingUnauthorized{}
 }
 
-/*PostWebchatGuestConversationMemberTypingUnauthorized handles this case with default header values.
+/*
+PostWebchatGuestConversationMemberTypingUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostWebchatGuestConversationMemberTypingUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat guest conversation member typing unauthorized response has a 2xx status code
+func (o *PostWebchatGuestConversationMemberTypingUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat guest conversation member typing unauthorized response has a 3xx status code
+func (o *PostWebchatGuestConversationMemberTypingUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat guest conversation member typing unauthorized response has a 4xx status code
+func (o *PostWebchatGuestConversationMemberTypingUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat guest conversation member typing unauthorized response has a 5xx status code
+func (o *PostWebchatGuestConversationMemberTypingUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat guest conversation member typing unauthorized response a status code equal to that given
+func (o *PostWebchatGuestConversationMemberTypingUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWebchatGuestConversationMemberTypingUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostWebchatGuestConversationMemberTypingForbidden() *PostWebchatGuestCon
 	return &PostWebchatGuestConversationMemberTypingForbidden{}
 }
 
-/*PostWebchatGuestConversationMemberTypingForbidden handles this case with default header values.
+/*
+PostWebchatGuestConversationMemberTypingForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostWebchatGuestConversationMemberTypingForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat guest conversation member typing forbidden response has a 2xx status code
+func (o *PostWebchatGuestConversationMemberTypingForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat guest conversation member typing forbidden response has a 3xx status code
+func (o *PostWebchatGuestConversationMemberTypingForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat guest conversation member typing forbidden response has a 4xx status code
+func (o *PostWebchatGuestConversationMemberTypingForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat guest conversation member typing forbidden response has a 5xx status code
+func (o *PostWebchatGuestConversationMemberTypingForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat guest conversation member typing forbidden response a status code equal to that given
+func (o *PostWebchatGuestConversationMemberTypingForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWebchatGuestConversationMemberTypingForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostWebchatGuestConversationMemberTypingNotFound() *PostWebchatGuestConv
 	return &PostWebchatGuestConversationMemberTypingNotFound{}
 }
 
-/*PostWebchatGuestConversationMemberTypingNotFound handles this case with default header values.
+/*
+PostWebchatGuestConversationMemberTypingNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostWebchatGuestConversationMemberTypingNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat guest conversation member typing not found response has a 2xx status code
+func (o *PostWebchatGuestConversationMemberTypingNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat guest conversation member typing not found response has a 3xx status code
+func (o *PostWebchatGuestConversationMemberTypingNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat guest conversation member typing not found response has a 4xx status code
+func (o *PostWebchatGuestConversationMemberTypingNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat guest conversation member typing not found response has a 5xx status code
+func (o *PostWebchatGuestConversationMemberTypingNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat guest conversation member typing not found response a status code equal to that given
+func (o *PostWebchatGuestConversationMemberTypingNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWebchatGuestConversationMemberTypingNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostWebchatGuestConversationMemberTypingRequestTimeout() *PostWebchatGue
 	return &PostWebchatGuestConversationMemberTypingRequestTimeout{}
 }
 
-/*PostWebchatGuestConversationMemberTypingRequestTimeout handles this case with default header values.
+/*
+PostWebchatGuestConversationMemberTypingRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostWebchatGuestConversationMemberTypingRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat guest conversation member typing request timeout response has a 2xx status code
+func (o *PostWebchatGuestConversationMemberTypingRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat guest conversation member typing request timeout response has a 3xx status code
+func (o *PostWebchatGuestConversationMemberTypingRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat guest conversation member typing request timeout response has a 4xx status code
+func (o *PostWebchatGuestConversationMemberTypingRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat guest conversation member typing request timeout response has a 5xx status code
+func (o *PostWebchatGuestConversationMemberTypingRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat guest conversation member typing request timeout response a status code equal to that given
+func (o *PostWebchatGuestConversationMemberTypingRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWebchatGuestConversationMemberTypingRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostWebchatGuestConversationMemberTypingRequestEntityTooLarge() *PostWeb
 	return &PostWebchatGuestConversationMemberTypingRequestEntityTooLarge{}
 }
 
-/*PostWebchatGuestConversationMemberTypingRequestEntityTooLarge handles this case with default header values.
+/*
+PostWebchatGuestConversationMemberTypingRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostWebchatGuestConversationMemberTypingRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat guest conversation member typing request entity too large response has a 2xx status code
+func (o *PostWebchatGuestConversationMemberTypingRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat guest conversation member typing request entity too large response has a 3xx status code
+func (o *PostWebchatGuestConversationMemberTypingRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat guest conversation member typing request entity too large response has a 4xx status code
+func (o *PostWebchatGuestConversationMemberTypingRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat guest conversation member typing request entity too large response has a 5xx status code
+func (o *PostWebchatGuestConversationMemberTypingRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat guest conversation member typing request entity too large response a status code equal to that given
+func (o *PostWebchatGuestConversationMemberTypingRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWebchatGuestConversationMemberTypingRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostWebchatGuestConversationMemberTypingUnsupportedMediaType() *PostWebc
 	return &PostWebchatGuestConversationMemberTypingUnsupportedMediaType{}
 }
 
-/*PostWebchatGuestConversationMemberTypingUnsupportedMediaType handles this case with default header values.
+/*
+PostWebchatGuestConversationMemberTypingUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostWebchatGuestConversationMemberTypingUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat guest conversation member typing unsupported media type response has a 2xx status code
+func (o *PostWebchatGuestConversationMemberTypingUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat guest conversation member typing unsupported media type response has a 3xx status code
+func (o *PostWebchatGuestConversationMemberTypingUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat guest conversation member typing unsupported media type response has a 4xx status code
+func (o *PostWebchatGuestConversationMemberTypingUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat guest conversation member typing unsupported media type response has a 5xx status code
+func (o *PostWebchatGuestConversationMemberTypingUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat guest conversation member typing unsupported media type response a status code equal to that given
+func (o *PostWebchatGuestConversationMemberTypingUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWebchatGuestConversationMemberTypingUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostWebchatGuestConversationMemberTypingTooManyRequests() *PostWebchatGu
 	return &PostWebchatGuestConversationMemberTypingTooManyRequests{}
 }
 
-/*PostWebchatGuestConversationMemberTypingTooManyRequests handles this case with default header values.
+/*
+PostWebchatGuestConversationMemberTypingTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostWebchatGuestConversationMemberTypingTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat guest conversation member typing too many requests response has a 2xx status code
+func (o *PostWebchatGuestConversationMemberTypingTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat guest conversation member typing too many requests response has a 3xx status code
+func (o *PostWebchatGuestConversationMemberTypingTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat guest conversation member typing too many requests response has a 4xx status code
+func (o *PostWebchatGuestConversationMemberTypingTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post webchat guest conversation member typing too many requests response has a 5xx status code
+func (o *PostWebchatGuestConversationMemberTypingTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post webchat guest conversation member typing too many requests response a status code equal to that given
+func (o *PostWebchatGuestConversationMemberTypingTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWebchatGuestConversationMemberTypingTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostWebchatGuestConversationMemberTypingInternalServerError() *PostWebch
 	return &PostWebchatGuestConversationMemberTypingInternalServerError{}
 }
 
-/*PostWebchatGuestConversationMemberTypingInternalServerError handles this case with default header values.
+/*
+PostWebchatGuestConversationMemberTypingInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostWebchatGuestConversationMemberTypingInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat guest conversation member typing internal server error response has a 2xx status code
+func (o *PostWebchatGuestConversationMemberTypingInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat guest conversation member typing internal server error response has a 3xx status code
+func (o *PostWebchatGuestConversationMemberTypingInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat guest conversation member typing internal server error response has a 4xx status code
+func (o *PostWebchatGuestConversationMemberTypingInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post webchat guest conversation member typing internal server error response has a 5xx status code
+func (o *PostWebchatGuestConversationMemberTypingInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post webchat guest conversation member typing internal server error response a status code equal to that given
+func (o *PostWebchatGuestConversationMemberTypingInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWebchatGuestConversationMemberTypingInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostWebchatGuestConversationMemberTypingServiceUnavailable() *PostWebcha
 	return &PostWebchatGuestConversationMemberTypingServiceUnavailable{}
 }
 
-/*PostWebchatGuestConversationMemberTypingServiceUnavailable handles this case with default header values.
+/*
+PostWebchatGuestConversationMemberTypingServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostWebchatGuestConversationMemberTypingServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat guest conversation member typing service unavailable response has a 2xx status code
+func (o *PostWebchatGuestConversationMemberTypingServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat guest conversation member typing service unavailable response has a 3xx status code
+func (o *PostWebchatGuestConversationMemberTypingServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat guest conversation member typing service unavailable response has a 4xx status code
+func (o *PostWebchatGuestConversationMemberTypingServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post webchat guest conversation member typing service unavailable response has a 5xx status code
+func (o *PostWebchatGuestConversationMemberTypingServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post webchat guest conversation member typing service unavailable response a status code equal to that given
+func (o *PostWebchatGuestConversationMemberTypingServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWebchatGuestConversationMemberTypingServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostWebchatGuestConversationMemberTypingGatewayTimeout() *PostWebchatGue
 	return &PostWebchatGuestConversationMemberTypingGatewayTimeout{}
 }
 
-/*PostWebchatGuestConversationMemberTypingGatewayTimeout handles this case with default header values.
+/*
+PostWebchatGuestConversationMemberTypingGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostWebchatGuestConversationMemberTypingGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post webchat guest conversation member typing gateway timeout response has a 2xx status code
+func (o *PostWebchatGuestConversationMemberTypingGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post webchat guest conversation member typing gateway timeout response has a 3xx status code
+func (o *PostWebchatGuestConversationMemberTypingGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post webchat guest conversation member typing gateway timeout response has a 4xx status code
+func (o *PostWebchatGuestConversationMemberTypingGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post webchat guest conversation member typing gateway timeout response has a 5xx status code
+func (o *PostWebchatGuestConversationMemberTypingGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post webchat guest conversation member typing gateway timeout response a status code equal to that given
+func (o *PostWebchatGuestConversationMemberTypingGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWebchatGuestConversationMemberTypingGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWebchatGuestConversationMemberTypingGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/webchat/guest/conversations/{conversationId}/members/{memberId}/typing][%d] postWebchatGuestConversationMemberTypingGatewayTimeout  %+v", 504, o.Payload)
 }
 

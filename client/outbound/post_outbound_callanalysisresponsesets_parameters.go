@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOutboundCallanalysisresponsesetsParams creates a new PostOutboundCallanalysisresponsesetsParams object
-// with the default values initialized.
+// NewPostOutboundCallanalysisresponsesetsParams creates a new PostOutboundCallanalysisresponsesetsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOutboundCallanalysisresponsesetsParams() *PostOutboundCallanalysisresponsesetsParams {
-	var ()
 	return &PostOutboundCallanalysisresponsesetsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOutboundCallanalysisresponsesetsParamsWithTimeout creates a new PostOutboundCallanalysisresponsesetsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOutboundCallanalysisresponsesetsParamsWithTimeout(timeout time.Duration) *PostOutboundCallanalysisresponsesetsParams {
-	var ()
 	return &PostOutboundCallanalysisresponsesetsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOutboundCallanalysisresponsesetsParamsWithContext creates a new PostOutboundCallanalysisresponsesetsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOutboundCallanalysisresponsesetsParamsWithContext(ctx context.Context) *PostOutboundCallanalysisresponsesetsParams {
-	var ()
 	return &PostOutboundCallanalysisresponsesetsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOutboundCallanalysisresponsesetsParamsWithHTTPClient creates a new PostOutboundCallanalysisresponsesetsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOutboundCallanalysisresponsesetsParamsWithHTTPClient(client *http.Client) *PostOutboundCallanalysisresponsesetsParams {
-	var ()
 	return &PostOutboundCallanalysisresponsesetsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOutboundCallanalysisresponsesetsParams contains all the parameters to send to the API endpoint
-for the post outbound callanalysisresponsesets operation typically these are written to a http.Request
+/*
+PostOutboundCallanalysisresponsesetsParams contains all the parameters to send to the API endpoint
+
+	for the post outbound callanalysisresponsesets operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOutboundCallanalysisresponsesetsParams struct {
 
-	/*Body
-	  ResponseSet
+	/* Body.
 
+	   ResponseSet
 	*/
 	Body *models.ResponseSet
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post outbound callanalysisresponsesets params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundCallanalysisresponsesetsParams) WithDefaults() *PostOutboundCallanalysisresponsesetsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post outbound callanalysisresponsesets params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOutboundCallanalysisresponsesetsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post outbound callanalysisresponsesets params
@@ -124,7 +140,6 @@ func (o *PostOutboundCallanalysisresponsesetsParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutResponsemanagementLibraryParams creates a new PutResponsemanagementLibraryParams object
-// with the default values initialized.
+// NewPutResponsemanagementLibraryParams creates a new PutResponsemanagementLibraryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutResponsemanagementLibraryParams() *PutResponsemanagementLibraryParams {
-	var ()
 	return &PutResponsemanagementLibraryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutResponsemanagementLibraryParamsWithTimeout creates a new PutResponsemanagementLibraryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutResponsemanagementLibraryParamsWithTimeout(timeout time.Duration) *PutResponsemanagementLibraryParams {
-	var ()
 	return &PutResponsemanagementLibraryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutResponsemanagementLibraryParamsWithContext creates a new PutResponsemanagementLibraryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutResponsemanagementLibraryParamsWithContext(ctx context.Context) *PutResponsemanagementLibraryParams {
-	var ()
 	return &PutResponsemanagementLibraryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutResponsemanagementLibraryParamsWithHTTPClient creates a new PutResponsemanagementLibraryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutResponsemanagementLibraryParamsWithHTTPClient(client *http.Client) *PutResponsemanagementLibraryParams {
-	var ()
 	return &PutResponsemanagementLibraryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutResponsemanagementLibraryParams contains all the parameters to send to the API endpoint
-for the put responsemanagement library operation typically these are written to a http.Request
+/*
+PutResponsemanagementLibraryParams contains all the parameters to send to the API endpoint
+
+	for the put responsemanagement library operation.
+
+	Typically these are written to a http.Request.
 */
 type PutResponsemanagementLibraryParams struct {
 
-	/*Body
-	  Library
+	/* Body.
 
+	   Library
 	*/
 	Body *models.Library
-	/*LibraryID
-	  Library ID
 
+	/* LibraryID.
+
+	   Library ID
 	*/
 	LibraryID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put responsemanagement library params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutResponsemanagementLibraryParams) WithDefaults() *PutResponsemanagementLibraryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put responsemanagement library params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutResponsemanagementLibraryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put responsemanagement library params
@@ -140,7 +157,6 @@ func (o *PutResponsemanagementLibraryParams) WriteToRequest(r runtime.ClientRequ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

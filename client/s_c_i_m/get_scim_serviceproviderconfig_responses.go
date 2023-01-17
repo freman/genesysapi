@@ -95,7 +95,6 @@ func (o *GetScimServiceproviderconfigReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetScimServiceproviderconfigOK() *GetScimServiceproviderconfigOK {
 	return &GetScimServiceproviderconfigOK{}
 }
 
-/*GetScimServiceproviderconfigOK handles this case with default header values.
+/*
+GetScimServiceproviderconfigOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetScimServiceproviderconfigOK struct {
 	Payload *models.ScimServiceProviderConfig
 }
 
+// IsSuccess returns true when this get scim serviceproviderconfig o k response has a 2xx status code
+func (o *GetScimServiceproviderconfigOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get scim serviceproviderconfig o k response has a 3xx status code
+func (o *GetScimServiceproviderconfigOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim serviceproviderconfig o k response has a 4xx status code
+func (o *GetScimServiceproviderconfigOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim serviceproviderconfig o k response has a 5xx status code
+func (o *GetScimServiceproviderconfigOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim serviceproviderconfig o k response a status code equal to that given
+func (o *GetScimServiceproviderconfigOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetScimServiceproviderconfigOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigOK  %+v", 200, o.Payload)
+}
+
+func (o *GetScimServiceproviderconfigOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetScimServiceproviderconfigBadRequest() *GetScimServiceproviderconfigBa
 	return &GetScimServiceproviderconfigBadRequest{}
 }
 
-/*GetScimServiceproviderconfigBadRequest handles this case with default header values.
+/*
+GetScimServiceproviderconfigBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetScimServiceproviderconfigBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim serviceproviderconfig bad request response has a 2xx status code
+func (o *GetScimServiceproviderconfigBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim serviceproviderconfig bad request response has a 3xx status code
+func (o *GetScimServiceproviderconfigBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim serviceproviderconfig bad request response has a 4xx status code
+func (o *GetScimServiceproviderconfigBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim serviceproviderconfig bad request response has a 5xx status code
+func (o *GetScimServiceproviderconfigBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim serviceproviderconfig bad request response a status code equal to that given
+func (o *GetScimServiceproviderconfigBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetScimServiceproviderconfigBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetScimServiceproviderconfigBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetScimServiceproviderconfigUnauthorized() *GetScimServiceproviderconfig
 	return &GetScimServiceproviderconfigUnauthorized{}
 }
 
-/*GetScimServiceproviderconfigUnauthorized handles this case with default header values.
+/*
+GetScimServiceproviderconfigUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetScimServiceproviderconfigUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim serviceproviderconfig unauthorized response has a 2xx status code
+func (o *GetScimServiceproviderconfigUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim serviceproviderconfig unauthorized response has a 3xx status code
+func (o *GetScimServiceproviderconfigUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim serviceproviderconfig unauthorized response has a 4xx status code
+func (o *GetScimServiceproviderconfigUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim serviceproviderconfig unauthorized response has a 5xx status code
+func (o *GetScimServiceproviderconfigUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim serviceproviderconfig unauthorized response a status code equal to that given
+func (o *GetScimServiceproviderconfigUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetScimServiceproviderconfigUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetScimServiceproviderconfigUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetScimServiceproviderconfigForbidden() *GetScimServiceproviderconfigFor
 	return &GetScimServiceproviderconfigForbidden{}
 }
 
-/*GetScimServiceproviderconfigForbidden handles this case with default header values.
+/*
+GetScimServiceproviderconfigForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetScimServiceproviderconfigForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim serviceproviderconfig forbidden response has a 2xx status code
+func (o *GetScimServiceproviderconfigForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim serviceproviderconfig forbidden response has a 3xx status code
+func (o *GetScimServiceproviderconfigForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim serviceproviderconfig forbidden response has a 4xx status code
+func (o *GetScimServiceproviderconfigForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim serviceproviderconfig forbidden response has a 5xx status code
+func (o *GetScimServiceproviderconfigForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim serviceproviderconfig forbidden response a status code equal to that given
+func (o *GetScimServiceproviderconfigForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetScimServiceproviderconfigForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetScimServiceproviderconfigForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetScimServiceproviderconfigNotFound() *GetScimServiceproviderconfigNotF
 	return &GetScimServiceproviderconfigNotFound{}
 }
 
-/*GetScimServiceproviderconfigNotFound handles this case with default header values.
+/*
+GetScimServiceproviderconfigNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetScimServiceproviderconfigNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim serviceproviderconfig not found response has a 2xx status code
+func (o *GetScimServiceproviderconfigNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim serviceproviderconfig not found response has a 3xx status code
+func (o *GetScimServiceproviderconfigNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim serviceproviderconfig not found response has a 4xx status code
+func (o *GetScimServiceproviderconfigNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim serviceproviderconfig not found response has a 5xx status code
+func (o *GetScimServiceproviderconfigNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim serviceproviderconfig not found response a status code equal to that given
+func (o *GetScimServiceproviderconfigNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetScimServiceproviderconfigNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetScimServiceproviderconfigNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetScimServiceproviderconfigRequestTimeout() *GetScimServiceproviderconf
 	return &GetScimServiceproviderconfigRequestTimeout{}
 }
 
-/*GetScimServiceproviderconfigRequestTimeout handles this case with default header values.
+/*
+GetScimServiceproviderconfigRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetScimServiceproviderconfigRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim serviceproviderconfig request timeout response has a 2xx status code
+func (o *GetScimServiceproviderconfigRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim serviceproviderconfig request timeout response has a 3xx status code
+func (o *GetScimServiceproviderconfigRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim serviceproviderconfig request timeout response has a 4xx status code
+func (o *GetScimServiceproviderconfigRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim serviceproviderconfig request timeout response has a 5xx status code
+func (o *GetScimServiceproviderconfigRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim serviceproviderconfig request timeout response a status code equal to that given
+func (o *GetScimServiceproviderconfigRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetScimServiceproviderconfigRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetScimServiceproviderconfigRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetScimServiceproviderconfigRequestEntityTooLarge() *GetScimServiceprovi
 	return &GetScimServiceproviderconfigRequestEntityTooLarge{}
 }
 
-/*GetScimServiceproviderconfigRequestEntityTooLarge handles this case with default header values.
+/*
+GetScimServiceproviderconfigRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetScimServiceproviderconfigRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim serviceproviderconfig request entity too large response has a 2xx status code
+func (o *GetScimServiceproviderconfigRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim serviceproviderconfig request entity too large response has a 3xx status code
+func (o *GetScimServiceproviderconfigRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim serviceproviderconfig request entity too large response has a 4xx status code
+func (o *GetScimServiceproviderconfigRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim serviceproviderconfig request entity too large response has a 5xx status code
+func (o *GetScimServiceproviderconfigRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim serviceproviderconfig request entity too large response a status code equal to that given
+func (o *GetScimServiceproviderconfigRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetScimServiceproviderconfigRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetScimServiceproviderconfigRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetScimServiceproviderconfigUnsupportedMediaType() *GetScimServiceprovid
 	return &GetScimServiceproviderconfigUnsupportedMediaType{}
 }
 
-/*GetScimServiceproviderconfigUnsupportedMediaType handles this case with default header values.
+/*
+GetScimServiceproviderconfigUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetScimServiceproviderconfigUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim serviceproviderconfig unsupported media type response has a 2xx status code
+func (o *GetScimServiceproviderconfigUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim serviceproviderconfig unsupported media type response has a 3xx status code
+func (o *GetScimServiceproviderconfigUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim serviceproviderconfig unsupported media type response has a 4xx status code
+func (o *GetScimServiceproviderconfigUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim serviceproviderconfig unsupported media type response has a 5xx status code
+func (o *GetScimServiceproviderconfigUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim serviceproviderconfig unsupported media type response a status code equal to that given
+func (o *GetScimServiceproviderconfigUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetScimServiceproviderconfigUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetScimServiceproviderconfigUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetScimServiceproviderconfigTooManyRequests() *GetScimServiceprovidercon
 	return &GetScimServiceproviderconfigTooManyRequests{}
 }
 
-/*GetScimServiceproviderconfigTooManyRequests handles this case with default header values.
+/*
+GetScimServiceproviderconfigTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetScimServiceproviderconfigTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim serviceproviderconfig too many requests response has a 2xx status code
+func (o *GetScimServiceproviderconfigTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim serviceproviderconfig too many requests response has a 3xx status code
+func (o *GetScimServiceproviderconfigTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim serviceproviderconfig too many requests response has a 4xx status code
+func (o *GetScimServiceproviderconfigTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get scim serviceproviderconfig too many requests response has a 5xx status code
+func (o *GetScimServiceproviderconfigTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get scim serviceproviderconfig too many requests response a status code equal to that given
+func (o *GetScimServiceproviderconfigTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetScimServiceproviderconfigTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetScimServiceproviderconfigTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetScimServiceproviderconfigInternalServerError() *GetScimServiceprovide
 	return &GetScimServiceproviderconfigInternalServerError{}
 }
 
-/*GetScimServiceproviderconfigInternalServerError handles this case with default header values.
+/*
+GetScimServiceproviderconfigInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetScimServiceproviderconfigInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim serviceproviderconfig internal server error response has a 2xx status code
+func (o *GetScimServiceproviderconfigInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim serviceproviderconfig internal server error response has a 3xx status code
+func (o *GetScimServiceproviderconfigInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim serviceproviderconfig internal server error response has a 4xx status code
+func (o *GetScimServiceproviderconfigInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim serviceproviderconfig internal server error response has a 5xx status code
+func (o *GetScimServiceproviderconfigInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim serviceproviderconfig internal server error response a status code equal to that given
+func (o *GetScimServiceproviderconfigInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetScimServiceproviderconfigInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetScimServiceproviderconfigInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetScimServiceproviderconfigServiceUnavailable() *GetScimServiceprovider
 	return &GetScimServiceproviderconfigServiceUnavailable{}
 }
 
-/*GetScimServiceproviderconfigServiceUnavailable handles this case with default header values.
+/*
+GetScimServiceproviderconfigServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetScimServiceproviderconfigServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim serviceproviderconfig service unavailable response has a 2xx status code
+func (o *GetScimServiceproviderconfigServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim serviceproviderconfig service unavailable response has a 3xx status code
+func (o *GetScimServiceproviderconfigServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim serviceproviderconfig service unavailable response has a 4xx status code
+func (o *GetScimServiceproviderconfigServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim serviceproviderconfig service unavailable response has a 5xx status code
+func (o *GetScimServiceproviderconfigServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim serviceproviderconfig service unavailable response a status code equal to that given
+func (o *GetScimServiceproviderconfigServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetScimServiceproviderconfigServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetScimServiceproviderconfigServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetScimServiceproviderconfigGatewayTimeout() *GetScimServiceproviderconf
 	return &GetScimServiceproviderconfigGatewayTimeout{}
 }
 
-/*GetScimServiceproviderconfigGatewayTimeout handles this case with default header values.
+/*
+GetScimServiceproviderconfigGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetScimServiceproviderconfigGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get scim serviceproviderconfig gateway timeout response has a 2xx status code
+func (o *GetScimServiceproviderconfigGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get scim serviceproviderconfig gateway timeout response has a 3xx status code
+func (o *GetScimServiceproviderconfigGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get scim serviceproviderconfig gateway timeout response has a 4xx status code
+func (o *GetScimServiceproviderconfigGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get scim serviceproviderconfig gateway timeout response has a 5xx status code
+func (o *GetScimServiceproviderconfigGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get scim serviceproviderconfig gateway timeout response a status code equal to that given
+func (o *GetScimServiceproviderconfigGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetScimServiceproviderconfigGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetScimServiceproviderconfigGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/scim/serviceproviderconfig][%d] getScimServiceproviderconfigGatewayTimeout  %+v", 504, o.Payload)
 }
 

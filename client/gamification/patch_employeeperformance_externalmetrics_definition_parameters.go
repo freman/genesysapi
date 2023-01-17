@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchEmployeeperformanceExternalmetricsDefinitionParams creates a new PatchEmployeeperformanceExternalmetricsDefinitionParams object
-// with the default values initialized.
+// NewPatchEmployeeperformanceExternalmetricsDefinitionParams creates a new PatchEmployeeperformanceExternalmetricsDefinitionParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchEmployeeperformanceExternalmetricsDefinitionParams() *PatchEmployeeperformanceExternalmetricsDefinitionParams {
-	var ()
 	return &PatchEmployeeperformanceExternalmetricsDefinitionParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchEmployeeperformanceExternalmetricsDefinitionParamsWithTimeout creates a new PatchEmployeeperformanceExternalmetricsDefinitionParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchEmployeeperformanceExternalmetricsDefinitionParamsWithTimeout(timeout time.Duration) *PatchEmployeeperformanceExternalmetricsDefinitionParams {
-	var ()
 	return &PatchEmployeeperformanceExternalmetricsDefinitionParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchEmployeeperformanceExternalmetricsDefinitionParamsWithContext creates a new PatchEmployeeperformanceExternalmetricsDefinitionParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchEmployeeperformanceExternalmetricsDefinitionParamsWithContext(ctx context.Context) *PatchEmployeeperformanceExternalmetricsDefinitionParams {
-	var ()
 	return &PatchEmployeeperformanceExternalmetricsDefinitionParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchEmployeeperformanceExternalmetricsDefinitionParamsWithHTTPClient creates a new PatchEmployeeperformanceExternalmetricsDefinitionParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchEmployeeperformanceExternalmetricsDefinitionParamsWithHTTPClient(client *http.Client) *PatchEmployeeperformanceExternalmetricsDefinitionParams {
-	var ()
 	return &PatchEmployeeperformanceExternalmetricsDefinitionParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionParams contains all the parameters to send to the API endpoint
-for the patch employeeperformance externalmetrics definition operation typically these are written to a http.Request
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionParams contains all the parameters to send to the API endpoint
+
+	for the patch employeeperformance externalmetrics definition operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchEmployeeperformanceExternalmetricsDefinitionParams struct {
 
-	/*Body
-	  The External Metric Definition parameters to be updated
+	/* Body.
 
+	   The External Metric Definition parameters to be updated
 	*/
 	Body *models.ExternalMetricDefinitionUpdateRequest
-	/*MetricID
-	  Specifies the metric definition ID
 
+	/* MetricID.
+
+	   Specifies the metric definition ID
 	*/
 	MetricID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch employeeperformance externalmetrics definition params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionParams) WithDefaults() *PatchEmployeeperformanceExternalmetricsDefinitionParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch employeeperformance externalmetrics definition params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch employeeperformance externalmetrics definition params
@@ -140,7 +157,6 @@ func (o *PatchEmployeeperformanceExternalmetricsDefinitionParams) WriteToRequest
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

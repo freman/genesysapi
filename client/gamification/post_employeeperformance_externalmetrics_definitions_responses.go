@@ -101,7 +101,6 @@ func (o *PostEmployeeperformanceExternalmetricsDefinitionsReader) ReadResponse(r
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsOK() *PostEmployeeperfo
 	return &PostEmployeeperformanceExternalmetricsDefinitionsOK{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsOK handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsOK struct {
 	Payload *models.ExternalMetricDefinition
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions o k response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions o k response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions o k response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions o k response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions o k response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsCreated() *PostEmployee
 	return &PostEmployeeperformanceExternalmetricsDefinitionsCreated{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsCreated handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsCreated describes a response with status code 201, with default header values.
 
 The External Metric Definition was successfully created
 */
@@ -153,7 +183,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsCreated struct {
 	Payload *models.ExternalMetricDefinition
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions created response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions created response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions created response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions created response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions created response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsCreated  %+v", 201, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsBadRequest() *PostEmplo
 	return &PostEmployeeperformanceExternalmetricsDefinitionsBadRequest{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsBadRequest handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -186,7 +246,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions bad request response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions bad request response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions bad request response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions bad request response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions bad request response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsUnauthorized() *PostEmp
 	return &PostEmployeeperformanceExternalmetricsDefinitionsUnauthorized{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsUnauthorized handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -219,7 +309,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions unauthorized response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions unauthorized response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions unauthorized response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions unauthorized response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions unauthorized response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsForbidden() *PostEmploy
 	return &PostEmployeeperformanceExternalmetricsDefinitionsForbidden{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsForbidden handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -252,7 +372,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions forbidden response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions forbidden response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions forbidden response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions forbidden response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions forbidden response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsNotFound() *PostEmploye
 	return &PostEmployeeperformanceExternalmetricsDefinitionsNotFound{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsNotFound handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -285,7 +435,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions not found response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions not found response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions not found response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions not found response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions not found response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsRequestTimeout() *PostE
 	return &PostEmployeeperformanceExternalmetricsDefinitionsRequestTimeout{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsRequestTimeout handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -318,7 +498,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions request timeout response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions request timeout response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions request timeout response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions request timeout response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions request timeout response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge()
 	return &PostEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions request entity too large response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions request entity too large response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions request entity too large response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions request entity too large response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions request entity too large response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType() 
 	return &PostEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions unsupported media type response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions unsupported media type response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions unsupported media type response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions unsupported media type response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions unsupported media type response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsTooManyRequests() *Post
 	return &PostEmployeeperformanceExternalmetricsDefinitionsTooManyRequests{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsTooManyRequests handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions too many requests response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions too many requests response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions too many requests response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions too many requests response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions too many requests response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsInternalServerError() *
 	return &PostEmployeeperformanceExternalmetricsDefinitionsInternalServerError{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsInternalServerError handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsInternalServerError struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions internal server error response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions internal server error response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions internal server error response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions internal server error response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions internal server error response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable() *P
 	return &PostEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions service unavailable response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions service unavailable response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions service unavailable response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions service unavailable response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions service unavailable response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout() *PostE
 	return &PostEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout{}
 }
 
-/*PostEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout handles this case with default header values.
+/*
+PostEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post employeeperformance externalmetrics definitions gateway timeout response has a 2xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post employeeperformance externalmetrics definitions gateway timeout response has a 3xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post employeeperformance externalmetrics definitions gateway timeout response has a 4xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post employeeperformance externalmetrics definitions gateway timeout response has a 5xx status code
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post employeeperformance externalmetrics definitions gateway timeout response a status code equal to that given
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/employeeperformance/externalmetrics/definitions][%d] postEmployeeperformanceExternalmetricsDefinitionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

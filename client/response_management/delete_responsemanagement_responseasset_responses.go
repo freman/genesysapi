@@ -95,7 +95,6 @@ func (o *DeleteResponsemanagementResponseassetReader) ReadResponse(response runt
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteResponsemanagementResponseassetNoContent() *DeleteResponsemanageme
 	return &DeleteResponsemanagementResponseassetNoContent{}
 }
 
-/*DeleteResponsemanagementResponseassetNoContent handles this case with default header values.
+/*
+DeleteResponsemanagementResponseassetNoContent describes a response with status code 204, with default header values.
 
 Response asset is deleted
 */
 type DeleteResponsemanagementResponseassetNoContent struct {
 }
 
+// IsSuccess returns true when this delete responsemanagement responseasset no content response has a 2xx status code
+func (o *DeleteResponsemanagementResponseassetNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete responsemanagement responseasset no content response has a 3xx status code
+func (o *DeleteResponsemanagementResponseassetNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement responseasset no content response has a 4xx status code
+func (o *DeleteResponsemanagementResponseassetNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete responsemanagement responseasset no content response has a 5xx status code
+func (o *DeleteResponsemanagementResponseassetNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement responseasset no content response a status code equal to that given
+func (o *DeleteResponsemanagementResponseassetNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteResponsemanagementResponseassetNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetNoContent ", 204)
+}
+
+func (o *DeleteResponsemanagementResponseassetNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteResponsemanagementResponseassetBadRequest() *DeleteResponsemanagem
 	return &DeleteResponsemanagementResponseassetBadRequest{}
 }
 
-/*DeleteResponsemanagementResponseassetBadRequest handles this case with default header values.
+/*
+DeleteResponsemanagementResponseassetBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteResponsemanagementResponseassetBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement responseasset bad request response has a 2xx status code
+func (o *DeleteResponsemanagementResponseassetBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement responseasset bad request response has a 3xx status code
+func (o *DeleteResponsemanagementResponseassetBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement responseasset bad request response has a 4xx status code
+func (o *DeleteResponsemanagementResponseassetBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement responseasset bad request response has a 5xx status code
+func (o *DeleteResponsemanagementResponseassetBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement responseasset bad request response a status code equal to that given
+func (o *DeleteResponsemanagementResponseassetBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteResponsemanagementResponseassetBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteResponsemanagementResponseassetBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteResponsemanagementResponseassetUnauthorized() *DeleteResponsemanag
 	return &DeleteResponsemanagementResponseassetUnauthorized{}
 }
 
-/*DeleteResponsemanagementResponseassetUnauthorized handles this case with default header values.
+/*
+DeleteResponsemanagementResponseassetUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteResponsemanagementResponseassetUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement responseasset unauthorized response has a 2xx status code
+func (o *DeleteResponsemanagementResponseassetUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement responseasset unauthorized response has a 3xx status code
+func (o *DeleteResponsemanagementResponseassetUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement responseasset unauthorized response has a 4xx status code
+func (o *DeleteResponsemanagementResponseassetUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement responseasset unauthorized response has a 5xx status code
+func (o *DeleteResponsemanagementResponseassetUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement responseasset unauthorized response a status code equal to that given
+func (o *DeleteResponsemanagementResponseassetUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteResponsemanagementResponseassetUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteResponsemanagementResponseassetUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteResponsemanagementResponseassetForbidden() *DeleteResponsemanageme
 	return &DeleteResponsemanagementResponseassetForbidden{}
 }
 
-/*DeleteResponsemanagementResponseassetForbidden handles this case with default header values.
+/*
+DeleteResponsemanagementResponseassetForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteResponsemanagementResponseassetForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement responseasset forbidden response has a 2xx status code
+func (o *DeleteResponsemanagementResponseassetForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement responseasset forbidden response has a 3xx status code
+func (o *DeleteResponsemanagementResponseassetForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement responseasset forbidden response has a 4xx status code
+func (o *DeleteResponsemanagementResponseassetForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement responseasset forbidden response has a 5xx status code
+func (o *DeleteResponsemanagementResponseassetForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement responseasset forbidden response a status code equal to that given
+func (o *DeleteResponsemanagementResponseassetForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteResponsemanagementResponseassetForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteResponsemanagementResponseassetForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteResponsemanagementResponseassetNotFound() *DeleteResponsemanagemen
 	return &DeleteResponsemanagementResponseassetNotFound{}
 }
 
-/*DeleteResponsemanagementResponseassetNotFound handles this case with default header values.
+/*
+DeleteResponsemanagementResponseassetNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteResponsemanagementResponseassetNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement responseasset not found response has a 2xx status code
+func (o *DeleteResponsemanagementResponseassetNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement responseasset not found response has a 3xx status code
+func (o *DeleteResponsemanagementResponseassetNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement responseasset not found response has a 4xx status code
+func (o *DeleteResponsemanagementResponseassetNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement responseasset not found response has a 5xx status code
+func (o *DeleteResponsemanagementResponseassetNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement responseasset not found response a status code equal to that given
+func (o *DeleteResponsemanagementResponseassetNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteResponsemanagementResponseassetNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteResponsemanagementResponseassetNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteResponsemanagementResponseassetRequestTimeout() *DeleteResponseman
 	return &DeleteResponsemanagementResponseassetRequestTimeout{}
 }
 
-/*DeleteResponsemanagementResponseassetRequestTimeout handles this case with default header values.
+/*
+DeleteResponsemanagementResponseassetRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteResponsemanagementResponseassetRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement responseasset request timeout response has a 2xx status code
+func (o *DeleteResponsemanagementResponseassetRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement responseasset request timeout response has a 3xx status code
+func (o *DeleteResponsemanagementResponseassetRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement responseasset request timeout response has a 4xx status code
+func (o *DeleteResponsemanagementResponseassetRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement responseasset request timeout response has a 5xx status code
+func (o *DeleteResponsemanagementResponseassetRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement responseasset request timeout response a status code equal to that given
+func (o *DeleteResponsemanagementResponseassetRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteResponsemanagementResponseassetRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteResponsemanagementResponseassetRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteResponsemanagementResponseassetRequestEntityTooLarge() *DeleteResp
 	return &DeleteResponsemanagementResponseassetRequestEntityTooLarge{}
 }
 
-/*DeleteResponsemanagementResponseassetRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteResponsemanagementResponseassetRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteResponsemanagementResponseassetRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement responseasset request entity too large response has a 2xx status code
+func (o *DeleteResponsemanagementResponseassetRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement responseasset request entity too large response has a 3xx status code
+func (o *DeleteResponsemanagementResponseassetRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement responseasset request entity too large response has a 4xx status code
+func (o *DeleteResponsemanagementResponseassetRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement responseasset request entity too large response has a 5xx status code
+func (o *DeleteResponsemanagementResponseassetRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement responseasset request entity too large response a status code equal to that given
+func (o *DeleteResponsemanagementResponseassetRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteResponsemanagementResponseassetRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteResponsemanagementResponseassetRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteResponsemanagementResponseassetUnsupportedMediaType() *DeleteRespo
 	return &DeleteResponsemanagementResponseassetUnsupportedMediaType{}
 }
 
-/*DeleteResponsemanagementResponseassetUnsupportedMediaType handles this case with default header values.
+/*
+DeleteResponsemanagementResponseassetUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteResponsemanagementResponseassetUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement responseasset unsupported media type response has a 2xx status code
+func (o *DeleteResponsemanagementResponseassetUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement responseasset unsupported media type response has a 3xx status code
+func (o *DeleteResponsemanagementResponseassetUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement responseasset unsupported media type response has a 4xx status code
+func (o *DeleteResponsemanagementResponseassetUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement responseasset unsupported media type response has a 5xx status code
+func (o *DeleteResponsemanagementResponseassetUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement responseasset unsupported media type response a status code equal to that given
+func (o *DeleteResponsemanagementResponseassetUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteResponsemanagementResponseassetUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteResponsemanagementResponseassetUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteResponsemanagementResponseassetTooManyRequests() *DeleteResponsema
 	return &DeleteResponsemanagementResponseassetTooManyRequests{}
 }
 
-/*DeleteResponsemanagementResponseassetTooManyRequests handles this case with default header values.
+/*
+DeleteResponsemanagementResponseassetTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteResponsemanagementResponseassetTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement responseasset too many requests response has a 2xx status code
+func (o *DeleteResponsemanagementResponseassetTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement responseasset too many requests response has a 3xx status code
+func (o *DeleteResponsemanagementResponseassetTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement responseasset too many requests response has a 4xx status code
+func (o *DeleteResponsemanagementResponseassetTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete responsemanagement responseasset too many requests response has a 5xx status code
+func (o *DeleteResponsemanagementResponseassetTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete responsemanagement responseasset too many requests response a status code equal to that given
+func (o *DeleteResponsemanagementResponseassetTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteResponsemanagementResponseassetTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteResponsemanagementResponseassetTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteResponsemanagementResponseassetInternalServerError() *DeleteRespon
 	return &DeleteResponsemanagementResponseassetInternalServerError{}
 }
 
-/*DeleteResponsemanagementResponseassetInternalServerError handles this case with default header values.
+/*
+DeleteResponsemanagementResponseassetInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteResponsemanagementResponseassetInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement responseasset internal server error response has a 2xx status code
+func (o *DeleteResponsemanagementResponseassetInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement responseasset internal server error response has a 3xx status code
+func (o *DeleteResponsemanagementResponseassetInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement responseasset internal server error response has a 4xx status code
+func (o *DeleteResponsemanagementResponseassetInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete responsemanagement responseasset internal server error response has a 5xx status code
+func (o *DeleteResponsemanagementResponseassetInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete responsemanagement responseasset internal server error response a status code equal to that given
+func (o *DeleteResponsemanagementResponseassetInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteResponsemanagementResponseassetInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteResponsemanagementResponseassetInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteResponsemanagementResponseassetServiceUnavailable() *DeleteRespons
 	return &DeleteResponsemanagementResponseassetServiceUnavailable{}
 }
 
-/*DeleteResponsemanagementResponseassetServiceUnavailable handles this case with default header values.
+/*
+DeleteResponsemanagementResponseassetServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteResponsemanagementResponseassetServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement responseasset service unavailable response has a 2xx status code
+func (o *DeleteResponsemanagementResponseassetServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement responseasset service unavailable response has a 3xx status code
+func (o *DeleteResponsemanagementResponseassetServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement responseasset service unavailable response has a 4xx status code
+func (o *DeleteResponsemanagementResponseassetServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete responsemanagement responseasset service unavailable response has a 5xx status code
+func (o *DeleteResponsemanagementResponseassetServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete responsemanagement responseasset service unavailable response a status code equal to that given
+func (o *DeleteResponsemanagementResponseassetServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteResponsemanagementResponseassetServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteResponsemanagementResponseassetServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteResponsemanagementResponseassetGatewayTimeout() *DeleteResponseman
 	return &DeleteResponsemanagementResponseassetGatewayTimeout{}
 }
 
-/*DeleteResponsemanagementResponseassetGatewayTimeout handles this case with default header values.
+/*
+DeleteResponsemanagementResponseassetGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteResponsemanagementResponseassetGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete responsemanagement responseasset gateway timeout response has a 2xx status code
+func (o *DeleteResponsemanagementResponseassetGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete responsemanagement responseasset gateway timeout response has a 3xx status code
+func (o *DeleteResponsemanagementResponseassetGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete responsemanagement responseasset gateway timeout response has a 4xx status code
+func (o *DeleteResponsemanagementResponseassetGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete responsemanagement responseasset gateway timeout response has a 5xx status code
+func (o *DeleteResponsemanagementResponseassetGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete responsemanagement responseasset gateway timeout response a status code equal to that given
+func (o *DeleteResponsemanagementResponseassetGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteResponsemanagementResponseassetGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteResponsemanagementResponseassetGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/responsemanagement/responseassets/{responseAssetId}][%d] deleteResponsemanagementResponseassetGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostOauthClientsParams creates a new PostOauthClientsParams object
-// with the default values initialized.
+// NewPostOauthClientsParams creates a new PostOauthClientsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostOauthClientsParams() *PostOauthClientsParams {
-	var ()
 	return &PostOauthClientsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostOauthClientsParamsWithTimeout creates a new PostOauthClientsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostOauthClientsParamsWithTimeout(timeout time.Duration) *PostOauthClientsParams {
-	var ()
 	return &PostOauthClientsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostOauthClientsParamsWithContext creates a new PostOauthClientsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostOauthClientsParamsWithContext(ctx context.Context) *PostOauthClientsParams {
-	var ()
 	return &PostOauthClientsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostOauthClientsParamsWithHTTPClient creates a new PostOauthClientsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostOauthClientsParamsWithHTTPClient(client *http.Client) *PostOauthClientsParams {
-	var ()
 	return &PostOauthClientsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostOauthClientsParams contains all the parameters to send to the API endpoint
-for the post oauth clients operation typically these are written to a http.Request
+/*
+PostOauthClientsParams contains all the parameters to send to the API endpoint
+
+	for the post oauth clients operation.
+
+	Typically these are written to a http.Request.
 */
 type PostOauthClientsParams struct {
 
-	/*Body
-	  Client
+	/* Body.
 
+	   Client
 	*/
 	Body *models.OAuthClientRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post oauth clients params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOauthClientsParams) WithDefaults() *PostOauthClientsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post oauth clients params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostOauthClientsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post oauth clients params
@@ -124,7 +140,6 @@ func (o *PostOauthClientsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

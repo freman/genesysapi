@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetTelephonyProvidersEdgeSoftwareupdateParams creates a new GetTelephonyProvidersEdgeSoftwareupdateParams object
-// with the default values initialized.
+// NewGetTelephonyProvidersEdgeSoftwareupdateParams creates a new GetTelephonyProvidersEdgeSoftwareupdateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetTelephonyProvidersEdgeSoftwareupdateParams() *GetTelephonyProvidersEdgeSoftwareupdateParams {
-	var ()
 	return &GetTelephonyProvidersEdgeSoftwareupdateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgeSoftwareupdateParamsWithTimeout creates a new GetTelephonyProvidersEdgeSoftwareupdateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetTelephonyProvidersEdgeSoftwareupdateParamsWithTimeout(timeout time.Duration) *GetTelephonyProvidersEdgeSoftwareupdateParams {
-	var ()
 	return &GetTelephonyProvidersEdgeSoftwareupdateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetTelephonyProvidersEdgeSoftwareupdateParamsWithContext creates a new GetTelephonyProvidersEdgeSoftwareupdateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetTelephonyProvidersEdgeSoftwareupdateParamsWithContext(ctx context.Context) *GetTelephonyProvidersEdgeSoftwareupdateParams {
-	var ()
 	return &GetTelephonyProvidersEdgeSoftwareupdateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetTelephonyProvidersEdgeSoftwareupdateParamsWithHTTPClient creates a new GetTelephonyProvidersEdgeSoftwareupdateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetTelephonyProvidersEdgeSoftwareupdateParamsWithHTTPClient(client *http.Client) *GetTelephonyProvidersEdgeSoftwareupdateParams {
-	var ()
 	return &GetTelephonyProvidersEdgeSoftwareupdateParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetTelephonyProvidersEdgeSoftwareupdateParams contains all the parameters to send to the API endpoint
-for the get telephony providers edge softwareupdate operation typically these are written to a http.Request
+/*
+GetTelephonyProvidersEdgeSoftwareupdateParams contains all the parameters to send to the API endpoint
+
+	for the get telephony providers edge softwareupdate operation.
+
+	Typically these are written to a http.Request.
 */
 type GetTelephonyProvidersEdgeSoftwareupdateParams struct {
 
-	/*EdgeID
-	  Edge ID
+	/* EdgeID.
 
+	   Edge ID
 	*/
 	EdgeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get telephony providers edge softwareupdate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgeSoftwareupdateParams) WithDefaults() *GetTelephonyProvidersEdgeSoftwareupdateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get telephony providers edge softwareupdate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetTelephonyProvidersEdgeSoftwareupdateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get telephony providers edge softwareupdate params

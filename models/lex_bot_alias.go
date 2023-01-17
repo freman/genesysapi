@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -85,7 +86,6 @@ func (m *LexBotAlias) Validate(formats strfmt.Registry) error {
 }
 
 func (m *LexBotAlias) validateBot(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Bot) { // not required
 		return nil
 	}
@@ -94,6 +94,8 @@ func (m *LexBotAlias) validateBot(formats strfmt.Registry) error {
 		if err := m.Bot.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("bot")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bot")
 			}
 			return err
 		}
@@ -103,7 +105,6 @@ func (m *LexBotAlias) validateBot(formats strfmt.Registry) error {
 }
 
 func (m *LexBotAlias) validateIntents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Intents) { // not required
 		return nil
 	}
@@ -117,6 +118,8 @@ func (m *LexBotAlias) validateIntents(formats strfmt.Registry) error {
 			if err := m.Intents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -141,8 +144,8 @@ func init() {
 
 const (
 
-	// LexBotAliasLanguageEnUS captures enum value "en-US"
-	LexBotAliasLanguageEnUS string = "en-US"
+	// LexBotAliasLanguageEnDashUS captures enum value "en-US"
+	LexBotAliasLanguageEnDashUS string = "en-US"
 )
 
 // prop value enum
@@ -154,7 +157,6 @@ func (m *LexBotAlias) validateLanguageEnum(path, location string, value string) 
 }
 
 func (m *LexBotAlias) validateLanguage(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Language) { // not required
 		return nil
 	}
@@ -168,7 +170,6 @@ func (m *LexBotAlias) validateLanguage(formats strfmt.Registry) error {
 }
 
 func (m *LexBotAlias) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -223,6 +224,86 @@ func (m *LexBotAlias) validateStatus(formats strfmt.Registry) error {
 
 	// value enum
 	if err := m.validateStatusEnum("status", "body", *m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this lex bot alias based on the context it is used
+func (m *LexBotAlias) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBot(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateIntents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *LexBotAlias) contextValidateBot(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Bot != nil {
+		if err := m.Bot.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("bot")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("bot")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LexBotAlias) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *LexBotAlias) contextValidateIntents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Intents); i++ {
+
+		if m.Intents[i] != nil {
+			if err := m.Intents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("intents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("intents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *LexBotAlias) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

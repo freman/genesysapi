@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetJourneyActiontemplateParams creates a new GetJourneyActiontemplateParams object
-// with the default values initialized.
+// NewGetJourneyActiontemplateParams creates a new GetJourneyActiontemplateParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetJourneyActiontemplateParams() *GetJourneyActiontemplateParams {
-	var ()
 	return &GetJourneyActiontemplateParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetJourneyActiontemplateParamsWithTimeout creates a new GetJourneyActiontemplateParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetJourneyActiontemplateParamsWithTimeout(timeout time.Duration) *GetJourneyActiontemplateParams {
-	var ()
 	return &GetJourneyActiontemplateParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetJourneyActiontemplateParamsWithContext creates a new GetJourneyActiontemplateParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetJourneyActiontemplateParamsWithContext(ctx context.Context) *GetJourneyActiontemplateParams {
-	var ()
 	return &GetJourneyActiontemplateParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetJourneyActiontemplateParamsWithHTTPClient creates a new GetJourneyActiontemplateParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetJourneyActiontemplateParamsWithHTTPClient(client *http.Client) *GetJourneyActiontemplateParams {
-	var ()
 	return &GetJourneyActiontemplateParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetJourneyActiontemplateParams contains all the parameters to send to the API endpoint
-for the get journey actiontemplate operation typically these are written to a http.Request
+/*
+GetJourneyActiontemplateParams contains all the parameters to send to the API endpoint
+
+	for the get journey actiontemplate operation.
+
+	Typically these are written to a http.Request.
 */
 type GetJourneyActiontemplateParams struct {
 
-	/*ActionTemplateID
-	  ID of the action template.
+	/* ActionTemplateID.
 
+	   ID of the action template.
 	*/
 	ActionTemplateID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get journey actiontemplate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetJourneyActiontemplateParams) WithDefaults() *GetJourneyActiontemplateParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get journey actiontemplate params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetJourneyActiontemplateParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get journey actiontemplate params

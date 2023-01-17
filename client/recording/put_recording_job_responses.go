@@ -95,7 +95,6 @@ func (o *PutRecordingJobReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutRecordingJobOK() *PutRecordingJobOK {
 	return &PutRecordingJobOK{}
 }
 
-/*PutRecordingJobOK handles this case with default header values.
+/*
+PutRecordingJobOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutRecordingJobOK struct {
 	Payload *models.RecordingJob
 }
 
+// IsSuccess returns true when this put recording job o k response has a 2xx status code
+func (o *PutRecordingJobOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put recording job o k response has a 3xx status code
+func (o *PutRecordingJobOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording job o k response has a 4xx status code
+func (o *PutRecordingJobOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording job o k response has a 5xx status code
+func (o *PutRecordingJobOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording job o k response a status code equal to that given
+func (o *PutRecordingJobOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutRecordingJobOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobOK  %+v", 200, o.Payload)
+}
+
+func (o *PutRecordingJobOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutRecordingJobBadRequest() *PutRecordingJobBadRequest {
 	return &PutRecordingJobBadRequest{}
 }
 
-/*PutRecordingJobBadRequest handles this case with default header values.
+/*
+PutRecordingJobBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutRecordingJobBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording job bad request response has a 2xx status code
+func (o *PutRecordingJobBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording job bad request response has a 3xx status code
+func (o *PutRecordingJobBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording job bad request response has a 4xx status code
+func (o *PutRecordingJobBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording job bad request response has a 5xx status code
+func (o *PutRecordingJobBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording job bad request response a status code equal to that given
+func (o *PutRecordingJobBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutRecordingJobBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutRecordingJobBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutRecordingJobUnauthorized() *PutRecordingJobUnauthorized {
 	return &PutRecordingJobUnauthorized{}
 }
 
-/*PutRecordingJobUnauthorized handles this case with default header values.
+/*
+PutRecordingJobUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutRecordingJobUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording job unauthorized response has a 2xx status code
+func (o *PutRecordingJobUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording job unauthorized response has a 3xx status code
+func (o *PutRecordingJobUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording job unauthorized response has a 4xx status code
+func (o *PutRecordingJobUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording job unauthorized response has a 5xx status code
+func (o *PutRecordingJobUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording job unauthorized response a status code equal to that given
+func (o *PutRecordingJobUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutRecordingJobUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutRecordingJobUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutRecordingJobForbidden() *PutRecordingJobForbidden {
 	return &PutRecordingJobForbidden{}
 }
 
-/*PutRecordingJobForbidden handles this case with default header values.
+/*
+PutRecordingJobForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutRecordingJobForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording job forbidden response has a 2xx status code
+func (o *PutRecordingJobForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording job forbidden response has a 3xx status code
+func (o *PutRecordingJobForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording job forbidden response has a 4xx status code
+func (o *PutRecordingJobForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording job forbidden response has a 5xx status code
+func (o *PutRecordingJobForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording job forbidden response a status code equal to that given
+func (o *PutRecordingJobForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutRecordingJobForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutRecordingJobForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutRecordingJobNotFound() *PutRecordingJobNotFound {
 	return &PutRecordingJobNotFound{}
 }
 
-/*PutRecordingJobNotFound handles this case with default header values.
+/*
+PutRecordingJobNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutRecordingJobNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording job not found response has a 2xx status code
+func (o *PutRecordingJobNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording job not found response has a 3xx status code
+func (o *PutRecordingJobNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording job not found response has a 4xx status code
+func (o *PutRecordingJobNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording job not found response has a 5xx status code
+func (o *PutRecordingJobNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording job not found response a status code equal to that given
+func (o *PutRecordingJobNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutRecordingJobNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutRecordingJobNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutRecordingJobRequestTimeout() *PutRecordingJobRequestTimeout {
 	return &PutRecordingJobRequestTimeout{}
 }
 
-/*PutRecordingJobRequestTimeout handles this case with default header values.
+/*
+PutRecordingJobRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutRecordingJobRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording job request timeout response has a 2xx status code
+func (o *PutRecordingJobRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording job request timeout response has a 3xx status code
+func (o *PutRecordingJobRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording job request timeout response has a 4xx status code
+func (o *PutRecordingJobRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording job request timeout response has a 5xx status code
+func (o *PutRecordingJobRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording job request timeout response a status code equal to that given
+func (o *PutRecordingJobRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutRecordingJobRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutRecordingJobRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutRecordingJobRequestEntityTooLarge() *PutRecordingJobRequestEntityTooL
 	return &PutRecordingJobRequestEntityTooLarge{}
 }
 
-/*PutRecordingJobRequestEntityTooLarge handles this case with default header values.
+/*
+PutRecordingJobRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutRecordingJobRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording job request entity too large response has a 2xx status code
+func (o *PutRecordingJobRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording job request entity too large response has a 3xx status code
+func (o *PutRecordingJobRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording job request entity too large response has a 4xx status code
+func (o *PutRecordingJobRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording job request entity too large response has a 5xx status code
+func (o *PutRecordingJobRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording job request entity too large response a status code equal to that given
+func (o *PutRecordingJobRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutRecordingJobRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutRecordingJobRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutRecordingJobUnsupportedMediaType() *PutRecordingJobUnsupportedMediaTy
 	return &PutRecordingJobUnsupportedMediaType{}
 }
 
-/*PutRecordingJobUnsupportedMediaType handles this case with default header values.
+/*
+PutRecordingJobUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutRecordingJobUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording job unsupported media type response has a 2xx status code
+func (o *PutRecordingJobUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording job unsupported media type response has a 3xx status code
+func (o *PutRecordingJobUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording job unsupported media type response has a 4xx status code
+func (o *PutRecordingJobUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording job unsupported media type response has a 5xx status code
+func (o *PutRecordingJobUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording job unsupported media type response a status code equal to that given
+func (o *PutRecordingJobUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutRecordingJobUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutRecordingJobUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutRecordingJobTooManyRequests() *PutRecordingJobTooManyRequests {
 	return &PutRecordingJobTooManyRequests{}
 }
 
-/*PutRecordingJobTooManyRequests handles this case with default header values.
+/*
+PutRecordingJobTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutRecordingJobTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording job too many requests response has a 2xx status code
+func (o *PutRecordingJobTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording job too many requests response has a 3xx status code
+func (o *PutRecordingJobTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording job too many requests response has a 4xx status code
+func (o *PutRecordingJobTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put recording job too many requests response has a 5xx status code
+func (o *PutRecordingJobTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put recording job too many requests response a status code equal to that given
+func (o *PutRecordingJobTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutRecordingJobTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutRecordingJobTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutRecordingJobInternalServerError() *PutRecordingJobInternalServerError
 	return &PutRecordingJobInternalServerError{}
 }
 
-/*PutRecordingJobInternalServerError handles this case with default header values.
+/*
+PutRecordingJobInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutRecordingJobInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording job internal server error response has a 2xx status code
+func (o *PutRecordingJobInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording job internal server error response has a 3xx status code
+func (o *PutRecordingJobInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording job internal server error response has a 4xx status code
+func (o *PutRecordingJobInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording job internal server error response has a 5xx status code
+func (o *PutRecordingJobInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording job internal server error response a status code equal to that given
+func (o *PutRecordingJobInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutRecordingJobInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutRecordingJobInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutRecordingJobServiceUnavailable() *PutRecordingJobServiceUnavailable {
 	return &PutRecordingJobServiceUnavailable{}
 }
 
-/*PutRecordingJobServiceUnavailable handles this case with default header values.
+/*
+PutRecordingJobServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutRecordingJobServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording job service unavailable response has a 2xx status code
+func (o *PutRecordingJobServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording job service unavailable response has a 3xx status code
+func (o *PutRecordingJobServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording job service unavailable response has a 4xx status code
+func (o *PutRecordingJobServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording job service unavailable response has a 5xx status code
+func (o *PutRecordingJobServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording job service unavailable response a status code equal to that given
+func (o *PutRecordingJobServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutRecordingJobServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutRecordingJobServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutRecordingJobGatewayTimeout() *PutRecordingJobGatewayTimeout {
 	return &PutRecordingJobGatewayTimeout{}
 }
 
-/*PutRecordingJobGatewayTimeout handles this case with default header values.
+/*
+PutRecordingJobGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutRecordingJobGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put recording job gateway timeout response has a 2xx status code
+func (o *PutRecordingJobGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put recording job gateway timeout response has a 3xx status code
+func (o *PutRecordingJobGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put recording job gateway timeout response has a 4xx status code
+func (o *PutRecordingJobGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put recording job gateway timeout response has a 5xx status code
+func (o *PutRecordingJobGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put recording job gateway timeout response a status code equal to that given
+func (o *PutRecordingJobGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutRecordingJobGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutRecordingJobGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/recording/jobs/{jobId}][%d] putRecordingJobGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -101,7 +101,6 @@ func (o *PatchScimGroupReader) ReadResponse(response runtime.ClientResponse, con
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchScimGroupOK() *PatchScimGroupOK {
 	return &PatchScimGroupOK{}
 }
 
-/*PatchScimGroupOK handles this case with default header values.
+/*
+PatchScimGroupOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchScimGroupOK struct {
 	Payload *models.ScimV2Group
 }
 
+// IsSuccess returns true when this patch scim group o k response has a 2xx status code
+func (o *PatchScimGroupOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch scim group o k response has a 3xx status code
+func (o *PatchScimGroupOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group o k response has a 4xx status code
+func (o *PatchScimGroupOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch scim group o k response has a 5xx status code
+func (o *PatchScimGroupOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim group o k response a status code equal to that given
+func (o *PatchScimGroupOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchScimGroupOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchScimGroupOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchScimGroupBadRequest() *PatchScimGroupBadRequest {
 	return &PatchScimGroupBadRequest{}
 }
 
-/*PatchScimGroupBadRequest handles this case with default header values.
+/*
+PatchScimGroupBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchScimGroupBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim group bad request response has a 2xx status code
+func (o *PatchScimGroupBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim group bad request response has a 3xx status code
+func (o *PatchScimGroupBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group bad request response has a 4xx status code
+func (o *PatchScimGroupBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim group bad request response has a 5xx status code
+func (o *PatchScimGroupBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim group bad request response a status code equal to that given
+func (o *PatchScimGroupBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchScimGroupBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchScimGroupBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchScimGroupUnauthorized() *PatchScimGroupUnauthorized {
 	return &PatchScimGroupUnauthorized{}
 }
 
-/*PatchScimGroupUnauthorized handles this case with default header values.
+/*
+PatchScimGroupUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchScimGroupUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim group unauthorized response has a 2xx status code
+func (o *PatchScimGroupUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim group unauthorized response has a 3xx status code
+func (o *PatchScimGroupUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group unauthorized response has a 4xx status code
+func (o *PatchScimGroupUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim group unauthorized response has a 5xx status code
+func (o *PatchScimGroupUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim group unauthorized response a status code equal to that given
+func (o *PatchScimGroupUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchScimGroupUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchScimGroupUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchScimGroupForbidden() *PatchScimGroupForbidden {
 	return &PatchScimGroupForbidden{}
 }
 
-/*PatchScimGroupForbidden handles this case with default header values.
+/*
+PatchScimGroupForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchScimGroupForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim group forbidden response has a 2xx status code
+func (o *PatchScimGroupForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim group forbidden response has a 3xx status code
+func (o *PatchScimGroupForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group forbidden response has a 4xx status code
+func (o *PatchScimGroupForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim group forbidden response has a 5xx status code
+func (o *PatchScimGroupForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim group forbidden response a status code equal to that given
+func (o *PatchScimGroupForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchScimGroupForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchScimGroupForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchScimGroupNotFound() *PatchScimGroupNotFound {
 	return &PatchScimGroupNotFound{}
 }
 
-/*PatchScimGroupNotFound handles this case with default header values.
+/*
+PatchScimGroupNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchScimGroupNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim group not found response has a 2xx status code
+func (o *PatchScimGroupNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim group not found response has a 3xx status code
+func (o *PatchScimGroupNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group not found response has a 4xx status code
+func (o *PatchScimGroupNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim group not found response has a 5xx status code
+func (o *PatchScimGroupNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim group not found response a status code equal to that given
+func (o *PatchScimGroupNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchScimGroupNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchScimGroupNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchScimGroupRequestTimeout() *PatchScimGroupRequestTimeout {
 	return &PatchScimGroupRequestTimeout{}
 }
 
-/*PatchScimGroupRequestTimeout handles this case with default header values.
+/*
+PatchScimGroupRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchScimGroupRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim group request timeout response has a 2xx status code
+func (o *PatchScimGroupRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim group request timeout response has a 3xx status code
+func (o *PatchScimGroupRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group request timeout response has a 4xx status code
+func (o *PatchScimGroupRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim group request timeout response has a 5xx status code
+func (o *PatchScimGroupRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim group request timeout response a status code equal to that given
+func (o *PatchScimGroupRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchScimGroupRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchScimGroupRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchScimGroupConflict() *PatchScimGroupConflict {
 	return &PatchScimGroupConflict{}
 }
 
-/*PatchScimGroupConflict handles this case with default header values.
+/*
+PatchScimGroupConflict describes a response with status code 409, with default header values.
 
 Version does not match current version.
 */
@@ -318,7 +498,36 @@ type PatchScimGroupConflict struct {
 	Payload *models.ScimError
 }
 
+// IsSuccess returns true when this patch scim group conflict response has a 2xx status code
+func (o *PatchScimGroupConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim group conflict response has a 3xx status code
+func (o *PatchScimGroupConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group conflict response has a 4xx status code
+func (o *PatchScimGroupConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim group conflict response has a 5xx status code
+func (o *PatchScimGroupConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim group conflict response a status code equal to that given
+func (o *PatchScimGroupConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchScimGroupConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchScimGroupConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchScimGroupRequestEntityTooLarge() *PatchScimGroupRequestEntityTooLar
 	return &PatchScimGroupRequestEntityTooLarge{}
 }
 
-/*PatchScimGroupRequestEntityTooLarge handles this case with default header values.
+/*
+PatchScimGroupRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchScimGroupRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim group request entity too large response has a 2xx status code
+func (o *PatchScimGroupRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim group request entity too large response has a 3xx status code
+func (o *PatchScimGroupRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group request entity too large response has a 4xx status code
+func (o *PatchScimGroupRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim group request entity too large response has a 5xx status code
+func (o *PatchScimGroupRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim group request entity too large response a status code equal to that given
+func (o *PatchScimGroupRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchScimGroupRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchScimGroupRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchScimGroupUnsupportedMediaType() *PatchScimGroupUnsupportedMediaType
 	return &PatchScimGroupUnsupportedMediaType{}
 }
 
-/*PatchScimGroupUnsupportedMediaType handles this case with default header values.
+/*
+PatchScimGroupUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchScimGroupUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim group unsupported media type response has a 2xx status code
+func (o *PatchScimGroupUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim group unsupported media type response has a 3xx status code
+func (o *PatchScimGroupUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group unsupported media type response has a 4xx status code
+func (o *PatchScimGroupUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim group unsupported media type response has a 5xx status code
+func (o *PatchScimGroupUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim group unsupported media type response a status code equal to that given
+func (o *PatchScimGroupUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchScimGroupUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchScimGroupUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchScimGroupTooManyRequests() *PatchScimGroupTooManyRequests {
 	return &PatchScimGroupTooManyRequests{}
 }
 
-/*PatchScimGroupTooManyRequests handles this case with default header values.
+/*
+PatchScimGroupTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchScimGroupTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim group too many requests response has a 2xx status code
+func (o *PatchScimGroupTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim group too many requests response has a 3xx status code
+func (o *PatchScimGroupTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group too many requests response has a 4xx status code
+func (o *PatchScimGroupTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch scim group too many requests response has a 5xx status code
+func (o *PatchScimGroupTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch scim group too many requests response a status code equal to that given
+func (o *PatchScimGroupTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchScimGroupTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchScimGroupTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchScimGroupInternalServerError() *PatchScimGroupInternalServerError {
 	return &PatchScimGroupInternalServerError{}
 }
 
-/*PatchScimGroupInternalServerError handles this case with default header values.
+/*
+PatchScimGroupInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchScimGroupInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim group internal server error response has a 2xx status code
+func (o *PatchScimGroupInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim group internal server error response has a 3xx status code
+func (o *PatchScimGroupInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group internal server error response has a 4xx status code
+func (o *PatchScimGroupInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch scim group internal server error response has a 5xx status code
+func (o *PatchScimGroupInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch scim group internal server error response a status code equal to that given
+func (o *PatchScimGroupInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchScimGroupInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchScimGroupInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchScimGroupServiceUnavailable() *PatchScimGroupServiceUnavailable {
 	return &PatchScimGroupServiceUnavailable{}
 }
 
-/*PatchScimGroupServiceUnavailable handles this case with default header values.
+/*
+PatchScimGroupServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchScimGroupServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim group service unavailable response has a 2xx status code
+func (o *PatchScimGroupServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim group service unavailable response has a 3xx status code
+func (o *PatchScimGroupServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group service unavailable response has a 4xx status code
+func (o *PatchScimGroupServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch scim group service unavailable response has a 5xx status code
+func (o *PatchScimGroupServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch scim group service unavailable response a status code equal to that given
+func (o *PatchScimGroupServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchScimGroupServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchScimGroupServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchScimGroupGatewayTimeout() *PatchScimGroupGatewayTimeout {
 	return &PatchScimGroupGatewayTimeout{}
 }
 
-/*PatchScimGroupGatewayTimeout handles this case with default header values.
+/*
+PatchScimGroupGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchScimGroupGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch scim group gateway timeout response has a 2xx status code
+func (o *PatchScimGroupGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch scim group gateway timeout response has a 3xx status code
+func (o *PatchScimGroupGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch scim group gateway timeout response has a 4xx status code
+func (o *PatchScimGroupGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch scim group gateway timeout response has a 5xx status code
+func (o *PatchScimGroupGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch scim group gateway timeout response a status code equal to that given
+func (o *PatchScimGroupGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchScimGroupGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchScimGroupGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/scim/groups/{groupId}][%d] patchScimGroupGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOutboundDnclistParams creates a new PutOutboundDnclistParams object
-// with the default values initialized.
+// NewPutOutboundDnclistParams creates a new PutOutboundDnclistParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOutboundDnclistParams() *PutOutboundDnclistParams {
-	var ()
 	return &PutOutboundDnclistParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOutboundDnclistParamsWithTimeout creates a new PutOutboundDnclistParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOutboundDnclistParamsWithTimeout(timeout time.Duration) *PutOutboundDnclistParams {
-	var ()
 	return &PutOutboundDnclistParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOutboundDnclistParamsWithContext creates a new PutOutboundDnclistParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOutboundDnclistParamsWithContext(ctx context.Context) *PutOutboundDnclistParams {
-	var ()
 	return &PutOutboundDnclistParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOutboundDnclistParamsWithHTTPClient creates a new PutOutboundDnclistParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOutboundDnclistParamsWithHTTPClient(client *http.Client) *PutOutboundDnclistParams {
-	var ()
 	return &PutOutboundDnclistParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOutboundDnclistParams contains all the parameters to send to the API endpoint
-for the put outbound dnclist operation typically these are written to a http.Request
+/*
+PutOutboundDnclistParams contains all the parameters to send to the API endpoint
+
+	for the put outbound dnclist operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOutboundDnclistParams struct {
 
-	/*Body
-	  DncList
+	/* Body.
 
+	   DncList
 	*/
 	Body *models.DncList
-	/*DncListID
-	  DncList ID
 
+	/* DncListID.
+
+	   DncList ID
 	*/
 	DncListID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put outbound dnclist params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundDnclistParams) WithDefaults() *PutOutboundDnclistParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put outbound dnclist params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOutboundDnclistParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put outbound dnclist params
@@ -140,7 +157,6 @@ func (o *PutOutboundDnclistParams) WriteToRequest(r runtime.ClientRequest, reg s
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

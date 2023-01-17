@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -61,7 +62,6 @@ func (m *MessageEvent) Validate(formats strfmt.Registry) error {
 }
 
 func (m *MessageEvent) validateCoBrowse(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CoBrowse) { // not required
 		return nil
 	}
@@ -70,6 +70,8 @@ func (m *MessageEvent) validateCoBrowse(formats strfmt.Registry) error {
 		if err := m.CoBrowse.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("coBrowse")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("coBrowse")
 			}
 			return err
 		}
@@ -125,7 +127,6 @@ func (m *MessageEvent) validateEventType(formats strfmt.Registry) error {
 }
 
 func (m *MessageEvent) validatePresence(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Presence) { // not required
 		return nil
 	}
@@ -134,6 +135,8 @@ func (m *MessageEvent) validatePresence(formats strfmt.Registry) error {
 		if err := m.Presence.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("presence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("presence")
 			}
 			return err
 		}
@@ -143,7 +146,6 @@ func (m *MessageEvent) validatePresence(formats strfmt.Registry) error {
 }
 
 func (m *MessageEvent) validateTyping(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Typing) { // not required
 		return nil
 	}
@@ -152,6 +154,78 @@ func (m *MessageEvent) validateTyping(formats strfmt.Registry) error {
 		if err := m.Typing.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("typing")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("typing")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this message event based on the context it is used
+func (m *MessageEvent) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCoBrowse(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePresence(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTyping(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *MessageEvent) contextValidateCoBrowse(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CoBrowse != nil {
+		if err := m.CoBrowse.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("coBrowse")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("coBrowse")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessageEvent) contextValidatePresence(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Presence != nil {
+		if err := m.Presence.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("presence")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("presence")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *MessageEvent) contextValidateTyping(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Typing != nil {
+		if err := m.Typing.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("typing")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("typing")
 			}
 			return err
 		}

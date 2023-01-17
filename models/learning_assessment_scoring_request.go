@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -54,6 +56,8 @@ func (m *LearningAssessmentScoringRequest) validateAnswers(formats strfmt.Regist
 		if err := m.Answers.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("answers")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("answers")
 			}
 			return err
 		}
@@ -72,6 +76,58 @@ func (m *LearningAssessmentScoringRequest) validateAssessmentForm(formats strfmt
 		if err := m.AssessmentForm.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("assessmentForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assessmentForm")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this learning assessment scoring request based on the context it is used
+func (m *LearningAssessmentScoringRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAnswers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAssessmentForm(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *LearningAssessmentScoringRequest) contextValidateAnswers(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Answers != nil {
+		if err := m.Answers.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("answers")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("answers")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *LearningAssessmentScoringRequest) contextValidateAssessmentForm(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AssessmentForm != nil {
+		if err := m.AssessmentForm.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("assessmentForm")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("assessmentForm")
 			}
 			return err
 		}

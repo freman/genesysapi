@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -129,7 +130,6 @@ func (m *AnalyticsFlow) validateEntryTypeEnum(path, location string, value strin
 }
 
 func (m *AnalyticsFlow) validateEntryType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EntryType) { // not required
 		return nil
 	}
@@ -220,7 +220,6 @@ func (m *AnalyticsFlow) validateFlowTypeEnum(path, location string, value string
 }
 
 func (m *AnalyticsFlow) validateFlowType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.FlowType) { // not required
 		return nil
 	}
@@ -234,7 +233,6 @@ func (m *AnalyticsFlow) validateFlowType(formats strfmt.Registry) error {
 }
 
 func (m *AnalyticsFlow) validateOutcomes(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Outcomes) { // not required
 		return nil
 	}
@@ -248,6 +246,42 @@ func (m *AnalyticsFlow) validateOutcomes(formats strfmt.Registry) error {
 			if err := m.Outcomes[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("outcomes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("outcomes" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this analytics flow based on the context it is used
+func (m *AnalyticsFlow) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateOutcomes(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AnalyticsFlow) contextValidateOutcomes(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Outcomes); i++ {
+
+		if m.Outcomes[i] != nil {
+			if err := m.Outcomes[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("outcomes" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("outcomes" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

@@ -95,7 +95,6 @@ func (o *PostLearningAssignmentsBulkremoveReader) ReadResponse(response runtime.
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostLearningAssignmentsBulkremoveOK() *PostLearningAssignmentsBulkremove
 	return &PostLearningAssignmentsBulkremoveOK{}
 }
 
-/*PostLearningAssignmentsBulkremoveOK handles this case with default header values.
+/*
+PostLearningAssignmentsBulkremoveOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostLearningAssignmentsBulkremoveOK struct {
 	Payload *models.LearningAssignmentBulkRemoveResponse
 }
 
+// IsSuccess returns true when this post learning assignments bulkremove o k response has a 2xx status code
+func (o *PostLearningAssignmentsBulkremoveOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post learning assignments bulkremove o k response has a 3xx status code
+func (o *PostLearningAssignmentsBulkremoveOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bulkremove o k response has a 4xx status code
+func (o *PostLearningAssignmentsBulkremoveOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments bulkremove o k response has a 5xx status code
+func (o *PostLearningAssignmentsBulkremoveOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments bulkremove o k response a status code equal to that given
+func (o *PostLearningAssignmentsBulkremoveOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostLearningAssignmentsBulkremoveOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveOK  %+v", 200, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBulkremoveOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostLearningAssignmentsBulkremoveBadRequest() *PostLearningAssignmentsBu
 	return &PostLearningAssignmentsBulkremoveBadRequest{}
 }
 
-/*PostLearningAssignmentsBulkremoveBadRequest handles this case with default header values.
+/*
+PostLearningAssignmentsBulkremoveBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostLearningAssignmentsBulkremoveBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments bulkremove bad request response has a 2xx status code
+func (o *PostLearningAssignmentsBulkremoveBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments bulkremove bad request response has a 3xx status code
+func (o *PostLearningAssignmentsBulkremoveBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bulkremove bad request response has a 4xx status code
+func (o *PostLearningAssignmentsBulkremoveBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments bulkremove bad request response has a 5xx status code
+func (o *PostLearningAssignmentsBulkremoveBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments bulkremove bad request response a status code equal to that given
+func (o *PostLearningAssignmentsBulkremoveBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostLearningAssignmentsBulkremoveBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBulkremoveBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostLearningAssignmentsBulkremoveUnauthorized() *PostLearningAssignments
 	return &PostLearningAssignmentsBulkremoveUnauthorized{}
 }
 
-/*PostLearningAssignmentsBulkremoveUnauthorized handles this case with default header values.
+/*
+PostLearningAssignmentsBulkremoveUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostLearningAssignmentsBulkremoveUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments bulkremove unauthorized response has a 2xx status code
+func (o *PostLearningAssignmentsBulkremoveUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments bulkremove unauthorized response has a 3xx status code
+func (o *PostLearningAssignmentsBulkremoveUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bulkremove unauthorized response has a 4xx status code
+func (o *PostLearningAssignmentsBulkremoveUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments bulkremove unauthorized response has a 5xx status code
+func (o *PostLearningAssignmentsBulkremoveUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments bulkremove unauthorized response a status code equal to that given
+func (o *PostLearningAssignmentsBulkremoveUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostLearningAssignmentsBulkremoveUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBulkremoveUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostLearningAssignmentsBulkremoveForbidden() *PostLearningAssignmentsBul
 	return &PostLearningAssignmentsBulkremoveForbidden{}
 }
 
-/*PostLearningAssignmentsBulkremoveForbidden handles this case with default header values.
+/*
+PostLearningAssignmentsBulkremoveForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostLearningAssignmentsBulkremoveForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments bulkremove forbidden response has a 2xx status code
+func (o *PostLearningAssignmentsBulkremoveForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments bulkremove forbidden response has a 3xx status code
+func (o *PostLearningAssignmentsBulkremoveForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bulkremove forbidden response has a 4xx status code
+func (o *PostLearningAssignmentsBulkremoveForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments bulkremove forbidden response has a 5xx status code
+func (o *PostLearningAssignmentsBulkremoveForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments bulkremove forbidden response a status code equal to that given
+func (o *PostLearningAssignmentsBulkremoveForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostLearningAssignmentsBulkremoveForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBulkremoveForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostLearningAssignmentsBulkremoveNotFound() *PostLearningAssignmentsBulk
 	return &PostLearningAssignmentsBulkremoveNotFound{}
 }
 
-/*PostLearningAssignmentsBulkremoveNotFound handles this case with default header values.
+/*
+PostLearningAssignmentsBulkremoveNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostLearningAssignmentsBulkremoveNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments bulkremove not found response has a 2xx status code
+func (o *PostLearningAssignmentsBulkremoveNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments bulkremove not found response has a 3xx status code
+func (o *PostLearningAssignmentsBulkremoveNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bulkremove not found response has a 4xx status code
+func (o *PostLearningAssignmentsBulkremoveNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments bulkremove not found response has a 5xx status code
+func (o *PostLearningAssignmentsBulkremoveNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments bulkremove not found response a status code equal to that given
+func (o *PostLearningAssignmentsBulkremoveNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostLearningAssignmentsBulkremoveNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBulkremoveNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostLearningAssignmentsBulkremoveRequestTimeout() *PostLearningAssignmen
 	return &PostLearningAssignmentsBulkremoveRequestTimeout{}
 }
 
-/*PostLearningAssignmentsBulkremoveRequestTimeout handles this case with default header values.
+/*
+PostLearningAssignmentsBulkremoveRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostLearningAssignmentsBulkremoveRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments bulkremove request timeout response has a 2xx status code
+func (o *PostLearningAssignmentsBulkremoveRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments bulkremove request timeout response has a 3xx status code
+func (o *PostLearningAssignmentsBulkremoveRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bulkremove request timeout response has a 4xx status code
+func (o *PostLearningAssignmentsBulkremoveRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments bulkremove request timeout response has a 5xx status code
+func (o *PostLearningAssignmentsBulkremoveRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments bulkremove request timeout response a status code equal to that given
+func (o *PostLearningAssignmentsBulkremoveRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostLearningAssignmentsBulkremoveRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBulkremoveRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostLearningAssignmentsBulkremoveRequestEntityTooLarge() *PostLearningAs
 	return &PostLearningAssignmentsBulkremoveRequestEntityTooLarge{}
 }
 
-/*PostLearningAssignmentsBulkremoveRequestEntityTooLarge handles this case with default header values.
+/*
+PostLearningAssignmentsBulkremoveRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostLearningAssignmentsBulkremoveRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments bulkremove request entity too large response has a 2xx status code
+func (o *PostLearningAssignmentsBulkremoveRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments bulkremove request entity too large response has a 3xx status code
+func (o *PostLearningAssignmentsBulkremoveRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bulkremove request entity too large response has a 4xx status code
+func (o *PostLearningAssignmentsBulkremoveRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments bulkremove request entity too large response has a 5xx status code
+func (o *PostLearningAssignmentsBulkremoveRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments bulkremove request entity too large response a status code equal to that given
+func (o *PostLearningAssignmentsBulkremoveRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostLearningAssignmentsBulkremoveRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBulkremoveRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostLearningAssignmentsBulkremoveUnsupportedMediaType() *PostLearningAss
 	return &PostLearningAssignmentsBulkremoveUnsupportedMediaType{}
 }
 
-/*PostLearningAssignmentsBulkremoveUnsupportedMediaType handles this case with default header values.
+/*
+PostLearningAssignmentsBulkremoveUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostLearningAssignmentsBulkremoveUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments bulkremove unsupported media type response has a 2xx status code
+func (o *PostLearningAssignmentsBulkremoveUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments bulkremove unsupported media type response has a 3xx status code
+func (o *PostLearningAssignmentsBulkremoveUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bulkremove unsupported media type response has a 4xx status code
+func (o *PostLearningAssignmentsBulkremoveUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments bulkremove unsupported media type response has a 5xx status code
+func (o *PostLearningAssignmentsBulkremoveUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments bulkremove unsupported media type response a status code equal to that given
+func (o *PostLearningAssignmentsBulkremoveUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostLearningAssignmentsBulkremoveUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBulkremoveUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostLearningAssignmentsBulkremoveTooManyRequests() *PostLearningAssignme
 	return &PostLearningAssignmentsBulkremoveTooManyRequests{}
 }
 
-/*PostLearningAssignmentsBulkremoveTooManyRequests handles this case with default header values.
+/*
+PostLearningAssignmentsBulkremoveTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostLearningAssignmentsBulkremoveTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments bulkremove too many requests response has a 2xx status code
+func (o *PostLearningAssignmentsBulkremoveTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments bulkremove too many requests response has a 3xx status code
+func (o *PostLearningAssignmentsBulkremoveTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bulkremove too many requests response has a 4xx status code
+func (o *PostLearningAssignmentsBulkremoveTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post learning assignments bulkremove too many requests response has a 5xx status code
+func (o *PostLearningAssignmentsBulkremoveTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post learning assignments bulkremove too many requests response a status code equal to that given
+func (o *PostLearningAssignmentsBulkremoveTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostLearningAssignmentsBulkremoveTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBulkremoveTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostLearningAssignmentsBulkremoveInternalServerError() *PostLearningAssi
 	return &PostLearningAssignmentsBulkremoveInternalServerError{}
 }
 
-/*PostLearningAssignmentsBulkremoveInternalServerError handles this case with default header values.
+/*
+PostLearningAssignmentsBulkremoveInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostLearningAssignmentsBulkremoveInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments bulkremove internal server error response has a 2xx status code
+func (o *PostLearningAssignmentsBulkremoveInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments bulkremove internal server error response has a 3xx status code
+func (o *PostLearningAssignmentsBulkremoveInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bulkremove internal server error response has a 4xx status code
+func (o *PostLearningAssignmentsBulkremoveInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments bulkremove internal server error response has a 5xx status code
+func (o *PostLearningAssignmentsBulkremoveInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignments bulkremove internal server error response a status code equal to that given
+func (o *PostLearningAssignmentsBulkremoveInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostLearningAssignmentsBulkremoveInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBulkremoveInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostLearningAssignmentsBulkremoveServiceUnavailable() *PostLearningAssig
 	return &PostLearningAssignmentsBulkremoveServiceUnavailable{}
 }
 
-/*PostLearningAssignmentsBulkremoveServiceUnavailable handles this case with default header values.
+/*
+PostLearningAssignmentsBulkremoveServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostLearningAssignmentsBulkremoveServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments bulkremove service unavailable response has a 2xx status code
+func (o *PostLearningAssignmentsBulkremoveServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments bulkremove service unavailable response has a 3xx status code
+func (o *PostLearningAssignmentsBulkremoveServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bulkremove service unavailable response has a 4xx status code
+func (o *PostLearningAssignmentsBulkremoveServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments bulkremove service unavailable response has a 5xx status code
+func (o *PostLearningAssignmentsBulkremoveServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignments bulkremove service unavailable response a status code equal to that given
+func (o *PostLearningAssignmentsBulkremoveServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostLearningAssignmentsBulkremoveServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBulkremoveServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostLearningAssignmentsBulkremoveGatewayTimeout() *PostLearningAssignmen
 	return &PostLearningAssignmentsBulkremoveGatewayTimeout{}
 }
 
-/*PostLearningAssignmentsBulkremoveGatewayTimeout handles this case with default header values.
+/*
+PostLearningAssignmentsBulkremoveGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostLearningAssignmentsBulkremoveGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post learning assignments bulkremove gateway timeout response has a 2xx status code
+func (o *PostLearningAssignmentsBulkremoveGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post learning assignments bulkremove gateway timeout response has a 3xx status code
+func (o *PostLearningAssignmentsBulkremoveGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post learning assignments bulkremove gateway timeout response has a 4xx status code
+func (o *PostLearningAssignmentsBulkremoveGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post learning assignments bulkremove gateway timeout response has a 5xx status code
+func (o *PostLearningAssignmentsBulkremoveGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post learning assignments bulkremove gateway timeout response a status code equal to that given
+func (o *PostLearningAssignmentsBulkremoveGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostLearningAssignmentsBulkremoveGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostLearningAssignmentsBulkremoveGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/learning/assignments/bulkremove][%d] postLearningAssignmentsBulkremoveGatewayTimeout  %+v", 504, o.Payload)
 }
 

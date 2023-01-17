@@ -95,7 +95,6 @@ func (o *GetSpeechandtextanalyticsProgramMappingsReader) ReadResponse(response r
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetSpeechandtextanalyticsProgramMappingsOK() *GetSpeechandtextanalyticsP
 	return &GetSpeechandtextanalyticsProgramMappingsOK{}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsOK handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramMappingsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetSpeechandtextanalyticsProgramMappingsOK struct {
 	Payload *models.ProgramMappings
 }
 
+// IsSuccess returns true when this get speechandtextanalytics program mappings o k response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get speechandtextanalytics program mappings o k response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics program mappings o k response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics program mappings o k response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics program mappings o k response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramMappingsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetSpeechandtextanalyticsProgramMappingsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramMappingsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetSpeechandtextanalyticsProgramMappingsBadRequest() *GetSpeechandtextan
 	return &GetSpeechandtextanalyticsProgramMappingsBadRequest{}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsBadRequest handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramMappingsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetSpeechandtextanalyticsProgramMappingsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics program mappings bad request response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics program mappings bad request response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics program mappings bad request response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics program mappings bad request response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics program mappings bad request response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramMappingsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetSpeechandtextanalyticsProgramMappingsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramMappingsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetSpeechandtextanalyticsProgramMappingsUnauthorized() *GetSpeechandtext
 	return &GetSpeechandtextanalyticsProgramMappingsUnauthorized{}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsUnauthorized handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramMappingsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetSpeechandtextanalyticsProgramMappingsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics program mappings unauthorized response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics program mappings unauthorized response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics program mappings unauthorized response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics program mappings unauthorized response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics program mappings unauthorized response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramMappingsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetSpeechandtextanalyticsProgramMappingsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramMappingsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetSpeechandtextanalyticsProgramMappingsForbidden() *GetSpeechandtextana
 	return &GetSpeechandtextanalyticsProgramMappingsForbidden{}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsForbidden handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramMappingsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetSpeechandtextanalyticsProgramMappingsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics program mappings forbidden response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics program mappings forbidden response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics program mappings forbidden response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics program mappings forbidden response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics program mappings forbidden response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramMappingsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetSpeechandtextanalyticsProgramMappingsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramMappingsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetSpeechandtextanalyticsProgramMappingsNotFound() *GetSpeechandtextanal
 	return &GetSpeechandtextanalyticsProgramMappingsNotFound{}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsNotFound handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramMappingsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetSpeechandtextanalyticsProgramMappingsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics program mappings not found response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics program mappings not found response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics program mappings not found response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics program mappings not found response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics program mappings not found response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramMappingsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetSpeechandtextanalyticsProgramMappingsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramMappingsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetSpeechandtextanalyticsProgramMappingsRequestTimeout() *GetSpeechandte
 	return &GetSpeechandtextanalyticsProgramMappingsRequestTimeout{}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsRequestTimeout handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramMappingsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetSpeechandtextanalyticsProgramMappingsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics program mappings request timeout response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics program mappings request timeout response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics program mappings request timeout response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics program mappings request timeout response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics program mappings request timeout response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramMappingsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetSpeechandtextanalyticsProgramMappingsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramMappingsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge() *GetSpee
 	return &GetSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge{}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics program mappings request entity too large response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics program mappings request entity too large response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics program mappings request entity too large response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics program mappings request entity too large response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics program mappings request entity too large response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetSpeechandtextanalyticsProgramMappingsUnsupportedMediaType() *GetSpeec
 	return &GetSpeechandtextanalyticsProgramMappingsUnsupportedMediaType{}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsUnsupportedMediaType handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramMappingsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetSpeechandtextanalyticsProgramMappingsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics program mappings unsupported media type response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics program mappings unsupported media type response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics program mappings unsupported media type response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics program mappings unsupported media type response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics program mappings unsupported media type response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramMappingsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetSpeechandtextanalyticsProgramMappingsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramMappingsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetSpeechandtextanalyticsProgramMappingsTooManyRequests() *GetSpeechandt
 	return &GetSpeechandtextanalyticsProgramMappingsTooManyRequests{}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsTooManyRequests handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramMappingsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetSpeechandtextanalyticsProgramMappingsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics program mappings too many requests response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics program mappings too many requests response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics program mappings too many requests response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get speechandtextanalytics program mappings too many requests response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get speechandtextanalytics program mappings too many requests response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramMappingsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetSpeechandtextanalyticsProgramMappingsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramMappingsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetSpeechandtextanalyticsProgramMappingsInternalServerError() *GetSpeech
 	return &GetSpeechandtextanalyticsProgramMappingsInternalServerError{}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsInternalServerError handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramMappingsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetSpeechandtextanalyticsProgramMappingsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics program mappings internal server error response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics program mappings internal server error response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics program mappings internal server error response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics program mappings internal server error response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get speechandtextanalytics program mappings internal server error response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramMappingsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetSpeechandtextanalyticsProgramMappingsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramMappingsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetSpeechandtextanalyticsProgramMappingsServiceUnavailable() *GetSpeecha
 	return &GetSpeechandtextanalyticsProgramMappingsServiceUnavailable{}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsServiceUnavailable handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramMappingsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetSpeechandtextanalyticsProgramMappingsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics program mappings service unavailable response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics program mappings service unavailable response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics program mappings service unavailable response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics program mappings service unavailable response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get speechandtextanalytics program mappings service unavailable response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramMappingsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetSpeechandtextanalyticsProgramMappingsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramMappingsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetSpeechandtextanalyticsProgramMappingsGatewayTimeout() *GetSpeechandte
 	return &GetSpeechandtextanalyticsProgramMappingsGatewayTimeout{}
 }
 
-/*GetSpeechandtextanalyticsProgramMappingsGatewayTimeout handles this case with default header values.
+/*
+GetSpeechandtextanalyticsProgramMappingsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetSpeechandtextanalyticsProgramMappingsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get speechandtextanalytics program mappings gateway timeout response has a 2xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get speechandtextanalytics program mappings gateway timeout response has a 3xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get speechandtextanalytics program mappings gateway timeout response has a 4xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get speechandtextanalytics program mappings gateway timeout response has a 5xx status code
+func (o *GetSpeechandtextanalyticsProgramMappingsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get speechandtextanalytics program mappings gateway timeout response a status code equal to that given
+func (o *GetSpeechandtextanalyticsProgramMappingsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetSpeechandtextanalyticsProgramMappingsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetSpeechandtextanalyticsProgramMappingsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/speechandtextanalytics/programs/{programId}/mappings][%d] getSpeechandtextanalyticsProgramMappingsGatewayTimeout  %+v", 504, o.Payload)
 }
 

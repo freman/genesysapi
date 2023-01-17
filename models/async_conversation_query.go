@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -97,7 +98,6 @@ func (m *AsyncConversationQuery) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AsyncConversationQuery) validateConversationFilters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ConversationFilters) { // not required
 		return nil
 	}
@@ -111,6 +111,8 @@ func (m *AsyncConversationQuery) validateConversationFilters(formats strfmt.Regi
 			if err := m.ConversationFilters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("conversationFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conversationFilters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -122,7 +124,6 @@ func (m *AsyncConversationQuery) validateConversationFilters(formats strfmt.Regi
 }
 
 func (m *AsyncConversationQuery) validateEvaluationFilters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.EvaluationFilters) { // not required
 		return nil
 	}
@@ -136,6 +137,8 @@ func (m *AsyncConversationQuery) validateEvaluationFilters(formats strfmt.Regist
 			if err := m.EvaluationFilters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("evaluationFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("evaluationFilters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -188,7 +191,6 @@ func (m *AsyncConversationQuery) validateOrderEnum(path, location string, value 
 }
 
 func (m *AsyncConversationQuery) validateOrder(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Order) { // not required
 		return nil
 	}
@@ -237,7 +239,6 @@ func (m *AsyncConversationQuery) validateOrderByEnum(path, location string, valu
 }
 
 func (m *AsyncConversationQuery) validateOrderBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.OrderBy) { // not required
 		return nil
 	}
@@ -251,7 +252,6 @@ func (m *AsyncConversationQuery) validateOrderBy(formats strfmt.Registry) error 
 }
 
 func (m *AsyncConversationQuery) validateResolutionFilters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ResolutionFilters) { // not required
 		return nil
 	}
@@ -265,6 +265,8 @@ func (m *AsyncConversationQuery) validateResolutionFilters(formats strfmt.Regist
 			if err := m.ResolutionFilters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("resolutionFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resolutionFilters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -276,7 +278,6 @@ func (m *AsyncConversationQuery) validateResolutionFilters(formats strfmt.Regist
 }
 
 func (m *AsyncConversationQuery) validateSegmentFilters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SegmentFilters) { // not required
 		return nil
 	}
@@ -290,6 +291,8 @@ func (m *AsyncConversationQuery) validateSegmentFilters(formats strfmt.Registry)
 			if err := m.SegmentFilters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segmentFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segmentFilters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -301,7 +304,6 @@ func (m *AsyncConversationQuery) validateSegmentFilters(formats strfmt.Registry)
 }
 
 func (m *AsyncConversationQuery) validateSurveyFilters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SurveyFilters) { // not required
 		return nil
 	}
@@ -315,6 +317,138 @@ func (m *AsyncConversationQuery) validateSurveyFilters(formats strfmt.Registry) 
 			if err := m.SurveyFilters[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("surveyFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("surveyFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+// ContextValidate validate this async conversation query based on the context it is used
+func (m *AsyncConversationQuery) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateConversationFilters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateEvaluationFilters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResolutionFilters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSegmentFilters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSurveyFilters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AsyncConversationQuery) contextValidateConversationFilters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ConversationFilters); i++ {
+
+		if m.ConversationFilters[i] != nil {
+			if err := m.ConversationFilters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("conversationFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("conversationFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AsyncConversationQuery) contextValidateEvaluationFilters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.EvaluationFilters); i++ {
+
+		if m.EvaluationFilters[i] != nil {
+			if err := m.EvaluationFilters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("evaluationFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("evaluationFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AsyncConversationQuery) contextValidateResolutionFilters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ResolutionFilters); i++ {
+
+		if m.ResolutionFilters[i] != nil {
+			if err := m.ResolutionFilters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("resolutionFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("resolutionFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AsyncConversationQuery) contextValidateSegmentFilters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SegmentFilters); i++ {
+
+		if m.SegmentFilters[i] != nil {
+			if err := m.SegmentFilters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("segmentFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segmentFilters" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AsyncConversationQuery) contextValidateSurveyFilters(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.SurveyFilters); i++ {
+
+		if m.SurveyFilters[i] != nil {
+			if err := m.SurveyFilters[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("surveyFilters" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("surveyFilters" + "." + strconv.Itoa(i))
 				}
 				return err
 			}

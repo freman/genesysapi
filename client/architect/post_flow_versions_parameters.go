@@ -16,61 +16,78 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewPostFlowVersionsParams creates a new PostFlowVersionsParams object
-// with the default values initialized.
+// NewPostFlowVersionsParams creates a new PostFlowVersionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostFlowVersionsParams() *PostFlowVersionsParams {
-	var ()
 	return &PostFlowVersionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostFlowVersionsParamsWithTimeout creates a new PostFlowVersionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostFlowVersionsParamsWithTimeout(timeout time.Duration) *PostFlowVersionsParams {
-	var ()
 	return &PostFlowVersionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostFlowVersionsParamsWithContext creates a new PostFlowVersionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostFlowVersionsParamsWithContext(ctx context.Context) *PostFlowVersionsParams {
-	var ()
 	return &PostFlowVersionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostFlowVersionsParamsWithHTTPClient creates a new PostFlowVersionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostFlowVersionsParamsWithHTTPClient(client *http.Client) *PostFlowVersionsParams {
-	var ()
 	return &PostFlowVersionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostFlowVersionsParams contains all the parameters to send to the API endpoint
-for the post flow versions operation typically these are written to a http.Request
+/*
+PostFlowVersionsParams contains all the parameters to send to the API endpoint
+
+	for the post flow versions operation.
+
+	Typically these are written to a http.Request.
 */
 type PostFlowVersionsParams struct {
 
-	/*Body*/
+	// Body.
 	Body map[string]interface{}
-	/*FlowID
-	  Flow ID
 
+	/* FlowID.
+
+	   Flow ID
 	*/
 	FlowID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post flow versions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowVersionsParams) WithDefaults() *PostFlowVersionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post flow versions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostFlowVersionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post flow versions params
@@ -135,7 +152,6 @@ func (o *PostFlowVersionsParams) WriteToRequest(r runtime.ClientRequest, reg str
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

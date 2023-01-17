@@ -95,7 +95,6 @@ func (o *GetDocumentationSearchReader) ReadResponse(response runtime.ClientRespo
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetDocumentationSearchOK() *GetDocumentationSearchOK {
 	return &GetDocumentationSearchOK{}
 }
 
-/*GetDocumentationSearchOK handles this case with default header values.
+/*
+GetDocumentationSearchOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetDocumentationSearchOK struct {
 	Payload *models.DocumentationSearchResponse
 }
 
+// IsSuccess returns true when this get documentation search o k response has a 2xx status code
+func (o *GetDocumentationSearchOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get documentation search o k response has a 3xx status code
+func (o *GetDocumentationSearchOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get documentation search o k response has a 4xx status code
+func (o *GetDocumentationSearchOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get documentation search o k response has a 5xx status code
+func (o *GetDocumentationSearchOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get documentation search o k response a status code equal to that given
+func (o *GetDocumentationSearchOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetDocumentationSearchOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchOK  %+v", 200, o.Payload)
+}
+
+func (o *GetDocumentationSearchOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetDocumentationSearchBadRequest() *GetDocumentationSearchBadRequest {
 	return &GetDocumentationSearchBadRequest{}
 }
 
-/*GetDocumentationSearchBadRequest handles this case with default header values.
+/*
+GetDocumentationSearchBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetDocumentationSearchBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get documentation search bad request response has a 2xx status code
+func (o *GetDocumentationSearchBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get documentation search bad request response has a 3xx status code
+func (o *GetDocumentationSearchBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get documentation search bad request response has a 4xx status code
+func (o *GetDocumentationSearchBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get documentation search bad request response has a 5xx status code
+func (o *GetDocumentationSearchBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get documentation search bad request response a status code equal to that given
+func (o *GetDocumentationSearchBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetDocumentationSearchBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetDocumentationSearchBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetDocumentationSearchUnauthorized() *GetDocumentationSearchUnauthorized
 	return &GetDocumentationSearchUnauthorized{}
 }
 
-/*GetDocumentationSearchUnauthorized handles this case with default header values.
+/*
+GetDocumentationSearchUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetDocumentationSearchUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get documentation search unauthorized response has a 2xx status code
+func (o *GetDocumentationSearchUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get documentation search unauthorized response has a 3xx status code
+func (o *GetDocumentationSearchUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get documentation search unauthorized response has a 4xx status code
+func (o *GetDocumentationSearchUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get documentation search unauthorized response has a 5xx status code
+func (o *GetDocumentationSearchUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get documentation search unauthorized response a status code equal to that given
+func (o *GetDocumentationSearchUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetDocumentationSearchUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetDocumentationSearchUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetDocumentationSearchForbidden() *GetDocumentationSearchForbidden {
 	return &GetDocumentationSearchForbidden{}
 }
 
-/*GetDocumentationSearchForbidden handles this case with default header values.
+/*
+GetDocumentationSearchForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetDocumentationSearchForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get documentation search forbidden response has a 2xx status code
+func (o *GetDocumentationSearchForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get documentation search forbidden response has a 3xx status code
+func (o *GetDocumentationSearchForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get documentation search forbidden response has a 4xx status code
+func (o *GetDocumentationSearchForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get documentation search forbidden response has a 5xx status code
+func (o *GetDocumentationSearchForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get documentation search forbidden response a status code equal to that given
+func (o *GetDocumentationSearchForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetDocumentationSearchForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetDocumentationSearchForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetDocumentationSearchNotFound() *GetDocumentationSearchNotFound {
 	return &GetDocumentationSearchNotFound{}
 }
 
-/*GetDocumentationSearchNotFound handles this case with default header values.
+/*
+GetDocumentationSearchNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetDocumentationSearchNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get documentation search not found response has a 2xx status code
+func (o *GetDocumentationSearchNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get documentation search not found response has a 3xx status code
+func (o *GetDocumentationSearchNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get documentation search not found response has a 4xx status code
+func (o *GetDocumentationSearchNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get documentation search not found response has a 5xx status code
+func (o *GetDocumentationSearchNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get documentation search not found response a status code equal to that given
+func (o *GetDocumentationSearchNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetDocumentationSearchNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetDocumentationSearchNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetDocumentationSearchRequestTimeout() *GetDocumentationSearchRequestTim
 	return &GetDocumentationSearchRequestTimeout{}
 }
 
-/*GetDocumentationSearchRequestTimeout handles this case with default header values.
+/*
+GetDocumentationSearchRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetDocumentationSearchRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get documentation search request timeout response has a 2xx status code
+func (o *GetDocumentationSearchRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get documentation search request timeout response has a 3xx status code
+func (o *GetDocumentationSearchRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get documentation search request timeout response has a 4xx status code
+func (o *GetDocumentationSearchRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get documentation search request timeout response has a 5xx status code
+func (o *GetDocumentationSearchRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get documentation search request timeout response a status code equal to that given
+func (o *GetDocumentationSearchRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetDocumentationSearchRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetDocumentationSearchRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetDocumentationSearchRequestEntityTooLarge() *GetDocumentationSearchReq
 	return &GetDocumentationSearchRequestEntityTooLarge{}
 }
 
-/*GetDocumentationSearchRequestEntityTooLarge handles this case with default header values.
+/*
+GetDocumentationSearchRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetDocumentationSearchRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get documentation search request entity too large response has a 2xx status code
+func (o *GetDocumentationSearchRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get documentation search request entity too large response has a 3xx status code
+func (o *GetDocumentationSearchRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get documentation search request entity too large response has a 4xx status code
+func (o *GetDocumentationSearchRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get documentation search request entity too large response has a 5xx status code
+func (o *GetDocumentationSearchRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get documentation search request entity too large response a status code equal to that given
+func (o *GetDocumentationSearchRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetDocumentationSearchRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetDocumentationSearchRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetDocumentationSearchUnsupportedMediaType() *GetDocumentationSearchUnsu
 	return &GetDocumentationSearchUnsupportedMediaType{}
 }
 
-/*GetDocumentationSearchUnsupportedMediaType handles this case with default header values.
+/*
+GetDocumentationSearchUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetDocumentationSearchUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get documentation search unsupported media type response has a 2xx status code
+func (o *GetDocumentationSearchUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get documentation search unsupported media type response has a 3xx status code
+func (o *GetDocumentationSearchUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get documentation search unsupported media type response has a 4xx status code
+func (o *GetDocumentationSearchUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get documentation search unsupported media type response has a 5xx status code
+func (o *GetDocumentationSearchUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get documentation search unsupported media type response a status code equal to that given
+func (o *GetDocumentationSearchUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetDocumentationSearchUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetDocumentationSearchUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetDocumentationSearchTooManyRequests() *GetDocumentationSearchTooManyRe
 	return &GetDocumentationSearchTooManyRequests{}
 }
 
-/*GetDocumentationSearchTooManyRequests handles this case with default header values.
+/*
+GetDocumentationSearchTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetDocumentationSearchTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get documentation search too many requests response has a 2xx status code
+func (o *GetDocumentationSearchTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get documentation search too many requests response has a 3xx status code
+func (o *GetDocumentationSearchTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get documentation search too many requests response has a 4xx status code
+func (o *GetDocumentationSearchTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get documentation search too many requests response has a 5xx status code
+func (o *GetDocumentationSearchTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get documentation search too many requests response a status code equal to that given
+func (o *GetDocumentationSearchTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetDocumentationSearchTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetDocumentationSearchTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetDocumentationSearchInternalServerError() *GetDocumentationSearchInter
 	return &GetDocumentationSearchInternalServerError{}
 }
 
-/*GetDocumentationSearchInternalServerError handles this case with default header values.
+/*
+GetDocumentationSearchInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetDocumentationSearchInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get documentation search internal server error response has a 2xx status code
+func (o *GetDocumentationSearchInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get documentation search internal server error response has a 3xx status code
+func (o *GetDocumentationSearchInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get documentation search internal server error response has a 4xx status code
+func (o *GetDocumentationSearchInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get documentation search internal server error response has a 5xx status code
+func (o *GetDocumentationSearchInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get documentation search internal server error response a status code equal to that given
+func (o *GetDocumentationSearchInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetDocumentationSearchInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetDocumentationSearchInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetDocumentationSearchServiceUnavailable() *GetDocumentationSearchServic
 	return &GetDocumentationSearchServiceUnavailable{}
 }
 
-/*GetDocumentationSearchServiceUnavailable handles this case with default header values.
+/*
+GetDocumentationSearchServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetDocumentationSearchServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get documentation search service unavailable response has a 2xx status code
+func (o *GetDocumentationSearchServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get documentation search service unavailable response has a 3xx status code
+func (o *GetDocumentationSearchServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get documentation search service unavailable response has a 4xx status code
+func (o *GetDocumentationSearchServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get documentation search service unavailable response has a 5xx status code
+func (o *GetDocumentationSearchServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get documentation search service unavailable response a status code equal to that given
+func (o *GetDocumentationSearchServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetDocumentationSearchServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetDocumentationSearchServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetDocumentationSearchGatewayTimeout() *GetDocumentationSearchGatewayTim
 	return &GetDocumentationSearchGatewayTimeout{}
 }
 
-/*GetDocumentationSearchGatewayTimeout handles this case with default header values.
+/*
+GetDocumentationSearchGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetDocumentationSearchGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get documentation search gateway timeout response has a 2xx status code
+func (o *GetDocumentationSearchGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get documentation search gateway timeout response has a 3xx status code
+func (o *GetDocumentationSearchGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get documentation search gateway timeout response has a 4xx status code
+func (o *GetDocumentationSearchGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get documentation search gateway timeout response has a 5xx status code
+func (o *GetDocumentationSearchGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get documentation search gateway timeout response a status code equal to that given
+func (o *GetDocumentationSearchGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetDocumentationSearchGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetDocumentationSearchGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/documentation/search][%d] getDocumentationSearchGatewayTimeout  %+v", 504, o.Payload)
 }
 

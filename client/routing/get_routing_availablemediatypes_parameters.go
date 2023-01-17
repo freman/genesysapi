@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetRoutingAvailablemediatypesParams creates a new GetRoutingAvailablemediatypesParams object
-// with the default values initialized.
+// NewGetRoutingAvailablemediatypesParams creates a new GetRoutingAvailablemediatypesParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRoutingAvailablemediatypesParams() *GetRoutingAvailablemediatypesParams {
-
 	return &GetRoutingAvailablemediatypesParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRoutingAvailablemediatypesParamsWithTimeout creates a new GetRoutingAvailablemediatypesParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRoutingAvailablemediatypesParamsWithTimeout(timeout time.Duration) *GetRoutingAvailablemediatypesParams {
-
 	return &GetRoutingAvailablemediatypesParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRoutingAvailablemediatypesParamsWithContext creates a new GetRoutingAvailablemediatypesParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRoutingAvailablemediatypesParamsWithContext(ctx context.Context) *GetRoutingAvailablemediatypesParams {
-
 	return &GetRoutingAvailablemediatypesParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetRoutingAvailablemediatypesParamsWithHTTPClient creates a new GetRoutingAvailablemediatypesParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRoutingAvailablemediatypesParamsWithHTTPClient(client *http.Client) *GetRoutingAvailablemediatypesParams {
-
 	return &GetRoutingAvailablemediatypesParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetRoutingAvailablemediatypesParams contains all the parameters to send to the API endpoint
-for the get routing availablemediatypes operation typically these are written to a http.Request
+/*
+GetRoutingAvailablemediatypesParams contains all the parameters to send to the API endpoint
+
+	for the get routing availablemediatypes operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRoutingAvailablemediatypesParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get routing availablemediatypes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingAvailablemediatypesParams) WithDefaults() *GetRoutingAvailablemediatypesParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get routing availablemediatypes params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRoutingAvailablemediatypesParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get routing availablemediatypes params

@@ -95,7 +95,6 @@ func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsReader) ReadRes
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsOK() *GetWorkfor
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK struct {
 	Payload *models.BuShortTermForecastListing
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week shorttermforecasts o k response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week shorttermforecasts o k response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week shorttermforecasts o k response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week shorttermforecasts o k response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week shorttermforecasts o k response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest() *Ge
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week shorttermforecasts bad request response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week shorttermforecasts bad request response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week shorttermforecasts bad request response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week shorttermforecasts bad request response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week shorttermforecasts bad request response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized() *
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week shorttermforecasts unauthorized response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week shorttermforecasts unauthorized response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week shorttermforecasts unauthorized response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week shorttermforecasts unauthorized response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week shorttermforecasts unauthorized response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden() *Get
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week shorttermforecasts forbidden response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week shorttermforecasts forbidden response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week shorttermforecasts forbidden response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week shorttermforecasts forbidden response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week shorttermforecasts forbidden response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound() *GetW
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week shorttermforecasts not found response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week shorttermforecasts not found response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week shorttermforecasts not found response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week shorttermforecasts not found response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week shorttermforecasts not found response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout()
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week shorttermforecasts request timeout response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week shorttermforecasts request timeout response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week shorttermforecasts request timeout response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week shorttermforecasts request timeout response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week shorttermforecasts request timeout response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityToo
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLarge{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLarge handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLar
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week shorttermforecasts request entity too large response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week shorttermforecasts request entity too large response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week shorttermforecasts request entity too large response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week shorttermforecasts request entity too large response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week shorttermforecasts request entity too large response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMedia
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaType{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaType handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaTyp
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week shorttermforecasts unsupported media type response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week shorttermforecasts unsupported media type response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week shorttermforecasts unsupported media type response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week shorttermforecasts unsupported media type response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week shorttermforecasts unsupported media type response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests(
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week shorttermforecasts too many requests response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week shorttermforecasts too many requests response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week shorttermforecasts too many requests response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week shorttermforecasts too many requests response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week shorttermforecasts too many requests response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerEr
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week shorttermforecasts internal server error response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week shorttermforecasts internal server error response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week shorttermforecasts internal server error response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week shorttermforecasts internal server error response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week shorttermforecasts internal server error response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailab
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week shorttermforecasts service unavailable response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week shorttermforecasts service unavailable response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week shorttermforecasts service unavailable response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week shorttermforecasts service unavailable response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week shorttermforecasts service unavailable response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout()
 	return &GetWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout{}
 }
 
-/*GetWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout handles this case with default header values.
+/*
+GetWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get workforcemanagement businessunit week shorttermforecasts gateway timeout response has a 2xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get workforcemanagement businessunit week shorttermforecasts gateway timeout response has a 3xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get workforcemanagement businessunit week shorttermforecasts gateway timeout response has a 4xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get workforcemanagement businessunit week shorttermforecasts gateway timeout response has a 5xx status code
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get workforcemanagement businessunit week shorttermforecasts gateway timeout response a status code equal to that given
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/workforcemanagement/businessunits/{businessUnitId}/weeks/{weekDateId}/shorttermforecasts][%d] getWorkforcemanagementBusinessunitWeekShorttermforecastsGatewayTimeout  %+v", 504, o.Payload)
 }
 

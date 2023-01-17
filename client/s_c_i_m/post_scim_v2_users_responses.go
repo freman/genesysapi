@@ -107,7 +107,6 @@ func (o *PostScimV2UsersReader) ReadResponse(response runtime.ClientResponse, co
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -118,7 +117,8 @@ func NewPostScimV2UsersOK() *PostScimV2UsersOK {
 	return &PostScimV2UsersOK{}
 }
 
-/*PostScimV2UsersOK handles this case with default header values.
+/*
+PostScimV2UsersOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -126,7 +126,36 @@ type PostScimV2UsersOK struct {
 	Payload *models.ScimV2User
 }
 
+// IsSuccess returns true when this post scim v2 users o k response has a 2xx status code
+func (o *PostScimV2UsersOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post scim v2 users o k response has a 3xx status code
+func (o *PostScimV2UsersOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users o k response has a 4xx status code
+func (o *PostScimV2UsersOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post scim v2 users o k response has a 5xx status code
+func (o *PostScimV2UsersOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post scim v2 users o k response a status code equal to that given
+func (o *PostScimV2UsersOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostScimV2UsersOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersOK  %+v", 200, o.Payload)
+}
+
+func (o *PostScimV2UsersOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersOK  %+v", 200, o.Payload)
 }
 
@@ -151,7 +180,8 @@ func NewPostScimV2UsersCreated() *PostScimV2UsersCreated {
 	return &PostScimV2UsersCreated{}
 }
 
-/*PostScimV2UsersCreated handles this case with default header values.
+/*
+PostScimV2UsersCreated describes a response with status code 201, with default header values.
 
 User Created.
 */
@@ -159,7 +189,36 @@ type PostScimV2UsersCreated struct {
 	Payload *models.ScimV2User
 }
 
+// IsSuccess returns true when this post scim v2 users created response has a 2xx status code
+func (o *PostScimV2UsersCreated) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post scim v2 users created response has a 3xx status code
+func (o *PostScimV2UsersCreated) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users created response has a 4xx status code
+func (o *PostScimV2UsersCreated) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post scim v2 users created response has a 5xx status code
+func (o *PostScimV2UsersCreated) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post scim v2 users created response a status code equal to that given
+func (o *PostScimV2UsersCreated) IsCode(code int) bool {
+	return code == 201
+}
+
 func (o *PostScimV2UsersCreated) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersCreated  %+v", 201, o.Payload)
+}
+
+func (o *PostScimV2UsersCreated) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersCreated  %+v", 201, o.Payload)
 }
 
@@ -184,7 +243,8 @@ func NewPostScimV2UsersBadRequest() *PostScimV2UsersBadRequest {
 	return &PostScimV2UsersBadRequest{}
 }
 
-/*PostScimV2UsersBadRequest handles this case with default header values.
+/*
+PostScimV2UsersBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -192,7 +252,36 @@ type PostScimV2UsersBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post scim v2 users bad request response has a 2xx status code
+func (o *PostScimV2UsersBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post scim v2 users bad request response has a 3xx status code
+func (o *PostScimV2UsersBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users bad request response has a 4xx status code
+func (o *PostScimV2UsersBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post scim v2 users bad request response has a 5xx status code
+func (o *PostScimV2UsersBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post scim v2 users bad request response a status code equal to that given
+func (o *PostScimV2UsersBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostScimV2UsersBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostScimV2UsersBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersBadRequest  %+v", 400, o.Payload)
 }
 
@@ -217,7 +306,8 @@ func NewPostScimV2UsersUnauthorized() *PostScimV2UsersUnauthorized {
 	return &PostScimV2UsersUnauthorized{}
 }
 
-/*PostScimV2UsersUnauthorized handles this case with default header values.
+/*
+PostScimV2UsersUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -225,7 +315,36 @@ type PostScimV2UsersUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post scim v2 users unauthorized response has a 2xx status code
+func (o *PostScimV2UsersUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post scim v2 users unauthorized response has a 3xx status code
+func (o *PostScimV2UsersUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users unauthorized response has a 4xx status code
+func (o *PostScimV2UsersUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post scim v2 users unauthorized response has a 5xx status code
+func (o *PostScimV2UsersUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post scim v2 users unauthorized response a status code equal to that given
+func (o *PostScimV2UsersUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostScimV2UsersUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostScimV2UsersUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -250,7 +369,8 @@ func NewPostScimV2UsersForbidden() *PostScimV2UsersForbidden {
 	return &PostScimV2UsersForbidden{}
 }
 
-/*PostScimV2UsersForbidden handles this case with default header values.
+/*
+PostScimV2UsersForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -258,7 +378,36 @@ type PostScimV2UsersForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post scim v2 users forbidden response has a 2xx status code
+func (o *PostScimV2UsersForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post scim v2 users forbidden response has a 3xx status code
+func (o *PostScimV2UsersForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users forbidden response has a 4xx status code
+func (o *PostScimV2UsersForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post scim v2 users forbidden response has a 5xx status code
+func (o *PostScimV2UsersForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post scim v2 users forbidden response a status code equal to that given
+func (o *PostScimV2UsersForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostScimV2UsersForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostScimV2UsersForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersForbidden  %+v", 403, o.Payload)
 }
 
@@ -283,7 +432,8 @@ func NewPostScimV2UsersNotFound() *PostScimV2UsersNotFound {
 	return &PostScimV2UsersNotFound{}
 }
 
-/*PostScimV2UsersNotFound handles this case with default header values.
+/*
+PostScimV2UsersNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -291,7 +441,36 @@ type PostScimV2UsersNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post scim v2 users not found response has a 2xx status code
+func (o *PostScimV2UsersNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post scim v2 users not found response has a 3xx status code
+func (o *PostScimV2UsersNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users not found response has a 4xx status code
+func (o *PostScimV2UsersNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post scim v2 users not found response has a 5xx status code
+func (o *PostScimV2UsersNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post scim v2 users not found response a status code equal to that given
+func (o *PostScimV2UsersNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostScimV2UsersNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostScimV2UsersNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersNotFound  %+v", 404, o.Payload)
 }
 
@@ -316,7 +495,8 @@ func NewPostScimV2UsersRequestTimeout() *PostScimV2UsersRequestTimeout {
 	return &PostScimV2UsersRequestTimeout{}
 }
 
-/*PostScimV2UsersRequestTimeout handles this case with default header values.
+/*
+PostScimV2UsersRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -324,7 +504,36 @@ type PostScimV2UsersRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post scim v2 users request timeout response has a 2xx status code
+func (o *PostScimV2UsersRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post scim v2 users request timeout response has a 3xx status code
+func (o *PostScimV2UsersRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users request timeout response has a 4xx status code
+func (o *PostScimV2UsersRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post scim v2 users request timeout response has a 5xx status code
+func (o *PostScimV2UsersRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post scim v2 users request timeout response a status code equal to that given
+func (o *PostScimV2UsersRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostScimV2UsersRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostScimV2UsersRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -349,7 +558,8 @@ func NewPostScimV2UsersConflict() *PostScimV2UsersConflict {
 	return &PostScimV2UsersConflict{}
 }
 
-/*PostScimV2UsersConflict handles this case with default header values.
+/*
+PostScimV2UsersConflict describes a response with status code 409, with default header values.
 
 User name already in use by non-deleted user.
 */
@@ -357,7 +567,36 @@ type PostScimV2UsersConflict struct {
 	Payload *models.ScimError
 }
 
+// IsSuccess returns true when this post scim v2 users conflict response has a 2xx status code
+func (o *PostScimV2UsersConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post scim v2 users conflict response has a 3xx status code
+func (o *PostScimV2UsersConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users conflict response has a 4xx status code
+func (o *PostScimV2UsersConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post scim v2 users conflict response has a 5xx status code
+func (o *PostScimV2UsersConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post scim v2 users conflict response a status code equal to that given
+func (o *PostScimV2UsersConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostScimV2UsersConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostScimV2UsersConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersConflict  %+v", 409, o.Payload)
 }
 
@@ -382,7 +621,8 @@ func NewPostScimV2UsersRequestEntityTooLarge() *PostScimV2UsersRequestEntityTooL
 	return &PostScimV2UsersRequestEntityTooLarge{}
 }
 
-/*PostScimV2UsersRequestEntityTooLarge handles this case with default header values.
+/*
+PostScimV2UsersRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -390,7 +630,36 @@ type PostScimV2UsersRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post scim v2 users request entity too large response has a 2xx status code
+func (o *PostScimV2UsersRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post scim v2 users request entity too large response has a 3xx status code
+func (o *PostScimV2UsersRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users request entity too large response has a 4xx status code
+func (o *PostScimV2UsersRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post scim v2 users request entity too large response has a 5xx status code
+func (o *PostScimV2UsersRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post scim v2 users request entity too large response a status code equal to that given
+func (o *PostScimV2UsersRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostScimV2UsersRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostScimV2UsersRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -415,7 +684,8 @@ func NewPostScimV2UsersUnsupportedMediaType() *PostScimV2UsersUnsupportedMediaTy
 	return &PostScimV2UsersUnsupportedMediaType{}
 }
 
-/*PostScimV2UsersUnsupportedMediaType handles this case with default header values.
+/*
+PostScimV2UsersUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -423,7 +693,36 @@ type PostScimV2UsersUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post scim v2 users unsupported media type response has a 2xx status code
+func (o *PostScimV2UsersUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post scim v2 users unsupported media type response has a 3xx status code
+func (o *PostScimV2UsersUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users unsupported media type response has a 4xx status code
+func (o *PostScimV2UsersUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post scim v2 users unsupported media type response has a 5xx status code
+func (o *PostScimV2UsersUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post scim v2 users unsupported media type response a status code equal to that given
+func (o *PostScimV2UsersUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostScimV2UsersUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostScimV2UsersUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -448,7 +747,8 @@ func NewPostScimV2UsersTooManyRequests() *PostScimV2UsersTooManyRequests {
 	return &PostScimV2UsersTooManyRequests{}
 }
 
-/*PostScimV2UsersTooManyRequests handles this case with default header values.
+/*
+PostScimV2UsersTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -456,7 +756,36 @@ type PostScimV2UsersTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post scim v2 users too many requests response has a 2xx status code
+func (o *PostScimV2UsersTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post scim v2 users too many requests response has a 3xx status code
+func (o *PostScimV2UsersTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users too many requests response has a 4xx status code
+func (o *PostScimV2UsersTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post scim v2 users too many requests response has a 5xx status code
+func (o *PostScimV2UsersTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post scim v2 users too many requests response a status code equal to that given
+func (o *PostScimV2UsersTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostScimV2UsersTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostScimV2UsersTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -481,7 +810,8 @@ func NewPostScimV2UsersInternalServerError() *PostScimV2UsersInternalServerError
 	return &PostScimV2UsersInternalServerError{}
 }
 
-/*PostScimV2UsersInternalServerError handles this case with default header values.
+/*
+PostScimV2UsersInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -489,7 +819,36 @@ type PostScimV2UsersInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post scim v2 users internal server error response has a 2xx status code
+func (o *PostScimV2UsersInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post scim v2 users internal server error response has a 3xx status code
+func (o *PostScimV2UsersInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users internal server error response has a 4xx status code
+func (o *PostScimV2UsersInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post scim v2 users internal server error response has a 5xx status code
+func (o *PostScimV2UsersInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post scim v2 users internal server error response a status code equal to that given
+func (o *PostScimV2UsersInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostScimV2UsersInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostScimV2UsersInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -514,7 +873,8 @@ func NewPostScimV2UsersServiceUnavailable() *PostScimV2UsersServiceUnavailable {
 	return &PostScimV2UsersServiceUnavailable{}
 }
 
-/*PostScimV2UsersServiceUnavailable handles this case with default header values.
+/*
+PostScimV2UsersServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -522,7 +882,36 @@ type PostScimV2UsersServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post scim v2 users service unavailable response has a 2xx status code
+func (o *PostScimV2UsersServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post scim v2 users service unavailable response has a 3xx status code
+func (o *PostScimV2UsersServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users service unavailable response has a 4xx status code
+func (o *PostScimV2UsersServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post scim v2 users service unavailable response has a 5xx status code
+func (o *PostScimV2UsersServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post scim v2 users service unavailable response a status code equal to that given
+func (o *PostScimV2UsersServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostScimV2UsersServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostScimV2UsersServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -547,7 +936,8 @@ func NewPostScimV2UsersGatewayTimeout() *PostScimV2UsersGatewayTimeout {
 	return &PostScimV2UsersGatewayTimeout{}
 }
 
-/*PostScimV2UsersGatewayTimeout handles this case with default header values.
+/*
+PostScimV2UsersGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -555,7 +945,36 @@ type PostScimV2UsersGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post scim v2 users gateway timeout response has a 2xx status code
+func (o *PostScimV2UsersGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post scim v2 users gateway timeout response has a 3xx status code
+func (o *PostScimV2UsersGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post scim v2 users gateway timeout response has a 4xx status code
+func (o *PostScimV2UsersGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post scim v2 users gateway timeout response has a 5xx status code
+func (o *PostScimV2UsersGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post scim v2 users gateway timeout response a status code equal to that given
+func (o *PostScimV2UsersGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostScimV2UsersGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostScimV2UsersGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/scim/v2/users][%d] postScimV2UsersGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -84,7 +85,6 @@ func (m *CreateTimeOffPlanRequest) validateActive(formats strfmt.Registry) error
 }
 
 func (m *CreateTimeOffPlanRequest) validateActivityCodeIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActivityCodeIds) { // not required
 		return nil
 	}
@@ -152,7 +152,6 @@ func (m *CreateTimeOffPlanRequest) validateName(formats strfmt.Registry) error {
 }
 
 func (m *CreateTimeOffPlanRequest) validateTimeOffLimitIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TimeOffLimitIds) { // not required
 		return nil
 	}
@@ -161,6 +160,11 @@ func (m *CreateTimeOffPlanRequest) validateTimeOffLimitIds(formats strfmt.Regist
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this create time off plan request based on context it is used
+func (m *CreateTimeOffPlanRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

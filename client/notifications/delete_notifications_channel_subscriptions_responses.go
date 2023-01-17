@@ -106,7 +106,8 @@ func NewDeleteNotificationsChannelSubscriptionsBadRequest() *DeleteNotifications
 	return &DeleteNotificationsChannelSubscriptionsBadRequest{}
 }
 
-/*DeleteNotificationsChannelSubscriptionsBadRequest handles this case with default header values.
+/*
+DeleteNotificationsChannelSubscriptionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type DeleteNotificationsChannelSubscriptionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete notifications channel subscriptions bad request response has a 2xx status code
+func (o *DeleteNotificationsChannelSubscriptionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete notifications channel subscriptions bad request response has a 3xx status code
+func (o *DeleteNotificationsChannelSubscriptionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete notifications channel subscriptions bad request response has a 4xx status code
+func (o *DeleteNotificationsChannelSubscriptionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete notifications channel subscriptions bad request response has a 5xx status code
+func (o *DeleteNotificationsChannelSubscriptionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete notifications channel subscriptions bad request response a status code equal to that given
+func (o *DeleteNotificationsChannelSubscriptionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteNotificationsChannelSubscriptionsBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteNotificationsChannelSubscriptionsBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewDeleteNotificationsChannelSubscriptionsUnauthorized() *DeleteNotificatio
 	return &DeleteNotificationsChannelSubscriptionsUnauthorized{}
 }
 
-/*DeleteNotificationsChannelSubscriptionsUnauthorized handles this case with default header values.
+/*
+DeleteNotificationsChannelSubscriptionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type DeleteNotificationsChannelSubscriptionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete notifications channel subscriptions unauthorized response has a 2xx status code
+func (o *DeleteNotificationsChannelSubscriptionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete notifications channel subscriptions unauthorized response has a 3xx status code
+func (o *DeleteNotificationsChannelSubscriptionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete notifications channel subscriptions unauthorized response has a 4xx status code
+func (o *DeleteNotificationsChannelSubscriptionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete notifications channel subscriptions unauthorized response has a 5xx status code
+func (o *DeleteNotificationsChannelSubscriptionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete notifications channel subscriptions unauthorized response a status code equal to that given
+func (o *DeleteNotificationsChannelSubscriptionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteNotificationsChannelSubscriptionsUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteNotificationsChannelSubscriptionsUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewDeleteNotificationsChannelSubscriptionsForbidden() *DeleteNotificationsC
 	return &DeleteNotificationsChannelSubscriptionsForbidden{}
 }
 
-/*DeleteNotificationsChannelSubscriptionsForbidden handles this case with default header values.
+/*
+DeleteNotificationsChannelSubscriptionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type DeleteNotificationsChannelSubscriptionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete notifications channel subscriptions forbidden response has a 2xx status code
+func (o *DeleteNotificationsChannelSubscriptionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete notifications channel subscriptions forbidden response has a 3xx status code
+func (o *DeleteNotificationsChannelSubscriptionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete notifications channel subscriptions forbidden response has a 4xx status code
+func (o *DeleteNotificationsChannelSubscriptionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete notifications channel subscriptions forbidden response has a 5xx status code
+func (o *DeleteNotificationsChannelSubscriptionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete notifications channel subscriptions forbidden response a status code equal to that given
+func (o *DeleteNotificationsChannelSubscriptionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteNotificationsChannelSubscriptionsForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteNotificationsChannelSubscriptionsForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewDeleteNotificationsChannelSubscriptionsNotFound() *DeleteNotificationsCh
 	return &DeleteNotificationsChannelSubscriptionsNotFound{}
 }
 
-/*DeleteNotificationsChannelSubscriptionsNotFound handles this case with default header values.
+/*
+DeleteNotificationsChannelSubscriptionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type DeleteNotificationsChannelSubscriptionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete notifications channel subscriptions not found response has a 2xx status code
+func (o *DeleteNotificationsChannelSubscriptionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete notifications channel subscriptions not found response has a 3xx status code
+func (o *DeleteNotificationsChannelSubscriptionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete notifications channel subscriptions not found response has a 4xx status code
+func (o *DeleteNotificationsChannelSubscriptionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete notifications channel subscriptions not found response has a 5xx status code
+func (o *DeleteNotificationsChannelSubscriptionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete notifications channel subscriptions not found response a status code equal to that given
+func (o *DeleteNotificationsChannelSubscriptionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteNotificationsChannelSubscriptionsNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteNotificationsChannelSubscriptionsNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewDeleteNotificationsChannelSubscriptionsRequestTimeout() *DeleteNotificat
 	return &DeleteNotificationsChannelSubscriptionsRequestTimeout{}
 }
 
-/*DeleteNotificationsChannelSubscriptionsRequestTimeout handles this case with default header values.
+/*
+DeleteNotificationsChannelSubscriptionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type DeleteNotificationsChannelSubscriptionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete notifications channel subscriptions request timeout response has a 2xx status code
+func (o *DeleteNotificationsChannelSubscriptionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete notifications channel subscriptions request timeout response has a 3xx status code
+func (o *DeleteNotificationsChannelSubscriptionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete notifications channel subscriptions request timeout response has a 4xx status code
+func (o *DeleteNotificationsChannelSubscriptionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete notifications channel subscriptions request timeout response has a 5xx status code
+func (o *DeleteNotificationsChannelSubscriptionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete notifications channel subscriptions request timeout response a status code equal to that given
+func (o *DeleteNotificationsChannelSubscriptionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteNotificationsChannelSubscriptionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteNotificationsChannelSubscriptionsRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewDeleteNotificationsChannelSubscriptionsRequestEntityTooLarge() *DeleteNo
 	return &DeleteNotificationsChannelSubscriptionsRequestEntityTooLarge{}
 }
 
-/*DeleteNotificationsChannelSubscriptionsRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteNotificationsChannelSubscriptionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type DeleteNotificationsChannelSubscriptionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete notifications channel subscriptions request entity too large response has a 2xx status code
+func (o *DeleteNotificationsChannelSubscriptionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete notifications channel subscriptions request entity too large response has a 3xx status code
+func (o *DeleteNotificationsChannelSubscriptionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete notifications channel subscriptions request entity too large response has a 4xx status code
+func (o *DeleteNotificationsChannelSubscriptionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete notifications channel subscriptions request entity too large response has a 5xx status code
+func (o *DeleteNotificationsChannelSubscriptionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete notifications channel subscriptions request entity too large response a status code equal to that given
+func (o *DeleteNotificationsChannelSubscriptionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteNotificationsChannelSubscriptionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteNotificationsChannelSubscriptionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewDeleteNotificationsChannelSubscriptionsUnsupportedMediaType() *DeleteNot
 	return &DeleteNotificationsChannelSubscriptionsUnsupportedMediaType{}
 }
 
-/*DeleteNotificationsChannelSubscriptionsUnsupportedMediaType handles this case with default header values.
+/*
+DeleteNotificationsChannelSubscriptionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type DeleteNotificationsChannelSubscriptionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete notifications channel subscriptions unsupported media type response has a 2xx status code
+func (o *DeleteNotificationsChannelSubscriptionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete notifications channel subscriptions unsupported media type response has a 3xx status code
+func (o *DeleteNotificationsChannelSubscriptionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete notifications channel subscriptions unsupported media type response has a 4xx status code
+func (o *DeleteNotificationsChannelSubscriptionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete notifications channel subscriptions unsupported media type response has a 5xx status code
+func (o *DeleteNotificationsChannelSubscriptionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete notifications channel subscriptions unsupported media type response a status code equal to that given
+func (o *DeleteNotificationsChannelSubscriptionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteNotificationsChannelSubscriptionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteNotificationsChannelSubscriptionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewDeleteNotificationsChannelSubscriptionsTooManyRequests() *DeleteNotifica
 	return &DeleteNotificationsChannelSubscriptionsTooManyRequests{}
 }
 
-/*DeleteNotificationsChannelSubscriptionsTooManyRequests handles this case with default header values.
+/*
+DeleteNotificationsChannelSubscriptionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type DeleteNotificationsChannelSubscriptionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete notifications channel subscriptions too many requests response has a 2xx status code
+func (o *DeleteNotificationsChannelSubscriptionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete notifications channel subscriptions too many requests response has a 3xx status code
+func (o *DeleteNotificationsChannelSubscriptionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete notifications channel subscriptions too many requests response has a 4xx status code
+func (o *DeleteNotificationsChannelSubscriptionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete notifications channel subscriptions too many requests response has a 5xx status code
+func (o *DeleteNotificationsChannelSubscriptionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete notifications channel subscriptions too many requests response a status code equal to that given
+func (o *DeleteNotificationsChannelSubscriptionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteNotificationsChannelSubscriptionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteNotificationsChannelSubscriptionsTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewDeleteNotificationsChannelSubscriptionsInternalServerError() *DeleteNoti
 	return &DeleteNotificationsChannelSubscriptionsInternalServerError{}
 }
 
-/*DeleteNotificationsChannelSubscriptionsInternalServerError handles this case with default header values.
+/*
+DeleteNotificationsChannelSubscriptionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type DeleteNotificationsChannelSubscriptionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete notifications channel subscriptions internal server error response has a 2xx status code
+func (o *DeleteNotificationsChannelSubscriptionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete notifications channel subscriptions internal server error response has a 3xx status code
+func (o *DeleteNotificationsChannelSubscriptionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete notifications channel subscriptions internal server error response has a 4xx status code
+func (o *DeleteNotificationsChannelSubscriptionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete notifications channel subscriptions internal server error response has a 5xx status code
+func (o *DeleteNotificationsChannelSubscriptionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete notifications channel subscriptions internal server error response a status code equal to that given
+func (o *DeleteNotificationsChannelSubscriptionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteNotificationsChannelSubscriptionsInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteNotificationsChannelSubscriptionsInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewDeleteNotificationsChannelSubscriptionsServiceUnavailable() *DeleteNotif
 	return &DeleteNotificationsChannelSubscriptionsServiceUnavailable{}
 }
 
-/*DeleteNotificationsChannelSubscriptionsServiceUnavailable handles this case with default header values.
+/*
+DeleteNotificationsChannelSubscriptionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type DeleteNotificationsChannelSubscriptionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete notifications channel subscriptions service unavailable response has a 2xx status code
+func (o *DeleteNotificationsChannelSubscriptionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete notifications channel subscriptions service unavailable response has a 3xx status code
+func (o *DeleteNotificationsChannelSubscriptionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete notifications channel subscriptions service unavailable response has a 4xx status code
+func (o *DeleteNotificationsChannelSubscriptionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete notifications channel subscriptions service unavailable response has a 5xx status code
+func (o *DeleteNotificationsChannelSubscriptionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete notifications channel subscriptions service unavailable response a status code equal to that given
+func (o *DeleteNotificationsChannelSubscriptionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteNotificationsChannelSubscriptionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteNotificationsChannelSubscriptionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewDeleteNotificationsChannelSubscriptionsGatewayTimeout() *DeleteNotificat
 	return &DeleteNotificationsChannelSubscriptionsGatewayTimeout{}
 }
 
-/*DeleteNotificationsChannelSubscriptionsGatewayTimeout handles this case with default header values.
+/*
+DeleteNotificationsChannelSubscriptionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type DeleteNotificationsChannelSubscriptionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete notifications channel subscriptions gateway timeout response has a 2xx status code
+func (o *DeleteNotificationsChannelSubscriptionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete notifications channel subscriptions gateway timeout response has a 3xx status code
+func (o *DeleteNotificationsChannelSubscriptionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete notifications channel subscriptions gateway timeout response has a 4xx status code
+func (o *DeleteNotificationsChannelSubscriptionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete notifications channel subscriptions gateway timeout response has a 5xx status code
+func (o *DeleteNotificationsChannelSubscriptionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete notifications channel subscriptions gateway timeout response a status code equal to that given
+func (o *DeleteNotificationsChannelSubscriptionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteNotificationsChannelSubscriptionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteNotificationsChannelSubscriptionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptionsGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewDeleteNotificationsChannelSubscriptionsDefault(code int) *DeleteNotifica
 	}
 }
 
-/*DeleteNotificationsChannelSubscriptionsDefault handles this case with default header values.
+/*
+DeleteNotificationsChannelSubscriptionsDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *DeleteNotificationsChannelSubscriptionsDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete notifications channel subscriptions default response has a 2xx status code
+func (o *DeleteNotificationsChannelSubscriptionsDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete notifications channel subscriptions default response has a 3xx status code
+func (o *DeleteNotificationsChannelSubscriptionsDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete notifications channel subscriptions default response has a 4xx status code
+func (o *DeleteNotificationsChannelSubscriptionsDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete notifications channel subscriptions default response has a 5xx status code
+func (o *DeleteNotificationsChannelSubscriptionsDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete notifications channel subscriptions default response a status code equal to that given
+func (o *DeleteNotificationsChannelSubscriptionsDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteNotificationsChannelSubscriptionsDefault) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptions default ", o._statusCode)
+}
+
+func (o *DeleteNotificationsChannelSubscriptionsDefault) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/notifications/channels/{channelId}/subscriptions][%d] deleteNotificationsChannelSubscriptions default ", o._statusCode)
 }
 

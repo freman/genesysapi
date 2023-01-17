@@ -101,7 +101,6 @@ func (o *PatchEmployeeperformanceExternalmetricsDefinitionReader) ReadResponse(r
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionOK() *PatchEmployeeperf
 	return &PatchEmployeeperformanceExternalmetricsDefinitionOK{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionOK handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionOK struct {
 	Payload *models.ExternalMetricDefinition
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition o k response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition o k response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition o k response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition o k response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition o k response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionOK) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionOK  %+v", 200, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionOK) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionBadRequest() *PatchEmpl
 	return &PatchEmployeeperformanceExternalmetricsDefinitionBadRequest{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionBadRequest handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition bad request response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition bad request response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition bad request response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition bad request response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition bad request response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionBadRequest) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionBadRequest) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionUnauthorized() *PatchEm
 	return &PatchEmployeeperformanceExternalmetricsDefinitionUnauthorized{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionUnauthorized handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition unauthorized response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition unauthorized response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition unauthorized response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition unauthorized response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition unauthorized response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnauthorized) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnauthorized) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionForbidden() *PatchEmplo
 	return &PatchEmployeeperformanceExternalmetricsDefinitionForbidden{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionForbidden handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition forbidden response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition forbidden response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition forbidden response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition forbidden response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition forbidden response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionForbidden) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionForbidden) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionNotFound() *PatchEmploy
 	return &PatchEmployeeperformanceExternalmetricsDefinitionNotFound{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionNotFound handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition not found response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition not found response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition not found response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition not found response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition not found response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionNotFound) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionNotFound) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionRequestTimeout() *Patch
 	return &PatchEmployeeperformanceExternalmetricsDefinitionRequestTimeout{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionRequestTimeout handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition request timeout response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition request timeout response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition request timeout response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition request timeout response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition request timeout response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionConflict() *PatchEmploy
 	return &PatchEmployeeperformanceExternalmetricsDefinitionConflict{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionConflict handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition conflict response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition conflict response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition conflict response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition conflict response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition conflict response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionConflict) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionConflict  %+v", 409, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionConflict) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge()
 	return &PatchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition request entity too large response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition request entity too large response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition request entity too large response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition request entity too large response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition request entity too large response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType() 
 	return &PatchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition unsupported media type response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition unsupported media type response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition unsupported media type response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition unsupported media type response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition unsupported media type response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionTooManyRequests() *Patc
 	return &PatchEmployeeperformanceExternalmetricsDefinitionTooManyRequests{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionTooManyRequests handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition too many requests response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition too many requests response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition too many requests response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition too many requests response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition too many requests response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionTooManyRequests) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionTooManyRequests) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionInternalServerError() *
 	return &PatchEmployeeperformanceExternalmetricsDefinitionInternalServerError{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionInternalServerError handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionInternalServerError struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition internal server error response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition internal server error response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition internal server error response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition internal server error response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition internal server error response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionInternalServerError) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionInternalServerError) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable() *P
 	return &PatchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition service unavailable response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition service unavailable response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition service unavailable response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition service unavailable response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition service unavailable response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPatchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout() *Patch
 	return &PatchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout{}
 }
 
-/*PatchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout handles this case with default header values.
+/*
+PatchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PatchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this patch employeeperformance externalmetrics definition gateway timeout response has a 2xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this patch employeeperformance externalmetrics definition gateway timeout response has a 3xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this patch employeeperformance externalmetrics definition gateway timeout response has a 4xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this patch employeeperformance externalmetrics definition gateway timeout response has a 5xx status code
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this patch employeeperformance externalmetrics definition gateway timeout response a status code equal to that given
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PatchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PatchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) String() string {
 	return fmt.Sprintf("[PATCH /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] patchEmployeeperformanceExternalmetricsDefinitionGatewayTimeout  %+v", 504, o.Payload)
 }
 

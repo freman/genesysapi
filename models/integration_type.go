@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -147,7 +148,6 @@ func (m *IntegrationType) Validate(formats strfmt.Registry) error {
 }
 
 func (m *IntegrationType) validateCredentials(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Credentials) { // not required
 		return nil
 	}
@@ -159,6 +159,11 @@ func (m *IntegrationType) validateCredentials(formats strfmt.Registry) error {
 		}
 		if val, ok := m.Credentials[k]; ok {
 			if err := val.Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("credentials" + "." + k)
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("credentials" + "." + k)
+				}
 				return err
 			}
 		}
@@ -169,7 +174,6 @@ func (m *IntegrationType) validateCredentials(formats strfmt.Registry) error {
 }
 
 func (m *IntegrationType) validateHelpLinks(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.HelpLinks) { // not required
 		return nil
 	}
@@ -183,6 +187,8 @@ func (m *IntegrationType) validateHelpLinks(formats strfmt.Registry) error {
 			if err := m.HelpLinks[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("helpLinks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("helpLinks" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -203,7 +209,6 @@ func (m *IntegrationType) validateID(formats strfmt.Registry) error {
 }
 
 func (m *IntegrationType) validateImages(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Images) { // not required
 		return nil
 	}
@@ -217,6 +222,8 @@ func (m *IntegrationType) validateImages(formats strfmt.Registry) error {
 			if err := m.Images[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("images" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("images" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -228,12 +235,343 @@ func (m *IntegrationType) validateImages(formats strfmt.Registry) error {
 }
 
 func (m *IntegrationType) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this integration type based on the context it is used
+func (m *IntegrationType) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCategory(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConfigAdvancedSchemaURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateConfigPropertiesSchemaURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCredentials(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDescription(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFaqURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHelpLinks(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHelpURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateImages(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMarketplaceURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMaxInstances(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNonInstallable(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePrivacyPolicyURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProvider(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSalesContactURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupportContactURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTermsOfServiceURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateUserPermissions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVendorName(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVendorOAuthClientIds(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateVendorWebsiteURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *IntegrationType) contextValidateCategory(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "category", "body", string(m.Category)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateConfigAdvancedSchemaURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "configAdvancedSchemaUri", "body", string(m.ConfigAdvancedSchemaURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateConfigPropertiesSchemaURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "configPropertiesSchemaUri", "body", string(m.ConfigPropertiesSchemaURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateCredentials(ctx context.Context, formats strfmt.Registry) error {
+
+	for k := range m.Credentials {
+
+		if val, ok := m.Credentials[k]; ok {
+			if err := val.ContextValidate(ctx, formats); err != nil {
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateDescription(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "description", "body", string(m.Description)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateFaqURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "faqUri", "body", string(m.FaqURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateHelpLinks(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "helpLinks", "body", []*HelpLink(m.HelpLinks)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.HelpLinks); i++ {
+
+		if m.HelpLinks[i] != nil {
+			if err := m.HelpLinks[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("helpLinks" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("helpLinks" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateHelpURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "helpUri", "body", string(m.HelpURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateImages(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "images", "body", []*UserImage(m.Images)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Images); i++ {
+
+		if m.Images[i] != nil {
+			if err := m.Images[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("images" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("images" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateMarketplaceURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "marketplaceUri", "body", string(m.MarketplaceURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateMaxInstances(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "maxInstances", "body", int32(m.MaxInstances)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateNonInstallable(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "nonInstallable", "body", m.NonInstallable); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidatePrivacyPolicyURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "privacyPolicyUri", "body", string(m.PrivacyPolicyURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateProvider(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "provider", "body", string(m.Provider)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateSalesContactURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "salesContactUri", "body", string(m.SalesContactURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateSupportContactURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "supportContactUri", "body", string(m.SupportContactURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateTermsOfServiceURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "termsOfServiceUri", "body", string(m.TermsOfServiceURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateUserPermissions(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "userPermissions", "body", []string(m.UserPermissions)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateVendorName(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "vendorName", "body", string(m.VendorName)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateVendorOAuthClientIds(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "vendorOAuthClientIds", "body", []string(m.VendorOAuthClientIds)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *IntegrationType) contextValidateVendorWebsiteURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "vendorWebsiteUri", "body", string(m.VendorWebsiteURI)); err != nil {
 		return err
 	}
 

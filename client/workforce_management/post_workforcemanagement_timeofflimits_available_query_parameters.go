@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementTimeofflimitsAvailableQueryParams creates a new PostWorkforcemanagementTimeofflimitsAvailableQueryParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementTimeofflimitsAvailableQueryParams creates a new PostWorkforcemanagementTimeofflimitsAvailableQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementTimeofflimitsAvailableQueryParams() *PostWorkforcemanagementTimeofflimitsAvailableQueryParams {
-	var ()
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementTimeofflimitsAvailableQueryParamsWithTimeout creates a new PostWorkforcemanagementTimeofflimitsAvailableQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementTimeofflimitsAvailableQueryParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementTimeofflimitsAvailableQueryParams {
-	var ()
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementTimeofflimitsAvailableQueryParamsWithContext creates a new PostWorkforcemanagementTimeofflimitsAvailableQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementTimeofflimitsAvailableQueryParamsWithContext(ctx context.Context) *PostWorkforcemanagementTimeofflimitsAvailableQueryParams {
-	var ()
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementTimeofflimitsAvailableQueryParamsWithHTTPClient creates a new PostWorkforcemanagementTimeofflimitsAvailableQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementTimeofflimitsAvailableQueryParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementTimeofflimitsAvailableQueryParams {
-	var ()
 	return &PostWorkforcemanagementTimeofflimitsAvailableQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementTimeofflimitsAvailableQueryParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement timeofflimits available query operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementTimeofflimitsAvailableQueryParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement timeofflimits available query operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementTimeofflimitsAvailableQueryParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.AvailableTimeOffRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement timeofflimits available query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryParams) WithDefaults() *PostWorkforcemanagementTimeofflimitsAvailableQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement timeofflimits available query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement timeofflimits available query params
@@ -124,7 +140,6 @@ func (o *PostWorkforcemanagementTimeofflimitsAvailableQueryParams) WriteToReques
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

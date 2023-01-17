@@ -18,56 +18,72 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostArchitectSchedulegroupsParams creates a new PostArchitectSchedulegroupsParams object
-// with the default values initialized.
+// NewPostArchitectSchedulegroupsParams creates a new PostArchitectSchedulegroupsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostArchitectSchedulegroupsParams() *PostArchitectSchedulegroupsParams {
-	var ()
 	return &PostArchitectSchedulegroupsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostArchitectSchedulegroupsParamsWithTimeout creates a new PostArchitectSchedulegroupsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostArchitectSchedulegroupsParamsWithTimeout(timeout time.Duration) *PostArchitectSchedulegroupsParams {
-	var ()
 	return &PostArchitectSchedulegroupsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostArchitectSchedulegroupsParamsWithContext creates a new PostArchitectSchedulegroupsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostArchitectSchedulegroupsParamsWithContext(ctx context.Context) *PostArchitectSchedulegroupsParams {
-	var ()
 	return &PostArchitectSchedulegroupsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostArchitectSchedulegroupsParamsWithHTTPClient creates a new PostArchitectSchedulegroupsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostArchitectSchedulegroupsParamsWithHTTPClient(client *http.Client) *PostArchitectSchedulegroupsParams {
-	var ()
 	return &PostArchitectSchedulegroupsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostArchitectSchedulegroupsParams contains all the parameters to send to the API endpoint
-for the post architect schedulegroups operation typically these are written to a http.Request
+/*
+PostArchitectSchedulegroupsParams contains all the parameters to send to the API endpoint
+
+	for the post architect schedulegroups operation.
+
+	Typically these are written to a http.Request.
 */
 type PostArchitectSchedulegroupsParams struct {
 
-	/*Body*/
+	// Body.
 	Body *models.ScheduleGroup
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post architect schedulegroups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostArchitectSchedulegroupsParams) WithDefaults() *PostArchitectSchedulegroupsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post architect schedulegroups params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostArchitectSchedulegroupsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post architect schedulegroups params
@@ -121,7 +137,6 @@ func (o *PostArchitectSchedulegroupsParams) WriteToRequest(r runtime.ClientReque
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -41,6 +42,10 @@ type Predictor struct {
 	// The KPI that the predictor attempts to maximize/minimize.
 	// Required: true
 	Kpi *string `json:"kpi"`
+
+	// Predictor's models
+	// Read Only: true
+	Models []*PredictorModelBrief `json:"models"`
 
 	// The queue IDs associated with the predictor.
 	// Required: true
@@ -82,6 +87,10 @@ func (m *Predictor) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
+	if err := m.validateModels(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateQueues(formats); err != nil {
 		res = append(res, err)
 	}
@@ -109,7 +118,6 @@ func (m *Predictor) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Predictor) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -122,7 +130,6 @@ func (m *Predictor) validateDateCreated(formats strfmt.Registry) error {
 }
 
 func (m *Predictor) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -143,6 +150,32 @@ func (m *Predictor) validateKpi(formats strfmt.Registry) error {
 	return nil
 }
 
+func (m *Predictor) validateModels(formats strfmt.Registry) error {
+	if swag.IsZero(m.Models) { // not required
+		return nil
+	}
+
+	for i := 0; i < len(m.Models); i++ {
+		if swag.IsZero(m.Models[i]) { // not required
+			continue
+		}
+
+		if m.Models[i] != nil {
+			if err := m.Models[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("models" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("models" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
 func (m *Predictor) validateQueues(formats strfmt.Registry) error {
 
 	if err := validate.Required("queues", "body", m.Queues); err != nil {
@@ -158,6 +191,8 @@ func (m *Predictor) validateQueues(formats strfmt.Registry) error {
 			if err := m.Queues[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queues" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -169,7 +204,6 @@ func (m *Predictor) validateQueues(formats strfmt.Registry) error {
 }
 
 func (m *Predictor) validateSchedule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Schedule) { // not required
 		return nil
 	}
@@ -178,6 +212,8 @@ func (m *Predictor) validateSchedule(formats strfmt.Registry) error {
 		if err := m.Schedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedule")
 			}
 			return err
 		}
@@ -187,7 +223,6 @@ func (m *Predictor) validateSchedule(formats strfmt.Registry) error {
 }
 
 func (m *Predictor) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -232,7 +267,6 @@ func (m *Predictor) validateStateEnum(path, location string, value string) error
 }
 
 func (m *Predictor) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -246,7 +280,6 @@ func (m *Predictor) validateState(formats strfmt.Registry) error {
 }
 
 func (m *Predictor) validateWorkloadBalancingConfig(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.WorkloadBalancingConfig) { // not required
 		return nil
 	}
@@ -255,6 +288,188 @@ func (m *Predictor) validateWorkloadBalancingConfig(formats strfmt.Registry) err
 		if err := m.WorkloadBalancingConfig.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("workloadBalancingConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workloadBalancingConfig")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this predictor based on the context it is used
+func (m *Predictor) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDateCreated(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateDateModified(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateErrorCode(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModels(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateQueues(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchedule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateState(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateWorkloadBalancingConfig(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Predictor) contextValidateDateCreated(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateCreated", "body", strfmt.DateTime(m.DateCreated)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Predictor) contextValidateDateModified(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "dateModified", "body", strfmt.DateTime(m.DateModified)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Predictor) contextValidateErrorCode(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "errorCode", "body", string(m.ErrorCode)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Predictor) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Predictor) contextValidateModels(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "models", "body", []*PredictorModelBrief(m.Models)); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Models); i++ {
+
+		if m.Models[i] != nil {
+			if err := m.Models[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("models" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("models" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Predictor) contextValidateQueues(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Queues); i++ {
+
+		if m.Queues[i] != nil {
+			if err := m.Queues[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("queues" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("queues" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Predictor) contextValidateSchedule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Schedule != nil {
+		if err := m.Schedule.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedule")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Predictor) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Predictor) contextValidateState(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "state", "body", string(m.State)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Predictor) contextValidateWorkloadBalancingConfig(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.WorkloadBalancingConfig != nil {
+		if err := m.WorkloadBalancingConfig.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("workloadBalancingConfig")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("workloadBalancingConfig")
 			}
 			return err
 		}

@@ -17,89 +17,107 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetUserTrustorsParams creates a new GetUserTrustorsParams object
-// with the default values initialized.
+// NewGetUserTrustorsParams creates a new GetUserTrustorsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetUserTrustorsParams() *GetUserTrustorsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetUserTrustorsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetUserTrustorsParamsWithTimeout creates a new GetUserTrustorsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetUserTrustorsParamsWithTimeout(timeout time.Duration) *GetUserTrustorsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetUserTrustorsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetUserTrustorsParamsWithContext creates a new GetUserTrustorsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetUserTrustorsParamsWithContext(ctx context.Context) *GetUserTrustorsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetUserTrustorsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetUserTrustorsParamsWithHTTPClient creates a new GetUserTrustorsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetUserTrustorsParamsWithHTTPClient(client *http.Client) *GetUserTrustorsParams {
-	var (
-		pageNumberDefault = int32(1)
-		pageSizeDefault   = int32(25)
-	)
 	return &GetUserTrustorsParams{
-		PageNumber: &pageNumberDefault,
-		PageSize:   &pageSizeDefault,
 		HTTPClient: client,
 	}
 }
 
-/*GetUserTrustorsParams contains all the parameters to send to the API endpoint
-for the get user trustors operation typically these are written to a http.Request
+/*
+GetUserTrustorsParams contains all the parameters to send to the API endpoint
+
+	for the get user trustors operation.
+
+	Typically these are written to a http.Request.
 */
 type GetUserTrustorsParams struct {
 
-	/*PageNumber
-	  Page number
+	/* PageNumber.
 
+	   Page number
+
+	   Format: int32
+	   Default: 1
 	*/
 	PageNumber *int32
-	/*PageSize
-	  Page size
 
+	/* PageSize.
+
+	   Page size
+
+	   Format: int32
+	   Default: 25
 	*/
 	PageSize *int32
-	/*UserID
-	  User ID
 
+	/* UserID.
+
+	   User ID
 	*/
 	UserID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get user trustors params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserTrustorsParams) WithDefaults() *GetUserTrustorsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get user trustors params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetUserTrustorsParams) SetDefaults() {
+	var (
+		pageNumberDefault = int32(1)
+
+		pageSizeDefault = int32(25)
+	)
+
+	val := GetUserTrustorsParams{
+		PageNumber: &pageNumberDefault,
+		PageSize:   &pageSizeDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get user trustors params
@@ -180,32 +198,34 @@ func (o *GetUserTrustorsParams) WriteToRequest(r runtime.ClientRequest, reg strf
 
 		// query param pageNumber
 		var qrPageNumber int32
+
 		if o.PageNumber != nil {
 			qrPageNumber = *o.PageNumber
 		}
 		qPageNumber := swag.FormatInt32(qrPageNumber)
 		if qPageNumber != "" {
+
 			if err := r.SetQueryParam("pageNumber", qPageNumber); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if o.PageSize != nil {
 
 		// query param pageSize
 		var qrPageSize int32
+
 		if o.PageSize != nil {
 			qrPageSize = *o.PageSize
 		}
 		qPageSize := swag.FormatInt32(qrPageSize)
 		if qPageSize != "" {
+
 			if err := r.SetQueryParam("pageSize", qPageSize); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param userId

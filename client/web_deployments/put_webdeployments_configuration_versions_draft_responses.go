@@ -95,7 +95,6 @@ func (o *PutWebdeploymentsConfigurationVersionsDraftReader) ReadResponse(respons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutWebdeploymentsConfigurationVersionsDraftOK() *PutWebdeploymentsConfig
 	return &PutWebdeploymentsConfigurationVersionsDraftOK{}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftOK handles this case with default header values.
+/*
+PutWebdeploymentsConfigurationVersionsDraftOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutWebdeploymentsConfigurationVersionsDraftOK struct {
 	Payload *models.WebDeploymentConfigurationVersion
 }
 
+// IsSuccess returns true when this put webdeployments configuration versions draft o k response has a 2xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put webdeployments configuration versions draft o k response has a 3xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put webdeployments configuration versions draft o k response has a 4xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put webdeployments configuration versions draft o k response has a 5xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put webdeployments configuration versions draft o k response a status code equal to that given
+func (o *PutWebdeploymentsConfigurationVersionsDraftOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutWebdeploymentsConfigurationVersionsDraftOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftOK  %+v", 200, o.Payload)
+}
+
+func (o *PutWebdeploymentsConfigurationVersionsDraftOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutWebdeploymentsConfigurationVersionsDraftBadRequest() *PutWebdeploymen
 	return &PutWebdeploymentsConfigurationVersionsDraftBadRequest{}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftBadRequest handles this case with default header values.
+/*
+PutWebdeploymentsConfigurationVersionsDraftBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutWebdeploymentsConfigurationVersionsDraftBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put webdeployments configuration versions draft bad request response has a 2xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put webdeployments configuration versions draft bad request response has a 3xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put webdeployments configuration versions draft bad request response has a 4xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put webdeployments configuration versions draft bad request response has a 5xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put webdeployments configuration versions draft bad request response a status code equal to that given
+func (o *PutWebdeploymentsConfigurationVersionsDraftBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutWebdeploymentsConfigurationVersionsDraftBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutWebdeploymentsConfigurationVersionsDraftBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutWebdeploymentsConfigurationVersionsDraftUnauthorized() *PutWebdeploym
 	return &PutWebdeploymentsConfigurationVersionsDraftUnauthorized{}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftUnauthorized handles this case with default header values.
+/*
+PutWebdeploymentsConfigurationVersionsDraftUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutWebdeploymentsConfigurationVersionsDraftUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put webdeployments configuration versions draft unauthorized response has a 2xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put webdeployments configuration versions draft unauthorized response has a 3xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put webdeployments configuration versions draft unauthorized response has a 4xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put webdeployments configuration versions draft unauthorized response has a 5xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put webdeployments configuration versions draft unauthorized response a status code equal to that given
+func (o *PutWebdeploymentsConfigurationVersionsDraftUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutWebdeploymentsConfigurationVersionsDraftUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutWebdeploymentsConfigurationVersionsDraftUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutWebdeploymentsConfigurationVersionsDraftForbidden() *PutWebdeployment
 	return &PutWebdeploymentsConfigurationVersionsDraftForbidden{}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftForbidden handles this case with default header values.
+/*
+PutWebdeploymentsConfigurationVersionsDraftForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutWebdeploymentsConfigurationVersionsDraftForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put webdeployments configuration versions draft forbidden response has a 2xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put webdeployments configuration versions draft forbidden response has a 3xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put webdeployments configuration versions draft forbidden response has a 4xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put webdeployments configuration versions draft forbidden response has a 5xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put webdeployments configuration versions draft forbidden response a status code equal to that given
+func (o *PutWebdeploymentsConfigurationVersionsDraftForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutWebdeploymentsConfigurationVersionsDraftForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutWebdeploymentsConfigurationVersionsDraftForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutWebdeploymentsConfigurationVersionsDraftNotFound() *PutWebdeployments
 	return &PutWebdeploymentsConfigurationVersionsDraftNotFound{}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftNotFound handles this case with default header values.
+/*
+PutWebdeploymentsConfigurationVersionsDraftNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutWebdeploymentsConfigurationVersionsDraftNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put webdeployments configuration versions draft not found response has a 2xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put webdeployments configuration versions draft not found response has a 3xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put webdeployments configuration versions draft not found response has a 4xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put webdeployments configuration versions draft not found response has a 5xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put webdeployments configuration versions draft not found response a status code equal to that given
+func (o *PutWebdeploymentsConfigurationVersionsDraftNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutWebdeploymentsConfigurationVersionsDraftNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutWebdeploymentsConfigurationVersionsDraftNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutWebdeploymentsConfigurationVersionsDraftRequestTimeout() *PutWebdeplo
 	return &PutWebdeploymentsConfigurationVersionsDraftRequestTimeout{}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftRequestTimeout handles this case with default header values.
+/*
+PutWebdeploymentsConfigurationVersionsDraftRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutWebdeploymentsConfigurationVersionsDraftRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put webdeployments configuration versions draft request timeout response has a 2xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put webdeployments configuration versions draft request timeout response has a 3xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put webdeployments configuration versions draft request timeout response has a 4xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put webdeployments configuration versions draft request timeout response has a 5xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put webdeployments configuration versions draft request timeout response a status code equal to that given
+func (o *PutWebdeploymentsConfigurationVersionsDraftRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutWebdeploymentsConfigurationVersionsDraftRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutWebdeploymentsConfigurationVersionsDraftRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge() *PutW
 	return &PutWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge{}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge handles this case with default header values.
+/*
+PutWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put webdeployments configuration versions draft request entity too large response has a 2xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put webdeployments configuration versions draft request entity too large response has a 3xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put webdeployments configuration versions draft request entity too large response has a 4xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put webdeployments configuration versions draft request entity too large response has a 5xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put webdeployments configuration versions draft request entity too large response a status code equal to that given
+func (o *PutWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType() *PutWe
 	return &PutWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType{}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType handles this case with default header values.
+/*
+PutWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put webdeployments configuration versions draft unsupported media type response has a 2xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put webdeployments configuration versions draft unsupported media type response has a 3xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put webdeployments configuration versions draft unsupported media type response has a 4xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put webdeployments configuration versions draft unsupported media type response has a 5xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put webdeployments configuration versions draft unsupported media type response a status code equal to that given
+func (o *PutWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutWebdeploymentsConfigurationVersionsDraftTooManyRequests() *PutWebdepl
 	return &PutWebdeploymentsConfigurationVersionsDraftTooManyRequests{}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftTooManyRequests handles this case with default header values.
+/*
+PutWebdeploymentsConfigurationVersionsDraftTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutWebdeploymentsConfigurationVersionsDraftTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put webdeployments configuration versions draft too many requests response has a 2xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put webdeployments configuration versions draft too many requests response has a 3xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put webdeployments configuration versions draft too many requests response has a 4xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put webdeployments configuration versions draft too many requests response has a 5xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put webdeployments configuration versions draft too many requests response a status code equal to that given
+func (o *PutWebdeploymentsConfigurationVersionsDraftTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutWebdeploymentsConfigurationVersionsDraftTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutWebdeploymentsConfigurationVersionsDraftTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutWebdeploymentsConfigurationVersionsDraftInternalServerError() *PutWeb
 	return &PutWebdeploymentsConfigurationVersionsDraftInternalServerError{}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftInternalServerError handles this case with default header values.
+/*
+PutWebdeploymentsConfigurationVersionsDraftInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutWebdeploymentsConfigurationVersionsDraftInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put webdeployments configuration versions draft internal server error response has a 2xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put webdeployments configuration versions draft internal server error response has a 3xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put webdeployments configuration versions draft internal server error response has a 4xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put webdeployments configuration versions draft internal server error response has a 5xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put webdeployments configuration versions draft internal server error response a status code equal to that given
+func (o *PutWebdeploymentsConfigurationVersionsDraftInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutWebdeploymentsConfigurationVersionsDraftInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutWebdeploymentsConfigurationVersionsDraftInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutWebdeploymentsConfigurationVersionsDraftServiceUnavailable() *PutWebd
 	return &PutWebdeploymentsConfigurationVersionsDraftServiceUnavailable{}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftServiceUnavailable handles this case with default header values.
+/*
+PutWebdeploymentsConfigurationVersionsDraftServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutWebdeploymentsConfigurationVersionsDraftServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put webdeployments configuration versions draft service unavailable response has a 2xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put webdeployments configuration versions draft service unavailable response has a 3xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put webdeployments configuration versions draft service unavailable response has a 4xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put webdeployments configuration versions draft service unavailable response has a 5xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put webdeployments configuration versions draft service unavailable response a status code equal to that given
+func (o *PutWebdeploymentsConfigurationVersionsDraftServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutWebdeploymentsConfigurationVersionsDraftServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutWebdeploymentsConfigurationVersionsDraftServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutWebdeploymentsConfigurationVersionsDraftGatewayTimeout() *PutWebdeplo
 	return &PutWebdeploymentsConfigurationVersionsDraftGatewayTimeout{}
 }
 
-/*PutWebdeploymentsConfigurationVersionsDraftGatewayTimeout handles this case with default header values.
+/*
+PutWebdeploymentsConfigurationVersionsDraftGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutWebdeploymentsConfigurationVersionsDraftGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put webdeployments configuration versions draft gateway timeout response has a 2xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put webdeployments configuration versions draft gateway timeout response has a 3xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put webdeployments configuration versions draft gateway timeout response has a 4xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put webdeployments configuration versions draft gateway timeout response has a 5xx status code
+func (o *PutWebdeploymentsConfigurationVersionsDraftGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put webdeployments configuration versions draft gateway timeout response a status code equal to that given
+func (o *PutWebdeploymentsConfigurationVersionsDraftGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutWebdeploymentsConfigurationVersionsDraftGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutWebdeploymentsConfigurationVersionsDraftGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/webdeployments/configurations/{configurationId}/versions/draft][%d] putWebdeploymentsConfigurationVersionsDraftGatewayTimeout  %+v", 504, o.Payload)
 }
 

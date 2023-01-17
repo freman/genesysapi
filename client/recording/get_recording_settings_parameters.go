@@ -17,71 +17,86 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetRecordingSettingsParams creates a new GetRecordingSettingsParams object
-// with the default values initialized.
+// NewGetRecordingSettingsParams creates a new GetRecordingSettingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetRecordingSettingsParams() *GetRecordingSettingsParams {
-	var (
-		createDefaultDefault = bool(false)
-	)
 	return &GetRecordingSettingsParams{
-		CreateDefault: &createDefaultDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetRecordingSettingsParamsWithTimeout creates a new GetRecordingSettingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetRecordingSettingsParamsWithTimeout(timeout time.Duration) *GetRecordingSettingsParams {
-	var (
-		createDefaultDefault = bool(false)
-	)
 	return &GetRecordingSettingsParams{
-		CreateDefault: &createDefaultDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetRecordingSettingsParamsWithContext creates a new GetRecordingSettingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetRecordingSettingsParamsWithContext(ctx context.Context) *GetRecordingSettingsParams {
-	var (
-		createDefaultDefault = bool(false)
-	)
 	return &GetRecordingSettingsParams{
-		CreateDefault: &createDefaultDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetRecordingSettingsParamsWithHTTPClient creates a new GetRecordingSettingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetRecordingSettingsParamsWithHTTPClient(client *http.Client) *GetRecordingSettingsParams {
-	var (
-		createDefaultDefault = bool(false)
-	)
 	return &GetRecordingSettingsParams{
-		CreateDefault: &createDefaultDefault,
-		HTTPClient:    client,
+		HTTPClient: client,
 	}
 }
 
-/*GetRecordingSettingsParams contains all the parameters to send to the API endpoint
-for the get recording settings operation typically these are written to a http.Request
+/*
+GetRecordingSettingsParams contains all the parameters to send to the API endpoint
+
+	for the get recording settings operation.
+
+	Typically these are written to a http.Request.
 */
 type GetRecordingSettingsParams struct {
 
-	/*CreateDefault
-	  If no settings are found, a new one is created with default values
+	/* CreateDefault.
 
+	   If no settings are found, a new one is created with default values
 	*/
 	CreateDefault *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get recording settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingSettingsParams) WithDefaults() *GetRecordingSettingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get recording settings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetRecordingSettingsParams) SetDefaults() {
+	var (
+		createDefaultDefault = bool(false)
+	)
+
+	val := GetRecordingSettingsParams{
+		CreateDefault: &createDefaultDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get recording settings params
@@ -140,16 +155,17 @@ func (o *GetRecordingSettingsParams) WriteToRequest(r runtime.ClientRequest, reg
 
 		// query param createDefault
 		var qrCreateDefault bool
+
 		if o.CreateDefault != nil {
 			qrCreateDefault = *o.CreateDefault
 		}
 		qCreateDefault := swag.FormatBool(qrCreateDefault)
 		if qCreateDefault != "" {
+
 			if err := r.SetQueryParam("createDefault", qCreateDefault); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

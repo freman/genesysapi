@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPutOauthClientParams creates a new PutOauthClientParams object
-// with the default values initialized.
+// NewPutOauthClientParams creates a new PutOauthClientParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPutOauthClientParams() *PutOauthClientParams {
-	var ()
 	return &PutOauthClientParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPutOauthClientParamsWithTimeout creates a new PutOauthClientParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPutOauthClientParamsWithTimeout(timeout time.Duration) *PutOauthClientParams {
-	var ()
 	return &PutOauthClientParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPutOauthClientParamsWithContext creates a new PutOauthClientParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPutOauthClientParamsWithContext(ctx context.Context) *PutOauthClientParams {
-	var ()
 	return &PutOauthClientParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPutOauthClientParamsWithHTTPClient creates a new PutOauthClientParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPutOauthClientParamsWithHTTPClient(client *http.Client) *PutOauthClientParams {
-	var ()
 	return &PutOauthClientParams{
 		HTTPClient: client,
 	}
 }
 
-/*PutOauthClientParams contains all the parameters to send to the API endpoint
-for the put oauth client operation typically these are written to a http.Request
+/*
+PutOauthClientParams contains all the parameters to send to the API endpoint
+
+	for the put oauth client operation.
+
+	Typically these are written to a http.Request.
 */
 type PutOauthClientParams struct {
 
-	/*Body
-	  Client
+	/* Body.
 
+	   Client
 	*/
 	Body *models.OAuthClientRequest
-	/*ClientID
-	  Client ID
 
+	/* ClientID.
+
+	   Client ID
 	*/
 	ClientID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the put oauth client params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOauthClientParams) WithDefaults() *PutOauthClientParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the put oauth client params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PutOauthClientParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the put oauth client params
@@ -140,7 +157,6 @@ func (o *PutOauthClientParams) WriteToRequest(r runtime.ClientRequest, reg strfm
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

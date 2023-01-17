@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDParams creates a new PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams object
-// with the default values initialized.
+// NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDParams creates a new PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDParams() *PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams {
-	var ()
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDParamsWithTimeout creates a new PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDParamsWithTimeout(timeout time.Duration) *PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams {
-	var ()
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDParamsWithContext creates a new PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDParamsWithContext(ctx context.Context) *PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams {
-	var ()
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDParamsWithHTTPClient creates a new PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchConversationsMessagingIntegrationsTwitterIntegrationIDParamsWithHTTPClient(client *http.Client) *PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams {
-	var ()
 	return &PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams contains all the parameters to send to the API endpoint
-for the patch conversations messaging integrations twitter integration Id operation typically these are written to a http.Request
+/*
+PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams contains all the parameters to send to the API endpoint
+
+	for the patch conversations messaging integrations twitter integration Id operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams struct {
 
-	/*Body
-	  TwitterIntegrationRequest
+	/* Body.
 
+	   TwitterIntegrationRequest
 	*/
 	Body *models.TwitterIntegrationRequest
-	/*IntegrationID
-	  Integration ID
 
+	/* IntegrationID.
+
+	   Integration ID
 	*/
 	IntegrationID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch conversations messaging integrations twitter integration Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams) WithDefaults() *PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch conversations messaging integrations twitter integration Id params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch conversations messaging integrations twitter integration Id params
@@ -140,7 +157,6 @@ func (o *PatchConversationsMessagingIntegrationsTwitterIntegrationIDParams) Writ
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

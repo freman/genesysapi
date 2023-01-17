@@ -101,7 +101,6 @@ func (o *PostRoutingSkillsReader) ReadResponse(response runtime.ClientResponse, 
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewPostRoutingSkillsOK() *PostRoutingSkillsOK {
 	return &PostRoutingSkillsOK{}
 }
 
-/*PostRoutingSkillsOK handles this case with default header values.
+/*
+PostRoutingSkillsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type PostRoutingSkillsOK struct {
 	Payload *models.RoutingSkill
 }
 
+// IsSuccess returns true when this post routing skills o k response has a 2xx status code
+func (o *PostRoutingSkillsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post routing skills o k response has a 3xx status code
+func (o *PostRoutingSkillsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills o k response has a 4xx status code
+func (o *PostRoutingSkillsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing skills o k response has a 5xx status code
+func (o *PostRoutingSkillsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing skills o k response a status code equal to that given
+func (o *PostRoutingSkillsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostRoutingSkillsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostRoutingSkillsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsOK  %+v", 200, o.Payload)
 }
 
@@ -145,7 +174,8 @@ func NewPostRoutingSkillsBadRequest() *PostRoutingSkillsBadRequest {
 	return &PostRoutingSkillsBadRequest{}
 }
 
-/*PostRoutingSkillsBadRequest handles this case with default header values.
+/*
+PostRoutingSkillsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -153,7 +183,36 @@ type PostRoutingSkillsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing skills bad request response has a 2xx status code
+func (o *PostRoutingSkillsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing skills bad request response has a 3xx status code
+func (o *PostRoutingSkillsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills bad request response has a 4xx status code
+func (o *PostRoutingSkillsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing skills bad request response has a 5xx status code
+func (o *PostRoutingSkillsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing skills bad request response a status code equal to that given
+func (o *PostRoutingSkillsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostRoutingSkillsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostRoutingSkillsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -178,7 +237,8 @@ func NewPostRoutingSkillsUnauthorized() *PostRoutingSkillsUnauthorized {
 	return &PostRoutingSkillsUnauthorized{}
 }
 
-/*PostRoutingSkillsUnauthorized handles this case with default header values.
+/*
+PostRoutingSkillsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -186,7 +246,36 @@ type PostRoutingSkillsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing skills unauthorized response has a 2xx status code
+func (o *PostRoutingSkillsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing skills unauthorized response has a 3xx status code
+func (o *PostRoutingSkillsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills unauthorized response has a 4xx status code
+func (o *PostRoutingSkillsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing skills unauthorized response has a 5xx status code
+func (o *PostRoutingSkillsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing skills unauthorized response a status code equal to that given
+func (o *PostRoutingSkillsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostRoutingSkillsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostRoutingSkillsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -211,7 +300,8 @@ func NewPostRoutingSkillsForbidden() *PostRoutingSkillsForbidden {
 	return &PostRoutingSkillsForbidden{}
 }
 
-/*PostRoutingSkillsForbidden handles this case with default header values.
+/*
+PostRoutingSkillsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -219,7 +309,36 @@ type PostRoutingSkillsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing skills forbidden response has a 2xx status code
+func (o *PostRoutingSkillsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing skills forbidden response has a 3xx status code
+func (o *PostRoutingSkillsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills forbidden response has a 4xx status code
+func (o *PostRoutingSkillsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing skills forbidden response has a 5xx status code
+func (o *PostRoutingSkillsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing skills forbidden response a status code equal to that given
+func (o *PostRoutingSkillsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostRoutingSkillsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostRoutingSkillsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsForbidden  %+v", 403, o.Payload)
 }
 
@@ -244,7 +363,8 @@ func NewPostRoutingSkillsNotFound() *PostRoutingSkillsNotFound {
 	return &PostRoutingSkillsNotFound{}
 }
 
-/*PostRoutingSkillsNotFound handles this case with default header values.
+/*
+PostRoutingSkillsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -252,7 +372,36 @@ type PostRoutingSkillsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing skills not found response has a 2xx status code
+func (o *PostRoutingSkillsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing skills not found response has a 3xx status code
+func (o *PostRoutingSkillsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills not found response has a 4xx status code
+func (o *PostRoutingSkillsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing skills not found response has a 5xx status code
+func (o *PostRoutingSkillsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing skills not found response a status code equal to that given
+func (o *PostRoutingSkillsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostRoutingSkillsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostRoutingSkillsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsNotFound  %+v", 404, o.Payload)
 }
 
@@ -277,7 +426,8 @@ func NewPostRoutingSkillsRequestTimeout() *PostRoutingSkillsRequestTimeout {
 	return &PostRoutingSkillsRequestTimeout{}
 }
 
-/*PostRoutingSkillsRequestTimeout handles this case with default header values.
+/*
+PostRoutingSkillsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -285,7 +435,36 @@ type PostRoutingSkillsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing skills request timeout response has a 2xx status code
+func (o *PostRoutingSkillsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing skills request timeout response has a 3xx status code
+func (o *PostRoutingSkillsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills request timeout response has a 4xx status code
+func (o *PostRoutingSkillsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing skills request timeout response has a 5xx status code
+func (o *PostRoutingSkillsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing skills request timeout response a status code equal to that given
+func (o *PostRoutingSkillsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostRoutingSkillsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostRoutingSkillsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -310,7 +489,8 @@ func NewPostRoutingSkillsConflict() *PostRoutingSkillsConflict {
 	return &PostRoutingSkillsConflict{}
 }
 
-/*PostRoutingSkillsConflict handles this case with default header values.
+/*
+PostRoutingSkillsConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -318,7 +498,36 @@ type PostRoutingSkillsConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing skills conflict response has a 2xx status code
+func (o *PostRoutingSkillsConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing skills conflict response has a 3xx status code
+func (o *PostRoutingSkillsConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills conflict response has a 4xx status code
+func (o *PostRoutingSkillsConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing skills conflict response has a 5xx status code
+func (o *PostRoutingSkillsConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing skills conflict response a status code equal to that given
+func (o *PostRoutingSkillsConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *PostRoutingSkillsConflict) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsConflict  %+v", 409, o.Payload)
+}
+
+func (o *PostRoutingSkillsConflict) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsConflict  %+v", 409, o.Payload)
 }
 
@@ -343,7 +552,8 @@ func NewPostRoutingSkillsRequestEntityTooLarge() *PostRoutingSkillsRequestEntity
 	return &PostRoutingSkillsRequestEntityTooLarge{}
 }
 
-/*PostRoutingSkillsRequestEntityTooLarge handles this case with default header values.
+/*
+PostRoutingSkillsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -351,7 +561,36 @@ type PostRoutingSkillsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing skills request entity too large response has a 2xx status code
+func (o *PostRoutingSkillsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing skills request entity too large response has a 3xx status code
+func (o *PostRoutingSkillsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills request entity too large response has a 4xx status code
+func (o *PostRoutingSkillsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing skills request entity too large response has a 5xx status code
+func (o *PostRoutingSkillsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing skills request entity too large response a status code equal to that given
+func (o *PostRoutingSkillsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostRoutingSkillsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostRoutingSkillsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -376,7 +615,8 @@ func NewPostRoutingSkillsUnsupportedMediaType() *PostRoutingSkillsUnsupportedMed
 	return &PostRoutingSkillsUnsupportedMediaType{}
 }
 
-/*PostRoutingSkillsUnsupportedMediaType handles this case with default header values.
+/*
+PostRoutingSkillsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -384,7 +624,36 @@ type PostRoutingSkillsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing skills unsupported media type response has a 2xx status code
+func (o *PostRoutingSkillsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing skills unsupported media type response has a 3xx status code
+func (o *PostRoutingSkillsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills unsupported media type response has a 4xx status code
+func (o *PostRoutingSkillsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing skills unsupported media type response has a 5xx status code
+func (o *PostRoutingSkillsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing skills unsupported media type response a status code equal to that given
+func (o *PostRoutingSkillsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostRoutingSkillsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostRoutingSkillsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -409,7 +678,8 @@ func NewPostRoutingSkillsTooManyRequests() *PostRoutingSkillsTooManyRequests {
 	return &PostRoutingSkillsTooManyRequests{}
 }
 
-/*PostRoutingSkillsTooManyRequests handles this case with default header values.
+/*
+PostRoutingSkillsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -417,7 +687,36 @@ type PostRoutingSkillsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing skills too many requests response has a 2xx status code
+func (o *PostRoutingSkillsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing skills too many requests response has a 3xx status code
+func (o *PostRoutingSkillsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills too many requests response has a 4xx status code
+func (o *PostRoutingSkillsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post routing skills too many requests response has a 5xx status code
+func (o *PostRoutingSkillsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post routing skills too many requests response a status code equal to that given
+func (o *PostRoutingSkillsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostRoutingSkillsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostRoutingSkillsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -442,7 +741,8 @@ func NewPostRoutingSkillsInternalServerError() *PostRoutingSkillsInternalServerE
 	return &PostRoutingSkillsInternalServerError{}
 }
 
-/*PostRoutingSkillsInternalServerError handles this case with default header values.
+/*
+PostRoutingSkillsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -450,7 +750,36 @@ type PostRoutingSkillsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing skills internal server error response has a 2xx status code
+func (o *PostRoutingSkillsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing skills internal server error response has a 3xx status code
+func (o *PostRoutingSkillsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills internal server error response has a 4xx status code
+func (o *PostRoutingSkillsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing skills internal server error response has a 5xx status code
+func (o *PostRoutingSkillsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing skills internal server error response a status code equal to that given
+func (o *PostRoutingSkillsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostRoutingSkillsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostRoutingSkillsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -475,7 +804,8 @@ func NewPostRoutingSkillsServiceUnavailable() *PostRoutingSkillsServiceUnavailab
 	return &PostRoutingSkillsServiceUnavailable{}
 }
 
-/*PostRoutingSkillsServiceUnavailable handles this case with default header values.
+/*
+PostRoutingSkillsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -483,7 +813,36 @@ type PostRoutingSkillsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing skills service unavailable response has a 2xx status code
+func (o *PostRoutingSkillsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing skills service unavailable response has a 3xx status code
+func (o *PostRoutingSkillsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills service unavailable response has a 4xx status code
+func (o *PostRoutingSkillsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing skills service unavailable response has a 5xx status code
+func (o *PostRoutingSkillsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing skills service unavailable response a status code equal to that given
+func (o *PostRoutingSkillsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostRoutingSkillsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostRoutingSkillsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -508,7 +867,8 @@ func NewPostRoutingSkillsGatewayTimeout() *PostRoutingSkillsGatewayTimeout {
 	return &PostRoutingSkillsGatewayTimeout{}
 }
 
-/*PostRoutingSkillsGatewayTimeout handles this case with default header values.
+/*
+PostRoutingSkillsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -516,7 +876,36 @@ type PostRoutingSkillsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post routing skills gateway timeout response has a 2xx status code
+func (o *PostRoutingSkillsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post routing skills gateway timeout response has a 3xx status code
+func (o *PostRoutingSkillsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post routing skills gateway timeout response has a 4xx status code
+func (o *PostRoutingSkillsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post routing skills gateway timeout response has a 5xx status code
+func (o *PostRoutingSkillsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post routing skills gateway timeout response a status code equal to that given
+func (o *PostRoutingSkillsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostRoutingSkillsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostRoutingSkillsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/routing/skills][%d] postRoutingSkillsGatewayTimeout  %+v", 504, o.Payload)
 }
 

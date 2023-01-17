@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementManagementunitShifttradesMatchedParams creates a new GetWorkforcemanagementManagementunitShifttradesMatchedParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementManagementunitShifttradesMatchedParams creates a new GetWorkforcemanagementManagementunitShifttradesMatchedParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementManagementunitShifttradesMatchedParams() *GetWorkforcemanagementManagementunitShifttradesMatchedParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitShifttradesMatchedParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitShifttradesMatchedParamsWithTimeout creates a new GetWorkforcemanagementManagementunitShifttradesMatchedParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementManagementunitShifttradesMatchedParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementManagementunitShifttradesMatchedParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitShifttradesMatchedParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitShifttradesMatchedParamsWithContext creates a new GetWorkforcemanagementManagementunitShifttradesMatchedParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementManagementunitShifttradesMatchedParamsWithContext(ctx context.Context) *GetWorkforcemanagementManagementunitShifttradesMatchedParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitShifttradesMatchedParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementManagementunitShifttradesMatchedParamsWithHTTPClient creates a new GetWorkforcemanagementManagementunitShifttradesMatchedParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementManagementunitShifttradesMatchedParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementManagementunitShifttradesMatchedParams {
-	var ()
 	return &GetWorkforcemanagementManagementunitShifttradesMatchedParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementManagementunitShifttradesMatchedParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement managementunit shifttrades matched operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementManagementunitShifttradesMatchedParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement managementunit shifttrades matched operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementManagementunitShifttradesMatchedParams struct {
 
-	/*ManagementUnitID
-	  The ID of the management unit, or 'mine' for the management unit of the logged-in user.
+	/* ManagementUnitID.
 
+	   The ID of the management unit, or 'mine' for the management unit of the logged-in user.
 	*/
 	ManagementUnitID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement managementunit shifttrades matched params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitShifttradesMatchedParams) WithDefaults() *GetWorkforcemanagementManagementunitShifttradesMatchedParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement managementunit shifttrades matched params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementManagementunitShifttradesMatchedParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement managementunit shifttrades matched params

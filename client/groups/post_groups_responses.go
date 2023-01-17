@@ -95,7 +95,6 @@ func (o *PostGroupsReader) ReadResponse(response runtime.ClientResponse, consume
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostGroupsOK() *PostGroupsOK {
 	return &PostGroupsOK{}
 }
 
-/*PostGroupsOK handles this case with default header values.
+/*
+PostGroupsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostGroupsOK struct {
 	Payload *models.Group
 }
 
+// IsSuccess returns true when this post groups o k response has a 2xx status code
+func (o *PostGroupsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post groups o k response has a 3xx status code
+func (o *PostGroupsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post groups o k response has a 4xx status code
+func (o *PostGroupsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post groups o k response has a 5xx status code
+func (o *PostGroupsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post groups o k response a status code equal to that given
+func (o *PostGroupsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostGroupsOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsOK  %+v", 200, o.Payload)
+}
+
+func (o *PostGroupsOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostGroupsBadRequest() *PostGroupsBadRequest {
 	return &PostGroupsBadRequest{}
 }
 
-/*PostGroupsBadRequest handles this case with default header values.
+/*
+PostGroupsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostGroupsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post groups bad request response has a 2xx status code
+func (o *PostGroupsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post groups bad request response has a 3xx status code
+func (o *PostGroupsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post groups bad request response has a 4xx status code
+func (o *PostGroupsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post groups bad request response has a 5xx status code
+func (o *PostGroupsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post groups bad request response a status code equal to that given
+func (o *PostGroupsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostGroupsBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostGroupsBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostGroupsUnauthorized() *PostGroupsUnauthorized {
 	return &PostGroupsUnauthorized{}
 }
 
-/*PostGroupsUnauthorized handles this case with default header values.
+/*
+PostGroupsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostGroupsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post groups unauthorized response has a 2xx status code
+func (o *PostGroupsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post groups unauthorized response has a 3xx status code
+func (o *PostGroupsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post groups unauthorized response has a 4xx status code
+func (o *PostGroupsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post groups unauthorized response has a 5xx status code
+func (o *PostGroupsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post groups unauthorized response a status code equal to that given
+func (o *PostGroupsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostGroupsUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostGroupsUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostGroupsForbidden() *PostGroupsForbidden {
 	return &PostGroupsForbidden{}
 }
 
-/*PostGroupsForbidden handles this case with default header values.
+/*
+PostGroupsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostGroupsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post groups forbidden response has a 2xx status code
+func (o *PostGroupsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post groups forbidden response has a 3xx status code
+func (o *PostGroupsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post groups forbidden response has a 4xx status code
+func (o *PostGroupsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post groups forbidden response has a 5xx status code
+func (o *PostGroupsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post groups forbidden response a status code equal to that given
+func (o *PostGroupsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostGroupsForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostGroupsForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostGroupsNotFound() *PostGroupsNotFound {
 	return &PostGroupsNotFound{}
 }
 
-/*PostGroupsNotFound handles this case with default header values.
+/*
+PostGroupsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostGroupsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post groups not found response has a 2xx status code
+func (o *PostGroupsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post groups not found response has a 3xx status code
+func (o *PostGroupsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post groups not found response has a 4xx status code
+func (o *PostGroupsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post groups not found response has a 5xx status code
+func (o *PostGroupsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post groups not found response a status code equal to that given
+func (o *PostGroupsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostGroupsNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostGroupsNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostGroupsRequestTimeout() *PostGroupsRequestTimeout {
 	return &PostGroupsRequestTimeout{}
 }
 
-/*PostGroupsRequestTimeout handles this case with default header values.
+/*
+PostGroupsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostGroupsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post groups request timeout response has a 2xx status code
+func (o *PostGroupsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post groups request timeout response has a 3xx status code
+func (o *PostGroupsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post groups request timeout response has a 4xx status code
+func (o *PostGroupsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post groups request timeout response has a 5xx status code
+func (o *PostGroupsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post groups request timeout response a status code equal to that given
+func (o *PostGroupsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostGroupsRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostGroupsRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostGroupsRequestEntityTooLarge() *PostGroupsRequestEntityTooLarge {
 	return &PostGroupsRequestEntityTooLarge{}
 }
 
-/*PostGroupsRequestEntityTooLarge handles this case with default header values.
+/*
+PostGroupsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostGroupsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post groups request entity too large response has a 2xx status code
+func (o *PostGroupsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post groups request entity too large response has a 3xx status code
+func (o *PostGroupsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post groups request entity too large response has a 4xx status code
+func (o *PostGroupsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post groups request entity too large response has a 5xx status code
+func (o *PostGroupsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post groups request entity too large response a status code equal to that given
+func (o *PostGroupsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostGroupsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostGroupsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostGroupsUnsupportedMediaType() *PostGroupsUnsupportedMediaType {
 	return &PostGroupsUnsupportedMediaType{}
 }
 
-/*PostGroupsUnsupportedMediaType handles this case with default header values.
+/*
+PostGroupsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostGroupsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post groups unsupported media type response has a 2xx status code
+func (o *PostGroupsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post groups unsupported media type response has a 3xx status code
+func (o *PostGroupsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post groups unsupported media type response has a 4xx status code
+func (o *PostGroupsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post groups unsupported media type response has a 5xx status code
+func (o *PostGroupsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post groups unsupported media type response a status code equal to that given
+func (o *PostGroupsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostGroupsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostGroupsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostGroupsTooManyRequests() *PostGroupsTooManyRequests {
 	return &PostGroupsTooManyRequests{}
 }
 
-/*PostGroupsTooManyRequests handles this case with default header values.
+/*
+PostGroupsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostGroupsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post groups too many requests response has a 2xx status code
+func (o *PostGroupsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post groups too many requests response has a 3xx status code
+func (o *PostGroupsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post groups too many requests response has a 4xx status code
+func (o *PostGroupsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post groups too many requests response has a 5xx status code
+func (o *PostGroupsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post groups too many requests response a status code equal to that given
+func (o *PostGroupsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostGroupsTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostGroupsTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostGroupsInternalServerError() *PostGroupsInternalServerError {
 	return &PostGroupsInternalServerError{}
 }
 
-/*PostGroupsInternalServerError handles this case with default header values.
+/*
+PostGroupsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostGroupsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post groups internal server error response has a 2xx status code
+func (o *PostGroupsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post groups internal server error response has a 3xx status code
+func (o *PostGroupsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post groups internal server error response has a 4xx status code
+func (o *PostGroupsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post groups internal server error response has a 5xx status code
+func (o *PostGroupsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post groups internal server error response a status code equal to that given
+func (o *PostGroupsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostGroupsInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostGroupsInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostGroupsServiceUnavailable() *PostGroupsServiceUnavailable {
 	return &PostGroupsServiceUnavailable{}
 }
 
-/*PostGroupsServiceUnavailable handles this case with default header values.
+/*
+PostGroupsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostGroupsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post groups service unavailable response has a 2xx status code
+func (o *PostGroupsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post groups service unavailable response has a 3xx status code
+func (o *PostGroupsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post groups service unavailable response has a 4xx status code
+func (o *PostGroupsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post groups service unavailable response has a 5xx status code
+func (o *PostGroupsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post groups service unavailable response a status code equal to that given
+func (o *PostGroupsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostGroupsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostGroupsServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostGroupsGatewayTimeout() *PostGroupsGatewayTimeout {
 	return &PostGroupsGatewayTimeout{}
 }
 
-/*PostGroupsGatewayTimeout handles this case with default header values.
+/*
+PostGroupsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostGroupsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post groups gateway timeout response has a 2xx status code
+func (o *PostGroupsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post groups gateway timeout response has a 3xx status code
+func (o *PostGroupsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post groups gateway timeout response has a 4xx status code
+func (o *PostGroupsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post groups gateway timeout response has a 5xx status code
+func (o *PostGroupsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post groups gateway timeout response a status code equal to that given
+func (o *PostGroupsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostGroupsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostGroupsGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/groups][%d] postGroupsGatewayTimeout  %+v", 504, o.Payload)
 }
 

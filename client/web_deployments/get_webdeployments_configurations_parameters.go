@@ -17,71 +17,86 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetWebdeploymentsConfigurationsParams creates a new GetWebdeploymentsConfigurationsParams object
-// with the default values initialized.
+// NewGetWebdeploymentsConfigurationsParams creates a new GetWebdeploymentsConfigurationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWebdeploymentsConfigurationsParams() *GetWebdeploymentsConfigurationsParams {
-	var (
-		showOnlyPublishedDefault = bool(false)
-	)
 	return &GetWebdeploymentsConfigurationsParams{
-		ShowOnlyPublished: &showOnlyPublishedDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWebdeploymentsConfigurationsParamsWithTimeout creates a new GetWebdeploymentsConfigurationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWebdeploymentsConfigurationsParamsWithTimeout(timeout time.Duration) *GetWebdeploymentsConfigurationsParams {
-	var (
-		showOnlyPublishedDefault = bool(false)
-	)
 	return &GetWebdeploymentsConfigurationsParams{
-		ShowOnlyPublished: &showOnlyPublishedDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWebdeploymentsConfigurationsParamsWithContext creates a new GetWebdeploymentsConfigurationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWebdeploymentsConfigurationsParamsWithContext(ctx context.Context) *GetWebdeploymentsConfigurationsParams {
-	var (
-		showOnlyPublishedDefault = bool(false)
-	)
 	return &GetWebdeploymentsConfigurationsParams{
-		ShowOnlyPublished: &showOnlyPublishedDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetWebdeploymentsConfigurationsParamsWithHTTPClient creates a new GetWebdeploymentsConfigurationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWebdeploymentsConfigurationsParamsWithHTTPClient(client *http.Client) *GetWebdeploymentsConfigurationsParams {
-	var (
-		showOnlyPublishedDefault = bool(false)
-	)
 	return &GetWebdeploymentsConfigurationsParams{
-		ShowOnlyPublished: &showOnlyPublishedDefault,
-		HTTPClient:        client,
+		HTTPClient: client,
 	}
 }
 
-/*GetWebdeploymentsConfigurationsParams contains all the parameters to send to the API endpoint
-for the get webdeployments configurations operation typically these are written to a http.Request
+/*
+GetWebdeploymentsConfigurationsParams contains all the parameters to send to the API endpoint
+
+	for the get webdeployments configurations operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWebdeploymentsConfigurationsParams struct {
 
-	/*ShowOnlyPublished
-	  Get only configuration drafts with published versions
+	/* ShowOnlyPublished.
 
+	   Get only configuration drafts with published versions
 	*/
 	ShowOnlyPublished *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get webdeployments configurations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebdeploymentsConfigurationsParams) WithDefaults() *GetWebdeploymentsConfigurationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get webdeployments configurations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWebdeploymentsConfigurationsParams) SetDefaults() {
+	var (
+		showOnlyPublishedDefault = bool(false)
+	)
+
+	val := GetWebdeploymentsConfigurationsParams{
+		ShowOnlyPublished: &showOnlyPublishedDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get webdeployments configurations params
@@ -140,16 +155,17 @@ func (o *GetWebdeploymentsConfigurationsParams) WriteToRequest(r runtime.ClientR
 
 		// query param showOnlyPublished
 		var qrShowOnlyPublished bool
+
 		if o.ShowOnlyPublished != nil {
 			qrShowOnlyPublished = *o.ShowOnlyPublished
 		}
 		qShowOnlyPublished := swag.FormatBool(qrShowOnlyPublished)
 		if qShowOnlyPublished != "" {
+
 			if err := r.SetQueryParam("showOnlyPublished", qShowOnlyPublished); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

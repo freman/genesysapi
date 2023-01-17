@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetAnalyticsReportingReportformatsParams creates a new GetAnalyticsReportingReportformatsParams object
-// with the default values initialized.
+// NewGetAnalyticsReportingReportformatsParams creates a new GetAnalyticsReportingReportformatsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetAnalyticsReportingReportformatsParams() *GetAnalyticsReportingReportformatsParams {
-
 	return &GetAnalyticsReportingReportformatsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetAnalyticsReportingReportformatsParamsWithTimeout creates a new GetAnalyticsReportingReportformatsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetAnalyticsReportingReportformatsParamsWithTimeout(timeout time.Duration) *GetAnalyticsReportingReportformatsParams {
-
 	return &GetAnalyticsReportingReportformatsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetAnalyticsReportingReportformatsParamsWithContext creates a new GetAnalyticsReportingReportformatsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetAnalyticsReportingReportformatsParamsWithContext(ctx context.Context) *GetAnalyticsReportingReportformatsParams {
-
 	return &GetAnalyticsReportingReportformatsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetAnalyticsReportingReportformatsParamsWithHTTPClient creates a new GetAnalyticsReportingReportformatsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetAnalyticsReportingReportformatsParamsWithHTTPClient(client *http.Client) *GetAnalyticsReportingReportformatsParams {
-
 	return &GetAnalyticsReportingReportformatsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetAnalyticsReportingReportformatsParams contains all the parameters to send to the API endpoint
-for the get analytics reporting reportformats operation typically these are written to a http.Request
+/*
+GetAnalyticsReportingReportformatsParams contains all the parameters to send to the API endpoint
+
+	for the get analytics reporting reportformats operation.
+
+	Typically these are written to a http.Request.
 */
 type GetAnalyticsReportingReportformatsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get analytics reporting reportformats params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAnalyticsReportingReportformatsParams) WithDefaults() *GetAnalyticsReportingReportformatsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get analytics reporting reportformats params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetAnalyticsReportingReportformatsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get analytics reporting reportformats params

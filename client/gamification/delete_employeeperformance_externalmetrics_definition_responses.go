@@ -101,7 +101,6 @@ func (o *DeleteEmployeeperformanceExternalmetricsDefinitionReader) ReadResponse(
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,14 +111,44 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionNoContent() *DeleteEmp
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionNoContent{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionNoContent handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionNoContent describes a response with status code 204, with default header values.
 
 The External Metric Definition was successfully deleted
 */
 type DeleteEmployeeperformanceExternalmetricsDefinitionNoContent struct {
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition no content response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition no content response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition no content response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition no content response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition no content response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionNoContent ", 204)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionNoContent ", 204)
 }
 
@@ -133,7 +162,8 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionBadRequest() *DeleteEm
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionBadRequest{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionBadRequest handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -141,7 +171,36 @@ type DeleteEmployeeperformanceExternalmetricsDefinitionBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition bad request response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition bad request response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition bad request response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition bad request response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition bad request response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionBadRequest  %+v", 400, o.Payload)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionUnauthorized() *Delete
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionUnauthorized{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionUnauthorized handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -174,7 +234,36 @@ type DeleteEmployeeperformanceExternalmetricsDefinitionUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition unauthorized response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition unauthorized response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition unauthorized response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition unauthorized response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition unauthorized response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionForbidden() *DeleteEmp
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionForbidden{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionForbidden handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -207,7 +297,36 @@ type DeleteEmployeeperformanceExternalmetricsDefinitionForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition forbidden response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition forbidden response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition forbidden response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition forbidden response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition forbidden response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionForbidden  %+v", 403, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionNotFound() *DeleteEmpl
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionNotFound{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionNotFound handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -240,7 +360,36 @@ type DeleteEmployeeperformanceExternalmetricsDefinitionNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition not found response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition not found response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition not found response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition not found response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition not found response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionNotFound  %+v", 404, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout() *Dele
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -273,7 +423,36 @@ type DeleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition request timeout response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition request timeout response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition request timeout response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition request timeout response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition request timeout response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionConflict() *DeleteEmpl
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionConflict{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionConflict handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionConflict describes a response with status code 409, with default header values.
 
 Conflict
 */
@@ -306,7 +486,36 @@ type DeleteEmployeeperformanceExternalmetricsDefinitionConflict struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition conflict response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionConflict) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition conflict response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionConflict) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition conflict response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionConflict) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition conflict response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionConflict) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition conflict response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionConflict) IsCode(code int) bool {
+	return code == 409
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionConflict) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionConflict  %+v", 409, o.Payload)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionConflict) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionConflict  %+v", 409, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge(
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge str
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition request entity too large response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition request entity too large response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition request entity too large response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition request entity too large response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition request entity too large response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType()
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType stru
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition unsupported media type response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition unsupported media type response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition unsupported media type response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition unsupported media type response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition unsupported media type response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests() *Del
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition too many requests response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition too many requests response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition too many requests response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition too many requests response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition too many requests response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionInternalServerError() 
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionInternalServerError{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionInternalServerError handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteEmployeeperformanceExternalmetricsDefinitionInternalServerError struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition internal server error response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition internal server error response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition internal server error response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition internal server error response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition internal server error response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable() *
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition service unavailable response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition service unavailable response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition service unavailable response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition service unavailable response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition service unavailable response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout() *Dele
 	return &DeleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout{}
 }
 
-/*DeleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout handles this case with default header values.
+/*
+DeleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete employeeperformance externalmetrics definition gateway timeout response has a 2xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete employeeperformance externalmetrics definition gateway timeout response has a 3xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete employeeperformance externalmetrics definition gateway timeout response has a 4xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete employeeperformance externalmetrics definition gateway timeout response has a 5xx status code
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete employeeperformance externalmetrics definition gateway timeout response a status code equal to that given
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/employeeperformance/externalmetrics/definitions/{metricId}][%d] deleteEmployeeperformanceExternalmetricsDefinitionGatewayTimeout  %+v", 504, o.Payload)
 }
 

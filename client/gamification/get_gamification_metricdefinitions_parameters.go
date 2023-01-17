@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetGamificationMetricdefinitionsParams creates a new GetGamificationMetricdefinitionsParams object
-// with the default values initialized.
+// NewGetGamificationMetricdefinitionsParams creates a new GetGamificationMetricdefinitionsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationMetricdefinitionsParams() *GetGamificationMetricdefinitionsParams {
-
 	return &GetGamificationMetricdefinitionsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationMetricdefinitionsParamsWithTimeout creates a new GetGamificationMetricdefinitionsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationMetricdefinitionsParamsWithTimeout(timeout time.Duration) *GetGamificationMetricdefinitionsParams {
-
 	return &GetGamificationMetricdefinitionsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationMetricdefinitionsParamsWithContext creates a new GetGamificationMetricdefinitionsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationMetricdefinitionsParamsWithContext(ctx context.Context) *GetGamificationMetricdefinitionsParams {
-
 	return &GetGamificationMetricdefinitionsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationMetricdefinitionsParamsWithHTTPClient creates a new GetGamificationMetricdefinitionsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationMetricdefinitionsParamsWithHTTPClient(client *http.Client) *GetGamificationMetricdefinitionsParams {
-
 	return &GetGamificationMetricdefinitionsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationMetricdefinitionsParams contains all the parameters to send to the API endpoint
-for the get gamification metricdefinitions operation typically these are written to a http.Request
+/*
+GetGamificationMetricdefinitionsParams contains all the parameters to send to the API endpoint
+
+	for the get gamification metricdefinitions operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationMetricdefinitionsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification metricdefinitions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationMetricdefinitionsParams) WithDefaults() *GetGamificationMetricdefinitionsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification metricdefinitions params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationMetricdefinitionsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification metricdefinitions params

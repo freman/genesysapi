@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -87,7 +88,6 @@ func (m *AvailableTopic) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AvailableTopic) validatePermissionDetails(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PermissionDetails) { // not required
 		return nil
 	}
@@ -101,6 +101,8 @@ func (m *AvailableTopic) validatePermissionDetails(formats strfmt.Registry) erro
 			if err := m.PermissionDetails[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("permissionDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("permissionDetails" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -131,7 +133,6 @@ func (m *AvailableTopic) validateTransportsItemsEnum(path, location string, valu
 }
 
 func (m *AvailableTopic) validateTransports(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Transports) { // not required
 		return nil
 	}
@@ -178,7 +179,6 @@ func (m *AvailableTopic) validateVisibilityEnum(path, location string, value str
 }
 
 func (m *AvailableTopic) validateVisibility(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Visibility) { // not required
 		return nil
 	}
@@ -186,6 +186,40 @@ func (m *AvailableTopic) validateVisibility(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateVisibilityEnum("visibility", "body", m.Visibility); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this available topic based on the context it is used
+func (m *AvailableTopic) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePermissionDetails(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AvailableTopic) contextValidatePermissionDetails(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.PermissionDetails); i++ {
+
+		if m.PermissionDetails[i] != nil {
+			if err := m.PermissionDetails[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("permissionDetails" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("permissionDetails" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

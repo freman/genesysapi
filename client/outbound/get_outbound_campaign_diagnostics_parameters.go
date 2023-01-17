@@ -16,59 +16,75 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundCampaignDiagnosticsParams creates a new GetOutboundCampaignDiagnosticsParams object
-// with the default values initialized.
+// NewGetOutboundCampaignDiagnosticsParams creates a new GetOutboundCampaignDiagnosticsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundCampaignDiagnosticsParams() *GetOutboundCampaignDiagnosticsParams {
-	var ()
 	return &GetOutboundCampaignDiagnosticsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundCampaignDiagnosticsParamsWithTimeout creates a new GetOutboundCampaignDiagnosticsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundCampaignDiagnosticsParamsWithTimeout(timeout time.Duration) *GetOutboundCampaignDiagnosticsParams {
-	var ()
 	return &GetOutboundCampaignDiagnosticsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundCampaignDiagnosticsParamsWithContext creates a new GetOutboundCampaignDiagnosticsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundCampaignDiagnosticsParamsWithContext(ctx context.Context) *GetOutboundCampaignDiagnosticsParams {
-	var ()
 	return &GetOutboundCampaignDiagnosticsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundCampaignDiagnosticsParamsWithHTTPClient creates a new GetOutboundCampaignDiagnosticsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundCampaignDiagnosticsParamsWithHTTPClient(client *http.Client) *GetOutboundCampaignDiagnosticsParams {
-	var ()
 	return &GetOutboundCampaignDiagnosticsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundCampaignDiagnosticsParams contains all the parameters to send to the API endpoint
-for the get outbound campaign diagnostics operation typically these are written to a http.Request
+/*
+GetOutboundCampaignDiagnosticsParams contains all the parameters to send to the API endpoint
+
+	for the get outbound campaign diagnostics operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundCampaignDiagnosticsParams struct {
 
-	/*CampaignID
-	  Campaign ID
+	/* CampaignID.
 
+	   Campaign ID
 	*/
 	CampaignID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound campaign diagnostics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundCampaignDiagnosticsParams) WithDefaults() *GetOutboundCampaignDiagnosticsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound campaign diagnostics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundCampaignDiagnosticsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get outbound campaign diagnostics params

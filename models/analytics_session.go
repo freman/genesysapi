@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -248,7 +249,7 @@ type AnalyticsSession struct {
 	TimeoutSeconds int32 `json:"timeoutSeconds,omitempty"`
 
 	// Complete routing method
-	// Enum: [Bullseye Conditional Last Manual Predictive Preferred Standard]
+	// Enum: [Bullseye Conditional Last Manual Predictive Preferred Standard Vip]
 	UsedRouting string `json:"usedRouting,omitempty"`
 
 	// Direct Video address
@@ -324,7 +325,6 @@ func (m *AnalyticsSession) Validate(formats strfmt.Registry) error {
 }
 
 func (m *AnalyticsSession) validateAgentGroups(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AgentGroups) { // not required
 		return nil
 	}
@@ -338,6 +338,8 @@ func (m *AnalyticsSession) validateAgentGroups(formats strfmt.Registry) error {
 			if err := m.AgentGroups[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("agentGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agentGroups" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -349,7 +351,6 @@ func (m *AnalyticsSession) validateAgentGroups(formats strfmt.Registry) error {
 }
 
 func (m *AnalyticsSession) validateCallbackScheduledTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CallbackScheduledTime) { // not required
 		return nil
 	}
@@ -406,7 +407,6 @@ func (m *AnalyticsSession) validateDeliveryStatusEnum(path, location string, val
 }
 
 func (m *AnalyticsSession) validateDeliveryStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DeliveryStatus) { // not required
 		return nil
 	}
@@ -420,7 +420,6 @@ func (m *AnalyticsSession) validateDeliveryStatus(formats strfmt.Registry) error
 }
 
 func (m *AnalyticsSession) validateDeliveryStatusChangeDate(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DeliveryStatusChangeDate) { // not required
 		return nil
 	}
@@ -462,7 +461,6 @@ func (m *AnalyticsSession) validateDirectionEnum(path, location string, value st
 }
 
 func (m *AnalyticsSession) validateDirection(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Direction) { // not required
 		return nil
 	}
@@ -476,7 +474,6 @@ func (m *AnalyticsSession) validateDirection(formats strfmt.Registry) error {
 }
 
 func (m *AnalyticsSession) validateFlow(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Flow) { // not required
 		return nil
 	}
@@ -485,6 +482,8 @@ func (m *AnalyticsSession) validateFlow(formats strfmt.Registry) error {
 		if err := m.Flow.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
 			}
 			return err
 		}
@@ -494,7 +493,6 @@ func (m *AnalyticsSession) validateFlow(formats strfmt.Registry) error {
 }
 
 func (m *AnalyticsSession) validateMediaEndpointStats(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaEndpointStats) { // not required
 		return nil
 	}
@@ -508,6 +506,8 @@ func (m *AnalyticsSession) validateMediaEndpointStats(formats strfmt.Registry) e
 			if err := m.MediaEndpointStats[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("mediaEndpointStats" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mediaEndpointStats" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -569,7 +569,6 @@ func (m *AnalyticsSession) validateMediaTypeEnum(path, location string, value st
 }
 
 func (m *AnalyticsSession) validateMediaType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaType) { // not required
 		return nil
 	}
@@ -583,7 +582,6 @@ func (m *AnalyticsSession) validateMediaType(formats strfmt.Registry) error {
 }
 
 func (m *AnalyticsSession) validateMetrics(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Metrics) { // not required
 		return nil
 	}
@@ -597,6 +595,8 @@ func (m *AnalyticsSession) validateMetrics(formats strfmt.Registry) error {
 			if err := m.Metrics[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("metrics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("metrics" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -608,7 +608,6 @@ func (m *AnalyticsSession) validateMetrics(formats strfmt.Registry) error {
 }
 
 func (m *AnalyticsSession) validateProposedAgents(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ProposedAgents) { // not required
 		return nil
 	}
@@ -622,6 +621,8 @@ func (m *AnalyticsSession) validateProposedAgents(formats strfmt.Registry) error
 			if err := m.ProposedAgents[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("proposedAgents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("proposedAgents" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -636,7 +637,7 @@ var analyticsSessionRequestedRoutingsItemsEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -652,7 +653,6 @@ func (m *AnalyticsSession) validateRequestedRoutingsItemsEnum(path, location str
 }
 
 func (m *AnalyticsSession) validateRequestedRoutings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.RequestedRoutings) { // not required
 		return nil
 	}
@@ -670,7 +670,6 @@ func (m *AnalyticsSession) validateRequestedRoutings(formats strfmt.Registry) er
 }
 
 func (m *AnalyticsSession) validateSegments(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Segments) { // not required
 		return nil
 	}
@@ -684,6 +683,8 @@ func (m *AnalyticsSession) validateSegments(formats strfmt.Registry) error {
 			if err := m.Segments[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -698,7 +699,7 @@ var analyticsSessionTypeUsedRoutingPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Bullseye","Conditional","Last","Manual","Predictive","Preferred","Standard","Vip"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -728,6 +729,9 @@ const (
 
 	// AnalyticsSessionUsedRoutingStandard captures enum value "Standard"
 	AnalyticsSessionUsedRoutingStandard string = "Standard"
+
+	// AnalyticsSessionUsedRoutingVip captures enum value "Vip"
+	AnalyticsSessionUsedRoutingVip string = "Vip"
 )
 
 // prop value enum
@@ -739,7 +743,6 @@ func (m *AnalyticsSession) validateUsedRoutingEnum(path, location string, value 
 }
 
 func (m *AnalyticsSession) validateUsedRouting(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.UsedRouting) { // not required
 		return nil
 	}
@@ -747,6 +750,156 @@ func (m *AnalyticsSession) validateUsedRouting(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateUsedRoutingEnum("usedRouting", "body", m.UsedRouting); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this analytics session based on the context it is used
+func (m *AnalyticsSession) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateAgentGroups(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateFlow(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMediaEndpointStats(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMetrics(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateProposedAgents(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSegments(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *AnalyticsSession) contextValidateAgentGroups(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.AgentGroups); i++ {
+
+		if m.AgentGroups[i] != nil {
+			if err := m.AgentGroups[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("agentGroups" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("agentGroups" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AnalyticsSession) contextValidateFlow(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Flow != nil {
+		if err := m.Flow.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("flow")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("flow")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *AnalyticsSession) contextValidateMediaEndpointStats(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MediaEndpointStats); i++ {
+
+		if m.MediaEndpointStats[i] != nil {
+			if err := m.MediaEndpointStats[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("mediaEndpointStats" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("mediaEndpointStats" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AnalyticsSession) contextValidateMetrics(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Metrics); i++ {
+
+		if m.Metrics[i] != nil {
+			if err := m.Metrics[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("metrics" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("metrics" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AnalyticsSession) contextValidateProposedAgents(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.ProposedAgents); i++ {
+
+		if m.ProposedAgents[i] != nil {
+			if err := m.ProposedAgents[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("proposedAgents" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("proposedAgents" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *AnalyticsSession) contextValidateSegments(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.Segments); i++ {
+
+		if m.Segments[i] != nil {
+			if err := m.Segments[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("segments" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("segments" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

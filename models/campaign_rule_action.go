@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -125,6 +126,8 @@ func (m *CampaignRuleAction) validateCampaignRuleActionEntities(formats strfmt.R
 		if err := m.CampaignRuleActionEntities.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("campaignRuleActionEntities")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("campaignRuleActionEntities")
 			}
 			return err
 		}
@@ -134,7 +137,6 @@ func (m *CampaignRuleAction) validateCampaignRuleActionEntities(formats strfmt.R
 }
 
 func (m *CampaignRuleAction) validateParameters(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Parameters) { // not required
 		return nil
 	}
@@ -143,6 +145,58 @@ func (m *CampaignRuleAction) validateParameters(formats strfmt.Registry) error {
 		if err := m.Parameters.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("parameters")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parameters")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this campaign rule action based on the context it is used
+func (m *CampaignRuleAction) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCampaignRuleActionEntities(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateParameters(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CampaignRuleAction) contextValidateCampaignRuleActionEntities(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CampaignRuleActionEntities != nil {
+		if err := m.CampaignRuleActionEntities.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("campaignRuleActionEntities")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("campaignRuleActionEntities")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignRuleAction) contextValidateParameters(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Parameters != nil {
+		if err := m.Parameters.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("parameters")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("parameters")
 			}
 			return err
 		}

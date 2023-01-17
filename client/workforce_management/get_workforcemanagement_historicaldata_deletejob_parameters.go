@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetWorkforcemanagementHistoricaldataDeletejobParams creates a new GetWorkforcemanagementHistoricaldataDeletejobParams object
-// with the default values initialized.
+// NewGetWorkforcemanagementHistoricaldataDeletejobParams creates a new GetWorkforcemanagementHistoricaldataDeletejobParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetWorkforcemanagementHistoricaldataDeletejobParams() *GetWorkforcemanagementHistoricaldataDeletejobParams {
-
 	return &GetWorkforcemanagementHistoricaldataDeletejobParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetWorkforcemanagementHistoricaldataDeletejobParamsWithTimeout creates a new GetWorkforcemanagementHistoricaldataDeletejobParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetWorkforcemanagementHistoricaldataDeletejobParamsWithTimeout(timeout time.Duration) *GetWorkforcemanagementHistoricaldataDeletejobParams {
-
 	return &GetWorkforcemanagementHistoricaldataDeletejobParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetWorkforcemanagementHistoricaldataDeletejobParamsWithContext creates a new GetWorkforcemanagementHistoricaldataDeletejobParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetWorkforcemanagementHistoricaldataDeletejobParamsWithContext(ctx context.Context) *GetWorkforcemanagementHistoricaldataDeletejobParams {
-
 	return &GetWorkforcemanagementHistoricaldataDeletejobParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetWorkforcemanagementHistoricaldataDeletejobParamsWithHTTPClient creates a new GetWorkforcemanagementHistoricaldataDeletejobParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetWorkforcemanagementHistoricaldataDeletejobParamsWithHTTPClient(client *http.Client) *GetWorkforcemanagementHistoricaldataDeletejobParams {
-
 	return &GetWorkforcemanagementHistoricaldataDeletejobParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetWorkforcemanagementHistoricaldataDeletejobParams contains all the parameters to send to the API endpoint
-for the get workforcemanagement historicaldata deletejob operation typically these are written to a http.Request
+/*
+GetWorkforcemanagementHistoricaldataDeletejobParams contains all the parameters to send to the API endpoint
+
+	for the get workforcemanagement historicaldata deletejob operation.
+
+	Typically these are written to a http.Request.
 */
 type GetWorkforcemanagementHistoricaldataDeletejobParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get workforcemanagement historicaldata deletejob params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementHistoricaldataDeletejobParams) WithDefaults() *GetWorkforcemanagementHistoricaldataDeletejobParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get workforcemanagement historicaldata deletejob params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetWorkforcemanagementHistoricaldataDeletejobParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get workforcemanagement historicaldata deletejob params

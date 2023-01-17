@@ -95,7 +95,6 @@ func (o *PostWorkforcemanagementBusinessunitActivitycodesReader) ReadResponse(re
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPostWorkforcemanagementBusinessunitActivitycodesOK() *PostWorkforcemanag
 	return &PostWorkforcemanagementBusinessunitActivitycodesOK{}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesOK handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitActivitycodesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PostWorkforcemanagementBusinessunitActivitycodesOK struct {
 	Payload *models.BusinessUnitActivityCode
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit activitycodes o k response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit activitycodes o k response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit activitycodes o k response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit activitycodes o k response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit activitycodes o k response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitActivitycodesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PostWorkforcemanagementBusinessunitActivitycodesOK) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesOK  %+v", 200, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitActivitycodesOK) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPostWorkforcemanagementBusinessunitActivitycodesBadRequest() *PostWorkfo
 	return &PostWorkforcemanagementBusinessunitActivitycodesBadRequest{}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesBadRequest handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitActivitycodesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PostWorkforcemanagementBusinessunitActivitycodesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit activitycodes bad request response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit activitycodes bad request response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit activitycodes bad request response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit activitycodes bad request response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit activitycodes bad request response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitActivitycodesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PostWorkforcemanagementBusinessunitActivitycodesBadRequest) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitActivitycodesBadRequest) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPostWorkforcemanagementBusinessunitActivitycodesUnauthorized() *PostWork
 	return &PostWorkforcemanagementBusinessunitActivitycodesUnauthorized{}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesUnauthorized handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitActivitycodesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PostWorkforcemanagementBusinessunitActivitycodesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit activitycodes unauthorized response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit activitycodes unauthorized response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit activitycodes unauthorized response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit activitycodes unauthorized response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit activitycodes unauthorized response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitActivitycodesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PostWorkforcemanagementBusinessunitActivitycodesUnauthorized) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitActivitycodesUnauthorized) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPostWorkforcemanagementBusinessunitActivitycodesForbidden() *PostWorkfor
 	return &PostWorkforcemanagementBusinessunitActivitycodesForbidden{}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesForbidden handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitActivitycodesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PostWorkforcemanagementBusinessunitActivitycodesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit activitycodes forbidden response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit activitycodes forbidden response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit activitycodes forbidden response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit activitycodes forbidden response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit activitycodes forbidden response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitActivitycodesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PostWorkforcemanagementBusinessunitActivitycodesForbidden) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitActivitycodesForbidden) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPostWorkforcemanagementBusinessunitActivitycodesNotFound() *PostWorkforc
 	return &PostWorkforcemanagementBusinessunitActivitycodesNotFound{}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesNotFound handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitActivitycodesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PostWorkforcemanagementBusinessunitActivitycodesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit activitycodes not found response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit activitycodes not found response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit activitycodes not found response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit activitycodes not found response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit activitycodes not found response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitActivitycodesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PostWorkforcemanagementBusinessunitActivitycodesNotFound) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitActivitycodesNotFound) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPostWorkforcemanagementBusinessunitActivitycodesRequestTimeout() *PostWo
 	return &PostWorkforcemanagementBusinessunitActivitycodesRequestTimeout{}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesRequestTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitActivitycodesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PostWorkforcemanagementBusinessunitActivitycodesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit activitycodes request timeout response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit activitycodes request timeout response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit activitycodes request timeout response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit activitycodes request timeout response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit activitycodes request timeout response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPostWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge() 
 	return &PostWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge{}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PostWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge struc
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit activitycodes request entity too large response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit activitycodes request entity too large response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit activitycodes request entity too large response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit activitycodes request entity too large response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit activitycodes request entity too large response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPostWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType() *
 	return &PostWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType{}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PostWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType struct
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit activitycodes unsupported media type response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit activitycodes unsupported media type response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit activitycodes unsupported media type response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit activitycodes unsupported media type response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit activitycodes unsupported media type response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PostWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPostWorkforcemanagementBusinessunitActivitycodesTooManyRequests() *PostW
 	return &PostWorkforcemanagementBusinessunitActivitycodesTooManyRequests{}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesTooManyRequests handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitActivitycodesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PostWorkforcemanagementBusinessunitActivitycodesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit activitycodes too many requests response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit activitycodes too many requests response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit activitycodes too many requests response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit activitycodes too many requests response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this post workforcemanagement businessunit activitycodes too many requests response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitActivitycodesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PostWorkforcemanagementBusinessunitActivitycodesTooManyRequests) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitActivitycodesTooManyRequests) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPostWorkforcemanagementBusinessunitActivitycodesInternalServerError() *P
 	return &PostWorkforcemanagementBusinessunitActivitycodesInternalServerError{}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesInternalServerError handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitActivitycodesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PostWorkforcemanagementBusinessunitActivitycodesInternalServerError struct 
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit activitycodes internal server error response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit activitycodes internal server error response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit activitycodes internal server error response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit activitycodes internal server error response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit activitycodes internal server error response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitActivitycodesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PostWorkforcemanagementBusinessunitActivitycodesInternalServerError) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitActivitycodesInternalServerError) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPostWorkforcemanagementBusinessunitActivitycodesServiceUnavailable() *Po
 	return &PostWorkforcemanagementBusinessunitActivitycodesServiceUnavailable{}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesServiceUnavailable handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitActivitycodesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PostWorkforcemanagementBusinessunitActivitycodesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit activitycodes service unavailable response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit activitycodes service unavailable response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit activitycodes service unavailable response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit activitycodes service unavailable response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit activitycodes service unavailable response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitActivitycodesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PostWorkforcemanagementBusinessunitActivitycodesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitActivitycodesServiceUnavailable) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPostWorkforcemanagementBusinessunitActivitycodesGatewayTimeout() *PostWo
 	return &PostWorkforcemanagementBusinessunitActivitycodesGatewayTimeout{}
 }
 
-/*PostWorkforcemanagementBusinessunitActivitycodesGatewayTimeout handles this case with default header values.
+/*
+PostWorkforcemanagementBusinessunitActivitycodesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PostWorkforcemanagementBusinessunitActivitycodesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this post workforcemanagement businessunit activitycodes gateway timeout response has a 2xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this post workforcemanagement businessunit activitycodes gateway timeout response has a 3xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this post workforcemanagement businessunit activitycodes gateway timeout response has a 4xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this post workforcemanagement businessunit activitycodes gateway timeout response has a 5xx status code
+func (o *PostWorkforcemanagementBusinessunitActivitycodesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this post workforcemanagement businessunit activitycodes gateway timeout response a status code equal to that given
+func (o *PostWorkforcemanagementBusinessunitActivitycodesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PostWorkforcemanagementBusinessunitActivitycodesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PostWorkforcemanagementBusinessunitActivitycodesGatewayTimeout) String() string {
 	return fmt.Sprintf("[POST /api/v2/workforcemanagement/businessunits/{businessUnitId}/activitycodes][%d] postWorkforcemanagementBusinessunitActivitycodesGatewayTimeout  %+v", 504, o.Payload)
 }
 

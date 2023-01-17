@@ -95,7 +95,6 @@ func (o *GetCoachingAppointmentsMeReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetCoachingAppointmentsMeOK() *GetCoachingAppointmentsMeOK {
 	return &GetCoachingAppointmentsMeOK{}
 }
 
-/*GetCoachingAppointmentsMeOK handles this case with default header values.
+/*
+GetCoachingAppointmentsMeOK describes a response with status code 200, with default header values.
 
 Get my coaching appointments successful
 */
@@ -114,7 +114,36 @@ type GetCoachingAppointmentsMeOK struct {
 	Payload *models.CoachingAppointmentResponseList
 }
 
+// IsSuccess returns true when this get coaching appointments me o k response has a 2xx status code
+func (o *GetCoachingAppointmentsMeOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get coaching appointments me o k response has a 3xx status code
+func (o *GetCoachingAppointmentsMeOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching appointments me o k response has a 4xx status code
+func (o *GetCoachingAppointmentsMeOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get coaching appointments me o k response has a 5xx status code
+func (o *GetCoachingAppointmentsMeOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching appointments me o k response a status code equal to that given
+func (o *GetCoachingAppointmentsMeOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetCoachingAppointmentsMeOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeOK  %+v", 200, o.Payload)
+}
+
+func (o *GetCoachingAppointmentsMeOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetCoachingAppointmentsMeBadRequest() *GetCoachingAppointmentsMeBadReque
 	return &GetCoachingAppointmentsMeBadRequest{}
 }
 
-/*GetCoachingAppointmentsMeBadRequest handles this case with default header values.
+/*
+GetCoachingAppointmentsMeBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetCoachingAppointmentsMeBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching appointments me bad request response has a 2xx status code
+func (o *GetCoachingAppointmentsMeBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching appointments me bad request response has a 3xx status code
+func (o *GetCoachingAppointmentsMeBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching appointments me bad request response has a 4xx status code
+func (o *GetCoachingAppointmentsMeBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching appointments me bad request response has a 5xx status code
+func (o *GetCoachingAppointmentsMeBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching appointments me bad request response a status code equal to that given
+func (o *GetCoachingAppointmentsMeBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetCoachingAppointmentsMeBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetCoachingAppointmentsMeBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetCoachingAppointmentsMeUnauthorized() *GetCoachingAppointmentsMeUnauth
 	return &GetCoachingAppointmentsMeUnauthorized{}
 }
 
-/*GetCoachingAppointmentsMeUnauthorized handles this case with default header values.
+/*
+GetCoachingAppointmentsMeUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetCoachingAppointmentsMeUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching appointments me unauthorized response has a 2xx status code
+func (o *GetCoachingAppointmentsMeUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching appointments me unauthorized response has a 3xx status code
+func (o *GetCoachingAppointmentsMeUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching appointments me unauthorized response has a 4xx status code
+func (o *GetCoachingAppointmentsMeUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching appointments me unauthorized response has a 5xx status code
+func (o *GetCoachingAppointmentsMeUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching appointments me unauthorized response a status code equal to that given
+func (o *GetCoachingAppointmentsMeUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetCoachingAppointmentsMeUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetCoachingAppointmentsMeUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetCoachingAppointmentsMeForbidden() *GetCoachingAppointmentsMeForbidden
 	return &GetCoachingAppointmentsMeForbidden{}
 }
 
-/*GetCoachingAppointmentsMeForbidden handles this case with default header values.
+/*
+GetCoachingAppointmentsMeForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetCoachingAppointmentsMeForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching appointments me forbidden response has a 2xx status code
+func (o *GetCoachingAppointmentsMeForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching appointments me forbidden response has a 3xx status code
+func (o *GetCoachingAppointmentsMeForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching appointments me forbidden response has a 4xx status code
+func (o *GetCoachingAppointmentsMeForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching appointments me forbidden response has a 5xx status code
+func (o *GetCoachingAppointmentsMeForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching appointments me forbidden response a status code equal to that given
+func (o *GetCoachingAppointmentsMeForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetCoachingAppointmentsMeForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetCoachingAppointmentsMeForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetCoachingAppointmentsMeNotFound() *GetCoachingAppointmentsMeNotFound {
 	return &GetCoachingAppointmentsMeNotFound{}
 }
 
-/*GetCoachingAppointmentsMeNotFound handles this case with default header values.
+/*
+GetCoachingAppointmentsMeNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetCoachingAppointmentsMeNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching appointments me not found response has a 2xx status code
+func (o *GetCoachingAppointmentsMeNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching appointments me not found response has a 3xx status code
+func (o *GetCoachingAppointmentsMeNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching appointments me not found response has a 4xx status code
+func (o *GetCoachingAppointmentsMeNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching appointments me not found response has a 5xx status code
+func (o *GetCoachingAppointmentsMeNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching appointments me not found response a status code equal to that given
+func (o *GetCoachingAppointmentsMeNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetCoachingAppointmentsMeNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetCoachingAppointmentsMeNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetCoachingAppointmentsMeRequestTimeout() *GetCoachingAppointmentsMeRequ
 	return &GetCoachingAppointmentsMeRequestTimeout{}
 }
 
-/*GetCoachingAppointmentsMeRequestTimeout handles this case with default header values.
+/*
+GetCoachingAppointmentsMeRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetCoachingAppointmentsMeRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching appointments me request timeout response has a 2xx status code
+func (o *GetCoachingAppointmentsMeRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching appointments me request timeout response has a 3xx status code
+func (o *GetCoachingAppointmentsMeRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching appointments me request timeout response has a 4xx status code
+func (o *GetCoachingAppointmentsMeRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching appointments me request timeout response has a 5xx status code
+func (o *GetCoachingAppointmentsMeRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching appointments me request timeout response a status code equal to that given
+func (o *GetCoachingAppointmentsMeRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetCoachingAppointmentsMeRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetCoachingAppointmentsMeRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetCoachingAppointmentsMeRequestEntityTooLarge() *GetCoachingAppointment
 	return &GetCoachingAppointmentsMeRequestEntityTooLarge{}
 }
 
-/*GetCoachingAppointmentsMeRequestEntityTooLarge handles this case with default header values.
+/*
+GetCoachingAppointmentsMeRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetCoachingAppointmentsMeRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching appointments me request entity too large response has a 2xx status code
+func (o *GetCoachingAppointmentsMeRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching appointments me request entity too large response has a 3xx status code
+func (o *GetCoachingAppointmentsMeRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching appointments me request entity too large response has a 4xx status code
+func (o *GetCoachingAppointmentsMeRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching appointments me request entity too large response has a 5xx status code
+func (o *GetCoachingAppointmentsMeRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching appointments me request entity too large response a status code equal to that given
+func (o *GetCoachingAppointmentsMeRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetCoachingAppointmentsMeRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetCoachingAppointmentsMeRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetCoachingAppointmentsMeUnsupportedMediaType() *GetCoachingAppointments
 	return &GetCoachingAppointmentsMeUnsupportedMediaType{}
 }
 
-/*GetCoachingAppointmentsMeUnsupportedMediaType handles this case with default header values.
+/*
+GetCoachingAppointmentsMeUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetCoachingAppointmentsMeUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching appointments me unsupported media type response has a 2xx status code
+func (o *GetCoachingAppointmentsMeUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching appointments me unsupported media type response has a 3xx status code
+func (o *GetCoachingAppointmentsMeUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching appointments me unsupported media type response has a 4xx status code
+func (o *GetCoachingAppointmentsMeUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching appointments me unsupported media type response has a 5xx status code
+func (o *GetCoachingAppointmentsMeUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching appointments me unsupported media type response a status code equal to that given
+func (o *GetCoachingAppointmentsMeUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetCoachingAppointmentsMeUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetCoachingAppointmentsMeUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetCoachingAppointmentsMeTooManyRequests() *GetCoachingAppointmentsMeToo
 	return &GetCoachingAppointmentsMeTooManyRequests{}
 }
 
-/*GetCoachingAppointmentsMeTooManyRequests handles this case with default header values.
+/*
+GetCoachingAppointmentsMeTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetCoachingAppointmentsMeTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching appointments me too many requests response has a 2xx status code
+func (o *GetCoachingAppointmentsMeTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching appointments me too many requests response has a 3xx status code
+func (o *GetCoachingAppointmentsMeTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching appointments me too many requests response has a 4xx status code
+func (o *GetCoachingAppointmentsMeTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get coaching appointments me too many requests response has a 5xx status code
+func (o *GetCoachingAppointmentsMeTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get coaching appointments me too many requests response a status code equal to that given
+func (o *GetCoachingAppointmentsMeTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetCoachingAppointmentsMeTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetCoachingAppointmentsMeTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetCoachingAppointmentsMeInternalServerError() *GetCoachingAppointmentsM
 	return &GetCoachingAppointmentsMeInternalServerError{}
 }
 
-/*GetCoachingAppointmentsMeInternalServerError handles this case with default header values.
+/*
+GetCoachingAppointmentsMeInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetCoachingAppointmentsMeInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching appointments me internal server error response has a 2xx status code
+func (o *GetCoachingAppointmentsMeInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching appointments me internal server error response has a 3xx status code
+func (o *GetCoachingAppointmentsMeInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching appointments me internal server error response has a 4xx status code
+func (o *GetCoachingAppointmentsMeInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get coaching appointments me internal server error response has a 5xx status code
+func (o *GetCoachingAppointmentsMeInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get coaching appointments me internal server error response a status code equal to that given
+func (o *GetCoachingAppointmentsMeInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetCoachingAppointmentsMeInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetCoachingAppointmentsMeInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetCoachingAppointmentsMeServiceUnavailable() *GetCoachingAppointmentsMe
 	return &GetCoachingAppointmentsMeServiceUnavailable{}
 }
 
-/*GetCoachingAppointmentsMeServiceUnavailable handles this case with default header values.
+/*
+GetCoachingAppointmentsMeServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetCoachingAppointmentsMeServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching appointments me service unavailable response has a 2xx status code
+func (o *GetCoachingAppointmentsMeServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching appointments me service unavailable response has a 3xx status code
+func (o *GetCoachingAppointmentsMeServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching appointments me service unavailable response has a 4xx status code
+func (o *GetCoachingAppointmentsMeServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get coaching appointments me service unavailable response has a 5xx status code
+func (o *GetCoachingAppointmentsMeServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get coaching appointments me service unavailable response a status code equal to that given
+func (o *GetCoachingAppointmentsMeServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetCoachingAppointmentsMeServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetCoachingAppointmentsMeServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetCoachingAppointmentsMeGatewayTimeout() *GetCoachingAppointmentsMeGate
 	return &GetCoachingAppointmentsMeGatewayTimeout{}
 }
 
-/*GetCoachingAppointmentsMeGatewayTimeout handles this case with default header values.
+/*
+GetCoachingAppointmentsMeGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetCoachingAppointmentsMeGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get coaching appointments me gateway timeout response has a 2xx status code
+func (o *GetCoachingAppointmentsMeGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get coaching appointments me gateway timeout response has a 3xx status code
+func (o *GetCoachingAppointmentsMeGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get coaching appointments me gateway timeout response has a 4xx status code
+func (o *GetCoachingAppointmentsMeGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get coaching appointments me gateway timeout response has a 5xx status code
+func (o *GetCoachingAppointmentsMeGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get coaching appointments me gateway timeout response a status code equal to that given
+func (o *GetCoachingAppointmentsMeGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetCoachingAppointmentsMeGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetCoachingAppointmentsMeGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/coaching/appointments/me][%d] getCoachingAppointmentsMeGatewayTimeout  %+v", 504, o.Payload)
 }
 

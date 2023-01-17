@@ -95,7 +95,6 @@ func (o *PutOutboundContactlistfilterReader) ReadResponse(response runtime.Clien
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewPutOutboundContactlistfilterOK() *PutOutboundContactlistfilterOK {
 	return &PutOutboundContactlistfilterOK{}
 }
 
-/*PutOutboundContactlistfilterOK handles this case with default header values.
+/*
+PutOutboundContactlistfilterOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type PutOutboundContactlistfilterOK struct {
 	Payload *models.ContactListFilter
 }
 
+// IsSuccess returns true when this put outbound contactlistfilter o k response has a 2xx status code
+func (o *PutOutboundContactlistfilterOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this put outbound contactlistfilter o k response has a 3xx status code
+func (o *PutOutboundContactlistfilterOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound contactlistfilter o k response has a 4xx status code
+func (o *PutOutboundContactlistfilterOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound contactlistfilter o k response has a 5xx status code
+func (o *PutOutboundContactlistfilterOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound contactlistfilter o k response a status code equal to that given
+func (o *PutOutboundContactlistfilterOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *PutOutboundContactlistfilterOK) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterOK  %+v", 200, o.Payload)
+}
+
+func (o *PutOutboundContactlistfilterOK) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewPutOutboundContactlistfilterBadRequest() *PutOutboundContactlistfilterBa
 	return &PutOutboundContactlistfilterBadRequest{}
 }
 
-/*PutOutboundContactlistfilterBadRequest handles this case with default header values.
+/*
+PutOutboundContactlistfilterBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type PutOutboundContactlistfilterBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound contactlistfilter bad request response has a 2xx status code
+func (o *PutOutboundContactlistfilterBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound contactlistfilter bad request response has a 3xx status code
+func (o *PutOutboundContactlistfilterBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound contactlistfilter bad request response has a 4xx status code
+func (o *PutOutboundContactlistfilterBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound contactlistfilter bad request response has a 5xx status code
+func (o *PutOutboundContactlistfilterBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound contactlistfilter bad request response a status code equal to that given
+func (o *PutOutboundContactlistfilterBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *PutOutboundContactlistfilterBadRequest) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *PutOutboundContactlistfilterBadRequest) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewPutOutboundContactlistfilterUnauthorized() *PutOutboundContactlistfilter
 	return &PutOutboundContactlistfilterUnauthorized{}
 }
 
-/*PutOutboundContactlistfilterUnauthorized handles this case with default header values.
+/*
+PutOutboundContactlistfilterUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type PutOutboundContactlistfilterUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound contactlistfilter unauthorized response has a 2xx status code
+func (o *PutOutboundContactlistfilterUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound contactlistfilter unauthorized response has a 3xx status code
+func (o *PutOutboundContactlistfilterUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound contactlistfilter unauthorized response has a 4xx status code
+func (o *PutOutboundContactlistfilterUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound contactlistfilter unauthorized response has a 5xx status code
+func (o *PutOutboundContactlistfilterUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound contactlistfilter unauthorized response a status code equal to that given
+func (o *PutOutboundContactlistfilterUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *PutOutboundContactlistfilterUnauthorized) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *PutOutboundContactlistfilterUnauthorized) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewPutOutboundContactlistfilterForbidden() *PutOutboundContactlistfilterFor
 	return &PutOutboundContactlistfilterForbidden{}
 }
 
-/*PutOutboundContactlistfilterForbidden handles this case with default header values.
+/*
+PutOutboundContactlistfilterForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type PutOutboundContactlistfilterForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound contactlistfilter forbidden response has a 2xx status code
+func (o *PutOutboundContactlistfilterForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound contactlistfilter forbidden response has a 3xx status code
+func (o *PutOutboundContactlistfilterForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound contactlistfilter forbidden response has a 4xx status code
+func (o *PutOutboundContactlistfilterForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound contactlistfilter forbidden response has a 5xx status code
+func (o *PutOutboundContactlistfilterForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound contactlistfilter forbidden response a status code equal to that given
+func (o *PutOutboundContactlistfilterForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *PutOutboundContactlistfilterForbidden) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterForbidden  %+v", 403, o.Payload)
+}
+
+func (o *PutOutboundContactlistfilterForbidden) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewPutOutboundContactlistfilterNotFound() *PutOutboundContactlistfilterNotF
 	return &PutOutboundContactlistfilterNotFound{}
 }
 
-/*PutOutboundContactlistfilterNotFound handles this case with default header values.
+/*
+PutOutboundContactlistfilterNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type PutOutboundContactlistfilterNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound contactlistfilter not found response has a 2xx status code
+func (o *PutOutboundContactlistfilterNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound contactlistfilter not found response has a 3xx status code
+func (o *PutOutboundContactlistfilterNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound contactlistfilter not found response has a 4xx status code
+func (o *PutOutboundContactlistfilterNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound contactlistfilter not found response has a 5xx status code
+func (o *PutOutboundContactlistfilterNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound contactlistfilter not found response a status code equal to that given
+func (o *PutOutboundContactlistfilterNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *PutOutboundContactlistfilterNotFound) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterNotFound  %+v", 404, o.Payload)
+}
+
+func (o *PutOutboundContactlistfilterNotFound) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewPutOutboundContactlistfilterRequestTimeout() *PutOutboundContactlistfilt
 	return &PutOutboundContactlistfilterRequestTimeout{}
 }
 
-/*PutOutboundContactlistfilterRequestTimeout handles this case with default header values.
+/*
+PutOutboundContactlistfilterRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type PutOutboundContactlistfilterRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound contactlistfilter request timeout response has a 2xx status code
+func (o *PutOutboundContactlistfilterRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound contactlistfilter request timeout response has a 3xx status code
+func (o *PutOutboundContactlistfilterRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound contactlistfilter request timeout response has a 4xx status code
+func (o *PutOutboundContactlistfilterRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound contactlistfilter request timeout response has a 5xx status code
+func (o *PutOutboundContactlistfilterRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound contactlistfilter request timeout response a status code equal to that given
+func (o *PutOutboundContactlistfilterRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *PutOutboundContactlistfilterRequestTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *PutOutboundContactlistfilterRequestTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewPutOutboundContactlistfilterRequestEntityTooLarge() *PutOutboundContactl
 	return &PutOutboundContactlistfilterRequestEntityTooLarge{}
 }
 
-/*PutOutboundContactlistfilterRequestEntityTooLarge handles this case with default header values.
+/*
+PutOutboundContactlistfilterRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type PutOutboundContactlistfilterRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound contactlistfilter request entity too large response has a 2xx status code
+func (o *PutOutboundContactlistfilterRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound contactlistfilter request entity too large response has a 3xx status code
+func (o *PutOutboundContactlistfilterRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound contactlistfilter request entity too large response has a 4xx status code
+func (o *PutOutboundContactlistfilterRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound contactlistfilter request entity too large response has a 5xx status code
+func (o *PutOutboundContactlistfilterRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound contactlistfilter request entity too large response a status code equal to that given
+func (o *PutOutboundContactlistfilterRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *PutOutboundContactlistfilterRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *PutOutboundContactlistfilterRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewPutOutboundContactlistfilterUnsupportedMediaType() *PutOutboundContactli
 	return &PutOutboundContactlistfilterUnsupportedMediaType{}
 }
 
-/*PutOutboundContactlistfilterUnsupportedMediaType handles this case with default header values.
+/*
+PutOutboundContactlistfilterUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type PutOutboundContactlistfilterUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound contactlistfilter unsupported media type response has a 2xx status code
+func (o *PutOutboundContactlistfilterUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound contactlistfilter unsupported media type response has a 3xx status code
+func (o *PutOutboundContactlistfilterUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound contactlistfilter unsupported media type response has a 4xx status code
+func (o *PutOutboundContactlistfilterUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound contactlistfilter unsupported media type response has a 5xx status code
+func (o *PutOutboundContactlistfilterUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound contactlistfilter unsupported media type response a status code equal to that given
+func (o *PutOutboundContactlistfilterUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *PutOutboundContactlistfilterUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *PutOutboundContactlistfilterUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewPutOutboundContactlistfilterTooManyRequests() *PutOutboundContactlistfil
 	return &PutOutboundContactlistfilterTooManyRequests{}
 }
 
-/*PutOutboundContactlistfilterTooManyRequests handles this case with default header values.
+/*
+PutOutboundContactlistfilterTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type PutOutboundContactlistfilterTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound contactlistfilter too many requests response has a 2xx status code
+func (o *PutOutboundContactlistfilterTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound contactlistfilter too many requests response has a 3xx status code
+func (o *PutOutboundContactlistfilterTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound contactlistfilter too many requests response has a 4xx status code
+func (o *PutOutboundContactlistfilterTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this put outbound contactlistfilter too many requests response has a 5xx status code
+func (o *PutOutboundContactlistfilterTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this put outbound contactlistfilter too many requests response a status code equal to that given
+func (o *PutOutboundContactlistfilterTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *PutOutboundContactlistfilterTooManyRequests) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *PutOutboundContactlistfilterTooManyRequests) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewPutOutboundContactlistfilterInternalServerError() *PutOutboundContactlis
 	return &PutOutboundContactlistfilterInternalServerError{}
 }
 
-/*PutOutboundContactlistfilterInternalServerError handles this case with default header values.
+/*
+PutOutboundContactlistfilterInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type PutOutboundContactlistfilterInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound contactlistfilter internal server error response has a 2xx status code
+func (o *PutOutboundContactlistfilterInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound contactlistfilter internal server error response has a 3xx status code
+func (o *PutOutboundContactlistfilterInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound contactlistfilter internal server error response has a 4xx status code
+func (o *PutOutboundContactlistfilterInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound contactlistfilter internal server error response has a 5xx status code
+func (o *PutOutboundContactlistfilterInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound contactlistfilter internal server error response a status code equal to that given
+func (o *PutOutboundContactlistfilterInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *PutOutboundContactlistfilterInternalServerError) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *PutOutboundContactlistfilterInternalServerError) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewPutOutboundContactlistfilterServiceUnavailable() *PutOutboundContactlist
 	return &PutOutboundContactlistfilterServiceUnavailable{}
 }
 
-/*PutOutboundContactlistfilterServiceUnavailable handles this case with default header values.
+/*
+PutOutboundContactlistfilterServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type PutOutboundContactlistfilterServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound contactlistfilter service unavailable response has a 2xx status code
+func (o *PutOutboundContactlistfilterServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound contactlistfilter service unavailable response has a 3xx status code
+func (o *PutOutboundContactlistfilterServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound contactlistfilter service unavailable response has a 4xx status code
+func (o *PutOutboundContactlistfilterServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound contactlistfilter service unavailable response has a 5xx status code
+func (o *PutOutboundContactlistfilterServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound contactlistfilter service unavailable response a status code equal to that given
+func (o *PutOutboundContactlistfilterServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *PutOutboundContactlistfilterServiceUnavailable) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *PutOutboundContactlistfilterServiceUnavailable) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewPutOutboundContactlistfilterGatewayTimeout() *PutOutboundContactlistfilt
 	return &PutOutboundContactlistfilterGatewayTimeout{}
 }
 
-/*PutOutboundContactlistfilterGatewayTimeout handles this case with default header values.
+/*
+PutOutboundContactlistfilterGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type PutOutboundContactlistfilterGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this put outbound contactlistfilter gateway timeout response has a 2xx status code
+func (o *PutOutboundContactlistfilterGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this put outbound contactlistfilter gateway timeout response has a 3xx status code
+func (o *PutOutboundContactlistfilterGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this put outbound contactlistfilter gateway timeout response has a 4xx status code
+func (o *PutOutboundContactlistfilterGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this put outbound contactlistfilter gateway timeout response has a 5xx status code
+func (o *PutOutboundContactlistfilterGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this put outbound contactlistfilter gateway timeout response a status code equal to that given
+func (o *PutOutboundContactlistfilterGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *PutOutboundContactlistfilterGatewayTimeout) Error() string {
+	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *PutOutboundContactlistfilterGatewayTimeout) String() string {
 	return fmt.Sprintf("[PUT /api/v2/outbound/contactlistfilters/{contactListFilterId}][%d] putOutboundContactlistfilterGatewayTimeout  %+v", 504, o.Payload)
 }
 

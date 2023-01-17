@@ -17,74 +17,95 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetGamificationProfileMetricsParams creates a new GetGamificationProfileMetricsParams object
-// with the default values initialized.
+// NewGetGamificationProfileMetricsParams creates a new GetGamificationProfileMetricsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetGamificationProfileMetricsParams() *GetGamificationProfileMetricsParams {
-	var ()
 	return &GetGamificationProfileMetricsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetGamificationProfileMetricsParamsWithTimeout creates a new GetGamificationProfileMetricsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetGamificationProfileMetricsParamsWithTimeout(timeout time.Duration) *GetGamificationProfileMetricsParams {
-	var ()
 	return &GetGamificationProfileMetricsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetGamificationProfileMetricsParamsWithContext creates a new GetGamificationProfileMetricsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetGamificationProfileMetricsParamsWithContext(ctx context.Context) *GetGamificationProfileMetricsParams {
-	var ()
 	return &GetGamificationProfileMetricsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetGamificationProfileMetricsParamsWithHTTPClient creates a new GetGamificationProfileMetricsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetGamificationProfileMetricsParamsWithHTTPClient(client *http.Client) *GetGamificationProfileMetricsParams {
-	var ()
 	return &GetGamificationProfileMetricsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetGamificationProfileMetricsParams contains all the parameters to send to the API endpoint
-for the get gamification profile metrics operation typically these are written to a http.Request
+/*
+GetGamificationProfileMetricsParams contains all the parameters to send to the API endpoint
+
+	for the get gamification profile metrics operation.
+
+	Typically these are written to a http.Request.
 */
 type GetGamificationProfileMetricsParams struct {
 
-	/*Expand
-	  Which fields, if any, to expand.
+	/* Expand.
 
+	   Which fields, if any, to expand.
 	*/
 	Expand []string
-	/*MetricIds
-	  List of metric ids to filter the response (Optional, comma-separated).
 
+	/* MetricIds.
+
+	   List of metric ids to filter the response (Optional, comma-separated).
 	*/
 	MetricIds *string
-	/*ProfileID
-	  Performance Profile Id
 
+	/* ProfileID.
+
+	   Performance Profile Id
 	*/
 	ProfileID string
-	/*Workday
-	  The objective query workday. If not specified, then it retrieves the current objective. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
 
+	/* Workday.
+
+	   The objective query workday. If not specified, then it retrieves the current objective. Dates are represented as an ISO-8601 string. For example: yyyy-MM-dd
+
+	   Format: date
 	*/
 	Workday *strfmt.Date
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get gamification profile metrics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationProfileMetricsParams) WithDefaults() *GetGamificationProfileMetricsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get gamification profile metrics params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetGamificationProfileMetricsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get gamification profile metrics params
@@ -172,28 +193,32 @@ func (o *GetGamificationProfileMetricsParams) WriteToRequest(r runtime.ClientReq
 	}
 	var res []error
 
-	valuesExpand := o.Expand
+	if o.Expand != nil {
 
-	joinedExpand := swag.JoinByFormat(valuesExpand, "multi")
-	// query array param expand
-	if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
-		return err
+		// binding items for expand
+		joinedExpand := o.bindParamExpand(reg)
+
+		// query array param expand
+		if err := r.SetQueryParam("expand", joinedExpand...); err != nil {
+			return err
+		}
 	}
 
 	if o.MetricIds != nil {
 
 		// query param metricIds
 		var qrMetricIds string
+
 		if o.MetricIds != nil {
 			qrMetricIds = *o.MetricIds
 		}
 		qMetricIds := qrMetricIds
 		if qMetricIds != "" {
+
 			if err := r.SetQueryParam("metricIds", qMetricIds); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param profileId
@@ -205,20 +230,38 @@ func (o *GetGamificationProfileMetricsParams) WriteToRequest(r runtime.ClientReq
 
 		// query param workday
 		var qrWorkday strfmt.Date
+
 		if o.Workday != nil {
 			qrWorkday = *o.Workday
 		}
 		qWorkday := qrWorkday.String()
 		if qWorkday != "" {
+
 			if err := r.SetQueryParam("workday", qWorkday); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
 	return nil
+}
+
+// bindParamGetGamificationProfileMetrics binds the parameter expand
+func (o *GetGamificationProfileMetricsParams) bindParamExpand(formats strfmt.Registry) []string {
+	expandIR := o.Expand
+
+	var expandIC []string
+	for _, expandIIR := range expandIR { // explode []string
+
+		expandIIV := expandIIR // string as string
+		expandIC = append(expandIC, expandIIV)
+	}
+
+	// items.CollectionFormat: "multi"
+	expandIS := swag.JoinByFormat(expandIC, "multi")
+
+	return expandIS
 }

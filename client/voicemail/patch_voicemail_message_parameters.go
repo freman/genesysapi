@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPatchVoicemailMessageParams creates a new PatchVoicemailMessageParams object
-// with the default values initialized.
+// NewPatchVoicemailMessageParams creates a new PatchVoicemailMessageParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPatchVoicemailMessageParams() *PatchVoicemailMessageParams {
-	var ()
 	return &PatchVoicemailMessageParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPatchVoicemailMessageParamsWithTimeout creates a new PatchVoicemailMessageParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPatchVoicemailMessageParamsWithTimeout(timeout time.Duration) *PatchVoicemailMessageParams {
-	var ()
 	return &PatchVoicemailMessageParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPatchVoicemailMessageParamsWithContext creates a new PatchVoicemailMessageParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPatchVoicemailMessageParamsWithContext(ctx context.Context) *PatchVoicemailMessageParams {
-	var ()
 	return &PatchVoicemailMessageParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPatchVoicemailMessageParamsWithHTTPClient creates a new PatchVoicemailMessageParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPatchVoicemailMessageParamsWithHTTPClient(client *http.Client) *PatchVoicemailMessageParams {
-	var ()
 	return &PatchVoicemailMessageParams{
 		HTTPClient: client,
 	}
 }
 
-/*PatchVoicemailMessageParams contains all the parameters to send to the API endpoint
-for the patch voicemail message operation typically these are written to a http.Request
+/*
+PatchVoicemailMessageParams contains all the parameters to send to the API endpoint
+
+	for the patch voicemail message operation.
+
+	Typically these are written to a http.Request.
 */
 type PatchVoicemailMessageParams struct {
 
-	/*Body
-	  VoicemailMessage
+	/* Body.
 
+	   VoicemailMessage
 	*/
 	Body *models.VoicemailMessage
-	/*MessageID
-	  Message ID
 
+	/* MessageID.
+
+	   Message ID
 	*/
 	MessageID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the patch voicemail message params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchVoicemailMessageParams) WithDefaults() *PatchVoicemailMessageParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the patch voicemail message params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PatchVoicemailMessageParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the patch voicemail message params
@@ -140,7 +157,6 @@ func (o *PatchVoicemailMessageParams) WriteToRequest(r runtime.ClientRequest, re
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

@@ -6,8 +6,12 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
+	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
+	"github.com/go-openapi/validate"
 )
 
 // DetectedNamedEntityValue detected named entity value
@@ -26,6 +30,42 @@ type DetectedNamedEntityValue struct {
 
 // Validate validates this detected named entity value
 func (m *DetectedNamedEntityValue) Validate(formats strfmt.Registry) error {
+	return nil
+}
+
+// ContextValidate validate this detected named entity value based on the context it is used
+func (m *DetectedNamedEntityValue) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateRaw(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateResolved(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DetectedNamedEntityValue) contextValidateRaw(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "raw", "body", string(m.Raw)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *DetectedNamedEntityValue) contextValidateResolved(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "resolved", "body", string(m.Resolved)); err != nil {
+		return err
+	}
+
 	return nil
 }
 

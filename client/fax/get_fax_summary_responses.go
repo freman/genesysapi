@@ -95,7 +95,6 @@ func (o *GetFaxSummaryReader) ReadResponse(response runtime.ClientResponse, cons
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetFaxSummaryOK() *GetFaxSummaryOK {
 	return &GetFaxSummaryOK{}
 }
 
-/*GetFaxSummaryOK handles this case with default header values.
+/*
+GetFaxSummaryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetFaxSummaryOK struct {
 	Payload *models.FaxSummary
 }
 
+// IsSuccess returns true when this get fax summary o k response has a 2xx status code
+func (o *GetFaxSummaryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get fax summary o k response has a 3xx status code
+func (o *GetFaxSummaryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax summary o k response has a 4xx status code
+func (o *GetFaxSummaryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get fax summary o k response has a 5xx status code
+func (o *GetFaxSummaryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax summary o k response a status code equal to that given
+func (o *GetFaxSummaryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetFaxSummaryOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryOK  %+v", 200, o.Payload)
+}
+
+func (o *GetFaxSummaryOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetFaxSummaryBadRequest() *GetFaxSummaryBadRequest {
 	return &GetFaxSummaryBadRequest{}
 }
 
-/*GetFaxSummaryBadRequest handles this case with default header values.
+/*
+GetFaxSummaryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetFaxSummaryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax summary bad request response has a 2xx status code
+func (o *GetFaxSummaryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax summary bad request response has a 3xx status code
+func (o *GetFaxSummaryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax summary bad request response has a 4xx status code
+func (o *GetFaxSummaryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax summary bad request response has a 5xx status code
+func (o *GetFaxSummaryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax summary bad request response a status code equal to that given
+func (o *GetFaxSummaryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetFaxSummaryBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetFaxSummaryBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetFaxSummaryUnauthorized() *GetFaxSummaryUnauthorized {
 	return &GetFaxSummaryUnauthorized{}
 }
 
-/*GetFaxSummaryUnauthorized handles this case with default header values.
+/*
+GetFaxSummaryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetFaxSummaryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax summary unauthorized response has a 2xx status code
+func (o *GetFaxSummaryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax summary unauthorized response has a 3xx status code
+func (o *GetFaxSummaryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax summary unauthorized response has a 4xx status code
+func (o *GetFaxSummaryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax summary unauthorized response has a 5xx status code
+func (o *GetFaxSummaryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax summary unauthorized response a status code equal to that given
+func (o *GetFaxSummaryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetFaxSummaryUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetFaxSummaryUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetFaxSummaryForbidden() *GetFaxSummaryForbidden {
 	return &GetFaxSummaryForbidden{}
 }
 
-/*GetFaxSummaryForbidden handles this case with default header values.
+/*
+GetFaxSummaryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetFaxSummaryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax summary forbidden response has a 2xx status code
+func (o *GetFaxSummaryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax summary forbidden response has a 3xx status code
+func (o *GetFaxSummaryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax summary forbidden response has a 4xx status code
+func (o *GetFaxSummaryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax summary forbidden response has a 5xx status code
+func (o *GetFaxSummaryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax summary forbidden response a status code equal to that given
+func (o *GetFaxSummaryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetFaxSummaryForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetFaxSummaryForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetFaxSummaryNotFound() *GetFaxSummaryNotFound {
 	return &GetFaxSummaryNotFound{}
 }
 
-/*GetFaxSummaryNotFound handles this case with default header values.
+/*
+GetFaxSummaryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetFaxSummaryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax summary not found response has a 2xx status code
+func (o *GetFaxSummaryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax summary not found response has a 3xx status code
+func (o *GetFaxSummaryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax summary not found response has a 4xx status code
+func (o *GetFaxSummaryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax summary not found response has a 5xx status code
+func (o *GetFaxSummaryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax summary not found response a status code equal to that given
+func (o *GetFaxSummaryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetFaxSummaryNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetFaxSummaryNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetFaxSummaryRequestTimeout() *GetFaxSummaryRequestTimeout {
 	return &GetFaxSummaryRequestTimeout{}
 }
 
-/*GetFaxSummaryRequestTimeout handles this case with default header values.
+/*
+GetFaxSummaryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetFaxSummaryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax summary request timeout response has a 2xx status code
+func (o *GetFaxSummaryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax summary request timeout response has a 3xx status code
+func (o *GetFaxSummaryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax summary request timeout response has a 4xx status code
+func (o *GetFaxSummaryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax summary request timeout response has a 5xx status code
+func (o *GetFaxSummaryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax summary request timeout response a status code equal to that given
+func (o *GetFaxSummaryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetFaxSummaryRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetFaxSummaryRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetFaxSummaryRequestEntityTooLarge() *GetFaxSummaryRequestEntityTooLarge
 	return &GetFaxSummaryRequestEntityTooLarge{}
 }
 
-/*GetFaxSummaryRequestEntityTooLarge handles this case with default header values.
+/*
+GetFaxSummaryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetFaxSummaryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax summary request entity too large response has a 2xx status code
+func (o *GetFaxSummaryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax summary request entity too large response has a 3xx status code
+func (o *GetFaxSummaryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax summary request entity too large response has a 4xx status code
+func (o *GetFaxSummaryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax summary request entity too large response has a 5xx status code
+func (o *GetFaxSummaryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax summary request entity too large response a status code equal to that given
+func (o *GetFaxSummaryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetFaxSummaryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetFaxSummaryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetFaxSummaryUnsupportedMediaType() *GetFaxSummaryUnsupportedMediaType {
 	return &GetFaxSummaryUnsupportedMediaType{}
 }
 
-/*GetFaxSummaryUnsupportedMediaType handles this case with default header values.
+/*
+GetFaxSummaryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetFaxSummaryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax summary unsupported media type response has a 2xx status code
+func (o *GetFaxSummaryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax summary unsupported media type response has a 3xx status code
+func (o *GetFaxSummaryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax summary unsupported media type response has a 4xx status code
+func (o *GetFaxSummaryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax summary unsupported media type response has a 5xx status code
+func (o *GetFaxSummaryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax summary unsupported media type response a status code equal to that given
+func (o *GetFaxSummaryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetFaxSummaryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetFaxSummaryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetFaxSummaryTooManyRequests() *GetFaxSummaryTooManyRequests {
 	return &GetFaxSummaryTooManyRequests{}
 }
 
-/*GetFaxSummaryTooManyRequests handles this case with default header values.
+/*
+GetFaxSummaryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetFaxSummaryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax summary too many requests response has a 2xx status code
+func (o *GetFaxSummaryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax summary too many requests response has a 3xx status code
+func (o *GetFaxSummaryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax summary too many requests response has a 4xx status code
+func (o *GetFaxSummaryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get fax summary too many requests response has a 5xx status code
+func (o *GetFaxSummaryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get fax summary too many requests response a status code equal to that given
+func (o *GetFaxSummaryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetFaxSummaryTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetFaxSummaryTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetFaxSummaryInternalServerError() *GetFaxSummaryInternalServerError {
 	return &GetFaxSummaryInternalServerError{}
 }
 
-/*GetFaxSummaryInternalServerError handles this case with default header values.
+/*
+GetFaxSummaryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetFaxSummaryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax summary internal server error response has a 2xx status code
+func (o *GetFaxSummaryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax summary internal server error response has a 3xx status code
+func (o *GetFaxSummaryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax summary internal server error response has a 4xx status code
+func (o *GetFaxSummaryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get fax summary internal server error response has a 5xx status code
+func (o *GetFaxSummaryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get fax summary internal server error response a status code equal to that given
+func (o *GetFaxSummaryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetFaxSummaryInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetFaxSummaryInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetFaxSummaryServiceUnavailable() *GetFaxSummaryServiceUnavailable {
 	return &GetFaxSummaryServiceUnavailable{}
 }
 
-/*GetFaxSummaryServiceUnavailable handles this case with default header values.
+/*
+GetFaxSummaryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetFaxSummaryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax summary service unavailable response has a 2xx status code
+func (o *GetFaxSummaryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax summary service unavailable response has a 3xx status code
+func (o *GetFaxSummaryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax summary service unavailable response has a 4xx status code
+func (o *GetFaxSummaryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get fax summary service unavailable response has a 5xx status code
+func (o *GetFaxSummaryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get fax summary service unavailable response a status code equal to that given
+func (o *GetFaxSummaryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetFaxSummaryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetFaxSummaryServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetFaxSummaryGatewayTimeout() *GetFaxSummaryGatewayTimeout {
 	return &GetFaxSummaryGatewayTimeout{}
 }
 
-/*GetFaxSummaryGatewayTimeout handles this case with default header values.
+/*
+GetFaxSummaryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetFaxSummaryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get fax summary gateway timeout response has a 2xx status code
+func (o *GetFaxSummaryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get fax summary gateway timeout response has a 3xx status code
+func (o *GetFaxSummaryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get fax summary gateway timeout response has a 4xx status code
+func (o *GetFaxSummaryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get fax summary gateway timeout response has a 5xx status code
+func (o *GetFaxSummaryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get fax summary gateway timeout response a status code equal to that given
+func (o *GetFaxSummaryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetFaxSummaryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetFaxSummaryGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/fax/summary][%d] getFaxSummaryGatewayTimeout  %+v", 504, o.Payload)
 }
 

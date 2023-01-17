@@ -95,7 +95,6 @@ func (o *GetLocationReader) ReadResponse(response runtime.ClientResponse, consum
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetLocationOK() *GetLocationOK {
 	return &GetLocationOK{}
 }
 
-/*GetLocationOK handles this case with default header values.
+/*
+GetLocationOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetLocationOK struct {
 	Payload *models.LocationDefinition
 }
 
+// IsSuccess returns true when this get location o k response has a 2xx status code
+func (o *GetLocationOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get location o k response has a 3xx status code
+func (o *GetLocationOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location o k response has a 4xx status code
+func (o *GetLocationOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get location o k response has a 5xx status code
+func (o *GetLocationOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location o k response a status code equal to that given
+func (o *GetLocationOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLocationOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationOK  %+v", 200, o.Payload)
+}
+
+func (o *GetLocationOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetLocationBadRequest() *GetLocationBadRequest {
 	return &GetLocationBadRequest{}
 }
 
-/*GetLocationBadRequest handles this case with default header values.
+/*
+GetLocationBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetLocationBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location bad request response has a 2xx status code
+func (o *GetLocationBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location bad request response has a 3xx status code
+func (o *GetLocationBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location bad request response has a 4xx status code
+func (o *GetLocationBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location bad request response has a 5xx status code
+func (o *GetLocationBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location bad request response a status code equal to that given
+func (o *GetLocationBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLocationBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetLocationBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetLocationUnauthorized() *GetLocationUnauthorized {
 	return &GetLocationUnauthorized{}
 }
 
-/*GetLocationUnauthorized handles this case with default header values.
+/*
+GetLocationUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetLocationUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location unauthorized response has a 2xx status code
+func (o *GetLocationUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location unauthorized response has a 3xx status code
+func (o *GetLocationUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location unauthorized response has a 4xx status code
+func (o *GetLocationUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location unauthorized response has a 5xx status code
+func (o *GetLocationUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location unauthorized response a status code equal to that given
+func (o *GetLocationUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetLocationUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetLocationUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetLocationForbidden() *GetLocationForbidden {
 	return &GetLocationForbidden{}
 }
 
-/*GetLocationForbidden handles this case with default header values.
+/*
+GetLocationForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetLocationForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location forbidden response has a 2xx status code
+func (o *GetLocationForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location forbidden response has a 3xx status code
+func (o *GetLocationForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location forbidden response has a 4xx status code
+func (o *GetLocationForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location forbidden response has a 5xx status code
+func (o *GetLocationForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location forbidden response a status code equal to that given
+func (o *GetLocationForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLocationForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetLocationForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetLocationNotFound() *GetLocationNotFound {
 	return &GetLocationNotFound{}
 }
 
-/*GetLocationNotFound handles this case with default header values.
+/*
+GetLocationNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetLocationNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location not found response has a 2xx status code
+func (o *GetLocationNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location not found response has a 3xx status code
+func (o *GetLocationNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location not found response has a 4xx status code
+func (o *GetLocationNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location not found response has a 5xx status code
+func (o *GetLocationNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location not found response a status code equal to that given
+func (o *GetLocationNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLocationNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetLocationNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetLocationRequestTimeout() *GetLocationRequestTimeout {
 	return &GetLocationRequestTimeout{}
 }
 
-/*GetLocationRequestTimeout handles this case with default header values.
+/*
+GetLocationRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetLocationRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location request timeout response has a 2xx status code
+func (o *GetLocationRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location request timeout response has a 3xx status code
+func (o *GetLocationRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location request timeout response has a 4xx status code
+func (o *GetLocationRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location request timeout response has a 5xx status code
+func (o *GetLocationRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location request timeout response a status code equal to that given
+func (o *GetLocationRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetLocationRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLocationRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetLocationRequestEntityTooLarge() *GetLocationRequestEntityTooLarge {
 	return &GetLocationRequestEntityTooLarge{}
 }
 
-/*GetLocationRequestEntityTooLarge handles this case with default header values.
+/*
+GetLocationRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetLocationRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location request entity too large response has a 2xx status code
+func (o *GetLocationRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location request entity too large response has a 3xx status code
+func (o *GetLocationRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location request entity too large response has a 4xx status code
+func (o *GetLocationRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location request entity too large response has a 5xx status code
+func (o *GetLocationRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location request entity too large response a status code equal to that given
+func (o *GetLocationRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetLocationRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetLocationRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetLocationUnsupportedMediaType() *GetLocationUnsupportedMediaType {
 	return &GetLocationUnsupportedMediaType{}
 }
 
-/*GetLocationUnsupportedMediaType handles this case with default header values.
+/*
+GetLocationUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetLocationUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location unsupported media type response has a 2xx status code
+func (o *GetLocationUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location unsupported media type response has a 3xx status code
+func (o *GetLocationUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location unsupported media type response has a 4xx status code
+func (o *GetLocationUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location unsupported media type response has a 5xx status code
+func (o *GetLocationUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location unsupported media type response a status code equal to that given
+func (o *GetLocationUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetLocationUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetLocationUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetLocationTooManyRequests() *GetLocationTooManyRequests {
 	return &GetLocationTooManyRequests{}
 }
 
-/*GetLocationTooManyRequests handles this case with default header values.
+/*
+GetLocationTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetLocationTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location too many requests response has a 2xx status code
+func (o *GetLocationTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location too many requests response has a 3xx status code
+func (o *GetLocationTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location too many requests response has a 4xx status code
+func (o *GetLocationTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get location too many requests response has a 5xx status code
+func (o *GetLocationTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get location too many requests response a status code equal to that given
+func (o *GetLocationTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLocationTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetLocationTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetLocationInternalServerError() *GetLocationInternalServerError {
 	return &GetLocationInternalServerError{}
 }
 
-/*GetLocationInternalServerError handles this case with default header values.
+/*
+GetLocationInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetLocationInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location internal server error response has a 2xx status code
+func (o *GetLocationInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location internal server error response has a 3xx status code
+func (o *GetLocationInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location internal server error response has a 4xx status code
+func (o *GetLocationInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get location internal server error response has a 5xx status code
+func (o *GetLocationInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get location internal server error response a status code equal to that given
+func (o *GetLocationInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLocationInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetLocationInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetLocationServiceUnavailable() *GetLocationServiceUnavailable {
 	return &GetLocationServiceUnavailable{}
 }
 
-/*GetLocationServiceUnavailable handles this case with default header values.
+/*
+GetLocationServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetLocationServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location service unavailable response has a 2xx status code
+func (o *GetLocationServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location service unavailable response has a 3xx status code
+func (o *GetLocationServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location service unavailable response has a 4xx status code
+func (o *GetLocationServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get location service unavailable response has a 5xx status code
+func (o *GetLocationServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get location service unavailable response a status code equal to that given
+func (o *GetLocationServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetLocationServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetLocationServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetLocationGatewayTimeout() *GetLocationGatewayTimeout {
 	return &GetLocationGatewayTimeout{}
 }
 
-/*GetLocationGatewayTimeout handles this case with default header values.
+/*
+GetLocationGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetLocationGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get location gateway timeout response has a 2xx status code
+func (o *GetLocationGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get location gateway timeout response has a 3xx status code
+func (o *GetLocationGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get location gateway timeout response has a 4xx status code
+func (o *GetLocationGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get location gateway timeout response has a 5xx status code
+func (o *GetLocationGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get location gateway timeout response a status code equal to that given
+func (o *GetLocationGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetLocationGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetLocationGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/locations/{locationId}][%d] getLocationGatewayTimeout  %+v", 504, o.Payload)
 }
 

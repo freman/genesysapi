@@ -95,7 +95,6 @@ func (o *GetGamificationScorecardsValuesAverageReader) ReadResponse(response run
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetGamificationScorecardsValuesAverageOK() *GetGamificationScorecardsVal
 	return &GetGamificationScorecardsValuesAverageOK{}
 }
 
-/*GetGamificationScorecardsValuesAverageOK handles this case with default header values.
+/*
+GetGamificationScorecardsValuesAverageOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetGamificationScorecardsValuesAverageOK struct {
 	Payload *models.SingleWorkdayAverageValues
 }
 
+// IsSuccess returns true when this get gamification scorecards values average o k response has a 2xx status code
+func (o *GetGamificationScorecardsValuesAverageOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get gamification scorecards values average o k response has a 3xx status code
+func (o *GetGamificationScorecardsValuesAverageOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards values average o k response has a 4xx status code
+func (o *GetGamificationScorecardsValuesAverageOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification scorecards values average o k response has a 5xx status code
+func (o *GetGamificationScorecardsValuesAverageOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards values average o k response a status code equal to that given
+func (o *GetGamificationScorecardsValuesAverageOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetGamificationScorecardsValuesAverageOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageOK  %+v", 200, o.Payload)
+}
+
+func (o *GetGamificationScorecardsValuesAverageOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetGamificationScorecardsValuesAverageBadRequest() *GetGamificationScore
 	return &GetGamificationScorecardsValuesAverageBadRequest{}
 }
 
-/*GetGamificationScorecardsValuesAverageBadRequest handles this case with default header values.
+/*
+GetGamificationScorecardsValuesAverageBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetGamificationScorecardsValuesAverageBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards values average bad request response has a 2xx status code
+func (o *GetGamificationScorecardsValuesAverageBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards values average bad request response has a 3xx status code
+func (o *GetGamificationScorecardsValuesAverageBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards values average bad request response has a 4xx status code
+func (o *GetGamificationScorecardsValuesAverageBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards values average bad request response has a 5xx status code
+func (o *GetGamificationScorecardsValuesAverageBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards values average bad request response a status code equal to that given
+func (o *GetGamificationScorecardsValuesAverageBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetGamificationScorecardsValuesAverageBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetGamificationScorecardsValuesAverageBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetGamificationScorecardsValuesAverageUnauthorized() *GetGamificationSco
 	return &GetGamificationScorecardsValuesAverageUnauthorized{}
 }
 
-/*GetGamificationScorecardsValuesAverageUnauthorized handles this case with default header values.
+/*
+GetGamificationScorecardsValuesAverageUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetGamificationScorecardsValuesAverageUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards values average unauthorized response has a 2xx status code
+func (o *GetGamificationScorecardsValuesAverageUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards values average unauthorized response has a 3xx status code
+func (o *GetGamificationScorecardsValuesAverageUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards values average unauthorized response has a 4xx status code
+func (o *GetGamificationScorecardsValuesAverageUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards values average unauthorized response has a 5xx status code
+func (o *GetGamificationScorecardsValuesAverageUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards values average unauthorized response a status code equal to that given
+func (o *GetGamificationScorecardsValuesAverageUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetGamificationScorecardsValuesAverageUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetGamificationScorecardsValuesAverageUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetGamificationScorecardsValuesAverageForbidden() *GetGamificationScorec
 	return &GetGamificationScorecardsValuesAverageForbidden{}
 }
 
-/*GetGamificationScorecardsValuesAverageForbidden handles this case with default header values.
+/*
+GetGamificationScorecardsValuesAverageForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetGamificationScorecardsValuesAverageForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards values average forbidden response has a 2xx status code
+func (o *GetGamificationScorecardsValuesAverageForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards values average forbidden response has a 3xx status code
+func (o *GetGamificationScorecardsValuesAverageForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards values average forbidden response has a 4xx status code
+func (o *GetGamificationScorecardsValuesAverageForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards values average forbidden response has a 5xx status code
+func (o *GetGamificationScorecardsValuesAverageForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards values average forbidden response a status code equal to that given
+func (o *GetGamificationScorecardsValuesAverageForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetGamificationScorecardsValuesAverageForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetGamificationScorecardsValuesAverageForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetGamificationScorecardsValuesAverageNotFound() *GetGamificationScoreca
 	return &GetGamificationScorecardsValuesAverageNotFound{}
 }
 
-/*GetGamificationScorecardsValuesAverageNotFound handles this case with default header values.
+/*
+GetGamificationScorecardsValuesAverageNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetGamificationScorecardsValuesAverageNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards values average not found response has a 2xx status code
+func (o *GetGamificationScorecardsValuesAverageNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards values average not found response has a 3xx status code
+func (o *GetGamificationScorecardsValuesAverageNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards values average not found response has a 4xx status code
+func (o *GetGamificationScorecardsValuesAverageNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards values average not found response has a 5xx status code
+func (o *GetGamificationScorecardsValuesAverageNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards values average not found response a status code equal to that given
+func (o *GetGamificationScorecardsValuesAverageNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetGamificationScorecardsValuesAverageNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetGamificationScorecardsValuesAverageNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetGamificationScorecardsValuesAverageRequestTimeout() *GetGamificationS
 	return &GetGamificationScorecardsValuesAverageRequestTimeout{}
 }
 
-/*GetGamificationScorecardsValuesAverageRequestTimeout handles this case with default header values.
+/*
+GetGamificationScorecardsValuesAverageRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetGamificationScorecardsValuesAverageRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards values average request timeout response has a 2xx status code
+func (o *GetGamificationScorecardsValuesAverageRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards values average request timeout response has a 3xx status code
+func (o *GetGamificationScorecardsValuesAverageRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards values average request timeout response has a 4xx status code
+func (o *GetGamificationScorecardsValuesAverageRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards values average request timeout response has a 5xx status code
+func (o *GetGamificationScorecardsValuesAverageRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards values average request timeout response a status code equal to that given
+func (o *GetGamificationScorecardsValuesAverageRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetGamificationScorecardsValuesAverageRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetGamificationScorecardsValuesAverageRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetGamificationScorecardsValuesAverageRequestEntityTooLarge() *GetGamifi
 	return &GetGamificationScorecardsValuesAverageRequestEntityTooLarge{}
 }
 
-/*GetGamificationScorecardsValuesAverageRequestEntityTooLarge handles this case with default header values.
+/*
+GetGamificationScorecardsValuesAverageRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetGamificationScorecardsValuesAverageRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards values average request entity too large response has a 2xx status code
+func (o *GetGamificationScorecardsValuesAverageRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards values average request entity too large response has a 3xx status code
+func (o *GetGamificationScorecardsValuesAverageRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards values average request entity too large response has a 4xx status code
+func (o *GetGamificationScorecardsValuesAverageRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards values average request entity too large response has a 5xx status code
+func (o *GetGamificationScorecardsValuesAverageRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards values average request entity too large response a status code equal to that given
+func (o *GetGamificationScorecardsValuesAverageRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetGamificationScorecardsValuesAverageRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetGamificationScorecardsValuesAverageRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetGamificationScorecardsValuesAverageUnsupportedMediaType() *GetGamific
 	return &GetGamificationScorecardsValuesAverageUnsupportedMediaType{}
 }
 
-/*GetGamificationScorecardsValuesAverageUnsupportedMediaType handles this case with default header values.
+/*
+GetGamificationScorecardsValuesAverageUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetGamificationScorecardsValuesAverageUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards values average unsupported media type response has a 2xx status code
+func (o *GetGamificationScorecardsValuesAverageUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards values average unsupported media type response has a 3xx status code
+func (o *GetGamificationScorecardsValuesAverageUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards values average unsupported media type response has a 4xx status code
+func (o *GetGamificationScorecardsValuesAverageUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards values average unsupported media type response has a 5xx status code
+func (o *GetGamificationScorecardsValuesAverageUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards values average unsupported media type response a status code equal to that given
+func (o *GetGamificationScorecardsValuesAverageUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetGamificationScorecardsValuesAverageUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetGamificationScorecardsValuesAverageUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetGamificationScorecardsValuesAverageTooManyRequests() *GetGamification
 	return &GetGamificationScorecardsValuesAverageTooManyRequests{}
 }
 
-/*GetGamificationScorecardsValuesAverageTooManyRequests handles this case with default header values.
+/*
+GetGamificationScorecardsValuesAverageTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetGamificationScorecardsValuesAverageTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards values average too many requests response has a 2xx status code
+func (o *GetGamificationScorecardsValuesAverageTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards values average too many requests response has a 3xx status code
+func (o *GetGamificationScorecardsValuesAverageTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards values average too many requests response has a 4xx status code
+func (o *GetGamificationScorecardsValuesAverageTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get gamification scorecards values average too many requests response has a 5xx status code
+func (o *GetGamificationScorecardsValuesAverageTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get gamification scorecards values average too many requests response a status code equal to that given
+func (o *GetGamificationScorecardsValuesAverageTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetGamificationScorecardsValuesAverageTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetGamificationScorecardsValuesAverageTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetGamificationScorecardsValuesAverageInternalServerError() *GetGamifica
 	return &GetGamificationScorecardsValuesAverageInternalServerError{}
 }
 
-/*GetGamificationScorecardsValuesAverageInternalServerError handles this case with default header values.
+/*
+GetGamificationScorecardsValuesAverageInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetGamificationScorecardsValuesAverageInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards values average internal server error response has a 2xx status code
+func (o *GetGamificationScorecardsValuesAverageInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards values average internal server error response has a 3xx status code
+func (o *GetGamificationScorecardsValuesAverageInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards values average internal server error response has a 4xx status code
+func (o *GetGamificationScorecardsValuesAverageInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification scorecards values average internal server error response has a 5xx status code
+func (o *GetGamificationScorecardsValuesAverageInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification scorecards values average internal server error response a status code equal to that given
+func (o *GetGamificationScorecardsValuesAverageInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetGamificationScorecardsValuesAverageInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetGamificationScorecardsValuesAverageInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetGamificationScorecardsValuesAverageServiceUnavailable() *GetGamificat
 	return &GetGamificationScorecardsValuesAverageServiceUnavailable{}
 }
 
-/*GetGamificationScorecardsValuesAverageServiceUnavailable handles this case with default header values.
+/*
+GetGamificationScorecardsValuesAverageServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetGamificationScorecardsValuesAverageServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards values average service unavailable response has a 2xx status code
+func (o *GetGamificationScorecardsValuesAverageServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards values average service unavailable response has a 3xx status code
+func (o *GetGamificationScorecardsValuesAverageServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards values average service unavailable response has a 4xx status code
+func (o *GetGamificationScorecardsValuesAverageServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification scorecards values average service unavailable response has a 5xx status code
+func (o *GetGamificationScorecardsValuesAverageServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification scorecards values average service unavailable response a status code equal to that given
+func (o *GetGamificationScorecardsValuesAverageServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetGamificationScorecardsValuesAverageServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetGamificationScorecardsValuesAverageServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetGamificationScorecardsValuesAverageGatewayTimeout() *GetGamificationS
 	return &GetGamificationScorecardsValuesAverageGatewayTimeout{}
 }
 
-/*GetGamificationScorecardsValuesAverageGatewayTimeout handles this case with default header values.
+/*
+GetGamificationScorecardsValuesAverageGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetGamificationScorecardsValuesAverageGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get gamification scorecards values average gateway timeout response has a 2xx status code
+func (o *GetGamificationScorecardsValuesAverageGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get gamification scorecards values average gateway timeout response has a 3xx status code
+func (o *GetGamificationScorecardsValuesAverageGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get gamification scorecards values average gateway timeout response has a 4xx status code
+func (o *GetGamificationScorecardsValuesAverageGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get gamification scorecards values average gateway timeout response has a 5xx status code
+func (o *GetGamificationScorecardsValuesAverageGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get gamification scorecards values average gateway timeout response a status code equal to that given
+func (o *GetGamificationScorecardsValuesAverageGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetGamificationScorecardsValuesAverageGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetGamificationScorecardsValuesAverageGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/gamification/scorecards/values/average][%d] getGamificationScorecardsValuesAverageGatewayTimeout  %+v", 504, o.Payload)
 }
 

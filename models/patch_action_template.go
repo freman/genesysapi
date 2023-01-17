@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -68,7 +69,6 @@ func (m *PatchActionTemplate) Validate(formats strfmt.Registry) error {
 }
 
 func (m *PatchActionTemplate) validateContentOffer(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContentOffer) { // not required
 		return nil
 	}
@@ -77,6 +77,8 @@ func (m *PatchActionTemplate) validateContentOffer(formats strfmt.Registry) erro
 		if err := m.ContentOffer.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contentOffer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contentOffer")
 			}
 			return err
 		}
@@ -127,7 +129,6 @@ func (m *PatchActionTemplate) validateMediaTypeEnum(path, location string, value
 }
 
 func (m *PatchActionTemplate) validateMediaType(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MediaType) { // not required
 		return nil
 	}
@@ -182,7 +183,6 @@ func (m *PatchActionTemplate) validateStateEnum(path, location string, value str
 }
 
 func (m *PatchActionTemplate) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -190,6 +190,36 @@ func (m *PatchActionTemplate) validateState(formats strfmt.Registry) error {
 	// value enum
 	if err := m.validateStateEnum("state", "body", m.State); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this patch action template based on the context it is used
+func (m *PatchActionTemplate) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContentOffer(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PatchActionTemplate) contextValidateContentOffer(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContentOffer != nil {
+		if err := m.ContentOffer.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contentOffer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contentOffer")
+			}
+			return err
+		}
 	}
 
 	return nil

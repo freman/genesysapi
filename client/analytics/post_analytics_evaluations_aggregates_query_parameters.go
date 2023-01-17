@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostAnalyticsEvaluationsAggregatesQueryParams creates a new PostAnalyticsEvaluationsAggregatesQueryParams object
-// with the default values initialized.
+// NewPostAnalyticsEvaluationsAggregatesQueryParams creates a new PostAnalyticsEvaluationsAggregatesQueryParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostAnalyticsEvaluationsAggregatesQueryParams() *PostAnalyticsEvaluationsAggregatesQueryParams {
-	var ()
 	return &PostAnalyticsEvaluationsAggregatesQueryParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostAnalyticsEvaluationsAggregatesQueryParamsWithTimeout creates a new PostAnalyticsEvaluationsAggregatesQueryParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostAnalyticsEvaluationsAggregatesQueryParamsWithTimeout(timeout time.Duration) *PostAnalyticsEvaluationsAggregatesQueryParams {
-	var ()
 	return &PostAnalyticsEvaluationsAggregatesQueryParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostAnalyticsEvaluationsAggregatesQueryParamsWithContext creates a new PostAnalyticsEvaluationsAggregatesQueryParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostAnalyticsEvaluationsAggregatesQueryParamsWithContext(ctx context.Context) *PostAnalyticsEvaluationsAggregatesQueryParams {
-	var ()
 	return &PostAnalyticsEvaluationsAggregatesQueryParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostAnalyticsEvaluationsAggregatesQueryParamsWithHTTPClient creates a new PostAnalyticsEvaluationsAggregatesQueryParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostAnalyticsEvaluationsAggregatesQueryParamsWithHTTPClient(client *http.Client) *PostAnalyticsEvaluationsAggregatesQueryParams {
-	var ()
 	return &PostAnalyticsEvaluationsAggregatesQueryParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostAnalyticsEvaluationsAggregatesQueryParams contains all the parameters to send to the API endpoint
-for the post analytics evaluations aggregates query operation typically these are written to a http.Request
+/*
+PostAnalyticsEvaluationsAggregatesQueryParams contains all the parameters to send to the API endpoint
+
+	for the post analytics evaluations aggregates query operation.
+
+	Typically these are written to a http.Request.
 */
 type PostAnalyticsEvaluationsAggregatesQueryParams struct {
 
-	/*Body
-	  query
+	/* Body.
 
+	   query
 	*/
 	Body *models.EvaluationAggregationQuery
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post analytics evaluations aggregates query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsEvaluationsAggregatesQueryParams) WithDefaults() *PostAnalyticsEvaluationsAggregatesQueryParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post analytics evaluations aggregates query params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostAnalyticsEvaluationsAggregatesQueryParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post analytics evaluations aggregates query params
@@ -124,7 +140,6 @@ func (o *PostAnalyticsEvaluationsAggregatesQueryParams) WriteToRequest(r runtime
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

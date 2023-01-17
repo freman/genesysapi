@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -20,18 +21,22 @@ import (
 type RoutePathRequest struct {
 
 	// The ID of the language to associate with the route path
+	// Example: e3d65f6a-c0d2-41da-8152-82d3f075d77c
 	LanguageID string `json:"languageId,omitempty"`
 
 	// The media type of the given queue to associate with the route path
+	// Example: Email
 	// Required: true
 	// Enum: [Voice Chat Email Callback Message]
 	MediaType *string `json:"mediaType"`
 
 	// The ID of the queue to associate with the route path
+	// Example: f27450c9-c1a0-451a-804c-2579b268b273
 	// Required: true
 	QueueID *string `json:"queueId"`
 
 	// The set of skill IDs to associate with the route path
+	// Example: [\"33d29376-4267-4968-8042-dcabdf2c1d98\"]
 	// Unique: true
 	SkillIds []string `json:"skillIds"`
 
@@ -127,7 +132,6 @@ func (m *RoutePathRequest) validateQueueID(formats strfmt.Registry) error {
 }
 
 func (m *RoutePathRequest) validateSkillIds(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SkillIds) { // not required
 		return nil
 	}
@@ -140,7 +144,6 @@ func (m *RoutePathRequest) validateSkillIds(formats strfmt.Registry) error {
 }
 
 func (m *RoutePathRequest) validateSourcePlanningGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SourcePlanningGroup) { // not required
 		return nil
 	}
@@ -149,6 +152,38 @@ func (m *RoutePathRequest) validateSourcePlanningGroup(formats strfmt.Registry) 
 		if err := m.SourcePlanningGroup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("sourcePlanningGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sourcePlanningGroup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this route path request based on the context it is used
+func (m *RoutePathRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateSourcePlanningGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *RoutePathRequest) contextValidateSourcePlanningGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SourcePlanningGroup != nil {
+		if err := m.SourcePlanningGroup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("sourcePlanningGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("sourcePlanningGroup")
 			}
 			return err
 		}

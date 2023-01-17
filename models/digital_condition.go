@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -80,7 +82,6 @@ func (m *DigitalCondition) Validate(formats strfmt.Registry) error {
 }
 
 func (m *DigitalCondition) validateContactAddressConditionSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactAddressConditionSettings) { // not required
 		return nil
 	}
@@ -89,6 +90,8 @@ func (m *DigitalCondition) validateContactAddressConditionSettings(formats strfm
 		if err := m.ContactAddressConditionSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contactAddressConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactAddressConditionSettings")
 			}
 			return err
 		}
@@ -98,7 +101,6 @@ func (m *DigitalCondition) validateContactAddressConditionSettings(formats strfm
 }
 
 func (m *DigitalCondition) validateContactAddressTypeConditionSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactAddressTypeConditionSettings) { // not required
 		return nil
 	}
@@ -107,6 +109,8 @@ func (m *DigitalCondition) validateContactAddressTypeConditionSettings(formats s
 		if err := m.ContactAddressTypeConditionSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contactAddressTypeConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactAddressTypeConditionSettings")
 			}
 			return err
 		}
@@ -116,7 +120,6 @@ func (m *DigitalCondition) validateContactAddressTypeConditionSettings(formats s
 }
 
 func (m *DigitalCondition) validateContactColumnConditionSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ContactColumnConditionSettings) { // not required
 		return nil
 	}
@@ -125,6 +128,8 @@ func (m *DigitalCondition) validateContactColumnConditionSettings(formats strfmt
 		if err := m.ContactColumnConditionSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contactColumnConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactColumnConditionSettings")
 			}
 			return err
 		}
@@ -134,7 +139,6 @@ func (m *DigitalCondition) validateContactColumnConditionSettings(formats strfmt
 }
 
 func (m *DigitalCondition) validateLastAttemptByColumnConditionSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastAttemptByColumnConditionSettings) { // not required
 		return nil
 	}
@@ -143,6 +147,8 @@ func (m *DigitalCondition) validateLastAttemptByColumnConditionSettings(formats 
 		if err := m.LastAttemptByColumnConditionSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastAttemptByColumnConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastAttemptByColumnConditionSettings")
 			}
 			return err
 		}
@@ -152,7 +158,6 @@ func (m *DigitalCondition) validateLastAttemptByColumnConditionSettings(formats 
 }
 
 func (m *DigitalCondition) validateLastAttemptOverallConditionSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastAttemptOverallConditionSettings) { // not required
 		return nil
 	}
@@ -161,6 +166,8 @@ func (m *DigitalCondition) validateLastAttemptOverallConditionSettings(formats s
 		if err := m.LastAttemptOverallConditionSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastAttemptOverallConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastAttemptOverallConditionSettings")
 			}
 			return err
 		}
@@ -170,7 +177,6 @@ func (m *DigitalCondition) validateLastAttemptOverallConditionSettings(formats s
 }
 
 func (m *DigitalCondition) validateLastResultByColumnConditionSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastResultByColumnConditionSettings) { // not required
 		return nil
 	}
@@ -179,6 +185,8 @@ func (m *DigitalCondition) validateLastResultByColumnConditionSettings(formats s
 		if err := m.LastResultByColumnConditionSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastResultByColumnConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastResultByColumnConditionSettings")
 			}
 			return err
 		}
@@ -188,7 +196,6 @@ func (m *DigitalCondition) validateLastResultByColumnConditionSettings(formats s
 }
 
 func (m *DigitalCondition) validateLastResultOverallConditionSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.LastResultOverallConditionSettings) { // not required
 		return nil
 	}
@@ -197,6 +204,158 @@ func (m *DigitalCondition) validateLastResultOverallConditionSettings(formats st
 		if err := m.LastResultOverallConditionSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("lastResultOverallConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastResultOverallConditionSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this digital condition based on the context it is used
+func (m *DigitalCondition) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateContactAddressConditionSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContactAddressTypeConditionSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContactColumnConditionSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastAttemptByColumnConditionSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastAttemptOverallConditionSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastResultByColumnConditionSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateLastResultOverallConditionSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *DigitalCondition) contextValidateContactAddressConditionSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContactAddressConditionSettings != nil {
+		if err := m.ContactAddressConditionSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contactAddressConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactAddressConditionSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DigitalCondition) contextValidateContactAddressTypeConditionSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContactAddressTypeConditionSettings != nil {
+		if err := m.ContactAddressTypeConditionSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contactAddressTypeConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactAddressTypeConditionSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DigitalCondition) contextValidateContactColumnConditionSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContactColumnConditionSettings != nil {
+		if err := m.ContactColumnConditionSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contactColumnConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactColumnConditionSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DigitalCondition) contextValidateLastAttemptByColumnConditionSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastAttemptByColumnConditionSettings != nil {
+		if err := m.LastAttemptByColumnConditionSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastAttemptByColumnConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastAttemptByColumnConditionSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DigitalCondition) contextValidateLastAttemptOverallConditionSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastAttemptOverallConditionSettings != nil {
+		if err := m.LastAttemptOverallConditionSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastAttemptOverallConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastAttemptOverallConditionSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DigitalCondition) contextValidateLastResultByColumnConditionSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastResultByColumnConditionSettings != nil {
+		if err := m.LastResultByColumnConditionSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastResultByColumnConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastResultByColumnConditionSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *DigitalCondition) contextValidateLastResultOverallConditionSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.LastResultOverallConditionSettings != nil {
+		if err := m.LastResultOverallConditionSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("lastResultOverallConditionSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("lastResultOverallConditionSettings")
 			}
 			return err
 		}

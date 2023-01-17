@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostEventsConversationsParams creates a new PostEventsConversationsParams object
-// with the default values initialized.
+// NewPostEventsConversationsParams creates a new PostEventsConversationsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostEventsConversationsParams() *PostEventsConversationsParams {
-	var ()
 	return &PostEventsConversationsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostEventsConversationsParamsWithTimeout creates a new PostEventsConversationsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostEventsConversationsParamsWithTimeout(timeout time.Duration) *PostEventsConversationsParams {
-	var ()
 	return &PostEventsConversationsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostEventsConversationsParamsWithContext creates a new PostEventsConversationsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostEventsConversationsParamsWithContext(ctx context.Context) *PostEventsConversationsParams {
-	var ()
 	return &PostEventsConversationsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostEventsConversationsParamsWithHTTPClient creates a new PostEventsConversationsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostEventsConversationsParamsWithHTTPClient(client *http.Client) *PostEventsConversationsParams {
-	var ()
 	return &PostEventsConversationsParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostEventsConversationsParams contains all the parameters to send to the API endpoint
-for the post events conversations operation typically these are written to a http.Request
+/*
+PostEventsConversationsParams contains all the parameters to send to the API endpoint
+
+	for the post events conversations operation.
+
+	Typically these are written to a http.Request.
 */
 type PostEventsConversationsParams struct {
 
-	/*Body
-	  batchRequest
+	/* Body.
 
+	   batchRequest
 	*/
 	Body *models.BatchConversationEventRequest
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post events conversations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostEventsConversationsParams) WithDefaults() *PostEventsConversationsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post events conversations params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostEventsConversationsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post events conversations params
@@ -124,7 +140,6 @@ func (o *PostEventsConversationsParams) WriteToRequest(r runtime.ClientRequest, 
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

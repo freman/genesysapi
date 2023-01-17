@@ -16,52 +16,68 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetOutboundWrapupcodemappingsParams creates a new GetOutboundWrapupcodemappingsParams object
-// with the default values initialized.
+// NewGetOutboundWrapupcodemappingsParams creates a new GetOutboundWrapupcodemappingsParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetOutboundWrapupcodemappingsParams() *GetOutboundWrapupcodemappingsParams {
-
 	return &GetOutboundWrapupcodemappingsParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetOutboundWrapupcodemappingsParamsWithTimeout creates a new GetOutboundWrapupcodemappingsParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetOutboundWrapupcodemappingsParamsWithTimeout(timeout time.Duration) *GetOutboundWrapupcodemappingsParams {
-
 	return &GetOutboundWrapupcodemappingsParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetOutboundWrapupcodemappingsParamsWithContext creates a new GetOutboundWrapupcodemappingsParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetOutboundWrapupcodemappingsParamsWithContext(ctx context.Context) *GetOutboundWrapupcodemappingsParams {
-
 	return &GetOutboundWrapupcodemappingsParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetOutboundWrapupcodemappingsParamsWithHTTPClient creates a new GetOutboundWrapupcodemappingsParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetOutboundWrapupcodemappingsParamsWithHTTPClient(client *http.Client) *GetOutboundWrapupcodemappingsParams {
-
 	return &GetOutboundWrapupcodemappingsParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetOutboundWrapupcodemappingsParams contains all the parameters to send to the API endpoint
-for the get outbound wrapupcodemappings operation typically these are written to a http.Request
+/*
+GetOutboundWrapupcodemappingsParams contains all the parameters to send to the API endpoint
+
+	for the get outbound wrapupcodemappings operation.
+
+	Typically these are written to a http.Request.
 */
 type GetOutboundWrapupcodemappingsParams struct {
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get outbound wrapupcodemappings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundWrapupcodemappingsParams) WithDefaults() *GetOutboundWrapupcodemappingsParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get outbound wrapupcodemappings params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetOutboundWrapupcodemappingsParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get outbound wrapupcodemappings params

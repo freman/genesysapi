@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -41,7 +43,6 @@ func (m *BuPlanningGroupHeadcountForecast) Validate(formats strfmt.Registry) err
 }
 
 func (m *BuPlanningGroupHeadcountForecast) validatePlanningGroup(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.PlanningGroup) { // not required
 		return nil
 	}
@@ -50,6 +51,38 @@ func (m *BuPlanningGroupHeadcountForecast) validatePlanningGroup(formats strfmt.
 		if err := m.PlanningGroup.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("planningGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("planningGroup")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu planning group headcount forecast based on the context it is used
+func (m *BuPlanningGroupHeadcountForecast) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidatePlanningGroup(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuPlanningGroupHeadcountForecast) contextValidatePlanningGroup(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.PlanningGroup != nil {
+		if err := m.PlanningGroup.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("planningGroup")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("planningGroup")
 			}
 			return err
 		}

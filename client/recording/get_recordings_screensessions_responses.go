@@ -95,7 +95,6 @@ func (o *GetRecordingsScreensessionsReader) ReadResponse(response runtime.Client
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetRecordingsScreensessionsOK() *GetRecordingsScreensessionsOK {
 	return &GetRecordingsScreensessionsOK{}
 }
 
-/*GetRecordingsScreensessionsOK handles this case with default header values.
+/*
+GetRecordingsScreensessionsOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetRecordingsScreensessionsOK struct {
 	Payload *models.ScreenRecordingSessionListing
 }
 
+// IsSuccess returns true when this get recordings screensessions o k response has a 2xx status code
+func (o *GetRecordingsScreensessionsOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get recordings screensessions o k response has a 3xx status code
+func (o *GetRecordingsScreensessionsOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings screensessions o k response has a 4xx status code
+func (o *GetRecordingsScreensessionsOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recordings screensessions o k response has a 5xx status code
+func (o *GetRecordingsScreensessionsOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings screensessions o k response a status code equal to that given
+func (o *GetRecordingsScreensessionsOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetRecordingsScreensessionsOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsOK  %+v", 200, o.Payload)
+}
+
+func (o *GetRecordingsScreensessionsOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetRecordingsScreensessionsBadRequest() *GetRecordingsScreensessionsBadR
 	return &GetRecordingsScreensessionsBadRequest{}
 }
 
-/*GetRecordingsScreensessionsBadRequest handles this case with default header values.
+/*
+GetRecordingsScreensessionsBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetRecordingsScreensessionsBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings screensessions bad request response has a 2xx status code
+func (o *GetRecordingsScreensessionsBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings screensessions bad request response has a 3xx status code
+func (o *GetRecordingsScreensessionsBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings screensessions bad request response has a 4xx status code
+func (o *GetRecordingsScreensessionsBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings screensessions bad request response has a 5xx status code
+func (o *GetRecordingsScreensessionsBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings screensessions bad request response a status code equal to that given
+func (o *GetRecordingsScreensessionsBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetRecordingsScreensessionsBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetRecordingsScreensessionsBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetRecordingsScreensessionsUnauthorized() *GetRecordingsScreensessionsUn
 	return &GetRecordingsScreensessionsUnauthorized{}
 }
 
-/*GetRecordingsScreensessionsUnauthorized handles this case with default header values.
+/*
+GetRecordingsScreensessionsUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetRecordingsScreensessionsUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings screensessions unauthorized response has a 2xx status code
+func (o *GetRecordingsScreensessionsUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings screensessions unauthorized response has a 3xx status code
+func (o *GetRecordingsScreensessionsUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings screensessions unauthorized response has a 4xx status code
+func (o *GetRecordingsScreensessionsUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings screensessions unauthorized response has a 5xx status code
+func (o *GetRecordingsScreensessionsUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings screensessions unauthorized response a status code equal to that given
+func (o *GetRecordingsScreensessionsUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetRecordingsScreensessionsUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetRecordingsScreensessionsUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetRecordingsScreensessionsForbidden() *GetRecordingsScreensessionsForbi
 	return &GetRecordingsScreensessionsForbidden{}
 }
 
-/*GetRecordingsScreensessionsForbidden handles this case with default header values.
+/*
+GetRecordingsScreensessionsForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetRecordingsScreensessionsForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings screensessions forbidden response has a 2xx status code
+func (o *GetRecordingsScreensessionsForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings screensessions forbidden response has a 3xx status code
+func (o *GetRecordingsScreensessionsForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings screensessions forbidden response has a 4xx status code
+func (o *GetRecordingsScreensessionsForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings screensessions forbidden response has a 5xx status code
+func (o *GetRecordingsScreensessionsForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings screensessions forbidden response a status code equal to that given
+func (o *GetRecordingsScreensessionsForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetRecordingsScreensessionsForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetRecordingsScreensessionsForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetRecordingsScreensessionsNotFound() *GetRecordingsScreensessionsNotFou
 	return &GetRecordingsScreensessionsNotFound{}
 }
 
-/*GetRecordingsScreensessionsNotFound handles this case with default header values.
+/*
+GetRecordingsScreensessionsNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetRecordingsScreensessionsNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings screensessions not found response has a 2xx status code
+func (o *GetRecordingsScreensessionsNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings screensessions not found response has a 3xx status code
+func (o *GetRecordingsScreensessionsNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings screensessions not found response has a 4xx status code
+func (o *GetRecordingsScreensessionsNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings screensessions not found response has a 5xx status code
+func (o *GetRecordingsScreensessionsNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings screensessions not found response a status code equal to that given
+func (o *GetRecordingsScreensessionsNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetRecordingsScreensessionsNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetRecordingsScreensessionsNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetRecordingsScreensessionsRequestTimeout() *GetRecordingsScreensessions
 	return &GetRecordingsScreensessionsRequestTimeout{}
 }
 
-/*GetRecordingsScreensessionsRequestTimeout handles this case with default header values.
+/*
+GetRecordingsScreensessionsRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetRecordingsScreensessionsRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings screensessions request timeout response has a 2xx status code
+func (o *GetRecordingsScreensessionsRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings screensessions request timeout response has a 3xx status code
+func (o *GetRecordingsScreensessionsRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings screensessions request timeout response has a 4xx status code
+func (o *GetRecordingsScreensessionsRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings screensessions request timeout response has a 5xx status code
+func (o *GetRecordingsScreensessionsRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings screensessions request timeout response a status code equal to that given
+func (o *GetRecordingsScreensessionsRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetRecordingsScreensessionsRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetRecordingsScreensessionsRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetRecordingsScreensessionsRequestEntityTooLarge() *GetRecordingsScreens
 	return &GetRecordingsScreensessionsRequestEntityTooLarge{}
 }
 
-/*GetRecordingsScreensessionsRequestEntityTooLarge handles this case with default header values.
+/*
+GetRecordingsScreensessionsRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetRecordingsScreensessionsRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings screensessions request entity too large response has a 2xx status code
+func (o *GetRecordingsScreensessionsRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings screensessions request entity too large response has a 3xx status code
+func (o *GetRecordingsScreensessionsRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings screensessions request entity too large response has a 4xx status code
+func (o *GetRecordingsScreensessionsRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings screensessions request entity too large response has a 5xx status code
+func (o *GetRecordingsScreensessionsRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings screensessions request entity too large response a status code equal to that given
+func (o *GetRecordingsScreensessionsRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetRecordingsScreensessionsRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetRecordingsScreensessionsRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetRecordingsScreensessionsUnsupportedMediaType() *GetRecordingsScreense
 	return &GetRecordingsScreensessionsUnsupportedMediaType{}
 }
 
-/*GetRecordingsScreensessionsUnsupportedMediaType handles this case with default header values.
+/*
+GetRecordingsScreensessionsUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetRecordingsScreensessionsUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings screensessions unsupported media type response has a 2xx status code
+func (o *GetRecordingsScreensessionsUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings screensessions unsupported media type response has a 3xx status code
+func (o *GetRecordingsScreensessionsUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings screensessions unsupported media type response has a 4xx status code
+func (o *GetRecordingsScreensessionsUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings screensessions unsupported media type response has a 5xx status code
+func (o *GetRecordingsScreensessionsUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings screensessions unsupported media type response a status code equal to that given
+func (o *GetRecordingsScreensessionsUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetRecordingsScreensessionsUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetRecordingsScreensessionsUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetRecordingsScreensessionsTooManyRequests() *GetRecordingsScreensession
 	return &GetRecordingsScreensessionsTooManyRequests{}
 }
 
-/*GetRecordingsScreensessionsTooManyRequests handles this case with default header values.
+/*
+GetRecordingsScreensessionsTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetRecordingsScreensessionsTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings screensessions too many requests response has a 2xx status code
+func (o *GetRecordingsScreensessionsTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings screensessions too many requests response has a 3xx status code
+func (o *GetRecordingsScreensessionsTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings screensessions too many requests response has a 4xx status code
+func (o *GetRecordingsScreensessionsTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get recordings screensessions too many requests response has a 5xx status code
+func (o *GetRecordingsScreensessionsTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get recordings screensessions too many requests response a status code equal to that given
+func (o *GetRecordingsScreensessionsTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetRecordingsScreensessionsTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetRecordingsScreensessionsTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetRecordingsScreensessionsInternalServerError() *GetRecordingsScreenses
 	return &GetRecordingsScreensessionsInternalServerError{}
 }
 
-/*GetRecordingsScreensessionsInternalServerError handles this case with default header values.
+/*
+GetRecordingsScreensessionsInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetRecordingsScreensessionsInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings screensessions internal server error response has a 2xx status code
+func (o *GetRecordingsScreensessionsInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings screensessions internal server error response has a 3xx status code
+func (o *GetRecordingsScreensessionsInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings screensessions internal server error response has a 4xx status code
+func (o *GetRecordingsScreensessionsInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recordings screensessions internal server error response has a 5xx status code
+func (o *GetRecordingsScreensessionsInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recordings screensessions internal server error response a status code equal to that given
+func (o *GetRecordingsScreensessionsInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetRecordingsScreensessionsInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetRecordingsScreensessionsInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetRecordingsScreensessionsServiceUnavailable() *GetRecordingsScreensess
 	return &GetRecordingsScreensessionsServiceUnavailable{}
 }
 
-/*GetRecordingsScreensessionsServiceUnavailable handles this case with default header values.
+/*
+GetRecordingsScreensessionsServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetRecordingsScreensessionsServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings screensessions service unavailable response has a 2xx status code
+func (o *GetRecordingsScreensessionsServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings screensessions service unavailable response has a 3xx status code
+func (o *GetRecordingsScreensessionsServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings screensessions service unavailable response has a 4xx status code
+func (o *GetRecordingsScreensessionsServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recordings screensessions service unavailable response has a 5xx status code
+func (o *GetRecordingsScreensessionsServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recordings screensessions service unavailable response a status code equal to that given
+func (o *GetRecordingsScreensessionsServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetRecordingsScreensessionsServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetRecordingsScreensessionsServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetRecordingsScreensessionsGatewayTimeout() *GetRecordingsScreensessions
 	return &GetRecordingsScreensessionsGatewayTimeout{}
 }
 
-/*GetRecordingsScreensessionsGatewayTimeout handles this case with default header values.
+/*
+GetRecordingsScreensessionsGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetRecordingsScreensessionsGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get recordings screensessions gateway timeout response has a 2xx status code
+func (o *GetRecordingsScreensessionsGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get recordings screensessions gateway timeout response has a 3xx status code
+func (o *GetRecordingsScreensessionsGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get recordings screensessions gateway timeout response has a 4xx status code
+func (o *GetRecordingsScreensessionsGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get recordings screensessions gateway timeout response has a 5xx status code
+func (o *GetRecordingsScreensessionsGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get recordings screensessions gateway timeout response a status code equal to that given
+func (o *GetRecordingsScreensessionsGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetRecordingsScreensessionsGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetRecordingsScreensessionsGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/recordings/screensessions][%d] getRecordingsScreensessionsGatewayTimeout  %+v", 504, o.Payload)
 }
 

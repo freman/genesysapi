@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -70,6 +72,8 @@ func (m *CampaignProgress) validateCampaign(formats strfmt.Registry) error {
 		if err := m.Campaign.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("campaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("campaign")
 			}
 			return err
 		}
@@ -88,9 +92,113 @@ func (m *CampaignProgress) validateContactList(formats strfmt.Registry) error {
 		if err := m.ContactList.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("contactList")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactList")
 			}
 			return err
 		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this campaign progress based on the context it is used
+func (m *CampaignProgress) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCampaign(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateContactList(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNumberOfContactsCalled(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateNumberOfContactsMessaged(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePercentage(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTotalNumberOfContacts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *CampaignProgress) contextValidateCampaign(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Campaign != nil {
+		if err := m.Campaign.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("campaign")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("campaign")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignProgress) contextValidateContactList(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ContactList != nil {
+		if err := m.ContactList.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("contactList")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("contactList")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *CampaignProgress) contextValidateNumberOfContactsCalled(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "numberOfContactsCalled", "body", int64(m.NumberOfContactsCalled)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignProgress) contextValidateNumberOfContactsMessaged(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "numberOfContactsMessaged", "body", int64(m.NumberOfContactsMessaged)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignProgress) contextValidatePercentage(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "percentage", "body", int64(m.Percentage)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *CampaignProgress) contextValidateTotalNumberOfContacts(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "totalNumberOfContacts", "body", int64(m.TotalNumberOfContacts)); err != nil {
+		return err
 	}
 
 	return nil

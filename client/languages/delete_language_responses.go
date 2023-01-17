@@ -106,7 +106,8 @@ func NewDeleteLanguageBadRequest() *DeleteLanguageBadRequest {
 	return &DeleteLanguageBadRequest{}
 }
 
-/*DeleteLanguageBadRequest handles this case with default header values.
+/*
+DeleteLanguageBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -114,7 +115,36 @@ type DeleteLanguageBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete language bad request response has a 2xx status code
+func (o *DeleteLanguageBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete language bad request response has a 3xx status code
+func (o *DeleteLanguageBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete language bad request response has a 4xx status code
+func (o *DeleteLanguageBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete language bad request response has a 5xx status code
+func (o *DeleteLanguageBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete language bad request response a status code equal to that given
+func (o *DeleteLanguageBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteLanguageBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteLanguageBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageBadRequest  %+v", 400, o.Payload)
 }
 
@@ -139,7 +169,8 @@ func NewDeleteLanguageUnauthorized() *DeleteLanguageUnauthorized {
 	return &DeleteLanguageUnauthorized{}
 }
 
-/*DeleteLanguageUnauthorized handles this case with default header values.
+/*
+DeleteLanguageUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -147,7 +178,36 @@ type DeleteLanguageUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete language unauthorized response has a 2xx status code
+func (o *DeleteLanguageUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete language unauthorized response has a 3xx status code
+func (o *DeleteLanguageUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete language unauthorized response has a 4xx status code
+func (o *DeleteLanguageUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete language unauthorized response has a 5xx status code
+func (o *DeleteLanguageUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete language unauthorized response a status code equal to that given
+func (o *DeleteLanguageUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteLanguageUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteLanguageUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -172,7 +232,8 @@ func NewDeleteLanguageForbidden() *DeleteLanguageForbidden {
 	return &DeleteLanguageForbidden{}
 }
 
-/*DeleteLanguageForbidden handles this case with default header values.
+/*
+DeleteLanguageForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -180,7 +241,36 @@ type DeleteLanguageForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete language forbidden response has a 2xx status code
+func (o *DeleteLanguageForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete language forbidden response has a 3xx status code
+func (o *DeleteLanguageForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete language forbidden response has a 4xx status code
+func (o *DeleteLanguageForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete language forbidden response has a 5xx status code
+func (o *DeleteLanguageForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete language forbidden response a status code equal to that given
+func (o *DeleteLanguageForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteLanguageForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteLanguageForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageForbidden  %+v", 403, o.Payload)
 }
 
@@ -205,7 +295,8 @@ func NewDeleteLanguageNotFound() *DeleteLanguageNotFound {
 	return &DeleteLanguageNotFound{}
 }
 
-/*DeleteLanguageNotFound handles this case with default header values.
+/*
+DeleteLanguageNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -213,7 +304,36 @@ type DeleteLanguageNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete language not found response has a 2xx status code
+func (o *DeleteLanguageNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete language not found response has a 3xx status code
+func (o *DeleteLanguageNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete language not found response has a 4xx status code
+func (o *DeleteLanguageNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete language not found response has a 5xx status code
+func (o *DeleteLanguageNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete language not found response a status code equal to that given
+func (o *DeleteLanguageNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteLanguageNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteLanguageNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageNotFound  %+v", 404, o.Payload)
 }
 
@@ -238,7 +358,8 @@ func NewDeleteLanguageRequestTimeout() *DeleteLanguageRequestTimeout {
 	return &DeleteLanguageRequestTimeout{}
 }
 
-/*DeleteLanguageRequestTimeout handles this case with default header values.
+/*
+DeleteLanguageRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -246,7 +367,36 @@ type DeleteLanguageRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete language request timeout response has a 2xx status code
+func (o *DeleteLanguageRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete language request timeout response has a 3xx status code
+func (o *DeleteLanguageRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete language request timeout response has a 4xx status code
+func (o *DeleteLanguageRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete language request timeout response has a 5xx status code
+func (o *DeleteLanguageRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete language request timeout response a status code equal to that given
+func (o *DeleteLanguageRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteLanguageRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteLanguageRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -271,7 +421,8 @@ func NewDeleteLanguageRequestEntityTooLarge() *DeleteLanguageRequestEntityTooLar
 	return &DeleteLanguageRequestEntityTooLarge{}
 }
 
-/*DeleteLanguageRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteLanguageRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -279,7 +430,36 @@ type DeleteLanguageRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete language request entity too large response has a 2xx status code
+func (o *DeleteLanguageRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete language request entity too large response has a 3xx status code
+func (o *DeleteLanguageRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete language request entity too large response has a 4xx status code
+func (o *DeleteLanguageRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete language request entity too large response has a 5xx status code
+func (o *DeleteLanguageRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete language request entity too large response a status code equal to that given
+func (o *DeleteLanguageRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteLanguageRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteLanguageRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -304,7 +484,8 @@ func NewDeleteLanguageUnsupportedMediaType() *DeleteLanguageUnsupportedMediaType
 	return &DeleteLanguageUnsupportedMediaType{}
 }
 
-/*DeleteLanguageUnsupportedMediaType handles this case with default header values.
+/*
+DeleteLanguageUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -312,7 +493,36 @@ type DeleteLanguageUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete language unsupported media type response has a 2xx status code
+func (o *DeleteLanguageUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete language unsupported media type response has a 3xx status code
+func (o *DeleteLanguageUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete language unsupported media type response has a 4xx status code
+func (o *DeleteLanguageUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete language unsupported media type response has a 5xx status code
+func (o *DeleteLanguageUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete language unsupported media type response a status code equal to that given
+func (o *DeleteLanguageUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteLanguageUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteLanguageUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -337,7 +547,8 @@ func NewDeleteLanguageTooManyRequests() *DeleteLanguageTooManyRequests {
 	return &DeleteLanguageTooManyRequests{}
 }
 
-/*DeleteLanguageTooManyRequests handles this case with default header values.
+/*
+DeleteLanguageTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -345,7 +556,36 @@ type DeleteLanguageTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete language too many requests response has a 2xx status code
+func (o *DeleteLanguageTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete language too many requests response has a 3xx status code
+func (o *DeleteLanguageTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete language too many requests response has a 4xx status code
+func (o *DeleteLanguageTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete language too many requests response has a 5xx status code
+func (o *DeleteLanguageTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete language too many requests response a status code equal to that given
+func (o *DeleteLanguageTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteLanguageTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteLanguageTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -370,7 +610,8 @@ func NewDeleteLanguageInternalServerError() *DeleteLanguageInternalServerError {
 	return &DeleteLanguageInternalServerError{}
 }
 
-/*DeleteLanguageInternalServerError handles this case with default header values.
+/*
+DeleteLanguageInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -378,7 +619,36 @@ type DeleteLanguageInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete language internal server error response has a 2xx status code
+func (o *DeleteLanguageInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete language internal server error response has a 3xx status code
+func (o *DeleteLanguageInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete language internal server error response has a 4xx status code
+func (o *DeleteLanguageInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete language internal server error response has a 5xx status code
+func (o *DeleteLanguageInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete language internal server error response a status code equal to that given
+func (o *DeleteLanguageInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteLanguageInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteLanguageInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -403,7 +673,8 @@ func NewDeleteLanguageServiceUnavailable() *DeleteLanguageServiceUnavailable {
 	return &DeleteLanguageServiceUnavailable{}
 }
 
-/*DeleteLanguageServiceUnavailable handles this case with default header values.
+/*
+DeleteLanguageServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -411,7 +682,36 @@ type DeleteLanguageServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete language service unavailable response has a 2xx status code
+func (o *DeleteLanguageServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete language service unavailable response has a 3xx status code
+func (o *DeleteLanguageServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete language service unavailable response has a 4xx status code
+func (o *DeleteLanguageServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete language service unavailable response has a 5xx status code
+func (o *DeleteLanguageServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete language service unavailable response a status code equal to that given
+func (o *DeleteLanguageServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteLanguageServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteLanguageServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -436,7 +736,8 @@ func NewDeleteLanguageGatewayTimeout() *DeleteLanguageGatewayTimeout {
 	return &DeleteLanguageGatewayTimeout{}
 }
 
-/*DeleteLanguageGatewayTimeout handles this case with default header values.
+/*
+DeleteLanguageGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -444,7 +745,36 @@ type DeleteLanguageGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete language gateway timeout response has a 2xx status code
+func (o *DeleteLanguageGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete language gateway timeout response has a 3xx status code
+func (o *DeleteLanguageGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete language gateway timeout response has a 4xx status code
+func (o *DeleteLanguageGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete language gateway timeout response has a 5xx status code
+func (o *DeleteLanguageGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete language gateway timeout response a status code equal to that given
+func (o *DeleteLanguageGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteLanguageGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteLanguageGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguageGatewayTimeout  %+v", 504, o.Payload)
 }
 
@@ -471,7 +801,8 @@ func NewDeleteLanguageDefault(code int) *DeleteLanguageDefault {
 	}
 }
 
-/*DeleteLanguageDefault handles this case with default header values.
+/*
+DeleteLanguageDefault describes a response with status code -1, with default header values.
 
 successful operation
 */
@@ -484,7 +815,36 @@ func (o *DeleteLanguageDefault) Code() int {
 	return o._statusCode
 }
 
+// IsSuccess returns true when this delete language default response has a 2xx status code
+func (o *DeleteLanguageDefault) IsSuccess() bool {
+	return o._statusCode/100 == 2
+}
+
+// IsRedirect returns true when this delete language default response has a 3xx status code
+func (o *DeleteLanguageDefault) IsRedirect() bool {
+	return o._statusCode/100 == 3
+}
+
+// IsClientError returns true when this delete language default response has a 4xx status code
+func (o *DeleteLanguageDefault) IsClientError() bool {
+	return o._statusCode/100 == 4
+}
+
+// IsServerError returns true when this delete language default response has a 5xx status code
+func (o *DeleteLanguageDefault) IsServerError() bool {
+	return o._statusCode/100 == 5
+}
+
+// IsCode returns true when this delete language default response a status code equal to that given
+func (o *DeleteLanguageDefault) IsCode(code int) bool {
+	return o._statusCode == code
+}
+
 func (o *DeleteLanguageDefault) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguage default ", o._statusCode)
+}
+
+func (o *DeleteLanguageDefault) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/languages/{languageId}][%d] deleteLanguage default ", o._statusCode)
 }
 

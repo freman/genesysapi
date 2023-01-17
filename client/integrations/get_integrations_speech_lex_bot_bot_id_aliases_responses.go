@@ -95,7 +95,6 @@ func (o *GetIntegrationsSpeechLexBotBotIDAliasesReader) ReadResponse(response ru
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetIntegrationsSpeechLexBotBotIDAliasesOK() *GetIntegrationsSpeechLexBot
 	return &GetIntegrationsSpeechLexBotBotIDAliasesOK{}
 }
 
-/*GetIntegrationsSpeechLexBotBotIDAliasesOK handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotBotIDAliasesOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetIntegrationsSpeechLexBotBotIDAliasesOK struct {
 	Payload *models.LexBotAliasEntityListing
 }
 
+// IsSuccess returns true when this get integrations speech lex bot bot Id aliases o k response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get integrations speech lex bot bot Id aliases o k response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bot bot Id aliases o k response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech lex bot bot Id aliases o k response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bot bot Id aliases o k response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetIntegrationsSpeechLexBotBotIDAliasesOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesOK  %+v", 200, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetIntegrationsSpeechLexBotBotIDAliasesBadRequest() *GetIntegrationsSpee
 	return &GetIntegrationsSpeechLexBotBotIDAliasesBadRequest{}
 }
 
-/*GetIntegrationsSpeechLexBotBotIDAliasesBadRequest handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotBotIDAliasesBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetIntegrationsSpeechLexBotBotIDAliasesBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bot bot Id aliases bad request response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bot bot Id aliases bad request response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bot bot Id aliases bad request response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bot bot Id aliases bad request response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bot bot Id aliases bad request response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetIntegrationsSpeechLexBotBotIDAliasesBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetIntegrationsSpeechLexBotBotIDAliasesUnauthorized() *GetIntegrationsSp
 	return &GetIntegrationsSpeechLexBotBotIDAliasesUnauthorized{}
 }
 
-/*GetIntegrationsSpeechLexBotBotIDAliasesUnauthorized handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotBotIDAliasesUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetIntegrationsSpeechLexBotBotIDAliasesUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bot bot Id aliases unauthorized response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bot bot Id aliases unauthorized response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bot bot Id aliases unauthorized response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bot bot Id aliases unauthorized response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bot bot Id aliases unauthorized response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetIntegrationsSpeechLexBotBotIDAliasesForbidden() *GetIntegrationsSpeec
 	return &GetIntegrationsSpeechLexBotBotIDAliasesForbidden{}
 }
 
-/*GetIntegrationsSpeechLexBotBotIDAliasesForbidden handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotBotIDAliasesForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetIntegrationsSpeechLexBotBotIDAliasesForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bot bot Id aliases forbidden response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bot bot Id aliases forbidden response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bot bot Id aliases forbidden response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bot bot Id aliases forbidden response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bot bot Id aliases forbidden response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetIntegrationsSpeechLexBotBotIDAliasesForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetIntegrationsSpeechLexBotBotIDAliasesNotFound() *GetIntegrationsSpeech
 	return &GetIntegrationsSpeechLexBotBotIDAliasesNotFound{}
 }
 
-/*GetIntegrationsSpeechLexBotBotIDAliasesNotFound handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotBotIDAliasesNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetIntegrationsSpeechLexBotBotIDAliasesNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bot bot Id aliases not found response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bot bot Id aliases not found response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bot bot Id aliases not found response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bot bot Id aliases not found response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bot bot Id aliases not found response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetIntegrationsSpeechLexBotBotIDAliasesNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetIntegrationsSpeechLexBotBotIDAliasesRequestTimeout() *GetIntegrations
 	return &GetIntegrationsSpeechLexBotBotIDAliasesRequestTimeout{}
 }
 
-/*GetIntegrationsSpeechLexBotBotIDAliasesRequestTimeout handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotBotIDAliasesRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetIntegrationsSpeechLexBotBotIDAliasesRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bot bot Id aliases request timeout response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bot bot Id aliases request timeout response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bot bot Id aliases request timeout response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bot bot Id aliases request timeout response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bot bot Id aliases request timeout response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetIntegrationsSpeechLexBotBotIDAliasesRequestEntityTooLarge() *GetInteg
 	return &GetIntegrationsSpeechLexBotBotIDAliasesRequestEntityTooLarge{}
 }
 
-/*GetIntegrationsSpeechLexBotBotIDAliasesRequestEntityTooLarge handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotBotIDAliasesRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetIntegrationsSpeechLexBotBotIDAliasesRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bot bot Id aliases request entity too large response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bot bot Id aliases request entity too large response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bot bot Id aliases request entity too large response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bot bot Id aliases request entity too large response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bot bot Id aliases request entity too large response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetIntegrationsSpeechLexBotBotIDAliasesUnsupportedMediaType() *GetIntegr
 	return &GetIntegrationsSpeechLexBotBotIDAliasesUnsupportedMediaType{}
 }
 
-/*GetIntegrationsSpeechLexBotBotIDAliasesUnsupportedMediaType handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotBotIDAliasesUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetIntegrationsSpeechLexBotBotIDAliasesUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bot bot Id aliases unsupported media type response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bot bot Id aliases unsupported media type response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bot bot Id aliases unsupported media type response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bot bot Id aliases unsupported media type response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bot bot Id aliases unsupported media type response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetIntegrationsSpeechLexBotBotIDAliasesTooManyRequests() *GetIntegration
 	return &GetIntegrationsSpeechLexBotBotIDAliasesTooManyRequests{}
 }
 
-/*GetIntegrationsSpeechLexBotBotIDAliasesTooManyRequests handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotBotIDAliasesTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetIntegrationsSpeechLexBotBotIDAliasesTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bot bot Id aliases too many requests response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bot bot Id aliases too many requests response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bot bot Id aliases too many requests response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get integrations speech lex bot bot Id aliases too many requests response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get integrations speech lex bot bot Id aliases too many requests response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetIntegrationsSpeechLexBotBotIDAliasesTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetIntegrationsSpeechLexBotBotIDAliasesInternalServerError() *GetIntegra
 	return &GetIntegrationsSpeechLexBotBotIDAliasesInternalServerError{}
 }
 
-/*GetIntegrationsSpeechLexBotBotIDAliasesInternalServerError handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotBotIDAliasesInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetIntegrationsSpeechLexBotBotIDAliasesInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bot bot Id aliases internal server error response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bot bot Id aliases internal server error response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bot bot Id aliases internal server error response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech lex bot bot Id aliases internal server error response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations speech lex bot bot Id aliases internal server error response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetIntegrationsSpeechLexBotBotIDAliasesInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetIntegrationsSpeechLexBotBotIDAliasesServiceUnavailable() *GetIntegrat
 	return &GetIntegrationsSpeechLexBotBotIDAliasesServiceUnavailable{}
 }
 
-/*GetIntegrationsSpeechLexBotBotIDAliasesServiceUnavailable handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotBotIDAliasesServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetIntegrationsSpeechLexBotBotIDAliasesServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bot bot Id aliases service unavailable response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bot bot Id aliases service unavailable response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bot bot Id aliases service unavailable response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech lex bot bot Id aliases service unavailable response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations speech lex bot bot Id aliases service unavailable response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetIntegrationsSpeechLexBotBotIDAliasesServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetIntegrationsSpeechLexBotBotIDAliasesGatewayTimeout() *GetIntegrations
 	return &GetIntegrationsSpeechLexBotBotIDAliasesGatewayTimeout{}
 }
 
-/*GetIntegrationsSpeechLexBotBotIDAliasesGatewayTimeout handles this case with default header values.
+/*
+GetIntegrationsSpeechLexBotBotIDAliasesGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetIntegrationsSpeechLexBotBotIDAliasesGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get integrations speech lex bot bot Id aliases gateway timeout response has a 2xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get integrations speech lex bot bot Id aliases gateway timeout response has a 3xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get integrations speech lex bot bot Id aliases gateway timeout response has a 4xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get integrations speech lex bot bot Id aliases gateway timeout response has a 5xx status code
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get integrations speech lex bot bot Id aliases gateway timeout response a status code equal to that given
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetIntegrationsSpeechLexBotBotIDAliasesGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetIntegrationsSpeechLexBotBotIDAliasesGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/integrations/speech/lex/bot/{botId}/aliases][%d] getIntegrationsSpeechLexBotBotIdAliasesGatewayTimeout  %+v", 504, o.Payload)
 }
 

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -71,7 +72,6 @@ func (m *InboundDomain) Validate(formats strfmt.Registry) error {
 }
 
 func (m *InboundDomain) validateCustomSMTPServer(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CustomSMTPServer) { // not required
 		return nil
 	}
@@ -80,6 +80,8 @@ func (m *InboundDomain) validateCustomSMTPServer(formats strfmt.Registry) error 
 		if err := m.CustomSMTPServer.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("customSMTPServer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customSMTPServer")
 			}
 			return err
 		}
@@ -89,7 +91,6 @@ func (m *InboundDomain) validateCustomSMTPServer(formats strfmt.Registry) error 
 }
 
 func (m *InboundDomain) validateMailFromSettings(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MailFromSettings) { // not required
 		return nil
 	}
@@ -98,6 +99,8 @@ func (m *InboundDomain) validateMailFromSettings(formats strfmt.Registry) error 
 		if err := m.MailFromSettings.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("mailFromSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mailFromSettings")
 			}
 			return err
 		}
@@ -139,7 +142,6 @@ func (m *InboundDomain) validateMxRecordStatusEnum(path, location string, value 
 }
 
 func (m *InboundDomain) validateMxRecordStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MxRecordStatus) { // not required
 		return nil
 	}
@@ -153,12 +155,74 @@ func (m *InboundDomain) validateMxRecordStatus(formats strfmt.Registry) error {
 }
 
 func (m *InboundDomain) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("selfUri", "body", "uri", m.SelfURI.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this inbound domain based on the context it is used
+func (m *InboundDomain) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateCustomSMTPServer(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMailFromSettings(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *InboundDomain) contextValidateCustomSMTPServer(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CustomSMTPServer != nil {
+		if err := m.CustomSMTPServer.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("customSMTPServer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("customSMTPServer")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *InboundDomain) contextValidateMailFromSettings(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MailFromSettings != nil {
+		if err := m.MailFromSettings.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("mailFromSettings")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("mailFromSettings")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *InboundDomain) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

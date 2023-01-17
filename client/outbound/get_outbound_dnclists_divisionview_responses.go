@@ -95,7 +95,6 @@ func (o *GetOutboundDnclistsDivisionviewReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetOutboundDnclistsDivisionviewOK() *GetOutboundDnclistsDivisionviewOK {
 	return &GetOutboundDnclistsDivisionviewOK{}
 }
 
-/*GetOutboundDnclistsDivisionviewOK handles this case with default header values.
+/*
+GetOutboundDnclistsDivisionviewOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetOutboundDnclistsDivisionviewOK struct {
 	Payload *models.DncListDivisionView
 }
 
+// IsSuccess returns true when this get outbound dnclists divisionview o k response has a 2xx status code
+func (o *GetOutboundDnclistsDivisionviewOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get outbound dnclists divisionview o k response has a 3xx status code
+func (o *GetOutboundDnclistsDivisionviewOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound dnclists divisionview o k response has a 4xx status code
+func (o *GetOutboundDnclistsDivisionviewOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound dnclists divisionview o k response has a 5xx status code
+func (o *GetOutboundDnclistsDivisionviewOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound dnclists divisionview o k response a status code equal to that given
+func (o *GetOutboundDnclistsDivisionviewOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetOutboundDnclistsDivisionviewOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewOK  %+v", 200, o.Payload)
+}
+
+func (o *GetOutboundDnclistsDivisionviewOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetOutboundDnclistsDivisionviewBadRequest() *GetOutboundDnclistsDivision
 	return &GetOutboundDnclistsDivisionviewBadRequest{}
 }
 
-/*GetOutboundDnclistsDivisionviewBadRequest handles this case with default header values.
+/*
+GetOutboundDnclistsDivisionviewBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetOutboundDnclistsDivisionviewBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound dnclists divisionview bad request response has a 2xx status code
+func (o *GetOutboundDnclistsDivisionviewBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound dnclists divisionview bad request response has a 3xx status code
+func (o *GetOutboundDnclistsDivisionviewBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound dnclists divisionview bad request response has a 4xx status code
+func (o *GetOutboundDnclistsDivisionviewBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound dnclists divisionview bad request response has a 5xx status code
+func (o *GetOutboundDnclistsDivisionviewBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound dnclists divisionview bad request response a status code equal to that given
+func (o *GetOutboundDnclistsDivisionviewBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetOutboundDnclistsDivisionviewBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetOutboundDnclistsDivisionviewBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetOutboundDnclistsDivisionviewUnauthorized() *GetOutboundDnclistsDivisi
 	return &GetOutboundDnclistsDivisionviewUnauthorized{}
 }
 
-/*GetOutboundDnclistsDivisionviewUnauthorized handles this case with default header values.
+/*
+GetOutboundDnclistsDivisionviewUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetOutboundDnclistsDivisionviewUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound dnclists divisionview unauthorized response has a 2xx status code
+func (o *GetOutboundDnclistsDivisionviewUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound dnclists divisionview unauthorized response has a 3xx status code
+func (o *GetOutboundDnclistsDivisionviewUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound dnclists divisionview unauthorized response has a 4xx status code
+func (o *GetOutboundDnclistsDivisionviewUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound dnclists divisionview unauthorized response has a 5xx status code
+func (o *GetOutboundDnclistsDivisionviewUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound dnclists divisionview unauthorized response a status code equal to that given
+func (o *GetOutboundDnclistsDivisionviewUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetOutboundDnclistsDivisionviewUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetOutboundDnclistsDivisionviewUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetOutboundDnclistsDivisionviewForbidden() *GetOutboundDnclistsDivisionv
 	return &GetOutboundDnclistsDivisionviewForbidden{}
 }
 
-/*GetOutboundDnclistsDivisionviewForbidden handles this case with default header values.
+/*
+GetOutboundDnclistsDivisionviewForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetOutboundDnclistsDivisionviewForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound dnclists divisionview forbidden response has a 2xx status code
+func (o *GetOutboundDnclistsDivisionviewForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound dnclists divisionview forbidden response has a 3xx status code
+func (o *GetOutboundDnclistsDivisionviewForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound dnclists divisionview forbidden response has a 4xx status code
+func (o *GetOutboundDnclistsDivisionviewForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound dnclists divisionview forbidden response has a 5xx status code
+func (o *GetOutboundDnclistsDivisionviewForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound dnclists divisionview forbidden response a status code equal to that given
+func (o *GetOutboundDnclistsDivisionviewForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetOutboundDnclistsDivisionviewForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetOutboundDnclistsDivisionviewForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetOutboundDnclistsDivisionviewNotFound() *GetOutboundDnclistsDivisionvi
 	return &GetOutboundDnclistsDivisionviewNotFound{}
 }
 
-/*GetOutboundDnclistsDivisionviewNotFound handles this case with default header values.
+/*
+GetOutboundDnclistsDivisionviewNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetOutboundDnclistsDivisionviewNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound dnclists divisionview not found response has a 2xx status code
+func (o *GetOutboundDnclistsDivisionviewNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound dnclists divisionview not found response has a 3xx status code
+func (o *GetOutboundDnclistsDivisionviewNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound dnclists divisionview not found response has a 4xx status code
+func (o *GetOutboundDnclistsDivisionviewNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound dnclists divisionview not found response has a 5xx status code
+func (o *GetOutboundDnclistsDivisionviewNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound dnclists divisionview not found response a status code equal to that given
+func (o *GetOutboundDnclistsDivisionviewNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetOutboundDnclistsDivisionviewNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetOutboundDnclistsDivisionviewNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetOutboundDnclistsDivisionviewRequestTimeout() *GetOutboundDnclistsDivi
 	return &GetOutboundDnclistsDivisionviewRequestTimeout{}
 }
 
-/*GetOutboundDnclistsDivisionviewRequestTimeout handles this case with default header values.
+/*
+GetOutboundDnclistsDivisionviewRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetOutboundDnclistsDivisionviewRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound dnclists divisionview request timeout response has a 2xx status code
+func (o *GetOutboundDnclistsDivisionviewRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound dnclists divisionview request timeout response has a 3xx status code
+func (o *GetOutboundDnclistsDivisionviewRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound dnclists divisionview request timeout response has a 4xx status code
+func (o *GetOutboundDnclistsDivisionviewRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound dnclists divisionview request timeout response has a 5xx status code
+func (o *GetOutboundDnclistsDivisionviewRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound dnclists divisionview request timeout response a status code equal to that given
+func (o *GetOutboundDnclistsDivisionviewRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetOutboundDnclistsDivisionviewRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetOutboundDnclistsDivisionviewRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetOutboundDnclistsDivisionviewRequestEntityTooLarge() *GetOutboundDncli
 	return &GetOutboundDnclistsDivisionviewRequestEntityTooLarge{}
 }
 
-/*GetOutboundDnclistsDivisionviewRequestEntityTooLarge handles this case with default header values.
+/*
+GetOutboundDnclistsDivisionviewRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetOutboundDnclistsDivisionviewRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound dnclists divisionview request entity too large response has a 2xx status code
+func (o *GetOutboundDnclistsDivisionviewRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound dnclists divisionview request entity too large response has a 3xx status code
+func (o *GetOutboundDnclistsDivisionviewRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound dnclists divisionview request entity too large response has a 4xx status code
+func (o *GetOutboundDnclistsDivisionviewRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound dnclists divisionview request entity too large response has a 5xx status code
+func (o *GetOutboundDnclistsDivisionviewRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound dnclists divisionview request entity too large response a status code equal to that given
+func (o *GetOutboundDnclistsDivisionviewRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetOutboundDnclistsDivisionviewRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetOutboundDnclistsDivisionviewRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetOutboundDnclistsDivisionviewUnsupportedMediaType() *GetOutboundDnclis
 	return &GetOutboundDnclistsDivisionviewUnsupportedMediaType{}
 }
 
-/*GetOutboundDnclistsDivisionviewUnsupportedMediaType handles this case with default header values.
+/*
+GetOutboundDnclistsDivisionviewUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetOutboundDnclistsDivisionviewUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound dnclists divisionview unsupported media type response has a 2xx status code
+func (o *GetOutboundDnclistsDivisionviewUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound dnclists divisionview unsupported media type response has a 3xx status code
+func (o *GetOutboundDnclistsDivisionviewUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound dnclists divisionview unsupported media type response has a 4xx status code
+func (o *GetOutboundDnclistsDivisionviewUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound dnclists divisionview unsupported media type response has a 5xx status code
+func (o *GetOutboundDnclistsDivisionviewUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound dnclists divisionview unsupported media type response a status code equal to that given
+func (o *GetOutboundDnclistsDivisionviewUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetOutboundDnclistsDivisionviewUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetOutboundDnclistsDivisionviewUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetOutboundDnclistsDivisionviewTooManyRequests() *GetOutboundDnclistsDiv
 	return &GetOutboundDnclistsDivisionviewTooManyRequests{}
 }
 
-/*GetOutboundDnclistsDivisionviewTooManyRequests handles this case with default header values.
+/*
+GetOutboundDnclistsDivisionviewTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetOutboundDnclistsDivisionviewTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound dnclists divisionview too many requests response has a 2xx status code
+func (o *GetOutboundDnclistsDivisionviewTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound dnclists divisionview too many requests response has a 3xx status code
+func (o *GetOutboundDnclistsDivisionviewTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound dnclists divisionview too many requests response has a 4xx status code
+func (o *GetOutboundDnclistsDivisionviewTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get outbound dnclists divisionview too many requests response has a 5xx status code
+func (o *GetOutboundDnclistsDivisionviewTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get outbound dnclists divisionview too many requests response a status code equal to that given
+func (o *GetOutboundDnclistsDivisionviewTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetOutboundDnclistsDivisionviewTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetOutboundDnclistsDivisionviewTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetOutboundDnclistsDivisionviewInternalServerError() *GetOutboundDnclist
 	return &GetOutboundDnclistsDivisionviewInternalServerError{}
 }
 
-/*GetOutboundDnclistsDivisionviewInternalServerError handles this case with default header values.
+/*
+GetOutboundDnclistsDivisionviewInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetOutboundDnclistsDivisionviewInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound dnclists divisionview internal server error response has a 2xx status code
+func (o *GetOutboundDnclistsDivisionviewInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound dnclists divisionview internal server error response has a 3xx status code
+func (o *GetOutboundDnclistsDivisionviewInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound dnclists divisionview internal server error response has a 4xx status code
+func (o *GetOutboundDnclistsDivisionviewInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound dnclists divisionview internal server error response has a 5xx status code
+func (o *GetOutboundDnclistsDivisionviewInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound dnclists divisionview internal server error response a status code equal to that given
+func (o *GetOutboundDnclistsDivisionviewInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetOutboundDnclistsDivisionviewInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetOutboundDnclistsDivisionviewInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetOutboundDnclistsDivisionviewServiceUnavailable() *GetOutboundDnclists
 	return &GetOutboundDnclistsDivisionviewServiceUnavailable{}
 }
 
-/*GetOutboundDnclistsDivisionviewServiceUnavailable handles this case with default header values.
+/*
+GetOutboundDnclistsDivisionviewServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetOutboundDnclistsDivisionviewServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound dnclists divisionview service unavailable response has a 2xx status code
+func (o *GetOutboundDnclistsDivisionviewServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound dnclists divisionview service unavailable response has a 3xx status code
+func (o *GetOutboundDnclistsDivisionviewServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound dnclists divisionview service unavailable response has a 4xx status code
+func (o *GetOutboundDnclistsDivisionviewServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound dnclists divisionview service unavailable response has a 5xx status code
+func (o *GetOutboundDnclistsDivisionviewServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound dnclists divisionview service unavailable response a status code equal to that given
+func (o *GetOutboundDnclistsDivisionviewServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetOutboundDnclistsDivisionviewServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetOutboundDnclistsDivisionviewServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetOutboundDnclistsDivisionviewGatewayTimeout() *GetOutboundDnclistsDivi
 	return &GetOutboundDnclistsDivisionviewGatewayTimeout{}
 }
 
-/*GetOutboundDnclistsDivisionviewGatewayTimeout handles this case with default header values.
+/*
+GetOutboundDnclistsDivisionviewGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetOutboundDnclistsDivisionviewGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get outbound dnclists divisionview gateway timeout response has a 2xx status code
+func (o *GetOutboundDnclistsDivisionviewGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get outbound dnclists divisionview gateway timeout response has a 3xx status code
+func (o *GetOutboundDnclistsDivisionviewGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get outbound dnclists divisionview gateway timeout response has a 4xx status code
+func (o *GetOutboundDnclistsDivisionviewGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get outbound dnclists divisionview gateway timeout response has a 5xx status code
+func (o *GetOutboundDnclistsDivisionviewGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get outbound dnclists divisionview gateway timeout response a status code equal to that given
+func (o *GetOutboundDnclistsDivisionviewGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetOutboundDnclistsDivisionviewGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetOutboundDnclistsDivisionviewGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/outbound/dnclists/divisionviews/{dncListId}][%d] getOutboundDnclistsDivisionviewGatewayTimeout  %+v", 504, o.Payload)
 }
 

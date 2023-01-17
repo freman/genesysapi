@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -20,7 +21,7 @@ import (
 type InitiatingAction struct {
 
 	// Action of the audit initiating the transaction
-	// Enum: [Create View Update Move Copy Delete DeleteAll Fax VersionCreate Download Upload MemberAdd MemberUpdate MemberRemove ShareAdd ShareRemove TagAdd TagRemove TagUpdate Read ReadAll Execute ApplyProtection RevokeProtection UpdateRetention Abandon Archive RestoreRequest RestoreComplete Promote Publish Unpublish Activate Checkin Checkout Deactivate Debug Save Revert Transcode Enable Disable Authorize Deauthorize Authenticate ChangePassword Revoke Export Append Recycle Open Approved Rejected Rollback ImplementingChange ChangeImplemented ImplementingRollback RollbackImplemented Write Purge Processed Replace UpdateInService UpdateOutOfService Cycle Scale IpAllowlistClear AddPairingRole Add Verify Assign Unassign Reassign Reschedule Cancel SoftDelete HardDelete Reset Rotate Restore Unarchive EnableCapture DownloadCapture]
+	// Enum: [Create View Update Move Copy Delete DeleteAll Fax VersionCreate Download Upload MemberAdd MemberUpdate MemberRemove ShareAdd ShareRemove TagAdd TagRemove TagUpdate Read ReadAll Execute ApplyProtection RevokeProtection UpdateRetention Abandon Archive RestoreRequest RestoreComplete Promote Publish Unpublish Activate Checkin Checkout Deactivate Debug Save Revert Transcode Enable Disable Authorize Deauthorize Authenticate ChangePassword Revoke Export Append Recycle Open Approved Rejected Rollback ImplementingChange ChangeImplemented ImplementingRollback RollbackImplemented Write Purge Processed Remove Replace UpdateInService UpdateOutOfService Cycle Scale IpAllowlistClear AddPairingRole Add Verify Assign Unassign Reassign Reschedule Cancel SoftDelete HardDelete Reset Rotate Restore Unarchive EnableCapture DownloadCapture]
 	ActionContext string `json:"actionContext,omitempty"`
 
 	// Id of the audit initiating the transaction
@@ -45,7 +46,7 @@ var initiatingActionTypeActionContextPropEnum []interface{}
 
 func init() {
 	var res []string
-	if err := json.Unmarshal([]byte(`["Create","View","Update","Move","Copy","Delete","DeleteAll","Fax","VersionCreate","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","ShareAdd","ShareRemove","TagAdd","TagRemove","TagUpdate","Read","ReadAll","Execute","ApplyProtection","RevokeProtection","UpdateRetention","Abandon","Archive","RestoreRequest","RestoreComplete","Promote","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword","Revoke","Export","Append","Recycle","Open","Approved","Rejected","Rollback","ImplementingChange","ChangeImplemented","ImplementingRollback","RollbackImplemented","Write","Purge","Processed","Replace","UpdateInService","UpdateOutOfService","Cycle","Scale","IpAllowlistClear","AddPairingRole","Add","Verify","Assign","Unassign","Reassign","Reschedule","Cancel","SoftDelete","HardDelete","Reset","Rotate","Restore","Unarchive","EnableCapture","DownloadCapture"]`), &res); err != nil {
+	if err := json.Unmarshal([]byte(`["Create","View","Update","Move","Copy","Delete","DeleteAll","Fax","VersionCreate","Download","Upload","MemberAdd","MemberUpdate","MemberRemove","ShareAdd","ShareRemove","TagAdd","TagRemove","TagUpdate","Read","ReadAll","Execute","ApplyProtection","RevokeProtection","UpdateRetention","Abandon","Archive","RestoreRequest","RestoreComplete","Promote","Publish","Unpublish","Activate","Checkin","Checkout","Deactivate","Debug","Save","Revert","Transcode","Enable","Disable","Authorize","Deauthorize","Authenticate","ChangePassword","Revoke","Export","Append","Recycle","Open","Approved","Rejected","Rollback","ImplementingChange","ChangeImplemented","ImplementingRollback","RollbackImplemented","Write","Purge","Processed","Remove","Replace","UpdateInService","UpdateOutOfService","Cycle","Scale","IpAllowlistClear","AddPairingRole","Add","Verify","Assign","Unassign","Reassign","Reschedule","Cancel","SoftDelete","HardDelete","Reset","Rotate","Restore","Unarchive","EnableCapture","DownloadCapture"]`), &res); err != nil {
 		panic(err)
 	}
 	for _, v := range res {
@@ -238,6 +239,9 @@ const (
 	// InitiatingActionActionContextProcessed captures enum value "Processed"
 	InitiatingActionActionContextProcessed string = "Processed"
 
+	// InitiatingActionActionContextRemove captures enum value "Remove"
+	InitiatingActionActionContextRemove string = "Remove"
+
 	// InitiatingActionActionContextReplace captures enum value "Replace"
 	InitiatingActionActionContextReplace string = "Replace"
 
@@ -314,7 +318,6 @@ func (m *InitiatingAction) validateActionContextEnum(path, location string, valu
 }
 
 func (m *InitiatingAction) validateActionContext(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActionContext) { // not required
 		return nil
 	}
@@ -324,6 +327,11 @@ func (m *InitiatingAction) validateActionContext(formats strfmt.Registry) error 
 		return err
 	}
 
+	return nil
+}
+
+// ContextValidate validates this initiating action based on context it is used
+func (m *InitiatingAction) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
 	return nil
 }
 

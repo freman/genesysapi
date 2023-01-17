@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -38,7 +40,6 @@ func (m *SpeechTextAnalyticsSettingsResponse) Validate(formats strfmt.Registry) 
 }
 
 func (m *SpeechTextAnalyticsSettingsResponse) validateDefaultProgram(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DefaultProgram) { // not required
 		return nil
 	}
@@ -47,6 +48,38 @@ func (m *SpeechTextAnalyticsSettingsResponse) validateDefaultProgram(formats str
 		if err := m.DefaultProgram.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("defaultProgram")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("defaultProgram")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this speech text analytics settings response based on the context it is used
+func (m *SpeechTextAnalyticsSettingsResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDefaultProgram(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SpeechTextAnalyticsSettingsResponse) contextValidateDefaultProgram(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.DefaultProgram != nil {
+		if err := m.DefaultProgram.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("defaultProgram")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("defaultProgram")
 			}
 			return err
 		}

@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 	"strconv"
 
@@ -138,7 +139,6 @@ func (m *BuScheduleRun) Validate(formats strfmt.Registry) error {
 }
 
 func (m *BuScheduleRun) validateMessageSeverityCounts(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessageSeverityCounts) { // not required
 		return nil
 	}
@@ -152,6 +152,8 @@ func (m *BuScheduleRun) validateMessageSeverityCounts(formats strfmt.Registry) e
 			if err := m.MessageSeverityCounts[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("messageSeverityCounts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messageSeverityCounts" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -163,7 +165,6 @@ func (m *BuScheduleRun) validateMessageSeverityCounts(formats strfmt.Registry) e
 }
 
 func (m *BuScheduleRun) validateReschedulingOptions(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReschedulingOptions) { // not required
 		return nil
 	}
@@ -172,6 +173,8 @@ func (m *BuScheduleRun) validateReschedulingOptions(formats strfmt.Registry) err
 		if err := m.ReschedulingOptions.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("reschedulingOptions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reschedulingOptions")
 			}
 			return err
 		}
@@ -181,7 +184,6 @@ func (m *BuScheduleRun) validateReschedulingOptions(formats strfmt.Registry) err
 }
 
 func (m *BuScheduleRun) validateReschedulingResultExpiration(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ReschedulingResultExpiration) { // not required
 		return nil
 	}
@@ -194,7 +196,6 @@ func (m *BuScheduleRun) validateReschedulingResultExpiration(formats strfmt.Regi
 }
 
 func (m *BuScheduleRun) validateSchedule(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Schedule) { // not required
 		return nil
 	}
@@ -203,6 +204,8 @@ func (m *BuScheduleRun) validateSchedule(formats strfmt.Registry) error {
 		if err := m.Schedule.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedule")
 			}
 			return err
 		}
@@ -212,7 +215,6 @@ func (m *BuScheduleRun) validateSchedule(formats strfmt.Registry) error {
 }
 
 func (m *BuScheduleRun) validateSchedulingCanceledBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SchedulingCanceledBy) { // not required
 		return nil
 	}
@@ -221,6 +223,8 @@ func (m *BuScheduleRun) validateSchedulingCanceledBy(formats strfmt.Registry) er
 		if err := m.SchedulingCanceledBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedulingCanceledBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedulingCanceledBy")
 			}
 			return err
 		}
@@ -230,7 +234,6 @@ func (m *BuScheduleRun) validateSchedulingCanceledBy(formats strfmt.Registry) er
 }
 
 func (m *BuScheduleRun) validateSchedulingCompletedTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SchedulingCompletedTime) { // not required
 		return nil
 	}
@@ -243,7 +246,6 @@ func (m *BuScheduleRun) validateSchedulingCompletedTime(formats strfmt.Registry)
 }
 
 func (m *BuScheduleRun) validateSchedulingStartTime(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SchedulingStartTime) { // not required
 		return nil
 	}
@@ -256,7 +258,6 @@ func (m *BuScheduleRun) validateSchedulingStartTime(formats strfmt.Registry) err
 }
 
 func (m *BuScheduleRun) validateSchedulingStartedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SchedulingStartedBy) { // not required
 		return nil
 	}
@@ -265,6 +266,8 @@ func (m *BuScheduleRun) validateSchedulingStartedBy(formats strfmt.Registry) err
 		if err := m.SchedulingStartedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("schedulingStartedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedulingStartedBy")
 			}
 			return err
 		}
@@ -274,7 +277,6 @@ func (m *BuScheduleRun) validateSchedulingStartedBy(formats strfmt.Registry) err
 }
 
 func (m *BuScheduleRun) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -328,7 +330,6 @@ func (m *BuScheduleRun) validateStateEnum(path, location string, value string) e
 }
 
 func (m *BuScheduleRun) validateState(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.State) { // not required
 		return nil
 	}
@@ -342,12 +343,151 @@ func (m *BuScheduleRun) validateState(formats strfmt.Registry) error {
 }
 
 func (m *BuScheduleRun) validateTargetWeek(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.TargetWeek) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("targetWeek", "body", "date", m.TargetWeek.String(), formats); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this bu schedule run based on the context it is used
+func (m *BuScheduleRun) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessageSeverityCounts(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateReschedulingOptions(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchedule(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchedulingCanceledBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSchedulingStartedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *BuScheduleRun) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *BuScheduleRun) contextValidateMessageSeverityCounts(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MessageSeverityCounts); i++ {
+
+		if m.MessageSeverityCounts[i] != nil {
+			if err := m.MessageSeverityCounts[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("messageSeverityCounts" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("messageSeverityCounts" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *BuScheduleRun) contextValidateReschedulingOptions(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ReschedulingOptions != nil {
+		if err := m.ReschedulingOptions.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("reschedulingOptions")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("reschedulingOptions")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuScheduleRun) contextValidateSchedule(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Schedule != nil {
+		if err := m.Schedule.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schedule")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedule")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuScheduleRun) contextValidateSchedulingCanceledBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SchedulingCanceledBy != nil {
+		if err := m.SchedulingCanceledBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schedulingCanceledBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedulingCanceledBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuScheduleRun) contextValidateSchedulingStartedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SchedulingStartedBy != nil {
+		if err := m.SchedulingStartedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("schedulingStartedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("schedulingStartedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *BuScheduleRun) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
 		return err
 	}
 

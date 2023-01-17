@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -62,7 +64,6 @@ func (m *SharedResponse) Validate(formats strfmt.Registry) error {
 }
 
 func (m *SharedResponse) validateDocument(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Document) { // not required
 		return nil
 	}
@@ -71,6 +72,8 @@ func (m *SharedResponse) validateDocument(formats strfmt.Registry) error {
 		if err := m.Document.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("document")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("document")
 			}
 			return err
 		}
@@ -80,7 +83,6 @@ func (m *SharedResponse) validateDocument(formats strfmt.Registry) error {
 }
 
 func (m *SharedResponse) validateDownloadURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DownloadURI) { // not required
 		return nil
 	}
@@ -93,7 +95,6 @@ func (m *SharedResponse) validateDownloadURI(formats strfmt.Registry) error {
 }
 
 func (m *SharedResponse) validateShare(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Share) { // not required
 		return nil
 	}
@@ -102,6 +103,8 @@ func (m *SharedResponse) validateShare(formats strfmt.Registry) error {
 		if err := m.Share.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("share")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("share")
 			}
 			return err
 		}
@@ -111,13 +114,62 @@ func (m *SharedResponse) validateShare(formats strfmt.Registry) error {
 }
 
 func (m *SharedResponse) validateViewURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ViewURI) { // not required
 		return nil
 	}
 
 	if err := validate.FormatOf("viewUri", "body", "uri", m.ViewURI.String(), formats); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this shared response based on the context it is used
+func (m *SharedResponse) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateDocument(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateShare(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *SharedResponse) contextValidateDocument(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Document != nil {
+		if err := m.Document.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("document")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("document")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *SharedResponse) contextValidateShare(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Share != nil {
+		if err := m.Share.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("share")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("share")
+			}
+			return err
+		}
 	}
 
 	return nil

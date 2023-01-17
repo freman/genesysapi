@@ -95,7 +95,6 @@ func (o *GetConversationsCallbacksReader) ReadResponse(response runtime.ClientRe
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetConversationsCallbacksOK() *GetConversationsCallbacksOK {
 	return &GetConversationsCallbacksOK{}
 }
 
-/*GetConversationsCallbacksOK handles this case with default header values.
+/*
+GetConversationsCallbacksOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetConversationsCallbacksOK struct {
 	Payload *models.CallbackConversationEntityListing
 }
 
+// IsSuccess returns true when this get conversations callbacks o k response has a 2xx status code
+func (o *GetConversationsCallbacksOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get conversations callbacks o k response has a 3xx status code
+func (o *GetConversationsCallbacksOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations callbacks o k response has a 4xx status code
+func (o *GetConversationsCallbacksOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations callbacks o k response has a 5xx status code
+func (o *GetConversationsCallbacksOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations callbacks o k response a status code equal to that given
+func (o *GetConversationsCallbacksOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetConversationsCallbacksOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksOK  %+v", 200, o.Payload)
+}
+
+func (o *GetConversationsCallbacksOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksOK  %+v", 200, o.Payload)
 }
 
@@ -139,7 +168,8 @@ func NewGetConversationsCallbacksBadRequest() *GetConversationsCallbacksBadReque
 	return &GetConversationsCallbacksBadRequest{}
 }
 
-/*GetConversationsCallbacksBadRequest handles this case with default header values.
+/*
+GetConversationsCallbacksBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -147,7 +177,36 @@ type GetConversationsCallbacksBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations callbacks bad request response has a 2xx status code
+func (o *GetConversationsCallbacksBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations callbacks bad request response has a 3xx status code
+func (o *GetConversationsCallbacksBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations callbacks bad request response has a 4xx status code
+func (o *GetConversationsCallbacksBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations callbacks bad request response has a 5xx status code
+func (o *GetConversationsCallbacksBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations callbacks bad request response a status code equal to that given
+func (o *GetConversationsCallbacksBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetConversationsCallbacksBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetConversationsCallbacksBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksBadRequest  %+v", 400, o.Payload)
 }
 
@@ -172,7 +231,8 @@ func NewGetConversationsCallbacksUnauthorized() *GetConversationsCallbacksUnauth
 	return &GetConversationsCallbacksUnauthorized{}
 }
 
-/*GetConversationsCallbacksUnauthorized handles this case with default header values.
+/*
+GetConversationsCallbacksUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -180,7 +240,36 @@ type GetConversationsCallbacksUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations callbacks unauthorized response has a 2xx status code
+func (o *GetConversationsCallbacksUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations callbacks unauthorized response has a 3xx status code
+func (o *GetConversationsCallbacksUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations callbacks unauthorized response has a 4xx status code
+func (o *GetConversationsCallbacksUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations callbacks unauthorized response has a 5xx status code
+func (o *GetConversationsCallbacksUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations callbacks unauthorized response a status code equal to that given
+func (o *GetConversationsCallbacksUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetConversationsCallbacksUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetConversationsCallbacksUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -205,7 +294,8 @@ func NewGetConversationsCallbacksForbidden() *GetConversationsCallbacksForbidden
 	return &GetConversationsCallbacksForbidden{}
 }
 
-/*GetConversationsCallbacksForbidden handles this case with default header values.
+/*
+GetConversationsCallbacksForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -213,7 +303,36 @@ type GetConversationsCallbacksForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations callbacks forbidden response has a 2xx status code
+func (o *GetConversationsCallbacksForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations callbacks forbidden response has a 3xx status code
+func (o *GetConversationsCallbacksForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations callbacks forbidden response has a 4xx status code
+func (o *GetConversationsCallbacksForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations callbacks forbidden response has a 5xx status code
+func (o *GetConversationsCallbacksForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations callbacks forbidden response a status code equal to that given
+func (o *GetConversationsCallbacksForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetConversationsCallbacksForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetConversationsCallbacksForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksForbidden  %+v", 403, o.Payload)
 }
 
@@ -238,7 +357,8 @@ func NewGetConversationsCallbacksNotFound() *GetConversationsCallbacksNotFound {
 	return &GetConversationsCallbacksNotFound{}
 }
 
-/*GetConversationsCallbacksNotFound handles this case with default header values.
+/*
+GetConversationsCallbacksNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -246,7 +366,36 @@ type GetConversationsCallbacksNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations callbacks not found response has a 2xx status code
+func (o *GetConversationsCallbacksNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations callbacks not found response has a 3xx status code
+func (o *GetConversationsCallbacksNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations callbacks not found response has a 4xx status code
+func (o *GetConversationsCallbacksNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations callbacks not found response has a 5xx status code
+func (o *GetConversationsCallbacksNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations callbacks not found response a status code equal to that given
+func (o *GetConversationsCallbacksNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetConversationsCallbacksNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetConversationsCallbacksNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksNotFound  %+v", 404, o.Payload)
 }
 
@@ -271,7 +420,8 @@ func NewGetConversationsCallbacksRequestTimeout() *GetConversationsCallbacksRequ
 	return &GetConversationsCallbacksRequestTimeout{}
 }
 
-/*GetConversationsCallbacksRequestTimeout handles this case with default header values.
+/*
+GetConversationsCallbacksRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -279,7 +429,36 @@ type GetConversationsCallbacksRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations callbacks request timeout response has a 2xx status code
+func (o *GetConversationsCallbacksRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations callbacks request timeout response has a 3xx status code
+func (o *GetConversationsCallbacksRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations callbacks request timeout response has a 4xx status code
+func (o *GetConversationsCallbacksRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations callbacks request timeout response has a 5xx status code
+func (o *GetConversationsCallbacksRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations callbacks request timeout response a status code equal to that given
+func (o *GetConversationsCallbacksRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetConversationsCallbacksRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetConversationsCallbacksRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -304,7 +483,8 @@ func NewGetConversationsCallbacksRequestEntityTooLarge() *GetConversationsCallba
 	return &GetConversationsCallbacksRequestEntityTooLarge{}
 }
 
-/*GetConversationsCallbacksRequestEntityTooLarge handles this case with default header values.
+/*
+GetConversationsCallbacksRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -312,7 +492,36 @@ type GetConversationsCallbacksRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations callbacks request entity too large response has a 2xx status code
+func (o *GetConversationsCallbacksRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations callbacks request entity too large response has a 3xx status code
+func (o *GetConversationsCallbacksRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations callbacks request entity too large response has a 4xx status code
+func (o *GetConversationsCallbacksRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations callbacks request entity too large response has a 5xx status code
+func (o *GetConversationsCallbacksRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations callbacks request entity too large response a status code equal to that given
+func (o *GetConversationsCallbacksRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetConversationsCallbacksRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetConversationsCallbacksRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -337,7 +546,8 @@ func NewGetConversationsCallbacksUnsupportedMediaType() *GetConversationsCallbac
 	return &GetConversationsCallbacksUnsupportedMediaType{}
 }
 
-/*GetConversationsCallbacksUnsupportedMediaType handles this case with default header values.
+/*
+GetConversationsCallbacksUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -345,7 +555,36 @@ type GetConversationsCallbacksUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations callbacks unsupported media type response has a 2xx status code
+func (o *GetConversationsCallbacksUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations callbacks unsupported media type response has a 3xx status code
+func (o *GetConversationsCallbacksUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations callbacks unsupported media type response has a 4xx status code
+func (o *GetConversationsCallbacksUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations callbacks unsupported media type response has a 5xx status code
+func (o *GetConversationsCallbacksUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations callbacks unsupported media type response a status code equal to that given
+func (o *GetConversationsCallbacksUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetConversationsCallbacksUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetConversationsCallbacksUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -370,7 +609,8 @@ func NewGetConversationsCallbacksTooManyRequests() *GetConversationsCallbacksToo
 	return &GetConversationsCallbacksTooManyRequests{}
 }
 
-/*GetConversationsCallbacksTooManyRequests handles this case with default header values.
+/*
+GetConversationsCallbacksTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -378,7 +618,36 @@ type GetConversationsCallbacksTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations callbacks too many requests response has a 2xx status code
+func (o *GetConversationsCallbacksTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations callbacks too many requests response has a 3xx status code
+func (o *GetConversationsCallbacksTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations callbacks too many requests response has a 4xx status code
+func (o *GetConversationsCallbacksTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get conversations callbacks too many requests response has a 5xx status code
+func (o *GetConversationsCallbacksTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get conversations callbacks too many requests response a status code equal to that given
+func (o *GetConversationsCallbacksTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetConversationsCallbacksTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetConversationsCallbacksTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -403,7 +672,8 @@ func NewGetConversationsCallbacksInternalServerError() *GetConversationsCallback
 	return &GetConversationsCallbacksInternalServerError{}
 }
 
-/*GetConversationsCallbacksInternalServerError handles this case with default header values.
+/*
+GetConversationsCallbacksInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -411,7 +681,36 @@ type GetConversationsCallbacksInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations callbacks internal server error response has a 2xx status code
+func (o *GetConversationsCallbacksInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations callbacks internal server error response has a 3xx status code
+func (o *GetConversationsCallbacksInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations callbacks internal server error response has a 4xx status code
+func (o *GetConversationsCallbacksInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations callbacks internal server error response has a 5xx status code
+func (o *GetConversationsCallbacksInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations callbacks internal server error response a status code equal to that given
+func (o *GetConversationsCallbacksInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetConversationsCallbacksInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetConversationsCallbacksInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -436,7 +735,8 @@ func NewGetConversationsCallbacksServiceUnavailable() *GetConversationsCallbacks
 	return &GetConversationsCallbacksServiceUnavailable{}
 }
 
-/*GetConversationsCallbacksServiceUnavailable handles this case with default header values.
+/*
+GetConversationsCallbacksServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -444,7 +744,36 @@ type GetConversationsCallbacksServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations callbacks service unavailable response has a 2xx status code
+func (o *GetConversationsCallbacksServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations callbacks service unavailable response has a 3xx status code
+func (o *GetConversationsCallbacksServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations callbacks service unavailable response has a 4xx status code
+func (o *GetConversationsCallbacksServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations callbacks service unavailable response has a 5xx status code
+func (o *GetConversationsCallbacksServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations callbacks service unavailable response a status code equal to that given
+func (o *GetConversationsCallbacksServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetConversationsCallbacksServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetConversationsCallbacksServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -469,7 +798,8 @@ func NewGetConversationsCallbacksGatewayTimeout() *GetConversationsCallbacksGate
 	return &GetConversationsCallbacksGatewayTimeout{}
 }
 
-/*GetConversationsCallbacksGatewayTimeout handles this case with default header values.
+/*
+GetConversationsCallbacksGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -477,7 +807,36 @@ type GetConversationsCallbacksGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get conversations callbacks gateway timeout response has a 2xx status code
+func (o *GetConversationsCallbacksGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get conversations callbacks gateway timeout response has a 3xx status code
+func (o *GetConversationsCallbacksGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get conversations callbacks gateway timeout response has a 4xx status code
+func (o *GetConversationsCallbacksGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get conversations callbacks gateway timeout response has a 5xx status code
+func (o *GetConversationsCallbacksGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get conversations callbacks gateway timeout response a status code equal to that given
+func (o *GetConversationsCallbacksGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetConversationsCallbacksGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetConversationsCallbacksGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/conversations/callbacks][%d] getConversationsCallbacksGatewayTimeout  %+v", 504, o.Payload)
 }
 

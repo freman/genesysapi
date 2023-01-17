@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"strconv"
 
 	"github.com/go-openapi/errors"
@@ -19,13 +20,16 @@ import (
 // swagger:model Trigger
 type Trigger struct {
 
+	// Optional delay invoking target after trigger fires. Must be in the range of 60 to 900 seconds. Only one of eventTTLSeconds or delayBySeconds can be set. Until delayed triggers are released supplying this attribute will cause a failure.
+	DelayBySeconds int32 `json:"delayBySeconds,omitempty"`
+
 	// Description of the trigger. Can be up to 512 characters in length.
 	Description string `json:"description,omitempty"`
 
 	// Whether or not the trigger is enabled
 	Enabled bool `json:"enabled"`
 
-	// How long each event is meaningful after origination, in seconds. Events older than this threshold may be dropped if the platform is delayed in processing events. Unset means events are valid indefinitely.
+	// Optional length of time that events are meaningful after origination. Events older than this threshold may be dropped if the platform is delayed in processing events. Unset means events are valid indefinitely, otherwise must be set to at least 10 seconds. Only one of eventTTLSeconds or delayBySeconds can be set.
 	EventTTLSeconds int32 `json:"eventTTLSeconds,omitempty"`
 
 	// The globally unique identifier for the object.
@@ -76,7 +80,6 @@ func (m *Trigger) Validate(formats strfmt.Registry) error {
 }
 
 func (m *Trigger) validateMatchCriteria(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MatchCriteria) { // not required
 		return nil
 	}
@@ -90,6 +93,8 @@ func (m *Trigger) validateMatchCriteria(formats strfmt.Registry) error {
 			if err := m.MatchCriteria[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
 					return ve.ValidateName("matchCriteria" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("matchCriteria" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -101,7 +106,6 @@ func (m *Trigger) validateMatchCriteria(formats strfmt.Registry) error {
 }
 
 func (m *Trigger) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -114,7 +118,6 @@ func (m *Trigger) validateSelfURI(formats strfmt.Registry) error {
 }
 
 func (m *Trigger) validateTarget(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Target) { // not required
 		return nil
 	}
@@ -123,6 +126,88 @@ func (m *Trigger) validateTarget(formats strfmt.Registry) error {
 		if err := m.Target.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("target")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("target")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this trigger based on the context it is used
+func (m *Trigger) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMatchCriteria(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTarget(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *Trigger) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trigger) contextValidateMatchCriteria(ctx context.Context, formats strfmt.Registry) error {
+
+	for i := 0; i < len(m.MatchCriteria); i++ {
+
+		if m.MatchCriteria[i] != nil {
+			if err := m.MatchCriteria[i].ContextValidate(ctx, formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("matchCriteria" + "." + strconv.Itoa(i))
+				} else if ce, ok := err.(*errors.CompositeError); ok {
+					return ce.ValidateName("matchCriteria" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Trigger) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Trigger) contextValidateTarget(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Target != nil {
+		if err := m.Target.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("target")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("target")
 			}
 			return err
 		}

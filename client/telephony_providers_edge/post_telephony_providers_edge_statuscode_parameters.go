@@ -18,64 +18,81 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostTelephonyProvidersEdgeStatuscodeParams creates a new PostTelephonyProvidersEdgeStatuscodeParams object
-// with the default values initialized.
+// NewPostTelephonyProvidersEdgeStatuscodeParams creates a new PostTelephonyProvidersEdgeStatuscodeParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostTelephonyProvidersEdgeStatuscodeParams() *PostTelephonyProvidersEdgeStatuscodeParams {
-	var ()
 	return &PostTelephonyProvidersEdgeStatuscodeParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeStatuscodeParamsWithTimeout creates a new PostTelephonyProvidersEdgeStatuscodeParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostTelephonyProvidersEdgeStatuscodeParamsWithTimeout(timeout time.Duration) *PostTelephonyProvidersEdgeStatuscodeParams {
-	var ()
 	return &PostTelephonyProvidersEdgeStatuscodeParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeStatuscodeParamsWithContext creates a new PostTelephonyProvidersEdgeStatuscodeParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostTelephonyProvidersEdgeStatuscodeParamsWithContext(ctx context.Context) *PostTelephonyProvidersEdgeStatuscodeParams {
-	var ()
 	return &PostTelephonyProvidersEdgeStatuscodeParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostTelephonyProvidersEdgeStatuscodeParamsWithHTTPClient creates a new PostTelephonyProvidersEdgeStatuscodeParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostTelephonyProvidersEdgeStatuscodeParamsWithHTTPClient(client *http.Client) *PostTelephonyProvidersEdgeStatuscodeParams {
-	var ()
 	return &PostTelephonyProvidersEdgeStatuscodeParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostTelephonyProvidersEdgeStatuscodeParams contains all the parameters to send to the API endpoint
-for the post telephony providers edge statuscode operation typically these are written to a http.Request
+/*
+PostTelephonyProvidersEdgeStatuscodeParams contains all the parameters to send to the API endpoint
+
+	for the post telephony providers edge statuscode operation.
+
+	Typically these are written to a http.Request.
 */
 type PostTelephonyProvidersEdgeStatuscodeParams struct {
 
-	/*Body
-	  Edge Service State
+	/* Body.
 
+	   Edge Service State
 	*/
 	Body *models.EdgeServiceStateRequest
-	/*EdgeID
-	  Edge ID
 
+	/* EdgeID.
+
+	   Edge ID
 	*/
 	EdgeID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post telephony providers edge statuscode params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeStatuscodeParams) WithDefaults() *PostTelephonyProvidersEdgeStatuscodeParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post telephony providers edge statuscode params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostTelephonyProvidersEdgeStatuscodeParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post telephony providers edge statuscode params
@@ -140,7 +157,6 @@ func (o *PostTelephonyProvidersEdgeStatuscodeParams) WriteToRequest(r runtime.Cl
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

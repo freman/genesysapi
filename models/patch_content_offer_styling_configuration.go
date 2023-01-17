@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -77,7 +79,6 @@ func (m *PatchContentOfferStylingConfiguration) Validate(formats strfmt.Registry
 }
 
 func (m *PatchContentOfferStylingConfiguration) validateBody(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Body) { // not required
 		return nil
 	}
@@ -86,6 +87,8 @@ func (m *PatchContentOfferStylingConfiguration) validateBody(formats strfmt.Regi
 		if err := m.Body.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("body")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("body")
 			}
 			return err
 		}
@@ -95,7 +98,6 @@ func (m *PatchContentOfferStylingConfiguration) validateBody(formats strfmt.Regi
 }
 
 func (m *PatchContentOfferStylingConfiguration) validateCloseButton(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CloseButton) { // not required
 		return nil
 	}
@@ -104,6 +106,8 @@ func (m *PatchContentOfferStylingConfiguration) validateCloseButton(formats strf
 		if err := m.CloseButton.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("closeButton")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("closeButton")
 			}
 			return err
 		}
@@ -113,7 +117,6 @@ func (m *PatchContentOfferStylingConfiguration) validateCloseButton(formats strf
 }
 
 func (m *PatchContentOfferStylingConfiguration) validateCtaButton(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CtaButton) { // not required
 		return nil
 	}
@@ -122,6 +125,8 @@ func (m *PatchContentOfferStylingConfiguration) validateCtaButton(formats strfmt
 		if err := m.CtaButton.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("ctaButton")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ctaButton")
 			}
 			return err
 		}
@@ -131,7 +136,6 @@ func (m *PatchContentOfferStylingConfiguration) validateCtaButton(formats strfmt
 }
 
 func (m *PatchContentOfferStylingConfiguration) validateHeadline(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Headline) { // not required
 		return nil
 	}
@@ -140,6 +144,8 @@ func (m *PatchContentOfferStylingConfiguration) validateHeadline(formats strfmt.
 		if err := m.Headline.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("headline")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("headline")
 			}
 			return err
 		}
@@ -149,7 +155,6 @@ func (m *PatchContentOfferStylingConfiguration) validateHeadline(formats strfmt.
 }
 
 func (m *PatchContentOfferStylingConfiguration) validateOffer(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Offer) { // not required
 		return nil
 	}
@@ -158,6 +163,8 @@ func (m *PatchContentOfferStylingConfiguration) validateOffer(formats strfmt.Reg
 		if err := m.Offer.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("offer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("offer")
 			}
 			return err
 		}
@@ -167,7 +174,6 @@ func (m *PatchContentOfferStylingConfiguration) validateOffer(formats strfmt.Reg
 }
 
 func (m *PatchContentOfferStylingConfiguration) validatePosition(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Position) { // not required
 		return nil
 	}
@@ -176,6 +182,8 @@ func (m *PatchContentOfferStylingConfiguration) validatePosition(formats strfmt.
 		if err := m.Position.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
 			}
 			return err
 		}
@@ -185,7 +193,6 @@ func (m *PatchContentOfferStylingConfiguration) validatePosition(formats strfmt.
 }
 
 func (m *PatchContentOfferStylingConfiguration) validateTitle(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Title) { // not required
 		return nil
 	}
@@ -194,6 +201,158 @@ func (m *PatchContentOfferStylingConfiguration) validateTitle(formats strfmt.Reg
 		if err := m.Title.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("title")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("title")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this patch content offer styling configuration based on the context it is used
+func (m *PatchContentOfferStylingConfiguration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateBody(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCloseButton(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCtaButton(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateHeadline(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateOffer(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidatePosition(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateTitle(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *PatchContentOfferStylingConfiguration) contextValidateBody(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Body != nil {
+		if err := m.Body.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("body")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("body")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PatchContentOfferStylingConfiguration) contextValidateCloseButton(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CloseButton != nil {
+		if err := m.CloseButton.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("closeButton")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("closeButton")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PatchContentOfferStylingConfiguration) contextValidateCtaButton(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CtaButton != nil {
+		if err := m.CtaButton.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("ctaButton")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("ctaButton")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PatchContentOfferStylingConfiguration) contextValidateHeadline(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Headline != nil {
+		if err := m.Headline.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("headline")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("headline")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PatchContentOfferStylingConfiguration) contextValidateOffer(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Offer != nil {
+		if err := m.Offer.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("offer")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("offer")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PatchContentOfferStylingConfiguration) contextValidatePosition(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Position != nil {
+		if err := m.Position.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("position")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("position")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *PatchContentOfferStylingConfiguration) contextValidateTitle(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Title != nil {
+		if err := m.Title.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("title")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("title")
 			}
 			return err
 		}

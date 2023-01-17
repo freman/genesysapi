@@ -16,69 +16,87 @@ import (
 	"github.com/go-openapi/strfmt"
 )
 
-// NewGetLanguageunderstandingMinerIntentParams creates a new GetLanguageunderstandingMinerIntentParams object
-// with the default values initialized.
+// NewGetLanguageunderstandingMinerIntentParams creates a new GetLanguageunderstandingMinerIntentParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetLanguageunderstandingMinerIntentParams() *GetLanguageunderstandingMinerIntentParams {
-	var ()
 	return &GetLanguageunderstandingMinerIntentParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetLanguageunderstandingMinerIntentParamsWithTimeout creates a new GetLanguageunderstandingMinerIntentParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetLanguageunderstandingMinerIntentParamsWithTimeout(timeout time.Duration) *GetLanguageunderstandingMinerIntentParams {
-	var ()
 	return &GetLanguageunderstandingMinerIntentParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewGetLanguageunderstandingMinerIntentParamsWithContext creates a new GetLanguageunderstandingMinerIntentParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetLanguageunderstandingMinerIntentParamsWithContext(ctx context.Context) *GetLanguageunderstandingMinerIntentParams {
-	var ()
 	return &GetLanguageunderstandingMinerIntentParams{
-
 		Context: ctx,
 	}
 }
 
 // NewGetLanguageunderstandingMinerIntentParamsWithHTTPClient creates a new GetLanguageunderstandingMinerIntentParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetLanguageunderstandingMinerIntentParamsWithHTTPClient(client *http.Client) *GetLanguageunderstandingMinerIntentParams {
-	var ()
 	return &GetLanguageunderstandingMinerIntentParams{
 		HTTPClient: client,
 	}
 }
 
-/*GetLanguageunderstandingMinerIntentParams contains all the parameters to send to the API endpoint
-for the get languageunderstanding miner intent operation typically these are written to a http.Request
+/*
+GetLanguageunderstandingMinerIntentParams contains all the parameters to send to the API endpoint
+
+	for the get languageunderstanding miner intent operation.
+
+	Typically these are written to a http.Request.
 */
 type GetLanguageunderstandingMinerIntentParams struct {
 
-	/*Expand
-	  Option to fetch utterances
+	/* Expand.
 
+	   Option to fetch utterances
 	*/
 	Expand *string
-	/*IntentID
-	  The ID of the intent to be retrieved.
 
+	/* IntentID.
+
+	   The ID of the intent to be retrieved.
 	*/
 	IntentID string
-	/*MinerID
-	  Miner ID
 
+	/* MinerID.
+
+	   Miner ID
 	*/
 	MinerID string
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get languageunderstanding miner intent params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingMinerIntentParams) WithDefaults() *GetLanguageunderstandingMinerIntentParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get languageunderstanding miner intent params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetLanguageunderstandingMinerIntentParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the get languageunderstanding miner intent params
@@ -159,16 +177,17 @@ func (o *GetLanguageunderstandingMinerIntentParams) WriteToRequest(r runtime.Cli
 
 		// query param expand
 		var qrExpand string
+
 		if o.Expand != nil {
 			qrExpand = *o.Expand
 		}
 		qExpand := qrExpand
 		if qExpand != "" {
+
 			if err := r.SetQueryParam("expand", qExpand); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	// path param intentId

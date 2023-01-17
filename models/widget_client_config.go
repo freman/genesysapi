@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -48,7 +50,6 @@ func (m *WidgetClientConfig) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WidgetClientConfig) validateV1(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.V1) { // not required
 		return nil
 	}
@@ -57,6 +58,8 @@ func (m *WidgetClientConfig) validateV1(formats strfmt.Registry) error {
 		if err := m.V1.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("v1")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("v1")
 			}
 			return err
 		}
@@ -66,7 +69,6 @@ func (m *WidgetClientConfig) validateV1(formats strfmt.Registry) error {
 }
 
 func (m *WidgetClientConfig) validateV1HTTP(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.V1HTTP) { // not required
 		return nil
 	}
@@ -75,6 +77,58 @@ func (m *WidgetClientConfig) validateV1HTTP(formats strfmt.Registry) error {
 		if err := m.V1HTTP.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("v1-http")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("v1-http")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+// ContextValidate validate this widget client config based on the context it is used
+func (m *WidgetClientConfig) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateV1(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateV1HTTP(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WidgetClientConfig) contextValidateV1(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.V1 != nil {
+		if err := m.V1.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("v1")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("v1")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WidgetClientConfig) contextValidateV1HTTP(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.V1HTTP != nil {
+		if err := m.V1HTTP.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("v1-http")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("v1-http")
 			}
 			return err
 		}

@@ -95,7 +95,6 @@ func (o *DeleteOutboundAttemptlimitReader) ReadResponse(response runtime.ClientR
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteOutboundAttemptlimitOK() *DeleteOutboundAttemptlimitOK {
 	return &DeleteOutboundAttemptlimitOK{}
 }
 
-/*DeleteOutboundAttemptlimitOK handles this case with default header values.
+/*
+DeleteOutboundAttemptlimitOK describes a response with status code 200, with default header values.
 
 Operation was successful.
 */
 type DeleteOutboundAttemptlimitOK struct {
 }
 
+// IsSuccess returns true when this delete outbound attemptlimit o k response has a 2xx status code
+func (o *DeleteOutboundAttemptlimitOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete outbound attemptlimit o k response has a 3xx status code
+func (o *DeleteOutboundAttemptlimitOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound attemptlimit o k response has a 4xx status code
+func (o *DeleteOutboundAttemptlimitOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound attemptlimit o k response has a 5xx status code
+func (o *DeleteOutboundAttemptlimitOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound attemptlimit o k response a status code equal to that given
+func (o *DeleteOutboundAttemptlimitOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteOutboundAttemptlimitOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitOK ", 200)
+}
+
+func (o *DeleteOutboundAttemptlimitOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitOK ", 200)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteOutboundAttemptlimitBadRequest() *DeleteOutboundAttemptlimitBadReq
 	return &DeleteOutboundAttemptlimitBadRequest{}
 }
 
-/*DeleteOutboundAttemptlimitBadRequest handles this case with default header values.
+/*
+DeleteOutboundAttemptlimitBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteOutboundAttemptlimitBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound attemptlimit bad request response has a 2xx status code
+func (o *DeleteOutboundAttemptlimitBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound attemptlimit bad request response has a 3xx status code
+func (o *DeleteOutboundAttemptlimitBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound attemptlimit bad request response has a 4xx status code
+func (o *DeleteOutboundAttemptlimitBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound attemptlimit bad request response has a 5xx status code
+func (o *DeleteOutboundAttemptlimitBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound attemptlimit bad request response a status code equal to that given
+func (o *DeleteOutboundAttemptlimitBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteOutboundAttemptlimitBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteOutboundAttemptlimitBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteOutboundAttemptlimitUnauthorized() *DeleteOutboundAttemptlimitUnau
 	return &DeleteOutboundAttemptlimitUnauthorized{}
 }
 
-/*DeleteOutboundAttemptlimitUnauthorized handles this case with default header values.
+/*
+DeleteOutboundAttemptlimitUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteOutboundAttemptlimitUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound attemptlimit unauthorized response has a 2xx status code
+func (o *DeleteOutboundAttemptlimitUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound attemptlimit unauthorized response has a 3xx status code
+func (o *DeleteOutboundAttemptlimitUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound attemptlimit unauthorized response has a 4xx status code
+func (o *DeleteOutboundAttemptlimitUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound attemptlimit unauthorized response has a 5xx status code
+func (o *DeleteOutboundAttemptlimitUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound attemptlimit unauthorized response a status code equal to that given
+func (o *DeleteOutboundAttemptlimitUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteOutboundAttemptlimitUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteOutboundAttemptlimitUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteOutboundAttemptlimitForbidden() *DeleteOutboundAttemptlimitForbidd
 	return &DeleteOutboundAttemptlimitForbidden{}
 }
 
-/*DeleteOutboundAttemptlimitForbidden handles this case with default header values.
+/*
+DeleteOutboundAttemptlimitForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteOutboundAttemptlimitForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound attemptlimit forbidden response has a 2xx status code
+func (o *DeleteOutboundAttemptlimitForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound attemptlimit forbidden response has a 3xx status code
+func (o *DeleteOutboundAttemptlimitForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound attemptlimit forbidden response has a 4xx status code
+func (o *DeleteOutboundAttemptlimitForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound attemptlimit forbidden response has a 5xx status code
+func (o *DeleteOutboundAttemptlimitForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound attemptlimit forbidden response a status code equal to that given
+func (o *DeleteOutboundAttemptlimitForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteOutboundAttemptlimitForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteOutboundAttemptlimitForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteOutboundAttemptlimitNotFound() *DeleteOutboundAttemptlimitNotFound
 	return &DeleteOutboundAttemptlimitNotFound{}
 }
 
-/*DeleteOutboundAttemptlimitNotFound handles this case with default header values.
+/*
+DeleteOutboundAttemptlimitNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteOutboundAttemptlimitNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound attemptlimit not found response has a 2xx status code
+func (o *DeleteOutboundAttemptlimitNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound attemptlimit not found response has a 3xx status code
+func (o *DeleteOutboundAttemptlimitNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound attemptlimit not found response has a 4xx status code
+func (o *DeleteOutboundAttemptlimitNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound attemptlimit not found response has a 5xx status code
+func (o *DeleteOutboundAttemptlimitNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound attemptlimit not found response a status code equal to that given
+func (o *DeleteOutboundAttemptlimitNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteOutboundAttemptlimitNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteOutboundAttemptlimitNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteOutboundAttemptlimitRequestTimeout() *DeleteOutboundAttemptlimitRe
 	return &DeleteOutboundAttemptlimitRequestTimeout{}
 }
 
-/*DeleteOutboundAttemptlimitRequestTimeout handles this case with default header values.
+/*
+DeleteOutboundAttemptlimitRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteOutboundAttemptlimitRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound attemptlimit request timeout response has a 2xx status code
+func (o *DeleteOutboundAttemptlimitRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound attemptlimit request timeout response has a 3xx status code
+func (o *DeleteOutboundAttemptlimitRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound attemptlimit request timeout response has a 4xx status code
+func (o *DeleteOutboundAttemptlimitRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound attemptlimit request timeout response has a 5xx status code
+func (o *DeleteOutboundAttemptlimitRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound attemptlimit request timeout response a status code equal to that given
+func (o *DeleteOutboundAttemptlimitRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteOutboundAttemptlimitRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteOutboundAttemptlimitRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteOutboundAttemptlimitRequestEntityTooLarge() *DeleteOutboundAttempt
 	return &DeleteOutboundAttemptlimitRequestEntityTooLarge{}
 }
 
-/*DeleteOutboundAttemptlimitRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteOutboundAttemptlimitRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteOutboundAttemptlimitRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound attemptlimit request entity too large response has a 2xx status code
+func (o *DeleteOutboundAttemptlimitRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound attemptlimit request entity too large response has a 3xx status code
+func (o *DeleteOutboundAttemptlimitRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound attemptlimit request entity too large response has a 4xx status code
+func (o *DeleteOutboundAttemptlimitRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound attemptlimit request entity too large response has a 5xx status code
+func (o *DeleteOutboundAttemptlimitRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound attemptlimit request entity too large response a status code equal to that given
+func (o *DeleteOutboundAttemptlimitRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteOutboundAttemptlimitRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteOutboundAttemptlimitRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteOutboundAttemptlimitUnsupportedMediaType() *DeleteOutboundAttemptl
 	return &DeleteOutboundAttemptlimitUnsupportedMediaType{}
 }
 
-/*DeleteOutboundAttemptlimitUnsupportedMediaType handles this case with default header values.
+/*
+DeleteOutboundAttemptlimitUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteOutboundAttemptlimitUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound attemptlimit unsupported media type response has a 2xx status code
+func (o *DeleteOutboundAttemptlimitUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound attemptlimit unsupported media type response has a 3xx status code
+func (o *DeleteOutboundAttemptlimitUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound attemptlimit unsupported media type response has a 4xx status code
+func (o *DeleteOutboundAttemptlimitUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound attemptlimit unsupported media type response has a 5xx status code
+func (o *DeleteOutboundAttemptlimitUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound attemptlimit unsupported media type response a status code equal to that given
+func (o *DeleteOutboundAttemptlimitUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteOutboundAttemptlimitUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteOutboundAttemptlimitUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteOutboundAttemptlimitTooManyRequests() *DeleteOutboundAttemptlimitT
 	return &DeleteOutboundAttemptlimitTooManyRequests{}
 }
 
-/*DeleteOutboundAttemptlimitTooManyRequests handles this case with default header values.
+/*
+DeleteOutboundAttemptlimitTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteOutboundAttemptlimitTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound attemptlimit too many requests response has a 2xx status code
+func (o *DeleteOutboundAttemptlimitTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound attemptlimit too many requests response has a 3xx status code
+func (o *DeleteOutboundAttemptlimitTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound attemptlimit too many requests response has a 4xx status code
+func (o *DeleteOutboundAttemptlimitTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete outbound attemptlimit too many requests response has a 5xx status code
+func (o *DeleteOutboundAttemptlimitTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete outbound attemptlimit too many requests response a status code equal to that given
+func (o *DeleteOutboundAttemptlimitTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteOutboundAttemptlimitTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteOutboundAttemptlimitTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteOutboundAttemptlimitInternalServerError() *DeleteOutboundAttemptli
 	return &DeleteOutboundAttemptlimitInternalServerError{}
 }
 
-/*DeleteOutboundAttemptlimitInternalServerError handles this case with default header values.
+/*
+DeleteOutboundAttemptlimitInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteOutboundAttemptlimitInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound attemptlimit internal server error response has a 2xx status code
+func (o *DeleteOutboundAttemptlimitInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound attemptlimit internal server error response has a 3xx status code
+func (o *DeleteOutboundAttemptlimitInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound attemptlimit internal server error response has a 4xx status code
+func (o *DeleteOutboundAttemptlimitInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound attemptlimit internal server error response has a 5xx status code
+func (o *DeleteOutboundAttemptlimitInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound attemptlimit internal server error response a status code equal to that given
+func (o *DeleteOutboundAttemptlimitInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteOutboundAttemptlimitInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteOutboundAttemptlimitInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteOutboundAttemptlimitServiceUnavailable() *DeleteOutboundAttemptlim
 	return &DeleteOutboundAttemptlimitServiceUnavailable{}
 }
 
-/*DeleteOutboundAttemptlimitServiceUnavailable handles this case with default header values.
+/*
+DeleteOutboundAttemptlimitServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteOutboundAttemptlimitServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound attemptlimit service unavailable response has a 2xx status code
+func (o *DeleteOutboundAttemptlimitServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound attemptlimit service unavailable response has a 3xx status code
+func (o *DeleteOutboundAttemptlimitServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound attemptlimit service unavailable response has a 4xx status code
+func (o *DeleteOutboundAttemptlimitServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound attemptlimit service unavailable response has a 5xx status code
+func (o *DeleteOutboundAttemptlimitServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound attemptlimit service unavailable response a status code equal to that given
+func (o *DeleteOutboundAttemptlimitServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteOutboundAttemptlimitServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteOutboundAttemptlimitServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteOutboundAttemptlimitGatewayTimeout() *DeleteOutboundAttemptlimitGa
 	return &DeleteOutboundAttemptlimitGatewayTimeout{}
 }
 
-/*DeleteOutboundAttemptlimitGatewayTimeout handles this case with default header values.
+/*
+DeleteOutboundAttemptlimitGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteOutboundAttemptlimitGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete outbound attemptlimit gateway timeout response has a 2xx status code
+func (o *DeleteOutboundAttemptlimitGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete outbound attemptlimit gateway timeout response has a 3xx status code
+func (o *DeleteOutboundAttemptlimitGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete outbound attemptlimit gateway timeout response has a 4xx status code
+func (o *DeleteOutboundAttemptlimitGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete outbound attemptlimit gateway timeout response has a 5xx status code
+func (o *DeleteOutboundAttemptlimitGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete outbound attemptlimit gateway timeout response a status code equal to that given
+func (o *DeleteOutboundAttemptlimitGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteOutboundAttemptlimitGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteOutboundAttemptlimitGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/outbound/attemptlimits/{attemptLimitsId}][%d] deleteOutboundAttemptlimitGatewayTimeout  %+v", 504, o.Payload)
 }
 

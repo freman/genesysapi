@@ -18,59 +18,75 @@ import (
 	"github.com/freman/genesysapi/models"
 )
 
-// NewPostWorkforcemanagementAdherenceHistoricalParams creates a new PostWorkforcemanagementAdherenceHistoricalParams object
-// with the default values initialized.
+// NewPostWorkforcemanagementAdherenceHistoricalParams creates a new PostWorkforcemanagementAdherenceHistoricalParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewPostWorkforcemanagementAdherenceHistoricalParams() *PostWorkforcemanagementAdherenceHistoricalParams {
-	var ()
 	return &PostWorkforcemanagementAdherenceHistoricalParams{
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewPostWorkforcemanagementAdherenceHistoricalParamsWithTimeout creates a new PostWorkforcemanagementAdherenceHistoricalParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewPostWorkforcemanagementAdherenceHistoricalParamsWithTimeout(timeout time.Duration) *PostWorkforcemanagementAdherenceHistoricalParams {
-	var ()
 	return &PostWorkforcemanagementAdherenceHistoricalParams{
-
 		timeout: timeout,
 	}
 }
 
 // NewPostWorkforcemanagementAdherenceHistoricalParamsWithContext creates a new PostWorkforcemanagementAdherenceHistoricalParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewPostWorkforcemanagementAdherenceHistoricalParamsWithContext(ctx context.Context) *PostWorkforcemanagementAdherenceHistoricalParams {
-	var ()
 	return &PostWorkforcemanagementAdherenceHistoricalParams{
-
 		Context: ctx,
 	}
 }
 
 // NewPostWorkforcemanagementAdherenceHistoricalParamsWithHTTPClient creates a new PostWorkforcemanagementAdherenceHistoricalParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewPostWorkforcemanagementAdherenceHistoricalParamsWithHTTPClient(client *http.Client) *PostWorkforcemanagementAdherenceHistoricalParams {
-	var ()
 	return &PostWorkforcemanagementAdherenceHistoricalParams{
 		HTTPClient: client,
 	}
 }
 
-/*PostWorkforcemanagementAdherenceHistoricalParams contains all the parameters to send to the API endpoint
-for the post workforcemanagement adherence historical operation typically these are written to a http.Request
+/*
+PostWorkforcemanagementAdherenceHistoricalParams contains all the parameters to send to the API endpoint
+
+	for the post workforcemanagement adherence historical operation.
+
+	Typically these are written to a http.Request.
 */
 type PostWorkforcemanagementAdherenceHistoricalParams struct {
 
-	/*Body
-	  body
+	/* Body.
 
+	   body
 	*/
 	Body *models.WfmHistoricalAdherenceQueryForUsers
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the post workforcemanagement adherence historical params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementAdherenceHistoricalParams) WithDefaults() *PostWorkforcemanagementAdherenceHistoricalParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the post workforcemanagement adherence historical params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *PostWorkforcemanagementAdherenceHistoricalParams) SetDefaults() {
+	// no default values defined for this parameter
 }
 
 // WithTimeout adds the timeout to the post workforcemanagement adherence historical params
@@ -124,7 +140,6 @@ func (o *PostWorkforcemanagementAdherenceHistoricalParams) WriteToRequest(r runt
 		return err
 	}
 	var res []error
-
 	if o.Body != nil {
 		if err := r.SetBodyParam(o.Body); err != nil {
 			return err

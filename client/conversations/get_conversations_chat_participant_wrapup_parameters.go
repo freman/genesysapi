@@ -17,81 +17,98 @@ import (
 	"github.com/go-openapi/swag"
 )
 
-// NewGetConversationsChatParticipantWrapupParams creates a new GetConversationsChatParticipantWrapupParams object
-// with the default values initialized.
+// NewGetConversationsChatParticipantWrapupParams creates a new GetConversationsChatParticipantWrapupParams object,
+// with the default timeout for this client.
+//
+// Default values are not hydrated, since defaults are normally applied by the API server side.
+//
+// To enforce default values in parameter, use SetDefaults or WithDefaults.
 func NewGetConversationsChatParticipantWrapupParams() *GetConversationsChatParticipantWrapupParams {
-	var (
-		provisionalDefault = bool(false)
-	)
 	return &GetConversationsChatParticipantWrapupParams{
-		Provisional: &provisionalDefault,
-
 		timeout: cr.DefaultTimeout,
 	}
 }
 
 // NewGetConversationsChatParticipantWrapupParamsWithTimeout creates a new GetConversationsChatParticipantWrapupParams object
-// with the default values initialized, and the ability to set a timeout on a request
+// with the ability to set a timeout on a request.
 func NewGetConversationsChatParticipantWrapupParamsWithTimeout(timeout time.Duration) *GetConversationsChatParticipantWrapupParams {
-	var (
-		provisionalDefault = bool(false)
-	)
 	return &GetConversationsChatParticipantWrapupParams{
-		Provisional: &provisionalDefault,
-
 		timeout: timeout,
 	}
 }
 
 // NewGetConversationsChatParticipantWrapupParamsWithContext creates a new GetConversationsChatParticipantWrapupParams object
-// with the default values initialized, and the ability to set a context for a request
+// with the ability to set a context for a request.
 func NewGetConversationsChatParticipantWrapupParamsWithContext(ctx context.Context) *GetConversationsChatParticipantWrapupParams {
-	var (
-		provisionalDefault = bool(false)
-	)
 	return &GetConversationsChatParticipantWrapupParams{
-		Provisional: &provisionalDefault,
-
 		Context: ctx,
 	}
 }
 
 // NewGetConversationsChatParticipantWrapupParamsWithHTTPClient creates a new GetConversationsChatParticipantWrapupParams object
-// with the default values initialized, and the ability to set a custom HTTPClient for a request
+// with the ability to set a custom HTTPClient for a request.
 func NewGetConversationsChatParticipantWrapupParamsWithHTTPClient(client *http.Client) *GetConversationsChatParticipantWrapupParams {
-	var (
-		provisionalDefault = bool(false)
-	)
 	return &GetConversationsChatParticipantWrapupParams{
-		Provisional: &provisionalDefault,
-		HTTPClient:  client,
+		HTTPClient: client,
 	}
 }
 
-/*GetConversationsChatParticipantWrapupParams contains all the parameters to send to the API endpoint
-for the get conversations chat participant wrapup operation typically these are written to a http.Request
+/*
+GetConversationsChatParticipantWrapupParams contains all the parameters to send to the API endpoint
+
+	for the get conversations chat participant wrapup operation.
+
+	Typically these are written to a http.Request.
 */
 type GetConversationsChatParticipantWrapupParams struct {
 
-	/*ConversationID
-	  conversationId
+	/* ConversationID.
 
+	   conversationId
 	*/
 	ConversationID string
-	/*ParticipantID
-	  participantId
 
+	/* ParticipantID.
+
+	   participantId
 	*/
 	ParticipantID string
-	/*Provisional
-	  Indicates if the wrap-up code is provisional.
 
+	/* Provisional.
+
+	   Indicates if the wrap-up code is provisional.
 	*/
 	Provisional *bool
 
 	timeout    time.Duration
 	Context    context.Context
 	HTTPClient *http.Client
+}
+
+// WithDefaults hydrates default values in the get conversations chat participant wrapup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsChatParticipantWrapupParams) WithDefaults() *GetConversationsChatParticipantWrapupParams {
+	o.SetDefaults()
+	return o
+}
+
+// SetDefaults hydrates default values in the get conversations chat participant wrapup params (not the query body).
+//
+// All values with no default are reset to their zero value.
+func (o *GetConversationsChatParticipantWrapupParams) SetDefaults() {
+	var (
+		provisionalDefault = bool(false)
+	)
+
+	val := GetConversationsChatParticipantWrapupParams{
+		Provisional: &provisionalDefault,
+	}
+
+	val.timeout = o.timeout
+	val.Context = o.Context
+	val.HTTPClient = o.HTTPClient
+	*o = val
 }
 
 // WithTimeout adds the timeout to the get conversations chat participant wrapup params
@@ -182,16 +199,17 @@ func (o *GetConversationsChatParticipantWrapupParams) WriteToRequest(r runtime.C
 
 		// query param provisional
 		var qrProvisional bool
+
 		if o.Provisional != nil {
 			qrProvisional = *o.Provisional
 		}
 		qProvisional := swag.FormatBool(qrProvisional)
 		if qProvisional != "" {
+
 			if err := r.SetQueryParam("provisional", qProvisional); err != nil {
 				return err
 			}
 		}
-
 	}
 
 	if len(res) > 0 {

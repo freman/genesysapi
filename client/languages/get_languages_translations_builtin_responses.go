@@ -95,7 +95,6 @@ func (o *GetLanguagesTranslationsBuiltinReader) ReadResponse(response runtime.Cl
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,7 +105,8 @@ func NewGetLanguagesTranslationsBuiltinOK() *GetLanguagesTranslationsBuiltinOK {
 	return &GetLanguagesTranslationsBuiltinOK{}
 }
 
-/*GetLanguagesTranslationsBuiltinOK handles this case with default header values.
+/*
+GetLanguagesTranslationsBuiltinOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -114,7 +114,36 @@ type GetLanguagesTranslationsBuiltinOK struct {
 	Payload map[string]interface{}
 }
 
+// IsSuccess returns true when this get languages translations builtin o k response has a 2xx status code
+func (o *GetLanguagesTranslationsBuiltinOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this get languages translations builtin o k response has a 3xx status code
+func (o *GetLanguagesTranslationsBuiltinOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations builtin o k response has a 4xx status code
+func (o *GetLanguagesTranslationsBuiltinOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languages translations builtin o k response has a 5xx status code
+func (o *GetLanguagesTranslationsBuiltinOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations builtin o k response a status code equal to that given
+func (o *GetLanguagesTranslationsBuiltinOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *GetLanguagesTranslationsBuiltinOK) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinOK  %+v", 200, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsBuiltinOK) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinOK  %+v", 200, o.Payload)
 }
 
@@ -137,7 +166,8 @@ func NewGetLanguagesTranslationsBuiltinBadRequest() *GetLanguagesTranslationsBui
 	return &GetLanguagesTranslationsBuiltinBadRequest{}
 }
 
-/*GetLanguagesTranslationsBuiltinBadRequest handles this case with default header values.
+/*
+GetLanguagesTranslationsBuiltinBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -145,7 +175,36 @@ type GetLanguagesTranslationsBuiltinBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations builtin bad request response has a 2xx status code
+func (o *GetLanguagesTranslationsBuiltinBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations builtin bad request response has a 3xx status code
+func (o *GetLanguagesTranslationsBuiltinBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations builtin bad request response has a 4xx status code
+func (o *GetLanguagesTranslationsBuiltinBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations builtin bad request response has a 5xx status code
+func (o *GetLanguagesTranslationsBuiltinBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations builtin bad request response a status code equal to that given
+func (o *GetLanguagesTranslationsBuiltinBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *GetLanguagesTranslationsBuiltinBadRequest) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsBuiltinBadRequest) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinBadRequest  %+v", 400, o.Payload)
 }
 
@@ -170,7 +229,8 @@ func NewGetLanguagesTranslationsBuiltinUnauthorized() *GetLanguagesTranslationsB
 	return &GetLanguagesTranslationsBuiltinUnauthorized{}
 }
 
-/*GetLanguagesTranslationsBuiltinUnauthorized handles this case with default header values.
+/*
+GetLanguagesTranslationsBuiltinUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -178,7 +238,36 @@ type GetLanguagesTranslationsBuiltinUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations builtin unauthorized response has a 2xx status code
+func (o *GetLanguagesTranslationsBuiltinUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations builtin unauthorized response has a 3xx status code
+func (o *GetLanguagesTranslationsBuiltinUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations builtin unauthorized response has a 4xx status code
+func (o *GetLanguagesTranslationsBuiltinUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations builtin unauthorized response has a 5xx status code
+func (o *GetLanguagesTranslationsBuiltinUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations builtin unauthorized response a status code equal to that given
+func (o *GetLanguagesTranslationsBuiltinUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *GetLanguagesTranslationsBuiltinUnauthorized) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsBuiltinUnauthorized) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -203,7 +292,8 @@ func NewGetLanguagesTranslationsBuiltinForbidden() *GetLanguagesTranslationsBuil
 	return &GetLanguagesTranslationsBuiltinForbidden{}
 }
 
-/*GetLanguagesTranslationsBuiltinForbidden handles this case with default header values.
+/*
+GetLanguagesTranslationsBuiltinForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -211,7 +301,36 @@ type GetLanguagesTranslationsBuiltinForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations builtin forbidden response has a 2xx status code
+func (o *GetLanguagesTranslationsBuiltinForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations builtin forbidden response has a 3xx status code
+func (o *GetLanguagesTranslationsBuiltinForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations builtin forbidden response has a 4xx status code
+func (o *GetLanguagesTranslationsBuiltinForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations builtin forbidden response has a 5xx status code
+func (o *GetLanguagesTranslationsBuiltinForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations builtin forbidden response a status code equal to that given
+func (o *GetLanguagesTranslationsBuiltinForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *GetLanguagesTranslationsBuiltinForbidden) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinForbidden  %+v", 403, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsBuiltinForbidden) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinForbidden  %+v", 403, o.Payload)
 }
 
@@ -236,7 +355,8 @@ func NewGetLanguagesTranslationsBuiltinNotFound() *GetLanguagesTranslationsBuilt
 	return &GetLanguagesTranslationsBuiltinNotFound{}
 }
 
-/*GetLanguagesTranslationsBuiltinNotFound handles this case with default header values.
+/*
+GetLanguagesTranslationsBuiltinNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -244,7 +364,36 @@ type GetLanguagesTranslationsBuiltinNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations builtin not found response has a 2xx status code
+func (o *GetLanguagesTranslationsBuiltinNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations builtin not found response has a 3xx status code
+func (o *GetLanguagesTranslationsBuiltinNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations builtin not found response has a 4xx status code
+func (o *GetLanguagesTranslationsBuiltinNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations builtin not found response has a 5xx status code
+func (o *GetLanguagesTranslationsBuiltinNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations builtin not found response a status code equal to that given
+func (o *GetLanguagesTranslationsBuiltinNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *GetLanguagesTranslationsBuiltinNotFound) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinNotFound  %+v", 404, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsBuiltinNotFound) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinNotFound  %+v", 404, o.Payload)
 }
 
@@ -269,7 +418,8 @@ func NewGetLanguagesTranslationsBuiltinRequestTimeout() *GetLanguagesTranslation
 	return &GetLanguagesTranslationsBuiltinRequestTimeout{}
 }
 
-/*GetLanguagesTranslationsBuiltinRequestTimeout handles this case with default header values.
+/*
+GetLanguagesTranslationsBuiltinRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -277,7 +427,36 @@ type GetLanguagesTranslationsBuiltinRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations builtin request timeout response has a 2xx status code
+func (o *GetLanguagesTranslationsBuiltinRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations builtin request timeout response has a 3xx status code
+func (o *GetLanguagesTranslationsBuiltinRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations builtin request timeout response has a 4xx status code
+func (o *GetLanguagesTranslationsBuiltinRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations builtin request timeout response has a 5xx status code
+func (o *GetLanguagesTranslationsBuiltinRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations builtin request timeout response a status code equal to that given
+func (o *GetLanguagesTranslationsBuiltinRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *GetLanguagesTranslationsBuiltinRequestTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsBuiltinRequestTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -302,7 +481,8 @@ func NewGetLanguagesTranslationsBuiltinRequestEntityTooLarge() *GetLanguagesTran
 	return &GetLanguagesTranslationsBuiltinRequestEntityTooLarge{}
 }
 
-/*GetLanguagesTranslationsBuiltinRequestEntityTooLarge handles this case with default header values.
+/*
+GetLanguagesTranslationsBuiltinRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -310,7 +490,36 @@ type GetLanguagesTranslationsBuiltinRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations builtin request entity too large response has a 2xx status code
+func (o *GetLanguagesTranslationsBuiltinRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations builtin request entity too large response has a 3xx status code
+func (o *GetLanguagesTranslationsBuiltinRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations builtin request entity too large response has a 4xx status code
+func (o *GetLanguagesTranslationsBuiltinRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations builtin request entity too large response has a 5xx status code
+func (o *GetLanguagesTranslationsBuiltinRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations builtin request entity too large response a status code equal to that given
+func (o *GetLanguagesTranslationsBuiltinRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *GetLanguagesTranslationsBuiltinRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsBuiltinRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -335,7 +544,8 @@ func NewGetLanguagesTranslationsBuiltinUnsupportedMediaType() *GetLanguagesTrans
 	return &GetLanguagesTranslationsBuiltinUnsupportedMediaType{}
 }
 
-/*GetLanguagesTranslationsBuiltinUnsupportedMediaType handles this case with default header values.
+/*
+GetLanguagesTranslationsBuiltinUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -343,7 +553,36 @@ type GetLanguagesTranslationsBuiltinUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations builtin unsupported media type response has a 2xx status code
+func (o *GetLanguagesTranslationsBuiltinUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations builtin unsupported media type response has a 3xx status code
+func (o *GetLanguagesTranslationsBuiltinUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations builtin unsupported media type response has a 4xx status code
+func (o *GetLanguagesTranslationsBuiltinUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations builtin unsupported media type response has a 5xx status code
+func (o *GetLanguagesTranslationsBuiltinUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations builtin unsupported media type response a status code equal to that given
+func (o *GetLanguagesTranslationsBuiltinUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *GetLanguagesTranslationsBuiltinUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsBuiltinUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -368,7 +607,8 @@ func NewGetLanguagesTranslationsBuiltinTooManyRequests() *GetLanguagesTranslatio
 	return &GetLanguagesTranslationsBuiltinTooManyRequests{}
 }
 
-/*GetLanguagesTranslationsBuiltinTooManyRequests handles this case with default header values.
+/*
+GetLanguagesTranslationsBuiltinTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -376,7 +616,36 @@ type GetLanguagesTranslationsBuiltinTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations builtin too many requests response has a 2xx status code
+func (o *GetLanguagesTranslationsBuiltinTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations builtin too many requests response has a 3xx status code
+func (o *GetLanguagesTranslationsBuiltinTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations builtin too many requests response has a 4xx status code
+func (o *GetLanguagesTranslationsBuiltinTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this get languages translations builtin too many requests response has a 5xx status code
+func (o *GetLanguagesTranslationsBuiltinTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this get languages translations builtin too many requests response a status code equal to that given
+func (o *GetLanguagesTranslationsBuiltinTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *GetLanguagesTranslationsBuiltinTooManyRequests) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsBuiltinTooManyRequests) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -401,7 +670,8 @@ func NewGetLanguagesTranslationsBuiltinInternalServerError() *GetLanguagesTransl
 	return &GetLanguagesTranslationsBuiltinInternalServerError{}
 }
 
-/*GetLanguagesTranslationsBuiltinInternalServerError handles this case with default header values.
+/*
+GetLanguagesTranslationsBuiltinInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -409,7 +679,36 @@ type GetLanguagesTranslationsBuiltinInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations builtin internal server error response has a 2xx status code
+func (o *GetLanguagesTranslationsBuiltinInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations builtin internal server error response has a 3xx status code
+func (o *GetLanguagesTranslationsBuiltinInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations builtin internal server error response has a 4xx status code
+func (o *GetLanguagesTranslationsBuiltinInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languages translations builtin internal server error response has a 5xx status code
+func (o *GetLanguagesTranslationsBuiltinInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get languages translations builtin internal server error response a status code equal to that given
+func (o *GetLanguagesTranslationsBuiltinInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *GetLanguagesTranslationsBuiltinInternalServerError) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsBuiltinInternalServerError) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -434,7 +733,8 @@ func NewGetLanguagesTranslationsBuiltinServiceUnavailable() *GetLanguagesTransla
 	return &GetLanguagesTranslationsBuiltinServiceUnavailable{}
 }
 
-/*GetLanguagesTranslationsBuiltinServiceUnavailable handles this case with default header values.
+/*
+GetLanguagesTranslationsBuiltinServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -442,7 +742,36 @@ type GetLanguagesTranslationsBuiltinServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations builtin service unavailable response has a 2xx status code
+func (o *GetLanguagesTranslationsBuiltinServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations builtin service unavailable response has a 3xx status code
+func (o *GetLanguagesTranslationsBuiltinServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations builtin service unavailable response has a 4xx status code
+func (o *GetLanguagesTranslationsBuiltinServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languages translations builtin service unavailable response has a 5xx status code
+func (o *GetLanguagesTranslationsBuiltinServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get languages translations builtin service unavailable response a status code equal to that given
+func (o *GetLanguagesTranslationsBuiltinServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *GetLanguagesTranslationsBuiltinServiceUnavailable) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsBuiltinServiceUnavailable) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -467,7 +796,8 @@ func NewGetLanguagesTranslationsBuiltinGatewayTimeout() *GetLanguagesTranslation
 	return &GetLanguagesTranslationsBuiltinGatewayTimeout{}
 }
 
-/*GetLanguagesTranslationsBuiltinGatewayTimeout handles this case with default header values.
+/*
+GetLanguagesTranslationsBuiltinGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -475,7 +805,36 @@ type GetLanguagesTranslationsBuiltinGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this get languages translations builtin gateway timeout response has a 2xx status code
+func (o *GetLanguagesTranslationsBuiltinGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this get languages translations builtin gateway timeout response has a 3xx status code
+func (o *GetLanguagesTranslationsBuiltinGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this get languages translations builtin gateway timeout response has a 4xx status code
+func (o *GetLanguagesTranslationsBuiltinGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this get languages translations builtin gateway timeout response has a 5xx status code
+func (o *GetLanguagesTranslationsBuiltinGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this get languages translations builtin gateway timeout response a status code equal to that given
+func (o *GetLanguagesTranslationsBuiltinGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *GetLanguagesTranslationsBuiltinGatewayTimeout) Error() string {
+	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *GetLanguagesTranslationsBuiltinGatewayTimeout) String() string {
 	return fmt.Sprintf("[GET /api/v2/languages/translations/builtin][%d] getLanguagesTranslationsBuiltinGatewayTimeout  %+v", 504, o.Payload)
 }
 

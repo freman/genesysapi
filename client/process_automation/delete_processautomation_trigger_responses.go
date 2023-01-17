@@ -95,7 +95,6 @@ func (o *DeleteProcessautomationTriggerReader) ReadResponse(response runtime.Cli
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -106,14 +105,44 @@ func NewDeleteProcessautomationTriggerNoContent() *DeleteProcessautomationTrigge
 	return &DeleteProcessautomationTriggerNoContent{}
 }
 
-/*DeleteProcessautomationTriggerNoContent handles this case with default header values.
+/*
+DeleteProcessautomationTriggerNoContent describes a response with status code 204, with default header values.
 
 Delete was successful
 */
 type DeleteProcessautomationTriggerNoContent struct {
 }
 
+// IsSuccess returns true when this delete processautomation trigger no content response has a 2xx status code
+func (o *DeleteProcessautomationTriggerNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete processautomation trigger no content response has a 3xx status code
+func (o *DeleteProcessautomationTriggerNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete processautomation trigger no content response has a 4xx status code
+func (o *DeleteProcessautomationTriggerNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete processautomation trigger no content response has a 5xx status code
+func (o *DeleteProcessautomationTriggerNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete processautomation trigger no content response a status code equal to that given
+func (o *DeleteProcessautomationTriggerNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteProcessautomationTriggerNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerNoContent ", 204)
+}
+
+func (o *DeleteProcessautomationTriggerNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerNoContent ", 204)
 }
 
@@ -127,7 +156,8 @@ func NewDeleteProcessautomationTriggerBadRequest() *DeleteProcessautomationTrigg
 	return &DeleteProcessautomationTriggerBadRequest{}
 }
 
-/*DeleteProcessautomationTriggerBadRequest handles this case with default header values.
+/*
+DeleteProcessautomationTriggerBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -135,7 +165,36 @@ type DeleteProcessautomationTriggerBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete processautomation trigger bad request response has a 2xx status code
+func (o *DeleteProcessautomationTriggerBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete processautomation trigger bad request response has a 3xx status code
+func (o *DeleteProcessautomationTriggerBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete processautomation trigger bad request response has a 4xx status code
+func (o *DeleteProcessautomationTriggerBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete processautomation trigger bad request response has a 5xx status code
+func (o *DeleteProcessautomationTriggerBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete processautomation trigger bad request response a status code equal to that given
+func (o *DeleteProcessautomationTriggerBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteProcessautomationTriggerBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteProcessautomationTriggerBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerBadRequest  %+v", 400, o.Payload)
 }
 
@@ -160,7 +219,8 @@ func NewDeleteProcessautomationTriggerUnauthorized() *DeleteProcessautomationTri
 	return &DeleteProcessautomationTriggerUnauthorized{}
 }
 
-/*DeleteProcessautomationTriggerUnauthorized handles this case with default header values.
+/*
+DeleteProcessautomationTriggerUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -168,7 +228,36 @@ type DeleteProcessautomationTriggerUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete processautomation trigger unauthorized response has a 2xx status code
+func (o *DeleteProcessautomationTriggerUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete processautomation trigger unauthorized response has a 3xx status code
+func (o *DeleteProcessautomationTriggerUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete processautomation trigger unauthorized response has a 4xx status code
+func (o *DeleteProcessautomationTriggerUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete processautomation trigger unauthorized response has a 5xx status code
+func (o *DeleteProcessautomationTriggerUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete processautomation trigger unauthorized response a status code equal to that given
+func (o *DeleteProcessautomationTriggerUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteProcessautomationTriggerUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteProcessautomationTriggerUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -193,7 +282,8 @@ func NewDeleteProcessautomationTriggerForbidden() *DeleteProcessautomationTrigge
 	return &DeleteProcessautomationTriggerForbidden{}
 }
 
-/*DeleteProcessautomationTriggerForbidden handles this case with default header values.
+/*
+DeleteProcessautomationTriggerForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -201,7 +291,36 @@ type DeleteProcessautomationTriggerForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete processautomation trigger forbidden response has a 2xx status code
+func (o *DeleteProcessautomationTriggerForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete processautomation trigger forbidden response has a 3xx status code
+func (o *DeleteProcessautomationTriggerForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete processautomation trigger forbidden response has a 4xx status code
+func (o *DeleteProcessautomationTriggerForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete processautomation trigger forbidden response has a 5xx status code
+func (o *DeleteProcessautomationTriggerForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete processautomation trigger forbidden response a status code equal to that given
+func (o *DeleteProcessautomationTriggerForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteProcessautomationTriggerForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteProcessautomationTriggerForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerForbidden  %+v", 403, o.Payload)
 }
 
@@ -226,7 +345,8 @@ func NewDeleteProcessautomationTriggerNotFound() *DeleteProcessautomationTrigger
 	return &DeleteProcessautomationTriggerNotFound{}
 }
 
-/*DeleteProcessautomationTriggerNotFound handles this case with default header values.
+/*
+DeleteProcessautomationTriggerNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -234,7 +354,36 @@ type DeleteProcessautomationTriggerNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete processautomation trigger not found response has a 2xx status code
+func (o *DeleteProcessautomationTriggerNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete processautomation trigger not found response has a 3xx status code
+func (o *DeleteProcessautomationTriggerNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete processautomation trigger not found response has a 4xx status code
+func (o *DeleteProcessautomationTriggerNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete processautomation trigger not found response has a 5xx status code
+func (o *DeleteProcessautomationTriggerNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete processautomation trigger not found response a status code equal to that given
+func (o *DeleteProcessautomationTriggerNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteProcessautomationTriggerNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteProcessautomationTriggerNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerNotFound  %+v", 404, o.Payload)
 }
 
@@ -259,7 +408,8 @@ func NewDeleteProcessautomationTriggerRequestTimeout() *DeleteProcessautomationT
 	return &DeleteProcessautomationTriggerRequestTimeout{}
 }
 
-/*DeleteProcessautomationTriggerRequestTimeout handles this case with default header values.
+/*
+DeleteProcessautomationTriggerRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -267,7 +417,36 @@ type DeleteProcessautomationTriggerRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete processautomation trigger request timeout response has a 2xx status code
+func (o *DeleteProcessautomationTriggerRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete processautomation trigger request timeout response has a 3xx status code
+func (o *DeleteProcessautomationTriggerRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete processautomation trigger request timeout response has a 4xx status code
+func (o *DeleteProcessautomationTriggerRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete processautomation trigger request timeout response has a 5xx status code
+func (o *DeleteProcessautomationTriggerRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete processautomation trigger request timeout response a status code equal to that given
+func (o *DeleteProcessautomationTriggerRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteProcessautomationTriggerRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteProcessautomationTriggerRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -292,7 +471,8 @@ func NewDeleteProcessautomationTriggerRequestEntityTooLarge() *DeleteProcessauto
 	return &DeleteProcessautomationTriggerRequestEntityTooLarge{}
 }
 
-/*DeleteProcessautomationTriggerRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteProcessautomationTriggerRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -300,7 +480,36 @@ type DeleteProcessautomationTriggerRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete processautomation trigger request entity too large response has a 2xx status code
+func (o *DeleteProcessautomationTriggerRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete processautomation trigger request entity too large response has a 3xx status code
+func (o *DeleteProcessautomationTriggerRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete processautomation trigger request entity too large response has a 4xx status code
+func (o *DeleteProcessautomationTriggerRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete processautomation trigger request entity too large response has a 5xx status code
+func (o *DeleteProcessautomationTriggerRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete processautomation trigger request entity too large response a status code equal to that given
+func (o *DeleteProcessautomationTriggerRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteProcessautomationTriggerRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteProcessautomationTriggerRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -325,7 +534,8 @@ func NewDeleteProcessautomationTriggerUnsupportedMediaType() *DeleteProcessautom
 	return &DeleteProcessautomationTriggerUnsupportedMediaType{}
 }
 
-/*DeleteProcessautomationTriggerUnsupportedMediaType handles this case with default header values.
+/*
+DeleteProcessautomationTriggerUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -333,7 +543,36 @@ type DeleteProcessautomationTriggerUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete processautomation trigger unsupported media type response has a 2xx status code
+func (o *DeleteProcessautomationTriggerUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete processautomation trigger unsupported media type response has a 3xx status code
+func (o *DeleteProcessautomationTriggerUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete processautomation trigger unsupported media type response has a 4xx status code
+func (o *DeleteProcessautomationTriggerUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete processautomation trigger unsupported media type response has a 5xx status code
+func (o *DeleteProcessautomationTriggerUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete processautomation trigger unsupported media type response a status code equal to that given
+func (o *DeleteProcessautomationTriggerUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteProcessautomationTriggerUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteProcessautomationTriggerUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -358,7 +597,8 @@ func NewDeleteProcessautomationTriggerTooManyRequests() *DeleteProcessautomation
 	return &DeleteProcessautomationTriggerTooManyRequests{}
 }
 
-/*DeleteProcessautomationTriggerTooManyRequests handles this case with default header values.
+/*
+DeleteProcessautomationTriggerTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -366,7 +606,36 @@ type DeleteProcessautomationTriggerTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete processautomation trigger too many requests response has a 2xx status code
+func (o *DeleteProcessautomationTriggerTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete processautomation trigger too many requests response has a 3xx status code
+func (o *DeleteProcessautomationTriggerTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete processautomation trigger too many requests response has a 4xx status code
+func (o *DeleteProcessautomationTriggerTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete processautomation trigger too many requests response has a 5xx status code
+func (o *DeleteProcessautomationTriggerTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete processautomation trigger too many requests response a status code equal to that given
+func (o *DeleteProcessautomationTriggerTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteProcessautomationTriggerTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteProcessautomationTriggerTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -391,7 +660,8 @@ func NewDeleteProcessautomationTriggerInternalServerError() *DeleteProcessautoma
 	return &DeleteProcessautomationTriggerInternalServerError{}
 }
 
-/*DeleteProcessautomationTriggerInternalServerError handles this case with default header values.
+/*
+DeleteProcessautomationTriggerInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -399,7 +669,36 @@ type DeleteProcessautomationTriggerInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete processautomation trigger internal server error response has a 2xx status code
+func (o *DeleteProcessautomationTriggerInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete processautomation trigger internal server error response has a 3xx status code
+func (o *DeleteProcessautomationTriggerInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete processautomation trigger internal server error response has a 4xx status code
+func (o *DeleteProcessautomationTriggerInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete processautomation trigger internal server error response has a 5xx status code
+func (o *DeleteProcessautomationTriggerInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete processautomation trigger internal server error response a status code equal to that given
+func (o *DeleteProcessautomationTriggerInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteProcessautomationTriggerInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteProcessautomationTriggerInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -424,7 +723,8 @@ func NewDeleteProcessautomationTriggerServiceUnavailable() *DeleteProcessautomat
 	return &DeleteProcessautomationTriggerServiceUnavailable{}
 }
 
-/*DeleteProcessautomationTriggerServiceUnavailable handles this case with default header values.
+/*
+DeleteProcessautomationTriggerServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -432,7 +732,36 @@ type DeleteProcessautomationTriggerServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete processautomation trigger service unavailable response has a 2xx status code
+func (o *DeleteProcessautomationTriggerServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete processautomation trigger service unavailable response has a 3xx status code
+func (o *DeleteProcessautomationTriggerServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete processautomation trigger service unavailable response has a 4xx status code
+func (o *DeleteProcessautomationTriggerServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete processautomation trigger service unavailable response has a 5xx status code
+func (o *DeleteProcessautomationTriggerServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete processautomation trigger service unavailable response a status code equal to that given
+func (o *DeleteProcessautomationTriggerServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteProcessautomationTriggerServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteProcessautomationTriggerServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -457,7 +786,8 @@ func NewDeleteProcessautomationTriggerGatewayTimeout() *DeleteProcessautomationT
 	return &DeleteProcessautomationTriggerGatewayTimeout{}
 }
 
-/*DeleteProcessautomationTriggerGatewayTimeout handles this case with default header values.
+/*
+DeleteProcessautomationTriggerGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -465,7 +795,36 @@ type DeleteProcessautomationTriggerGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete processautomation trigger gateway timeout response has a 2xx status code
+func (o *DeleteProcessautomationTriggerGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete processautomation trigger gateway timeout response has a 3xx status code
+func (o *DeleteProcessautomationTriggerGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete processautomation trigger gateway timeout response has a 4xx status code
+func (o *DeleteProcessautomationTriggerGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete processautomation trigger gateway timeout response has a 5xx status code
+func (o *DeleteProcessautomationTriggerGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete processautomation trigger gateway timeout response a status code equal to that given
+func (o *DeleteProcessautomationTriggerGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteProcessautomationTriggerGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteProcessautomationTriggerGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/processautomation/triggers/{triggerId}][%d] deleteProcessautomationTriggerGatewayTimeout  %+v", 504, o.Payload)
 }
 

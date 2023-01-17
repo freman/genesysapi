@@ -26,7 +26,7 @@ type API interface {
 	*/
 	GetProcessautomationTrigger(ctx context.Context, params *GetProcessautomationTriggerParams) (*GetProcessautomationTriggerOK, error)
 	/*
-	   GetProcessautomationTriggers retrieves all triggers
+	   GetProcessautomationTriggers retrieves all triggers optionally filtered by query parameters
 	*/
 	GetProcessautomationTriggers(ctx context.Context, params *GetProcessautomationTriggersParams) (*GetProcessautomationTriggersOK, error)
 	/*
@@ -120,7 +120,7 @@ func (a *Client) GetProcessautomationTrigger(ctx context.Context, params *GetPro
 }
 
 /*
-GetProcessautomationTriggers retrieves all triggers
+GetProcessautomationTriggers retrieves all triggers optionally filtered by query parameters
 */
 func (a *Client) GetProcessautomationTriggers(ctx context.Context, params *GetProcessautomationTriggersParams) (*GetProcessautomationTriggersOK, error) {
 

@@ -6,6 +6,8 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
+
 	"github.com/go-openapi/errors"
 	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
@@ -57,7 +59,6 @@ func (m *KnowledgeDocumentSuggestionRequest) Validate(formats strfmt.Registry) e
 }
 
 func (m *KnowledgeDocumentSuggestionRequest) validateFilter(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Filter) { // not required
 		return nil
 	}
@@ -66,6 +67,8 @@ func (m *KnowledgeDocumentSuggestionRequest) validateFilter(formats strfmt.Regis
 		if err := m.Filter.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
 			}
 			return err
 		}
@@ -75,7 +78,6 @@ func (m *KnowledgeDocumentSuggestionRequest) validateFilter(formats strfmt.Regis
 }
 
 func (m *KnowledgeDocumentSuggestionRequest) validateInterval(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Interval) { // not required
 		return nil
 	}
@@ -84,6 +86,8 @@ func (m *KnowledgeDocumentSuggestionRequest) validateInterval(formats strfmt.Reg
 		if err := m.Interval.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("interval")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("interval")
 			}
 			return err
 		}
@@ -96,6 +100,56 @@ func (m *KnowledgeDocumentSuggestionRequest) validateQuery(formats strfmt.Regist
 
 	if err := validate.Required("query", "body", m.Query); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this knowledge document suggestion request based on the context it is used
+func (m *KnowledgeDocumentSuggestionRequest) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateFilter(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateInterval(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *KnowledgeDocumentSuggestionRequest) contextValidateFilter(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Filter != nil {
+		if err := m.Filter.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("filter")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("filter")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *KnowledgeDocumentSuggestionRequest) contextValidateInterval(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Interval != nil {
+		if err := m.Interval.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("interval")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("interval")
+			}
+			return err
+		}
 	}
 
 	return nil

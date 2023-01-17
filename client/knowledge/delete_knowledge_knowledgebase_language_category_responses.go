@@ -101,7 +101,6 @@ func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryReader) ReadResponse(respon
 			return nil, err
 		}
 		return nil, result
-
 	default:
 		return nil, runtime.NewAPIError("response status code does not match any response statuses defined for this endpoint in the swagger spec", response, response.Code())
 	}
@@ -112,7 +111,8 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryOK() *DeleteKnowledgeKnowled
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryOK{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryOK handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryOK describes a response with status code 200, with default header values.
 
 successful operation
 */
@@ -120,7 +120,36 @@ type DeleteKnowledgeKnowledgebaseLanguageCategoryOK struct {
 	Payload *models.KnowledgeCategory
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category o k response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryOK) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category o k response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryOK) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category o k response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryOK) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category o k response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryOK) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category o k response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryOK) IsCode(code int) bool {
+	return code == 200
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryOK) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryOK  %+v", 200, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryOK) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryOK  %+v", 200, o.Payload)
 }
 
@@ -145,14 +174,44 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryNoContent() *DeleteKnowledge
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryNoContent{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryNoContent handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryNoContent describes a response with status code 204, with default header values.
 
 Category deleted
 */
 type DeleteKnowledgeKnowledgebaseLanguageCategoryNoContent struct {
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category no content response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNoContent) IsSuccess() bool {
+	return true
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category no content response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNoContent) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category no content response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNoContent) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category no content response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNoContent) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category no content response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNoContent) IsCode(code int) bool {
+	return code == 204
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNoContent) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryNoContent ", 204)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNoContent) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryNoContent ", 204)
 }
 
@@ -166,7 +225,8 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryBadRequest() *DeleteKnowledg
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryBadRequest{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryBadRequest handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryBadRequest describes a response with status code 400, with default header values.
 
 The request could not be understood by the server due to malformed syntax.
 */
@@ -174,7 +234,36 @@ type DeleteKnowledgeKnowledgebaseLanguageCategoryBadRequest struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category bad request response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryBadRequest) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category bad request response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryBadRequest) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category bad request response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryBadRequest) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category bad request response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryBadRequest) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category bad request response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryBadRequest) IsCode(code int) bool {
+	return code == 400
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryBadRequest) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryBadRequest  %+v", 400, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryBadRequest) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryBadRequest  %+v", 400, o.Payload)
 }
 
@@ -199,7 +288,8 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized() *DeleteKnowle
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized describes a response with status code 401, with default header values.
 
 No authentication bearer token specified in authorization header.
 */
@@ -207,7 +297,36 @@ type DeleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category unauthorized response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category unauthorized response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category unauthorized response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category unauthorized response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category unauthorized response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized) IsCode(code int) bool {
+	return code == 401
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized  %+v", 401, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryUnauthorized  %+v", 401, o.Payload)
 }
 
@@ -232,7 +351,8 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryForbidden() *DeleteKnowledge
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryForbidden{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryForbidden handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryForbidden describes a response with status code 403, with default header values.
 
 You are not authorized to perform the requested action.
 */
@@ -240,7 +360,36 @@ type DeleteKnowledgeKnowledgebaseLanguageCategoryForbidden struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category forbidden response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryForbidden) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category forbidden response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryForbidden) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category forbidden response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryForbidden) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category forbidden response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryForbidden) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category forbidden response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryForbidden) IsCode(code int) bool {
+	return code == 403
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryForbidden) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryForbidden  %+v", 403, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryForbidden) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryForbidden  %+v", 403, o.Payload)
 }
 
@@ -265,7 +414,8 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryNotFound() *DeleteKnowledgeK
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryNotFound{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryNotFound handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryNotFound describes a response with status code 404, with default header values.
 
 The requested resource was not found.
 */
@@ -273,7 +423,36 @@ type DeleteKnowledgeKnowledgebaseLanguageCategoryNotFound struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category not found response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNotFound) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category not found response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNotFound) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category not found response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNotFound) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category not found response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNotFound) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category not found response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNotFound) IsCode(code int) bool {
+	return code == 404
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNotFound) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryNotFound  %+v", 404, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryNotFound) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryNotFound  %+v", 404, o.Payload)
 }
 
@@ -298,7 +477,8 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout() *DeleteKnow
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout describes a response with status code 408, with default header values.
 
 The client did not produce a request within the server timeout limit. This can be caused by a slow network connection and/or large payloads.
 */
@@ -306,7 +486,36 @@ type DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category request timeout response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category request timeout response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category request timeout response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category request timeout response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category request timeout response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout) IsCode(code int) bool {
+	return code == 408
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout  %+v", 408, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryRequestTimeout  %+v", 408, o.Payload)
 }
 
@@ -331,7 +540,8 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge() *Del
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge describes a response with status code 413, with default header values.
 
 The request is over the size limit. Content-Length: %s, Maximum bytes: %s
 */
@@ -339,7 +549,36 @@ type DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category request entity too large response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category request entity too large response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category request entity too large response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category request entity too large response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category request entity too large response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge) IsCode(code int) bool {
+	return code == 413
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge  %+v", 413, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryRequestEntityTooLarge  %+v", 413, o.Payload)
 }
 
@@ -364,7 +603,8 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType() *Dele
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType describes a response with status code 415, with default header values.
 
 Unsupported Media Type - Unsupported or incorrect media type, such as an incorrect Content-Type value in the header.
 */
@@ -372,7 +612,36 @@ type DeleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category unsupported media type response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category unsupported media type response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category unsupported media type response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category unsupported media type response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category unsupported media type response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType) IsCode(code int) bool {
+	return code == 415
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType  %+v", 415, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryUnsupportedMediaType  %+v", 415, o.Payload)
 }
 
@@ -397,7 +666,8 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests() *DeleteKno
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests describes a response with status code 429, with default header values.
 
 Rate limit exceeded the maximum. Retry the request in [%s] seconds
 */
@@ -405,7 +675,36 @@ type DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category too many requests response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category too many requests response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category too many requests response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests) IsClientError() bool {
+	return true
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category too many requests response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests) IsServerError() bool {
+	return false
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category too many requests response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests) IsCode(code int) bool {
+	return code == 429
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests  %+v", 429, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryTooManyRequests  %+v", 429, o.Payload)
 }
 
@@ -430,7 +729,8 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError() *Delet
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError describes a response with status code 500, with default header values.
 
 The server encountered an unexpected condition which prevented it from fulfilling the request.
 */
@@ -438,7 +738,36 @@ type DeleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category internal server error response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category internal server error response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category internal server error response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category internal server error response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category internal server error response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError) IsCode(code int) bool {
+	return code == 500
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError  %+v", 500, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryInternalServerError  %+v", 500, o.Payload)
 }
 
@@ -463,7 +792,8 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable() *Delete
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable describes a response with status code 503, with default header values.
 
 Service Unavailable - The server is currently unavailable (because it is overloaded or down for maintenance).
 */
@@ -471,7 +801,36 @@ type DeleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category service unavailable response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category service unavailable response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category service unavailable response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category service unavailable response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category service unavailable response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable) IsCode(code int) bool {
+	return code == 503
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable  %+v", 503, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryServiceUnavailable  %+v", 503, o.Payload)
 }
 
@@ -496,7 +855,8 @@ func NewDeleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout() *DeleteKnow
 	return &DeleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout{}
 }
 
-/*DeleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout handles this case with default header values.
+/*
+DeleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout describes a response with status code 504, with default header values.
 
 The request timed out.
 */
@@ -504,7 +864,36 @@ type DeleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout struct {
 	Payload *models.ErrorBody
 }
 
+// IsSuccess returns true when this delete knowledge knowledgebase language category gateway timeout response has a 2xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout) IsSuccess() bool {
+	return false
+}
+
+// IsRedirect returns true when this delete knowledge knowledgebase language category gateway timeout response has a 3xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout) IsRedirect() bool {
+	return false
+}
+
+// IsClientError returns true when this delete knowledge knowledgebase language category gateway timeout response has a 4xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout) IsClientError() bool {
+	return false
+}
+
+// IsServerError returns true when this delete knowledge knowledgebase language category gateway timeout response has a 5xx status code
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout) IsServerError() bool {
+	return true
+}
+
+// IsCode returns true when this delete knowledge knowledgebase language category gateway timeout response a status code equal to that given
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout) IsCode(code int) bool {
+	return code == 504
+}
+
 func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout) Error() string {
+	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout  %+v", 504, o.Payload)
+}
+
+func (o *DeleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout) String() string {
 	return fmt.Sprintf("[DELETE /api/v2/knowledge/knowledgebases/{knowledgeBaseId}/languages/{languageCode}/categories/{categoryId}][%d] deleteKnowledgeKnowledgebaseLanguageCategoryGatewayTimeout  %+v", 504, o.Payload)
 }
 

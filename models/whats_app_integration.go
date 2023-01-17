@@ -6,6 +6,7 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
+	"context"
 	"encoding/json"
 
 	"github.com/go-openapi/errors"
@@ -175,7 +176,6 @@ func (m *WhatsAppIntegration) Validate(formats strfmt.Registry) error {
 }
 
 func (m *WhatsAppIntegration) validateActivationErrorInfo(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActivationErrorInfo) { // not required
 		return nil
 	}
@@ -184,6 +184,8 @@ func (m *WhatsAppIntegration) validateActivationErrorInfo(formats strfmt.Registr
 		if err := m.ActivationErrorInfo.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("activationErrorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activationErrorInfo")
 			}
 			return err
 		}
@@ -234,7 +236,6 @@ func (m *WhatsAppIntegration) validateActivationStatusCodeEnum(path, location st
 }
 
 func (m *WhatsAppIntegration) validateActivationStatusCode(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ActivationStatusCode) { // not required
 		return nil
 	}
@@ -248,7 +249,6 @@ func (m *WhatsAppIntegration) validateActivationStatusCode(formats strfmt.Regist
 }
 
 func (m *WhatsAppIntegration) validateAvailablePhoneNumbers(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.AvailablePhoneNumbers) { // not required
 		return nil
 	}
@@ -257,6 +257,8 @@ func (m *WhatsAppIntegration) validateAvailablePhoneNumbers(formats strfmt.Regis
 		if err := m.AvailablePhoneNumbers.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("availablePhoneNumbers")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("availablePhoneNumbers")
 			}
 			return err
 		}
@@ -266,7 +268,6 @@ func (m *WhatsAppIntegration) validateAvailablePhoneNumbers(formats strfmt.Regis
 }
 
 func (m *WhatsAppIntegration) validateCreateError(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreateError) { // not required
 		return nil
 	}
@@ -275,6 +276,8 @@ func (m *WhatsAppIntegration) validateCreateError(formats strfmt.Registry) error
 		if err := m.CreateError.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createError")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createError")
 			}
 			return err
 		}
@@ -316,7 +319,6 @@ func (m *WhatsAppIntegration) validateCreateStatusEnum(path, location string, va
 }
 
 func (m *WhatsAppIntegration) validateCreateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreateStatus) { // not required
 		return nil
 	}
@@ -330,7 +332,6 @@ func (m *WhatsAppIntegration) validateCreateStatus(formats strfmt.Registry) erro
 }
 
 func (m *WhatsAppIntegration) validateCreatedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.CreatedBy) { // not required
 		return nil
 	}
@@ -339,6 +340,8 @@ func (m *WhatsAppIntegration) validateCreatedBy(formats strfmt.Registry) error {
 		if err := m.CreatedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
 			}
 			return err
 		}
@@ -348,7 +351,6 @@ func (m *WhatsAppIntegration) validateCreatedBy(formats strfmt.Registry) error {
 }
 
 func (m *WhatsAppIntegration) validateDateCreated(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateCreated) { // not required
 		return nil
 	}
@@ -361,7 +363,6 @@ func (m *WhatsAppIntegration) validateDateCreated(formats strfmt.Registry) error
 }
 
 func (m *WhatsAppIntegration) validateDateModified(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.DateModified) { // not required
 		return nil
 	}
@@ -375,7 +376,7 @@ func (m *WhatsAppIntegration) validateDateModified(formats strfmt.Registry) erro
 
 func (m *WhatsAppIntegration) validateID(formats strfmt.Registry) error {
 
-	if err := validate.RequiredString("id", "body", string(m.ID)); err != nil {
+	if err := validate.RequiredString("id", "body", m.ID); err != nil {
 		return err
 	}
 
@@ -383,7 +384,6 @@ func (m *WhatsAppIntegration) validateID(formats strfmt.Registry) error {
 }
 
 func (m *WhatsAppIntegration) validateMessagingSetting(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.MessagingSetting) { // not required
 		return nil
 	}
@@ -392,6 +392,8 @@ func (m *WhatsAppIntegration) validateMessagingSetting(formats strfmt.Registry) 
 		if err := m.MessagingSetting.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("messagingSetting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingSetting")
 			}
 			return err
 		}
@@ -401,7 +403,6 @@ func (m *WhatsAppIntegration) validateMessagingSetting(formats strfmt.Registry) 
 }
 
 func (m *WhatsAppIntegration) validateModifiedBy(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.ModifiedBy) { // not required
 		return nil
 	}
@@ -410,6 +411,8 @@ func (m *WhatsAppIntegration) validateModifiedBy(formats strfmt.Registry) error 
 		if err := m.ModifiedBy.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
 			}
 			return err
 		}
@@ -437,7 +440,6 @@ func (m *WhatsAppIntegration) validatePhoneNumber(formats strfmt.Registry) error
 }
 
 func (m *WhatsAppIntegration) validateRecipient(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Recipient) { // not required
 		return nil
 	}
@@ -446,6 +448,8 @@ func (m *WhatsAppIntegration) validateRecipient(formats strfmt.Registry) error {
 		if err := m.Recipient.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("recipient")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recipient")
 			}
 			return err
 		}
@@ -455,7 +459,6 @@ func (m *WhatsAppIntegration) validateRecipient(formats strfmt.Registry) error {
 }
 
 func (m *WhatsAppIntegration) validateSelfURI(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SelfURI) { // not required
 		return nil
 	}
@@ -512,7 +515,6 @@ func (m *WhatsAppIntegration) validateStatusEnum(path, location string, value st
 }
 
 func (m *WhatsAppIntegration) validateStatus(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.Status) { // not required
 		return nil
 	}
@@ -526,7 +528,6 @@ func (m *WhatsAppIntegration) validateStatus(formats strfmt.Registry) error {
 }
 
 func (m *WhatsAppIntegration) validateSupportedContent(formats strfmt.Registry) error {
-
 	if swag.IsZero(m.SupportedContent) { // not required
 		return nil
 	}
@@ -535,6 +536,8 @@ func (m *WhatsAppIntegration) validateSupportedContent(formats strfmt.Registry) 
 		if err := m.SupportedContent.Validate(formats); err != nil {
 			if ve, ok := err.(*errors.Validation); ok {
 				return ve.ValidateName("supportedContent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportedContent")
 			}
 			return err
 		}
@@ -547,6 +550,228 @@ func (m *WhatsAppIntegration) validateVersion(formats strfmt.Registry) error {
 
 	if err := validate.Required("version", "body", m.Version); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+// ContextValidate validate this whats app integration based on the context it is used
+func (m *WhatsAppIntegration) ContextValidate(ctx context.Context, formats strfmt.Registry) error {
+	var res []error
+
+	if err := m.contextValidateActivationErrorInfo(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateActivationStatusCode(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateAvailablePhoneNumbers(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreateError(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreateStatus(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateCreatedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateID(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateMessagingSetting(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateModifiedBy(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateRecipient(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSelfURI(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.contextValidateSupportedContent(ctx, formats); err != nil {
+		res = append(res, err)
+	}
+
+	if len(res) > 0 {
+		return errors.CompositeValidationError(res...)
+	}
+	return nil
+}
+
+func (m *WhatsAppIntegration) contextValidateActivationErrorInfo(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ActivationErrorInfo != nil {
+		if err := m.ActivationErrorInfo.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("activationErrorInfo")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("activationErrorInfo")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) contextValidateActivationStatusCode(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "activationStatusCode", "body", string(m.ActivationStatusCode)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) contextValidateAvailablePhoneNumbers(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.AvailablePhoneNumbers != nil {
+		if err := m.AvailablePhoneNumbers.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("availablePhoneNumbers")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("availablePhoneNumbers")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) contextValidateCreateError(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreateError != nil {
+		if err := m.CreateError.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createError")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createError")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) contextValidateCreateStatus(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "createStatus", "body", string(m.CreateStatus)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) contextValidateCreatedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.CreatedBy != nil {
+		if err := m.CreatedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("createdBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("createdBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) contextValidateID(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "id", "body", string(m.ID)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) contextValidateMessagingSetting(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.MessagingSetting != nil {
+		if err := m.MessagingSetting.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("messagingSetting")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("messagingSetting")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) contextValidateModifiedBy(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.ModifiedBy != nil {
+		if err := m.ModifiedBy.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("modifiedBy")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("modifiedBy")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) contextValidateRecipient(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.Recipient != nil {
+		if err := m.Recipient.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("recipient")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("recipient")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) contextValidateSelfURI(ctx context.Context, formats strfmt.Registry) error {
+
+	if err := validate.ReadOnly(ctx, "selfUri", "body", strfmt.URI(m.SelfURI)); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *WhatsAppIntegration) contextValidateSupportedContent(ctx context.Context, formats strfmt.Registry) error {
+
+	if m.SupportedContent != nil {
+		if err := m.SupportedContent.ContextValidate(ctx, formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("supportedContent")
+			} else if ce, ok := err.(*errors.CompositeError); ok {
+				return ce.ValidateName("supportedContent")
+			}
+			return err
+		}
 	}
 
 	return nil
